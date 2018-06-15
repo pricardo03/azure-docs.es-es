@@ -1,24 +1,19 @@
 ---
-title: Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup | Microsoft Docs
+title: Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras
 services: backup
-documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: ''
-ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 11483cd87600ef8b10c2c7492e2434b9ab97149e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606212"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen las copias de seguridad híbridas. En este artículo se habla de cómo habilitar y usar estas características mediante un agente de Azure Recovery Services y Azure Backup Server. Estas características son:

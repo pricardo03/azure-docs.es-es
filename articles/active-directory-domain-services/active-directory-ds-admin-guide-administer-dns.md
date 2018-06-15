@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: administración de DNS en dominios administrados | Microsoft Docs"
-description: "Administración de DNS en dominios administrados de Azure Active Directory Domain Services"
+title: 'Azure Active Directory Domain Services: administración de DNS en dominios administrados | Microsoft Docs'
+description: Administración de DNS en dominios administrados de Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: maheshu
-ms.openlocfilehash: 55b6368d55b5d0ad50d066a4963e74d8c44a2049
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b2cb351e18cfa8a0d0552c9a2a36e5bb11b2d3f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587507"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Administración de DNS en un dominio administrado con Servicios de dominio de Azure AD
 Azure Active Directory Domain Services incluye un servidor DNS (resolución de nombres de dominio) que proporciona una resolución DNS para el dominio administrado. En ocasiones, puede que necesite configurar DNS en el dominio administrado con el objetivo de crear registros DNS de máquinas que no están unidas al dominio, o configurar direcciones IP virtuales de los equilibradores de carga o reenviadores DNS externos. Por este motivo, se concede a los usuarios que pertenecen al grupo "Administradores del controlador de dominio de AAD" privilegios de administración de DNS en el dominio administrado.
@@ -100,5 +102,5 @@ Para más información sobre la administración de DNS, consulte el [artículo d
 ## <a name="related-content"></a>Contenido relacionado
 * [Introducción a Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Unión de una máquina virtual de Windows Server a un dominio administrado](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
+* [Administración de un dominio administrado con Servicios de dominio de Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Herramientas de DNS](https://technet.microsoft.com/library/cc753579.aspx)

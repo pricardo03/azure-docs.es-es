@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect: errores LargeObject causados por el atributo userCertificate | Microsoft Docs'
-description: "En este tema se proporcionan los pasos de corrección de errores LargeObject causados por atributo userCertificate."
+description: En este tema se proporcionan los pasos de corrección de errores LargeObject causados por atributo userCertificate.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9866454735b33239a812dca238006299c74e5ae2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592813"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect Sync: control de errores LargeObject causados por el atributo userCertificate
 
@@ -80,7 +82,7 @@ Asegúrese de que no realiza ninguna sincronización mientras está en medio de 
 
 4. Vaya a la pestaña **Operations** (Operaciones) y confirme que no hay ninguna operación cuyo estado sea *"in progress"* (En curso).
 
-### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Paso 2: Buscar la regla de sincronización de salida existente para el atributo userCertificate
+### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Paso 2. Buscar la regla de sincronización de salida existente para el atributo userCertificate
 Debería haber una regla de sincronización existente que esté habilitada y configurada para exportar el atributo userCertificate para objetos User a Azure AD. Busque esta regla de sincronización para averiguar la configuración de **precedencia** y **filtro de ámbito**:
 
 1. Inicie el **editor de reglas de sincronización**. Para ello, vaya a INICIO → Synchronization Rules Editor (Servicio de sincronización).
@@ -107,7 +109,7 @@ Debería haber una regla de sincronización existente que esté habilitada y con
     | sourceObjectType | EQUAL | Usuario |
     | cloudMastered | NOTEQUAL | True |
 
-### <a name="step-3-create-the-outbound-sync-rule-required"></a>Paso 3: Crear la regla de sincronización de salida requerida
+### <a name="step-3-create-the-outbound-sync-rule-required"></a>Paso 3. Crear la regla de sincronización de salida requerida
 La nueva regla de sincronización debe tener el mismo **filtro de ámbito** y una **mayor precedencia** que la regla de sincronización existente. Esto asegura que la nueva regla de sincronización se aplica al mismo conjunto de objetos que la regla de sincronización existente y reemplaza la regla de sincronización existente por el atributo userCertificate. Para crear la regla de sincronización:
 1. En el Editor de reglas de sincronización, haga clic en el botón **Agregar nueva regla**.
 2. En la pestaña **Descripción**, proporcione la siguiente configuración:

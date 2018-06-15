@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: conexión de una máquina virtual con Windows Server a un dominio administrado | Microsoft Docs"
-description: "Unión de una máquina virtual de Windows Server a Azure AD DS"
+title: 'Azure Active Directory Domain Services: conexión de una máquina virtual con Windows Server a un dominio administrado | Microsoft Docs'
+description: Unión de una máquina virtual de Windows Server a Azure AD DS
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 7b5c23f1f4b6180d8b664f1371ccfd8a075572e6
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: dadc20cdee68730fa1d81dd86b3ffa0b0022a5b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586960"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Windows Server a un dominio administrado
 Este artículo muestra cómo implementar una máquina virtual de Windows Server mediante Azure Portal. A continuación, muestra cómo unir la máquina virtual a un dominio administrado de Azure Active Directory Domain Services (Azure AD DS).
@@ -28,7 +30,7 @@ Para crear una máquina virtual de Windows que esté unida a la red virtual en l
 
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
 2. En la parte superior del panel izquierdo, seleccione **Nuevo**.
-3. Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**.
+3. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**.
 
     ![Vínculo a Windows Server 2016 Datacenter](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 
