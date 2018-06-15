@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915115"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adición de nodos de ráfaga a petición a un clúster de HPC Pack en Azure
 Si configura un clúster de [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en Azure, es posible que desee conocer alguna forma de escalar o reducir verticalmente la capacidad de clúster de forma rápida, sin mantener un conjunto de máquinas virtuales de nodos de proceso preconfiguradas. En este artículo se muestra cómo agregar nodos de "ráfaga" a petición (instancias de rol de trabajo que se ejecutan en un servicio en la nube) como recursos de proceso a un nodo principal de Azure. 

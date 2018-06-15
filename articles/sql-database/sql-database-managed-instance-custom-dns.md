@@ -6,15 +6,16 @@ author: srdjan-bozovic
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 3175b99c0e41cedf313115043b09608496adfdca
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 05a7b600ae8672447126b79cda10ca94c6d0fb48
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649336"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configuración de un DNS personalizado para Instancia administrada de Azure SQL Database
 
@@ -79,5 +80,5 @@ La configuración de DNS en una red virtual de Azure requiere que especifique la
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información general, consulte [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md)
-- Para un tutorial que muestra cómo crear una instancia administrada, consulte el artículo de [creación de instancias administradas](sql-database-managed-instance-create-tutorial-portal.md).
+- Para ver un tutorial que muestra cómo crear una instancia administrada, consulte el artículo de [creación de instancias administradas](sql-database-managed-instance-create-tutorial-portal.md).
 - Para información sobre cómo configurar una red virtual para una instancia administrada, consulte el artículo sobre la [configuración de la red virtual para las instancias administradas](sql-database-managed-instance-vnet-configuration.md).

@@ -6,14 +6,14 @@ author: luiscabrer
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 3ab35cfd8ce5cf54a68473736fe05b78d26850de
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786874"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640933"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento
 
@@ -52,7 +52,7 @@ En el diagrama, el paso de *descifrado de documentos* se realiza automáticament
 
 ## <a name="skillset-definition-in-rest"></a>Definición del conjunto de aptitudes en REST
 
-Un conjunto de aptitudes se define como una matriz de aptitudes. Cada aptitud define el origen de sus entradas y el nombre de las salidas generadas. Mediante la [API REST de creación de conjuntos de aptitudes](ref-create-skillset.md), puede definir un conjunto de aptitudes que se corresponde con el diagrama anterior: 
+Un conjunto de aptitudes se define como una matriz de aptitudes. Cada aptitud define el origen de sus entradas y el nombre de las salidas generadas. Mediante la [API REST de creación de conjuntos de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset), puede definir un conjunto de aptitudes que se corresponde con el diagrama anterior: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
@@ -104,7 +104,7 @@ Content-Type: application/json
      "description": "Calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       },
       "context": "/document/content/organizations/*",
       "inputs": [
@@ -153,8 +153,7 @@ Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de
           "name": "text",
           "source": "/document/content"
         }
-      ],
-      "outputs": [
+      ],      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -209,7 +208,7 @@ Recupere la estructura del enriquecedor de Entity Search de Bing personalizado:
      "description": "This skill calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       }
       "context": "/document/content/organizations/*",
       "inputs": [

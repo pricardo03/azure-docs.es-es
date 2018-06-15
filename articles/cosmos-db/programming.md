@@ -3,22 +3,19 @@ title: Programación de JavaScript en el lado del servidor de Azure Cosmos DB | 
 description: Obtenga información sobre cómo usar Azure Cosmos DB para escribir procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario en JavaScript. Obtenga sugerencias de programación de base de datos y mucho más.
 keywords: Desencadenadores de base de datos, procedimiento almacenado, procedimiento almacenado, programa de base de datos, sproc, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: aliuy
 manager: kfile
-ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 42acc1ca00e6805df0bce0ee4fc59180b5beb6db
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34614669"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programación en el servidor de Azure Cosmos DB: procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario
 
@@ -151,6 +148,21 @@ En el ejemplo anterior, la devolución de llamada lanza un error si falló la op
 Este procedimiento almacenado se puede modificar para tomar una matriz de cuerpos de documentos como entrada y crearlos todos en la misma ejecución del procedimiento almacenado en lugar de en varias solicitudes para crear cada uno individualmente. Este procedimiento almacenado se puede usar para implementar un importador en bloque eficiente para Cosmos DB, algo que se tratará más adelante en este tutorial.   
 
 El ejemplo descrito ha demostrado cómo utilizar procedimientos almacenados. A continuación, aprenderá sobre los desencadenadores y las funciones definidas por el usuario (UDF).
+
+### <a name="known-issues"></a>Problemas conocidos
+
+Al definir un procedimiento almacenado mediante Azure Portal, los parámetros de entrada siempre se envían como una cadena para el procedimiento almacenado. Incluso si pasa una matriz de cadenas como entrada, la matriz se convierte en cadena y se envía al procedimiento almacenado. Para solucionar este problema, puede definir una función en el procedimiento almacenado para analizar la cadena como una matriz. El código siguiente es un ejemplo para analizar la cadena como una matriz: 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## <a name="database-program-transactions"></a>Transacciones del programa de base de datos
 Una transacción en una base de datos típica se puede definir como una secuencia de operaciones realizadas como una única unidad lógica de trabajo. Cada transacción proporciona **garantías ACID**. ACID es un acrónimo conocido que, por sus siglas en inglés, hace referencia a cuatro propiedades: Atomicidad, Coherencia, Aislamiento y Durabilidad.  
@@ -763,12 +775,12 @@ Aquí, la entrada del procedimiento almacenado se pasa al cuerpo de la solicitud
 
     { 
       name: 'TestDocument',
-      book: ‘Autumn of the Patriarch’,
-      id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
+      book: 'Autumn of the Patriarch',
+      id: 'V7tQANV3rAkDAAAAAAAAAA==',
       ts: 1407830727,
-      self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
-      etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
-      attachments: ‘attachments/’,
+      self: 'dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/',
+      etag: '6c006596-0000-0000-0000-53e9cac70000',
+      attachments: 'attachments/',
       Price: 200
     }
 
@@ -781,12 +793,11 @@ Los desencadenadores, a diferencia de los procedimientos almacenados, no se pued
     x-ms-documentdb-pre-trigger-include: validateDocumentContents 
     x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
 
-
     {
        "name": "newDocument",
-       “title”: “The Wizard of Oz”,
-       “author”: “Frank Baum”,
-       “pages”: 92
+       "title": "The Wizard of Oz",
+       "author": "Frank Baum",
+       "pages": 92
     }
 
 

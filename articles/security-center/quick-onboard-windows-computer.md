@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30922780"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Windows a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de Microsoft Monitoring Agent.

@@ -6,15 +6,16 @@ author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7598484a20d2d719c84e1789664ac2b40c2d0639
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647857"
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configuración de SQL Data Sync (versión preliminar)
 En este tutorial, obtendrá información sobre cómo configurar Azure SQL Data Sync mediante la creación de un grupo de sincronización híbrido que contiene instancias de Azure SQL Database y de SQL Server. El nuevo grupo de sincronización está configurado completamente y se sincroniza según el programa establecido.

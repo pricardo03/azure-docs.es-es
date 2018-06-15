@@ -1,11 +1,11 @@
 ---
-title: "Mensajes EDIFACT para la integración empresarial B2B: Azure Logic Apps | Microsoft Docs"
-description: "Intercambio de mensajes EDIFACT en formato EDI para la integración empresarial B2B con Azure Logic Apps"
+title: 'Mensajes EDIFACT para la integración empresarial B2B: Azure Logic Apps | Microsoft Docs'
+description: Intercambio de mensajes EDIFACT en formato EDI para la integración empresarial B2B con Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d85db6f5be487578ceab261d2779589439bfad31
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300103"
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes EDIFACT para la integración empresarial con las aplicaciones lógicas
 
@@ -44,14 +45,14 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 1. Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, especifique "integration" y seleccione **Cuentas de integración**.
+2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.
 
    ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
    > [!TIP]
    > Si no aparece **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar etiquetas de texto**.
 
-3. En **Cuentas de integración**, seleccione la cuenta de integración en la que va a crear el contrato.
+3. En la hoja **Cuentas de integración**, seleccione la cuenta de integración donde se vaya a crear el contrato.
 
    ![Selección de la cuenta de integración donde desea crear el contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
