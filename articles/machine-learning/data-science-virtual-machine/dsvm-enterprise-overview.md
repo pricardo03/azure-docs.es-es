@@ -8,18 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34361390"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830544"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Entorno de Team Analytics y AI basado en máquina virtual de ciencia de datos 
 La [máquina virtual de ciencia de datos](overview.md) ofrece un rico un completo entorno en la nube de Azure con software pregenerado para análisis de datos y AI. Tradicionalmente, la máquina virtual de ciencia de datos se ha utilizado como escritorio de análisis individuales, y los científicos de datos, en su trabajo individual, obtienen productividad con esta noción compartida de su entorno de análisis precompilado. Como los equipos de análisis de gran tamaño prevén sus entornos de análisis para los científicos de datos y desarrolladores de AI, uno de los temas recurrentes es la obtención de una infraestructura de desarrollo y experimentación de análisis compartida que se administre en consonancia con las directivas de TI de la empresa, que también facilitan la colaboración y la coherencia entre todos los equipos de análisis o ciencia de datos. Una infraestructura compartida también permite al equipo de TI usar mejor el entorno de análisis. La infraestructura de análisis o ciencia de datos basada en equipos también se conoce por algunas organizaciones como "Analytics Sandbox", que permite a los científicos de datos entender los datos rápidamente, ejecutar experimentos, validar hipótesis y generar modelos predictivos de forma segura sin que el entorno de producción resulte afectado, al tiempo que tienen acceso a los diversos activos de datos. 

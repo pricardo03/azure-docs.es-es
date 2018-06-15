@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653508"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planificar la trayectoria de migración para garantizar que el proceso se desarrolle con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración. 
@@ -51,7 +52,7 @@ En función de la envergadura de los requisitos técnicos, de las zonas geográf
 
 ### <a name="patterns-of-success"></a>Patrones de éxito
 
-Los clientes de éxito disponen de planes detallados en los que se abordan, se documentan y se administran las preguntas anteriores.  Asegúrese de que los planes de migración se comunican de forma amplia a los patrocinadores y a las partes interesadas.  Adquiera conocimientos sobre las opciones de migración; se recomienda leer este documento de migración a continuación.
+Los clientes de éxito disponen de planes detallados en los que se abordan, documentan y administran las preguntas anteriores.  Asegúrese de que los planes de migración se comunican de forma amplia a los patrocinadores y a las partes interesadas.  Adquiera conocimientos sobre las opciones de migración; se recomienda leer este documento de migración a continuación.
 
 * [Información general sobre la migración compatible con la plataforma de recursos de IaaS desde el modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -71,7 +72,7 @@ Los clientes de éxito disponen de planes detallados en los que se abordan, se d
 
 ## <a name="lab-test"></a>Análisis de laboratorio 
 
-**Replicación del entorno y realización de una migración de prueba**
+**Replicación de un entorno y realización de una migración de prueba**
   > [!NOTE]
   > La replicación exacta de un entorno existente se ejecuta mediante una herramienta en la que ha contribuido la comunidad que no es compatible oficialmente con el Soporte técnico de Microsoft. Por lo tanto, se trata de un paso **opcional**, pero es la mejor manera de encontrar los problemas sin tocar los entornos de producción. Si no tiene la opción de usar una herramienta en la que ha contribuido la comunidad, lea la recomendación Simulacro de validación, preparación y anulación a continuación.
   >
@@ -110,7 +111,7 @@ A continuación se indican problemas detectados en muchas de las migraciones má
 - **Cuotas de Azure Resource Manager**: las regiones de Azure tienen cuota y límites independientes para el modelo clásico y Azure Resource Manager. Aunque en un escenario de migración no se utiliza ningún hardware nuevo *(se están cambiando las máquinas virtuales existentes del modelo clásico a Azure Resource Manager)*, todavía es necesario que haya cuotas de Azure Resource Manager con capacidad suficiente para poder iniciar la migración. A continuación, se especifican los límites principales con los que se han detectado problemas.  Abra un vale de soporte sobre cuotas para aumentar los límites. 
 
     > [!NOTE]
-    > Estos límites se deben aumentar en la misma región en que se va a realizar la migración del entorno actual.
+    > Estos límites hay que aumentarlos en la misma región a la que se va a migrar el entorno actual.
     >
 
     - Interfaces de red

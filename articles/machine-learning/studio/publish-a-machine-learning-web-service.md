@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 86e018a3f8eedecbb60614b0f1226b088ebb18fc
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837939"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Implementar un servicio web de Azure Machine Learning
 Azure Machine Learning permite compilar, probar e implementar soluciones de análisis predictivo.
@@ -27,7 +29,7 @@ Desde una perspectiva general, esto se realiza en tres pasos:
 
 * **[Crear un experimento de entrenamiento]** : Azure Machine Learning Studio es un entorno de desarrollo visual de colaboración que se utiliza para entrenar y probar un modelo de análisis predictivo con los datos de entrenamiento que proporcione.
 * **[Convertirlo en un experimento predictivo]**: una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
-* **[Implementarlo como un servicio web]**: puede implementar el experimento predictivo como un servicio web de Azure [nuevo] o [clásico]. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
+* **[Implementación como un servicio web]**: puede implementar el experimento predictivo como un servicio web de Azure [[New]] o [clásico]. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -184,8 +186,8 @@ Una opción para actualizar el servicio web es volver a entrenar el modelo media
 <!-- internal links -->
 [Crear un experimento de entrenamiento]: #create-a-training-experiment
 [Convertirlo en un experimento predictivo]: #convert-the-training-experiment-to-a-predictive-experiment
-[Implementarlo como un servicio web]: #deploy-it-as-a-web-service
-[nuevo]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Implementación como un servicio web]: #deploy-it-as-a-web-service
+[[New]]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [clásico]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

@@ -2,22 +2,21 @@
 title: 'Azure Cosmos DB: API, SDK y recursos de .NET para BulkExecutor | Microsoft Docs'
 description: Obtenga toda la información sobre la API y el SDK de .NET para BulkExecutor, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de .NET para BulkExecutor de Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: .net
 author: tknandu
 manager: kfile
 editor: cgronlun
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 52dcd8497a6dad2885a27197f873de4603378501
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 203e12ddc220651653625fc596eafa2e8365e4c1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797750"
 ---
 # <a name="net-bulkexecutor-library-download-information"></a>Biblioteca de BulkExecutor en .NET: información de descarga 
 

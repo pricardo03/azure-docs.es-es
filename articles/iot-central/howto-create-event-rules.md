@@ -1,19 +1,19 @@
 ---
 title: Creación y administración de reglas de evento en una aplicación de Azure IoT Central | Microsoft Docs
 description: Las reglas de eventos de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932b1906b767ee7676f46ffd7242ad3d478d41c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201598"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628375"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de evento y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -31,7 +31,7 @@ En esta sección se muestra cómo crear una regla de eventos. Se utiliza para el
 
     ![No hay ninguna regla todavía](media\howto-create-event-rules\image1.png)
 
-1. En la pestaña **Reglas**, elija **Nueva regla** para ver los tipos de reglas que puede crear.
+1. En la pestaña **Reglas**, elija **+Nueva regla** para ver los tipos de reglas que puede crear.
 
     ![Tipos de regla](media\howto-create-event-rules\image2.png)
 

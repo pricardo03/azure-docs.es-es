@@ -2,15 +2,15 @@
 
 | Region              | Número máximo de dominios de error  |
 |---------------------|-------------------------|
-| Este de EE. UU.             | 3                       |
+| Este de EE. UU             | 3                       |
 | Este de EE. UU. 2           | 3                       |
-| Oeste de EE. UU.             | 3                       |
+| Oeste de EE. UU             | 3                       |
 | Oeste de EE. UU. 2           | 2                       |
-| Central EE. UU.:          | 3                       |
+| Central EE. UU:          | 3                       |
 | Centro-Norte de EE. UU    | 3                       |
 | Centro-Sur de EE. UU    | 3                       |
 | Centro occidental de EE.UU.     | 2                       |
-| Centro de Canadá      | 2                       |
+| Centro de Canadá      | 3                      |
 | Este de Canadá         | 2                       |
 |                     |                         |
 | Europa del Norte        | 3                       |

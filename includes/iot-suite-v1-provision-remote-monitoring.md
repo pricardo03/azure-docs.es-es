@@ -1,3 +1,20 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670173"
+---
 ## <a name="provision-the-solution"></a>Aprovisionamiento de la solución
 
 Si no ha aprovisionado aún la solución preconfigurada de supervisión remota en su cuenta:
@@ -21,7 +38,7 @@ Si no ha aprovisionado aún la solución preconfigurada de supervisión remota e
 
 ¿Hay detalles que esperaría ver que no aparezcan para su solución? Puede sugerirnos nuevas características en [User Voice](https://feedback.azure.com/forums/321918-azure-iot)(La voz del usuario).
 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-v1-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-v1-faq.md

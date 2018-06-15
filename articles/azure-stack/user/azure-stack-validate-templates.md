@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 88fac41ce2c9fa0c5569beae02ab90a507c89a34
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358649"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294507"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Comprobar las plantillas de Azure Stack con la herramienta de validación de plantillas
 
@@ -32,8 +32,8 @@ Puede usar la herramienta de validación de plantillas para comprobar si las [pl
 
 Para validar una plantilla, primero tiene que crear un archivo con funcionalidades de la nube y, a continuación, ejecutar la herramienta de validación. Use los siguientes módulos de PowerShell desde las herramientas de Azure Stack:
 
-- En la carpeta **TemplateValidator**:<br>         AzureRM.CloudCapabilities.psm1 crea un archivo JSON de funcionalidades de la nube que representa los servicios y las versiones en una nube de Azure Stack.
-- En la carpeta **CloudCapabilities**:<br>
+- En la carpeta **CloudCapabilities**:<br>         AzureRM.CloudCapabilities.psm1 crea un archivo JSON de funcionalidades de la nube que representa los servicios y las versiones en una nube de Azure Stack.
+- En la carpeta **TemplateValidator**:<br>
 AzureRM.TemplateValidator.psm1 utiliza un archivo JSON de funcionalidades de la nube para probar plantillas para la implementación en Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Genere el archivo de funcionalidades de la nube
@@ -99,7 +99,7 @@ En este ejemplo, se validan todas las [plantillas de inicio rápido de Azure Sta
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
--CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json.json `
+-CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json`
 -IncludeComputeCapabilities`
 -Report TemplateReport.html

@@ -1,22 +1,19 @@
 ---
 title: 'Introducción a la solución Device Simulation: Azure | Microsoft Docs'
 description: La solución de simulación de aceleradores de soluciones de IoT es una herramienta que se puede usar para ayudar en el desarrollo y las pruebas de una solución de IoT. El servicio de simulación es una oferta independiente que se puede usar junto con otros aceleradores de soluciones o utilizar con sus propias soluciones personalizadas.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 742998dce07f6ceef0ad906831c60f11a7d08bd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: c427f2640e605533324eb349579c6a40a2a6a47f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627132"
 ---
 # <a name="device-simulation-walkthrough"></a>Tutorial sobre Device Simulation
 
@@ -39,7 +36,7 @@ Si aún no la ha implementado, debe realizar el tutorial [Deploy Azure IoT Devic
 
 ## <a name="configuring-device-simulation"></a>Configuración de Device Simulation
 
-Puede configurar y ejecutar Device Simulation completamente desde dentro del panel. Abra el panel desde la página [Soluciones aprovisionadas](https://www.azureiotsuite.com/) de los aceleradores de soluciones de IoT. Haga clic en **Iniciar** en la nueva implementación de Device Simulation.
+Puede configurar y ejecutar Device Simulation completamente desde dentro del panel. Abra el panel desde la página [Soluciones aprovisionadas](https://www.azureiotsolutions.com/) de los aceleradores de soluciones de IoT. Haga clic en **Iniciar** en la nueva implementación de Device Simulation.
 
 ### <a name="target-iot-hub"></a>IoT Hub de destino
 

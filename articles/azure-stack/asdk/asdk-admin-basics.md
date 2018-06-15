@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849515"
 ---
 # <a name="asdk-administration-basics"></a>Conceptos básicos de administración del Kit de desarrollo de Azure Stack 
 Hay varias cosas que debe saber si no está familiarizado con la administración del Kit de desarrollo de Azure Stack. Esta guía proporciona información general acerca de su rol como operador de Azure Stack en el entorno de evaluación y cómo asegurarse de que los usuarios de prueba puede ser productivos rápidamente.
@@ -29,14 +30,14 @@ En primer lugar, debe leer el artículo [¿Qué es el Kit de desarrollo de Azure
 Al igual que Azure, Azure Stack innova rápidamente, por lo que lanzaremos con regularidad nuevas compilaciones del ASDK. Sin embargo, el ASDK no se puede actualizar como las implementaciones de sistemas integrados de Azure Stack. Por tanto, si desea pasar a la compilación más reciente, debe [volver a implementar el ASDK](asdk-redeploy.md) totalmente. no puede aplicar paquetes de actualización. Este proceso lleva un tiempo, pero su ventaja es que puede probar las características más recientes en cuanto estén disponibles. 
 
 ## <a name="what-account-should-i-use"></a>¿Qué cuenta debo usar?
-Debe considerar algunos aspectos respecto de la cuenta al administrar Azure Stack. Especialmente en las implementaciones que utilizan Servicios de federación de Active Directory (AD FS) de Windows Server como proveedor de identidades en lugar de Azure Active Directory (Azure AD). Deben considerarse los siguientes aspectos respecto de la cuenta para los sistemas integrados de Azure Stack y las implementaciones de ASDK:
+Al administrar Azure Stack, debe considerar algunos aspectos con respecto a la cuenta, especialmente en las implementaciones que utilizan Servicios de federación de Active Directory (AD FS) de Windows Server como proveedor de identidades en lugar de Azure Active Directory (Azure AD). Las siguientes consideraciones sobre la cuenta se aplican a los sistemas integrados de Azure Stack y las implementaciones de ASDK:
 
 |Cuenta|Azure AD|AD FS|
 |-----|-----|-----|
 |Administrador local (.\Administrator)|Administrador del host de ASDK|Administrador del host de ASDK|
-|AzureStack\AzureStackAdmin|Administrador del host de ASDK<br><br>Se puede utilizar para iniciar sesión en el portal de administración de Azure Stack<br><br>Acceso para ver y administrar anillos de Service Fabric|Administrador del host de ASDK<br><br>Sin acceso al portal de administración de Azure Stack<br><br>Acceso para ver y administrar anillos de Service Fabric<br><br>Ya no es propietario de la suscripción de proveedor predeterminada|
-|AzureStack\CloudAdmin|Puede obtener acceso y ejecutar comandos permitidos en el punto de conexión con privilegios|Puede obtener acceso y ejecutar comandos permitidos en el punto de conexión con privilegios<br><br>No puede iniciar sesión en el host de ASDK<br><br>Propietario de la suscripción de proveedor predeterminada|
-|Administrador global de Azure AD|Se utiliza durante la instalación<br><br>Propietario de la suscripción de proveedor predeterminada|No aplicable|
+|AzureStack\AzureStackAdmin|Administrador del host de ASDK<br><br>Se puede usar para iniciar sesión en el portal de administración de Azure Stack<br><br>Acceso para ver y administrar anillos de Service Fabric|Administrador del host de ASDK<br><br>Sin acceso al portal de administración de Azure Stack<br><br>Acceso para ver y administrar anillos de Service Fabric<br><br>Ya no es propietario de la suscripción de proveedor predeterminada (DPS)|
+|AzureStack\CloudAdmin|Puede acceder a comandos permitidos, y ejecutarlos, en el punto de conexión con privilegios|Puede acceder a comandos permitidos, y ejecutarlos, en el punto de conexión con privilegios<br><br>No puede iniciar sesión en el host de ASDK<br><br>Propietario de la suscripción de proveedor predeterminada (DPS)|
+|Administrador global de Azure AD|Se usa durante la instalación<br><br>Propietario de la suscripción de proveedor predeterminada (DPS)|No aplicable|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>¿Qué herramientas debo usar para la administración?
@@ -64,5 +65,5 @@ En el caso del kit de desarrollo, la única opción de soporte técnico es reali
 > Como el ASDK es un entorno de evaluación, no se ofrece soporte técnico oficial a través de los servicios de soporte técnico al cliente (CSS) de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Implementación del Kit de desarrollo de Azure Stack](asdk-deploy.md)
+[Implementación del Kit de desarrollo de Azure Stack](asdk-install.md)
 
