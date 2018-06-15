@@ -1,22 +1,19 @@
 ---
-title: "Comparación del enrutamiento de mensajes y Event Grid para IoT Hub | Microsoft Docs"
-description: "IoT Hub ofrece su propio servicio de enrutamiento de mensajes, pero también se integra con Event Grid para la publicación de eventos. Compare las dos características."
-services: iot-hub
-documentationcenter: 
+title: Comparación del enrutamiento de mensajes y Event Grid para IoT Hub | Microsoft Docs
+description: IoT Hub ofrece su propio servicio de enrutamiento de mensajes, pero también se integra con Event Grid para la publicación de eventos. Compare las dos características.
 author: kgremban
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 5a0a97ccf033b2981ba13be455482146ba212228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636178"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparación del enrutamiento de mensajes y Event Grid para IoT Hub
 
@@ -37,7 +34,7 @@ Aunque tanto el enrutamiento de mensajes como Event Grid habilitan la configurac
 | **Tamaño de mensaje máximo** | 256 KB, del dispositivo a la nube | 64 KB |
 | **Filtrado** | El filtrado enriquecido mediante el lenguaje SQL es compatible con el filtrado en los encabezados y cuerpo de los mensajes. Para obtener ejemplos, consulte [Lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md). | Filtrado basado en el sufijo o prefijo de los identificadores de dispositivo, que funciona bien para servicios jerárquicos como el almacenamiento. |
 | **Extremos** | <ul><li>Centro de eventos</li> <li>Blob de almacenamiento</li> <li>Cola de Service Bus</li> <li>Temas de Service Bus</li></ul><br>Los SKU de IoT Hub de pago (S1, S2 y S3) están limitados a 10 puntos de conexión personalizados. Se pueden crear 100 rutas por instancia de IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Centro de eventos</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>Servicios de terceros mediante webhooks</li></ul><br>Para obtener la lista más actualizada de los puntos de conexión, consulte [Controladores de eventos de Event Grid](../event-grid/overview.md#event-handlers). |
-| **Costee | El enrutamiento de mensajes no se cobra aparte. Solo se cobra una entrada de telemetría en IoT Hub. Por ejemplo, si tiene un mensaje enrutado a tres puntos de conexión diferentes, se le facturará por un único mensaje. | No hay cargos desde IoT Hub. Event Grid ofrece las primeras 100 000 operaciones por mes de forma gratuita, y luego 0,60 USD por millón de operaciones. |
+| **Costee** | El enrutamiento de mensajes no se cobra aparte. Solo se cobra una entrada de telemetría en IoT Hub. Por ejemplo, si tiene un mensaje enrutado a tres puntos de conexión diferentes, se le facturará por un único mensaje. | No hay cargos desde IoT Hub. Event Grid ofrece las primeras 100 000 operaciones por mes de forma gratuita, y luego 0,60 USD por millón de operaciones. |
 
 El enrutamiento de mensajes de IoT Hub y Event Grid también tienen similitudes, algunas de las cuales se detallan en la siguiente tabla:
 

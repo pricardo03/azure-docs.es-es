@@ -1,25 +1,21 @@
 ---
 title: Administración de dispositivos de Azure IoT con iothub-explorer | Microsoft Docs
 description: Use la herramienta de la CLI iothub-explorer para la administración de dispositivos de Azure IoT Hub, que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: nasing
 keywords: administración de dispositivos de azure iot, administración de dispositivos de azure iot hub, iot de administración de dispositivos, administración de dispositivos de iot hub
-ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 26e08c3d6b1c96e2d508c87f188118aec02bab6a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0603976312ecab4f6974f51f0e181d2438681255
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634206"
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Uso de iothub-explorer para la administración de dispositivos de Azure IoT Hub
 

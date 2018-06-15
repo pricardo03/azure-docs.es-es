@@ -2,13 +2,13 @@
 
 # Información general
 ## [¿Qué es Azure Active Directory?](active-directory-whatis.md)
-## [Acerca de la administración de identidades de Azure](identity-fundamentals.md)
-## [Información acerca de las soluciones de identidades de Azure](understand-azure-identity-solutions.md)
+## [Acerca de la administración de identidades de Azure](fundamentals/identity-fundamentals.md)
+## [Información acerca de las soluciones de identidades de Azure](fundamentals/understand-azure-identity-solutions.md)
 ## [Elección de una solución de identidad híbrida](choose-hybrid-identity-solution.md)
 ## [Asociación de suscripciones de Azure](active-directory-how-subscriptions-associated-directory.md)
-## [Consideraciones sobre residencia y datos](active-directory-data-storage-eu.md)
-## [Preguntas más frecuentes](active-directory-faq.md)
-## [Novedades](whats-new.md)
+## [Consideraciones sobre residencia y datos](fundamentals/active-directory-data-storage-eu.md)
+## [Preguntas más frecuentes](fundamentals/active-directory-faq.md)
+## [Novedades](fundamentals/whats-new.md)
 
 
 # Introducción
@@ -17,14 +17,14 @@
 ## [Adición de un dominio personalizado](add-custom-domain.md)
 ## [Configuración de la personalización de marca de la compañía](customize-branding.md)
 ## [Adición de usuarios a Azure AD](add-users-azure-active-directory.md)
-## [Asignación de licencias a usuarios](license-users-groups.md)
+## [Asignación de licencias a usuarios](fundamentals/license-users-groups.md)
 ## [Configuración del autoservicio de restablecimiento de contraseña](authentication/quickstart-sspr.md)
 ## [Incorporación de información de privacidad de su organización en Azure AD](active-directory-properties-area.md)
 
 
 # Procedimientos
 ## Planeamiento y diseño
-### [Descripción de la arquitectura de Azure AD](active-directory-architecture.md)
+### [Descripción de la arquitectura de Azure AD](fundamentals/active-directory-architecture.md)
 ### [Asignación de notificaciones en Azure Active Directory](active-directory-claims-mapping.md)
 ### [Implementación de una solución de identidad híbrida](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Determinación de requisitos
@@ -87,7 +87,7 @@
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Administración de miembros del grupo](active-directory-groups-members-azure-portal.md)
 ### [Administración de propietarios de grupo](active-directory-accessmanagement-managing-group-owners.md)
-### [Administración de pertenencia al grupo](active-directory-groups-membership-azure-portal.md)
+### [Administración de pertenencia al grupo](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Asignación de licencias mediante grupos](active-directory-licensing-whatis-azure-portal.md)
 #### [Asignación de licencias a un grupo](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identificación y resolución de problemas de licencias de un grupo](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -100,7 +100,7 @@
 ### [Aplicación una directiva de nomenclatura para grupos](groups-naming-policy.md)
 ### [Visualización de todos los grupos](active-directory-groups-view-azure-portal.md)
 ### [Administración del acceso de grupo a aplicaciones SaaS](active-directory-accessmanagement-group-saasapps.md)
-### [Restauración de un grupo eliminado de Office 365](active-directory-groups-restore-azure-portal.md)
+### [Restauración de un grupo eliminado de Office 365](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Administración de la configuración de grupo](active-directory-groups-settings-azure-portal.md) 
 ### Creación de reglas avanzadas
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
@@ -134,8 +134,6 @@
 #### [Datos que faltan en las descargas](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Errores de los paquetes de contenido de los registros de actividad de Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
 ### [Acceso mediante programación](active-directory-reporting-api-getting-started-azure-portal.md)
-#### [Referencia de auditoría](active-directory-reporting-api-audit-reference.md)
-#### [Referencia de inicio de sesión](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Requisitos previos](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Ejemplos de auditoría](active-directory-reporting-api-audit-samples.md)
 #### [Ejemplos de inicio de sesión](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -281,7 +279,8 @@
 ### Nombres de dominio personalizados
 #### [Guía de inicio rápido](add-custom-domain.md)
 #### [Agregar nombres de dominio personalizados](active-directory-domains-manage-azure-portal.md)
-### [Administración de directorios](active-directory-administer.md)
+### [Administración de directorios](fundamentals/active-directory-administer.md)
+### [Eliminación de un directorio](directory-delete-howto.md)
 ### [Varios directorios](active-directory-licensing-directory-independence.md)
 ### [Suscripción de autoservicio](active-directory-self-service-signup.md)
 ### [Asumir el control de un directorio no administrado](domains-admin-takeover.md)
@@ -300,12 +299,12 @@
 ## Administración del acceso a los recursos
 ### [Roles de administrador](active-directory-assign-admin-roles-azure-portal.md)
 #### [Asignación de un rol de administrador a un usuario](active-directory-users-assign-role-azure-portal.md) 
-#### [Comparación de permisos para miembros y para usuarios invitados](users-default-permissions.md) 
+#### [Comparación de permisos para miembros y para usuarios invitados](fundamentals/users-default-permissions.md) 
 ### [Protección del acceso con privilegios](admin-roles-best-practices.md)  
 ### [Creación de cuentas administrativas de acceso de emergencia](active-directory-admin-manage-emergency-access-accounts.md) 
 
 
-#### [Permisos predeterminados de usuario](users-default-permissions.md)
+#### [Permisos predeterminados de usuario](fundamentals/users-default-permissions.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
 ### [Protección de los roles con privilegios](admin-roles-best-practices.md)
@@ -323,27 +322,29 @@
 
 ## Protección de las identidades
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
-#### [Condiciones](active-directory-conditional-access-conditions.md)
-#### [Condiciones de ubicación](active-directory-conditional-access-locations.md)
-#### [Controles](active-directory-conditional-access-controls.md)
 #### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
-#### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
-#### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
-#### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)
-#### [Herramienta What if](active-directory-conditional-access-whatif.md)
-#### Guía de inicio rápido
+#### Guías de inicio rápido
 ##### [Configuración de Multi-Factor Authentication para aplicaciones por cada nube](active-directory-conditional-access-app-based-mfa.md)
-#### Tareas
+#### Tutoriales
 ##### [Migración de directiva de MFA clásica](active-directory-conditional-access-migration-mfa.md)
+#### Conceptos
+##### [Condiciones](active-directory-conditional-access-conditions.md)
+##### [Condiciones de ubicación](active-directory-conditional-access-locations.md)
+##### [Controles](active-directory-conditional-access-controls.md)
+##### [Herramienta What if](active-directory-conditional-access-whatif.md)
+##### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
+#### Guías de procedimientos
+##### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
+##### [Configuración de las directivas de acceso condicionales para los intentos de acceso de redes que no son de confianza](active-directory-conditional-access-untrusted-networks.md)
 ##### [Configuración del acceso condicional basado en dispositivos](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configuración del acceso condicional basado en aplicaciones](active-directory-conditional-access-mam.md)
 ##### [Proporcionar condiciones de uso para los usuarios y las aplicaciones](active-directory-tou.md)
+##### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)
 ##### [Configuración de la conectividad VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Configuración de SharePoint y Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Corrección](active-directory-conditional-access-device-remediation.md)
 #### [Referencia técnica](active-directory-conditional-access-technical-reference.md)
 #### [Preguntas más frecuentes](active-directory-conditional-faqs.md)
-
 
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)

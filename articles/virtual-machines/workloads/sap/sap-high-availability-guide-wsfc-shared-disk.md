@@ -1,13 +1,13 @@
 ---
-title: "Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure | Microsoft Docs"
-description: "Aprenda a agrupar una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster."
+title: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure | Microsoft Docs
+description: Aprenda a agrupar una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: f6fb85f8-c77a-4af1-bde8-1de7e4425d2e
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9eec2d28b436b97cbdaaf4e0e5f154a6ef15fe8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 69071ef211e6787aa7bbae121cc4d55ccf2a6ef6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657761"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -71,7 +72,7 @@ ms.lasthandoff: 11/14/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuración de alta disponibilidad de varios SID de SAP)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -191,7 +192,7 @@ Los clústeres de conmutación por error de Windows Server son la base de una in
 
 Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de comenzar las tareas de este artículo, consulte el siguiente artículo:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -224,10 +225,10 @@ Una instancia de ASCS/SCS de SAP tiene los siguientes componentes:
 
 
 * Archivos de host global de SAP :
-    * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\SYS\...
+    * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\SYS\..
     * El recurso compartido de archivos sapmnt, que permite el acceso a estos archivos S:\usr\sap\\&lt;SID&gt;\SYS\... globales utilizando la siguiente ruta de acceso UNC:
 
-     \\\\<nombre de host virtual ASCS/SCS>\sapmnt\\&lt;SID&gt;\SYS\...
+     \\\\&lt;nombre de host virtual ASCS/SCS&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 
 
 ![Figura 2: Procesos, estructura de archivos y recurso compartido de archivos sapmnt de host global de una instancia de ASCS/SCS de SAP][sap-ha-guide-figure-8001]

@@ -1,11 +1,27 @@
-
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/25/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f27dbf20eab5866ac3061d888c17e970a1d197f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666762"
+---
 # <a name="azure-and-the-internet-of-things"></a>Azure y e Internet de las cosas
 
 Bienvenido a Microsoft Azure e Internet de las cosas (IoT). En este artículo se describen las características comunes de una solución de IoT en la nube. Las soluciones de IoT típicas requieren comunicación bidireccional segura entre dispositivos, posiblemente millones, y un back-end de soluciones. Por ejemplo, una solución puede usar un análisis predictivo y automatizado para obtener información del flujo de eventos del dispositivo a la nube.
 
 ## <a name="iot-solution-architecture"></a>Arquitectura de solución IoT
 
-El diagrama siguiente muestra los elementos clave de una arquitectura típica de solución de IoT. El diagrama es independiente de los detalles de implementación específicos, como los servicios de Azure utilizados y los sistemas operativos de los dispositivos. En esta arquitectura, los dispositivos de IoT recopilan datos que luego envían a una puerta de enlace en la nube. La puerta de enlace de nube hace que los datos estén disponibles para el procesamiento por otros servicios back-end. Estos servicios de back-end proporcionan datos para:
+El diagrama siguiente muestra los elementos clave de una arquitectura de la solución de IoT típica. El diagrama es independiente de los detalles de implementación específicos, como los servicios de Azure utilizados y los sistemas operativos de los dispositivos. En esta arquitectura, los dispositivos de IoT recopilan datos que luego envían a una puerta de enlace en la nube. La puerta de enlace de nube hace que los datos estén disponibles para el procesamiento por otros servicios back-end. Estos servicios de back-end proporcionan datos para:
 
 * Otras aplicaciones de línea de negocio.
 * Operadores humanos a través de un panel u otro dispositivo de presentación.
@@ -17,7 +33,7 @@ El diagrama siguiente muestra los elementos clave de una arquitectura típica de
 
 ### <a name="device-connectivity"></a>Conectividad de dispositivos
 
-En una arquitectura de solución de IoT, los dispositivos suelen enviar telemetría a la nube para el almacenamiento y el procesamiento. Por ejemplo, en un escenario de mantenimiento predictivo, el back-end de la solución podría usar el flujo de datos del sensor para determinar el momento en el que una bomba determinada necesita mantenimiento. Los dispositivos también pueden recibir y responder a los mensajes de nube a dispositivo mediante la lectura de mensajes desde un punto de conexión en la nube. En el mismo ejemplo, el back-end de la solución podría enviar mensajes a otras bombas del centro de bombeo para empezar a redirigir flujos justo antes del inicio del mantenimiento. Con este procedimiento se garantiza que el ingeniero de mantenimiento puede empezar en cuanto llegue.
+En una arquitectura de la solución de IoT, los dispositivos suelen enviar telemetría a la nube para el almacenamiento y el procesamiento. Por ejemplo, en un escenario de mantenimiento predictivo, el back-end de la solución podría usar el flujo de datos del sensor para determinar el momento en el que una bomba determinada necesita mantenimiento. Los dispositivos también pueden recibir y responder a los mensajes de nube a dispositivo mediante la lectura de mensajes desde un punto de conexión en la nube. En el mismo ejemplo, el back-end de la solución podría enviar mensajes a otras bombas del centro de bombeo para empezar a redirigir flujos justo antes del inicio del mantenimiento. Con este procedimiento se garantiza que el ingeniero de mantenimiento puede empezar en cuanto llegue.
 
 La conexión segura de dispositivos y la confiabilidad suele ser el mayor reto de las soluciones de IoT. Esto se debe a que los dispositivos de IoT tienen características diferentes de otros clientes, como los exploradores y las aplicaciones para dispositivos móviles. En concreto, los dispositivos de IoT:
 
@@ -37,7 +53,7 @@ En función del protocolo de comunicación y la disponibilidad de la red, los di
 
 En las soluciones de IoT modernas, el procesamiento de datos se produce en la nube o en el dispositivo. El procesamiento en el dispositivo se conoce como *informática perimetral*. La elección de dónde procesar los datos depende de factores como:
 
-* Las restricciones de red. Un ancho de banda entre los dispositivos y la nube limitado motiva el procesamiento perimetral.
+* Las restricciones de red. Un ancho de banda limitado entre los dispositivos y la nube motiva el procesamiento perimetral.
 * El tiempo de respuesta. Si hay un requisito para actuar en un dispositivo casi en tiempo real, puede ser mejor procesar la respuesta en el propio dispositivo. Por ejemplo, un brazo robotizado que deba detenerse en caso de emergencia.
 * Un entorno reglamentario. Algunos datos no se pueden enviar a la nube.
 
@@ -58,14 +74,14 @@ Por ejemplo, en el escenario de mantenimiento predictivo, el back-end en la nube
 
 ### <a name="presentation-and-business-connectivity"></a>Presentación y conectividad empresarial
 
-El nivel de presentación y conectividad empresarial permite a los usuarios finales interactuar con la solución de IoT y con los dispositivos. Permite a los usuarios ver y analizar los datos recopilados desde sus dispositivos. Estas vistas pueden adoptar la forma de paneles o informes de BI que pueden mostrar tanto datos históricos como datos prácticamente en tiempo real. Por ejemplo, un operador puede comprobar el estado de un centro de bombeo determinado y ver las alertas generadas por el sistema. Esta capa también permite la integración del back-end de la solución de IoT con las aplicaciones de línea de negocio existentes para conectarse con los procesos o flujos de trabajo empresariales. Por ejemplo, una solución de mantenimiento predictivo puede integrarse con un sistema de programación que reserve la visita a un centro de bombeo para un ingeniero cuando identifique una bomba que necesite mantenimiento.
+El nivel de presentación y conectividad empresarial permite a los usuarios finales interactuar con la solución de IoT y con los dispositivos. Permite a los usuarios ver y analizar los datos recopilados desde sus dispositivos. Estas vistas pueden adoptar la forma de paneles o informes de BI que pueden mostrar tanto datos históricos como datos prácticamente en tiempo real. Por ejemplo, un operador puede comprobar el estado de un centro de bombeo determinado y ver las alertas generadas por el sistema. Esta capa también permite la integración del back-end de la solución de IoT con las aplicaciones de línea de negocio existentes para conectarse con los procesos o flujos de trabajo empresariales. Por ejemplo, un acelerador de la solución de mantenimiento predictivo puede integrarse con un sistema de programación que reserve a un ingeniero una cita para visitar un centro de bombeo cuando se identifique una bomba que necesite mantenimiento.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
 [lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
+[lnk-iot-suite]: ../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
+[Azure IoT solution accelerators]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

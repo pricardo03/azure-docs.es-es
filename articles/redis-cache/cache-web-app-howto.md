@@ -15,27 +15,23 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 7bf08849cd03a77095ffe717c8387d79d1961b06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: baaa53b04f608e2cb3546fcac6a6eb4eda4d3c4b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640761"
 ---
 # <a name="quickstart-create-a-aspnet-web-app-with-redis-cache"></a>Guía de inicio rápido: Creación de una aplicación web de ASP.NET con Redis Cache
 
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
->
 
 ## <a name="introduction"></a>Introducción
 
 En esta guía de inicio rápido se muestra cómo crear e implementar una aplicación web de ASP.NET en Azure App Service mediante Visual Studio 2017. La aplicación de ejemplo se conecta a una instancia de Azure Redis Cache para almacenar y recuperar datos de la caché. Al finalizar la guía de inicio rápido, tendrá una aplicación web en ejecución hospedada en Azure que lee y escribe en una instancia de Azure Redis Cache.
 
 ![Prueba sencilla completada en Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -44,8 +40,6 @@ Para seguir los pasos de esta guía de inicio rápido, debe cumplir los siguient
 * Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
     * ASP.NET y desarrollo web
     * Desarrollo de Azure
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-visual-studio-project"></a>Creación del proyecto de Visual Studio
 
@@ -322,13 +316,13 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 
 Inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
-Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...**. En las instrucciones de este tema se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
+Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...**. En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nombre del grupo de recursos para confirmar y haga clic en **Eliminar**.
 
-Transcurridos unos segundos, el grupo de recursos y todos los recursos que contiene se eliminan.
+Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

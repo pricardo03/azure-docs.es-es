@@ -6,16 +6,16 @@ author: rmatchoro
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: ronmat
 ms.reviewer: carlrab
-ms.openlocfilehash: db10bbdd39920b05d9fd8c3907f22c3ee5d08b02
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 09ba4b3b72d5c82dc42199f2f883cedee6609bd2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364155"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649550"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Detección de amenazas de Azure SQL Database
 
@@ -83,7 +83,7 @@ La capacidad de detección de amenazas para Azure SQL Database detecta actividad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre la [protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md). 
+* Obtenga más información sobre [Protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md). 
 * Más información acerca de la [auditoría de Azure SQL Database](sql-database-auditing.md)
 * Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Para más información sobre los precios, consulte la [página Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  

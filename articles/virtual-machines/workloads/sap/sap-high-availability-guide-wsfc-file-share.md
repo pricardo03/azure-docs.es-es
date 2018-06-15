@@ -1,13 +1,13 @@
 ---
-title: "Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure | Microsoft Docs"
-description: "Aprenda a agrupar una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure."
+title: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure | Microsoft Docs
+description: Aprenda a agrupar una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fa09de63c6f148064861479138934976f1f3e38
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 646c30be171a5aaaa17e40eae3cef6952b2b2747
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657067"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -90,7 +91,7 @@ ms.lasthandoff: 12/08/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuración de alta disponibilidad de varios SID de SAP)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -212,7 +213,7 @@ Los clústeres de conmutación por error de Windows Server son la base de una in
 
 Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de comenzar las tareas que se describen en este artículo, consulte este otro artículo:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -251,7 +252,7 @@ Esta arquitectura es específica de las maneras siguientes:
 * Los servicios centrales de SAP (con su propia estructura de archivos y procesos de mensajería y puesta en cola) están separados de los archivos del host global de SAP.
 * Los servicios centrales de SAP se ejecutan en una instancia de ASCS/SCS de SAP.
 * La instancia de ASCS/SCS de SAP está en clúster y es accesible mediante el nombre de host virtual \<nombre de host virtual ASCS/SCS\>.
-* Los archivos globales de SAP se colocan en el recurso compartido de archivos SMB y son accesibles mediante \<host global de SAP\> nombre de host: \\\\&lt;host global de SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\...
+* Los archivos globales de SAP se colocan en el recurso compartido de archivos SMB y son accesibles mediante \<host global de SAP\> nombre de host: \\\\&lt;host global de SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * La instancia de ASCS/SCS de SAP está instalada en un disco local en ambos nodos del clúster.
 * El nombre de red \<nombre de host virtual ASCS/SCS\> es diferente del &lt;host global de SAP&gt;.
 

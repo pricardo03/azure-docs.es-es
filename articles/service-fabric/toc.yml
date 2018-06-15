@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: Manifiestos de aplicación y de servicio
           href: service-fabric-application-and-service-manifests.md
+        - name: Ejemplos de manifiestos de aplicación y servicio
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Ejemplos de manifiesto de servicio y de aplicación de servicios confiables
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: Ejemplos de manifiesto de servicio y de aplicación con varios contenedores
+              href: service-fabric-manifest-example-container-app.md
         - name: Modelo de alojamiento
           href: service-fabric-hosting-model.md
         - name: Seguridad de las aplicaciones
@@ -399,6 +406,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Compilación de un servicio de ASP.NET Core
           href: service-fabric-add-a-web-frontend.md
+        - name: Creación de un contenedor de servidor Apache Tomcat en Linux
+          href: service-fabric-get-started-tomcat.md
         - name: Configuración de seguridad
           items:
             - name: Administración de secretos de aplicación
@@ -623,6 +632,10 @@
           href: service-fabric-troubleshoot-local-cluster-setup.md
         - name: Diagnóstico en escenarios comunes
           href: service-fabric-diagnostics-common-scenarios.md
+    - name: Procedimientos recomendados
+      items:
+        - name: Lista de comprobación sobre la preparación de producción
+          href: service-fabric-production-readiness-checklist.md
 - name: Referencia
   items:
     - name: Azure PowerShell

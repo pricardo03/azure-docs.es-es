@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: a96b66f61b19d218c5708a0ce967e0033ba26627
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cee479b81cb5d8b6cd3306e3735d72c9e64e6045
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786684"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640360"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentación para las cargas de trabajo de búsqueda cognitiva
 
@@ -39,7 +39,7 @@ Los artículos siguientes son la documentación completa para la búsqueda cogni
 
 ## <a name="reference"></a>Referencia
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
@@ -51,8 +51,8 @@ Los artículos siguientes son la documentación completa para la búsqueda cogni
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + [API REST en versión preliminar](search-api-2017-11-11-preview.md)
-  + [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md) (Creación del conjunto de aptitudes [api-version=2017-11-11-Preview])
-  + [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md) (Creación del indexador [api-version=2017-11-11-Preview])
+  + [Create Skillset (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) (Creación del conjunto de aptitudes [api-version=2017-11-11-Preview])
+  + [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creación de indexador [api-version=2017-11-11-Preview])
 
 ## <a name="see-also"></a>Otras referencias
 

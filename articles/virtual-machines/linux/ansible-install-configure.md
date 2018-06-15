@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
 ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896136"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652998"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalación y configuración de Ansible para la administración de máquinas virtuales en Azure
 
@@ -150,7 +150,7 @@ Seguidamente, pase a [Creación de credenciales de Azure](#create-azure-credenti
 
 Ansible se comunica con Azure mediante un nombre de usuario y una contraseña, o a través de una entidad de servicio. Las entidades de servicio de Azure son identidades de seguridad que pueden usarse con aplicaciones, servicios y herramientas de automatización como Ansible. El usuario controla los permisos y los define con respecto a cuáles son las operaciones que la entidad de servicio puede realizar en Azure. Para incrementar la seguridad más allá de un nombre de usuario y una contraseña, en este ejemplo se crea una entidad de servicio básica.
 
-En el equipo host o en Azure Cloud Shell, cree una entidad de servicio con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). En la pantalla se muestran las credenciales que necesita Ansible:
+En el equipo host o en Azure Cloud Shell, cree una entidad de servicio con [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). En la pantalla se muestran las credenciales que necesita Ansible:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -166,7 +166,7 @@ A continuación puede ver un ejemplo del resultado de los comandos anteriores:
 }
 ```
 
-Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#az_account_show):
+Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#az-account-show):
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

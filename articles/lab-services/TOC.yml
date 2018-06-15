@@ -79,6 +79,8 @@
               href: devtest-lab-resize-vm.md
             - name: Reimplementación de una máquina virtual
               href: devtest-lab-redeploy-vm.md
+            - name: Importación de una máquina virtual
+              href: devtest-lab-import-vm.md
         - name: Uso de entornos en un laboratorio
           items:
             - name: Creación de un entorno

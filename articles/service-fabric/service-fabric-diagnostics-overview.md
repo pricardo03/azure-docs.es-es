@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643182"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Supervisión y diagnóstico para Azure Service Fabric
 
@@ -46,9 +47,6 @@ Service Fabric proporciona un conjunto completo de eventos listos para usar. Est
 Se recomienda usar EventStore para el análisis rápido y la obtención de una instantánea de cómo funciona el clúster y de si todo ocurre tal como se espera. Para recopilar los registros y eventos que genera el clúster, se suele recomendar el uso de la [extensión de Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md). Esto se integra bien con Service Fabric Analytics, una solución específica de Service Fabric de Log Analytics de OMS, que proporciona un panel personalizado para la supervisión de clústeres de Service Fabric y permite consultar los eventos del clúster y configurar alertas. Para obtener más información al respecto, consulte [Análisis de eventos con OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
  Para obtener más información sobre la supervisión de clústeres, consulte [Generación de eventos y registros de nivel de plataforma](service-fabric-diagnostics-event-generation-infra.md).
-
-
- ![Solución SF en OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>Supervisión del rendimiento
 La supervisión de la infraestructura subyacente es una parte fundamental del conocimiento del estado del clúster y la utilización de los recursos. La medición del rendimiento del sistema depende de varios factores, cada uno de los cuales suele medirse mediante unos indicadores clave de rendimiento (KPI). Los KPI pertinentes de Service Fabric pueden asignarse a las métricas que pueden recopilarse de los nodos del clúster, como los contadores de rendimiento.

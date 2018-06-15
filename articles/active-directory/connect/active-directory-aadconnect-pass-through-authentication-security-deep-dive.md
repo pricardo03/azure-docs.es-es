@@ -1,9 +1,9 @@
 ---
-title: "Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory | Microsoft Docs"
-description: "En este artículo se describe la manera en que la autenticación de paso a través de Azure Active Directory (Azure AD) protege las cuentas locales."
+title: Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory | Microsoft Docs
+description: En este artículo se describe la manera en que la autenticación de paso a través de Azure Active Directory (Azure AD) protege las cuentas locales.
 services: active-directory
-keywords: "Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
-documentationcenter: 
+keywords: Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.service: active-directory
@@ -12,12 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84a5ef23739635ba4d2f0adc688c1b506f643a36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595043"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 

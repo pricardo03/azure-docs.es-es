@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a3196f1cdbebd131d6880bab6fc1468f4c1b849
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e89c863ac50a8b906b388c505f444cd60fdbaad3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649081"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database   
 Cuando se [migra la base de datos](sql-database-cloud-migrate.md) de SQL Server a Azure SQL Server, es posible que descubra que la base de datos requiere cierta reingeniería antes de que se pueda migrar el servidor SQL Server. En este artículo se proporcionan instrucciones para ayudarle a realizar esta reingeniería y entender las razones subyacentes por las que es necesaria. Para detectar incompatibilidades, utilice el [Asistente para migración de datos (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
