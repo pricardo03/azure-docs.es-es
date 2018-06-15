@@ -1,11 +1,11 @@
 ---
-title: "Ejecución de tareas de inicio en Azure Cloud Services | Microsoft Docs"
-description: "Las tareas de inicio ayudan a preparar el entorno de servicio en la nube para su aplicación. Esto le enseñará cómo funcionan las tareas de inicio y cómo realizarlas"
+title: Ejecución de tareas de inicio en Azure Cloud Services | Microsoft Docs
+description: Las tareas de inicio ayudan a preparar el entorno de servicio en la nube para su aplicación. Esto le enseñará cómo funcionan las tareas de inicio y cómo realizarlas
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999140"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Configuración y ejecución de tareas de inicio para un servicio en la nube
 Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo.

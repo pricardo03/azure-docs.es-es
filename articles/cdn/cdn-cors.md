@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765371"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de la red CDN de Azure con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?

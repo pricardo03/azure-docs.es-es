@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782584"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Configuración de los métodos abreviados de teclado de Azure Media Clipper
 Azure Media Clipper admite la personalización de los métodos abreviados de teclado predeterminados gracias al parámetro JSON `keymap` opcional.

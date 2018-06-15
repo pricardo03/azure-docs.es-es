@@ -16,6 +16,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186035"
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Creación de una sola instancia de Azure SQL Database con PowerShell
 

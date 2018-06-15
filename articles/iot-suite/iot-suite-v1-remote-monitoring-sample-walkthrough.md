@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 871098642f586a123d056e2da22d2fceae9bdfe5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638082"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Tutorial de la solución preconfigurada de supervisión remota
 
@@ -35,7 +36,7 @@ Este artículo le guiará a través de algunos de los elementos clave de la solu
 
 El diagrama siguiente describe los componentes lógicos de la solución preconfigurada:
 
-![Arquitectura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![Arquitectura lógica](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## <a name="microservices--docker-containers"></a>Microservicios y contenedores de Docker
 Supervisión remota es la primera de nuestras soluciones preconfiguradas que aprovecha una arquitectura de microservicios. La solución está disponible tanto en [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) como en [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).

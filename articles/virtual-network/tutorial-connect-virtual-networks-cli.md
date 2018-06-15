@@ -22,6 +22,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30321825"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Conexión de redes virtuales con emparejamiento de redes virtuales con la CLI de Azure
 

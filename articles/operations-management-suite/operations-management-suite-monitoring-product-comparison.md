@@ -1,8 +1,8 @@
 ---
-title: "Comparación de productos de supervisión de Microsoft | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura en la nube y local.  Este artículo identifica los distintos servicios que se incluyen en OMS y proporciona vínculos a contenido detallado."
+title: Comparación de productos de supervisión de Microsoft | Microsoft Docs
+description: Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura en la nube y local.  Este artículo identifica los distintos servicios que se incluyen en OMS y proporciona vínculos a contenido detallado.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040300"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Comparación de productos de supervisión de Microsoft
 Este artículo proporciona una comparación entre System Center Operations Manager (SCOM) y Log Analytics en Operations Management Suite (OMS) en cuanto a su arquitectura, la lógica de cómo supervisan los recursos y la forma en la que realizan un análisis de los datos recopilados.  En él se proporciona información fundamental sobre sus diferencias y sus fuerzas relativas.  

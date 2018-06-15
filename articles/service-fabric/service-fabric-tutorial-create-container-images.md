@@ -1,14 +1,14 @@
 ---
-title: "Crear imágenes de contenedor para Azure Service Fabric | Microsoft Docs"
-description: "En este tutorial, aprenderá a crear imágenes de contenedor para una aplicación de Service Fabric con varios contenedores."
+title: Crear imágenes de contenedor para Azure Service Fabric | Microsoft Docs
+description: En este tutorial, aprenderá a crear imágenes de contenedor para una aplicación de Service Fabric con varios contenedores.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, microservicios, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558192"
 ---
 # <a name="tutorial-create-container-images-for-service-fabric"></a>Tutorial: Creación de imágenes de contenedor para Service Fabric
 
@@ -204,7 +205,7 @@ azure-vote-front
 
 Al finalizar el tutorial, la imagen de contenedor se ha almacenado en una instancia privada de Azure Container Registry. Esta imagen se implementa desde ACR en un clúster de Service Fabric en tutoriales posteriores.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, se extrajo una aplicación de Github y se crearon e insertaron imágenes de contenedor en un registro. Se han completado los siguientes pasos:
 

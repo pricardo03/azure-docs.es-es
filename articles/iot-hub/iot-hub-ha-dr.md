@@ -1,24 +1,19 @@
 ---
-title: "Alta disponibilidad y recuperación ante desastres de Azure IoT Hub | Microsoft Docs"
-description: "Describe las características de Azure e IoT Hub que lo ayudarán a crear soluciones de IoT de Azure de alta disponibilidad con funcionalidades de recuperación ante desastres."
-services: iot-hub
-documentationcenter: 
+title: Alta disponibilidad y recuperación ante desastres de Azure IoT Hub | Microsoft Docs
+description: Describe las características de Azure e IoT Hub que lo ayudarán a crear soluciones de IoT de Azure de alta disponibilidad con funcionalidades de recuperación ante desastres.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633713"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 Como un servicio de Azure, Azure IoT Hub proporciona alta disponibilidad (HA) usando redundancias en la región de Azure, sin que la solución tenga que realizar ningún trabajo adicional. La plataforma Microsoft Azure también incluye características para ayudarle a crear soluciones con funcionalidades de recuperación ante desastres o disponibilidad entre regiones. Si desea proporcionar alta disponibilidad global entre regiones para dispositivos o usuarios, aproveche estas características de recuperación ante desastres de Azure. En el artículo [Guía técnica sobre la continuidad empresarial de Azure](../resiliency/resiliency-technical-guidance.md) , se describen las características integradas en Azure para la continuidad empresarial y la recuperación ante desastres. El documento [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure][Disaster recovery and high availability for Azure applications] proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.

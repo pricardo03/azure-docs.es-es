@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30317779"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Descarga de scripts de configuración de dispositivos VPN para conexiones VPN S2S
 

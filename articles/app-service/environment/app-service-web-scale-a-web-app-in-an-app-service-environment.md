@@ -1,8 +1,8 @@
 ---
-title: "Escalado de una aplicación en un entorno del Servicio de aplicaciones"
-description: "Escalado de una aplicación en un entorno del Servicio de aplicaciones"
+title: Escalado de una aplicación en un entorno del Servicio de aplicaciones
+description: Escalado de una aplicación en un entorno del Servicio de aplicaciones
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986320"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Escalado de aplicaciones en un entorno del Servicio de aplicaciones
 En el Servicio de aplicaciones de Azure hay normalmente tres cosas que puede escalar:

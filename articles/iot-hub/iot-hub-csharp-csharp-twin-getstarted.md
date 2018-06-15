@@ -1,24 +1,20 @@
 ---
 title: Introducción a los dispositivos gemelos de Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Describe cómo usar dispositivos gemelos de IoT Hub de Azure para agregar etiquetas y, luego, usar una consulta de IoT Hub. Usará el SDK de dispositivo Azure IoT para .NET con el fin de implementar una aplicación para dispositivo simulado, además del SDK de servicios Azure IoT para .NET con el objetivo de implementar una aplicación de servicio que agrega las etiquetas y ejecuta la consulta de IoT Hub.
-services: iot-hub
-documentationcenter: node
 author: dsk-2015
 manager: timlt
-editor: ''
-ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dkshir
-ms.openlocfilehash: b337e463ac4aefd7e4644af4c2cdcad4f3c5300a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9419f15f2876a36769bdea84cc28537435148cac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634862"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Introducción a los dispositivos gemelos (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
