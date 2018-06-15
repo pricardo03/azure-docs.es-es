@@ -2,29 +2,26 @@
 title: Creación de un desencadenador HTTP con un enlace de entrada de Azure Cosmos DB | Microsoft Docs
 description: Aprenda a utilizar Azure Functions con desencadenadores HTTP para realizar consultas en Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818906"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Creación de un desencadenador HTTP de Azure Functions con un enlace de entrada de Azure Cosmos DB
 
 Azure Cosmos DB es una base de datos de varios modelos distribuida globalmente que no tiene esquema ni servidor. Azure Functions es un servicio de procesos sin servidor que le permite ejecutar código a petición. Empareje estos dos servicios de Azure y tendrá la base de una arquitectura sin servidor que le permite centrarse en la creación de aplicaciones fantásticas y no preocuparse acerca del aprovisionamiento y el mantenimiento de servidores que cubran las necesidades del proceso y de la base de datos necesita.
 
-Este tutorial se basa en el código creado en el artículo [Azure Cosmos DB: Compilar una aplicación de .NET mediante Graph API](create-graph-dotnet.md). Este tutorial agrega una función de Azure que contiene un [desencadenador HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). El desencadenador HTTP utiliza un [enlace de entrada](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) de Azure Cosmos DB para recuperar datos de la base de datos de grafos creada en la guía de inicio rápido. Este desencadenador HTTP concreto consulta los datos de Azure Cosmos DB, pero los enlaces de entrada de Azure Cosmos DB se pueden usar para recuperar los valores de entrada de datos de todo aquello que la función requiera.
+Este tutorial se basa en el código creado en el artículo [Azure Cosmos DB: Compilar una aplicación de .NET mediante Graph API](create-graph-dotnet.md). Este tutorial agrega una función de Azure que contiene un [desencadenador HTTP](../azure-functions/functions-bindings-http-webhook.md). El desencadenador HTTP utiliza un [enlace de entrada](../azure-functions/functions-triggers-bindings.md) de Azure Cosmos DB para recuperar datos de la base de datos de grafos creada en la guía de inicio rápido. Este desencadenador HTTP concreto consulta los datos de Azure Cosmos DB, pero los enlaces de entrada de Azure Cosmos DB se pueden usar para recuperar los valores de entrada de datos de todo aquello que la función requiera.
 
 En este tutorial se describen las tareas siguientes:
 

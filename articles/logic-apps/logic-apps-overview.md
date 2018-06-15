@@ -1,12 +1,12 @@
 ---
-title: "Introducción a la integración empresarial con Azure Logic Apps | Microsoft Docs"
-description: "Cree flujos de trabajo y procesos empresariales automatizados que integran datos, servicios, aplicaciones y sistemas en empresas y organizaciones. Cree soluciones para escenarios de integración de datos, integración de sistemas, Enterprise Application Integration (EAI) y orquestación."
-keywords: "automatizar, flujos de trabajo, enterprise application integration, EAI, integración de sistemas, integración de datos, orquestación, servicios de integración, iPaaS"
+title: Introducción a la integración empresarial con Azure Logic Apps | Microsoft Docs
+description: Cree flujos de trabajo y procesos empresariales automatizados que integran datos, servicios, aplicaciones y sistemas en empresas y organizaciones. Cree soluciones para escenarios de integración de datos, integración de sistemas, Enterprise Application Integration (EAI) y orquestación.
+keywords: automatizar, flujos de trabajo, enterprise application integration, EAI, integración de sistemas, integración de datos, orquestación, servicios de integración, iPaaS
 services: logic-apps
 author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6c88c51eb4def92164e221efa5c6293f9b2247e4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c575ae1f9c801072fb1f6f32a13f111b9edd18ce
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299246"
 ---
 # <a name="what-is-azure-logic-apps"></a>¿Qué es Azure Logic Apps?
 

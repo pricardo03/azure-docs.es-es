@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 91174f14cb6a49e560504e01ba47e7121f869080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7531ddce37b2f6d140cb277727d6168d8d98ba1e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366263"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802391"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
@@ -146,7 +146,7 @@ Una vez que inicia sesión en la instancia de máquina virtual, puede realizar a
 
 
 ## <a name="understand-vm-instance-images"></a>Imágenes de instancia de máquina virtual
-Cuando se define la configuración de un conjunto de escalado con el comando [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) en un paso anterior, se utiliza una imagen de Windows Server 2016 Datacenter. Azure Marketplace incluye muchas imágenes que pueden usarse para crear instancias de máquina virtual. Para ver una lista de publicadores disponibles, use el comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
+Azure Marketplace incluye muchas imágenes que pueden usarse para crear instancias de máquina virtual. Para ver una lista de publicadores disponibles, use el comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"

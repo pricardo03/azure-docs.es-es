@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30281831"
 ---
 # <a name="map-a-custom-domain-to-a-web-app"></a>Asignación de un dominio personalizado a una aplicación web
 

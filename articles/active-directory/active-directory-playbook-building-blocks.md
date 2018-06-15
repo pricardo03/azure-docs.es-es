@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157707"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293116"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -141,7 +141,7 @@ Tiempo aproximado para completarlo: 60 minutos
 | --- | --- |
 | Entorno de prueba de la aplicación de SaaS disponible. En esta guía, se utiliza ServiceNow como ejemplo.<br/>Se recomienda encarecidamente usar una instancia de prueba para minimizar la fricción al desplazarse por las asignaciones y la calidad de los datos existentes. | Vaya a https://developer.servicenow.com/app.do#!/inicio para iniciar el proceso de obtención de una instancia de prueba. |
 | Acceso de administrador a la consola de administración de ServiceNow. | [Tutorial: Integración de Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Conjuntos de usuarios de destino a los que asignar la aplicación. Se recomienda un grupo de seguridad que contenga los usuarios de prueba de concepto. <br/>Si no es posible crear el grupo, asigne los usuarios directamente a la aplicación para la prueba de concepto. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Conjuntos de usuarios de destino a los que asignar la aplicación. Se recomienda un grupo de seguridad que contenga los usuarios de prueba de concepto. <br/>Si no es posible crear el grupo, asigne los usuarios directamente a la aplicación para la prueba de concepto. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Pasos
 
@@ -149,13 +149,13 @@ Tiempo aproximado para completarlo: 60 minutos
 | --- | --- |
 | Comparta el tutorial con todos los actores desde Microsoft Documentation.  | [Tutorial: Integración de Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Convoque una reunión de trabajo y siga los pasos del tutorial con cada actor. | [Tutorial: Integración de Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Asigne la aplicación al grupo identificado en los requisitos previos. Si la prueba de concepto tiene acceso condicional en el ámbito, puede volver a visitarlo que más adelante y agregarle MFA y similares. <br/>Tenga en cuenta que esto activará en el proceso de aprovisionamiento (si está configurado). |  [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Asigne la aplicación al grupo identificado en los requisitos previos. Si la prueba de concepto tiene acceso condicional en el ámbito, puede volver a visitarlo que más adelante y agregarle MFA y similares. <br/>Tenga en cuenta que esto activará en el proceso de aprovisionamiento (si está configurado). |  [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Utilice el Portal de administración de Azure AD para agregar la aplicación ServiceNow desde la galería.| [Portal de administración de AD Azure: Aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | En la hoja "Inicio de sesión único" de la aplicación ServiceNow, habilite "Inicio de sesión basado en SAML". |  |
 | Rellene los campos "URL de inicio de sesión" e "Identificador" con la dirección URL de ServiceNow.<br/>Active la casilla "Make new certificate active" (Activar nuevo certificado)<br/>y haga clic en Guardar configuración. |  |
 | Abra la hoja "Configurar ServiceNow" en la parte inferior del panel para ver instrucciones personalizadas para configurar ServiceNow. |  |
 | Siga las instrucciones para configurar ServiceNow. |  |
-| En la hoja "Aprovisionamiento" de la aplicación ServiceNow, habilite el aprovisionamiento "Automático". | [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el nuevo Azure Portal](active-directory-enterprise-apps-manage-provisioning.md) |
+| En la hoja "Aprovisionamiento" de la aplicación ServiceNow, habilite el aprovisionamiento "Automático". | [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el nuevo Azure Portal](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Espere unos minutos mientras se completa el aprovisionamiento.  Mientras tanto, puede consultar los informes de aprovisionamiento. |  |
 | Inicie sesión en https://myapps.microsoft.com/ como un usuario de prueba que tiene acceso. | [¿Qué es el Panel de acceso?](active-directory-saas-access-panel-introduction.md) |
 | Haga clic en el icono de la aplicación que acaba de crear. Confirme el acceso |  |
@@ -176,7 +176,7 @@ Tiempo aproximado para completarlo: 15 minutos
 | --- | --- |
 | Entorno de prueba para las aplicaciones SaaS. HipChat y Twitter son ejemplos de SSO de contraseña. Para cualquier otra aplicación, necesita la dirección URL exacta de la página con el formulario de inicio de sesión de html. | [Twitter en Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat en Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Cuentas de prueba para las aplicaciones. | [Registro en Twitter](https://twitter.com/signup?lang=en)<br/>[Registro gratuito: HipChat](https://www.hipchat.com/sign_up) |
-| Conjuntos de usuarios de destino a los que asignar la aplicación. Se recomienda un grupo de seguridad que contenga los usuarios. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Conjuntos de usuarios de destino a los que asignar la aplicación. Se recomienda un grupo de seguridad que contenga los usuarios. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Acceso de administrador local a un equipo para implementar la extensión Access Panel para Internet Explorer, Chrome o Firefox. | [Extensión Access Panel para IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensión Access Panel para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensión Access Panel para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Pasos
@@ -185,8 +185,8 @@ Tiempo aproximado para completarlo: 15 minutos
 | --- | --- |
 | Instale la extensión del explorador. | [Extensión Access Panel para IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensión Access Panel para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensión Access Panel para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configuración de una aplicación de la galería | [Novedades de la administración de aplicaciones de empresa en Azure Active Directory: La nueva y mejorada galería de aplicaciones](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configure la contraseña de SSO. | [Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal: Inicio de sesión con contraseña](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Asigne la aplicación al grupo identificado en los requisitos previos. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configure la contraseña de SSO. | [Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal: Inicio de sesión con contraseña](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Asigne la aplicación al grupo identificado en los requisitos previos. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Inicie sesión en https://myapps.microsoft.com/ como un usuario de prueba que tiene acceso. |  |
 | Haga clic en el icono de la aplicación que acaba de crear. | [¿Qué es el Panel de acceso?: SSO basado en contraseña sin aprovisionamiento de identidad](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Proporcione la credencial de la aplicación. | [¿Qué es el Panel de acceso?: SSO basado en contraseña sin aprovisionamiento de identidad](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -211,7 +211,7 @@ Tiempo aproximado para completarlo: 30 minutos
 | --- | --- |
 | La lista de las aplicaciones de destino y las URL de inicio de sesión exactas anteriores. Por ejemplo, puede usar Twitter. | [Twitter en Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Registro en Twitter](https://twitter.com/signup?lang=en) |
 | Credenciales compartidas para esta aplicación SaaS. | [Uso compartido de cuentas con Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! - Blog de Enterprise Mobility + Security (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Credenciales para al menos dos miembros del equipo que accederán a la misma cuenta. Deben formar parte de un grupo de seguridad. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Credenciales para al menos dos miembros del equipo que accederán a la misma cuenta. Deben formar parte de un grupo de seguridad. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Acceso de administrador local a un equipo para implementar la extensión Access Panel para Internet Explorer, Chrome o Firefox. | [Extensión Access Panel para IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensión Access Panel para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensión Access Panel para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Pasos
@@ -220,8 +220,8 @@ Tiempo aproximado para completarlo: 30 minutos
 | --- | --- |
 | Instale la extensión del explorador. | [Extensión Access Panel para IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensión Access Panel para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensión Access Panel para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configuración de una aplicación de la galería | [Novedades de la administración de aplicaciones de empresa en Azure Active Directory: La nueva y mejorada galería de aplicaciones](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configure la contraseña de SSO. | [Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal: Inicio de sesión con contraseña](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Asigne la aplicación al grupo identificado en los requisitos previos durante la asignación de credenciales. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configure la contraseña de SSO. | [Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal: Inicio de sesión con contraseña](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Asigne la aplicación al grupo identificado en los requisitos previos durante la asignación de credenciales. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Inicie sesión como distintos usuarios que acceden a esa aplicación con la **misma cuenta compartida**.  |  |
 | Si lo desea, puede consultar los informes de uso de la aplicación. Tenga en cuenta que hay cierta latencia, por lo que es necesario esperar un poco para ver el tráfico en los informes. | [Informes de actividad de inicio de sesión en el portal de Azure Active Directory: Uso de las aplicaciones administradas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Directivas de retención de informes de Azure Active Directory](active-directory-reporting-retention.md) |
 

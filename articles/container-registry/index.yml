@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/07/2018
+  ms.locfileid: "33767961"
 abstract:
   description: Azure Container Registry le permite compilar, almacenar y administrar imágenes para todo tipo de implementaciones de contenedor. Obtenga información sobre cómo usar Azure Container Registry con estos inicios rápidos, tutoriales y ejemplos.
 sections:

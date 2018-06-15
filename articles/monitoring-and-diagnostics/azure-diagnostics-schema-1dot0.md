@@ -1,24 +1,20 @@
 ---
-title: "Esquema de configuración de Diagnósticos de Azure 1.0 | Microsoft Docs"
-description: "SOLO es pertinente si utiliza Azure SDK 2.4 y versiones anteriores con Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric o Cloud Services."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Esquema de configuración de Diagnósticos de Azure 1.0
+description: SOLO es pertinente si utiliza Azure SDK 2.4 y versiones anteriores con Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric o Cloud Services.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: diagnostic-extension
+ms.openlocfilehash: 916e2123262402e23f35778e66683ecce2cec4b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262592"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuración de Diagnósticos de Azure 1.0
 > [!NOTE]
@@ -105,7 +101,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
 Atributos:
 
-|Atributo  |Escriba   |Obligatorio| Valor predeterminado | Descripción|  
+|Atributo  |Escriba   |Obligatorio| Valor predeterminado | DESCRIPCIÓN|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Opcional | PT1M| Especifica el intervalo en el que el monitor de diagnóstico sondea los cambios de configuración de diagnóstico.|  
 |**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Si proporciona un valor, no debe superar esta cantidad. |La cantidad total de almacenamiento del sistema de archivos asignada para todos los búferes de registro.|  
@@ -117,10 +113,10 @@ Elemento principal: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitor
 
 Atributos:
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
-|**scheduledTransferLogLevelFilter**|cadena|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
 
 ## <a name="logs-element"></a>Elemento Logs  
@@ -130,10 +126,10 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
-|**scheduledTransferLogLevelFilter**|cadena|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
 
 ## <a name="directories-element"></a>Elemento Directories  
@@ -144,7 +140,7 @@ Elemento principal: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitor
 
 Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
@@ -156,9 +152,9 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**container**|cadena|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
+|**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Elemento FailedRequestLogs  
@@ -168,9 +164,9 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**container**|cadena|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
+|**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
 
 ##  <a name="iislogs-element"></a>Elemento IISLogs  
@@ -180,9 +176,9 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**container**|cadena|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
+|**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
 
 ## <a name="datasources-element"></a>Elemento DataSources  
@@ -197,9 +193,9 @@ Atributos:
 
 Atributos:
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**container**|cadena|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
+|**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
 
 ## <a name="absolute-element"></a>Elemento Absolute  
@@ -209,10 +205,10 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**path**|string|Obligatorio. La ruta de acceso absoluta al directorio que se va a supervisar.|  
-|**expandEnvironment**|boolean|Obligatorio. Si establece en **true**, las variables de entorno de la ruta de acceso se expanden.|  
+|**path**|string|Necesario. La ruta de acceso absoluta al directorio que se va a supervisar.|  
+|**expandEnvironment**|boolean|Necesario. Si establece en **true**, las variables de entorno de la ruta de acceso se expanden.|  
 
 ## <a name="localresource-element"></a>Elemento LocalResource  
  Define una ruta de acceso relativa a un recurso local definido en la definición del servicio.
@@ -221,10 +217,10 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**name**|string|Obligatorio. El nombre del recurso local que contiene el directorio que se va a supervisar.|  
-|**relativePath**|string|Obligatorio. La ruta de acceso relativa al recurso local que se va a supervisar.|  
+|**name**|string|Necesario. El nombre del recurso local que contiene el directorio que se va a supervisar.|  
+|**relativePath**|string|Necesario. La ruta de acceso relativa al recurso local que se va a supervisar.|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
  Define la ruta de acceso al contador de rendimiento que se va a recopilar.
@@ -234,7 +230,7 @@ Atributos:
 
  Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
@@ -246,10 +242,10 @@ Atributos:
 
  Atributos:  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|string|Obligatorio. La ruta de acceso al contador de rendimiento que se va a recopilar.|  
-|**sampleRate**|duration|Obligatorio. La velocidad a la que se debe recopilar el contador de rendimiento.|  
+|**counterSpecifier**|string|Necesario. La ruta de acceso al contador de rendimiento que se va a recopilar.|  
+|**sampleRate**|duration|Necesario. La velocidad a la que se debe recopilar el contador de rendimiento.|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  Define los registros de eventos que se van a supervisar.
@@ -258,10 +254,10 @@ Atributos:
 
   Atributos:
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
-|**scheduledTransferLogLevelFilter**|cadena|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**. Otros valores posibles son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
 |**scheduledTransferPeriod**|duration|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
 
 ## <a name="datasource-element"></a>Elemento DataSource  
@@ -271,6 +267,6 @@ Atributos:
 
  Atributos:
 
-|Atributo|Tipo|Descripción|  
+|Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**name**|string|Obligatorio. Expresión XPath que especifica el registro que se va a recopilar.|  
+|**name**|string|Necesario. Expresión XPath que especifica el registro que se va a recopilar.|  
