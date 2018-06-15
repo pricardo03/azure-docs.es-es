@@ -1,51 +1,57 @@
 - name: Introducción a la administración del acceso
   href: manage-access-to-azure-resources.md
-- name: Acceso a los recursos de Azure
-  href: rbac-and-directory-admin-roles.md
-- name: Control de acceso basado en roles (RBAC)
-  href: overview.md
+  items: null
+- name: Información general
   items:
-    - name: Guías de inicio rápido
-      items:
-        - name: 'Concesión de acceso a un usuario: portal'
-          href: quickstart-assign-role-user-portal.md
-    - name: Tutoriales
-      items:
-        - name: 'Concesión de acceso a un usuario: PowerShell'
-          href: tutorial-role-assignments-user-powershell.md
-        - name: 'Concesión de acceso a un grupo: PowerShell'
-          href: tutorial-role-assignments-group-powershell.md
-        - name: 'Creación de un rol personalizado: PowerShell'
-          href: tutorial-custom-role-powershell.md
-        - name: 'Creación de un rol personalizado: CLI'
-          href: tutorial-custom-role-cli.md
-    - name: Administración de asignaciones de roles
-      items:
-        - name: Portal
-          href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
-        - name: Azure CLI
-          href: role-assignments-cli.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: REST
-          href: role-assignments-rest.md
+    - name: ¿Qué es RBAC?
+      href: overview.md
+    - name: Descripción de los distintos roles
+      href: rbac-and-directory-admin-roles.md
+- name: Guías de inicio rápido
+  items:
+    - name: Concesión de acceso a un usuario
+      href: quickstart-assign-role-user-portal.md
+- name: Tutoriales
+  items:
+    - name: 'Concesión de acceso a un usuario: PowerShell'
+      href: tutorial-role-assignments-user-powershell.md
+    - name: 'Concesión de acceso a un grupo: PowerShell'
+      href: tutorial-role-assignments-group-powershell.md
+    - name: 'Creación de un rol personalizado: PowerShell'
+      href: tutorial-custom-role-powershell.md
+    - name: 'Creación de un rol personalizado: CLI'
+      href: tutorial-custom-role-cli.md
+- name: Conceptos
+  items:
     - name: Descripción de definiciones de roles
       href: role-definitions.md
     - name: Roles integrados
       href: built-in-roles.md
     - name: Roles personalizados
       href: custom-roles.md
-    - name: Administración de asignaciones de roles para los usuarios externos
-      href: role-assignments-external-users.md
+    - name: Operaciones del proveedor de recursos
+      href: resource-provider-operations.md
+    - name: Privileged Identity Management (PIM) para RBAC
+      href: pim-azure-resource.md
+    - name: Acceso condicional para la administración de Azure
+      href: conditional-access-azure-management.md
+- name: Guías de procedimientos
+  items:
+    - name: Administración del acceso
+      items:
+        - name: Portal
+          href: role-assignments-portal.md
+        - name: Azure CLI
+          href: role-assignments-cli.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: REST
+          href: role-assignments-rest.md
     - name: Registros de actividad
       href: change-history-report.md
     - name: Elevación de los privilegios de acceso para el administrador global
       href: elevate-access-global-admin.md
+    - name: Administración del acceso de usuarios externos
+      href: role-assignments-external-users.md
     - name: Solución de problemas
       href: troubleshooting.md
-    - name: Operaciones del proveedor de recursos
-      href: resource-provider-operations.md
-- name: Privileged Identity Management (PIM) para RBAC
-  href: pim-azure-resource.md
-- name: Acceso condicional para la administración de Azure
-  href: conditional-access-azure-management.md
