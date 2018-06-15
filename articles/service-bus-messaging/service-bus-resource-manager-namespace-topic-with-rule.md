@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31410716"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla mediante una plantilla de Azure Resource Manager
 

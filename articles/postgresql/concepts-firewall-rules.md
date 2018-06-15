@@ -1,6 +1,6 @@
 ---
 title: Reglas de firewall del servidor de Azure Database for PostgreSQL
-description: "En este artículo se describen las reglas de firewall para el servidor de Azure Database for PostgreSQL."
+description: En este artículo se describen las reglas de firewall para el servidor de Azure Database for PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29689894"
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database for PostgreSQL
 El firewall del servidor de Azure Database for PostgreSQL impide todo acceso al servidor de base de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -62,7 +63,7 @@ Por ejemplo, mediante un cliente JDBC, puede aparecer el siguiente error.
 
 * Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue la dirección IP estática como regla de firewall.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para leer artículos sobre cómo crear reglas de firewall de nivel de servidor y de base de datos, consulte:
 * [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md) (Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante Azure Portal)
 * [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md) (Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante la CLI de Azure)

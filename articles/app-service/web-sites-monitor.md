@@ -1,11 +1,11 @@
 ---
-title: "Supervisión de aplicaciones en Azure App Service | Microsoft Docs"
+title: Supervisión de aplicaciones en Azure App Service | Microsoft Docs
 description: Aprenda a supervisar aplicaciones en Azure App Service mediante Azure Portal.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29573810"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Supervisión de Aplicaciones en Azure App Service
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada en [Azure Portal](https://portal.azure.com).

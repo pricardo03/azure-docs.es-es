@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407969"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualización de datos de Interactive Query Hive con Power BI mediante DirectQuery en Azure HDInsight
 

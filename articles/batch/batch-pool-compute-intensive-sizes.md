@@ -1,12 +1,12 @@
 ---
 title: Uso de VM de Azure de proceso intensivo con Batch | Microsoft Docs
-description: "Cómo aprovechar los tamaños de VM compatibles con RDMA o habilitados para GPU en grupos de Azure Batch"
+description: Cómo aprovechar los tamaños de VM compatibles con RDMA o habilitados para GPU en grupos de Azure Batch
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29762448"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch
 
