@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715829"
 ---
 # <a name="traffic-analytics"></a>Análisis del tráfico
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Selección de un grupo de seguridad de red 
 
-Antes de habilitar el registro de flujos del grupo de seguridad de red, debe tener un grupo de seguridad de red del que registrar los flujos. Si no tiene ningún grupo de seguridad de red, consulte [Creación de grupos de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) para crear uno.
+Antes de habilitar el registro de flujos del grupo de seguridad de red, debe tener un grupo de seguridad de red del que registrar los flujos. Si no tiene ningún grupo de seguridad de red, consulte [Creación de grupos de seguridad de red](../virtual-network/manage-network-security-group.md#create-a-network-security-group) para crear uno.
 
 En el lado izquierdo de Azure Portal, seleccione **Monitor** y, a continuación, **Network Watcher**y, finalmente, **Registro de flujos de NSG**. Seleccione el grupo de seguridad de red para el que desee habilitar un registro de flujos, tal como se muestra en la siguiente imagen:
 

@@ -4,10 +4,10 @@ description: Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31f3765d807882e65a247819a5999c191f9e7ac5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6612e3fb5368d8d5a4f59c0e5eefc8ef24c04aec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656931"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
 
@@ -146,7 +147,7 @@ ms.lasthandoff: 11/15/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuración de alta disponibilidad de varios SID de SAP)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -248,7 +249,7 @@ La alta disponibilidad SAP en Azure se puede dividir en tres tipos:
 
 * **Alta disponibilidad de las aplicaciones de SAP**: 
 
-    Para lograr la alta disponibilidad completa del sistema SAP, es necesario proteger todos los componentes críticos de este. Por ejemplo:
+    Para lograr la alta disponibilidad completa del sistema SAP, es necesario proteger todos los componentes críticos de este. Por ejemplo: 
     * Los servidores de aplicaciones de SAP redundantes.
     * Componentes únicos. Un ejemplo podría ser un componente de único punto de error (SPOF), como una instancia de ASCS/SCS de SAP o un sistema de administración de bases de datos (DBMS).
 
@@ -266,7 +267,7 @@ La base para el cálculo es de 30 días al mes o 43 200 minutos. Por ejemplo, u
 
 (Servicio de disponibilidad n.º 1/100) * (servicio de disponibilidad n.º 2/100) * (servicio de disponibilidad n.º 3/100) \*…
 
-Por ejemplo:
+Por ejemplo: 
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 o una disponibilidad general del 99,75 %.
 
@@ -320,7 +321,7 @@ Para más información sobre este enfoque consulte [Utilización del reinicio de
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Alta disponibilidad de las aplicaciones de SAP en IaaS de Azure
 
-Para lograr la alta disponibilidad completa del sistema SAP, es necesario proteger todos los componentes críticos de este. Por ejemplo:
+Para lograr la alta disponibilidad completa del sistema SAP, es necesario proteger todos los componentes críticos de este. Por ejemplo: 
   * Los servidores de aplicaciones de SAP redundantes.
   * Componentes únicos. Un ejemplo podría ser un componente de único punto de error (SPOF), como una instancia de ASCS/SCS de SAP o un sistema de administración de bases de datos (DBMS).
 

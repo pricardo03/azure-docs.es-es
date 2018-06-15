@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 8c955e6ad9d47c6963a1c136600761fddee03835
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05859187a5734d982b750e287c3ecd375ed1da2f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723752"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configuración de Managed Service Identity (MSI) en una máquina virtual mediante una plantilla
 
@@ -35,7 +36,7 @@ En este artículo, aprenderá a realizar las siguientes operaciones de Managed S
 
 ## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
-Como con Azure Portal y los scripts, las plantillas de [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) proporcionan la capacidad de implementar recursos nuevos o modificados definidos con un grupo de recursos de Azure. Existen varias opciones para la edición e implementación de plantillas, tanto localmente como basadas en el portal, incluidas:
+Al igual que con Azure Portal y los scripts, las plantillas de [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) proporcionan la capacidad de implementar recursos nuevos o modificados definidos por un grupo de recursos de Azure. Existen varias opciones para la edición e implementación de plantillas, tanto localmente como basadas en el portal, incluidas:
 
    - Usar una [plantilla personalizada de Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), que permite crear una plantilla desde cero o basada en una común existente o [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/).
    - Derivar a partir de un grupo de recursos existente, exportando una plantilla de [la implementación original](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history) o del [estado actual de la implementación](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
@@ -68,7 +69,7 @@ En esta sección, se habilita y deshabilita una identidad asignada por el sistem
    },
    ```
 
-4. (Opcional) Agregue la extensión MSI de la máquina virtual como elemento `resources`. Este paso es opcional, ya que puede utilizar el punto de conexión de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Use la sintaxis siguiente:
+4. (Opcional) Agregue la extensión MSI de la máquina virtual como elemento `resources`. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Use la sintaxis siguiente:
 
    >[!NOTE] 
    > En el ejemplo siguiente se da por hecho que se está implementando una extensión (`ManagedIdentityExtensionForWindows`) de máquina virtual Windows. También puede configurarlo para Linux utilizando `ManagedIdentityExtensionForLinux` en su lugar, para los elementos `"name"` y `"type"`.
@@ -130,12 +131,12 @@ En esta sección, asignará una identidad asignada por el usuario a una máquina
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
             ]
         },
     ```
     
-2. (Opcional) A continuación, en el elemento `resources`, agregue la siguiente entrada para asignar la extensión de identidad administrada a la máquina virtual. Este paso es opcional, ya que puede utilizar el punto de conexión de Azure Instance Metadata Service (IMDS) para recuperar tokens. Use la sintaxis siguiente:
+2. (Opcional) A continuación, en el elemento `resources`, agregue la siguiente entrada para asignar la extensión de identidad administrada a la máquina virtual. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens. Use la sintaxis siguiente:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -159,7 +160,7 @@ En esta sección, asignará una identidad asignada por el usuario a una máquina
     
 3.  Cuando haya terminado, la plantilla debería tener un aspecto similar al siguiente:
 
-      ![Captura de pantalla de identidad asignada por el usuario](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
+      ![Captura de pantalla de la identidad asignada por el usuario](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
 
 ## <a name="related-content"></a>Contenido relacionado

@@ -1,11 +1,11 @@
 ---
-title: "Programación de tareas y flujos de trabajo ejecutados con regularidad: Azure Logic Apps | Microsoft Docs"
-description: "Creación y programación con Logic Apps de tareas, acciones, flujos de trabajo, procesos y cargas de trabajo ejecutados con regularidad"
+title: 'Programación de tareas y flujos de trabajo ejecutados con regularidad: Azure Logic Apps | Microsoft Docs'
+description: Creación y programación con Logic Apps de tareas, acciones, flujos de trabajo, procesos y cargas de trabajo ejecutados con regularidad
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3bd396355681cdde486cfbea7004c9c1aece09da
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296794"
 ---
 # <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Creación y programación de tareas ejecutadas con regularidad con Azure Logic Apps
 
@@ -96,7 +97,7 @@ Cada vez que el desencadenador de periodicidad se activa, Logic Apps crea y ejec
 
 Puede configurar estas propiedades en el desencadenador de periodicidad.
 
-| NOMBRE | Obligatorio | Nombre de propiedad | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Nombre de propiedad | Escriba | DESCRIPCIÓN | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Frecuencia** | Sí | frequency | string | La unidad de tiempo para la periodicidad: **segundo**, **minuto**, **hora**, **día**, **semana** o **mes** | 
 | **Intervalo** | Sí | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>El intervalo predeterminado es 1. Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 

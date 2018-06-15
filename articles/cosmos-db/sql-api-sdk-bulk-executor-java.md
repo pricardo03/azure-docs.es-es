@@ -2,22 +2,21 @@
 title: 'Azure Cosmos DB: API, SDK y recursos de Java para BulkExecutor | Microsoft Docs'
 description: Obtenga toda la información sobre la API y el SDK de Java para BulkExecutor, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Java para BulkExecutor de Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: .net
 author: tknandu
 manager: kfile
 editor: cgronlun
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-sql
+ms.devlang: java
+ms.topic: reference
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: b9847ecb88f2cc35223e24a0ff13fcbcab1c9a9c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e1e43abd3d0cfceb1713be6cdd02642833283508
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797658"
 ---
 # <a name="java-bulkexecutor-library-download-information"></a>Biblioteca de BulkExecutor en Java: información de descarga
 

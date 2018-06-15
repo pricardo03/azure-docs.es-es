@@ -1,21 +1,21 @@
 ---
-title: "Creación de un entorno de Azure Time Series Insights | Microsoft Docs"
-description: "Este artículo se describe cómo usar Azure Portal para crear un nuevo entorno de Time Series Insights."
-services: time-series-insights
+title: Creación de un entorno de Azure Time Series Insights | Microsoft Docs
+description: Este artículo se describe cómo usar Azure Portal para crear un nuevo entorno de Time Series Insights.
 ms.service: time-series-insights
+services: time-series-insights
 author: ashannon7
 ms.author: anshan
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ef5c194aa462a83cd982adab0a818f0aa095ffa0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654443"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Creación de un nuevo entorno de Time Series Insights en Azure Portal
 En este artículo se describe cómo crear un nuevo entorno de Time Series Insights mediante Azure Portal.
@@ -42,9 +42,9 @@ Siga estos pasos para crear un entorno:
    Configuración|Valor sugerido|DESCRIPCIÓN
    ---|---|---
    Nombre del entorno | Un nombre único | Este nombre representará al entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).
-   La suscripción | Su suscripción | Si tiene varias suscripciones, elija la suscripción que contiene el origen de eventos si es posible. Time Series Insights puede detectar automáticamente los recursos de Azure IoT Hub y Event Hubs existentes en la misma suscripción.
+   Subscription | Su suscripción | Si tiene varias suscripciones, elija la suscripción que contiene el origen de eventos si es posible. Time Series Insights puede detectar automáticamente los recursos de Azure IoT Hub y Event Hubs existentes en la misma suscripción.
    Grupos de recursos | Cree uno o use uno existente | Un grupo de recursos es una colección de recursos de Azure que se usan juntos. Puede elegir un grupo de recursos existente, por ejemplo, la carpeta que contenga el centro de eventos o IoT Hub. También puede crear un disco si este recurso no está relacionado con los otros recursos.
-   La ubicación | La más cercana al origen de su evento | Si es posible, elija la misma ubicación del centro de datos que contiene los datos de origen de eventos para evitar costos adicionales de ancho de banda entre regiones y zonas, y un aumento de la latencia cuando se mueven datos fuera de la región.
+   Ubicación | La más cercana al origen de su evento | Si es posible, elija la misma ubicación del centro de datos que contiene los datos de origen de eventos para evitar costos adicionales de ancho de banda entre regiones y zonas, y un aumento de la latencia cuando se mueven datos fuera de la región.
    Nivel de precios | S1 | Elija el rendimiento requerido. Para costos más bajos y una capacidad de inicio menor, seleccione S1.
    Capacity | 1 | La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado con la SKU seleccionada.  Puede cambiar la capacidad de un entorno después de su creación. Para costos más bajo, seleccione una capacidad de 1. 
   

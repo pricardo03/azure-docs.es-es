@@ -1,11 +1,11 @@
 ---
-title: "Copia de seguridad y restauración del sistema operativo de SAP HANA en SKU de tipo II de Azure (instancias grandes)| Microsoft Docs"
-description: "Realización de copia de seguridad y restauración del sistema operativo de SAP HANA en SKU de tipo II de Azure (instancias grandes)"
+title: Copia de seguridad y restauración del sistema operativo de SAP HANA en SKU de tipo II de Azure (instancias grandes)| Microsoft Docs
+description: Realización de copia de seguridad y restauración del sistema operativo de SAP HANA en SKU de tipo II de Azure (instancias grandes)
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41349cd7fe3bf39b5b42c44ba47acf980d15ebe7
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657611"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>Copia de seguridad y restauración del sistema operativo para SKU de tipo II
 

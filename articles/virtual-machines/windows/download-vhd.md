@@ -13,19 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 83d6715d6d8178e273131a6bc123627126644271
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f62c1b815180e39468a39b8bc2a220a6bfb9ea5a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726302"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Descargar un VHD de Windows desde Azure
 
 En este artículo aprenderá a descargar un archivo de [disco duro virtual (VHD) de Windows](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) desde Azure mediante Azure Portal. 
-
-Las máquinas virtuales (VM) de Azure usan los [discos](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como la ubicación en la que almacenar un sistema operativo, aplicaciones y datos. Todas las máquinas virtuales de Azure tienen al menos dos discos: un disco de sistema operativo Windows y un disco temporal. El disco de sistema operativo se crea inicialmente a partir de una imagen, y tanto el disco de sistema operativo como la imagen son VHD almacenados en una cuenta de Azure Storage. Las máquinas virtuales también pueden tener uno o más discos de datos que también se almacenan en discos duros virtuales.
 
 ## <a name="stop-the-vm"></a>Parada de la máquina virtual
 

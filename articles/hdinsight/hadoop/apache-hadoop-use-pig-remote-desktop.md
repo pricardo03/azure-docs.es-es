@@ -14,11 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: f8d403e46f7460dff92cc418b829cc5510efd982
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 700569684888428032997dd81c10023c6fd5a7d8
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823312"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Ejecución de trabajos de Pig desde una conexión de Escritorio remoto
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -76,7 +77,7 @@ Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él s
     <tr>
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordena los niveles de registro por número (descendente) y los almacena en el resultado (RESULT)</td>
     </tr>
-    </table>
+</table>
 6. También puede guardar los resultados de una transformación mediante la instrucción `STORE`. Por ejemplo, el siguiente comando guarda el valor `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster:
 
         STORE RESULT into 'wasb:///example/data/pigout'

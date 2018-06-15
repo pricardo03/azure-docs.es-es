@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 12066fe622ec3ed2eded74ecf7b791689ed873d5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fa6c95c3986a398bdb4593235116b305a80616fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653800"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicación de directivas a máquinas virtuales con Linux con Azure Resource Manager
 Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización. En este artículo, describimos cómo puede usar las directivas de Azure Resource Manager para definir el comportamiento deseado para las máquinas virtuales de su organización.
@@ -211,4 +212,4 @@ Puede que desee prohibir el uso de ciertos tipos de extensiones. Por ejemplo, un
 ## <a name="next-steps"></a>Pasos siguientes
 * Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la definición de directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para asignar directivas, consulte [Uso de Azure Portal para asignar y administrar directivas de recursos](../../azure-policy/assign-policy-definition.md), [Uso de PowerShell para asignar directivas](../../azure-policy/assign-policy-definition-ps.md) o [Uso de la CLI de Azure para asignar directivas](../../azure-policy/assign-policy-definition-cli.md).
 * Si desea una introducción a las directivas de recursos, consulte [¿Qué es Azure Policy?](../../azure-policy/azure-policy-introduction.md).
-* Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption-guide/subscription-governance).

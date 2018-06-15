@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 4c9e7ec65db80e0af91645d70cea39bb1a396791
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831792"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
 Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. 
@@ -30,7 +31,7 @@ Las API de informes permiten a los clientes de Azure Enterprise extraer datos de
 
 |Clave de encabezado de solicitud | Valor|
 |-|-|
-|Autorización| Especifique el valor con este formato: **bearer {API_KEY}** <br/> Ejemplo: bearer eyr....09|
+|Autorización| Especifique el valor con este formato: **bearer {API_KEY}** <br/> Ejemplo: bearer eyr....09| 
 
 ## <a name="consumption-apis"></a>API de consumo
 Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azure.com/swagger/ui/index) para la API descrita a continuación que debe habilitar una introspección sencilla de la API y la capacidad de generar SDK de cliente con [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). Los datos a partir del 1 de mayo de 2014 están disponibles a través de esta API. 
@@ -50,7 +51,7 @@ Como respuesta a todas las API anteriores, se devuelven etiquetas ETag. Un cambi
  **Enumerar períodos de facturación**: la [API de períodos de facturación](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devuelve una lista de períodos de facturación que tienen datos de consumo para la inscripción especificada en orden cronológico inverso. Cada período contiene una propiedad que señala a la ruta de la API para los cuatro conjuntos de datos: BalanceSummary, UsageDetails, Marketplace Charges y Price Sheet.
 
 
-## <a name="api-response-codes"></a>Códigos de respuesta de la API  
+## <a name="api-response-codes"></a>Códigos de respuesta de la API   
 |Código de estado de respuesta|Message|DESCRIPCIÓN|
 |-|-|-|
 |200| OK|Sin errores|

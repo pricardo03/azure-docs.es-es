@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756908"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas compatibles con Azure Security Center
 La supervisión del estado de seguridad y las recomendaciones están disponibles para las máquinas virtuales, tanto las creadas con los modelos de implementación clásica como de Resource Manager, y para los equipos.
@@ -59,6 +60,6 @@ También se admiten máquinas virtuales que se ejecuten en un servicio en la nub
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a realizar planes y conozca las consideraciones de diseño necesarias para adoptar Azure Security Center.
-- [Alertas de seguridad por tipo de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis): obtenga más información sobre el análisis de comportamiento de máquinas virtuales y el análisis de la memoria de volcado en Security Center.
+- [Alertas de seguridad por tipo de Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis): obtenga más información sobre el análisis de comportamiento de máquinas virtuales y el análisis de la memoria de volcado en Security Center.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre cumplimiento y seguridad de Azure.

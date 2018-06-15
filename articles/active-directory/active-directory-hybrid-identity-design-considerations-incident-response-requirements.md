@@ -1,11 +1,11 @@
 ---
-title: "Diseño de identidades híbridas: requisitos de respuesta ante incidentes en Azure | Microsoft Docs"
-description: "Determine las funcionalidades de supervisión e informes de la solución de identidad híbrida que puede aprovechar el responsable de TI para realizar acciones de cara a identificar y mitigar las posibles amenazas."
-documentationcenter: 
+title: 'Diseño de identidades híbridas: requisitos de respuesta ante incidentes en Azure | Microsoft Docs'
+description: Determine las funcionalidades de supervisión e informes de la solución de identidad híbrida que puede aprovechar el responsable de TI para realizar acciones de cara a identificar y mitigar las posibles amenazas.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 09dfa0bd01a7de95ba6ce3093ddf589595116aa6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801065"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de respuesta a incidentes para su solución de identidad híbrida
 La mayoría de las organizaciones grandes y medianas contarán probablemente con una [respuesta a los incidentes de seguridad](https://technet.microsoft.com/library/cc700825.aspx) para ayudar al responsable de TI a emprender acciones en función del nivel de incidente. El sistema de administración de identidades es un componente importante en el proceso de respuesta a incidentes, ya que se puede usar para ayudar a identificar quién ha realizado una acción específica en el destino. La solución de identidad híbrida debe ser capaz de proporcionar funcionalidades de supervisión e informes que TI puede aprovechar para realizar acciones con el fin de identificar y mitigar las posibles amenazas. En un plan de respuesta a incidentes típico tendrá las siguientes fases:

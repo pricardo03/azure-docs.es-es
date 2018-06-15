@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757202"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure Security and Compliance Blueprint: automatización de aplicaciones web de tres niveles para UK-OFFICAL
 
@@ -148,7 +149,7 @@ Storage
 
 **Puerta de enlace de Internet y dirección IP pública**: la puerta de enlace de Internet expone los servicios de aplicación a los usuarios a través de Internet. El tráfico que obtiene acceso a estos servicios se protege mediante [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), que ofrece funcionalidades de equilibrio de carga y enrutamiento de nivel 7 con protección de firewall de aplicaciones web (WAF).
 
-**Red virtual de administración**: esta [VNET](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) contiene recursos que implementan funcionalidades de administración y supervisión para las cargas de trabajo que se ejecutan en la red virtual de producción.
+**Red virtual de administración**: esta [VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contiene recursos que implementan funcionalidades de administración y supervisión para las cargas de trabajo que se ejecutan en la red virtual de producción.
 
 **Jumpbox**: también denominado [host bastión](https://en.wikipedia.org/wiki/Bastion_host), que es una máquina virtual segura en la red que los administradores usan para conectarse a las máquinas virtuales en la red virtual de producción. El Jumpbox tiene un NSG que solo permite el tráfico remoto que procede de direcciones IP públicas de una lista segura. Para permitir el tráfico de escritorio remoto (RDP), el origen del tráfico debe definirse en el NSG. La administración de recursos de producción se realiza a través del RDP mediante una máquina virtual de Jumpbox segura.
 

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072443"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802517"
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalación de un servidor de destino maestro Linux
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -243,7 +243,7 @@ Use los pasos siguientes para crear un disco de retención:
 
 2. Use el comando **multipath -ll** para conocer el identificador de múltiples rutas del disco de retención: **multipath -ll**
 
-    ![Identificador de múltiples rutas](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![Identificador de múltiples rutas](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Formatee la unidad y, a continuación, cree un sistema de archivos en la nueva unidad: **mkfs.ext4 /dev/mapper/<identificador de múltiples rutas del disco de retención>**.
     

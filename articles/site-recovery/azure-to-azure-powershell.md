@@ -7,14 +7,14 @@ manager: abhemraj
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: bsiva
-ms.openlocfilehash: e12d19612e10885f97d4a8023967fb9ba2d1f8cb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3fa9ee27a1b9717d8011b7b46a1116f1f1ac1df5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209872"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716336"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configuración de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell
 
@@ -33,7 +33,7 @@ Aprenderá a:
 > - Conmutar por error a la región de recuperación
 
 > [!NOTE]
-> La compatibilidad de PowerShell de Azure Site Recovery con el escenario "*Recuperación ante desastres en máquinas virtuales de Azure*" se encuentra actualmente en versión preliminar. Puede que no todas las funcionalidades del escenario disponibles a través del portal podrían estén disponibles a través de Azure PowerShell. Algunas de las funcionalidades del escenario que no se admiten actualmente a través de Azure PowerShell son:
+> Puede que no todas las funcionalidades del escenario disponibles a través del portal podrían estén disponibles a través de Azure PowerShell. Algunas de las funcionalidades del escenario que no se admiten actualmente a través de Azure PowerShell son:
 > - La capacidad de replicar máquinas virtuales de Azure que usan discos administrados.
 > - La capacidad de especificar que todos los discos de una máquina virtual deben replicarse sin tener que especificar explícitamente cada disco de la máquina virtual.  
 
