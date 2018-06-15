@@ -3,16 +3,17 @@ title: Autenticación y permisos de usuario en Azure Analysis Services | Microso
 description: Obtenga información sobre la autenticación y los permisos de usuario en Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47846af015bf02940da7a7b8a4154113aab57b08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597637"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticación y permisos de usuario
 Azure Analysis Services usa Azure Active Directory (Azure AD) para la administración de identidades y la autenticación de usuarios. Todo usuario que cree, administre o se conecte a un servidor de Azure Analysis Services debe tener una identidad de usuario válida en un [inquilino de Azure AD](../active-directory/active-directory-administer.md) en la misma suscripción.

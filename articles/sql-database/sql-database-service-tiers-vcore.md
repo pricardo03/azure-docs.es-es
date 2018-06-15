@@ -5,16 +5,16 @@ services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212388"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648360"
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Modelo de compra basado en núcleos virtuales de Azure SQL Database (versión preliminar)
 
@@ -66,7 +66,7 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos dos nive
 ||**Uso general**|**Crítico para la empresa**|
 |---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables orientadas al presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|
-|Proceso|Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5 |Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5|
+|Compute|Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5 |Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5|
 |Memoria|7 GB por núcleo |7 GB por núcleo |
 |Storage|Almacenamiento remoto Premium, de 5 GB a 4 TB|Almacenamiento local de SSD, de 5 GB a 4 TB|
 |Rendimiento de E/S (aproximado)|500 IOPS por núcleo virtual con 7000 IOPS como máximo|5000 IOPS por núcleo con 200 000 IOPS como máximo|
