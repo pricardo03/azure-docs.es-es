@@ -3,22 +3,23 @@ title: La página de aplicación no se muestra correctamente para una aplicació
 description: Instrucciones para cuando la página no se muestre correctamente en una aplicación de proxy de aplicación que se ha integrado con Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: asteen
-ms.openlocfilehash: d15c02d86dc4a61e7e92b4c896cfc13dd0218c61
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: d30f836dd729ea5aaf9cb8e502ab65d2521cf6ab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070539"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591541"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>La página de aplicación no se muestra correctamente para una aplicación de proxy de aplicación
 

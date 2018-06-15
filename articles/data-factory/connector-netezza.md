@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940144"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617899"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Copia de datos de Netezza con Azure Data Factory (beta)
 
@@ -57,7 +57,7 @@ Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<databa
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Por ejemplo, `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- Only Unsecured (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Preferred Unsecured (preferredUnSecured) (valor predeterminado)**: si el servidor proporciona una elección, el controlador no usa SSL. <br/>- **Preferred Secured (preferredSecured)**: si el servidor proporciona una elección, el controlador usa SSL. <br/>- **Only Secured (onlySecured)**: el controlador no se conectará a menos que haya una conexión SSL disponible | Sin  |
-| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Por ejemplo, `UseSystemTrustStore=<cert path>;`| Sí, si se ha habilitado SSL |
+| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Por ejemplo, `CaCertFile=<cert path>;`| Sí, si se ha habilitado SSL |
 
 **Ejemplo:**
 

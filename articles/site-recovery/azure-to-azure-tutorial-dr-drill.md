@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f1d3076957a98eab68e0e566d8d0c594b385ee2f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208981"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716047"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Ejecución de una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -26,7 +26,7 @@ En este tutorial se muestra cómo ejecutar una exploración de recuperación ant
 > * Comprobar los requisitos previos
 > * Ejecutar una conmutación por error de prueba en una sola máquina virtual
 
-La replicación de Azure a Azure se encuentra en una versión preliminar en este momento.
+
 
 ## <a name="prerequisites"></a>requisitos previos
 

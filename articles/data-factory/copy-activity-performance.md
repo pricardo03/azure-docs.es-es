@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619259"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -340,7 +341,7 @@ Cuando el conjunto de datos de entrada o salida es un archivo, puede configurar 
 
 **Códec**: cada códec de compresión tiene sus ventajas. Por ejemplo, bzip2 tiene el rendimiento de copia más bajo, pero obtiene el mejor rendimiento de consulta de Hive porque puede dividirlo para el procesamiento. Gzip es la opción más equilibrada y es la que se usa con mayor frecuencia. Elija el códec que mejor se adapte a su escenario de principio a fin.
 
-**Nivel:**para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
+**Nivel:** para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
 
 **Una consideración**: para copiar una gran cantidad de datos entre un almacén local y la nube, considere usar la [copia almacenada provisionalmente](#staged-copy) con compresión habilitada. El uso de almacenamiento provisional resulta de utilidad cuando el ancho de banda de la red corporativa y los servicios de Azure son el factor limitador, y si quiere que el conjunto de datos de entrada y el conjunto de datos de salida estén ambos en formato sin comprimir.
 
@@ -376,11 +377,11 @@ Como puede ver, los datos se procesan y se mueven en streaming de forma secuenci
 
 Puede que uno o varios de los siguientes factores provoquen el cuello de botella en el rendimiento:
 
-* **Origen:**el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
+* **Origen:** el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
 * **Integration Runtime autohospedado**:
   * **LAN**: Integration Runtime se encuentra lejos de la máquina de SQL Server y tiene una conexión de ancho de banda bajo.
   * **Integration Runtime**: Integration Runtime alcanzó sus limitaciones de carga para llevar a cabo las siguientes operaciones:
-    * **Serialización:**la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
+    * **Serialización:** la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
     * **Compresión**: ha elegido un códec de compresión lenta (por ejemplo, bzip2, a 2,8 MBps con Core i7).
   * **WAN**: el ancho de banda entre la red corporativa y los servicios de Azure es bajo (por ejemplo, T1 = 1544 kbps. T2 = 6312 kbps).
 * **Receptor**: el Almacenamiento de blobs tiene un rendimiento bajo. (Esta situación es improbable porque su SLA garantiza un mínimo de 60 MBps).

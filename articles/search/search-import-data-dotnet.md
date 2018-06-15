@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798060"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Carga de datos en Azure Search mediante el SDK para .NET
 > [!div class="op_single_selector"]

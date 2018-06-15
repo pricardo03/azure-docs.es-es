@@ -1,34 +1,29 @@
 ---
-title: Uso de Azure Backup para reemplazar la infraestructura de cintas | Microsoft Docs
-description: "Aprenda cómo la Copia de seguridad de Microsoft Azure proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure"
+title: Usar Azure Backup para cambiar su infraestructura de cintas
+description: Aprenda cómo Microsoft Azure Backup proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: vijayts
-editor: 
-ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/10/2017
-ms.author: saurse;trinadhk;markgal
+ms.author: saurse
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0f3152daf5f91f7c9e540797bf09b21969d2d33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff30dd0e4c7cadabddbeddc38c28a773db68d8ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606501"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
-Los clientes de Copia de seguridad de Microsoft Azure y System Center Data Protection Manager pueden:
+Los clientes de Microsoft Azure Backup y System Center Data Protection Manager pueden:
 
 * Realizar copias de seguridad de datos en las programaciones que mejor se adapten a las necesidades de su organización.
 * Conservar los datos de copia de seguridad durante períodos más largos.
 * Hacer a Azure partícipe de sus necesidades de retención a largo plazo (en lugar de la cinta).
 
-Este artículo explica cómo los clientes pueden habilitar las directivas de copia de seguridad y retención. Los clientes que utilicen las cintas para abordar sus necesidades de retención a largo plazo ahora tienen una alternativa viable y eficaz con la disponibilidad de esta característica. La característica está habilitada en la versión más reciente de la copia de seguridad de Azure (que está disponible [aquí](http://aka.ms/azurebackup_agent)). Debe actualizarse a los clientes System Center DPM, como mínimo, DPM 2012 R2 UR5 para usar DPM con el servicio de Azure Backup.
+Este artículo explica cómo los clientes pueden habilitar las directivas de copia de seguridad y retención. Los clientes que utilicen las cintas para abordar sus necesidades de retención a largo plazo ahora tienen una alternativa viable y eficaz con la disponibilidad de esta característica. La característica está habilitada en la versión más reciente de Azure Backup (que está disponible [aquí](http://aka.ms/azurebackup_agent)). Debe actualizarse a los clientes System Center DPM, como mínimo, DPM 2012 R2 UR5 para usar DPM con el servicio de Azure Backup.
 
 ## <a name="what-is-the-backup-schedule"></a>¿Cuál es la programación de copia de seguridad?
 La programación de copia de seguridad indica la frecuencia de la operación de copia de seguridad. Por ejemplo, la configuración de la pantalla siguiente indica que las copias de seguridad se tomarán diariamente a las 18:00 h y a medianoche.
@@ -76,5 +71,5 @@ Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Azure Backup, vea
 
-* [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
-* [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins.md)
+* [Introducción a Azure Backup](backup-introduction-to-azure-backup.md)
+* [Probar Azure Backup](backup-try-azure-backup-in-10-mins.md)

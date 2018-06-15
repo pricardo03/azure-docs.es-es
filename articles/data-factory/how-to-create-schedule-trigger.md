@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618929"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -325,7 +326,7 @@ En la tabla siguiente se muestra una descripción general de los elementos del e
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valores predeterminados del esquema, límites y ejemplos
 
-| Propiedad JSON | type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
+| Propiedad JSON | Escriba | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Sí | None | Fechas-horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

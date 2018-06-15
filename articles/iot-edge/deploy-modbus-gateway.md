@@ -1,25 +1,19 @@
 ---
-title: "Implementación de Modbus en Azure IoT Edge | Microsoft Docs"
-description: "Permitir dispositivos que usan Modbus TCP para comunicarse con Azure IoT Hub mediante la creación de un dispositivo de puerta de enlace con IoT Edge"
-services: iot-Edge
-documentationcenter: 
+title: Implementación de Modbus en Azure IoT Edge | Microsoft Docs
+description: Permitir dispositivos que usan Modbus TCP para comunicarse con Azure IoT Hub mediante la creación de un dispositivo de puerta de enlace con IoT Edge
 author: kgremban
 manager: timlt
-editor: chrisgmsft
-ms.assetid: 
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: e239bde48c3da0d899e3c78bdd39f520c4128b95
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d6e831cdd7cd18305beb617693ee1026bb6429e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631478"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway---preview"></a>Conexión de dispositivos que usan Modbus TCP a través de una puerta de enlace con IoT Edge: versión preliminar
 
@@ -31,7 +25,7 @@ En este artículo se explica cómo crear su propia imagen de contenedor para un 
 
 En este artículo se da por supuesto que va a usar el protocolo Modbus TCP. Para más información sobre cómo configurar el módulo para que admita Modbus RTU, consulte el proyecto [Módulo Modbus de Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) en Github. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Un dispositivo de Azure IoT Edge. Para ver un tutorial sobre cómo configurar uno, consulte [Implementación de Azure IoT Edge en un dispositivo simulado en Windows](tutorial-simulate-device-windows.md) o [Linux](tutorial-simulate-device-linux.md). 
 * La cadena de conexión de clave principal para el dispositivo de IoT Edge.
 * Un dispositivo de Modbus físico o simulado que admita Modbus TCP.
@@ -92,7 +86,7 @@ Si desea crear su propio módulo y personalizarlo para su entorno, hay un proyec
    }
    ```
 
-8. Seleccione **Siguiente**. 
+8. Seleccione **Next** (Siguiente). 
 9. En el paso **Revisar plantilla**, seleccione **Enviar**. 
 10. Vuelva a la página de detalles del dispositivo y seleccione **Actualizar**. Debería ver que el nuevo módulo **modbus** se ejecuta junto con el runtime de IoT Edge.
 

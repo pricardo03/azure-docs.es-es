@@ -2,18 +2,20 @@
 title: 'Tutorial: Habilitación de la autenticación de una aplicación de una sola página con cuentas mediante Azure Active Directory B2C | Microsoft Docs'
 description: Tutorial acerca de cómo usar Azure Active Directory B2C para proporcionar inicio de sesión de usuario a una aplicación de una sola página (JavaScript).
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: paraj
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 9f5f98ae5798cabd90c453221fe36f17052f77aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712528"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación de una aplicación de una sola página con cuentas mediante Azure Active Directory B2C
 
@@ -28,7 +30,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Crear su propio [inquilino de Azure AD B2C](active-directory-b2c-get-started.md).
 * Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
@@ -57,7 +59,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador g
     | **Incluir aplicación web o API web** | Sí | Seleccione **Sí** si desea una aplicación de una sola página. |
     | **Permitir flujo implícito** | Sí | Seleccione **Sí**, ya que la aplicación utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de respuesta** | `http://localhost:6420` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su aplicación solicite. En este tutorial, el ejemplo se ejecuta localmente (localhost) y escucha en el puerto 6420. |
-    | **Incluir cliente nativo** | No  | Como es una aplicación de una sola página, no un cliente nativo, seleccione No. |
+    | **Incluir cliente nativo** | Sin  | Como es una aplicación de una sola página, no un cliente nativo, seleccione No. |
     
 3. Haga clic en **Crear** para registrar la aplicación.
 

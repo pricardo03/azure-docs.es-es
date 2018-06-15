@@ -18,6 +18,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201001"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Compatibilidad de Application Gateway con servidores back-end multiinquilino
 

@@ -1,22 +1,20 @@
 ---
 title: Uso del servicio Azure IoT Hub Device Provisioning para aprovisionar dispositivos en instancias de IoT Hub con equilibrio de carga | Microsoft Docs
-description: "Aprovisionamiento automático de dispositivos mediante DPS en instancias de IoT Hub con equilibrio de carga en Azure Portal"
-services: iot-dps
-keywords: 
+description: Aprovisionamiento automático de dispositivos mediante DPS en instancias de IoT Hub con equilibrio de carga en Azure Portal
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0a3720fe729d5e260bbe5b0902460c8c7cfc7cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629633"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga
 
@@ -30,7 +28,7 @@ Este tutorial muestra cómo aprovisionar dispositivos para varias instancias de 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Este tutorial se basa en el tutorial anterior, [Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service](tutorial-provision-device-to-hub.md) (Aprovisionamiento del dispositivo en un centro de IoT mediante el servicio IoT Hub Device Provisioning).
 
@@ -58,7 +56,7 @@ Siga estos pasos para establecer la directiva de asignación:
 
 1. Para establecer la directiva de asignación, en la página del DPS haga clic en **Manage allocation policy** (Administrar directiva de asignación).
 2. Establezca la directiva de asignación en **Distribución uniformemente ponderada**.
-3. Haga clic en **Guardar**.
+3. Haga clic en **Save**(Guardar).
 
 ## <a name="link-the-new-iot-hub-to-dps"></a>Vincular la nueva instancia de IoT Hub a DPS
 
@@ -68,11 +66,11 @@ Vincule el DPS y la instancia de IoT Hub para que el DPS pueda registrar los dis
 2. En la página del DPS, haga clic en **Linked IoT hubs** (Centros de IoT vinculados).
 3. Haga clic en **Agregar**.
 4. En la página **Add link to IoT hub** (Agregar vínculo a centro de IoT), utilice los botones de radio para especificar si el centro de IoT vinculado se encuentra en la suscripción actual o en una suscripción diferente. A continuación, elija el nombre del centro de IoT en el cuadro **Centro de IoT**.
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Usar Azure Portal para aprovisionar un segundo dispositivo en un segundo centro de IoT 

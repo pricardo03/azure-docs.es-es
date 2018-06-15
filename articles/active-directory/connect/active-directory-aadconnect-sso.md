@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 11a04d40a403231db728d6bf0caade5969bba84d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593672"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -28,7 +30,7 @@ El inicio de sesión único de conexión directa de Azure Active Directory (SSO 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-SSO de conexión directa se puede combinar con los métodos de inicio de sesión mediante [sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
+SSO de conexión directa se puede combinar con los métodos de inicio de sesión mediante [sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
 
 ![Inicio de sesión único de conexión directa](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +44,7 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
   - Los usuarios no tienen que escribir sus contraseñas varias veces.
 - *Es fácil de implementar y administrar*
   - No se necesitan componentes adicionales en local para que esto funcione.
-  - Funciona con cualquier método de autenticación en la nube, ya sea [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
+  - Funciona con cualquier método de autenticación en la nube, ya sea [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
   - Puede extenderse a algunos o a todos los usuarios mediante la directiva de grupo.
   - Se pueden registrar dispositivos que no tengan Windows 10 en Azure AD sin necesidad de contar con ninguna infraestructura de AD FS. Esta funcionalidad necesita la versión 2.1 o posterior del [cliente para unirse al área de trabajo](https://www.microsoft.com/download/details.aspx?id=53554).
 

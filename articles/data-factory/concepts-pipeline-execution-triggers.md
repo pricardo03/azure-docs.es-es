@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 05/29/2018
 ms.author: shlo
-ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715044"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -138,6 +139,7 @@ Para obtener un ejemplo completo, consulte la guía de inicio rápido [Creación
 Los desencadenadores son otra forma de realizar una ejecución de canalización. Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Actualmente, Data Factory admite dos tipos de desencadenadores:
 
 - Desencadenador de programación: un desencadenador que invoca una canalización en una programación de reloj.
+
 - Desencadenador de ventana de saltos de tamaño constante: un desencadenador que opera en un intervalo periódico, mientras conserva también el estado. Azure Data Factory no admite en estos momentos desencadenadores basados en eventos. Por ejemplo, no se admite el desencadenador de una ejecución de canalización que responde a un evento de llegada de archivo.
 
 Las canalizaciones y los desencadenadores tienen una relación de varios a varios. Varios desencadenadores pueden dar comienzo a una única canalización o el mismo desencadenador puede iniciar varias canalizaciones. En la siguiente definición de un desencadenador, la propiedad **pipelines** hace referencia a una lista de canalizaciones que desencadena un desencadenador en particular. La definición de propiedad incluye los valores para los parámetros de la canalización.
@@ -175,7 +177,9 @@ Un desencadenador de programación ejecuta canalizaciones según una programaci�
 Para más información sobre los desencadenadores de programación y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una programación](how-to-create-schedule-trigger.md).
 
 ## <a name="tumbling-window-trigger"></a>Desencadenador de ventana de saltos de tamaño constante
-Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen. Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
+Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen.
+
+Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definición de desencadenador de programación
 Cuando se crea un desencadenador de programación, debe especificar la programación y periodicidad mediante una definición de JSON. 
@@ -278,7 +282,7 @@ En la tabla siguiente se muestra información general de los elementos del esque
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valores predeterminados del esquema, límites y ejemplos
 
-| Propiedad JSON | type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
+| Propiedad JSON | Escriba | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Sí | None | Fechas y horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

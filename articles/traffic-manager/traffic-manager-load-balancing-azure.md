@@ -1,11 +1,11 @@
 ---
 title: Uso de servicios de equilibrio de carga en Azure | Microsoft Docs
-description: "En este tutorial se muestra cómo crear un escenario con la cartera de equilibrio de carga de Azure: Traffic Manager, Application Gateway y Load Balancer."
+description: 'En este tutorial se muestra cómo crear un escenario con la cartera de equilibrio de carga de Azure: Traffic Manager, Application Gateway y Load Balancer.'
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: liumichelle
 manager: vitinnan
-editor: 
+editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401113"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso de servicios de equilibrio de carga en Azure
 
@@ -205,7 +206,7 @@ Ahora se configuran la dirección IP y el puerto de front-end del equilibrador d
 
 ![Panel de navegación "Frontend IP pool" (Grupo de IP de font-end) de Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [¿Qué es Traffic Manager?](traffic-manager-overview.md)
 * [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)

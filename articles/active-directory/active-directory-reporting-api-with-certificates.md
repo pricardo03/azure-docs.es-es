@@ -12,17 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: ramical
-ms.openlocfilehash: 54e661284c539b835089e858ba7b5e0016e89a83
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5ceb3d1ef99189e5b0cfcc48b38906ed28c07730
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588964"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Obtención de datos mediante Reporting API de Azure Active Directory con certificados
 
-Las [Reporting API de Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas.
+Las [API de generación de informes de Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas.
 
 Si quiere acceder a Reporting API de Azure AD sin intervención del usuario, puede configurar el acceso para usar certificados.
 
