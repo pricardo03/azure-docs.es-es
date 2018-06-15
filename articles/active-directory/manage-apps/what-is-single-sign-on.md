@@ -14,12 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354531"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292898"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
 Inicio de sesión único significa poder tener acceso a todas las aplicaciones y los recursos que necesita para hacer negocios, iniciando iniciar sesión una sola vez usando una única cuenta de usuario. Una vez que ha iniciado sesión, puede tener acceso a todas las aplicaciones que necesite sin tener que autenticarse (por ejemplo, escribiendo una contraseña) una segunda vez.
@@ -59,7 +59,7 @@ En este escenario, cuando ya haya se haya registrado en Azure AD y desee obtener
 
 Azure AD puede proporcionar el inicio de sesión único federado con aplicaciones que admitan los protocolos WS-Federation, SAML 2.0 u OpenID.
 
-Consulte también: [Administración de certificados para inicio de sesión único federado](../active-directory-sso-certs.md)
+Consulte también: [Administración de certificados para inicio de sesión único federado](manage-certificates-for-federated-single-sign-on.md)
 
 ### <a name="password-based-single-sign-on"></a>Inicio de sesión único con contraseña
 Configurar el inicio de sesión único con contraseña permite a los usuarios de su organización iniciar sesión automáticamente en una aplicación de SaaS de terceros porque Azure AD utiliza la información de cuenta de usuario de la aplicación de SaaS de terceros. Cuando se habilita esta característica, Azure AD recopila y almacena de forma segura la información de cuenta del usuario y la contraseña correspondiente.
@@ -194,7 +194,7 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../active-directory-saas-tutorial-list.md)
 * [Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery](cloud-app-discovery.md)
-* [Introducción a la administración del acceso a las aplicaciones](../active-directory-managing-access-to-apps.md)
+* [Introducción a la administración del acceso a las aplicaciones](what-is-access-management.md)
 * [Comparación de funcionalidades para administrar identidades externas con Azure Active Directory](../active-directory-b2b-compare-b2c.md)
 
 

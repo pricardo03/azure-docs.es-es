@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8fa98ff4cee206894c35f84cca3f3b4c43e2e5ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4d483f045a8e778953ddb578dd7bb81fdb05fdf2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292415"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configuración de Pingboard para el aprovisionamiento automático de usuarios
 
@@ -42,7 +43,7 @@ Azure AD usa un concepto denominado "asignaciones" para determinar qué usuarios
 
 Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios de Azure AD necesitan acceso a la aplicación de Pingboard. Una vez decidido, puede asignar estos usuarios a la aplicación de Pingboard siguiendo estas instrucciones:
 
-[Asignación de un usuario a una aplicación empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+[Asignación de un usuario a una aplicación empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Sugerencias importantes para asignar usuarios a Pingboard
 
@@ -99,6 +100,6 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-enterprise-apps-manage-provisioning.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configuración del inicio de sesión único](active-directory-saas-pingboard-tutorial.md)

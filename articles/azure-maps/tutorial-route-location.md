@@ -1,29 +1,27 @@
 ---
 title: Búsqueda de una ruta con Azure Maps | Microsoft Docs
 description: Ruta a un punto de interés mediante Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 73ca61140f05a65ca75cd703ed226773b9a43dfa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc5dfafec303a439d8a1092771fd2247ab305172
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601350"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ruta a un punto de interés mediante Azure Maps
 
 En este tutorial se muestra cómo usar la cuenta de Azure Maps y el SDK de Route Service para buscar la ruta al punto de interés. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una nueva página web mediante la API de control de mapa
+> * Crear una nueva página web con Map Control API
 > * Establecer las coordenadas de dirección
 > * Consultar en Route Service direcciones a un punto de interés
 
@@ -205,7 +203,7 @@ En esta sección se muestra cómo usar la API del servicio de ruta de Maps para 
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Crear una nueva página web mediante la API de control de mapa
+> * Crear una nueva página web con Map Control API
 > * Establecer las coordenadas de dirección
 > * Consultar en el servicio de ruta las direcciones a un punto de interés
 
