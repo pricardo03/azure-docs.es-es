@@ -7,15 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 3fb0d0f73f475e246580f7ea6e4aea60b069c230
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 50b12de2400f0db90108e3eeb158357039ac92ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894014"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649829"
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Unidades de transacción de bases de datos (DTU) y unidades de transacción de bases de datos elásticas (eDTU)
 Este artículo describe las unidades de transacción de bases de datos (DTU) y las unidades de transacción de bases de datos elásticas (eDTU) y qué sucede cuando se alcanza el número máximo de DTU o eDTU. Para obtener información de precios, consulte [Precio de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).

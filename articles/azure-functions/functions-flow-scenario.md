@@ -1,26 +1,28 @@
 ---
-title: "Llamada a una función de Azure desde Microsoft Flow | Microsoft Docs"
-description: "Cree un conector personalizado y después llame a una función mediante ese conector."
+title: Llamada a una función de Azure desde Microsoft Flow | Microsoft Docs
+description: Cree un conector personalizado y después llame a una función mediante ese conector.
 services: functions
-keywords: "aplicaciones de nube, servicios en la nube, Microsoft Flow, procesos empresariales, aplicación empresarial"
-documentationcenter: 
-author: mgblythe
+keywords: aplicaciones de nube, servicios en la nube, Microsoft Flow, procesos empresariales, aplicación empresarial
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234808"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Llamada a una función desde Microsoft Flow
 

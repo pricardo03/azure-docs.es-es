@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f54f0fb16838b245ac09c08c7afd9e6a53449afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594234"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Sync: configuración del filtrado
 Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Office 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.

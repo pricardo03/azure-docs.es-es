@@ -1,19 +1,19 @@
 ---
 title: Conexión de un dispositivo Raspberry Pi a una aplicación de Azure IoT Central (Python) | Microsoft Docs
 description: Como desarrollador de dispositivos, aprenderá a conectar Raspberry Pi a su aplicación de Azure IoT Central mediante Python.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/23/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 23ab31d6d2357bfcb184e5b3022155bef5ace658
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9c2d18a518bd5c98fcc35efdb0dff36970a49b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199884"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629072"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Conexión de un dispositivo Raspberry Pi a una aplicación de Azure IoT Central (Python)
 
@@ -33,34 +33,34 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 
 ### <a name="telemetry-measurements"></a>Medidas de telemetría
 
-| Nombre del campo     | Unidades  | Mínima | Máxima | Decimal places |
+| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humedad       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+| magnetometerX (magnetómetro X)  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY (magnetómetro Y)  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ (magnetómetro Z)  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX (acelerómetro X) | mg     | -2000   | 2000    | 0              |
+| accelerometerY (acelerómetro Y) | mg     | -2000   | 2000    | 0              |
+| accelerometerZ (acelerómetro Z) | mg     | -2000   | 2000    | 0              |
+| gyroscopeX (giróscopo X)     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY (giróscopo Y)     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ (giróscopo Z)     | mdps   | -2000   | 2000    | 0              |
 
 ### <a name="settings"></a>Settings
 
 Valores numéricos
 
-| Nombre para mostrar | Nombre del campo | Unidades | Decimal places | Mínima | Máxima | Inicial |
+| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
+| Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
 | Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-Configuración de alternancia
+Cambiar configuración
 
-| Nombre para mostrar | Nombre del campo | On text | Off text | Inicial |
+| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ACTIVAR      | Apagado      | Off     |
 
@@ -68,7 +68,7 @@ Configuración de alternancia
 
 | Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | número    |
+| Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Texto            | Ubicación     | location   | N/D       |
 
 ### <a name="add-a-real-device"></a>Adición de un dispositivo real
@@ -116,4 +116,4 @@ En los pasos siguientes se describe cómo descargar y configurar la aplicación 
 
 Ahora que ha aprendido cómo conectar un dispositivo Raspberry Pi a la aplicación de Azure IoT Central, estos son los siguientes pasos sugeridos:
 
-* [Conexión de una aplicación cliente de Node.js genérica a Azure IoT Central](howto-connect-nodejs.md)
+* [Connect a generic Node.js client application to Azure IoT Central](howto-connect-nodejs.md) (Conexión una aplicación cliente de Node.js a Azure IoT Central)

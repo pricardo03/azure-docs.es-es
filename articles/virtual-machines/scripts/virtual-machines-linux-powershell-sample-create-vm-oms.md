@@ -4,10 +4,10 @@ description: 'Ejemplo de script de Azure PowerShell: OMS'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: sample
@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cd23f71221efb62d2547b2b683ca8e2218403a2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f47feba622f97f6a5f6c451ce9b6c3dc99843a34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654256"
 ---
 # <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>Creación de una máquina virtual supervisada de Operations Management Suite con PowerShell
 
@@ -46,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Este script usa los siguientes comandos para crear la implementación. Cada elemento de la tabla incluye vínculos a la documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Crea una configuración de subred. Esta configuración se utiliza con el proceso de creación de la red virtual. |

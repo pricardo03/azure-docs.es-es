@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32775860"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Hadoop mediante la API de REST de Azure
 

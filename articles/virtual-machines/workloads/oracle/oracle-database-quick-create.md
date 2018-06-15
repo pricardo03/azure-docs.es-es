@@ -1,13 +1,13 @@
 ---
-title: "Creación de una base de datos Oracle en una VM de Azure | Microsoft Docs"
-description: "Ponga en funcionamiento rápidamente una base de datos de Oracle Database 12c en el entorno de Azure."
+title: Creación de una base de datos Oracle en una VM de Azure | Microsoft Docs
+description: Ponga en funcionamiento rápidamente una base de datos de Oracle Database 12c en el entorno de Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 4f760165fa8a93bbb7646539af748b647fe63bba
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8ff463b89b395947a66db6d067b6ba32281087ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657905"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Creación de una base de datos Oracle en una VM de Azure
 
@@ -40,7 +41,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 
 Para crear una máquina virtual, use el comando [az vm create](/cli/azure/vm#az_vm_create). 
 

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 22dbaa3d10d09456a972a7991583dc29b7941db1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618630"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
 Este artículo describe el modo en que la actividad de copia de Azure Data Factory realiza la asignación de esquemas y la asignación del tipo de datos desde datos de origen hasta datos receptores al realizar la copia de datos.
