@@ -1,11 +1,11 @@
 ---
-title: "Problema al guardar las credenciales de administrador durante la configuración del aprovisionamiento de usuarios para una aplicación de la galería de Azure AD | Microsoft Docs"
-description: "Cómo solucionar los problemas habituales que surgen al configurar el aprovisionamiento de usuarios para una aplicación que ya aparece en la galería de aplicaciones de Azure AD"
+title: Problema al guardar las credenciales de administrador durante la configuración del aprovisionamiento de usuarios para una aplicación de la galería de Azure AD | Microsoft Docs
+description: Cómo solucionar los problemas habituales que surgen al configurar el aprovisionamiento de usuarios para una aplicación que ya aparece en la galería de aplicaciones de Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: asmalser
-ms.openlocfilehash: 6617345c8923b1fc8081b01ddfe8b4bedf10b6ea
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 8b23ea72a898dc5725c1c82ee2a5cbc06730b5aa
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292997"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema al guardar las credenciales de administrador durante la configuración del aprovisionamiento de usuarios para una aplicación de la galería de Azure Active Directory 
 
@@ -37,7 +38,7 @@ Los tokens secretos, URI, direcciones de correo electrónico de notificación, n
 
 Hay dos formas posibles de evitar este problema hoy:
 
-1. **Usar dos instancias de aplicación de galería, una para el inicio de sesión único y la otra para el aprovisionamiento de usuarios**: tomando la aplicación de galería [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md) como ejemplo, puede agregar LinkedIn Elevate desde la galería y configurarla para el inicio de sesión único. Para el aprovisionamiento, agregue otra instancia de LinkedIn Elevate de la galería de aplicaciones y asígnele el nombre "LinkedIn Elevate (aprovisionamiento)". Para esta segunda instancia, configure el [aprovisionamiento](active-directory-saas-linkedinelevate-provisioning-tutorial.md), pero no el inicio de sesión único. Al usar esta solución alternativa, los mismos usuarios y grupos deben [asignarse](active-directory-coreapps-assign-user-azure-portal.md) a ambas aplicaciones. 
+1. **Usar dos instancias de aplicación de galería, una para el inicio de sesión único y la otra para el aprovisionamiento de usuarios**: tomando la aplicación de galería [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md) como ejemplo, puede agregar LinkedIn Elevate desde la galería y configurarla para el inicio de sesión único. Para el aprovisionamiento, agregue otra instancia de LinkedIn Elevate de la galería de aplicaciones y asígnele el nombre "LinkedIn Elevate (aprovisionamiento)". Para esta segunda instancia, configure el [aprovisionamiento](active-directory-saas-linkedinelevate-provisioning-tutorial.md), pero no el inicio de sesión único. Al usar esta solución alternativa, los mismos usuarios y grupos deben [asignarse](manage-apps/assign-user-or-group-access-portal.md) a ambas aplicaciones. 
 
 2. **Reducir la cantidad de datos de configuración almacenados**: todos los datos escritos en la sección [Credenciales de administrador](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) de la pestaña de aprovisionamiento se almacenan en el mismo lugar que el certificado SAML. Mientras que puede que no sea posible reducir la longitud de todos estos datos, algunos campos de configuración opcionales como el **Correo electrónico de notificación** se pueden quitar.
 
