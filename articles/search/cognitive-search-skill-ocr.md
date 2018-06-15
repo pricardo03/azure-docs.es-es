@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365831"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640377"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
@@ -61,7 +61,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -200,5 +200,5 @@ En el ejemplo del conjunto de aptitudes anterior, se asume que existe un campo d
 ## <a name="see-also"></a>Otras referencias
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Aptitud TextMerger](cognitive-search-skill-textmerger.md)
-+ [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](ref-create-indexer.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: b2369f9468c54f10d01203841b6d7ba44b7ba2de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f8e6ad4b23eeaf46cccac9c8ff9d41f71511129d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642859"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Uso de la plataforma Service Fabric por parte de actores confiables
 En este artículo se explica cómo funciona Reliable Actors en la plataforma de Azure Service Fabric. Reliable Actors se ejecuta en un marco de trabajo que se hospeda en la implementación de un servicio de confianza con estado llamado *servicio de actor*. El servicio de actor contiene todos los componentes necesarios para administrar el ciclo de vida y el envío de mensajes de sus actores:
@@ -41,9 +42,6 @@ En Reliable Services, el servicio hereda la clase `StatefulService`. Esta clase 
 * Copia de seguridad y restauración del servicio.
 * Funcionalidad compartida para todos los actores, por ejemplo, un interruptor.
 * Llamadas de procedimiento remoto en el propio servicio de actor y en cada actor individual.
-
-> [!NOTE]
-> Los servicios sin estado no son compatibles actualmente en Java/Linux.
 
 Para obtener más información, consulte [Implementing service-level features in your actor service](service-fabric-reliable-actors-using.md) (Implementación de características de nivel de servicio en el servicio de actor).
 

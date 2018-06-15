@@ -5,11 +5,23 @@
 - name: Control de acceso basado en roles (RBAC)
   href: overview.md
   items:
+    - name: Guías de inicio rápido
+      items:
+        - name: 'Concesión de acceso a un usuario: portal'
+          href: quickstart-assign-role-user-portal.md
+    - name: Tutoriales
+      items:
+        - name: 'Concesión de acceso a un usuario: PowerShell'
+          href: tutorial-role-assignments-user-powershell.md
+        - name: 'Concesión de acceso a un grupo: PowerShell'
+          href: tutorial-role-assignments-group-powershell.md
+        - name: 'Creación de un rol personalizado: PowerShell'
+          href: tutorial-custom-role-powershell.md
+        - name: 'Creación de un rol personalizado: CLI'
+          href: tutorial-custom-role-cli.md
     - name: Administración de asignaciones de roles
       items:
-        - name: Usuario
-          href: role-assignments-users.md
-        - name: Recurso
+        - name: Portal
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Azure CLI
           href: role-assignments-cli.md
@@ -17,11 +29,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Descripción de definiciones de roles
+      href: role-definitions.md
     - name: Roles integrados
       href: built-in-roles.md
     - name: Roles personalizados
       href: custom-roles.md
-    - name: Asignación de roles personalizados para usuarios internos y externos
+    - name: Administración de asignaciones de roles para los usuarios externos
       href: role-assignments-external-users.md
     - name: Registros de actividad
       href: change-history-report.md

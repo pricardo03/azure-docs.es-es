@@ -7,20 +7,20 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: giladm
-ms.openlocfilehash: b43b010a88f313930217289549448de30a82a070
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363815"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646786"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Clasificación y detección de datos de Azure SQL Database
 La opción Clasificación y detección de datos (actualmente en su versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
 Las funciones de detección y clasificación de la información confidencial más importante (empresarial, financiera, médica, personal, etc.) desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para:
-* Cumplir los requisitos de cumplimiento de los estándares relacionados con la privacidad de datos y normas, como RGPD.
+* Ayudar a cumplir los requisitos de cumplimiento de normas y los estándares relacionados con la privacidad de datos.
 * Varios escenarios de seguridad, como la supervisión (auditoría) y las alertas relacionadas con accesos anómalos a información confidencial.
 * Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.
 
@@ -49,7 +49,7 @@ La clasificación incluye dos atributos de metadatos:
 
 2. Navegue a **Protección contra amenazas avanzada** en el encabezado de Seguridad en el panel dela base de datos de Azure SQL. Haga clic para habilitar Advanced Threat Protection, y haga clic en la tarjeta **Data discovery & classification (preview)** (Data discovery & classification [versión preliminar])
 
-   ![Explore una base de datos](./media/sql-data-discovery-and-classification/data_classification.png) 
+   ![Examen de una base de datos](./media/sql-data-discovery-and-classification/data_classification.png) 
 
 3. La pestaña **Introducción** incluye un resumen del estado actual de clasificación de la base de datos, incluida una lista detallada de todas las columnas clasificadas, que también puede filtrar para ver solo tipos de información, etiquetas y partes del esquema específicos. Si aún no ha clasificado ninguna columna, [vaya al paso 5](#step-5).
 

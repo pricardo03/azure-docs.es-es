@@ -1,12 +1,12 @@
 ---
-title: "Metadatos de información de dispositivo en la solución de supervisión remota | Microsoft Docs"
-description: "Una descripción de la supervisión remota de la solución preconfigurada de IoT de Azure y su arquitectura."
-services: 
+title: Metadatos de información de dispositivo en la solución de supervisión remota | Microsoft Docs
+description: Una descripción de la supervisión remota de la solución preconfigurada de IoT de Azure y su arquitectura.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b334769-103b-4eb0-a293-184f3d1ba9a3
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 5ada9413b1bb0923df96cfd93c3a0a875e80dd28
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 80f03a4cef1d79e819c59ca68a786776a5c4edb7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636103"
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Metadatos de información de dispositivo en la solución preconfigurada de supervisión remota
 
-La solución preconfigurada de supervisión remota del Conjunto de aplicaciones de IoT de Azure muestra un enfoque para administrar los metadatos de dispositivo. En este artículo se describe el enfoque que adopta esta solución para que comprenda:
+La solución preconfigurada de supervisión remota de Azure IoT Suite muestra un enfoque para administrar los metadatos de dispositivo. En este artículo se describe el enfoque que adopta esta solución para que comprenda:
 
 * Qué metadatos de dispositivo almacena la solución.
 * Cómo la solución administra los metadatos de dispositivo.
@@ -32,7 +33,7 @@ La solución preconfigurada de supervisión remota del Conjunto de aplicaciones 
 
 La solución preconfigurada de supervisión remota usa [Azure IoT Hub][lnk-iot-hub] para que los dispositivos puedan enviar datos a la nube. La solución almacena información acerca de los dispositivos en tres ubicaciones diferentes:
 
-| La ubicación | Información almacenada | Implementación |
+| Ubicación | Información almacenada | Implementación |
 | -------- | ------------------ | -------------- |
 | Registro de identidad | Identificador de dispositivo, claves de autenticación, estado habilitado | Integrado en IoT Hub |
 | Dispositivos gemelos | Metadatos: propiedades notificadas, propiedades deseadas, etiquetas | Integrado en IoT Hub |
@@ -129,6 +130,6 @@ Ahora que ya ha terminado de aprender cómo personalizar las soluciones preconfi
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dynamic-telemetry]: iot-suite-v1-dynamic-telemetry.md
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
 [lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md

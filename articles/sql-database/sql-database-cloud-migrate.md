@@ -4,17 +4,18 @@ description: Obtenga más información acerca de la migración de una base de da
 keywords: migración de base de datos, migración de base de datos de sql server, herramientas de migración de bases de datos, migración de la base de datos, migrar base de datos sql
 services: sql-database
 author: CarlRabeler
-manager: Craig.Guyer
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
-ms.date: 03/07/2018
+ms.topic: conceptual
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 32377b4a80fcafd1d997daa11a90699b581093a6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 73f7c9ae9a3badd9d9dc3628145132238c8670d0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645929"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migración de una base de datos de SQL Server a Azure SQL Database
 
@@ -33,7 +34,7 @@ En ambos casos, debe asegurarse de que la base de datos de origen sea compatible
 
  Use este método para migrar a una base de datos única o agrupada si puede permitirse algún tiempo de inactividad o si va a realizar una migración de prueba de una base de datos de producción para una migración posterior. Para consultar un tutorial, vea [Migración de una base de datos de SQL Server](sql-database-migrate-your-sql-server-database.md).
 
-En la lista siguiente se describe el flujo de trabajo general para una migración de base de datos de SQL Server de una base de datos única o agrupada con este método. Para información sobre la migración a una Instancia administrada, consulte el artículo sobre [migración a una Instancia administrada](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+En la lista siguiente se describe el flujo de trabajo general para una migración de base de datos de SQL Server de una base de datos única o agrupada con este método. Para información sobre la migración a una Instancia administrada, consulte el artículo sobre [migración a una Instancia administrada](sql-database-managed-instance-migrate.md).
 
   ![Diagrama de migración de VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
