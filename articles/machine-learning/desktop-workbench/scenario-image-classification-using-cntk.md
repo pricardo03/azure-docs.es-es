@@ -8,15 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31606524"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850178"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Clasificación de imágenes con Azure Machine Learning Workbench
 
@@ -243,15 +244,20 @@ En la primera captura de pantalla, el perfeccionamiento de la DNN lleva a unas m
 
 
 ### <a name="parameter-tuning"></a>Ajuste de parámetros
+
 Como sucede en la mayoría de los proyectos de aprendizaje automático, para obtener buenos resultados en un conjunto de datos nuevo, es necesario ajustar los parámetros con mucho cuidado, así como sopesar detenidamente diversas decisiones de diseño. Para hacer estas tareas más sencillas, todos los parámetros importantes (además de una breve explicación) se especifican en un único lugar: el archivo `PARAMETERS.py`.
 
 Estos son algunos aspectos que sin duda se traducirán en mejoras:
 
 - Calidad de los datos: asegúrese de que la calidad de los conjuntos de entrenamiento y de prueba es alta. Es decir, procure que las imágenes estén correctamente anotadas, que ha quitado las imágenes ambiguas (por ejemplo, prendas de ropa que tienen tanto rayas como lunares) y que los atributos son excluyentes entre sí (dicho de otro modo, que los ha elegido de tal forma que cada imagen pertenece a exactamente un atributo).
+
 - Hay constancia de que, si el objeto de interés es pequeño en la imagen, los métodos de clasificación de imágenes no funcionan bien. En tales casos, considere el uso de un método de detección de objetos, tal y como se describe en este [tutorial](https://github.com/Azure/ObjectDetectionUsingCntk).
 - Perfeccionamiento de la DNN: seguramente, el parámetro más importante para realizar esta tarea correctamente sea la velocidad de aprendizaje `rf_lrPerMb`. Si la precisión del conjunto de entrenamiento (primera figura de la parte 2) no ronda el 0-5 %, probablemente se deba a un error en la velocidad de aprendizaje. Los demás parámetros que comienzan por `rf_` no son tan importantes. Normalmente, el error de entrenamiento debería disminuir exponencialmente y aproximarse a 0 % después del entrenamiento.
+
 - Resolución de entrada: la resolución de imagen predeterminada es 224 x 224 píxeles. Si usa una resolución de imagen mayor (parámetro: `rf_inputResoluton`), por ejemplo, 448 x 448 o 896 x 896 píxeles, con frecuencia obtendrá una mejora significativa, pero el perfeccionamiento de la DNN tardará más en completarse. **Usar una mayor resolución es inocuo y casi siempre aumenta la precisión**.
+
 - Sobreajuste de la DNN: procure que no haya mucha diferencia entre la precisión del conjunto de entrenamiento y la del conjunto de prueba durante el perfeccionamiento de la DNN (primera figura de la parte 2). Esta diferencia se puede reducir usando tasas de eliminación (`rf_dropoutRate`) de 0,5 o más, así como aumentando el peso del regularizador `rf_l2RegWeight`. Usar una tasa de eliminación elevada puede ser especialmente útil si la resolución de imagen de entrada de DNN es alta.
+
 - Pruebe a usar DNN un poco más profundas, cambiando para ello `rf_pretrainedModelFilename` de `ResNet_18.model` a `ResNet_34.model` o a `ResNet_50.model`. El modelo ResNet-50 no solo es más profundo, sino que, además, su salida de la penúltima capa tiene un tamaño de 2048 flotantes (frente a los 512 flotantes de los modelos ResNet-18 y ResNet 34). Esta mayor dimensión puede resultar especialmente útil al entrenar un clasificador de SVM.
 
 ## <a name="part-3---custom-dataset"></a>Parte 3: Conjunto de datos personalizado

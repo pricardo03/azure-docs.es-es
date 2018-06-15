@@ -1,19 +1,20 @@
 ---
-title: "Compatibilidad de las herramientas de administración y los controladores de MySQL"
-description: "En este artículo se describen las herramientas de administración y los controladores de MySQL compatibles con Azure Database for MySQL."
+title: Compatibilidad de las herramientas de administración y los controladores de MySQL
+description: En este artículo se describen las herramientas de administración y los controladores de MySQL compatibles con Azure Database for MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 5fc13ef07b61feb9e9fdd73123a09daa61f6aaf3
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a133ccdd0b40f9a878ba627e6c093787316aea35
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264127"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Herramientas de administración y controladores de MySQL compatibles con Azure Database for MySQL
 En este artículo se describen las herramientas de administración y los controladores compatibles con Azure Database for MySQL.

@@ -6,14 +6,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: ee6181baf7a16bc827d35aaf5d18b281bcf9c3f7
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ce5fe97a54b96d410d9f904231ff8ff39914d644
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649489"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de búfer de anillo para eventos extendidos en SQL Database
 
@@ -53,7 +54,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
 
 Con modificaciones muy pequeñas, el siguiente ejemplo de código de Búfer de anillo se puede ejecutar en Azure SQL Database o en Microsoft SQL Server. La diferencia es la presencia del nodo "_database" en el nombre de algunas vistas de administración dinámica (DMV), como se usa en la cláusula FROM del paso 5. Por ejemplo: 
 
-* sys.dm_xe**_database**_session_targets
+* sys.dm_xe **_database**_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;

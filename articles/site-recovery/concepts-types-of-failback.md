@@ -1,6 +1,6 @@
 ---
-title: "Conmutación por recuperación en Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se proporciona información general acerca de los diversos tipos de conmutación por recuperación y advertencias que deben considerarse al conmutar por recuperación de forma local con el servicio de Azure Site Recovery."
+title: Conmutación por recuperación en Azure Site Recovery | Microsoft Docs
+description: En este artículo se proporciona información general acerca de los diversos tipos de conmutación por recuperación y advertencias que deben considerarse al conmutar por recuperación de forma local con el servicio de Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29803559"
 ---
 # <a name="overview-of-failback"></a>Introducción a la conmutación por recuperación
 

@@ -1,8 +1,8 @@
 ---
-title: "Diagnóstico de problemas de Analytics de Azure Application Insights | Microsoft Docs"
-description: "¿Problemas con Analytics de Application Insights? Comience aquí. "
+title: Diagnóstico de problemas de Analytics de Azure Application Insights | Microsoft Docs
+description: '¿Problemas con Analytics de Application Insights? Comience aquí. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
@@ -10,21 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294166"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Solución de problemas de Analytics en Application Insights
 ¿Problemas con [Analytics de Application Insights](app-insights-analytics.md)? Comience aquí. Analytics es la herramienta eficaz de búsqueda de Application Insights.
 
 ## <a name="limits"></a>límites
 * En la actualidad, los resultados de consulta están limitados exclusivamente a solo una semana de datos antiguos.
-* Exploradores en los que la hemos probado: últimas ediciones de Chrome, Microsoft Edge e Internet Explorer.
+* Exploradores en los que la hemos probado: últimas ediciones de Chrome, Edge e Internet Explorer.
 
 ## <a name="known-incompatible-browser-extensions"></a>Extensiones de explorador incompatibles conocidas
 * Ghostery
@@ -62,7 +63,7 @@ Se ha producido un error relacionado con la autenticación (durante la autentica
      
      ![Cuadro de diálogo Opciones de Internet, agregar un sitio a Sitios de confianza](./media/app-insights-analytics-troubleshooting/033.png)
      
-     En la lista de sitios web, si se incluye alguna de las siguientes direcciones URL, asegúrese de que las otras se incluyan también:
+     En la lista de Websites, si se incluye alguna de las siguientes direcciones URL, asegúrese de que las otras se incluyan también:
      
      https://analytics.applicationinsights.io<br/>
      https://login.microsoftonline.com<br/>

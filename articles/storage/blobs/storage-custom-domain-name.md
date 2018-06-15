@@ -1,6 +1,6 @@
 ---
-title: "Configuración de un nombre de dominio personalizado para el punto de conexión de Azure Blob Storage | Microsoft Docs"
-description: "Utilice Azure Portal para asignar su propio nombre canónico (CNAME) al punto de conexión de Blob Storage en una cuenta de Azure Storage."
+title: Configuración de un nombre de dominio personalizado para el punto de conexión de Azure Blob Storage | Microsoft Docs
+description: Utilice Azure Portal para asignar su propio nombre canónico (CNAME) al punto de conexión de Blob Storage en una cuenta de Azure Storage.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559934"
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar un nombre de dominio personalizado para el punto de conexión de Almacenamiento de blobs
 
@@ -154,6 +155,6 @@ Use el cmdlet de PowerShell [Set-AzureRmStorageAccount](/powershell/module/azure
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Asignación de un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Uso de la red CDN de Azure para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
