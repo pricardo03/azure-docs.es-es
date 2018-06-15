@@ -4,7 +4,7 @@ description: Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: d1fe1707fc71e91436e51ad29c20500dab88957d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aaf357b1fe2c0b9b5874ee296c9141cf757e2300
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295363"
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Introducción al conector ProjectOnline
 Project Online en es una solución en línea flexible para la administración de carteras de proyectos (PPM) y el trabajo diario de Microsoft. Ofrecida a través de Office 365, Project Online permite a las organizaciones empezar a trabajar rápidamente con grandes capacidades de administración de proyectos para planear, priorizar y administrar proyectos e inversiones de carteras de proyectos, desde prácticamente cualquier lugar en casi todos los dispositivos.

@@ -1,24 +1,20 @@
 ---
 title: Carga de archivos desde dispositivos a Azure IoT Hub con .NET | Microsoft Docs
 description: Cómo cargar archivos de un dispositivo a la nube mediante el SDK de dispositivo IoT de Azure para. NET. Los archivos cargados se almacenan en un contenedor de blobs de Azure Storage.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 901b4b6c631d47a6c37eb232f66d8350faa9be76
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c57f93a755d01dc17b369e712285c2ac8f0ef37
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807499"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub mediante .NET
 
@@ -29,7 +25,7 @@ Este tutorial se basa en el código de [Tutorial: cómo envío mensajes de nube 
 - Proporcionar un dispositivo de forma segura con un identificador URI de blob de Azure para cargar un archivo.
 - Usar las notificaciones de carga de archivo de IoT Hub para desencadenar el procesamiento del archivo en el back-end de aplicación.
 
-Los tutoriales [Introducción a Iot Hub](iot-hub-csharp-csharp-getstarted.md) y [Envío de mensajes de nube a dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub. En el [tutorial de procesamiento de mensajes de dispositivo a nube](iot-hub-csharp-csharp-process-d2c.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo: 
+Los tutoriales [Introducción a Iot Hub](iot-hub-csharp-csharp-getstarted.md) y [Envío de mensajes de nube a dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub. En el [tutorial de procesamiento de mensajes de dispositivo a nube](tutorial-routing.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo: 
 
 * Archivos grandes con imágenes
 * Vídeos
@@ -111,7 +107,7 @@ En esta sección, se escribe una aplicación de consola de .NET que recibe mensa
 
 1. En la ventana **Administrador de paquetes NuGet**, busque **Microsoft.Azure.Devices**, haga clic en **Instalar** y acepte las condiciones de uso.
 
-    Esta acción descarga, instala y agrega una referencia al [paquete NuGet del SDK de servicios IoT de Azure ] en el proyecto **ReadFileUploadNotification**.
+    Esta acción descarga, instala y agrega una referencia al [Paquete NuGet del SDK de servicios IoT de Azure] en el proyecto **ReadFileUploadNotification**.
 
 1. En el archivo **Program.cs** , agregue las siguientes instrucciones al principio del archivo:
 
@@ -195,7 +191,7 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [Centro para desarrolladores de IoT de Azure]: http://azure.microsoft.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[paquete NuGet del SDK de servicios IoT de Azure ]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Paquete NuGet del SDK de servicios IoT de Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
