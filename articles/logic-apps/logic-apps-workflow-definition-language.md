@@ -3,7 +3,7 @@ title: Esquema del lenguaje de definición de flujo de trabajo - Azure Logic App
 description: Escritura de definiciones de flujo de trabajo personalizadas para Azure Logic Apps con el lenguaje de definición de flujo de trabajo
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33886820"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300188"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definiciones de flujo de trabajo de Logic Apps con el esquema de lenguaje de definición de flujo de trabajo
 
@@ -154,8 +154,8 @@ En estos ejemplos se muestra cómo se evalúan las expresiones:
 |------------|--------| 
 | "Sophia Owen" | Devuelve estos caracteres: "Sophia Owen" |
 | "array[1]" | Devuelve estos caracteres: "array [1]" |
-| "\@@\" | Devuelve estos caracteres como una cadena de un carácter: "@" |   
-| \" \@\" | Devuelve estos caracteres como una cadena de dos caracteres: "@" |
+| "\@\@\" | Devuelve estos caracteres como una cadena de un carácter: "\@\" |   
+| \" \@\" | Devuelve estos caracteres como una cadena de dos caracteres: \"\@\" |
 |||
 
 Para estos ejemplos, suponga que tiene que definir "myBirthMonth" es igual a "January" y "myAge" es igual al número 42:  
