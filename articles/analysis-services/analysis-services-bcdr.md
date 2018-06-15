@@ -3,16 +3,17 @@ title: Alta disponibilidad de Azure Analysis Services | Microsoft Docs
 description: Garantizar una alta disponibilidad de Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f8252e47224b96d43551ad389148a1ce4349c308
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db8f8b9b5af1583662418f774b2eb141bea53ffa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596743"
 ---
 # <a name="analysis-services-high-availability"></a>Alta disponibilidad de Azure Analysis Services
 En este artículo se describe cómo garantizar la alta disponibilidad de los servidores de Azure Analysis Services. 

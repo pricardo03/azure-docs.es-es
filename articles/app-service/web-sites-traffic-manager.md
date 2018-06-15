@@ -1,8 +1,8 @@
 ---
-title: "Control del tráfico de Azure App Service con Azure Traffic Manager"
-description: "En este artículo se proporciona información resumida sobre Azure Traffic Manager en su relación con Azure App Service."
+title: Control del tráfico de Azure App Service con Azure Traffic Manager
+description: En este artículo se proporciona información resumida sobre Azure Traffic Manager en su relación con Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824047"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Control del tráfico de Azure App Service con Azure Traffic Manager
 > [!NOTE]
@@ -33,10 +34,10 @@ Puede utilizar Azure Traffic Manager para controlar la manera en que se distribu
 ## <a name="routing-methods"></a>Métodos de enrutamiento
 Azure Traffic Manager utiliza cuatro métodos de enrutamiento distintos. Estos métodos se describen en la siguiente lista según su relación con Azure App Service.
 
-* **[Prioridad](#priority):** usa una aplicación principal para todo el tráfico y proporciona copias de seguridad en caso de que las aplicaciones principal o de copia de seguridad no estén disponibles.
-* **[Ponderado](#weighted):** el tráfico se distribuye entre un conjunto de aplicaciones, de manera uniforme o según los pesos definidos.
-* **[Rendimiento](#performance):** cuando haya aplicaciones en diferentes ubicaciones geográficas, use la aplicación "más cercana" en cuanto a menor latencia de red.
-* **[Geográfico](#geographic):** dirige a los usuarios a aplicaciones específicas en función de la ubicación geográfica de origen de su consulta de DNS. 
+* **[Prioridad](../traffic-manager/traffic-manager-routing-methods.md#priority):** usa una aplicación principal para todo el tráfico y proporciona copias de seguridad en caso de que las aplicaciones principal o de copia de seguridad no estén disponibles.
+* **[Ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted):** el tráfico se distribuye entre un conjunto de aplicaciones, de manera uniforme o según los pesos definidos.
+* **[Rendimiento](../traffic-manager/traffic-manager-routing-methods.md#performance):** cuando haya aplicaciones en diferentes ubicaciones geográficas, use la aplicación "más cercana" en cuanto a menor latencia de red.
+* **[Geográfico](../traffic-manager/traffic-manager-routing-methods.md#geographic):** dirige a los usuarios a aplicaciones específicas en función de la ubicación geográfica de origen de su consulta de DNS. 
 
 Para más información, consulte [Métodos de enrutamiento de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
