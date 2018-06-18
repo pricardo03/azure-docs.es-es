@@ -58,7 +58,7 @@ Es importante configurar un número de teléfono de autenticación secundario.  
 2. En el cuadro de texto, escriba el número de teléfono secundario.  
 3. Seleccione **Guardar** y los cambios habrán finalizado.  
 
-## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Requisito de nueva verificación en dos pasos en un dispositivo marcado como de confianza
+## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Volver a solicitar la verificación en dos pasos en un dispositivo marcado como de confianza
 
 Dependiendo de la configuración de la organización, es posible que tenga una casilla que indica "Don't ask again for **X** days" (No volver a preguntar en X días) al realizar la verificación en dos pasos en el explorador. Si marca este cuadro y pierde el dispositivo o piensa que se ha comprometido la seguridad de su cuenta, debe restaurar la verificación en dos pasos en todos los dispositivos.
 
@@ -69,5 +69,5 @@ Dependiendo de la configuración de la organización, es posible que tenga una c
 Cuando desinstala la aplicación del dispositivo o restablece el dispositivo, no se quita la activación en el back-end. Para más información, vea [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtener sugerencias para solucionar problemas y necesita ayuda [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
+* Obtener sugerencias para solucionar problemas y ayuda en [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
 * Configure [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones que no admiten la comprobación en dos pasos.
