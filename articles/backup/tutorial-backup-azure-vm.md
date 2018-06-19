@@ -1,26 +1,21 @@
 ---
-title: Copia de seguridad de máquinas virtuales de Azure en Azure a escala | Microsoft Docs
+title: Copia de seguridad de máquinas virtuales de Azure en Azure a escala
 description: En este tutorial se detalla la copia de seguridad de varias máquinas virtuales de Azure en un almacén de Recovery Services.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: copia de seguridad de máquina virtual; realizar copia de seguridad de máquina virtual; copia de seguridad y recuperación ante desastres
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/06/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.author: trinadhk
 ms.custom: mvc
-ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 863960e012a8e345434459ad16526c8971f00b6b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607011"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Copia de seguridad de máquinas virtuales de Azure en Azure a escala
 

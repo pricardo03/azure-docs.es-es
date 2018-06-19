@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b98c1995aa9051029049711ece18aeb23c444f1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365399"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642801"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Tutorial: Empaquetamiento e implementación de contenedores como aplicación de Service Fabric
 
@@ -237,7 +237,7 @@ Para obtener información sobre cómo crear su propio clúster, vea [Creación d
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Creación e implementación de la aplicación en el clúster
 Puede implementar la aplicación en el clúster de Azure mediante la CLI de Service Fabric. Si la CLI de Service Fabric CLI no está instalada en su máquina, siga las instrucciones [aquí](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) para instalarla. 
 
-Conéctese al clúster de Service Fabric en Azure. Reemplace el punto de conexión del marcador de posición por uno propio. El punto de conexión debe ser una dirección URL completa similar a la siguiente.
+Conéctese al clúster de Service Fabric en Azure. Reemplace el punto de conexión del ejemplo por uno propio. El punto de conexión debe ser una dirección URL completa similar a la siguiente.
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify

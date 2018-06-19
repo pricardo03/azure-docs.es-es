@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e6e6464bd8c8174978eded1ed626ca32029b7fbc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207213"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643158"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Inicio rápido: Creación de una aplicación .NET de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -120,7 +120,7 @@ Para ver lo que ocurre en el código, siga estos pasos:
     - Después, en la transacción, actualice el valor de la tecla correspondiente para la opción de votación y confirme la operación **(3)**. Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
 5. Pulse **F5** para continuar.
 
-Para detener la sesión de depuración, pulse **Maýus+F5**.
+Para detener la sesión de depuración, presione **Mayús+F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Implementación de la aplicación en Azure
 Para implementar la aplicación en Azure, se necesita un clúster de Service Fabric que ejecute la aplicación. 

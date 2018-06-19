@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6c84b60018ec03b7f9bc572db9181b8a47a0c595
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 860d28cb6726a86194460977b822197a37ab7279
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365413"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642876"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Inicio rápido: Implementación de una aplicación de Spring Boot con Java en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
 
-En esta guía de inicio rápido se muestra cómo implementar una aplicación de Spring Boot en Service Fabric con una máquina de desarrollador Mac o Linux. Este tutorial rápido se usa el ejemplo [Getting Started](https://spring.io/guides/gs/spring-boot/) del sitio web de Spring. Al utilizar las conocidas herramientas de línea de comandos, esta guía de inicio rápido le guía a través de la implementación del ejemplo de Spring Boot como una aplicación de Service Fabric. Cuando haya terminado, tendrá el ejemplo Getting Started de Spring Boot funcionando en Service Fabric. 
+Con las herramientas de la línea de comandos conocidas, esta guía de inicio rápido explica cómo implementar una aplicación Spring Boot funcional en Service Fabric en un equipo Mac o Linux para desarrolladores con el ejemplo [Introducción](https://spring.io/guides/gs/spring-boot/) del sitio web de Spring.
 
 ![Captura de pantalla de la aplicación](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -224,7 +224,7 @@ Ahora que la aplicación y el clúster están listos, puede implementarlos en el
 Ahora puede acceder a la aplicación de Spring Boot que se ejecuta en un clúster de Service Fabric de Azure.  
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Escalar aplicaciones y servicios en un clúster
-Los servicios se pueden escalar en un clúster para adaptarse a un cambio en la carga en los servicios. Para escalar un servicio, cambie el número de instancias que se ejecutan en el clúster. Hay muchas formas de escalar los servicios; por ejemplo, se pueden usar scripts o comandos de la CLI de Service Fabric (sfctl). En los pasos siguientes, se utiliza Service Fabric Explorer.
+Los servicios se pueden escalar en un clúster para adaptarse a un cambio en la carga en los servicios. Para escalar un servicio, cambie el número de instancias que se ejecutan en el clúster. Hay muchas formas de escalar los servicios; por ejemplo, se pueden usar scripts o comandos de la CLI de Service Fabric (sfctl). En los pasos siguientes se utiliza Service Fabric Explorer.
 
 Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y se puede acceder a él desde un explorador. Para ello, vaya al puerto de administración HTTP de clústeres (19080); por ejemplo, `http://localhost:19080`.
 
@@ -246,7 +246,7 @@ Para escalar el servicio front-end web, realice estas operaciones:
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
 4. Haga clic en el nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y expanda el nodo de partición (representado por un GUID).

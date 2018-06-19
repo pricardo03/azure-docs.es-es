@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
+ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b5ac1e4c62242c088a0ac84fffc0211baf442b53
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595206"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementación de Active Directory Federation Services en Azure
 AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
@@ -188,7 +190,7 @@ Seleccione el ILB recién creado en el panel Equilibradores de carga. Se abrirá
 En el panel de configuración del ILB, seleccione Sondeos.
 
 1. Haga clic en Agregar.
-2. Proporcione la información para el sondeo a. **Nombre**: nombre del sondeo b. **Protocolo**: TCP c. **Puerto**: 443 (HTTPS) d. **Intervalo**: 5 (valor predeterminado). Este es el intervalo en el que el ILB comprobará las máquinas en el grupo back-end e. **Umbral incorrecto**: 2 (valor predeterminado): umbral de errores de sondeo consecutivos después del cual el ILB declara que una máquina del grupo back-end no responde y dejará de enviarle tráfico.
+2. Proporcione la información para el sondeo a. **Nombre**: nombre del sondeo b. **Protocolo**: TCP c. **Puerto**: 443 (HTTPS) d. **Intervalo**: 5 (valor predeterminado). Este es el intervalo en el que el ILB comprobará las máquinas en el grupo back-end e. **Umbral incorrecto**: 2 (valor predeterminado). Umbral de errores de sondeo consecutivos después del cual el ILB declara que una máquina del grupo back-end no responde y dejará de enviarle tráfico.
 
 ![Configuración del sondeo del ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
