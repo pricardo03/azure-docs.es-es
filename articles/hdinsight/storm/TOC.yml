@@ -234,13 +234,10 @@
         - name: Conexión de HDInsight con la red local
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: Supervisión con OMS
+    - name: Supervisión del uso de Log Analytics
       items:
         - name: Uso de Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Paneles específicos de clúster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Uso de consultas con Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

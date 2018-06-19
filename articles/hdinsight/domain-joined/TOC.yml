@@ -37,13 +37,10 @@
     - name: Replicación de clústeres de HBase en redes virtuales de Azure
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: Supervisión con OMS
+- name: Supervisión del uso de Log Analytics
   items:
     - name: Uso de Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Paneles específicos de clúster
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Uso de consultas con Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
