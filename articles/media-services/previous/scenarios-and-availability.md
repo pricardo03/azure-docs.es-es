@@ -1,6 +1,6 @@
 ---
 title: Escenarios y disponibilidad de características de Microsoft Azure Media Services en centros de datos | Microsoft Docs
-description: Este tema ofrece información general de los escenarios y la disponibilidad de las características y servicios de Microsoft Azure Media Services en centros de datos.
+description: Este tema ofrece información general de los escenarios y la disponibilidad de las características y servicios de Azure Media Services en centros de datos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 777ba32a6c3ec7545c9911c820ceda7ac823096a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809290"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Escenarios y disponibilidad de características de Media Services en centros de datos
 
 Microsoft Azure Media Services (AMS) permite cargar, almacenar, codificar y empaquetar de forma segura contenido de audio o vídeo para su entrega a petición y mediante streaming en vivo a varios clientes (por ejemplo, televisión, PC y dispositivos móviles).
 
-AMS opera en varios centros de datos del mundo. Dichos centros se agrupan en regiones geográficas, lo que proporciona flexibilidad al elegir en lugar en que se van a crear aplicaciones. Puede revisar la [lista de regiones y sus ubicaciones](https://azure.microsoft.com/regions/). 
+AMS funciona en varios centros de datos del mundo. Estos centros de datos se agrupan en regiones geográficas, proporcionándole flexibilidad al elegir dónde crear sus aplicaciones. Puede revisar la [lista de regiones y sus ubicaciones](https://azure.microsoft.com/regions/). 
 
-En este tema se muestran escenarios comunes para la entrega de contenido [en directo](#live_scenarios) o [a petición](#vod_scenarios). El tema también proporciona detalles acerca de la disponibilidad de las características y servicios multimedia en centros de datos.
+En este tema se muestran escenarios comunes para la entrega de contenido [en directo](#live_scenarios) o [a petición](#vod_scenarios). El tema también proporciona detalles acerca de la disponibilidad de las características y servicios multimedia en los centros de datos.
 
 ## <a name="overview"></a>Información general
 
@@ -165,7 +166,7 @@ En esta sección se proporcionan detalles acerca de la disponibilidad de las car
 
 #### <a name="availability"></a>Disponibilidad
 
-Para determinar si Media Services está disponible en un centro de datos, vaya a https://azure.microsoft.com/status/ y desplácese hasta la tabla de medios.
+Para determinar si Media Services está disponible en un centro de datos, vaya a https://azure.microsoft.com/status/ y desplácese hasta la tabla MEDIA.
 
 ### <a name="streaming-endpoints"></a>Puntos de conexión de streaming 
 

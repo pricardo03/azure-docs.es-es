@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849998"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](active-directory-aadconnect-get-started-express.md) no vale para su implementación o topología.
@@ -214,12 +216,11 @@ En un equipo que tenga las herramientas de administración de directiva de grupo
 1.  Abra las herramientas de administración de directivas de grupo.
 2.  Edite la directiva de grupo que se aplicará a todos los usuarios. Por ejemplo, la directiva de dominio predeterminada.
 3.  Vaya a **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** y seleccione **Site to Zone Assignment List** (Lista de asignación de sitio a zona), como en la imagen siguiente.
-4.  Habilite la directiva y escriba los dos elementos siguientes en el cuadro de diálogo.
+4.  Habilite la directiva y escriba el siguiente elemento en el cuadro de diálogo.
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+    
 
 5.  El archivo debe tener un aspecto similar al siguiente:  
 ![Zonas de intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
@@ -227,7 +228,7 @@ En un equipo que tenga las herramientas de administración de directiva de grupo
 6.  Haga clic en **Ok** (Aceptar) dos veces.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configuración de federación con AD FS
-La configuración de AD FS con Azure AD Connect es muy sencilla y solo se necesitan unos cuantos clics. Antes de la configuración se requiere lo siguiente.
+La configuración de AD FS con Azure AD Connect es muy sencilla y solo se necesitan unos pocos clics. Antes de la configuración se requiere lo siguiente.
 
 * Un servidor Windows Server 2012 R2 o posterior para el servidor de federación con la administración remota habilitada
 * Un servidor Windows Server 2012 R2 para el servidor Web Application Proxy con la administración remota habilitada
@@ -303,7 +304,7 @@ Cuando se selecciona el dominio que se va a federar, Azure AD Connect proporcion
 >
 
 ## <a name="configuring-federation-with-pingfederate"></a>Configuración de federación con PingFederate
-La configuración de PingFederate con Azure AD Connect es muy sencilla y solo se necesitan unos cuantos clics. Antes de la configuración se requiere lo siguiente.  Sin embargo, se aplican los siguientes requisitos previos:
+La configuración de PingFederate con Azure AD Connect es muy sencilla y solo se necesitan unos pocos clics. Sin embargo, se precisan los siguientes requisitos previos.
 - PingFederate 8.4 o superior.  Para obtener más información, consulte [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html) (Integración de PingFederate con Azure Active Directory y Office 365).
 - Un certificado SSL para el nombre del servicio de federación que desea usar (por ejemplo, sts.contoso.com)
 

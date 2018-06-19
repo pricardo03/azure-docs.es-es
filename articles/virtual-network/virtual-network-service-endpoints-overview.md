@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824693"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -31,6 +32,7 @@ Esta característica está disponible en los siguientes servicios y regiones de 
 - **Azure SQL Database**: disponible con carácter general en todas las regiones de Azure
 - **Azure Cosmos DB**: disponible con carácter general en todas las regiones de nube pública de Azure 
 - **Azure SQL Data Warehouse**: versión preliminar en todas las regiones de nube pública de Azure
+- **Servicios de base de datos de Azure para PostgreSQL y MySQL**: versión preliminar en las regiones de Azure en las que el servicio de base de datos esté disponible.
 
 Para conocer las notificaciones más actualizadas sobre, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -98,7 +100,7 @@ Después de configurar los puntos de conexión de servicio para un servicio espe
   - Indica que está en vigor una conexión más directa al servicio, en comparación con cualquier-ruta de tunelización forzada
 
 >[!NOTE]
-> Las rutas del punto de conexión de servicio invalidan las rutas BGP o UDR para la coincidencia del prefijo de dirección de un servicio de Azure. Obtenga más información sobre la [solución de problemas con rutas eficaces](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> Las rutas del punto de conexión de servicio invalidan las rutas BGP o UDR para la coincidencia del prefijo de dirección de un servicio de Azure. Obtenga más información sobre la [solución de problemas con rutas eficaces](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>Aprovisionamiento
 

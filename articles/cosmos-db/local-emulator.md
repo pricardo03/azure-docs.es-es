@@ -2,24 +2,21 @@
 title: Desarrollo local con el Emulador de Azure Cosmos DB | Microsoft Docs
 description: Con el Emulador de Azure Cosmos DB, puede desarrollar y probar su aplicación localmente de forma gratuita, sin necesidad de crear una suscripción a Azure.
 services: cosmos-db
-documentationcenter: ''
 keywords: Emulador de Azure Cosmos DB
 author: David-Noble-at-work
 manager: kfile
 editor: ''
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824101"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Uso del Emulador de Azure Cosmos DB para desarrollo y pruebas de forma local
 
@@ -53,9 +50,9 @@ En este artículo se tratan las tareas siguientes:
 > * Llamada al Emulador desde la línea de comandos
 > * Ejecución del Emulador en Docker para Windows
 > * Recopilación de archivos de seguimiento
-> * solución de problemas
+> * Solución de problemas
 
-Antes que nada, se recomienda ver el siguiente vídeo, donde Kirill Gavrylyuk describe las funciones básicas del Emulador de Azure Cosmos DB. Tenga en cuenta que en el vídeo se hace referencia al emulador como el "Emulador de DocumentDB", pero después de que se grabara el vídeo se ha cambiado el nombre de la herramienta a "Emulador de Azure Cosmos DB". Toda la información contenida en el vídeo sigue siendo correcta para el Emulador de Azure Cosmos DB. 
+Antes que nada, se recomienda ver el siguiente vídeo, donde Kirill Gavrylyuk describe las funciones básicas del Emulador de Azure Cosmos DB. En el vídeo se hace referencia al emulador como "DocumentDB Emulator", pero después de que se grabara el vídeo se ha cambiado el nombre de la herramienta a "Emulador de Azure Cosmos DB". Toda la información contenida en el vídeo sigue siendo correcta para el Emulador de Azure Cosmos DB. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
@@ -69,11 +66,12 @@ Aunque se crea una emulación local de alta fidelidad del propio servicio Azure 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Diferencias entre el emulador y el servicio 
 Dado que el Emulador de Azure Cosmos DB proporciona un entorno emulado que se ejecuta en una estación de trabajo de desarrollador local, hay algunas diferencias de funcionalidad entre el emulador y una cuenta de Azure Cosmos DB en la nube:
 
+* Actualmente, el Explorador de datos del emulador solo admite colecciones de SQL API y de MongoDB. Las API de Table, Graph y Cassandra aún no se admiten.  
 * El Emulador de Azure Cosmos DB es compatible con una sola cuenta fija y una clave maestra ya conocida.  La regeneración de claves no es posible en el Emulador de Azure Cosmos DB.
 * El Emulador de Azure Cosmos DB no es un servicio escalable y no será compatible con un gran número de colecciones.
 * El Emulador de Azure Cosmos DB no simula diferentes [niveles de coherencia de Azure Cosmos DB](consistency-levels.md).
 * El Emulador de Azure Cosmos DB no simula [la replicación en varias regiones](distribute-data-globally.md).
-* El Emulador de Azure Cosmos DB no es compatible con las invalidaciones de cuotas de servicio que están disponibles en el servicio Azure Cosmos DB (por ejemplo, los límites de tamaño del documento, el mayor almacenamiento de colección con particiones).
+* El Emulador de Azure Cosmos DB no admite las invalidaciones de cuotas de servicio disponibles en el servicio Azure Cosmos DB (por ejemplo, los límites de tamaño del documento, el aumento del tamaño de almacenamiento de una colección con particiones).
 * Como la copia del emulador de Azure Cosmos DB puede no contener los cambios más recientes del servicio Azure Cosmos DB, inicie el [planeador de capacidad de Azure Cosmos DB](https://www.documentdb.com/capacityplanner) para calcular con precisión las necesidades de rendimiento de producción (RU) de la aplicación.
 
 ## <a name="system-requirements"></a>Requisitos del sistema
@@ -82,8 +80,8 @@ El Emulador de Azure Cosmos DB presenta los siguientes requisitos de hardware y 
 * Requisitos de software
   * Windows Server 2012 R2, Windows Server 2016 o Windows 10
 *   Requisitos mínimos de hardware
-  * 2 GB DE RAM
-  * 10 GB de espacio disponible en disco duro
+  * 2 GB de RAM
+  * 10 GB de espacio disponible en el disco duro
 
 ## <a name="installation"></a>Instalación
 Puede descargar e instalar el emulador de Azure Cosmos DB desde el [Centro de descarga de Microsoft](https://aka.ms/cosmosdb-emulator) o puede ejecutarlo en Docker para Windows. Para más instrucciones sobre cómo utilizar el emulador en Docker para Windows, consulte [Ejecución en Docker para Windows](#running-on-docker). 
@@ -101,11 +99,11 @@ Cuando se ejecuta el emulador, verá un icono en el área de notificación de la
 
 El Emulador de Azure Cosmos DB se ejecuta de forma predeterminada en la máquina local ("localhost") que escucha en el puerto 8081.
 
-El Emulador de Azure Cosmos DB se instala de forma predeterminada en el directorio `C:\Program Files\Azure Cosmos DB Emulator`. También puede iniciar y detener el emulador desde la línea de comandos. Vea la [referencia de la herramienta de la línea de comandos](#command-line) para obtener más información.
+El Emulador de Azure Cosmos DB se instala de forma predeterminada en el directorio `C:\Program Files\Azure Cosmos DB Emulator`. El emulador también se puede iniciar y detener desde la línea de comandos. Vea la [referencia de la herramienta de la línea de comandos](#command-line) para obtener más información.
 
 ## <a name="start-data-explorer"></a>Inicio del Explorador de datos
 
-Cuando se inicia el Emulador de Azure Cosmos DB, se abre automáticamente el Explorador de datos de Azure Cosmos DB en su explorador. La dirección aparece como [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Si cierra el explorador y desea volver a abrirlo más adelante, puede abrir la dirección URL en el explorador o iniciarla desde el icono de la bandeja de Windows del Emulador de Azure Cosmos DB, tal y como se muestra a continuación.
+Cuando se inicia el Emulador de Azure Cosmos DB, el Explorador de datos de Azure Cosmos DB se abre automáticamente en su explorador. La dirección aparece como [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Si cierra el explorador y desea volver a abrirlo más adelante, puede abrir la dirección URL en el explorador o iniciarlo desde el icono del Emulador de Azure Cosmos DB de la bandeja de Windows, tal como se muestra a continuación.
 
 ![Iniciador del Explorador de datos del emulador local de Azure Cosmos DB](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -116,7 +114,7 @@ En el Explorador de datos se indica si hay una nueva actualización disponible p
 > No se garantiza que los datos que se crean en una versión del Emulador de Azure Cosmos DB estén disponibles cuando se utilice una versión diferente. Si necesita conservar los datos a largo plazo, es recomendable que almacene esos datos en una cuenta de Azure Cosmos DB y no en el Emulador de Azure Cosmos DB. 
 
 ## <a name="authenticating-requests"></a>Autenticación de solicitudes
-Al igual que con Azure Cosmos DB en la nube, se deben autenticar todas las solicitudes que se realicen en el Emulador de Azure Cosmos DB. El Emulador de Azure Cosmos DB es compatible con una sola cuenta fija y una clave de autenticación ya conocida para la autenticación de clave maestra. Esta cuenta y clave son las únicas credenciales que se admiten para su uso con el Emulador de Azure Cosmos DB. Son las siguientes:
+Al igual que con Azure Cosmos DB en la nube, todas las solicitudes que se realicen en el Emulador de Azure Cosmos DB deben autenticarse. El Emulador de Azure Cosmos DB es compatible con una sola cuenta fija y una clave de autenticación ya conocida para la autenticación de clave maestra. Esta cuenta y clave son las únicas credenciales que se admiten para su uso con el Emulador de Azure Cosmos DB. Son las siguientes:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -133,7 +131,7 @@ Además, lo mismo que el servicio Azure Cosmos DB, el Emulador de Azure Cosmos D
 
 Puede ejecutar el emulador en una red local. Para habilitar el acceso de red, especifique la opción /AllowNetworkAccess en la [línea de comandos](#command-line-syntax), que también requiere que especifique /Key=key_string o /KeyFile=file_name. Puede usar /GenKeyFile=file_name para generar un archivo con una clave aleatoria por adelantado.  Después, puede pasar /KeyFile=file_name o /Key=contents_of_file.
 
-Para habilitar el acceso de red por primera vez, el usuario debe cerrar el emulador y eliminar el directorio de datos del emulador (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
+La primera vez que se habilita el acceso de red el usuario debe cerrar el emulador y eliminar el directorio de datos del emulador (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Desarrollo con el emulador
 Cuando tenga el Emulador de Azure Cosmos DB funcionando en su escritorio, puede usar cualquier [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) admitido o la [API de REST de Azure Cosmos DB](/rest/api/cosmos-db/) para interactuar con el Emulador. El emulador de Azure Cosmos DB también incluye un Explorador de datos integrado que le permite crear colecciones de las API de SQL y MongoDB, así como ver y editar documentos sin escribir ningún código.   
@@ -158,7 +156,7 @@ Con el Emulador de Azure Cosmos DB, puede crear de forma predeterminada hasta 25
 
 El sistema en tiempo de ejecución y los lenguajes .NET utilizan el almacén de certificados de Windows para conectarse de forma segura al emulador local de Azure Cosmos DB. Otros lenguajes tienen sus propios métodos de administración y uso de certificados. Java utiliza su propio [almacén de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), mientras que Python utiliza [contenedores de sockets](https://docs.python.org/2/library/ssl.html).
 
-Si quiere obtener un certificado que se pueda utilizar con los lenguajes y los tiempos de ejecución sin que se integre con el almacén de certificados de Windows, tendrá que realizar la exportación por medio del administrador de certificados de Windows. Para iniciarlo, ejecute certlm.msc o siga las instrucciones paso a paso de [Exportación de los certificados del Emulador de Azure Cosmos DB](./local-emulator-export-ssl-certificates.md). Una vez que el Administrador de certificados se esté ejecutando, abra los certificados personales, tal y como se muestra a continuación, y exporte el certificado con el nombre descriptivo "DocumentDBEmulatorCertificate" como archivo X.509 codificado en BASE-64 (.cer).
+Para obtener un certificado que se pueda utilizar con los lenguajes y runtimes que no están integrados en el almacén de certificados de Windows, tendrá que realizar la exportación por medio del administrador de certificados de Windows. Para iniciarlo, ejecute certlm.msc o siga las instrucciones paso a paso de [Exportación de los certificados del Emulador de Azure Cosmos DB](./local-emulator-export-ssl-certificates.md). Una vez que el Administrador de certificados se esté ejecutando, abra los certificados personales, tal y como se muestra a continuación, y exporte el certificado con el nombre descriptivo "DocumentDBEmulatorCertificate" como archivo X.509 codificado en BASE-64 (.cer).
 
 ![Certificado SSL del emulador local de Azure Cosmos DB](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
@@ -167,7 +165,7 @@ El certificado X.509 puede importarse en el almacén de certificados de Java sig
 Al conectarse al emulador desde los SDK de Node.js y Python, se deshabilita la verificación de SSL.
 
 ## <a id="command-line"></a>Referencia de la herramienta de la línea de comandos
-Desde la ubicación de instalación, puede usar la línea de comandos para iniciar y detener el emulador, configurar las opciones y realizar otras operaciones.
+Desde la ubicación de la instalación puede usar la línea de comandos para iniciar y detener el emulador, configurar sus opciones y realizar otras operaciones.
 
 ### <a name="command-line-syntax"></a>Sintaxis de línea de comandos
 
@@ -305,7 +303,7 @@ Para ver la lista de opciones, escriba `CosmosDB.Emulator.exe /?` en el símbolo
 
 ## <a id="set-partitioncount"></a>Cambio del número de colecciones
 
-Con el Emulador de Azure Cosmos DB, puede crear de forma predeterminada hasta 25 colecciones de partición única o una colección con particiones. Al modificar el valor de **PartitionCount**, puede crear hasta 250 colecciones de partición única o 10 colecciones con particiones o cualquier combinación de las dos que no superen las 250 particiones de partición única (donde 1 colección con particiones = 25 colecciones de partición única).
+Con el Emulador de Azure Cosmos DB, puede crear de forma predeterminada hasta 25 colecciones de partición única o una colección con particiones. Mediante la modificación del valor **PartitionCount** puede crear hasta 250 colecciones de una sola partición o 10 colecciones con particiones, o cualquier combinación de ambas que no superen las 250 colecciones de una sola partición (una colección con particiones = 25 colecciones de una sola partición).
 
 Si intenta crear una colección después de que se haya excedido el recuento de particiones actual, el emulador generará una excepción ServiceUnavailable, con el siguiente mensaje.
 
@@ -434,7 +432,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 .\importcert.ps1
 ```
 
-Si cierra el shell interactivo una vez iniciado el emulador, se cerrará el contenedor de este.
+Si cierra el shell interactivo después de que se haya iniciado el emulador, se cerrará el contenedor de este.
 
 Para abrir el Explorador de datos vaya a la siguiente dirección URL en el explorador. El punto de conexión del emulador se proporciona en el mensaje de respuesta mostrado anteriormente.
 
@@ -453,7 +451,7 @@ Use las siguientes sugerencias para solucionar los problemas que puedan surgir c
 
 - Si se produce un problema de conectividad, [recopile los archivos de seguimiento](#trace-files), comprímalos y adjúntelos a un correo electrónico y envíelo a [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-- Si recibe un mensaje de **Servicio no disponible**, es posible que el emulador no pueda inicializar la pila de red. Compruebe si tiene instalado el cliente de Pulse Secure o el cliente de Juniper Networks, ya que sus controladores de filtro de red podrían ser la causa del problema. Normalmente el problema se corrige si se desinstalan los controladores de filtro de red de otros fabricantes.
+- Si recibe un mensaje de **Servicio no disponible**, es posible que el emulador no pueda inicializar la pila de red. Compruebe si tiene instalado el cliente de Pulse Secure o el cliente de Juniper Networks, ya que sus controladores de filtro de red podrían ser la causa del problema. Normalmente el problema se corrige al desinstalar los controladores del filtro de red de otros fabricantes.
 
 ### <a id="trace-files"></a>Recopilación de archivos de seguimiento
 
@@ -477,7 +475,7 @@ Para recopilar los seguimientos de depuración, ejecute los siguientes comandos 
 
 ## <a name="change-list"></a>Lista de cambios
 
-Para comprobar el número de versión haga clic con el botón derecho en el icono del emulador local de la barra de tareas y seleccione el elemento de menú Acerca de.
+Para ver el número de versión haga clic con el botón derecho en el icono del emulador local de la barra de tareas y después en la opción de menú Acerca de.
 
 ### <a name="1220-released-on-april-20-2018"></a>1.22.0. publicada el 20 de abril de 2018
 
@@ -509,7 +507,7 @@ Hay una nueva característica y dos correcciones de errores en esta versión. Gr
 
    Lo hemos corregido al incorporar una invalidación de la configuración en el emulador. Ahora se aplica un múltiplo de 1. El número de tareas asignado para llevar a cabo distintos servicios ahora es igual al número de núcleos de un host.
 
-   Para poder abordar este problema, en esta versión no hemos hecho nada más. Creemos que muchos entornos de desarrollo/pruebas que hospedan el emulador tienen 1 o 2 núcleos.
+   No hemos hecho nada más en esta versión, aparte de solucionar este problema. Creemos que muchos entornos de desarrollo/pruebas que hospedan el emulador tienen 1 o 2 núcleos.
 
 2. El emulador ya no necesita la instalación de Microsoft Visual C++ 2015 Redistributable.
 
