@@ -1,23 +1,21 @@
 ---
 title: Inicio rápido para controlar un dispositivo desde Azure IoT Hub (Node.js) | Microsoft Docs
 description: En este inicio rápido, ejecuta dos aplicaciones Node.js de muestra. Una aplicación es una aplicación back-end que puede controlar dispositivos conectados al centro de manera remota. La otra aplicación simula un dispositivo conectado al centro que se puede controlar de manera remota.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: node
+services: iot-hub
+ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: dca312a766e38bc9f7991108559721ce354eb5ae
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a173b77d969697f85eab0d5976e5bc0a1796fe75
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808577"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Inicio rápido: controlar un dispositivo conectado a IoT Hub (Node.js)
 
@@ -89,7 +87,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 La aplicación del dispositivo simulado se conecta a un punto de conexión específico del dispositivo en IoT Hub, envía los datos de telemetría simulados y escucha llamadas de método directo desde el centro. En este inicio rápido, la llamada de método directo desde el centro indica al dispositivo que debe cambiar el intervalo en el que envía los datos de telemetría. El dispositivo simulado envía una confirmación al centro después de que ejecute el método directo.
 
-1. En una ventana de terminal, vaya a la carpeta raíz del proyecto de Node.js de muestra. A continuación, vaya a la carpeta **Quickstarts\simulated-device-2**.
+1. En una ventana de terminal, vaya a la carpeta raíz del proyecto de Node.js de muestra. A continuación, vaya a la carpeta **iot-hub\Quickstarts\simulated-device-2**.
 
 1. Abra el archivo **SimulatedDevice.js** en el editor de texto de su elección.
 
@@ -110,7 +108,7 @@ La aplicación del dispositivo simulado se conecta a un punto de conexión espec
 
 La aplicación back-end se conecta a un punto de conexión de servicio en IoT Hub. La aplicación realiza llamadas de método directo a un dispositivo con IoT Hub y realiza escuchas para confirmaciones. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube.
 
-1. En otra ventana de terminal, vaya a la carpeta raíz del proyecto de Node.js de muestra. A continuación, vaya a la carpeta **Quickstarts\back-end-application**.
+1. En otra ventana de terminal, vaya a la carpeta raíz del proyecto de Node.js de muestra. A continuación, vaya a la carpeta **iot-hub\Quickstarts\back-end-application**.
 
 1. Abra el archivo **BackEndApplication.js** en el editor de texto de su elección.
 
@@ -144,4 +142,4 @@ En este inicio rápido, ha llamado a un método directo en un dispositivo desde 
 Para obtener información sobre cómo redirigir mensajes del dispositivo a la nube a diferentes destinos en la nube, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Enrutar datos de telemetría a distintos puntos de conexión para procesamiento](iot-hub-node-node-process-d2c.md)
+> [Tutorial: Enrutar datos de telemetría a distintos puntos de conexión para procesamiento](tutorial-routing.md)

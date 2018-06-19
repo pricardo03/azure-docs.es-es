@@ -1,21 +1,22 @@
 ---
 title: Supervisión de los dispositivos en Azure IoT Central | Microsoft Docs
 description: Como un operador, puede usar la aplicación de Azure IoT Central para supervisar los dispositivos.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: a07c9e3c28fadaead8bfaaebe4d1ee06ac66a99e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201394"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235488"
 ---
-# <a name="use-azure-iot-central-to-monitor-your-devices"></a>Uso de Azure IoT Central para supervisar los dispositivos
+# <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Uso de Azure IoT Central para supervisar dispositivos
 
 Este tutorial le muestra, como un operador, cómo usar la aplicación de Microsoft Azure IoT Central para supervisar los dispositivos y cambiar la configuración.
 
@@ -50,11 +51,11 @@ La página **Device** (Dispositivo) del dispositivo simulado **Connected Air Con
 
 Como un operador, puede ver información sobre el dispositivo en las páginas **Measurements** (Medidas), **Settings** (Configuración), **Properties** (Propiedades), **Rules** (Reglas) y  **Dashboard** (Panel). El desarrollador ha personalizado el **Panel** para mostrar información relevante acerca de un dispositivo acondicionador de aire conectado.
 
-* Elija la vista **Dashboard** (Panel) para ver información acerca del dispositivo:
+Elija la vista **Dashboard** (Panel) para ver información acerca del dispositivo.
 
-    ![Panel del dispositivo](media/tutorial-monitor-devices/initial_screen.png)
+![Panel del dispositivo](media/tutorial-monitor-devices/initial_screen.png)
 
-    El gráfico del panel muestra un trazado de la temperatura del dispositivo. También puede ver la temperatura de destino actual del dispositivo en el icono **Set target temperature** (Establecer temperatura de destino). Imaginemos que decide que la temperatura de destino es demasiado alta.
+El gráfico del panel muestra un trazado de la temperatura del dispositivo. También puede ver la temperatura de destino actual del dispositivo en el icono **Set target temperature** (Establecer temperatura de destino). Imaginemos que decide que la temperatura de destino es demasiado alta.
 
 ## <a name="remediate-an-issue"></a>Corregir un problema
 
@@ -64,7 +65,7 @@ Para cambiar la temperatura de destino del dispositivo, use la página **Setting
 
     ![Actualización de la configuración](media/tutorial-monitor-devices/change_settings.png)
 
-1. Elija **Dashboard** (Panel) y compruebe el nuevo valor de configuración:
+2. Elija **Dashboard** (Panel) y compruebe el nuevo valor de configuración:
 
     ![Panel del dispositivo actualizado](media/tutorial-monitor-devices/new_settings.png)
 
@@ -77,4 +78,4 @@ En este tutorial aprendió lo siguiente:
 > * Investigar un problema
 > * Corregir un problema
 
-Ahora que ha supervisado el dispositivo, el siguiente paso sugerido es la [Adición de un dispositivo](tutorial-add-device.md).
+Ahora que sabe cómo supervisar un dispositivo, el siguiente paso que se sugiere es [agregar un dispositivo](tutorial-add-device.md).

@@ -1,13 +1,13 @@
 ---
-title: "Ejemplo de eliminación de script de la CLI de Azure Service Fabric"
-description: "Eliminación de una aplicación de un clúster de Azure Service Fabric mediante la CLI de Azure Service Fabric"
+title: Ejemplo de eliminación de script de la CLI de Azure Service Fabric (sfctl)
+description: Eliminación de una aplicación de un clúster de Azure Service Fabric mediante la CLI de Azure Service Fabric
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 95a6bac7ee79e3490584305e78d410104363b780
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 83f2fc52debd24afd97a391466cb5a0b1a8cd93c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642723"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>Eliminación de una aplicación de un clúster de Service Fabric
 

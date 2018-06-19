@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850617"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Creación de una Instancia administrada de Azure SQL Database en Azure Portal
 
@@ -161,16 +162,16 @@ Los pasos siguientes muestran cómo crear la instancia administrada cuando se ha
 
    ![creación de instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Seleccione la suscripción y compruebe que los términos de la versión preliminar muestran **Aceptado**.
+4. Seleccione la suscripción y compruebe que los términos de la versión preliminar muestran **Aceptado**.
 
    ![versión preliminar de la instancia administrada aceptada](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Rellene el formulario de la instancia administrada con la información solicitada, utilizando los datos de la siguiente tabla:
+5. Rellene el formulario de la instancia administrada con la información solicitada, utilizando los datos de la siguiente tabla:
 
    | Configuración| Valor sugerido | DESCRIPCIÓN |
    | ------ | --------------- | ----------- |
    |**Nombre de la instancia administrada**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Inicio de sesión de administrador de la instancia administrada**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Inicio de sesión de administrador de la instancia administrada**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.| 
    |**Password**|Cualquier contraseña válida|La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Grupo de recursos**|El grupo de recursos que ha creado anteriormente||
    |**Ubicación**|La ubicación que ha seleccionado anteriormente|Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
@@ -178,17 +179,17 @@ Los pasos siguientes muestran cómo crear la instancia administrada cuando se ha
 
    ![formulario de creación de instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Haga clic en **Plan de tarifa** para cambiar el tamaño de los recursos de almacenamiento y de proceso, así como para revisar las opciones del plan de tarifa. De forma predeterminada, la instancia obtiene 32 GB de espacio de almacenamiento de forma gratuita, lo que puede no ser suficiente para sus aplicaciones.
-6. Utilice los controles deslizantes o cuadros de texto para especificar la cantidad de almacenamiento y el número de núcleos virtuales. 
-   ![formulario de creación de instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. Haga clic en **Plan de tarifa** para cambiar el tamaño de los recursos de almacenamiento y de proceso, así como para revisar las opciones del plan de tarifa. De forma predeterminada, la instancia obtiene 32 GB de espacio de almacenamiento de forma gratuita, lo que puede no ser suficiente para sus aplicaciones.
+7. Utilice los controles deslizantes o cuadros de texto para especificar la cantidad de almacenamiento y el número de núcleos virtuales. 
+   ![plan de tarifa de instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. Cuando haya terminado, haga clic en **Aplicar** para guardar la selección.  
-8. Haga clic en **Crear** para implementar la instancia administrada.
-9. Haga clic en el icono de **notificaciones** para ver el estado de la implementación.
+8. Cuando haya terminado, haga clic en **Aplicar** para guardar la selección.  
+9. Haga clic en **Crear** para implementar la instancia administrada.
+10. Haga clic en el icono de **notificaciones** para ver el estado de la implementación.
  
    ![progreso de la implementación](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Haga clic en **Deployment in progress** (Implementación en curso) para abrir la ventana de la instancia administrada y seguir la supervisión del progreso de la implementación.
+11. Haga clic en **Deployment in progress** (Implementación en curso) para abrir la ventana de la instancia administrada y seguir la supervisión del progreso de la implementación.
  
    ![progreso de la implementación 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ En los pasos siguientes se muestra cómo crear una máquina virtual en la misma 
 
    ![formulario de creación de máquina virtual](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. Haga clic en **OK**.
-4. Seleccione un tamaño para la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). Para este tutorial, solo necesita una máquina virtual pequeña.
+4. Haga clic en **OK**.
+5. Seleccione un tamaño para la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). Para este tutorial, solo necesita una máquina virtual pequeña.
 
     ![Tamaños de VM](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. Haga clic en **Seleccionar**.
-6. En el formulario **Configuración**, haga clic en **Subred** y, después, seleccione **vm_subnet**. No elija la subred en la que se aprovisiona la instancia administrada, sino otra subred de la misma red virtual.
+6. Haga clic en **Seleccionar**.
+7. En el formulario **Configuración**, haga clic en **Subred** y, después, seleccione **vm_subnet**. No elija la subred en la que se aprovisiona la instancia administrada, sino otra subred de la misma red virtual.
 
     ![Configuración de máquina virtual](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. Haga clic en **OK**.
-8. En la página de resumen, revise los detalles de la oferta y haga clic en **Crear** para iniciar la implementación de la máquina virtual.
+8. Haga clic en **OK**.
+9. En la página de resumen, revise los detalles de la oferta y haga clic en **Crear** para iniciar la implementación de la máquina virtual.
  
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 

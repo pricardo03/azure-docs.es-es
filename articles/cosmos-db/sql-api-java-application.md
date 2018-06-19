@@ -3,22 +3,20 @@ title: Tutorial de desarrollo de aplicaciones Java con Azure Cosmos DB | Microso
 description: En este tutorial de aplicaciones web de Java, aprenderá a usar Azure Cosmos DB y la API de SQL para almacenar datos y acceder a ellos desde una aplicación de Java hospedada en Azure Websites.
 keywords: Desarrollo de aplicación, tutorial de base de datos, aplicación de Java, tutorial de aplicación web de Java, Azure, Microsoft Azure
 services: cosmos-db
-documentationcenter: java
 author: dennyglee
 manager: kfile
-ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 2124e22ca5ab47b5e1836384132014cc0b356ff1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4e3fd2fc31bda1dd8172c574fe087d9fcc6068db
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796832"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
 > [!div class="op_single_selector"]
@@ -29,12 +27,12 @@ ms.lasthandoff: 04/06/2018
 > 
 > 
 
-En este tutorial de aplicación web Java aprenderá a usar el servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) para almacenar datos y acceder a ellos desde una aplicación de Java hospedada en Azure App Service Web Apps. En este tema, aprenderá:
+En este tutorial de aplicación web Java aprenderá a usar el servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) para almacenar datos y acceder a ellos desde una aplicación de Java hospedada en Azure App Service Web Apps. En este artículo, aprenderá lo siguiente:
 
 * Cómo crear una aplicación de JavaServer Pages (JSP) básica en Eclipse.
 * Cómo trabajar con el servicio Azure Cosmos DB con el [SDK de Java de Azure Cosmos DB](https://github.com/Azure/azure-documentdb-java).
 
-Este tutorial de aplicación Java muestra cómo crear una aplicación de administración de tareas basadas en web que permite crear, recuperar y marcar tareas como completadas, tal como se muestra en la siguiente imagen. Las tareas de la lista ToDo se almacenan como documentos JSON en Azure Cosmos DB.
+Este tutorial de aplicación Java muestra cómo crear una aplicación de administración de tareas basadas en web que permite crear, recuperar y marcar tareas como completadas, tal como se muestra en la siguiente imagen. Las tareas de la lista de tareas pendientes se almacenan como documentos JSON en Azure Cosmos DB.
 
 ![Aplicación Java My ToDo List](./media/sql-api-java-application/image1.png)
 
@@ -120,7 +118,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
             private String name;
         }
    
-    En este proyecto, estamos usando [Project Lombok](http://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
+    En este proyecto, va a usar [Project Lombok](http://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
 2. Para invocar el servicio Azure Cosmos DB, debe crear una nueva instancia de **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient** , en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**. En DocumentClientFactory.java, tendrá que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [YOUR\_ENDPOINT\_HERE] por el URI y reemplace [YOUR\_KEY\_HERE] por su CLAVE PRINCIPAL.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
@@ -726,7 +724,7 @@ Azure WebSites consigue que la implementación de aplicaciones de Java sea tan s
 3. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones sobre cómo cargar el archivo, consulte [Adición de una aplicación Java a Azure App Service Web Apps](../app-service/web-sites-java-add-app.md).
    
     Una vez que se cargue el archivo WAR en el directorio webapps, el entorno de tiempo de ejecución detectará que lo ha agregado y lo cargará automáticamente.
-4. Para ver el producto terminado, vaya a http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ y comience a agregar las tareas.
+4. Para ver el producto finalizado, vaya a http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ y empiece a agregar sus tareas.
 
 ## <a id="GetProject"></a>Obtenga el proyecto desde GitHub
 Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) en GitHub. Para importar el proyecto todo en Eclipse, asegúrese de disponer del software y los recursos que aparecen en la sección [Requisitos previos](#Prerequisites) y haga lo siguiente:
@@ -736,7 +734,7 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 3. En Eclipse, en el menú **File** (Archivo), haga clic en **Import** (Importar).
 4. En la ventana **Import** (Importar), haga clic en **Git**, en **Projects from Git** (Proyectos de Git) y luego en **Next** (Siguiente).
 5. En la pantalla **Select Repository Source** (Seleccionar origen del repositorio), haga clic en **Clone URI** (Clonar URI).
-6. En la pantalla **Source Git Repository** (Repositorio GIT de origen), en el cuadro **URI**, escriba https://github.com/Azure-Samples/java-todo-app.git y, a continuación, haga clic en **Siguiente**.
+6. En la pantalla **Source Git Repository** (Repositorio GIT de origen), en el cuadro **URI**, escriba https://github.com/Azure-Samples/documentdb-java-todo-app.git y, a continuación, haga clic en **Siguiente**.
 7. En la pantalla **Branch Selection** (Selección de rama), asegúrese de que está seleccionado **master** (principal) y luego haga clic en **Next** (Siguiente).
 8. En la pantalla **Local Destination** (Destino local), haga clic en **Browse** (Examinar) para seleccionar una carpeta donde se pueda copiar el repositorio y luego haga clic en **Next** (Siguiente).
 9. En la pantalla **Select a wizard to use for importing projects** (Seleccionar un asistente para usar en la importación de proyectos), asegúrese de que la opción **Import existing projects** (Importar proyectos existentes) esté seleccionada y luego haga clic en **Next** (Siguiente).

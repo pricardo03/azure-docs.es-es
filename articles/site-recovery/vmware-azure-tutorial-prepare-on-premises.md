@@ -6,30 +6,31 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 06/04/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a9b33469a439c9f99c80391bfeb1fb4040dbbc2
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737602"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
-En este tutorial se muestra cómo preparar la infraestructura de VMware local para replicar máquinas virtuales de VMware en Azure. En este tutorial, aprenderá a:
+[Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
+
+- Este es el segundo tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware. En el primer tutorial, se [configuraron los componentes de Azure](tutorial-prepare-azure.md) necesarios para la recuperación ante desastres de VMware.
+- Los tutoriales están diseñados para mostrarle la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. 
+
+En este artículo, se indica cómo preparar el entorno local de VMware cuando desea replicar máquinas virtuales de VMware en Azure mediante Azure Site Recovery. Aprenderá a:
 
 > [!div class="checklist"]
 > * Preparar una cuenta en el servidor vCenter o en el host ESXi de vSphere para automatizar la detección de máquinas virtuales
 > * Preparar una cuenta para la instalación automática de Mobility Service en máquinas virtuales de VMware
-> * Revisar los requisitos del servidor de VMware
-> * Revisar los requisitos de las máquinas virtuales de VMware
+> * Revisar los requisitos del servidor de VMware y de las máquinas virtuales
+> * Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
 
-En esta serie de tutoriales, se muestra cómo replicar una sola máquina virtual mediante Azure Site Recovery. 
-
-Este es el segundo tutorial de la serie. Asegúrese de que [ha configurado los componentes de Azure](tutorial-prepare-azure.md) tal como se describe en el tutorial anterior.
-
-Si va a replicar varias máquinas virtuales, descargue la [herramienta Deployment Planner](https://aka.ms/asr-deployment-planner) para la replicación de VMware. [Más información](site-recovery-deployment-planner.md).
 
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparación de una cuenta de detección automática
@@ -54,12 +55,17 @@ Cree la cuenta como se indica a continuación:
 
 ## <a name="prepare-an-account-for-mobility-service-installation"></a>Preparación de una cuenta para la instalación de Mobility Service
 
-Mobility Service debe instalarse en la máquina que quiera replicar. Site Recovery instala este servicio automáticamente cuando se habilita la replicación para la máquina virtual. Para la instalación automática, debe preparar una cuenta que Site Recovery vaya a usar para obtener acceso a la máquina virtual. Deberá especificar esta cuenta al configurar la recuperación ante desastres en la consola de Azure.
+Mobility Service debe estar instalado en las máquinas que desee replicar. Site Recovery puede realizar una instalación de inserción de este servicio cuando se habilita la replicación de una máquina, o bien puede instalarlo manualmente o mediante herramientas de instalación.
 
-1. Prepare un dominio o cuenta local con permisos para instalar en la máquina virtual.
-2. Para instalar en máquinas virtuales Windows, si no usa una cuenta de dominio, deshabilite el control Acceso de usuarios remotos en la máquina local.
-   - En el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
-3. Para instalar en máquinas virtuales Linux, prepare una cuenta raíz en el servidor Linux de origen.
+- En este tutorial, se va a instalar Mobility Service con la instalación de inserción.
+- Para esta instalación de inserción, debe preparar una cuenta que Site Recovery pueda utilizar para acceder a la máquina virtual. Deberá especificar esta cuenta al configurar la recuperación ante desastres en la consola de Azure.
+
+Prepare la cuenta como se indica a continuación:
+
+Prepare un dominio o cuenta local con permisos para instalar en la máquina virtual.
+
+- **Máquinas virtuales Windows**: para instalar en máquinas virtuales Windows, si no usa una cuenta de dominio, deshabilite el control Acceso de usuarios remotos en la máquina local. Para ello, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
+- **Máquinas virtuales Linux**: para instalar en máquinas virtuales Linux, prepare una cuenta raíz en el servidor Linux de origen.
 
 
 ## <a name="check-vmware-requirements"></a>Comprobación de los requisitos de VMware
@@ -67,7 +73,7 @@ Mobility Service debe instalarse en la máquina que quiera replicar. Site Recove
 Asegúrese de que los servidores y las máquinas virtuales de VMware cumplen los requisitos.
 
 1. [Compruebe](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) los requisitos del servidor de VMware.
-2. Para Linux, [compruebe](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) los requisitos de almacenamiento y el sistema de archivos. 
+2. Para máquinas virtuales Linux, [compruebe](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) los requisitos de almacenamiento y el sistema de archivos. 
 3. Compruebe la compatibilidad de [red](vmware-physical-azure-support-matrix.md#network) y [almacenamiento](vmware-physical-azure-support-matrix.md#storage) local. 
 4. Compruebe lo que es compatible para [redes Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [almacenamiento](vmware-physical-azure-support-matrix.md#azure-storage), y [proceso](vmware-physical-azure-support-matrix.md#azure-compute), después de la conmutación por error.
 5. Las máquinas virtuales locales que replique en Azure tienen que cumplir los [requisitos de máquina virtual de Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
@@ -75,21 +81,31 @@ Asegúrese de que los servidores y las máquinas virtuales de VMware cumplen los
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
 
-Durante una conmutación por error, es posible que quiera conectarse a las máquinas virtuales replicadas en Azure desde la red local.
+Durante una conmutación por error, es posible que quiera conectarse a las máquinas virtuales de Azure desde la red local.
 
 Para conectarse a máquinas virtuales Windows mediante RDP después de la conmutación por error, haga lo siguiente:
 
-1. Para obtener acceso a través de Internet, habilite RDP en la máquina virtual local antes de la conmutación por error. Asegúrese de que se hayan agregado las reglas de TCP y UDP para el perfil **Público**, y que RDP se permite en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.
-2. Para obtener acceso a través de VPN de sitio a sitio, habilite RDP en la máquina local. RDP debe permitirse en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **dominio y privadas**.
-   Compruebe que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](https://support.microsoft.com/kb/3031135). No debe haber actualizaciones de Windows pendientes en la máquina virtual cuando se desencadene una conmutación por error. Si hay, no podrá iniciar sesión en la máquina virtual hasta que se complete la actualización.
-3. En la máquina virtual de Microsoft Azure después de la conmutación por error, compruebe los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual. Si no puede conectarse, compruebe que se está ejecutando la máquina virtual y revise estas [sugerencias de solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- **Acceso a Internet**. Antes de realizar una conmutación por error, habilite RDP en la máquina virtual local. Asegúrese de que se hayan agregado las reglas de TCP y UDP para el perfil **Público**, y que RDP se permite en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.
+- **Acceso a VPN de sitio a sitio**:
+    - Antes de realizar una conmutación por error, habilite RDP en la máquina virtual local.
+    - RDP debe permitirse en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **dominio y privadas**.
+    - Compruebe que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](https://support.microsoft.com/kb/3031135).
+- No debe haber actualizaciones de Windows pendientes en la máquina virtual cuando se desencadene una conmutación por error. Si hay, no podrá iniciar sesión en la máquina virtual hasta que se complete la actualización.
+- En la máquina virtual de Microsoft Azure después de la conmutación por error, compruebe los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual. Si no puede conectarse, compruebe que se está ejecutando la máquina virtual y revise estas [sugerencias de solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutación por error, haga lo siguiente:
 
-1. En el equipo local antes de la conmutación por error, compruebe que el servicio de Secure Shell está configurado para iniciarse automáticamente en el arranque del sistema. Compruebe que las reglas de firewall permiten una conexión SSH.
+- En el equipo local antes de la conmutación por error, compruebe que el servicio de Secure Shell está configurado para iniciarse automáticamente en el arranque del sistema.
+- Compruebe que las reglas de firewall permiten una conexión SSH.
+- En la máquina virtual de Azure después de la conmutación por error, permita las conexiones entrantes al puerto SSH para las reglas del grupo de seguridad de red de la máquina virtual conmutada por error y para la subred de Azure a la que esta se conecta.
+- [Agregue una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) para la máquina virtual.
+- Puede comprobar los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual.
 
-2. En la máquina virtual de Azure después de la conmutación por error, permita las conexiones entrantes al puerto SSH para las reglas del grupo de seguridad de red de la máquina virtual conmutada por error y para la subred de Azure a la que esta se conecta.
-   [Agregue una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) para la máquina virtual. Puede comprobar los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual.
+## <a name="useful-links"></a>Vínculos útiles
+
+Si va a replicar varias máquinas virtuales, debe planear la capacidad y la implementación antes de empezar. [Más información](site-recovery-deployment-planner.md).
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

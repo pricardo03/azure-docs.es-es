@@ -5,30 +5,35 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/01/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 344947b7906d15e819e372e0affe4af3c34ba69b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198765"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823051"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev Spaces
-Azure Dev Spaces le ayuda a desarrollar con velocidad en Kubernetes. Con Azure Dev Spaces, también se incorporan funcionalidades de desarrollo completas, como la depuración de los contenedores de Kubernetes de Azure, además de desarrollar contenedores de manera iterativa en la nube con herramientas conocidas como VS Code, Visual Studio o la línea de comandos. Azure Dev Spaces es especialmente importante en el desarrollo en equipo, en el que el aislamiento de las bifurcaciones de código individuales en sus propios espacios es una parte fundamental del ciclo de vida de desarrollo.
+Azure Dev Spaces proporciona a los equipos una experiencia de desarrollo en Kubernetes iterativa y rápida. Con una instalación mínima en el equipo de desarrollo, es posible ejecutar y depurar contenedores de forma iterativa directamente en Azure Kubernetes Service (AKS). Desarrolle en Windows, Mac o Linux con herramientas conocidas como Visual Studio, Visual Studio Code o la línea de comandos.
+
+[!INCLUDE[](includes/dev-spaces-preview.md)]
 
 ## <a name="how-azure-dev-spaces-simplifies-kubernetes-development"></a>Cómo simplifica Azure Dev Spaces el desarrollo de Kubernetes 
 
-Este enfoque tiene varias ventajas:
-
-* Se obtiene un entorno de desarrollo sin infraestructura que es representativo del entorno de producción, con acceso completo a los recursos en la nube.
-* Puede depurar contenedores Node.js y .NET Core directamente en Kubernetes con VS Code o Visual Studio. Todos los demás lenguajes se pueden desarrollar con la interfaz de línea de comandos.
-* Compartir una instancia de Kubernetes entre el equipo de desarrollo para ahorrar costos y minimizar así la configuración de la máquina local para los nuevos miembros del equipo.
-* Desarrollar el código de forma aislada y realizar pruebas de un extremo a otro con otros componentes sin réplicas ni dependencias de simulación.
+Azure Dev Spaces ayuda a aumentar la productividad de los equipos de desarrollo en Kubernetes de las siguientes formas:
+- Minimice la configuración del equipo de desarrollo local de cada miembro del equipo y trabaje directamente en AKS, un clúster de Kubernetes administrado en Azure.
+- Itere y depure el código de forma rápida directamente en Kubernetes mediante Visual Studio 2017 o Visual Studio Code.
+- Genere recursos de configuración como código de Docker y Kubernetes que puede usar desde la fase de desarrollo a la de producción. 
+- Comparta un clúster de Kubernetes administrado con su equipo y trabaje de forma conjunta. Desarrollar el código de forma aislada y realizar pruebas de un extremo a otro con otros componentes sin réplicas ni dependencias de simulación.
 
 [!INCLUDE[](includes/get-started.md)]
 
 ![](media/azure-dev-spaces/vscode-overview.png)
+
+## <a name="see-also"></a>Otras referencias
+
+[Azure Kubernetes Service](/azure/aks)

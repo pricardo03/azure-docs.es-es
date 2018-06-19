@@ -9,15 +9,16 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0474ce532831e15738ec882dfdf451bc35d09cf
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737619"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
-En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web Services (AWS) a máquinas virtuales de Azure con Site Recovery. Al migrar instancias de EC2 a Azure, se tratan las máquinas virtuales como si fuesen físicas en los equipos locales. En este tutorial, aprenderá a:
+En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web Services (AWS) a máquinas virtuales de Azure con Azure Site Recovery. Al migrar instancias de AWS EC2 a Azure, se tratan las máquinas virtuales como si fuesen equipos físicos locales. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Verificar los requisitos previos
@@ -31,21 +32,23 @@ En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 ## <a name="prerequisites"></a>requisitos previos
-- Asegúrese de que las máquinas virtuales que quiere migrar ejecutan una versión del sistema operativo compatible, como por ejemplo: 
-    - Versión de 64 bits de Windows Server 2008 R2 SP1 o posterior, 
-    - Windows Server 2012,
-    - Windows Server 2012 R2, 
+- Asegúrese de que las máquinas virtuales que quiere migrar ejecutan una versión del sistema operativo compatible. Las versiones compatibles son: 
     - Windows Server 2016
-    - Red Hat Enterprise Linux 6.7 (solo instancias virtualizadas de HVM) y solo con controladores Citrix PV o AWS PV. **No** se admiten instancias que ejecuten controladores RedHat PV.
+    - Windows Server 2012 R2
+    - Windows Server 2012
+    - Versión de 64 bits de Windows Server 2008 R2 SP1 o posterior
+    - Red Hat Enterprise Linux 6.7 (solo instancias virtualizadas de HVM), con un controlador Citrix Paravirtual o un controlador AWS Paravirtual. *No* se admiten las instancias que ejecutan controladores de Red Hat Paravirtual.
 
-- Mobility Service debe instalarse en cada máquina que quiera replicar. 
+- Mobility Service debe instalarse en todas las máquinas que se quieran replicar. 
 
-> [!IMPORTANT]
-> Site Recovery instala este servicio automáticamente cuando se habilita la replicación para la máquina virtual. Para la instalación automática, debe preparar una cuenta en las instancias de EC2, que Site Recovery usará para acceder a la máquina virtual. Puede usar una cuenta local o de dominio. 
-> - En el caso de las máquinas virtuales Linux, debe ser la cuenta raíz en el servidor Linux de origen. 
-> - En máquinas virtuales Windows, si no va a usar una cuenta de dominio, deshabilite el control de acceso de usuario remoto en la máquina local: en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** y establezca el valor en 1.
+    > [!IMPORTANT]
+    > Site Recovery instala este servicio automáticamente cuando se habilita la replicación para la máquina virtual. Para la instalación automática, debe preparar una cuenta en las instancias de EC2, que Site Recovery usará para acceder a la máquina virtual. Puede usar una cuenta local o de dominio. 
+    > - En el caso de las máquinas virtuales Linux, debe ser la cuenta raíz en el servidor Linux de origen. 
+    > - En el caso de las máquinas virtuales Windows, si no usa una cuenta de dominio, deshabilite el control Acceso de usuarios remotos en la máquina local:
+    >
+    >      En el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** y establezca el valor en **1**.
 
-- También necesita una instancia de EC2 aparte, que puede usar como servidor de configuración de Site Recovery. Esta instancia debe ejecutar Windows Server 2012 R2.
+- Una instancia de EC2 aparte, que puede usar como servidor de configuración de Site Recovery. Esta instancia debe ejecutar Windows Server 2012 R2.
 
 ## <a name="prepare-azure-resources"></a>Preparar recursos de Azure
 
@@ -55,210 +58,202 @@ Debe tener algunos recursos preparados en Azure para las instancias de EC2 migra
 
 Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquinas virtuales de Azure se crean desde el almacenamiento cuando se realiza la conmutación por error desde el entorno local en Azure.
 
-1. En el menú [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**.
-2. Escriba un nombre para la cuenta de almacenamiento. En estos tutoriales, usamos el nombre **awsmigrated2017**. El nombre debe ser único en Azure, tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas.
+1. En [Azure Portal](https://portal.azure.com), en el menú de la izquierda, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**.
+2. Escriba un nombre para la cuenta de almacenamiento. En estos tutoriales, usamos el nombre **awsmigrated2017**. El nombre debe:
+    - Ser único en Azure
+    - Tener entre 3 y 24 caracteres
+    - Contener solo números y letras minúsculas
 3. Mantenga los valores predeterminados de **Modelo de implementación**, **Tipo de cuenta**, **Rendimiento** y **Se requiere transferencia segura**.
 5. Seleccione el valor predeterminado **RA-GRS** en **Replicación**.
 6. Seleccione la suscripción que quiere usar para este tutorial.
-7. En **Grupo de recursos**, seleccione **Crear nuevo**. En este ejemplo se usa el nombre **migrationRG**.
-8. Seleccione **Europa Occidental** como ubicación.
-9. Haga clic en **Crear** para crear la cuenta de almacenamiento.
+7. En **Grupo de recursos**, seleccione **Crear nuevo**. En este ejemplo, utilizamos **migrationRG** para el nombre del grupo de recursos.
+8. En **Ubicación**, seleccione **Europa Occidental**.
+9. Seleccione **Crear** para crear la cuenta de almacenamiento.
 
 ### <a name="create-a-vault"></a>Creación de un almacén
 
-1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en **Todos los servicios**, y busque y seleccione **Almacenes de Recovery Services**.
-2. En la página Almacenes de Recovery Services, haga clic en **+ Agregar** en la parte superior izquierda de la página.
-3. En **Nombre**, escriba *myVault*.
-4. En **Suscripción**, seleccione la suscripción adecuada.
-4. En **Grupo de recursos**, seleccione **Usar existente** y *migrationRG*.
-5. En **Ubicación**, seleccione *Europa Occidental*.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los servicios**. Busque y seleccione **Almacenes de Recovery Services**.
+2. En la página Almacenes de Azure Recovery Services, seleccione **Agregar**.
+3. En **Nombre**, escriba **myVault**.
+4. En **Suscripción**, seleccione la suscripción que quiera usar.
+4. En **Grupo de recursos**, seleccione **Usar existente** y, después, **migrationRG**.
+5. En **Ubicación**, seleccione **Europa Occidental**.
 5. Para acceder rápidamente al nuevo almacén desde el panel, seleccione **Anclar al panel**.
-7. Cuando haya terminado, haga clic en **Crear**.
+7. Seleccione **Crear** cuando haya terminado.
 
-El nuevo almacén aparecerá en **Panel** > **Todos los recursos** y en la página principal de **Almacenes de Recovery Services**.
+Para ver el nuevo almacén, vaya a **Panel** > **Todos los recursos**. El nuevo almacén aparecerá en la página principal de **Almacenes de Recovery Services**.
 
 ### <a name="set-up-an-azure-network"></a>Configurar una red de Azure
 
-Cuando se crean máquinas virtuales de Azure después de la migración (conmutación por error), se unen a esta red.
+Cuando se crean máquinas virtuales de Azure después de la migración (conmutación por error), se unen a esta red de Azure.
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso** > **Redes** >
+1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Redes** >
    **Red virtual**.
-3. En **Nombre**, escriba *myMigrationNetwork*.
+3. En **Nombre**, escriba **myMigrationNetwork**.
 4. Deje el valor predeterminado de **Espacio de direcciones**.
-5. En **Suscripción**, seleccione la suscripción adecuada.
-6. En **Grupo de recursos**, seleccione **Usar existente** y elija *migrationRG* en el menú desplegable.
+5. En **Suscripción**, seleccione la suscripción que quiera usar.
+6. En **Grupo de recursos**, seleccione **Usar existente** y, después, **migrationRG**.
 7. En **Ubicación**, seleccione **Europa Occidental**.
-8. Deje los valores predeterminados de **Subred**, tanto de **Nombre** como de **Intervalo IP**.
-9. Deje **Puntos de conexión de servicio** deshabilitado.
-10. Cuando haya terminado, haga clic en **Crear**.
-
+8. En **Subred**, mantenga los valores predeterminados de **Nombre** e **Intervalo IP**.
+9. Mantenga la opción **Puntos de conexión de servicio** deshabilitada.
+10. Seleccione **Crear** cuando haya terminado.
 
 ## <a name="prepare-the-infrastructure"></a>Preparación de la infraestructura
 
-En la página del portal del almacén, seleccione **Site Recovery** en la sección **Introducción** y, a continuación, haga clic en **Preparar infraestructura**.
+En la página del almacén de Azure Portal, en la sección **Introducción**, seleccione **Site Recovery** y, después, seleccione **Preparar infraestructura**. Complete los siguientes pasos.
 
-### <a name="1-protection-goal"></a>1 Objetivo de protección
+### <a name="1-protection-goal"></a>1: Objetivo de protección
 
 Seleccione los valores siguientes en la página **Objetivo de protección**:
 
 |    |  |
 |---------|-----------|
-| ¿Dónde se encuentran sus máquinas? | **Local**|
-| ¿Dónde quiere replicar las máquinas? |**En Azure**|
-| ¿Las máquinas están virtualizadas? | **No virtualizado/Otro**|
+| ¿Dónde se encuentran sus máquinas? |Seleccione **Local**.|
+| ¿Dónde quiere replicar las máquinas? |Seleccione **En Azure**.|
+| ¿Las máquinas están virtualizadas? |Seleccione **No virtualizado/Otro**.|
 
-Cuando haya terminado, haga clic en **Aceptar** para continuar con la siguiente sección.
+Cuando haya terminado, seleccione **Aceptar** para continuar con la siguiente sección.
 
-### <a name="2-source-prepare"></a>2 Preparación del origen
+### <a name="2-prepare-source"></a>2: Preparación del origen
 
-En el panel **Preparar origen**, haga clic en **+Servidor de configuración**.
+En la página **Preparar origen**, seleccione **+Servidor de configuración**.
 
 1. Use una instancia de EC2 que ejecute Windows Server 2012 R2 para crear un servidor de configuración y registrarlo en el almacén de recuperación.
-
 2. Configure el proxy en la máquina virtual de la instancia de EC2 que usa como el servidor de configuración para que pueda acceder a [Direcciones URL del servicio](site-recovery-support-matrix-to-azure.md).
-
-3. Descargue el programa [Instalación unificada de Microsoft Azure Site Recovery](http://aka.ms/unifiedinstaller_wus). Puede descargarlo en la máquina local y, a continuación, copiarlo en la máquina virtual que usa como el servidor de configuración.
-
-4. Haga clic en el botón **Descargar** para descargar la clave de registro del almacén. Copie el archivo descargado en la máquina virtual que usa como el servidor de configuración.
-
-5. En la máquina virtual, haga clic en el instalador descargado **Instalación unificada de Microsoft Azure Site Recovery** y seleccione **Ejecutar como administrador**.
+3. Descargue [Instalación unificada de Microsoft Azure Site Recovery](http://aka.ms/unifiedinstaller_wus). Puede descargarlo en la máquina local y, a continuación, copiarlo en la máquina virtual que usa como el servidor de configuración.
+4. Seleccione el botón **Descargar** para descargar la clave de registro del almacén. Copie el archivo descargado en la máquina virtual que usa como el servidor de configuración.
+5. En la máquina virtual, haga clic con el botón derecho en el instalador que descargó para la Instalación unificada de Microsoft Azure Site Recovery y seleccione **Ejecutar como administrador**.
 
     1. En **Antes de comenzar**, seleccione **Install the configuration server and process server** (Instalar el servidor de configuración y el servidor de procesos) y luego haga clic en **Siguiente**.
-    2. En **Third-Party Software License** (Licencia de software de terceros), haga clic en **I Accept the third party license agreement** (Acepto el contrato de licencia de terceros) y haga clic en **Siguiente**.
-    3. En **Registro**, haga clic en Examinar y navegue hasta la ubicación donde colocó el archivo de clave de registro del almacén y, a continuación, haga clic en **Siguiente**.
-    4. En **Configuración de Internet**, seleccione **Conectar directamente con Azure Site Recovery sin un servidor proxy.** y haga clic en **Siguiente**.
-    5. En la página **Comprobación de requisitos previos**, se ejecutan comprobaciones de varios elementos. Cuando haya terminado, haga clic en **Siguiente**.
-    6. En **Configuración de MySQL**, proporcione las contraseñas necesarias y, a continuación, haga clic en **Siguiente**.
-    7. En **Detalles del entorno**, seleccione **No**, ya que no es necesario proteger máquinas de VMware y, a continuación, haga clic en **Siguiente**.
-    8. En **Ubicación de instalación**, haga clic en **Siguiente** para aceptar el valor predeterminado.
-    9. En **Selección de red**, haga clic en **Siguiente** para aceptar el valor predeterminado.
-    10. En **Resumen**, haga clic en **Instalar**.
-    11. **Progreso de la instalación** muestra información acerca del punto del proceso de instalación en que se encuentra. Cuando haya terminado, haga clic en **Finalizar**. Se muestra un elemento emergente sobre la necesidad de un posible reinicio. Haga clic en **Aceptar**. También se muestra un elemento emergente sobre la frase de contraseña de conexión del servidor de configuración. Copie la frase de contraseña en el Portapapeles y guárdela en algún lugar seguro.
+    2. En **Third-Party Software License** (Licencia de software de terceros), haga clic en **I Accept the third party license agreement** (Acepto el contrato de licencia de terceros) y, a continuación, seleccione **Siguiente**.
+    3. En **Registro**, seleccione **Examinar** y vaya a donde colocó el archivo de clave de registro del almacén. Seleccione **Next** (Siguiente).
+    4. En **Configuración de Internet**, seleccione **Conectar directamente con Azure Site Recovery sin un servidor proxy** y, a continuación, seleccione **Siguiente**.
+    5. En la página **Comprobación de requisitos previos**, se ejecutan comprobaciones de varios elementos. Cuando haya finalizado, seleccione **Siguiente**.
+    6. En **Configuración de MySQL**, proporcione las contraseñas necesarias y, a continuación, seleccione **Siguiente**.
+    7. En **Detalles del entorno**, seleccione **No**. No es necesario proteger las máquinas de VMware. Después, seleccione **Siguiente**.
+    8. En **Ubicación de instalación**, seleccione **Siguiente** para aceptar el valor predeterminado.
+    9. En **Selección de red**, seleccione **Siguiente** para aceptar el valor predeterminado.
+    10. En **Resumen**, seleccione **Instalar**.
+    11. **Progreso de la instalación** le muestra información acerca del proceso de instalación. Cuando haya finalizado, seleccione **Finalizar**. Aparece una ventana que muestra un mensaje sobre un reinicio. Seleccione **Aceptar**. A continuación, en una ventana se muestra un mensaje sobre la frase de contraseña de la conexión del servidor de configuración. Copie la frase de contraseña en el Portapapeles y guárdela en algún lugar seguro.
+6. En la máquina virtual, ejecute cspsconfigtool.exe para crear una o varias cuentas de administración en el servidor de configuración. Asegúrese de que las cuentas de administración tienen permisos de administrador en las instancias de EC2 que quiere migrar.
 
-6. En la máquina virtual, ejecute **cspsconfigtool.exe** para crear una o varias cuentas de administración en el servidor de configuración. Asegúrese de que las cuentas de administración tienen permisos de administrador en las instancias de EC2 que quiere migrar.
+Cuando termine de configurar el servidor de configuración, vuelva al portal y seleccione el servidor que creó como **Servidor de configuración**. Seleccione **Aceptar** para ir a 3: Preparación del destino.
 
-Cuando termine de configurar el servidor de configuración, vuelva al portal y seleccione el servidor que acaba de crear como **Servidor de configuración** y, a continuación, haga clic en *Aceptar** para continuar en el paso 3 Preparación del destino.
+### <a name="3-prepare-target"></a>3: Preparación del destino
 
-### <a name="3-target-prepare"></a>3 Preparación del destino
-
-En esta sección, debe introducir información sobre los recursos que creó en la sección [Preparar recursos de Azure](#prepare-azure-resources) anteriormente en este tutorial.
+En esta sección, debe especificar información sobre los recursos que creó en la sección [Preparar recursos de Azure](#prepare-azure-resources) anteriormente en este tutorial.
 
 1. En **Suscripción**, seleccione la suscripción de Azure que usó para el tutorial [Preparación de Azure](tutorial-prepare-azure.md).
 2. Seleccione **Resource Manager** como modelo de implementación.
-3. Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage compatibles. Deberían ser los recursos que creó en la sección [Preparar recursos de Azure](#prepare-azure-resources) anteriormente en este tutorial.
-4. Cuando haya terminado, haga clic en **Aceptar**.
+3. Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage compatibles. Estos deberían ser los recursos que creó en la sección [Preparar recursos de Azure](#prepare-azure-resources) anteriormente en este tutorial.
+4. Cuando finalice, seleccione **Aceptar**.
 
 
-### <a name="4-replication-settings-prepare"></a>4 Preparación de la configuración de replicación
+### <a name="4-prepare-replication-settings"></a>4: Preparación de la configuración de replicación
 
-Debe crear una directiva de replicación para poder habilitar la replicación
+Debe crear una directiva de replicación para poder habilitar la replicación.
 
-1. Haga clic en **+ Replicate and Associate** (+ Replicar y asociar).
+1. Seleccione **Replicate and Associate** (Replicar y asociar).
 2. En **Nombre**, escriba **myReplicationPolicy**.
-3. Deje el resto de la configuración en los valores predeterminados y haga clic en **Aceptar** para crear la directiva. La nueva directiva se asocia automáticamente al servidor de configuración.
+3. Deje el resto de la configuración en los valores predeterminados y, después, seleccione **Aceptar** para crear la directiva. La nueva directiva se asocia automáticamente al servidor de configuración.
 
-### <a name="5-deployment-planning-select"></a>5 Selección de la planificación de la implementación
+### <a name="5-select-deployment-planning"></a>5: Selección de un planeamiento de implementación
 
-En **¿Completó el planeamiento de implementación?**, seleccione **Lo haré más tarde** en la lista desplegable y, a continuación, haga clic en **Aceptar**.
+En **¿Completó el planeamiento de implementación?**, seleccione **Lo haré más tarde** y, a continuación, seleccione **Aceptar**.
 
-Cuando termine las 5 secciones de **Preparar infraestructura**, haga clic en **Aceptar**.
+Cuando haya acabado con las cinco secciones de **Preparar infraestructura**, seleccione **Aceptar**.
 
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
 Habilite la replicación para cada una de las máquinas virtuales que quiera migrar. Cuando se habilita la replicación, Site Recovery instala Mobility Service automáticamente.
 
-1. Abra el [Azure Portal](htts://portal.azure.com).
-1. En la página del almacén, en **Introducción**, haga clic en **Site Recovery**.
-2. En **Para máquinas locales y máquinas virtuales de Azure**, haga clic en **Paso 1: Replicar la aplicación**. Complete las páginas del asistente con la información siguiente y haga clic en **Aceptar** en cada página cuando finalice:
-    - 1 Configuración del origen
+1. Vaya a [Azure Portal](htts://portal.azure.com).
+1. En la página del almacén, en **Introducción**, seleccione **Site Recovery**.
+2. En **Para máquinas locales y máquinas virtuales de Azure**, seleccione **Paso 1: Replicar la aplicación**. Complete las páginas del asistente con la siguiente información. Seleccione **Aceptar** en cada página cuando haya terminado:
+    - 1: Configuración del origen
 
     |  |  |
     |-----|-----|
-    | Origen: | **local**|
-    | Ubicación de origen:| nombre de la instancia de EC2 del servidor de configuración.|
-    |Tipo de máquina: | **máquinas físicas**|
+    | Origen: | Seleccione **Local**.|
+    | Ubicación de origen:| Escriba el nombre de la instancia de EC2 del servidor de configuración.|
+    |Tipo de máquina: | Seleccione **Máquinas físicas**.|
     | Servidor de proceso: | seleccione el servidor de configuración en la lista desplegable.|
 
-    - 2 Configuración del destino
+    - 2: Configuración del destino
 
     |  |  |
     |-----|-----|
     | Destino: | deje el valor predeterminado.|
-    | Suscripción: | elija la suscripción que ha usado.|
-    | Grupo de recursos posterior a la conmutación por error:| debe ser el grupo de recursos que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
-    | Modelo de implementación posterior a la conmutación por error: | elija **Resource Manager**.|
-    | Cuenta de almacenamiento: | elija la cuenta de almacenamiento que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
-    | Red de Azure: | elija **Configurar ahora para las máquinas seleccionadas**.|
-    | Red de Azure posterior a la conmutación por error: | elija la red que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
-    | Subred: | elija el **valor predeterminado** de la lista desplegable.|
+    | Suscripción: | Seleccione la suscripción que ha usado.|
+    | Grupo de recursos posterior a la conmutación por error:| Use el grupo de recursos que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
+    | Modelo de implementación posterior a la conmutación por error: | Select **Administrador de recursos**.|
+    | Cuenta de almacenamiento: | Seleccione la cuenta de almacenamiento que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
+    | Red de Azure: | Seleccione **Configurar ahora para las máquinas seleccionadas**.|
+    | Red de Azure posterior a la conmutación por error: | Elija la red que se creó en [Preparar recursos de Azure](#prepare-azure-resources).|
+    | Subred: | Seleccione el **valor predeterminado** de la lista desplegable.|
 
-    - 3 Selección de máquinas físicas
+    - 3: Selección de máquinas físicas
 
-        Haga clic en **+ Máquina física** y, a continuación, rellene los campos **Nombre**, **Dirección IP** y **Tipo de SO** de la instancia de EC2 que quiere migrar. Luego, haga clic en **Aceptar**.
+      Seleccione **Máquina física** y, a continuación, escriba los valores de **Nombre**, **Dirección IP** y **Tipo de SO** de la instancia de EC2 que quiere migrar. Seleccione **Aceptar**.
 
-    - 4 Propiedades de configuración de propiedades
+    - 4: Propiedades de configuración
 
-        Seleccione la cuenta que creó en el servidor de configuración de la lista desplegable y haga clic en **Aceptar**.
+      Seleccione la cuenta que creó en el servidor de configuración y seleccione **Aceptar**.
 
-    - 5 Configuración de replicación de la configuración de opciones de replicación
+    - 5: Configuración de las opciones de replicación
 
-        Asegúrese de que la directiva de replicación seleccionada en la lista desplegable es **myReplicationPolicy** y, a continuación, haga clic en **Aceptar**.
+      Asegúrese de que la directiva de replicación seleccionada en la lista desplegable es **myReplicationPolicy** y, a continuación, seleccione **Aceptar**.
 
-3. Cuando se complete el asistente, haga clic en **Habilitar replicación**.
+3. Cuando se complete el asistente, seleccione **Habilitar replicación**.
 
-
-Puede realizar un seguimiento del progreso del trabajo **Habilitar la protección** en **Supervisión e informes** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección** .        
+Para realizar un seguimiento del progreso del trabajo **Habilitar la protección**, vaya a **Supervisión e informes** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.        
 
 Cuando se habilita la replicación para una máquina virtual, los cambios pueden tardar 15 minutos o más en aplicarse y aparecer en el portal.
 
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
 
-Cuando se ejecuta una conmutación por error de prueba, ocurre lo siguiente:
+Cuando se ejecuta una conmutación por error de prueba, ocurren los siguientes eventos:
 
-1. Se ejecuta una comprobación de requisitos previos para garantizar que se dan todas las condiciones necesarias para la conmutación por error.
-2. La conmutación por error procesa los datos, de modo que se pueda crear una máquina virtual de Azure. Si se selecciona el último punto de recuperación, se crea un punto de recuperación a partir de los datos.
-3. Se crea una VM de Azure mediante los datos procesados en el paso anterior.
+- Se ejecuta una comprobación de requisitos previos para garantizar que se dan todas las condiciones necesarias para la conmutación por error.
+- La conmutación por error procesa los datos, de modo que se pueda crear una máquina virtual de Azure. Si se selecciona el último punto de recuperación, se crea un punto de recuperación a partir de los datos.
+- Se crea una máquina virtual de Azure mediante los datos procesados en el paso anterior.
 
-En el portal, ejecute la conmutación por error de prueba de la manera siguiente:
+En el portal, ejecute la conmutación por error de prueba:
 
-1. En la página de su almacén, vaya a **Elementos protegidos** > **Elementos replicados**> haga clic en la máquina virtual > **+ Conmutación por error de prueba**.
-
+1. En la página de su almacén, vaya a **Elementos protegidos** > **Elementos replicados**. Seleccione la máquina virtual y, a continuación, seleccione **Conmutación por error de prueba**.
 2. Seleccione un punto de recuperación para usarlo en la conmutación por error:
-    - **Procesado más recientemente**: conmuta por error la VM en el último punto de recuperación procesado por Site Recovery. Se muestra la marca de tiempo. Con esta opción, no se empleó tiempo en el procesamiento de datos, por lo que se proporciona un objetivo de tiempo de recuperación (RTO) bajo.
+    - **Procesado más recientemente**: conmuta por error la máquina virtual en el último punto de recuperación procesado por Site Recovery. Se muestra la marca de tiempo. Con esta opción, no se emplea tiempo en el procesamiento de datos, por lo que se proporciona un objetivo de tiempo de recuperación (RTO) bajo.
     - **Más reciente coherente con la aplicación**: esta opción conmuta por error todas las VM en el punto de recuperación más reciente coherente con la aplicación. Se muestra la marca de tiempo.
     - **Personalizado**: seleccione un punto de recuperación.
+
 3. En **Probar conmutación por error**, seleccione la red de Azure de destino a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error. Debe ser la red que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).
-4. Haga clic en **Aceptar** para iniciar la conmutación por error. Para realizar el seguimiento del progreso, haga clic en la máquina virtual para abrir sus propiedades. También puede hacer clic en el trabajo **Conmutación por error de prueba** en la página del almacén en **Supervisión e informes** > **Trabajos** >
-   **Trabajos de Site Recovery**.
-5. Una vez finalizada la conmutación por error, la VM de Azure de réplica aparece en Azure Portal > **Virtual Machines**. Compruebe que la VM tiene el tamaño adecuado, que está conectada a la red correspondiente y que se está ejecutando.
+4. Seleccione **Aceptar** para iniciar la conmutación por error. Para realizar el seguimiento del progreso, seleccione la máquina virtual para ver sus propiedades. O bien puede seleccionar el trabajo **Conmutación por error de prueba** en la página del almacén. Para ello, seleccione **Supervisión e informes** > **Trabajos** >  **Trabajos de Site Recovery**.
+5. Una vez finalizada la conmutación por error, la máquina virtual de Azure de réplica aparece en Azure Portal. Para ver la máquina virtual, seleccione **Máquinas virtuales**. Asegúrese de que la máquina virtual tiene el tamaño adecuado, que está conectada a la red correspondiente y que se está ejecutando.
 6. Ahora debería poder conectarse a la VM replicada en Azure.
-7. Para eliminar máquinas virtuales de Azure que se crearon durante la conmutación por error de prueba, haga clic en **Limpiar conmutación por error de prueba** en el plan de recuperación. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba.
+7. Para eliminar máquinas virtuales de Azure que se crearon durante la conmutación por error de prueba, seleccione **Limpiar conmutación por error de prueba** en el plan de recuperación. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba.
 
-En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse.
-
+En algunos escenarios, la conmutación por error requiere un procesamiento adicional. Este proceso tarda entre 8 y 10 minutos en finalizar.
 
 ## <a name="migrate-to-azure"></a>Migración a Azure
 
-Ejecute una conmutación por error real para las instancias de EC2 a fin de migrarlas a máquinas virtuales de Azure.
+Ejecute una conmutación por error real para las instancias de EC2 a fin de migrarlas a máquinas virtuales de Azure:
 
-1. En **Elementos protegidos** > **Elementos replicados**, haga clic en las instancias de AWS > **Conmutación por error**.
+1. En **Elementos protegidos** > **Elementos replicados**, seleccione las instancias de AWS y, a continuación, seleccione **Conmutación por error**.
 2. En **Conmutación por error**, seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Seleccione el punto de recuperación más reciente.
 3. Seleccione **Shut down machine before beginning failover** (Apagar la máquina antes de comenzar la conmutación por error) si desea que Site Recovery intente apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
-4. Compruebe que la máquina virtual aparece en **Elementos replicados**.
-5. Haga clic con el botón derecho en cada máquina virtual > **Completar la migración**. Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual de AWS y la facturación de Site Recovery para la VM.
+4. Asegúrese de que la máquina virtual aparece en **Elementos replicados**.
+5. Haga clic con el botón derecho en cada máquina virtual y, a continuación, seleccione **Completar la migración**. Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual de AWS y la facturación de Site Recovery para la VM.
 
     ![Completar migración](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
-> **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.  
-
-
+> *No cancele una conmutación por error en curso*. Antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.  
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tema, ha aprendido cómo migrar instancias de EC2 de AWS en máquinas virtuales de Azure. Para más información acerca de las máquinas virtuales de Azure, continúe con los tutoriales de máquinas virtuales Windows.
+En este artículo, ha aprendido cómo migrar instancias de AWS EC2 en máquinas virtuales de Azure. Para más información acerca de las máquinas virtuales de Azure, continúe con los tutoriales de máquinas virtuales Windows.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de máquinas virtuales Windows de Azure](../virtual-machines/windows/tutorial-manage-vm.md)

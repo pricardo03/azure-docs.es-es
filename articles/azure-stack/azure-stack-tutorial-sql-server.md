@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b9ba2bb89bb0d7e16a28a165cf14530a7a10f71b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234757"
 ---
-# <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Bases de datos SQL disponibles para los usuarios de Azure Stack
+# <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Tutorial: poner bases de datos SQL a disposición de los usuarios de Azure Stack
+
 Como administrador de la nube de Azure Stack, puede crear ofertas que permitan a los usuarios (inquilinos) crear bases de datos SQL que se puedan usar con sus aplicaciones en la nube, sitios web y cargas de trabajo. Si proporciona a los usuarios estas bases de datos personalizadas, en la nube y a petición, puede ahorrarles tiempo y recursos. Para configurar esta opción, tendrá que:
 
 > [!div class="checklist"]
@@ -32,11 +34,11 @@ Como administrador de la nube de Azure Stack, puede crear ofertas que permitan a
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>Implementar un proveedor de recursos de SQL Server
 
-El proceso de implementación se describe en detalle en el artículo [Bases de datos de SQL en Azure Stack](azure-stack-sql-resource-provider-deploy.md) y consta de los siguientes pasos principales:
+El proceso de implementación se describe con todo detalle en el [artículo Uso de bases de datos SQL en Microsoft Azure Stack](azure-stack-sql-resource-provider-deploy.md) y consta de los siguientes pasos principales:
 
 1. [Implemente el proveedor de recursos SQL](azure-stack-sql-resource-provider-deploy.md).
 2. [Compruebe la implementación](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
-3. Aprovisionamiento de capacidad conectando con un servidor SQL de hospedaje
+3. Aprovisionamiento de capacidad conectando con un servidor SQL de hospedaje Para más información, consulte [Incorporación de servidores de hospedaje](azure-stack-sql-resource-provider-hosting-servers.md)
 
 ## <a name="create-an-offer"></a>Creación de una oferta
 
@@ -44,9 +46,7 @@ El proceso de implementación se describe en detalle en el artículo [Bases de d
 2.  [Cree un plan](azure-stack-create-plan.md). Asígnele el nombre *PlanDePruebaDeSQLServer*, seleccione el servicio **Microsoft.SQLAdapter** y la cuota **CuotaDeSQLServer**.
 
     > [!NOTE]
-    > Para permitir que los usuarios creen otras aplicaciones, podrían ser necesarios otros servicios en el plan. Por ejemplo, Azure Functions requiere que el plan incluya el servicio **Microsoft.Storage**, mientras que Wordpress requiere **Microsoft.MySQLAdapter**.
-    > 
-    >
+    > Para permitir que los usuarios creen otras aplicaciones, podrían ser necesarios otros servicios en el plan. Por ejemplo, Azure Functions requiere el servicio **Microsoft.Storage** en el plan, mientras que Wordpress requiere **Microsoft.MySQLAdapter**.
 
 3.  [Cree una oferta](azure-stack-create-offer.md), asígnele el nombre **OfertaDePruebaDeSQLServer** y seleccione el plan **PlanDePruebaDeSQLServer**.
 
@@ -55,23 +55,24 @@ El proceso de implementación se describe en detalle en el artículo [Bases de d
 Ahora que ha implementado el proveedor de recursos de SQL Server y ha creado una oferta, puede iniciar sesión como un usuario, suscribirse a la oferta y crear una base de datos.
 
 ### <a name="subscribe-to-the-offer"></a>Suscripción a la oferta
+
 1. Inicie sesión en el portal de Azure Stack (https://portal.local.azurestack.external)) como inquilino.
-2. Haga clic en **Obtener una suscripción** y, a continuación, escriba **SuscripciónDePruebaDeSQLServer** en **Nombre para mostrar**.
-3. Haga clic en **Seleccionar una oferta** > **OfertaDePruebaDeSQLServer** > **Crear**.
-4. Haga clic en **Más servicios** > **Suscripciones** > **SuscripciónDePruebaDeSQLServer** > **Proveedores de recursos**.
-5. Haga clic en **Registrar** junto al proveedor **Microsoft.SQLAdapter**.
+2. Seleccione **Obtener una suscripción** y, después, escriba **TestSQLServerSubscription** en **Nombre para mostrar**.
+3. Seleccione **Seleccionar una oferta** > **TestSQLServerOffer** > **Crear**.
+4. Seleccione **Más servicios** > **Suscripciones** > **TestSQLServerSubscription** > **Proveedores de recursos**.
+5. Seleccione **Registrar** junto al proveedor **Microsoft.SQLAdapter**.
 
 ### <a name="create-a-sql-database"></a>Creación de una base de datos SQL
 
-1. Haga clic en **+** > **Datos y almacenamiento** > **SQL Database**.
-2. Deje los valores predeterminados para los campos o bien puede usar estos ejemplos:
+1. Seleccione **+** > **Datos y almacenamiento** > **SQL Database**.
+2. Mantenga los valores predeterminados o use estos ejemplos en los campos siguientes:
     - **Nombre de la base de datos**: SQLdb
     - **Tamaño máximo en MB**: 100
     - **Suscripción**: OfertaDePruebaSQL
     - **Grupo de recursos**: SQL-RG
-3. Haga clic en **Configuración de inicio de sesión**, escriba las credenciales de la base de datos y, a continuación, haga clic en **Aceptar**.
-4. Haga clic en **SKU** > seleccione la SKU de SQL que ha creado para el servidor de hospedaje SQL > **Aceptar**.
-5. Haga clic en **Create**(Crear).
+3. Seleccione **Login Settings** (Configuración de inicio de sesión), escriba las credenciales de la base de datos y seleccione **Aceptar**.
+4. Seleccione **SKU** > seleccione la SKU de SQL que ha creado para el servidor de hospedaje SQL > y, después, seleccione **Aceptar**.
+5. Seleccione **Crear**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -86,4 +87,3 @@ Prosiga con el siguiente tutorial para aprender a:
 
 > [!div class="nextstepaction"]
 > [Aplicaciones web, móviles y de API disponibles para los usuarios]( azure-stack-tutorial-app-service.md)
-
