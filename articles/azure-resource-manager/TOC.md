@@ -17,6 +17,7 @@
 ### [Secciones de plantilla](resource-group-authoring-templates.md)
 #### [Parámetros](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
+#### [Funciones](resource-group-authoring-templates.md#functions)
 #### [Recursos](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [Plantillas vinculadas y anidadas](resource-group-linked-templates.md)

@@ -33,14 +33,6 @@
           href: log-analytics-oms-portal-transition.md
         - name: Preguntas frecuentes
           href: log-analytics-oms-portal-faq.md
-    - name: Actualización del área de trabajo
-      items:
-        - name: Información general sobre la actualización
-          href: log-analytics-log-search-upgrade.md
-        - name: Resumen de cambios
-          href: log-analytics-log-search-upgrade-changes.md
-        - name: Preguntas más frecuentes sobre la actualización
-          href: log-analytics-log-search-faq.md
     - name: Preguntas frecuentes sobre Log Analytics
       href: log-analytics-faq.md
     - name: Seguridad de los datos
