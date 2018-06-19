@@ -54,11 +54,11 @@
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurar alertas
           href: stream-analytics-set-up-alerts.md
-        - name: Comprobación del trabajo
+        - name: Probar un trabajo
           href: stream-analytics-test-query.md
         - name: Visualización de los resultados en un panel
           href: stream-analytics-power-bi-dashboard.md
-        - name: Limpieza del trabajo
+        - name: Limpieza de un trabajo
           href: stream-analytics-clean-up-your-job.md
         - name: Emparejamiento de trabajos por motivos de confiabilidad
           href: stream-analytics-job-reliability.md

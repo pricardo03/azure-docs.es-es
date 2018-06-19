@@ -122,7 +122,6 @@
 ### Referencia
 #### [Retención](active-directory-reporting-retention.md)
 #### [Latencias](active-directory-reporting-latencies-azure-portal.md)
-#### [Notifications](active-directory-reporting-notifications.md)
 #### [Referencia sobre actividades de auditoría](active-directory-reporting-activity-audit-reference.md)
 #### [Códigos de error de la actividad de inicio de sesión](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [Personalización de SSPR](authentication/concept-sspr-customization.md)
 ### [Requisitos de datos de SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [Informes de SSPR](authentication/howto-sspr-reporting.md)
+### [Eliminación de contraseñas no seguras](authentication/concept-password-ban-bad.md)
+### [Configuración de la lista de contraseñas prohibidas](authentication/howto-password-ban-bad.md)
+### [Integración local](authentication/concept-password-ban-bad-on-premises.md)
+### [Implementación de la protección de contraseñas de Azure AD](authentication/howto-password-ban-bad-on-premises.md)
+### [Configuración de la protección de contraseñas de Azure AD](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Supervisión de la protección de contraseñas de Azure AD](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### Administradores de TI: Restablecimiento de contraseñas
 #### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Licencia de SSPR](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## Administración de aplicaciones
 ### [Información general](manage-apps/what-is-application-management.md)
 ### [Introducción](manage-apps/plan-an-application-integration.md)
-### [Tutoriales de integración de aplicaciones SaaS](active-directory-saas-tutorial-list.md)
+### [Tutoriales de integración de aplicaciones SaaS](saas-apps/tutorial-list.md)
 ### [Detección de aplicaciones de nube](manage-apps/cloud-app-discovery.md)
 #### [Creación de informes de instantánea](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configuración de informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Uso de un analizador de registros personalizado](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [Aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](active-directory-saas-app-provisioning.md) 
-#### [Tutoriales de integración de aplicaciones](active-directory-saas-tutorial-list.md) 
+#### [Tutoriales de integración de aplicaciones](saas-apps/tutorial-list.md) 
 #### [Automatización del aprovisionamiento para aplicaciones habilitadas con SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Escritura de expresiones para la asignación de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
@@ -320,7 +325,7 @@
 
 ## Protección de las identidades
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
-#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
 #### Guías de inicio rápido
 ##### [Configuración de Multi-Factor Authentication para aplicaciones por cada nube](active-directory-conditional-access-app-based-mfa.md)
 ##### [Solicitar la aceptación de los términos de uso](active-directory-conditional-access-tou.md)
@@ -348,7 +353,7 @@
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Primeros pasos](active-directory-certificate-based-authentication-get-started.md)
+#### [Introducción](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Habilitación](active-directory-identityprotection-enable.md)
