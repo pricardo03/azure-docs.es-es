@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642706"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Tutorial: Escalabilidad de un clúster de Service Fabric
 
@@ -85,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Ahora que está conectado, puede usar un comando para obtener el estado de cada nodo del clúster. Para PowerShell, use el comando `Get-ServiceFabricClusterHealth` y, para **sfctl**, use el comando `sfctl cluster select`.
+Ahora que está conectado, puede usar un comando para obtener el estado de cada nodo del clúster. Para **PowerShell**, use el comando `Get-ServiceFabricClusterHealth` y para **sfctl** utilice el comando `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Escalado horizontal
 
@@ -131,15 +132,15 @@ El clúster de Service Fabric debe saber que este nodo se va a quitar. Debe real
 
 1. Deshabilite el nodo para que ya no se realice ninguna réplica de los datos.  
 PowerShell: `Disable-ServiceFabricNode`  
-sfcli: `sfctl node disable`
+sfctl: `sfctl node disable`
 
 2. Detenga el nodo para que el tiempo de ejecución de Service Fabric se cierre sin problemas y para que la aplicación obtenga una solicitud de finalización.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfcli: `sfctl node transition --node-transition-type Stop`
+sfctl: `sfctl node transition --node-transition-type Stop`
 
 2. Quite el nodo del clúster.  
 PowerShell: `Remove-ServiceFabricNodeState`  
-sfcli: `sfctl node remove-state`
+sfctl: `sfctl node remove-state`
 
 Una vez que estos tres pasos se han aplicado al nodo, este último se puede quitar del conjunto de escalado. Si utiliza cualquier nivel de durabilidad además de [bronce][durability], estos pasos se realizan para cuando se quita la instancia del conjunto de escalado.
 

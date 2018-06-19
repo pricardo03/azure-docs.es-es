@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dfc75a64e8bd28d7aba9984e5a1d5720330f1da3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93698df0e1684b469b6e2a03e6681499949aab6d
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414610"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite BGP en todas las SKU de Azure VPN Gateway?
 No, BGP se admite solo en las puertas de enlace VPN de Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** y **HighPerformance**. **Basic** NO se admite.
@@ -81,7 +82,7 @@ Sí.
 La puerta de enlace de VPN de Azure asignará una sola dirección IP del intervalo de GatewaySubnet definido para la red virtual. De forma predeterminada, es la penúltima dirección del intervalo. Por ejemplo, si el valor de GatewaySubnet es 10.12.255.0/27, y oscila entre 10.12.255.0 y 10.12.255.31, la dirección IP del par BGP de la puerta de enlace de la VPN de Azure será 10.12.255.30. Puede encontrar esta información al mostrar la información de la puerta de enlace de VPN de Azure.
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>¿Cuáles son los requisitos para las direcciones IP del par BGP en mi dispositivo VPN?
-Su dirección del par BGP local **NO DEBE** ser la misma que la dirección IP pública del dispositivo VPN. Utilice otra dirección IP en el dispositivo VPN para la dirección IP del par BGP. Puede ser una dirección asignada a la interfaz de bucle invertido en el dispositivo. Especifique esta dirección en la puerta de enlace de red local correspondiente que representa la ubicación.
+Su dirección del par BGP local **NO DEBE** ser la misma que la dirección IP pública del dispositivo VPN. Utilice otra dirección IP en el dispositivo VPN para la dirección IP del par BGP. Puede ser una dirección asignada a la interfaz de bucle invertido en el dispositivo, pero tenga en cuenta que no puede ser una dirección APIPA (169.254.x.x). Especifique esta dirección en la puerta de enlace de red local correspondiente que representa la ubicación.
 
 ### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp"></a>¿Qué debo especificar como mis prefijos de dirección para la puerta de enlace de red local al utilizar BGP?
 La puerta de enlace de red local de Azure especifica los prefijos de dirección iniciales para la red local. Con BGP, debe asignar el prefijo de host (prefijo /32) de la dirección IP del par BGP como espacio de direcciones para esa red local. Si su dirección IP del par BGP es 10.52.255.254, debe especificar "10.52.255.254/32" como localNetworkAddressSpace de la puerta de enlace de red local que representa esta red local. Esto es para asegurarse de que la puerta de enlace de VPN de Azure establece la sesión de BGP a través del túnel VPN S2S.

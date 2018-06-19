@@ -2,22 +2,24 @@
 title: Informe de seguridad de usuarios marcados en riesgo en el portal de Azure Active Directory | Microsoft Docs
 description: Aprenda sobre el informe de seguridad de usuarios marcados en riesgo en el portal de Azure Active Directory
 services: active-directory
-author: MarkusVi
-manager: femila
+author: rolyon
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/23/2018
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ed6201e9edcef39b14b948b6b2f6e0b5da01ec60
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 030a45335f06c4f15a5136842a7f6477bac8253b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588716"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
 
@@ -29,12 +31,20 @@ Microsoft se compromete a ayudar a mantener los entornos seguros. Como parte de 
 Si se detectan actividades inusuales que puedan indicar un acceso no autorizado a las cuentas de algunos de sus usuarios, recibirá las notificaciones pertinentes, lo que le permitirá realizar las acciones necesarias. El hecho de enviarle notificaciones no significa que los propios sistemas de Microsoft hayan corrido peligro.
  
 
-## <a name="azure-active-directory-report-access"></a>Acceso a informes de Azure Active Directory
+## <a name="access-the-users-flagged-for-risk-report"></a>Acceso al informe de usuarios marcados en riesgo
 
-Los usuarios marcados por su riesgo se pueden examinar a través de un informe de Azure Active Directory en línea. Si no es suscriptor de Azure, puede realizar el proceso de suscripción sin costo alguno en [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD).  
-Una vez que lo complete, puede utilizar sus credenciales de Office 365 para acceder al Centro de administración de Azure. Tenga en cuenta que en el nivel de suscripción básico el nivel de detalle que se proporciona es básico. Los suscriptores Premium de Azure tienen a su disposición más datos y análisis. Para más información, consulte [Informe de seguridad de usuarios marcados en riesgo en el portal de Azure Active Directory](active-directory-reporting-security-user-at-risk.md).
+Puede revisar los usuarios marcados en riesgo mediante el [informe](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) de Azure Active Directory (AD) relacionado. Si no es suscriptor de Azure AD, puede completar el proceso de suscripción sin costo alguno en [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD), que solo es necesario realizar una vez. En este informe, puede realizar diversas acciones como las siguientes:
 
-Una vez que haya activado el acceso a Azure AD, se le redirigirá al [portal de Azure AD](https://portal.azure.com). Para ir directamente al informe, vaya a la siguiente dirección URL: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk).
+- Generar una contraseña temporal.
+- Requerir al usuario que restablezca de forma segura su contraseña la próxima vez que inicie sesión.
+- Descartar el riesgo del usuario sin realizar ninguna acción de corrección.
+
+Para más información, consulte [Informe de seguridad de usuarios marcados en riesgo en el portal de Azure Active Directory](active-directory-reporting-security-user-at-risk.md).
+
+### <a name="azure-ad-subscription-for-office-365-customers"></a>Suscripción a Azure AD para clientes de Office 365
+
+Una vez que lo complete, puede utilizar sus credenciales de Office 365 para acceder al Centro de administración de Azure. Una vez que haya activado el acceso a Azure AD, se le redirigirá al portal de Azure AD. Con el nivel de suscripción básico, el nivel de detalle que se proporciona en los informes es limitado. Los suscriptores Premium de Azure tienen a su disposición más datos y análisis.
+
 
 **Para acceder a los informes de Usuarios marcados como en riesgo en el centro de administración de Office 365:**
 
@@ -45,7 +55,7 @@ Una vez que haya activado el acceso a Azure AD, se le redirigirá al [portal de 
 4.  En el panel de navegación izquierdo, haga clic en **Azure Active Directory**. 
 5.  En el panel de navegación, en **Seguridad**, haga clic en **Usuarios marcados en riesgo**.
 
-Examine la información que se muestra aquí. Debe restablecer la contraseña de todas las cuentas que se enumeren aquí. 
+Examine la información que se muestra aquí. Debe restablecer la contraseña de todas las cuentas que se enumeren. 
 
 ## <a name="remediation-actions"></a>Acciones de corrección
 

@@ -1,6 +1,6 @@
 ---
-title: Creación de un laboratorio personalizado en Azure DevTest Labs | Microsoft Docs
-description: En esta guía de inicio rápido, va a crear un laboratorio personalizado mediante Azure DevTest Labs.
+title: Creación de un laboratorio con Azure DevTest Labs | Microsoft Docs
+description: En esta guía de inicio rápido, va a crear un laboratorio mediante Azure DevTest Labs.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362250"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636994"
 ---
-# <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>Tutorial: Configuración de un laboratorio personalizado mediante Azure DevTest Labs
-En este tutorial, va a crear un laboratorio personalizado mediante Azure Portal. El administrador de laboratorio configura un laboratorio en una organización, crea máquinas virtuales en el laboratorio y configura las directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configuración de un laboratorio mediante Azure DevTest Labs
+En este tutorial, va a crear un laboratorio mediante Azure Portal. El administrador de laboratorio configura un laboratorio en una organización, crea máquinas virtuales en el laboratorio y configura las directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
 
 En este tutorial realizará lo siguiente:
 
 > [!div class="checklist"]
-> * Creación de un laboratorio personalizado
+> * Creación de un laboratorio
 > * Adición de máquinas virtuales al laboratorio
 > * Adición de un usuario al rol de usuario de laboratorio
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="create-a-custom-lab"></a>Creación de un laboratorio personalizado
+## <a name="create-a-lab"></a>Creación de un laboratorio
 Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio en Azure DevTest Labs. 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
@@ -97,8 +97,8 @@ En el siguiente tutorial se muestra cómo un usuario de laboratorio puede reclam
 4. Repita estos pasos para eliminar el grupo de recursos adicionales que se creó automáticamente con el nombre `<your resource group name><random numbers>`. Por ejemplo: `splab3988722144001`. Las máquinas virtuales se crean en este grupo de recursos en lugar de en el grupo de recursos en el que existe el laboratorio. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha creado un laboratorio personalizado con una máquina virtual y ha dado acceso al usuario al laboratorio. Para más información sobre cómo acceder al laboratorio como un usuario de laboratorio, avance al tutorial siguiente:
+En este tutorial, ha creado un laboratorio con una máquina virtual y ha dado acceso al usuario al laboratorio. Para más información sobre cómo acceder al laboratorio como un usuario de laboratorio, avance al tutorial siguiente:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Acceso al laboratorio personalizado](tutorial-use-custom-lab.md)
+> [Tutorial: Acceso al laboratorio](tutorial-use-custom-lab.md)
 

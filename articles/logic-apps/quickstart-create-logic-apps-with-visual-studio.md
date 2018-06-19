@@ -1,29 +1,26 @@
 ---
-title: Automatización de tareas y procesos con Visual Studio y Azure Logic Apps | Microsoft Docs
-description: Este inicio rápido muestra cómo crear flujos de trabajo que automaticen las tareas y los procesos con Azure Logic Apps en Visual Studio
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: 'Creación de aplicaciones lógicas que automatizan flujos de trabajo con Visual Studio: Azure Logic Apps | Microsoft Docs'
+description: Guía de inicio rápido para automatizar tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300759"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Automatización de tareas y procesos con Azure Logic Apps - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md), puede crear flujos de trabajo que automaticen las tareas y los procesos de integración de aplicaciones, datos, sistemas y servicios a través de empresas y organizaciones. Este tutorial rápido muestra cómo puede diseñar y compilar estos flujos de trabajo mediante la creación de aplicaciones lógicas en Visual Studio y la implementación de esas aplicaciones en <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> en la nube. Aunque puede realizar estas tareas en <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, Visual Studio le permite agregar aplicaciones lógicas para el control de código fuente, publicar versiones diferentes y crear plantillas de Azure Resource Manager para distintos entornos de implementación. 
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y Visual Studio, puede crear flujos de trabajo que automaticen las tareas y los procesos de integración de aplicaciones, datos, sistemas y servicios a través de empresas y organizaciones. Este tutorial rápido muestra cómo puede diseñar y compilar estos flujos de trabajo mediante la creación de aplicaciones lógicas en Visual Studio y la implementación de esas aplicaciones en <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> en la nube. Aunque puede realizar estas tareas en <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, Visual Studio le permite agregar aplicaciones lógicas para el control de código fuente, publicar versiones diferentes y crear plantillas de Azure Resource Manager para distintos entornos de implementación. 
 
 Si no está familiarizado con Azure Logic Apps y solo desea conocer los conceptos básicos, pruebe en su lugar con el [inicio rápido para crear una aplicación lógica en Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md). El Diseñador de aplicación lógica, tanto en Azure Portal como en Visual Studio, funciona de forma similar. 
 
@@ -53,7 +50,7 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
 * Acceso a la web al usar el Diseñador de aplicación lógica integrado
 
-  El diseñador requiere una conexión a Internet para crear recursos en Azure, y leer las propiedades y los datos de los conectores de la aplicación lógica. 
+  El diseñador requiere una conexión a Internet para crear recursos en Azure y leer las propiedades y los datos de los conectores de la aplicación lógica. 
   Por ejemplo, si usa el conector de Dynamics CRM Online, el diseñador comprueba en la instancia de CRM si hay propiedades predeterminadas y propiedades personalizadas disponibles.
 
 ## <a name="create-azure-resource-group-project"></a>Creación de un proyecto de grupo de recursos de Azure
@@ -187,4 +184,5 @@ Cuando ya no lo necesite, elimine el grupo de recursos que contiene la aplicaci�
 En este artículo, se compila, implementa y ejecuta la aplicación lógica con Visual Studio. Para más información acerca de cómo administrar y realizar la implementación avanzada de aplicaciones lógicas con Visual Studio, consulte estos artículos:
 
 > [!div class="nextstepaction"]
-> [Administración de aplicaciones lógicas con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Administración de aplicaciones lógicas con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Creación de plantillas de implementación para aplicaciones lógicas con Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714522"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Asignación de un nombre DNS personalizado a Azure Web Apps
 
@@ -81,19 +82,19 @@ En el panel de navegación izquierdo de la página de la aplicación, despláces
 
 ![Menú Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúrese de que la aplicación web no está en el nivel **Gratis**. No se admiten DNS personalizados en el nivel **Gratis**. 
+El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúrese de que la aplicación web no está en el nivel **F1**. No se admiten DNS personalizados en el nivel **F1**. 
 
 ![Comprobar plan de tarifa](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Si el plan de App Service no es **Gratis**, cierre la página **Elija su plan de tarifa** y vaya directamente a [Asignar un registro CNAME](#cname).
+Si el plan de App Service no es **F1**, cierre la página **Escalar verticalmente** y vaya directamente a [Asignar un registro CNAME](#cname).
 
 <a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Escalado verticalmente del plan de App Service
 
-Seleccione alguno de los niveles de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). 
+Seleccione cualquiera de los niveles no gratuitos (**D1**, **B1**, **B2**, **B3**, o cualquier nivel de la categoría **Producción**). Para ver opciones adicionales, haga clic en **Ver opciones adicionales**.
 
-Haga clic en **Seleccionar**.
+Haga clic en **Aplicar**.
 
 ![Comprobar plan de tarifa](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

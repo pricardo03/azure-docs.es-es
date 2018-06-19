@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/27/2018
+ms.date: 06/01/2018
 ms.author: babanisa
-ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303984"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725248"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Una introducción a Azure Event Grid
 
@@ -71,8 +71,6 @@ Actualmente, los siguientes servicios de Azure admiten el control de eventos de 
 * Queue Storage
 * WebHooks
 
-Cuando use Azure Functions como controlador, utilice el desencadenador de Event Grid en lugar de los desencadenadores HTTP genéricos. Event Grid valida automáticamente los desencadenadores Function de Event Grid. Con desencadenadores HTTP genéricos, debe implementar la [respuesta de validación](security-authentication.md#webhook-event-delivery).
-
 En [Event handlers in Azure Event Grid](event-handlers.md) (Controladores de eventos de Azure Event Grid), puede encontrar vínculos a artículos que muestran cómo usar cada controlador de eventos.
 
 ## <a name="concepts"></a>Conceptos
@@ -80,7 +78,7 @@ En [Event handlers in Azure Event Grid](event-handlers.md) (Controladores de eve
 Hay cinco conceptos en Azure Event Grid que le permiten empezar a trabajar:
 
 * **Eventos**: ¿qué ha ocurrido?
-* **Orígenes de eventos y publicadores**: ¿dónde tuvo lugar el evento?
+* **Orígenes de eventos**: ¿dónde tuvo lugar el evento?
 * **Temas**: el punto de conexión donde los publicadores envían los eventos.
 * **Suscripciones a eventos**: el punto de conexión o mecanismo integrado para enrutar eventos, a veces a varios controladores. Los controladores también usan las suscripciones para filtrar los eventos de entrada de forma inteligente.
 * **Controladores de eventos**: la aplicación o servicio que reacciona al evento.
@@ -126,7 +124,7 @@ Event Grid conecta su aplicación con otros servicios. Por ejemplo, cree un tema
 
 ## <a name="how-much-does-event-grid-cost"></a>¿Cuánto cuesta Event Grid?
 
-Azure Event Grid usa un modelo de precios de pago por evento, por lo que solo se paga por lo que usa. Los 100 000 primeras operaciones al mes son gratis. Estas operaciones se definen como eventos de entrada, coincidencia avanzada, intentos de entrega y llamadas de administración. Para obtener información detallada, consulte la [página de precios](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure Event Grid usa un modelo de precios de pago por evento, por lo que solo se paga por lo que usa. Los 100 000 primeras operaciones al mes son gratis. Las operaciones se definen como entrada de eventos, intentos de entrega de suscripción, llamadas de administración y filtrado por el sufijo de asunto. Para obtener información detallada, consulte la [página de precios](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

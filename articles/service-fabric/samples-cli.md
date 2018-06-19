@@ -1,6 +1,6 @@
 ---
-title: Ejemplos de la CLI de Azure Service Fabric
-description: Ejemplos de la CLI de Azure Service Fabric
+title: Ejemplos de la CLI de Azure (az) y de la CLI de Azure Service Fabric (sfctl)
+description: Ejemplos de la CLI de Azure (az) y de la CLI de Azure Service Fabric (sfctl)
 services: service-fabric
 documentationcenter: service-fabric
 author: Thraka
@@ -16,23 +16,24 @@ ms.workload: service-fabric
 ms.date: 04/09/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: c7f6ce7cea62bd4bf9baca6119f204fc43cf4d45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e37bbd5e12608c5acbd19d5c57667d9e34c74b3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641856"
 ---
-# <a name="azure-service-fabric-cli-samples"></a>Ejemplos de la CLI de Azure Service Fabric
+# <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Ejemplos de la CLI de Azure (az) y de la CLI de Azure Service Fabric (sfctl)
 
-En la tabla siguiente se incluyen vínculos a ejemplos de scripts de [CLI de Service Fabric](service-fabric-cli.md) que administran clústeres, aplicaciones y servicios de Service Fabric.
+La tabla siguiente incluye vínculos a ejemplos para administrar clústeres, aplicaciones y servicios de Service Fabric.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 | | |
 |-|-|
-| **Crear clúster** ||
-| [Creación de un clúster seguro de Linux (Azure)](./scripts/cli-create-cluster.md)| Crea un clúster de Azure Service Fabric. |
-| **Administrar aplicaciones** ||
+| **Creación de un clúster** (con la CLI de Azure)||
+| [Creación de un clúster de Linux seguro](./scripts/cli-create-cluster.md)| Crea un clúster de Azure Service Fabric. |
+| **Administración de aplicaciones** (con la CLI de Service Fabric)||
 | [Lista de aplicaciones](./scripts/sfctl-list-applications.md)| Enumera las aplicaciones aprovisionadas en un clúster.|
 | [Implementar una aplicación](./scripts/cli-deploy-application.md)| Implementar una aplicación en un clúster.|
 | [Eliminar una aplicación](./scripts/cli-remove-application.md)| Eliminar una aplicación de un clúster.|

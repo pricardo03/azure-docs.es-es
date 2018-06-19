@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/29/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: b1ec7a9e74e9b460152c7d47c4b5b3b394a3367b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d97a5f8aff57f4bbfd7d5222a87d258fa5c92da8
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196957"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604393"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Introducción a Azure Stack Storage
 
@@ -32,13 +32,15 @@ Azure Stack Storage es un conjunto de servicios de almacenamiento en la nube que
 
 Azure Stack Storage proporciona los tres servicios siguientes:
 
-* **Blob Storage**
+- **Blob Storage**
 
     Blob Storage almacena datos de objetos no estructurados. Un blob puede ser un tipo cualquiera de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación.
-* **Table Storage**
+
+- **Table Storage**
 
     El almacenamiento de tablas almacena conjuntos de datos estructurados. Se trata de un almacén de datos de clave-atributo NoSQL, que permite el desarrollo rápido de grandes cantidades de datos y el acceso inmediato a los mismos.
-* **Queue Storage**
+
+- **Queue Storage**
 
     El almacenamiento de colas ofrece una solución de mensajería confiable para el procesamiento de flujos de trabajo y para la comunicación entre los componentes de los servicios en la nube.
 
@@ -50,24 +52,26 @@ Una cuenta de Azure Stack Storage es una cuenta segura que proporciona acceso a 
 
 Blob Storage ofrece una solución rentable y escalable a aquellos usuarios con grandes cantidades de datos de objetos no estructurados para almacenar en la nube. Esta característica se puede usar para almacenar contenido como:
 
-* Documentos
-* Datos de contenido social, como fotos, vídeos, música y blogs
-* Copias de seguridad de archivos, equipos, bases de datos y dispositivos
-* Imágenes y texto para las aplicaciones web
-* Datos de configuración para las aplicaciones en la nube
-* Datos de gran tamaño, como registros y otros conjuntos de datos grandes
+- Documentos
+- Datos de contenido social, como fotos, vídeos, música y blogs
+- Copias de seguridad de archivos, equipos, bases de datos y dispositivos
+- Imágenes y texto para las aplicaciones web
+- Datos de configuración para las aplicaciones en la nube
+- Datos de gran tamaño, como registros y otros conjuntos de datos grandes
 
 Cada blob se organiza en un contenedor. Los contenedores también ofrecen una forma útil de asignar directivas de seguridad a grupos de objetos. Una cuenta de almacenamiento puede incluir un número cualquiera de contenedores y, a su vez, un contenedor puede incluir un número cualquiera de blobs, hasta alcanzar el límite de capacidad de la cuenta de almacenamiento.
 
 Blob Storage ofrece tres tipos de blobs:
 
-* **Blobs en bloques**
+- **Blobs en bloques**
 
     Los blobs en bloques están optimizados para el streaming y para el almacenamiento de objetos en la nube y constituyen una opción idónea para almacenar documentos, archivos multimedia y copias de seguridad, entre otros.
-* **Blobs en anexos**
+
+- **Blobs en anexos**
 
     Los blobs en anexos son similares a los blobs en bloques, pero están optimizados para anexar las operaciones. Un blob de anexos puede actualizarse solo al agregar un nuevo bloque al final. Los blob en anexos son una buena opción para escenarios como el registro, donde es necesario escribir solo al final del blob nuevos datos.
-* **Blobs en páginas**
+
+- **Blobs en páginas**
 
     Los blobs en páginas están optimizados para representar discos de IaaS y admitir la escritura aleatoria. Pueden tener un tamaño máximo de 1 TB. Un disco IaaS asociado a una máquina virtual de Azure Stack es un VHD almacenado como blob en páginas.
 
@@ -89,6 +93,6 @@ Una cuenta de almacenamiento puede contener un número cualquiera de colas y una
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md) (Azure Stack Storage: diferencias y consideraciones)
+- [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md) (Azure Stack Storage: diferencias y consideraciones)
 
-* Para más información sobre Azure Storage, consulte [Introducción a Microsoft Azure Storage](../../storage/common/storage-introduction.md).
+- Para más información sobre Azure Storage, consulte [Introducción a Microsoft Azure Storage](../../storage/common/storage-introduction.md).

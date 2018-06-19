@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248248"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutorial: Supervisión de contenedores Windows en Service Fabric con Log Analytics
 
@@ -212,18 +213,14 @@ Al hacer clic en cualquiera de estos paneles, obtendrá acceso a la consulta de 
 
 ## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Configurar el agente de OMS para elegir contadores de rendimiento
 
-Otra ventaja de usar el agente de OMS es la capacidad de cambiar los contadores de rendimiento que desea elegir a través de la experiencia de IU de OMS, en lugar de tener que configurar el agente de Azure Diagnostics y hacer una actualización basada en la plantilla de Resource Manager cada vez. Para ello, haga clic en **Portal de OMS** en la página de aterrizaje de su solución de Supervisión de contenedores (o Service Fabric).
+Otra ventaja de usar el agente de OMS es la capacidad de cambiar los contadores de rendimiento que desea elegir a través de la experiencia de IU de OMS, en lugar de tener que configurar el agente de Azure Diagnostics y hacer una actualización basada en la plantilla de Resource Manager cada vez. Para ello, haga clic en **Área de trabajo de OMS** en la página de aterrizaje de su solución de Supervisión de contenedores (o Service Fabric).
 
-![Portal de OMS](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
-
-Este le llevará a su área de trabajo en el portal de OMS, donde puede ver sus soluciones, crear paneles personalizados, así como configurar el agente de OMS. 
-* Haga clic en la **rueda dentada** en la esquina superior derecha de su pantalla para abrir el menú *Configuración*.
+Este le llevará a su área de trabajo de OMS, donde puede ver sus soluciones, crear paneles personalizados, así como configurar el agente de OMS. 
+* Haga clic en **Configuración avanzada** para abrirla.
 * Haga clic en **Orígenes conectados** > **Servidores de Windows** para comprobar que dispone de *5 equipos con Windows conectados*.
-* Haga clic en **Datos** > **Contadores de rendimiento de Windows** para buscar y agregar nuevos contadores de rendimiento. Aquí verá una lista de recomendaciones de Log Analytics para contadores de rendimiento que podría recopilar, así como la opción de búsqueda de otros contadores. Haga clic en **Agregar los contadores de rendimiento seleccionados** para comenzar a recopilar las métricas sugeridas.
+* Haga clic en **Datos** > **Contadores de rendimiento de Windows** para buscar y agregar nuevos contadores de rendimiento. Aquí verá una lista de recomendaciones de Log Analytics para contadores de rendimiento que podría recopilar, así como la opción de búsqueda de otros contadores. Compruebe que se estén recopilando los contadores **Processor(_Total)\% Tiempo de procesador** y **Memoria(*)\MBytes disponibles**.
 
-    ![Contadores de rendimiento](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
-
-De nuevo en Azure Portal, **actualice** su solución de Supervisión de contenedores en unos minutos y debería comenzar a ver cómo llegan datos de *rendimiento del equipo*. Esto le ayudará a comprender cómo se usan sus recursos. También puede usar estas métricas para tomar decisiones adecuadas sobre el escalado de su clúster, o bien para confirmar si un clúster equilibra su carga como se espera. 
+**Actualice** su solución de Supervisión de contenedores en unos minutos y debería comenzar a ver cómo llegan datos de *rendimiento del equipo*. Esto le ayudará a comprender cómo se usan sus recursos. También puede usar estas métricas para tomar decisiones adecuadas sobre el escalado de su clúster, o bien para confirmar si un clúster equilibra su carga como se espera. 
 
 *Nota: Asegúrese de que sus filtros de tiempo se establecen de forma adecuada para que consuma estas métricas.* 
 

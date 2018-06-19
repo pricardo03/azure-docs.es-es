@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: 69c3ebf5a51151cd8e77c637ddd57eb18c8a9d15
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9cf3ae3417b993cd721460484d6228daf7b283c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627354"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Inicio rápido: Introducción a Hadoop y Hive en Azure HDInsight con Azure Portal
 
@@ -65,7 +66,7 @@ En esta sección, crea un clúster de Hadoop en HDInsight con Azure Portal.
     
     |Propiedad  |DESCRIPCIÓN  |
     |---------|---------|
-    |**Tipo de clúster**     | Escriba el nombre del clúster de Hadoop. Dado que todos los clústeres de HDInsight comparten el mismo espacio de nombres de DNS, este nombre debe ser único. El nombre puede tener un máximo de 59 caracteres, letras, números y guiones incluidos. El primer y el último carácter del nombre no pueden ser guiones. |
+    |**Tipo de clúster**     | Seleccione **Hadoop** |
     |**Sistema operativos**     |  Seleccione su suscripción a Azure. |
     |**Versión**     | Seleccione **Hadoop 2.7.3 (HDI 3.6)**.|
 

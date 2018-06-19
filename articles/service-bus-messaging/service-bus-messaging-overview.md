@@ -1,59 +1,131 @@
 ---
-title: "Información general sobre la mensajería de Azure Service Bus | Microsoft Docs"
-description: "Descripción de la mensajería de Service Bus y Azure Relay"
+title: Información general sobre la mensajería de Azure Service Bus | Microsoft Docs
+description: Descripción de la mensajería de Service Bus
 services: service-bus-messaging
-documentationcenter: .net
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
+editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: get-started-article
-ms.date: 12/21/2017
+ms.topic: overview
+ms.date: 05/22/2018
+ms.custom: mvc
 ms.author: sethm
-ms.openlocfilehash: e299ccfe587d37757cd67cb4367f019b21a09b4a
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 0357602e6085b25fc6d11363113ebc962dc4d008
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643097"
 ---
-# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Mensajería de Service Bus: entrega flexible de datos en la nube
+# <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 
-Microsoft Azure Service Bus es un servicio de entrega de información confiable. El propósito de este servicio es facilitar la comunicación. Cuando dos o más partes quieren intercambiar información, necesitan un facilitador de la comunicación. Service Bus es un mecanismo de comunicación asincrónica o de terceros. Esto es similar a un servicio postal en el mundo físico. Los servicios postales facilitan el envío distintos tipos de cartas y paquetes, con una variedad de garantías de entrega, a cualquier lugar del mundo.
+Microsoft Azure Service Bus es un agente de mensajes de integración empresarial completamente administrado. Service Bus se usa normalmente para desacoplar las aplicaciones y los servicios entre sí y es una plataforma segura y confiable para datos asincrónicos y transferencia de estado. Los datos se transfieren entre distintas aplicaciones y servicios mediante *mensajes*. Un mensaje está en formato binario, que puede contener solo texto, JSON o XML. 
 
-Service Bus es similar al servicio postal de entrega de cartas, ya que permite la entrega flexible de información entre el remitente y el destinatario. El servicio de mensajería garantiza que la información se entrega, incluso si las dos partes no están nunca conectados al mismo tiempo o si no están disponibles en el mismo momento exacto. De esta manera, la mensajería es similar al envío de una carta, mientras que la comunicación asíncrona es similar a la realización de una llamada telefónica (o como era la realización de llamadas, antes de la creación de servicios de identificación de llamada o llamada en espera, que son mucho más similares a la mensajería asíncrona).
+Algunos escenarios de mensajería comunes son:
 
-El remitente del mensaje también puede requerir varias características de entrega, incluidas transacciones, detección de duplicados, expiración basada en el tiempo y procesamiento por lotes. Estos patrones también tienen analogías postales: repetición de la entrega, requerimiento de firma, cambio de dirección o devolución de llamada.
+* Mensajería: transferencia de datos de empresa, como ventas o pedidos de compra, diarios o movimientos del inventario.
+* Desacoplamiento de aplicaciones: mejora de la confiabilidad y escalabilidad de las aplicaciones y los servicios (el cliente y el servicio no necesitan estar conectados al mismo tiempo).
+* Temas y suscripciones: habilitación de relaciones 1:*n* entre publicadores y suscriptores.
+* Sesiones de mensajes: implementación de flujos de trabajo que requieren ordenación en los mensajes o aplazamiento de los mensajes.
 
-Service Bus admite dos patrones de mensajería distintos: *Azure Relay* y *Service Bus Messaging*.
+## <a name="namespaces"></a>Espacios de nombres
 
-## <a name="azure-relay"></a>Azure Relay
+Un espacio de nombres es un contenedor con un ámbito para todos los componentes de la mensajería. Varias colas y temas pueden residir en un único espacio de nombres, y los espacios de nombres suelen servir de contenedores de aplicación.
 
-El componente [WCF Relay](../service-bus-relay/relay-what-is-it.md) de Azure Relay es un servicio centralizado (pero de carga muy equilibrada) que admite varios protocolos de transporte y estándares de servicios web diferentes. Incluye SOAP, WS-* e incluso REST. El [servicio de retransmisión](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) ofrece una variedad de opciones de conectividad de retransmisión diferentes y puede ayudar a facilitar la negociación de conexiones directas de punto a punto cuando sea posible. Service Bus está optimizado para los desarrolladores de .NET que usan Windows Communication Foundation (WCF), tanto en términos de rendimiento como de facilidad de uso, y ofrece acceso completo a su servicio de retransmisión a través de interfaces SOAP y REST. Esto permite que cualquier entorno de programación SOAP o REST se integre con Service Bus.
+## <a name="queues"></a>Colas
 
-El servicio de retransmisión admite mensajería unidireccional tradicional, mensajería de solicitud/respuesta y mensajería de punto a punto. También admite la distribución de eventos en el ámbito de Internet para habilitar escenarios de publicación-suscripción y la comunicación de socket bidireccional para aumentar la eficacia punto a punto. En el patrón de mensajería retransmitida, un servicio local se conecta al servicio de relé mediante un puerto de salida y crea un socket bidireccional para la comunicación enlazada a una dirección de encuentro concreta. Después el cliente puede comunicarse con el servicio local enviando mensajes al servicio de retransmisión destinados a la dirección de rendezvous. El servicio de retransmisión “retransmite” los mensajes al servicio local a través del socket bidireccional existente. El cliente no necesita una conexión directa al servicio local ni es necesario saber dónde reside el servicio, y el servicio local no necesita ningún puerto de entrada abierto en el firewall.
+Los mensajes se envían y se reciben desde *colas*. Las colas permiten almacenar mensajes hasta que la aplicación receptora está disponible para recibirlos y procesarlos.
 
-La conexión entre el servicio local y el servicio de retransmisión se inicia mediante un conjunto de enlaces de “retransmisión” WCF. En segundo plano, los enlaces de retransmisión se asignan a elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con Service Bus en la nube.
+![Cola](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-WCF Relay ofrece muchas ventajas, pero requiere que tanto el servidor como el cliente estén en línea al mismo tiempo para enviar y recibir mensajes. Esto no es óptimo para la comunicación de estilo HTTP, en la que puede que las solicitudes no sean normalmente de larga duración, ni para los clientes que solo se conectan ocasionalmente, como exploradores, aplicaciones móviles, etc. La mensajería asíncrona admite la comunicación desacoplada y tiene sus propias ventajas; los clientes y servidores se pueden conectar cuando sea necesario y realizar sus operaciones de forma asincrónica.
+Los mensajes de las colas se ordenan y se les asigna una marca de tiempo a su llegada. Una vez aceptado, el mensaje se conserva de forma segura en almacenamiento redundante. Los mensajes se entregan en modo de *extracción*, que entrega los mensajes a una solicitud.
 
-## <a name="brokered-messaging"></a>Mensajería asíncrona
+## <a name="topics"></a>Temas
 
-Al contrario que el esquema de retransmisión, la mensajería de Service Bus con [colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md) se puede considerar asincrónica o "temporalmente desacoplada". Los productores (remitentes) y consumidores (receptores) no tienen que estar en línea al mismo tiempo. La infraestructura de mensajería almacena de forma fiable los mensajes en un "agente" (como, por ejemplo, una cola) hasta que la parte consumidora esté preparada para recibirlos. De esta forma, los componentes de la aplicación distribuida se pueden desconectar, ya sea voluntariamente, por ejemplo, para mantenimiento, o debido a un bloqueo del componente, sin que afecte a todo el sistema. Además, es posible que la aplicación receptora solo tenga que estar en línea durante determinadas horas del día, por ejemplo, como un sistema de administración de inventario que solo es necesario ejecutarse al final del día laborable.
+También puede usar *temas* para enviar y recibir mensajes. Mientras que una cola se utiliza a menudo para la comunicación punto a punto, los temas son útiles en escenarios de publicación y suscripción.
 
-Los componentes principales de la infraestructura de mensajería de Service Bus son las colas, los temas y las suscripciones. La principal diferencia es que los temas admiten funcionalidades de publicación o suscripción que se pueden usar para las características de enrutamiento basado en contenido y entrega lógica, incluido el envío a varios destinatarios. Estos componentes permiten nuevos escenarios de mensajería asincrónicos, como desacoplamiento temporal, publicación/suscripción y equilibrio de carga. Para más información sobre estas entidades de mensajería, vea [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md).
+![Tema.](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
-Al igual que con la infraestructura de WCF Relay, se ofrece funcionalidad de mensajería asincrónica para los programadores de WCF y de .NET Framework, y también a través de REST.
+Los temas pueden tener varias suscripciones independientes. Un suscriptor a un tema puede recibir una copia de cada mensaje enviado a ese tema. Las suscripciones son entidades con nombre, que se crean de forma duradera pero pueden, opcionalmente, expirar o eliminarse automáticamente.
 
+En algunos escenarios, podría no desear suscripciones individuales para recibir todos los mensajes enviados a un tema. Si es así, puede usar [reglas y filtros](topic-filters.md) para definir condiciones que desencadenan [acciones](topic-filters.md#actions) opcionales, filtrar mensajes especificados y establecer o modificar las propiedades del mensaje.
+
+## <a name="advanced-features"></a>Características avanzadas
+
+Service Bus también tiene características avanzadas que permiten solucionar problemas de mensajería más complejos. Las siguientes secciones describen estas características principales:
+
+### <a name="message-sessions"></a>Sesiones de mensajes
+
+Para realizar una garantía primero en entrar/primero en salir (FIFO) en Service Bus, use sesiones. Las [sesiones de mensajes](message-sessions.md) permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. 
+
+### <a name="auto-forwarding"></a>Reenvío automático
+
+La característica de [reenvío automático](service-bus-auto-forwarding.md) permite encadenar una cola o suscripción a otra cola o tema que forme parte del mismo espacio de nombres. Cuando el reenvío automático está habilitado, Service Bus elimina automáticamente los mensajes que se colocan en la primera cola o suscripción (origen) y los coloca en la segunda cola o en el segundo tema (destino).
+
+### <a name="dead-lettering"></a>Colas de mensajes fallidos
+
+Service Bus admite una [cola de mensajes fallidos](service-bus-dead-letter-queues.md) (DLQ) para mantener los mensajes que no se pudieron entregar a ningún destinatario o los mensajes que no se pudieron procesar. A continuación, puede eliminar mensajes de la cola DLQ y examinarlos.
+
+### <a name="scheduled-delivery"></a>Entrega programada
+
+Puede enviar mensajes a una cola o un tema [para su procesamiento retrasado](message-sequencing.md#scheduled-messages); por ejemplo, para programar un trabajo de forma que esté disponible para que lo procese el sistema a una hora determinada.
+
+### <a name="message-deferral"></a>Aplazamiento de mensajes
+
+Cuando un cliente de una cola o una suscripción recibe un mensaje que se desea procesar, pero cuyo procesamiento no es posible en ese momento debido a circunstancias especiales dentro de la aplicación, la entidad tiene la opción de [aplazar la recuperación del mensaje](message-deferral.md) para un momento posterior. El mensaje permanece en la cola o suscripción, pero se mantiene separado.
+
+### <a name="batching"></a>Lotes
+
+El [procesamiento por lotes en el lado del cliente](service-bus-performance-improvements.md#client-side-batching) permite que un cliente de una cola o un tema retrase el envío de un mensaje durante un período determinado. Si el cliente envía más mensajes durante este período, los transmite en un único lote. 
+
+### <a name="transactions"></a>Transacciones
+
+Una [transacción](service-bus-transactions.md) agrupa dos o más operaciones en un ámbito de ejecución. Service Bus admite operaciones de agrupación en una sola entidad de mensajería (cola, tema, suscripción) dentro del ámbito de una transacción.
+
+### <a name="filtering-and-actions"></a>Filtrado y acciones
+
+Los suscriptores pueden definir los mensajes que quieren recibir de un tema. Estos mensajes se especifican en forma de una o varias [reglas de suscripción con nombre](topic-filters.md). Con cada condición de regla de coincidencia, la suscripción crea una copia del mensaje, que se puede anotar de manera diferente para cada regla coincidente.
+
+### <a name="auto-delete-on-idle"></a>Eliminación automática en estado inactivo
+
+La [eliminación automática en estado inactivo](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) le permite especificar un intervalo de inactividad después del cual se eliminará automáticamente la cola. La duración mínima es de 5 minutos.
+
+### <a name="duplicate-detection"></a>Detección de duplicados
+
+Si se produce un error que hace que el cliente tenga dudas sobre el resultado de una operación de envío, la [detección de duplicados](duplicate-detection.md) saca de dudas en estas situaciones al permitir que el remitente reenvíe el mismo mensaje y la cola o el tema descartan cualquier copia duplicada.
+
+### <a name="sas-rbac-and-msi"></a>SAS, RBAC y MSI
+
+Service Bus admite protocolos de seguridad como las [firmas de acceso compartido](service-bus-sas.md) (SAS), el [Control de acceso basado en roles](service-bus-role-based-access-control.md) (RBAC) y [Managed Service Identity](service-bus-managed-service-identity.md) (MSI).
+
+### <a name="geo-disaster-recovery"></a>Recuperación ante desastres geográfica
+
+Cuando las regiones o los centros de datos de Azure experimentan un tiempo de inactividad, la [recuperación ante desastres geográfica](service-bus-geo-dr.md) permite que el procesamiento de datos siga funcionando en una región o un centro de datos diferentes.
+
+### <a name="security"></a>Seguridad
+
+Service Bus admite los protocolos estándar [AMQP 1.0](service-bus-amqp-overview.md) y [HTTP/REST](/rest/api/servicebus/).
+
+## <a name="client-libraries"></a>Bibliotecas de clientes
+
+Service Bus es compatible con las bibliotecas de cliente para [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master) y [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+
+## <a name="integration"></a>Integración
+
+Service Bus se integra completamente con los siguientes servicios de Azure:
+
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Funciones](https://azure.microsoft.com/services/functions/) 
+- [Dynamics 365](https://dynamics.microsoft.com)
+- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
+Para comenzar a trabajar con la mensajería de Service Bus, consulte los siguientes artículos:
 
-* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-* [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-
+* [Comparación de los servicios de mensajería de Azure](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* Más información sobre los niveles [Estándar y Premium](https://azure.microsoft.com/pricing/details/service-bus/) de Azure Service Bus y su plan de tarifa
+* [Rendimiento y latencia del nivel Premium de Azure Service Bus](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* Pruebe las guías de inicio rápido de [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md) o [JMS](service-bus-quickstart-powershell.md)

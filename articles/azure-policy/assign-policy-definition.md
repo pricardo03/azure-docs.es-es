@@ -4,17 +4,17 @@ description: Este artículo lo guiará por los pasos para crear una definición 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9b1cfd762d6f050994688d1cd6afd91f0e43bfc3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 43f069fbd8f4fcc13bbc4d9e75763fa98aec1065
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195784"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601469"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure
 
@@ -49,7 +49,7 @@ En esta guía de inicio rápido, se crea una asignación de directiva y se le as
    - Apply tag and its value (Aplicar una etiqueta y su valor)
    - Requisito de la versión 12.0 de SQL Server
 
-    Para obtener una lista completa de todas las directivas integradas disponibles, consulte [Plantillas de directiva](json-samples.md).
+    Para obtener una lista completa de todas las directivas integradas disponibles, consulte [Ejemplos de Azure Policy](json-samples.md).
 
 7. En la lista de definiciones de directiva, busque la definición *Auditoría de máquinas virtuales que no usan discos administrados*. Haga clic en esa directiva y después en **Seleccionar**.
 

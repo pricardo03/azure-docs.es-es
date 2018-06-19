@@ -1,22 +1,22 @@
 ---
-title: "Guía de inicio rápido: explorador de Azure Time Series Insights | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo comenzar a trabajar con el explorador de Azure Time Series Insights en el explorador web para visualizar grandes volúmenes de datos de IoT. Recorra las características clave en un entorno de demostración."
-services: time-series-insights
+title: 'Guía de inicio rápido: explorador de Azure Time Series Insights | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo comenzar a trabajar con el explorador de Azure Time Series Insights en el explorador web para visualizar grandes volúmenes de datos de IoT. Recorra las características clave en un entorno de demostración.
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: v-mamcge
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: a2f88ab65a8f9948b83f491896d53b34f162747c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbf0aef7a032c9b9808db14031555c7498874ac3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652124"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Guía de inicio rápido: exploración de Azure Time Series Insights
 Esta guía de inicio rápido muestra cómo comenzar a trabajar con el explorador de Azure Time Series Insights en un entorno de demostración gratuito. Aprenderá a usar el explorador web para visualizar grandes volúmenes de datos de IoT y recorrerá las características clave del explorador de Time Series Insights. 
@@ -27,7 +27,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https:
 
 ## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Exploración del explorador de Time Series Insights en un entorno de demostración
 
-1. En el explorador, navegue a [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
+1. Abra el explorador y vaya a [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
 
 2. Si se le solicita, inicie sesión en el explorador de Time Series Insights con las credenciales de la cuenta de Azure. 
  

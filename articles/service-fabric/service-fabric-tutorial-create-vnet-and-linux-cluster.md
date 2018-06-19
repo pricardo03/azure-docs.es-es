@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: ff57aec76171b45dbebff928f2898bd5f91ec1c2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 53adf8045e1c947466cf5080b8c967a928d2dc24
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365549"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643233"
 ---
 # <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Linux en una instancia de red virtual de Azure
 Este tutorial es la primera parte de una serie. En él aprenderá a implementar un clúster de Service Fabric de Linux en una instancia de [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red (NSG)](../virtual-network/security-overview.md) mediante la CLI de Azure y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones. Para crear un clúster con Windows mediante PowerShell, consulte la información sobre la [creación de un clúster con Windows seguro en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -157,7 +157,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Conexión al clúster seguro
-Conéctese al clúster que usa el comando `sfctl cluster select` de la CLI de Service Fabric que utiliza su clave.  Nota: Use la opción **--no-verify** solo para obtener un certificado autofirmado.
+Conéctese al clúster mediante el comando `sfctl cluster select` de la CLI de Service Fabric con su clave.  Nota: Use la opción **--no-verify** solo para obtener un certificado autofirmado.
 
 ```azurecli
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \

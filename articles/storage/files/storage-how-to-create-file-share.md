@@ -5,7 +5,7 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737867"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creación de un recurso compartido de archivos en Azure Files
 Puede crear recursos compartidos de archivos de Azure mediante [Azure Portal](https://portal.azure.com/), los cmdlets de PowerShell, las bibliotecas de cliente o la API de REST de Azure Storage. En este tutorial, aprenderá a:
-* [Crear un recurso compartido de archivos de Azure mediante Azure Portal](#Create file share through the Portal)
-* [Crear un recurso compartido de archivos de Azure mediante Powershell](#Create file share using PowerShell)
-* [Crear un recurso compartido de archivos de Azure mediante la CLI](#create-file-share-using-command-line-interface-cli)
+* [Crear un recurso compartido de Azure Files mediante Azure Portal](#create-file-share-through-the-azure-portal)
+* [Crear un recurso compartido de Azure Files mediante Powershell](#create-file-share-through-powershell)
+* [Crear un recurso compartido de Azure Files mediante la CLI](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>requisitos previos
-Para crear un recurso compartido de archivos de Azure, puede usar una cuenta de almacenamiento que ya exista o [crear una nueva cuenta de Azure Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para crear un recurso compartido de archivos de Azure con PowerShell, necesitará la clave de la cuenta y el nombre de la cuenta de almacenamiento. Necesitará la clave de la cuenta de almacenamiento si tiene previsto usar Powershell o la CLI.
+Para crear un recurso compartido de Azure Files, puede usar una cuenta de almacenamiento que ya exista o [crear una nueva cuenta de Azure Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para crear un recurso compartido de Azure Files con PowerShell, necesitará la clave de la cuenta y el nombre de la cuenta de almacenamiento. Necesitará la clave de la cuenta de almacenamiento si tiene previsto usar Powershell o la CLI.
 
 ## <a name="create-file-share-through-the-azure-portal"></a>Creación de un recurso compartido de archivos mediante Azure Portal
 1. **Vaya a la hoja de la cuenta de almacenamiento en Azure Portal**:    

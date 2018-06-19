@@ -6,21 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d52691dbec932a3515c90e757863be01ade086cc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208845"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715962"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicación de una máquina virtual de Azure en otra región de Azure
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
 
-En esta guía de inicio rápido se describe cómo replicar una máquina virtual de Azure en una región distinta de Azure. La replicación de Azure de Azure se encuentra en una versión preliminar en este momento
+En esta guía de inicio rápido se describe cómo replicar una máquina virtual de Azure en una región distinta de Azure. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -47,7 +47,7 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
 
 Cuando haya finalizado el trabajo de replicación, puede comprobar el estado de replicación, modificar la configuración de replicación y probar la implementación.
 
-1. En el menú de la máquina virtual, haga clic en **Recuperación ante desastres (versión preliminar)**.
+1. En el menú de la máquina virtual, haga clic en **Recuperación ante desastres**.
 2. Puede comprobar el estado de replicación, los puntos de recuperación que se han creado y las regiones de origen y destino en el mapa.
 
    ![Estado de replicación](media/azure-to-azure-quickstart/replication-status.png)

@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724105"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>¿Qué es Managed Service Identity (MSI) para recursos de Azure?
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 Un desafío común al crear aplicaciones en la nube consiste en el modo de administrar las credenciales que tienen que estar en el código para autenticar los servicios en la nube. Proteger estas credenciales es una tarea esencial. Lo ideal sería que nunca aparecieran en las estaciones de trabajo de los desarrolladores o que se controlaran en el código fuente. Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Para solucionar este problema, Managed Service Identity (MSI) proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código.
 
+Managed Service Identity viene con Azure Active Directory gratuito, que es la opción predeterminada para las suscripciones de Azure. Su uso no supone ningún costo adicional.
+
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
 Existen dos tipos de identidades de servicio administradas: **asignada por el sistema** y **asignada por el usuario**.
 
 - Una **identidad asignada por el sistema** se habilita directamente en una instancia de servicio de Azure. Cuando se habilita, Azure crea una identidad para la instancia del servicio en el inquilino de Azure AD de confianza para la suscripción de la instancia de servicio. Una vez creada la identidad, sus credenciales se aprovisionan en la instancia de servicio. El ciclo de vida de una identidad de servicio asignada por el sistema está vinculado directamente a la instancia de servicio de Azure en que está habilitada. Si se elimina la instancia del servicio, Azure limpia automáticamente las credenciales y la identidad en Azure AD.
-- Se crea una **identidad asignada por el usuario** (versión preliminar pública) como recurso de Azure independiente. Mediante un proceso de creación, Azure crea una identidad en el inquilino de Azure AD de confianza para la suscripción que se utiliza. Una vez creada la identidad, puede asignarse a una o varias instancias de servicio de Azure. El ciclo de vida de una identidad asignada por el usuario se administra por separado del ciclo de vida de las instancias de servicio de Azure a las que se asigna.
+- Se crea una **identidad asignada por el usuario** como recurso de Azure independiente. Mediante un proceso de creación, Azure crea una identidad en el inquilino de Azure AD de confianza para la suscripción que se utiliza. Una vez creada la identidad, puede asignarse a una o varias instancias de servicio de Azure. El ciclo de vida de una identidad asignada por el usuario se administra por separado del ciclo de vida de las instancias de servicio de Azure a las que se asigna.
 
 Por consiguiente, el código puede usar una identidad asignada por el sistema o una identidad asignada por el usuario para solicitar tokens de acceso para los servicios que admiten la autenticación de Azure AD. Mientras tanto, Azure se encarga de rotar las credenciales utilizadas por la instancia de servicio.
 
@@ -103,17 +106,6 @@ Pruebe un tutorial de Managed Service Identity para obtener información sobre e
 
 Las identidades administradas se pueden usar para autenticarse en servicios que admiten la autenticación de Azure AD. Para obtener la lista de servicios de Azure que admiten Managed Service Identity, consulte el siguiente artículo:
 - [Servicios que admiten Managed Service Identity](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>¿Cuánto cuesta Managed Service Identity?
-
-Managed Service Identity viene con Azure Active Directory Free, que es la opción predeterminada para las suscripciones de Azure. Su uso no supone ningún costo adicional.
-
-## <a name="support-and-feedback"></a>Soporte y comentarios
-
-Estaríamos encantados de ayudarle.
-
-* Formule sus preguntas sobre procedimientos acerca de Stack Overflow con la etiqueta [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Haga solicitudes de características o envíe comentarios en el [foro de comentarios de Azure AD para desarrolladores](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

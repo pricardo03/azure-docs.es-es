@@ -1,5 +1,5 @@
 ---
-title: Acceso a un laboratorio personalizado de Azure DevTest Labs | Microsoft Docs
+title: Acceso a un laboratorio en Azure DevTest Labs | Microsoft Docs
 description: En este tutorial, va a acceder al laboratorio que se ha creado con Azure DevTest Labs, reclamar máquinas virtuales, utilizarlas y, después, anular la reclamación.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: be4bde6bd320e8af7cd3119ff4ccdabd942963ca
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361845"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638031"
 ---
-# <a name="tutorial-access-a-custom-lab-in-azure-devtest-labs"></a>Tutorial: Acceso a un laboratorio personalizado de Azure DevTest Labs
-En este tutorial, va a utilizar el laboratorio personalizado que se creó en el [Tutorial: Creación de un laboratorio personalizado](tutorial-create-custom-lab.md).
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acceso a un laboratorio en Azure DevTest Labs
+En este tutorial, va a utilizar el laboratorio que se creó en el [Tutorial: Creación de un laboratorio en Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 En este tutorial realizará lo siguiente:
 
 > [!div class="checklist"]
-> * Reclamación de una máquina virtual en el laboratorio personalizado
+> * Notificación de una máquina virtual en el laboratorio
 > * Conexión a la máquina virtual
 > * Anulación de la reclamación de la máquina virtual
 
@@ -70,8 +70,8 @@ Cuando haya terminado de usar la máquina virtual, anule la reclamación de dich
 1. Después de realizar la operación de anulación de reclamación, verá la máquina virtual en la lista **Máquinas virtuales que se pueden reclamar** en la parte inferior. 
     
 ## <a name="next-steps"></a>Pasos siguientes
-Este tutorial le ha mostrado cómo acceder y usar un laboratorio personalizado que se creó con Azure DevTest Labs. Para más información sobre el acceso y el uso de máquinas virtuales en un laboratorio personalizado, consulte 
+Este tutorial le ha mostrado cómo acceder y usar un laboratorio creado con Azure DevTest Labs. Para más información sobre el acceso y el uso de máquinas virtuales en un laboratorio, consulte 
 
 > [!div class="nextstepaction"]
-> [Uso de máquinas virtuales en un laboratorio personalizado](devtest-lab-add-vm.md)
+> [Procedimiento: Uso de máquinas virtuales en un laboratorio](devtest-lab-add-vm.md)
 

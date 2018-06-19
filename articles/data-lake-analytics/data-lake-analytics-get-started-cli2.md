@@ -1,31 +1,28 @@
 ---
-title: Introducción a Azure Data Lake Analytics mediante la CLI de Azure 2.0 | Microsoft Docs
-description: 'Aprenda a usar la interfaz de la línea de comandos de Azure 2.0 para crear una cuenta de Data Lake Analytics, crear un trabajo de Data Lake Analytics mediante U-SQL y enviar dicho trabajo. '
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
+title: Introducción al uso de la CLI de Azure 2.0 por parte de Azure Data Lake Analytics
+description: Aprenda cómo utilizar la interfaz de la línea de comandos de Azure 2.0 para crear una cuenta de Azure Data Lake Analytics y enviar un trabajo de U-SQL.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.topic: get-started-article
 ms.date: 06/18/2017
-ms.author: jgao
-ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625108"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introducción al uso de la CLI de Azure 2.0 por parte de Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-En este tutorial, se desarrolla un trabajo que lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV). Para realizar el mismo tutorial con otras herramientas compatibles, use la lista desplegable de la parte superior de esta sección.
+En este artículo se describe cómo utilizar la interfaz de la línea de comandos de la CLI de Azure 2.0 para crear cuentas de Azure Data Lake Analytics, enviar un trabajo de U-SQL y los catálogos. El trabajo lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV). 
 
 ## <a name="prerequisites"></a>requisitos previos
-Antes de empezar este tutorial, debe contar con lo siguiente:
+Antes de comenzar, necesita los siguientes elementos:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **CLI de Azure 2.0**. Consulte [Instalación y configuración de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).

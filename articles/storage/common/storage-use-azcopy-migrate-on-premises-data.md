@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267454"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migración de datos locales al almacenamiento en la nube mediante AzCopy
 
@@ -22,8 +23,8 @@ AzCopy es una herramienta de línea de comandos para copiar datos de Azure Blob 
 
 Se pueden descargar dos versiones de AzCopy:
 
-* [AzCopy en Linux](storage-use-azcopy.md) se compila con .NET Core Framework. Tiene como destino plataformas Linux, ya que ofrece opciones de línea de comandos de estilo POSIX. 
-* [AzCopy en Windows](../storage-use-azcopy.md) se compila con .NET Framework. Ofrece opciones de línea de comandos de estilo Windows. 
+* [AzCopy en Linux](storage-use-azcopy-linux.md) se compila con .NET Core Framework. Tiene como destino plataformas Linux, ya que ofrece opciones de línea de comandos de estilo POSIX. 
+* [AzCopy en Windows](storage-use-azcopy.md) se compila con .NET Framework. Ofrece opciones de línea de comandos de estilo Windows. 
  
 En este tutorial, aprenderá a:
 
@@ -40,7 +41,7 @@ Para completar este tutorial, descargue la versión más reciente de AzCopy en [
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 >[!NOTE]
->Si desea descargar blobs de una región secundaria del almacenamiento local y cargarlos, establezca **Replicación** en  **	Almacenamiento con redundancia geográfica con acceso de lectura**. Al seleccionar esta opción se crea una cuenta de [almacenamiento con redundancia geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage). 
+>Si desea poder descargar blobs desde una región secundaria al almacenamiento local y viceversa, establezca **Replicación** en **Almacenamiento con redundancia geográfica con acceso de lectura**. Al seleccionar esta opción se crea una cuenta de [almacenamiento con redundancia geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage). 
 >
 >
 

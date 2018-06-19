@@ -1,8 +1,8 @@
 ---
-title: "Acceso a Key Vault detrás de un firewall | Microsoft Docs"
-description: "Aprenda a acceder a Azure Key Vault desde una aplicación detrás de un firewall"
+title: Acceso a Key Vault detrás de un firewall | Microsoft Docs
+description: Aprenda a acceder a Azure Key Vault desde una aplicación detrás de un firewall
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736255"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>P: mi aplicación cliente de Key Vault debe estar detrás de un firewall. ¿Qué puertos, hosts o direcciones IP debo abrir para habilitar el acceso a un almacén de claves?
@@ -50,7 +51,7 @@ Para la administración de Key Vault (CRUD y establecimiento de una directiva de
 | Tipo de operación | Punto de conexión:puerto |
 | --- | --- |
 | Operaciones del plano de control de Key Vault<br> a través de Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 |
-| API Graph de Azure Active Directory |**Global:**<br> graph.windows.net:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> graph.windows.net:443<br><br> **Azure Alemania:**<br> graph.cloudapi.de:443 |
+| Graph API de Azure Active Directory |**Global:**<br> graph.windows.net:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> graph.windows.net:443<br><br> **Azure Alemania:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operaciones de Key Vault
 Para todas las operaciones criptográficas y de administración de objetos (claves y secretos) de Key Vault, es preciso que el cliente de Key Vault acceda al punto de conexión de Key Vault. En función de la ubicación del almacén de claves, el sufijo DNS del punto de conexión varía. El punto de conexión de Key Vault tiene el formato *vault-name*.*region-specific-dns-suffix*, como se describe en la tabla siguiente.  
@@ -60,7 +61,7 @@ Para todas las operaciones criptográficas y de administración de objetos (clav
 | Operaciones que incluyen operaciones criptográficas en claves; crear, leer, actualizar y eliminar claves y secretos; establecer u obtener etiquetas y otros atributos de objetos de Key Vault (claves o secretos) |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>Intervalos de direcciones IP
-El servicio Key Vault utiliza otros recursos de Azure como la infraestructura de PaaS. Por consiguiente, no es posible proporcionar un intervalo específico de direcciones IP que los puntos de conexión del servicio Key Vault tendrán en un momento concreto. Si el firewall admite solo intervalos de direcciones IP, consulte el documento [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalos de IP de los centro de datos de Microsoft Azure). Para la autenticación y la identidad (Azure Active Directory), la aplicación debe poder conectarse a los puntos de conexión descritos en [Autenticación y direcciones de identidad](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+El servicio Key Vault utiliza otros recursos de Azure como la infraestructura de PaaS. Por consiguiente, no es posible proporcionar un intervalo específico de direcciones IP que los puntos de conexión del servicio Key Vault tendrán en un momento concreto. Si el firewall admite solo intervalos de direcciones IP, consulte el documento [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalos de IP de los centro de datos de Microsoft Azure). Authentication and Identity (Azure Active Directory) es un servicio global que puede conmutar por error en otras regiones o mover tráfico sin previo aviso. En este escenario, todos los intervalos IP enumerados en [Direcciones IP de Authentication and Identity](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) deben agregarse al firewall.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si le queda alguna duda acerca de Key Vault, visite los [foros de Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

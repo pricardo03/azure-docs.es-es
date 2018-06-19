@@ -1,22 +1,21 @@
 ---
-title: "Inscripción de dispositivos X.509 al servicio Azure Device Provisioning con Java | Microsoft Docs"
-description: "Guía de inicio rápido de Azure: Inscripción de dispositivos X.509 al servicio Azure IoT Hub Device Provisioning mediante el SDK del servicio de Java"
-services: iot-dps
-keywords: 
+title: Inscripción de dispositivos X.509 al servicio Azure Device Provisioning con Java | Microsoft Docs
+description: 'Guía de inicio rápido de Azure: Inscripción de dispositivos X.509 al servicio Azure IoT Hub Device Provisioning mediante el SDK del servicio de Java'
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: b1d21278c821c4501c121266823e153490a50df5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cea83fbe9c60bab687eb3d43fc269fa9f6bea325
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630466"
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscripción de dispositivos X.509 al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Java
 
@@ -63,7 +62,7 @@ En esta sección se muestra cómo agregar los detalles de aprovisionamiento del 
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. En el código fuente descargado, navegue hasta la carpeta de ejemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra el archivo  **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_**  en el editor que prefiera y agregue los detalles siguientes:
+2. En el código fuente descargado, navegue hasta la carpeta de ejemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra el archivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** en el editor que prefiera y agregue los detalles siguientes:
 
     1. Desde el portal, agregue la cadena `[Provisioning Connection String]` para su servicio de aprovisionamiento como se muestra a continuación:
         1. Vaya al servicio de aprovisionamiento en [Azure Portal](https://portal.azure.com). 
@@ -114,7 +113,7 @@ En esta sección se muestra cómo agregar los detalles de aprovisionamiento del 
                         "-----END CERTIFICATE-----\n";
                 ```
 
-        9. Cierre la ventana de comandos, o escriba **n** cuando se le solicite el *código de verificación*. 
+        9. Cierre la ventana de comandos o escriba **n** cuando se le solicite el *código de verificación*. 
  
     3. Si lo desea, puede configurar el servicio de aprovisionamiento con el código de ejemplo:
         - Para agregar esta configuración al ejemplo, siga estos pasos:
