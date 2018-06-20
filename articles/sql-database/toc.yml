@@ -346,6 +346,14 @@
           href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
         - name: Sincronización de datos
           href: sql-database-get-started-sql-data-sync.md
+        - name: Replicación de cambios de esquema para SQL Data Sync
+          href: sql-database-update-sync-schema.md
+        - name: Supervisión de SQL Data Sync con OMS Log Analytics
+          href: sql-database-sync-monitor-oms.md
+        - name: Procedimientos recomendados para SQL Data Sync
+          href: sql-database-best-practices-data-sync.md
+        - name: Solución de problemas de SQL Data Sync
+          href: sql-database-troubleshoot-data-sync.md
     - name: Supervisión y ajuste
       items:
         - name: Supervisión y mejora del rendimiento
@@ -374,12 +382,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
-        - name: Supervisión de SQL Data Sync con OMS Log Analytics
-          href: sql-database-sync-monitor-oms.md
-        - name: Procedimientos recomendados para SQL Data Sync
-          href: sql-database-best-practices-data-sync.md
-        - name: Solución de problemas de SQL Data Sync
-          href: sql-database-troubleshoot-data-sync.md
     - name: Escalado horizontal
       items:
         - name: Creación de una aplicación con particiones

@@ -188,6 +188,8 @@
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Uso de CDN de Azure para acceder a blobs con dominios personalizados a través de HTTPS
           href: storage-https-custom-domain-cdn.md
+        - name: Función de almacenamiento inmutable de Azure Blobs Storage (versión preliminar)
+          href: storage-blob-immutable-storage.md
     - name: Supervisión y solución de problemas
       items:
         - name: Tutorial de solución de problemas
@@ -350,11 +352,11 @@
     - name: .NET
       items:
         - name: 'Blobs, colas, tablas y archivos'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Movimiento de datos
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
         - name: Resource Manager
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
       items:
         - name: 'Blobs, colas, tablas y archivos'
