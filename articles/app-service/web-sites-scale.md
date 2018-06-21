@@ -1,8 +1,8 @@
 ---
 title: Escalado vertical de aplicaciones en Azure | Microsoft Docs
-description: "Aprenda a escalar verticalmente una aplicación de Azure App Service para agregar capacidad y características."
+description: Aprenda a escalar verticalmente una aplicación de Azure App Service para agregar capacidad y características.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714942"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Escalado vertical de aplicaciones en Azure
 
@@ -50,7 +51,7 @@ Para obtener información de los precios y características de planes de App Ser
 2. En la hoja de la aplicación App Service, haga clic en **Toda la configuración** y en **Escalar verticalmente**.
    
     ![Desplácese para escalar verticalmente la aplicación de Azure.][ChooseWHP]
-3. Elija el nivel y, después, haga clic en **Seleccionar**.
+3. Elija el nivel y, después, haga clic en **Aplicar**.
    
     La pestaña **Notificaciones** emitirá el mensaje **CORRECTO** en color verde indicando que se ha completado con éxito una vez finalizada la operación.
 

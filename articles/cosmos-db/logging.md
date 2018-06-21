@@ -2,23 +2,20 @@
 title: Registro de diagnóstico de Azure Cosmos DB | Microsoft Docs
 description: Use este tutorial para obtener ayuda para empezar a trabajar con el registro de Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612221"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registro de diagnóstico de Azure Cosmos DB
 
@@ -47,7 +44,7 @@ El registro de actividad de Azure es un registro de suscripción que proporciona
 
 El registro de actividad es distinto de los registros de diagnóstico. El registro de actividad proporciona datos sobre las operaciones en un recurso desde el exterior (el _plano de control_). En el contexto de Azure Cosmos DB, las operaciones del plano de control incluyen la creación de colecciones, enumeración de claves, eliminación de claves o enumeración de bases de datos, entre otras. Los registros de diagnóstico son emitidos por un recurso y proporcionan información sobre el funcionamiento de dicho recurso (el _plano de datos_). Algunos ejemplos de las operaciones del plano de datos en el registro de diagnóstico son Delete, Insert y ReadFeed.
 
-Los registros de actividad (operaciones del plano de control) pueden ser mejores por naturaleza, pueden incluir la lista completa de direcciones de correo electrónico del autor de la llamada, la dirección IP de este, el nombre del recurso, el nombre de la operación y el identificador del inquilino, entre otros. El registro de actividad contiene varias [categorías](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de datos. Para obtener todos los detalles sobre los esquemas de estas categorías, consulte [Esquema de eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Sin embargo, los registros de diagnóstico pueden ser restrictivos por naturaleza ya que los datos de información de identificación personal a menudo se eliminan de esos registros. Puede tener la dirección IP del autor de la llamada, pero se quitará el último octeto.
+Los registros de actividad (operaciones del plano de control) pueden ser mejores por naturaleza, pueden incluir la lista completa de direcciones de correo electrónico del autor de la llamada, la dirección IP de este, el nombre del recurso, el nombre de la operación y el identificador del inquilino, entre otros. El registro de actividad contiene varias [categorías](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de datos. Para obtener todos los detalles sobre los esquemas de estas categorías, consulte [Esquema de eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Sin embargo, los registros de diagnóstico pueden ser restrictivos por naturaleza ya que los datos de información personal a menudo se eliminan de esos registros. Puede tener la dirección IP del autor de la llamada, pero se quitará el último octeto.
 
 ### <a name="azure-metrics"></a>Métricas de Azure
 

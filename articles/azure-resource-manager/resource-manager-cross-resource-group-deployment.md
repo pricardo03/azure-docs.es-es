@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7e9807e7195be47bf7874837ff9428c90abbcee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735677"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementación de recursos de Azure en más de un grupo de recursos o una suscripción
 
@@ -128,11 +129,11 @@ Si establece `resourceGroup` en el nombre de un grupo de recursos que no existe,
 
 Para implementar la plantilla de ejemplo, use Azure PowerShell 4.0.0 o posterior o la CLI de Azure 2.0.0 o posterior.
 
-## <a name="use-the-resourcegroup-function"></a>Uso de la función resourceGroup()
+## <a name="use-the-resourcegroup-and-subscription-functions"></a>Utilización de las funciones resourceGroup() y subscription()
 
-En el caso de las implementaciones de grupos de recursos, la [función resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) se resuelve de manera diferente en función de cómo se especifica la plantilla anidada. 
+En el caso de las implementaciones entre grupos de recursos, las funciones [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) y [subscription()](resource-group-template-functions-resource.md#subscription) se resuelven de manera diferente en función de cómo se especifique la plantilla anidada. 
 
-Si inserta una plantilla dentro de otra, la función resourceGroup() de la plantilla anidada se resuelve en el grupo de recursos primario. Una plantilla insertada usa el formato siguiente:
+Si se inserta una plantilla dentro de otra, las funciones de la plantilla anidada se resuelve en el grupo de recursos y la suscripción primarios. Una plantilla insertada usa el formato siguiente:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -143,12 +144,12 @@ Si inserta una plantilla dentro de otra, la función resourceGroup() de la plant
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-Si existe un vínculo a una plantilla independiente, la función resourceGroup() de la plantilla vinculada se resuelve en el grupo de recursos anidado. Una plantilla vinculada usa el formato siguiente:
+Si se vincula a una plantilla independiente, las funciones de la plantilla vinculada se resuelven en el grupo de recursos y la suscripción anidados. Una plantilla vinculada usa el formato siguiente:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -159,7 +160,7 @@ Si existe un vínculo a una plantilla independiente, la función resourceGroup()
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```

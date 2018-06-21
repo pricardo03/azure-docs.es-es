@@ -2,8 +2,8 @@
 title: Soluciones de Oracle en Microsoft Azure | Microsoft Docs
 description: Aprenda sobre las configuraciones admitidas y las limitaciones de las soluciones de Oracle en Microsoft Azure.
 services: virtual-machines-linux
-documentationcenter: 
-manager: timlt
+documentationcenter: ''
+manager: jeconnoc
 author: rickstercdn
 tags: azure-resource-management
 ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: rclaus
-ms.openlocfilehash: 1bc03d15096e7f1d4538d6642a61aaee9bb572f7
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: daed709b4b4be87ba75f5539bd31c666b3a37414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656353"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Soluciones de Oracle y su implementación en Microsoft Azure
 En este artículo se trata la información necesaria para implementar correctamente diversas soluciones de Oracle en Microsoft Azure. Estas soluciones se basan en las imágenes de máquina virtual publicadas por Oracle en Azure Marketplace. Para obtener una lista de imágenes disponibles actualmente, ejecute el siguiente comando:
@@ -89,7 +90,7 @@ A pesar de tener una solución de alta disponibilidad y recuperación ante desas
 
          -Dweblogic.rjvm.enableprotocolswitch=true
 
-Para obtener información relacionada, consulte el artículo de KB **860340.1** en <http://support.oracle.com>.
+Para información relacionada, consulte el artículo de KB **860340.1** en <http://support.oracle.com>.
 
 * **Agrupación en clústeres dinámica y limitaciones de equilibrio de carga.** Supongamos que desea usar un clúster dinámico en WebLogic Server y exponerlo a través de un único extremo con equilibrio de carga público en Azure. Esto puede hacerse siempre que use un número de puerto fijo para cada uno de los servidores administrados (no asignados dinámicamente a partir un rango) y no inicie más servidores administrados que máquinas esté siguiendo el administrador (es decir, que no haya más de un servidor administrado por máquina virtual). Si la configuración provoca que se inicien más servidores WebLogic que máquinas virtuales (es decir, donde varias instancias de WebLogic Server compartirán la misma máquina virtual), entonces no será posible para más de una de esas instancias de servidores de WebLogic Server establecer un enlace a un número de puerto determinado: los demás de esa máquina virtual generan un error.
 

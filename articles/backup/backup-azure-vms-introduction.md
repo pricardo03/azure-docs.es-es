@@ -1,25 +1,20 @@
 ---
-title: Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure | Microsoft Docs
+title: Planeación de la infraestructura de copia de seguridad de máquina virtual en Azure
 description: Consideraciones importantes al planear la realización de copias de seguridad de máquinas virtuales en Azure
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: copias de seguridad de máquinas virtuales, realizar copias de seguridad de máquinas virtuales
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606093"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
 En este artículo se proporcionan sugerencias de recursos y rendimiento para ayudarle a planear la infraestructura de copia de seguridad de máquina virtual. También se definen los aspectos clave del servicio Backup; estos aspectos pueden ser críticos a la hora de determinar la arquitectura, el planeamiento de la capacidad y la programación. Si ha [preparado el entorno](backup-azure-arm-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-arm-vms.md). Si necesita más información sobre Azure Virtual Machines, vea la [Documentación sobre Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -119,7 +114,7 @@ Se recomienda seguir estos procedimientos recomendados al configurar copias de s
 * Programe las copias de seguridad de máquinas virtuales durante horas de poca actividad. De esta forma, el servicio Backup utiliza IOPS para transferir datos desde la cuenta de almacenamiento del cliente al almacén.
 * Asegúrese de que una directiva se aplique en máquinas virtuales entre distintas cuentas de almacenamiento. Se recomienda que la misma programación de copia de seguridad proteja hasta 20 discos como máximo de una única cuenta de almacenamiento. Si tiene más de 20 discos en una cuenta de almacenamiento, distribuya esas máquinas virtuales entre varias directivas para obtener el número de IOPS necesario durante la fase de transferencia del proceso de copia de seguridad.
 * No restaure una máquina virtual que se ejecuta en almacenamiento Premium en la misma cuenta de almacenamiento. Si el proceso de la operación de restauración coincide con la operación de copia de seguridad, se reduce el número de IOPS disponible para copia de seguridad.
-* Para una copia de seguridad de la máquina virtual Premium, asegúrese de que la cuenta de almacenamiento que hospeda los discos Premium tenga al menos 50 % de espacio libre para que la instantánea de almacenamiento provisional realice una copia de seguridad correcta. 
+* En el caso de máquinas virtuales premium de la versión 1 de la pila de copia de seguridad de máquinas virtuales, se recomienda asignar solo el 50% del espacio total de la cuenta de almacenamiento a fin de que el servicio Azure Backup pueda copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la ubicación copiada en la cuenta de almacenamiento al almacén.
 * Asegúrese de que la versión de python en máquinas virtuales Linux habilitadas para la copia de seguridad sea 2.7
 
 ## <a name="data-encryption"></a>Cifrado de datos

@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643318"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -27,18 +28,25 @@ Este tutorial muestra cómo configurar la recuperación ante desastres de servid
 > * Creación de una directiva de replicación
 > * Habilitar la replicación para un servidor
 
+[Consulte la arquitectura](concepts-hyper-v-to-azure-architecture.md) de este escenario de recuperación ante desastres.
+
 ## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
-- Asegúrese de entender la [arquitectura y los componentes del escenario](physical-azure-architecture.md).
+- Asegúrese de que conoce a fondo [la arquitectura y los componentes](physical-azure-architecture.md) de este escenario.
 - Revise los [requisitos de compatibilidad](vmware-physical-secondary-support-matrix.md) de todos los componentes.
 - Asegúrese de que los servidores que quiere replicar cumplen los [requisitos de VM de Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare Azure. Necesita una suscripción de Azure, una red virtual de Azure y una cuenta de almacenamiento.
 - Prepare una cuenta para la instalación automática de Mobility Service en cada servidor que quiera replicar.
 
-> [!NOTE]
-> Antes de comenzar, tenga en cuenta que después de la conmutación por error en Azure, los servidores físicos no se pueden conmutar por recuperación en máquinas físicas locales. Solo puede realizar una conmutación por recuperación en máquinas virtuales de VMware. 
+Antes de empezar, tenga en cuenta lo siguiente:
+
+- Después de una conmutación por error a Azure, los servidores físicos no se pueden conmutar por recuperación en máquinas físicas locales. Solo puede realizar una conmutación por recuperación en máquinas virtuales de VMware. 
+- En este tutorial, se utiliza la configuración más sencilla para definir la recuperación ante desastres a Azure en servidores físicos. Si desea obtener información sobre otras opciones, consulte estas guías de procedimientos:
+    - Configuración del [origen de replicación](physical-azure-set-up-source.md), incluido el servidor de configuración de Site Recovery
+    - Configuración del [destino de replicación](physical-azure-set-up-target.md)
+    - Configuración de una [directiva de replicación](vmware-azure-set-up-replication.md) y [habilitación de la replicación](vmware-azure-enable-replication.md)
 
 
 ### <a name="set-up-an-azure-account"></a>Configuración de una cuenta de Azure

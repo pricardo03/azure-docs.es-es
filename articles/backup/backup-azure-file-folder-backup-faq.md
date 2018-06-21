@@ -1,25 +1,20 @@
 ---
-title: Preguntas más frecuentes sobre Azure Backup Agent | Microsoft Docs
+title: Preguntas más frecuentes sobre Azure Backup Agent
 description: Respuestas a preguntas habituales sobre cómo funciona Azure Backup Agent y los límites de copia de seguridad y retención.
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: copia de seguridad y recuperación ante desastres; servicio de copia de seguridad
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 8777b2265666a4505a3432aca6683e2510519cac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: trinadhk
+ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605538"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Preguntas sobre Azure Backup Agent
 Este artículo contiene las respuestas a preguntas comunes que le ayudan a comprender rápidamente los componentes de Azure Backup Agent. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

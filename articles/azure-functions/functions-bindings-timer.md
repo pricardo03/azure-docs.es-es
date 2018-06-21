@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725452"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -29,13 +30,17 @@ En este artículo se explica cómo usar desencadenadores de temporizador en Azur
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paquetes
+## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
 
-El desencadenador en temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions). El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
+El desencadenador del temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions), versión 2.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
+
+El desencadenador del temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions), versión 3.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Ejemplo
 
@@ -214,6 +219,8 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 |Un conjunto de valores (operador `,`)|<nobr>"5,8,10 * * * * *"</nobr>|A las hh:mm:05, hh:mm:08 y hh:mm:10, donde hh:mm es cada minuto de cada hora (tres veces por minuto)|
 |Un valor de intervalo (operador `/`)|<nobr>"0 */5 * * * *"</nobr>|A las hh:05:00, hh:10:00, hh:15:00 y así sucesivamente hasta hh:55:00, donde hh es cada hora (doce veces por hora)|
 
+Para especificar meses o días puede usar las abreviaturas de tres letras en lugar de valores numéricos. Por ejemplo, use "Ene" para enero o "Dom" para domingo.
+
 ### <a name="cron-examples"></a>Ejemplos CRON
 
 Estos son algunos ejemplos de expresiones CRON que puede usar para el desencadenador de temporizador en Azure Functions.
@@ -272,7 +279,7 @@ Si comparte una cuenta de almacenamiento entre varias aplicaciones de función, 
 
 ## <a name="retry-behavior"></a>Comportamiento de reintento
 
-A diferencia del desencadenador de cola, el desencadenador de temporizador no vuelve a realizar el intento después de que se produce un error en una función. Cuando se produce un error en una función, se llama nuevamente hasta la próxima vez en la programación.
+A diferencia del desencadenador de cola, el desencadenador de temporizador no vuelve a realizar el intento después de que se produce un error en una función. Cuando se produce un error en una función, no se la llamará nuevamente hasta la próxima vez en la programación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

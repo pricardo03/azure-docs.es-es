@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 01178995dbf9203082a6250ef256522bc1101e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944707"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653270"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Características y extensiones de las máquinas virtuales de Azure
 Las extensiones de máquina virtual (VM) de Azure son pequeñas aplicaciones que proporcionan tareas de configuración y automatización tras la implementación en máquinas virtuales de Azure. Puede usar imágenes existentes y, después, personalizarlas como parte de las implementaciones, lo que le ahorra el trabajo de compilar imágenes personalizadas.
@@ -53,7 +53,7 @@ Las extensiones instalan las aplicaciones. Como en todas las aplicaciones, exist
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre cómo funcionan las extensiones y el agente de Linux, vea [Azure VM extensions and features for Linux](features-linux.md) (Características y extensiones de máquina virtual de Azure para Linux).
-* Para más información sobre cómo funcionan las extensiones de Windows y Windows Guest Agent, vea [Azure VM extensions and features for Windows](features-windows.md) (Características y extensiones de máquina virtual de Azure para Windows).  
+* Para más información sobre cómo funcionan las extensiones de Windows y Windows Guest Agent, consulte [Características y extensiones de las máquinas virtuales de Azure para Windows](features-windows.md).  
 * Para instalar Windows Guest Agent, vea [Azure Windows Virtual Machine Agent Overview ](agent-windows.md) (Introducción al agente de máquina virtual de Windows de Azure).  
 * Para instalar el agente de Linux, vea [Azure Linux Virtual Machine Agent Overview ](agent-linux.md) (Introducción al agente de máquina virtual de Linux de Azure).  
 

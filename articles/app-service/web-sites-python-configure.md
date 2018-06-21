@@ -1,12 +1,12 @@
 ---
-title: "Configuración de Python con Azure App Service Web Apps"
-description: "En este tutorial se describen las opciones para crear y configurar una aplicación Python básica compatible con la Interfaz de puerta de enlace de servicio web (WSGI) en Azure App Service Web Apps."
+title: Configuración de Python con Azure App Service Web Apps
+description: En este tutorial se describen las opciones para crear y configurar una aplicación Python básica compatible con la Interfaz de puerta de enlace de servicio web (WSGI) en Azure App Service Web Apps.
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598647"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configuración de Python con Azure App Service Web Apps
 Este tutorial describen las opciones para crear y configurar una aplicación básica de interfaz de puerta de enlace de servidor web (WSGI) compatible con Python en [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -29,9 +30,9 @@ Describe características adicionales de implementación de Git como, por ejempl
 ## <a name="bottle-django-or-flask"></a>¿Bottle, Django o Flask?
 Azure Marketplace contiene plantillas para los marcos de Bottle, Django y Flask. Si desarrolla la primera aplicación web en Azure App Service puede crear una rápidamente en Azure Portal:
 
-* [Creación de Aplicaciones web con Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Creación de Aplicaciones web con Django](https://portal.azure.com/#create/PTVS.Django)
-* [Creación de Aplicaciones web con Flask](https://portal.azure.com/#create/PTVS.Flask)
+* [Aplicación web con Bottle](https://portal.azure.com/#create/PTVS.Bottle)
+* [Aplicación web con Django](https://portal.azure.com/#create/PTVS.Django)
+* [Aplicación web con Flask en Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
 ## <a name="web-app-creation-on-azure-portal"></a>Creación de una aplicación web en Azure Portal
 En este tutorial se asume que existe una suscripción a Azure y que ya se tiene acceso a Azure Portal.

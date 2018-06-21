@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: b8ddd43fb19b3800840180c458268301b5ec26f6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794554"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para aplicaciones web de Java que ya están activas
-
 
 Si tiene una aplicación web que se está ejecutando en el servidor de J2EE, puede iniciar la supervisión con [Application Insights](app-insights-overview.md) sin necesidad de realizar cambios de código ni volver a compilar el proyecto. Con esta opción, obtendrá información acerca de las solicitudes HTTP enviadas al servidor, las excepciones no controladas y contadores de rendimiento.
 
@@ -136,4 +136,4 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 * [Configure las pruebas web](app-insights-monitor-web-app-availability.md) para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 * [Captura de seguimiento de registros](app-insights-java-trace-logs.md)
 * [Busque eventos y registros](app-insights-diagnostic-search.md) para ayudar a diagnosticar problemas.
-
+* [Configuración de una aplicación de Spring Boot Initializer](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

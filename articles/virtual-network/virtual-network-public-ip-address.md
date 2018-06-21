@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 30b4a7ea0d3f68e48d02e5cb72e70de74dc2addf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305062"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658696"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creación, modificación o eliminación de una dirección IP pública
 
@@ -59,7 +59,7 @@ Las direcciones IP públicas tienen un precio simbólico. Para ver los precios, 
     |Creación de una dirección IPv6 (o IPv4)|Sin | Se muestra IPv6 o IPv4, dependiendo de lo que selecciona en la **versión de dirección IP**. Por ejemplo, si selecciona **IPv4** en la **versión de dirección IP**, aquí se muestra **IPv6**. Si selecciona *Estándar* para **SKU**, no tiene la opción de crear una dirección IPv6.
     |Nombre (solo es visible si activó la casilla **Crear una dirección IPv6 (o IPv4)**)|Sí, si selecciona la casilla **Crear una dirección IPv6** (o IPv4).|El nombre debe ser distinto del nombre que escribe para el **nombre** de esta lista. Si elige crear tanto una dirección IPv4 como IPv6, el portal crea dos recursos de direcciones IP públicas independientes, uno con cada versión de dirección IP asignada.|
     |Asignación de direcciones IP (solo está visible si activó la casilla **Crear una dirección IPv6 (o IPv4)**)|Sí, si selecciona la casilla **Crear una dirección IPv6** (o IPv4).|Si la casilla indica **Crear una dirección IPv4**, puede seleccionar un método de asignación. Si la casilla indica **Crear una dirección IPv6**, no puede seleccionar un método de asignación, porque debe ser **Dinámico**.|
-    |La suscripción|Sí|Debe existir en la misma [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que el recurso al cual desee asociar la dirección IP pública.|
+    |Subscription|Sí|Debe existir en la misma [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que el recurso al cual desee asociar la dirección IP pública.|
     |Grupos de recursos|Sí|Puede existir en la misma suscripción que el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) al cual desee asociar la dirección IP pública o en otra diferente.|
     |Ubicación|Sí|Debe existir en la misma [ubicación](https://azure.microsoft.com/regions), a la que también se hace referencia como región, que el recurso al que desea asociar la dirección IP pública.|
     |Zona de disponibilidad| Sin  | Este ajuste solo aparece si selecciona una ubicación admitida. Para una lista de ubicaciones admitidas, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si seleccionó la SKU **básica**, la opción *Ninguna* se selecciona automáticamente. Si prefiere garantizar una zona específica, puede seleccionarla. Cualquiera de las opciones no tiene redundancia de zona. Si seleccionó la SKU **estándar**: la redundancia de zona se selecciona automáticamente y hace que la ruta de acceso de datos sea resistente a errores de zona. Si prefiere garantizar una zona específica, que no sea resistente a errores de zona, puede seleccionarla.
@@ -70,7 +70,7 @@ Si bien el portal proporciona la opción de crear dos recursos de direcciones IP
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Visualización, cambio de la configuración o eliminación de una dirección IP pública
@@ -89,7 +89,7 @@ Si bien el portal proporciona la opción de crear dos recursos de direcciones IP
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network public-ip-list](/cli/azure/network/public-ip#az_network_public_ip_list) para mostrar las direcciones IP públicas, [az network public-ip-show](/cli/azure/network/public-ip#az_network_public_ip_show) para mostrar la configuración, [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) para actualizar, [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) para eliminar|
+|CLI|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list) para mostrar las direcciones IP públicas, [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) para mostrar la configuración, [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) para actualizar, [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para recuperar un objeto de dirección IP pública y ver su configuración, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) para actualizar la configuración, [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) para eliminar|
 
 ## <a name="permissions"></a>Permisos

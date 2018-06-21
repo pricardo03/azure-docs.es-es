@@ -1,25 +1,20 @@
 ---
-title: Copias de seguridad del estado del sistema de Windows en Azure | Microsoft Docs
+title: Copias de seguridad del estado del sistema de Windows en Azure
 description: Aprenda a hacer copias de seguridad del estado del sistema de Windows Server y/o equipos Windows en Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
-editor: ''
+manager: shivamg
 keywords: cómo realizar copias de seguridad; cómo realizar una copia de seguridad; copia de seguridad de archivos y carpetas
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
-ms.openlocfilehash: b4847a4b2d8397530d8a6bb4bc4729a6966634f2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 05/23/2018
+ms.author: saurse
+ms.openlocfilehash: 61ee1ce7d5cc6dc2aa4b7a8b02c2e5ba77539725
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606076"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Copias de seguridad del estado del sistema de Windows en la implementación de Resource Manager
 En este artículo se explica cómo realizar copias de seguridad del estado del sistema de Windows Server en Azure. Es un tutorial diseñado para guiarle por los aspectos básicos.
@@ -175,6 +170,11 @@ La copia de seguridad inicial incluye dos tareas:
 * Hacer una copia de seguridad del estado del sistema por primera vez
 
 Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Recovery Services.
+
+> [!NOTE]
+> Puede realizar copias de seguridad del estado del sistema en Windows Server 2008 R2 mediante Windows Server 2016. No se admite la copia de seguridad del estado del sistema en SKU de cliente. El estado del sistema no se muestra como una opción para clientes de Windows o máquinas de Windows Server 2008 SP2.
+>
+>
 
 ### <a name="to-schedule-the-backup-job"></a>Programación de la copia de seguridad
 

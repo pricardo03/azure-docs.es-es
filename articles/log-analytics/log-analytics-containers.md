@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638354"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solución de Supervisión de contenedores de Azure Log Analytics
 
@@ -528,7 +529,7 @@ Puede comprobar que la solución de Supervisión de contenedores está configura
 
 ## <a name="solution-components"></a>Componentes de soluciones
 
-Si está utilizando agentes de Windows, el siguiente módulo de administración se instala en cada equipo con un agente cuando se agrega esta solución. No es necesario realizar tareas de configuración o mantenimiento del módulo de administración.
+En el portal OMS, vaya a la *Galería de soluciones* y agregue la **solución de supervisión de contenedores**. Si está utilizando agentes de Windows, el siguiente módulo de administración se instala en cada equipo con un agente cuando se agrega esta solución. No es necesario realizar tareas de configuración o mantenimiento del módulo de administración.
 
 - *ContainerManagement.xxx* instalado en C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -563,6 +564,7 @@ Las etiquetas que se anexan a los tipos de datos *PodLabel* son sus propias etiq
 
 ## <a name="monitor-containers"></a>Supervisión de contenedores
 Una vez habilitada la solución en el portal de Log Analytics, el icono **Contenedores** muestra información de resumen de los hosts de contenedores y de los contenedores que se ejecutan en los hosts.
+
 
 ![Icono de Containers](./media/log-analytics-containers/containers-title.png)
 

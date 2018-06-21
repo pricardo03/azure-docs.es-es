@@ -1,11 +1,11 @@
 ---
-title: "Configuración de alta disponibilidad con STONITH para SAP HANA en Azure (instancias grandes) | Microsoft Docs"
+title: Configuración de alta disponibilidad con STONITH para SAP HANA en Azure (instancias grandes) | Microsoft Docs
 description: Establecimiento de alta disponibilidad para SAP HANA en Azure (instancias grandes) en SUSE mediante STONITH
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656370"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
 Este documento proporciona instrucciones paso a paso para configurar la alta disponibilidad en el sistema operativo SUSE mediante el dispositivo STONITH.
 
-**Declinación de responsabilidades:** *esta guía se obtiene como resultado de probar la configuración en el entorno de instancias grandes de Microsoft HANA que funciona correctamente. Puesto que el equipo de Microsoft Service Management para instancias grandes de HANA no admite el sistema operativo, deberá ponerse en contacto con SUSE para cualquier solución de problemas o aclaración adicionales sobre el nivel de sistema operativo. El equipo de Microsoft Service Management configura el dispositivo STONITH y le presta soporte técnico completo, además de que puede intervenir en la solución de problemas de dicho dispositivo.*
+**Declinación de responsabilidades:** *esta guía se obtiene como resultado de probar la configuración en el entorno de instancias grandes de Microsoft HANA, que funciona correctamente. Puesto que el equipo de Microsoft Service Management para instancias grandes de HANA no admite el sistema operativo, deberá ponerse en contacto con SUSE para cualquier solución de problemas o aclaración adicionales sobre el nivel de sistema operativo. El equipo de Microsoft Service Management configura el dispositivo STONITH y le presta soporte técnico completo, además de que puede intervenir en la solución de problemas de dicho dispositivo.*
 ## <a name="overview"></a>Información general
 Para configurar la alta disponibilidad con la agrupación en clústeres de SUSE, se deben cumplir los siguientes requisitos previos.
 ### <a name="pre-requisites"></a>Requisitos previos
@@ -34,8 +35,8 @@ Para configurar la alta disponibilidad con la agrupación en clústeres de SUSE,
 - Configuración de NTP (servidor horario)
 - Lectura y comprensión de la versión más reciente de la documentación de SUSE en la configuración de alta disponibilidad
 
-### <a name="set-up-details"></a>Configuración de los detalles
-- En esta guía, hemos usado la siguiente configuración:
+### <a name="setup-details"></a>Detalles de la configuración
+Esta guía utiliza la siguiente configuración:
 - Sistema operativo: SLES 12 SP1 para SAP
 - Instancias grandes de HANA: 2xS192 (cuatro sockets, 2 TB)
 - Versión de HANA: HANA 2.0 SP1
@@ -50,7 +51,7 @@ Cuando configura instancias grandes de HANA con HSR, puede solicitar al equipo d
 - Nombre del cliente (por ejemplo, Microsoft)
 - SID: identificador del sistema HANA (por ejemplo, H11)
 
-Una vez configurado el dispositivo STONITH, el equipo de Microsoft Service Management le proporciona el nombre de dispositivo SBD y la dirección IP del almacenamiento iSCSI que puede usar para establecer la configuración de STONITH. 
+Una vez configurado el dispositivo STONITH, el equipo de Microsoft Service Management le proporciona el nombre de dispositivo SBD y la dirección IP del almacenamiento iSCSI, que puede usar para establecer la configuración de STONITH. 
 
 Para configurar la alta disponibilidad de un extremo a otro mediante STONITH, debe seguir los pasos siguientes:
 
@@ -134,12 +135,12 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 Configuración del clúster
-3.2.1   Puede usar el comando *ha-cluster-init* o usar el asistente de yast2 para configurar el clúster. En este caso, hemos usado el asistente de yast2. Realice este paso **solo en el nodo principal**.
+3.2.1   Puede usar el comando *ha-cluster-init* o usar el asistente de yast2 para configurar el clúster. En este caso, se utiliza el asistente de yast2. Realice este paso **solo en el nodo principal**.
 
 Siga yast2> Alta disponibilidad > Clúster ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-Haga clic en **Cancel** (Cancelar) mientras tenemos el paquete halk2 instalado.
+Haga clic en **Cancel** (Cancelar) porque el paquete halk2 ya está instalado.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
@@ -163,7 +164,7 @@ La autenticación se realiza con las direcciones IP y las claves compartidas pre
 Haga clic en **Next** (Siguiente).
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-En la opción predeterminada, el arranque estaba desactivado. Actívelo para arrancar Pacemarker. Puede basar su elección en los requisitos de configuración.
+En la opción predeterminada, el arranque estaba desactivado. Actívelo para arrancar Pacemarker. Puede elegir según los requisitos de configuración.
 Haga clic en **Next** (Siguiente) y se completará la configuración del clúster.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Configuración del guardián Softdog
@@ -261,7 +262,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configuración de propiedades del clúster y recursos 
 Esta sección describe los pasos para configurar los recursos del clúster.
-En este ejemplo hemos realizado la configuración del siguiente recurso. El resto puede configurarse (si es necesario) tomando como referencia la guía de alta disponibilidad de SUSE. Realice la configuración en **uno de los nodos** solamente. Hágalo en el nodo principal
+En este ejemplo, configure el siguiente recurso. El resto puede configurarse (si es necesario) tomando como referencia la guía de alta disponibilidad de SUSE. Realice la configuración en **uno de los nodos** solamente. Hágalo en el nodo principal
 
 - Arranque del clúster
 - Dispositivo STONITH
@@ -341,7 +342,7 @@ Ahora, detenga el servicio Pacemaker en el **nodo 2** y los recursos con conmuta
 ![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
 
 
-## <a name="9-troubleshooting"></a>9. Solución de problemas
+## <a name="9-troubleshooting"></a>9. solución de problemas
 En esta sección se describen algunos escenarios de error, que pueden producirse durante la configuración. No tendrá que enfrentarse necesariamente a estos problemas.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Escenario 1: Nodo de clúster no en línea
@@ -369,7 +370,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Escenario 2: yast2 no muestra la vista gráfica
-Hemos usado la pantalla gráfica de yast2 para configurar el clúster de alta disponibilidad en este documento. Si yast2 no se abre con la ventana gráfica como se muestra y genera el error Qt, realice los pasos siguientes. Si se abre con la ventana gráfica, puede omitir los pasos.
+Se usa la pantalla gráfica de yast2 para configurar el clúster de alta disponibilidad en este documento. Si yast2 no se abre con la ventana gráfica como se muestra y genera el error Qt, realice los pasos siguientes. Si se abre con la ventana gráfica, puede omitir los pasos.
 
 **Error**
 

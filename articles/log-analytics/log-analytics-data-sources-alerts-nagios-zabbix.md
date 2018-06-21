@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637776"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Recopilación de alertas de Nagios y Zabbix en Log Analytics desde el agente de OMS para Linux 
 [Nagios](https://www.nagios.org/) y [Zabbix](http://www.zabbix.com/) son herramientas de supervisión de código abierto. Con estas herramientas, puede recopilar alertas en Log Analytics con el fin de analizarlas, y [también alertas de otros orígenes](log-analytics-alerts.md).  En este artículo se describe cómo configurar al agente de OMS para Linux para recopilar alertas de estos sistemas.
@@ -56,7 +57,7 @@ Para recopilar alertas, realice los pasos siguientes en el servidor Nagios.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configuración de la recopilación de alertas de Zabbix
-Para recopilar alertas de un servidor de Zabbix, debe especificar un usuario y una contraseña en *texto sin formato*.  Aunque esto no es lo idóneo, se recomienda crear el usuario y conceder permisos solo de supervisión.
+Para recopilar alertas de un servidor de Zabbix, debe especificar un usuario y una contraseña en *texto sin formato*.  Aunque no es lo ideal, recomendamos crear un usuario de Zabbix con permisos de solo lectura para detectar las alarmas pertinentes.
 
 Realice los pasos siguientes en el servidor Nagios para recopilar alertas.
 
@@ -73,7 +74,7 @@ Realice los pasos siguientes en el servidor Nagios para recopilar alertas.
 
 2. Reinicio del demonio de omsagent
 
-    sudo sh /opt/microsoft/omsagent/bin/service_control restart
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>Registros de alerta

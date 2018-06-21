@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 5d13c711d7d71df7469e6408ce78cf0df611632b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638303"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificación con una escala de velocidad de bits generada automáticamente
 
@@ -27,13 +28,13 @@ En este artículo se explica cómo usar Standard Encoder en Media Services para 
 
 ### <a name="encoding-for-streaming"></a>Codificación para streaming
 
-Como sugiere su nombre, si se usa el valor predeterminado **AdaptiveStreaming** al crear una transformación de codificación, recibirá una salida adecuada para su entrega a través de protocolos de streaming como HLS, DASH, CMAF, etc. Cuando se usa este valor predeterminado **AdaptiveStreaming**, el codificador determina de manera inteligente cuántas capas de vídeo generar y a qué velocidad de bits y resolución. El recurso de salida contiene archivos MP4 en los que el audio codificado en AAC y el vídeo codificado en H.264 no están intercalados.
+Si se usa el valor predefinido **AdaptiveStreaming** en **Transform**, recibirá una salida adecuada para su entrega con los protocolos de streaming como HLS y DASH. Cuando se usa este valor predefinido, el servicio determina de manera inteligente cuántas capas de vídeo debe generar y la velocidad de bits y resolución. El contenido de salida incluye archivos MP4 en los que el audio codificado en AAC y el vídeo codificado en H.264 no están intercalados.
 
 Para ver un ejemplo de cómo se usa este valor preestablecido, consulte [Streaming de un archivo](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Salida
 
-En esta sección se muestran tres ejemplos de las capas de vídeo de salida generadas por el codificador de Media Services como resultado de la codificación con el valor preestablecido **AdaptiveStreaming**. En todos los casos, la salida contendrá un archivo MP4 de solo audio con el audio estéreo codificado a 128 kbps.
+En esta sección se muestran tres ejemplos de las capas de vídeo de salida generadas por el codificador de Media Services como resultado de la codificación con el valor preestablecido **AdaptiveStreaming**. En todos los casos, la salida contiene un archivo MP4 de solo audio con el audio estéreo codificado a 128 kbps.
 
 ### <a name="example-1"></a>Ejemplo 1
 Un origen con un alto de "1080" y una tasa de fotogramas de "29.970" genera 6 niveles de vídeo:

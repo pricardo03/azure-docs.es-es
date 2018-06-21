@@ -4,7 +4,7 @@ description: Obtenga información acerca de las cuotas de vCPU de Azure.
 keywords: ''
 services: virtual-machines-linux
 documentationcenter: ''
-author: Drewm3
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
-ms.author: drewm
-ms.openlocfilehash: a4e0bbe1c6d9b121dfb422934cdd67ff19f80482
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 05/31/2018
+ms.author: cynthn
+ms.openlocfilehash: a880ee18bb13b2cd8471cc58157469555397b872
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716523"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cuotas de vCPU de máquinas virtuales
 
-Las cuotas de vCPU para máquinas virtuales y conjuntos de escalado de máquinas virtuales se organizan en dos niveles para cada suscripción en cada región. El primer nivel es el número de vCPU regionales totales y el segundo es el número de núcleos de varias familias de tamaños de máquina virtual, como las vCPU de la Familia D estándar. Siempre que se implemente una máquina virtual nueva, las vCPU de dicha máquina virtual no pueden exceder la cuota de vCPU para la familia de tamaños de máquina virtual específica o el total de la cuota de vCPU regional. Si se supera cualquiera de esas dos cuotas, no se permitirá la implementación de la máquina virtual. También hay una cuota para el número total de máquinas virtuales en la región. Se pueden ver los detalles de cada una de estas cuotas en la sección **Uso y cuotas** de la página **Suscripción** en [Azure Portal](https://portal.azure.com), o bien puede consultar los valores mediante la CLI de Azure.
+Las cuotas de vCPU para máquinas virtuales y conjuntos de escalado de máquinas virtuales se organizan en dos niveles para cada suscripción en cada región. El primer nivel es el número de vCPU regionales totales y el segundo son los núcleos de las diversas familias de tamaños de máquina virtual, como las vCPU de la serie D estándar. Siempre que se implemente una máquina virtual nueva, las vCPU de dicha máquina virtual no deben exceder la cuota de vCPU de la familia de tamaños de máquina virtual o el total de la cuota de vCPU regional. Si se supera cualquiera de esas dos cuotas, no se permitirá la implementación de la máquina virtual. También hay una cuota para el número total de máquinas virtuales en la región. Se pueden ver los detalles de cada una de estas cuotas en la sección **Uso y cuotas** de la página **Suscripción** de [Azure Portal](https://portal.azure.com), o bien puede consultar los valores mediante la CLI de Azure.
 
 
 ## <a name="check-usage"></a>Comprobación del uso
@@ -31,42 +32,36 @@ Las cuotas de vCPU para máquinas virtuales y conjuntos de escalado de máquinas
 Puede comprobar el uso de la cuota mediante el comando [az vm list-usage](/cli/azure/vm#az_vm_list_usage).
 
 ```azurecli-interactive
-az vm list-usage --location "East US"
-[
-  …
-  {
-    "currentValue": 4,
-    "limit": 260,
-    "name": {
-      "localizedValue": "Total Regional vCPUs",
-      "value": "cores"
-    }
-  },
-  {
-    "currentValue": 4,
-    "limit": 10000,
-    "name": {
-      "localizedValue": "Virtual Machines",
-      "value": "virtualMachines"
-    }
-  },
-  {
-    "currentValue": 1,
-    "limit": 2000,
-    "name": {
-      "localizedValue": "Virtual Machine Scale Sets",
-      "value": "virtualMachineScaleSets"
-    }
-  },
-  {
-    "currentValue": 1,
-    "limit": 10,
-    "name": {
-      "localizedValue": "Standard B Family vCPUs",
-      "value": "standardBFamily"
-    }
-  },
+az vm list-usage --location "East US" -o table
 ```
+
+El resultado debe parecerse a este:
+
+
+```
+Name                                CurrentValue    Limit
+--------------------------------  --------------  -------
+Availability Sets                              0     2000
+Total Regional vCPUs                          29      100
+Virtual Machines                               7    10000
+Virtual Machine Scale Sets                     0     2000
+Standard DSv3 Family vCPUs                     8      100
+Standard DSv2 Family vCPUs                     3      100
+Standard Dv3 Family vCPUs                      2      100
+Standard D Family vCPUs                        8      100
+Standard Dv2 Family vCPUs                      8      100
+Basic A Family vCPUs                           0      100
+Standard A0-A7 Family vCPUs                    0      100
+Standard A8-A11 Family vCPUs                   0      100
+Standard DS Family vCPUs                       0      100
+Standard G Family vCPUs                        0      100
+Standard GS Family vCPUs                       0      100
+Standard F Family vCPUs                        0      100
+Standard FS Family vCPUs                       0      100
+Standard Storage Managed Disks                 5    10000
+Premium Storage Managed Disks                  5    10000
+```
+
 ## <a name="reserved-vm-instances"></a>Instancias reservadas de máquina virtual
 Las instancias reservadas de máquina virtual, cuyo ámbito es una sola suscripción, agregarán un aspecto nuevo a las cuotas de vCPU. Estos valores describen el número de instancias del tamaño indicado que deben poderse implementar en la suscripción. Actúan como un marcador de posición en el sistema de cuotas para asegurarse de que esa cuota esté reservada y que las instancias reservadas puedan implementarse en la suscripción. Por ejemplo, si una suscripción específica tiene 10 instancias reservadas Standard_D1, el límite de uso para las instancias reservadas Standard_D1 será 10. Esto hará que Azure se asegure de que siempre hay al menos 10 vCPU disponibles en el total de la cuota de vCPU regional que se utilizará para instancias de Standard_D1 y que hay al menos 10 vCPU disponibles en la cuota de vCPU de la Familia D estándar que se utilizará para las instancias de Standard_D1.
 

@@ -1,24 +1,19 @@
 ---
-title: Solución de errores de copia de seguridad con una máquina virtual de Azure | Microsoft Docs
+title: Solución de errores de copia de seguridad con una máquina virtual de Azure
 description: Solución de problemas de copia de seguridad y restauración de máquinas virtuales de Azure
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: trinadhk
+ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607266"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 Puede solucionar los errores detectados al usar Azure Backup con la información incluida en la tabla siguiente.
@@ -30,7 +25,7 @@ Puede solucionar los errores detectados al usar Azure Backup con la información
 | El agente de máquina virtual no se puede comunicar con el servicio Azure Backup. - Asegúrese de que la máquina virtual tiene conectividad de red y que el agente de máquina virtual sea el más reciente y esté en ejecución. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkId=800034. |Este error se produce si hay un problema con el agente de la máquina virtual o cuando el acceso de red a la infraestructura de Azure está bloqueado por algún motivo. [Aprenda más](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sobre los problemas de las instantáneas de la máquina virtual.<br> Si el agente de la máquina virtual no está causando problemas, reinicie la máquina virtual. A veces, un estado incorrecto de la máquina virtual puede causar problemas, y reiniciar la máquina virtual restablece este "mal estado". |
 | La máquina virtual está en un estado de aprovisionamiento erróneo: reinicie la máquina virtual y asegúrese de que el estado de la máquina virtual es de apagado o en ejecución | Esto ocurre cuando uno de los errores de extensión lleva a que el estado de la máquina virtual sea de aprovisionamiento erróneo. Vaya a la lista de extensiones y vea si hay una extensión errónea, quítela e intente reiniciar la máquina virtual. Si todas las extensiones están en estado de ejecución, compruebe si el servicio del agente de máquina virtual está en ejecución. Si no es así, reinicie el servicio del agente de máquina virtual. | 
 | Error en la operación de extensión VMSnapshot para discos administrados: reintente la operación de copia de seguridad. Si el problema se repite, siga las instrucciones que se indican en "http://go.microsoft.com/fwlink/?LinkId=800034". Si a pesar de todo el problema continúa, póngase en contacto con el soporte técnico de Microsoft | Este error se produce cuando el servicio de Azure Backup no puede desencadenar una instantánea. [Más información](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sobre cómo depurar problemas de las instantáneas de máquina virtual. |
-| No se pudo copiar la instantánea de la máquina virtual porque no había suficiente espacio disponible en la cuenta de almacenamiento: asegúrese de que el espacio disponible en la cuenta de almacenamiento sea equivalente al de los datos presentes en los discos de almacenamiento premium conectados a la máquina virtual | En el caso de máquinas virtuales premium, la instantánea se copia a la cuenta de almacenamiento. Esto se hace para garantizar que el tráfico de administración de copias de seguridad, que trabaja en la instantánea, no limite el número de E/S por segundo disponibles para la aplicación con discos premium. Microsoft recomienda asignar solo 50% del espacio total de la cuenta de almacenamiento a fin de que el servicio de Azure Backup pueda copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la ubicación copiada en la cuenta de almacenamiento al almacén. | 
+| No se pudo copiar la instantánea de la máquina virtual porque no había suficiente espacio disponible en la cuenta de almacenamiento: asegúrese de que el espacio disponible en la cuenta de almacenamiento sea equivalente al de los datos presentes en los discos de almacenamiento premium conectados a la máquina virtual | En el caso de máquinas virtuales premium de la versión 1 de la pila de copia de seguridad de máquinas virtuales, la instantánea se copia a la cuenta de almacenamiento. Esto se hace para garantizar que el tráfico de administración de copias de seguridad, que trabaja en la instantánea, no limite el número de E/S por segundo disponibles para la aplicación con discos premium. Microsoft recomienda asignar solo 50% (17,5 TB) del espacio total de la cuenta de almacenamiento a fin de que el servicio de Azure Backup pueda copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la ubicación copiada en la cuenta de almacenamiento al almacén. | 
 | No se puede realizar la operación porque VM Agent no está respondiendo |Este error se produce si hay un problema con el agente de la máquina virtual o cuando el acceso de red a la infraestructura de Azure está bloqueado por algún motivo. Para las máquinas virtuales de Windows, compruebe el estado del servicio VM Agent en los servicios y si el agente aparece en los programas del panel de control. Intente quitar el programa desde el panel de control y vuelva a instalar el agente, como se indica [a continuación](#vm-agent). Después de volver a instalar al agente, realice una copia de seguridad ad hoc para realizar la comprobación. |
 | Error en la operación de extensión de Recovery Services. Asegúrese de que el agente de la máquina virtual más reciente está en la máquina virtual y el servicio del agente se está ejecutando. Vuelva a intentar la operación de copia de seguridad y, si se produce un error, póngase en contacto con el servicio de soporte técnico de Microsoft. |Este error se produce cuando el agente de la máquina virtual no está actualizado. Consulte la sección "Actualizar el agente de la máquina virtual" para actualizar dicho agente. |
 | No existe la máquina virtual. Asegúrese de que la máquina virtual existe, o bien seleccione otra máquina virtual. |Esto sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para solucionar este error:  <ol><li> Vuelva a crear la máquina virtual con el mismo nombre y el mismo nombre de grupo de recursos [nombre del servicio en la nube],<br>O BIEN<br></li><li>Deje de proteger la máquina virtual sin eliminar los datos de la copia de seguridad. [Más detalles](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

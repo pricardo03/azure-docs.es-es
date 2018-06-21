@@ -4,29 +4,29 @@ description: Instalación de SAP HANA en SAP HANA en Azure (instancia grande).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778603"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763463"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Procedimiento para instalar y configurar SAP HANA en Azure (instancias grandes)
 
-A continuación se muestran algunas definiciones importantes que debe conocer antes de leer esta guía. En [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) se presentaron dos clases distintas de unidades de instancia grande de HANA con:
+A continuación se muestran algunas definiciones importantes que debe conocer antes de leer esta guía. En [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) se presentan dos clases distintas de unidades de HANA (Instancias grandes) con:
 
-- S72, S72m, S144, S144m, S192 y S192m, a las que se hace referencia como "clase de tipo I" de SKU.
-- S384, S384m, S384xm, S576m, S768m y S960m, a los que se hace referencia como "clase de tipo II" de SKU.
+- S72, S72m, S144, S144m, S192, S192m y S192m a las que se hace referencia como "clase de tipo I" de SKU.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm y S960m, a los que se hace referencia como "clase de tipo II" de SKU.
 
 El especificador de clase se va a usar en toda la documentación sobre Instancia grande de HANA para hacer referencia a diferentes capacidades y requisitos en función de las SKU de Instancia grande de HANA.
 

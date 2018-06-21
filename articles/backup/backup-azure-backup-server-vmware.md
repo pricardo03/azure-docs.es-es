@@ -1,23 +1,19 @@
 ---
-title: Copia de seguridad de servidores de VMware con Azure Backup Server | Microsoft Docs
-description: "Use Azure Backup Server para realizar una copia de seguridad de servidores VMware vCenter y ESXi en Azure o en un disco. En este artículo se proporciona instrucciones detalladas para realizar copias de seguridad (o proteger) las cargas de trabajo de VMware."
+title: Copia de seguridad de servidores de VMware con Azure Backup Server
+description: Use Azure Backup Server para realizar una copia de seguridad de servidores VMware vCenter y ESXi en Azure o en un disco. En este artículo se proporciona instrucciones detalladas para realizar copias de seguridad (o proteger) las cargas de trabajo de VMware.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605430"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Realización de una copia de seguridad del servidor de VMware en Azure
 
@@ -92,7 +88,7 @@ Para corregir este problema y crear una conexión segura, descargue los certific
 
     ![Carpeta de destino de certificado](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-    La carpeta **Entidades de certificación raíz de confianza** se confirma como el almacén de certificados. Haga clic en **Siguiente**.
+    La carpeta **Entidades de certificación raíz de confianza** se confirma como el almacén de certificados. Haga clic en **Next**.
 
     ![Carpeta de almacén de certificados](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 

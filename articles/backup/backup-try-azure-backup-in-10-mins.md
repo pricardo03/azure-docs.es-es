@@ -1,25 +1,20 @@
 ---
-title: Copia de seguridad de archivos y carpetas de Windows en Azure (Resource Manager) | Microsoft Docs
+title: Copia de seguridad de archivos y carpetas de Windows en Azure (Resource Manager)
 description: Aprenda a realizar una copia de seguridad de los archivos y las carpetas de Windows en Azure en una implementación de Resource Manager.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: cómo realizar copias de seguridad; cómo realizar una copia de seguridad; copia de seguridad de archivos y carpetas
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 8/15/2017
-ms.author: markgal;
-ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 7abdf06d1b5a4361da9ddb75cec01d6fd1630d08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606977"
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Primer análisis: Copia de seguridad de archivos y carpetas en la implementación de Resource Manager
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y las carpetas de Windows Server (o equipo Windows) en Azure mediante una implementación de Resource Manager. Es un tutorial diseñado para guiarle por los aspectos básicos. Si desea empezar a usar Azure Backup, está en el lugar correcto.

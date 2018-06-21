@@ -6,13 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
-ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763364"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI de Azure Service Fabric
 
@@ -32,7 +33,8 @@ La CLI de Service Fabric debería ser compatible con la versión más reciente d
 
 | Versión de la CLI   | versión compatible del runtime |
 |---------------|---------------------------|
-| Más reciente (~=4)  | Más reciente (~=6.1)            |
+| Más reciente (~=5)  | Más reciente (~=6.2)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -69,7 +71,7 @@ python --version
 pip --version
 ```
 
-A continuación, ejecute el siguiente comando para instalar la CLI de Service Fabric:
+Después, ejecute el siguiente comando para instalar la CLI de Azure Service Fabric (sfctl) y ver la página de ayuda de la CLI:
 
 ```bat
 pip install sfctl
@@ -120,7 +122,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-Para probar la instalación puede consultar los pasos mencionados en la sección **Ubuntu y subsistema de Windows para Linux**
+Para probar la instalación, puede consultar los pasos mencionados en la sección **Ubuntu y subsistema de Windows para Linux**.
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -231,13 +233,13 @@ Para más información, consulte la documentación de [OpenSSL](https://www.open
 
 Algunas operaciones pueden generar el mensaje siguiente:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 Compruebe que el punto de conexión del clúster especificado está disponible y a la escucha. Compruebe también que la interfaz de usuario de Service Fabric Explorer está disponible en dicho host y puerto. Use `sfctl cluster select` para actualizar el punto de conexión.
 
 ### <a name="detailed-logs"></a>Registros detallados
 
-Los registros detallados suelen ser útiles para depurar o notificar un problema. Una marca `--debug` global aumenta el nivel de detalle de los archivos de registro.
+Los registros detallados suelen ser útiles para depurar o notificar un problema. La marca `--debug` aumenta el nivel de detalle de la salida.
 
 ### <a name="command-help-and-syntax"></a>Ayuda y sintaxis de los comandos
 

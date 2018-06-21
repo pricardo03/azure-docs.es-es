@@ -4,7 +4,7 @@ description: Implementación de DBMS de Azure Virtual Machines para SAP NetWeave
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366365"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656200"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -540,9 +540,10 @@ Nos encontramos con bastante frecuencia algunos escenarios donde, como cliente, 
 Si usa Managed Disks, puede migrar a Premium Storage del siguiente modo:
 
 1. Cancele la asignación de la máquina virtual
-2. Si es necesario, cambie el tamaño de la máquina virtual a un tamaño admitido en Premium Storage (por ejemplo DS o GS)
-3. Cambie el tipo de cuenta de Managed Disks a Premium (SSD)
-4. Inicie la máquina virtual
+1. Si es necesario, cambie el tamaño de la máquina virtual a un tamaño admitido en Premium Storage (por ejemplo DS o GS)
+1. Cambie el tipo de cuenta de Managed Disks a Premium (SSD)
+1. Cambie el almacenamiento en caché de los discos de datos tal como se recomienda en el capítulo [Almacenamiento en caché de máquinas virtuales y discos de datos][dbms-guide-2.1]
+1. Inicie la máquina virtual
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Implementación de máquinas virtuales para SAP en Azure
 Microsoft Azure ofrece varias maneras de implementar máquinas virtuales y discos asociados. Por tanto, es importante comprender las diferencias, puesto que los preparativos de las máquinas virtuales pueden variar según la forma de implementación. En general, nos centramos en los escenarios que se describen en los capítulos siguientes.

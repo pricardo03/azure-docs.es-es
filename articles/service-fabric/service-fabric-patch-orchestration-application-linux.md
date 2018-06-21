@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643131"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Linux en el clúster de Service Fabric
 
@@ -61,9 +62,9 @@ La aplicación de orquestación de revisiones consta de los siguientes subcompon
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Asegúrese de que las máquinas virtuales de Azure ejecutan Ubuntu 16.04
 En el momento de escribir este documento, Ubuntu 16.04 (`Xenial Xerus`) es la única versión admitida.
 
-### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-61x-and-above"></a>Asegúrese de que el clúster Linux de Service Fabric tiene la versión 6.1. x, y las versiones posteriores
+### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-62x-and-above"></a>Asegúrese de que el clúster Linux de Service Fabric tiene la versión 6.2.x u otra posterior.
 
-La aplicación de orquestación de revisiones para Linux utiliza determinadas características del runtime que solo están disponibles en la versión del runtime de Service Fabric 6.1. x, y las versiones posteriores.
+La aplicación Patch Orchestration de Linux utiliza determinadas características del runtime que solo están disponibles en el runtime de Service Fabric en la versión 6.2.x y versiones posteriores.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Habilitar el servicio de administrador de reparaciones (si no se está ejecutando ya)
 
@@ -118,7 +119,9 @@ En Ubuntu, la aplicación de orquestación de revisiones deshabilita las [actual
 
 ## <a name="download-the-app-package"></a>Descargar el paquete de la aplicación
 
-Descargue la aplicación desde el [enlace de descarga](https://go.microsoft.com/fwlink/?linkid=867984).
+Se puede descargar la aplicación junto con los scripts de instalación desde el [vínculo de archivo](https://go.microsoft.com/fwlink/?linkid=867984).
+
+Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configuración de la aplicación
 
@@ -319,6 +322,10 @@ P: **¿La aplicación de orquestación de revisiones realiza la limpieza de los 
 
 A. Sí, la limpieza se produce como parte de los pasos posteriores a la instalación. 
 
+P: **¿La aplicación Patch Orchestration se puede utilizar para aplicar revisiones al clúster de desarrollo (clúster con un solo nodo)?**
+
+A. No, la aplicación Patch Orchestration no se puede utilizar para aplicar revisiones a clústeres de un nodo. Esta limitación es así por naturaleza, ya que los [servicios del sistema de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) o las aplicaciones del cliente van a registrar tiempos de inactividad y, por tanto, cualquier trabajo de reparación que se realice durante la aplicación de revisiones nunca conseguirá la aprobación del administrador de reparaciones.
+
 ## <a name="troubleshooting"></a>solución de problemas
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>El nodo no vuelve a su estado activo
@@ -360,5 +367,8 @@ La aplicación de orquestación de revisiones recopila datos de telemetría para
 ### <a name="version-010"></a>Versión 0.1.0
 - Versión preliminar privada
 
-### <a name="version-200-latest"></a>Versión 2.0.0 (más reciente)
+### <a name="version-200"></a>Versión 2.0.0
 - Versión pública
+
+### <a name="version-201-latest"></a>Versión 2.0.1 (más reciente)
+- Aplicación recompilada con el último SDK de Service Fabric

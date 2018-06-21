@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5e71714f94cf148895585e8de88eaf995f0791fb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 181a1b8ad6403045264ddc0bd502273f36df3eff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638337"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Códecs y formatos de Media Encoder Standard
 Este documento contiene una lista de los formatos de archivo de importación y exportación más comunes que puede usar con Media Encoder Standard.
@@ -75,6 +76,7 @@ La compatibilidad con la asignación de canal explícita o proporcionada por el 
 | Apple ProRes Proxy |Sí |
 | Apple ProRes 4444 |Sí |
 | Apple ProRes 4444 XQ |Sí |
+| HEVC/H.265| Perfil Main|
 
 ## <a name="input-audio-codecs"></a>Códecs de audio de entrada
 | Códecs de audio de entrada | Compatible |

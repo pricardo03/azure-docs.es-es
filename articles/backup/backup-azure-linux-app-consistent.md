@@ -1,24 +1,20 @@
 ---
-title: "Azure Backup: Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux | Microsoft Docs"
-description: "Cree copias de seguridad coherentes con la aplicación de sus máquinas virtuales Linux en Azure. En este artículo se explica la configuración del marco de trabajo del script para la copia de seguridad de máquinas virtuales de Linux implementadas en Azure. Este artículo también incluye información sobre la solución de problemas."
+title: 'Azure Backup: Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux'
+description: Cree copias de seguridad coherentes con la aplicación de sus máquinas virtuales Linux en Azure. En este artículo se explica la configuración del marco de trabajo del script para la copia de seguridad de máquinas virtuales de Linux implementadas en Azure. Este artículo también incluye información sobre la solución de problemas.
 services: backup
-documentationcenter: dev-center-name
 author: anuragmehrotra
 manager: shivamg
-keywords: "copias de seguridad coherentes con la aplicación; copias de seguridad coherentes con la aplicación de máquinas virtuales de Azure; copia de seguridad de máquinas virtuales Linux; Azure Backup"
-ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
+keywords: copias de seguridad coherentes con la aplicación; copias de seguridad coherentes con la aplicación de máquinas virtuales de Azure; copia de seguridad de máquinas virtuales Linux; Azure Backup
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm;markgal
-ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.author: anuragm
+ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605219"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure
 

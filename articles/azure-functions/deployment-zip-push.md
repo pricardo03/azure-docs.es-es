@@ -1,24 +1,25 @@
 ---
-title: "Implementación para insertar un archivo ZIP en Azure Functions | Microsoft Docs"
-description: "Use las funciones de implementación de archivos ZIP del servicio de implementación de Kudu para publicar sus instancias de Azure Functions."
+title: Implementación para insertar un archivo ZIP en Azure Functions | Microsoft Docs
+description: Use las funciones de implementación de archivos ZIP del servicio de implementación de Kudu para publicar sus instancias de Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: faddb73522200f60f18294dc43e8d235943f8bbb
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699961"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Implementación para insertar archivos ZIP en Azure Functions 
 En este artículo se describe la manera de implementar los archivos de proyecto de la aplicación de función en Azure desde un archivo ZIP (comprimido). Aprenda a realizar una implementación de inserción mediante el uso de la CLI de Azure y con las API de REST. 
@@ -40,23 +41,33 @@ El archivo .zip que use para la implementación de inserción debe contener todo
 >[!IMPORTANT]
 > Cuando realice la implementación de inserción del archivo .zip, los archivos de cualquier otra implementación existente que no se encuentren en el archivo .zip se eliminarán de la aplicación de función.  
 
-### <a name="function-app-folder-structure"></a>Estructura de carpetas de la aplicación de función
-
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### <a name="download-your-function-app-project"></a>Descarga del proyecto de aplicación de función
+Una aplicación de función incluye todos los archivos y carpetas del directorio `wwwroot`. Una implementación de archivo .zip incluye el contenido del directorio `wwwroot`, pero no el propio directorio.  
+
+## <a name="download-your-function-app-files"></a>Descarga de los archivos de aplicación de función
 
 Si usa un equipo local para desarrollar elementos, verá que es fácil crear un archivo .zip de la carpeta del proyecto de la aplicación de función en el equipo de desarrollo. 
 
-Sin embargo, es posible crear las funciones mediante el editor en Azure Portal. Para descargar el proyecto de aplicación de función del portal: 
+Sin embargo, es posible crear las funciones mediante el editor en Azure Portal. Puede descargar un proyecto de aplicación de función existente de una de estas maneras: 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la aplicación de función.
++ **Desde Azure Portal** 
 
-2. En la pestaña **Introducción**, seleccione **Descargar contenido de la aplicación**. Seleccione las opciones de descarga y, a continuación, seleccione **Descargar**.     
+    1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la aplicación de función.
 
-    ![Descargue el proyecto de aplicación de función.](./media/deployment-zip-push/download-project.png)
+    2. En la pestaña **Introducción**, seleccione **Descargar contenido de la aplicación**. Seleccione las opciones de descarga y, a continuación, seleccione **Descargar**.     
 
-El archivo .zip descargado tiene el formato correcto para volver a publicarlo en la aplicación de función mediante la implementación de inserción de archivos .zip.
+        ![Descargue el proyecto de aplicación de función.](./media/deployment-zip-push/download-project.png)
+
+    El archivo .zip descargado tiene el formato correcto para volver a publicarlo en la aplicación de función mediante la implementación de inserción de archivos .zip. La descarga del portal también puede agregar los archivos necesarios para abrir la aplicación de función directamente en Visual Studio.
+
++ **Uso de las API REST:** 
+
+    Use la siguiente API GET de implementación para descargar los archivos del proyecto `<function_app>`: 
+
+        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+
+    Al incluir `/site/wwwroot/` se garantiza que el archivo ZIP solo incorpora los archivos de proyecto de la aplicación de función y no el sitio entero. Si aún no ha iniciado sesión en Azure, se le pedirá que lo haga. Tenga en cuenta que no se aconseja enviar una solicitud POST a la API `api/zip/`, y es preferible el método de implementación ZIP descrito en este tema. 
 
 Igualmente, también puede descargar un archivo .zip desde un repositorio de GitHub. Tenga en cuenta que cuando se descarga un repositorio de GitHub como un archivo .zip, GitHub agrega un nivel de carpeta adicional para la rama. Este nivel de carpetas adicional significa que no puede implementar el archivo .zip directamente ya que se descargó desde GitHub. Si usa un repositorio de GitHub para mantener la aplicación de función, debe usar la [integración continua](functions-continuous-deployment.md) para implementar la aplicación.  
 

@@ -7,23 +7,36 @@ author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941901"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737687"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
 Al diseñar una aplicación SaaS multiinquilino, debe elegir cuidadosamente el modelo de inquilinato que mejor se adapte a las necesidades de su aplicación.  Un modelo de inquilinato determina cómo se asignan los datos de cada inquilino al almacenamiento.  La elección del modelo de inquilinato afecta a la administración y el diseño de la aplicación.  A veces es costoso cambiar más adelante a un modelo diferente.
 
-A continuación se muestra una explicación de los modelos de inquilinato alternativos.
+Este artículo describe modelos de arrendamiento alternativos.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>A. Cómo elegir el modelo adecuado de inquilinato
+## <a name="a-saas-concepts-and-terminology"></a>A. Conceptos y terminología de SaaS
+
+En el modelo de software como servicio (SaaS), su compañía no vende *licencias* para su software. En su lugar, cada cliente paga un "alquiler" a la empresa, lo que hace que se convierta en un *inquilino* de ella.
+
+A cambio de ese alquiler, cada inquilino recibe acceso a los componentes de su aplicación de SaaS y sus datos se almacenan en el sistema de SaaS.
+
+El término *modelo de arrendamiento* hace referencia a la forma en que organizan los datos almacenados de los inquilinos:
+
+- *Inquilino único:*&nbsp; cada base de datos almacena los datos de un solo inquilino.
+- *Multiinquilino:* &nbsp; cada base de datos almacena los datos de varios inquilinos independientes (con mecanismos para proteger la privacidad de los datos).
+- También hay disponibles modelos de arrendamiento híbrido.
+
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Cómo elegir el modelo adecuado de inquilinato
 
 En general, el modelo de inquilinato no afecta a la función de una aplicación, pero es probable que afecte a otros aspectos de la solución en general.  Los siguientes criterios se utilizan para evaluar cada uno de los modelos:
 
@@ -51,7 +64,7 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
 
 El análisis de inquilinos se centra en la capa de *datos*.  Pero tenga en cuenta durante un momento la capa de *aplicación*.  La capa de aplicación se trata como una entidad monolítica.  Si se divide la aplicación en muchos componentes pequeños, podría cambiar su elección de modelo de inquilinato.  Puede tratar algunos componentes de forma diferente a otros tanto con respecto al inquilinato como a la tecnología de almacenamiento o plataforma utilizada.
 
-## <a name="b-standalone-single-tenant-app-with-single-tenant-database"></a>B. Aplicación de inquilino único independiente con base de datos de un solo inquilino
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Aplicación de inquilino único independiente con base de datos de un solo inquilino
 
 #### <a name="application-level-isolation"></a>Aislamiento en el nivel de aplicación
 
@@ -67,7 +80,7 @@ Cada base de datos de inquilino se implementa como una base de datos independien
 
 El proveedor puede tener acceso a todas las bases de datos en todas las instancias de aplicación independientes, incluso si las instancias de la aplicación se instalan en suscripciones de inquilinos diferentes.  El acceso se consigue a través de conexiones SQL.  Este acceso entre instancias puede permitir al proveedor centralizar la administración de esquemas y las consultas entre bases de datos con fines de elaboración de informes o análisis.  Si se desea este tipo de administración centralizada, se debe implementar un catálogo que asigne identificadores de inquilino a los identificadores URI de la base de datos.  Azure SQL Database proporciona una biblioteca de particionamiento que se usa junto con una base de datos SQL para proporcionar un catálogo.  La biblioteca de particionamiento se llama formalmente [biblioteca de cliente de Elastic Database][docu-elastic-db-client-library-536r].
 
-## <a name="c-multi-tenant-app-with-database-per-tenant"></a>C. Aplicación multiinquilino con una base de datos por inquilino
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplicación multiinquilino con una base de datos por inquilino
 
 El patrón siguiente utiliza una aplicación multiinquilino con muchas bases de datos, cada una de ellas de un único inquilino.  Se aprovisiona una nueva base de datos para cada nuevo inquilino.  La capa de aplicación se escala *verticalmente* mediante la adición de más recursos por nodo.  O la aplicación se escala *horizontalmente* agregando más nodos.  El escalado se basa en la carga de trabajo y es independiente del número o la escala de las bases de datos individuales.
 
@@ -106,7 +119,7 @@ Las operaciones de administración se pueden incluir en un script y ofrecer a tr
 
 Por ejemplo, puede automatizar la recuperación de un solo inquilino a un momento anterior en el tiempo.  La recuperación solo necesita restaurar la base de datos de un solo inquilino que almacena al inquilino.  Esta restauración no influye en otros inquilinos, lo que confirma que las operaciones de administración se encuentran en el nivel granular de cada inquilino individual.
 
-## <a name="d-multi-tenant-app-with-multi-tenant-databases"></a>D. Aplicación multiinquilino con bases de datos multiinquilino
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Aplicación multiinquilino con bases de datos multiinquilino
 
 Otro patrón disponible consiste en almacenar a muchos inquilinos en una base de datos de varios inquilinos.  La instancia de la aplicación puede tener cualquier número de bases de datos multiinquilino.  El esquema de una base de datos multiinquilino debe tener una o varias columnas de identificadores del inquilino para que los datos de cualquier inquilino determinado se puedan recuperar de forma selectiva.  Además, el esquema puede requerir algunas tablas o columnas que son utilizadas solo por un subconjunto de los inquilinos.  Sin embargo, el código estático y los datos de referencia se almacenan una sola vez y se comparten entre todos los inquilinos.
 
@@ -122,13 +135,13 @@ En general, las bases de datos multiinquilino tienen el costo por inquilino más
 
 A continuación se describen dos variaciones de un modelo de base de datos multiinquilino, siendo el modelo multiinquilino con particiones el más flexible y escalable.
 
-## <a name="e-multi-tenant-app-with-a-single-multi-tenant-database"></a>E. Aplicación multiinquilino con una única base de datos multiinquilino
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Aplicación multiinquilino con una única base de datos multiinquilino
 
 El patrón de base de datos multiinquilino más simple usa una base de datos única e independiente para hospedar los datos de todos los inquilinos.  Cuando se agregan más inquilinos, la base de datos se escala verticalmente con más recursos de proceso y almacenamiento.  Este escalado vertical puede ser suficiente, aunque siempre hay un límite de escala último.  Sin embargo, antes de que ese límite se alcance la base de datos pasa a ser difícil de administrar.
 
 Las operaciones de administración que se centran en inquilinos individuales tienen una implementación más compleja en una base de datos multiinquilino.  Y a escala estas operaciones podrían resultar demasiado lentas.  Un ejemplo es una restauración a un momento determinado en el tiempo de los datos de un solo inquilino.
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F. Aplicación multiinquilino con bases de datos multiinquilino con particiones
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Aplicación multiinquilino con bases de datos multiinquilino con particiones
 
 La mayoría de las aplicaciones de SaaS acceden a los datos de un solo inquilino a la vez.  Este patrón de acceso permite que los datos del inquilino se distribuyan a través de varias bases de datos o particiones, donde todos los datos de cualquier inquilino determinado están contenidos en una partición.  Combinado con un patrón de base de datos multiinquilino, un modelo con particiones permite una escala casi infinita.
 
@@ -152,7 +165,7 @@ Según el enfoque de particionamiento usado, se pueden imponer restricciones adi
 
 Las bases de datos multiinquilino con particiones pueden colocarse en grupos elásticos.  En general, tener muchas bases de datos de un solo inquilino en un grupo es tan rentable como tener varios inquilinos en algunas bases de datos multiinquilino.  Las bases de datos multiinquilino son beneficiosas cuando hay un gran número de inquilinos relativamente inactivos.
 
-## <a name="g-hybrid-sharded-multi-tenant-database-model"></a>G. Modelo híbrido de base de datos multiinquilino con particiones
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Modelo híbrido de base de datos multiinquilino con particiones
 
 En el modelo híbrido, todas las bases de datos tienen el identificador del inquilino en su esquema.  Las bases de datos son capaces de almacenar a más de un inquilino y las bases de datos pueden tener particiones.  Por lo que, en el sentido del esquema, son todas bases de datos multiinquilino.  Aunque en la práctica algunas de estas bases de datos contengan a un solo inquilino.  En cualquier caso, la cantidad de inquilinos que se almacenan en una base de datos no tiene ningún efecto en el esquema de base de datos.
 
@@ -166,7 +179,7 @@ El modelo híbrido destaca cuando existen grandes diferencias entre las necesida
 
 En este modelo híbrido, las bases de datos de un solo inquilino para inquilinos suscriptores pueden colocarse en grupos de recursos para reducir los costos de base de datos por inquilino.  Esto también se realiza en el modelo de una base de datos por inquilino.
 
-## <a name="h-tenancy-models-compared"></a>H. Comparación de los modelos de inquilinato
+## <a name="i-tenancy-models-compared"></a>I. Comparación de los modelos de inquilinato
 
 En la tabla siguiente se resumen las diferencias entre los principales modelos de inquilinato.
 

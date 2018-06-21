@@ -1,24 +1,20 @@
 ---
 title: 'IoT DevKit en la nube: conexión de IoT MXChip DevKit a Azure IoT Hub | Microsoft Docs'
 description: En este tutorial, aprenda cómo enviar el estado de los sensores de IoT DevKit AZ3166 al acelerador de la solución de supervisión remota de Azure IoT.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: d3de8241b42aff63faaf04477a58c5564407ac8b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6c5c12ffeacad9a3dd56ac561d9b4fe1a6e67eea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631503"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Conexión de MXChip IoT DevKit al acelerador de la solución de supervisión remota de Azure IoT
 
@@ -40,7 +36,7 @@ Una suscripción de Azure activa. Si no tiene una, puede registrarse a través d
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Creación de un acelerador de la solución de supervisión de Azure IoT
 
-1. Vaya al [sitio de los aceleradores de la solución de Azure IoT](https://www.azureiotsuite.com/) y haga clic en **Crear una solución nueva**.
+1. Vaya al [sitio de los aceleradores de la solución de Azure IoT](https://www.azureiotsolutions.com/) y haga clic en **Crear una solución nueva**.
   ![Selección del tipo de acelerador de la solución de Azure IoT](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
   > De forma predeterminada, este ejemplo crea una instancia de S2 IoT Hub después de crear un acelerador de la solución de supervisión remota de IoT. Si esta instancia de IoT Hub no se utiliza con un gran número de dispositivos, se recomienda cambiar de S2 a S1 y eliminar el acelerador de la solución de supervisión remota de IoT para poder eliminar también la instancia de IoT Hub relacionada cuando ya no la necesite. 

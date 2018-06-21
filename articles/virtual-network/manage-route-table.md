@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895602"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726455"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
@@ -94,6 +94,8 @@ Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de
 3. Seleccione **Subredes** en **CONFIGURACIÓN**.
 4. Seleccione la subred a la que desea asociar la tabla de rutas.
 5. Seleccione **Tabla de rutas**, la tabla de rutas a la que desea asociar la subred y, luego, seleccione **Guardar**.
+
+Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a la [subred de la puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente. Para más información acerca del uso de 0.0.0.0/0 en una ruta, consulte [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md#default-route).
 
 **Comandos**
 

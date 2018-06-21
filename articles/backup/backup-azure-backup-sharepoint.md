@@ -1,30 +1,25 @@
 ---
-title: "Protección del Azure Backup Server y del servidor de DPM de una granja de SharePoint en Azure | Microsoft Docs"
-description: "En este artículo se incluye información general sobre la protección del Azure Backup Server y el servidor de DPM de una granja de SharePoint en Azure."
+title: Protección del Azure Backup Server y del servidor de DPM de una granja de SharePoint en Azure
+description: En este artículo se incluye información general sobre la protección del Servidor de Azure Backup y el servidor de DPM de una granja de SharePoint en Azure.
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: 
-ms.assetid: e0c0c252-dc1d-4072-b777-7222c13950b0
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2016
-ms.author: adigan;giridham;jimpark;trinadhk;markgal
-ms.openlocfilehash: 1bbf3233169fa9966e3dd0fac18ee448f26caa6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606660"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure
-La copia de seguridad de una granja de SharePoint en Microsoft Azure se crea mediante System Center Data Protection Manager (DPM) casi de la misma manera que realiza la copia de seguridad de otros orígenes de datos. Copia de seguridad de Azure ofrece flexibilidad en la programación de copias de seguridad para crear puntos de copia de seguridad diarios, semanales, mensuales o anuales, y le ofrece diferentes opciones de directiva de retención para varios puntos de copia de seguridad. DPM ofrece la posibilidad de almacenar copias en discos locales para conseguir objetivos de tiempo de recuperación (RTO) más rápidos y de almacenar copias en Azure, para una retención económica más a largo plazo.
+La copia de seguridad de una granja de SharePoint en Microsoft Azure se crea mediante System Center Data Protection Manager (DPM) casi de la misma manera que realiza la copia de seguridad de otros orígenes de datos. Azure Backup ofrece flexibilidad en la programación de copias de seguridad para crear puntos de copia de seguridad diarios, semanales, mensuales o anuales, y le ofrece diferentes opciones de directiva de retención para varios puntos de copia de seguridad. DPM ofrece la posibilidad de almacenar copias en discos locales para conseguir objetivos de tiempo de recuperación (RTO) más rápidos y de almacenar copias en Azure, para una retención económica más a largo plazo.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Las versiones compatibles de SharePoint y relacionadas con escenarios de protección
-Copia de seguridad de Azure para DPM admite los siguientes escenarios:
+Azure Backup para DPM admite los siguientes escenarios:
 
 | Carga de trabajo | Versión | Implementación de SharePoint | Tipo de implementación de DPM | DPM: System Center 2012 R2 | Protección y recuperación |
 | --- | --- | --- | --- | --- | --- |
@@ -33,8 +28,8 @@ Copia de seguridad de Azure para DPM admite los siguientes escenarios:
 ## <a name="before-you-start"></a>Antes de comenzar
 Antes de realizar una copia de seguridad de una granja de SharePoint en Azure, hay algunas cuantas cosas que debe confirmar.
 
-### <a name="prerequisites"></a>Requisitos previos
-Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos para usar Copia de seguridad de Microsoft Azure](backup-azure-dpm-introduction.md#prerequisites) para proteger las cargas de trabajo. Algunas de las tareas que son requisito previo incluyen: crear un almacén de copia de seguridad, descargar las credenciales de almacén, instalar el agente de copia de seguridad de Azure y registrar el Servidor de Copia de seguridad y el servidor DPM con el almacén.
+### <a name="prerequisites"></a>requisitos previos
+Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos para usar Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites) para proteger las cargas de trabajo. Algunas de las tareas que son requisito previo incluyen: crear un almacén de copia de seguridad, descargar las credenciales de almacén, instalar el agente de copia de seguridad de Azure y registrar Azure Backup Server y el servidor DPM con el almacén.
 
 ### <a name="dpm-agent"></a>Agente de DPM
 El agente de DPM debe instalarse en el servidor que ejecuta SharePoint, en los servidores que ejecutan SQL Server y en todos los demás servidores que forman parte de la granja de SharePoint. Para obtener más información sobre cómo configurar el agente de protección, consulte [Programa de instalación del agente de protección](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La única excepción es que solo instale al agente en un único servidor web front-end (WFE). DPM necesita el agente en un servidor WFE con el único fin de servir como punto de entrada para la protección.
@@ -97,7 +92,7 @@ Después de que haya configurado DPM y la granja de SharePoint tal y como se ha 
     ![Seleccionar método de protección de datos](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
    
    > [!NOTE]
-   > El método de protección en disco ayuda a cumplir objetivos de tiempo de recuperación corto. Azure es un destino de protección a largo plazo económico, si se compara con las cintas. Para más información, consulte [Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)
+   > El método de protección en disco ayuda a cumplir objetivos de tiempo de recuperación corto. Azure es un destino de protección a largo plazo económico, si se compara con las cintas. Para más información, consulte [Usar Azure Backup para cambiar su infraestructura de cintas](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)
    > 
    > 
 5. En la pantalla **Especificar objetivos a corto plazo**, seleccione su **intervalo de retención** preferido y especifique cuándo quiere que se creen las copias de seguridad.
@@ -128,7 +123,7 @@ Después de que haya configurado DPM y la granja de SharePoint tal y como se ha 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
     
     > [!NOTE]
-    > DPM proporciona como máximo dos copias de seguridad diarias en Azure en momentos diferentes. Copia de seguridad de Azure también puede controlar la cantidad de ancho de banda WAN que puede usarse para copias de seguridad en horas de máxima y mínima actividad mediante la [limitación de red de Copia de seguridad de Azure](https://azure.microsoft.com/en-in/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > DPM proporciona como máximo dos copias de seguridad diarias en Azure en momentos diferentes. Azure Backup también puede controlar la cantidad de ancho de banda WAN que puede usarse para copias de seguridad en horas de máxima y mínima actividad mediante la [limitación de red de Azure Backup](https://azure.microsoft.com/en-in/documentation/articles/backup-configure-vault/#enable-network-throttling).
     > 
     > 
 11. Según la programación de copia de seguridad seleccionada, en la página **Especificar la directiva de retención en línea** , seleccione la directiva de retención para los puntos de copia de seguridad diarios, semanales, mensuales y anuales.
@@ -163,7 +158,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
 5. También puede desplazarse por varios puntos de recuperación y seleccionar una base de datos o un elemento para recuperar. Seleccione **Fecha > Hora de recuperación** y luego el elemento **Base de datos > Granja de SharePoint > Punto de recuperación > adecuado**.
    
     ![Protección de SharePoint con DPM7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Haga clic con el botón derecho en el elemento y seleccione**Recuperar** para abrir el **Asistente para recuperación**. Haga clic en **Siguiente**.
+6. Haga clic con el botón derecho en el elemento y seleccione**Recuperar** para abrir el **Asistente para recuperación**. Haga clic en **Next**.
    
     ![Revisar selección de recuperación](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Seleccione el tipo de recuperación que quiere realizar y haga clic en **Siguiente**.
@@ -187,7 +182,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
     DPM conecta la base de datos de contenido que hospeda el elemento de SharePoint con la instancia temporal de SQL Server. Desde la base de datos de contenido, el servidor de DPM recupera el elemento y lo coloca en la ubicación del archivo de almacenamiento provisional en el servidor de DPM. Ahora, el elemento recuperado en la ubicación de almacenamiento provisional del servidor de DPM debe exportarse a la ubicación provisional de la granja de SharePoint.
    
     ![Ubicación provisional2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Seleccione **Especificar opciones de recuperación**y aplique la configuración de seguridad a la granja de SharePoint o aplique la configuración de seguridad del punto de recuperación. Haga clic en **Siguiente**.
+10. Seleccione **Especificar opciones de recuperación**y aplique la configuración de seguridad a la granja de SharePoint o aplique la configuración de seguridad del punto de recuperación. Haga clic en **Next**.
     
     ![Opciones de recuperación](./media/backup-azure-backup-sharepoint/recovery-options.png)
     

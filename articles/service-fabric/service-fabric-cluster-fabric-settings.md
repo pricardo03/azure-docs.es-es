@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: aljo
-ms.openlocfilehash: 29afb683b579d6b59d9a8002351a57dc6e42fad0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642655"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -75,6 +76,15 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica|  |
+
+## <a name="backuprestoreservice"></a>BackupRestoreService
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int, el valor predeterminado es 0|estática|MinReplicaSetSize para BackupRestoreService |
+|PlacementConstraints|wstring, el valor predeterminado es L""|estática| PlacementConstraints para el servicio BackupRestore |
+|SecretEncryptionCertThumbprint|wstring, el valor predeterminado es L""|Dinámica|Huella digital del certificado X509 de cifrado de secretos |
+|SecretEncryptionCertX509StoreName|wstring, el valor predeterminado es L"MY"|  Dinámica|    Indica qué certificado se va a usar para cifrar y descifrar el nombre de las credenciales en el almacén de certificados X509 que usa el servicio Backup Restore |
+|TargetReplicaSetSize|int, el valor predeterminado es 0|estática| TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
@@ -299,6 +309,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ActivationTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(180)|Dinámica| Especifique el intervalo de tiempo en segundos. El tiempo de espera para la activación, desactivación y actualización de la aplicación. |
 |ApplicationHostCloseTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica| Especifique el intervalo de tiempo en segundos. Cuando se detecta el cierre de Fabric en procesos autoactivados, FabricRuntime cierra todas las réplicas en el proceso de host (applicationhost) del usuario. Se trata del tiempo de espera para la operación de cierre. |
 |ApplicationUpgradeTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(360)|Dinámica| Especifique el intervalo de tiempo en segundos. Tiempo de espera de la actualización de la aplicación. Si el tiempo de espera es menor que el tiempo de "ActivationTimeout", se producirá un error en el implementador. |
+|ContainerServiceArguments|wstring, de forma predeterminada es L"-H localhost:2375 -H npipe://"|estática|Service Fabric (SF) administra el demonio de Docker (excepto en las máquinas de cliente Windows como Win10). Esta configuración permite al usuario especificar argumentos personalizados que deben pasarse al demonio de Docker al iniciarlo. Cuando se especifican argumentos personalizados, Service Fabric no pasa ningún otro argumento al motor de Docker excepto el argumento "--pidfile". Por lo tanto, los usuarios no deben especificar el argumento "--pidfile" como parte de sus argumentos personalizados. Además, los argumentos personalizados deberán asegurarse de que el demonio de Docker escuche en la canalización de nombres predeterminada en Windows (o en el socket de dominio Unix en Linux) para que Service Fabric pueda comunicarse con él.|
 |CreateFabricRuntimeTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica| Especifique el intervalo de tiempo en segundos. Valor de tiempo de espera de la llamada de sincronización FabricCreateRuntime. |
 |DeploymentMaxFailureCount|int, el valor predeterminado es 20| Dinámica|La implementación de la aplicación se reintentará las veces especificadas en DeploymentMaxFailureCount antes de que genere un error en el nodo.| 
 |DeploymentMaxRetryInterval| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600)|Dinámica| Especifique el intervalo de tiempo en segundos. Intervalo de reintento máximo para la implementación. Con cada error continuo, el intervalo de reintento se calcula como Min( DeploymentMaxRetryInterval; Recuento continuo de errores * DeploymentRetryBackoffInterval). |
@@ -311,6 +322,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |FirewallPolicyEnabled|bool, el valor predeterminado es FALSE|estática| Permite la apertura de puertos de firewall para los recursos del punto de conexión con puertos explícitos especificados en ServiceManifest. |
 |GetCodePackageActivationContextTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica|Especifique el intervalo de tiempo en segundos. El valor de tiempo de espera para las llamadas de CodePackageActivationContext. Esto no es aplicable a los servicios ad-hoc. |
 |IPProviderEnabled|bool, el valor predeterminado es FALSE|estática|Habilita la administración de direcciones IP. |
+|LinuxExternalExecutablePath|wstring, el valor predeterminado es L"/usr/bin/" |estática|Directorio principal de los comandos ejecutables externos en el nodo.|
 |NTLMAuthenticationEnabled|bool, el valor predeterminado es FALSE|estática| Proporciona compatibilidad para el uso de NTLM por parte de los paquetes de código que se están ejecutando como otros usuarios para que los procesos entre máquinas puedan comunicarse de forma segura. |
 |NTLMAuthenticationPasswordSecret|SecureString, el valor predeterminado es Common::SecureString(L"")|estática|Hash cifrado que se usa para generar la contraseña para los usuarios de NTLM. Debe establecerse si NTLMAuthenticationEnabled es true. El implementador se encarga de validarlo. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(3)|Dinámica|Especifique el intervalo de tiempo en segundos. Configuración específica del entorno. Intervalo periódico en el que el hospedaje busca nuevos certificados que se usarán para la configuración de NTLM FileStoreService. |
@@ -322,6 +334,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ServiceTypeDisableFailureThreshold |Número entero, el valor predeterminado es 1. |Dinámica|Este es el umbral del recuento de errores después del cual se notifica a FailoverManager (FM) que deshabilite el tipo de servicio en ese nodo y pruebe un nodo diferente para la ubicación. |
 |ServiceTypeDisableGraceInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(30)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de tiempo después del cual se puede deshabilitar el tipo de servicio. |
 |ServiceTypeRegistrationTimeout |Tiempo en segundos, el valor predeterminado es 300. |Dinámica|Tiempo máximo permitido para que se registre ServiceType con Fabric. |
+|UseContainerServiceArguments|bool, el valor predeterminado es TRUE|estática|Esta configuración indica al hospedaje que no pase argumentos (especificados en la configuración de ContainerServiceArguments) al demonio de Docker.|
 
 ## <a name="httpgateway"></a>HttpGateway
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
@@ -368,6 +381,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |AzureStorageMaxConnections | Int, el valor predeterminado es 5000. |Dinámica|El número máximo de conexiones simultáneas a Azure Storage. |
 |AzureStorageMaxWorkerThreads | Int, el valor predeterminado es 25. |Dinámica|El número máximo de subprocesos de trabajo en paralelo. |
 |AzureStorageOperationTimeout | Tiempo en segundos, el valor predeterminado es 6000. |Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo de espera para que finalice la operación xstore. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, el valor predeterminado es FALSE |Dinámica|Esta configuración habilita o deshabilita la limpieza automática de paquetes de aplicación cuando el aprovisionamiento es correcto. |
 |DisableChecksumValidation | Bool, el valor predeterminado es false. |estática| Esta configuración permite habilitar o deshabilitar la validación de suma de comprobación durante el aprovisionamiento de aplicaciones. |
 |DisableServerSideCopy | Bool, el valor predeterminado es false. |estática|Esta configuración habilita o deshabilita la copia del lado servidor del paquete de aplicación en ImageStore durante el aprovisionamiento de aplicaciones. |
 |ImageCachingEnabled | Bool, el valor predeterminado es true. |estática|Esta configuración permite habilitar o deshabilitar el almacenamiento en caché. |
@@ -526,6 +540,11 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ReplicatorPublishAddress|string, el valor predeterminado es L"localhost:0"|estática|El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para enviar operaciones a otras réplicas.|
 |RetryInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(5)|estática|Especifique el intervalo de tiempo en segundos. Cuando una operación se pierde o rechaza, este temporizador determina con qué frecuencia el replicador volverá a intentar enviar la operación.|
 
+## <a name="resourcemonitorservice"></a>ResourceMonitorService
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización**| **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, el valor predeterminado es FALSE |estática|Controla si el servicio está habilitado en el clúster o no. |
+
 ## <a name="runas"></a>RunAs
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
@@ -586,6 +605,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ServerAuthCredentialType|string, el valor predeterminado es L"None"|estática|Indica el tipo de credenciales de seguridad que se usarán para proteger la comunicación entre FabricClient y el clúster. Los valores válidos son "None/X509/Windows". |
 |ServerCertThumbprints|string, el valor predeterminado es L""|Dinámica|Huellas digitales de certificados de servidor que usa el clúster para comunicarse con los clientes. Los clientes las usan para autenticar el clúster. Lista de nombres separados por comas. |
 |SettingsX509StoreName| string, el valor predeterminado es L"MY"| Dinámica|Almacén de certificados X509 que usa Fabric para la protección de la configuración. |
+|UseClusterCertForIpcServerTlsSecurity|bool, el valor predeterminado es FALSE|estática|Si se utiliza el certificado de clúster para proteger la unidad de transporte TLS en el servidor IPC. |
 |X509Folder|string,el valor predeterminado es /var/lib/waagent|estática|Carpeta donde se encuentran los certificados X509 y las claves privadas. |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
@@ -632,6 +652,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |GetUpgradesPendingApproval |string, el valor predeterminado es "Admin". |Dinámica| Produce GetUpgradesPendingApproval en una partición. |
 |GetUpgradeStatus |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para sondeo de estado de actualización de aplicaciones. |
 |InternalList |string, el valor predeterminado es "Admin". | Dinámica|Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes (interno). |
+|InvokeContainerApi|wstring, el valor predeterminado es L"Admin"|Dinámica|API de invocación de contenedores |
 |InvokeInfrastructureCommand |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para comandos de administración de tareas de infraestructura. |
 |InvokeInfrastructureQuery |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para consultar tareas de infraestructura. |
 |Enumerar |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes. |
@@ -741,25 +762,13 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | Tiempo en segundos, el valor predeterminado es 0,015. | estática | Especifique el intervalo de tiempo en segundos. Determina la cantidad de tiempo que el replicador espera después de recibir una operación, antes de devolver una confirmación. Las confirmaciones de otras operaciones recibidas durante este período de tiempo se devolverán en un solo mensaje-> de forma que se reduce el tráfico de red pero también posiblemente el rendimiento del replicador. |
-|CheckpointThresholdInMB |Int, el valor predeterminado es 50. |estática|Cuando el uso del registro supera este valor, se inicia un punto de control. |
-|InitialPrimaryReplicationQueueSize |Uint, el valor predeterminado es 64. | estática |Este valor define el tamaño inicial de la cola que mantiene las operaciones de replicación en el replicador principal. Tenga en cuenta que debe ser una potencia de 2.|
-|InitialSecondaryReplicationQueueSize |Uint, el valor predeterminado es 64. | estática |Este valor define el tamaño inicial de la cola que mantiene las operaciones de replicación en el replicador secundario. Tenga en cuenta que debe ser una potencia de 2. |
-|MaxAccumulatedBackupLogSizeInMB |Int, el valor predeterminado es 800. |estática|El tamaño máximo acumulado (en MB) de los registros de copia de seguridad de una cadena de registros de copia de seguridad determinada. Las solicitudes de copia de seguridad incremental no se realizarán correctamente si esta genera un registro de copia de seguridad que provoque la acumulación de este tipo de elemento, ya que la copia de seguridad completa tendrá un tamaño superior. En tales casos, el usuario tiene que realizar una copia de seguridad completa. |
 |MaxCopyQueueSize |Uint, el valor predeterminado es 16384. | estática |Es el valor máximo y define el tamaño inicial de la cola que mantiene operaciones de replicación. Tenga en cuenta que debe ser una potencia de 2. Si, durante el tiempo de ejecución, la cola crece y alcanza este tamaño, se limitará la operación entre los replicadores principal y secundario. |
-|MaxMetadataSizeInKB |Int, el valor predeterminado es 4. |No permitida|Tamaño máximo de los metadatos de la secuencia de registro. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, el valor predeterminado es 0. | estática |Es el valor máximo de la cola de replicación principal en bytes. |
 |MaxPrimaryReplicationQueueSize |Uint, el valor predeterminado es 8192. | estática |Es el número máximo de operaciones que podrían existir en la cola de replicación principal. Tenga en cuenta que debe ser una potencia de 2. |
-|MaxRecordSizeInKB |Uint, el valor predeterminado es 1024. |No permitida| Tamaño máximo de un registro de secuencia de registro. |
 |MaxReplicationMessageSize |Uint, el valor predeterminado es 52 428 800. | estática | Tamaño máximo de mensaje de las operaciones de replicación. El valor predeterminado es 50 MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, el valor predeterminado es 0. | estática |Es el valor máximo de la cola de replicación secundaria en bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, el valor predeterminado es 16384. | estática |Es el número máximo de operaciones que podrían existir en la cola de replicación secundaria. Tenga en cuenta que debe ser una potencia de 2. |
-|MaxWriteQueueDepthInKB |Int, el valor predeterminado es 0. |No permitida| Valor entero para la profundidad máxima de la cola de escritura que puede usar el registrador de núcleos, especificado en kilobytes para el registro asociado con esta réplica. Este valor es el número máximo de bytes que pueden estar pendientes durante las actualizaciones del registrador de núcleos. Puede ser 0 para que el registrador de núcleos calcule un valor adecuado, o un múltiplo de 4. |
-|MinLogSizeInMB |Int, el valor predeterminado es 0. |estática|Tamaño mínimo del registro transaccional. El registro no podrá truncarse a un tamaño inferior a este valor. 0 indica que el replicador determinará el tamaño de registro mínimo según otros valores de configuración. Al aumentar este valor, incrementa la posibilidad de hacer copias parciales y copias de seguridad incrementales, ya que se reducen las posibilidades de que se trunquen registros pertinentes. |
 |ReplicatorAddress |string, el valor predeterminado es "localhost:0". | estática | El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para establecer conexiones con otras réplicas para enviar o recibir operaciones. |
-|SecondaryClearAcknowledgedOperations |Bool, el valor predeterminado es false. | estática |Controla si las operaciones en el replicador secundario se borran una vez que se confirman en el principal (se vacían en el disco). La configuración de este valor en TRUE puede dar lugar a lecturas de disco adicionales en el nuevo replicador, al tiempo que se actualizan las réplicas después de una conmutación por error. |
-|SharedLogId |string |No permitida|Identificador de registro compartido. Es un GUID y debe ser único para cada registro compartido. |
-|SharedLogPath |string |No permitida|Ruta de acceso al registro compartido. Si este valor está vacío, se usa el registro compartido predeterminado. |
-|SlowApiMonitoringDuration |Tiempo en segundos, el valor predeterminado es 300. |estática| Especifique la duración de la API antes de que se desencadene el evento de mantenimiento de advertencia.|
 
 ## <a name="transport"></a>Transporte
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización** |**Orientación o breve descripción** |

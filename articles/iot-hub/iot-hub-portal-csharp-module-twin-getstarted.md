@@ -1,26 +1,20 @@
 ---
 title: Introducción a la identidad de módulo y a los módulos gemelos de Azure IoT Hub (portal y .NET) | Microsoft Docs
 description: Aprenda a crear la identidad de módulo y a actualizar módulos gemelos mediante el portal y .NET.
-services: iot-hub
-documentationcenter: .net
-author: chrissie926
+author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30a53620a640b0122286a6ac69c0f98cd0bbde40
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b4502dfc8f856516989326c8d748a5d13fdba02b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361695"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634597"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introducción a la identidad de módulo y los módulos gemelos de IoT Hub con el portal y un dispositivo .NET
 
@@ -74,7 +68,7 @@ Ha creado correctamente la identidad del módulo en la instancia de IoT Hub. Pro
 
     ![Creación de un proyecto de Visual Studio][13]
 
-2. **Instale el SDK de dispositivo .NET de Azure IoT Hub V1.16.0-preview-005**: la identidad de módulo y el módulo gemelo se encuentran en versión preliminar pública. Solo está disponible en los SDK de dispositivo de la versión preliminar de IoT Hub. En Visual Studio, abra Herramientas > Administrador de paquetes NuGet > Administrar paquetes NuGet para la solución. Busque Microsoft.Azure.Devices.Client. Asegúrese de que ha marcado la casilla de inclusión de la versión preliminar. Seleccione la versión V1.16.0-preview-005 e instálela. Ahora tendrá acceso a todas las características del módulo. 
+2. **Instale el SDK de dispositivo de Azure IoT Hub para .NET**: las funcionalidades de identidad de módulo y dispositivo gemelo de módulo se encuentran en versión preliminar pública. Solo está disponible en los SDK de dispositivo de la versión preliminar de IoT Hub. En Visual Studio, abra Herramientas > Administrador de paquetes NuGet > Administrar paquetes NuGet para la solución. Busque Microsoft.Azure.Devices.Client. Asegúrese de que ha marcado la casilla de inclusión de la versión preliminar. Seleccione la versión más reciente e instale. Ahora tendrá acceso a todas las características del módulo. 
 
     ![Instalación del SDK de servicio .NET de Azure IoT Hub V1.16.0-preview-005][14]
 

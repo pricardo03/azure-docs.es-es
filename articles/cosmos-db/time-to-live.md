@@ -2,30 +2,27 @@
 title: Hacer que caduquen datos en Azure Cosmos DB con período de vida | Microsoft Docs
 description: Con TTL, Microsoft Azure Cosmos DB ofrece la posibilidad de que los documentos se purguen automáticamente del sistema tras un período de tiempo.
 services: cosmos-db
-documentationcenter: ''
 keywords: período de vida
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615128"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
 
 Con "período de vida", o TTL, Microsoft Azure Cosmos DB ofrece la posibilidad de purgar los documentos automáticamente de la base de datos tras un período de tiempo. El período de vida predeterminado se puede establecer en el nivel de colección, y se puede invalidar de forma individual (por documento). Una vez que se establece el TTL, como un valor predeterminado de la colección o en un nivel de documento, Cosmos DB quita automáticamente los documentos que existen después de ese período de tiempo, en segundos, desde que se modificaron por última vez.
 
-El período de vida en Cosmos DB usa un desplazamiento con el que se mide cuándo se modificó por última vez el documento. Para ello, usa el campo `_ts` que existe en todos los documentos. El campo _ts es una marca de tiempo de estilo unix que representa la fecha y la hora. El campo `_ts` se actualiza cada vez que se modifica un documento. 
+El período de vida en Azure Cosmos DB usa un desplazamiento con el que se mide cuándo se modificó por última vez el documento. Para ello, usa el campo `_ts` que existe en todos los documentos. El campo _ts es una marca de tiempo de estilo unix que representa la fecha y la hora. El campo `_ts` se actualiza cada vez que se modifica un documento. 
 
 ## <a name="ttl-behavior"></a>Comportamiento de TTL
 La característica TTL se controla mediante las propiedades de TTL en dos niveles: el nivel de colección y el nivel de documento. Los valores se establecen en segundos y se tratan como una diferencia de `_ts` en que el documento se modificó por última vez.
@@ -33,14 +30,14 @@ La característica TTL se controla mediante las propiedades de TTL en dos nivele
 1. DefaultTTL para la colección
    
    * Si no existe (o está establecido en null), los documentos no se eliminan automáticamente.
-   * Si existe y el valor es "-1" = infinito, los documentos no caducan de forma predeterminada.
-   * Si existe y el valor es un número ("n"), los documentos caducan "n" segundos después de la última modificación.
+   * Si existe y el valor se ha establecido en "-1" = infinito, los documentos no caducan de forma predeterminada.
+   * Si existe y el valor se ha establecido en un número ("n"), los documentos caducan "n" segundos después de la última modificación.
 2. TTL para los documentos: 
    
    * La propiedad solo es aplicable si DefaultTTL existe en la colección primaria.
    * Invalida el valor DefaultTTL para la colección primaria.
 
-En cuanto el documento ha expirado (`ttl` + `_ts` >=hora actual del servidor), el documento se marca como "expirado". Transcurrido este tiempo, no se permite ninguna operación en estos documentos y quedarán excluidos de los resultados de todas las consultas realizadas. Los documentos se eliminan físicamente del sistema y se eliminan en segundo plano de manera oportuna en un momento posterior. Esta proceso no consume ninguna [unidad de solicitud (RU)](request-units.md) del presupuesto de la colección.
+En cuanto el documento ha expirado (`ttl` + `_ts` <=hora actual del servidor), el documento se marca como "expirado". Transcurrido este tiempo, no se permite ninguna operación en estos documentos y quedarán excluidos de los resultados de todas las consultas realizadas. Los documentos se eliminan físicamente del sistema y se eliminan en segundo plano de manera oportuna en un momento posterior. Esta proceso no consume ninguna [unidad de solicitud (RU)](request-units.md) del presupuesto de la colección.
 
 La lógica anterior se puede mostrar en la siguiente matriz:
 

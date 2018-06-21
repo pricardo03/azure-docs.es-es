@@ -14,49 +14,51 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
-ms.openlocfilehash: 3c7b3626db0e38d28513d4665a83dd7155663034
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 28424f9a7a0f77882ee3360c5599549303075c18
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642580"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conexión remota a una instancia de conjunto de escalado de máquinas virtuales o a un nodo de clúster
-En un clúster de Service Fabric que se ejecuta Azure, cada tipo de nodo de clúster que defina [configura una escala independiente de la máquina virtual](service-fabric-cluster-nodetypes.md).  También puede conectarse de forma remota a instancias específicas del conjunto de escalado (o nodos de clúster).  A diferencia de las máquinas virtuales de instancia única, las instancias de conjuntos de escalado no tienen direcciones IP virtuales. Esto puede resultar un poco complicado si desea obtener una dirección IP y un puerto que pueda usar para conectarse de manera remota a una instancia específica.
+En un clúster de Service Fabric que se ejecuta Azure, cada tipo de nodo de clúster que defina [configura una escala independiente de la máquina virtual](service-fabric-cluster-nodetypes.md).  También puede conectarse de forma remota a instancias específicas del conjunto de escalado (nodos de clúster).  A diferencia de las máquinas virtuales de instancia única, las instancias de conjuntos de escalado no tienen direcciones IP virtuales. Esto puede resultar un poco complicado si desea obtener una dirección IP y un puerto que pueda usar para conectarse de manera remota a una instancia específica.
 
 Para buscar una dirección IP y un puerto que pueda usar para conectarse remotamente a una instancia concreta, realice los pasos siguientes.
 
-1. Busque la dirección IP virtual del tipo de nodo obteniendo las reglas NAT de entrada para el Protocolo de escritorio remoto (RDP).
+1. Obtenga las reglas de NAT de entrada para Protocolo de escritorio remoto (RDP).
 
-    Primero, obtenga los valores de las reglas NAT de entrada que se definieron como parte de la definición del recurso para `Microsoft.Network/loadBalancers`.
+    Normalmente, cada tipo de nodo definido en el clúster tiene su propia dirección IP virtual y un equilibrador de carga dedicado. De forma predeterminada, el equilibrador de carga para un tipo de nodo se denomina con el formato siguiente: *LB-{nombre-clúster}-{tipo de nodo}*; por ejemplo, *LB-mycluster-front-end*. 
     
-    En Azure Portal, en la página del equilibrador de carga, seleccione **Configuración** > **Reglas NAT de entrada**. Con ello obtendrá la dirección IP y el puerto que puede usar para conectarse de forma remota a la primera instancia del conjunto de escalado. 
-    
-    ![Equilibrador de carga][LBBlade]
-    
-    En la siguiente ilustración, la dirección IP y el puerto son **104.42.106.156** y **3389**.
-    
-    ![Reglas NAT][NATRules]
+    En Azure Portal, en la página del equilibrador de carga, seleccione **Configuración** > **Reglas NAT de entrada**. 
 
-2. Busque el puerto que puede usar para conectarse de forma remota al nodo o a la instancia específica del conjunto de escalado.
+    ![Reglas NAT de entrada del equilibrador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
-    Asignación de instancias de conjuntos de escalado a los nodos. Use la información del conjunto de escalado para determinar el puerto exacto que se usará.
-    
-    Los puertos se asignan en un orden ascendente que coincide con el de la instancia del conjunto de escalado. En el ejemplo anterior del tipo de nodo FrontEnd, la siguiente tabla muestra los puertos para cada una de las cinco instancias de nodo. Aplique la misma asignación a la instancia del conjunto de escalado.
-    
-    | **Instancia del conjunto de escalado de máquinas virtuales** | **Puerto** |
-    | --- | --- |
-    | FrontEnd_0 |3389 |
-    | FrontEnd_1 |3390 |
-    | FrontEnd_2 |3391 |
-    | FrontEnd_3 |3392 |
-    | FrontEnd_4 |3393 |
-    | FrontEnd_5 |3394 |
+    La siguiente captura de pantalla muestra las reglas NAT de entrada para un tipo de nodo con el nombre FrontEnd: 
 
-3. Conéctese de forma remota a la instancia específica del conjunto de escalado.
+    ![Reglas NAT de entrada del equilibrador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
-    En la siguiente ilustración se muestra el uso de la Conexión a Escritorio remoto para conectarse a la instancia FrontEnd_1 del conjunto de escalado:
+    Para cada nodo, la dirección IP aparece en la columna **DESTINO**, la columna **OBJETIVO** indica la instancia del conjunto de escalado y la columna **SERVICIO** indica el número de puerto. Para la conexión remota, los puertos se asignan a cada nodo en orden ascendente a partir del puerto 3389.
+
+    También puede encontrar las reglas NAT de entrada en la sección `Microsoft.Network/loadBalancers` de la plantilla de Resource Manager del clúster.
     
-    ![Conexión del Escritorio remoto][RDP]
+2. Para confirmar la asignación del puerto de entrada al puerto de destino para un nodo, puede hacer clic en la regla y consultar el valor **Puerto de destino**. La siguiente captura de pantalla muestra la regla NAT de entrada para el nodo **FrontEnd (instancia 1)** del paso anterior. Tenga en cuenta que, aunque el número de puerto (entrada) es 3390, el puerto de destino está asignado al puerto 3389, el puerto para el servicio RDP en el destino.  
+
+    ![Asignación de puertos de destino](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
+
+    De forma predeterminada, para los clústeres Windows, el puerto de destino es 3389, que se asigna al servicio RDP en el nodo de destino. Para los clústeres Linux, el puerto de destino es 22, que se asigna al servicio de Secure Shell (SSH).
+
+3. Conéctese de forma remota al nodo específico (instancia del conjunto de escalado). Puede usar el nombre de usuario y la contraseña que estableció cuando creó el clúster u otras credenciales que haya configurado. 
+
+    La siguiente captura de pantalla muestra cómo usar Conexión a Escritorio remoto para conectarse al nodo **FrontEnd (instancia 1)** en un clúster Windows:
+    
+    ![Conexión del Escritorio remoto](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
+
+    En los nodos Linux, puede conectarse mediante SSH (en el ejemplo siguiente se vuelve a utilizar la misma dirección IP y puerto para abreviar):
+
+    ``` bash
+    ssh SomeUser@40.117.156.199 -p 3390
+    ```
 
 
 Para ver los próximos pasos, lea los siguientes artículos:
@@ -65,7 +67,3 @@ Para ver los próximos pasos, lea los siguientes artículos:
 * [Actualización de los valores del intervalo de puertos RDP](./scripts/service-fabric-powershell-change-rdp-port-range.md) en máquinas virtuales del clúster después de la implementación
 * [Cambio de la contraseña y el nombre de usuario administrador](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) para máquinas virtuales del clúster
 
-<!--Image references-->
-[LBBlade]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/LBBlade.png
-[NATRules]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/NATRules.png
-[RDP]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/RDP.png

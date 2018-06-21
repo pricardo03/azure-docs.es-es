@@ -4,7 +4,7 @@ description: Una lista de topologías de ejemplo de Storm creada y probada con A
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: f9b1bdff-5928-4705-a76d-52fd200917cb
@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/30/2018
 ms.author: larryfr
-ms.openlocfilehash: f633797147b2090680ebb5ea11f60271addc7f52
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 429373a27ad9be23b986116182a4eda80bace7f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626894"
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Topologías y componentes de ejemplo de Storm para Apache Storm en HDInsight
 
@@ -38,6 +39,11 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
 | [Pruebas comparativas de escalabilidad para leer desde Azure Event Hubs usando Storm en HDInsight][d6c540e3] |Rendimiento de mensajes, Event Hubs, SQL Database |C#, Java |
 | [Usar Python con Storm en HDInsight](apache-storm-develop-python-topology.md) |Componentes de Python con una topología Flux |Python |
 | [Uso de Kafka con Storm en HDInsight](../hdinsight-apache-storm-with-kafka.md) | Lectura y escritura de Apache Storm en Apache Kafka | Java |
+
+> [!WARNING]
+> Los ejemplos de C# de esta lista se crearon y probaron originalmente con HDInsight para Windows y puede que no funcionen correctamente con los clústeres de HDInsight para Linux. Los clústeres para Linux utilizan Mono para ejecutar código .NET y pueden tener problemas de compatibilidad con los entornos y paquetes utilizados en el ejemplo.
+>
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las versiones posteriores.
 
 ### <a name="next-steps"></a>Pasos siguientes
 

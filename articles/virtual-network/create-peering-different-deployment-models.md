@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: f4fe93078246bc25eb41a7f8e685d75f8dcb6b7c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012631"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726227"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creación de un emparejamiento de red virtual: distintos modelos de implementación, la misma suscripción
 
@@ -90,7 +90,7 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 
-5. Cree un grupo de recursos y una red virtual (Resource Manager). Puede usar la CLI 1.0 o 2.0 ([instalación](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). En este tutorial, la CLI 2.0 se usa para crear la red virtual (Resource Manager), puesto que debe usarse 2.0 para crear el emparejamiento. Ejecute el siguiente script de la CLI de búsqueda desde la máquina local con la CLI 2.0.4 o posterior instalada. Para obtener las opciones de ejecución de scripts de la CLI de Bash en un cliente Windows, vea [Ejecución de la CLI de Azure en Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). También puede ejecutar el script con Azure Cloud Shell. Azure Cloud Shell es un shell de Bash gratuito que se puede ejecutar directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizar con su cuenta. Haga clic en el botón **Pruébelo** en el script siguiente, que invoca un Cloud Shell en el que puede iniciar sesión con su cuenta de Azure. Para ejecutar el script, haga clic en el botón **Copiar** y pegue el contenido en Cloud Shell en la nube y, a continuación, pulse `Enter`.
+5. Cree un grupo de recursos y una red virtual (Resource Manager). Puede usar la CLI 1.0 o 2.0 ([instalación](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). En este tutorial, la CLI 2.0 se usa para crear la red virtual (Resource Manager), puesto que debe usarse 2.0 para crear el emparejamiento. Ejecute el siguiente script de la CLI de búsqueda desde la máquina local con la CLI 2.0.4 o posterior instalada. Para ver las opciones de ejecución de scripts de la CLI de Bash en un cliente Windows, consulte [Instalación de la CLI de Azure 2.0 en Windows](/cli/azure/install-azure-cli-windows). También puede ejecutar el script con Azure Cloud Shell. Azure Cloud Shell es un shell de Bash gratuito que se puede ejecutar directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizar con su cuenta. Haga clic en el botón **Pruébelo** en el script siguiente, que invoca un Cloud Shell en el que puede iniciar sesión con su cuenta de Azure. Para ejecutar el script, haga clic en el botón **Copiar** y pegue el contenido en Cloud Shell en la nube y, a continuación, pulse `Enter`.
 
     ```azurecli-interactive
     #!/bin/bash
