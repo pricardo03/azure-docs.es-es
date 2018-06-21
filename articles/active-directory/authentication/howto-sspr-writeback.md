@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868832"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296892"
 ---
 # <a name="password-writeback-overview"></a>Información general sobre la escritura diferida de contraseñas
 
-Gracias a la escritura diferida de contraseñas, podrá configurar Azure Active Directory (Azure AD) para que escriba contraseñas en diferido en la instancia local de Active Directory. Esta opción elimina la necesidad de configurar y administrar una complicada solución local de autoservicio para el restablecimiento de contraseñas (SSPR) y le ofrece una cómoda manera basada en la nube para que los usuarios restablezcan sus contraseñas locales dondequiera que estén. La escritura diferida de contraseñas es un componente de [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) que los suscriptores actuales de [Azure Active Directory Premium](../active-directory-whatis.md) pueden habilitar y utilizar.
+Gracias a la escritura diferida de contraseñas, podrá configurar Azure Active Directory (Azure AD) para que escriba contraseñas en diferido en la instancia local de Active Directory. Esta opción elimina la necesidad de configurar y administrar una complicada solución local de autoservicio para el restablecimiento de contraseñas (SSPR) y le ofrece una cómoda manera basada en la nube para que los usuarios restablezcan sus contraseñas locales dondequiera que estén. La escritura diferida de contraseñas es un componente de [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) que los suscriptores actuales de [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) pueden habilitar y utilizar.
 
 La escritura diferida de contraseñas ofrece las siguientes características:
 
@@ -129,7 +129,7 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licencia para la escritura diferida de contraseñas
 
-Para obtener más información sobre las licencias, consulte la sección [Licencias necesarias para la escritura diferida de contraseñas](concept-sspr-licensing.md#licenses-required-for-password-writeback) o visite los sitios siguientes:
+Para obtener más información sobre las licencias, consulte la sección [Licencias necesarias para la escritura diferida de contraseñas](concept-sspr-licensing.md) o visite los sitios siguientes:
 
 * [Sitio sobre precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

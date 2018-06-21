@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aa2278e7d32147d75b8ca0241a39a9fed6df41c8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187698"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266889"
 ---
 # <a name="azure-disk-encryption-faq"></a>Preguntas más frecuentes de Azure Disk Encryption
 
@@ -49,11 +49,13 @@ Azure Disk Encryption se admite en las siguientes distribuciones y versiones del
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Sistema operativo y disco de datos |
 | Ubuntu | 14.04.5-DAILY-LTS | Sistema operativo y disco de datos |
+| RHEL | 7.5 | Disco de datos* |
 | RHEL | 7.4 | Disco de datos* |
 | RHEL | 7.3 | Disco de datos* |
 | RHEL | 7,2 | Disco de datos* |
 | RHEL | 6,8 | Disco de datos* |
 | RHEL | 6.7 | Disco de datos* |
+| CentOS | 7.4 | Sistema operativo y disco de datos |
 | CentOS | 7.3 | Sistema operativo y disco de datos |
 | CentOS | 7.2n | Sistema operativo y disco de datos |
 | CentOS | 6,8 | Sistema operativo y disco de datos |

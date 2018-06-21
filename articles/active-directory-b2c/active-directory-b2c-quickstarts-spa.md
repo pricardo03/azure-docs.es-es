@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5ea6b85803fdc5c768a23bf770b3646cc6add36b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ad9153b9b8d0235ad2cdc71b56f7b6179e98afdb
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711899"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293288"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guía de inicio rápido: Configuración del inicio de sesión en una aplicación de página única mediante Azure Active Directory B2C
 
@@ -104,4 +104,4 @@ En esta guía de inicio rápido, ha utilizado una aplicación de ASP.NET de ejem
 El siguiente paso es crear su propio inquilino de Azure AD B2C y configurar el ejemplo para la ejecución utilizando el inquilino. 
 
 > [!div class="nextstepaction"]
-> [Creación de un inquilino de Azure Active Directory B2C en Azure Portal](active-directory-b2c-get-started.md)
+> [Creación de un inquilino de Azure Active Directory B2C en Azure Portal](tutorial-create-tenant.md)

@@ -3,25 +3,25 @@ title: Códigos de error de informes de actividad de inicio de sesión en el por
 description: Referencia sobre los códigos de error de los informes de actividad de inicio de sesión.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb636db4e6e2097f494fcbc7a6584f0172514b95
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698516"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232132"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -65,13 +65,13 @@ En la siguiente sección se proporciona una información general completa de tod
 |40008|Hay un problema con el proveedor de identidades federado. Póngase en contacto con el IDP para resolver este problema.|
 |40009|Hay un problema con el proveedor de identidades federado. Póngase en contacto con el IDP para resolver este problema.|
 |40014|Hay un problema con el proveedor de identidades federado. Póngase en contacto con el IDP para resolver este problema.|
-|50000|Hay un problema con nuestro servicio de inicio de sesión. Abra un [vale de soporte](active-directory-troubleshooting-support-howto.md) para resolver este problema.|
+|50000|Hay un problema con nuestro servicio de inicio de sesión. Abra un [vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) para resolver este problema.|
 |50001|No se ha encontrado el nombre de entidad de seguridad de servicio en este inquilino. Esto puede pasar si el administrador del inquilino no es el que ha instalado la aplicación. O bien no se encontró la entidad de servicio del recurso en el directorio o no es válida.|
 |50002|No se pudo iniciar sesión debido a un acceso de proxy restringido en el inquilino. Si se trata de su propia directiva de inquilino, puede cambiar la configuración restringida del inquilino para corregir este problema|
 |50003|No se pudo iniciar sesión debido a que falta la clave de firma o el certificado. Esto se puede deber a que no había ninguna clave de firma configurada en la aplicación. Compruebe las soluciones detalladas en [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Si siguen los problemas, póngase en contacto con el propietario de la aplicación o el administrador de esta|
 |50005|El usuario intentó iniciar sesión en un dispositivo desde una plataforma que no es compatible a través de una directiva de acceso condicional|
 |50006| No se pudo comprobar la firma debido a una firma no válida. Compruebe la solución detallada en [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Si siguen los problemas, póngase en contacto con el propietario de la aplicación o el administrador de esta|
-|50007|No se encontró el certificado de cifrado del asociado para esta aplicación. [Abra un vale de soporte](active-directory-troubleshooting-support-howto.md) dirigido a Microsoft para solucionar este problema|
+|50007|No se encontró el certificado de cifrado del asociado para esta aplicación. [Abra un vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) dirigido a Microsoft para solucionar este problema|
 |50008|La aserción SAML falta o está mal configurada en el token. Póngase en contacto con el proveedor de federación.|
 |50010|Se ha producido un error en la validación del identificador URI de audiencia de la aplicación debido a que no se configuraron audiencias de token. Póngase en contacto con el propietario de la aplicación|
 |50011|La dirección de respuesta falta, está mal configurada o no coincide con las direcciones de respuesta configuradas para la aplicación. Pruebe la solución descrita en [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Si siguen los problemas, póngase en contacto con el propietario de la aplicación o el administrador de esta|
@@ -114,8 +114,8 @@ En la siguiente sección se proporciona una información general completa de tod
 |50133|La sesión no es válida debido a que ha expirado o a un cambio reciente de contraseña.|
 |50135|Se necesita un cambio de contraseña debido a un riesgo de la cuenta|
 |50136|Redirección de la sesión de MSA a una aplicación: se ha detectado una única sesión de MSA |
-|50140|Este error se produjo debido a una interrupción en "Mantener la sesión iniciada" cuando el usuario estaba iniciando sesión. [Abra un vale de soporte](active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles. |
-|50143|Error de coincidencia de sesión: la sesión no es válida porque el inquilino de usuario no coincide con la sugerencia de dominio debido a que el recurso es diferente. [Abra un vale de soporte](active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles.|
+|50140|Este error se produjo debido a una interrupción en "Mantener la sesión iniciada" cuando el usuario estaba iniciando sesión. [Abra un vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles. |
+|50143|Error de coincidencia de sesión: la sesión no es válida porque el inquilino de usuario no coincide con la sugerencia de dominio debido a que el recurso es diferente. [Abra un vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles.|
 |50144|Ha expirado la contraseña de Active Directory del usuario. Genere una nueva contraseña para el usuario o solicite al usuario final que lo haga mediante la herramienta de restablecimiento de autoservicio|
 |50146|Es necesario que esta aplicación esté configurada con una clave de firma específica de la aplicación. En este momento no tiene configurada ninguna o ha expirado o ya no es válida. Póngase en contacto con el propietario de la aplicación|
 |50148|El code_verifier no coincide con el code_challenge proporcionado en la solicitud de autorización para PKCE. Póngase en contacto con el desarrollador de aplicaciones. |
@@ -150,7 +150,7 @@ En la siguiente sección se proporciona una información general completa de tod
 |70007|La aplicación ha devuelto un valor no admitido de "response_mode" al solicitar un token. Póngase en contacto con el propietario de la aplicación|
 |70008|El código de autorización o el token de actualización proporcionados han expirado o se han revocado. Haga que el usuario vuelva a iniciar sesión|
 |70011|El ámbito solicitado por la aplicación no es válido. Póngase en contacto con el propietario de la aplicación|
-|70012|Se produjo un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra un vale de soporte](active-directory-troubleshooting-support-howto.md) |
+|70012|Se produjo un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra un vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|El código de verificación no es válido debido a que el usuario ha escrito un código de usuario incorrecto en el flujo de códigos del dispositivo. No se ha aprobado la autorización|
 |70019|El código de verificación ha expirado. Haga que el usuario vuelva a iniciar sesión|
 |70037|Se ha proporcionado una respuesta incorrecta al desafío. Se ha rechazado la sesión de autenticación remota.|
@@ -161,15 +161,15 @@ En la siguiente sección se proporciona una información general completa de tod
 |75011|El método de autenticación mediante el cual se autenticó el usuario en el servicio no coincide con el método de autenticación solicitado. Póngase en contacto con el propietario de la aplicación|
 |75016|La solicitud de autenticación de SAML2 tiene un valor de NameIdPolicy no válido. Póngase en contacto con el propietario de la aplicación|
 |80001|El agente de autenticación no puede conectarse a Active Directory. Asegúrese de que el agente de autenticación está instalado en una máquina unida a un dominio que tenga una línea de visión a un controlador de dominio que pueda atender la solicitud de inicio de sesión del usuario.|
-|80002|Error interno. La solicitud de validación de la contraseña ha agotado el tiempo de espera. No se pudo enviar la solicitud de autenticación al servicio de identidad híbrido interno. [Abra un vale de soporte](active-directory-troubleshooting-support-howto.md) para más información sobre el error|
-|80003|El agente de autenticación recibió una respuesta no válida. Se ha producido un error desconocido al intentar realizar la autenticación con Active Directory local. [Abra un vale de soporte](active-directory-troubleshooting-support-howto.md) para más información sobre el error.|
-|80005|Agente de autenticación: se ha producido un error desconocido al procesar la respuesta del agente de autenticación. [Abra un vale de soporte](active-directory-troubleshooting-support-howto.md) para más información sobre el error.|
+|80002|Error interno. La solicitud de validación de la contraseña ha agotado el tiempo de espera. No se pudo enviar la solicitud de autenticación al servicio de identidad híbrido interno. [Abra un vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) para más información sobre el error|
+|80003|El agente de autenticación recibió una respuesta no válida. Se ha producido un error desconocido al intentar realizar la autenticación con Active Directory local. [Abra un vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) para más información sobre el error.|
+|80005|Agente de autenticación: se ha producido un error desconocido al procesar la respuesta del agente de autenticación. [Abra un vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) para más información sobre el error.|
 |80007|El agente de autenticación no puede validar la contraseña del usuario.|
 |80010|El agente de autenticación no puede descifrar la contraseña. |
 |80011|El agente de autenticación no puede recuperar la clave de cifrado.|
 |80012|Los usuarios han intentado iniciar sesión fuera de las horas permitidas (esto se especifica en Active Directory)|
 |80013|No se pudo completar el intento de autenticación debido al desfase horario entre la máquina que ejecuta el agente de autenticación y AD. Corrija los problemas de sincronización de horas|
-|80014|El agente de autenticación agotó el tiempo de espera. [Abra un vale de soporte](active-directory-troubleshooting-support-howto.md) con el código de error, el identificador de correlación y datos de fecha y hora para conocer más detalles sobre este error|
+|80014|El agente de autenticación agotó el tiempo de espera. [Abra un vale de soporte](fundamentals/active-directory-troubleshooting-support-howto.md) con el código de error, el identificador de correlación y datos de fecha y hora para conocer más detalles sobre este error|
 |81001|El vale de Kerberos del usuario es demasiado grande. Esto puede ocurrir si el usuario pertenece a demasiados grupos y, por tanto, el vale de Kerberos contiene demasiadas pertenencias a grupos. Reduzca la pertenencia a grupos del usuario e inténtelo de nuevo.|
 |81005|No se admite este paquete de autenticación|
 |81007|El inquilino no está habilitado para un inicio de sesión único de conexión directa|

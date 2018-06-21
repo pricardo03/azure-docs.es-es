@@ -4,15 +4,15 @@ description: Describe cómo detectar y evaluar VM de VMware locales para la migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 06/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e8d4380087e826a4f1332c0a39670c2309a10861
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 71d4bc0aa1ea2658c4cd40834a769eaaac649bc3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236151"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228380"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 

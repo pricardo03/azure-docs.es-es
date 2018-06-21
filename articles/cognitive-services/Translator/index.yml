@@ -1,0 +1,72 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación sobre Translator Text API
+metadata:
+  title: 'Documentación sobre Translator Text: Guías de inicio rápido, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
+  description: Aprenda a usar Translator Text API para traducir texto en varios idiomas.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2017
+  ms.author: v-jansko
+  ms.openlocfilehash: 55ec3147a07c5c76fe1f1b356d633a9afeb783cc
+  ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/20/2018
+  ms.locfileid: "36286915"
+abstract:
+  description: Microsoft Translator Text API es un servicio de traducción automática basado en la nube. Con esta API se puede traducir texto casi en tiempo real desde cualquier aplicación o servicio mediante una sencilla llamada de API de REST. La API usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Para obtener la lista de los idiomas admitidos, tanto para traducción automática neuronal como para traducción automática estadística, consulte <a href="languages.md">Idiomas admitidos</a>.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Introducción al uso de Translator Text API:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+      title: C#
+    - image:
+        src: media/index/logo_java.svg
+      title: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      title: Node.js
+    - image:
+        src: media/index/logo_python.svg
+      title: Python
+    rows:
+    - title: Traducción de texto de un idioma a otro
+      values:
+      - href: quickstart-csharp-translate
+      - href: quickstart-java-translate
+      - href: 
+      - href: 
+    - title: Conversión del texto de un script a otro
+      values:
+      - href: quickstart-csharp-transliterate
+      - href: quickstart-java-transliterate
+      - href: 
+      - href: 
+    - title: Identificación del idioma del texto
+      values:
+      - href: quickstart-csharp-detect
+      - href: quickstart-java-detect
+      - href: 
+      - href: 
+    - title: Obtención de traducciones alternativas y del uso
+      values:
+      - href: quickstart-csharp-dictionary
+      - href: quickstart-java-dictionary
+      - href: 
+      - href: 
+- title: Referencia
+  items:
+  - type: paragraph
+    text: <p><a href="reference/v3-0-reference.md">Referencia de API</a></p>

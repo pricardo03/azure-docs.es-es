@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 00c8ac567b476d0591069c83c371d987d651de9d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a9dfcbf4be4b659d761d66d67d2ae4c7b70a245e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935097"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284171"
 ---
 # <a name="add-a-forwarded-header"></a>Adición de un encabezado de reenviado
 
@@ -28,7 +28,7 @@ Este artículo muestra un ejemplo de directiva de Azure API Management que demue
 
 Pegue el código en el bloque de **entrada**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Forward gateway hostname to backend for generating correct urls in responses.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Forward gateway hostname to backend for generating correct urls in responses.policy.xml)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

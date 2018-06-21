@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e82699b29a0333fae66fefdac8f5326c7e34e11
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: af4fe8ce4d9f5584241b56762ddf9c60aa28f0ba
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712477"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293377"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guía de inicio rápido: Configuración del inicio de sesión en una aplicación de escritorio mediante Azure Active Directory B2C 
 
@@ -108,4 +108,4 @@ Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales 
 El siguiente paso es crear su propio inquilino de Azure AD B2C y configurar el ejemplo para la ejecución utilizando el inquilino. 
 
 > [!div class="nextstepaction"]
-> [Creación de un inquilino de Azure Active Directory B2C en Azure Portal](active-directory-b2c-get-started.md)
+> [Creación de un inquilino de Azure Active Directory B2C en Azure Portal](tutorial-create-tenant.md)

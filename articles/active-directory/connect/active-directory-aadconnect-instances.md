@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 158a0f6d948172ec7d986703e9fa95dd19bdde6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592269"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291970"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: consideraciones especiales para instancias
 Azure AD Connect se utiliza habitualmente con la instancia mundial de Azure AD y Office 365. Pero también hay otras instancias y estas tienen requisitos diferentes para las direcciones URL y otras consideraciones especiales.
@@ -38,8 +38,6 @@ Al iniciar sesión en el inquilino de Azure AD tiene que usar una cuenta en el d
 
 Características que actualmente no están presentes en Microsoft Cloud Germany:
 
-* **Azure AD Connect Health** no está disponible.
-* Las **actualizaciones automáticas** no están disponibles.
 * La **escritura diferida de contraseñas** está disponible en versión preliminar con Azure AD Connect versión 1.1.570.0 y posteriores.
 * Otros servicios de Azure AD Premium no están disponibles.
 
@@ -61,8 +59,6 @@ Esta nube ha sido compatible con versiones anteriores de DirSync. A partir de la
 
 Características que actualmente no están presentes en Microsoft Azure Government Cloud:
 
-* **Azure AD Connect Health** no está disponible.
-* Las **actualizaciones automáticas** no están disponibles.
 * La **escritura diferida de contraseñas** está disponible en versión preliminar con Azure AD Connect versión 1.1.570.0 y posteriores.
 * Otros servicios de Azure AD Premium no están disponibles.
 

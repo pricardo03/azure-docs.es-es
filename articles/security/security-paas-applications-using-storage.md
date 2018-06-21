@@ -12,39 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 06/20/2018
 ms.author: TomShinder
-ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418227"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295302"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Protección de aplicaciones web y móviles PaaS con Azure Storage
+
 En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
 
 La [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) es una excelente fuente para obtener información detallada sobre Azure Storage y la seguridad.  Este artículo aborda de forma resumida algunos de los conceptos de la Guía de seguridad. Además, se ofrecen vínculos a dicha guía y otras fuentes de información.
 
 ## <a name="azure-storage"></a>Azure Storage
+
 Azure permite implementar y usar el almacenamiento de formas inauditas con un entorno local. Gracias a Azure Storage, se pueden alcanzar altos niveles de escalabilidad y disponibilidad con relativamente poco esfuerzo. Azure Storage no solo constituye la base de Azure Virtual Machines con Windows y Linux, sino que también puede admitir aplicaciones distribuidas de gran tamaño.
 
 Azure Storage proporciona los cuatro servicios siguientes: Blob Storage, Table Storage, Queue Storage y File Storage. Para obtener más información, consulte [Introducción a Microsoft Azure Storage](../storage/storage-introduction.md).
 
 ## <a name="best-practices"></a>Procedimientos recomendados
+
 En este artículo se explican los siguientes procedimientos recomendados:
 
 - Protección de acceso:
    - Firmas de acceso compartido (SAS)
-   - Disco administrado
    - Control de acceso basado en rol (RBAC)
 
 - Cifrado de almacenamiento:
    - Cifrado del lado cliente para datos de gran valor
-   - Azure Disk Encryption para máquinas virtuales (VM)
    - Cifrado del servicio Storage
 
 ## <a name="access-protection"></a>Protección de acceso
+
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Uso de la firma de acceso compartido en lugar de una clave de cuenta de almacenamiento
 
 En una solución de IaaS, normalmente máquinas virtuales Linux o Windows en ejecución, los archivos están protegidos contra la divulgación y las amenazas de alteración a través de mecanismos de control de acceso. En Windows se usaría las [listas de control de acceso (ACL)](../virtual-network/virtual-networks-acl.md) y, en Linux, probablemente [chmod](https://en.wikipedia.org/wiki/Chmod). Básicamente, esto es exactamente lo que haría actualmente si estuviese protegiendo archivos de un servidor de su propio centro de datos.
@@ -66,12 +68,6 @@ SAS permite compartir contenido de la forma que se quiera sin tener que proporci
 
 Para obtener más información, consulte [Uso de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). Para obtener más información sobre los posibles riesgos y las recomendaciones para mitigarlos, consulte [Procedimientos recomendados al usar SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-### <a name="use-managed-disks-for-vms"></a>Uso de discos administrados para máquinas virtuales
-
-Cuando elige [Azure Managed Disks](../storage/storage-managed-disks-overview.md), Azure administra las cuentas de almacenamiento que utiliza para los discos de VM. Todo lo que necesita es elegir el tipo de disco (Premium o Estándar) y el tamaño; Azure Storage se encargará del resto. No tiene que preocuparse por los límites de escalabilidad que podría haber en el caso de utilizar varias cuentas de almacenamiento.
-
-Para obtener más información, consulte [Frequently Asked Questions about managed and unmanaged premium disks](../storage/storage-faq-for-disks.md) (Preguntas más frecuentes sobre los discos premium administrados y no administrados).
-
 ### <a name="use-role-based-access-control"></a>Uso del control de acceso basado en rol
 
 Antes, explicamos cómo utilizar la firma de acceso compartido (SAS) para conceder acceso limitado a los objetos de la cuenta de almacenamiento a otros clientes sin poner en riesgo la clave de cuenta de almacenamiento. En ocasiones, los riesgos asociados a una operación determinada en la cuenta de almacenamiento superan a las ventajas del uso de la SAS. A veces, es más sencillo administrar el acceso de otras formas.
@@ -89,6 +85,7 @@ Para obtener más información sobre RBAC, consulte los siguientes artículos:
 - [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) (para obtener información detallada sobre cómo proteger una cuenta de almacenamiento con RBAC)
 
 ## <a name="storage-encryption"></a>Cifrado de almacenamiento
+
 ### <a name="use-client-side-encryption-for-high-value-data"></a>Uso del cifrado del lado cliente para datos de gran valor
 
 El cifrado del lado cliente permite cifrar datos en tránsito mediante programación antes de cargarse en Azure Storage y descifrarlos de la misma manera cuando se recuperan del almacenamiento.  De este modo, se cifran tanto los datos en tránsito como los que están en reposo.  El cifrado del lado cliente el método más seguro para cifrar los datos, pero hay que realizar cambios mediante programación en la aplicación e implementar procesos de administración de claves.
@@ -97,15 +94,12 @@ El cifrado del lado cliente también permite controlar de forma exclusiva las cl
 
 El cifrado del lado cliente se integra en las bibliotecas de cliente de almacenamiento. de Java y .NET.  Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../storage/storage-client-side-encryption.md) para obtener información sobre cómo cifrar los datos en las aplicaciones cliente, y generar y administrar claves de cifrado.
 
-### <a name="azure-disk-encryption-for-vms"></a>Azure Disk Encryption para máquinas virtuales
-Azure Disk Encryption es una funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS con Windows y Linux. Azure Disk Encryption aprovecha la característica BitLocker de Windows, estándar en el sector, y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo. La solución se integra con Azure Key Vault para ayudarlo a controlar y administrar los secretos y las claves de cifrado de discos en la suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
-
-Consulte [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](azure-security-disk-encryption.md).
-
 ### <a name="storage-service-encryption"></a>Cifrado del servicio Storage
+
 Cuando el [cifrado del servicio Storage](../storage/storage-service-encryption.md) está habilitado en File Storage, los datos se cifran automáticamente con el cifrado AES-256. Microsoft controla todo el proceso de cifrado, descifrado y administración de claves. Esta característica está disponible en los tipos de redundancia LRS y GRS.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este artículo se presenta una serie de procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. Para obtener más información sobre cómo proteger las implementaciones de PaaS, vea:
 
 - [Protección de implementaciones de PaaS](security-paas-deployments.md)

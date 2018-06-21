@@ -3,19 +3,19 @@ title: Adición de un origen de eventos de IoT Hub a Azure Time Series Insights 
 description: En este artículo se describe cómo agregar un origen de evento que está conectado a un centro de IoT Hub a su entorno de Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: sandshadow
+author: ashannon7
 ms.author: edett
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 01ab5017a5f16a0c46ea2bc600cef6bbf81de963
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b970d01c586e016d47b0f0480d73f06211969814
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652532"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294887"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Adición de un origen de eventos de IoT Hub al entorno de Time Series Insights
 Este tutorial describe cómo usar Azure Portal para agregar un origen de eventos que se lea desde un centro de IoT Hub a su entorno de Time Series Insights.

@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5771d3319194ff4952f4c93140594db2d93bb7f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 46d4d095ef71870c7f5b3eabaf66e26797b7331e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593561"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286326"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect en Microsoft Cloud Germany- Versión preliminar pública
 ## <a name="introduction"></a>Introducción
@@ -34,9 +34,7 @@ Actualmente, muchos de los escenarios en [Microsoft Cloud Germany](https://www.m
   * * .windows.net
   * * Listas de revocación de certificados
 * Al iniciar sesión en el directorio de Azure AD tiene que usar una cuenta en el dominio onmicrosoft.de.
-* No están disponibles las características siguientes:
-  * Azure AD Connect Health
-  * Actualizaciones automáticas
+
  
 ## <a name="download"></a>Descargar
 Puede descargar Azure AD Connect en la hoja Azure AD Connect en el portal.  Utilice las instrucciones siguientes para localizar la hoja Azure AD Connect.

@@ -1,19 +1,19 @@
 ---
 title: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 description: Obtenga información acerca de la biblioteca de cliente JavaScript de Azure Time Series Insights y el modelo de programación relacionado.
-author: BryanLa
+author: ashannon7
 manager: timlt
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: bryanla
-ms.openlocfilehash: 6bd8b10100f8cdabca5f87addfea1690dc5fac6c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809505"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295407"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre lo siguiente:
 > * La biblioteca cliente JavaScript de TSI.
 > * Cómo usa la aplicación de ejemplo la biblioteca para visualizar datos de TSI.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Este tutorial usa la característica "Herramientas de desarrollo" (también conocida como DevTools o F12) que se encuentra en los exploradores web más modernos, entre los que se incluyen [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), etc. Si aún no conoce esta característica, puede probarla e indagar sobre ella en el explorador antes de continuar.
 
@@ -269,7 +269,7 @@ El código que se usa para ilustrar los pinceles se muestra en el ejemplo de "Li
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Iniciar sesión en la aplicación de ejemplo de TSI y su origen, y explorarlos.

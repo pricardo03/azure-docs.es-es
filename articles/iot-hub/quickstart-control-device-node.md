@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: a173b77d969697f85eab0d5976e5bc0a1796fe75
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 8d771fb17019e39da93995d0244c8089ea4a08b7
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808577"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286552"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Inicio rápido: controlar un dispositivo conectado a IoT Hub (Node.js)
 
@@ -131,9 +131,8 @@ La aplicación back-end se conecta a un punto de conexión de servicio en IoT Hu
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene pensado pasar a los tutoriales, deje IoT Hub y el grupo de recursos y vuelva a usarlos más adelante.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-Si ya no los va a necesitar más, elimínelos en el portal. Para ello, seleccione el grupo de recursos que contiene la instancia de IoT Hub y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648132"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215531"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
@@ -39,7 +39,7 @@ En la siguiente tabla se describen las principales diferencias y escenarios de u
 
 | | Escenario de uso | 
 | --- | --- | 
-|Instancia administrada de SQL Database |Para aquellos clientes que desean migrar un gran número de aplicaciones desde ubicaciones locales o de IaaS, compiladas automáticamente o proporcionadas por fabricantes de software independientes, con el menor esfuerzo de migración posible, se recomienda Instancia administrada. Mediante el uso totalmente automatizado de [Azure Database Migration Service (DMS)](/sql/dma/dma-overview), los clientes pueden migrar mediante lift-and-shift sus instancias locales de SQL Server a una instancia administrada que ofrezca compatibilidad con SQL Server local y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales.  Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en Instancia administrada de SQL Database mediante las [ventajas para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instancia administrada de SQL Database es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación. |
+|Instancia administrada de SQL Database |Para aquellos clientes que desean migrar un gran número de aplicaciones desde ubicaciones locales o de IaaS, compiladas automáticamente o proporcionadas por fabricantes de software independientes, con el menor esfuerzo de migración posible, se recomienda Instancia administrada. Mediante el uso totalmente automatizado de [Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), los clientes pueden migrar mediante lift-and-shift sus instancias locales de SQL Server a una instancia administrada que ofrezca compatibilidad con SQL Server local y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales.  Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en Instancia administrada de SQL Database mediante las [ventajas para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instancia administrada de SQL Database es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación. |
 |Azure SQL Database (única o grupal) |**Grupos elásticos**: para los clientes que desarrollan nuevas aplicaciones SaaS multiinquilino o que transforman intencionadamente sus aplicaciones locales existentes en una aplicación SaaS multiinquilino, se recomiendan los grupos elásticos. Las ventajas de este modelo son: <br><ul><li>Conversión del modelo de negocio de venta de licencias a la venta de suscripciones de servicio (para fabricantes de software independientes)</li></ul><ul><li>Aislamiento de inquilinos fácil y a toda prueba</li></ul><ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul><ul><li>La posibilidad de escalar horizontalmente sin alcanzar un límite estricto</li></ul>**Bases de datos únicas**: para aquellos clientes que desean desarrollar nuevas aplicaciones que no sean aplicaciones SaaS multiinquilino, se recomienda usar bases de datos únicas. Las ventajas de este modelo son:<ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul>  <ul><li>Rendimiento predecible para cada base de datos</li></ul>|
 |Máquina virtual IaaS de SQL|Para los clientes que necesitan personalizar el sistema operativo o el servidor de bases de datos, así como los clientes que tienen requisitos específicos en cuanto a la ejecución de aplicaciones de terceros en paralelo con SQL Server (en la misma máquina virtual), se recomiendan las máquinas virtuales de SQL o IaaS como la mejor solución|
 |||
@@ -186,11 +186,10 @@ Azure Database Migration Service es un servicio totalmente administrado diseñad
 
 El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob Storage. Las copias de seguridad almacenadas en Azure Blob Storage se pueden restaurar directamente en Instancia administrada. Para restaurar una base de datos SQL existente a una instancia administrada, haga lo siguiente:
 
-- Use [Data Migration Service (DMS)](/sql/dma/dma-overview). Para ver un tutorial, consulte [Migración de SQL Server a Instancia administrada de Azure SQL Database](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar desde un archivo de copia de seguridad de base de datos.
+- Use [Data Migration Service (DMS)](../dms/dms-overview.md). Para ver un tutorial, consulte [Migración de SQL Server a Instancia administrada de Azure SQL Database](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar desde un archivo de copia de seguridad de base de datos.
 - Use el [comando RESTORE de T-SQL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Para ver un tutorial que muestra cómo restaurar el archivo de copia de seguridad de base de datos de Wide World Importers - Standard, consulte [Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL Database](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial muestra que tiene que cargar un archivo de copia de seguridad en el almacenamiento de blobs de Azure y protegerlo utilizando una clave de firma de acceso compartido (SAS).
   - Para obtener información sobre la restauración desde una URL, vea [Restauración de copias de seguridad nativas desde la dirección URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Importación desde un archivo BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Características de SQL admitidas 
 

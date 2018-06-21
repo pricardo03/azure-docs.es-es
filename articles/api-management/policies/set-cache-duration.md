@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 8640668ae51c113cc467501b44dbd03b257325c3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8f7126f5cd6bf6f142c603e4b1baee4a6c20dea2
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937290"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287558"
 ---
 # <a name="set-response-cache-duration"></a>Establecimiento de la duración en caché de las respuestas
 
@@ -28,7 +28,7 @@ Este artículo incluye un ejemplo de directiva de Azure API Management que muest
 
 Pegue el código en el bloque de **entrada**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Set cache duration using response cache control header.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Set cache duration using response cache control header.policy.xml)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
