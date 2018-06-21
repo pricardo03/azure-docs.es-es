@@ -1,28 +1,30 @@
 ---
-title: "Diseño de identidades híbridas: requisitos de protección de datos en Azure | Microsoft Docs"
-description: "Al planear la solución de identidad híbrida, identifique los requisitos de protección de datos de su empresa y las opciones disponibles que mejor satisfacen esos requisitos."
-documentationcenter: 
+title: 'Diseño de identidades híbridas: requisitos de protección de datos en Azure | Microsoft Docs'
+description: Al planear la solución de identidad híbrida, identifique los requisitos de protección de datos de su empresa y las opciones disponibles que mejor satisfacen esos requisitos.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 423624e999e4170ceddf097125e4fb3e9a40384b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800928"
 ---
-# <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida
-El primer paso para proteger los datos es identificar quién puede tener acceso a ellos. Como parte de este proceso, necesita contar con una solución de identidad que se pueda integrar con su sistema con el fin de proporcionar funcionalidades de autenticación y autorización. Con frecuencia la autenticación y la autorización se confunden y no se comprende bien su función. En realidad, son bastante diferentes, tal como se muestra en la ilustración siguiente:
+# <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida
+El primer paso para proteger los datos es identificar quién puede acceder a esos datos. Además, debe tener una solución de identidad que se puede integrar con el sistema para proporcionar funcionalidades de autenticación y autorización. Con frecuencia la autenticación y la autorización se confunden y no se comprende bien su función. En realidad, son diferentes, tal como se muestra en la ilustración siguiente:
 
 ![](./media/hybrid-id-design-considerations/mobile-devicemgt-lifecycle.png)
 
@@ -36,9 +38,9 @@ Al planear la solución de identidad híbrida, debe comprender los requisitos de
 > 
 
 ## <a name="determine-data-protection-requirements"></a>Determinación de los requisitos de protección de datos
-En la era de la movilidad, el objetivo de la mayoría de las empresas es permitir a los usuarios ser productivos con sus dispositivos móviles, tanto de forma local como remota y, desde cualquier parte, con el fin de aumentar la productividad. Si bien este podría ser un objetivo común, las empresas que tienen tales requisitos también se sienten preocupadas respecto a la cantidad de amenazas que se deben mitigar a fin de proteger los datos de la empresa y mantener la privacidad de los usuarios. En este sentido, cada empresa puede tener requisitos diferentes; diferentes reglas de cumplimiento que variarán según la industria para la que trabaje la empresa y que conducirán a diferentes decisiones de diseño. 
+En la era de la movilidad, el objetivo de la mayoría de las empresas es permitir a los usuarios ser productivos con sus dispositivos móviles, tanto de forma local como remota y, desde cualquier parte, con el fin de aumentar la productividad. Las compañías que tienen tales requisitos también se sienten preocupadas respecto a la cantidad de amenazas que se deben mitigar a fin de proteger los datos de la empresa y mantener la privacidad de los usuarios. En este sentido, cada empresa puede tener requisitos diferentes; diferentes reglas de cumplimiento que variarán según la industria para la que trabaje la empresa y que conducirán a diferentes decisiones de diseño. 
 
-Sin embargo, hay algunos aspectos de seguridad que se deben explorar y validar, con independencia de la industria, que se explican en la sección siguiente.
+Sin embargo, hay algunos aspectos de seguridad que se deben explorar y validar, con independencia de la industria.
 
 ## <a name="data-protection-paths"></a>Rutas de protección de datos
 ![](./media/hybrid-id-design-considerations/data-protection-paths.png)
@@ -52,7 +54,7 @@ En el diagrama anterior, el componente de identidad será el primero en comproba
 3. Protección de datos en reposo en el entorno local.
 4. Protección de datos mientras están en reposo en la nube.
 
-Aunque la solución de identidad híbrida no ofrece directamente los controles técnicos que permiten al departamento de TI proteger los datos en cada una de esas fases, es necesario que la solución de identidad híbrida sea capaz de aprovechar los recursos de administración de identidades locales y en la nube con el fin de identificar al usuario antes de que se le conceda acceso a los datos. Al planear la solución de identidad híbrida, asegúrese de que puede responder a las siguientes preguntas según los requisitos de su organización:
+Es necesario que la solución de identidad híbrida sea capaz de aprovechar los recursos de administración de identidades tanto locales como en la nube para identificar al usuario antes de concederle acceso a los datos. Al planear la solución de identidad híbrida, asegúrese de que puede responder a las siguientes preguntas según los requisitos de su organización:
 
 ## <a name="data-protection-at-rest"></a>Protección de datos en reposo
 Con independencia de dónde se encuentren los datos en reposo (dispositivo, nube o local), es importante realizar una evaluación para comprender las necesidades de la organización al respecto. En este área, asegúrese de plantearse las siguientes cuestiones:
@@ -70,10 +72,11 @@ Los datos en tránsito entre el dispositivo y el centro de datos o entre el disp
 * ¿Mantiene la administración de identidades en la nube el tráfico al almacén de directorios firmado y dentro de él (dentro y entre centros de datos)?
 
 ## <a name="compliance"></a>Cumplimiento normativo
-Las normas, las leyes y los requisitos de cumplimiento normativo variarán según la industria a la que pertenezca su empresa. Las empresas de industrias muy reguladas deben solucionar los problemas de administración de identidades relacionados con los aspectos de cumplimiento. Normativas como Sarbanes-Oxley (SOX), la Ley de transferencia y responsabilidad de seguros de salud (HIPAA), la Ley de Gramm-Leach-Bliley (GLBA) y el Estándar de Seguridad de Datos para la Industria de Tarjeta de Pago (PCI DSS) son muy estrictos respecto a la identidad y el acceso. La solución de identidad híbrida que su empresa adopte debe tener las funcionalidades básicas que satisfagan los requisitos de una o varias de estas normativas. En este área, asegúrese de plantearse las siguientes cuestiones:
+Las normas, las leyes y los requisitos de cumplimiento normativo variarán según la industria a la que pertenezca su empresa. Las empresas de industrias muy reguladas deben solucionar los problemas de administración de identidades relacionados con los aspectos de cumplimiento. Normativas como Sarbanes-Oxley (SOX), la Ley de transferencia y responsabilidad de seguros de salud (HIPAA), la Ley de Gramm-Leach-Bliley (GLBA) y el Estándar de Seguridad de Datos para la Industria de Tarjeta de Pago (PCI DSS) son estrictos respecto a la identidad y el acceso. La solución de identidad híbrida que su empresa adopte debe tener las funcionalidades básicas que satisfagan los requisitos de una o varias de estas normativas. En este área, asegúrese de plantearse las siguientes cuestiones:
 
 * ¿Cumple la solución de identidad híbrida los requisitos normativos de su empresa?
-* ¿Integra la solución de identidad híbrida funcionalidades que permiten a su empresa satisfacer los requisitos de cumplimiento normativo? 
+* ¿Integra la solución de identidad híbrida 
+* funcionalidades que permiten a su empresa satisfacer los requisitos de cumplimiento normativo? 
 
 > [!NOTE]
 > Asegúrese de anotar cada respuesta y de que comprende las razones que se esconden detrás. [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) se recorren las opciones disponibles y las ventajas y desventajas de cada una.  Las respuestas que obtenga partir de estas preguntas le servirán para seleccionar la opción que mejor se adapte a sus necesidades empresariales.

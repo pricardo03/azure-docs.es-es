@@ -1,6 +1,6 @@
 
 ### <a name="cacheskuname"></a>cacheSKUName
-El nivel de precios de la nueva Caché en Redis de Azure.
+El nivel de precios del nuevo servicio Azure Redis Cache.
 
     "cacheSKUName": {
       "type": "string",
@@ -33,7 +33,7 @@ La familia de la SKU.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-El tamaño de la nueva instancia de Caché en Redis de Azure. 
+El tamaño de la nueva instancia de Azure Redis Cache. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -53,5 +53,5 @@ El tamaño de la nueva instancia de Caché en Redis de Azure.
     }
 
 
-La plantilla define los valores permitidos para este parámetro (0, 1, 2, 3, 4, 5 o 6) y asigna un valor predeterminado (1) si no se especifica ningún valor. Los números corresponden a los siguientes tamaños de caché: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+La plantilla define los valores permitidos para este parámetro (0, 1, 2, 3, 4, 5 o 6) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los números corresponden a los siguientes tamaños de caché: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

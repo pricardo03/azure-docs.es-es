@@ -5,14 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 21681a1af64754ef569f2ad4ff92f85a598007ac
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323789"
 ---
 # <a name="write-accelerator"></a>Acelerador de escritura
 El Acelerador de escritura es una capacidad de disco para las máquinas virtuales (VM) de la serie M en Premium Storage con Azure Managed Disks exclusivamente. Como el nombre indica, el propósito de la funcionalidad es mejorar la latencia de E/S de las escrituras en Azure Premium Storage. El Acelerador de escritura se adecua perfectamente a las situaciones en las que las actualizaciones del archivo de registro deben persistir en el disco de una manera muy eficiente para bases de datos modernas.
@@ -48,11 +49,13 @@ Hay límites en los discos duros virtuales de Azure Premium Storage por máquina
 
 | SKU de la máquina virtual | Número de discos de Acelerador de escritura | IOPS de discos de Acelerador de escritura por máquina virtual |
 | --- | --- | --- |
-| M128ms | 16 | 8000 |
-| M128s | 16 | 8000 |
-| M64ms | 8 | 4000 |
-| M64s | 8 | 4000 | 
+| M128ms, 128s | 16 | 8000 |
+| M64ms, M64ls, M64s | 8 | 4000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 2000 | 
+| M16ms, M16s | 2 | 1000 | 
+| M8ms, M8s | 1 | 500 | 
 
+Los límites de IOPS son por máquina virtual y *no* por disco. Todos los discos del Acelerador de escritura comparten el mismo límite de IOPS por máquina virtual.
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Habilitación del Acelerador de escritura en un disco específico
 En las secciones siguientes se describe cómo el Acelerador de escritura se pueden habilitar en los VHD de Azure Premium Storage.
 
@@ -63,29 +66,29 @@ En este momento, los requisitos previos siguientes se aplican al uso del Acelera
 - Los discos en los que desea aplicar el Acelerador de escritura de Azure deben ser [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) en Premium Storage.
 - Debe usar una máquina virtual de la serie M
 
-### <a name="enabling-through-power-shell"></a>Habilitación a través de PowerShell
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Habilitación del Acelerador de escritura mediante Azure PowerShell
 El módulo de Azure PowerShell a partir de la versión 5.5.0 incluye los cambios en los cmdlets pertinentes para habilitar o deshabilitar el Acelerador de escritura para discos específicos de Azure Premium Storage.
 Con el fin de habilitar o implementar los discos compatibles con el Acelerador de escritura, se modificaron los comandos de PowerShell siguientes y se extendieron para que aceptaran un parámetro para el Acelerador de escritura.
 
 Se agregó "WriteAccelerator", un nuevo parámetro de modificador, a los cmdlets siguientes: 
 
-- Set-AzureRmVMOsDisk
-- Add-AzureRmVMDataDisk
-- Set-AzureRmVMDataDisk
-- Add-AzureRmVmssDataDisk
+- [Set-AzureRmVMOsDisk](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
+- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
 
 Si no se proporciona el parámetro, la propiedad se establece en false y se implementarán discos no compatibles con el Acelerador de escritura.
 
 Se agregó "OsDiskWriteAccelerator", un nuevo parámetro de modificador, a los cmdlets siguientes: 
 
-- Set-AzureRmVmssStorageProfile
+- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
 
 Si no se proporciona el parámetro, la propiedad se establece en false y se suministrarán discos que no usan el Acelerador de escritura.
 
 Se agregó "OsDiskWriteAccelerator", un nuevo parámetro booleano opcional (que no admite valores NULL), a los cmdlets siguientes: 
 
-- Update-AzureRmVM
-- Update-AzureRmVmss
+- [Update-AzureRmVM](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
+- [Update-AzureRmVmss](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
 
 Especifique $true o $false para controlar la compatibilidad del Acelerador de escritura con los discos.
 
@@ -158,12 +161,28 @@ Debe adaptar los nombres de la máquina virtual, el disco y el grupo de recursos
 > [!Note]
 > Si ejecuta el script anterior, desconectará el disco especificado, habilitará el Acelerador de escritura en el disco y, luego, lo volverá a adjuntar.
 
-### <a name="enabling-through-azure-portal"></a>Habilitación a través de Azure Portal
+### <a name="enabling-azure-write-accelerator-using-the-azure-portal"></a>Habilitación del Acelerador de escritura mediante Azure Portal
 
-Puede habilitar el Acelerador de escritura a través del Portal, donde especifique la configuración de caché del disco: 
+Puede habilitar el Acelerador de escritura a través del portal, donde especifique la configuración de caché del disco: 
 
 ![Acelerador de escritura en Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
+## <a name="enabling-through-azure-cli"></a>Habilitación a través de la CLI de Azure
+Puede usar la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) para habilitar el acelerador de escritura. 
+
+Para habilitar el Acelerador de escritura en un disco existente, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update). Puede usar los siguientes ejemplos si sustituye los valores diskName, VMName y ResourceGroup por los suyos propios:
+ 
+```
+az vm update -g group1 -n vm1 -write-accelerator 1=true
+```
+Para conectar un disco con el Acelerador de escritura habilitado, use [az vm disk attach](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), puede utilizar el ejemplo siguiente si sustituye los valores por los suyos propios:
+```
+az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator
+```
+Para deshabilitar el Acelerador de escritura, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), estableciendo las propiedades en false: 
+```
+az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false
+```
 
 ### <a name="enabling-through-rest-apis"></a>Habilitación a través de las API de REST
 Para implementar a través de la API de REST de Azure, necesita instalar ARMclient de Azure.

@@ -1,24 +1,19 @@
 ---
-title: " Eliminación de un almacén de Recovery Services en Azure | Microsoft Docs "
-description: "En este artículo se explica cómo eliminar un almacén de Recovery Services. El artículo incluye pasos para solucionar los problemas que se producen cuando se intenta eliminar un almacén, pero no puede."
+title: Eliminación de un almacén de Recovery Services en Azure
+description: En este artículo se explica cómo eliminar un almacén de Recovery Services. El artículo incluye pasos para solucionar los problemas que se producen cuando se intenta eliminar un almacén, pero no puede.
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 4f4a92159b01b197984130c15195419e1b166fd3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal
+ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605347"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 En este artículo se explica cómo eliminar un almacén de Recovery Services en Azure Portal. Si tenía almacenes de Backup, estos se han convertido en almacenes de Recovery Services.   

@@ -1,24 +1,19 @@
 ---
-title: Llamada a un webhook cuando se activa una alerta del registro de actividad de Azure | Microsoft Docs
-description: "Aprenda a enrutar los eventos de registro de actividad a otros servicios para acciones personalizadas. Por ejemplo, puede enviar mensajes SMS, registrar errores o notificar a un equipo a través del servicio de chat o mensajería."
+title: Llamada a un webhook cuando se activa una alerta del registro de actividad de Azure (clásica)
+description: Aprenda a enrutar los eventos de registro de actividad a otros servicios para acciones personalizadas. Por ejemplo, puede enviar mensajes SMS, registrar errores o notificar a un equipo a través del servicio de chat o mensajería.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: e825d0f2487c20c8c7f3d210d7180b07742d7173
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262467"
 ---
 # <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Llamada a un webhook cuando se activa una alerta del registro de actividad de Azure
 Puede usar webhooks para enrutar una notificación de alerta de Azure a otros sistemas para postprocesamiento o para acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían mensajes SMS, para registrar errores, para notificar a un equipo mediante servicios de chat y mensajería o llevar a cabo otras acciones. También puede configurar una alerta de registro de actividad para enviar correo electrónico cuando se activa una alerta.

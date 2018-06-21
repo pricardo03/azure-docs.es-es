@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809580"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Supervisión del rendimiento con Log Analytics
 
@@ -73,19 +74,27 @@ Puede descargar y modificar esta plantilla para implementar un clúster que sati
 
 Ahora que ha agregado el agente de OMS, vaya al portal de Log Analytics para elegir los contadores de rendimiento que desea recopilar. 
 
-1. En Azure Portal, vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfOMSWorkspace\>** y vaya a su página de información general. En la parte superior, haga clic en el vínculo para ir al portal de OMS.
+1. En Azure Portal, vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Cuando se encuentre en el portal, verá un icono en forma de grafo para cada una de las soluciones habilitadas, entre ellos uno para Service Fabric. Haga clic en este para ir a la solución Service Fabric Analytics. 
+2. Haga clic en **Área de trabajo de OMS**.
 
-3. Ahora verá algunos iconos con grafos para los eventos de canal operativo y Reliable Services. Haga clic con el botón derecho en el icono de engranaje para ir a la página de configuración.
+3. Haga clic en **Configuración avanzada**.
 
-    ![Configuración de OMS](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. Haga clic en **Datos** y luego en **Contadores de rendimiento de Windows o Linux**. Existe una lista de contenedores predeterminados que puede elegir para habilitar, y también puede establecer el intervalo para la recopilación. También puede agregar [contadores de rendimiento adicionales](service-fabric-diagnostics-event-generation-perf.md) para recopilar. En este [artículo](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx) puede comprobar el formato adecuado.
 
-4. En la página de configuración, haga clic en Datos y elija Contadores de rendimiento de Windows o Linux. Existe una lista con algunos predeterminados que puede elegir para habilitar, y también puede establecer el intervalo para la recopilación. También puede agregar [contadores de rendimiento adicionales](service-fabric-diagnostics-event-generation-perf.md) para recopilar. En este [artículo](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx) puede comprobar el formato adecuado.
+5. Haga clic en **Guardar** y luego en **Aceptar**.
 
-Una vez que estén configurados los contadores, regrese a la página de soluciones y pronto verá que los datos fluyen y se muestran en los grafos bajo **Métricas de nodo**. También puede consultar los datos del contador de rendimiento de forma similar a los eventos de clúster y filtrar en los nodos, el nombre del contador de rendimiento y los valores mediante el lenguaje de consulta Kusto. 
+6. Cierre la hoja Configuración avanzada.
 
-![Consulta de contador de rendimiento de OMS](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. Bajo el encabezado General, haga clic en **Información general**.
+
+8. Verá iconos en forma de grafo para cada una de las soluciones habilitadas, entre ellos uno para Service Fabric. Haga clic en el grafo de **Service Fabric** para ir a la solución Service Fabric Analytics.
+
+9. Verá algunos iconos con grafos para los eventos de canal operativo y Reliable Services. La representación gráfica de los datos que fluyen para los contadores que seleccionó aparecerán bajo la métricas de nodo. 
+
+10. Haga clic en el gráfico Métrica de contenedor para ver detalles adicionales. También puede consultar los datos del contador de rendimiento de forma similar a los eventos de clúster y filtrar en los nodos, el nombre del contador de rendimiento y los valores mediante el lenguaje de consulta Kusto.
+
+![Consulta de contador de rendimiento de OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

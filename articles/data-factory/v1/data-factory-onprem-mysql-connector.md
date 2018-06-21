@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 685998729e9aa01f60c80735b5f2f4d278769bdb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9075c774d0b56b6609616205e30b5a7d484fa031
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808101"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Movimiento de datos de MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +43,7 @@ La puerta de enlace es necesaria incluso si la base de datos MySQL está hospeda
 > Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
 ## <a name="supported-versions-and-installation"></a>Versiones compatibles e instalación
-Para que la puerta de enlace de administración de datos se conecte a la Base de datos MySQL, deberá instalar el [conector MySQL/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versión 6.6.5 o superior) en el mismo sistema que la puerta de enlace de administración de datos. Este controlador de 32 bits es compatible con la puerta de enlace de administración de datos de 64 bits. Se admite la versión 5.1 de MySQL o versiones posteriores.
+Para que la puerta de enlace de administración de datos se conecte a la Base de datos MySQL, deberá instalar el [conector MySQL/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versión entre 6.6.5 y 6.10.7) en el mismo sistema que la puerta de enlace de administración de datos. Este controlador de 32 bits es compatible con la puerta de enlace de administración de datos de 64 bits. Se admite la versión 5.1 de MySQL o versiones posteriores.
 
 > [!TIP]
 > Si se produce error en "Error de autenticación porque la parte remota cerró la secuencia de transporte.", considere la posibilidad de actualizar el conector MySQL/Net a una versión posterior.

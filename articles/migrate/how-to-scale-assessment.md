@@ -3,19 +3,19 @@ title: Escalado de detección y evaluación mediante Azure Migrate | Microsoft D
 description: Se describe cómo evaluar un número elevado de máquinas locales mediante el servicio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365338"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214698"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
-En este artículo se describe cómo evaluar un número elevado de máquinas virtuales (VM) locales mediante [Azure Migrate](migrate-overview.md). Azure Migrate evalúa máquinas para comprobar si son adecuadas para la migración a Azure. El servicio proporciona estimaciones de tamaño y costo para ejecutar las máquinas en Azure.
+Azure Migrate tiene un límite de 1500 máquinas por proyecto. En este artículo se describe cómo evaluar un número elevado de máquinas virtuales (VM) locales mediante [Azure Migrate](migrate-overview.md).   
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -24,7 +24,9 @@ En este artículo se describe cómo evaluar un número elevado de máquinas virt
 - **Permisos**: en vCenter Server, necesitará permisos para crear una máquina virtual mediante la importación de un archivo en formato OVA.
 - **Configuración de estadísticas**: la configuración de las estadísticas de vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. Si el nivel es inferior al 3, la evaluación funcionará, pero no se recopilarán datos de rendimiento del almacenamiento y la red. El tamaño de las recomendaciones en este caso se basará en los datos de rendimiento de los datos de CPU y memoria, y de los datos de configuración de adaptadores de red y disco.
 
-## <a name="plan-azure-migrate-projects"></a>Planeación de proyectos de Azure Migrate
+## <a name="plan-your-migration-projects-and-discoveries"></a>Planificación de los proyectos de migración y las detecciones
+
+Un único recopilador de Azure Migrate admite la detección desde varias instancias de vCenter Server (una detrás de otra) y también admite la detección a varios proyectos de migración (uno detrás de otro). El recopilador funciona en un modelo de disparo y olvido; una vez que se realiza una detección, puede usar el mismo recopilador para recopilar datos de una instancia de vCenter Server diferente o enviarlos a un proyecto de migración distinto.
 
 Planee las detecciones y evaluaciones en función de los límites siguientes:
 
@@ -34,25 +36,35 @@ Planee las detecciones y evaluaciones en función de los límites siguientes:
 | Detección  | 1500             |
 | Evaluación | 1500             |
 
-<!--
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
-- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
-- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
-- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
-    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
-      -->
-
-## <a name="plan-multiple-discoveries"></a>Planeación de varias detecciones
-
-Puede usar la misma instancia de Azure Migrate Collector para realizar varias detecciones en uno o varios proyectos. Tenga en cuenta estas consideraciones de planeación:
+Tenga en cuenta estas consideraciones de planeación:
 
 - Al realizar una detección mediante Azure Migrate Collector, puede establecer el ámbito de detección en una carpeta, un centro de datos, un clúster o un host de vCenter Server.
 - Para hacer más de una detección, verifique en vCenter Server si las máquinas virtuales que desea detectar están en carpetas, centros de datos, clústeres o hosts que admiten la limitación de 1500 máquinas.
 - Se recomienda que, para los fines de evaluación, mantenga las máquinas con interdependencias dentro del mismo proyecto y de la misma evaluación. En vCenter Server, asegúrese de que las máquinas dependientes están en la misma carpeta, centro de datos o clúster para la evaluación.
 
+Dependiendo del escenario, puede dividir las detecciones como se indica a continuación:
 
-## <a name="create-a-project"></a>Crear un proyecto
+### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Varias instancias de vCenter Server con menos de 1500 máquinas virtuales
+
+Si tiene varias instancias de vCenter Server en su entorno y el número total de máquinas virtuales es inferior a 1500, puede usar un único recopilador y un solo proyecto de migración para detectar todas las máquinas virtuales en todas las instancias de vCenter Server. Puesto que el recopilador detecta las instancias de vCenter de una en una, puede ejecutar el mismo recopilador en todas las instancias de vCenter Server, una detrás de otra, y apuntar dicho recopilador al mismo proyecto de migración. Después de completar todas las detecciones, puede crear las evaluaciones de las máquinas.
+
+### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Varias instancias de vCenter Server con más de 1500 máquinas virtuales
+
+Si tiene varias instancias de vCenter Server con menos de 1500 máquinas virtuales por vCenter Server, pero más de 1500 máquinas virtuales entre todas las instancias de vCenter Server, debe crear varios proyectos de migración (un proyecto de migración solamente puede contener 1500 máquinas virtuales). Puede conseguirlo creando un proyecto de migración por instancia de vCenter Server y dividir las detecciones. Puede usar un único recopilador para detectar cada instancia de vCenter Server (una detrás de otra). Si desea que las detecciones se inicien al mismo tiempo, también puede implementar varios dispositivos y ejecutar las detecciones en paralelo.
+
+### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Más de 1500 máquinas en una sola instancia de vCenter Server
+
+Si tiene más de 1500 máquinas virtuales en una sola instancia de vCenter Server, debe dividir la detección en varios proyectos de migración. Para dividir las detecciones, puede aprovechar el campo Ámbito en el dispositivo y especificar el host, el clúster, la carpeta o el centro de datos que desea detectar. Por ejemplo, si tiene dos carpetas en vCenter Server, una con 1000 máquinas virtuales (Carpeta1) y otra con 800 máquinas virtuales (Carpeta2), puede usar un único recopilador y realizar dos detecciones. En la primera detección, puede especificar Carpeta1 como el ámbito y apuntarla al primer proyecto de migración; una vez completada la primera detección, puede usar el mismo recopilador, cambiar su ámbito a Carpeta2 y los detalles del proyecto de migración al segundo proyecto de migración y realizar la segunda detección.
+
+### <a name="multi-tenant-environment"></a>Entorno multiinquilino
+
+Si tiene un entorno que se comparte entre los inquilinos y no desea detectar las máquinas virtuales de un inquilino en la suscripción de otro inquilino, puede usar el campo Ámbito en el dispositivo recopilador para definir el ámbito de la detección. Si los inquilinos comparten hosts, cree una credencial que tenga acceso de solo lectura solamente a las máquinas virtuales que pertenecen al inquilino específico y, luego, use esta credencial en el dispositivo recopilador y especifique el ámbito como el host para realizar la detección. Como alternativa, también puede crear carpetas en vCenter Server (por ejemplo, carpeta1 para inquilino1 y carpeta2 para inquilino2), en el host compartido, mover las máquinas virtuales de inquilino1 a carpeta1 y las de inquilino2 a carpeta2 y, por último, definir el ámbito de las detecciones en el recopilador en consecuencia especificando la carpeta apropiada.
+
+## <a name="discover-on-premises-environment"></a>Detectar el entorno local
+
+Cuando esté listo con el plan, puede iniciar la detección de las máquinas virtuales locales:
+
+### <a name="create-a-project"></a>Crear un proyecto
 
 Cree un proyecto de Azure Migrate según sus necesidades:
 
@@ -62,11 +74,11 @@ Cree un proyecto de Azure Migrate según sus necesidades:
 4. Cree un nuevo grupo de recursos.
 5. Especifique la ubicación en la que desea crear el proyecto y seleccione **Crear**. Tenga en cuenta que todavía puede evaluar las máquinas virtuales para una ubicación de destino diferente. La ubicación especificada para el proyecto se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales.
 
-## <a name="set-up-the-collector-appliance"></a>Configuración del dispositivo de recopilador
+### <a name="set-up-the-collector-appliance"></a>Configuración del dispositivo de recopilador
 
 Azure Migrate crea una VM local conocida como el dispositivo de recopilador. Esta máquina virtual detecta máquinas virtuales de VMware locales y envía metadatos sobre ellas al servicio Azure Migrate. Para configurar la aplicación del recopilador, descargue un archivo OVA e impórtelo a la instancia de vCenter Server local.
 
-### <a name="download-the-collector-appliance"></a>Descarga del dispositivo de recopilador
+#### <a name="download-the-collector-appliance"></a>Descarga del dispositivo de recopilador
 
 Si tiene varios proyectos, tiene que descargar la aplicación del recopilador solo una vez en vCenter Server. Después de descargar y configurar la aplicación, ejecútela en cada proyecto y especifique el identificador de proyecto exclusivo y la clave.
 
@@ -75,7 +87,7 @@ Si tiene varios proyectos, tiene que descargar la aplicación del recopilador so
 3. En **Copiar las credenciales del proyecto**, copie la clave y el identificador del proyecto. Los necesitará cuando configure el recopilador.
 
 
-### <a name="verify-the-collector-appliance"></a>Comprobación del dispositivo de recopilador
+#### <a name="verify-the-collector-appliance"></a>Comprobación del dispositivo de recopilador
 
 Compruebe que el archivo OVA es seguro, antes de implementarlo:
 
@@ -121,7 +133,7 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo:
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-## <a name="create-the-collector-vm"></a>Creación de la VM de recopilador
+### <a name="create-the-collector-vm"></a>Creación de la VM de recopilador
 
 Importe el archivo descargado a vCenter Server:
 
@@ -137,7 +149,7 @@ Importe el archivo descargado a vCenter Server:
 7. En **Network Mapping** (Asignación de red), especifique la red a la que se conectará la VM de recopilador. La red necesita conectividad a Internet, para enviar metadatos a Azure.
 8. Revise y confirme la configuración y, a continuación, seleccione **Finish** (Finalizar).
 
-## <a name="identify-the-id-and-key-for-each-project"></a>Identificación del identificador y de la clave de cada proyecto
+### <a name="identify-the-id-and-key-for-each-project"></a>Identificación del identificador y de la clave de cada proyecto
 
 Si tiene varios proyectos, asegúrese de identificar el identificador y la clave de cada uno. Necesita la clave al ejecutar el recopilador para detectar las máquinas virtuales.
 
@@ -145,7 +157,7 @@ Si tiene varios proyectos, asegúrese de identificar el identificador y la clave
 2. En **Copiar las credenciales del proyecto**, copie la clave y el identificador del proyecto.
     ![Copia de las credenciales del proyecto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-## <a name="set-the-vcenter-statistics-level"></a>Configuración del nivel de estadísticas de vCenter
+### <a name="set-the-vcenter-statistics-level"></a>Configuración del nivel de estadísticas de vCenter
 A continuación, se muestra la lista de contadores de rendimiento recopilados durante la detección. Los contadores están disponibles de forma predeterminada en distintos niveles de vCenter Server.
 
 Se recomienda establecer el nivel común más alto (3) para el nivel de estadísticas, para que todos los contadores se recopilen correctamente. Si tiene vCenter establecido en un nivel inferior, solo algunos contadores pueden recopilarse por completo y los demás estarán establecidos en 0. Por lo tanto, puede que la evaluación muestre datos incompletos.
@@ -166,7 +178,7 @@ En la tabla siguiente también se muestran los resultados de la evaluación que 
 > [!WARNING]
 > Si configuró un nivel de estadística más alto, los contadores de rendimiento pueden tardar hasta un día en generarse. Por lo tanto, se recomienda ejecutar la detección después de un día.
 
-## <a name="run-the-collector-to-discover-vms"></a>Ejecución del recopilador para detectar VM
+### <a name="run-the-collector-to-discover-vms"></a>Ejecución del recopilador para detectar VM
 
 Para cada detección que necesite realizar, ejecute el recopilador para detectar máquinas virtuales en el ámbito requerido. Ejecute las detecciones una detrás de otra. No se admiten las detecciones simultáneas, y cada detección debe tener un ámbito distinto.
 
@@ -194,7 +206,7 @@ Para cada detección que necesite realizar, ejecute el recopilador para detectar
 7.  En **View collection progress** (Ver progreso de recopilación), supervise el proceso de detección y compruebe que los metadatos recopilados de las máquinas virtuales se encuentran dentro del ámbito. El recopilador proporciona un tiempo de detección aproximado.
 
 
-### <a name="verify-vms-in-the-portal"></a>Comprobación de VM en el portal
+#### <a name="verify-vms-in-the-portal"></a>Comprobación de VM en el portal
 
 El tiempo de detección depende de cuántas VM se están detectando. Normalmente, para 100 máquinas virtuales, la detección tarda alrededor de una hora en completarse después de que el recopilador finaliza la ejecución.
 

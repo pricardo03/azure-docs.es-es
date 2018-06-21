@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 56b0f8e24dfc38b542f4bbfc7975f1704d70f22c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725350"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -45,38 +46,39 @@ Para información sobre qué enlaces están en versión preliminar o aprobados p
 
 ## <a name="register-binding-extensions"></a>Registro de extensiones de enlace
 
-En la versión 2.x del entorno de ejecución de Azure Functions, debe registrar explícitamente las [extensiones de enlace](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) que utilice en la aplicación de función. 
+En la versión 2.x del entorno de ejecución de Azure Functions, debe registrar explícitamente las extensiones de enlace (tipos de enlace) que utilice en la aplicación de función. 
 
-Las extensiones se entregan como paquetes NuGet, donde el nombre del paquete normalmente comienza con [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La forma de instalar y registrar las extensiones de enlace depende de cómo desarrolle sus funciones: 
+La versión 2.x del entorno de ejecución de Functions está actualmente en fase preliminar. Para obtener información sobre cómo establecer que una aplicación de función use la versión 2.x del entorno de ejecución de Functions, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](set-runtime-version.md).
+
+Hay un conjunto principal de enlaces en la versión 2.x que se registran automáticamente, por lo que no es necesario registrarlos explícitamente: HTTP, el temporizador y Azure Storage (blobs, colas y tablas). 
+
+Las extensiones se entregan como paquetes NuGet, donde el nombre del paquete normalmente comienza con [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La forma de registrar las extensiones de enlace depende de cómo desarrolle sus funciones: 
 
 + [Localmente en C# con Visual Studio o VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [Localmente con Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [En Azure Portal](#azure-portal-development) 
 
-En la versión 2.x hay un conjunto de enlaces que no se proporcionan como extensiones. No es necesario registrar extensiones para los siguientes desencadenadores y enlaces: HTTP, el temporizador y Azure Storage. 
-
-Para obtener información sobre cómo establecer que una aplicación de función use la versión 2.x del entorno de ejecución de Functions, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](set-runtime-version.md). La versión 2.x del entorno de ejecución de Functions está actualmente en fase preliminar. 
-
 Las versiones del paquete que se muestran en esta sección se proporcionan únicamente como ejemplos. Compruebe el [sitio de NuGet.org](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) para determinar qué versión de una extensión determinada requieren otras dependencias de la aplicación de función.    
 
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Desarrollo local con C# mediante Visual Studio o VS Code 
+### <a name="local-csharp"></a>Desarrollo local con C# mediante Visual Studio o VS Code
 
-Cuando utilice Visual Studio o Visual Studio Code para desarrollar localmente funciones en C#, basta con agregar el paquete NuGet de la extensión. 
+Cuando utilice Visual Studio o Visual Studio Code para desarrollar localmente funciones en C#, instale el paquete NuGet de la extensión. 
 
 + **Visual Studio**: use las herramientas del Administrador de paquetes NuGet. El siguiente comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) instala la extensión de Azure Cosmos DB desde la Consola del Administrador de paquetes:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
+
 + **Visual Studio Code**: puede instalar paquetes desde el símbolo del sistema mediante el comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) de la CLI. para .NET, como se indica a continuación:
 
-    ```
+    ```terminal
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
     ```
 
 ### <a name="local-development-azure-functions-core-tools"></a>Desarrollo local con Azure Functions Core Tools
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 ### <a name="azure-portal-development"></a>Desarrollo con Azure Portal
 

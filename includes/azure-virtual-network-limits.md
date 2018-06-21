@@ -1,4 +1,21 @@
-<a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción.
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: networking
+author: jimdial
+ms.service: networking
+ms.topic: include
+ms.date: 06/12/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568133"
+---
+<a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -18,7 +35,7 @@
 | Listas de control de acceso (ACL) de extremo |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
-Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción.
+Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -58,7 +75,10 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Configuraciones de direcciones IP de front-end, estándar | 10 | 600 |
 | Grupo de back-end, básico | 100, conjunto de disponibilidad único | 100, conjunto de disponibilidad único |
 | Grupo de back-end, estándar | 1000, red virtual única | 1000, red virtual única |
+| Recursos de back-end por Load Balancer, Estándar &ast; | 50 | 150 |
 | Puertos de alta disponibilidad, estándar | 1 por front-end interno | 1 por front-end interno |
+
+&ast; hasta 150 recursos, cualquier combinación de máquinas virtuales independientes, conjuntos de disponibilidad y conjuntos de escalado de máquinas virtuales.
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, [póngase en contacto con el soporte técnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

@@ -3,22 +3,19 @@ title: Directivas de indexación de Azure Cosmos DB | Microsoft Docs
 description: Comprenda cómo funciona la indexación en Azure Cosmos DB. Obtenga información sobre la configuración y cambio de la directiva de indexación para una indexación automática y un mayor rendimiento.
 keywords: funcionamiento de la indexación, indexación automática, indexación de base de datos
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298304"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
@@ -79,9 +76,9 @@ Azure Cosmos DB admite tres modos de indexación que se pueden configurar median
 
 La indexación Coherente admite consultas coherentes a costa de una posible reducción en el rendimiento de escritura. Esta reducción depende de las rutas de acceso únicas que se deben indexar y del "nivel de coherencia". El modo de indexación coherente está diseñado para cargas de trabajo de tipo "escribir rápidamente, consultar inmediatamente".
 
-**Diferida**: el índice se actualiza de forma asincrónica cuando una colección de Azure Cosmos DB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes del usuario. El modo de indexación Diferida puede resultar idóneo para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran la ingesta de documentos. Observe que podría obtener resultados incoherentes debido a la ingesta y la indexación lentas de los datos. Esto significa que sus consultas COUNT o los resultados de consultas específicas podrían no ser coherentes o repetirse en un momento dado. 
+**Diferida**: el índice se actualiza de forma asincrónica cuando una colección de Azure Cosmos DB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes del usuario.  Observe que podría obtener resultados incoherentes debido a la ingesta y la indexación lentas de los datos. Esto significa que sus consultas COUNT o los resultados de consultas específicas podrían no ser coherentes ni repetibles en un momento determinado. 
 
-El índice suele estar en el modo de puesta al día con datos ingeridos. Con la indexación Diferida, los cambios en el período de vida (TTL) hacen que el índice se elimine y se vuelva a crear. Esto provoca incoherencias entre COUNT y los resultados de las consultas durante un período de tiempo. Por este motivo, la mayoría de las cuentas de Azure Cosmos DB deben usar el modo de indexación Coherente.
+El índice suele estar en el modo de puesta al día con datos ingeridos. Con la indexación Diferida, los cambios en el período de vida (TTL) hacen que el índice se elimine y se vuelva a crear. Esto provoca incoherencias entre COUNT y los resultados de las consultas durante un período de tiempo. La mayoría de las cuentas de Azure Cosmos DB deben usar el modo de indexación Coherente.
 
 **Ninguna**: una colección marcada con el modo de indexación Ninguna no tiene ningún índice asociado. Se suele usar si Azure Cosmos DB se emplea como almacenamiento de clave-valor y solo se puede acceder a los documentos mediante su propiedad de identificador. 
 
@@ -229,11 +226,11 @@ En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices 
 
 Del mismo modo, puede excluir por completo las rutas de acceso de la indexación. En el ejemplo siguiente se muestra cómo excluir una sección completa de los documentos (un *subárbol*) de la indexación mediante el operador de comodín \*.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 

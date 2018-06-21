@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365668"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824717"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Procedimientos recomendados y arquitecturas de referencia para Azure DDoS Protection
 
@@ -292,18 +292,9 @@ En esta arquitectura, el tráfico de Internet con destino al clúster de HDInsig
 
 Para más información acerca de esta arquitectura de referencia, consulte [Extensión de HDInsight con Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="azure-api-management"></a>Azure API Management
-
-Esta arquitectura de referencia protege el punto de conexión público del recurso [Azure API Management](../api-management/api-management-key-concepts.md) que publica las API a los clientes externos a la organización. Implemente API Management en una red virtual externa para habilitar la protección contra DDoS.
-
-![Diagrama de la arquitectura de referencia para API Management](media/azure-ddos-best-practices/image15.png)
-
-Cuando configura la red virtual externa, la puerta de enlace de API Management y el portal para desarrolladores son accesibles públicamente desde Internet con un equilibrador de carga público. En esta arquitectura, DDoS Protection Standard está habilitado en la red virtual externa para API Management. El tráfico se enruta desde internet a la dirección IP pública de API Management, que está protegida frente a ataques de red de nivel 3 y 4. Para protegerse frente a ataques de nivel 7 (HTTP/HTTPS), puede configurar Application Gateway en modo WAF.
-
-Consulte [este artículo](../virtual-network/virtual-network-for-azure-services.md)para conocer la lista de servicios adicionales que se implementan en una red virtual y que pueden configurarse para DDoS Protection Standard. DDoS Protection Standard solo admite recursos de Azure Resource Manager. 
 
 > [!NOTE]
-> No se admite de forma nativa la implementación insertada del entorno de App Service para PowerApps en una red virtual con una dirección IP pública. Para más información acerca de cómo proteger un entorno de App Service, consulte esta sección.
+> Azure App Service Environment para PowerApps o API Management en redes con direcciones IP públicas no se admiten de forma nativa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

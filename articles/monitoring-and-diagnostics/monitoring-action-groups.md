@@ -1,31 +1,25 @@
 ---
-title: Creación y administración de grupos de acciones en Azure Portal | Microsoft Docs
+title: Creación y administración de grupos de acciones en Azure Portal
 description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170383"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263072"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
-En este artículo se muestra cómo crear y administrar grupos de acciones en el portal de Azure.
+Un grupo de acciones es una colección de las preferencias de notificación que el usuario define. Las alertas de Azure Monitor y Service Health están configuradas para usar un grupo de acciones específico cuando se desencadena la alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario.
 
-Los grupos de acciones le permiten configurar una lista de acciones. Estos grupos pueden ser utilizados por cada alerta que defina, asegurándose de que las mismas acciones se realizan cada vez que se desencadena la alerta.
+En este artículo se muestra cómo crear y administrar grupos de acciones en el portal de Azure.
 
 Cada acción se compone de las siguientes propiedades:
 
@@ -70,7 +64,14 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 <dd>En este momento, la acción de aplicación de Azure solo admite alertas de ServiceHealth. Los demás momentos de alerta se omitirán. Consulte el artículo acerca de la [configuración de alertas siempre que se publique una notificación de estado de un servicio](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
 <dt>Correo electrónico</dt>
-<dd>En un grupo de acciones puede tener hasta 50 acciones de correo electrónico.</dd>
+<dd>Se enviarán mensajes de correo electrónico desde las direcciones de correo electrónico siguientes. Asegúrese de que el filtrado de correo electrónico esté configurado correctamente.
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>En un grupo de acciones puede tener hasta 1000 acciones de correo electrónico.</dd>
 <dd>Consulte el artículo de [información sobre las limitaciones](./monitoring-alerts-rate-limiting.md).</dd>
 
 <dt>ITSM</dt>

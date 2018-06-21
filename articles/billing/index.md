@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 313d6cfd69fbf63066add46c7a467c5090604067
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807262"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285855"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentación de administración de costos y facturación de Azure
 
@@ -133,7 +133,7 @@ Obtenga información acerca de la facturación de Azure, supervise el uso y los 
                     <div class="cardText">
                         <h3>Ahorre con las instancias reservadas de máquina virtual</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">¿Qué son las instancias reservadas de máquina virtual?</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">¿Qué son las instancias reservadas de máquina virtual?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Compra de una instancia reservada de máquina virtual</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">Aplicación del descuento</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Costos de software no incluidos</a>
@@ -165,12 +165,18 @@ Obtenga información acerca de la facturación de Azure, supervise el uso y los 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Solución de problemas</h3>
+                        <h3>Suscripción Enterprise: requiere acceso al portal de EA</h3>
+                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
-                        <a href="/azure/billing/billing-no-subscriptions-found">"No se encontró ninguna suscripción"</a><br/>
-                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Tarjeta rechazada</a><br/>
-                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Problemas de registro</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Problemas de inicio de sesión</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Administración de departamentos<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/addNewAccount" data-linktype="external">Administración de cuentas<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createANewSubscription" data-linktype="external">Creación de suscripciones<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/viewPriceSheet" data-linktype="external">Visualización de la hoja de precios<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/usageDetailReport" data-linktype="external">Visualización de los detalles de uso<span class="docon docon-navigate-external"></span></a>
                         </p>
                     </div>
                 </div>

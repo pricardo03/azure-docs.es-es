@@ -1,31 +1,28 @@
 ---
 title: Supervisión del mantenimiento de Azure IoT Hub | Microsoft Docs
 description: Uso de Azure Monitor y Azure Resource Health para supervisar IoT Hub y diagnosticar problemas rápidamente
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202227"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850396"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente
 
 Las empresas que implementan Azure IoT Hub esperan que sus recursos ofrezcan un rendimiento confiable. Para ayudar a mantener una estrecha vigilancia de las operaciones, IoT Hub está totalmente integrado con [Azure Monitor][lnk-AM] y [Azure Resource Health][lnk-ARH]. Estos dos servicios funcionan de forma conjunta para proporcionar los datos necesarios para que las soluciones de IoT se ejecuten con un estado correcto. 
 
-Azure Monitor es un único origen para supervisar y registrar todos los servicios de Azure. Puede enviar los registros que Azure Monitor genera a Log Analytics, Event Hubs o Azure Storage para un procesamiento personalizado. La configuración de métricas y diagnósticos de Azure Monitor ofrece una visibilidad en tiempo real del rendimiento de los recursos. Continúe leyendo este artículo para obtener información sobre cómo [usar Azure Monitor](#use-azure-monitor) con IoT Hub. 
+Azure Monitor es un único origen para supervisar y registrar todos los servicios de Azure. Puede enviar los registros de diagnóstico que Azure Monitor genera a Log Analytics, Event Hubs o Azure Storage para un procesamiento personalizado. La configuración de métricas y diagnósticos de Azure Monitor ofrece una visibilidad del rendimiento de los recursos. Continúe leyendo este artículo para obtener información sobre cómo [usar Azure Monitor](#use-azure-monitor) con IoT Hub. 
+
+> [!IMPORTANT]
+> No se garantiza que los eventos que emite el servicio IoT Hub mediante registros de diagnóstico de Azure Monitor sean confiables u ordenados. Algunos eventos podrían perderse o entregarse fuera del pedido. Los registros de diagnóstico tampoco están diseñados para que tengan lugar en tiempo real y los eventos pueden tardar varios minutos en registrarse en el destino elegido.
 
 Azure Resource Health ayuda a diagnosticar si un problema de Azure afecta a los recursos y, en su caso, a obtener soporte técnico. En un panel personalizado se muestra el estado de mantenimiento actual y anterior de los recursos de IoT Hub. Continúe leyendo este artículo para obtener información sobre cómo [usar Azure Resource Health](#use-azure-resource-health) con IoT Hub. 
 
@@ -47,7 +44,7 @@ Azure Monitor supervisa diferentes operaciones que tienen lugar en IoT Hub. Cada
 
 #### <a name="connections"></a>Conexiones
 
-La categoría Conexiones supervisa los errores que se producen cuando los dispositivos se conectan o desconectan de un centro de IoT. El seguimiento de esta categoría resulta útil para identificar intentos de conexión no autorizados y para realizar el seguimiento de las situaciones en que una conexión se pierde para los dispositivos en las áreas de conectividad deficiente.
+La categoría de conexiones realiza un seguimiento de eventos de conexión y desconexión de dispositivos desde un centro de IoT, y también de los errores. El seguimiento de esta categoría resulta útil para identificar intentos de conexión no autorizados y para realizar el seguimiento de las situaciones en que una conexión se pierde para los dispositivos en las áreas de conectividad deficiente.
 
 ```json
 {

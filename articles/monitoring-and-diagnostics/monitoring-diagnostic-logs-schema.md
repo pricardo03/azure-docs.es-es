@@ -1,24 +1,19 @@
 ---
-title: Servicios y esquemas admitidos de los registros de diagnóstico de Azure | Microsoft Docs
+title: Servicios y esquemas admitidos de los registros de Azure Diagnostics
 description: Conozca el esquema de los eventos y servicios admitidos para los registros de diagnóstico de Azure.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 4/12/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
+ms.date: 6/08/2018
 ms.author: johnkem
-ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: logs
+ms.openlocfilehash: 45595893a199b845c8b010bc1e2545b89aa688cd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264986"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -29,30 +24,34 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 
 | Servicio | Esquema y documentos |
 | --- | --- |
-| Analysis Services | Esquema no disponible. |
+| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [Registros de diagnóstico de API Management](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Puertas de enlace de aplicaciones |[Registro de diagnóstico para Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics para Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registros de diagnósticos de Azure Batch](../batch/batch-diagnostics.md) |
-| Customer Insights | Esquema no disponible. |
-| Content Delivery Network | Esquema no disponible. |
+| Content Delivery Network | [Registro de Azure Diagnostics para CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registro de Azure Cosmos DB](../cosmos-db/logging.md) |
+| Data Factory | [Supervisión de factorías de datos mediante Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Acceso a los registros de diagnóstico de Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Almacén de Data Lake |[Acceso a los registros de diagnóstico de Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Data Lake Store |[Acceso a los registros de diagnóstico de Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| DB for PostgreSQL |  Esquema no disponible. |
 | Event Hubs |[Registros de diagnóstico de Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
+| ExpressRoute | Esquema no disponible. |
 | IoT Hub | [Operaciones de IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Registro de Azure Key Vault](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log Analytics para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
-| Protección contra DDOS | Esquema no disponible. |
+| DDOS Protection | [Administración de Azure DDoS Protection estándar](../virtual-network/manage-ddos-protection.md) |
+| Dedicado a PowerBI | Esquema no disponible. |
 | Recovery Services | [Modelo de datos para Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitación y uso de Análisis de tráfico de búsqueda](../search/search-traffic-analytics.md) |
-| Servidor de administración | Esquema no disponible. |
 | Azure Service Bus |[Registros de diagnóstico de Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Registro de diagnóstico de Azure SQL Database](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Registros de diagnósticos de trabajos](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Traffic Manager | Esquema no disponible. |
 | Virtual Networks | Esquema no disponible. |
+| Puertas de enlace de red virtual | Esquema no disponible. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
 |Tipo de recurso|Categoría|Nombre para mostrar de categoría|
@@ -74,6 +73,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.DataLakeStore/accounts|Auditoría|Registros de auditoría|
 |Microsoft.DataLakeStore/accounts|Requests|Registros de solicitud|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Registros del servidor PostgreSQL|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|Eventos de copia de seguridad de PostgreSQL|
 |Microsoft.Devices/IotHubs|Conexiones|Conexiones|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetría de dispositivo|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandos C2D|
@@ -90,6 +90,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operaciones del servicio|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Registros de archivo|
 |Microsoft.EventHub/namespaces|OperationalLogs|Registros operativos|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Registros de escalado automático|
@@ -112,6 +113,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Registros de P2S Diagnostic|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de resultados de estado de sondeo de Traffic Manager|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabla de contadores GWM|
+|Microsoft.PowerBIDedicated/capacities|Motor|Motor|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Datos de informes de Azure Backup|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabajos de Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventos de Azure Site Recovery|

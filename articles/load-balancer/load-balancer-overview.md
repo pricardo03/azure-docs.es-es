@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202448"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726268"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -94,7 +94,7 @@ Load Balancer proporciona las siguientes funcionalidades básicas para las aplic
 
     - **Sondeo personalizado de TCP:** este se basa en el establecimiento correcto de sesiones TCP para un puerto de sondeo definido. Siempre que exista el agente de escucha especificado en la máquina virtual, este sondeo se realizará correctamente. Si se rechaza la conexión, se producirá un error en el sondeo. El sondeo invalida el sondeo predeterminado del agente invitado.
 
-    - **Sondeo de agente invitado (solo en máquinas virtuales de plataforma como servicio [PaaS])**: el equilibrador de carga puede usar también el agente invitado dentro de la máquina virtual. El agente invitado escucha y responde con una respuesta HTTP 200 OK solo cuando la instancia está preparada. Si no responde con HTTP 200 OK, el equilibrador de carga marca la instancia como sin respuesta y deja de enviarle tráfico. El equilibrador de carga continúa intentando conectar con la instancia. Si el agente invitado responde con un HTTP 200, el equilibrador de carga envía de nuevo tráfico a esa instancia. Los sondeos de agente invitado son el último recurso y no se recomiendan cuando son posibles configuraciones de sondeo personalizado HTTP o TCP. 
+    - **Sondeo de agente invitado**: el equilibrador de carga puede usar también el agente invitado dentro de la máquina virtual. El agente invitado escucha y responde con una respuesta HTTP 200 OK solo cuando la instancia está preparada. Si no responde con HTTP 200 OK, el equilibrador de carga marca la instancia como sin respuesta y deja de enviarle tráfico. El equilibrador de carga continúa intentando conectar con la instancia. Si el agente invitado responde con un HTTP 200, el equilibrador de carga envía de nuevo tráfico a esa instancia. Los sondeos de agente invitado son el _último recurso y no se recomiendan_ cuando las configuraciones de sondeo personalizado HTTP o TCP son posibles. 
     
 * **Conexiones de salida (SNAT)**
 

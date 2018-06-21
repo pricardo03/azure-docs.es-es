@@ -1,20 +1,19 @@
 ---
 title: Implementación de módulos para Azure IoT Edge | Microsoft Docs
 description: Aprenda cómo se implementan los módulos en los dispositivos perimetrales.
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166342"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725333"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala (versión preliminar)
 
@@ -26,7 +25,7 @@ Los dispositivos de Azure IoT Edge siguen un [ciclo de vida][lnk-lifecycle] que 
 
 Azure IoT Edge ofrece dos maneras de configurar los módulos para ejecutarse en dispositivos IoT Edge: una para el desarrollo y las interacciones rápidas en un único dispositivo (que ya se usó en los tutoriales de Azure IoT Edge) y otra para administrar grandes flotas de dispositivos IoT Edge. Ambos enfoques están disponibles en Azure Portal y mediante programación.
 
-Este artículo se centra en las fases de configuración y supervisión de flotas de dispositivos, lo que se conoce en conjunto como implementaciones de IoT Edge. Los pasos de implementación general son los siguientes:   
+Este artículo se centra en las fases de configuración y supervisión de flotas de dispositivos, lo que se conoce en conjunto como implementaciones automáticas de IoT Edge. Los pasos de implementación general son los siguientes:   
 
 1. Un operador define una implementación que describe un conjunto de módulos, así como los dispositivos de destino. Cada implementación tiene un manifiesto de implementación que refleja esta información. 
 1. El servicio IoT Hub se comunica con todos los dispositivos de destino para configurarlos con los módulos deseados. 
@@ -37,7 +36,7 @@ Este artículo le guía por cada uno de los componentes que intervienen en la co
 
 ## <a name="deployment"></a>Implementación
 
-En una implementación se asignan imágenes de módulos de IoT Edge para ejecutarse como instancias en un conjunto de dispositivos IoT Edge de destino. Se configura un manifiesto de implementación de IoT Edge para incluir una lista de módulos con los parámetros de inicialización correspondientes. Una implementación se puede asignar a un único dispositivo (normalmente basado en su identificador) o a un grupo de dispositivos (según etiquetas). Una vez que el dispositivo IoT Edge recibe un manifiesto de implementación, descarga e instala las imágenes de contenedor de módulos de los repositorios de contenedores respectivos, y los configura como corresponde. Después de que se crea una implementación, un operador puede supervisar el estado de implementación para ver si los dispositivos de destino están configurados correctamente.   
+Una implementación automática de IoT Edge asigna imágenes de módulos de IoT Edge para ejecutarse como instancias en un conjunto de dispositivos IoT Edge de destino. Se configura un manifiesto de implementación de IoT Edge para incluir una lista de módulos con los parámetros de inicialización correspondientes. Una implementación se puede asignar a un único dispositivo (normalmente basado en su identificador) o a un grupo de dispositivos (según etiquetas). Una vez que el dispositivo IoT Edge recibe un manifiesto de implementación, descarga e instala las imágenes de contenedor de módulos de los repositorios de contenedores respectivos, y los configura como corresponde. Después de que se crea una implementación, un operador puede supervisar el estado de implementación para ver si los dispositivos de destino están configurados correctamente.   
 
 Para que los dispositivos se puedan configurar con una implementación, se deben aprovisionar como dispositivos IoT Edge. Los siguientes son requisitos previos y no se incluyen en la implementación:
 * El sistema operativo base

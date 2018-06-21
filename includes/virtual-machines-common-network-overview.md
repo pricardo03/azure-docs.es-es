@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da24c0e616bbd5961edd4cfcb72040f66627c982
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568116"
 ---
 Cuando se crea una máquina virtual (VM) de Azure, es preciso crear una [red virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) o usar una red virtual existente. También es preciso decidir la forma en que pretende que se acceda a las máquinas virtuales en la red virtual. Es importante [planear antes de crear recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) y asegurarse de que se conocen los [límites de los recursos de red](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -46,7 +47,7 @@ En esta tabla se enumeran los métodos que se pueden usar para crear una interfa
 | Método | DESCRIPCIÓN |
 | ------ | ----------- |
 | Azure Portal | Cuando se crea una máquina virtual en Azure Portal, se crea automáticamente una interfaz de red (no se puede usar una NIC que se cree de manera independiente). El portal crea una máquina virtual con una sola NIC. Si desea crear una máquina virtual con más de una, debe usar otro método para hacerlo. |
-| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Use [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) con el parámetro **PublicIpAddressId -** para proporcionar el identificador de la dirección IP pública que creó anteriormente. |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Use [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) con el parámetro **-PublicIpAddressId** para proporcionar el identificador de la dirección IP pública que creó anteriormente. |
 | [CLI de Azure](../articles/virtual-machines/linux/multiple-nics.md) | Para proporcionar el identificador de la dirección IP pública que creó anteriormente, use [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) con el parámetro **--public-ip-address**. |
 | [Plantilla](../articles/virtual-network/template-samples.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) (Interfaz de red en una red virtual con dirección IP pública) como guía para implementar una interfaz de red mediante una plantilla. |
 
@@ -170,4 +171,4 @@ También hay tutoriales sobre cómo equilibrar la carga de las máquinas virtual
 
 - Aprenda a configurar [rutas definidas por el usuario y el reenvío IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Aprenda a configurar [conexión de red virtual a red virtual](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Aprenda a [solucionar problemas de rutas](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- Aprenda a [solucionar problemas de rutas](../articles/virtual-network/diagnose-network-routing-problem.md).

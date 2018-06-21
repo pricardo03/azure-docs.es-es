@@ -3,17 +3,18 @@ title: Solución de problemas de Azure SQL Data Sync (versión preliminar) | Mic
 description: Aprenda a solucionar problemas comunes con Azure SQL Data Sync (versión preliminar).
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757543"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Solución de problemas de SQL Data Sync (versión preliminar)
 
@@ -240,9 +241,8 @@ Antes de continuar, compruebe las condiciones siguientes:
 
 -   El servicio de Windows SQL Data Sync (versión preliminar) se está ejecutando.  
 -   La cuenta del servicio de Windows de vista previa de SQL Data Sync (versión preliminar) tiene acceso a la red.    
--   El agente cliente puede ponerse en contacto con el servicio de ubicación. Compruebe que la siguiente clave del Registro tiene el valor https://locator.sync.azure.com/LocatorServiceApi.svc:.  
-    -   En un equipo x86: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   En un equipo x64: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   El puerto 1433 saliente está abierto en la regla de firewall local.
+-   Se agrega la dirección IP local al servidor o la regla de firewall de base de datos para la base de datos de metadatos de sincronización.
 
 #### <a name="cause"></a>Causa
 

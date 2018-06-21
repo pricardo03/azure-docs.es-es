@@ -1,6 +1,23 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: rogara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 06/03/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414576"
+---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
-En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y Azure Premium Storage.
+En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
 ## <a name="managed-disks"></a>Managed Disks
 
@@ -28,13 +45,9 @@ Los precios de los discos administrados premium son iguales que los de los disco
 
 Sí. Puede cambiar el tipo de cuenta de almacenamiento de los discos administrados mediante Azure Portal, PowerShell o la CLI de Azure.
 
-**¿Hay alguna manera de copiar o exportar un disco administrado a una cuenta de almacenamiento privada?**
-
-Sí. Puede exportar los discos administrados mediante Azure Portal, PowerShell o la CLI de Azure.
-
 **¿Puedo usar un archivo de disco duro virtual en una cuenta de Azure Storage para crear un disco administrado con una suscripción distinta?**
 
-Nº
+Sí.
 
 **¿Puedo usar un archivo de disco duro virtual en una cuenta de Azure Storage para crear un disco administrado en una región diferente?**
 
@@ -42,11 +55,11 @@ Nº
 
 **¿Hay alguna limitación de escala para los clientes que usen discos administrados?**
 
-Managed Disks elimina los límites asociados a las cuentas de almacenamiento. Sin embargo, el límite máximo (y también el límite predeterminado) es de 10 000 discos administrados por región y por tipo de disco para una suscripción.
+Managed Disks elimina los límites asociados a las cuentas de almacenamiento. Sin embargo, el límite máximo es de 50 000 discos administrados por región y por tipo de disco para una suscripción.
 
 **¿Puedo tomar una instantánea incremental de un disco administrado?**
 
-Nº La funcionalidad de instantánea actual realiza una copia completa de un disco administrado. Sin embargo, está previsto admitir instantáneas incrementales en el futuro.
+Nº La funcionalidad de instantánea actual realiza una copia completa de un disco administrado.
 
 **¿Pueden las máquinas virtuales de un conjunto de disponibilidad estar compuestas de una combinación de discos administrados y no administrados?**
 
@@ -66,7 +79,7 @@ En función de la región en la que se encuentre el conjunto de disponibilidad q
 
 **¿Cómo se configura una cuenta de almacenamiento estándar para el diagnóstico?**
 
-Se configura una cuenta de almacenamiento privada para el diagnóstico de máquinas virtuales. En el futuro, está previsto cambiar también el diagnóstico a Managed Disks.
+Se configura una cuenta de almacenamiento privada para el diagnóstico de máquinas virtuales.
 
 **¿Qué tipo de compatibilidad con el Control de acceso basado en roles está disponible para Managed Disks?**
 
@@ -78,7 +91,7 @@ Managed Disks admite tres roles predeterminados fundamentales:
 
 **¿Hay alguna manera de copiar o exportar un disco administrado a una cuenta de almacenamiento privada?**
 
-Puede obtener un identificador URI de firma de acceso compartido de solo lectura para el disco administrado y usarlo para copiar el contenido a una cuenta de almacenamiento privada o al almacenamiento local.
+Puede generar un identificador URI de firma de acceso compartido (SAS) de solo lectura para el disco administrado y usarlo para copiar el contenido a una cuenta de almacenamiento privada o al almacenamiento local. Puede usar el identificador URI de SAS a través de Azure Portal, Azure PowerShell, la CLI de Azure o [AzCopy](../articles/storage/common/storage-use-azcopy.md).
 
 **¿Puedo crear una copia de mi disco administrado?**
 
@@ -86,7 +99,7 @@ Los clientes pueden crear una instantánea de sus discos administrados y usarla 
 
 **¿Siguen siendo compatibles los discos no administrados?**
 
-Sí. Admitimos discos administrados y no administrados. Recomendamos que empiece a usar discos administrados para las cargas de trabajo nuevas y migre las cargas de trabajo actuales a discos administrados.
+Sí, se admiten discos administrados y no administrados. Recomendamos que empiece a usar discos administrados para las cargas de trabajo nuevas y migre las cargas de trabajo actuales a discos administrados.
 
 
 **Si creo un disco de 128 GB y después lo aumento a 130 GB, ¿se me cobrará por el siguiente tamaño de disco (512 GB)?**
@@ -113,6 +126,39 @@ Nº No se puede actualizar la propiedad de nombre de equipo. La nueva máquina v
 * [Lista de plantillas mediante discos administrados](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="standard-ssd-disks-preview"></a>Discos SSD estándar (versión preliminar)
+
+**¿Qué son los discos SSD estándar de Azure?**
+Los discos SSD estándar son discos estándar respaldados por soportes físicos, optimizados como solución de almacenamiento rentable para cargas de trabajo que necesitan un rendimiento constante en niveles inferiores de IOPS. En la versión preliminar, están disponibles en un número limitado de regiones, con capacidad de administración limitada (disponible a través de plantillas de Resource Manager).
+
+<a id="standard-ssds-azure-regions"></a>**¿Cuáles son las regiones que se admiten actualmente para los discos SSD estándar (versión preliminar)?**
+* Europa del Norte
+
+**¿Cómo creo discos SSD estándar?**
+Actualmente, puede crear discos SSD estándar mediante plantillas de Azure Resource Manager. A continuación se muestran los parámetros necesarios de la plantilla de Resource Manager para crear discos SSD estándar:
+
+* La *apiVersion* para Microsoft.Compute se debe establecer en `2018-04-01` (o posterior)
+* Especifique *managedDisk.storageAccountType* como `StandardSSD_LRS`
+
+El siguiente ejemplo muestra la sección *properties.storageProfile.osDisk* de una máquina virtual que usa un disco SSD estándar:
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+Para obtener un ejemplo de plantilla completa de cómo crear un disco SSD estándar con una plantilla, consulte [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/) (Creación de una máquina virtual a partir de una imagen de Windows con discos de datos SSD estándar).
+
+**¿Puedo usar discos SSD estándar como discos no administrados?**
+No, los discos SSD estándar solo están disponibles como discos administrados.
+
 ## <a name="migrate-to-managed-disks"></a>Migración a Managed Disks 
 
 **¿Qué cambios son necesarios en una configuración del servicio Azure Backup preexistente antes y después de la migración a Managed Disks?**
@@ -129,7 +175,7 @@ No es preciso realizar cambios.
 
 **¿Está permitida la migración automática de un conjunto de escalado de máquinas virtuales existente de discos no administrados a Managed Disks?**
 
-Nº Puede crear un nuevo VMSS con Managed Disks con la imagen del antiguo conjunto de escalado de máquinas virtuales con discos no administrados. 
+Nº Puede crear un nuevo conjunto de escalado con Managed Disks con la imagen del antiguo conjunto de escalado con discos no administrados. 
 
 **¿Puedo crear un disco administrado desde una instantánea de blob en páginas tomada antes de migrar a Managed Disks?**
 
@@ -139,9 +185,9 @@ Nº Puede exportar una instantánea del blob en páginas como un blob en página
 
 Sí, puede realizar la conmutación por error a una máquina virtual con Managed Disks.
 
-**¿Hay algún impacto en la migración de las máquinas virtuales de Azure protegidas por Azure Site Recovery (ASR) mediante la replicación de Azure a Azure?**
+**¿Hay algún impacto en la migración de las máquinas virtuales de Azure protegidas por Azure Site Recovery mediante la replicación de Azure a Azure?**
 
-Sí. Actualmente, la protección de ASR Azure a Azure para máquinas virtuales con Managed Disks solo está disponible como un servicio público en versión preliminar.
+Sí. Actualmente, la protección de Azure a Azure de Azure Site Recovery para máquinas virtuales con Managed Disks solo está disponible como un servicio público en versión preliminar.
 
 **¿Puedo migrar máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento que se hayan cifrado previamente en discos administrados?**
 
@@ -190,19 +236,19 @@ Nº Pero si exporta un disco duro virtual a una cuenta de almacenamiento cifrada
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Discos premium: tanto administrados como no administrados
 
-**Si una máquina virtual usa una serie de tamaño que admite Premium Storage, como DSv2, ¿puedo conectar discos de datos tanto premium como estándar?** 
+**Si una máquina virtual usa una serie de tamaño que admite discos SSD premium, como DSv2, ¿puedo conectar discos de datos tanto premium como estándar?** 
 
 Sí.
 
-**¿Puedo conectar discos de datos tanto premium como estándar a una serie de tamaño que no admita Premium Storage, por ejemplo, las series D, Dv2, G o F?**
+**¿Puedo conectar discos de datos tanto premium como estándar a una serie de tamaño que no admita discos SSD premium, por ejemplo, las series D, Dv2, G o F?**
 
-Nº Solo puede conectar discos de datos estándar a máquinas virtuales que no utilicen una serie de tamaño que admita Premium Storage.
+Nº Solo puede conectar discos de datos estándar a máquinas virtuales que no utilicen una serie de tamaño que admita discos SSD premium.
 
 **Si creo un disco de datos premium a partir un disco duro virtual existente con 80 GB, ¿cuánto me costará?**
 
 Un disco de datos premium creado a partir de un disco duro virtual de 80 GB se trata como el siguiente tamaño de disco premium disponible, es decir, P10. Se le cobrará según el precio de disco P10.
 
-**¿Hay costos de transacción cuando se usa Premium Storage?**
+**¿Hay costos de transacción cuando se usan discos SSD premium?**
 
 Existe un costo fijo para cada tamaño de disco que esté aprovisionado con límites específicos de IOPS y rendimiento. Los demás costes son por el ancho de banda de salida y la capacidad para instantáneas, si corresponde. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/storage)para obtener más información.
 
@@ -226,7 +272,7 @@ El tipo de partición compatible con Azure para un disco del sistema operativo e
 
 **¿Cuál es el mayor tamaño de blob en páginas admitido?**
 
-El mayor tamaño blob en páginas que admite Azure es 8 TB (8191 GB). No se admiten blobs en páginas mayores de 4 TB (4095 GB) conectados a una máquina virtual como discos de datos o de sistema operativo.
+El mayor tamaño blob en páginas que admite Azure es 8 TB (8191 GB). El tamaño máximo del blob en páginas cuando se conecta a una máquina virtual como discos de datos o de sistema operativo es de 4 TB (4095 GB).
 
 **¿Es necesario usar una nueva versión de las herramientas de Azure para crear, conectar, cambiar el tamaño y cargar discos de más de 1 TB?**
 

@@ -1,24 +1,19 @@
 ---
-title: 'Alertas de registro en Azure Monitor: Alertas | Microsoft Docs'
+title: Alertas de registro en Azure Monitor
 description: Desencadene correos electrónicos y notificaciones, llame a direcciones URL de sitios web (webhooks) o automatice cuando se cumplen las condiciones de consulta analítica especificadas para Alertas de Azure.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.component: alerts
+ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264381"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de registro en Azure Monitor: Alertas 
 En este artículo se proporcionan detalles de Alertas de registro, uno de los tipos de alerta que se admiten en el nuevo [Alertas de Azure](monitoring-overview-unified-alerts.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas. Para detalles de las alertas de métrica mediante los registros, consulte las [alertas de métricas casi en tiempo real](monitoring-near-real-time-metric-alerts.md)
@@ -35,7 +30,7 @@ Las reglas de búsqueda de registros se definen mediante los siguientes detalles
 - **Consulta de registro**.  La consulta que se ejecuta cada vez que se activa la regla de alertas.  Los registros devueltos por esta consulta se usan para determinar si se crea una alerta. La consulta de *Azure Application Insights* también puede incluir [llamadas entre aplicaciones](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), siempre que el usuario tenga derechos de acceso a las aplicaciones externas. 
 
     > [!IMPORTANT]
-    > La compatibilidad con [la consulta entre aplicaciones para Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) está en versión preliminar, por lo que la funcionalidad y la experiencia del usuario están sujetas a cambios. Actualmente, el uso de [consultas entre áreas de trabajo](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) y la [consulta entre recursos de Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) **no se admite** en Alertas de Azure.
+    > La compatibilidad con [la consulta entre aplicaciones para Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) está en versión preliminar. La funcionalidad limitada para usar con dos o más aplicaciones y la experiencia del usuario están sujetas a cambios. Actualmente, el uso de [consultas entre áreas de trabajo](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) y la [consulta entre recursos de Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) **no se admite** en Alertas de Azure.
 
 - **Período de tiempo**.  Especifica el intervalo de tiempo para la consulta. La consulta devuelve solo los registros que se crearon dentro de este intervalo de tiempo actual. El período de tiempo restringe los datos capturados para la consulta de registros, a fin de evitar abusos y cualquier comando de tiempo (como “ago”) utilizado en las consultas de registros. <br>*Por ejemplo, si el período de tiempo se establece en 60 minutos, y la consulta se ejecuta a las 13:15, se devuelven solo los registros creados entre las 12:15 y las 13:15 para ejecutar la consulta de registros. Ahora, si la consulta de registros utiliza un comando de tiempo, como ago (7d), la consulta de registro se ejecutaría solo para los datos entre las 12:15 y las 13:15, como si existieran datos solo para los últimos 60 minutos. Y no durante siete días de datos, tal como se especifica en la consulta de registros.*
 - **Frecuencia**.  Especifica con qué frecuencia se debe ejecutar la consulta. Puede ser cualquier valor entre 5 minutos y 24 horas. Debe ser menor o igual que el período de tiempo.  Si el valor es mayor que el período de tiempo, se arriesga a que se pierdan registros.<br>*Por ejemplo, considere la posibilidad de un período de tiempo de 30 minutos y una frecuencia de 60 minutos.  Si la consulta se ejecuta a la 1:00, devolverá registros entre las 12:30 y la 1:00 p. m.  La próxima vez que se ejecute la consulta será a las 2:00 y devolverá los registros comprendidos entre la 1:30 y las 2:00.  Nunca se evaluarían los registros creados entre la 1:00 y las 13:30.*
@@ -125,7 +120,7 @@ Las API proporcionadas para Alertas de registro son de tipo RESTful y puede acce
 
 Para obtener más información, así como ejemplos sobre el uso de la API de REST, consulte:
 - [API de REST de alertas de Log Analytics](../log-analytics/log-analytics-api-alerts.md): para crear y administrar reglas de alertas de búsqueda de registros de Azure Log Analytics
-- [API de REST de reglas de consulta programadas de Azure Monitor ](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/): para crear y administrar reglas de alertas de búsqueda de registros de Azure Application Insights
+- [API de REST de reglas de consulta programadas de Azure Monitor ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/): para crear y administrar reglas de alertas de búsqueda de registros de Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Plantilla de Azure Resource Manager
 Los usuarios también pueden utilizar la flexibilidad proporcionada por [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para crear y actualizar recursos, para crear o actualizar Alertas de registro.

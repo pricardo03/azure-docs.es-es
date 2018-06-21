@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 201492f033ad3e2508bc75c0865036e7c83a652a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833770"
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformación Derivar columna por ejemplos
 
@@ -139,11 +141,11 @@ Número de ejemplos necesarios para este caso: 1
 Número de ejemplos necesarios para este caso: 1
 
 >[!NOTE] 
->En este ejemplo, el carácter especial · representa espacios en la columna Salida.
+>En este ejemplo, el carácter especial · representa los espacios en la columna Salida.
 
 |Nombre|Inicial del segundo nombre|Apellido|Salida|
 |:-----|:-----|:-----|:-----|
-|Laquanda||Lohmann|Laquanda··Lohmann|
+|Laquanda||Lohmann|Laquanda·· Lohmann|
 |Claudio|Una |Chew|**Claudio·A·Chew**|
 |Sarah-Jane|S|Smith|Sarah-Jane·S·Smith|
 |Brandi||Blumenthal|Brandi··Blumenthal|

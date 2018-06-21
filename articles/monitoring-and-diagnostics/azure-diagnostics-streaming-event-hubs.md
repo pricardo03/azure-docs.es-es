@@ -1,24 +1,20 @@
 ---
-title: "Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs | Microsoft Docs"
-description: "Configuración de Diagnósticos de Azure con Event Hubs de un extremo a otro, con instrucciones para escenarios comunes"
-services: event-hubs
-documentationcenter: na
+title: Transmisión de datos de Azure Diagnostics a Event Hubs
+description: Configuración de Diagnósticos de Azure con Event Hubs de un extremo a otro, con instrucciones para escenarios comunes
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: diagnostic-extension
+ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267720"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs
 Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Azure Storage. A partir de marzo de 2016 (SDK 2.9), puede enviar diagnósticos a orígenes de datos personalizados y transferir datos de rutas de acceso activas en cuestión de segundos mediante [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -26,7 +22,7 @@ Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y re
 Entre los tipos de datos admitidos se incluyen:
 
 * Eventos de Seguimiento de eventos para Windows (ETW)
-* Contadores de rendimiento
+* contadores de rendimiento
 * Registros de eventos de Windows
 * Registros de aplicación
 * Registros de infraestructura de diagnóstico de Azure
@@ -38,7 +34,7 @@ En este artículo se muestra cómo configurar Diagnósticos de Azure con Event H
 * Cómo ver los datos de secuencia de Event Hubs
 * Cómo solucionar los problemas de conexión  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 La recepción de Diagnósticos de Azure en Event Hubs se admite en Cloud Services, Virtual Machines, Conjuntos de escalado de máquinas virtuales y Service Fabric a partir de Azure SDK 2.9 y las correspondientes herramientas de Azure Tools para Visual Studio.
 
 * La extensión de Diagnósticos de Azure 1.6 ([Azure SDK para .NET 2.9 o posterior](https://azure.microsoft.com/downloads/) sirve a este fin de forma predeterminada).

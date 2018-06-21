@@ -1,6 +1,23 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: rogara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 06/03/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 399479de0ce9bab29d0338b1155f8b0c1bab542c
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414593"
+---
 # <a name="azure-managed-disks-overview"></a>Introducción a Azure Managed Disks
 
-Azure Managed Disks simplifica la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las [cuentas de almacenamiento](../articles/storage/common/storage-introduction.md) asociadas a los discos de la máquina virtual. Solo tiene que especificar el tipo ([premium](../articles/virtual-machines/windows/premium-storage.md) o [estándar](../articles/virtual-machines/windows/standard-storage.md)) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente.
+Azure Managed Disks simplifica la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las [cuentas de almacenamiento](../articles/storage/common/storage-introduction.md) asociadas a los discos de la máquina virtual. Solo tiene que especificar el tipo ([HDD estándar](../articles/virtual-machines/windows/standard-storage.md), SSD estándar o [SSD Premium](../articles/virtual-machines/windows/premium-storage.md)) y el tamaño del disco que necesita, y Azure creará y administrará el disco automáticamente.
 
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -12,11 +29,11 @@ Vea algunas de las ventajas que obtendrá al usar discos administrados, comenzan
 
 Managed Disks controla automáticamente el almacenamiento en segundo plano. Anteriormente, era preciso crear cuentas de almacenamiento que contuvieran los discos (archivos VHD) de las máquinas virtuales de Azure. Al escalar verticalmente, era preciso asegurarse de que se habían creado cuentas de almacenamiento adicionales, para que no se superase el límite de IOPS de almacenamiento con cualquiera de los discos. Si Managed Disks controla el almacenamiento, desaparecen los límites de la cuenta de almacenamiento (por ejemplo, 20 000 IOPS por cuenta). Tampoco es preciso copiar las imágenes personalizadas (archivos VHD) en varias cuentas de almacenamiento. Puede administrarlas en una ubicación central (una cuenta de almacenamiento por región de Azure) y utilizarlas para crear cientos de máquinas virtuales en una suscripción.
 
-Managed Disks le permitirá crear un máximo de 10 000 **discos** de máquina virtual en suscripción, lo que le permitirá crear miles de **máquinas virtuales** en una sola suscripción. Esta característica también aumenta la escalabilidad de los [conjuntos de escalado de máquinas virtuales (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md), ya que permite crear hasta mil máquinas virtuales en un VMSS con una imagen de Marketplace.
+Managed Disks le permitirá crear un máximo de 50 000 **discos** de máquina virtual de un tipo en una suscripción por región, lo que le permitirá crear miles de **máquinas virtuales** en una sola suscripción. Esta característica también aumenta la escalabilidad de [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md), ya que permite crear hasta mil máquinas virtuales en un conjunto de escalado de máquinas virtuales con una imagen de Marketplace. 
 
 ### <a name="better-reliability-for-availability-sets"></a>Mayor confiabilidad para los conjuntos de disponibilidad
 
-Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las [máquinas virtuales de un conjunto de disponibilidad](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar puntos únicos de error. Para hacerlo, coloca automáticamente los discos en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
+Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las [máquinas virtuales de un conjunto de disponibilidad](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar puntos únicos de error. Los discos se colocan automáticamente en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
 
 ### <a name="highly-durable-and-available"></a>Mayor durabilidad y disponibilidad
 
@@ -27,7 +44,7 @@ Los discos de Azure están diseñados para ofrecer una disponibilidad del 99,999
 Puede usar el [control de acceso basado en rol de Azure (RBAC)](../articles/role-based-access-control/overview.md) para asignar permisos concretos a un disco administrado a uno o varios usuarios. Managed Disks expone varias operaciones, entre las que se incluyen la lectura, escritura (creación o actualización), eliminación y recuperación de un [identificador URI de la firma de acceso compartido (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede decidir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
 
 ### <a name="azure-backup-service-support"></a>Soporte técnico del servicio Azure Backup
-Utilice el servicio Azure Backup con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. Managed Disks solo admite el almacenamiento con redundancia local (LRS) como opción de replicación, lo que significa que mantiene tres copias de los datos en una única región. Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de copia de seguridad. Actualmente Azure Backup admite tamaños de disco de datos de hasta 1 TB para copia de seguridad. En [Uso del servicio de Azure Backup para máquinas virtuales con Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) puede encontrar más información al respecto.
+Utilice el servicio Azure Backup con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. Managed Disks admite solo almacenamiento con redundancia local (LRS) como opción de replicación. Se conservan tres copias de los datos en una única región. Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de Backup. Actualmente, Azure Backup admite todos los tamaños de disco, incluidos los discos de 4 TB. Debe [actualizar a la versión 2 de la pila de copia de seguridad de máquinas virtuales](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) para la compatibilidad con discos de 4 TB. Para más información, consulte [Uso del servicio de Azure Backup para máquinas virtuales con Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -42,9 +59,9 @@ Al usar Managed Disks, se aplican las siguientes consideraciones de facturación
 
 * Instantáneas de disco administradas (copia de disco completo)
 
-Veámoslas más detalladamente.
+Veamos estas opciones más detalladamente.
 
-**Tipo de almacenamiento:** Managed Disks ofrece 2 niveles de rendimiento: [premium](../articles/virtual-machines/windows/premium-storage.md) (basado en SSD) y [estándar](../articles/virtual-machines/windows/standard-storage.md) (basado en HDD). La facturación de un disco administrado depende del tipo de almacenamiento que se haya seleccionado para el disco.
+**Tipo de almacenamiento:** Managed Disks ofrece 3 niveles de rendimiento: [HDD estándar](../articles/virtual-machines/windows/standard-storage.md), SSD estándar (versión preliminar) y [Premium](../articles/virtual-machines/windows/premium-storage.md). La facturación de un disco administrado depende del tipo de almacenamiento que se haya seleccionado para el disco.
 
 
 **Tamaño del disco**: la facturación de los discos administrados depende del tamaño aprovisionado del disco. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Managed Disks más cercana, como se especifica en las tablas siguientes. Cada disco administrado se asigna a uno de los tamaños aprovisionados admitidos y se factura según corresponda. Por ejemplo, si crea un disco administrado estándar y especifica un tamaño aprovisionado de 200 GB, se le facturará según los precios del tipo de disco S15.
@@ -55,15 +72,24 @@ Estos son los tamaños de disco disponibles para un disco administrado premium:
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
 | Tamaño del disco        | 32 GiB   | 64 GiB   | 128 GB  | 256 GiB  | 512 GB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
+Estos son los tamaños de disco disponibles para un disco administrado SSD estándar:
 
-Estos son los tamaños de disco disponibles para un disco administrado estándar:
+| **Tipo de disco<br> administrado SSD estándar** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** |
+|------------------|--------|--------|--------|----------------|----------------|----------------| 
+| Tamaño del disco        | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
-| **Tipo de disco <br>administrado estándar** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+Estos son los tamaños de disco disponibles para un disco administrado HDD estándar:
+
+| **Tipo de disco<br> administrado HDD estándar** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
 | Tamaño del disco        | 32 GiB  | 64 GiB  | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
-**Número de transacciones**: se le factura por el número de transacciones que realiza en un disco administrado estándar. Las transacciones de un disco administrado premium no tienen coste.
+**Número de transacciones**: se le factura por el número de transacciones que realiza en un disco administrado estándar.
+
+Los discos SSD estándar usan un tamaño de unidad de E/S de 256 KB. Si el tamaño de los datos transferidos es inferior a 256 KB, se considera una unidad de E/S. Los tamaños de E/S más grandes se cuentan como varias operaciones de E/S con un tamaño de 256 KB. Por ejemplo, una E/S de 1100 KB se cuenta como cinco unidades de E/S.
+
+Las transacciones de un disco administrado premium no tienen coste.
 
 **Transferencias de datos de salida**: las [transferencias de datos de salida](https://azure.microsoft.com/pricing/details/data-transfers/) (datos que salen de los centros de datos de Azure) se facturan en función del uso de ancho de banda.
 
@@ -74,7 +100,7 @@ Para obtener información detallada acerca de los precios de Managed Disks, cons
 
 Una instantánea administrada es una copia completa de solo lectura de un disco administrado que se almacena como disco administrado estándar de forma predeterminada. Con las instantáneas, puede realizar una copia de seguridad de sus discos administrados en cualquier momento. Estas instantáneas existen independientemente del disco de origen y se pueden usar para una instancia de Managed Disks. Se facturan según el tamaño usado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB, solo se le cobrará por el tamaño de datos usado de 10 GiB.  
 
-Actualmente, las [instantáneas incrementales](../articles/virtual-machines/windows/incremental-snapshots.md) no son compatibles con Managed Disks, pero lo serán en el futuro.
+Actualmente, las [instantáneas incrementales](../articles/virtual-machines/windows/incremental-snapshots.md) no son compatibles con Managed Disks.
 
 Para más información acerca de cómo crear instantáneas con Managed Disks, consulte estos recursos:
 
@@ -84,15 +110,15 @@ Para más información acerca de cómo crear instantáneas con Managed Disks, co
 
 ## <a name="images"></a>Imágenes
 
-Managed Disks también admite la creación de una imagen personalizada administrada. Puede crear una imagen desde un disco duro virtual personalizado en una cuenta de almacenamiento, o bien directamente desde una máquina virtual generalizada (con Sysprep). De esta forma se capturan en una sola imagen todos los discos administrados con una máquina virtual, entre los que se incluyen tanto el disco de datos como el del sistema operativo. Esto permite crear cientos de máquinas virtuales con la imagen personalizada sin necesidad de copiar o administrar cuentas de almacenamiento.
+Managed Disks también admite la creación de una imagen personalizada administrada. Puede crear una imagen desde un disco duro virtual personalizado en una cuenta de almacenamiento, o bien directamente desde una máquina virtual generalizada (con Sysprep). Este proceso captura en una sola imagen todos los discos administrados con una máquina virtual, entre los que se incluyen tanto el disco de datos como el del sistema operativo. Esta imagen personalizada administrada permite crear cientos de máquinas virtuales con la imagen personalizada sin necesidad de copiar o administrar cuentas de almacenamiento.
 
-Para obtener información sobre la creación de imágenes, consulte los artículos siguientes:
+Para más información sobre la creación de imágenes, consulte los artículos siguientes:
 * [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md) (Captura de una imagen administrada de una máquina virtual generalizada en Azure)
 * [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md) (Procedimiento de generalización y captura de una máquina virtual Linux con la CLI de Azure 2.0)
 
 ## <a name="images-versus-snapshots"></a>Imágenes frente a instantáneas
 
-A menudo se ve la palabra "imagen" utilizada con máquinas virtuales, pero ahora también se puede ver "instantáneas". Es importante saber en qué se diferencian. Con Managed Disks, es posible tomar una imagen de una máquina virtual generalizada que se ha desasignado. Dicha imagen incluirá todos los discos conectados a la máquina virtual, se puede usar para crear una máquina virtual e incluirá todos los discos.
+A menudo se ve la palabra "imagen" utilizada con máquinas virtuales, pero ahora también se puede ver "instantáneas". Es importante saber en qué se diferencian estos términos. Con Managed Disks, es posible tomar una imagen de una máquina virtual generalizada que se ha desasignado. Dicha imagen incluirá todos los discos conectados a la máquina virtual, se puede usar para crear una máquina virtual e incluirá todos los discos.
 
 Una instantánea es una copia de un disco en un momento dado. Solo se aplica a un disco. Si tiene una máquina virtual con un solo disco (el del sistema operativo), puede tomar una instantánea o una imagen del mismo y crear una máquina virtual a partir de cualquiera de ellas.
 
@@ -109,7 +135,7 @@ Hay dos tipos de cifrado que comentar en referencia a Managed Disks. El primero 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
-Azure Disk Encryption le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Esto incluye Managed Disks. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. Se integra con Azure Key Vault para permitirle controlar y administrar las claves de cifrado del disco. Para más información, vea [Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux](../articles/security/azure-security-disk-encryption.md).
+Azure Disk Encryption le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Este cifrado incluye discos administrados. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. El proceso de cifrado se integra con Azure Key Vault para permitirle controlar y administrar las claves de cifrado del disco. Para más información, consulte [Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux](../articles/security/azure-security-disk-encryption.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -131,9 +157,9 @@ Para más información acerca de Managed Disks, consulte los siguientes artícul
 
 ### <a name="compare-managed-disks-storage-options"></a>Comparación de las opciones de almacenamiento de Managed Disks
 
-* [Discos y Premium Storage](../articles/virtual-machines/windows/premium-storage.md)
+* [Discos SSD premium](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Discos y almacenamiento estándar](../articles/virtual-machines/windows/standard-storage.md)
+* [Discos SSD y HDD estándar](../articles/virtual-machines/windows/standard-storage.md)
 
 ### <a name="operational-guidance"></a>Guía de operaciones
 

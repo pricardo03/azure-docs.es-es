@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361978"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627030"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
@@ -62,7 +62,7 @@ Debe especificar una suscripción de Azure cuando cree un clúster de HDInsight.
     1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
     2. Haga clic en **Suscripción** en el menú izquierdo. Tiene un icono amarillo de una llave amarilla. Verá una lista de suscripciones.
     3. Haga clic en la suscripción que usa para crear clústeres. 
-    4. Haga clic en **Mis permisos**.  Muestra el [rol](../role-based-access-control/overview.md#built-in-roles) en la suscripción. Debe tener al menos acceso de colaborador para crear un clúster de HDInsight.
+    4. Haga clic en **Mis permisos**.  Muestra el [rol](../role-based-access-control/built-in-roles.md) en la suscripción. Debe tener al menos acceso de colaborador para crear un clúster de HDInsight.
 
 - Para usar un grupo de recursos existente:
 
@@ -282,7 +282,7 @@ A continuación, Ambari cambia la contraseña en todos los nodos del clúster.
    | --- | --- |
    | NOMBRE |Cambio de contraseña de SSH |
    | URI de script de Bash |El identificador URI del archivo changepassword.sh |
-   | Nodos (principal, de trabajo, nimbus, supervisor, Zookeeper, etc.) |✓ para todos los tipos de nodo enumerados |
+   | Nodos (principal, de trabajo, nimbus, supervisor, Zookeeper, etc.) |✓ para todos los tipos de nodo indicados |
    | Parámetros |Escriba el nombre de usuario de SSH y la contraseña nueva. Debe haber un espacio entre el nombre de usuario y la contraseña. |
    | Conservar esta acción de script... |Deje este campo en sin activar. |
 5. Seleccione **Crear** para aplicar el script. Una vez que finalice el script, puede conectarse al clúster mediante SSH con la nueva contraseña.

@@ -2,18 +2,18 @@
 title: Implementación del servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery | Microsoft Docs
 description: En este artículo se describe cómo implementar un servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/06/2018
+ms.author: raynew
+ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188487"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267516"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -21,11 +21,19 @@ Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la 
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Se recomienda implementar el servidor de configuración como una máquina virtual de VMware de alta disponibilidad. En la tabla siguiente se resumen los requisitos mínimos de hardware.
+Se recomienda implementar el servidor de configuración como una máquina virtual de VMware de alta disponibilidad. En la tabla siguiente se resumen los requisitos mínimos del servidor de configuración.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### <a name="prepare-for-mysql-installation"></a>Preparación para la instalación de MySQL
+
+MySQL debe instalarse de forma predeterminada en el servidor de configuración. Para ello, emplee uno de los métodos siguientes:
+
+- Permita que Site Recovery se descargue e instale cuando se ejecute el Asistente para la administración del servidor de configuración. No es necesario realizar ninguna acción específica.
+- Descargue manualmente MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Ejecute la instalación. Site Recovery reconocerá que está instalado cuando se ejecute el asistente.
+- Descargue manualmente MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Cuando se ejecuta el Asistente, detectará el archivo de instalación; instálelo desde esta ubicación. 
 
 
 ## <a name="capacity-planning"></a>Planificación de capacidad
@@ -101,7 +109,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 1. En el Asistente para administración del servidor de configuración, seleccione **Setup connectivity** (Conectividad de configuración). Seleccione la NIC para recibir tráfico de replicación y, luego, seleccione **Guardar**. Una vez configurado, este valor no se puede cambiar.
 2. En **Seleccionar almacén de Recovery Services**, seleccione la suscripción de Azure y el grupo de recursos y almacén correspondientes.
-3. En **Instalar software de terceros**, acepte el contrato de licencia. Seleccione **Descargar e instalar** para instalar MySQL Server.
+3. En **Instalar software de terceros**, acepte el contrato de licencia. Instale MySQL de acuerdo con el método [ que está usando para instalar MySQL](#prepare-for-mysql-installation).
 4. Seleccione **Install VMware PowerCLI** (Instalar VMware PowerCLI). Asegúrese de que todas las ventanas del explorador están cerradas antes. Después, seleccione **Continuar**.
 5. En **Validate appliance configuration** (Comprobar configuración del dispositivo), se comprueban los requisitos previos antes de continuar.
 6. En **Configure vCenter Server/vSphere ESXi server** (Configurar vCenter Server/vSphere ESXi Server), especifique la dirección IP o FQDN del servidor vCenter o host de vSphere en los que se encuentran las máquinas virtuales donde desea realizar la replicación. Especifique el puerto de escucha del servidor y un nombre descriptivo para el servidor de VMware en el almacén.

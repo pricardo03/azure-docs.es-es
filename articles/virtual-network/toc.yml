@@ -161,12 +161,8 @@
               href: virtual-networks-dmz-nsg.md
     - name: Configuración
       items:
-        - name: Máquinas virtuales
-          items:
-            - name: Adición o eliminación de interfaces de red
-              href: virtual-network-network-interface-vm.md
-            - name: Resolución de nombres para las máquinas virtuales y servicios en la nube
-              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: Resolución de nombres para las máquinas virtuales y servicios en la nube
+          href: virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: Uso de DNS dinámico con su propio servidor DNS
           href: virtual-networks-name-resolution-ddns.md
         - name: Optimización del rendimiento de la red
@@ -191,17 +187,16 @@
               href: virtual-network-nsg-manage-log.md
         - name: Tablas de ruta
           href: manage-route-table.md
-        - name: Interfaces de red
-          href: virtual-network-network-interface.md
+        - name: Redes de máquina virtual
           items:
-            - name: Direcciones IP
+            - name: Creación o eliminación de una interfaz de red
+              href: virtual-network-network-interface.md
+            - name: Adición o eliminación de interfaces de red
+              href: virtual-network-network-interface-vm.md
+            - name: Incorporación o eliminación de direcciones IP
               href: virtual-network-network-interface-addresses.md
         - name: Direcciones IP públicas
           href: virtual-network-public-ip-address.md
-        - name: Máquinas virtuales
-          items:
-            - name: Movimiento de máquinas virtuales a una subred diferente
-              href: virtual-networks-move-vm-role-to-subnet.md
     - name: Solución de problemas
       items:
         - name: Grupos de seguridad de red
@@ -277,6 +272,8 @@
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
+                - name: Traslado de una máquina virtual a una subred diferente
+                  href: virtual-networks-move-vm-role-to-subnet.md
         - name: Servicio en la nube y seguridad de red
           href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           items:

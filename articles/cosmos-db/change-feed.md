@@ -5,20 +5,17 @@ keywords: fuente de cambios
 services: cosmos-db
 author: rafats
 manager: kfile
-documentationcenter: ''
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: be59f1a9dc19fffdb6a952c7db73756909036bf6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2600565493a334c7227e5c0d67a5808f30751108
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261079"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Compatibilidad con la fuente de cambios en Azure Cosmos DB
 
@@ -47,9 +44,9 @@ La compatibilidad con la fuente de cambios en Azure Cosmos DB se proporciona al 
 
 Puede leer la fuente de cambios de tres maneras diferentes, como se describe más adelante en este artículo:
 
-1.  [Uso de Azure Functions](#azure-functions)
-2.  [Uso del SDK de Azure Cosmos DB](#rest-apis)
-3.  [Uso de la biblioteca de procesador de fuente de cambios de Azure Cosmos DB](#change-feed-processor)
+*   [Uso de Azure Functions](#azure-functions)
+*   [Uso del SDK de Azure Cosmos DB](#sql-sdk)
+*   [Uso de la biblioteca de procesador de fuente de cambios de Azure Cosmos DB](#change-feed-processor)
 
 La fuente de cambios está disponible para cada intervalo de claves de partición dentro de la colección de documentos y, por tanto, se puede distribuir entre uno o varios consumidores para el procesamiento en paralelo, tal y como se muestra en la imagen siguiente.
 
@@ -92,7 +89,7 @@ Si usa Azure Functions, la manera más sencilla de conectarse a una fuente de ca
 
 Los desencadenadores pueden crearse en el portal de Azure Functions, en el portal de Azure Cosmos DB o mediante programación. Para más información, vea [Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md).
 
-<a id="rest-apis"></a>
+<a id="sql-sdk"></a>
 ## <a name="using-the-sdk"></a>Uso del SDK
 
 El [SDK de SQL](sql-api-sdk-dotnet.md) para Azure Cosmos DB le otorga la capacidad de leer y administrar una fuente de cambios. Pero con la eficacia, también vienen una gran cantidad de responsabilidades, demasiadas. Si desea administrar puntos de control, tratar con números de secuencia de documentos y tener un control específico sobre las claves de las particiones, el SDK puede ser la solución correcta.
@@ -167,11 +164,11 @@ En esta sección se explica cómo usar el SDK de SQL para trabajar con una fuent
 
 Si tiene varios lectores, puede usar **ChangeFeedOptions** para distribuir la carga de lectura en subprocesos o clientes distintos.
 
-Y eso es todo, con estas pocas líneas de código puede empezar a leer la fuente de cambios. Puede obtener el código completo que se usa en este artículo desde el [repositorio de GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+Y eso es todo, con estas pocas líneas de código puede empezar a leer la fuente de cambios. Puede obtener el código completo que se usa en este artículo desde el [repositorio de GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
 En el código del paso 4 anterior, el fragmento **ResponseContinuation** de la última línea tiene el último número de secuencia lógica (LSN) del documento, que se usará la próxima vez que lea documentos nuevos tras este número de secuencia. Mediante el uso del valor **StartTime** de **ChangeFeedOption** puede ampliar la red para obtener los documentos. Por lo tanto, si el valor de **ResponseContinuation** es null, pero **StartTime** vuelve atrás en el tiempo, se le devolverán todos los documentos que cambiaron desde el momento que indica **StartTime**. Pero, si **ResponseContinuation** tiene un valor, el sistema le ayudará a obtener todos los documentos desde ese LSN.
 
-Por lo tanto, la matriz de puntos de control solo mantiene el LSN para cada partición. Pero si no desea ocuparse de las particiones, los puntos de control, LSN, las horas de inicio, etc., la opción más sencilla consiste en utilizar la biblioteca de procesadores de fuente de cambios.
+Por lo tanto, la matriz de puntos de control solo mantiene el LSN para cada partición. Pero si no desea ocuparse de las particiones, los puntos de control, LSN, las horas de inicio, etc., la opción más sencilla consiste en usar la biblioteca de procesadores de fuente de cambios.
 
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Uso de la biblioteca de procesadores de fuente de cambios 
@@ -191,7 +188,7 @@ Tenga en cuenta que, si tiene dos funciones de Azure sin servidor supervisando l
 <a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Información de la biblioteca de procesadores de fuente de cambios
 
-Hay cuatro componentes principales en la implementación del procesador de fuente de cambios: la colección supervisada, la colección de concesión, el host de procesador y los consumidores. 
+Hay cuatro componentes principales en la implementación de la biblioteca de procesadores de fuente de cambios: la colección supervisada, la colección de concesión, el host de procesador y los consumidores. 
 
 > [!WARNING]
 > Crear una colección implica precios, debido a que reserva rendimiento para que la aplicación se comunique con Azure Cosmos DB. Para más detalles, visite la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/).
@@ -279,13 +276,158 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-¡Ya está! Después de estos pasos, los documentos empezarán a entrar en el método **DocumentFeedObserver ProcessChangesAsync**.
+¡Ya está! Después de estos pasos, los documentos empezarán a entrar en el método **DocumentFeedObserver ProcessChangesAsync**. Busque el código anterior en el [repositorio de GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+
+## <a name="faq"></a>Preguntas más frecuentes
+
+### <a name="what-are-the-different-ways-you-can-read-change-feed-and-when-to-use-each-method"></a>¿Cuáles son las distintas formas en que puede leer la fuente de cambios? ¿Cuándo debe usar cada método?
+
+Hay tres opciones para leer la fuente de cambios:
+
+* **[Mediante el SDK de .NET de la API de SQL de Azure Cosmos DB](#sql-sdk)**
+   
+   Con este método, obtendrá un bajo nivel de control sobre la fuente de cambios. Puede administrar el punto de control, puede acceder a una clave de partición determinada, etc. Si tiene varios lectores, puede usar [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) para distribuir la carga de lectura en subprocesos o clientes distintos. .
+
+* **[Mediante la biblioteca de procesadores de fuente de cambios de Azure Cosmos DB](#change-feed-processor)**
+
+   Si quiere externalizar gran parte de la complejidad de la fuente de cambios, puede usar la biblioteca de procesadores de fuente de cambios. Esta biblioteca oculta gran parte de la complejidad, pero de todos modos le permite controlar completamente la fuente de cambios. Esta biblioteca sigue un [patrón de observador](https://en.wikipedia.org/wiki/Observer_pattern) en el que el SDK llama a la función de procesamiento. 
+
+   Si tiene una fuente de cambios de alto rendimiento, puede crear instancias de varios clientes para leer la fuente de cambios. Como usa la "biblioteca de procesadores de fuente de cambios", dividirá automáticamente la carga en distintos clientes. No tiene que hacer nada. El SDK controla toda la complejidad. Sin embargo, si quiere tener su propio equilibrador de carga, puede implementar IParitionLoadBalancingStrategy para una estrategia de partición personalizada. Implemente IPartitionProcessor para procesar de manera personalizada los cambios de una partición. Sin embargo, con el SDK puede procesar un intervalo de partición, pero si quiere procesar una clave de partición determinada, tendrá que usar el SDK para la API de SQL.
+
+* **[Mediante Azure Functions](#azure-functions)** 
+   
+   La última opción, Azure Functions, es la opción más simple. Se recomienda usar esta opción. Cuando cree un desencadenador de Azure Cosmos DB en una aplicación de Azure Functions, seleccione la colección de Azure Cosmos DB a la que conectarse, y la función se desencadenará siempre que se realice un cambio en la colección. Vea un [presentación en pantalla](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) sobre cómo usar Azure Functions y la fuente de cambios.
+
+   Los desencadenadores pueden crearse en el portal de Azure Functions, en el portal de Azure Cosmos DB o mediante programación. Visual Studio y VS Code cuentan con un elevado nivel de compatibilidad para escribir Azure Functions. Puede escribir y depurar el código en el escritorio y, luego, implementar la función con un solo clic. Para más información, consulte el artículo [Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md).
+
+### <a name="what-is-the-sort-order-of-documents-in-change-feed"></a>¿Cuál es el criterio de ordenación de los documentos en la fuente de cambios?
+
+Los documentos de la fuente de cambios están ordenados según su hora de modificación. Este criterio de ordenación solo se garantiza por partición.
+
+### <a name="for-a-multi-region-account-what-happens-to-the-change-feed-when-the-write-region-fails-over-does-the-change-feed-also-failover-would-the-change-feed-still-appear-contiguous-or-would-the-fail-over-cause-change-feed-to-reset"></a>En una cuenta de varias regiones, ¿qué sucede con la fuente de cambios cuando se realiza la conmutación por error de la región de escritura? ¿También se realiza la conmutación por error de la fuente de cambios? ¿La fuente de cambios seguiría apareciendo como contigua o la conmutación por error reiniciaría la fuente de cambios?
+
+Sí, la fuente de cambios funcionará entre la operación de conmutación por error manual y será contigua.
+
+### <a name="how-long-change-feed-persist-the-changed-data-if-i-set-the-ttl-time-to-live-property-for-the-document-to--1"></a>¿Durante cuánto tiempo la fuente de cambios conserva los datos modificados si la propiedad TTL (período de vida) se establece en -1 para el documento?
+
+La fuente de cambios se conservará para siempre. Si los datos no se eliminan, se mantendrán en la fuente de cambios.
+
+### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region-as-change-feed-is-available-in-all-the-read-regions-by-default"></a>¿Cómo puedo configurar Azure Functions para leer de una región determinada si la fuente de cambios está disponible en todas las regiones de lectura de manera predeterminada?
+
+Actualmente no es posible configurar Azure Functions para leer desde una región determinada. Hay un problema de GitHub en el repositorio de Azure Functions para establecer las regiones de preferencia de cualquier desencadenador y enlace de Azure Cosmos DB.
+
+Azure Functions usa la directiva de conexión predeterminada. Puede configurar el modo de conexión en Azure Functions y, de manera predeterminada, lee desde la región de escritura, por lo que se recomienda reubicar Azure Functions en la misma región.
+
+### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>¿Cuál es el tamaño predeterminado de lotes en Azure Functions?
+
+100 documentos en cada invocación de Azure Functions. Sin embargo, este número se puede configurar dentro del archivo function.json. Esta es una [lista completa de las opciones de configuración](../azure-functions/functions-run-local.md). Si está desarrollando de manera local, actualice la configuración de la aplicación dentro del archivo [local.settings.json](../azure-functions/functions-run-local.md).
+
+### <a name="i-am-monitoring-a-collection-and-reading-its-change-feed-however-i-see-i-am-not-getting-all-the-inserted-document-some-documents-are-missing-what-is-going-on-here"></a>Estoy configurando una colección y leyendo su fuente de cambios, pero veo que no recibo todos los documentos insertados y que faltan algunos documentos. ¿Qué está pasando?
+
+Asegúrese de que ninguna otra función lee la misma colección con la misma colección de concesión. Esto me pasó a mí y me di cuenta de que otra instancia de Azure Functions procesa los documentos faltantes, que también usa la misma concesión.
+
+Por lo tanto, si crea varias instancias de Azure Functions para leer la misma fuente de cambios, deben usar distintas colecciones de concesión o usar la configuración "leasePrefix" para compartir la misma colección. Sin embargo, cuando usa la biblioteca de procesadores de fuente de cambios, puede iniciar varias instancias de la función y el SDK dividirá los documentos en distintas instancias de manera automática.
+
+### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>El documento se actualiza a cada segundo y no recibo todos los cambios en Azure Functions donde se escucha la fuente de cambios.
+
+Azure Functions sondea la fuente de cambios cada 5 segundos, por lo que se pierde cualquier cambio hecho entre esos 5 segundos. Azure Cosmos DB almacena solo una versión cada 5 segundos, por lo que obtendrá el quinto cambio en el documento. Sin embargo, si quiere bajar de los 5 segundos y sondear la fuente de cambios cada segundo, puede configurar el tiempo de sondeo "feedPollTime". Para saber cómo hacerlo, consulte [Enlaces de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Se define en milisegundos con un valor predeterminado de 5000. Es posible bajar del segundo, pero no lo recomendamos, porque empezará a consumir más CPU.
+
+### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Inserté un documento en la colección de la API de Mongo, pero cuando veo el documento en la fuente de cambios, muestra un valor de identificador distinto. ¿Qué está pasando?
+
+Su colección es la colección de la API de Mongo. Recuerde que la fuente de cambios se lee mediante el cliente de SQL y serializa los elementos en formato JSON. Debido al formato JSON, los clientes de MongoDB experimentarán una discrepancia entre los documentos con formato BSON y la fuente de cambios con formato JSON. Lo que ve es la representación de un documento BSON en JSON. Si usa atributos binarios en cuentas de Mongo, se convierten a JSON.
+
+### <a name="is-there-a-way-to-control-change-feed-for-updates-only-and-not-inserts"></a>¿Hay alguna manera de controlar la fuente de cambios solo para actualizaciones y no inserciones?
+
+No en la actualidad, pero esta funcionalidad está pensada para el futuro. Hoy en día, puede agregar un marcador parcial en los documentos para las actualizaciones.
+
+### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>¿Hay alguna manera de obtener eliminaciones en la fuente de cambios?
+
+Actualmente, la fuente de cambios no registra las eliminaciones. La fuente de cambios mejora constantemente y esta funcionalidad está pensada para el futuro. Hoy en día, puede agregar un marcador parcial en los documentos para las eliminaciones. Agregue un atributo en el documento llamado "deleted" (eliminado), establézcalo en "true" y establezca un TTL en el documento para que se pueda eliminar automáticamente.
+
+### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>¿Puedo leer la fuente de cambios de documentos históricos (por ejemplo, documentos que se agregaron hace 5 años)?
+
+Sí, si no se eliminó el documento puede leer la fuente de cambios hasta el origen de la colección.
+
+### <a name="can-i-read-change-feed-using-javascript"></a>¿Puedo leer la fuente de cambios con JavaScript?
+
+Sí, recientemente se agregó la compatibilidad inicial del SDK de Node.js con la fuente de cambios. Se puede usar como se muestra en el ejemplo siguiente. Actualice el módulo documentdb a la versión actual antes de ejecutar el código:
+
+```js
+
+var DocumentDBClient = require('documentdb').DocumentClient;
+const host = "https://your_host:443/";
+const masterKey = "your_master_key==";
+const databaseId = "db";
+const collectionId = "c1";
+const dbLink = 'dbs/' + databaseId;
+const collLink = dbLink + '/colls/' + collectionId;
+var client = new DocumentDBClient(host, { masterKey: masterKey });
+let options = {
+    a_im: "Incremental feed",
+    accessCondition: {
+        type: "IfNoneMatch",        // Use: - empty condition (or remove accessCondition entirely) to start from beginning.
+        //      - '*' to start from current.
+        //      - specific etag value to start from specific continuation.
+        condition: ""
+    }
+};
+ 
+var query = client.readDocuments(collLink, options);
+query.executeNext((err, results, headers) =&gt; {
+    // Now we have headers.etag, which can be used in next readDocuments in accessCondition option.
+    console.log(results);
+    console.log(headers.etag);
+    console.log(results.length);
+    options.accessCondition = { type: "IfNoneMatch", condition: headers.etag };
+    var query = client.readDocuments(collLink, options);
+    query.executeNext((err, results, headers) =&gt; {
+        console.log("next one:", results[0]);
+    });
+});<span id="mce_SELREST_start" style="overflow:hidden;line-height:0;"></span>
+
+```
+
+### <a name="can-i-read-change-feed-using-java"></a>¿Puedo leer la fuente de cambios con Java?
+
+La biblioteca de Java para leer la fuente de cambios está disponible en el [repositorio de Github](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). Sin embargo, actualmente las versiones de la biblioteca de Java son algo anteriores a las versiones de la biblioteca de .NET. Ambas bibliotecas pronto estarán sincronizadas.
+
+### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>¿Puedo usar _etag, _lsn o _ts para contabilidad interna? ¿Qué obtengo como respuesta?
+
+El formato _etag es interno y no debe depender de él (no lo analice), porque puede cambiar en cualquier momento.
+_ts es la marca de tiempo de la modificación o de la creación. Puede usar _ts para la comparación cronológica.
+_lsn es un identificador de lote que solo se agrega para la fuente de cambios y representa el identificador de transacción del almacén. Muchos documentos pueden tener el mismo _lsn.
+Otro aspecto que se debe tener en cuenta es que ETag en FeedResponse es distinto de _etag que ve en el documento. _etag es un identificador interno que se usa para la simultaneidad e indica la versión del documento y el ETag que se usa para secuenciar la fuente.
+
+### <a name="does-reading-change-feed-add-any-additional-cost-"></a>¿Leer la fuente de cambios agrega algún costo adicional?
+
+Se le cobrará por las unidades de solicitud consumidas, es decir, el movimiento de datos dentro y fuera de las colecciones de Azure Cosmos DB siempre consume RU. A los usuarios se les cobrará por las unidades de solicitud que consume la colección de concesión.
+
+### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>¿Varias instancias de Azure Functions pueden leer la fuente de cambios de una colección?
+
+Sí. Varias instancias de Azure Functions pueden leer la fuente de cambios de la misma colección. Sin embargo, las instancias de Azure Functions deben tener definido un leaseCollectionPrefix independiente.
+
+### <a name="should-the-lease-collection-be-partitioned"></a>¿Es necesario particionar la colección de concesión?
+
+No, la colección de concesión se puede corregir. No es necesario particionar la colección de concesión, un proceso que no es compatible actualmente.
+
+### <a name="can-i-read-change-feed-from-spark"></a>¿Puedo leer la fuente de cambios desde Spark?
+
+Sí, puede hacerlo. Consulte el artículo sobre el [conector de Spark para Azure Cosmos DB](spark-connector.md). Esta es una [presentación en pantalla](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) que muestra cómo se puede procesar la fuente de cambios como un flujo estructurado.
+
+### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>Si estoy procesando una fuente de cambios con Azure Functions, como un lote de 10 documentos, y recibo un error en el séptimo documento. En ese caso, no se procesan los últimos tres documentos. ¿Cómo puedo empezar el procesamiento desde el documento con errores (es decir, el séptimo documento) en la próxima fuente?
+
+Para controlar el error, el patrón recomendado es encapsular el código con el bloque try-catch. Detecte el error y coloque ese documento en una cola (de mensajes fallidos) y defina la lógica para manejar los documentos que generaron el error. Con este método, si tiene un lote de 200 documentos y solo un documento con errores, no tiene que deshacerse de todo el lote.
+
+Si se produce un error, no debe rebobinar al punto de control para comenzar otra acción. Puede seguir obteniendo esos documentos de la fuente de cambios. Recuerde que la fuente de cambios conserva la última instantánea final de los documentos, por lo que puede perder la instantánea anterior en el documento. La fuente de cambios solo conserva una última versión del documento y, entremedio, pueden venir otros procesos y cambiar el documento.
+
+Mientras sigue corrigiendo el código, pronto no encontrará documentos en la cola de mensajes fallidos.
+La fuente de cambios llama automáticamente a Azure Functions y Azure Functions mantiene de manera interna el punto de control, el sistema, etc. Si quiere revertir el punto de control y controlar cada uno de sus aspectos, debe considerar la posibilidad de usar el SDK del procesador de la fuente de cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca Azure Cosmos DB con Azure Functions, consulte [Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md).
 
-Para más información sobre cómo utilizar la biblioteca de procesadores de fuente de cambios, use los siguientes recursos:
+Para más información sobre cómo usar la biblioteca de procesadores de fuente de cambios, use los siguientes recursos:
 
 * [Página de información](sql-api-sdk-dotnet-changefeed.md) 
 * [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)

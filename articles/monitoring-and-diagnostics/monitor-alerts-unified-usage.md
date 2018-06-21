@@ -1,24 +1,19 @@
 ---
-title: Creación, visualización y administración de alertas mediante Azure Monitor | Microsoft Docs
+title: Creación, visualización y administración de alertas mediante Azure Monitor
 description: Use la nueva experiencia de alertas unificadas de Azure para crear, ver y administrar reglas de alertas de métricas y registros desde un solo lugar.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: alerts
+ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264347"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas mediante Azure Monitor  
 
@@ -50,7 +45,7 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     ![Creación de una regla](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Para definir la condición de la alerta, use primero el vínculo **Seleccionar recurso** y especifique el destino mediante la selección de un recurso. Para filtrar, elija la *suscripción* y el *tipo de recurso* correspondientes y, por último, seleccione el *recurso* necesario.
+4.  Para definir la condición de la alerta, use primero el vínculo **Seleccionar recurso** y especifique el destino mediante la selección de un recurso. Para filtrar, elija la *suscripción y el *tipo de recursos y, por último, seleccione el *recurso* necesario.
 
     >[!NOTE]
 
@@ -67,7 +62,7 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     > También se admiten las alertas de registro de actividad, pero están en versión preliminar. [Más información](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Alertas de métrica*: asegúrese de que el campo **Tipo de recurso** está seleccionado con el tipo de señal **Métrica**; una vez elegido el **recurso** apropiado, haga clic en el botón *Listo* para volver a Crear alerta. Después, use el botón **Agregar criterios** para elegir la señal específica de la lista de opciones de señal, su servicio de supervisión y el tipo indicado, que están disponibles para el recurso seleccionado anteriormente.
+5. Alertas de métrica: asegúrese de que el campo **Tipo de recurso** está seleccionado con el tipo de señal **Métrica**; una vez elegido el **recurso** apropiado, haga clic en el botón *Listo* para volver a Crear alerta. Después, use el botón **Agregar criterios** para elegir la señal específica de la lista de opciones de señal, su servicio de supervisión y el tipo indicado, que están disponibles para el recurso seleccionado anteriormente.
 
     ![Selección de un recurso](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -83,7 +78,7 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     a. Elija una duración en la lista desplegable **Mostrar historial** para visualizar otro período de tiempo. Puede elegir las dimensiones de la métrica admitida para filtrar según una serie temporal: elegir las dimensiones es opcional y se pueden usar hasta cinco dimensiones. 
 
-    b. Se puede seleccionar la **Lógica de alerta** de entre las opciones mostradas de *Condición*, *Agregación* y *Umbral*. Como vista previa de la lógica proporcionada, la condición se muestra en la visualización junto con el historial de señales, a fin de indicar cuándo debería haberse desencadenado la alerta en el pasado. 
+    b. Se puede seleccionar la **Lógica de alerta** de entre las opciones mostradas de *Condición*, *Agregación y *Umbral*. Como vista previa de la lógica proporcionada, la condición se muestra en la visualización junto con el historial de señales, a fin de indicar cuándo debería haberse desencadenado la alerta en el pasado. 
 
     c. Para especificar la duración, elija **Período** junto con la frecuencia con la que se debe ejecutar la alerta mediante la selección de **Frecuencia**.
 
@@ -125,14 +120,20 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 
         ![Desactivar las alertas de registro](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
+        > [!TIP]
+        > Especifique un valor de desactivar las alertas mayor que la frecuencia de alertas para garantizar que las notificaciones se detengan sin superposición
+
 12. Como tercer y último paso, especifique si es necesario desencadenar algún **grupo de acciones** para la regla de alertas si se cumple la condición de alerta. Puede elegir cualquier grupo de acciones existente con alerta o crear uno. Según el grupo de acciones seleccionado, cuando se desencadena la alerta, Azure: envía correos electrónicos, envía SMS, llama a webhooks, la soluciona con runbooks de Azure, envía notificaciones push a la herramienta de ITSM, etc. Obtenga más información sobre los [grupos de acciones](monitoring-action-groups.md).
 
     Para las **alertas de registro**, se encuentra disponible alguna funcionalidad adicional para reemplazar las acciones predeterminadas:
 
     - **Notificación por correo electrónico**: invalida el *asunto del correo electrónico* en el correo electrónico, enviado a través del grupo de acciones, si existen una o más acciones de correo electrónico en dicho grupo de acciones. No se puede modificar el cuerpo del mensaje de correo y este campo **no** es para la dirección de correo electrónico.
-    - **Incluir carga JSON personalizada**: invalida el webhook JSON usado por los grupos de acciones si una o varias acciones de webhook existen en el grupo de acciones mencionado. El usuario puede especificar el formato JSON que se usará para todos los webhooks configurados en el grupo de acciones asociado; para más información sobre los formatos de webhook, consulte [acción webhook para alertas de registro](monitor-alerts-unified-log-webhook.md). La opción Probar webhook se proporciona para comprobar el formato y el procesamiento por parte del destino mediante código JSON de ejemplo y esta opción, solo con fines de **pruebas**.
+    - **Incluir carga JSON personalizada**: invalida el webhook JSON usado por los grupos de acciones si una o varias acciones de webhook existen en el grupo de acciones mencionado. El usuario puede especificar el formato JSON que se usará para todos los webhooks configurados en el grupo de acciones asociado; para más información sobre los formatos de webhook, consulte [Acciones de webhook para alertas de registro](monitor-alerts-unified-log-webhook.md). La opción Probar webhook se proporciona para comprobar el formato y el procesamiento por parte del destino mediante código JSON de ejemplo y esta opción, solo con fines de **pruebas**.
 
         ![Invalidaciones de acciones para alertas de registro](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+
+        > [!NOTE]
+        > Para que funcione la opción **Probar webhook**, el punto de conexión debe admitir el [uso compartido de recursos entre orígenes (CORS)](https://www.w3.org/TR/cors/) y los usuarios pueden usar el proxy de CORS para solucionar los problemas de tipo "No hay encabezado Access-Control-Allow-Origin"
 
 13. Si todos los campos son válidos y tienen una marca verde, se puede hacer clic en el botón **Crear regla de alertas** y se crea la alerta en Azure Monitor: Alertas. Todas las alertas pueden verse en el panel de Alertas.
 

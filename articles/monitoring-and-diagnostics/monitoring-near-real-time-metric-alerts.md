@@ -1,39 +1,22 @@
 ---
-title: Nuevas alertas de métricas en los recursos admitidos de Azure Monitor | Microsoft Docs
+title: Recursos compatibles para las alertas de métrica de Azure Monitor más recientes
 description: Referencia sobre métricas y registro de soporte técnico para las nuevas alertas de métricas casi en tiempo real de Azure.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778120"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264517"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Nuevas alertas de métricas para los servicios de Azure de Azure Portal
-Azure Monitor admite ahora un nuevo tipo de alertas de métricas. Las nuevas alertas se diferencian de las [alertas de métricas clásicas](insights-alerts-portal.md) de varias maneras:
-
-- **Latencia mejorada**: las nuevas alertas de métricas se pueden ejecutar con una frecuencia de cada minuto. Las alertas de métricas anteriores siempre se ejecutan con una frecuencia de 5 minutos. Las alertas de registro todavía tienen un retraso de más de un minuto debido al tiempo que se tarda en ingerir los registros. 
-- **Compatibilidad con métricas multidimensionales**: puede enviar alertas sobre las métricas dimensionales que le permiten supervisar solo un segmento interesante de la métrica. 
-- **Más control sobre las condiciones de las métricas**: puede definir reglas de alerta más avanzadas. Las nuevas alertas admiten la supervisión de los valores máximos, mínimos, promedio y totales de las métricas. 
-- **Supervisión combinada de varias métricas**: se pueden supervisar varias métricas (actualmente hasta dos métricas) con una sola regla. Si ambas métricas incumplen sus respectivos umbrales durante el período especificado, se desencadena una alerta. 
-- **Mejor sistema de notificación**: todas las nuevas alertas utilizan [grupos de acciones](monitoring-action-groups.md), que se denominan grupos de notificaciones y acciones que pueden reutilizarse en varias alertas. Las alertas de métricas clásicas y las alertas de Log Analytics más antiguas no utilizan grupos de acciones. 
-- **Métricas de registros** (versión preliminar pública limitada): los datos de registro que van a Log Analytics ahora se pueden extraer y convertir en métricas de Azure Monitor y luego en alertas como cualquier otra métrica. 
-
-Para aprender a crear una alerta de métricas nueva en Azure Portal, consulte [Creación de una regla de alertas en Azure Portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Tras la creación, puede administrarla mediante los pasos descritos en [Administración de las alertas en Azure Portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Métodos de creación y métricas compatibles para las nuevas alertas de métrica
+Azure Monitor ahora admite un [nuevo tipo de alerta de métrica](monitoring-overview-unified-alerts.md) que tiene ventajas considerables sobre las anteriores [alertas de métrica clásicas](insights-alerts-portal.md). Las alertas anteriores admiten una [gran lista de métricas](monitoring-supported-metrics.md). Las alertas más recientes admiten un subconjunto (creciente) de esa lista más grande. En este artículo se muestra ese subconjunto. 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST support
 Actualmente, solo puede crear alertas de métricas nuevas en Azure Portal, la [API REST](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) o [plantillas de Resource Manager](monitoring-create-metric-alerts-with-templates.md). La compatibilidad con la configuración de nuevas alertas mediante PowerShell, la interfaz de la línea de comandos de Azure (CLI de Azure 2.0) estará disponible próximamente.

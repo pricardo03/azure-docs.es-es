@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836096"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Códigos de error de API de REST de Machine Learning
  
@@ -50,10 +52,10 @@ Esta clase de errores significa que un argumento proporcionado en alguna parte n
 | InputBlobRelativeLocationInvalid | No se proporcionó ningún nombre de Azure Storage Blob. Proporcione un nombre de blob válido e inténtelo de nuevo. |
 | InvalidBlob | Especificación de blob no válido para blob: {0}. Compruebe que la cadena de conexión o ruta de acceso relativa, o la especificación de token de SAS sean correctas e inténtelo de nuevo. |
 | InvalidBlobConnectionString | La cadena de conexión especificada para uno de los blobs de entrada y salida no es válida: {0}. Corrija este problema e inténtelo de nuevo. |
-| InvalidBlobExtension | La referencia de blob {0} tiene una extensión de archivo no válido o no está presente. Las extensiones de archivo admitidas para este tipo de salida son: "{1}". |
+| InvalidBlobExtension | La referencia de blob {0} tiene una extensión de archivo no válida o no está presente. Las extensiones de archivo admitidas para este tipo de salida son: "{1}". |
 | InvalidInputNames | Nombres de entrada de servicio no válidos especificados en la solicitud: {0}. Asigne los datos de entrada a las entradas de servicio correctas e inténtelo de nuevo. |
 | InvalidOutputOverrideName | Nombre de invalidación de salida no válida: {0}. El servicio no tiene un nodo de salida con este nombre. Pase un nombre de nodo de salida correcto para invalidar (se aplica distinción entre mayúsculas y minúsculas). |
-| InvalidQueryParameter | Parámetro de consulta no válido '{0}'. {1} |
+| InvalidQueryParameter | Parámetro de consulta no válido "{0}". {1} |
 | MissingInputBlobInformation | Falta información de Azure Storage Blob. Proporcione una cadena de conexión y una ruta de acceso relativa o URI válidos e inténtelo de nuevo. |
 | MissingJobId | No se proporcionó un identificador de trabajo. Se devolvió un identificador de trabajo cuando un trabajo se envió por primera vez. Compruebe que el identificador de trabajo es correcto e inténtelo de nuevo. |
 | MissingKeys | No hay claves proporcionadas o no se proporcionó una clave primaria o secundaria. |

@@ -4,16 +4,16 @@ description: Este artículo le guiará a través de la creación y administraci�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a83402316854b23fe85bff813dc9f5665bccd1fb
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195886"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794820"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
 
@@ -113,15 +113,19 @@ Use el procedimiento siguiente para crear una definición de directiva.
   }
   ```
 
-2. Cree la definición de directiva con la llamada siguiente:
+2. Cree la definición de directiva con una de las llamadas siguientes:
 
   ```
-  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  # For defining a policy in a subscription
+  armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+
+  # For defining a policy in a management group
+  armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Reemplace el valor de &lt;subscriptionId&gt; anterior por el identificador de la suscripción prevista.
+  Sustituya el valor de {subscriptionId} anterior por el identificador de su suscripción o {managementGroupId} por el identificador de su [grupo de administración](../azure-resource-manager/management-groups-overview.md).
 
-Para más información acerca de la estructura de la consulta, consulte [Definiciones de directiva: Creación o actualización](/rest/api/resources/policydefinitions/createorupdate).
+  Para más información acerca de la estructura de la consulta, consulte [Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate) (Definiciones de directiva: Creación o actualización) y [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) (Definiciones de directiva: Creación o actualización en el grupo de administración).
 
 Utilice el procedimiento siguiente para crear una asignación de directiva y asignar la definición de directiva en el nivel de grupo de recursos.
 
@@ -200,99 +204,6 @@ El identificador de definición de directiva para la definición de directiva qu
 
 Para más información acerca de cómo administrar las directivas de recursos con la CLI de Azure, consulte las [directivas de recursos de la CLI de Azure](/cli/azure/policy?view=azure-cli-latest).
 
-## <a name="identify-non-compliant-resources"></a>Identificación de recursos no compatibles
-
-En una asignación, un recurso no es compatible si no cumple las reglas de iniciativa o directiva. En la tabla siguiente se muestra cómo funcionan los distintos efectos de directiva con la evaluación de condición para el estado de cumplimiento resultante:
-
-| Estado del recurso | Efecto | Evaluación de directiva | Estado de cumplimiento |
-| --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | No compatible |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatible |
-| Nuevo | Audit, AuditIfNotExist\* | True | No compatible |
-| Nuevo | Audit, AuditIfNotExist\* | False | Compatible |
-
-\* Los efectos Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE. Los efectos requieren también que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
-
-Para entender mejor cómo se marcan los recursos como no compatibles, se usará el ejemplo de asignación de directiva creado anteriormente.
-
-Por ejemplo, suponga que tiene un grupo de recursos (ContosoRG) con varias cuentas de almacenamiento (resaltadas en rojo) expuestas a redes públicas.
-
-![Cuentas de almacenamiento expuestas a redes públicas](media/policy-insights/resource-group01.png)
-
-En este ejemplo, debe tener cuidado con los riesgos de seguridad. Ahora que ha creado una asignación de directiva, se evalúa para todas las cuentas de almacenamiento en el grupo de recursos ContosoRG. Se auditan las tres cuentas de almacenamiento no compatibles, con lo que sus estados cambian a **no compatible**.
-
-![Cuentas de almacenamiento auditadas no compatibles](media/policy-insights/resource-group03.png)
-
-Utilice el siguiente procedimiento para identificar los recursos de un grupo de recursos que no son compatibles con la asignación de directiva. En el ejemplo, los recursos son cuentas de almacenamiento del grupo de recursos ContosoRG.
-
-1. Ejecute los comandos siguientes para obtener el identificador de asignación de directiva:
-
-  ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
-  $policyAssignment.PolicyAssignmentId
-  ```
-
-  Para más información acerca de la obtención de un identificador de asignación de directiva, consulte [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
-
-2. Ejecute el siguiente comando para copiar los identificadores de los recursos no compatibles en un archivo JSON:
-
-  ```
-  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-  ```
-
-3. Los resultados deben tener un aspecto similar al ejemplo siguiente:
-
-  ```json
-  {
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-      "@odata.count": 3,
-      "value": [{
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-          }
-      ]
-  }
-  ```
-
-Son equivalentes a lo que normalmente vería en **Recursos no compatibles**, en la [vista de Azure Portal](assign-policy-definition.md#identify-non-compliant-resources).
-
-Actualmente, los recursos no compatibles solo se identifican mediante Azure Portal y solicitudes HTTP. Para más información sobre cómo consultar los estados de directiva, consulte el artículo de referencia de API de [estados de directiva](/rest/api/policy-insights/policystates).
-
-## <a name="view-policy-events"></a>Visualización de eventos de directiva
-
-Cuando se crea o actualiza un recurso, se genera un resultado de evaluación de directiva. Los resultados se denominan _eventos de directiva_. Ejecute la siguiente consulta para ver todos los eventos de directiva asociados a la asignación de directiva.
-
-```
-armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2017-12-12-preview"
-```
-
-Los resultados deben tener una apariencia similar al ejemplo siguiente:
-
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-    "@odata.count": 1,
-    "value": [{
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-        "NumAuditEvents": 3
-    }]
-}
-```
-
-Al igual que con los estados de directiva, solo puede ver los eventos de directiva con solicitudes HTTP. Para más información sobre cómo consultar los eventos de directiva, consulte el artículo de referencia de [estados de directiva](/rest/api/policy-insights/policyevents).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Revise los artículos siguientes para más información sobre los comandos y las consultas en este artículo.
@@ -301,3 +212,4 @@ Revise los artículos siguientes para más información sobre los comandos y las
 - [Módulos de Azure RM PowerShell](/powershell/module/azurerm.resources/#policies)
 - [Comandos de directiva de la CLI de Azure](/cli/azure/policy?view=azure-cli-latest)
 - [Referencia de API de REST de proveedor de recursos de Policy Insights](/rest/api/policy-insights)
+- [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md)

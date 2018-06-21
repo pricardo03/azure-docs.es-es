@@ -5,20 +5,17 @@ keywords: seguridad de bases de datos NoSQL, información de seguridad, segurida
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aa04ae8d5bdccb52e3f63fb2dfb3c75df83b7a54
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611626"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Seguridad de base de datos de Azure Cosmos DB
 
@@ -73,10 +70,10 @@ Analicemos cada uno de ellas en detalle.
 |Replicación local|Incluso dentro de un solo centro de datos, Azure Cosmos DB replica automáticamente los datos para lograr una alta disponibilidad, lo que posibilita diversos [niveles de coherencia](consistency-levels.md). Esto garantiza un [Acuerdo de Nivel de Servicio con disponibilidad](https://azure.microsoft.com/support/legal/sla/cosmos-db) del 99,99 % para todas las cuentas de una sola región y todas las cuentas de varias regiones con coherencia moderada y, disponibilidad de lectura del 99,999 % para todas las cuentas de base de datos de varias regiones.|
 |Copias de seguridad en línea automatizadas|Las copias de seguridad de las bases de datos de Azure Cosmos DB se realizan de manera periódica y se guardan en un almacén con redundancia geográfica. <br><br>Obtenga más información en [Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB](online-backup-and-restore.md).|
 |Restauración de los datos eliminados|Las copias de seguridad automatizadas en línea se pueden utilizar para recuperar los datos que puede que haya eliminado accidentalmente hasta unos 30 días después del suceso. <br><br>Obtenga más información en [Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB](online-backup-and-restore.md).|
-|Protección y aislamiento de datos confidenciales|Todos los datos de las regiones incluidos en [Novedades](#whats-new) ahora se cifran en reposo.<br><br>La DCP y otros datos confidenciales pueden aislarse en colecciones específicas. Además, se puede limitar el acceso de escritura-lectura o de solo lectura a usuarios concretos.|
+|Protección y aislamiento de datos confidenciales|Todos los datos de las regiones incluidos en [Novedades](#whats-new) ahora se cifran en reposo.<br><br>Los datos personales y otros datos confidenciales pueden aislarse en colecciones específicas. Además, se puede limitar el acceso de escritura-lectura o de solo lectura a usuarios concretos.|
 |Supervisión de los ataques|Use los [registros de auditoría y los registros de actividad](logging.md) para supervisar la actividad normal y la anómala de su cuenta. Puede ver qué operaciones se realizaron en los recursos, quién inició la operación, cuando se produjo, el estado y mucha más información, como se muestra en la captura de pantalla que sigue a esta tabla.|
 |Respuesta a ataques|Una vez que se ha puesto en contacto con el equipo de asistencia técnica de Azure para informar de un posible ataque, se inicia un proceso de respuesta a incidentes de 5 pasos. El objetivo de dicho proceso es restaurar las operaciones y la seguridad de los servicios a su estado normal lo antes posible después de que se detecte un problema y se inicie una investigación.<br><br>Obtenga más información en [Microsoft Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper) (Respuesta de seguridad de Microsoft Azure en la nube).|
-|Geovalla|Azure Cosmos DB garantiza el cumplimiento y la gobernanza de datos para regiones soberana (por ejemplo, Alemania y US Gov).|
+|Geovalla|Azure Cosmos DB garantiza el gobierno de datos para regiones soberanas (por ejemplo, Alemania y US Gov).|
 |Instalaciones protegidas|Los datos de Azure Cosmos DB se almacenan en los SSD de los centros de datos protegidos de Azure.<br><br>Obtenga información sobre los [centros de datos globales de Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters).|
 |HTTPS, SSL y cifrado TLS|Todas las interacciones de Azure Cosmos DB de cliente a servicio son compatibles con los protocolos SSL o TLS 1.2. Además, para todas las replicaciones dentro de centro de datos y entre ellos se exigen estos protocolos.|
 |Cifrado en reposo|Todos los datos almacenados en Azure Cosmos DB se cifran en reposo. Más información en [Cifrado de Azure Cosmos DB en reposo](.\database-encryption-at-rest.md)|

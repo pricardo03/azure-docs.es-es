@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666031"
 ---
 ## <a name="view-device-telemetry"></a>Ver la telemetría de dispositivo
 
@@ -32,7 +33,7 @@ Puede ver la telemetría enviada desde el dispositivo en la página **Dispositiv
 
 ## <a name="act-on-your-device"></a>Actúe en su dispositivo
 
-Para invocar métodos en los dispositivos, use la página **Dispositivos** de la solución de supervisión remota. Por ejemplo, en la solución de implementación remota, los dispositivos **refrigeradores** implementan un método **FirmwareUpdate**.
+Para invocar métodos en los dispositivos, use la página **Dispositivos** de la solución de supervisión remota. Por ejemplo, en la solución de implementación remota, los dispositivos **Refrigerador** implementan un método **FirmwareUpdate**.
 
 1. Elija **Dispositivos** para ir hasta la página **Dispositivos** de la solución.
 

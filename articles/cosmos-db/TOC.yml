@@ -328,6 +328,8 @@ items:
                 href: mongodb-readpreference.md
               - name: Indización
                 href: mongodb-indexing.md
+              - name: Período de vida en MongoDB
+                href: mongodb-ttl.md
               - name: Visualización de datos con Power BI
                 href: powerbi-visualize.md
               - name: Administración del uso de Explorador de Azure Storage

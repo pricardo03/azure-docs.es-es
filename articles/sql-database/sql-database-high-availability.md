@@ -5,16 +5,16 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777030"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839816"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 Desde el comienzo de la oferta de PaaS de Azure SQL Database, Microsoft se comprometió a integrar la alta disponibilidad (HA) en el servicio para que los clientes no tuvieran que administrar, agregar lógicas especiales o tomar decisiones acerca de la alta disponibilidad. Microsoft ofrece a sus clientes un Acuerdo de Nivel de Servicio para mantener un control total sobre la configuración y el funcionamiento del sistema de alta disponibilidad. El Acuerdo de Nivel de Servicio de alta disponibilidad se aplica a una base de datos SQL en una región y no proporciona protección en los casos de que se produzca un error total en la región debido a factores externos que estén fuera del control de Microsoft (por ejemplo, desastres naturales, guerras, terrorismo, disturbios, acción gubernamental o un error de red o dispositivos externo a los centros de datos de Microsoft, incluido el sitio del cliente o entre este sitio y el centro de datos de Microsoft).
@@ -79,7 +79,7 @@ De forma predeterminada, se crean las réplicas del conjunto de cuórum para las
 Como el conjunto de cuórum con redundancia de zona tiene réplicas en distintos centros de datos situados a cierta distancia entre ellos, la mayor latencia de red puede aumentar el tiempo de confirmación y, por lo tanto, afectar al rendimiento de algunas cargas de trabajo OLTP. Siempre puede volver a la configuración de zona única; para ello, deshabilite la configuración de redundancia de zona. Este proceso es una operación de tamaño de datos y es similar a la actualización del objetivo de nivel de servicio (SLO) normal. Al final del proceso, la base de datos o el grupo se migra desde un anillo con redundancia de zona a un anillo de zona única, o viceversa.
 
 > [!IMPORTANT]
-> Los grupos elásticos y las bases de datos con redundancia de zona solo se admiten en los niveles de servicio Premium y Crítico para la empresa (versión preliminar). Durante la versión preliminar pública, las copias de seguridad y los registros de auditoría se almacenan en un almacenamiento RA-GRS y, por lo tanto, podrían no estar disponibles automáticamente en el caso de una interrupción que afecte a toda la zona. 
+> Las bases de datos con redundancia de zona y los grupos elásticos actualmente solo se admiten en el nivel de servicio Premium. Durante la versión preliminar pública, las copias de seguridad y los registros de auditoría se almacenan en un almacenamiento RA-GRS y, por lo tanto, podrían no estar disponibles automáticamente en el caso de una interrupción que afecte a toda la zona. 
 
 En el diagrama siguiente se ilustra la versión con redundancia de zona de la arquitectura de alta disponibilidad:
  

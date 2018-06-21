@@ -1,22 +1,19 @@
 ---
-title: Esquema de eventos del registro de actividad de Azure | Microsoft Docs
+title: Esquema de eventos del registro de actividad de Azure
 description: Consulte el esquema de eventos de los datos que se emiten en el registro de actividad
 author: johnkemnetz
-manager: robb
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264558"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos.
@@ -482,6 +479,88 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | eventTimestamp |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
 | subscriptionId |Identificador de la suscripción de Azure. |
+
+## <a name="recommendation"></a>Recomendación
+Esta categoría contiene el registro de cualquier recomendación nueva que se genere para los servicios. Un ejemplo de recomendación sería "Use conjuntos de disponibilidad para obtener una tolerancia a errores mejorada". Hay 4 tipos de eventos de recomendación que se pueden generar: Alta disponibilidad, Rendimiento, Seguridad y Optimización de costos. 
+
+### <a name="sample-event"></a>Evento de ejemplo
+```json
+{
+    "channels": "Operation",
+    "correlationId": "92481dfd-c5bf-4752-b0d6-0ecddaa64776",
+    "description": "The action was successful.",
+    "eventDataId": "06cb0e44-111b-47c7-a4f2-aa3ee320c9c5",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Recommendation",
+        "localizedValue": "Recommendation"
+    },
+    "eventTimestamp": "2018-06-07T21:30:42.976919Z",
+    "id": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM/events/06cb0e44-111b-47c7-a4f2-aa3ee320c9c5/ticks/636640038429769190",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Advisor/generateRecommendations/action",
+        "localizedValue": "Microsoft.Advisor/generateRecommendations/action"
+    },
+    "resourceGroupName": "MYRESOURCEGROUP",
+    "resourceProviderName": {
+        "value": "MICROSOFT.COMPUTE",
+        "localizedValue": "MICROSOFT.COMPUTE"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.COMPUTE/virtualmachines",
+        "localizedValue": "MICROSOFT.COMPUTE/virtualmachines"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-06-07T21:30:42.976919Z",
+    "subscriptionId": "<Subscription ID>",
+    "properties": {
+        "recommendationSchemaVersion": "1.0",
+        "recommendationCategory": "Security",
+        "recommendationImpact": "High",
+        "recommendationRisk": "None"
+    },
+    "relatedEvents": []
+}
+
+```
+### <a name="property-descriptions"></a>Descripciones de propiedades
+| Nombre del elemento | DESCRIPCIÓN |
+| --- | --- |
+| canales nueva | Siempre "Operation" |
+| correlationId | GUID en formato de cadena. |
+| Descripción |Descripción de texto estático del evento de recomendación |
+| eventDataId | Identificador único del evento de recomendación. |
+| categoría | Siempre "Recomendación" |
+| id |Identificador único del recurso del evento de recomendación. |
+| level |Nivel del evento. Uno de los siguientes valores: "Critical", "Error", "Warning", "Informational" o "Verbose" |
+| operationName |Nombre de la operación.  Siempre "Microsoft.Advisor/generateRecommendations/action"|
+| resourceGroupName |Nombre del grupo de recursos del recurso. |
+| resourceProviderName |Nombre del proveedor de recursos del recurso al que se aplica esta recomendación, como "MICROSOFT.COMPUTE" |
+| resourceType |Nombre del tipo de recurso del recurso al que se aplica esta recomendación, como "MICROSOFT.COMPUTE/virtualmachines" |
+| ResourceId |Identificador de recurso del recurso al que se aplica la recomendación |
+| status | Siempre "Activo" |
+| submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
+| subscriptionId |Identificador de la suscripción de Azure. |
+| propiedades |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles de la recomendación.|
+| properties.recommendationSchemaVersion| Versión de esquema de las propiedades de recomendación publicadas en la entrada Registro de actividad |
+| properties.recommendationCategory | Categoría de la recomendación. Los valores posibles son "High Availability", "Performance", "Security" y "Cost" |
+| properties.recommendationImpact| Impacto de la recomendación. Los valores posibles son "High", "Medium", "Low" |
+| properties.recommendationRisk| Riesgo de la recomendación. Los valores posibles son "Error", "Warning", "None" |
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre el registro de actividad (antes, Registros de auditoría)](monitoring-overview-activity-logs.md)

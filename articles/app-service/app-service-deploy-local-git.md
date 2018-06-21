@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 842cd6f67a04bec0ed06282bdeeea8b8a51c0667
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a614dadae40fcfc28eba85e5943f60a38653224b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233910"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local a Azure App Service
 
@@ -38,36 +39,21 @@ Para usar un repositorio de ejemplo para continuar, ejecute el comando siguiente
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-## <a name="prepare-your-repository"></a>Preparación del repositorio
-
-Asegúrese de que la raíz del repositorio tiene los archivos correctos en el proyecto.
-
-| Tiempo de ejecución | Archivos del directorio raíz |
-|-|-|
-| ASP.NET (solo Windows) | _*.sln_, _*.csproj_ o _default.aspx_ |
-| ASP.NET Core | _*.sln_ o _*.csproj_ |
-| PHP | _index.php_ |
-| Ruby (solo Linux) | _Gemfile_ |
-| Node.js | _server.js_, _app.js_ o _package.json_ con un script de inicio |
-| Python (solo Windows) | _\*.py_, _requirements.txt_ o _runtime.txt_ |
-| HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_ o _iisstart.htm_ |
-| Trabajos web | _\<nombre_de_trabajo>/run.\<extensión>_ en _App\_Data/jobs/continuous_ (para WebJobs continuos) o _App\_Data/jobs/triggered_ (para WebJobs desencadenados). Para más información, consulte la [documentación de WebJobs de Kudu](https://github.com/projectkudu/kudu/wiki/WebJobs). |
-| Functions | Consulte [Implementación continua para Azure Functions](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
-
-Para personalizar la implementación puede incluir un archivo _.deployment_ en la raíz del repositorio. Para más información, consulte el artículo sobre la [personalización de las implementaciones](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) y el artículo sobre el [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
-
-> [!NOTE]
-> Asegúrese de ejecutar `git commit` en todos los cambios que desea implementar.
->
->
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
+## <a name="deploy-from-local-git-with-kudu-builds"></a>Implementación desde GIT local con compilaciones de Kudu
 
-## <a name="enable-git-for-your-app"></a>Habilitación de Git para la aplicación
+La manera más fácil de habilitar la implementación de GIT local para la aplicación con el servidor de compilación Kudu es utilizar Cloud Shell.
 
-Para habilitar la implementación de Git para una aplicación de App Service existente, ejecute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) en Cloud Shell.
+### <a name="create-a-deployment-user"></a>Creación de un usuario de implementación
+
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+
+### <a name="enable-local-git-with-kudu"></a>Habilitación de GIT local con Kudu
+
+Para habilitar la implementación de GIT local para la aplicación con el servidor de compilación Kudu, ejecute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) en Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -97,7 +83,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-## <a name="deploy-your-project"></a>Implementación del proyecto
+### <a name="deploy-your-project"></a>Implementación del proyecto
 
 En la _ventana del terminal local_, agregue una instancia remota de Azure al repositorio de Git local. Reemplace _\<url>_ con la dirección URL del Git remoto que obtuvo en [Habilitación de Git para la aplicación](#enable-git-for-you-app).
 
@@ -113,13 +99,58 @@ git push azure master
 
 Es posible que vea la automatización específica para el entorno de tiempo de ejecución en la salida, como MSBuild para ASP.NET, `npm install` para Node.js y `pip install` para Python. 
 
-Una vez que finalice la implementación, la aplicación en Azure Portal ahora debe tener un registro de `git push` en la página de **opciones de implementación**.
+Vaya a la aplicación para comprobar que se implementó el contenido.
 
-![](./media/app-service-deploy-local-git/deployment_history.png)
+## <a name="deploy-from-local-git-with-vsts-builds"></a>Implementación desde GIT local con compilaciones de VSTS
+
+> [!NOTE]
+> Para que App Service cree las definiciones de compilación y de versión necesarias de la cuenta de VSTS, la cuenta de Azure debe tener el rol de **propietario** en la suscripción a Azure.
+>
+
+Para habilitar la implementación de GIT local para la aplicación con el servidor de compilación Kudu, vaya a la aplicación en [Azure Portal](https://portal.azure.com).
+
+En el panel de navegación de la izquierda de la página de la aplicación, haga clic en **Centro de implementación** > **GIT local** > **Continuar**. 
+
+![](media/app-service-deploy-local-git/portal-enable.png)
+
+Haga clic en **Entrega continua con VSTS** > **Continuar**.
+
+![](media/app-service-deploy-local-git/vsts-build-server.png)
+
+En la página **Configurar**, configure una nueva cuenta VSTS o especifique una cuenta existente. Cuando haya terminado, haga clic en **Continuar**.
+
+> [!NOTE]
+> Si desea usar una cuenta de VSTS existente que no aparece, debe [vincular la cuenta de VSTS con su suscripción a Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+
+En la página **Probar**, elija si desea habilitar las pruebas de carga y, después, haga clic en **Continuar**.
+
+En función del [plan de tarifa](/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea habilitar ranuras de implementación y después haga clic en **Continuar**.
+
+En la página **Resumen**, verifique las opciones y haga clic en **Finalizar**.
+
+La cuenta de VSTS tarda unos minutos en estar preparada. Cuando esté listo, copie la dirección URL del repositorio de GIT en el centro de implementación.
+
+![](media/app-service-deploy-local-git/vsts-repo-ready.png)
+
+En la _ventana del terminal local_, agregue una instancia remota de Azure al repositorio de Git local. Reemplace _\<url>_ por la dirección URL obtenida en el último paso.
+
+```bash
+git remote add vsts <url>
+```
+
+Inserte en la instancia remota de Azure para implementar la aplicación con el comando siguiente. Cuando se lo solicite el Administrador de credenciales de GIT, inicie sesión con su usuario de visualstudio.com. Para consultar métodos de autenticación adicionales, vea la [información general sobre la autenticación en VSTS](/vsts/git/auth-overview?view=vsts).
+
+```bash
+git push vsts master
+```
+
+Una vez finalizada la implementación, puede consultar el progreso de la compilación en `https://<vsts_account>.visualstudio.com/<project_name>/_build` y el progreso de la implementación en `https://<vsts_account>.visualstudio.com/<project_name>/_release`.
 
 Vaya a la aplicación para comprobar que se implementó el contenido.
 
-## <a name="troubleshooting"></a>solución de problemas
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="troubleshooting-kudu-deployment"></a>Solución de problemas de implementación de Kudu
 
 Estos son los errores o problemas comunes al usar Git para publicar en una aplicación de App Service en Azure:
 

@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Tutoriales
   items:
-    - name: 1 - Registro de aplicaciones
-      href: tutorial-register-applications.md
+    - name: 1 - Creación del inquilino B2C
+      href: tutorial-create-tenant.md
     - name: 2 - Autenticación de cuentas
       items:
         - name: ASP.NET

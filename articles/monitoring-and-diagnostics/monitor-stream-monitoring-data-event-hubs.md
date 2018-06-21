@@ -1,23 +1,19 @@
 ---
-title: Flujo de datos de supervisión de Azure a Event Hubs | Microsoft Docs
+title: Flujo de datos de supervisión de Azure a Event Hubs
 description: Aprenda sobre el flujo de todos los datos de supervisión de Azure a un centro de eventos para que una herramienta de un asociado de Administración de eventos e información de seguridad o de análisis puedan disponer de ellos.
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: 091076a86c7f1c3f83f20a47b8f351d050350c9a
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263470"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -97,7 +93,7 @@ Los datos de supervisión de aplicaciones requieren la instrumentación del cód
 
 1. [Configure la exportación continua](../application-insights/app-insights-export-telemetry.md) de los datos de Application Insights a una cuenta de almacenamiento.
 
-2. Configure una aplicación lógica desencadenada por temporizador que [extraiga los datos de Blob Storage](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) y [los inserte como mensaje en el centro de eventos](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Configure una aplicación lógica desencadenada por temporizador que [extraiga los datos de Blob Storage](../connectors/connectors-create-api-azureblobstorage.md#add-action) y [los inserte como mensaje en el centro de eventos](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>¿Qué puedo hacer con los datos de supervisión que se envían a mi centro de eventos?
 

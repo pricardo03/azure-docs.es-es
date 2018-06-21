@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 8f104ab046fad8dfd9086525b8f942f3d2941821
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3daf0e214c2c10d682e908ca430f4852df105926
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414661"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Núcleos por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10.000 |
+| vCPU por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10.000 |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por suscripción |200 |200 |
 | [Cuentas de almacenamiento](../articles/storage/common/storage-create-storage-account.md) por región por suscripción<sup>2</sup> |200 |250 |
 | [Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción |20 |200 |
@@ -28,7 +29,7 @@ ms.lasthandoff: 05/20/2018
 | [Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción |256 |256 |
 
 
-<sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
+<sup>1</sup>Recuento de instancias extrapequeñas como un vCPU hacia el límite de vCPU a pesar de utilizar un núcleo de CPU parcial.
 
-<sup>2</sup>El límite de la cuenta de almacenamiento incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento en una sola región, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento. 
+<sup>2</sup>El límite de la cuenta de almacenamiento incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento en una región dada, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento para una región dada. 
 

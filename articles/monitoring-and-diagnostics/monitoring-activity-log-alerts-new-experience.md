@@ -1,26 +1,19 @@
 ---
-title: Creación de alertas del registro de actividad y su administración mediante la nueva experiencia de alertas de Azure Monitor | Microsoft Docs
-description: En este artículo se ofrece información sobre cómo crear alertas del registro de actividad en la pestaña de alertas en Azure Monitor.
-author: JYOTHIRMAISURI
-manager: vvithal
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Uso de las alertas de registro de actividad en la nueva experiencia de alertas de Azure Monitor
+description: Creación de alertas de registro de actividad desde la pestaña Alertas (versión preliminar	) en Azure Monitor. En este artículo se detalla la nueva experiencia de usuario de esta característica.
+author: jyothirmaisuri
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: ''
-ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 10cd4e2ea14ab66a44ba2123e025b3d1b91f385c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202827"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263577"
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Creación de alertas del registro de actividad con la nueva experiencia de alertas
 

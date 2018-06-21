@@ -1,8 +1,25 @@
-# <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Almacenamiento Estándar rentable y discos de máquina virtual de Azure administrados y no administrados
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806305"
+---
+# <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Standard Storage rentable y discos de máquina virtual de Azure administrados y no administrados
 
-El almacenamiento estándar de Azure ofrece compatibilidad de discos confiable y de bajo coste para las máquinas virtuales que ejecutan cargas de trabajo que no tienen en cuenta la latencia. También admite blobs, tablas, colas y archivos. Con el almacenamiento estándar, los datos se almacenan en unidades de disco duro (HDD). Cuando se trabaja con máquinas virtuales, se pueden usar discos de almacenamiento estándar para escenarios de desarrollo/pruebas y para cargas de trabajo menos críticas, y discos de Premium Storage para aplicaciones de producción de misión crítica. El almacenamiento estándar está disponible en todas las regiones de Azure. 
+Azure Standard Storage ofrece compatibilidad de discos confiable y de bajo coste para las máquinas virtuales que ejecutan cargas de trabajo que no tienen en cuenta la latencia. También admite blobs, tablas, colas y archivos. Con Standard Storage, los datos se almacenan en unidades de disco duro (HDD). Cuando se trabaja con máquinas virtuales, se pueden usar discos SSD y HDD de almacenamiento estándar para escenarios de desarrollo/pruebas y para cargas de trabajo menos críticas, y discos SSD premium para aplicaciones de producción críticas. Standard Storage está disponible en todas las regiones de Azure. 
 
-Este artículo se centra en el uso del almacenamiento estándar para discos de máquina virtual. Para más información acerca del uso de Storage con blobs, tablas, colas y archivos, consulte [Introducción a Microsoft Azure Storage](../articles/storage/common/storage-introduction.md).
+Este artículo se centra en el uso de discos SSD y HDD estándar. Para más información acerca del uso de Storage con blobs, tablas, colas y archivos, consulte [Introducción a Microsoft Azure Storage](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Tipos de disco
 
@@ -10,28 +27,30 @@ Hay dos maneras de crear discos estándar para máquinas virtuales de Azure:
 
 **Discos no administrados**: este es el método original, en el que se administran las cuentas de almacenamiento que se utilizan para almacenar los archivos VHD que se corresponden con los discos de máquina virtual. Los archivos VHD se almacenan como blobs en páginas en las cuentas de almacenamiento. Los discos no administrados se pueden conectar a máquina virtual de Azure de cualquier tamaño, incluidas aquellas que usan principalmente Premium Storage, como las series DSv2 y GS. Las VM de Azure admiten la conexión de varios discos estándar, lo que permite un máximo de 256 TB de almacenamiento por máquina virtual.
 
-[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): esta característica administra las cuentas de almacenamiento que se usan automáticamente para los discos de máquina virtual. Especifique el tipo (premium o estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. No tiene que preocuparse de colocar los discos en varias cuentas de almacenamiento para estar seguro de que permanece dentro de los límites de escalabilidad de las cuentas de almacenamiento: Azure se encarga de ello.
+[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): esta característica administra las cuentas de almacenamiento que se usan automáticamente para los discos de máquina virtual. Especifique el tipo (SSD premium, SSD estándar o HDD estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. No tiene que preocuparse de colocar los discos en varias cuentas de almacenamiento para estar seguro de que permanece dentro de los límites de escalabilidad de las cuentas de almacenamiento: Azure se encarga de ello.
 
 Aunque están disponibles los dos tipos de discos, se recomienda utilizar Managed Disks para aprovechar su gran cantidad de características.
 
-Para empezar a usar el almacenamiento estándar de Azure, visite la página de [creación de una cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/). 
+Para empezar a usar Azure Standard Storage, visite la página de [creación de una cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/). 
 
 Para obtener información acerca de cómo crear una máquina virtual con Managed Disks, consulte uno de los artículos siguientes.
 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Creación de una máquina virtual con Linux desde cero con la CLI de Azure 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
 
-## <a name="standard-storage-features"></a>Características del almacenamiento estándar 
+## <a name="standard-storage-features"></a>Características de Standard Storage 
 
-Examinemos algunas de las características del almacenamiento estándar. Para más información, consulte [Introducción a Azure Storage](../articles/storage/common/storage-introduction.md).
+Examinemos algunas de las características de Standard Storage. Para más información, consulte [Introducción a Azure Storage](../articles/storage/common/storage-introduction.md).
 
-**Almacenamiento estándar**: el almacenamiento estándar de Azure admite discos de Azure, blobs de Azure, archivos de Azure, tablas de Azure y colas de Azure. Para utilizar el almacenamiento estándar, comience por [crear una cuenta de Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Standard Storage**: Azure Standard Storage admite discos de Azure, blobs de Azure, archivos de Azure, tablas de Azure y colas de Azure. Para utilizar el almacenamiento estándar, comience por [crear una cuenta de Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Discos de almacenamiento estándar:** los discos de almacenamiento estándar se pueden conectar a todas las máquinas virtuales de Azure, incluidas las máquinas virtuales de varias series de tamaños que se usan con Premium Storage, como las series DSv2 y GS. Un disco de almacenamiento estándar solo puede conectarse a una máquina virtual. Sin embargo, se pueden asociar uno o varios de estos discos a una máquina virtual, hasta el número máximo definido para el tamaño de la máquina virtual. En la sección siguiente sobre objetivos de escalabilidad y rendimiento de Standard Storage, se describen las especificaciones con más detalle. 
+**Discos SSD estándar:** estos proporcionan un rendimiento más fiable que los discos HDD estándar y están disponibles actualmente en versión preliminar. Para más información acerca de la disponibilidad en regiones de los discos SSD estándar, consulte la [disponibilidad en regiones de los discos SSD estándar (versión preliminar)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Discos HDD estándar:** los discos HDD estándar se pueden conectar a todas las máquinas virtuales de Azure, incluidas las máquinas virtuales de varias series de tamaños que se usan con Premium Storage, como las series DSv2 y GS. Un disco HDD estándar solo puede conectarse a una máquina virtual. Sin embargo, se pueden asociar uno o varios de estos discos a una máquina virtual, hasta el número máximo definido para el tamaño de la máquina virtual. En la sección siguiente sobre objetivos de escalabilidad y rendimiento de Standard Storage, se describen las especificaciones con más detalle.
 
 **Blob en páginas estándar**: los blobs en páginas estándar se utilizan para contener discos persistentes para las máquinas virtuales y, al igual que otros tipos de blobs de Azure, se puede acceder a ellos directamente a través de REST. Los [blob en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) son una colección de páginas de 512 bytes optimizadas para operaciones de lectura y escritura aleatorias. 
 
-**Replicación del almacenamiento:** en la mayoría de las regiones, los datos de una cuenta de almacenamiento estándar se pueden replicar localmente o replicar geográficamente en varios centros de datos. Los cuatro tipos de replicación disponible son: el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Actualmente, en el almacenamiento estándar Managed Disks solo admiten el almacenamiento con redundancia local (LRS). Para más información, consulte [Replicación de Azure Storage](../articles/storage/common/storage-redundancy.md).
+**Replicación del almacenamiento:** en la mayoría de las regiones, los datos de una cuenta de almacenamiento estándar se pueden replicar localmente o replicar geográficamente en varios centros de datos. Los cuatro tipos de replicación disponible son: el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Actualmente, Managed Disks de Standard Storage solo admiten el almacenamiento con redundancia local (LRS). Para más información, consulte [Replicación de Azure Storage](../articles/storage/common/storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento
 
@@ -50,7 +69,7 @@ En esta sección, se describen los objetivos de escalabilidad y rendimiento que 
 
 <sup>1</sup>El término "entrada" hace referencia todos los datos (solicitudes) que se envían a una cuenta de almacenamiento. El término "salida" hace referencia a todos los datos (respuestas) que se reciben de una cuenta de almacenamiento.
 
-Para más información, consulte [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](../articles/storage/common/storage-scalability-targets.md).
+Para obtener más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../articles/storage/common/storage-scalability-targets.md).
 
 Si las necesidades de su aplicación superan los objetivos de escalabilidad de una cuenta de almacenamiento individual, compile la aplicación de modo que use varias cuentas de almacenamiento y divida los datos entre ellas. Como alternativa, puede usar Azure Managed Disks, en cuyo caso Azure administra automáticamente la creación de particiones y la colocación de los datos.
 
@@ -74,7 +93,7 @@ Para el servicio Storage, el archivo VHD es un blob en páginas. Es posible toma
 
 ### <a name="unmanaged-disks"></a>Discos no administrados
 
-Se pueden crear [instantáneas incrementales](../articles/virtual-machines/windows/incremental-snapshots.md) para discos estándar no administrados de la misma manera que se usan las instantáneas con el almacenamiento estándar. Si el disco de origen se encuentra en una cuenta de almacenamiento con redundancia local, se recomienda crear instantáneas y, luego, copiarlas en una cuenta de almacenamiento estándar con redundancia geográfica. Para obtener más información, consulte [Opciones de redundancia de Almacenamiento de Azure](../articles/storage/common/storage-redundancy.md).
+Se pueden crear [instantáneas incrementales](../articles/virtual-machines/windows/incremental-snapshots.md) para discos estándar no administrados de la misma manera que se usan las instantáneas con Standard Storage. Si el disco de origen se encuentra en una cuenta de almacenamiento con redundancia local, se recomienda crear instantáneas y, luego, copiarlas en una cuenta de almacenamiento estándar con redundancia geográfica. Para obtener más información, consulte [Opciones de redundancia de Azure Storage](../articles/storage/common/storage-redundancy.md).
 
 Si un disco está conectado a una máquina virtual, determinadas operaciones de la API no se permiten en los discos. Por ejemplo, no puede realizar una operación [Copy Blob](/rest/api/storageservices/Copy-Blob) en ese blob mientras el disco esté conectado a una máquina virtual. En su lugar, cree una instantánea del blob mediante el método de API de REST [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob) y, luego, realice la operación [Copy Blob](/rest/api/storageservices/Copy-Blob) de la instantánea para copiar el disco conectado. Como alternativa, puede separar el disco y, después, realizar las operaciones necesarias.
 
@@ -90,7 +109,7 @@ Si un disco administrado está conectado a una máquina virtual, determinadas op
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
-Al usar el almacenamiento estándar, se aplican las siguientes consideraciones de facturación:
+Al usar Standard Storage, se aplican las siguientes consideraciones de facturación:
 
 * Tamaño de datos o datos no administrados del almacenamiento estándar 
 * Discos administrados estándar
@@ -108,9 +127,9 @@ Al usar el almacenamiento estándar, se aplican las siguientes consideraciones d
 
 **Transacción**: Azure cobra 0,0036 $ por 100 000 transacciones de almacenamiento estándar. Dichas transacciones incluyen las operaciones de lectura y escritura en el almacenamiento.
 
-Para más información acerca de los precios del almacenamiento estándar, Virtual Machines y Managed Disks, consulte:
+Para más información acerca de los precios de Standard Storage, Virtual Machines y Managed Disks, consulte:
 
-* [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/)
+* [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks)
 
@@ -122,12 +141,12 @@ El servicio Azure Backup también se puede usar con Managed Disks para crear un 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a Almacenamiento de Azure](../articles/storage/common/storage-introduction.md)
+* [Introducción a Azure Storage](../articles/storage/common/storage-introduction.md)
 
-* [Cree una cuenta de almacenamiento](../articles/storage/common/storage-create-storage-account.md)
+* [crear una cuenta de almacenamiento](../articles/storage/common/storage-create-storage-account.md)
 
 * [Introducción a Managed Disks](../articles/virtual-machines/linux/managed-disks-overview.md)
 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Creación de una máquina virtual con Linux desde cero con la CLI de Azure 2.0](../articles/virtual-machines/linux/quick-create-cli.md)

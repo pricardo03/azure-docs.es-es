@@ -8,14 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: 6f9f0f9a9bab7e6865ae5a48552ac702ae2bf6fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824938"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -37,8 +38,6 @@ En este tipo de configuración, el entorno de procesos está totalmente administ
 
 > [!NOTE]
 > La configuración a petición solo se admite actualmente para los clústeres de HDInsight de Azure.
->
-> 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Servicio vinculado a petición de HDInsight de Azure
 El servicio Azure Data Factory puede crear automáticamente un clúster de HDInsight a petición para procesar los datos. El clúster se crea en la misma región que la cuenta de almacenamiento (propiedad linkedServiceName en JSON) asociada al clúster. La cuenta de almacenamiento debe ser una cuenta de almacenamiento estándar de uso general de Azure. 
@@ -48,11 +47,14 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 * El clúster de HDInsight a petición se crea bajo la suscripción de Azure. Es capaz de ver el clúster en Azure Portal cuando el clúster está activo y en ejecución. 
 * Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. clusterUserName, clusterPassword, clusterSshUserName y clusterSshPassword que aparecen en la definición del servicio vinculado se utilizan para iniciar sesión en el clúster para la solución de problemas detallada durante el ciclo de vida del clúster. 
 * Se le cobrará solo por el tiempo en el que el clúster de HDInsight esté en ejecución y realizando trabajos.
+* No se puede usar una acción de script con el servicio vinculado a petición de Azure HDInsight. Si, por ejemplo, tiene que instalar otras dependencias, considere la posibilidad de usar Azure Automation para ejecutar un script de PowerShell que realice lo siguiente:  
+  a. Cree el clúster de HDInsight.  
+  b. Ejecute una acción de script para instalar otras dependencias, por ejemplo.  
+  c. Ejecute la canalización de Data Factory.  
+  d. Elimine el clúster.  
 
 > [!IMPORTANT]
 > El aprovisionamiento bajo demanda de un clúster de Azure HDInsight suele tardar **20 minutos** o más.
->
-> 
 
 ### <a name="example"></a>Ejemplo
 En el siguiente JSON se define un servicio vinculado de HDInsight a petición basado en Linux. El servicio Data Factory crea automáticamente un clúster de HDInsight **basado en Linux** para procesar la actividad requerida. 

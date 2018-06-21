@@ -1,5 +1,5 @@
 ---
-title: Cómo usar el SDK de WebJobs para el procesamiento en segundo plano basado en eventos - Azure
+title: Uso del SDK de Azure WebJobs
 description: Obtenga más información sobre cómo escribir código para el SDK de WebJobs. Cree trabajos de procesamiento en segundo plano basados en eventos que tengan acceso a los datos de los servicios de Azure y de terceros.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,15 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234657"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Cómo usar el SDK de WebJobs para el procesamiento en segundo plano basado en eventos
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
-En este artículo se proporciona orientación sobre cómo escribir código para el [SDK de WebJobs](webjobs-sdk-get-started.md). La documentación se aplica a las versiones 2.x y 3.x, excepto donde se indique lo contrario. El cambio principal que introduce la versión 3.x es el uso de .NET Core en lugar de .NET Framework.
+En este artículo se proporciona orientación sobre cómo escribir código para el [SDK de Azure WebJobs](webjobs-sdk-get-started.md). La documentación se aplica a las versiones 2.x y 3.x, excepto donde se indique lo contrario. El cambio principal que presenta la versión 3.x es el uso de .NET Core en lugar de .NET Framework.
 
 >[!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) se integra en el SDK de WebJobs, así que si quiere ver algún tema relacionado, este artículo contiene vínculos a la documentación de Azure Functions. A continuación se indican las diferencias entre Functions y el SDK de WebJobs:
@@ -322,7 +323,7 @@ Para obtener más información, consulte [Enlace en tiempo de ejecución](../azu
 
 En la documentación de Azure Functions se proporciona información de referencia acerca de cada tipo de enlace. Si usa una cola de Storage como ejemplo, encontrará la siguiente información en cada artículo de referencia de enlace:
 
-* [Paquetes](../azure-functions/functions-bindings-storage-queue.md#packages): qué paquete debe instalar con el fin de incluir soporte para el enlace en un proyecto de SDK de WebJobs.
+* [Paquetes](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x): qué paquete debe instalar con el fin de incluir soporte para el enlace en un proyecto de SDK de WebJobs.
 * [Ejemplos](../azure-functions/functions-bindings-storage-queue.md#trigger---example): el ejemplo de la biblioteca de clases de C# se aplica a los SDK de WebJobs; simplemente omita el atributo `FunctionName`.
 * [Atributos](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes): los atributos que se usarán para el tipo de enlace.
 * [Configuración](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration): explicaciones de las propiedades de atributo y de los parámetros del constructor.
@@ -390,6 +391,26 @@ Algunos de los desencadenadores tienen compatibilidad integrada para poder admin
 * **FileTrigger**: establece `FileProcessor.MaxDegreeOfParallelism` en 1.
 
 Puede usar esta configuración para asegurarse de que la función se ejecuta como una singleton en una sola instancia. Para asegurarse de que solo una instancia de la función se está ejecutando cuando la aplicación web escale de forma horizontal varias instancias, aplique un bloqueo de Singleton de nivel de escucha (`[Singleton(Mode = SingletonMode.Listener)]`). Los bloqueos de escucha se adquieren al inicio de la instancia de JobHost. Si tres instancias de escalado horizontal se inician al mismo tiempo, solo una de ellas adquiere el bloqueo y solo un agente de escucha se inicia.
+
+### <a name="scope-values"></a>Valores de ámbito
+
+Puede especificar un **valor/expresión de ámbito** en singleton que se asegurará de que todas las ejecuciones de la función de dicho ámbito se serialicen. La implementación de un bloqueo más granular de este tipo puede permitir algún nivel de paralelismo de la función, mientras se serializan otras invocaciones en función de los requisitos. Por ejemplo, en el ejemplo que se muestra a continuación, la expresión de ámbito se enlaza con el valor `Region` del mensaje entrante. Si la cola contiene tres mensajes en las regiones "Este", "Este" y "Oeste", respectivamente, los mensajes que tienen la región "Este" se ejecutarán en serie mientras que el mensaje con la región "Oeste"se ejecutará en paralelo con los otros mensajes.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 

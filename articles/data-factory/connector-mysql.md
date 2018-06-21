@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
-ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808730"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,8 +40,8 @@ En concreto, este conector MySQL es compatible con la **versión 5.1 y posterior
 
 Para utilizar este conector MySQL, necesitará lo siguiente:
 
-- Configurar un entorno Integration Runtime (autohospedado). Consulte el artículo sobre el [entorno Integration Runtime (autohospedado)](create-self-hosted-integration-runtime.md) para obtener más información.
-- Instale el [conector MySQL o Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versión 6.6.5 o superior en la máquina Integration Runtime. Este controlador de 32 bits es compatible con IR de 64 bits.
+- Configurar un entorno Integration Runtime (autohospedado). Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
+- Instale el [conector MySQL o Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/), versión entre 6.6.5 y 6.10.7, en la máquina Integration Runtime. Este controlador de 32 bits es compatible con IR de 64 bits.
 
 > [!TIP]
 > Si se produce error en "Error de autenticación porque la parte remota cerró la secuencia de transporte.", considere la posibilidad de actualizar el conector MySQL/Net a una versión posterior.

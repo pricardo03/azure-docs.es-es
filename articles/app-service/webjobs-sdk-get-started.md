@@ -1,5 +1,5 @@
 ---
-title: Introducción al SDK de WebJobs - Azure
+title: Introducción al SDK de Azure WebJobs
 description: Introducción al SDK de WebJobs para el procesamiento en segundo plano basado en eventos. Aprenda a acceder a los datos de servicios de Azure y de terceros.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234533"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>Introducción al SDK de WebJobs
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
-En este artículo se muestra cómo crear un proyecto de SDK de WebJobs, ejecutarlo de forma local e implementarlo en Azure.
+En este artículo se muestra cómo crear un proyecto de SDK de Azure WebJobs, ejecutarlo de forma local e implementarlo en Azure App Service.
 
 Las instrucciones sirven para [Visual Studio 2017](https://www.visualstudio.com/vs/) pero se pueden realizar las mismas tareas con otras herramientas, como [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="what-is-the-webjobs-sdk"></a>Qué es el SDK de WebJobs
+## <a name="what-is-the-azure-webjobs-sdk"></a>Qué es el SDK de Azure WebJobs
 
 El SDK de Azure WebJobs es una plataforma que simplifica la tarea de escribir código de procesamiento en segundo plano que accede a los datos de servicios de Azure. El SDK presenta una sintaxis declarativa para especificar los eventos que deben desencadenar una función, como un mensaje nuevo que se agrega a una cola. Una sintaxis declarativa similar controla la lectura y la escritura de datos una vez que se haya desencadenado una función. Este sistema de desencadenadores y enlaces se encarga de la mayoría de las tareas de codificación de bajo nivel asociadas al acceso a servicios de Azure y de terceros.
 
