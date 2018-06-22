@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: uso de un proveedor de identidades de SAML 2.0 para el inicio de sesión único | Microsoft Docs'
-description: En este tema se describe el uso de un IdP compatible con SAML 2.0 para el inicio de sesión único.
+description: En este documento se describe el uso de un IdP compatible con SAML 2.0 para el inicio de sesión único.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,21 +11,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801786"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
-Este tema contiene información sobre el uso de un proveedor de identidades basado en un perfil de SP-Lite y compatible con SAML 2.0 como proveedor de identidades o servicio de token de seguridad (STS) preferido. Esta solución resulta útil si ya tiene un directorio de usuario y un almacén de contraseñas local a los que se puede acceder mediante SAML 2.0. Este directorio de usuario existente se puede usar para iniciar sesión en Office 365 y otros recursos protegidos por Azure AD. El perfil SP-Lite de SAML 2.0 se basa en el estándar de identidad federada del lenguaje de marcado de aserción de seguridad (SAML) de uso generalizado y proporciona un marco de inicio de sesión e intercambio de atributos.
+Este documento contiene información sobre el uso de un proveedor de identidades basado en un perfil de SP-Lite y compatible con SAML 2.0 como proveedor de identidades o servicio de token de seguridad (STS) preferido. Este escenario resulta útil si ya tiene un directorio de usuario y un almacén de contraseñas local a los que se puede acceder mediante SAML 2.0. Este directorio de usuario existente se puede usar para iniciar sesión en Office 365 y otros recursos protegidos por Azure AD. El perfil SP-Lite de SAML 2.0 se basa en el estándar de identidad federada del lenguaje de marcado de aserción de seguridad (SAML) de uso generalizado y proporciona un marco de inicio de sesión e intercambio de atributos.
 
 >[!NOTE]
 >Para obtener una lista de Idp de terceros cuyo uso se ha probado con Azure AD, consulte la [lista de compatibilidad de federación de Azure AD](active-directory-aadconnect-federation-compatibility.md).
 
-Microsoft admite esta experiencia de inicio de sesión único como la integración de un servicio en la nube de Microsoft, como Office 365, con el Idp basado en el perfil de SAML 2.0 configurado. Dado que los proveedores de identidades de SAML 2.0 son productos de terceros, Microsoft no proporciona soporte técnico con la implementación, la configuración y los procedimientos recomendados de solución de problemas en relación a ellos. Una vez configurada adecuadamente, se puede probar la integración con el proveedor de identidades de SAML 2.0 para ver si es correcta mediante la herramienta Analizador de conectividad de Microsoft que se describe con más detalle a continuación. Para más información sobre el proveedor de identidades basado en un perfil SP-Lite de SAML 2.0, consulte con la organización que lo suministra.
+Microsoft admite esta experiencia de inicio de sesión único como la integración de un servicio en la nube de Microsoft, como Office 365, con el Idp basado en el perfil de SAML 2.0 configurado. Dado que los proveedores de identidades de SAML 2.0 son productos de terceros, Microsoft no proporciona soporte técnico con la implementación, la configuración y los procedimientos recomendados de solución de problemas en relación a ellos. Una vez configurada adecuadamente, se puede probar la integración con el proveedor de identidades de SAML 2.0 para ver si es correcta mediante la herramienta Analizador de conectividad de Microsoft que se describe con más detalle a continuación. Para obtener más información sobre el proveedor de identidades basado en un perfil SP-Lite de SAML 2.0, consulte con la organización que lo suministra.
 
 >[!IMPORTANT]
 >Solo un conjunto limitado de clientes están disponibles en este escenario de inicio de sesión con proveedores de identidades de SAML 2.0, entre los que se incluyen:
@@ -41,7 +43,7 @@ Microsoft admite esta experiencia de inicio de sesión único como la integraci�
 Todos los demás clientes no están disponibles en este escenario de inicio de sesión con el proveedor de identidades de SAML 2.0. Por ejemplo, el cliente de escritorio Lync 2010 no es capaz de iniciar sesión en el servicio con el proveedor de identidades de SAML 2.0 configurado para el inicio de sesión único.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Requisitos del protocolo SAML 2.0 de Azure AD
-Este tema contiene los requisitos detallados sobre el protocolo y el formato de mensaje que debe implementar su proveedor de identidades de SAML 2.0 para la federación con Azure AD a fin de habilitar el inicio de sesión en uno o varios servicios en la nube de Microsoft (como Office 365). El usuario de confianza de SAML 2.0 (SP-STS) que se usa en este escenario para un servicio en la nube de Microsoft es Azure AD.
+Este documento contiene los requisitos detallados sobre el protocolo y el formato de mensaje que debe implementar su proveedor de identidades de SAML 2.0 para la federación con Azure AD a fin de habilitar el inicio de sesión en uno o varios servicios en la nube de Microsoft (como Office 365). El usuario de confianza de SAML 2.0 (SP-STS) que se usa en este escenario para un servicio en la nube de Microsoft es Azure AD.
 
 Se recomienda que se asegure de que sus mensajes de salida del proveedor de identidades de SAML 2.0 sean lo más parecidos posibles a los seguimientos de ejemplo proporcionados. Además, cuando sea posible, use valores de atributo específicos de los metadatos de Azure AD suministrados. Cuando esté satisfecho con los mensajes de salida, puede probar con el Analizador de conectividad de Microsoft, como se describe a continuación.
 
@@ -85,14 +87,14 @@ En esta tabla se muestran los requisitos de atributos específicos en el mensaje
 
 ## <a name="sample-saml-request-and-response-messages"></a>Ejemplo de mensajes de solicitud y respuesta de SAML
 Se muestra un mensaje de solicitud y respuesta para el intercambio de mensajes de inicio de sesión.
-Se trata de un mensaje de solicitud de ejemplo que se envía desde Azure AD a un proveedor de identidades de SAML 2.0 de ejemplo. El proveedor de identidades de SAML 2.0 de ejemplo está configurado por los Servicios de federación de Active Directory (AD FS) para usar el protocolo SAML-P. Las pruebas de interoperabilidad también se han realizado con otros proveedores de identidades de SAML 2.0.
+Lo siguiente es un mensaje de solicitud de ejemplo que se envía desde Azure AD a un proveedor de identidades de SAML 2.0 de ejemplo. El proveedor de identidades de SAML 2.0 de ejemplo está configurado por los Servicios de federación de Active Directory (AD FS) para usar el protocolo SAML-P. Las pruebas de interoperabilidad también se han realizado con otros proveedores de identidades de SAML 2.0.
 
     `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
     <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
     <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
     </samlp:AuthnRequest>`
 
-Se trata de un mensaje de respuesta de ejemplo que se envía desde el proveedor de identidades compatible con SAML 2.0 de ejemplo a Azure AD u Office 365.
+Lo siguiente es un mensaje de respuesta de ejemplo que se envía desde el proveedor de identidades compatible con SAML 2.0 de ejemplo a Azure AD u Office 365.
 
     `<samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
@@ -146,12 +148,15 @@ Se trata de un mensaje de respuesta de ejemplo que se envía desde el proveedor 
     </samlp:Response>`
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>Configuración del proveedor de identidades compatible con SAML 2.0
-Este tema contiene instrucciones sobre cómo configurar el proveedor de identidades de SAML 2.0 para la federación con Azure AD con el fin de habilitar el acceso de inicio de sesión único a uno o varios servicios en la nube de Microsoft (como Office 365) mediante el protocolo SAML 2.0. El usuario de confianza de SAML 2.0 que se usa en este escenario para un servicio en la nube de Microsoft es Azure AD.
+Esta sección contiene instrucciones sobre cómo configurar el proveedor de identidades de SAML 2.0 para la federación con Azure AD con el fin de habilitar el acceso de inicio de sesión único a uno o varios servicios en la nube de Microsoft (como Office 365) mediante el protocolo SAML 2.0. El usuario de confianza de SAML 2.0 que se usa en este escenario para un servicio en la nube de Microsoft es Azure AD.
 
 ## <a name="add-azure-ad-metadata"></a>Adición de metadatos de Azure AD
 El proveedor de identidades de SAML 2.0 debe adherirse a la información sobre el usuario de confianza de Azure AD. Azure AD publica los metadatos en https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
 
-Se recomienda importar siempre los metadatos más recientes de Azure AD al configurar el proveedor de identidades de SAML 2.0. Tenga en cuenta que Azure AD no lee los metadatos del proveedor de identidades.
+Se recomienda importar siempre los metadatos más recientes de Azure AD al configurar el proveedor de identidades de SAML 2.0.
+
+>[!NOTE]
+>Azure AD no lee los metadatos del proveedor de identidades.
 
 ## <a name="add-azure-ad-as-a-relying-party"></a>Adición de Azure AD como usuario de confianza
 Deberá habilitar la comunicación entre el proveedor de identidades de SAML 2.0 y Azure AD. Esta configuración dependerá de su proveedor de identidades específico, así que debería consultar la documentación correspondiente. Normalmente el id. del usuario de confianza se establecerá en el mismo valor de entityID de los metadatos de Azure AD.
@@ -170,7 +175,10 @@ Ejecutará una serie de cmdlets en la interfaz de la línea de comandos de Windo
 
 Todos los dominios de Azure Active Directory que quiera federar mediante su proveedor de identidades de SAML 2.0 se deben agregar como un dominio de inicio de sesión único o convertirse en uno de estos dominios a partir de un dominio estándar. El hecho de agregar o convertir un dominio establece una relación de confianza entre el proveedor de identidades de SAML 2.0 y Azure AD.
 
-En el procedimiento siguiente se explica cómo convertir un dominio estándar existente en un dominio federado mediante SP-Lite de SAML 2.0. Tenga en cuenta que el dominio puede sufrir una interrupción del sistema que afecte a los usuarios durante un período de tiempo de hasta dos horas después de realizar este paso.
+En el procedimiento siguiente se explica cómo convertir un dominio estándar existente en un dominio federado mediante SP-Lite de SAML 2.0. 
+
+>[!NOTE]
+>Tenga en cuenta que el dominio puede sufrir una interrupción del sistema que afecte a los usuarios durante un período de tiempo de hasta dos horas después de realizar este paso.
 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Configuración de un dominio en Azure AD Directory para federación
 
@@ -210,7 +218,7 @@ Este procedimiento muestra cómo agregar un único usuario a Azure AD.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" `. 
 
-Para más información sobre "New-MsolUser", consulte [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
+Para obtener más información sobre "New-MsolUser", consulte [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx).
 
 >[!NOTE]
 >El valor "UserPrinciplName" debe coincidir con el valor que se enviará para "IDPEmail" en la notificación de SAML 2.0, y el valor "ImmutableID" debe coincidir con el valor enviado en la aserción "NameID".
@@ -260,8 +268,8 @@ Para comprobar que ese inicio de sesión único se ha configurado correctamente,
 
 
 1. En un equipo unido a un dominio, inicie sesión en su servicio en la nube con el mismo nombre de inicio de sesión que usa en las credenciales corporativas.
-2.  Haga clic dentro del cuadro de contraseña. Si el inicio de sesión único está configurado, el cuadro de contraseña aparecerá sombreado y verá un mensaje que le indica que debe iniciar sesión en <your company>.
-3.  Haga clic en el vínculo para iniciar sesión en <your company>. Si puede iniciar sesión, significa que el inicio de sesión único está configurado.
+2.  Haga clic dentro del cuadro de contraseña. Si el inicio de sesión único está configurado, el cuadro de contraseña aparecerá sombreado y verá un mensaje que le indica que debe iniciar sesión en &lt;su empresa&gt;.
+3.  Haga clic en Iniciar sesión en el vínculo de &lt;su empresa&gt;. Si puede iniciar sesión, significa que el inicio de sesión único está configurado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
