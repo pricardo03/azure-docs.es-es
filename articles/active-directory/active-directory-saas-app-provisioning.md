@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069900"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293303"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
 Azure Active Directory (Azure AD) permite automatizar la creación, el mantenimiento y la eliminación de identidades de usuario en aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) como Dropbox, Salesforce, ServiceNow y muchas más.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
 **A continuación se muestran algunos ejemplos de lo que esta característica permite hacer:**
 
@@ -69,7 +71,7 @@ Las características preintegradas de Azure AD admiten una gran variedad de apli
 
 Para ver una lista de todas las aplicaciones en las que Azure AD admite un conector de aprovisionamiento previamente integrado, consulte la [lista de tutoriales de aplicaciones de aprovisionamiento de usuarios](active-directory-saas-tutorial-list.md).
 
-Para información sobre cómo agregar compatibilidad con el aprovisionamiento de usuarios de Azure AD a una aplicación, consulte [Uso de System for Cross-Domain Identity Management para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones](active-directory-scim-provisioning.md).
+Para información sobre cómo agregar compatibilidad con el aprovisionamiento de usuarios de Azure AD a una aplicación, consulte [Uso de System for Cross-Domain Identity Management para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones](manage-apps/use-scim-to-provision-users-and-groups.md).
 
 Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solicitar soporte técnico para el aprovisionamiento de aplicaciones adicionales, envíe un mensaje a través del [foro de comentarios de Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
 
@@ -79,13 +81,15 @@ Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solic
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>¿Cómo configuro el aprovisionamiento automático para una aplicación?
 
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
+
 La configuración del servicio de aprovisionamiento de Azure AD para una aplicación seleccionada se inicia en  **[Azure Portal](https://portal.azure.com)**. En la sección **Azure Active Directory > Aplicaciones empresariales**, seleccione **Agregar**, **Todos** y, a continuación, agregue lo que necesite entre los elementos siguientes en función de su escenario:
 
 * Todas las aplicaciones de la sección **Aplicaciones destacadas** admiten el aprovisionamiento automático. Consulte la [lista de tutoriales de aplicaciones para el aprovisionamiento de usuarios](active-directory-saas-tutorial-list.md) para ver más.
 
 * Use la opción "Aplicación situada fuera de la galería" para las integraciones de SCIM desarrolladas de forma personalizada
 
-![Galería](./media/active-directory-saas-app-provisioning/gallery.png)
+![Gallery](./media/active-directory-saas-app-provisioning/gallery.png)
 
 En la pantalla de administración de aplicaciones, el aprovisionamiento se configura en la pestaña **Aprovisionamiento**.
 
@@ -102,7 +106,7 @@ En la pantalla de administración de aplicaciones, el aprovisionamiento se confi
 
     * **Filter on attribute values** (Filtrar por valores de atributo): el menú "Ámbito de objeto de origen" en las asignaciones de atributos permite el filtrado según valores de atributo determinados. Por ejemplo, puede especificar que solo los usuarios con el atributo "Department" (Departamento) de "Sales" (Ventas) deben estar en el ámbito del aprovisionamiento. Para más información, consulte [Uso de filtros de ámbito](active-directory-saas-scoping-filters.md).
 
-    * **Filter on assignments** (Filtrar por asignaciones): el menú "Ámbito" en la sección Aprovisionamiento &gt; Configuración del portal le permite especificar si solo los usuarios y los grupos "asignados" deben estar en el ámbito de aprovisionamiento o si se deben aprovisionar todos los usuarios del directorio de Azure AD. Para obtener más información sobre la "asignación" de usuarios y grupos, consulte [Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+    * **Filter on assignments** (Filtrar por asignaciones): el menú "Ámbito" en la sección Aprovisionamiento &gt; Configuración del portal le permite especificar si solo los usuarios y los grupos "asignados" deben estar en el ámbito de aprovisionamiento o si se deben aprovisionar todos los usuarios del directorio de Azure AD. Para obtener más información sobre la "asignación" de usuarios y grupos, consulte [Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md).
     
 * La **configuración** controla el funcionamiento del servicio de aprovisionamiento de una aplicación, tanto si se está ejecutando como si no.
 
@@ -122,7 +126,7 @@ Si Azure AD es el sistema de origen, el servicio de aprovisionamiento usa la [ca
 Cuando se inicia el servicio de aprovisionamiento, la primera sincronización realizada será así:
 
 1. Se consultan todos los usuarios y grupos del sistema de origen y se recuperan todos los atributos definidos en la [asignación de atributos](active-directory-saas-customizing-attribute-mappings.md).
-2. Se filtran los usuarios y grupos devueltos mediante cualquier [asignación](active-directory-coreapps-assign-user-azure-portal.md) o [filtro de ámbito basado en atributos](active-directory-saas-scoping-filters.md) configurados.
+2. Se filtran los usuarios y grupos devueltos mediante cualquier [asignación](manage-apps/assign-user-or-group-access-portal.md) o [filtro de ámbito basado en atributos](active-directory-saas-scoping-filters.md) configurados.
 3. Cuando se detecta que un usuario se ha asignado o está en ámbito para el aprovisionamiento, el servicio consulta el sistema de destino en busca de un usuario coincidente mediante los [atributos coincidentes](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties) designados. Ejemplo: si el nombre de userPrincipal en el sistema de origen es el atributo coincidente y se asigna a userName en el sistema de destino, el servicio de aprovisionamiento consulta el sistema de destino en busca de valores userName que coincidan con los valores de nombre del sistema de origen.
 4. Si no se encuentra un usuario coincidente en el sistema de destino, se crea mediante los atributos devueltos por el sistema de origen.
 5. Si se encuentra un usuario coincidente, se actualiza mediante los atributos proporcionados por el sistema de origen.
@@ -135,7 +139,7 @@ Algunas aplicaciones, como ServiceNow, Google Apps y Box no solo admiten el apro
 Después de la sincronización inicial, todas las sincronizaciones posteriores serán así:
 
 1. Se consulta el sistema de origen de los usuarios y grupos que se actualizaron desde la última marca de agua almacenada.
-2. Se filtran los usuarios y grupos devueltos mediante cualquier [asignación](active-directory-coreapps-assign-user-azure-portal.md) o [filtro de ámbito basado en atributos](active-directory-saas-scoping-filters.md) configurados.
+2. Se filtran los usuarios y grupos devueltos mediante cualquier [asignación](manage-apps/assign-user-or-group-access-portal.md) o [filtro de ámbito basado en atributos](active-directory-saas-scoping-filters.md) configurados.
 3. Cuando se detecta que un usuario se ha asignado o está en ámbito para el aprovisionamiento, el servicio consulta el sistema de destino en busca de un usuario coincidente mediante los [atributos coincidentes](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties) designados.
 4. Si no se encuentra un usuario coincidente en el sistema de destino, se crea mediante los atributos devueltos por el sistema de origen.
 5. Si se encuentra un usuario coincidente, se actualiza mediante los atributos proporcionados por el sistema de origen.
@@ -171,31 +175,50 @@ En cuarentena, la frecuencia de las sincronizaciones incrementales se reduce gra
 El trabajo de aprovisionamiento se quita de la cuarentena después de que se han resuelto todos los errores causantes y se inicia el siguiente ciclo de sincronización. Si el trabajo de aprovisionamiento permanece en cuarentena durante más de cuatro semanas, se deshabilita.
 
 
+## <a name="how-long-will-it-take-to-provision-users"></a>¿Cuánto tiempo se tarda en aprovisionar usuarios?
+
+El rendimiento será diferente en función de si el trabajo de aprovisionamiento realiza una sincronización inicial o una sincronización incremental, tal como se describió en la sección anterior.
+
+Para las **sincronizaciones iniciales**, el tiempo de trabajo depende de ciertos factores, entre los que se incluye la cantidad de usuarios y grupos en el ámbito para realizar el aprovisionamiento, y la cantidad total de usuarios y grupos en el sistema de origen. En esta sección se indica más adelante una lista completa de factores que afectan al rendimiento inicial de la sincronización.
+
+En cuanto a las **sincronizaciones incrementales**, el tiempo de trabajo depende del número de cambios detectados en ese ciclo de sincronización. Si hay menos de 5000 cambios de pertenencia de un grupo o usuario, el trabajo puede finalizar dentro de un solo ciclo de sincronización incremental. 
+
+En la siguiente tabla se resumen los tiempos de sincronización de escenarios comunes de aprovisionamiento. En estos escenarios, el sistema de origen es Azure AD y el sistema de destino es una aplicación SaaS. Los tiempos de sincronización se derivan de un análisis estadístico de trabajos de sincronización para las aplicaciones SaaS de ServiceNow, Workplace, Salesforce y Google Apps.
+
+
+| Configuración de ámbito | Usuarios, grupos y miembros del ámbito | Hora de sincronización inicial | Hora de sincronización incremental |
+| -------- | -------- | -------- | -------- |
+| Sincronizar solo los usuarios y grupos asignados |  < 1000 |  < 30 minutos | < 30 minutos |
+| Sincronizar solo los usuarios y grupos asignados |  1000 - 10.000 | 142 - 708 minutos | < 30 minutos |
+| Sincronizar solo los usuarios y grupos asignados |   10.000 - 100.000 | 1170 - 2340 minutos | < 30 minutos |
+| Sincronizar todos los usuarios y grupos en Azure AD |  < 1000 | < 30 minutos  | < 30 minutos |
+| Sincronizar todos los usuarios y grupos en Azure AD |  1000 - 10.000 | < 30 - 120 minutos | < 30 minutos |
+| Sincronizar todos los usuarios y grupos en Azure AD |  10.000 - 100.000  | 713 - 1425 minutos | < 30 minutos |
+| Sincronizar todos usuarios en Azure AD|  < 1000  | < 30 minutos | < 30 minutos |
+| Sincronizar todos usuarios en Azure AD | 1000 - 10.000  | 43 - 86 minutos | < 30 minutos |
+
+
+Para la configuración dedicada a **sincronizar únicamente los usuarios y grupos asignados**, puede usar las siguientes fórmulas para determinar aproximadamente las veces que se realiza la **sincronización inicial** mínima y máxima esperada:
+
+    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
+    
+Resumen de los factores que influyen en el tiempo que lleva completar una **sincronización inicial**:
+
+* El número total de usuarios y grupos del ámbito para el aprovisionamiento.
+
+* La cantidad total de usuarios, grupos y miembros del grupo presentes en el sistema de origen (Azure AD).
+
+* Si los usuarios del ámbito de aprovisionamiento se corresponden o no con los usuarios existentes en la aplicación de destino, o si deben crearse por primera vez. Las tareas de sincronización para las cuales se crean todos los usuarios por primera vez, llevan aproximadamente *el doble de tiempo* que los trabajos de sincronización para los cuales todos los usuarios se corresponden con usuarios existentes.
+
+* Número de errores en los [registros de auditoría](active-directory-saas-provisioning-reporting.md). El rendimiento es también menor si hay muchos errores y si el servicio de aprovisionamiento ha quedado en un estado de "cuarentena".   
+
+* Solicitar los límites de velocidad y otras limitaciones que haya implementado el sistema de destino. Algunos sistemas de destino implementan límites de velocidad y otras limitaciones en las solicitudes, que pueden afectar al rendimiento durante operaciones de sincronización grandes. En estos casos, una aplicación que recibe demasiadas solicitudes demasiado rápido puede ralentizar su velocidad de respuesta o cerrar la conexión. Para mejorar el rendimiento, el conector debe ajustarse; para ello, no debe enviar las solicitudes de la aplicación más rápido de lo que la aplicación puede procesarlas. Los conectores de aprovisionamiento que ha compilado Microsoft hacen este ajuste. 
+
+* La cantidad y el tamaño de los grupos asignados. Sincronizar grupos asignados lleva más tiempo que sincronizar usuarios. Tanto el número como los tamaños de los grupos asignados afectan al rendimiento. Si una aplicación tiene [asignaciones habilitadas para la sincronización de objetos de grupo](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), las propiedades del grupo, como los nombres y la pertenencia, se sincronizan además de los usuarios. Estas sincronizaciones adicionales tomarán más tiempo que solo la sincronización de objetos de usuario.
+ 
+
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-
-**¿Cuánto tiempo se tarda en aprovisionar usuarios?**
-
-El rendimiento será diferente en función de si el trabajo de aprovisionamiento realiza una sincronización inicial o una sincronización incremental.
-
-En el caso de las sincronizaciones iniciales, el tiempo que tardan en completarse dependerá directamente de cuántos usuarios, grupos y miembros de los grupos estén presentes en el sistema de origen. Los sistemas de origen muy pequeños con cientos de objetos pueden completar las sincronizaciones iniciales en cuestión de minutos. Sin embargo, los sistemas de origen con cientos de miles o millones de objetos combinados pueden tardar mucho tiempo.
-
-En las sincronizaciones incrementales, el tiempo que tardan depende del número de cambios detectados en ese ciclo de sincronización. Si se detectan menos de 5000 cambios de usuarios o de pertenencia a grupos, con frecuencia se pueden sincronizar en un ciclo de 40 minutos. 
-
-Tenga en cuenta que el rendimiento general depende de los sistemas de origen y destino. Algunos sistemas de destino implementan límites de tasa de solicitudes que pueden afectar al rendimiento durante operaciones de sincronización de gran tamaño, y los conectores de aprovisionamiento de Azure AD predefinidos para esos sistemas tienen esto en cuenta.
-
-El rendimiento es también menor si hay muchos errores (registrados en los [registros de auditoría](active-directory-saas-provisioning-reporting.md)) y el servicio de aprovisionamiento ha quedado en un estado de "cuarentena".
-
-**¿Cómo se puede mejorar el rendimiento de la sincronización?**
-
-La mayoría de los problemas de rendimiento se producen durante las sincronizaciones iniciales de sistemas que tienen un gran número de grupos y miembros de grupo.
-
-Si no se requiere la sincronización de grupos o pertenencias a grupos, el rendimiento de la sincronización se puede mejorar enormemente mediante estos pasos:
-
-1. Establezca el menú **Aprovisionamiento > Configuración > Ámbito** en **Sincronizar todo**, en lugar de sincronizar los usuarios y grupos asignados.
-2. Use [filtros de ámbito](active-directory-saas-scoping-filters.md) en lugar de asignaciones para filtrar la lista de usuarios aprovisionados.
-
-> [!NOTE]
-> En aplicaciones que admiten el aprovisionamiento de nombres de grupos y propiedades de grupos (por ejemplo, ServiceNow y Google Apps), al deshabilitar esta característica también se reduce el tiempo que tarda en completarse una sincronización inicial. Si no desea aprovisionar los nombres de grupos y la pertenencia a grupos para una aplicación, puede deshabilitar esta opción en las [asignaciones de atributo](active-directory-saas-customizing-attribute-mappings.md) de la configuración del aprovisionamiento.
 
 **¿Cómo se puede seguir el progreso del trabajo de aprovisionamiento actual?**
 
@@ -219,7 +242,7 @@ Póngase en contacto con nosotros a través del [foro de comentarios de Azure Ac
 * [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](active-directory-saas-customizing-attribute-mappings.md)
 * [Escritura de expresiones para asignaciones de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtros de ámbito para el aprovisionamiento de usuario](active-directory-saas-scoping-filters.md)
-* [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md)
+* [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Introducción a la API de sincronización de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 * [Plan de implementación detallado de aprovisionamiento de usuarios de salida de una aplicación](https://aka.ms/userprovisioningdeploymentplan)
 

@@ -1,29 +1,25 @@
 ---
-title: 'Ramas paralelas: Azure Logic Apps | Microsoft Docs'
-description: "Creación o unión de ramas paralelas en Logic Apps"
+title: Crear o combinar ramas paralelas - Azure Logic Apps | Microsoft Docs
+description: Cómo crear o combinar ramas paralelas de los flujos de trabajo en Azure Logic Apps
 services: logic-apps
-keywords: ramas, procesamiento paralelo
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 9a836b707a576b9a938f43397ef35c00aeb476bf
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298862"
 ---
-# <a name="create-or-join-parallel-branches-in-your-logic-app"></a>Creación o unión de ramas paralelas en una aplicación lógica
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Crear o combinar ramas paralelas de las acciones de los flujos de trabajo en Azure Logic Apps
 
-De forma predeterminada, las acciones en una aplicación lógica se ejecutan secuencialmente. Para llevar a cabo acciones independientes al mismo tiempo, puede crear [ramas paralelas](#parallel-branches)y luego [unir esas ramas](#join-branches) más adelante en el flujo. 
+De forma predeterminada, las acciones en flujos de trabajo de aplicaciones lógicas se ejecutan simultáneamente. Para llevar a cabo acciones independientes al mismo tiempo, puede crear [ramas paralelas](#parallel-branches)y luego [unir esas ramas](#join-branches) más adelante en el flujo. 
 
 > [!TIP] 
 > Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).

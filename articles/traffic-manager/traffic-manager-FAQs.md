@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942363"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301072"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -86,10 +86,18 @@ Cuando una consulta de DNS llega a Traffic Manager, establece un valor en la res
 
 Puede establecer, en un nivel de perfil, el TTL de DNS tan bajo como 0 segundos y tan alto como 2 147 483 647 segundos (el intervalo máximo compatible con [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). Un TTL de 0 significa que las resoluciones DNS de bajada no almacenan en caché las respuestas de las consultas y se espera que todas las consultas lleguen a los servidores DNS de Traffic Manager para su resolución.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>¿Cómo puedo comprender el volumen de las consultas que llegan a mi perfil? 
+Una de las métricas que proporciona Traffic Manager es el número de consultas a las que un perfil responde. Puede obtener esta información en una agregación de nivel de perfil o dividirla aún más para ver el volumen de consultas en las que se devolvieron puntos de conexión específicos. Además, puede configurar alertas para recibir una notificación si el volumen de respuestas de consulta supera las condiciones que haya configurado. Para obtener más detalles, consulte [Métricas y alertas de Traffic Manager](traffic-manager-metrics-alerts.md).
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Método de enrutamiento del tráfico geográfico de Traffic Manager
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>¿En qué casos de uso el enrutamiento geográfico resulta útil? 
 El tipo de enrutamiento geográfico se puede usar en cualquier escenario en el que el cliente de Azure necesite distinguir a sus usuarios en función de las regiones geográficas. Por ejemplo, si usa el método de enrutamiento de tráfico geográfico, puede darle a los usuarios provenientes de regiones específicas una experiencia de usuario distinta de las de otras regiones. Otro ejemplo es cumplir los mandatos de soberanía de datos locales que requieren que los usuarios de una región específica sean atendidos solo por puntos de conexión de dicha región.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>¿Cómo decido si debo usar el método de enrutamiento por rendimiento o el método de enrutamiento geográfico? 
+La diferencia clave entre estos dos populares métodos de enrutamiento es que en el método de enrutamiento por rendimiento el objetivo principal es enviar tráfico al punto de conexión que puede proporcionar la latencia más baja al llamador, mientras que en el método de enrutamiento geográfico el objetivo principal es aplicar una geovalla para los llamadores de manera que pueda enrutarlos deliberadamente a un punto de conexión determinado. La superposición se produce porque hay una correlación entre la proximidad geográfica y una latencia menor, aunque este no es siempre el caso. Puede haber un punto de conexión en una ubicación geográfica diferente que puede ofrecer una mejor experiencia de latencia para el llamador y, en ese caso, el enrutamiento por rendimiento enviará al usuario a ese punto de conexión, pero el enrutamiento geográfico siempre lo enviará al punto de conexión que se haya asignado para su región geográfica. Para aclarar esto, considere el ejemplo siguiente: con el enrutamiento geográfico, puede realizar asignaciones poco comunes, como enviar todo el tráfico de Asia a puntos de conexión en Estados Unidos y todo el tráfico de Estados Unidos a puntos de conexión en Asia. En ese caso, el enrutamiento geográfico hará deliberadamente exactamente lo que le haya indicado que haga mediante la configuración, y la optimización por rendimiento no es una consideración. 
+>[!NOTE]
+>Puede haber escenarios en los que necesite funcionalidades de enrutamiento tanto por rendimiento como geográfico. Para estos escenarios, los perfiles anidados pueden ser una excelente opción. Por ejemplo, puede configurar un perfil principal con enrutamiento geográfico donde todo el tráfico de Norteamérica se envía a un perfil anidado con puntos de conexión en EE. UU. y usar el enrutamiento por rendimiento para enviar ese tráfico al mejor punto de conexión dentro de ese conjunto. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>¿Cuáles son las regiones que son compatibles con Traffic Manager para el enrutamiento geográfica? 
 Puede encontrar la jerarquía de países o regiones utilizada por Traffic Manager [aquí](traffic-manager-geographic-regions.md). Aunque esta página se mantiene actualizada con cualquier cambio que se realice, puede recuperar mediante programación la misma información mediante la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -331,6 +339,9 @@ Haga clic [aquí](https://azuretrafficmanagerdata.blob.core.windows.net/probes/a
 El número de comprobaciones de estado de Traffic Manager que llega a su punto de conexión depende de lo siguiente:
 - el valor que haya establecido para el intervalo de supervisión (un intervalo más pequeño significa más solicitudes que llegan a su punto de conexión en cualquier período de tiempo determinado);
 - el número de ubicaciones desde donde se originan las comprobaciones de estado (las direcciones IP desde donde puede esperar estas comprobaciones se muestran en las preguntas más frecuentes anteriores).
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>¿Cómo puedo recibir notificación de si uno de mis puntos de conexión deja de funcionar? 
+Una de las métricas que proporciona Traffic Manager es el estado de mantenimiento de los puntos de conexión de un perfil. Puede ver esto como un agregado de todos los puntos de conexión dentro de un perfil (por ejemplo, el 75 % de los puntos de conexión tienen un estado correcto) o en un nivel por punto de conexión. Las métricas de Traffic Manager se exponen a través de Azure Monitor y puede usar sus [funcionalidades de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para recibir notificaciones cuando se produzca un cambio en el estado de mantenimiento del punto de conexión. Para obtener más detalles, consulte [Métricas y alertas de Traffic Manager](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Perfiles anidados de Traffic Manager
 

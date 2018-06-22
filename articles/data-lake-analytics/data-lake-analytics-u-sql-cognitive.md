@@ -1,87 +1,36 @@
 ---
-title: Uso de las funcionalidades de Cognitive en U-SQL para Azure Data Lake Analytics | Microsoft Docs
+title: Uso de las funcionalidades de Cognitive en U-SQL para Azure Data Lake Analytics
 description: Obtenga información sobre cómo usar la inteligencia de las funcionalidades de Cognitive en U-SQL
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: jhubbard
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: saveenr
-ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.topic: conceptual
+ms.date: 06/05/2018
+ms.openlocfilehash: ab40d466d7b60dd09b8953012c80d0e84f4ac471
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311121"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802075"
 ---
-# <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Tutorial: Introducción a las funcionalidades de Cognitive de U-SQL
+# <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introducción a las funcionalidades de Cognitive de U-SQL
 
 ## <a name="overview"></a>Información general
 Las funcionalidades de Cognitive para U-SQL permiten a los desarrolladores usar inteligencia en sus programas de macrodatos. 
 
 Las siguientes funcionalidades cognitivas están disponibles:
-* Creación de imágenes: detección de caras
-* Creación de imágenes: detección de emociones
-* Creación de imágenes: detección de objetos (etiquetado)
-* Creación de imágenes: OCR (reconocimientos óptico de caracteres)
-* Texto: extracción de frases clave
-* Texto: análisis de sentimiento
+* Creación de imágenes: detección de caras [Ejemplo](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Creación de imágenes: detección de emociones [Ejemplo](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Creación de imágenes: detección de objetos (etiquetado) [Ejemplo](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Creación de imágenes: OCR (reconocimientos óptico de caracteres) [Ejemplo](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Texto: Extracción de frases clave y Análisis de sentimiento [Ejemplo](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
-## <a name="how-to-use-cognitive-in-your-u-sql-script"></a>Uso de Cognitive en el script U-SQL
-
-El proceso general es sencillo:
-
-* Utilice la instrucción `REFERENCE ASSEMBLY` para habilitar las características cognitivas en el script de U-SQL Script.
-* Utilice `PROCESS` en un conjunto de filas de entrada mediante un UDO de Cognitive para generar un conjunto de filas de salida.
-
-### <a name="detecting-objects-in-images"></a>Detección de objetos en imágenes
-
-En el ejemplo siguiente se muestra cómo usar las funcionalidades cognitivas para detectar objetos en imágenes.
-
-```
-REFERENCE ASSEMBLY ImageCommon;
-REFERENCE ASSEMBLY FaceSdk;
-REFERENCE ASSEMBLY ImageEmotion;
-REFERENCE ASSEMBLY ImageTagging;
-REFERENCE ASSEMBLY ImageOcr;
-
-// Get the image data
-
-@imgs =
-    EXTRACT 
-        FileName string, 
-        ImgData byte[]
-    FROM @"/usqlext/samples/cognition/{FileName}.jpg"
-    USING new Cognition.Vision.ImageExtractor();
-
-//  Extract the number of objects on each image and tag them 
-
-@tags =
-    PROCESS @imgs 
-    PRODUCE FileName,
-            NumObjects int,
-            Tags SQL.MAP<string, float?>
-    READONLY FileName
-    USING new Cognition.Vision.ImageTagger();
-
-@tags_serialized =
-    SELECT FileName,
-           NumObjects,
-           String.Join(";", Tags.Select(x => String.Format("{0}:{1}", x.Key, x.Value))) AS TagsString
-    FROM @tags;
-
-OUTPUT @tags_serialized
-    TO "/tags.csv"
-    USING Outputters.Csv();
-```
-Para ver más ejemplos, examine los de **U-SQL/Cognitive** en la sección **Pasos siguientes**.
+## <a name="registering-cognitive-extensions-in-u-sql"></a>Registro de extensiones cognitivas en U-SQL
+Antes de comenzar, siga los pasos de este artículo para registrar extensiones cognitivas en U-SQL: [Registro de extensiones cognitivas en U-SQL](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/cognitive-capabilities-in-u-sql#registeringExtensions).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejemplos de U-SQL/Cognitive](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)

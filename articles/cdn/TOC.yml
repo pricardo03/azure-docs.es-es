@@ -36,6 +36,8 @@
       href: cdn-china-delivery.md
     - name: Compatibilidad con HTTP/2
       href: cdn-http2.md
+    - name: Migración de Verizon estándar a Verizon premium
+      href: cdn-migrate.md
 - name: Guías de procedimientos
   items:
     - name: Optimización del contenido

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236406"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -29,7 +30,14 @@ ms.lasthandoff: 04/18/2018
     - Registros de flujo habilitados para los grupos de seguridad de red que desea supervisar
     - Una cuenta de Azure Storage para almacenar los registros de flujo sin formato
     - Un área de trabajo de Log Analytics (OMS) con acceso de lectura y escritura
-    - Su cuenta debe tener asignadas las siguientes acciones en el proveedor de Microsoft.Network:
+    - Se debe asignar al usuario alguno de los siguientes roles en el nivel de la suscripción:
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    O bien, se deben asignar al usuario todos los roles siguientes en el nivel de la suscripción: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -41,6 +49,19 @@ ms.lasthandoff: 04/18/2018
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+Para comprobar los roles asignados a un usuario para una suscripción, realice los pasos siguientes:
+
+Inicie sesión en Azure con inicio de sesión AzureRmAccount. 
+
+Seleccione la suscripción necesaria con Select-AzureRmSubscription. 
+
+A continuación, para enumerar todos los roles asignados a un usuario específico, use Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators. 
+
+Si no se muestra ninguna salida después de ejecutar los comandos, póngase en contacto con el administrador de la suscripción correspondiente para obtener acceso para ejecutar los comandos.  
+
+Para obtener más información, consulte [Administración del control de acceso basado en rol con Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+
 
 2.  ¿Qué regiones de Azure están disponibles en Análisis de tráfico?
 
@@ -64,13 +85,13 @@ ms.lasthandoff: 04/18/2018
 
 7.  ¿Puedo almacenar registros sin formato en una cuenta de almacenamiento de otra suscripción?
 
-    Nº Puede almacenar registros sin formato en cualquier cuenta de almacenamiento en la que haya un grupo de seguridad de red habilitado para los registros de flujo; sin embargo, tanto la cuenta de almacenamiento como los registros sin procesar deben estar en la misma suscripción y región.
+    No. Puede almacenar registros sin formato en cualquier cuenta de almacenamiento en la que haya un grupo de seguridad de red habilitado para los registros de flujo; sin embargo, tanto la cuenta de almacenamiento como los registros sin procesar deben estar en la misma suscripción y región.
 
 8.  Si se produce un error de tipo "No se encuentra" al configurar un grupo de seguridad de red para Análisis de tráfico, ¿cómo lo resuelvo?
 
     Seleccione una de las regiones admitidas que se indican en la pregunta 2. Si selecciona una región que no es compatible, se producirá un error de tipo "No se encuentra".
 
-9.  En los registros de flujo, el estado del grupo de seguridad de red es "No se puede cargar". ¿Qué tengo que hacer a continuación?
+9.  En los registros de flujo, el estado del grupo de seguridad de red es "No se pudo cargar". ¿Qué tengo que hacer a continuación?
 
     Para que los registros de flujo funcionen correctamente, el proveedor Microsoft.Insight debe estar registrado. Si no sabe con seguridad si el proveedor Microsoft.Insights está registrado o no en su suscripción, sustituya *xxxxx-xxxxx-xxxxxx-xxxx* en el siguiente comando y ejecute los siguientes comandos en PowerShell:
 
@@ -83,7 +104,7 @@ ms.lasthandoff: 04/18/2018
 
     La primera vez, el panel puede tardar hasta 30 minutos en aparecer. Antes de generar cualquier informe, la solución tiene que agregar datos suficientes para poder inferir información detallada relevante. 
 
-11.  Si aparece un mensaje similar al siguiente: "No encontramos ninguna dato en esta área de trabajo para el intervalo de tiempo especificado. Pruebe a cambiar el intervalo de tiempo o seleccione otra área de trabajo", ¿cómo puedo solucionarlo?
+11.  Si aparece el siguiente mensaje: "No se encontró ningún dato en el área de trabajo para el intervalo de tiempo seleccionado. Intente cambiar el intervalo de tiempo, seleccione otra área de trabajo o vuelva a intentarlo después de 20 a 30 minutos", ¿cómo puedo solucionarlo?
 
         Pruebe lo siguiente:
         - Intente cambiar el intervalo de tiempo en la barra superior.
@@ -106,11 +127,11 @@ ms.lasthandoff: 04/18/2018
 
 14. ¿Puedo configurar Análisis de tráfico mediante PowerShell o una plantilla de Azure Resource Manager?
 
-    No, Análisis de tráfico solo se puede configurar con Azure Portal.
+Sí, la configuración de Análisis de tráfico mediante Windows Powershell se admite de la versión 6.2.1 en adelante, pero la compatibilidad con las plantillas de Azure Resource Manager no está disponible actualmente. Para obtener más información sobre cómo se puede utilizar PowerShell para configurar Análisis de tráfico, consulte la [documentación](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0) siguiente. 
 
 15.  ¿Qué precio tiene Análisis de tráfico?
 
-        Análisis de tráfico se mide para mejorar la reducción de los registros y almacenar los registros mejorados en un área de trabajo de Log Analytics. Mientras esté en versión preliminar, no se cobra por el Análisis de tráfico para mejorar los registros reducidos; sin embargo, la retención de datos en un área de trabajo está sujeta a facturación a las tasas publicadas. Esta respuesta se actualizará una vez que el precio del Análisis de tráfico esté disponible.
+Análisis de tráfico se mide para los datos de registro de flujo que procesa el servicio y el almacenamiento de los registros mejorados resultantes en un área de trabajo de Log Analytics. [Haga clic aquí](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) para más información acerca del plan de precios. 
 
 16.  ¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
 

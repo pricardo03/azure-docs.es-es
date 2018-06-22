@@ -1,29 +1,25 @@
 ---
-title: "Instrucciones switch: ejecución de pasos en función de valores específicos: Azure Logic Apps | Microsoft Docs"
-description: "Ejecutar pasos diferentes en función de los valores de objetos, expresiones o tokens en Logic Apps"
+title: Agregar instrucciones switch a los flujos de trabajo - Azure Logic Apps | Microsoft Docs
+description: Cómo crear instrucciones switch que controlen las acciones de los flujos de trabajo en función de valores específicos en Azure Logic Apps
 services: logic-apps
-keywords: "Instrucción switch"
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299623"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Instrucciones switch: ejecución de pasos en función de valores específicos en Logic Apps
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Crear instrucciones switch que controlen las acciones de los flujos de trabajo en función de valores específicos en Azure Logic Apps
 
-Para llevar a cabo los diferentes pasos en función de los valores de un objeto, una expresión o un token, utilice una instrucción *switch*. Esta estructura evalúa el objeto, la expresión o el token, elige el caso que coincida con el resultado y ejecuta acciones solo para ese caso. Cuando se ejecuta la instrucción switch, solo un caso debe coincidir con el resultado.
+Para ejecutar acciones específicas en función de los valores de objetos, expresiones o tokens, agregue una instrucción *switch*. En esta estructura se evalúa el objeto, la expresión o el token, se elige el caso que coincida con el resultado y se ejecutan acciones específicas para ese caso. Cuando se ejecuta la instrucción switch, solo un caso debe coincidir con el resultado.
 
 Por ejemplo, imagine que desea una aplicación lógica que lleve a cabo pasos diferentes en función de una opción seleccionada en el correo electrónico. En este ejemplo, la aplicación lógica comprueba la fuente RSS de un sitio web para ver si hay nuevo contenido. Cuando aparece un elemento nuevo en la fuente RSS, la aplicación lógica envía un correo electrónico a un aprobador. Dependiendo de si el aprobador selecciona "Aprobar" o "Rechazar", la aplicación lógica sigue pasos diferentes.
 

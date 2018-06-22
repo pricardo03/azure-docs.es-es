@@ -4,13 +4,14 @@ description: Se proporciona información general sobre los problemas conocidos d
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
-ms.openlocfilehash: a878bab2bef31ff853dbad503a706e1a8d5803fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c717cfdac83ec8d85b1fa0a874e5573a40dd4611
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235634"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -18,8 +19,29 @@ ms.lasthandoff: 05/16/2018
 
 [Azure Migrate](migrate-overview.md) evalúa las cargas de trabajo locales para su migración a Azure. Use este artículo para solucionar problemas al implementar y usar Azure Migrate.
 
+### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Error al crear el proyecto de migración, que indica que *las solicitudes deben contener encabezados de identidad del usuario*
 
-**El recopilador no es capaz de conectarse a Internet**
+Pueden experimentar este problema aquellos usuarios que no tienen acceso al inquilino de Azure Active Directory (Azure AD) de la organización. Cuando un usuario se agrega a un inquilino de Azure AD por primera vez, recibe una invitación por correo electrónico para unirse al inquilino. Los usuarios deben ir al correo electrónico y aceptar la invitación para agregarse correctamente al inquilino. Si no puede ver el correo electrónico, póngase con un usuario que ya tenga acceso al inquilino y pídale que vuelva a enviarle la invitación mediante los pasos que se indican [aquí](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
+
+Cuando reciba el correo electrónico de invitación, debe abrirlo y hacer clic en el vínculo que contiene para aceptar la invitación. Una vez hecho esto, debe cerrar la sesión de Azure Portal e iniciarla de nuevo. La actualización del explorador no funcionará. A continuación, puede intentar crear el proyecto de migración.
+
+### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Los datos de rendimiento de los discos y adaptadores de red aparecen como ceros
+
+Esto puede ocurrir si el nivel de configuración de las estadísticas de vCenter Server se establece en menos de tres. Si el nivel es tres o superior, vCenter almacena el historial de rendimiento de proceso, almacenamiento y red de la máquina virtual. Si el nivel es inferior a tres, vCenter no almacena datos de almacenamiento y red, sino solamente los datos de CPU y memoria. En este escenario, los datos de rendimiento se muestran como cero en Azure Migrate, y este último ofrece recomendaciones de tamaño de los discos y las redes en función de los metadatos recopilados de los equipos locales.
+
+Para habilitar la recopilación de los datos de rendimiento del disco y la red, cambie el nivel de configuración de estadísticas a tres. A continuación, espere al menos un día para detectar el entorno y evaluarlo.
+
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>He instalado agentes y he usado la visualización de dependencias para crear grupos. Ahora, después de la conmutación por error, los equipos muestran la acción "Instalar agente" en lugar de "Ver dependencias"
+* Tras una conmutación por error planeada o no planeada, los equipos locales se desactivan y los equipos equivalentes se activan en Azure. Estos equipos adquieren una dirección MAC diferente. Pueden adquirir una dirección IP distinta en función de si el usuario elige conservar o no la dirección IP local. Si las direcciones IP y MAC difieren, Azure Migrate no asocia los equipos locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
+* Después de la conmutación por error de prueba, los equipos locales permanecen encendidos según lo previsto. Los equipos equivalentes que se activan en Azure adquieren una dirección MAC distinta y pueden adquirir una dirección IP diferente. A menos que el usuario bloquee el tráfico saliente de Log Analytics procedente de estos equipos, Azure Migrate no asocia los equipos locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
+
+## <a name="collector-errors"></a>Errores del recopilador
+
+### <a name="deployment-of-collector-ova-failed"></a>Error de implementación del archivo OVA del recopilador
+
+Esto podría suceder si el archivo OVA se descarga parcialmente o debido al explorador si usa el cliente web vSphere para implementar dicho archivo. Asegúrese de que la descarga haya finalizado e intente implementar el archivo OVA con un explorador diferente.
+
+### <a name="collector-is-not-able-to-connect-to-the-internet"></a>El recopilador no es capaz de conectarse a Internet
 
 Esto puede ocurrir cuando la máquina que está utilizando está detrás de un proxy. Asegúrese de proporcionar las credenciales de autorización en caso de que el proxy las necesite.
 Si va a usar un proxy de firewall basado en direcciones URL para controlar la conectividad saliente, asegúrese de incluir en la lista de permitidos estas direcciones URL necesarias:
@@ -42,7 +64,7 @@ Asegúrese de haber copiado y pegado la información correcta. Para solucionar p
 7. Verifique que el agente puede conectarse al proyecto. Si no puede, verifique la configuración. Si el agente puede conectarse, pero el recopilador no, póngase en contacto con el servicio de soporte técnico.
 
 
-**Error 802: obtengo un error de sincronización de fecha y hora**
+### <a name="error-802-date-and-time-synchronization-error"></a>Error 802: error de sincronización de fecha y hora
 
 El reloj del servidor podría estar desincronizado con la hora actual en más de cinco minutos. Cambie la hora del reloj de la máquina virtual del recopilador para que coincida con la hora actual; para ello, siga estos pasos:
 
@@ -50,20 +72,32 @@ El reloj del servidor podría estar desincronizado con la hora actual en más de
 2. Para comprobar la zona horaria, ejecute w32tm /tz.
 3. Para sincronizar la hora, ejecute w32tm /resync.
 
-**Mi clave de proyecto tiene los símbolos "==" al final. El recopilador los codifica como caracteres alfanuméricos. ¿Es normal?**
+### <a name="vmware-powercli-installation-failed"></a>Error en la instalación de VMware PowerCLI
 
-Sí, todas las claves del proyecto termina con "==". El recopilador cifra la clave de proyecto antes de procesarla.
+El recopilador de Azure Migrate descarga PowerCLI y lo instala en el dispositivo. Un error en la instalación de PowerCLI podría deberse a puntos de conexión inaccesibles para el repositorio de PowerCLI. Para solucionar problemas, intente instalar PowerCLI manualmente en la máquina virtual del recopilador con el paso siguiente:
 
-**Los datos de rendimiento de los discos y adaptadores de red aparecen como ceros**
+1. Abra Windows PowerShell en modo de administrador.
+2. Vaya al directorio C:\ProgramFiles\ProfilerService\VMWare\Scripts\
+3. Ejecute el script InstallPowerCLI.ps1.
 
-Esto puede ocurrir si el nivel de configuración de las estadísticas de vCenter Server se establece en menos de tres. Si el nivel es tres o superior, vCenter almacena el historial de rendimiento de proceso, almacenamiento y red de la máquina virtual. Si el nivel es inferior a tres, vCenter no almacena datos de almacenamiento y red, sino solamente los datos de CPU y memoria. En este escenario, los datos de rendimiento se muestran como cero en Azure Migrate, y este último ofrece recomendaciones de tamaño de los discos y las redes en función de los metadatos recopilados de los equipos locales.
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Error UnhandledException Error interno: System.IO.FileNotFoundException
 
-Para habilitar la recopilación de los datos de rendimiento del disco y la red, cambie el nivel de configuración de estadísticas a tres. A continuación, espere al menos un día para detectar el entorno y evaluarlo.
+Se trata de un problema que se observa en las versiones del recopilador anteriores a la 1.0.9.5. Si tiene una versión del recopilador 1.0.9.2 o una de las versiones anteriores a la disponibilidad general, como la 1.0.8.59, se encontrará con este problema. Siga este [enlace a los foros para una respuesta más detallada](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
 
-**He instalado agentes y he usado la visualización de dependencias para crear grupos. Ahora, después de la conmutación por error, los equipos muestran la acción "Instalar agente" en lugar de "Ver dependencias"**
-* Tras una conmutación por error planeada o no planeada, los equipos locales se desactivan y los equipos equivalentes se activan en Azure. Estos equipos adquieren una dirección MAC diferente. Pueden adquirir una dirección IP distinta en función de si el usuario elige conservar o no la dirección IP local. Si las direcciones IP y MAC difieren, Azure Migrate no asocia los equipos locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
-* Después de la conmutación por error de prueba, los equipos locales permanecen encendidos según lo previsto. Los equipos equivalentes que se activan en Azure adquieren una dirección MAC distinta y pueden adquirir una dirección IP diferente. A menos que el usuario bloquee el tráfico saliente de Log Analytics procedente de estos equipos, Azure Migrate no asocia los equipos locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
+[Actualice el recopilador para corregir el problema](https://aka.ms/migrate/col/checkforupdates).
 
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
+
+No se puede conectar con vCenter Server "Servername.com:9443" debido al error: No hay ningún punto de conexión escuchando en https://Servername.com:9443/sdk que pudiera aceptar el mensaje.
+
+Compruebe si está ejecutando la versión más reciente del dispositivo recopilador; de lo contrario, actualice el dispositivo a la [última versión](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+
+Si el problema persiste con la última versión, es posible que el equipo recopilador no pueda resolver el nombre de vCenter Server especificado o que el puerto especificado sea incorrecto. De forma predeterminada, si no se especifica el puerto, el recopilador intentará conectarse el puerto número 443.
+
+1. Intente hacer ping a Servername.com desde el equipo recopilador.
+2. Si se produce un error en el paso 1, intente conectarse al servidor de vCenter a través de la dirección IP.
+3. Identifique el número de puerto correcto para conectarse a vCenter.
+4. Por último, compruebe si el servidor de vCenter está en funcionamiento.
 
 ## <a name="troubleshoot-readiness-issues"></a>Solución de problemas de preparación
 
@@ -125,43 +159,23 @@ Para recopilar el Seguimiento de eventos para Windows, haga lo siguiente:
  - En Edge/IE, haga clic con el botón derecho sobre los errores y seleccione **Copy all** (Copiar todo).
 7. Cierre las Herramientas de desarrollo.
 
-
-## <a name="vcenter-errors"></a>Errores de vCenter
-
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Error UnhandledException Error interno: System.IO.FileNotFoundException
-
-Se trata de un problema que se observa en las versiones del recopilador anteriores a la 1.0.9.5. Si tiene una versión del recopilador 1.0.9.2 o una de las versiones anteriores a la disponibilidad general, como la 1.0.8.59, se encontrará con este problema. Siga este [enlace a los foros para una respuesta más detallada](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
-
-[Actualice el recopilador para corregir el problema](https://aka.ms/migrate/col/checkforupdates).
-
-### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
-
-No se puede conectar con vCenter Server "Servername.com:9443" debido al error: No hay ningún punto de conexión escuchando en https://Servername.com:9443/sdk que pudiera aceptar el mensaje.
-
-Esto sucede cuando la máquina del recopilador no puede resolver el nombre del servidor de vCenter especificado o el puerto especificado es incorrecto. De forma predeterminada, si no se especifica el puerto, el recopilador intentará conectar con el número de puerto 443.
-
-1. Intente hacer ping a Servername.com desde el equipo del recopilador.
-2. Si se produce un error en el paso 1, intente conectarse al servidor de vCenter a través de la dirección IP.
-3. Identifique el número de puerto correcto para conectarse a vCenter.
-4. Por último, compruebe si el servidor de vCenter está en funcionamiento.
-
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de error del recopilador y acciones recomendadas
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            | 
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------| 
-| Código de error | Nombre del error                      | Message                                                                       | Causas posibles                                                                                        | Acción recomendada                                                                                                                          | 
-| 601       | CollectorExpired               | El recopilador expiró.                                                        | Recopilador expirado.                                                                                    | Descargue una versión más reciente del recopilador y vuelva a intentarlo.                                                                                      | 
-| 751       | UnableToConnectToServer        | No se puede conectar con vCenter Server "%Name;" debido al siguiente error: %ErrorMessage;.     | Para obtener más detalles, consulte el mensaje de error.                                                             | Resuelva el problema y vuelva a intentarlo.                                                                                                           | 
-| 752       | InvalidvCenterEndpoint         | El servidor "%Name;" no es ninguna instancia de vCenter Server.                                  | Proporcione los detalles de vCenter Server.                                                                       | Vuelva a intentar la operación con los detalles correctos de vCenter Server.                                                                                   | 
-| 753       | InvalidLoginCredentials        | No se puede conectar con vCenter Server "%Name;" debido al siguiente error: %ErrorMessage;. | Se produjo un error de conexión a vCenter Server porque las credenciales de inicio de sesión no son válidas.                             | Asegúrese de que las credenciales de inicio de sesión proporcionadas sean correctas.                                                                                    | 
-| 754       | NoPerfDataAvaialable           | Los datos de rendimiento no están disponibles.                                               | Compruebe el nivel de estadísticas en vCenter Server. Se debe establecer en 3 para que los datos de rendimiento estén disponibles. | Cambie el nivel de estadísticas a 3 (para una duración de 5 minutos, 30 minutos y 2 horas) y vuelva a intentarlo después de esperar, al menos, un día.                   | 
-| 756       | NullInstanceUUID               | Se encontró una máquina con un valor de InstanceUUID null                                  | Puede que vCenter Server tenga un objeto inadecuado.                                                      | Resuelva el problema y vuelva a intentarlo.                                                                                                           | 
-| 757       | VMNotFound                     | No se encuentra la máquina virtual                                                  | La máquina virtual se puede eliminar: %VMID;                                                                | Asegúrese de que las máquinas virtuales seleccionadas al definir el ámbito del inventario de vCenter existan durante la detección.                                      | 
-| 758       | GetPerfDataTimeout             | Se agotó el tiempo de espera de la solicitud de VCenter. Mensaje %Message;                                  | Las credenciales de vCenter Server no son correctas.                                                              | Compruebe las credenciales de vCenter Server y asegúrese de que vCenter Server esté accesible. Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el soporte técnico. | 
-| 759       | VmwareDllNotFound              | No se encontró el archivo DLL VMWare.Vim.                                                     | PowerCLI no está instalado correctamente.                                                                   | Compruebe si PowerCLI está instalado correctamente. Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el soporte técnico.                               | 
-| 800       | ServiceError                   | El servicio Azure Migrate Collector no se está ejecutando.                               | El servicio Azure Migrate Collector no se está ejecutando.                                                       | Use services.msc para iniciar el servicio y vuelva a intentar la operación.                                                                             | 
-| 801       | PowerCLIError                  | Error en la instalación de PowerCLI de VMware.                                          | Error en la instalación de PowerCLI de VMware.                                                                  | Vuelva a intentar la operación. Si el problema persiste, instálelo manualmente y vuelva a intentar la operación.                                                   | 
-| 802       | TimeSyncError                  | La hora no está sincronizada con la del servidor horario de Internet.                            | La hora no está sincronizada con la del servidor horario de Internet.                                                    | Asegúrese de que la hora del reloj esté bien definida para la zona horaria de la máquina y vuelva a intentar la operación.                                 | 
-| 702       | OMSInvalidProjectKey           | Se especificó una clave de proyecto no válida.                                                | Se especificó una clave de proyecto no válida.                                                                        | Reintente la operación con la clave de proyecto correcta.                                                                                              | 
-| 703       | OMSHttpRequestException        | Error durante el envío de la solicitud. Mensaje %Message;                                | Compruebe el id. y la clave del proyecto para asegurarse de que se puede acceder al punto de conexión.                                       | Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.                                                                     | 
-| 704       | OMSHttpRequestTimeoutException | Se agotó el tiempo de espera de la solicitud HTTP. Mensaje %Message;                                     | Compruebe el id. y la clave del proyecto y asegúrese de que se pueda acceder al punto de conexión.                                       | Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.                                                                     | 
+|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
+|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Código de error | Nombre del error                      | Message                                                                       | Causas posibles                                                                                        | Acción recomendada                                                                                                                          |
+| 601       | CollectorExpired               | El recopilador expiró.                                                        | Recopilador expirado.                                                                                    | Descargue una versión más reciente del recopilador y vuelva a intentarlo.                                                                                      |
+| 751       | UnableToConnectToServer        | No se puede conectar con vCenter Server "%Name;" debido al siguiente error: %ErrorMessage;.     | Para obtener más detalles, consulte el mensaje de error.                                                             | Resuelva el problema y vuelva a intentarlo.                                                                                                           |
+| 752       | InvalidvCenterEndpoint         | El servidor "%Name;" no es ninguna instancia de vCenter Server.                                  | Proporcione los detalles de vCenter Server.                                                                       | Vuelva a intentar la operación con los detalles correctos de vCenter Server.                                                                                   |
+| 753       | InvalidLoginCredentials        | No se puede conectar con vCenter Server "%Name;" debido al siguiente error: %ErrorMessage;. | Se produjo un error de conexión a vCenter Server porque las credenciales de inicio de sesión no son válidas.                             | Asegúrese de que las credenciales de inicio de sesión proporcionadas sean correctas.                                                                                    |
+| 754       | NoPerfDataAvaialable           | Los datos de rendimiento no están disponibles.                                               | Compruebe el nivel de estadísticas en vCenter Server. Se debe establecer en 3 para que los datos de rendimiento estén disponibles. | Cambie el nivel de estadísticas a 3 (para una duración de 5 minutos, 30 minutos y 2 horas) y vuelva a intentarlo después de esperar, al menos, un día.                   |
+| 756       | NullInstanceUUID               | Se encontró una máquina con un valor de InstanceUUID null                                  | Puede que vCenter Server tenga un objeto inadecuado.                                                      | Resuelva el problema y vuelva a intentarlo.                                                                                                           |
+| 757       | VMNotFound                     | No se encuentra la máquina virtual                                                  | La máquina virtual se puede eliminar: %VMID;                                                                | Asegúrese de que las máquinas virtuales seleccionadas al definir el ámbito del inventario de vCenter existan durante la detección.                                      |
+| 758       | GetPerfDataTimeout             | Se agotó el tiempo de espera de la solicitud de VCenter. Mensaje %Message;                                  | Las credenciales de vCenter Server no son correctas.                                                              | Compruebe las credenciales de vCenter Server y asegúrese de que vCenter Server esté accesible. Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el soporte técnico. |
+| 759       | VmwareDllNotFound              | No se encontró el archivo DLL VMWare.Vim.                                                     | PowerCLI no está instalado correctamente.                                                                   | Compruebe si PowerCLI está instalado correctamente. Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el soporte técnico.                               |
+| 800       | ServiceError                   | El servicio Azure Migrate Collector no se está ejecutando.                               | El servicio Azure Migrate Collector no se está ejecutando.                                                       | Use services.msc para iniciar el servicio y vuelva a intentar la operación.                                                                             |
+| 801       | PowerCLIError                  | Error en la instalación de PowerCLI de VMware.                                          | Error en la instalación de PowerCLI de VMware.                                                                  | Vuelva a intentar la operación. Si el problema persiste, instálelo manualmente y vuelva a intentar la operación.                                                   |
+| 802       | TimeSyncError                  | La hora no está sincronizada con la del servidor horario de Internet.                            | La hora no está sincronizada con la del servidor horario de Internet.                                                    | Asegúrese de que la hora del reloj esté bien definida para la zona horaria de la máquina y vuelva a intentar la operación.                                 |
+| 702       | OMSInvalidProjectKey           | Se especificó una clave de proyecto no válida.                                                | Se especificó una clave de proyecto no válida.                                                                        | Reintente la operación con la clave de proyecto correcta.                                                                                              |
+| 703       | OMSHttpRequestException        | Error durante el envío de la solicitud. Mensaje %Message;                                | Compruebe el id. y la clave del proyecto para asegurarse de que se puede acceder al punto de conexión.                                       | Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | Se agotó el tiempo de espera de la solicitud HTTP. Mensaje %Message;                                     | Compruebe el id. y la clave del proyecto y asegúrese de que se pueda acceder al punto de conexión.                                       | Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.                                                                     |

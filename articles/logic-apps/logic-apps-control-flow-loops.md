@@ -1,29 +1,25 @@
 ---
-title: 'Bucles: matrices de procesos o repetición de acciones en Azure Logic Apps | Microsoft Docs'
-description: Matrices de procesos con bucles "for each" o repetición de acciones hasta que se cumplen determinadas condiciones en Logic Apps
+title: Agregar bucles que repiten acciones o matrices de procesos - Azure Logic Apps | Microsoft Docs
+description: Cómo crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 services: logic-apps
-keywords: bucles for each
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298192"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Bucles: Matrices de procesos o repetición de acciones hasta que se cumple una condición
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
-Para recorrer en iteración las matrices de la aplicación lógica, puede usar un [bucle "Foreach"](#foreach-loop) o un [bucle secuencial "Foreach"](#sequential-foreach-loop). Los ciclos de un bucle "Foreach" estándar se ejecutan en paralelo, mientras que los ciclos de un bucle "Foreach" secuencial se ejecutan de uno en uno. Para conocer el número máximo de elementos de matriz que los bucles "Foreach" pueden procesar en una única ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
+Para iterar las matrices de la aplicación lógica, puede usar un [bucle "Foreach"](#foreach-loop) o un [bucle secuencial "Foreach"](#sequential-foreach-loop). Las iteraciones de un bucle "Foreach" estándar se ejecutan en paralelo, mientras que las iteraciones de un bucle "Foreach" secuencial se ejecutan de una en una. Para conocer el número máximo de elementos de matriz que los bucles "Foreach" pueden procesar en una única ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
 > Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 

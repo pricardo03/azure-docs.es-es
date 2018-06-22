@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8e3cc261576e38cc304dc740f89582f7fd857e1a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293041"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
 
@@ -84,7 +85,23 @@ Sharepointserviceaccount puede ser la cuenta del equipo SPS o una cuenta de serv
 
 
 ## <a name="sso-for-non-windows-apps"></a>SSO para las aplicaciones no son de Windows
-El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se inicia cuando Azure AD autentica al usuario en la nube. Una vez que la solicitud se recibe en local, el conector de Proxy de aplicación de Azure AD emite un vale Kerberos en nombre del usuario mediante la interacción con Active Directory local. Este proceso se conoce como Delegación limitada de Kerberos (KCD). En la fase siguiente, se envía una solicitud a la aplicación back-end con este vale Kerberos. Haya varios protocolos que definen cómo enviar dichas solicitudes. La mayoría de los servidores que no son Windows esperan Negotiate/SPNego, que ahora se admite en el proxy de aplicación de Azure AD.
+
+El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se inicia cuando Azure AD autentica al usuario en la nube. Una vez que la solicitud se recibe en local, el conector de Proxy de aplicación de Azure AD emite un vale Kerberos en nombre del usuario mediante la interacción con Active Directory local. Este proceso se conoce como Delegación limitada de Kerberos (KCD). En la fase siguiente, se envía una solicitud a la aplicación back-end con este vale Kerberos. 
+
+Haya varios protocolos que definen cómo enviar dichas solicitudes. La mayoría de los servidores que no son de Windows esperan negociar con SPNEGO. Este protocolo es compatible con Azure AD Application Proxy, pero está deshabilitado de manera predeterminada. Un servidor se puede configurar para SPNEGO o KCD estándar, pero no para ambos.
+
+Si configura una máquina de conector para SPNEGO, asegúrese de que todos los demás conectores del grupo de conectores también estén configurados con SPNEGO. Las aplicaciones que esperan KCD estándar deben enrutarse a través de otros conectores que no estén configurados para SPNEGO.
+ 
+
+Para habilitar SPNEGO:
+
+1. Abra un símbolo del sistema que se ejecute como administrador.
+2. Desde el símbolo del sistema, ejecute los siguientes comandos en los servidores de conector que necesiten SPNEGO.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Para obtener más información sobre Kerberos, consulte [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Todo lo que necesita saber sobre Delegación restringida de kerberos [KCD]).
 
@@ -124,7 +141,7 @@ Pero, en algunos casos, la solicitud se envía correctamente a la aplicación de
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de una aplicación de proxy de aplicación para que use la delegación restringida de Kerberos](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Solucionar los problemas que tiene con el Proxy de aplicación](../active-directory-application-proxy-troubleshoot.md)
+* [Solucionar los problemas que tiene con el Proxy de aplicación](application-proxy-troubleshoot.md)
 
 
 Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)

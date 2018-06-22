@@ -1,28 +1,29 @@
 ---
 title: Procedimientos recomendados para mejorar el rendimiento mediante Azure Service Bus | Microsoft Docs
-description: "Describe cómo usar Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos."
+description: Describe cómo usar Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802551"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
-En este artículo se describe cómo usar [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) para optimizar el rendimiento al intercambiar mensajes asincrónicos. En la primera parte de este artículo se describen los distintos mecanismos que se ofrecen para ayudar a mejorar el rendimiento. La segunda parte proporciona orientación sobre cómo usar Service Bus de manera que pueda ofrecer el mejor rendimiento en un escenario determinado.
+En este artículo se describe cómo usar Azure Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos. En la primera parte de este artículo se describen los distintos mecanismos que se ofrecen para ayudar a mejorar el rendimiento. La segunda parte proporciona orientación sobre cómo usar Service Bus de manera que pueda ofrecer el mejor rendimiento en un escenario determinado.
 
 En todo este tema, el término "cliente" hace referencia a cualquier entidad que acceda a Service Bus. Un cliente puede asumir el rol de un remitente o receptor. El término "remitente" se usa para referirse a cualquier cliente de una cola o un tema de Service Bus que envía mensajes a una suscripción de una cola o un tema de Service Bus. El término "receptor" hace referencia a cualquier cliente de una cola o suscripción de Service Bus que recibe mensajes de una cola o suscripción de Service Bus.
 
@@ -40,13 +41,13 @@ AMQP y SBMP son más eficaces, ya que mantienen la conexión a Service Bus, siem
 
 ## <a name="reusing-factories-and-clients"></a>Reutilización de factorías y clientes
 
-Los objetos de cliente de Service Bus, como [QueueClient][QueueClient] o [MessageSender][MessageSender], se crean mediante un objeto [MessagingFactory][MessagingFactory], que también proporciona administración interna de las conexiones. Ni los generadores de mensajería ni los clientes de cola, tema y suscripción deben cerrarse después de enviar un mensaje y después volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Service Bus y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar el objeto [QueueClient][QueueClient] para enviar mensajes desde varios subprocesos y operaciones asincrónicas simultáneas. 
+Los objetos de cliente de Service Bus, como [QueueClient][QueueClient] o [MessageSender][MessageSender], se crean mediante un objeto [MessagingFactory][MessagingFactory], que también proporciona administración interna de las conexiones. Se recomienda no cerrar ni los generadores de mensajería ni los clientes de cola, tema y suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Service Bus y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar el objeto [QueueClient][QueueClient] para enviar mensajes desde varios subprocesos y operaciones asincrónicas simultáneas. 
 
 ## <a name="concurrent-operations"></a>Operaciones simultáneas
 
-Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Este tiempo incluye el procesamiento de la operación por el servicio Service Bus, además de la latencia de la solicitud y la respuesta. Para aumentar el número de operaciones por tiempo, las operaciones deberán ejecutarse simultáneamente. Puede hacerlo de varias maneras diferentes:
+Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Este tiempo incluye el procesamiento de la operación por el servicio Service Bus, además de la latencia de la solicitud y la respuesta. Para aumentar el número de operaciones por tiempo, las operaciones deberán ejecutarse simultáneamente. Para ello, puede usar varios métodos diferentes:
 
-* **Operaciones asincrónicas**: el cliente programa las operaciones mediante la realización de operaciones asincrónicas. La siguiente solicitud se inicia antes de que se complete la anterior. A continuación, se proporciona un ejemplo de operación asincrónica de envío:
+* **Operaciones asincrónicas**: el cliente programa las operaciones mediante la realización de operaciones asincrónicas. La siguiente solicitud se inicia antes de que se complete la anterior. En el siguiente fragmento de código se proporciona un ejemplo de operación asincrónica de envío:
   
  ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
@@ -64,7 +65,7 @@ Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Es
   Console.WriteLine("All messages sent");
   ```
   
-  Esto es un ejemplo de operación asincrónica de recepción:
+  El siguiente código es un ejemplo de operación asincrónica de recepción:
   
   ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
@@ -82,13 +83,13 @@ Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Es
   }
   ```
 
-* **Varias factorías**: todos los clientes (remitentes, además de receptores) creados por la misma factoría comparten una conexión TCP. El rendimiento máximo de mensajes está limitado por el número de operaciones que se pueden procesar mediante esta conexión TCP. El rendimiento que puede obtenerse con una sola factoría varía en gran medida en función del tamaño del mensaje y los tiempos de ida y vuelta de TCP. Para obtener mayores tasas de rendimiento, debería usar varias factorías de mensajes.
+* **Varias factorías**: todos los clientes (remitentes, además de receptores) creados por la misma factoría comparten una conexión TCP. El rendimiento máximo de mensajes está limitado por el número de operaciones que se pueden procesar mediante esta conexión TCP. El rendimiento que puede obtenerse con una sola factoría varía en gran medida en función del tamaño del mensaje y los tiempos de ida y vuelta de TCP. Para obtener mayores tasas de rendimiento, use usar varias factorías de mensajes.
 
 ## <a name="receive-mode"></a>Modo de recepción
 
 Al crear un cliente de cola o suscripción, puede especificar un modo de recepción: *Peek-lock* (Inspección y bloqueo) o *Receive And Delete* (Recepción y eliminación). El modo de recepción predeterminado es [PeekLock][PeekLock]. Cuando se trabaja en este modo, el cliente envía una solicitud para recibir un mensaje de Service Bus. Después de que el cliente haya recibido el mensaje, envía una solicitud para completarlo.
 
-Cuando se establece el modo de recepción en [ReceiveAndDelete][ReceiveAndDelete], ambos pasos se combinan en una sola solicitud. Esto reduce el número total de operaciones y puede mejorar el rendimiento general de los mensajes. Esta mejora del rendimiento conlleva el riesgo de la pérdida de mensajes.
+Cuando se establece el modo de recepción en [ReceiveAndDelete][ReceiveAndDelete], ambos pasos se combinan en una sola solicitud. Estos pasos reducen el número total de operaciones y pueden mejorar el rendimiento general de los mensajes. Esta mejora del rendimiento conlleva el riesgo de la pérdida de mensajes.
 
 Service Bus no admite transacciones para las operaciones de recepción y eliminación. Además, se necesita la semántica de PeekLock para aquellos escenarios en los que el cliente desee aplazar un mensaje o [procesarlo como correo devuelto](service-bus-dead-letter-queues.md).
 
@@ -96,7 +97,7 @@ Service Bus no admite transacciones para las operaciones de recepción y elimina
 
 El procesamiento por lotes del lado cliente permite que un cliente de cola o tema retrase el envío de un mensaje durante un período determinado. Si el cliente envía más mensajes durante este período, los transmite en un único lote. El procesamiento por lotes del lado cliente también hace que un cliente de cola o suscripción procese varias solicitudes **Complete** por lotes en una única solicitud. El procesamiento por lotes solo está disponible para las operaciones **Send** y **Complete** asincrónicas. Las operaciones sincrónicas se envían de inmediato al servicio Service Bus. El procesamiento por lotes no tiene lugar para las operaciones de inspección o recepción, así como tampoco entre clientes.
 
-De forma predeterminada, un cliente usa un intervalo entre lotes de 20 ms. Puede cambiar el intervalo entre lotes si configura la propiedad [BatchFlushInterval][BatchFlushInterval] antes de crear la factoría de mensajería. Esta configuración afecta a todos los clientes que se creen en esta factoría.
+De forma predeterminada, un cliente usa un intervalo entre lotes de 20 ms. Puede cambiar el intervalo entre lotes si configura la propiedad [BatchFlushInterval][BatchFlushInterval] antes de crear la factoría de mensajería. Esta configuración afecta a todos los clientes que se creen en esta factoría.
 
 Para deshabilitar el procesamiento por lotes, establezca la propiedad [BatchFlushInterval][BatchFlushInterval] en **TimeSpan.Zero**. Por ejemplo: 
 
@@ -111,7 +112,7 @@ El procesamiento por lotes no afecta al número de operaciones de mensajería fa
 
 ## <a name="batching-store-access"></a>Acceso al almacén de procesamiento por lotes
 
-Para aumentar el rendimiento de una cola, un tema o una suscripción, Service Bus procesa varios mensajes por lotes al escribir en su almacén interno. Si se habilita en una cola o en un tema, la escritura de mensajes en el almacén se procesará por lotes. Si se habilita en una cola o en una suscripción, la eliminación de mensajes del almacén se procesará por lotes. Si el acceso al almacén de procesamiento por lotes está habilitado para una entidad, Service Bus retrasa una operación de escritura en almacenamiento relacionada con dicha entidad unos 20 ms. 
+Para aumentar el rendimiento de una cola, un tema o una suscripción, Service Bus procesa varios mensajes por lotes al escribir en su almacén interno. Si se habilita en una cola o en un tema, la escritura de mensajes en el almacén se procesará por lotes. Si se habilita en una cola o en una suscripción, la eliminación de mensajes del almacén se procesará por lotes. Si el acceso al almacén de procesamiento por lotes está habilitado para una entidad, Service Bus retrasa una operación de escritura en almacenamiento relacionada con dicha entidad unos 20 ms. 
 
 > [!NOTE]
 > No hay ningún riesgo de pérdida de mensajes con procesamiento por lotes, aunque se produzca un error de Service Bus al final de un intervalo de procesamiento por lotes de 20 ms. 
@@ -132,9 +133,9 @@ El acceso al almacén de procesamiento por lotes no afecta al número de operaci
 
 La [captura previa](service-bus-prefetch.md) permite que el cliente de cola o suscripción cargue más mensajes desde el servicio cuando realice una operación de recepción. El cliente almacena estos mensajes en una memoria caché local. El tamaño de la memoria caché lo determinan las propiedades [QueueClient.PrefetchCount][QueueClient.PrefetchCount] o [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. Cada cliente con la captura previa habilitada mantiene su propia memoria caché. La memoria caché no se comparte entre los clientes. Si el cliente inicia una operación de recepción y su memoria caché está vacía, el servicio transmite un lote de mensajes. El tamaño del lote equivale al tamaño de la memoria caché o a 256 KB, con preferencia por el menor valor. Si el cliente inicia una operación de recepción y la memoria caché contiene un mensaje, el mensaje se recupera de la memoria caché.
 
-Cuando se lleva a cabo la captura previa de un mensaje, el servicio bloquea dicho mensaje. De esta manera, se impide que otro receptor reciba el mensaje con captura previa. Si el receptor no puede completar el mensaje antes de que expire el bloqueo, el mensaje pasa a estar disponible para otros receptores. La copia de captura previa del mensaje permanece en la memoria caché. El receptor que consume la copia en caché expirada recibirá una excepción cuando intente completar dicho mensaje. De forma predeterminada, el bloqueo del mensaje expira tras 60 segundos. Este valor puede ampliarse a 5 minutos. Para evitar el consumo de mensajes expirados, el tamaño de la memoria caché debe ser siempre menor que el número de mensajes que un cliente puede consumir en el intervalo de tiempo de espera de bloqueo.
+Cuando se lleva a cabo la captura previa de un mensaje, el servicio bloquea dicho mensaje. Con el bloqueo, se impide que otro receptor reciba el mensaje con captura previa. Si el receptor no puede completar el mensaje antes de que expire el bloqueo, el mensaje pasa a estar disponible para otros receptores. La copia de captura previa del mensaje permanece en la memoria caché. El receptor que consume la copia en caché expirada recibirá una excepción cuando intente completar dicho mensaje. De forma predeterminada, el bloqueo del mensaje expira tras 60 segundos. Este valor puede ampliarse a 5 minutos. Para evitar el consumo de mensajes expirados, el tamaño de la memoria caché debe ser siempre menor que el número de mensajes que un cliente puede consumir en el intervalo de tiempo de espera de bloqueo.
 
-Cuando se usa la expiración de bloqueo predeterminada de 60 segundos, un buen valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] es el que se obtiene de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores del generador. Por ejemplo, una factoría crea 3 receptores y cada receptor puede procesar hasta 10 mensajes por segundo. El número de capturas previas no debe superar 20 X 3 X 10 = 600. De forma predeterminada, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] se establece en 0, lo que significa que no se realiza la captura previa de ningún mensaje adicional desde el servicio.
+Cuando se usa la expiración de bloqueo predeterminada de 60 segundos, un buen valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] es el que se obtiene de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores del generador. Por ejemplo, una factoría crea tres receptores y cada receptor puede procesar hasta 10 mensajes por segundo. El número de capturas previas no debe superar 20 X 3 X 10 = 600. De forma predeterminada, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] se establece en 0, lo que significa que no se realiza la captura previa de ningún mensaje adicional desde el servicio.
 
 La captura previa de los mensajes aumenta el rendimiento general de una cola o una suscripción porque reduce el número total de operaciones de mensajes o recorridos de ida y vuelta. Sin embargo, capturar el primer mensaje tardará más tiempo (debido al aumento del tamaño del mensaje). Recibir mensajes con captura previa será más rápido porque el cliente ya ha descargado estos mensajes.
 
@@ -161,6 +162,9 @@ Si se envía un mensaje que contiene información importante y que no debe perde
 
 De forma interna, Service Bus usa el mismo nodo y almacén de mensajería para procesar y almacenar todos los mensajes de una entidad de mensajería (cola o tema). Por otra parte, una [cola o un tema con particiones](service-bus-partitioning.md) se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas con particiones no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][EnablePartitioning] en **true** como se muestra en el ejemplo siguiente. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
+> [!NOTE]
+> Ya no se admiten las entidades con particiones en la [SKU Premium](service-bus-premium-messaging.md). 
+
 ```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
@@ -174,7 +178,7 @@ Si no se pueden usar una cola o un tema con particiones, o si una única cola o 
 
 ## <a name="development-and-testing-features"></a>Características de desarrollo y pruebas
 
-Service Bus tiene una característica que se utiliza específicamente para desarrollo que **nunca debe utilizarse en configuraciones de producción**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+Service Bus tiene una característica que se usa específicamente para desarrollo que **nunca debe utilizarse en configuraciones de producción**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
 Cuando se agregan nuevas reglas o filtros al tema, se puede utilizar [TopicDescription.EnableFilteringMessagesBeforePublishing][] para comprobar que la nueva expresión de filtro funciona según lo esperado.
 
@@ -186,13 +190,13 @@ En las secciones siguientes, se describen escenarios habituales de mensajería y
 
 Objetivo: Maximizar el rendimiento de una sola cola. El número de remitentes y receptores es pequeño.
 
-* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 * Para aumentar la tasa general de envío a la cola, use varias factorías de mensajes para crear remitentes. Para cada remitente, use operaciones asincrónicas o varios subprocesos.
 * Para aumentar la tasa general de recepción de la cola, use varias factorías de mensajes para crear receptores.
 * Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
-* Establezca el intervalo de procesamiento por lotes en 50 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus. Si se usan varios remitentes, aumente el intervalo de procesamiento por lotes a 100 ms.
-* Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la tasa general con que se pueden escribir mensajes en la cola.
-* Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Esto reduce el número de transmisiones del protocolo de cliente de Service Bus.
+* Establezca el intervalo de procesamiento por lotes en 50 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus. Si se usan varios remitentes, aumente el intervalo de procesamiento por lotes a 100 ms.
+* Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la tasa general con que se pueden escribir mensajes en la cola.
+* Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Este número reduce la cantidad de transmisiones del protocolo de cliente de Service Bus.
+* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="multiple-high-throughput-queues"></a>Varias colas de alto rendimiento
 
@@ -204,40 +208,40 @@ Para obtener el máximo rendimiento en varias colas, use la configuración descr
 
 Objetivo: minimizar la latencia de un extremo a otro de una cola o un tema. El número de remitentes y receptores es pequeño. El rendimiento de la cola es pequeño o moderado.
 
-* Use una cola particionada para mejorar la disponibilidad.
 * Deshabilite el procesamiento por lotes del lado cliente. El cliente envía inmediatamente un mensaje.
 * Deshabilite el acceso al almacén de procesamiento por lotes. El servicio escribe inmediatamente el mensaje en el almacén.
 * Si usa un solo cliente, establezca el número de capturas previas en el valor resultante de multiplicar por 20 la tasa de procesamiento del receptor. Si llegan varios mensajes a la cola al mismo tiempo, el protocolo de cliente de Service Bus los transmite todos a la vez. Cuando el cliente recibe el siguiente mensaje, ese mensaje ya se encuentra en la memoria caché local. La memoria caché debe ser pequeña.
-* Si se usan varios clientes, establezca el número de capturas previas en 0. De esta manera, el segundo cliente puede recibir el segundo mensaje mientras el primer cliente todavía está procesando el primer mensaje.
+* Si se usan varios clientes, establezca el número de capturas previas en 0. Al establecer este número, el segundo cliente puede recibir el segundo mensaje mientras el primer cliente todavía está procesando el primero.
+* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Cola con un gran número de remitentes
 
 Objetivo: maximizar el rendimiento de una cola o un tema con un gran número de remitentes. Cada remitente envía mensajes a una tasa moderada. El número de receptores es pequeño.
 
-Service Bus permite hasta 1000 conexiones simultáneas a una entidad de mensajería (o 5000 mediante AMQP). Este límite se aplica en el nivel de espacio de nombres, y las colas, los temas y las suscripciones quedan restringidos por el límite de conexiones simultáneas por espacio de nombres. Para las colas, este número se comparte entre remitentes y receptores. Si se requieren las mil conexiones para los remitentes, debería reemplazar la cola por un tema y una sola suscripción. Un tema acepta un máximo de mil conexiones simultáneas de los remitentes, mientras que la suscripción acepta otras mil conexiones simultáneas de receptores. Si se requieren más de mil remitentes simultáneos, los remitentes deberían enviar mensajes al protocolo de Service Bus a través de HTTP.
+Service Bus permite hasta 1000 conexiones simultáneas a una entidad de mensajería (o 5000 mediante AMQP). Este límite se aplica en el nivel de espacio de nombres, y las colas, los temas y las suscripciones quedan restringidos por el límite de conexiones simultáneas por espacio de nombres. Para las colas, este número se comparte entre remitentes y receptores. Si se requieren las 1000 conexiones para los remitentes, reemplace la cola por un tema y una única suscripción. Un tema acepta un máximo de mil conexiones simultáneas de los remitentes, mientras que la suscripción acepta otras mil conexiones simultáneas de receptores. Si se requieren más de mil remitentes simultáneos, los remitentes deberían enviar mensajes al protocolo de Service Bus a través de HTTP.
 
-Para maximizar el rendimiento, haga lo siguiente:
+Para maximizar el rendimiento, realice los pasos siguientes:
 
-* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 * Si cada remitente reside en un proceso diferente, use solo una única factoría para cada proceso.
 * Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
-* Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
-* Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la velocidad global con que se pueden escribir mensajes en la cola o el tema.
-* Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Esto reduce el número de transmisiones del protocolo de cliente de Service Bus.
+* Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
+* Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la velocidad global con que se pueden escribir mensajes en la cola o el tema.
+* Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Este número reduce la cantidad de transmisiones del protocolo de cliente de Service Bus.
+* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Cola con un gran número de receptores
 
 Objetivo: maximizar la velocidad de recepción de una cola o suscripción con un gran número de receptores. Cada receptor recibe mensajes a una tasa moderada. El número de remitentes es pequeño.
 
-Service Bus permite hasta 1000 conexiones simultáneas a una entidad. Si una cola requiere más de mil receptores, debería reemplazar la cola por un tema y varias suscripciones. Cada suscripción admite hasta mil conexiones simultáneas. Como alternativa, los receptores pueden acceder a la cola mediante el protocolo HTTP.
+Service Bus permite hasta 1000 conexiones simultáneas a una entidad. Si una cola requiere más de 1000 receptores, reemplace la cola por un tema y varias suscripciones. Cada suscripción admite hasta mil conexiones simultáneas. Como alternativa, los receptores pueden acceder a la cola mediante el protocolo HTTP.
 
 Para maximizar el rendimiento, haga lo siguiente:
 
-* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 * Si cada receptor reside en un proceso diferente, use solo una única factoría por proceso.
 * Los receptores pueden usar operaciones sincrónicas o asincrónicas. Dada la tasa de recepción moderada de un receptor individual, el procesamiento por lotes del lado cliente de una solicitud Complete no afecta al rendimiento del receptor.
-* Deje habilitado el acceso al almacén de procesamiento por lotes. Esto reduce la carga general de la entidad. También reduce la velocidad global con que se pueden escribir mensajes en la cola o el tema.
-* Establezca el número de capturas previas en un valor pequeño (por ejemplo, PrefetchCount = 10). Esto evita que haya receptores inactivos mientras otros tienen un gran número de mensajes almacenados en caché.
+* Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso reduce la carga general de la entidad. También reduce la velocidad global con que se pueden escribir mensajes en la cola o el tema.
+* Establezca el número de capturas previas en un valor pequeño (por ejemplo, PrefetchCount = 10). Este número evita que haya receptores inactivos mientras otros tienen un gran número de mensajes almacenados en caché.
+* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Tema con un número pequeño de suscripciones
 
@@ -245,27 +249,27 @@ Objetivo: maximizar el rendimiento de un tema con un número pequeño de suscrip
 
 Para maximizar el rendimiento, haga lo siguiente:
 
-* Use un tema con particiones para mejorar la disponibilidad y el rendimiento.
 * Para aumentar la velocidad de envío general al tema, use varios generadores de mensajes para crear remitentes. Para cada remitente, use operaciones asincrónicas o varios subprocesos.
 * Para aumentar la velocidad de recepción general desde una suscripción, use varios generadores de mensajes para crear receptores. Para cada receptor, use operaciones asincrónicas o varios subprocesos.
 * Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
-* Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
-* Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la velocidad general con que se pueden escribir mensajes en el tema.
-* Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Esto reduce el número de transmisiones del protocolo de cliente de Service Bus.
+* Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
+* Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la velocidad general con que se pueden escribir mensajes en el tema.
+* Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Este número reduce la cantidad de transmisiones del protocolo de cliente de Service Bus.
+* Use un tema con particiones para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Tema con un gran número de suscripciones
 
 Objetivo: maximizar el rendimiento de un tema con un gran número de suscripciones. Muchas suscripciones reciben un mensaje, lo que significa que la velocidad de recepción combinada de todas las suscripciones es mucho mayor que la velocidad de envío. El número de remitentes es pequeño. El número de receptores por suscripción es pequeño.
 
-Los temas con un gran número de suscripciones suelen ofrecer un rendimiento general bajo si todos los mensajes se enrutan a todas las suscripciones. Esto se debe al hecho de que cada mensaje se recibe muchas veces y todos los mensajes que se encuentran en un tema y en todas sus suscripciones se guardan en el mismo almacén. Se asume que el número de remitentes y el número de receptores por suscripción son pequeños. Service Bus admite hasta 2000 suscripciones por tema.
+Los temas con un gran número de suscripciones suelen ofrecer un rendimiento general bajo si todos los mensajes se enrutan a todas las suscripciones. Este bajo rendimiento se debe al hecho de que cada mensaje se recibe muchas veces y todos los mensajes que se encuentran en un tema y en todas sus suscripciones se guardan en el mismo almacén. Se asume que el número de remitentes y el número de receptores por suscripción son pequeños. Service Bus admite hasta 2000 suscripciones por tema.
 
-Para maximizar el rendimiento, haga lo siguiente:
+Para maximizar el rendimiento, intente los siguientes pasos:
 
-* Use un tema con particiones para mejorar la disponibilidad y el rendimiento.
 * Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
-* Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
-* Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la velocidad general con que se pueden escribir mensajes en el tema.
-* Establezca el número de capturas previas en el valor resultante de multiplicar por 20 la tasa de recepción esperada en segundos. Esto reduce el número de transmisiones del protocolo de cliente de Service Bus.
+* Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
+* Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la velocidad general con que se pueden escribir mensajes en el tema.
+* Establezca el número de capturas previas en el valor resultante de multiplicar por 20 la tasa de recepción esperada en segundos. Este número reduce la cantidad de transmisiones del protocolo de cliente de Service Bus.
+* Use un tema con particiones para mejorar la disponibilidad y el rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

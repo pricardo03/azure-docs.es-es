@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303950"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831642"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
 
@@ -73,7 +73,7 @@ La implementación de Blockchain Workbench requiere el registro de una aplicaci�
 A continuación, debe modificar el manifiesto de aplicación para que use los roles de aplicación en Azure AD para especificar los administradores de Blockchain Workbench.  Para más información acerca de los manifiestos de aplicación, consulte [Manifiesto de aplicación de Azure Active Directory](../active-directory/develop/active-directory-application-manifest.md).
 
 1. Para la aplicación que registró, seleccione **Manifiesto** en el panel de detalles de la aplicación registrada.
-2. Genere un identificador único global. Puede usar el comando de PowerShell `[guid]::NewGuid()` o herramientas en línea para generar uno de estos identificadores. 
+2. Genere un identificador único global. Puede generar un GUID mediante el comando de PowerShell [guid] :: NewGuid () o el cmdlet New-GUID. Otra opción es usar un sitio web generador de GUID.
 3. Va a actualizar la sección **appRoles** del manifiesto. En el panel Editar manifiesto, seleccione **Editar** y sustituya `"appRoles": []` por el código JSON que se proporciona. Asegúrese de reemplazar el valor del campo **ID** por el identificador único global que generó. 
 
     ``` json
@@ -191,7 +191,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | SSH | Use una clave pública RSA en formato de una sola línea con **ssh-rsa** o utilice el formato PEM de varias líneas. Puede generar claves SSH mediante `ssh-keygen` en Linux y OS X o PuTTYGen en Windows. Para más información sobre las claves SSH, consulte [Uso de claves SSH con Windows en Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Contraseña de base de datos / Confirmar contraseña de la base de datos | Especifique la contraseña que se utilizará para acceder a la base de datos creada como parte de la implementación. |
     | Región de la implementación | Especifique dónde se van a implementar los recursos de Blockchain Workbench. Para una mejor disponibilidad, el valor debe ser el mismo que el de **Ubicación**. |
-    | La suscripción | Especifique la suscripción de Azure que desea usar para la implementación. |
+    | Subscription | Especifique la suscripción de Azure que desea usar para la implementación. |
     | Grupos de recursos | Cree un nuevo grupo de recursos seleccionando **Crear nuevo** y especifique un nombre de grupo de recursos único. |
     | Ubicación | Especifique la región en la que desea implementar la plataforma. |
 

@@ -8,19 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202140"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850015"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introducción a la administración de dispositivos en Azure Active Directory
 
@@ -31,9 +32,9 @@ En un mundo donde la nube y la movilidad son prioritarias, Azure Active Director
 
 Los usuarios acceden a los recursos corporativos a través de sus dispositivos. Para proteger los recursos corporativos, como administrador de TI, desea tener control sobre estos dispositivos. De esta forma, se asegura de que los usuarios acceden a los recursos desde dispositivos que satisfacen los estándares de seguridad y cumplimiento. 
 
-La administración de dispositivos también es la base del [acceso condicional basado en dispositivos](active-directory-conditional-access-policy-connected-applications.md). Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos de confianza.   
+La administración de dispositivos también es la base del [acceso condicional basado en dispositivos](active-directory-conditional-access-policy-connected-applications.md). Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos administrados.   
 
-En este tema se explica cómo funciona la administración de dispositivos en Azure Active Directory.
+En este artículo se explica cómo funciona la administración de dispositivos en Azure Active Directory.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Dispositivos bajo el control de Azure AD
 
@@ -69,12 +70,16 @@ El objetivo de los dispositivos unidos a Azure AD es simplificar:
 
 - Las implementaciones de Windows de los dispositivos de trabajo 
 - El acceso a recursos y aplicaciones de la organización desde cualquier dispositivo Windows
+- Administración basada en la nube de dispositivos de trabajo
 
 ![Dispositivos registrados en Azure AD](./media/device-management-introduction/02.png)
 
+La unión a Azure AD se puede implementar mediante cualquiera de los métodos siguientes: 
+ - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Implementación masiva](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Experiencia de autoservicio](device-management-azuread-joined-devices-frx.md) 
 
-Para cumplir estos objetivos, se ofrece a los usuarios una experiencia de autoservicio con el fin de que consigan que los dispositivos de empresa estén bajo el control de Azure AD.  
-La **unión a Azure AD** está pensada para aquellas organizaciones en las que la nube es prioritaria o exclusiva. No hay ninguna restricción de tamaño o tipo de organización que puede implementar una unión a Azure AD. La unión a Azure AD funciona bien incluso en un entorno híbrido y puede habilitar el acceso a aplicaciones y recursos locales.
+La **unión a Azure AD** está diseñada para organizaciones que quieren priorizar la nube (es decir, que usan principalmente los servicios en la nube con el objetivo de reducir el uso de una infraestructura local) o usar solo la nube (sin ninguna infraestructura local). No hay ninguna restricción de tamaño o tipo de organización que puede implementar una unión a Azure AD. La unión a Azure AD funciona bien incluso en un entorno híbrido y puede habilitar el acceso a aplicaciones y recursos de nube y locales.
 
 La implementación de dispositivos unidos a Azure AD ofrece las siguientes ventajas:
 
@@ -88,10 +93,12 @@ La implementación de dispositivos unidos a Azure AD ofrece las siguientes venta
 
 - **Restricción del acceso** a las aplicaciones únicamente desde aquellos dispositivos que satisfagan las directivas de cumplimiento.
 
-- **Acceso total a los recursos locales** cuando el dispositivo tiene línea de visión al controlador de dominio local.
+- **Acceso total a los recursos locales** cuando el dispositivo tiene línea de visión al controlador de dominio local. 
 
 
-Aunque la unión a Azure AD esté pensada principalmente para aquellas organizaciones que no tengan una infraestructura de Windows Server Active Directory local, sin duda se puede utilizar también en escenarios donde:
+Aunque la unión a Azure AD esté pensada principalmente para aquellas organizaciones que no tengan una infraestructura de Windows Server Active Directory local, sin duda se puede utilizar en escenarios donde:
+
+- Quiere realizar la transición a la infraestructura basada en la nube con Azure AD y un sistema MDM, como Intune.
 
 - No puede usar una unión a un dominio local, por ejemplo, si tiene que controlar dispositivos móviles como tabletas y teléfonos.
 
@@ -121,9 +128,9 @@ Si su entorno tiene un uso local de AD y también desea aprovechar las funcional
 
 Debe usar dispositivos híbridos unidos a Azure AD si:
 
-- Tiene las aplicaciones Win32 implementadas en estos dispositivos que usan NTLM o Kerberos.
+- Tiene aplicaciones Win32 implementadas en estos dispositivos que se basan en la autenticación de máquina de Active Directory.
 
-- Requiere GP o SCCM/DCM para administrar dispositivos.
+- Requiere GP para administrar dispositivos.
 
 - Desea seguir usando las soluciones de creación de imágenes para configurar los dispositivos de los empleados.
 

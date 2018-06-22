@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194026"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833726"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -35,31 +35,16 @@ Para usar Update Management, necesita:
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 
-Update Management es compatible con los sistemas operativos siguientes.
+Update Management es compatible con los sistemas operativos siguientes:
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 y versiones posterior, y las implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores. Nano Server no se admite.
-
-  Para poder implementar las actualizaciones en Windows Server 2008 R2 SP1, se necesita .NET Framework 4.5 y Windows Management Framework 5.0 o versiones posteriores.
-
-- No se admiten los sistemas operativos cliente Windows.
-
-Los agentes de Windows deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o tener acceso a Microsoft Update.
-
-> [!NOTE]
-> System Center Configuration Manager no puede administrar simultáneamente el agente de Windows.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) y 7 (x64)
-
-- Red Hat Enterprise (x86/x64) 6 y 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)
-
-- Ubuntu 12.04 LTS y versiones más recientes (x86/x64)
+|Sistema operativo  |Notas  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Solo admite las evaluaciones de actualización         |
+|Windows Server 2008 R2 SP1 y versiones posteriores     |Se requiere Windows PowerShell 4.0 o posterior ([descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) se recomienda para mayor confiabilidad.         |
+|CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
+|Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Los agentes de Linux deben tener acceso a un repositorio de actualización.         |
 
 > [!NOTE]
 > Para evitar que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu, vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información, consulte el [tema sobre actualizaciones automáticas en la guía de Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -152,6 +137,9 @@ En el panel **Nueva implementación de actualización**, especifique lo siguient
   - Actualizaciones de definiciones
   - Herramientas
   - Actualizaciones
+
+- **Actualizaciones para excluir**: abre la página **Excluir**. Escriba los KB o los nombres de paquetes que desea excluir.
+
 - **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, que son 30 minutos después de la hora actual. O bien, especificar una hora distinta.
    También puede especificar si la implementación se produce una vez o configurar una programación periódica. Para configurar una programación periódica, haga clic en la opción **Periódica** en **Periodicidad**.
 

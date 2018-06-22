@@ -1,29 +1,25 @@
 ---
-title: "Ejecución de pasos según estados de acción agrupados: Azure Logic Apps | Microsoft Docs"
-description: "Agrupar acciones en ámbitos y ejecutar pasos según el estado del grupo"
+title: Agregar ámbitos que ejecutan acciones en función del estado del grupo - Azure Logic Apps | Microsoft Docs
+description: Cómo crear ámbitos que ejecuten acciones de flujo de trabajo en función del estado de la acción de grupo en Azure Logic Apps
 services: logic-apps
-keywords: ramas, procesamiento paralelo
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298821"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>Ámbitos: Ejecución de pasos según el estado de grupo de las aplicaciones lógicas
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Crear ámbitos que ejecuten acciones de flujo de trabajo en función del estado del grupo en Azure Logic Apps
 
-Para ejecutar pasos solo después de que otro grupo de acciones se haya realizado correctamente o con errores, ponga ese grupo dentro de un *ámbito*. Esta estructura es útil cuando desea organizar acciones como un grupo lógico, evaluar el estado del grupo y realizar acciones basadas en el estado del ámbito. Una vez que todas las acciones de un ámbito acaben de ejecutarse, el ámbito obtiene también su propio estado. Por ejemplo, puede usar ámbitos cuando desea implementar el [control de errores y excepciones](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Para ejecutar acciones solo después de que otro grupo de acciones se haya realizado correctamente o con errores, ponga esas acciones en un *ámbito*. Esta estructura es útil cuando desea organizar acciones como un grupo lógico, evaluar el estado del grupo y realizar acciones basadas en el estado del ámbito. Una vez que todas las acciones de un ámbito acaben de ejecutarse, el ámbito obtiene también su propio estado. Por ejemplo, puede usar ámbitos cuando desea implementar el [control de errores y excepciones](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
 Para comprobar el estado del ámbito, puede usar los mismos criterios que usa para determinar el estado de ejecución de la aplicación lógica, como "Succeeded", "Failed", "Cancelled", etc. De forma predeterminada, cuando las acciones del ámbito se ejecutan correctamente, el estado del ámbito se marca como "Succeeded". Pero si cualquier acción en el ámbito produce error o se cancela, el estado del ámbito se marca como "Failed". Para conocer los límites en los ámbitos, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 

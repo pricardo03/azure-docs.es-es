@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4a0ac66f8f7adff99c211df20b84cf0f6f08f523
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 35d3153cb485f11fe17689f1ff1d3d88961878d3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296698"
 ---
 # <a name="create-a-support-request-for-cost-management"></a>Creación de una solicitud de soporte técnico de Cost Management
 
@@ -22,7 +23,7 @@ Puede abrir una solicitud de soporte técnico si no se puede encontrar la inform
 
 ## <a name="open-a-support-ticket"></a>Abrir una incidencia de soporte técnico
 
-1. Inicie sesión en Azure Portal (https://portal.azure.com).
+1. Iniciar sesión en Azure Portal (https://portal.azure.com).
 2. En la barra de navegación superior, haga clic en **Ayuda**.
 3. En el menú **Ayuda**, haga clic en **Ayuda y soporte técnico**.
 4. En la menú Ayuda y soporte técnico de Soporte técnico, haga clic en**Nueva solicitud de soporte técnico**.

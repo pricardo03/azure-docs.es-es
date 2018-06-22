@@ -1,92 +1,203 @@
 ---
-title: "Conexión a un sistema SAP local en Azure Logic Apps | Microsoft Docs"
-description: "Conexión a un sistema SAP local en el flujo de trabajo de aplicaciones lógicas a través de la puerta de enlace de datos local"
-services: logic-apps
-author: padmavc
-manager: anneta
-documentationcenter: 
-ms.assetid: 
-ms.service: logic-apps
-ms.devlang: na
+title: 'Conexión a sistemas SAP: Azure Logic Apps | Microsoft Docs'
+description: Cómo obtener acceso y administrar los recursos SAP mediante la automatización de flujos de trabajo con Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
+ms.date: 05/31/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/01/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, divswa, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: a9346092e0a24709a9888937effdf802bf1b09fb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300222"
 ---
-# <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>Conexión a un sistema SAP local en el flujo de trabajo de aplicaciones lógicas con el conector SAP 
+# <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
-La puerta de enlace de datos local le permite administrar los datos y acceder de manera segura a los recursos locales. En este tema se muestra cómo se pueden conectar las aplicaciones lógicas a un sistema SAP local. En este ejemplo, la aplicación lógica solicita un IDOC a través de HTTP y devuelve la respuesta.    
+En este artículo, se muestra cómo obtener acceso a los recursos SAP desde una aplicación lógica mediante el uso de los conectores del servidor de mensajes y del servidor de aplicaciones de SAP. De este modo, puede automatizar las tareas, los procesos y los flujos de trabajo que administran los datos y los recursos SAP mediante la creación de aplicaciones lógicas.
+
+En este ejemplo, se utiliza una aplicación lógica que se puede desencadenar con una solicitud HTTP. La aplicación lógica envía un documento intermedio (IDOC) a un servidor SAP y devuelve una respuesta al solicitante que llamó a la aplicación lógica.
+Los conectores SAP actuales tienen acciones, pero no desencadenadores, por lo que en este ejemplo se utiliza el [desencadenador de solicitud HTTP](../connectors/connectors-native-reqres.md) como primer paso del flujo de trabajo de la aplicación lógica. Para obtener información técnica específica del conector SAP, consulte los siguientes artículos de referencia: 
+
+* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">Conector del servidor de aplicaciones de SAP</a>
+* <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">Conector del servidor de mensajes de SAP</a>
+
+Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+
+## <a name="prerequisites"></a>requisitos previos
+
+Para seguir con este artículo, necesita los siguientes elementos:
+
+* La aplicación lógica desde donde quiere obtener acceso al sistema SAP y un desencadenador que inicie el flujo de trabajo de la aplicación lógica. Actualmente, los conectores SAP solo proporcionan acciones. Si nunca trabajó con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el artículo sobre [Inicio rápido: creación de su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* El <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">servidor de aplicaciones de SAP</a> o el <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">servidor de mensajes de SAP</a>
+
+* Descargue e instale la versión más reciente de la [puerta de enlace de datos local](https://www.microsoft.com/download/details.aspx?id=53127) en cualquier equipo local. Asegúrese de configurar la puerta de enlace en Azure Portal antes de continuar. La puerta de enlace le ayuda a obtener acceso de forma segura a los datos y recursos que se encuentran en el entorno local. Para obtener más información, consulte [Instalación de la puerta de enlace de datos local para Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
+* Descargue e instale la biblioteca cliente de SAP más reciente, que actualmente es <a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">Conector SAP (NCo) 3.0.20.0 para Microsoft .NET Framework 4.0 y Windows de 64 bits (x64)</a>, en el mismo equipo que la puerta de enlace de datos local. Debe instalar esta versión o una versión posterior por estos motivos:
+
+  * Las versiones anteriores de NCo de SAP pueden interbloquearse cuando se envía más de un mensaje IDoc al mismo tiempo. 
+  Esta condición bloquea todos los mensajes posteriores que se envían al destino de SAP, haciendo que se agote el tiempo de espera de los mensajes.
+
+  * La puerta de enlace de datos local solo se ejecuta en sistemas de 64 bits. 
+  De lo contrario, obtendrá un error de "imagen incorrecta" porque el servicio de host de la puerta de enlace de datos no es compatible con los ensamblados de 32 bits.
+
+  * El servicio de host de la puerta de enlace de datos y el adaptador de SAP de Microsoft usan .NET Framework 4.5. NCo de SAP para .NET Framework 4.0 funciona con procesos que usan las versiones 4.0 a 4.7.1 del runtime de .NET. 
+  NCo de SAP para .NET Framework 2.0 funciona con procesos que usan las versiones 2.0 a 3.5 del runtime de .NET y ya no funciona con la puerta de enlace de datos local más reciente.
+
+* Contenido del mensaje que puede enviar al servidor SAP, como un archivo de IDoc de ejemplo. Este contenido debe estar en formato XML e incluir el espacio de nombres para la acción de SAP que se va a utilizar.
+
+<a name="add-trigger"></a>
+
+## <a name="add-http-request-trigger"></a>Adición de un desencadenador de solicitud HTTP
+
+En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts), que se activa cuando sucede un evento específico o cuando se cumple una condición determinada. Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica y empieza a ejecutar el flujo de trabajo de la aplicación.
+
+En este ejemplo, cree una aplicación lógica con un punto de conexión en Azure para poder enviar *solicitudes HTTP POST* a la aplicación lógica. Cuando la aplicación lógica reciba estas solicitudes HTTP, el desencadenador se activará y ejecutará el paso siguiente en el flujo de trabajo.
+
+1. En Azure Portal, cree una aplicación lógica en blanco que abra el Diseñador de aplicación lógica. 
+
+2. En el cuadro de búsqueda, escriba "solicitud http" para el filtro. En la lista de desencadenadores, seleccione el siguiente: **Request - When a HTTP request is received** (Solicitar: cuando se recibe una solicitud HTTP).
+
+   ![Adición de un desencadenador de solicitud HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
+
+3. Ahora puede guardar la aplicación lógica para poder generar una dirección URL del punto de conexión para la aplicación lógica.
+En la barra de herramientas del diseñador, haga clic en **Guardar**. 
+
+   La dirección URL del punto de conexión aparece ahora en el desencadenador, por ejemplo:
+
+   ![Generación de una dirección URL para el punto de conexión](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
+
+<a name="add-action"></a>
+
+## <a name="add-sap-action"></a>Adición de una acción de SAP
+
+En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es un paso del flujo de trabajo que sigue a un desencadenador u otra acción. Si aún no ha agregado un desencadenador a la aplicación lógica y quiere seguir este ejemplo, [agregue el desencadenador que se describe en esta sección](#add-trigger).
+
+1. En el Diseñador de aplicación lógica, en el desencadenador, elija **Nuevo paso** > **Agregar una acción**.
+
+   ![Agregar una acción](./media/logic-apps-using-sap-connector/add-action.png) 
+
+2. En el cuadro de búsqueda, escriba "servidor sap" como filtro. En la lista de acciones, seleccione la acción del servidor SAP: 
+
+   * **Servidor de aplicaciones de SAP: enviar a SAP**
+   * **Servidor de mensajes de SAP: enviar a SAP**
+
+   En este ejemplo, se usa la siguiente acción: **Servidor de aplicaciones de SAP: enviar a SAP**
+
+   ![Seleccione el "Servidor de aplicaciones de SAP" o el "Servidor de mensajes de SAP".](media/logic-apps-using-sap-connector/select-sap-action.png)
+
+3. Si se le pide indicar los detalles de la conexión, cree ahora mismo su conexión de SAP. De lo contrario, si la conexión ya existe, continúe con el paso siguiente para poder configurar la acción de SAP. 
+
+   **Creación de la conexión de SAP local**
+
+   1. En **Puertas de enlace**, seleccione **Conectarse mediante una puerta de enlace de datos local** para que aparezcan las propiedades de conexión local.
+
+   2. Proporcione la información de conexión para el servidor SAP. 
+   Para la propiedad **puerta de enlace**, seleccione la puerta de enlace de datos que ha creado en Azure Portal para la instalación de la puerta de enlace, por ejemplo:
+
+      **Servidor de aplicaciones de SAP**
+
+      ![Creación de conexiones del servidor de aplicaciones de SAP](./media/logic-apps-using-sap-connector/create-SAP-app-server-connection.png)  
+
+      **Servidor de mensajes de SAP**
+
+      ![Creación de conexiones del servidor de mensajes de SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
+
+   2. Cuando termine, seleccione **Crear**.
+
+      Logic Apps configura y comprueba la conexión y se asegura de que esta funciona correctamente.
+
+4. Ahora, busque y seleccione una acción en el servidor SAP. 
+
+   1. En el cuadro **Acción SAP**, elija el icono de carpeta. 
+   Desde la lista de carpetas, busque y seleccione la acción que quiere utilizar. 
+
+      Este ejemplo, se selecciona la categoría **IDOC** para la acción IDoc. 
+
+      ![Búsqueda y selección de la acción IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+
+      Si no encuentra la acción que quiere, puede escribir manualmente una ruta de acceso, por ejemplo:
+
+      ![Proporcionar manualmente la ruta de acceso a la acción IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
+
+      Para obtener más información sobre las operaciones de IDoc, consulte [Esquemas de mensaje para las operaciones de IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+
+   2. Haga clic en el cuadro **Mensaje de entrada** para que aparezca la lista de contenido dinámico. 
+   En dicha lista, en **When a HTTP request is received** (Cuando se recibe una solicitud HTTP), seleccione el campo **Cuerpo**. 
+
+      En este paso, se incluye el contenido del cuerpo del desencadenador de la solicitud HTTP y se envía la salida al servidor SAP.
+
+      ![Selección del campo "Cuerpo"](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
+
+      Una vez que haya terminado, la acción SAP debe ser parecida a la de este ejemplo:
+
+      ![Completar una acción SAP](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+
+6. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**.
+
+<a name="add-response"></a>
+
+## <a name="add-http-response-action"></a>Adición de una acción de respuesta HTTP
+
+Ahora, agregue una acción de respuesta al flujo de trabajo de la aplicación lógica e incluya el resultado de la acción SAP. De este modo, la aplicación lógica devuelve los resultados del servidor SAP al solicitante original. 
+
+1. En el Diseñador de aplicación lógica, en la acción SAP, elija **Nuevo paso** > **Agregar una acción**.
+
+2. En el cuadro de búsqueda, escriba "respuesta" para el filtro. En la lista de acciones, seleccione la siguiente acción: **Request - Response (Solicitar: respuesta)**
+
+3. Haga clic en el cuadro **Cuerpo** para que aparezca la lista de contenido dinámico. En dicha lista, en **Enviar a SAP**, seleccione el campo **Cuerpo**. 
+
+   ![Completar una acción SAP](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
+
+4. Guarde la aplicación lógica. 
+
+## <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
+
+1. Si la aplicación lógica aún no está habilitada, en el menú de aplicación lógica, elija **Introducción**. En la barra de herramientas, elija **Habilitar**. 
+
+2. En la barra de herramientas del Diseñador de aplicación lógica, elija **Ejecutar**. Con este paso, se inicia manualmente la aplicación lógica.
+
+3. Desencadene la aplicación lógica mediante el envío de una solicitud HTTP POST a la dirección URL del desencadenador de la solicitud HTTP e incluya el contenido del mensaje con la solicitud. Para enviar la solicitud, puede usar una herramienta como [Postman](https://www.getpostman.com/apps). 
+
+   En el caso de este artículo, la solicitud envía un archivo de IDoc, que debe estar en formato XML e incluir el espacio de nombres de la acción de SAP que está utilizando, por ejemplo: 
+
+   ``` xml
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//620/Send">
+      <idocData>
+         <...>
+      </idocData>
+   </Send>
+   ```
+
+4. Después de enviar la solicitud HTTP, espere la respuesta de la aplicación lógica.
 
 > [!NOTE]
-> Limitaciones actuales: 
-> - La aplicación lógica agota el tiempo si todos los pasos necesarios para la respuesta no finalizan dentro del [límite de tiempo de espera de la solicitud](./logic-apps-limits-and-config.md). En este escenario, las solicitudes pueden quedar bloqueadas. 
-> - El selector de archivos no muestra todos los campos disponibles. En este escenario, puede agregar manualmente rutas de acceso.
+> La aplicación lógica puede agotar el tiempo de espera si todos los pasos necesarios para la respuesta no finalizan dentro del [límite de tiempo de espera de la solicitud](./logic-apps-limits-and-config.md). Si se produce esta situación, es posible que se bloqueen las solicitudes. A fin de poder diagnosticar problemas, obtenga información sobre cómo puede [comprobar y supervisar las aplicaciones lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+Enhorabuena. Ha creado una aplicación lógica que puede comunicarse con el servidor SAP. Ahora que ha configurado una conexión de SAP para la aplicación lógica, puede explorar otras acciones SAP disponibles, como RFC y BAPI.
 
-- Instale y configure la versión 1.15.6150.1 u otra más reciente de la [puerta de enlace de datos local](https://www.microsoft.com/download/details.aspx?id=53127). En [Conexión a la puerta de enlace de datos local para las aplicaciones lógicas](http://aka.ms/logicapps-gateway) se enumeran los pasos. La puerta de enlace debe instalarse en una máquina local para poder continuar.
+## <a name="connector-reference"></a>Referencia de conectores
 
-- Descargue e instale la última biblioteca de clientes de SAP en la misma máquina en la que instaló la puerta de enlace. Use cualquiera de las versiones de SAP siguientes: 
-    - SAP Server
-        - Cualquier SAP Server que admita .NET Connector (NCo) 3.0
- 
-    - SAP Client
-        - SAP .NET Connector (NCo) 3.0
+Para obtener información técnica acerca del conector según se describe en los archivos de Swagger de los conectores, consulte los siguientes artículos de referencia: 
 
-## <a name="add-triggers-and-actions-for-connecting-to-your-sap-system"></a>Incorporación de desencadenadores y acciones para conectarse al sistema SAP
+* [Servidor de aplicaciones de SAP](/connectors/sapapplicationserver/)
+* [Servidor de mensajes de SAP](/connectors/sapmessageserver/)
 
-El conector SAP tiene acciones, pero no desencadenadores. Por lo tanto, tenemos que usar otro desencadenador al principio del flujo de trabajo. 
+## <a name="get-support"></a>Obtención de soporte técnico
 
-1. Agregue el desencadenador Request/Response (Solicitud/respuesta) y, a continuación, seleccione **Nuevo paso**.
-
-2. Seleccione **Agregar una acción**y, a continuación, seleccione el conector SAP escribiendo `SAP` en el campo de búsqueda:    
-
-     ![Seleccione el servidor de aplicaciones de SAP o el servidor de mensajes de SAP.](media/logic-apps-using-sap-connector/sap-action.png)
-
-3. Seleccione el [**servidor de aplicaciones de SAP**](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) o el [**servidor de mensajes de SAP**](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm), según la configuración de SAP. Si no tiene una conexión existente, se le pedirá que cree una.
-
-   1. Seleccione **Connect via on-premises data gateway** (Conectarse mediante la puerta de enlace de datos local) y especifique los detalles del sistema SAP:   
-
-       ![Agregue una cadena de conexión a SAP.](media/logic-apps-using-sap-connector/picture2.png)  
-
-   2. En **Puerta de enlace**, seleccione una puerta de enlace existente, o instale una nueva; seleccione **Instalar puerta de enlace**.
-
-        ![Instalación de una nueva puerta de enlace](media/logic-apps-using-sap-connector/install-gateway.png)
-  
-   3. Después de escribir todos los detalles, seleccione **Crear**. 
-   Logic Apps configura y comprueba la conexión, asegurándose de que la conexión funciona correctamente.
-
-4. Escriba un nombre para la conexión SAP.
-
-5. Las distintas opciones de SAP ahora están disponibles. Para buscar la categoría IDOC, selecciónela en la lista. O escriba manualmente en la ruta de acceso y seleccione la respuesta HTTP en el campo **cuerpo**:
-
-     ![Acción de SAP](media/logic-apps-using-sap-connector/picture3.png)
-
-6. Agregue la acción para crear una **respuesta HTTP**. El mensaje de respuesta debe proceder de la salida SAP.
-
-7. Guarde la aplicación lógica. Pruébela enviando un IDOC a través de la dirección URL del desencadenador HTTP. Una vez enviado el IDOC, espere a recibir la respuesta de la aplicación lógica:   
-
-     > [!TIP]
-     > Consulte cómo [supervisar las aplicaciones lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md).
-
-Ahora que se ha agregado el conector SAP a la aplicación lógica, empiece a explorar otras funcionalidades:
-
-- BAPI
-- RFC
-
-## <a name="get-help"></a>Obtener ayuda
-
-Para formular preguntas, o responderlas, y saber lo que hacen otros usuarios de Azure Logic Apps, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-Para ayudar a mejorar Azure Logic Apps y los conectores, vote o envíe ideas en el [sitio de comentarios de usuario de Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información acerca de cómo validar, transformar y realizar otras funciones similares a las de BizTalk en [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
-- [Conexión a datos locales](../logic-apps/logic-apps-gateway-connection.md) desde aplicaciones lógicas
+* [Conexión a sistemas locales](../logic-apps/logic-apps-gateway-connection.md) desde aplicaciones lógicas
+* Obtenga información acerca de cómo validar, transformar y realizar otras operaciones de mensaje con [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

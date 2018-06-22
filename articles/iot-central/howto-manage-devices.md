@@ -1,19 +1,19 @@
 ---
 title: Administración de dispositivos en una aplicación de Azure IoT Central | Microsoft Docs
 description: Como operador, aprenda a administrar dispositivos en la aplicación de Azure IoT Central.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303586"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807482"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
@@ -79,6 +79,31 @@ Para registrar dispositivos en la aplicación en bloque:
 
 Si se produce un error en la operación de importación de dispositivos, aparecerá un mensaje de error en la cuadrícula de dispositivos. Se genera un archivo de registro que captura todos los errores, que se puede descargar haciendo clic en el mensaje de error.
 
+## <a name="export-devices"></a>Exportación de dispositivos
+
+Para aprovisionar dispositivos para conectarse a IoT Central, necesitará la cadena de conexión del dispositivo que se genera mediante IoT Central. Puede usar la característica de exportación para obtener las cadenas de conexión y otras propiedades de los dispositivos en masa desde la aplicación. La exportación crea un archivo CSV con la identidad, el nombre y la cadena de conexión principal de todos los dispositivos seleccionados.
+
+Para realizar la exportación masiva de dispositivos desde la aplicación:
+1. Elija **Explorer** en el menú de navegación de la izquierda.
+
+1. En el panel izquierdo, elija la plantilla de dispositivo para la que desea exportar los dispositivos.
+
+1. Seleccione los dispositivos que desea exportar y, a continuación, haga clic en la acción **Exportar**.
+
+    [![Exportar](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. Se inicia el proceso de exportación y puede realizar el seguimiento del estado en la parte superior de la cuadrícula. 
+
+1. Una vez finalizada la exportación, se muestra un mensaje de confirmación junto con un vínculo para descargar el archivo generado.
+
+1. Haga clic en el **mensaje de operación correcta** para descargar el archivo en una carpeta local en el disco.
+
+    [![Exportación correcta](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. El archivo CSV exportado tendrá la siguiente información:
+    1. NOMBRE
+    1. Id. de dispositivo
+    1. Cadena de conexión principal
 
 
 ## <a name="delete-a-device"></a>Eliminar un dispositivo

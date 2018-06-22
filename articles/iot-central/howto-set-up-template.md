@@ -1,19 +1,19 @@
 ---
 title: Configuración de una plantilla de dispositivo en una aplicación de Azure IoT Central | Microsoft Docs
 description: Aprenda a configurar una plantilla de dispositivo con medidas, configuración, propiedades, reglas y panel.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201516"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261991"
 ---
 # <a name="set-up-a-device-template"></a>Configuración de una plantilla de dispositivo
 
@@ -161,6 +161,59 @@ Después de elegir **Guardar**, la ubicación del dispositivo aparece como un ic
 > [!NOTE]
 > Después de crear un nuevo icono, puede cambiar el valor de propiedad. En primer lugar, desactive el modo de diseño que se encuentra en la parte superior derecha de la pantalla.
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>Crear una propiedad de ubicación con tecnología de Azure Maps
+Puede dar contexto geográfico a los datos de ubicación en Azure IoT Central y asignar cualquier coordenada de latitud y de longitud de una dirección o simplemente coordenadas de latitud y longitud. Este recurso en Azure IoT Central cuenta con tecnología de Azure Maps.
+
+Hay dos tipos de propiedades de ubicación que se pueden agregar:
+- **Ubicación como una propiedad de la aplicación** que se almacenará únicamente en la aplicación. El dispositivo no tiene conocimiento de las propiedades de aplicación.
+- **Ubicación como una propiedad de dispositivo** que el dispositivo notificará.
+
+####<a name="adding-location-as-an-application-property"></a>Agregar la ubicación como una propiedad de la aplicación 
+Puede crear una propiedad de ubicación como una propiedad de aplicación mediante Azure Maps en la aplicación de Azure IoT Central. Por ejemplo, puede agregar la dirección de la instalación de dispositivos. 
+
+1. Vaya a la pestaña Propiedad de dispositivo y asegúrese de que el modo de diseño está activado.
+
+![Propiedad de ubicación](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. En la pestaña Propiedades, haga clic en Ubicación.
+3. Si quiere, puede configurar el nombre para mostrar, el nombre del campo y el valor inicial de la ubicación. 
+
+![Formulario Propiedad de ubicación](./media/howto-set-up-template/locationcloudproperty2.png)
+
+Se admiten dos formatos para agregar una ubicación:
+- **Ubicación como una dirección**
+- **Ubicación como coordenadas** 
+
+4. Haga clic en Guardar. 
+
+![Campo Propiedad de ubicación](./media/howto-set-up-template/locationcloudproperty3.png)
+
+Ahora, un operador puede actualizar el valor de ubicación en el formulario de campo de ubicación. 
+
+####<a name="adding-location-as-a-device-property"></a>Agregar la ubicación como una propiedad de dispositivo 
+
+Puede crear una propiedad de ubicación como una propiedad de dispositivo que el dispositivo notifica.
+Por ejemplo, si quiere realizar un seguimiento de la ubicación del dispositivo.
+
+1.  Vaya a la pestaña Propiedad de dispositivo y asegúrese de que el modo de diseño está activado.
+2.  Haga clic en Propiedad de dispositivo en la Biblioteca.
+
+![Campo Propiedad de ubicación](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  Configure el nombre para mostrar, el nombre del campo y elija "ubicación" como un tipo de datos. 
+
+> [!NOTE]
+El nombre del campo debe coincidir exactamente con el nombre de la propiedad que el dispositivo informa. 
+
+![Campo Propiedad de ubicación](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![Vista del operador de propiedad de ubicación](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+Ahora que ha configurado la propiedad de ubicación, podrá agregar un mapa para visualizar la ubicación en el panel del dispositivo. Consulte cómo [Agregar el mapa de ubicación de Azure en el panel](howto-set-up-template.md).
+
+
+
+
 ## <a name="rules"></a>Reglas
 
 Las reglas permiten a los operadores supervisar los dispositivos prácticamente en tiempo real. Las reglas invocan automáticamente **acciones**, como el envío de un correo electrónico cuando la regla se desencadena. Actualmente hay un tipo de regla disponible:
@@ -178,6 +231,31 @@ Por ejemplo, puede agregar un icono **Settings and Properties** (Configuración 
 Ahora, cuando un operador vea el panel, podrá ver este icono que muestra las propiedades y la configuración del dispositivo:
 
 ![Icono del panel](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>Agregar el mapa de ubicación de Azure en el panel
+
+Si ha configurado una propiedad de ubicación como se indica en los pasos [Crear una propiedad de ubicación con tecnología de Azure Maps](howto-set-up-template.md), podrá visualizar la ubicación mediante un mapa directamente en el panel del dispositivo.
+
+1.  Vaya a la pestaña Panel del dispositivo y asegúrese de que el modo de diseño está activado.
+2.  En el panel del dispositivo, seleccione Mapa en la Biblioteca. 
+
+![Selección de mapa de ubicación de Azure en el panel](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  Asigne un título y elija la propiedad de ubicación que se ha configurado anteriormente como parte de la propiedad de dispositivo.
+
+![Configuración de mapa de ubicación de Azure en el panel](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  Al guardar verá que el icono de mapa muestra la ubicación que ha seleccionado. 
+
+![Visualización de mapa de ubicación de Azure en el panel](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+Podrá cambiar el tamaño del mapa hasta obtener el tamaño deseado.
+
+Ahora, cuando un operador visualiza el panel, puede ver todos los iconos del panel que configuró incluido un mapa de ubicación.
+
+![Panel de mapa de ubicación de Azure del panel](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

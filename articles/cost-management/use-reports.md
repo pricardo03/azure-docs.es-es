@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297522"
 ---
 # <a name="use-cost-management-reports"></a>Uso de los informes de Cost Management
 
@@ -23,6 +24,8 @@ En este artículo se describe cómo usar diversos informes de Cost Management en
 ## <a name="cost-analysis-reports"></a>Informes de análisis de costos
 
 En los informes de análisis de costos se muestran datos de facturación de los proveedores de nube. Con los informes, puede agrupar y profundizar en diversos segmentos de datos detallados en el archivo de facturación. Los informes permiten la navegación de costos pormenorizados por los datos de facturación sin procesar de los proveedores de la nube.
+
+Cuando se ven como un gráfico, los informes de análisis tienen un eje Y denominado *costo* y un eje X para la *categoría o etiqueta* que usted elija. Aunque hay un rango en el gráfico (por ejemplo, los últimos 30 días), este se usa como filtro. Los informes de análisis son ideales para comparar categorías. Por ejemplo, el costo de cada suscripción en los últimos 30 días. También puede usarlo para comprobar el costo de servicios como el almacenamiento o los procesos en un período específico.
 
 Los informes de análisis de costos no agrupan los costos por etiquetas. La creación de informes basada en etiquetas solo está disponible en los informes de asignación de costos establecidos tras crear un modelo de costo mediante la asignación de costos 360.
 
@@ -50,6 +53,8 @@ Puede hacer clic con el botón derecho en los resultados del informe para profun
 ### <a name="actual-cost-over-time"></a>Costo real a lo largo del tiempo
 
 El informe de costo real a lo largo del tiempo es un informe de análisis del costo estándar que distribuye el costo en una resolución temporal definida. En el informe se muestra el gasto a lo largo del tiempo, lo que le permite observar tendencias y detectar irregularidades relativas al gasto. En este informe se muestran sus colaboradores de costos principales, incluidos los costos en curso y los cargos únicos de las instancias reservadas que se gastan durante un período de tiempo seleccionado.
+
+Cuando se ve como un gráfico, el costo de los informes de tiempo tienen un eje y denominado *costo* y un eje x denominado *período de tiempo*. Estos informes muestran la evolución del costo durante un período de tiempo.
 
 Use el informe de costo real a lo largo del tiempo para:
 

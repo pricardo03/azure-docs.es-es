@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850144"
 ---
 # <a name="network-monitoring-solutions"></a>Soluciones de supervisión de redes 
 
@@ -54,14 +55,15 @@ Para más información, consulte los siguientes artículos:
 * [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Actualizaciones del producto: [febrero de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## <a name="expressroute-monitor"></a>Monitor para ExpressRoute
+## <a name="expressroute-monitor"></a>Supervisión de ExpressRoute
 
-NPM para ExpressRoute ofrece una supervisión completa de ExpressRoute destinada a conexiones privadas del mismo nivel. Puede supervisar la conectividad E2E y el rendimiento entre las sucursales y Azure a través de ExpressRoute. Las funcionalidades principales son:
+NPM para ExpressRoute ofrece una supervisión completa de ExpressRoute para conexiones de emparejamiento de Microsoft y conexiones de emparejamiento privadas de Azure. Puede supervisar la conectividad E2E y el rendimiento entre las sucursales y Azure a través de ExpressRoute. Las funcionalidades principales son:
 
 * Detección automática de circuitos ER asociados a una suscripción
 * Detección de la topología de red del entorno local a las aplicaciones en la nube
-* Planificación de capacidad, análisis de utilización, utilización de ancho de banda por red virtual
+* Planeamiento de la capacidad, análisis de uso de ancho de banda
 * Supervisión y alertas relacionadas con las rutas de acceso principales y secundarias
+* Supervisión de la conectividad a los servicios de Azure, como Office 365, Dynamics 365, etc., mediante ExpressRoute
 * Detección del deterioro de la conectividad con redes virtuales
 
 ![Mapa geográfico que muestra el tráfico entre regiones](./media/network-monitoring-overview/expressroute-topology-map.png) 

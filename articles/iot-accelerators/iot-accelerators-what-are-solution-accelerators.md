@@ -1,26 +1,19 @@
 ---
 title: Introducción a los aceleradores de soluciones de IoT de Azure | Microsoft Docs
 description: Descripción de los aceleradores de soluciones de IoT de Azure y su arquitectura con vínculos a recursos adicionales.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 17/01/2018
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 80192b115f4c6c8f6961fdd4d9fb7f3876fda898
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b961217317cea65b05cd58d66e64f0e4f012131e
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362131"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808560"
 ---
 # <a name="what-are-the-iot-solution-accelerators"></a>¿Qué son los aceleradores de soluciones de IoT?
 
@@ -54,7 +47,7 @@ Cada acelerador de soluciones es una implementación completa de un extremo a ot
 En la actualidad hay tres aceleradores de soluciones disponibles:
 
 * [Supervisión remota](iot-accelerators-remote-monitoring-explore.md)
-* [Mantenimiento predictivo](../iot-suite/iot-suite-predictive-overview.md)
+* [Mantenimiento predictivo](iot-accelerators-predictive-overview.md)
 * [Fábrica conectada](iot-accelerators-connected-factory-overview.md)
 
 La tabla siguiente muestra cómo se asignan estas soluciones a las características específicas de IoT:
@@ -62,7 +55,7 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 | Solución | Ingesta de datos | Identidad del dispositivo | Administración de dispositivos | Procesamiento perimetral | Comando y control | Reglas y acciones | Análisis predictivo |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Supervisión remota](iot-accelerators-remote-monitoring-explore.md)  |Sí |Sí |Sí |-   |Sí |Sí |-   |
-| [Mantenimiento predictivo](../iot-suite/iot-suite-predictive-overview.md)   |Sí |Sí |-   |-   |Sí |Sí |Sí |
+| [Mantenimiento predictivo](iot-accelerators-predictive-overview.md)   |Sí |Sí |-   |-   |Sí |Sí |Sí |
 | [Fábrica conectada](iot-accelerators-connected-factory-overview.md) |Sí |- |- |Sí |Sí |Sí |-   |
 
 * *Ingesta de datos*: entrada de datos a escala en la nube.
@@ -73,7 +66,7 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 * *Análisis predictivo*: el back-end de la solución analiza los datos del dispositivo a la nube para predecir cuándo se deben llevar a cabo acciones específicas. Por ejemplo, análisis de la telemetría del motor de un avión para determinar cuándo hay que realizar el mantenimiento del motor.
 
 > [!NOTE]
-> Para implementar un acelerador de soluciones y obtener más información acerca de cómo personalizarlo, visite [Aceleradores de soluciones de IoT de Microsoft Azure](https://www.azureiotsuite.com/).
+> Para implementar un acelerador de soluciones y obtener más información acerca de cómo personalizarlo, visite [Aceleradores de soluciones de IoT de Microsoft Azure](https://www.azureiotsolutions.com/).
 
 ## <a name="azure-services"></a>Servicios de Azure
 
@@ -85,20 +78,20 @@ Al implementar un acelerador de soluciones, el proceso de aprovisionamiento conf
 | Event Hubs           |                    | Sí                    |                   |
 | Time Series Insights |                    |                        | Sí               |
 | Servicios de contenedor   | Sí                |                        |                   |
-| Stream Analytics     |                    | Sí                    |                   |
+| Stream Analytics     | Sí                | Sí                    |                   |
 | Web Apps             | Sí                | Sí                    | Sí               |
 | Cosmos DB            | Sí                | Sí                    |                    |
 | Azure Storage         |                    | Sí                    | Sí               |
 
 > [!NOTE]
-> Para más información acerca de los recursos implementados en el acelerador de soluciones de supervisión remota, consulte este [artículo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) en GitHub.
+> Para más información sobre los recursos implementados en el acelerador de la solución de supervisión remota, consulte [Opciones de arquitectura de supervisión remota](iot-accelerators-remote-monitoring-architectural-choices.md).
 
 * [Azure IoT Hub](../iot-hub/index.yml). Este servicio ofrece las funcionalidades de mensajería del dispositivo a la nube y de la nube al dispositivo, y actúa como la puerta de enlace para la nube y los demás servicios clave del acelerador de soluciones. El servicio le permite recibir mensajes de los dispositivos, a escala, y enviar comandos a los dispositivos. El servicio también le permite [administrar los dispositivos](../iot-hub/iot-hub-device-management-overview.md). Por ejemplo, puede configurar, reiniciar o realizar un restablecimiento de fábrica de uno o varios dispositivos conectados al centro.
-* [Azure Event Hubs](../active-directory-domain-services/index.md). Este servicio proporciona la ingesta de eventos de gran volumen en la nube. Consulte [Comparación entre Azure IoT Hub y Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
+* [Azure Event Hubs](../active-directory-domain-services/index.yml). Este servicio proporciona la ingesta de eventos de gran volumen en la nube. Consulte [Comparación entre Azure IoT Hub y Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.yml). Los aceleradores de soluciones utilizan este servicio para analizar y mostrar los datos de telemetría de los dispositivos.
 * [Azure Container Service](../container-service/index.yml). Este servicio hospeda y administra los microservicios en los aceleradores de soluciones.
 * [Azure Cosmos DB](../cosmos-db/index.yml) y [Azure Storage](../storage/index.yml) para el almacenamiento de datos.
-* [Azure Stream Analytics](../stream-analytics/index.yml). La solución preconfigurada de mantenimiento predictivo utiliza este servicio para procesar la telemetría entrante, realizar la agregación y detectar eventos. Esta solución preconfigurada también usa Stream Analytics para procesar los mensajes informativos que contienen datos como los metadatos y las respuestas de los comandos de los dispositivos.
+* [Azure Stream Analytics](../stream-analytics/index.yml). El acelerador de la solución de supervisión remota usa este servicio para procesar la telemetría entrante, realizar agregaciones y detectar eventos. Esta solución preconfigurada también usa Stream Analytics para procesar los mensajes informativos que contienen datos como los metadatos y las respuestas de los comandos de los dispositivos.
 * [Azure Web Apps](../app-service/index.yml) para hospedar el código de aplicación personalizado en las soluciones preconfiguradas.
 
 Para una introducción a la arquitectura de una solución de IoT típica, consulte [Microsoft Azure e Internet de las cosas](iot-accelerators-what-is-azure-iot.md).
@@ -117,7 +110,7 @@ En las siguientes secciones se describen las novedades de los aceleradores de so
 
 ### <a name="microservices"></a>Microservicios
 
-La nueva versión del acelerador de soluciones de supervisión remota utiliza una arquitectura de microservicios. Este acelerador de soluciones se compone de varios microservicios, como *IoT Hub Manager* y *Storage Manager*. Las versiones de Java y .NET de cada microservicio están disponibles para descargar junto con la documentación para desarrolladores asociada. Para más información acerca de los microservicios, consulte el artículo [Arquitectura de la solución preconfigurada de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+La nueva versión del acelerador de la solución de supervisión remota utiliza una arquitectura de microservicios. Este acelerador de soluciones se compone de varios microservicios, como *IoT Hub Manager* y *Storage Manager*. Las versiones de Java y .NET de cada microservicio están disponibles para descargar junto con la documentación para desarrolladores asociada. Para más información acerca de los microservicios, consulte el artículo [Arquitectura de la solución preconfigurada de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
 
 Esta arquitectura de microservicios es un patrón comprobado para las soluciones de nube que:
 
@@ -152,7 +145,7 @@ La interfaz de usuario se ha creado mediante la biblioteca [React](https://faceb
 Ahora que tiene información general de los aceleradores de soluciones de IoT, estos son los pasos siguientes sugeridos para cada uno de ellos:
 
 * [Exploración de la solución de supervisión remota](iot-accelerators-remote-monitoring-explore.md).
-* [Introducción al acelerador de soluciones de mantenimiento predictivo](../iot-suite/iot-suite-predictive-overview.md).
+* [Introducción al acelerador de soluciones de mantenimiento predictivo](iot-accelerators-predictive-overview.md).
 * [Introducción al acelerador de soluciones de fábrica conectada](iot-accelerators-connected-factory-overview.md).
 
-Para más información sobre las arquitecturas de solución de IoT, consulte el documento sobre los [servicios de IoT de Microsoft Azure: arquitectura de referencia](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).
+Para más información sobre las arquitecturas de solución de IoT, consulte el documento sobre los [servicios de IoT de Microsoft Azure: arquitectura de referencia](https://aka.ms/iotrefarchitecture).

@@ -1,25 +1,22 @@
 ---
-title: OneDrive para la Empresa | Microsoft Docs
-description: 'Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese a OneDrive para la Empresa para administrar sus archivos. Puede realizar diversas acciones en archivos: carga, actualización, obtención y eliminación.'
-services: logic-apps
-documentationcenter: .net,nodejs,java
+title: Conectarse a OneDrive para la Empresa - Azure Logic Apps | Microsoft Docs
+description: Cargar y administrar archivos con las API REST de OneDrive para la Empresa y Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: cf9484e9-7a20-4de0-93c8-0fa132221f2b
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: a572d3d858bcaed817198420db7f2e09732b2366
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 63cb02c52b5def12675ccca4f2cd292a8ad4bb66
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295649"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Get started with the OneDrive for Business connector (Introducción al conector de OneDrive para la Empresa)
 Conéctese a OneDrive para la Empresa para administrar sus archivos. Puede realizar diversas acciones en archivos: carga, actualización, obtención y eliminación.

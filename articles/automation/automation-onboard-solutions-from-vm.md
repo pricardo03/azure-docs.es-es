@@ -4,21 +4,21 @@ description: Obtenga información acerca de cómo incorporar una máquina virtua
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2fbfd733a57d0e2f91d119b614917abf172b8379
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 675aebf35a6bee6e4cc4fd884204edb5bae4b848
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193101"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830568"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory desde una máquina virtual de Azure
 
-Azure Automation proporciona soluciones para administrar las actualizaciones de seguridad del sistema operativo, el seguimiento de cambios y el inventario de los componentes instalados en los equipos. Hay varias maneras de incorporar máquinas, se puede incorporar la solución desde una máquina virtual, [desde su cuenta de Automation](automation-onboard-solutions-from-automation-account.md) o mediante un [runbook](automation-onboard-solutions.md). Este artículo trata la incorporación de estas soluciones desde una máquina virtual de Azure.
+Azure Automation proporciona soluciones para administrar las actualizaciones de seguridad del sistema operativo, el seguimiento de cambios y el inventario de los componentes instalados en los equipos. Hay varias maneras de incorporar máquinas, puede incorporar la solución desde una máquina virtual, [desde la cuenta de Automation](automation-onboard-solutions-from-automation-account.md), [desde la exploración en varias máquinas](automation-onboard-solutions-from-browse.md) o mediante un [runbook](automation-onboard-solutions.md). Este artículo trata la incorporación de estas soluciones desde una máquina virtual de Azure.
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -28,13 +28,13 @@ Inicie sesión en Azure en https://portal.azure.com
 
 Vaya a una máquina virtual existente y seleccione **Update management**, **Inventory** o **Change tracking** en **Operaciones**.
 
+Para habilitar la solución para la máquina virtual, solo debe asegurarse de que el botón de radio **Enable for this VM** (Habilitar para esta máquina virtual) está seleccionado; para incorporar varias máquinas a la solución, seleccione **Enable for VMs in this subscription** (Habilitar para máquinas virtuales de esta suscripción) y haga clic en **Click to select machines to enable** (Hacer clic para seleccionar las máquinas virtuales que se van a habilitar). Vea [Incorporación de las soluciones Update Management, Change Tracking e Inventory desde una máquina virtual de Azure](automation-onboard-solutions-from-automation-account.md) para consultar los pasos sobre cómo incorporar varias máquinas a la vez.
+
 Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
 
 ![Incorporación de la solución de actualización](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Vaya a las otras soluciones y haga clic en **Habilitar**; los cuadros de lista desplegable Log Analytics y Cuenta de Automation se deshabilitan, ya que utilizan las mismas área de trabajo y cuenta de Automation que la solución habilitada anteriormente.
-
-![Incorporación de la solución de actualización](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Change tracking** e **Inventory** utilizan la misma solución; cuando una está habilitada, la otra también lo está.
