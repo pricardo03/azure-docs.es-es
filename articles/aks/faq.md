@@ -6,13 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 6/08/2018
 ms.author: nepeters
-ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 79236ae7134a27b9a5b89ee8151803befa7b51e1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260808"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -72,9 +73,13 @@ Para ejecutar contenedores de Windows Server, es preciso ejecutar nodos basados 
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>¿Por qué se crean dos grupos de recursos con AKS?
 
-Cada implementación de AKS abarca dos grupos de recursos. El primero lo crea el usuario y solo contiene el recurso de AKS. El proveedor de recursos de AKS crea automáticamente el segundo durante la implementación, con un nombre como *MC_myResourceGRoup_myAKSCluster_eastus*. El segundo grupo de recursos contiene todos los recursos de infraestructura asociados con el clúster, como máquinas virtuales, redes y almacenamiento. Se crea para simplificar la limpieza de recursos.
+Cada implementación de AKS abarca dos grupos de recursos. El primero lo crea el usuario y solo contiene el recurso de AKS. El proveedor de recursos de AKS crea automáticamente el segundo durante la implementación, con un nombre como *MC_myResourceGroup_myAKSCluster_eastus*. El segundo grupo de recursos contiene todos los recursos de infraestructura asociados con el clúster, como máquinas virtuales, redes y almacenamiento. Se crea para simplificar la limpieza de recursos.
 
 Si va a crear recursos que se usarán con el clúster de AKS, como cuentas de almacenamiento o direcciones IP públicas reservadas, debe colocarlos en el grupo de recursos generado automáticamente.
+
+## <a name="does-aks-offer-a-service-level-agreement"></a>¿AKS ofrece un contrato de nivel de servicio?
+
+En un Acuerdo de Nivel de Servicio (SLA), el proveedor acuerda reembolsar al cliente por el costo del servicio si no se pudo cumplir el nivel de servicio publicado. Dado que AKS es gratuito, no hay ningún costo disponible para reembolsar y, por tanto, ningún Acuerdo de Nivel de Servicio formal. Sin embargo, buscamos mantener una disponibilidad del 99,5 % como mínimo para el servidor de API de Kubernetes.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

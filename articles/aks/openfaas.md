@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: e26f1c298b05153736edd2b2efd0f1b27162bc3d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b5484233c7d3d32e51098baad8c22ec51df8f0d8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260624"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso de OpenFaaS en AKS
 
@@ -107,7 +108,7 @@ Para probar el sistema OpenFaaS, vaya a la dirección IP externa en el puerto 80
 
 ![UI de OpenFaaS](media/container-service-serverless/openfaas.png)
 
-Por último, instale la CLI de OpenFaaS. En este ejemplo se usaba brew, consulte la [documentación de la CLI de OpenFaaS][open-faas-cli] para ver más opciones.
+Por último, instale la CLI de OpenFaaS. En este ejemplo se usaba brew. Consulte la [documentación de la CLI de OpenFaaS][open-faas-cli] para ver más opciones.
 
 ```console
 brew install faas-cli

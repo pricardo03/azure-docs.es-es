@@ -4,7 +4,7 @@ description: La Red CDN de Azure admite el uso de firma de acceso compartido (SA
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261175"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso de la red Azure CDN con SAS
 
@@ -70,7 +71,7 @@ Esta opción es la más simple y solo usa un único token de SAS, que se pasa de
  
 Esta opción solo está disponible para los perfiles de **Azure CDN Premium de Verizon**. Con esta opción, puede proteger el almacenamiento de blobs en el servidor de origen. Puede que quiera usar esta opción si no necesita restricciones de acceso específicas para el archivo, pero quiere evitar que los usuarios tengan acceso directo al origen de almacenamiento para mejorar los tiempos de descarga de la red CDN de Azure. Cualquiera que acceda a los archivos en el contenedor especificado del servidor de origen requiere el token de SAS, que es desconocido para el usuario. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN.
  
-1. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL. Las reglas nuevas tardan unos 90 minutos en propagarse.
+1. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL. Las reglas nuevas tardan unos 10 minutos en propagarse.
 
    ![Botón de administración de CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +113,7 @@ Para usar la autenticación de token de seguridad de la red CDN de Azure, debe t
        
    Las opciones de parámetro de una autenticación de token de seguridad son distintas a las opciones de parámetro de un token de SAS. Si al crear un token de seguridad decide usar una hora de expiración, establézcala en el mismo valor que la hora de expiración del token de SAS. De este modo se garantiza que la hora de expiración sea predecible. 
  
-2. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL a fin de habilitar el acceso del token de SAS a todos los blobs del contenedor. Las reglas nuevas tardan unos 90 minutos en propagarse.
+2. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL a fin de habilitar el acceso del token de SAS a todos los blobs del contenedor. Las reglas nuevas tardan unos 10 minutos en propagarse.
 
    La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión de nombre *storagedemo*:
    

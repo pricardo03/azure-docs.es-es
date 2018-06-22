@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 43c0b7c87f9ee1cd33da3d617747c11dc120e51a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823629"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Implementación de un clúster de Kubernetes en Azure Stack
 
@@ -31,7 +32,7 @@ En el artículo siguiente se explica cómo usar una plantilla de la solución Az
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes y contenedores
 
-Puede instalar Kubernetes de Azure Container Services (ACS) en Azure Stack. [Kubernetes](https://kubernetes.io) es un sistema de código abierto para automatizar la implementación, el escalado y la administración de aplicaciones en contenedores. Un [contenedor](https://www.docker.com/what-container) se encuentra en una imagen, similar a una VM. A diferencia de una VM, la imagen de contenedor tan solo incluye los recursos necesarios para ejecutar una aplicación, como el código, el tiempo de ejecución para ejecutar el código, bibliotecas específicas y la configuración.
+Puede instalar Kubernetes mediante plantillas de Azure Resource Manager generadas por el motor de Azure Container Service (ACS) en Azure Stack. [Kubernetes](https://kubernetes.io) es un sistema de código abierto para automatizar la implementación, el escalado y la administración de aplicaciones en contenedores. Un [contenedor](https://www.docker.com/what-container) se encuentra en una imagen, similar a una VM. A diferencia de una máquina virtual, la imagen de contenedor tan solo incluye los recursos necesarios para ejecutar una aplicación, como el código, el tiempo de ejecución para ejecutar el código, bibliotecas específicas y la configuración.
 
 Puede utilizar Kubernetes para:
 
@@ -53,10 +54,12 @@ Para empezar, asegúrese de tener los permisos adecuados y de que la instancia d
 
 3. Compruebe que tiene una suscripción válida en el portal del inquilino de Azure Stack y que tiene suficientes direcciones IP públicas disponibles para agregar nuevas aplicaciones.
 
+    No se puede implementar el clúster en una suscripción de **administrador** de Azure Stack. Debe usar una suscripción de Usuario**. 
+
 ## <a name="create-a-service-principal-in-azure-ad"></a>Creación de una entidad de servicio en Azure AD
 
-1. Inicie sesión en [Azure Portal](http://www.poartal.azure.com) global.
-2. Compruebe que inició sesión con el inquilino de Azure AD asociado con Azure Stack.
+1. Inicie sesión en [Azure Portal](http://portal.azure.com) global.
+2. Compruebe que inició sesión con el inquilino de Azure AD asociado con la instancia de Azure Stack.
 3. Crear una aplicación de Azure.
 
     a. Seleccione **Azure Active Directory** > **+ Registros de aplicaciones** > **Nuevo registro de aplicaciones**.
@@ -67,7 +70,7 @@ Para empezar, asegúrese de tener los permisos adecuados y de que la instancia d
 
     d. Escriba `http://localhost` para **URL de inicio de sesión**.
 
-    c. Haga clic en **Crear**
+    c. Haga clic en **Create**(Crear).
 
 4. Anote el **Id. de la aplicación**. Necesitará el identificador al crear el clúster. Se hace referencia al identificador como **Id. de cliente de entidad de servicio**.
 
@@ -103,52 +106,52 @@ Dé a la entidad de servicio acceso a su suscripción para que la entidad pueda 
 
 1. Abra el [portal de Azure Stack](https://portal.local.azurestack.external).
 
-2. Seleccione **+ Nuevo** > **Proceso** > **Clúster de Kubernetes**.
+2. Seleccione **+ Nuevo** > **Proceso** > **Clúster de Kubernetes**. Haga clic en **Create**(Crear).
 
-    ![Implementar plantilla de solución](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template.png)
+    ![Implementar plantilla de solución](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-3. Seleccione **Parámetros** en Implementar plantilla de solución.
+3. Seleccione **Conceptos básicos** en Creación de un clúster de Kubernetes.
 
-    ![Implementar plantilla de solución](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template-parameters.png)
+    ![Implementar plantilla de solución](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
-2. Escriba el **nombre de usuario administrativo de Linux**. Nombre de usuario de las máquinas virtuales de Linux que forman parte del clúster de Kubernetes y DVM.
+2. Escriba el **nombre de usuario del administrador de la máquina virtual Linux**. Nombre de usuario de las máquinas virtuales de Linux que forman parte del clúster de Kubernetes y DVM.
 
-3. Escriba la **clave pública SSH** utilizada para la autorización en todas las máquinas de Linux creadas como parte del clúster de Kubernetes y DVM.
+3. Escriba la **clave pública SSH** utilizada para la autorización en todas las máquinas Linux creadas como parte del clúster de Kubernetes y DVM.
 
-4. Escriba el **punto de conexión del inquilino**. Este es el punto de conexión de Azure Resource Manager para conectarse para crear el grupo de recursos para el clúster de Kubernetes. Debe obtener el punto de conexión del operador de Azure Stack para un sistema integrado. Para obtener el Kit de desarrollo de Azure Stack (ASDK), puede usar `https://management.local.azurestack.external`.
-
-5. Escriba el **identificador de inquilino** para el inquilino. Si necesita ayuda para encontrar este valor, consulte [Obtención del identificador de inquilino](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
-
-6. Escriba el **prefijo del DNS del perfil maestro** que es único para la región. Debe ser un nombre único para la región, como `k8s-12345`. Como procedimiento recomendado, intente elegirlo de modo que sea el mismo que el nombre del grupo de recursos.
+4. Escriba el **prefijo del DNS del perfil maestro** que es único para la región. Debe ser un nombre único para la región, como `k8s-12345`. Como procedimiento recomendado, intente elegirlo de modo que sea el mismo que el nombre del grupo de recursos.
 
     > [!Note]  
     > Para cada clúster, use un prefijo de DNS del perfil principal nuevo y único.
 
-7. Escriba el número de agentes en el clúster. Este valor se conoce como el **recuento de perfiles del grupo de agentes**. Puede haber de 1 a 32.
+5. Escriba el **recuento de perfiles del grupo de agentes**. El recuento contiene el número de agentes en el clúster. Puede haber de 1 a 4.
 
-8. Escriba el **id. de aplicación de la entidad de servicio**. El proveedor de nube de Kubernetes Azure usa este identificador.
+6. Escriba el **id. de cliente de la entidad de servicio**. El proveedor de nube de Azure Kubernetes usa este identificador.
 
-9. Escriba el **secreto de cliente de la entidad de servicio** que creó al crear la aplicación de la entidad de servicio.
+7. Escriba el **secreto de cliente de la entidad de servicio** que creó al crear la aplicación de la entidad de servicio.
 
-10. Escriba la **versión del proveedor de nube de Azure Kubernetes**. Esta es la versión para el proveedor de Kubernetes Azure. Azure Stack publica una compilación de Kubernetes personalizada para cada versión de Azure Stack.
+8. Escriba la **versión del proveedor de nube de Azure Kubernetes**. Esta es la versión para el proveedor de Kubernetes Azure. Azure Stack publica una compilación de Kubernetes personalizada para cada versión de Azure Stack.
 
-12. Seleccione **Aceptar**.
+9. Seleccione el identificador de **suscripción**.
 
-### <a name="specify-the-solution-values"></a>Especificación de los valores de la solución
+10. Escriba el nombre del nuevo grupo de recursos o seleccione uno existente. El nombre del recurso debe ser alfanumérico y estar en minúsculas.
 
-1. Seleccione la **Suscripción**.
+11. Seleccione la **ubicación** del grupo de recursos. Esta es la región que elige para la instalación de Azure Stack.
 
-2. Escriba el nombre del nuevo grupo de recursos o seleccione uno existente. El nombre del recurso debe ser alfanumérico y estar en minúsculas.
+### <a name="specify-the-azure-stack-settings"></a>Especifique la configuración de Azure Stack
 
-3. Escriba la ubicación del grupo de recursos; por ejemplo, **local**.
+1. Seleccione la **configuración de marca de Azure Stack**.
 
-4. Seleccione **Crear**.
+    ![Implementar plantilla de solución](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
+
+2. Escriba el **punto de conexión ARM del inquilino**. Este es el punto de conexión de Azure Resource Manager para conectarse para crear el grupo de recursos para el clúster de Kubernetes. Debe obtener el punto de conexión del operador de Azure Stack para un sistema integrado. Para obtener el Kit de desarrollo de Azure Stack (ASDK), puede usar `https://management.local.azurestack.external`.
+
+3. Escriba el **identificador de inquilino** de este. Si necesita ayuda para encontrar este valor, consulte [Obtención del identificador de inquilino](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 ## <a name="connect-to-your-cluster"></a>Conexión al clúster
 
-Ahora está listo para conectarse al clúster. Necesitará el **kubectl**, el cliente de línea de comandos de Kubernetes. En la documentación de Azure Container Service, encontrará instrucciones sobre cómo conectarse al clúster y administrarlo.   
+Ahora está listo para conectarse al clúster. La máquina virtual maestra se puede encontrar en el grupo de recursos del clúster y se denomina `k8s-master-<sequence-of-numbers>`. Use un cliente de SSH para conectarse a la máquina virtual maestra. En ella, puede usar **kubectl**, el cliente de línea de comandos de Kubernetes, para administrar el clúster. Para obtener instrucciones, consulte [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
 
-Para obtener instrucciones, consulte [Conexión al clúster](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough#connect-to-the-cluster).
+Puede que también le resulte útil el administrador de paquetes **Helm** para instalar e implementar aplicaciones en el clúster. Para más instrucciones sobre cómo instalar y usar Helm con el clúster, consulte [helm.sh](https://helm.sh/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

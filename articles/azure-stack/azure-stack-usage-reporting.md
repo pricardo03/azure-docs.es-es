@@ -3,7 +3,7 @@ title: Notificar los datos de uso de Azure Stack a Azure | Microsoft Docs
 description: Aprenda cómo configurar datos de uso de informes en Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603709"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Notificar los datos de uso de Azure Stack a Azure 
 
@@ -42,7 +43,7 @@ Para configurar los informes de datos de uso, debe [registrar la instancia de Az
 - **Cantidad**: cantidad de uso de los recursos.
 - **Ubicación**: Ubicación donde se implementa el recurso actual de Azure Stack.
 - **URI de recurso**: URI completo del recurso para el que se notifica el uso.
-- **Id. de suscripción**: Identificador de suscripción del usuario de Azure Stack. Se trata de la suscripción (Azure Stack) local.
+- **Id. de suscripción**: Id. de suscripción del usuario de Azure Stack, que es la suscripción (Azure Stack) local.
 - **Tiempo**: Hora de inicio y finalización de los datos de uso. Hay un retraso determinado entre el momento en que se usan estos recursos en Azure Stack y el momento en que se notifican los datos de uso a commerce. Azure Stack agrega los datos de uso para cada 24 horas y los datos de uso de informes para la canalización del comercio en Azure llevan algunas horas más. Por lo tanto, el uso que se produce brevemente antes de medianoche puede aparecer en Azure al día siguiente.
 
 ## <a name="generate-usage-data-reporting"></a>Generación de informes de datos de uso
@@ -68,7 +69,7 @@ Si ha registrado Azure Stack con cualquier otro tipo de suscripción, por ejempl
 
    ![flujo de facturación](media/azure-stack-usage-reporting/pricing-details.png)
 
-Para el Kit de desarrollo de Azure Stack, los recursos de Azure Stack tampoco se cobran; el precio se muestra como 0,00 USD. Cuando varios nodos de Azure Stack comienzan a estar disponibles con carácter general, puede ver el costo real para cada uno de estos recursos.
+Para el Kit de desarrollo de Azure Stack, los recursos de Azure Stack tampoco se cobran; el precio se muestra como 0,00 USD.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>¿Qué implementaciones de Azure Stack se cobran?
 
@@ -82,7 +83,7 @@ Solo se cobra a los usuarios las máquinas virtuales que se ejecuten en suscripc
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Tengo una licencia de Windows Server que deseo utilizar en Azure Stack, ¿cómo lo hago?
 
-El uso de las licencias existentes impide generar medidores de uso. Las licencias existentes de Windows Server pueden utilizarse en Azure Stack, tal como se describe en la sección "Uso de software existente con Azure Stack" de la [Guía de licencias de Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Los clientes deben implementar sus máquinas virtuales Windows Server como se describe en el tema [Ventaja de uso híbrido de Azure para Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) a fin de usar sus licencias existentes.
+El uso de las licencias existentes impide generar medidores de uso. Las licencias existentes de Windows Server pueden utilizarse en Azure Stack, tal como se describe en la sección "Uso de software existente con Azure Stack" de la [Guía de licencias de Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Los clientes deben implementar sus máquinas virtuales Windows Server como se describe en el artículo [Ventaja para uso híbrido de Azure para Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) a fin de usar sus licencias existentes.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>¿Qué suscripción se cobra por los recursos consumidos?
 La suscripción que se proporciona cuando [se registra Azure Stack con Azure](azure-stack-register.md) se cobra.

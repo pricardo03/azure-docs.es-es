@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2fdb77c133d5d8955ad6ae15864cbe0c78bc4e2f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f7f459404b5a759bef9eb8f37141bbd4c9eae3e5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258766"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849635"
 ---
 # <a name="azure-stack-1803-update"></a>Actualización de Azure Stack 1803
 
@@ -82,7 +82,7 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 
 - <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
 
-- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure. 
+- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure. The values for SALifetime (Time) and SALiftetime (Bytes) were not compatible with Azure and have changed in 1803 to match the Azure settings. The value for SALifetime (Seconds) prior to 1803 was 14,400 and now changes to 27,000 in 1803. The value for SALifetime (Bytes) prior to 1803 was 819,200 and changes to 33,553,408 in 1803.
 
 - <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
 
@@ -111,6 +111,9 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 Los siguientes son problemas conocidos posteriores a la instalación de la compilación **20180323.2**.
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Solución alternativa: para resolver este problema después de instalar esta actualización, use el paso 3 del procedimiento [Automatización de desencadenador para configurar la relación de confianza de proveedor de notificaciones en Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) para restablecer el propietario de la suscripción de proveedor predeterminado.   
+
 - No está disponible la posibilidad de [abrir una nueva solicitud de soporte técnico desde la lista desplegable](azure-stack-manage-portals.md#quick-access-to-help-and-support) del portal de administración. En su lugar, use el siguiente vínculo:     
     - Para sistemas integrados de Azure Stack. use https://aka.ms/newsupportrequest.
 
@@ -132,7 +135,23 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
   Esta alerta puede omitirse sin problemas. 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>Estado y supervisión
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerta 1:
+   - NOMBRE: rol de infraestructura incorrecto
+   - GRAVEDAD: advertencia
+   - COMPONENTE: controlador de mantenimiento
+   - DESCRIPCIÓN: el controlador de mantenimiento Heartbeat Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.  
+
+  Alerta 2:
+   - NOMBRE: rol de infraestructura incorrecto
+   - GRAVEDAD: advertencia
+   - COMPONENTE: controlador de mantenimiento
+   - Descripción: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
+
+  Ambas alertas pueden omitirse sin problemas. Se cerrarán automáticamente pasado un tiempo.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Los usuarios pueden examinar toda la plataforma Marketplace sin una suscripción y ver elementos administrativos, como planes y ofertas. Estos elementos no funcionan para los usuarios.
@@ -144,7 +163,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 - Cuando crea un conjunto de disponibilidad en el portal en **Nuevo** > **Compute** > **Conjunto de disponibilidad**, solo puede crear uno con un dominio de error y un dominio de actualización de 1. Como alternativa, al crear una nueva máquina virtual, cree el conjunto de disponibilidad mediante PowerShell, la CLI o el portal.
 
-- Al crear máquinas virtuales en el portal de usuario de Azure Stack, el portal muestra un número incorrecto de discos de datos que se pueden asociar a una máquina virtual de la serie DS. Las máquinas virtuales de la serie DS pueden albergar tantos discos de datos como la configuración de Azure.
+- Al crear máquinas virtuales en el portal de usuario de Azure Stack, el portal muestra un número incorrecto de discos de datos que se pueden asociar a una máquina virtual de la serie D. Todas las máquinas virtuales de la serie D pueden albergar tantos discos de datos como la configuración de Azure.
 
 - Cuando no es posible crear una imagen de máquina virtual, los elementos con error que no se pueden eliminar se podrían agregar a la hoja de proceso de imágenes de máquina virtual.
 
@@ -265,6 +284,8 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Descarga de las herramientas de Azure Stack desde GitHub
 - Al usar el cmdlet *invoke-webrequest* de PowerShell para descargar las herramientas de Azure Stack de Github, recibirá un error:     

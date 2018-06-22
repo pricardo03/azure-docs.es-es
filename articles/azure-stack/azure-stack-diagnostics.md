@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196470"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801660"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Herramientas de diagnóstico de Azure Stack
 
@@ -141,7 +141,7 @@ if($s)
 
 - Si no se especifican los parámetros **FromDate** y **ToDate**, se recopilan los registros de las últimas cuatro horas de forma predeterminada.
 - Puede usar el parámetro **TimeOutInMinutes** para establecer el tiempo de espera para la colección de registros. Se establece en 150 (2,5 horas) de forma predeterminada.
-
+- En la versión 1805 y versiones posteriores, la recopilación de registros de archivos de copia de seguridad está deshabilitada de forma predeterminada. Para habilitarla, utilice el parámetro de modificador **IncludeDumpFile**. 
 - Actualmente, no se puede usar el parámetro **FilterByRole** para filtrar la colección de registros de los roles siguientes:
 
    |   |   |   |
@@ -155,7 +155,7 @@ if($s)
    | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
    | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
    | ACSTableMaster         | FRP                              | SLB                        |   
-   | ACSTableServer         | Galería                          | SlbVips                    |
+   | ACSTableServer         | Gallery                          | SlbVips                    |
    | ACSWac                 | Puerta de enlace                          | SQL                        |   
    | ADFS                   | HealthMonitoring                 | SRP                        |
    | ASAppGateway           | HRP                              | Storage                    |   
@@ -167,7 +167,7 @@ if($s)
    | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
    | Nube                  | KeyVaultControlPlane             | VirtualMachines            |
    | Clúster                | KeyVaultDataPlane                | WAS                        |
-   | Proceso                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | Compute                | KeyVaultInternalControlPlane     | WASBootstrap               |
    | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
    | CRP                    | KeyVaultNamingService            |                            |
    | DatacenterIntegration  | MonitoringAgent                  |                            |
@@ -185,7 +185,7 @@ Para más información acerca del script de PowerShell ERCS_AzureStackLogs.ps1 s
 * Este comando tardará un rato en ejecutarse, en función de los roles que recopilen los registros. Entre los factores que contribuyen, se incluye la duración especificada para la colección de registros y el número de nodos en el entorno de Azure Stack.
 * Cuando se ejecuta la recopilación de registros, compruebe la nueva carpeta creada en el parámetro **OutputSharePath** especificado en el comando.
 * Cada rol tiene sus registros dentro de archivos ZIP individuales. Según el tamaño de los registros recopilados, un rol puede dividir sus registros en varios archivos ZIP. Para tal rol, si desea que todos los archivos de registro se descompriman en una sola carpeta, use una herramienta que pueda descomprimir de forma masiva (por ejemplo, 7zip). Seleccione todos los archivos comprimidos para el rol y seleccione **extraer aquí**. Así se descomprimen todos los archivos de registro para ese rol en una sola carpeta combinada.
-* También se crea un archivo denominado **Get-AzureStackLog_Output.log** en la carpeta que contiene los archivos de registro comprimidos. Este archivo es un registro de la salida del comando, que se puede usar para solucionar problemas durante la recopilación de registros.
+* También se crea un archivo denominado **Get-AzureStackLog_Output.log** en la carpeta que contiene los archivos de registro comprimidos. Este archivo es un registro de la salida del comando, que se puede usar para solucionar problemas durante la recopilación de registros. En ocasiones, el archivo de registro incluye entradas `PS>TerminatingError` que se pueden omitir sin problema, a menos que falten los archivos de registro esperados después de ejecutar la recopilación de registros.
 * Para investigar un error específico, es posible que sean necesarios registros de más de un componente.
     -   Los registros de eventos y del sistema de todas las máquinas virtuales de la infraestructura se recopilan en el rol *VirtualMachines*.
     -   Los registros de eventos y del sistema de todos los hosts se recopilan en el rol *Storage*.

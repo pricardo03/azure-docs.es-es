@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260369"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
 En esta tarea, define la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
@@ -32,7 +34,7 @@ En esta tarea, define la estrategia de adopción de identidades híbridas para q
 La primera tarea consiste en determinar las necesidades empresariales de las organizaciones.  Dicha tarea puede ser muy amplia y se puede producir un arrastramiento del alcance si no se tiene cuidado.  Al principio debe ser simple, pero recuerde siempre planear un diseño que permita y facilite la realización de cambios en el futuro.  Independientemente de que sea un diseño sencillo o extremadamente complejo, Azure Active Directory es la plataforma de Microsoft Identity que admite Office 365, Microsoft Online Services y aplicaciones habilitadas para la nube.
 
 ## <a name="define-an-integration-strategy"></a>Definición de una estrategia de integración
-Microsoft tiene tres escenarios de integración principales que son las identidades de nube, las identidades sincronizadas y las identidades federadas.  Debe planear la adopción de una de estas estrategias de integración.  La estrategia que elija puede variar y las decisiones que tome a la hora de elegir una de ellas pueden incluir: el tipo de experiencia de usuario que se desea proporcionar, si se tiene alguna de las infraestructuras existentes ya establecida y cuál es el más rentable.  
+Microsoft tiene tres escenarios de integración principales que son las identidades de nube, las identidades sincronizadas y las identidades federadas.  Debe planear la adopción de una de estas estrategias de integración.  La estrategia que elija puede variar y las decisiones que tome a la hora de elegir una de ellas pueden incluir: el tipo de experiencia de usuario que se desea proporcionar, si se tiene una infraestructura existente y cuál es el más rentable.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,8 +53,8 @@ La tabla siguiente le ayuda a determinar las ventajas y desventajas de cada una 
 
 | Estrategia | Ventajas | Desventajas |
 | --- | --- | --- |
-| **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar en local. No se necesita hardware adicional.<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube. <br> Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
-| **Sincronizada** |La contraseña local se autentica localmente y en directorios en la nube. <br>Más fácil de administrar para organizaciones pequeñas, medianas o grandes. <br>Los usuarios pueden tener el inicio de sesión único (SSO) en algunos recursos. <br> Método preferido de Microsoft para la sincronización <br> Más fácil de administrar |Algunos clientes pueden ser reacios a sincronizar sus directorios con la nube debido  a las directivas de la compañía. |
+| **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar localmente. No se necesita hardware adicional<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube. <br> Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
+| **Sincronizada** |La contraseña local se autentica localmente y en directorios en la nube. <br>Más fácil de administrar para organizaciones pequeñas, medianas o grandes. <br>Los usuarios pueden tener el inicio de sesión único (SSO) en algunos recursos. <br> Método preferido de Microsoft para la sincronización <br> Más fácil de administrar |Algunos clientes pueden ser reacios a sincronizar sus directorios con la nube debido a las directivas de la compañía. |
 | **Federada** |Los usuarios pueden tener el inicio de sesión único (SSO). <br>Si un usuario es cesado o abandona, la cuenta puede deshabilitarse inmediatamente y revocarse el acceso.<br> Admite escenarios avanzados que no se pueden lograr con la sincronizada. |Más pasos para instalar y configurar. <br> Mayor mantenimiento <br> Puede requerir hardware adicional para la infraestructura de STS. <br> Puede exigir hardware adicional para instalar el servidor de federación. Es necesario software adicional si se usa AD FS. <br> Necesita una configuración amplia de SSO. <br> Punto crítico de error si el servidor de federación está inactivo, los usuarios no podrán autenticarse. |
 
 ### <a name="client-experience"></a>Experiencia del cliente
@@ -65,7 +67,7 @@ La estrategia que se use determinará la experiencia de inicio de sesión del us
 | Exploradores web |Autenticación basada en formularios |Inicio de sesión único, a veces es preciso especificar la identificación de la organización |
 | Outlook |Se piden credenciales |Se piden credenciales |
 | Skype Empresarial (Lync) |Se piden credenciales |Inicio de sesión único para Lync, credenciales solicitadas para Exchange |
-| SkyDrive Pro |Se piden credenciales |Inicio de sesión único |
+| OneDrive para la Empresa |Se piden credenciales |Inicio de sesión único |
 | Suscripción a Office Pro Plus |Se piden credenciales |Inicio de sesión único |
 
 **Orígenes externos o que no son de confianza**:
@@ -73,7 +75,7 @@ La estrategia que se use determinará la experiencia de inicio de sesión del us
 |  | Identidad sincronizada | Identidad federada |
 | --- | --- | --- |
 | Exploradores web |Autenticación basada en formularios |Autenticación basada en formularios |
-| Outlook, Skype Empresarial (Lync), Skydrive Pro, suscripción de Office |Se piden credenciales |Se piden credenciales |
+| Outlook, Skype Empresarial (Lync), OneDrive para la Empresa, suscripción de Office |Se piden credenciales |Se piden credenciales |
 | Exchange ActiveSync |Se piden credenciales |Inicio de sesión único para Lync, credenciales solicitadas para Exchange |
 | Aplicaciones móviles |Se piden credenciales |Se piden credenciales |
 
@@ -149,7 +151,7 @@ No solo es posible, sino que también se admite la conexión de una instancia lo
 
 **Escenario de filtrado de bosque único**
 
-Para realizar esta operación, es preciso que se den los siguientes factores:
+Para ello, deben cumplirse las siguientes condiciones:
 
 * Los servidores de sincronización de Azure AD Connect deben estar configurados para el filtrado, de modo que cada uno tenga un conjunto de objetos mutuamente excluyente.  Esto se realiza, por ejemplo, mediante la definición del ámbito de cada servidor en un dominio o unidad organizativa concretos.
 * Un dominio DNS solo se puede registrar en un único directorio de Azure AD, con el fin de que los UPN de los usuarios del entorno local de AD deban usar también espacios de nombres independientes.

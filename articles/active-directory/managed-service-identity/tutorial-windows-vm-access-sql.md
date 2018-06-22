@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 27c4f35cbd8cc69e689b26078d5a07c8558d8e2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 5805dbc0a4831f14a4f9a98943a7611fa49961eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303208"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594958"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Tutorial: Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure SQL
 
@@ -270,11 +270,9 @@ Como alternativa, un método rápido para probar la configuración de extremo a 
 
 Examine el valor de `$DataSet.Tables[0]` para ver los resultados de la consulta.  Enhorabuena, ha consultado la base de datos mediante una identidad MSI de máquina virtual y sin necesidad de proporcionar credenciales.
 
-## <a name="related-content"></a>Contenido relacionado
+## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre MSI, consulte [Managed Service Identity overview](overview.md) (Introducción a Managed Service Identity).
-- Más información sobre la [compatibilidad de Azure SQL con la autenticación de Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
-- Más información sobre la [configuración de la compatibilidad de Azure SQL con la autenticación de Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).
-- Más información sobre la [autenticación y el acceso en SQL Server](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
+En este tutorial, ha aprendido a crear una instancia de Managed Service Identity para acceder a Azure SQL Server.  Para más información sobre Azure SQL Server, consulte:
 
-Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a afinar y remodelar el contenido.
+> [!div class="nextstepaction"]
+>[Servicio Azure SQL Database](/azure/sql-database/sql-database-technical-overview)

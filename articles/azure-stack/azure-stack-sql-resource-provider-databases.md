@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2808847642639069e60102b195ac97957c8593f0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b9f92b4d85e17bc848d82be413df1d0dad7c8548
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203466"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294945"
 ---
 # <a name="create-sql-databases"></a>Creación de bases de datos SQL
-Las bases de datos de autoservicio se proporcionan a través del portal de usuarios. Un usuario necesita una suscripción que tenga una oferta, que contiene el servicio de base de datos.
+Las bases de datos de autoservicio se proporcionan a través del portal de usuarios. Un usuario de Azure Stack necesita una suscripción que tenga una oferta, que contiene el servicio de base de datos SQL.
 
 1. Inicie sesión en el portal de usuarios de [Azure Stack](azure-stack-poc.md) (los administradores de servicios también pueden usar el portal de administración).
 

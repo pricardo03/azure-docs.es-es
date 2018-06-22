@@ -1,19 +1,19 @@
 ---
 title: Incorporación de conjuntos de dispositivos a una aplicación de Azure IoT Central | Microsoft Docs
 description: Como operador, cómo usar conjuntos de dispositivos en la aplicación de Azure IoT Central.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932c8315b5af22c3adf18de50cf03deaf6b2a53e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpfr
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201156"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261685"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Uso de conjuntos de dispositivos en una aplicación de Azure IoT Central
 
@@ -86,10 +86,40 @@ Después de crear el conjunto de dispositivos, puede configurar su **panel**. El
 
     > [!NOTE]
     > Puede agregar varias imágenes, vínculos y cuadrículas.
-
-1. Desactive **Modo de diseño**.
+  
+    1. Desactive **Modo de diseño**.
 
     ![Desactivación del modo de diseño](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configuración del mapa de ubicación en el panel de conjuntos de dispositivos 
+Puede agregar un mapa de ubicación para visualizar la ubicación de los conjuntos de dispositivos en un mapa. 
+
+Para agregar un mapa de ubicación al panel de conjuntos de dispositivos, debe haber configurado la propiedad de ubicación en la plantilla de dispositivo. Consulte [Creación de una propiedad de ubicación con Azure Maps](howto-set-up-template.md).
+
+
+1. En el panel de conjuntos de dispositivos, seleccione Mapa en la biblioteca. 
+
+    ![Mapas del panel de conjuntos de dispositivos](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. Asigne un título y elija la propiedad de ubicación que se ha configurado anteriormente como parte de la propiedad de dispositivo.
+
+    ![Configuración de mapas del panel](media/howto-use-device-sets/LocationMaps2.png)
+
+3. Después de guardar, verá el icono de mapa, que muestra la ubicación de los dispositivos del conjunto de dispositivos.
+
+    ![Guardar mapas del panel](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. Ahora, cuando un operador visualice el panel de conjuntos de dispositivos, puede ver todos los iconos configurados, incluido el mapa de ubicación para visualizar la ubicación de todos los dispositivos de un vistazo.
+
+    ![Vista del operador de los mapas del panel](media/howto-use-device-sets/LocationMaps4.png)
+
+    Podrá cambiar el tamaño del mapa hasta obtener el tamaño deseado.
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configuración de la lista del conjunto de dispositivos
 

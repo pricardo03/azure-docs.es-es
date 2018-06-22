@@ -11,24 +11,24 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203513"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267380"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Roles integrados para el control de acceso basado en roles de Azure
-El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. No puede modificar los roles integrados, pero puede crear sus propios [roles personalizados](custom-roles.md) para ajustarse a las necesidades específicas de su organización.
+El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
 
 Los roles integrados siempre están en evolución. Para obtener las últimas definiciones de roles, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descripciones de rol integrado
-En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre del rol para ver la lista de `actions` y `notActions` para cada rol.
+En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre del rol para ver la lista de `actions`, `notActions`, `dataActions` y `notDataActions` para cada rol.
 
 
 | Rol integrado | DESCRIPCIÓN |
@@ -84,6 +84,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de la cuenta de NewRelic APM](#new-relic-apm-account-contributor) | Le permite administrar las aplicaciones y cuentas de Application Performance Management de New Relic, pero no acceder a ellas. |
 | [Lector y acceso a los datos](#reader-and-data-access) | Permite ver todo el contenido, pero no eliminar ni crear una cuenta de almacenamiento ni un recurso incluido. También permitirá el acceso de lectura o escritura para todos los datos incluidos en una cuenta de almacenamiento a través del acceso a las claves de la cuenta de almacenamiento. |
 | [Colaborador de la memoria caché de Redis](#redis-cache-contributor) | Permite administrar cachés de Redis, pero no acceder a ellas. |
+| [Colaborador de la directiva de recursos (versión preliminar)](#resource-policy-contributor-preview) | (Versión preliminar) Los usuarios repuestos de EA, con derechos para crear o modificar la directiva de recursos, crean incidencias de soporte técnico y leen los recursos o la jerarquía. |
 | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) | Permite administrar colecciones de trabajos de Scheduler, pero no acceder a ellas. |
 | [Colaborador del servicio Search](#search-service-contributor) | Permite administrar los servicios de Búsqueda, pero no acceder a ellos. |
 | [Administrador de seguridad](#security-admin) | Solo en Security Center: puede ver las directivas de seguridad, ver los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones |
@@ -97,6 +98,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de SQL Server](#sql-server-contributor) | Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni a sus directivas relacionadas con la seguridad. |
 | [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Permite administrar cuentas de almacenamiento, pero no acceder a ellas. |
 | [Rol de servicio de operador de claves de cuentas de almacenamiento](#storage-account-key-operator-service-role) | Los operadores de claves de cuentas de almacenamiento pueden enumerar y regenerar claves de cuentas de almacenamiento. |
+| [Colaborador de datos de blobs de almacenamiento (versión preliminar)](#storage-blob-data-contributor-preview) | Permite el acceso de lectura, escritura y eliminación a los contenedores de blobs y a los datos de Azure Storage |
+| [Lector de datos de blobs de almacenamiento (versión preliminar)](#storage-blob-data-reader-preview) | Permite el acceso de lectura a los contenedores de blobs y a los datos de Azure Storage |
+| [Colaborador de datos de la cola de almacenamiento (versión preliminar)](#storage-queue-data-contributor-preview) | Permite el acceso de lectura, escritura y eliminación a los mensajes de la cola y a la cola de Azure Storage |
+| [Lector de datos de la cola de almacenamiento (versión preliminar)](#storage-queue-data-reader-preview) | Permite el acceso de lectura a los mensajes de la cola y a las colas de Azure Storage |
 | [Colaborador de la solicitud de soporte técnico](#support-request-contributor) | Permite crear y administrar solicitudes de soporte técnico. |
 | [Colaborador de Traffic Manager](#traffic-manager-contributor) | Le permite administrar perfiles de Traffic Manager, pero no controlar los usuarios que tienen acceso a ellos. |
 | [Administrador de acceso de usuario](#user-access-administrator) | Permite administrar el acceso de usuario a los recursos de Azure. |
@@ -128,6 +133,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles. |
 > | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles. |
 > | Microsoft.Authorization/elevateAccess/Action | Concede al llamador acceso de administrador de acceso de usuario en el ámbito de inquilinos |
+> | Microsoft.Blueprint/blueprintAssignments/write |  |
+> | Microsoft.Blueprint/blueprintAssignments/delete |  |
 
 ## <a name="reader"></a>Lector
 > [!div class="mx-tableFixed"]
@@ -704,7 +711,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Acciones** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action |  |
+> | Microsoft.Insights/components/purge/action | Purga datos de Application Insights. |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Elimina los datos especificados del área de trabajo. |
 
@@ -1034,6 +1041,20 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
+## <a name="resource-policy-contributor-preview"></a>Colaborador de la directiva de recursos (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | (Versión preliminar) Los usuarios repuestos de EA, con derechos para crear o modificar la directiva de recursos, crean incidencias de soporte técnico y leen los recursos o la jerarquía. |
+> | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | **Acciones** |  |
+> | */read | Leer recursos de todos los tipos, excepto secretos. |
+> | Microsoft.Authorization/policyassignments/* | Crear y administrar asignaciones de directivas |
+> | Microsoft.Authorization/policydefinitions/* | Crear y administrar definiciones de directivas |
+> | Microsoft.Authorization/policysetdefinitions/* | Crear y administrar conjuntos de directivas |
+> | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ## <a name="scheduler-job-collections-contributor"></a>Colaborador de colecciones de trabajos de Scheduler
@@ -1389,6 +1410,58 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Storage/storageAccounts/listkeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenera las claves de acceso de la cuenta de almacenamiento especificada. |
 
+## <a name="storage-blob-data-contributor-preview"></a>Colaborador de datos de blobs de almacenamiento (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite el acceso de lectura, escritura y eliminación a los contenedores de blobs y a los datos de Azure Storage |
+> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Acciones** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Devuelve el resultado de la eliminación de un contenedor. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devuelve un contenedor o una lista de contenedores. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Devuelve el resultado de la colocación o concesión del contenedor de blobs. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Devuelve el resultado de la eliminación de un blob. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve un blob o una lista de blobs. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Devuelve el resultado de la escritura de un blob. |
+
+## <a name="storage-blob-data-reader-preview"></a>Lector de datos de blobs de almacenamiento (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite el acceso de lectura a los contenedores de blobs y a los datos de Azure Storage. |
+> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **Acciones** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devuelve un contenedor o una lista de contenedores. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve un blob o una lista de blobs. |
+
+## <a name="storage-queue-data-contributor-preview"></a>Colaborador de datos de la cola de almacenamiento (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite el acceso de lectura, escritura y eliminación a los mensajes de la cola y a la cola de Azure Storage. |
+> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **Acciones** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Devuelve el resultado de la eliminación de una cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devuelve una cola o una lista de colas. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Devuelve el resultado de escribir una cola. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Devuelve el resultado de eliminar un mensaje. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devuelve un mensaje. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Devuelve el resultado de escribir un mensaje. |
+
+## <a name="storage-queue-data-reader-preview"></a>Lector de datos de la cola de almacenamiento (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite el acceso de lectura a los mensajes de la cola y a las colas de Azure Storage. |
+> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **Acciones** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devuelve una cola o una lista de colas. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devuelve un mensaje. |
+
 ## <a name="support-request-contributor"></a>Colaborador de la solicitud de soporte técnico
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1438,6 +1511,9 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Network/loadBalancers/read | Obtiene una definición del equilibrador de carga |
 > | Microsoft.Network/networkInterfaces/read | Obtiene una definición de interfaz de red.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Iniciar sesión en una máquina virtual como usuario habitual |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Iniciar de sesión en una máquina virtual con privilegios de administrador de Windows o de usuario raíz de Linux |
 
 ## <a name="virtual-machine-contributor"></a>Colaborador de la máquina virtual
 > [!div class="mx-tableFixed"]
@@ -1496,6 +1572,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Network/loadBalancers/read | Obtiene una definición del equilibrador de carga |
 > | Microsoft.Network/networkInterfaces/read | Obtiene una definición de interfaz de red.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Iniciar sesión en una máquina virtual como usuario habitual |
 
 ## <a name="web-plan-contributor"></a>Colaborador de plan web
 > [!div class="mx-tableFixed"]

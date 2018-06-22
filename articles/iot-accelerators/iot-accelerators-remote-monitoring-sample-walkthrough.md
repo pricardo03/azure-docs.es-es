@@ -1,25 +1,19 @@
 ---
 title: 'Arquitectura de la solución de supervisión remota: Azure | Microsoft Docs'
 description: Un tutorial sobre la arquitectura del acelerador de la solución de supervisión remota.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757440"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Arquitectura del acelerador de la solución de supervisión remota
 
@@ -97,13 +91,13 @@ La solución incluye dos microservicios para controlar la telemetría del dispos
 
 El microservicio [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet):
 
-* Almacena datos de telemetría en Cosmos DB.
+* Almacena datos de telemetría en Azure Cosmos DB.
 * Analiza el flujo de telemetría de los dispositivos.
 * Genera alarmas según las reglas definidas.
 
-Las alarmas se almacenan en Cosmos DB.
+Las alarmas se almacenan en Azure Cosmos DB.
 
-El microservicio `telemetry-agent` permite que el portal de la solución lea los datos de telemetría enviados desde los dispositivos. El portal de la solución también utiliza este servicio para:
+El microservicio [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) permite que el portal de la solución lea los datos de telemetría enviados desde los dispositivos. El portal de la solución también utiliza este servicio para:
 
 * Definir reglas de supervisión tales como los umbrales que desencadenan las alarmas
 * Recuperar la lista de últimas alarmas.
@@ -114,9 +108,9 @@ Usar el punto de conexión REST proporcionado por este microservicio para admini
 
 El microservicio [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) es un adaptador delante del servicio de almacenamiento principal usado para el acelerador de la solución. Proporciona almacenamiento de colección simple y clave-valor.
 
-La implementación estándar del acelerador de la solución utiliza Cosmos DB como servicio de almacenamiento principal.
+La implementación estándar del acelerador de la solución utiliza Azure Cosmos DB como servicio de almacenamiento principal.
 
-La base de datos de Cosmos DB almacena los datos en el acelerador de la solución. El microservicio **storage-adapter** actúa como un adaptador para que los otros microservicios de la solución tengan acceso a los servicios de almacenamiento.
+La base de datos de Azure Cosmos DB almacena los datos en el acelerador de la solución. El microservicio **storage-adapter** actúa como un adaptador para que los otros microservicios de la solución tengan acceso a los servicios de almacenamiento.
 
 ## <a name="presentation"></a>Presentación
 
@@ -141,6 +135,8 @@ Si desea examinar el código fuente y la documentación para desarrolladores, co
 
 * [Acelerador de la solución de supervisión remota con Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Acelerador de la solución de supervisión remota con Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+
+Diagramas detallados de la arquitectura de la solución:
 * [Acelerador de la solución de supervisión remota (arquitectura)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Para obtener información conceptual sobre el acelerador de la solución de supervisión remota, consulte [Personalizar el acelerador de la solución](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

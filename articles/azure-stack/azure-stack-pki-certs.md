@@ -3,7 +3,7 @@ title: Requisitos de certificados de infraestructura de clave pública de Azure 
 description: Describe los requisitos de implementación de certificados PKI de Azure Stack para sus sistemas integrados.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
-ms.author: jeffgilb
+ms.date: 06/07/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935665"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234848"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 
@@ -30,7 +30,7 @@ Azure Stack tiene una red de infraestructura pública que usa direcciones IP pú
 - El proceso de obtención de certificados que concuerda con esas especificaciones
 - Cómo preparar, validar y utilizar esos certificados durante la implementación
 
-> [!NOTE]
+> [!Note]  
 > Durante la implementación, los certificados se deben copiar en la carpeta de implementación que coincida con el proveedor de identidades con el que va a realizar esta operación (Azure AD o AD FS). Si usa un único certificado para todos los puntos de conexión, debe copiar ese archivo de certificado en cada carpeta de implementación, tal y como se describe en las tablas siguientes. La estructura de carpetas anterior se compila en la máquina virtual de implementación y puede encontrarse en C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisitos de certificados
@@ -47,12 +47,12 @@ En la lista siguiente se describen los requisitos de certificados que son necesa
 - El campo "Issued to:" (Emitido para:) del certificado no debe ser el mismo que su campo "Issued by:" (Emitido por:).
 - Las contraseñas para todos los archivos PFX de certificado deben ser las mismas en el momento de la implementación.
 - La contraseña para el archivo pfx de certificado tiene que ser una contraseña compleja.
-- Asegúrese de que los nombres de asunto y nombres alternativos del firmante de todos los certificados coinciden con las especificaciones descritas en este artículo para evitar errores en las implementaciones.
+- Asegúrese de que los nombres de los firmantes y los nombres alternativos de los firmantes de la extensión de nombre alternativo del firmante (x509v3_config) coinciden. El campo del nombre alternativo del firmante permite especificar nombres de host adicionales (sitios web, direcciones IP y nombres comunes) que estén protegidos por un certificado SSL individual.
 
-> [!NOTE]
+> [!NOTE]  
 > No se admiten certificados autofirmados.
 
-> [!NOTE]
+> [!NOTE]  
 > Se admite la presencia de entidades emisoras de certificados intermediarias en una cadena de relaciones de confianza del certificado. 
 
 ## <a name="mandatory-certificates"></a>Certificados obligatorios

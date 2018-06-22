@@ -11,13 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: ppacent
+ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801422"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 
@@ -41,11 +43,11 @@ Para ver el estado de una unidad de escalado:
  
 En este caso, puede ver la información siguiente:
 
-- nombre de la región
+- Nombre de la región. Se hace referencia al nombre de la región con **-Location** en el módulo de PowerShell.
 - tipo de sistema
 - núcleos lógicos en total
 - memoria total
-- la lista de nodos individuales y su estado: en ejecución o detenido.
+- la lista de nodos individuales y su estado: **en ejecución** o **detenido**.
 
 ![Icono de la unidad de escalado que muestra el estado En ejecución para cada nodo](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
@@ -87,7 +89,7 @@ Esta acción se utiliza normalmente cuando un nodo está en un estado bloqueado 
 Para ejecutar la acción de apagado a través de PowerShell:
 
 ````PowerShell
-  Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```` 
 
 En el caso poco probable de que la acción de apagado no funcione, utilice en su lugar la interfaz web BMC.
@@ -102,7 +104,7 @@ La acción de **encendido** activa el nodo. Es lo mismo que si se presiona el bo
 Para ejecutar la acción de encendido a través de PowerShell:
 
 ````PowerShell
-  Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ````
 
 En el caso poco probable de que la acción de encendido no funcione, utilice en su lugar la interfaz web BMC.
@@ -113,13 +115,13 @@ La acción de **purga** evacua todas las cargas de trabajo activas distribuyénd
 
 Esta acción se suele utilizar durante el reemplazo de diversos componentes, por ejemplo de un nodo completo.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Asegúrese de purgar un nodo solo durante un período de mantenimiento planeado, del cual se haya notificado a los usuarios. En determinadas condiciones, las cargas de trabajo activas pueden experimentar interrupciones.
 
 Para ejecutar la acción de purga a través de PowerShell:
 
   ````PowerShell
-  Disable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="resume"></a>Reanudación
@@ -129,7 +131,7 @@ La acción de **reanudación** reanuda un nodo purgado y lo marca como activo pa
 Para ejecutar la acción de reanudación a través de PowerShell:
 
   ````PowerShell
-  Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="repair"></a>Reparación
@@ -139,7 +141,7 @@ La acción de **reparación** repara un nodo. Úsela solamente para alguno de lo
 - Al reemplazar un nodo completo (con o sin discos de datos nuevos)
 - Después del error de un componente de hardware y de su reemplazo (si se recomienda en la documentación de la unidad reemplazable de campo [FRU]).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Consulte la documentación de la FRU de su proveedor de hardware OEM para conocer los pasos exactos cuando necesite reemplazar un nodo o componentes de hardware individuales. La documentación de la FRU especificará si tiene que ejecutar la acción de reparación después de reemplazar un componente de hardware.  
 
 Al ejecutar la acción de reparación, debe especificar la dirección IP de BMC. 
@@ -147,7 +149,9 @@ Al ejecutar la acción de reparación, debe especificar la dirección IP de BMC.
 Para ejecutar la acción de reparación a través de PowerShell:
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Region <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
   ````
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Para más información sobre el módulo de administrador Fabric de Azure Stack, consulte [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).

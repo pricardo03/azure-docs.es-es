@@ -10,23 +10,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6e663fe275fc195cb611e1032adc147bf4e99b1d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33932156"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260421"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Asignación de roles de administrador en Azure Active Directory
 
 Con Azure Active Directory (Azure AD), puede designar administradores independientes que desempeñen distintas funciones. Los administradores tienen acceso a varias características de Azure Portal y, según el rol que tienen, pueden crear o editar usuarios, asignar roles administrativos a otros, restablecer contraseñas de usuario o administrar licencias de usuario y dominios, entre otras funciones. Un usuario al que se haya asignado un rol de administrador tendrá los mismos permisos en todos los servicios en la nube a los que se haya suscrito la organización, independientemente de si ha asignado el rol en el Portal de Office 365, en Azure Portal o por medio del módulo de Azure AD para Windows PowerShell.
 
 ## <a name="details-about-the-global-administrator-role"></a>Detalles acerca del rol de administrador global
-El administrador global tiene acceso a todos los roles administrativos. De forma predeterminada, a la persona que se suscribe a una suscripción de Azure se le asigna el rol de administrador global para el directorio. Los administradores globales son los únicos que pueden asignar otros roles de administrador.
+El administrador global tiene acceso a todas las características administrativas. De forma predeterminada, a la persona que se suscribe a una suscripción de Azure se le asigna el rol de administrador global para el directorio. Los administradores globales son los únicos que pueden asignar otros roles de administrador.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
 Para obtener información sobre cómo asignar roles administrativos a un usuario en Azure Active Directory, consulte [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) (Asignación de roles de administrador a un usuario en Azure Active Directory).
@@ -42,9 +42,7 @@ Los roles de administrador disponibles son los siguientes:
   > [!NOTE]
   > Para implementar la directiva de acceso condicional de Exchange ActiveSync en Azure, el usuario también debe ser administrador global.
   
-* **Administrador del servicio Dynamics 365**: los usuarios con este rol tienen permisos globales en Microsoft CRM Online cuando el servicio está presente, así como también la posibilidad de administrar incidencias de soporte técnico y supervisar el estado del servicio. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
-
-* **Administradores de dispositivos**: los usuarios con este rol se convierten en administradores de la máquina virtual en todos los dispositivos de Windows 10 que están unidos a Azure Active Directory. No tienen la capacidad de administrar objetos de dispositivos en Azure Active Directory.
+* **Administradores de dispositivo**: este rol está disponible solo para la asignación como un administrador local adicional en la [Configuración del dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Los usuarios con este rol pasarán a ser administradores del equipo local en todos los dispositivos Windows 10 que estén unidos a Azure Active Directory. No tienen la capacidad de administrar objetos de dispositivos en Azure Active Directory.
 
 * **Lectores de directorio**: se trata de un rol heredado que se asigna a las aplicaciones que no admiten el [marco de consentimiento](active-directory-integrating-applications.md). No se debe asignar a ningún usuario.
 
@@ -52,9 +50,11 @@ Los roles de administrador disponibles son los siguientes:
 
 * **Lectores de directorio**: es un rol heredado que se asigna a las aplicaciones que no admiten el [marco de consentimiento](active-directory-integrating-applications.md). No se debe asignar a ningún usuario.
 
+* **Administrador de Dynamics 365**: los usuarios con este rol tienen permisos globales en Microsoft Dynamics 365, cuando el servicio está presente, así como también la capacidad de administrar incidencias de soporte técnico y supervisar el mantenimiento del servicio. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+
 * **Administrador de servicios de Exchange**: los usuarios con este rol tienen permisos globales en Microsoft Exchange Online, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Administrador global/administrador de la compañía**: los usuarios con este rol tienen acceso a todas las características administrativas en Azure Active Directory, así como también los servicios que se federan con Azure Active Directory, como Exchange Online, SharePoint Online y Skype Empresarial Online. La persona que se suscribe al inquilino de Azure Active Directory se convierte en un administrador global. Los administradores globales son los únicos que pueden asignar otros roles de administrador. Puede haber más de un administrador global en su empresa. Los administradores globales pueden restablecer la contraseña de todos los usuarios y de todos los demás administradores.
+* **Administrador global/administrador de la compañía/administrador de inquilinos**: los usuarios con este rol tienen acceso a todas las características administrativas en Azure Active Directory, así como también los servicios que se federan con Azure Active Directory, como Exchange Online, SharePoint Online y Skype Empresarial Online. La persona que se suscribe al inquilino de Azure Active Directory se convierte en un administrador global. Los administradores globales son los únicos que pueden asignar otros roles de administrador. Puede haber más de un administrador global en su empresa. Los administradores globales pueden restablecer la contraseña de todos los usuarios y de todos los demás administradores.
 
   > [!NOTE]
   > En Microsoft Graph API, Graph API de Azure AD, y Azure AD PowerShell, este rol se identifica como "administrador de la compañía". Es "administrador Global" en [Azure Portal](https://portal.azure.com).
@@ -68,6 +68,8 @@ Los roles de administrador disponibles son los siguientes:
 * **Administrador de servicios de Intune**: los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando el servicio está presente. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos.
 
 * **Administrador de buzones de correo**: este rol solo se usa como parte de la compatibilidad con el correo electrónico de Exchange Online para dispositivos RIM Blackberry. Si su organización no usa el correo electrónico de Exchange Online en dispositivos RIM Blackberry, no utilice este rol.
+
+* **Lector del centro de mensajes**: los usuarios de este rol pueden supervisar las notificaciones y las actualizaciones de mantenimiento de aviso en el [Centro de mensajes de Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para su organización en los servicios configurados como Exchange, Intune y Equipos de Microsoft. Los lectores del centro de mensajes reciben semanal resúmenes de correo electrónico de publicaciones y actualizaciones y pueden compartir entradas del centro de mensajes en Office 365. En Azure AD, los usuarios asignados a este rol solo tendrán acceso de solo lectura en los servicios de Azure AD, como usuarios y grupos. 
 
 * **Compatibilidad con el nivel 1 de asociado**: no lo utilice. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
 
@@ -120,7 +122,7 @@ Los roles de administrador disponibles son los siguientes:
 ### <a name="global-administrator"></a>Administrador global
 | Puede hacer | No puede hacer |
 | --- | --- |
-|<p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p><p>Restablecer las contraseñas de los usuarios</p><p>Restablecer las contraseñas de otro administrador</p> <p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Visualización de registros de auditoría</p> |N/D |
+|<p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p><p>Restablecer las contraseñas de los usuarios</p><p>Restablecer las contraseñas de otros administradores</p> <p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Visualización de registros de auditoría</p> |N/D |
 
 ### <a name="password-administrator--helpdesk-administrator"></a>Administrador de contraseñas/Administrador del departamento de soporte técnico
 | Puede hacer | No puede hacer |
@@ -156,14 +158,14 @@ Ver registros de auditoría e informes de inicio de sesión de Azure AD<br>Ver i
 | --- | --- |
 | <p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p> |<p>Restablecer las contraseñas de los usuarios</p><p>Realizar operaciones de facturación y compra productos de Office</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Visualización de registros de auditoría</p> |
 
-### <a name="user-account-administrator"></a>Administrador de cuentas de usuario
+### <a name="user-account-administrator"></a>Administrador de cuenta de usuario
 | Puede hacer | No puede hacer |
 | --- | --- |
 | <p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Cambiar solo las contraseñas de los usuarios, de los administradores del departamento de soporte técnico y de otros administradores de cuentas de usuario</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios, con limitaciones. No puede eliminar un administrador global ni crear otros administradores.</p> |<p>Realizar operaciones de facturación y compra productos de Office</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Visualización de registros de auditoría</p> |
 
-### <a name="to-add-a-colleague-as-a-global-administrator"></a>Para agregar un compañero como administrador global
+### <a name="to-add-a-user-as-a-global-administrator"></a>Para agregar un usuario como administrador global
 
-1. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio de inquilinos.
+1. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio del inquilino.
 
    ![Abrir el Centro de administración de Azure AD](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769699"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261226"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de integración del centro de datos para sistemas integrados de Azure Stack
 Si está interesado en un sistema integrado de Azure Stack, debería comprender algunas de las principales consideraciones de planeamiento acerca de la implementación y el modo en que el sistema se adapta a su centro de datos. En este artículo se proporciona información general de alto nivel de estas consideraciones para ayudarle a tomar importantes decisiones de infraestructura para el sistema de varios nodos de Azure Stack. Entender estas consideraciones ayuda a trabajar con su proveedor de hardware OEM cuando se implementa Azure Stack en el centro de datos.  
@@ -135,9 +135,9 @@ En la tabla siguiente se resumen los escenarios de conectividad híbrida, con la
 
 | Escenario | Método de conectividad | Ventajas | Desventajas | Bueno para |
 | -- | -- | --| -- | --|
-| Azure Stack de inquilino único, implementación en intranet | NAT de salida | Mejor ancho de banda para transferencias más rápidas. Fácil de implementar; no se necesitan puertas de enlace. | Tráfico no cifrado; sin aislamiento ni cifrado más allá de Tor. | Implementaciones empresariales en las que se confía por igual en todos los inquilinos.<br><br>Empresas que tienen un circuito Azure ExpressRoute en Azure. |
+| Azure Stack de inquilino único, implementación en intranet | NAT de salida | Mejor ancho de banda para transferencias más rápidas. Fácil de implementar; no se necesitan puertas de enlace. | Tráfico no cifrado; sin aislamiento ni cifrado fuera de la pila. | Implementaciones empresariales en las que se confía por igual en todos los inquilinos.<br><br>Empresas que tienen un circuito Azure ExpressRoute en Azure. |
 | Azure Stack de varios inquilinos, implementación en intranet | VPN de sitio a sitio | El tráfico de la red virtual del inquilino al destino es seguro. | El ancho de banda está limitado por el túnel VPN de sitio a sitio.<br><br>Requiere una puerta de enlace en la red virtual y un dispositivo VPN en la red de destino. | Implementaciones empresariales en las que cierto tráfico de inquilinos debe protegerse de otros inquilinos. |
-| Azure Stack de inquilino único, implementación en Internet | NAT de salida | Mejor ancho de banda para transferencias más rápidas. | Tráfico no cifrado; sin aislamiento ni cifrado más allá de Tor. | Escenarios de hospedaje en los que el inquilino obtiene su propia implementación de Azure Stack y un circuito dedicado en el entorno de Azure Stack. Por ejemplo, ExpressRoute y conmutación de etiquetas de multiprotocolo (MPLS).
+| Azure Stack de inquilino único, implementación en Internet | NAT de salida | Mejor ancho de banda para transferencias más rápidas. | Tráfico no cifrado; sin aislamiento ni cifrado fuera de la pila. | Escenarios de hospedaje en los que el inquilino obtiene su propia implementación de Azure Stack y un circuito dedicado en el entorno de Azure Stack. Por ejemplo, ExpressRoute y conmutación de etiquetas de multiprotocolo (MPLS).
 | Azure Stack de varios inquilinos, implementación en Internet | VPN de sitio a sitio | El tráfico de la red virtual del inquilino al destino es seguro. | El ancho de banda está limitado por el túnel VPN de sitio a sitio.<br><br>Requiere una puerta de enlace en la red virtual y un dispositivo VPN en la red de destino. | Escenarios de hospedaje en los que el proveedor desea ofrecer una nube de varios inquilinos, donde los inquilinos no confían entre sí y el tráfico debe cifrarse.
 |  |  |  |  |  |
 

@@ -1,13 +1,14 @@
 ---
-title: "Configuración de dispositivos unidos a Azure Active Directory | Microsoft Docs"
+title: Configuración de dispositivos unidos a Azure Active Directory | Microsoft Docs
 description: Aprenda a configurar dispositivos unidos a Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260936"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configuración de dispositivos unidos a Azure Active Directory
 
@@ -47,10 +49,14 @@ Para unir un dispositivo Windows 10, el servicio de registro de dispositivos deb
 
 - Si es un usuario federado, tendrá que iniciar sesión con sus credenciales.
 
+- En caso de ser federado, el proveedor de identidades DEBE admitir puntos de conexión de nombre de usuario y contraseña WS-Fed y WS-Trust. Puede ser la versión 1.3 o 2005. Esta compatibilidad con el protocolo se requiere tanto para unir el dispositivo a Azure AD como para iniciar sesión en el dispositivo con una contraseña. 
+
+
+
 
 ## <a name="joining-a-device"></a>Unión de un dispositivo
 
-En esta sección, se proporcionan los pasos para unir su dispositivo Windows 10 a Azure AD. Si ha unido correctamente el dispositivo a Azure AD, el cuadro de diálogo **Obtener acceso a trabajo o escuela** lo indica con la entrada **Conectado con \<su Azure AD\>**.
+En esta sección, se proporcionan los pasos para unir su dispositivo Windows 10 a Azure AD. Un dispositivo unido correctamente aparece como **Conectado a \<Azure AD\>**.
 
 ![Conectado](./media/device-management-azuread-joined-devices-setup/13.png)
 
@@ -59,7 +65,7 @@ En esta sección, se proporcionan los pasos para unir su dispositivo Windows 10 
 
 1. En el menú **Inicio**, haga clic en **Configuración**.
 
-    ![Configuración](./media/device-management-azuread-joined-devices-setup/01.png)
+    ![Settings](./media/device-management-azuread-joined-devices-setup/01.png)
 
 2. Haga clic en **Cuentas**.
 
@@ -119,7 +125,7 @@ Para obtener más información, consulte [Locate devices](device-management-azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte  
+Para más información, consulte: 
 
 - [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md)
 - [Managing devices using the Azure portal](device-management-azure-portal.md) (Administración de dispositivos con Azure Portal)

@@ -1,24 +1,19 @@
 ---
 title: Aislamiento de las aplicaciones de Service Bus de Azure ante interrupciones y desastres | Microsoft Docs
-description: "Técnicas para proteger las aplicaciones ante una posible interrupción de Service Bus."
+description: Técnicas para proteger las aplicaciones ante una posible interrupción de Service Bus.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802313"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus
 
@@ -34,7 +29,9 @@ Service Bus usa varios almacenes de mensajería para conservar los mensajes que 
 Todas las entidades de mensajería de Service Bus (colas, temas, retransmisiones) residen en un espacio de nombres de servicio, asociado con un centro de datos. Ahora, Service Bus admite tanto la [*recuperación ante desastres con localización geográfica* como la *replicación geográfica*](service-bus-geo-dr.md) en el nivel del espacio de nombres.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protección de colas y temas contra errores en el almacén de mensajería
-Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, Service Bus escribe el mensaje en otro fragmento, si es posible. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
+Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, Service Bus escribe el mensaje en otro fragmento, si es posible. No se admiten las entidades con particiones en el nivel [SKU Premium](service-bus-premium-messaging.md). 
+
+Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protección contra desastres o interrupciones del centro de datos
 Para permitir una conmutación por error entre dos centros de datos, puede crear un espacio de nombres de servicio para Service Bus en cada centro de datos. Por ejemplo, el espacio de nombres de servicio de Service Bus **contosoPrimary.servicebus.windows.net** puede encontrarse en la región norte/central de Estados Unidos, y **contosoSecondary.servicebus.windows.net** puede encontrarse en la región sur/central de EE. UU. Si una entidad de mensajería de Service Bus debe permanecer accesible en el caso de una interrupción del centro de datos, puede crear esa entidad en ambos espacios de nombres.

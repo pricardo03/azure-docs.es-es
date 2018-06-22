@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: e14c4671669bc00e52c84c821a5229d26b2ba1c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f2f616c5908d8583764425b62acd1650283d0695
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211378"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701724"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describen los diferentes tipos de salidas disponibles para los trabajos de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Con los datos de salida, puede realizar análisis de negocio adicionales y almacenamiento de los datos. 
@@ -28,6 +28,8 @@ Algunos tipos de salida admiten la [creación de particiones](#partitioning), y 
 
 ## <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
 Stream Analytics admite el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. El Almacén de Data Lake permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos. Stream Analytics debe tener autorización para acceder a Data Lake Store.
+
+La salida de Azure Data Lake Store desde Stream Analytics no está disponible actualmente en las regiones de Azure China (21Vianet) y Azure Alemania (T-Systems International).
 
 ### <a name="authorize-an-azure-data-lake-store-account"></a>Autorización de una cuenta de Azure Data Lake Store
 
@@ -45,7 +47,7 @@ Stream Analytics admite el [Almacén de Azure Data Lake](https://azure.microsoft
 | --- | --- |
 | Alias de salida | Es un nombre descriptivo utilizado en las consultas para dirigir la salida de la consulta a esta instancia de Data Lake Store. | 
 | Nombre de cuenta | El nombre de la cuenta de Data Lake Storage donde va a enviar la salida. Se le presentará una lista desplegable de cuentas de Data Lake Store que están disponibles en la suscripción. |
-| Patrón del prefijo de la ruta de acceso | La ruta de acceso utilizada para escribir sus archivos en la cuenta del Almacén de Data Lake especificada. Puede especificar una o más instancias de las variables {date} y {time}.</br><ul><li>Ejemplo 1: carpeta1/registros/{date}/{time}</li><li>Ejemplo 2: carpeta1/registros/{date}</li></ul>Si el patrón de la ruta de acceso al archivo no contiene un carácter "/" final, el patrón final de la ruta de acceso al archivo se considera como un prefijo del nombre de archivo. </br></br>Se crean nuevos archivos en las circunstancias siguientes:<ul><li>Cambio en el esquema de salida</li><li>Reinicio externo o interno de un trabajo</li></ul> |
+| Patrón del prefijo de la ruta de acceso | La ruta de acceso utilizada para escribir sus archivos en la cuenta del Almacén de Data Lake especificada. Puede especificar una o más instancias de las variables {date} y {time}.</br><ul><li>Ejemplo 1: carpeta1/registros/{date}/{time}</li><li>Ejemplo 2: carpeta1/registros/{date}</li></ul><br>La marca de tiempo de la estructura de carpetas que creó sigue la zona horaria UTC y no la hora local.</br><br>Si el patrón de la ruta de acceso al archivo no contiene un carácter "/" final, el patrón final de la ruta de acceso al archivo se considera como un prefijo del nombre de archivo. </br></br>Se crean nuevos archivos en las circunstancias siguientes:<ul><li>Cambio en el esquema de salida</li><li>Reinicio externo o interno de un trabajo</li></ul> |
 | Formato de fecha | Opcional. Si el token de fecha se usa en la ruta de acceso de prefijo, puede seleccionar el formato de fecha en el que se organizan los archivos. Ejemplo: AAAA/MM/DD |
 |Formato de hora | Opcional. Si el token de hora se usa en la ruta de acceso de prefijo, puede seleccionar el formato de hora en el que se organizan los archivos. Actualmente, el único valor admitido es HH. |
 | Formato de serialización de eventos | Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro.| 
@@ -87,7 +89,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 | Cuenta de almacenamiento | El nombre de la cuenta de almacenamiento a donde está enviando la salida |
 | Clave de cuenta de almacenamiento | La clave secreta asociada con la cuenta de almacenamiento. |
 | Contenedor de almacenamiento | Los contenedores proporcionan una agrupación lógica de los blobs almacenados en Microsoft Azure Blob service. Cuando carga un blob a Blob service, debe especificar un contenedor para ese blob. |
-| Patrón de la ruta de acceso | Opcional. El patrón de la ruta de acceso al archivo para escribir los blobs dentro del contenedor especificado. </br></br> En el patrón de la ruta de acceso, puede elegir usar una o más instancias de las variables de fecha y hora para especificar la frecuencia con la que se escriben los blobs: </br> {date}, {time} </br> </br>Si está suscrito en la [versión preliminar](https://aka.ms/ASAPreview), también puede especificar un nombre de {field} personalizado de los datos a partir del cual particionar los blobs, donde el nombre del campo es alfanumérico y puede incluir espacios, guiones y caracteres de subrayado. Entre las restricciones en los campos personalizados se incluyen las siguientes: <ul><li>No distingue mayúsculas y minúsculas (no puede diferenciar entre la columna "ID" y la columna "id")</li><li>No se permiten los campos anidados (en su lugar, utilice un alias en la consulta del trabajo para "aplanar" el campo)</li><li>No pueden usarse expresiones como nombres de campos</li></ul>Ejemplos: <ul><li>Ejemplo 1: cluster1/logs/{date}/{time}</li><li>Ejemplo 2: cluster1/logs/{date}</li><li>Ejemplo 3 (versión preliminar): cluster1/{client_id}/{date}/{time}</li><li>Ejemplo 4 (versión preliminar): cluster1/{myField} donde la consulta es: SELECT data.myField AS myField FROM Input;</li></ul><BR> La nomenclatura de los archivos sigue la convención siguiente: </br> {Patrón del prefijo de la ruta de acceso}/schemaHashcode_Guid_Number.extension </br></br> Archivos de salida de ejemplo: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Patrón de la ruta de acceso | Opcional. El patrón de la ruta de acceso al archivo para escribir los blobs dentro del contenedor especificado. </br></br> En el patrón de la ruta de acceso, puede elegir usar una o más instancias de las variables de fecha y hora para especificar la frecuencia con la que se escriben los blobs: </br> {date}, {time} </br> </br>Si está suscrito en la [versión preliminar](https://aka.ms/ASAPreview), también puede especificar un nombre de {field} personalizado de los datos a partir del cual particionar los blobs, donde el nombre del campo es alfanumérico y puede incluir espacios, guiones y caracteres de subrayado. Entre las restricciones en los campos personalizados se incluyen las siguientes: <ul><li>No distingue mayúsculas y minúsculas (no puede diferenciar entre la columna "ID" y la columna "id")</li><li>No se permiten los campos anidados (en su lugar, utilice un alias en la consulta del trabajo para "aplanar" el campo)</li><li>No pueden usarse expresiones como nombres de campos</li></ul>Ejemplos: <ul><li>Ejemplo 1: cluster1/logs/{date}/{time}</li><li>Ejemplo 2: cluster1/logs/{date}</li><li>Ejemplo 3 (versión preliminar): cluster1/{client_id}/{date}/{time}</li><li>Ejemplo 4 (versión preliminar): cluster1/{myField} donde la consulta es: SELECT data.myField AS myField FROM Input;</li></ul><br>La marca de tiempo de la estructura de carpetas que creó sigue la zona horaria UTC y no la hora local.</br><BR> La nomenclatura de los archivos sigue la convención siguiente: </br> {Patrón del prefijo de la ruta de acceso}/schemaHashcode_Guid_Number.extension </br></br> Archivos de salida de ejemplo: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Formato de fecha | Opcional. Si el token de fecha se usa en la ruta de acceso de prefijo, puede seleccionar el formato de fecha en el que se organizan los archivos. Ejemplo: AAAA/MM/DD |
 | Formato de hora | Opcional. Si el token de hora se usa en la ruta de acceso de prefijo, puede seleccionar el formato de hora en el que se organizan los archivos. Actualmente, el único valor admitido es HH. |
 | Formato de serialización de eventos | Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro.
@@ -104,7 +106,7 @@ Cuando se utiliza el almacenamiento de blobs como salida, se crea un nuevo archi
 * Si el usuario elimina un archivo o un contenedor de la cuenta de almacenamiento.  
 * Si la salida está particionada en el tiempo mediante el patrón de prefijo de ruta de acceso, se usa un nuevo blob cuando la consulta pasa a la hora siguiente.
 * Si la salida tiene particiones por un campo personalizado, se crea un nuevo blob por clave de partición, si no existe.
-*   Si la salida tiene particiones por un campo personalizado, donde la cardinalidad de clave de partición supera los 8000, se puede crear un nuevo blob por clave de partición.
+* Si la salida tiene particiones por un campo personalizado, donde la cardinalidad de clave de partición supera los 8000, se puede crear un nuevo blob por clave de partición.
 
 ## <a name="event-hub"></a>Centro de eventos
 El servicio [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) es un agente de ingesta de eventos de publicación-suscripción altamente escalable. Puede recopilar millones de eventos por segundo. Un uso del centro de eventos como salida es cuando la salida de un trabajo de Stream Analytics se convierte en la entrada de otro trabajo de streaming.
@@ -114,7 +116,7 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Alias de salida | Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este Centro de eventos. |
-| Espacio de nombres del Centro de eventos |Un espacio de nombres de Centro de eventos es un contenedor para un conjunto de entidades de mensajería. Al crear un nuevo Centro de eventos, también se crea un espacio de nombres de Centro de eventos. |
+| Espacio de nombres del Centro de eventos |Un espacio de nombres de Event Hubs es un contenedor para un conjunto de entidades de mensajería. Al crear un nuevo centro de eventos, también se crea un espacio de nombres de Event Hubs. |
 | Nombre del centro de eventos | El nombre de la salida del Centro de eventos. |
 | Nombre de la directiva del centro de eventos | La directiva de acceso compartido, que se puede crear en la pestaña Configuración de Centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | Clave de la directiva del Centro de eventos | La clave de acceso compartido usada para autenticar el acceso al espacio de nombres del Centro de eventos. |
@@ -126,6 +128,8 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Stream Analytics a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta funcionalidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
+
+La salida de Power BI desde Stream Analytics no está disponible actualmente en las regiones de Azure China (21Vianet) y Azure Alemania (T-Systems International).
 
 ### <a name="authorize-a-power-bi-account"></a>Autorización de una cuenta de Power BI
 1. Cuando se selecciona Power BI como salida en Azure Portal, se le pide que autorice a un usuario de Power BI o que cree una nueva cuenta de Power BI.  
@@ -248,6 +252,8 @@ El número de particiones se [basa en la SKU y el tamaño de Service Bus](../ser
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) es un servicio de base de datos multimodelo distribuido globalmente que ofrece un escalado ilimitado en todo el mundo, una avanzada funcionalidad de indexación automática y de consultas a partir de modelos de datos independientes del esquema, baja latencia garantizada y completos contratos de nivel de servicio líderes en el sector. Para conocer las opciones de colección de Cosmos DB para Stream Analytics, consulte el artículo [Salida de Azure Stream Analytics a Azure Cosmos DB](stream-analytics-documentdb-output.md).
 
+La salida de Azure Cosmos DB desde Stream Analytics no está disponible actualmente en las regiones de Azure China (21Vianet) y Azure Alemania (T-Systems International).
+
 > [!Note]
 > En este momento, Azure Stream Analytics solo admite la conexión a CosmosDB mediante la **API de SQL**.
 > Aún no se admiten otras API de Azure Cosmos DB. Si apunta Azure Stream Analytics a las cuentas de Azure Cosmos DB creadas con otras API, puede que los datos no se almacenen correctamente. 
@@ -267,6 +273,8 @@ En la tabla siguiente se describen las propiedades para crear una salida de Azur
 
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions es un servicio de proceso sin servidor que le permite ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura. Permite implementar el código desencadenado por los eventos que se producen en servicios de Azure o en servicios de terceros.  Esta capacidad que tiene Azure Functions para responder a los desencadenadores hace que sea una salida natural para una instancia de Azure Stream Analytics. Este adaptador de salida permite que los usuarios conecten Stream Analytics con Azure Functions y ejecuten un script o una parte de un código como respuesta a una variedad de eventos.
+
+La salida de Azure Functions desde Stream Analytics no está disponible actualmente en las regiones de Azure China (21Vianet) y Azure Alemania (T-Systems International).
 
 Azure Stream Analytics invoca a Azure Functions a través de desencadenadores HTTP. El nuevo adaptador de salida de Azure Functions está disponible con las propiedades configurables siguientes:
 

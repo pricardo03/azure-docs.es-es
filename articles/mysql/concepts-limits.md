@@ -6,45 +6,37 @@ author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264891"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
 
-## <a name="service-tier-maximums"></a>Máximos de nivel de servicio
-Azure Database for MySQL tiene varios niveles de servicio entre los que puede elegir al crear un servidor. Para más información, consulte el artículo de [planes de tarifa de Azure Database for MySQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Número máximo de conexiones
+El número máximo de conexiones por plan de tarifa y núcleos virtuales es el siguiente: 
 
-Hay un número máximo de conexiones, unidades de proceso y almacenamiento en cada nivel de servicio, y son los siguientes: 
+|**Plan de tarifa**|**Núcleos virtuales**| **Conexiones máximas**|
+|---|---|---|
+|Básica| 1| 50|
+|Básica| 2| 100|
+|Uso general| 2| 300|
+|Uso general| 4| 625|
+|Uso general| 8| 1250|
+|Uso general| 16| 2.500|
+|Uso general| 32| 5000|
+|Memoria optimizada| 2| 600|
+|Memoria optimizada| 4| 1250|
+|Memoria optimizada| 8| 2.500|
+|Memoria optimizada| 16| 5000|
 
-|**Plan de tarifa**| **Generación de procesos**|**Núcleos virtuales**| **Conexiones máximas**|
-|---|---|---|---|
-|Básica| Gen 4| 1| 50|
-|Básica| Gen 4| 2| 100|
-|Básica| Gen 5| 1| 50|
-|Básica| Gen 5| 2| 100|
-|Uso general| Gen 4| 2| 300|
-|Uso general| Gen 4| 4| 625|
-|Uso general| Gen 4| 8| 1250|
-|Uso general| Gen 4| 16| 2.500|
-|Uso general| Gen 4| 32| 5000|
-|Uso general| Gen 5| 2| 300|
-|Uso general| Gen 5| 4| 625|
-|Uso general| Gen 5| 8| 1250|
-|Uso general| Gen 5| 16| 2.500|
-|Uso general| Gen 5| 32| 5000|
-|Memoria optimizada| Gen 5| 2| 600|
-|Memoria optimizada| Gen 5| 4| 1250|
-|Memoria optimizada| Gen 5| 8| 2.500|
-|Memoria optimizada| Gen 5| 16| 5000|
-
-Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
+Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Too many connections
 
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
@@ -85,8 +77,6 @@ Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 - La restauración a un nivel de servicio o unidades de proceso y tamaño de almacenamiento diferente no se admite.
 - La restauración a un servidor que se ha eliminado no se admite en este momento.
-
-## <a name="functional-limitations"></a>Limitaciones funcionales
 
 ### <a name="subscription-management"></a>Administración de suscripciones
 - El movimiento dinámico de servidores creados previamente entre grupo de suscripciones y recursos no se admite en este momento.

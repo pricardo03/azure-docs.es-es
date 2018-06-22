@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 74b8c6afc5167225414f467f76f08c0e53bbade5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/01/2018
+ms.openlocfilehash: 6a4d5fd2bb649b2a0b0d23f4f752442f854e5098
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264908"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migración de la base de datos de MySQL mediante importación y exportación
 En este artículo se explican dos métodos habituales para importar y exportar datos a un servidor de Azure Database for MySQL mediante el uso de MySQL Workbench. 
@@ -113,4 +114,5 @@ Puede usar la pestaña **Importación de datos** para importar o restaurar los d
 2. Haga clic en **Iniciar importación** para comenzar el proceso de importación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para conocer otro método de migración, consulte [Migración de la Base de datos MySQL mediante el volcado y la restauración en Azure Database for MySQL](concepts-migrate-dump-restore.md). 
+- Para conocer otro método de migración, consulte [Migración de la Base de datos MySQL mediante el volcado y la restauración en Azure Database for MySQL](concepts-migrate-dump-restore.md).
+- Para obtener más información sobre cómo migrar bases de datos a Azure Database for MySQL, vea la [Guía de migración de base de datos](http://aka.ms/datamigration). 

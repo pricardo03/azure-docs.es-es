@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8643e75a24ff7840b71dfaceae9934cdda566d30
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198582"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604427"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Uso de bases de datos SQL en Microsoft Azure Stack
 Use el proveedor de recursos de SQL Server de Azure Stack para exponer las bases de datos SQL como un servicio de Azure Stack. El servicio del proveedor de recursos SQL se ejecuta en la máquina virtual del proveedor de recursos SQL, que es una máquina virtual de núcleo de Windows Server.
@@ -30,11 +30,14 @@ Hay varios requisitos previos que se deben cumplir antes de implementar el prove
 - Si aún no lo ha hecho, [registre Azure Stack](.\azure-stack-registration.md) en Azure para poder descargar elementos de Azure Marketplace.
 - Agregue la máquina virtual de núcleo de Windows Server a Marketplace de Azure Stack mediante la descarga de la imagen **núcleo de Windows Server 2016**. Si tiene que instalar una actualización, puede colocar un único paquete .MSU en la ruta de acceso local de la dependencia. Si hay más de un archivo .MSU, se produce un error al instalar el proveedor de recursos SQL.
 - Descargue el binario del proveedor de recursos SQL y ejecute el extractor automático para extraer el contenido en un directorio temporal. El proveedor de recursos tiene una compilación mínima correspondiente de Azure Stack. Asegúrese de descargar el binario correcto para la versión de Azure Stack que ejecuta:
-    - Azure Stack versión 1802 (1.0.180302.1): [SQL RP versión 1.1.18.0](https://aka.ms/azurestacksqlrp1802).
-    - Azure Stack versión 1712 (1.0.180102.3, 1.0.180103.2 o 1.0.180106.1 (sistemas integrados)): [SQL RP versión 1.1.14.0](https://aka.ms/azurestacksqlrp1712).
-- En instalaciones de sistemas integrados exclusivamente, debe proporcionar el certificado PKI de PaaS de SQL como se describe en la sección Certificados de PaaS opcionales de [Requisitos de infraestructura de clave pública para la implementación de Azure Stack
-](.\azure-stack-pki-certs.md#optional-paas-certificates), al colocar el archivo .pfx en la ubicación especificada por el parámetro **DependencyFilesLocalPath**.
-- Asegúrese de que tiene instalada la [versión más reciente de PowerShell de Azure Stack](.\azure-stack-powershell-install.md) (v1.2.11). 
+
+    |Versión de Azure Stack|Versión de SQL RP|
+    |-----|-----|
+    |Versión 1804 (1.0.180513.1)|[SQL RP, versión 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
+    |Versión 1802 (1.0.180302.1)|[SQL RP, versión 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Versión 1712 (1.0.180102.3, 1.0.180103.2 o 1.0.180106.1 [sistemas integrados])|[SQL RP, versión 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
+    |     |     |
+- En instalaciones de sistemas integrados exclusivamente, debe proporcionar el certificado PKI de PaaS de SQL como se describe en la sección Certificados de PaaS opcionales de [Requisitos de infraestructura de clave pública para la implementación de Azure Stack](.\azure-stack-pki-certs.md#optional-paas-certificates), colocando el archivo .pfx en la ubicación especificada por el parámetro **DependencyFilesLocalPath**.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Implementar el proveedor de recursos SQL
 Después de haberse preparado correctamente para instalar el proveedor de recursos SQL al cumplir todos los requisitos previos, ahora puede ejecutar el script **DeploySqlProvider.ps1** para implementar el proveedor de recursos SQL. El script DeploySqlProvider.ps1 se extrae como parte del binario del proveedor de recursos SQL descargado correspondiente a la versión de Azure Stack. 
@@ -83,10 +86,9 @@ Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o s
 Para evitar la especificación manual de la información necesaria cuando se ejecuta el script DeploySqlProvider.ps1, puede personalizar el siguiente ejemplo de script si cambia la información de cuenta predeterminada y las contraseñas según sea necesario:
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -115,12 +117,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint $privilegedEndpoint `
-  -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+$tempDir\DeploySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
+    -VMLocalCredential $vmLocalAdminCreds `
+    -CloudAdminCredential $cloudAdminCreds `
+    -PrivilegedEndpoint $privilegedEndpoint `
+    -DefaultSSLCertificatePassword $PfxPass `
+    -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Comprobación de la implementación mediante Azure Stack Portal
