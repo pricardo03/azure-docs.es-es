@@ -98,22 +98,22 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Escalado de recursos de base de datos única
           href: sql-database-single-database-scale.md
-        - name: Grupos elásticos y bases de datos agrupadas
-          items:
-            - name: Grupos elásticos y bases de datos agrupadas
-              href: sql-database-elastic-pool.md
-            - name: Administración de grupos y bases de datos agrupadas
-              href: sql-database-elastic-pool-manage.md
-            - name: Límites de los recursos basados en núcleos virtuales
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Límites de los recursos basados en DTU
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Escalado de los recursos de un grupo elástico
-          href: sql-database-elastic-pool-scale.md
         - name: Arquitectura de conectividad
           href: sql-database-connectivity-architecture.md
         - name: Diferencias de T-SQL
           href: sql-database-transact-sql-information.md
+    - name: Grupos elásticos y bases de datos agrupadas
+      items:
+        - name: Grupos elásticos y bases de datos agrupadas
+          href: sql-database-elastic-pool.md
+        - name: Administración de grupos y bases de datos agrupadas
+          href: sql-database-elastic-pool-manage.md
+        - name: Límites de los recursos basados en núcleos virtuales
+          href: sql-database-vcore-resource-limits-elastic-pools.md
+        - name: Límites de los recursos basados en DTU
+          href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: Escalado de los recursos de un grupo elástico
+          href: sql-database-elastic-pool-scale.md
     - name: Instancias administradas
       items:
         - name: Instancias administradas
