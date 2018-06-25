@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652253"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 
@@ -117,7 +118,7 @@ Por ejemplo, proporcione una descripción de cadena para el número de vehículo
         Make,
         TumblingWindow(second, 10)
 
-**Explicación**: la cláusula **CASE** permite proporcionar un cálculo diferente en función de criterios determinados (en nuestro caso, el número de automóviles en la ventana de agregado).
+**Explicación**: la expresión **CASE** compara una expresión con un conjunto de expresiones sencillas para determinar el resultado. En este ejemplo, las marcas de vehículos con un recuento de 1 han devuelto una descripción de cadena diferente de la de las marcas de vehículos con un recuento distinto a 1. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Ejemplo de consulta: envío de datos a varias salidas
 **Descripción**: envíe datos a varios destinos de salida desde un único trabajo.
@@ -173,7 +174,7 @@ Por ejemplo, analice los datos para una alerta de umbral y archive todos los eve
         [Count] >= 3
 
 **Explicación**: la cláusula **INTO** indica a Stream Analytics en cuál de las salidas se escribirán los datos de esta instrucción.
-La primera consulta es una transferencia de los datos que se recibe en una salida que denominamos **ArchiveOutput**.
+La primera consulta es una transferencia de los datos recibidos en una salida denominada **ArchiveOutput**.
 La segunda consulta hace una agregación y un filtrado simples y envía los resultados a un sistema de alertas descendente.
 
 Tenga en cuenta que también puede reutilizar los resultados de las expresiones de tabla comunes (CTE), como las instrucciones **WITH**, en varias instrucciones de salida. Esta opción ofrece el beneficio adicional de la apertura de algunos lectores para el origen de entrada.
@@ -418,7 +419,7 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Ejemplo de consulta: detección de la duración de una condición
 **Descripción**: averigüe la duración de una condición.
-Por ejemplo, supongamos que, por error, todos los vehículos tienen un peso incorrecto (por encima de 20 000 libras). Queremos calcular la duración del error.
+Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20 000 libras), y debe calcularse la duración del error.
 
 **Entrada**:
 
@@ -506,8 +507,8 @@ Por ejemplo, genere un evento cada cinco segundos que notifique el punto de dato
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Ejemplo de consulta: correlacionar dos tipos de evento dentro del mismo flujo
-**Descripción**: a veces es necesario generar alertas basadas en varios tipos de evento que se produjeron en un intervalo de tiempo determinado.
-Por ejemplo, en un escenario de IoT de hornos domésticos, queremos generar una alerta cuando la temperatura del ventilador sea inferior a 40 y la potencia máxima durante los últimos 3 minutos sea inferior a 10.
+**Descripción**: a veces, es necesario generar alertas basadas en varios tipos de eventos que se produjeron en un intervalo de tiempo determinado.
+Por ejemplo, en un escenario de IoT de hornos domésticos, se debe generar una alerta cuando la temperatura del ventilador sea inferior a 40 y la potencia máxima durante los últimos 3 minutos sea inferior a 10.
 
 **Entrada**:
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **Explicación**: la primera consulta `max_power_during_last_3_mins`, usa la [ventana deslizante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para encontrar el valor máximo del sensor de potencia para cada dispositivo, durante los últimos 3 minutos. La segunda consulta se combina con la primera para encontrar el valor de potencia en la ventana más reciente relacionada con el evento actual. Y entonces, siempre que se cumplan las condiciones, se genera una alerta para el dispositivo.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Ejemplo de consulta: procesar los eventos de manera independiente del sesgo de reloj del dispositivo (subtransmisiones)
+**Descripción**: los eventos pueden llegar tarde o desordenados debido a sesgos de reloj entre los productores de eventos, a sesgos de reloj entre particiones o a la latencia de red. En el ejemplo siguiente, el reloj del dispositivo para TollID 2 va diez segundos atrasado respecto a TollID 1 y el reloj del dispositivo para TollID 3 va diez segundos atrasado respecto a TollID 1. 
+
+
+**Entrada**:
+| LicensePlate | Asegúrese | Hora | TollId |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Salida**:
+| TollId | Recuento |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Solución**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Explicación**: la cláusula [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examina la escala de tiempo de cada dispositivo por separado mediante subtransmisiones. Los eventos de salida para cada TollID se generan a medida que se calculan, lo que significa que los eventos están en orden con respecto a cada TollID en lugar de que se vuelvan a ordenar como si todos los dispositivos estuvieran en el mismo reloj.
 
 
 ## <a name="get-help"></a>Obtención de ayuda

@@ -3,17 +3,18 @@ title: Administración de un clúster de Azure Kubernetes con una interfaz de us
 description: Uso del panel de Kubernetes en AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ab137c8397f747ba07475910cd4461d88951d6be
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 66843a5dda9f7b31b2b4c79df895eaff904513e6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595587"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Panel de Kubernetes con Azure Kubernetes Service (AKS)
 
@@ -37,7 +38,7 @@ Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernet
 
 ## <a name="run-an-application"></a>Ejecución de una aplicación
 
-En el panel de Kubernetes, haga clic en el botón **Create** (Crear) de la ventana derecha superior. Asigne el nombre de la implementación `nginx` y escriba `nginx:latest` para el nombre de las imágenes. En **Service** (Servicio), seleccione **External** (Externo) y escriba `80` para el puerto y el puerto de destino.
+En el panel de Kubernetes, haga clic en el botón **Create** (Crear) de la ventana derecha superior. Asigne el nombre `nginx` a la implementación y escriba `nginx:latest` para el nombre de las imágenes de contenedor. En **Service** (Servicio), seleccione **External** (Externo) y escriba `80` para el puerto y el puerto de destino.
 
 Cuando esté listo, haga clic en **Deploy** (Implementar) para crear la implementación.
 

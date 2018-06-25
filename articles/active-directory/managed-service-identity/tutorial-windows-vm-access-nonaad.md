@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c4570e43c23ff7a23b5d6a97ebd6da0244ed6fb2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 35391c8148246146eeb0c07bf57aea8a2a95d277
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34300733"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594941"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Tutorial: Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Key Vault 
 
@@ -139,8 +139,9 @@ En primer lugar, vamos a usar la identidad MSI de la máquina virtual para obten
     
 Cuando haya recuperado el secreto del almacén de claves, podrá usarlo para autenticarse en un servicio que requiere un nombre y una contraseña. 
 
-## <a name="related-content"></a>Contenido relacionado
+## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre MSI, consulte [Managed Service Identity overview](overview.md) (Introducción a Managed Service Identity).
+En este tutorial, ha obtenido información sobre cómo crear una instancia de Managed Service Identity para acceder a Azure Key Vault.  Para obtener más información sobre Azure Key Vault, vea:
 
-Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a afinar y remodelar el contenido.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)

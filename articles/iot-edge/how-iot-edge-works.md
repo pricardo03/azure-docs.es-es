@@ -1,25 +1,20 @@
 ---
 title: Introducción a Azure IoT Edge | Microsoft Docs
 description: Introducción al servicio Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630704"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Introducción a Azure IoT Edge (versión preliminar)
 
@@ -69,7 +64,7 @@ El entorno de tiempo de ejecución de Azure IoT Edge se ejecuta en un gran conju
 
 Administrar el ciclo de vida del software para los dispositivos de la empresa es complicado. Administrar el ciclo de vida del software para millones de dispositivos de IoT heterogéneos es incluso más difícil. Las cargas de trabajo deben crearse y configurarse para un determinado tipo de dispositivo, implementarse a escala en los millones de dispositivos de la solución y supervisarse para detectar los comportamientos incorrectos de los dispositivos. Estas actividades no se pueden realizar en cada dispositivo y deben realizarse a escala.
 
-Azure IoT Edge se integra perfectamente con Azure IoT Suite para conseguir un plan de control que se adapta a las necesidades de la solución. Los servicios en la nube permiten a los usuarios:
+Azure IoT Edge se integra perfectamente con los aceleradores de soluciones de IoT de Azure para conseguir un plan de control que se adapte a las necesidades de la solución. Los servicios en la nube permiten a los usuarios:
 
 * Crear y configurar una carga de trabajo que se ejecute en un tipo específico de dispositivo.
 * Enviar una carga de trabajo a un conjunto de dispositivos.

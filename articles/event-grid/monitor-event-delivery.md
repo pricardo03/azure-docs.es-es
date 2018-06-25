@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: f9719bb1f1563c55537c7ef32278411a2034bd75
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626996"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Supervisar la entrega de mensajes de Event Grid 
 
@@ -41,9 +42,15 @@ Para las suscripciones, las métricas son:
 
 ## <a name="event-subscription-status"></a>Estado de la suscripción a eventos
 
-Para ver las métricas de una suscripción a eventos, busque **Suscripciones de Event Grid** en los servicios disponibles y selecciónelo.
+Para ver las métricas para una suscripción de eventos, puede buscar por tipo de suscripción o por suscripciones para un recurso concreto.
 
-![Buscar suscripciones a eventos](./media/monitor-event-delivery/select-event-subscriptions.png)
+Para buscar por tipo de suscripción de eventos, seleccione **Todos los servicios**.
+
+![Seleccionar todos los servicios](./media/monitor-event-delivery/all-services.png)
+
+Busque **Event Grid** y seleccione **Suscripciones de Event Grid** entre las opciones disponibles.
+
+![Buscar suscripciones a eventos](./media/monitor-event-delivery/search-and-select.png)
 
 Filtre por el tipo de evento, la suscripción y la ubicación. Seleccione **Métricas** para la suscripción que quiere consultar.
 
@@ -53,9 +60,15 @@ Consulte las métricas para el tema del evento y la suscripción.
 
 ![Ver métricas de eventos](./media/monitor-event-delivery/subscription-metrics.png)
 
+Para buscar las métricas de un recurso concreto, seleccione ese recurso. Después, seleccione **Eventos**.
+
+![Seleccionar eventos para un recurso](./media/monitor-event-delivery/select-events.png)
+
+Puede ver las métricas para las suscripciones para ese recurso.
+
 ## <a name="custom-event-status"></a>Estado de evento personalizado
 
-Si ha publicado un tema personalizado, puede consultar sus métricas. Seleccione el grupo de recursos que contiene el tema y seleccione el tema.
+Si ha publicado un tema personalizado, puede consultar sus métricas. Seleccione el grupo de recursos del tema y seleccione el tema.
 
 ![Seleccionar tema personalizado](./media/monitor-event-delivery/select-custom-topic.png)
 

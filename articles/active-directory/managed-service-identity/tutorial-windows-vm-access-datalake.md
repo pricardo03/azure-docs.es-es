@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: f2904f3d070a818985fa291fb9083b5ec57529dd
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 31afe8579580ab392411aa8428f023fd52c4c4c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301658"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595298"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Tutorial: Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store
 
@@ -209,12 +209,9 @@ Mediante otras API del sistema de archivos de Data Lake Store, puede anexar o de
 
 Felicidades.  Se ha autenticado en el sistema de archivos de Data Lake Store mediante una identidad MSI de máquina virtual.
 
-## <a name="related-content"></a>Contenido relacionado
+## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre MSI, consulte [Managed Service Identity overview](overview.md) (Introducción a Managed Service Identity).
-- Para las operaciones de administración, Data Lake Store usa Azure Resource Manager.  Para más información sobre el uso de una identidad MSI de máquina virtual para autenticarse en Resource Manager, lea [Uso de Managed Service Identity (MSI) con una máquina virtual Linux para tener acceso Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- Aprenda más sobre [Autenticación con Data Lake Store mediante Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Aprenda más sobre [Operaciones de sistema de archivos en Azure Data Lake Store con la API de REST](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) o las [API del sistema de archivos de WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
-- Aprenda más sobre [Control de acceso en Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+En este tutorial, ha obtenido información sobre cómo usar Managed Service Identity en una máquina virtual Windows para acceder a Azure Data Lake Store. Para obtener más información sobre Azure Data Lake Store, vea:
 
-Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a afinar y remodelar el contenido.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

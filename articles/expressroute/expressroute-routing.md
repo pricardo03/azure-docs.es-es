@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178762"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295433"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -56,7 +56,7 @@ Suponga que se selecciona 192.168.100.128/29 para configurar el emparejamiento p
 * 192.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
 
 ### <a name="ip-addresses-used-for-azure-public-peering"></a>Direcciones IP usadas para el emparejamiento público de Azure
-Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet  y los registros de enrutamiento de Internet. 
+Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet y los registros de enrutamiento de Internet. 
 
 * Debe usar una única subred /29 o dos subredes /30 para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno). 
 * Si se usa una subred /29, se divide en dos subredes /30. 
@@ -65,8 +65,9 @@ Para configurar las sesiones BGP, debe usar las direcciones IP públicas que pos
   * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
 
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Direcciones IP usadas para el emparejamiento de Microsoft
-Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet  y los registros de enrutamiento de Internet.
+Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet y los registros de enrutamiento de Internet.
 
+* Las direcciones IP que se enumeran en el portal de los prefijos públicos anunciados del emparejamiento de Microsoft creará las ACL de los enrutadores principales de Microsoft para permitir el tráfico entrante de estas direcciones IP. 
 * Debe usar una única subred /29 (IPv4) o /125 (IPv6) o dos o dos subredes /30 (IPv4) o /126 (IPv6) para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno).
 * Si se usa una subred /29, se divide en dos subredes /30.
 * La primera subred /30 se usa para el vínculo principal, mientras que la segunda se usa para el secundario.

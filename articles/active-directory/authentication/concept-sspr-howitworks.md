@@ -2,26 +2,20 @@
 title: 'Funcionamiento del autoservicio de restablecimiento de contraseña: Azure Active Directory'
 description: Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 602f4c9b7108c0116e83e302bd73838e0902a7f0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157728"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593598"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -159,6 +153,8 @@ Todas las preguntas predefinidas que se indican a continuación están localizad
 Las preguntas de seguridad personalizadas no se localizan para diferentes configuraciones regionales. Todas las preguntas personalizadas se muestran en el mismo idioma en el que se escriben en la interfaz de usuario administrativa, aunque la configuración regional del explorador del usuario sea diferente. Si necesita preguntas localizadas, debería usar las preguntas predefinidas.
 
 La longitud máxima de una pregunta de seguridad personalizada es 200 caracteres.
+
+Para ver el portal de restablecimiento de contraseñas y preguntas en un idioma diferente, anexe "?mkt =<Locale>" al final de la dirección URL de restablecimiento de contraseñas con el ejemplo que sigue para localizar en español [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
 ### <a name="security-question-requirements"></a>Requisitos de las preguntas de seguridad
 

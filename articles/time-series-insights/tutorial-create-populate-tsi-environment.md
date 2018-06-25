@@ -2,17 +2,17 @@
 title: Creación de un entorno de Azure Time Series Insights
 description: Aprenda a crear un entorno de Time Series Insights, rellenado con datos de dispositivos simulados.
 services: time-series-insights
-author: BryanLa
+author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: bryanla
-ms.openlocfilehash: 434f9f7890b909746fd1a0f72a2dea5d7bb27e92
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301361"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295854"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights
 
@@ -22,7 +22,7 @@ Este tutorial le guiará a través del proceso de creación de un entorno de Tim
 > * Creación de un entorno de TSI 
 > * Crear una solución Simulación de dispositivo que contiene una instancia de IoT Hub
 > * Conectar el entorno de TSI con IoT Hub
-> * Ejecutar una simulación de dispositivo para transmitir datos al entorno de TSI
+> * Ejecución de una simulación de dispositivo para transmitir datos al entorno de TSI
 > * Comprobar los datos de telemetría simulados
 
 ## <a name="prerequisites"></a>requisitos previos
@@ -230,9 +230,9 @@ En este tutorial aprendió lo siguiente:
 > * Ejecución de una simulación de dispositivo para transmitir datos al entorno de TSI
 > * Comprobar los datos de telemetría simulados
 
-Ahora que sabe cómo crear su propio entorno de TSI, aprenda más sobre el proceso de planeación en el siguiente artículo:
+Ahora que sabe cómo crear su propio entorno de TSI puede aprender a crear una aplicación web que consuma datos de un entorno de TSI:
 
 > [!div class="nextstepaction"]
-> [Planee el entorno de Azure Time Series Insights](time-series-insights-environment-planning.md)
+> [Creación de una aplicación web de página única de Azure Time Series Insights](tutorial-create-tsi-sample-spa.md)
 
 

@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eb7576c48d3836eec8051d849cefe4c5ec6658c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699213"
 ---
-# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Preguntas más frecuentes para el complemento SSO de Azure Active Directory 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Preguntas más frecuentes para el complemento SSO de Azure Active Directory
+
+Consulte a continuación las preguntas más frecuentes en caso de que tenga cualquier consulta con respecto a este complemento.
 
 ## <a name="what-does-the-plug-in-do"></a>¿Qué hace el complemento?
 
@@ -38,13 +41,13 @@ Nº El complemento admite solo las versiones locales de Jira y Confluence.
 
 El complemento admite estas versiones:
 
-* Jira Core y Software: de 6.0 a 7.2.2 
-* Jira Service Desk: de 3.0 a 3.2 
+* Jira Core y Software: de la versión 6.0 a la 7.8
+* Jira Service Desk: de la versión 3.0 a la 3.2
 * Confluence: de la versión 5.0 a la 5.10
 
 ## <a name="is-the-plug-in-free-or-paid"></a>¿El complemento es gratuito o de pago?
 
-Es un complemento gratuito. Se puede instalar desde Atlassian Marketplace.
+Es un complemento gratuito.
 
 ## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>¿Tengo que reiniciar Kira o Confluence una vez que implemente el complemento?
 
@@ -52,7 +55,7 @@ No es necesario reiniciar. Puede empezar a usar el complemento de inmediato.
 
 ## <a name="how-do-i-get-support-for-the-plug-in"></a>¿Cómo puedo obtener soporte técnico para el complemento?
 
-Escriba al [equipo de integración de SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). El equipo responde en una plazo entre 24 y 48 horas laborales. 
+Puede ponerse en contacto con el [equipo de integración de Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) si necesita soporte técnico con relación a este complemento. El equipo responde en un plazo de entre 24 y 48 horas laborales.
 
 También puede generar una incidencia de soporte técnico con Microsoft a través del canal de Azure Portal.
 

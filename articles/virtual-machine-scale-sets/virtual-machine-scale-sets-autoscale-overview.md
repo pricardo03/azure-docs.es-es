@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 49ef3821ba5dd10d745649c6b4546ec04282714f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652311"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
-Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento mínimamente aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.
+Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.
 
 
 ## <a name="benefits-of-autoscale"></a>Ventajas del escalado automático
@@ -115,7 +116,7 @@ La extensión de Azure Diagnostics es un agente que se ejecuta dentro de una ins
 
 Para usar la extensión de Azure Diagnostics, debe crear cuentas de Azure Storage para las instancias de máquinas virtuales, instalar el agente de Azure Diagnostics y, a continuación, configurar las máquinas virtuales para hacer streaming de contadores de rendimiento específicos en la cuenta de almacenamiento.
 
-Para obtener más información, consulte los artículos sobre cómo habilitar la extensión de Azure Diagnostics en una [VM Linux](../virtual-machines/linux/diagnostic-extension.md) o [VM Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
+Para obtener más información, consulte los artículos sobre cómo habilitar la extensión de Azure Diagnostics en una [VM Linux](../virtual-machines/extensions/diagnostics-linux.md) o [VM Windows](../virtual-machines/extensions/diagnostics-windows.md).
 
 
 ## <a name="application-level-metrics-with-app-insights"></a>Métricas de nivel de aplicación con App Insights

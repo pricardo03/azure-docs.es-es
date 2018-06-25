@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625345"
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Procedimientos recomendados para usar Azure Data Lake Store
 En este artículo hallará más información sobre los procedimientos recomendados y las consideraciones que debe tener en cuenta al trabajar con Azure Data Lake Store. En este artículo se proporciona información sobre seguridad, rendimiento, resistencia y supervisión de Data Lake Store. Antes de Data Lake Store, el trabajo con macrodatos en servicios como Azure HDInsight era complicado. Había que particionar los datos en varias cuentas de almacenamiento de blobs para que se pudiera lograr un almacenamiento de petabytes y un rendimiento óptimo a esa escala. Gracias a Data Lake Store, la mayoría de los restrictivos límites de tamaño y rendimiento se han eliminado. No obstante, aún quedan algunas consideraciones que debe tener en cuenta y que se describen en este artículo para que pueda obtener el mejor rendimiento de Data Lake Store. 
@@ -65,9 +66,9 @@ Los permisos POSIX y la auditoría de Data Lake Store presentan un problema de s
 * Copia y replicación más rápidas
 * Menor número de archivos para procesar al actualizar los permisos POSIX de Data Lake Store 
 
-Dependiendo de qué servicios y cargas de trabajo utilizan los datos, un buen intervalo de tamaños de archivo podría ser de 256 MB a 1 GB, nunca menos de 100 MB ni más de 2 GB. Si no se pueden procesar por lotes los tamaños de archivo al colocarlos en Data Lake Store, puede que necesite un trabajo de compactación independiente que combine estos archivos en otros mayores. Para más información y recomendaciones sobre tamaños de archivo, y sobre la organización de los datos de Data Lake Store, consulte [Estructuración del conjunto de datos](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Según los servicios y las cargas de trabajo que usen los datos, un buen tamaño que tener en cuenta para los archivos es de 256 MB o superior. Si no se pueden procesar por lotes los tamaños de archivo al colocarlos en Data Lake Store, puede que necesite un trabajo de compactación independiente que combine estos archivos en otros mayores. Para más información y recomendaciones sobre tamaños de archivo, y sobre la organización de los datos de Data Lake Store, consulte [Estructuración del conjunto de datos](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>Tamaños de archivo grandes y posible impacto en el rendimiento 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>Tamaños de archivo grandes y posible impacto en el rendimiento
 
 Aunque Data Lake Store admite archivos grandes de hasta varios petabytes de tamaño, si desea obtener un rendimiento óptimo y en función del proceso de lectura de los datos, se recomienda no superar los 2 GB de promedio. Por ejemplo, al utilizar **Distcp** para copiar datos entre ubicaciones o diferentes cuentas de almacenamiento, los archivos constituyen el nivel de granularidad más adecuado que se usa para determinar las tareas de asignación. Por tanto, si va a copiar 10 archivos que tienen 1 TB cada uno, se asignarán 10 mapeadores como máximo. Igualmente, si tiene muchos archivos con mapeadores asignados, estos funcionarán inicialmente en paralelo para mover archivos grandes. Sin embargo, en la recta final de un trabajo, solo unos cuantos mapeadores permanecen asignados y puede quedar bloqueado con un único mapeador asignado a un archivo grande. Microsoft ha agregado mejoras a Distcp para solucionar este problema en versiones futuras de Hadoop.  
 

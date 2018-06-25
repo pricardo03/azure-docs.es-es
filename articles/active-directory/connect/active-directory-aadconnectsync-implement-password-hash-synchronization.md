@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c223091e423d0f342f14424c58d6b7447cda50e8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593459"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -81,9 +83,9 @@ El gráfico siguiente describe con detalle cómo funciona la sincronización de 
 2. Antes del envío, el controlador de dominio cifra el hash de contraseña MD4 mediante una clave que es un hash de [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) de la clave de sesión RPC y valor sal. Después envía el resultado al agente de sincronización de hash de contraseñas a través de RPC. El controlador de dominio también pasa el valor sal al agente de sincronización mediante el protocolo de replicación del controlador de dominio, por lo que el agente podrá descifrar el sobre.
 3.  Cuando el agente de sincronización de hash de contraseñas tiene el sobre cifrado, usa [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) y el valor sal para generar una clave para descifrar los datos recibidos en su formato original de MD4. En ningún momento el agente de sincronización de hash de contraseñas tiene acceso a la contraseña de texto no cifrado. El uso del agente de sincronización de hash de contraseñas de MD5 es estrictamente para compatibilidad del protocolo de replicación con el controlador de dominio y solo se usa en local entre el controlador de dominio y el agente de sincronización de hash de contraseñas.
 4.  El agente de sincronización de hash de contraseñas amplía el hash de contraseña binario de 16 bits a 64 bytes al convertir en primer lugar el hash con una cadena hexadecimal de 32 bytes y, después, convertir esta cadena de nuevo en binario con codificación UTF-16.
-5.  El agente de sincronización de hash de contraseñas agrega un valor sal, que consta de un valor sal de longitud de 10 bytes, al archivo binario de 64 bits para proteger aún más el valor hash original.
-6.  El agente de sincronización de hash de contraseñas combina el hash MD4 con el valor sal y los introduce en la función [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Se usan 1000 iteraciones del algoritmo hash con clave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx). 
-7.  El agente de sincronización de hash de contraseñas toma el hash de 32 bits resultante, concatena el valor sal y el número de iteraciones de SHA256 con él (para su uso con Azure AD) y después transmite la cadena desde Azure AD Connect a Azure AD a través de SSL.</br> 
+5.  El agente de sincronización de hash de contraseñas agrega un valor sal por usuario, que consta de un valor sal de longitud de 10 bytes, al archivo binario de 64 bits para proteger aún más el valor hash original.
+6.  El agente de sincronización de hash de contraseñas combina el hash MD4 con el valor sal por usuario y los introduce en la función [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Se usan 1000 iteraciones del algoritmo hash con clave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx). 
+7.  El agente de sincronización de hash de contraseñas toma el hash de 32 bits resultante, concatena el valor sal por usuario y el número de iteraciones de SHA256 con él (para su uso con Azure AD) y después transmite la cadena desde Azure AD Connect a Azure AD a través de SSL.</br> 
 8.  Cuando un usuario intenta iniciar sesión en Azure AD y escribe su contraseña, esta se ejecuta a través del mismo proceso MD4 + sal + PBKDF2 + HMAC-SHA256. Si el hash resultante coincide con el valor hash almacenado en Azure AD, el usuario ha especificado la contraseña correcta y se autentica. 
 
 >[!Note] 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: bcbafcb5b72fd156f0d8b4a4ddd52aab1d699996
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: c395851fbcc3e46357b390d9dfa20bd9ac944716
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076262"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594438"
 ---
-# <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Uso de una identidad MSI de máquina virtual Linux para acceder a Azure Cosmos DB 
+# <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Tutorial: Uso de una identidad MSI de máquina virtual Linux para acceder a Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -255,5 +255,8 @@ Este comando de la CLI devuelve detalles acerca de la colección:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre MSI, consulte [Identidad de servicio administrada (MSI) para recursos de Azure](overview.md).
+En este tutorial, ha obtenido información sobre cómo usar Managed Service Identity en una máquina virtual Linux para acceder a Cosmos DB.  Para obtener más información sobre Cosmos DB, vea:
+
+> [!div class="nextstepaction"]
+>[Introducción a Azure Cosmos DB](/azure/cosmos-db/introduction)
 

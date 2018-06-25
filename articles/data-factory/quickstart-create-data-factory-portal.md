@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 02/01/2018
+ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea70d6053f12c33d9c3ff4c69f22a41130c783e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69c0661f515f062a6a99b0692130d52eb23d20d6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171084"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285906"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -70,7 +70,7 @@ Ver este vídeo le ayudará a conocer la interfaz de usuario de Data Factory:
 9. Una vez completada la creación, verá la página **Data Factory**. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente.
    
    ![Página principal de la factoría de datos, con el icono Author & Monitor (Creación y supervisión)](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
-10. En la página de **introducción**, cambie a la pestaña **Edit** (Editar) del panel izquierdo. 
+10. En la página de **introducción**, cambie a la pestaña **Creador** del panel izquierdo. 
 
     ![Página de introducción](./media/quickstart-create-data-factory-portal/get-started-page.png)
 
@@ -82,7 +82,7 @@ En este procedimiento, creará un servicio vinculado para vincular la cuenta de 
    ![Botones para crear una conexión nueva](./media/quickstart-create-data-factory-portal/new-connection-button.png)    
 2. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione **Azure Blob Storage** y después **Continue** (Continuar). 
 
-   ![Selección del icono Azure Blob Storage](./media/quickstart-create-data-factory-portal/select-azure-storage.png)
+   ![Selección del icono Azure Blob Storage](./media/quickstart-create-data-factory-portal/select-azure-blob-linked-service.png)
 3. Complete los siguientes pasos: 
 
    a. En **Name** (Nombre), escriba **AzureStorageLinkedService**.
@@ -94,9 +94,6 @@ En este procedimiento, creará un servicio vinculado para vincular la cuenta de 
    d. Seleccione **Save** (Guardar) para guardar el servicio vinculado. 
 
    ![Configuración del servicio vinculado de Azure Storage](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
-4. Confirme que **AzureStorageLinkedService** aparece en la lista de servicios vinculados. 
-
-   ![Servicio vinculado de Azure Storage en la lista](./media/quickstart-create-data-factory-portal/azure-storage-linked-service-in-list.png)
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 En este procedimiento, va a crear dos conjuntos de datos: **InputDataset** y **OutputDataset**. Estos conjuntos de datos son de tipo **AzureBlob**. Hacen referencia al servicio vinculado de Azure Storage que creó en la sección anterior. 
@@ -112,19 +109,18 @@ En la configuración del servicio vinculado se especifica la cuenta de Azure Sto
    ![Menú para crear un conjunto de datos](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
 2. En la página **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y después **Finish** (Finalizar). 
 
-   ![Selección de Azure Blob Storage](./media/quickstart-create-data-factory-portal/select-azure-blob-storage.png)
-3. En la ventana **Properties** (Propiedades) del conjunto de datos, escriba **InputDataset** en **Name** (Nombre). 
+   ![Selección de Azure Blob Storage](./media/quickstart-create-data-factory-portal/select-azure-blob-dataset.png)
+3. En la pestaña **General** del conjunto de datos, escriba **InputDataset** en **Nombre**. 
 
-   ![Configuración general del conjunto de datos](./media/quickstart-create-data-factory-portal/dataset-general-page.png)
 4. Cambie a la pestaña **Connection** (Conexión) y complete los pasos siguientes: 
 
-   a. En **Linked service** (Servicio vinculado), seleccione **AzureStorageLinkedService**.
+    a. En **Linked service** (Servicio vinculado), seleccione **AzureStorageLinkedService**.
 
-   b. En **File path** (Ruta del archivo), seleccione el botón **Browse** (Examinar).
+    b. En **File path** (Ruta del archivo), seleccione el botón **Browse** (Examinar).
 
-      ![Pestaña de conexión y botón para examinar](./media/quickstart-create-data-factory-portal/file-path-browse-button.png) c. En la ventana **Choose a file or folder** (Elegir un archivo o carpeta), vaya a la carpeta **input** del contenedor **adftutorial**, seleccione el archivo **emp.txt** y seleccione **Finish** (Finalizar).
+    ![Pestaña de conexión y botón para examinar](./media/quickstart-create-data-factory-portal/file-path-browse-button.png) c. En la ventana **Choose a file or folder** (Elegir un archivo o carpeta), vaya a la carpeta **input** del contenedor **adftutorial**, seleccione el archivo **emp.txt** y seleccione **Finish** (Finalizar).
 
-      ![Búsqueda del archivo de entrada](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
+    ![Búsqueda del archivo de entrada](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
    d. (opcional) Seleccione **Preview data** (Vista previa de los datos) para obtener una vista previa de los datos del archivo emp.txt.     
 5. Repita los pasos para crear el conjunto de datos de salida:  
@@ -133,15 +129,9 @@ En la configuración del servicio vinculado se especifica la cuenta de Azure Sto
 
    b. En la página **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y después **Finish** (Finalizar).
 
-   c. Escriba **OutputDataset** para el nombre.
+   c. En la tabla **General**, especifique **OutputDataset** como nombre.
 
-   d. Escriba **adftutorial/output** para la carpeta. Si la carpeta **output** no existe, la actividad de copia la crea en tiempo de ejecución.
-
-   e. Escriba `@CONCAT(pipeline().RunId, '.txt')` como nombre de archivo. 
-   
-      Cada vez que se ejecuta una canalización, la ejecución de la canalización tiene un identificador único asociado. La expresión concatena el identificador de ejecución de la canalización con **.txt** para evaluar el nombre del archivo de salida. Para la lista de las expresiones y variables del sistema admitidas, consulte las [variables del sistema](control-flow-system-variables.md) y el [lenguaje de expresiones](control-flow-expression-language-functions.md).
-
-   ![Configuración del conjunto de datos de salida](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
+   d. En la pestaña **Conexión**, seleccione **AzureStorageLinkedService** como servicio vinculado y escriba **adftutorial/output** para la carpeta. Si la carpeta **output** no existe, la actividad de copia la crea en tiempo de ejecución.
 
 ## <a name="create-a-pipeline"></a>Crear una canalización 
 En este procedimiento, va a crear y comprobar una canalización con una actividad de copia que utiliza los conjuntos de datos de entrada y de salida. La actividad de copia realiza una copia de los datos desde el archivo especificado en la configuración del conjunto de datos de entrada hasta el archivo especificado en la configuración del conjunto de datos de salida. Si el conjunto de datos de entrada especifica solo una carpeta (no el nombre de archivo), la actividad de copia realiza una copia de todos los archivos de la carpeta de origen al destino. 
@@ -149,45 +139,33 @@ En este procedimiento, va a crear y comprobar una canalización con una activida
 1. Haga clic en el botón **+** (Más) y seleccione **Pipeline** (Canalización). 
 
    ![Menú para crear una canalización](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
-2. En la ventana **Properties** (Propiedades), especifique **CopyPipeline** para **Name** (Nombre). 
+2. En la pestaña **General**, especifique **CopyPipeline** en **Nombre**. 
 
-   ![Configuración general de la canalización](./media/quickstart-create-data-factory-portal/pipeline-general-settings.png)
 3. En el cuadro de herramientas **Activities** (Actividades), expanda **Data Flow** (Flujo de datos). Arrastre la actividad **Copy** (Copia) del cuadro de herramientas **Activities** (Actividades) a la superficie del diseñador de canalizaciones. También puede buscar actividades en el cuadro de herramientas **Activities** (Actividades). Especifique **CopyFromBlobToBlob** en **Name** (Nombre).
 
    ![Configuración general de la actividad de copia](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 4. Cambie a la pestaña **Source** (Origen) en la configuración de la actividad de copia y seleccione **InputDataset** para **Source Dataset** (Conjunto de datos de origen).
 
-   ![Actividad de copia: configuración del origen](./media/quickstart-create-data-factory-portal/copy-activity-source-settings.png)    
 5. Cambie a la pestaña **Sink** (Receptor) en la configuración de la actividad de copia y seleccione **OutputDataset** para **Sink Dataset** (Conjunto de datos receptor).
 
-   ![Actividad de copia: configuración del receptor](./media/quickstart-create-data-factory-portal/copy-activity-sink-settings.png)    
-7. Para validar la configuración de la canalización, seleccione **Validate** (Validar). Confirme que la canalización se ha validado correctamente. Para cerrar la salida de la validación, haga clic en el botón **>>** (fecha derecha). 
+6. Haga clic en **Validar** en la barra de herramientas de la canalización situada en la parte superior del lienzo para validar la configuración de la canalización. Confirme que la canalización se ha validado correctamente. Para cerrar la salida de la validación, haga clic en el botón **>>** (fecha derecha). 
 
-   ![Comprobación de la canalización](./media/quickstart-create-data-factory-portal/pipeline-validate-button.png)
+## <a name="debug-the-pipeline"></a>Depuración de la canalización
+En este paso va a depurar la canalización antes de implementarla en Data Factory. 
 
-## <a name="test-run-the-pipeline"></a>Realización de la serie de pruebas de la canalización
-En este paso va a realizar una serie de pruebas de la canalización antes de implementarla en Data Factory. 
-
-1. Seleccione **Test Run** (Serie de pruebas) en la barra de herramientas de la canalización. 
+1. En la barra de herramientas de la canalización situada en la parte superior del lienzo, haga clic en **Depurar** para desencadenar una serie de pruebas. 
     
-   ![Serie de pruebas de la canalización](./media/quickstart-create-data-factory-portal/pipeline-test-run.png)
-2. Confirme que ve el estado de ejecución de la canalización en la pestaña **Output** (Salida) de la configuración de la canalización. 
+2. Confirme que ve el estado de ejecución de la canalización en la pestaña **Output** (Salida) de la configuración de la canalización situada en la parte inferior. 
 
-   ![Salida de la serie de pruebas](./media/quickstart-create-data-factory-portal/test-run-output.png)    
 3. Confirme que ve un archivo de salida en la carpeta **output** del contenedor **adftutorial**. Si no existe la carpeta de salida, el servicio Data Factory la crea automáticamente. 
-    
-   ![Comprobar salida](./media/quickstart-create-data-factory-portal/verify-output.png)
-
 
 ## <a name="trigger-the-pipeline-manually"></a>Desencadenamiento manual de la canalización
 En este procedimiento se implementan las entidades (servicios vinculados, conjuntos de datos, canalizaciones) en Azure Data Factory. A continuación, desencadenará manualmente una ejecución de la canalización. También puede publicar entidades en su propio repositorio de GIT de Visual Studio Team Services, lo cual se trata en [otro tutorial](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Antes de desencadenar una canalización, debe publicar las entidades en Data Factory. Seleccione **Publish** (Publicar) en el panel izquierdo para realizar la publicación. 
+1. Antes de desencadenar una canalización, debe publicar las entidades en Data Factory. Seleccione **Publicar todo** en la parte superior para realizar la publicación. 
 
    ![Botón Publicar](./media/quickstart-create-data-factory-portal/publish-button.png)
-2. Para desencadenar la canalización de forma manual, seleccione **Trigger** (Desencadenar) en la barra de herramientas y seleccione **Trigger Now** (Desencadenar ahora). 
-    
-   ![Comando Trigger Now (Desencadenar ahora)](./media/quickstart-create-data-factory-portal/pipeline-trigger-now.png)
+2. Para desencadenar la canalización de forma manual, seleccione **Trigger** (Desencadenar) en la barra de herramientas de la canalización y seleccione **Trigger Now** (Desencadenar ahora). 
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
 
@@ -206,15 +184,12 @@ En este procedimiento se implementan las entidades (servicios vinculados, conjun
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Desencadenamiento de la canalización de forma programada
 Este procedimiento es opcional en este tutorial. Puede crear un *programador de desencadenador* para programar la ejecución de la canalización periódicamente (cada hora, a diario, y así sucesivamente). En este procedimiento, va a crear un desencadenador que se ejecutará cada minuto hasta la fecha y hora de finalización que se especifique. 
 
-1. Cambie a la pestaña **Edit** (Editar). 
+1. Cambie a la pestaña **Creador**. 
 
-   ![Botón Editar](./media/quickstart-create-data-factory-portal/switch-edit-tab.png)
-1. Seleccione **Trigger** (Desencadenador) en el menú y, después, seleccione **New/Edit** (Nuevo/Editar). 
+2. Vaya a la canalización, seleccione **Trigger** (Desencadenar) en la barra de herramientas de la misma y, después, seleccione **Nuevo/Editar**. 
 
-   ![Menú del nuevo desencadenador](./media/quickstart-create-data-factory-portal/new-trigger-menu.png)
 2. En la página **Add Triggers** (Agregar desencadenadores), seleccione **Choose trigger** (Elegir desencadenador) y, después, seleccione **New** (Nuevo). 
 
-   ![Selecciones para agregar un nuevo desencadenador](./media/quickstart-create-data-factory-portal/add-trigger-new-button.png)
 3. En la página **New Trigger** (Nuevo desencadenador), para el campo **End** (Final), seleccione **On Date** (En fecha), especifique la hora de finalización unos minutos después de la hora actual y seleccione **Apply** (Aplicar). 
 
    Hay un costo asociado a cada ejecución de la canalización. Por lo tanto, especifique la hora de finalización tan solo unos minutos después de la hora de inicio. Asegúrese de que sea el mismo día. No obstante, asegúrese de que hay tiempo suficiente para que la canalización se ejecute entre la hora de publicación y la hora de finalización. El desencadenador entra en vigor después de publicar la solución en Data Factory, no cuando se guarda el desencadenador en la interfaz de usuario. 
@@ -228,7 +203,6 @@ Este procedimiento es opcional en este tutorial. Puede crear un *programador de 
    ![Botón de advertencia y de finalización](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
 6. Seleccione **Publish All** (Publicar todo) para publicar los cambios en Data Factory. 
 
-   ![Botón Publicar](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Seleccione **Refresh** (Actualizar) para actualizar la lista. Verá que la canalización se ejecuta una vez cada minuto desde la hora de publicación hasta la hora de finalización. 
 
    Observe los valores de la columna **Triggered By** (Desencadenado por). La ejecución manual del desencadenador se realizó en el paso (**Trigger Now**) [Desencadenar ahora] que llevó a cabo antes. 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271911"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652015"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
 
@@ -82,10 +82,9 @@ Si la región de Data Manager es diferente de la región de la definición del t
 
 ![Servicio y definición del trabajo en distintas regiones](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## <a name="gdpr-compliance"></a>Cumplimiento del RGPD
+## <a name="managing-personal-information"></a>Administración de información personal
 
-El [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD incluye muchos requisitos acerca de cómo recopilar, almacenar y usar la información personal. Las reglas del RGPD se imponen a las empresas, a las instituciones oficiales y a otras organizaciones que operan en la UE, y recopilan y analizan datos vinculados a residentes en la UE. StorSimple Data Manager es compatible con RGPD. El servicio Data Manager no recopila datos personales.
-Para obtener más información, revise la directiva de privacidad de Microsoft en el [Centro de confianza](https://www.microsoft.com/trustcenter).
+StorSimple Data Manager no recopila ni muestra información personal. Para obtener más información, revise la directiva de privacidad de Microsoft en el [Centro de confianza](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

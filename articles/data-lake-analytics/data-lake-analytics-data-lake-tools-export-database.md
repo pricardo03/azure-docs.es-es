@@ -1,24 +1,21 @@
 ---
-title: "Exportación de bases de datos de U-SQL mediante Herramientas de Azure Data Lake para Visual Studio | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar Herramientas de Azure Data Lake para Visual Studio para exportar una base de datos de U-SQL e importarla automáticamente en una cuenta local."
+title: Exportación de bases de datos de U-SQL mediante Herramientas de Azure Data Lake para Visual Studio
+description: Obtenga información acerca de cómo usar Herramientas de Azure Data Lake para Visual Studio para exportar una base de datos de U-SQL e importarla automáticamente en una cuenta local.
 services: data-lake-analytics
-documentationcenter: 
 author: yanancai
-manager: 
-editor: 
+ms.author: yanacai
+manager: kfile
+editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: yanacai
-ms.openlocfilehash: 441606258f9541c9552925e7c0cbc9b3a9effb4d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1dbcf9b88af7777a1103876a429ccc26450e2f58
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623417"
 ---
 # <a name="export-a-u-sql-database"></a>Exportación de una base de datos de U-SQL
 
@@ -55,7 +52,7 @@ En este paso, puede comprobar los objetos seleccionados en la casilla **Exportar
 
 También puede configurar otras opciones para el destino de exportación. Las descripciones de configuración se muestran en la tabla siguiente:
 
-|Configuración|Descripción|
+|Configuración|DESCRIPCIÓN|
 |-------------|-----------|
 |Nombre del destino|Este nombre indica el lugar en el que desea guardar los recursos de base de datos exportados. Por ejemplo, ensamblados, archivos adicionales y datos de ejemplo. Se creará una carpeta con este nombre en la carpeta raíz de datos locales.|
 |Directorio del proyecto|Esta ruta de acceso define donde desea guardar el script U-SQL exportado. Todas las definiciones de objeto de base de datos se guardan en esta ubicación.|

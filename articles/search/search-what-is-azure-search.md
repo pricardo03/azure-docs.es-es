@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/10/2017
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 0957ca2b6ce58249531ca0b8e3f26bc16cabb5d5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: ad5831309ff9e4cc420e777dc06815a5e6b79f91
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802432"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217660"
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
 Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales.
@@ -26,7 +26,8 @@ La funcionalidad se expone a través de [API de REST](/rest/api/searchservice/) 
 
 | Categoría | Características |
 |----------|----------|
-|Búsqueda de texto completo y análisis de texto | [Búsqueda de texto completo](search-lucene-query-architecture.md) es el principal caso de uso para la mayoría de las aplicaciones basadas en búsquedas. Las consultas se formulan con una sintaxis compatible. <br/><br/>[**Sintaxis de consulta simple**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ofrece operadores lógicos, de búsqueda de frase, de sufijo y de precedencia.<br/><br/>[**Sintaxis de consulta de Lucene**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) incluye todas las operaciones en sintaxis simple, con extensiones para la búsqueda aproximada, búsqueda de proximidad, incremento de términos y expresiones regulares.| 
+|Búsqueda de texto completo y análisis de texto | [Búsqueda de texto completo](search-lucene-query-architecture.md) es el principal caso de uso para la mayoría de las aplicaciones basadas en búsquedas. Las consultas se formulan con una sintaxis compatible. <br/><br/>[**Sintaxis de consulta simple**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ofrece operadores lógicos, de búsqueda de frase, de sufijo y de precedencia.<br/><br/>[**Sintaxis de consulta de Lucene**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) incluye todas las operaciones en sintaxis simple, con extensiones para la búsqueda aproximada, búsqueda de proximidad, incremento de términos y expresiones regulares.|
+|Cognitive Search (versión preliminar) | Se pueden aplicar [algoritmos con inteligencia artificial](cognitive-search-concept-intro.md) para el análisis de imágenes y texto a una canalización de indexación para extraer información de texto del contenido sin formato. Algunos ejemplos de [habilidades integradas](cognitive-search-predefined-skills.md) incluyen el reconocimiento óptico de caracteres (para realizar búsquedas en archivos JPEG escaneados), el reconocimiento de entidades (identificación de una organización, nombre o ubicación) y el reconocimiento de frases principales. También puede [codificar habilidades personalizadas](cognitive-search-create-custom-skill-example.md) para adjuntar a la canalización. |
 | Integración de datos | Los índices de Azure Search aceptan datos de cualquier origen, siempre que se envíe como estructura de datos JSON. <br/><br/> Opcionalmente, en el caso de los orígenes de datos compatibles en Azure, puede utilizar [**indexadores**](search-indexer-overview.md) para rastrear automáticamente [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) o [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) y sincronizar el contenido del índice de búsqueda con el almacén de datos principal. Los indexadores de Azure Blog pueden realizar la *averiguación de documentos* para [indexar los principales formatos de archivo](search-howto-indexing-azure-blob-storage.md), incluidos los documentos de Microsoft Office, PDF y HTML. |
 | Análisis lingüístico | Los analizadores son componentes que se usan para el procesamiento de texto durante las operaciones de indexación y búsqueda. Hay dos tipos. <br/><br/>Los [**analizadores léxicos personalizados**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) se usan para las consultas de búsqueda complejas, mediante la coincidencia de fonética y expresiones regulares. <br/><br/>Los [**analizadores de idioma**](https://docs.microsoft.com/rest/api/searchservice/language-support) de Lucene o de Microsoft se usan para controlar de manera inteligente la lingüística específica del idioma, como tiempos verbales, género, nombres plurales irregulares (por ejemplo, "régimen" frente a "regímenes"), separación de palabras compuestas, separación de palabras (para idiomas sin espacios) y mucho más. |
 | Búsqueda georreferenciada | Azure Search procesa, filtra y muestra las ubicaciones geográficas. Permite a los usuarios explorar datos basados en la proximidad de un resultado de búsqueda a una ubicación física. [Vea este vídeo](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) o [revise este ejemplo](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) para más información. |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7987ee8c9a127c7a41ec2cd1f726450c771d527f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34666973"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36288069"
 ---
 El primer paso es usar Azure Portal para crear una instancia de IoT Hub en su suscripción. IoT Hub le permite ingerir grandes volúmenes de datos de telemetría en la nube desde muchos dispositivos. Posteriormente, el concentrador permite que uno o varios servicios de back-end se ejecuten en la nube para leer y procesar esos datos de telemetría.
 
@@ -27,7 +27,7 @@ El primer paso es usar Azure Portal para crear una instancia de IoT Hub en su su
 
    * **Suscripción**: elija la suscripción que quiere usar para crear este IoT Hub.
 
-   * **Grupo de recursos**: cree un grupo de recursos para hospedar el centro de IoT o use uno existente. Para obtener más información, consulte [Uso de grupos de recursos para administrar recursos de Azure][lnk-resource-groups].
+   * **Grupo de recursos**: cree un grupo de recursos para hospedar el centro de IoT o use uno existente. Al colocar todos los recursos relacionados en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que contiene. Para obtener más información, consulte [Uso de grupos de recursos para administrar recursos de Azure][lnk-resource-groups].
 
    * **Región**: seleccione la ubicación más cercana a usted.
 

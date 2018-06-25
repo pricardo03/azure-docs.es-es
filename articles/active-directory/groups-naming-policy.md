@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594557"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Aplicación de una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
 
@@ -189,7 +190,7 @@ School Data Sync (SDS) | Los grupos creados mediante SDS cumplen la directiva de
 Outlook Customer Manager (OCM) | Outlook Customer Manager es compatible con la directiva de nomenclatura, que se aplica automáticamente al grupo creado en Outlook Customer Manager. Si se detecta una palabra bloqueada personalizada, la creación de grupos en OCM se bloquea y se impide al usuario usar la aplicación OCM.
 Aplicación Aula | Los grupos creados en la aplicación Aula cumplen la directiva de nomenclatura, pero esta no se aplica automáticamente y los usuarios no tienen una vista previa de ella al escribir el nombre de un grupo del aula. Los usuarios deben escribir el nombre de grupo del aula aplicado con prefijos y sufijos. Si no, las operaciones para crear o editar el grupo del aula producirán error.
 Power BI | Las áreas de trabajo de Power BI son compatibles con la directiva de nomenclatura.    
-Yammer | Los grupos conectados de Yammer no aplican la directiva de nomenclatura configurada. En las organizaciones que tienen habilitada la directiva de nomenclatura, Yammer crea grupos de Yammer heredados que no se conectan a Office 365 si los grupos no guardan conformidad con la directiva de nomenclatura.
+Yammer | Cuando un usuario que ha iniciado sesión en Yammer con su cuenta de Azure Active Directory crea un grupo o edita un nombre de grupo, el nombre del grupo cumplirá la directiva de nomenclatura. Esto se aplica tanto a los grupos conectados de Office 365 como a todos los demás grupos de Yammer.<br>Si se ha creado un grupo conectado de Office 365 antes de aplicar la directiva de nomenclatura, el nombre del grupo no seguirá automáticamente las directivas de nomenclatura. Cuando un usuario edita el nombre del grupo, se le pedirá que agregue el prefijo y el sufijo.
 StaffHub  | Los equipos de StaffHub no siguen la directiva de nomenclatura, pero el grupo de Office 365 subyacente sí lo hace. El nombre de equipo de StaffHub no aplica los prefijos y sufijos y no busca palabras bloqueadas personalizadas. Sin embargo, StaffHub aplica los prefijos y sufijos y quita las palabras bloqueadas del grupo de Office 365 subyacente.
 Exchange PowerShell | Los cmdlets de Exchange PowerShell son compatibles con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la directiva de nomenclatura en el nombre o alias del grupo (mailNickname).
 Cmdlets de PowerShell para Azure Active Directory | Los cmdlets de PowerShell para Azure Active Directory son compatibles con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la convención de nomenclatura tanto en los nombres de grupo como en los alias de grupo.
@@ -199,7 +200,7 @@ Centro de administración de Office 365 | El centro de administración de Office
 ## <a name="next-steps"></a>Pasos siguientes
 En estos artículos se proporciona información adicional sobre los grupos de Azure AD.
 
-* [Ver los grupos existentes](active-directory-groups-view-azure-portal.md)
+* [Consulta de los grupos existentes](active-directory-groups-view-azure-portal.md)
 * [Directiva de caducidad para grupos de Office 365](active-directory-groups-lifecycle-azure-portal.md)
 * [Administración de la configuración de un grupo](active-directory-groups-settings-azure-portal.md)
 * [Administrar miembros de un grupo](active-directory-groups-members-azure-portal.md)

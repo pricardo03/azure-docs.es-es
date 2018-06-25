@@ -9,20 +9,21 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/20/2017
+ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295956"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
 [Azure Event Grid](overview.md) es un servicio de eventos para la nube. Event Grid permite crear suscripciones a eventos producidos por servicios de Azure o recursos de terceros.  
 
-Este tutorial es la segunda parte de una serie de tutoriales sobre almacenamiento. Amplía el [tutorial anterior sobre almacenamiento][previous-tutorial] para agregar la generación de vistas en miniatura automática sin servidor con Azure Event Grid y Azure Functions. Event Grid permite que [Azure Functions](..\azure-functions\functions-overview.md) responda a eventos de [Azure Blob Storage](..\storage\blobs\storage-blobs-introduction.md) y genere vistas en miniatura de imágenes cargadas. Se crea una suscripción de eventos en el evento de creación de Blob Storage. Cuando se agrega un blob a un contenedor de Blob Storage determinado, se llama a un punto de conexión de función. Los datos pasados al enlace de función desde Event Grid se usan para acceder al blob y generar la imagen en miniatura. 
+Este tutorial es la segunda parte de una serie de tutoriales sobre almacenamiento. Amplía el [tutorial anterior sobre almacenamiento][previous-tutorial] para agregar la generación de vistas en miniatura automática sin servidor con Azure Event Grid y Azure Functions. Event Grid permite que [Azure Functions](..\azure-functions\functions-overview.md) responda a eventos de [Azure Blob Storage](..\storage\blobs\storage-blobs-introduction.md) y genere vistas en miniatura de imágenes cargadas. Se crea una suscripción de eventos en el evento de creación de Blob Storage. Cuando se agrega un blob a un contenedor de Blob Storage determinado, se llama a un punto de conexión de función. Los datos pasados al enlace de función desde Event Grid se usan para acceder al blob y generar la imagen en miniatura.
 
 Use la CLI de Azure y Azure Portal para agregar la funcionalidad de cambio de tamaño a una aplicación existente de carga de imágenes.
 
@@ -39,13 +40,13 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial:
 
-+ Debe haber realizado el tutorial anterior de Blob Storage: [Upload image data in the cloud with Azure Storage (Cargar datos de imagen en la nube con Azure Storage)][previous-tutorial]. 
+Debe haber realizado el tutorial anterior de Blob Storage: [Upload image data in the cloud with Azure Storage (Cargar datos de imagen en la nube con Azure Storage)][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI de forma local, en este tutorial se necesita la CLI de Azure versión 2.0.14 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI de forma local, en este tutorial se necesita la CLI de Azure versión 2.0.14 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 Si no usa Cloud Shell, primero debe iniciar sesión con `az login`.
 
@@ -97,7 +98,9 @@ Ahora puede implementar un proyecto de código de función en esta Function App.
 
 ## <a name="deploy-the-function-code"></a>Implementación del código de función 
 
-La función de C# que realiza el cambio de tamaño de imagen está disponible en este [repositorio de GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este proyecto de código de Functions en la Function App mediante el comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
+
+El cambio de tamaño del script C# de ejemplo (.csx) está disponible en [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este proyecto de código de Functions en la Function App mediante el comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
 
 En el siguiente comando, `<function_app>` es el nombre de la aplicación de función que creó anteriormente.
 
@@ -106,6 +109,19 @@ az functionapp deployment source config --name <function_app> \
 --resource-group myResourceGroup --branch master --manual-integration \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+La función de cambio de tamaño de Node.js de ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implemente este proyecto de código de Functions en la Function App mediante el comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+
+
+En el siguiente comando, `<function_app>` es el nombre de la aplicación de función que creó anteriormente.
+
+```azurecli-interactive
+az functionapp deployment source config --name <function_app> \
+--resource-group myResourceGroup --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+```
+---
 
 La función de cambio de tamaño de imagen se desencadena mediante solicitudes HTTP que se le envían desde el servicio Event Grid. Indicará a Event Grid que quiere obtener estas notificaciones en la dirección URL de su función mediante la creación de una suscripción a evento. En este tutorial se suscribirá a eventos creados por blob.
 

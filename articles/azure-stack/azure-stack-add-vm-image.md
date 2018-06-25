@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 309bd35eabe1d5c4af9a35d5f2b879bce225a402
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604376"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287711"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Hacer que una imagen de máquina virtual esté disponible en Azure Stack
 
@@ -207,7 +207,7 @@ Cuando ya no necesite la imagen de máquina virtual que ha cargado, puede elimin
     Por ejemplo: `1.0.0`  
     La versión de la imagen de máquina virtual que usan los usuarios al implementar la imagen de máquina virtual. Esta versión está en el formato *\#.\#.\#*. Un ejemplo es **1.0.0**. No incluya un espacio u otros caracteres especiales en este campo.  
     
-    Para obtener más información sobre el cmdlet Remove-AzsPlatformImage, consulte la [documentación del módulo de operador de Azure Stack](https://docs.microsoft.com/powershell/module/) para Microsoft PowerShell.
+    Para más información sobre el cmdlet Remove-AzsPlatformImage, consulte la [documentación del módulo de operador de Azure Stack](https://docs.microsoft.com/powershell/module/) para Microsoft PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: crdun
-ms.openlocfilehash: 2b7620611c4587d00612f98c86b5792984ff548b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10ce9058fca0ec56640e9bedabcc82683046fe9f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598460"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -458,7 +459,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Para obtener más información, consulte el tema [Sincronización de datos sin conexión en Azure Mobile Apps] .
+Para obtener más información, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure] .
 
 ### <a name="binding"></a>Enlace de datos de Mobile Apps a una interfaz de usuario de Windows
 En esta sección se describe cómo mostrar objetos de datos devueltos mediante elementos de la interfaz de usuario en una aplicación Windows.  El ejemplo de código siguiente se enlaza al origen de la lista con una consulta de elementos incompletos. [MobileServiceCollection] crea una colección de enlaces compatible con Mobile Apps.
@@ -620,14 +621,14 @@ Por ejemplo:
 Puede usar InvokeApiAsync para llamar a cualquier WebAPI, incluidas las que no están definidas en Azure Mobile Apps.  Cuando usa InvokeApiAsync(), se envían los encabezados correspondientes, incluidos los encabezados de autenticación, con la solicitud.
 
 ## <a name="authentication"></a>Autenticación de usuarios
-Mobile Apps es compatible con la autenticación y la autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externas: Facebook, Google, cuenta de Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Incorporación de la autenticación a su aplicación].
+Mobile Apps es compatible con la autenticación y la autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externas: Facebook, Google, cuenta de Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Incorporación de autenticación a la aplicación].
 
 Se admiten dos flujos de autenticación: *administrado por cliente* y *administrado por servidor*. Este último ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo administrado por cliente permite una mayor integración con funcionalidades específicas del dispositivo, ya que se basa en SDK específicos del dispositivo y específicos del proveedor.
 
 > [!NOTE]
 > En las aplicaciones de producción se recomienda usar un flujo administrado por el cliente.
 
-Para configurar la autenticación, debe registrar la aplicación en uno o varios proveedores de identidades.  El proveedor de identidades generará un identificador y un secreto de cliente para la aplicación.  Estos valores se establecen en el back-end para habilitar la autenticación y autorización de Azure App Service.  Para obtener más información, siga las instrucciones detalladas del tutorial [Incorporación de la autenticación a su aplicación].
+Para configurar la autenticación, debe registrar la aplicación en uno o varios proveedores de identidades.  El proveedor de identidades generará un identificador y un secreto de cliente para la aplicación.  Estos valores se establecen en el back-end para habilitar la autenticación y autorización de Azure App Service.  Para obtener más información, siga las instrucciones detalladas del tutorial [Incorporación de autenticación a la aplicación].
 
 En esta sección se tratan los siguientes temas:
 
@@ -794,7 +795,7 @@ private async Task AuthenticateAsync()
 ```
 
 #### <a name="client-livesdk"></a>Inicio de sesión único mediante una cuenta Microsoft con el SDK de Live
-Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de la cuenta Microsoft. Configure los detalles del registro en su back-end de aplicación móvil. Complete los pasos del artículo sobre cómo [registrar la aplicación para usar el inicio de sesión de la cuenta Microsoft]para crear un registro de la cuenta Microsoft y conectarlo al back-end de aplicación móvil. Si dispone de ambas versiones de la aplicación, Tienda Windows y Windows Phone 8/Silverlight, registre primero la versión de Tienda Windows.
+Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de la cuenta Microsoft. Configure los detalles del registro en su back-end de aplicación móvil. Complete los pasos del artículo sobre cómo [registrar la aplicación para usar el inicio de sesión de la cuenta Microsoft]para crear un registro de la cuenta Microsoft y conectarlo al back-end de aplicación móvil. Si dispone de ambas versiones de la aplicación, Microsoft Store y Windows Phone 8/Silverlight, registre primero la versión de Microsoft Store.
 
 El siguiente código se autentica mediante el SDK de Live y usa el token devuelto para iniciar sesión en el back-end de Mobile Apps.
 
@@ -807,7 +808,7 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
     // Get the URL the Mobile App backend.
     var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
 
-    // Create the authentication client for Windows Store using the service URL.
+    // Create the authentication client for Microsoft Store using the service URL.
     LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
     //// Create the authentication client for Windows Phone using the client ID of the registration.
     //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
@@ -883,7 +884,7 @@ Si usa un proveedor de identidades que no sea Facebook, cambie el valor de [Mobi
 En un flujo de servidor, Azure App Service administra el flujo de autenticación OAuth mostrando la página de inicio de sesión del proveedor seleccionado.  Cuando se devuelve el proveedor de identidades, Azure App Service genera un token de autenticación de este servicio. El método [LoginAsync] devuelve [MobileServiceUser], que proporciona el elemento [UserId] del usuario autenticado y [MobileServiceAuthenticationToken] como JSON Web Token (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación](#caching).
 
 ### <a name="caching"></a>Almacenamiento en caché del token de autenticación
-En algunos casos, la llamada al método de inicio de sesión se puede evitar tras la primera autenticación correcta. Para ello, es preciso almacenar el token de autenticación del proveedor.  Las aplicaciones de Tienda Windows y UWP pueden usar [PasswordVault] para almacenar en caché el token de autenticación actual después de un inicio de sesión correcto, como se indica a continuación:
+En algunos casos, la llamada al método de inicio de sesión se puede evitar tras la primera autenticación correcta. Para ello, es preciso almacenar el token de autenticación del proveedor.  Las aplicaciones de Microsoft Store y UWP pueden usar [PasswordVault] para almacenar en caché el token de autenticación actual después de un inicio de sesión correcto, como se indica a continuación:
 
 ```
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
@@ -935,7 +936,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 Los siguientes temas tratan sobre las notificaciones push:
 
 * [Registro de notificaciones push](#register-for-push)
-* [Obtención del SID de un paquete de la Tienda Windows](#package-sid)
+* [Obtención del SID de un paquete de Microsoft Store](#package-sid)
 * [Registro con plantillas multiplataforma](#register-xplat)
 
 ### <a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
@@ -952,17 +953,17 @@ private async void InitNotificationsAsync()
 }
 ```
 
-Si va a insertar en WNS, DEBE [obtener un SID del paquete de Tienda Windows](#package-sid).  Para más información sobre las aplicaciones de Windows, incluyendo cómo registrarse para los registros de plantillas, vea [Agregar notificaciones de inserción a la aplicación].
+Si va a insertar en WNS, DEBE [obtener un SID del paquete de Microsoft Store](#package-sid).  Para más información sobre las aplicaciones de Windows, incluyendo cómo registrarse para los registros de plantillas, vea [Agregar notificaciones de inserción a la aplicación].
 
 Tenga en cuenta que no se admite la solicitud de etiquetas del cliente.  Las solicitudes de etiquetas se quitan del registro en modo silencioso.
 Si desea registrar el dispositivo con etiquetas, crear una API personalizada que use la API de Notification Hubs para realizar el registro en su nombre.  [Llame a la API personalizada](#customapi), en lugar de al método `RegisterNativeAsync()`.
 
-### <a name="package-sid"></a>Obtención del SID de un paquete de la Tienda Windows.
-Se necesita un SID de paquete para habilitar las notificaciones push en aplicaciones de la Tienda Windows.  Para recibir un SID del paquete. registre la aplicación en la Tienda Windows.
+### <a name="package-sid"></a>Cómo obtener el SID de un paquete de Microsoft Store
+Se necesita un SID del paquete para habilitar las notificaciones de inserción en aplicaciones de Microsoft Store.  Para recibir un SID del paquete, registre la aplicación en Microsoft Store.
 
 Para obtener este valor:
 
-1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación de la Tienda Windows y haga clic en **Tienda** > **Asociar aplicación con la Tienda...**.
+1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación de Microsoft Store y haga clic en **Store** > **Asociar aplicación a Store…**.
 2. En el asistente, haga clic en **Siguiente**, inicie sesión con su cuenta Microsoft, escriba un nombre para la aplicación en **Reserve un nuevo nombre de aplicación** y haga clic en **Reservar**.
 3. Después de que el registro de la aplicación se cree correctamente, seleccione el nombre de la aplicación, haga clic en **Siguiente** y, después, en **Asociar**.
 4. Inicie sesión en el [Centro de desarrollo de Windows] con su cuenta Microsoft. En **Mis aplicaciones**, haga clic en el registro de la aplicación que ha creado.
@@ -1092,8 +1093,8 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Incorporación de la autenticación a su aplicación]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronización de datos sin conexión en Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[Incorporación de autenticación a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
 [Agregar notificaciones de inserción a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [registrar la aplicación para usar el inicio de sesión de la cuenta Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de App Service para usar el inicio de sesión de Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md

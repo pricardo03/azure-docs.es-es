@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: af0ddebc79100cbe0ea55e46b825c35ab8a775b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: be350ad153bfcc51eb1198a97eeba01593ccb34e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303763"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594251"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: usar Managed Service Identity en una máquina virtual de Linux para obtener acceso a Azure Storage con una clave de acceso
 
@@ -227,10 +227,7 @@ Respuesta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre MSI, consulte [Managed Service Identity overview](overview.md) (Introducción a Managed Service Identity).
-- Para aprender a hacer lo que se realiza en este tutorial con una credencial SAS de almacenamiento, consulte [Uso de Managed Service Identity en una máquina virtual Linux para tener acceso a Azure Storage a través de una credencial SAS](tutorial-linux-vm-access-storage-sas.md)
-- Para más información sobre la característica SAS de una cuenta de Azure Storage, consulte:
-  - [Uso de Firmas de acceso compartido (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Creación de una SAS de servicio](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+En este tutorial, ha obtenido información sobre cómo usar una instancia de Managed Service Identity en una máquina virtual Linux para tener acceso a Azure Storage mediante una clave de acceso.  Para obtener más información sobre las claves de acceso de Azure Storage, vea:
 
-Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a afinar y remodelar el contenido.
+> [!div class="nextstepaction"]
+>[Administración de las claves de acceso de almacenamiento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161165"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652076"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Control de acceso basado en rol en StorSimple
 
@@ -31,7 +31,7 @@ Este artículo se aplica solo a los dispositivos de la serie StorSimple 8000 que
 
 RBAC puede asignarse en función de los roles. Los roles garantizan determinados niveles de permiso en función de los recursos disponibles en el entorno. Existen dos tipos de roles que pueden elegir los usuarios de StorSimple: integrado o personalizado.
 
-* **Roles integrados**: los roles integrados pueden ser propietario, colaborador, lector o administrador de acceso de usuario. Para más información, consulte [Roles integrados para el control de acceso basado en rol de Azure](../role-based-access-control/overview.md#built-in-roles).
+* **Roles integrados**: los roles integrados pueden ser propietario, colaborador, lector o administrador de acceso de usuario. Para más información, consulte [Roles integrados para el control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md).
 
 * **Roles personalizados**: si los roles integrados no sirven para sus necesidades, puede crear roles personalizados de RBAC para StorSimple. Para crear un rol personalizado de RBAC, comience con un rol integrado, edítelo y, a continuación, impórtelo de nuevo en el entorno. La descarga y la carga del rol se administran mediante Azure PowerShell o la CLI de Azure. Para más información, consulte [Creación de roles personalizados para el control de acceso basado en roles de Azure](../role-based-access-control/custom-roles.md).
 
@@ -154,7 +154,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Adición de usuarios al rol personalizado
 
-Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción que constituya el ámbito de la asignación de roles. Al proporcionar acceso, tenga en cuenta que el acceso concedido en el nodo primario lo hereda el elemento secundario. Para más información, vaya a [Jerarquía de recursos de Azure y herencia de acceso](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
+Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción que constituya el ámbito de la asignación de roles. Al proporcionar acceso, tenga en cuenta que el acceso concedido en el nodo primario lo hereda el elemento secundario. Para obtener más información, vaya a [Control de acceso basado en roles](../role-based-access-control/overview.md).
 
 1. Vaya a **Control de acceso (IAM)**. Haga clic en **Agregar** en la hoja Control de acceso.
 

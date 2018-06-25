@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3fe783f8b5a7955ebe117df02edcdc6aafeff4f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbb4ce971e6504f33de82e31cf289a42a1640952
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636858"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293176"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub y leer datos de telemetría procedentes de este con una aplicación back-end (C#)
 
@@ -60,7 +60,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     Si elige otro nombre para el dispositivo, actualícelo en las aplicaciones de ejemplo antes de ejecutarlas.
 
-1. Ejecute el siguiente comando para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
+2. Ejecute el siguiente comando para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -68,7 +68,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     Anote la cadena de conexión del dispositivo, que será parecida a `Hostname=...=`. Usará este valor más adelante en este inicio rápido.
 
-1. También necesitará el _punto de conexión compatible con Event Hubs_, la _ruta de acceso compatible con Event Hubs_ y la _clave principal iothubowner_ de IoT Hub para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. Los siguientes comandos recuperan estos valores para IoT Hub:
+3. También necesitará el _punto de conexión compatible con Event Hubs_, la _ruta de acceso compatible con Event Hubs_ y la _clave principal iothubowner_ de IoT Hub para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. Los siguientes comandos recuperan estos valores para IoT Hub:
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -86,17 +86,17 @@ La aplicación de dispositivo simulado se conecta a un punto de conexión espec�
 
 1. En una ventana de terminal, vaya a la carpeta raíz del proyecto de C# de muestra. A continuación, vaya a la carpeta **iot-hub\Quickstarts\simulated-device**.
 
-1. Abra el archivo **SimulatedDevice.cs** en el editor de texto de su elección.
+2. Abra el archivo **SimulatedDevice.cs** en el editor de texto de su elección.
 
     Reemplace el valor de la variable `connectionString` por la cadena de conexión de dispositivo que anotó anteriormente. A continuación, guarde los cambios realizados en el archivo **SimulatedDevice.cs**.
 
-1. En la ventana de terminal, ejecute los comandos siguientes para instalar los paquetes necesarios para la aplicación de dispositivo simulado:
+3. En la ventana de terminal, ejecute los comandos siguientes para instalar los paquetes necesarios para la aplicación de dispositivo simulado:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. En la ventana de terminal, ejecute el comando siguiente para compilar la aplicación de dispositivo simulado y ejecutarla:
+4. En la ventana de terminal, ejecute el comando siguiente para compilar la aplicación de dispositivo simulado y ejecutarla:
 
     ```cmd/sh
     dotnet run
@@ -112,21 +112,21 @@ La aplicación back-end se conecta a un punto de conexión de **Eventos** de ser
 
 1. En otra ventana de terminal, vaya a la carpeta raíz del proyecto de C# de muestra. A continuación, vaya a la carpeta **iot-hub\Quickstarts\read-d2c-messages**.
 
-1. Abra el archivo **ReadDeviceToCloudMessages.cs** en el editor de texto de su elección.
+2. Abra el archivo **ReadDeviceToCloudMessages.cs** en el editor de texto de su elección. Actualice las siguientes variables y guarde los cambios en el archivo.
 
-    Reemplace el valor de la variable `eventHubsCompatibleEndpoint` por el punto de conexión compatible con Event Hubs que anotó anteriormente.
+    | Variable | Valor |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | Reemplace el valor de la variable por el punto de conexión compatible con Event Hubs que anotó anteriormente. |
+    | `eventHubsCompatiblePath`     | Reemplace el valor de la variable por la ruta de acceso compatible con Event Hubs que anotó anteriormente. |
+    | `iotHubSasKey`                | Reemplace el valor de la variable por la clave principal iothubowner que anotó anteriormente. |
 
-    Reemplace el valor de la variable `eventHubsCompatiblePath` por la ruta de acceso compatible con Event Hubs que anotó anteriormente.
-
-    Reemplace el valor de la variable `iotHubSasKey` por la clave principal iothubowner que anotó anteriormente. A continuación, guarde los cambios realizados en el archivo **ReadDeviceToCloudMessages.cs**.
-
-1. En la ventana de terminal, ejecute los comandos siguientes para instalar las bibliotecas necesarias para la aplicación back-end:
+3. En la ventana de terminal, ejecute los comandos siguientes para instalar las bibliotecas necesarias para la aplicación back-end:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. En la ventana de terminal, ejecute los comandos siguientes para compilar la aplicación back-end y ejecutarla:
+4. En la ventana de terminal, ejecute los comandos siguientes para compilar la aplicación back-end y ejecutarla:
 
     ```cmd/sh
     dotnet run
@@ -138,9 +138,7 @@ La aplicación back-end se conecta a un punto de conexión de **Eventos** de ser
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene pensado completar el siguiente inicio rápido, deje IoT Hub y el grupo de recursos y vuelva a usarlos más adelante.
-
-Si ya no los va a necesitar más, elimínelos en el portal. Para ello, seleccione el grupo de recursos **qs-iot-hub-rg** que contiene la instancia de IoT Hub y haga clic en **Eliminar**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

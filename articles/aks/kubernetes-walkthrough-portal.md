@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8b9a9eddc6876451a75f0deae911d73b57198827
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597287"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286603"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
 
 ## <a name="create-aks-cluster"></a>Creación de un clúster de AKS
 
-Elija **Crear un recurso** > busque **Kubernetes** > seleccione **Kubernetes Service** > **Crear**.
+Elija **Crear un recurso** > seleccione **Kubernetes Service** > **Crear**.
 
 Complete los pasos siguientes en cada encabezado del formulario de creación del clúster de AKS.
 

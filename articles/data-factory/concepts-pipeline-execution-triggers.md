@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715044"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293486"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ Los desencadenadores son otra forma de realizar una ejecución de canalización.
 
 - Desencadenador de ventana de saltos de tamaño constante: un desencadenador que opera en un intervalo periódico, mientras conserva también el estado. Azure Data Factory no admite en estos momentos desencadenadores basados en eventos. Por ejemplo, no se admite el desencadenador de una ejecución de canalización que responde a un evento de llegada de archivo.
 
+- Desencadenador basado en eventos: un desencadenador que responde a un evento.
+
 Las canalizaciones y los desencadenadores tienen una relación de varios a varios. Varios desencadenadores pueden dar comienzo a una única canalización o el mismo desencadenador puede iniciar varias canalizaciones. En la siguiente definición de un desencadenador, la propiedad **pipelines** hace referencia a una lista de canalizaciones que desencadena un desencadenador en particular. La definición de propiedad incluye los valores para los parámetros de la canalización.
 
 ### <a name="basic-trigger-definition"></a>Definición básica del desencadenador
@@ -175,11 +177,6 @@ Las canalizaciones y los desencadenadores tienen una relación de varios a vario
 Un desencadenador de programación ejecuta canalizaciones según una programación de reloj. Este desencadenador admite opciones de calendario periódicas y avanzadas. Por ejemplo, el desencadenador admite intervalos como "semanal" o "lunes a las 5:00 p. m. y jueves a las 9:00 p. m". El desencadenador de programación es flexible porque el patrón de conjunto de datos es independiente y el desencadenador no distingue entre datos de series temporales y datos de series no temporales.
 
 Para más información sobre los desencadenadores de programación y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una programación](how-to-create-schedule-trigger.md).
-
-## <a name="tumbling-window-trigger"></a>Desencadenador de ventana de saltos de tamaño constante
-Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen.
-
-Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definición de desencadenador de programación
 Cuando se crea un desencadenador de programación, debe especificar la programación y periodicidad mediante una definición de JSON. 
@@ -322,6 +319,17 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 | **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matriz de valores de día (el tamaño máximo de la matriz es 7)<br /><br />Los valores de día no distinguen mayúsculas de minúsculas.|
 | **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Matriz de objetos **monthlyOccurrence**: `{ "day": day,  "occurrence": occurence }`.<br />- El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.<br />- El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.|
 | **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Cualquier valor <= -1 y >= -31<br />- Cualquier valor >= 1 y <= 31<br />- Matriz de valores|
+
+## <a name="tumbling-window-trigger"></a>Desencadenador de ventana de saltos de tamaño constante
+Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen.
+
+Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
+
+## <a name="event-based-trigger"></a>Desencadenador basado en eventos
+
+Un desencadenador basado en eventos ejecuta canalizaciones en respuesta a un evento como, por ejemplo, la llegada de un archivo, o su eliminación, a Azure Blob Storage.
+
+Para más información acerca de los desencadenadores basados en eventos, consulte [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md) (Creación de un desencadenador que ejecuta una canalización en respuesta a un evento).
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Ejemplos de programaciones de periodicidad del desencadenador
 En esta sección se proporcionan ejemplos de programaciones de periodicidad. Se centra en el objeto **schedule** y sus elementos.

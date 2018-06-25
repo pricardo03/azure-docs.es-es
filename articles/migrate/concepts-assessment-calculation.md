@@ -4,14 +4,14 @@ description: En este artículo se proporciona una introducción a los cálculos 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203561"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639153"
 ---
 # <a name="assessment-calculations"></a>Cálculos de evaluación
 
@@ -69,12 +69,12 @@ Sistemas operativos de 32 bits | La máquina puede arrancar en Azure, pero Azure
 
 ## <a name="sizing"></a>Ajuste de tamaño
 
-Después de que una máquina se marca como preparada para Azure, Azure Migrate cambia el tamaño de la máquina virtual y sus discos para Azure. Si el criterio de ajuste de tamaño especificado en las propiedades de valoración es realizar el ajuste de tamaño basado en el rendimiento, Azure Migrate tiene en cuenta el historial de rendimiento de la máquina para identificar un tamaño de memoria virtual en Azure. Este método es útil en escenarios donde ha asignado en exceso la máquina virtual local, pero el uso es bajo, y le gustaría ajustar correctamente el tamaño de las máquinas virtuales en Azure para ahorrar costos.
+Después de que una máquina se marca como preparada para Azure, Azure Migrate cambia el tamaño de la máquina virtual y sus discos para Azure. Si el criterio de ajuste de tamaño especificado en las propiedades de valoración es realizar el ajuste de tamaño según el rendimiento, Azure Migrate tiene en cuenta el historial de rendimiento de la máquina para identificar el tamaño y el tipo de disco de la máquina virtual en Azure. Este método es útil en escenarios donde ha asignado en exceso la máquina virtual local, pero el uso es bajo, y le gustaría ajustar correctamente el tamaño de las máquinas virtuales en Azure para ahorrar costos.
 
 > [!NOTE]
 > Azure Migrate recopila el historial de rendimiento de las máquinas virtuales locales desde vCenter Server. Para garantizar la precisión en el ajuste de tamaño, asegúrese de que la configuración de estadísticas en vCenter Server está establecida en el nivel 3 y espere al menos un día antes de empezar la detección de las máquinas virtuales locales. Si la configuración de estadísticas en vCenter Server está por debajo del nivel 3, no se recopilan datos de rendimiento de disco y red.
 
-Si no desea tener en cuenta el historial de rendimiento para el ajuste de tamaño de la máquina virtual y quiere usarla en Azure tal y como está, puede especificar el criterio de ajuste de tamaño *como local* y Azure Migrate ajustará entonces el tamaño de las máquinas virtuales en función de la configuración local sin tener en cuenta los datos de uso. En este caso, el ajuste de tamaño de disco todavía se basa en los datos de rendimiento.
+Si no desea tener en cuenta el historial de rendimiento para el ajuste de tamaño de la máquina virtual y quiere usarla en Azure tal y como está, puede especificar el criterio de ajuste de tamaño *como local* y Azure Migrate ajustará entonces el tamaño de las máquinas virtuales en función de la configuración local sin tener en cuenta los datos de uso. En este caso, el ajuste del tamaño de disco se hará según el tipo de almacenamiento que especifique en las propiedades de valoración (disco estándar o premium)
 
 ### <a name="performance-based-sizing"></a>Ajuste de tamaño según el rendimiento
 
@@ -103,25 +103,13 @@ Para realizar el ajuste de tamaño basado en el rendimiento, Azure Migrate comie
     - Si hay varios tamaños de máquina virtual de Azure adecuados, se recomienda el que tiene el costo más bajo.
 
 ### <a name="as-on-premises-sizing"></a>Ajuste de tamaño como local
-Si el criterio de ajuste de tamaño es *como local*, Azure Migrate no tiene en cuenta el historial de rendimiento de las máquinas virtuales y las asigna en función del tamaño asignado en el entorno local. Sin embargo, para el ajuste de tamaño de disco, tenga en cuenta el historial de rendimiento de los discos para recomendar discos Estándar o Premium.  
-- **Almacenamiento**: Azure Migrate intenta asignar cada disco asociado a la máquina a un disco en Azure.
-
-    > [!NOTE]
-    > Azure Migrate admite solo discos administrados para la valoración.
-
-    - Para obtener la E/S de disco por segundo (IOPS) y el rendimiento (MBps) efectivos, Azure Migrate multiplica el valor de IOPS del disco y el rendimiento por el factor de confort. Según los valores efectivos de IOPS y rendimiento, Azure Migrate identifica si el disco debe asignarse a un disco estándar o premium de Azure.
-    - Si Azure Migrate no puede encontrar un disco con los valores de rendimiento e IOPS necesarios, marca la máquina como no adecuada para Azure. [Más información](../azure-subscription-service-limits.md#storage-limits) sobre los límites de Azure por disco y máquina virtual.
-    - Si encuentra un conjunto de discos adecuados, Azure Migrate selecciona aquellos que admiten el método de redundancia de almacenamiento y la ubicación especificada en la configuración de evaluación.
-    - Si hay varios discos aptos, selecciona el que tiene el costo más bajo.
-    - Si no hay datos de rendimiento disponibles para los discos, todos los discos se asignan a discos estándar en Azure.
-- **Red**: para cada adaptador de red, se recomienda un adaptador de red en Azure.
-- **Proceso**: Azure Migrate examina el número de núcleos y tamaño de la memoria de la máquina virtual local y recomienda una máquina virtual de Azure con la misma configuración. Si hay varios tamaños de máquina virtual de Azure adecuados, se recomienda el que tiene el costo más bajo. Los datos de uso de CPU y memoria no se consideran en el ajuste de tamaño como local.
+Si el criterio de ajuste de tamaño es *como local*, Azure Migrate no tiene en cuenta el historial de rendimiento de las máquinas virtuales ni de los discos y asigna un SKU de máquina virtual en Azure en función del tamaño asignado en el entorno local. De manera similar que para el ajuste de tamaño de disco, examina el tipo de almacenamiento especificado en las propiedades de valoración (estándar o premium) y recomienda el tipo de disco según corresponda. El tipo de almacenamiento predeterminado es discos premium.
 
 ### <a name="confidence-rating"></a>Clasificación de confianza
 
 Cada valoración de Azure Migrate está asociada con una clasificación de confianza que va de 1 a 5 estrellas (siendo 1 estrella la más baja y 5 estrellas la más alta). La clasificación de confianza se asigna a una valoración que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración. La clasificación de confianza de una valoración le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate.
 
-Para ajustar el tamaño en función del rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria. Asimismo, para ajustar el tamaño de cada disco asociado a la máquina virtual, se necesita el valor de IOPS de lectura o escritura y el rendimiento. De forma similar, para cada adaptador de red asociado a la máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración, tal como se indica a continuación:
+La clasificación de confianza de una valoración es más útil para valoraciones con criterio de tamaño como "tamaño basado en el rendimiento". Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria de la máquina virtual. Además, para cada disco asociado a la máquina virtual, necesita el valor de IOPS de disco y los datos de rendimiento. De forma similar, para cada adaptador de red asociado a una máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración, tal como se indica a continuación:
 
    **Disponibilidad de puntos de datos** | **Clasificación de confianza**
    --- | ---

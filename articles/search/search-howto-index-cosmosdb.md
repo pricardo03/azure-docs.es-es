@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777498"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640343"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Conexión de Cosmos DB con Azure Search mediante indexadores
 
@@ -97,7 +97,7 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 * **type**: debe ser `documentdb`.
 * **credenciales**:
   
-  * **connectionString**: obligatorio. Especifique la información de conexión a la base de datos de Azure Cosmos DB con el formato siguiente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Para colecciones de MongoDB, agregue **ApiKind=MongoDB** a la cadena de conexión: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
+  * **connectionString**: obligatorio. Especifique la información de conexión a la base de datos de Azure Cosmos DB con el formato siguiente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Para colecciones de MongoDB, agregue **ApiKind=MongoDb** a la cadena de conexión: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
 * **contenedor**:
   
   * **nombre**: obligatorio. Especifique el id. de la colección de la base de datos que se va a indexar.
