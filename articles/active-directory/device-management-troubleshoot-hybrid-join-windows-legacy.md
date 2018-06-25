@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770747"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714119"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -54,7 +55,7 @@ En este artículo se proporcionan instrucciones sobre cómo resolver problemas p
 
 - El registro inicial o unión de dispositivos se ha configurado para realizar un intento de inicio de sesión o de bloqueo/desbloqueo. Podría haber un retraso de 5 minutos desencadenado por una tarea de programador de tareas. 
 
-- Si vuelve a instalar el sistema operativo o se vuelve a registrar de forma manual, se creará un nuevo registro en Azure AD; debido a ello, aparecerán varias entradas en la pestaña de información del USUARIO en Azure Portal. 
+- Si vuelve a instalar el sistema operativo o se vuelve a registrar de forma manual, se puede crear un registro en Azure AD; debido a ello, aparecerán varias entradas en la pestaña de información del USUARIO en Azure Portal. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Paso 1: Recuperar el estado del registro 
 
@@ -89,7 +90,7 @@ Si la unión a Azure AD híbrido no se realiza correctamente, el cuadro de diál
     
     - El usuario con la sesión iniciada no es un usuario del dominio (por ejemplo, un usuario local). La combinación híbrida de Azure AD en dispositivos de nivel inferior solo se admite para los usuarios del dominio.
     
-    - Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Esto podría deberse a un problema de conectividad de la red saliente con las direcciones URL de Azure AD (compruebe los requisitos previos). También podría ser que la autenticación de multifactor (MFA) esté habilitada o configurada para el usuario, y WIAORMUTLIAUTHN no esté configurado en el servidor de federación (consulte los pasos de configuración). Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario e impida que **autoworkplace.exe** obtenga de forma silenciosa un token.
+    - Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Esto podría deberse a un problema de conectividad de la red saliente con las direcciones URL de Azure AD. También podría ser que la autenticación de multifactor (MFA) esté habilitada o configurada para el usuario, y WIAORMUTLIAUTHN no esté configurado en el servidor de federación. Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario e impida que **autoworkplace.exe** obtenga de forma silenciosa un token.
     
     - Su organización usa sin problemas el inicio de sesión único de Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` no está presente en la configuración de Intranet de IE del dispositivo y la opción **Allow updates to status bar via script** (Permitir actualizaciones en la barra de estado mediante el script) no está habilitada en la zona de la Intranet.
 

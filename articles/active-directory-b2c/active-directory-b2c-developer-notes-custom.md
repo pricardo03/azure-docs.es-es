@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: notas del desarrollador acerca del uso de directivas personalizadas|Microsoft Docs'
-description: Notas para los desarrolladores sobre configuración y mantenimiento de Azure AD B2C con directivas personalizadas
+title: Notas para desarrolladores sobre el uso de directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
+description: Notas para desarrolladores sobre la configuración y el mantenimiento de Azure AD B2C con directivas personalizadas.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: davidmu
-ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: ce323972dcdbf673311b407f427bc452fbe6dc3a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709733"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de la versión preliminar de la directiva personalizada de Azure Active Directory B2C
 El conjunto de características de la directiva personalizada está disponible para su evaluación en versión preliminar pública para todos los clientes de Azure Active Directory B2C (Azure AD B2C). Este conjunto de características está destinado a desarrolladores de identidades avanzados que crean las soluciones de identidad más complejas.  

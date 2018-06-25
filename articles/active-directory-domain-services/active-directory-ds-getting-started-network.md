@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: introducción | Microsoft Docs"
-description: "Habilitación de Azure Active Directory Domain Services mediante Azure Portal"
+title: 'Azure Active Directory Domain Services: introducción | Microsoft Docs'
+description: Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 607ca1900200f3b163d69a7aa4cb700b842f9334
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586838"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 
@@ -32,7 +34,7 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
 
 1. Haga clic en **Red virtual** para seleccionar una red virtual.
     > [!NOTE]
-    > **No se admiten redes virtuales clásicas para nuevas implementaciones.** No se admiten redes virtuales clásicas para nuevas implementaciones. Los dominios administrados existentes implementados en redes virtuales clásicas seguirán siendo compatibles. En el futuro se ofrecerá la posibilidad de migrar un dominio administrado existente de una red virtual clásica a una red virtual de Resource Manager.
+    > **No se admiten redes virtuales clásicas para nuevas implementaciones.** No se admiten redes virtuales clásicas para nuevas implementaciones. Los dominios administrados existentes implementados en redes virtuales clásicas seguirán siendo compatibles. Microsoft le permitirá migrar un dominio administrado existente de una red virtual clásica a una red virtual de Resource Manager.
     >
 
 2. En la página **Elegir red virtual**, se ven todas las redes virtuales existentes. Solo se ven las redes virtuales que pertenecen al grupo de recursos y la ubicación de Azure que ha seleccionado en la página **Conceptos básicos** del asistente.
@@ -42,7 +44,7 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
   > **El dominio administrado no se puede mover a otra red virtual después de haber habilitado Azure AD Domain Services.** Seleccione la red virtual correcta para habilitar el dominio administrado. Después de crear un dominio administrado, no se puede mover a otra red virtual sin eliminar el dominio administrado. Se recomienda revisar [Consideraciones de red de Azure Active Directory Domain Services](active-directory-ds-networking.md) antes de empezar.  
   >
 
-4. **Crear una red virtual:** haga clic en **Crear nueva** para crear una nueva red virtual. Se recomienda usar una subred dedicada para Azure AD Domain Services. Por ejemplo, cree una subred llamada 'DomainServices', lo que facilitará que otros administradores sepan lo que se implementa en la subred. Cuando haya terminado, haga clic en **Aceptar**.
+4. **Crear una red virtual:** haga clic en **Crear nueva** para crear una nueva red virtual. Use una subred dedicada para Azure AD Domain Services. Por ejemplo, cree una subred llamada 'DomainServices', lo que facilitará que otros administradores sepan lo que se implementa en la subred. Cuando haya terminado, haga clic en **Aceptar**.
 
     ![Seleccionar una red virtual](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
@@ -57,7 +59,7 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
   > **Directrices para seleccionar una subred**
   > 1. Use una subred dedicada para Azure AD Domain Services. No implemente otras máquinas virtuales en esta subred. Esta configuración permite configurar grupos de seguridad de red (NSG) para las cargas de trabajo o máquinas virtuales sin interrumpir el dominio administrado. Para obtener detalles, vea [Consideraciones de red de Azure Active Directory Domain Services](active-directory-ds-networking.md).
   2. No seleccione la subred Gateway para implementar Azure AD Domain Services, porque no es una configuración admitida.
-  3. Asegúrese de que la subred que ha seleccionado tenga un espacio de direcciones disponible suficiente (con al menos entre tres y cinco direcciones IP disponibles) y exista en el espacio de direcciones IP privado.
+  3. La subred que ha seleccionado debe tener como mínimo de 3 a 5 direcciones IP disponibles en su espacio de direcciones.
   >
 
 6. Cuando haya terminado, haga clic en **Aceptar** para ir a la página **Grupo de administradores** del asistente.

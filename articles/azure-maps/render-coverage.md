@@ -1,22 +1,19 @@
 ---
 title: Cobertura de representación en Azure Maps | Microsoft Docs
 description: Información sobre la cobertura de representación en Azure Maps
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: ab05277c4541ae859f79b1108c4cf8a7beb29271
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600585"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de representación de Azure Maps
 
@@ -50,7 +47,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Comores                          |   | Ø |
 | Congo                            | ✓ | ✓ |
 | República Democrática del Congo | ✓ | ✓ |
-| Côte D'ivoire                    |   | Ø |
+| Côte d'Ivoire                    |   | Ø |
 | Yibuti                         |   | Ø |
 | Egipto                            | ✓ | ✓ |
 | Guinea Ecuatorial                |   | Ø |
@@ -66,7 +63,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Liberia                          |   | Ø |
 | Libia                            |   | Ø |
 | Madagascar                       |   | Ø |
-| Malawi                           | ✓ | ✓ |
+| Malaui                           | ✓ | ✓ |
 | Malí                             | ✓ | ✓ |
 | Mauritania                       | ✓ | ✓ |
 | Mauricio                        | ✓ | ✓ |
@@ -155,7 +152,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Uruguay                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
 | Islas Vírgenes Británicas   | ✓ | ✓ |
-| Islas Vírgenes (Estados Unidos)      | ✓ | ✓ |
+| Islas Vírgenes de EE. UU.      | ✓ | ✓ |
 
 ## <a name="asia"></a>Asia 
 
@@ -163,7 +160,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | ------ | :------------------: | :------------------: |
 | Afganistán               |   | Ø |
 | Bahréin                   | ✓ | ✓ |
-| Bangladesh                |   | Ø |
+| Bangladés                |   | Ø |
 | Bután                    |   | Ø |
 | Territorio Británico del Océano Índico |   | Ø |
 | Brunei                    | ✓ | ✓ |

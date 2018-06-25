@@ -1,30 +1,27 @@
 ---
 title: 'Implementación local de la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este tutorial se muestra cómo implementar el acelerador de la solución de supervisión remota en la máquina local para pruebas y desarrollo.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627238"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementación local del acelerador de la solución de supervisión remota
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementación local del acelerador de la solución Supervisión remota
 
-En este artículo se explica cómo implementar el acelerador de la solución de supervisión remota en la máquina local para pruebas y desarrollo. Este enfoque implementa los microservicios en un contenedor Docker local y utiliza IoT Hub, Cosmos DB y servicios de almacenamiento de Azure en la nube. Puede utilizar la CLI de aceleradores de soluciones (PCS) para implementar los servicios en la nube de Azure.
+En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. Este enfoque implementa los microservicios en un contenedor Docker local y utiliza IoT Hub, Cosmos DB y servicios de almacenamiento de Azure en la nube. Puede utilizar la CLI de aceleradores de soluciones (PCS) para implementar los servicios en la nube de Azure.
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para implementar los servicios de Azure utilizados por el acelerador de la solución de supervisión remota, necesita una suscripción de Azure activa.
+Para implementar los servicios de Azure que usa el acelerador de la solución Supervisión remota, necesita una suscripción de Azure activa.
 
 En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,7 +49,7 @@ Para más información sobre la CLI, consulte [Uso de la CLI](https://github.com
 
 ### <a name="download-the-source-code"></a>Descarga del código fuente
 
- El repositorio de código fuente de supervisión remota incluye los archivos de configuración de Docker que necesita para descargar, configurar y ejecutar las imágenes de Docker que contienen los microservicios. Para clonar y crear una versión local del repositorio, vaya a la carpeta adecuada del equipo local mediante la línea de comandos favorita o el terminal y ejecute alguno de los siguientes comandos:
+ El repositorio de código fuente de Supervisión remota incluye los archivos de configuración de Docker que necesita para descargar, configurar y ejecutar las imágenes de Docker que contienen los microservicios. Para clonar y crear una versión local del repositorio, vaya a la carpeta adecuada del equipo local mediante la línea de comandos favorita o el terminal y ejecute alguno de los siguientes comandos:
 
 Para instalar las implementaciones de Java de los microservicios, ejecute:
 
@@ -119,13 +116,13 @@ La primera vez que ejecuta este comando, Docker descarga las imágenes de micros
 
 Puede utilizar un shell independiente para ver los registros desde el contenedor. En primer lugar, busque el identificador del contenedor mediante el comando `docker ps -a`. A continuación, utilice `docker logs {container-id} --tail 1000` para ver las últimas 1000 entradas de registro en el contenedor especificado.
 
-Para acceder al panel de la solución de supervisión remota, vaya a [http://localhost:8080](http://localhost:8080) en el explorador.
+Para acceder al panel de la solución Supervisión remota, vaya a [http://localhost:8080](http://localhost:8080) en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
 
 Para evitar cargos innecesarios, cuando haya terminado las pruebas, elimine los servicios en la nube de su suscripción de Azure. La forma más sencilla de quitar los servicios es ir a [Azure Portal](https://ms.portal.azure.com) y eliminar el grupo de recursos creado con la herramienta `pcs`.
 
-Utilice el comando `docker-compose down --rmi all` para quitar las imágenes de Docker y liberar espacio en la máquina local. También puede eliminar la copia local del repositorio de supervisión remota que se creó al clonar el código fuente de GitHub.
+Utilice el comando `docker-compose down --rmi all` para quitar las imágenes de Docker y liberar espacio en la máquina local. También puede eliminar la copia local del repositorio de Supervisión remota que se ha creado al clonar el código fuente de GitHub.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -137,6 +134,6 @@ En este tutorial aprendió lo siguiente:
 > * Implementación del acelerador de solución
 > * Inicio de sesión en el acelerador de la solución
 
-Ahora que ha implementado la solución de supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](iot-accelerators-remote-monitoring-deploy.md).
+Ahora que ha implementado la solución Supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

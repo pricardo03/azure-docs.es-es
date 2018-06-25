@@ -1,26 +1,23 @@
 ---
-title: Usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics | Microsoft Docs
-description: 'Aprenda a usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics. '
+title: Usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics
+description: En este artículo se describe cómo usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: jgao
-ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623237"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar el explorador de trabajos y la vista de trabajo para Azure Data Lake Analytics
 El servicio Azure Data Lake Analytics archiva los trabajos enviados en un [almacén de consultas](#query-store). En este artículo aprenderá a utilizar el explorador de trabajos y la vista de trabajo de Azure Data Lake Tools para Visual Studio para encontrar la información histórica del trabajo. 
 
 De forma predeterminada, el servicio Data Lake Analytics archiva los trabajos durante 30 días. El período de expiración se puede configurar desde Azure Portal configurando la directiva de caducidad personalizada. No podrá acceder a la información de trabajo tras la expiración. 

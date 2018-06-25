@@ -1,28 +1,25 @@
 ---
-title: "Extensión de los scripts de U-SQL con Python en Azure Data Lake Analytics | Microsoft Docs"
-description: "Obtenga información acerca de cómo ejecutar código de Python en scripts de U-SQL"
+title: Extensión de los scripts de U-SQL con Python en Azure Data Lake Analytics
+description: Obtenga información sobre cómo ejecutar código Python en scripts de U-SQL mediante Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: jhubbard
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 3e895a6ea9bccc0d210f43748edb3eea80ddc6ad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625087"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Tutorial: Introducción a la extensión de U-SQL con Python
+# <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Extensión de los scripts de U-SQL con código Python en Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de comenzar, asegúrese de que están instaladas las extensiones de Python en su cuenta de Azure Data Lake Analytics.
 
@@ -104,8 +101,8 @@ Actualmente, se muestra una excepción en el código de Python como un error gen
 ### <a name="input-and-output-size-limitations"></a>Limitaciones de tamaño de entrada y salida
 Cada vértice tiene una cantidad limitada de memoria asignada a él. Actualmente, ese límite es de 6 GB para AU. Dado que las DataFrames de entrada y salida deben existir en la memoria en el código de Python, el tamaño total de la entrada y salida no puede superar los 6 GB.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)
 * [Uso de Herramientas de Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

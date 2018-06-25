@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939967"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700199"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, esta lista se expandirá y actualizará para abarcar más de la plataforma.
@@ -74,6 +74,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Servicio IoT Hub Device Provisioning](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Identidad administrada](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -83,6 +84,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Network Watcher](#network-watcher-limits)
 * [Servicio Notification Hubs](#notification-hub-service-limits)
 * [Grupo de recursos](#resource-group-limits)
+* [Control de acceso basado en rol](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
@@ -315,6 +317,12 @@ Para más información sobre otros límites, incluido el tamaño de documento, l
 
 ### <a name="automation-limits"></a>Límites de Automation
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="managed-identity-limits"></a>Límites de identidad administrada
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Límites de control de acceso basado en rol
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Límites de SQL Database
 Para conocer los límites de SQL Database, vea [Límites de recursos de SQL Database](sql-database/sql-database-resource-limits.md).

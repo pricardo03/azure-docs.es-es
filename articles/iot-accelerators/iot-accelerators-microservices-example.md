@@ -1,22 +1,19 @@
 ---
 title: Cambio y reimplementación de un microservicio | Microsoft Docs
 description: En este tutorial se explica cómo cambiar y reimplementar un microservicio en la solución de supervisión remota.
-services: ''
-suite: iot-suite
 author: giyeh
 manager: hegate
 ms.author: giyeh
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 04/19/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3d79c085d10515183a5ddcc12ecac503915eb2e2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: de42e68116c147d81ed0211426bfa813d070b121
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628001"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalización y reimplementación de un microservicio
 
@@ -38,7 +35,7 @@ En este tutorial, aprenderá a:
 Para utilizar este tutorial, necesitará:
 
 >[!div class="checklist"]
-> * [Implementación local de la solución preconfigurada de supervisión remota](iot-accelerators-remote-monitoring-deploy-local.md)
+> * [Implementación local del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Una cuenta de Docker](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/): necesario para ver la respuesta de la API
 

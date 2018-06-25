@@ -7,18 +7,19 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/16/2018
+ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f758d6aec25ce0ef6bf9a0ecab34189296c81fc0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fd96a6cfebe44bd02e3f44a44d91119ad1c2c5a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598759"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
-El control de acceso basado en rol (RBAC) permite la administración del acceso en los recursos de Azure. Con [RBAC](../role-based-access-control/role-assignments-portal.md), se pueden separar los deberes del equipo y conceder a los usuarios, grupos y aplicaciones únicamente el acceso que necesiten para su trabajo. El acceso basado en rol se puede conceder a los usuarios que utilicen Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
+El control de acceso basado en rol (RBAC) permite la administración del acceso en los recursos de Azure. Con [RBAC](../role-based-access-control/overview.md), se pueden separar los deberes del equipo y conceder a los usuarios, grupos y aplicaciones únicamente el acceso que necesiten para su trabajo. El acceso basado en rol se puede conceder a los usuarios que utilicen Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
 
 ## <a name="roles-in-automation-accounts"></a>Roles en cuentas de Automation
 
@@ -70,6 +71,24 @@ Un lector puede ver todos los recursos de una cuenta de Automation, pero no real
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Ver todos los recursos en una cuenta de Automation. |
 
+### <a name="automation-operator"></a>Operador de Automation
+
+El rol de Operador de Automation permite crear y administrar trabajos, y leer las propiedades y el nombre del runbook de todos los runbooks de una cuenta de Automation.  Nota: Si quiere controlar el acceso de los operadores a runbooks específicos, no establezca este rol. En su lugar, combine los roles "Operador de trabajo de Automation" y "Operador de runbooks de Automation". La siguiente tabla muestra los permisos concedidos para el rol:
+
+|**Acciones**  |**Descripción**  |
+|---------|---------|
+|Microsoft.Authorization/*/read|Autorización de lectura.|
+|Microsoft.Automation/automationAccounts/jobs/read|Enumerar trabajos del runbook.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Reanudar un trabajo que está en pausa.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancelar un trabajo en curso.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Leer los flujos de trabajo y los resultados.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausar un trabajo en curso.|
+|Microsoft.Automation/automationAccounts/jobs/write|Crear trabajos.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Roles de lectura y asignaciones de roles.         |
+|Microsoft.Resources/deployments/*      |Crear y administrar implementaciones de grupos de recursos.         |
+|Microsoft.Insights/alertRules/*      | Crear y administrar reglas de alertas.        |
+|Microsoft.Support/* |Crear y administrar incidencias de soporte técnico.|
+
 ### <a name="automation-job-operator"></a>Operador de trabajos de Automation
 
 El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuenta de Automation. Esto permite a los roles con permiso de Operador crear y administrar trabajos para todos los runbooks de la cuenta. La siguiente tabla muestra los permisos concedidos para el rol:
@@ -92,9 +111,6 @@ El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuent
 
 El rol de operador de runbooks de Automation se concede en el ámbito del runbook. Un Operador de runbooks de Automation puede ver las propiedades y el nombre del runbook.  Este rol, combinado con el de Operador de trabajos de Automation, permite también al operador crear y administrar trabajos para el runbook. La siguiente tabla muestra los permisos concedidos para el rol:
 
-> [!NOTE]
-> No establezca el rol Operador de Automation a menos que desee conceder a un operador la capacidad para administrar los trabajos de todos los runbooks de la cuenta.
-
 |**Acciones**  |**Descripción**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Enumerar los runbooks.        |
@@ -103,24 +119,6 @@ El rol de operador de runbooks de Automation se concede en el ámbito del runboo
 |Microsoft.Resources/deployments/*      | Crear y administrar implementaciones de grupos de recursos.         |
 |Microsoft.Insights/alertRules/*      | Crear y administrar reglas de alertas.        |
 |Microsoft.Support/*      | Crear y administrar incidencias de soporte técnico.        |
-
-### <a name="automation-operator"></a>Operador de Automation
-
-El rol de Operador de Automation permite crear y administrar trabajos, y leer las propiedades y el nombre del runbook de todos los runbooks de una cuenta de Automation.  Nota: Si desea controlar el acceso de los operadores a runbooks específicos, no establezca este rol; en su lugar, utilice los roles Operator de trabajo de Automation y Operador de runbooks de Automation.  La siguiente tabla muestra los permisos concedidos para el rol:
-
-|**Acciones**  |**Descripción**  |
-|---------|---------|
-|Microsoft.Authorization/*/read|Autorización de lectura.|
-|Microsoft.Automation/automationAccounts/jobs/read|Enumerar trabajos del runbook.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Reanudar un trabajo que está en pausa.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancelar un trabajo en curso.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Leer los flujos de trabajo y los resultados.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausar un trabajo en curso.|
-|Microsoft.Automation/automationAccounts/jobs/write|Crear trabajos.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Roles de lectura y asignaciones de roles.         |
-|Microsoft.Resources/deployments/*      |Crear y administrar implementaciones de grupos de recursos.         |
-|Microsoft.Insights/alertRules/*      | Crear y administrar reglas de alertas.        |
-|Microsoft.Support/* |Crear y administrar incidencias de soporte técnico.|
 
 ### <a name="log-analytics-contributor"></a>Colaborador de Log Analytics
 
@@ -209,8 +207,8 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 
 |**Acción**  |**Permiso**  |**Ámbito mínimo**  |
 |---------|---------|---------|
-|Escribir nueva implementación      | Microsoft.Resources/deployments/*          |La suscripción          |
-|Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | La suscripción          |
+|Escribir nueva implementación      | Microsoft.Resources/deployments/*          |Subscription          |
+|Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
 |Crear nueva área de trabajo predeterminada      | Microsoft.OperationalInsights/workspaces/write         | Grupos de recursos         |
 |Crear nueva cuenta      |  Microsoft.Automation/automationAccounts/write        |Grupos de recursos         |
 |Vincular área de trabajo y cuenta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabajo</br>Cuenta de Automation
@@ -229,8 +227,8 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 
 |**Acción**  |**Permiso** |**Ámbito mínimo**  |
 |---------|---------|---------|
-|Crear una nueva implementación     | Microsoft.Resources/deployments/*        | La suscripción         |
-|Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | La suscripción        |
+|Crear una nueva implementación     | Microsoft.Resources/deployments/*        | Subscription         |
+|Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
 |Hoja AutomationOnboarding: crear nueva área de trabajo     |Microsoft.OperationalInsights/workspaces/write           | Grupos de recursos        |
 |Hoja AutomationOnboarding: leer área de trabajo vinculada     | Microsoft.Automation/automationAccounts/read        | Cuenta de Automation       |
 |Hoja AutomationOnboarding: leer solución     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solución        |
@@ -255,18 +253,22 @@ La administración de actualizaciones cubre varios servicios para proporcionar s
 |Cuenta de Automation     | Colaborador de Log Analytics       | Cuenta de Automation        |
 |Cuenta de Automation    | Colaborador de la máquina virtual        | Grupo de recursos para la cuenta        |
 |Área de trabajo de Log Analytics     | Colaborador de Log Analytics| Área de trabajo de Log Analytics        |
-|Área de trabajo de Log Analytics |Lector de Log Analytics| La suscripción|
+|Área de trabajo de Log Analytics |Lector de Log Analytics| Subscription|
 |Solución     |Colaborador de Log Analytics         | Solución|
 |Máquina virtual     | Colaborador de la máquina virtual        | Máquina virtual        |
 
-## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Configuración de RBAC para una cuenta de Automation mediante Azure Portal
+## <a name="configure-rbac-for-your-automation-account"></a>Configuración de RBAC para una cuenta de Automation
+
+En la sección siguiente se muestra cómo configurar RBAC en su cuenta de Automation a través del [portal](#configure-rbac-using-the-azure-portal) y [PowerShell](#configure-rbac-using-powershell).
+
+### <a name="configure-rbac-using-the-azure-portal"></a>Configuración de RBAC mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y abra su cuenta de Automation en la página Cuentas de Automation.
 2. Haga clic en el control **Control de acceso (IAM)** de la esquina superior izquierda. Se abre la página **Control de acceso (IAM)**, donde puede añadir nuevos usuarios, grupos y aplicaciones para administrar la cuenta de Automation y ver los roles existentes que se pueden configurar para la cuenta de Automation.
 
    ![Botón de acceso](media/automation-role-based-access-control/automation-01-access-button.png)
 
-### <a name="add-a-new-user-and-assign-a-role"></a>Adición de usuarios nuevos y asignación de roles
+#### <a name="add-a-new-user-and-assign-a-role"></a>Adición de usuarios nuevos y asignación de roles
 
 1. En la página **Control de acceso (IAM)**, haga clic en **+ Agregar** para abrir la página **Agregar permisos**, donde puede agregar un usuario, un grupo o una aplicación y asignarles un rol.
 
@@ -288,7 +290,7 @@ La administración de actualizaciones cubre varios servicios para proporcionar s
    > [!NOTE]
    > El control de acceso basado en roles solo se puede establecer en el ámbito de cuenta de Automation, no en los recursos que estén debajo de la cuenta de Automation.
 
-### <a name="remove-a-user"></a>Eliminación de un usuario
+#### <a name="remove-a-user"></a>Eliminación de un usuario
 
 Puede quitar el permiso de usuario de cualquier usuario que no administre la cuenta de Automation o que haya dejado de trabajar en la organización. Estos son los pasos que deben seguirse para eliminar un usuario:
 
@@ -298,23 +300,7 @@ Puede quitar el permiso de usuario de cualquier usuario que no administre la cue
 
    ![Quitar usuarios](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-## <a name="role-assigned-user"></a>Usuario con rol asignado
-
-Cuando un usuario asignado a un rol inicia sesión en Azure y selecciona su cuenta de Automation, verá la cuenta del propietario en la lista de **Directorios**. Para ver la Cuenta de Automation al que se ha agregado, es preciso que cambie el directorio predeterminado al directorio predeterminado del propietario.
-
-### <a name="user-experience-for-automation-operator-role"></a>Experiencia del usuario en el rol Operador de Automation
-
-Cuando un usuario asignado al rol Operador de Automation vea la cuenta de Automation a la que está asignado, solo verá la lista de runbooks, los trabajos de runbook y las programaciones creados en la cuenta de Automation, pero no su definición. Puede iniciar, detener, suspender, reanudar o programar el trabajo de Runbook. El usuario no tiene acceso a otros recursos de Automation como configuraciones, grupos de Hybrid Worker o nodos de DSC.
-
-![Sin acceso a los recursos](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
-
-El usuario tiene acceso para ver y crear programaciones, pero no tiene acceso a otros tipos de recursos.
-
-Este usuario tampoco tiene acceso para ver los Webhooks asociados a un Runbook
-
-![Sin acceso a Webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)
-
-## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Configuración de RBAC para una cuenta de Automation mediante Azure PowerShell
+### <a name="configure-rbac-using-powershell"></a>Configuración de RBAC mediante PowerShell
 
 El acceso basado en rol también se puede configurar en una cuenta de Automation mediante los siguientes [cmdlets de Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -326,7 +312,7 @@ Get-AzureRmRoleDefinition -Name 'Automation Operator'
 
 A continuación se incluye el resultado de ejemplo:
 
-```azurepowershell-interactive
+```azurepowershell
 Name             : Automation Operator
 Id               : d3881f73-407a-4167-8283-e981cbba0404
 IsCustom         : False
@@ -387,6 +373,45 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 ```
 
 En los ejemplos anteriores, reemplace el **nombre de inicio de sesión**, el **identificador de suscripción**, el **nombre del grupo de recursos** y el **nombre de la cuenta de Automation** por los detalles de su cuenta. Elija **Sí** cuando se le pida que confirme antes de procederse a quitar la asignación de roles de usuario.
+
+### <a name="user-experience-for-automation-operator-role---automation-account"></a>Experiencia del usuario en el rol Operador de Automation: cuenta de Automation
+
+Cuando un usuario asignado al rol Operador de Automation en el ámbito de la cuenta de Automation vea la cuenta de Automation a la que esté asignado, solo verá la lista de runbooks, los trabajos de runbook y las programaciones creados en la cuenta de Automation, pero no su definición. Puede iniciar, detener, suspender, reanudar o programar el trabajo de Runbook. El usuario no tiene acceso a otros recursos de Automation como configuraciones, grupos de Hybrid Worker o nodos de DSC.
+
+![Sin acceso a los recursos](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
+
+## <a name="configure-rbac-for-runbooks"></a>Configuración de RBAC para runbooks
+
+Azure Automation permite asignar RBAC a runbooks específicos. Para ello, ejecute el siguiente script para agregar un usuario a un runbook específico. Los administradores de cuentas de Automation o los administradores de inquilinos pueden ejecutar el script siguiente.
+
+```azurepowershell-interactive
+$rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
+$automationAccountName ="<Automation Account Name>" # Name of the Automation Account
+$rbName = "<Name of Runbook>" # Name of the runbook
+$userId = "<User ObjectId>" # Azure Active Directory (AAD) user's ObjectId from the directory
+
+# Gets the Automation Account resource
+$aa = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
+
+# Get the Runbook resource
+$rb = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
+
+# The Automation Job Operator role only needs to be ran once per user.
+New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId
+
+# Adds the user to the Automation Runbook Operator role to the Runbook scope
+New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
+```
+
+Una vez ejecutado, los usuarios deberán iniciar sesión en Azure Portal y consultar **Todos los recursos**. En la lista se mostrará el runbook al que estén asignados con el rol de **Operador de runbook de Automation**.
+
+![RBAC de runbook en el portal](./media/automation-role-based-access-control/runbook-rbac.png)
+
+### <a name="user-experience-for-automation-operator-role---runbook"></a>Experiencia del usuario en el rol Operador de Automation: runbook
+
+Cuando un usuario asignado al rol Operador de Automation en el ámbito del runbook vea un runbook al que esté asignado, solo podrá iniciar el runbook y ver los trabajos de runbook.
+
+![Acceso solo a la página de inicio](media/automation-role-based-access-control/automation-only-start.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

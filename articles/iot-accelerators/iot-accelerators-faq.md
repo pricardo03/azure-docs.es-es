@@ -1,29 +1,23 @@
 ---
 title: Preguntas frecuentes sobre los aceleradores de soluciones de Azure IoT | Microsoft Docs
 description: Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 6c8c87dc4f7bb91ce227bbfbaf1cabf0c44d2e0b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627166"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
 
-Consulte también [Preguntas más frecuentes específicas sobre fábricas conectadas](iot-accelerators-faq-cf.md) y [Preguntas más frecuentes específicas sobre supervisión remota](iot-accelerators-faq-rm-v2.md).
+Consulte también [Preguntas frecuentes específicas sobre Factoría conectada](iot-accelerators-faq-cf.md) y [Preguntas frecuentes específicas sobre Supervisión remota](iot-accelerators-faq-rm-v2.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>¿Dónde se puede encontrar el código fuente del acelerador de la solución?
 
@@ -42,7 +36,7 @@ Si utiliza el dispositivo DevKit, encontrará recursos y ejemplos en el reposito
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>¿La nueva arquitectura de microservicios está disponible para los tres aceleradores de soluciones?
 
-Actualmente, solo la solución de supervisión remota usa la arquitectura de microservicios, ya que abarca el escenario más amplio.
+Actualmente, solo la solución Supervisión remota usa la arquitectura de microservicios, ya que abarca el escenario más amplio.
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>¿Qué ventajas proporciona en la nueva actualización la nueva arquitectura basada en microservicios de código abierto?
 
@@ -50,11 +44,11 @@ En los dos últimos años, la arquitectura de nube ha evolucionado en gran medid
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>¿Está disponible el nuevo acelerador de soluciones en la misma región geográfica que la solución existente?
 
-Sí, la nueva supervisión remota está disponible en las mismas regiones geográficas.
+Sí, la nueva Supervisión remota está disponible en las mismas regiones geográficas.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>¿Cuál es la diferencia entre eliminar un grupo de recursos en Azure Portal y hacer clic en Eliminar en un acelerador de soluciones en azureiotsuite.com?
 
-* Si elimina el acelerador de soluciones en [azureiotsuite.com](https://www.azureiotsuite.com/), elimina todos los recursos aprovisionados cuando se creó el acelerador de la solución. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
+* Si elimina el acelerador de soluciones en [azureiotsuite.com](https://www.azureiotsolutions.com/), elimina todos los recursos aprovisionados cuando se creó el acelerador de la solución. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
 * Si elimina el grupo de recursos en [Azure Portal](https://portal.azure.com), solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada al acelerador de la solución.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>¿Puedo seguir aprovechando mi inversión en aceleradores de soluciones de Azure IoT?
@@ -71,7 +65,7 @@ Cincuenta. Puede crear un [vale de soporte de Azure](https://portal.azure.com/#b
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>¿Cuántas API de Mapas de Bing gratis se pueden aprovisionar en una suscripción?
 
-Dos. Solo puede crear dos planes de Mapas de Bing para empresa de nivel 1 de transacciones internas en una suscripción de Azure. La solución de supervisión se aprovisiona de forma predeterminada con el plan de nivel 1 de transacciones internas. Como consecuencia, solo se pueden aprovisionar un máximo de dos soluciones de supervisión remota en una suscripción sin modificaciones.
+Dos. Solo puede crear dos planes de Mapas de Bing para empresa de nivel 1 de transacciones internas en una suscripción de Azure. La solución Supervisión remota se aprovisiona de forma predeterminada con el plan de nivel 1 de transacciones internas. Como consecuencia, solo se pueden aprovisionar un máximo de dos soluciones en una suscripción sin modificaciones.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>¿Puedo crear un acelerador de soluciones si tengo Microsoft Azure para DreamSpark?
 
@@ -92,7 +86,7 @@ Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD 
 
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
-* [Exploración de las funcionalidades del acelerador de la solución de supervisión remota](iot-accelerators-remote-monitoring-explore.md)
-* [Introducción al acelerador de la solución de mantenimiento predictivo](../iot-suite/iot-suite-predictive-overview.md)
+* [Exploración de las funcionalidades del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-explore.md)
+* [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
 * [Información general del acelerador de soluciones de factoría conectada](iot-accelerators-connected-factory-overview.md)
-* [Seguridad de Internet de las cosas desde el principio](../iot-suite/securing-iot-ground-up.md)
+* [Seguridad de Internet de las cosas desde el principio](securing-iot-ground-up.md)
