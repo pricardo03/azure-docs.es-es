@@ -9,17 +9,18 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bf5a3a1dc67752e3f911d07f23c7b408e6d38c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c1ac698a1774a7a6242506ec65193434bb81cc25
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598776"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Comprobación de la autenticación con la cuenta de ejecución de Azure Automation
 Una vez que se haya creado correctamente una cuenta de Automation, puede realizar una prueba sencilla para confirmar que puede autenticarse correctamente en Azure Resource Manager o en el modelo de implementación clásica de Azure mediante la cuenta de ejecución de Automation recién creada o actualizada.    
 
 ## <a name="automation-run-as-authentication"></a>Autenticación con la cuenta de ejecución de Automation
-Utilice el código de ejemplo que aparece a continuación para [crear un runbook de PowerShell](automation-creating-importing-runbook.md) para comprobar la autenticación mediante la cuenta de ejecución y también, en sus runbooks personalizados, para autenticar y administrar los recursos de Resource Manager con la cuenta de Automation.   
+Utilice el código de ejemplo que aparece a continuación para [crear un runbook de PowerShell](automation-creating-importing-runbook.md) para comprobar la autenticación mediante la cuenta de ejecución y también, en sus runbooks personalizados, para autenticar y administrar los recursos de Resource Manager con la cuenta de Automation.
 
     $connectionName = "AzureRunAsConnection"
     try
@@ -60,6 +61,9 @@ Utilice el código de ejemplo que aparece a continuación para [crear un runbook
     } 
 
 Observe que el cmdlet usado para autenticarse en el Runbook - **Connect-AzureRmAccount** usa el conjunto de parámetros *ServicePrincipalCertificate*.  Se autentica mediante el certificado de la entidad de servicio, no las credenciales.  
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** es ahora un alias de **Connect-AzureRMAccount**. Si no ve **Connect-AzureRMAccount**, puede usar **Add-AzureRmAccount**, o bien actualizar los módulos en su cuenta de Automation.
 
 Cuando [ejecuta el runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar la cuenta de ejecución, se crea un [trabajo de runbook](automation-runbook-execution.md), se muestra la página del trabajo y el estado de este aparece en el icono **Resumen del trabajo**. El estado del trabajo se iniciará como *En cola* , lo que indica que está esperando a que haya algún trabajo de Runbook disponible en la nube. Su estado cambiará a *Iniciando* cuando un trabajo de runbook lo solicite. Cuando el runbook comience a ejecutarse realmente, el estado será *En ejecución*.  Cuando el trabajo de runbook se complete, debería aparecer el estado **Completado**.
 

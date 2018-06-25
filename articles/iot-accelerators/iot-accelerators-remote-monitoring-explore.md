@@ -1,28 +1,25 @@
 ---
 title: 'Introducción a la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este tutorial se usan escenarios simulados para presentar el acelerador de la solución de supervisión remota. Estos escenarios se crean cuando se implementa por primera vez el acelerador de la solución de supervisión remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627814"
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Exploración de las funcionalidades del acelerador de la solución de supervisión remota
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Exploración de las funcionalidades del acelerador de la solución Supervisión remota
 
-En este tutorial se muestran las funcionalidades clave de la solución de supervisión remota. Para introducir estas funcionalidades, en el tutorial se presentan escenarios comunes de cliente con una aplicación IoT simulada de una empresa llamada Contoso.
+En este tutorial, se muestran las funcionalidades clave de la solución Supervisión remota. Para introducir estas funcionalidades, en el tutorial se presentan escenarios comunes de cliente con una aplicación IoT simulada de una empresa llamada Contoso.
 
-El tutorial le ayuda a comprender los escenarios de IoT típicos que la solución de supervisión remota proporciona listos para usar.
+El tutorial le ayuda a comprender los escenarios de IoT típicos que la solución Supervisión remota proporciona listos para usar.
 
 En este tutorial, aprenderá a:
 
@@ -33,24 +30,24 @@ En este tutorial, aprenderá a:
 > * Organización de los activos
 > * Detener e iniciar los dispositivos simulados
 
-En el vídeo siguiente se muestra un tutorial sobre la solución de supervisión remota:
+En el vídeo siguiente, se muestra un tutorial sobre la solución Supervisión remota:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para completar este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
+Para completar este tutorial, necesitará una instancia implementada de la solución Supervisión remota en la suscripción de Azure.
 
-Si aún no ha implementado la solución de supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución de supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
+Si aún no ha implementado la solución Supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Implementación de IoT de ejemplo de Contoso
 
-Puede usar la implementación de IoT de ejemplo de Contoso para comprender los escenarios básicos que la solución de supervisión remota proporciona listos para usar. Estos escenarios se basan en implementaciones reales de IoT. Es probable que elija personalizar la solución de supervisión remota para cumplir con sus requisitos específicos, pero el ejemplo de Contoso le ayudarán a conocer los aspectos básicos.
+Puede usar la implementación de IoT de ejemplo de Contoso para comprender los escenarios básicos que la solución Supervisión remota proporciona listos para usar. Estos escenarios se basan en implementaciones reales de IoT. Es probable que elija personalizar la solución Supervisión remota para cumplir con sus requisitos específicos, pero el ejemplo de Contoso le ayudará a conocer los aspectos básicos.
 
 > [!NOTE]
 > Si usó la CLI para implementar el acelerador de la solución, el archivo `deployment-{your deployment name}-output.json` contiene información sobre la implementación, como la dirección URL para acceder al ejemplo implementado.
 
-El ejemplo de Contoso proporciona un conjunto de dispositivos y reglas simulados para actuar conforme a ellos. Una vez que comprenda los escenarios básicos, podrá seguir explorando más de las características de la solución en el artículo sobre la [supervisión avanzada de dispositivos con la solución de supervisión remota](iot-accelerators-remote-monitoring-monitor.md).
+El ejemplo de Contoso proporciona un conjunto de dispositivos y reglas simulados para actuar conforme a ellos. Una vez que comprenda los escenarios básicos, podrá seguir explorando más de las características de la solución en el artículo sobre la [supervisión avanzada de dispositivos con la solución Supervisión remota](iot-accelerators-remote-monitoring-monitor.md).
 
 Contoso es una empresa que administra una variedad de activos en distintos entornos. Contoso planea usar la eficacia de las aplicaciones de IoT basadas en la nube para supervisar y administrar remotamente varios activos desde una aplicación centralizada. En las secciones siguientes se proporciona un resumen de la configuración inicial del ejemplo de Contoso:
 
@@ -136,7 +133,7 @@ Por último, confirme que los valores de la telemetría del refrigerador volvier
 
 ## <a name="update-device-firmware"></a>Actualización del firmware del dispositivo
 
-Contoso está probando un tipo nuevo de dispositivo en el campo. Como parte del ciclo de prueba, debe garantizar que las actualizaciones del firmware del dispositivo funcionen correctamente. Los pasos siguientes muestran cómo usar la solución de supervisión remota para actualizar el firmware en varios dispositivos.
+Contoso está probando un tipo nuevo de dispositivo en el campo. Como parte del ciclo de prueba, debe garantizar que las actualizaciones del firmware del dispositivo funcionen correctamente. Los pasos siguientes muestran cómo usar la solución Supervisión remota para actualizar el firmware en varios dispositivos.
 
 Para hacer las tareas necesarias de administración de dispositivos, use la página **Dispositivos**. Para comenzar, filtre todos los dispositivos de creación de prototipos:
 
@@ -253,7 +250,7 @@ En este tutorial aprendió a:
 > * Organización de los activos
 > * Detener e iniciar los dispositivos simulados
 
-Ahora que exploró la solución de supervisión remota, los próximos pasos que se sugieren son obtener información sobre las características avanzadas de la solución de supervisión remota:
+Ahora que ha explorado la solución Supervisión remota, los próximos pasos que se sugieren son obtener información sobre las características avanzadas de la solución Supervisión remota:
 
 * [Supervise los dispositivos](./iot-accelerators-remote-monitoring-monitor.md).
 * [Administre los dispositivos](./iot-accelerators-remote-monitoring-manage.md).

@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055093"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698822"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opciones para el inicio de sesión de los usuarios en Azure AD Connect
 Azure Active Directory (Azure AD) Connect permite que los usuarios inicien sesión en los recursos en la nube y locales con las mismas contraseñas. En este artículo se describen los conceptos clave para cada modelo de identidad para ayudarlo a elegir la identidad que desea utilizar con el fin de iniciar sesión en Azure AD.
@@ -48,6 +49,8 @@ Asegurarse de que ninguna contraseña está almacenada en la nube||x*|x|
 Habilitar soluciones locales de autenticación multifactor|||x|
 
 * A través de un agente ligero.
+
+Para obtener información detallada sobre cómo elegir un método de autenticación, vea [Elegir el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory](../../security/azure-ad-choose-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Sincronización de hash de contraseña
 Con la sincronización de hash de contraseña, se sincronizan los valores hash de las contraseñas de los usuarios de Active Directory local con Azure AD. Cuando las contraseñas se cambian o se restablecen de forma local, los nuevos hash de contraseña se sincronizan de inmediato con Azure AD para que los usuarios puedan usar siempre en los recursos en la nube la misma contraseña que usan de manera local. Las contraseñas nunca se envían a Azure AD ni se almacenan en Azure AD en texto no cifrado. La sincronización de hash de contraseña puede usarse junto con la escritura diferida de contraseñas para habilitar el autoservicio de restablecimiento de contraseña en Azure AD.

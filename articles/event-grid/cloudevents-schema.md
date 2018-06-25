@@ -6,13 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 23187fbc230e384984085d330bfbfbc90cc9f945
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625600"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Uso del esquema CloudEvents con Event Grid
 
@@ -123,7 +124,7 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-La versión actual de CloudEvents no es compatible con el procesamiento por lote de eventos. Una suscripción de eventos que se configura para el esquema de CloudEvent recibe cada evento de forma individual.
+La versión actual de CloudEvents no es compatible con el procesamiento por lote de eventos. Una suscripción de eventos que se configura para el esquema de CloudEvent recibe cada evento de forma individual. Actualmente, no puede usar un desencadenador de Event Grid para una aplicación de Azure Functions cuando el evento se entrega en el esquema de CloudEvents. Debe usar un desencadenador HTTP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,18 +14,103 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779012"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657577"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
 
 Este artículo contiene las notas de la versión del Explorador de Azure Storage 1.0.0, así como las de versiones anteriores.
 
 [Explorador de Microsoft Azure Storage](./vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux.
+
+## <a name="version-110"></a>Versión 1.1.0
+09/05/2018
+
+### <a name="download-azure-storage-explorer-110"></a>Descargue el Explorador de Azure Storage 1.1.0
+- [Explorador de Azure Storage 1.1.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de Azure Storage 1.1.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de Azure Storage 1.1.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuevo
+* El Explorador de Azure Storage admite ahora el uso de Azurite. Nota: La conexión a Azurite está codificada en los puntos de conexión de desarrollo predeterminados.
+* El Explorador de Azure Storage ahora admite los niveles de acceso para las cuentas de almacenamiento Solo blob y GPV2. Obtenga [más información](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers) sobre los niveles de acceso.
+* Ya no se requiere una hora de inicio al generar una SAS.
+
+### <a name="fixes"></a>Correcciones
+* Se interrumpió la recuperación de suscripciones para las cuentas del gobierno de Estados Unidos. Esto se ha solucionado. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* La hora de expiración de las directivas de acceso no se ha guardado correctamente. Esto se ha solucionado. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* Al generar una dirección URL de SAS para un elemento en un contenedor, el nombre del elemento no se ha anexado a la dirección URL. Esto se ha solucionado. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* Al crear una SAS, las horas de expiración que se encuentran en el pasado a veces eran el valor predeterminado. Esto se debía a que el Explorador de Azure Storage usaba la última hora de inicio y expiración usadas como valores predeterminados. Ahora, cada vez que abre el cuadro de diálogo de SAS, se genera un nuevo conjunto de valores predeterminados. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* Al copiar datos entre las cuentas de almacenamiento, se genera una SAS de 24 horas. Si la copia dura más de 24 horas, se producirá un error en la copia. Hemos aumentado la SAS hasta una duración de una semana para reducir la posibilidad de que una copia dé un error debido a una SAS que expiró. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* Para determinadas actividades, hacer clic en "Cancelar" no siempre funcionaba. Esto se ha solucionado. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* Para determinadas actividades, la velocidad de transferencia no era correcta. Esto se ha solucionado. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* La ortografía de "Anterior" en el menú Ver no era correcta. Ahora está correctamente escrita. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* La página final del instalador de Windows tenía el botón "Siguiente". Se ha cambiado por el botón "Finalizar". [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* El foco de la pestaña no era visible para los botones en los cuadros de diálogo al usar el tema negro de HC. Ahora es visible.[#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* Las mayúsculas y minúsculas de "Resolución automática" para las acciones en el registro de actividad no eran correctas. Ahora son correctas. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* Al eliminar una entidad de una tabla, en el cuadro de diálogo que le pide que confirme la acción se muestra un icono de error. Ahora, en el cuadro de diálogo se usa un icono de advertencia. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>Problemas conocidos
+* Si usa VS para Mac y nunca ha creado una configuración de AAD personalizada, es posible que no pueda iniciar sesión. Para solucionar el problema, elimine el contenido de ~/.IdentityService/AadConfigurations. Si al hacerlo no se desbloquea, incluya un comentario sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite todavía no ha implementado por completo todas las API de Azure Storage. Por este motivo, pueden haber errores o comportamientos inesperados cuando se usa Azurite para el almacenamiento de desarrollo.
+* En raras ocasiones, el foco de árbol puede quedarse bloqueado en un acceso rápido. Para desbloquear el foco, puede seleccionar Actualizar todo.
+* Cargar desde la carpeta de OneDrive no funciona debido a un error en NodeJS. El error se ha corregido, pero aún no se ha integrado en Electron.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe [aquí](https://github.com/Azure/azure-storage-node/issues/317). 
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Los usuarios de Ubuntu 14.04 tendrán que asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos. Después, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versiones anteriores
+
+* [Versión 1.0.0](#version-100)
+* [Versión 0.9.6](#version-096)
+* [Versión 0.9.5](#version-095)
+* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
+* [Versión 0.9.2](#version-092)
+* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
+* [Versión 0.8.16](#version-0816)
+* [Versión 0.8.14](#version-0814)
+* [Versión 0.8.13](#version-0813)
+* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
+* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
+* [Versión 0.8.7](#version-087)
+* [Versión 0.8.6](#version-086)
+* [Versión 0.8.5](#version-085)
+* [Versión 0.8.4](#version-084)
+* [Versión 0.8.3](#version-083)
+* [Versión 0.8.2](#version-082)
+* [Versión 0.8.0](#version-080)
+* [Versión 0.7.20160509.0](#version-07201605090)
+* [Versión 0.7.20160325.0](#version-07201603250)
+* [Versión 0.7.20160129.1](#version-07201601291)
+* [Versión 0.7.20160105.0](#version-07201601050)
+* [Versión 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-100"></a>Versión 1.0.0
 16/04/2018
@@ -96,31 +181,6 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versiones anteriores
-
-* [Versión 0.9.6](#version-096)
-* [Versión 0.9.5](#version-095)
-* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
-* [Versión 0.9.2](#version-092)
-* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
-* [Versión 0.8.16](#version-0816)
-* [Versión 0.8.14](#version-0814)
-* [Versión 0.8.13](#version-0813)
-* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
-* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
-* [Versión 0.8.7](#version-087)
-* [Versión 0.8.6](#version-086)
-* [Versión 0.8.5](#version-085)
-* [Versión 0.8.4](#version-084)
-* [Versión 0.8.3](#version-083)
-* [Versión 0.8.2](#version-082)
-* [Versión 0.8.0](#version-080)
-* [Versión 0.7.20160509.0](#version-07201605090)
-* [Versión 0.7.20160325.0](#version-07201603250)
-* [Versión 0.7.20160129.1](#version-07201601291)
-* [Versión 0.7.20160105.0](#version-07201601050)
-* [Versión 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Versión 0.9.6
 28/02/2018

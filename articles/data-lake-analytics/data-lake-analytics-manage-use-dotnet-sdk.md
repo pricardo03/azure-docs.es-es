@@ -1,31 +1,28 @@
 ---
-title: "Administración de Azure Data Lake Analytics con el SDK de .NET de Azure | Microsoft Docs"
-description: "Aprenda a administrar trabajos, orígenes de datos y usuarios de Análisis de Data Lake. "
+title: Administración de Azure Data Lake Analytics con el SDK de .NET para Azure
+description: En este artículo se describe cómo usar el SDK de Azure .Net para escribir aplicaciones que administran trabajos, orígenes de datos y usuarios de Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.author: saveenr
-ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc49bb9b5461a4e8eb3573877276f5876e12f340
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625127"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Administración de Azure Data Lake Analytics con el SDK de .NET para Azure
+# <a name="manage-azure-data-lake-analytics-a-net-app"></a>Administración de Azure Data Lake Analytics mediante una aplicación .NET
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Obtenga información sobre cómo administrar cuentas, orígenes de datos, usuarios y trabajos de Azure Data Lake Analytics mediante el SDK de .NET para Azure. 
+En este artículo se describe cómo administrar cuentas, orígenes de datos, usuarios y trabajos de Azure Data Lake Analytics con una aplicación escrita mediante el SDK de Azure .NET. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado**.
 * **SDK de Microsoft Azure para .NET versión 2.5 o posterior**.  Instálelo usando el [instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -221,7 +218,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 Actualmente, Análisis de Data Lake admite los siguientes orígenes de datos:
 
-* [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Cuenta de Azure Storage](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Vínculo a una cuenta de Azure Storage
@@ -288,6 +285,8 @@ using (var memstream = new MemoryStream())
    {
       sw.WriteLine("Hello World");
       sw.Flush();
+      
+      memstream.Position = 0;
 
       adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", memstream);
    }

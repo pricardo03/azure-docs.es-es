@@ -1,26 +1,23 @@
 ---
-title: "Extend U-SQL scripts with R in Azure Data Lake Analytics (Extensión de los scripts de U-SQL con R en Azure Data Lake Analytics) | Microsoft Docs"
-description: "Obtenga información sobre cómo ejecutar código R en scripts de U-SQL"
+title: Extend U-SQL scripts with R in Azure Data Lake Analytics (Extensión de los scripts de U-SQL con R en Azure Data Lake Analytics)
+description: Obtenga información sobre cómo ejecutar código R en scripts de U-SQL mediante Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: sukvg
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624931"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Tutorial: Introducción a la extensión de U-SQL con Python (Tutorial: Introducción a la extensión de U-SQL con R)
+# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Extend U-SQL scripts with R code in Azure Data Lake Analytics (Extensión de los scripts de U-SQL con código R en Azure Data Lake Analytics)
 
 En el ejemplo siguiente se muestran los pasos básicos para implementar código R:
 * Uso de la instrucción `REFERENCE ASSEMBLY` para habilitar las extensiones de R para el script de U-SQL.
@@ -212,5 +209,5 @@ En primer lugar, cree un módulo personalizado de R, comprímalo y luego cargue 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)

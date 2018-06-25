@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bcd9ec44eafd586648ba964c5cba248a184a8ec3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591568"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada
 
@@ -50,7 +52,7 @@ Una vez que se completa la instalación, SSO de conexión directa funcionan del 
 
 El flujo de inicio de sesión en un explorador web es el siguiente:
 
-1. El usuario intenta acceder a una aplicación web (por ejemplo, Outlook Web App en https://outlook.office365.com/owa/) desde un dispositivo corporativo unido a un dominio dentro de la red corporativa.
+1. El usuario intenta acceder a una aplicación web (por ejemplo, la aplicación web Outlook - https://outlook.office365.com/owa/)) desde un dispositivo corporativo unido a un dominio dentro de la red corporativa.
 2. Si el usuario todavía no inicia sesión, se le redirige a la página de inicio de sesión de Azure AD.
 3. El usuario escribe su nombre de usuario en la página de inicio de sesión de Azure AD.
 

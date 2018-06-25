@@ -1,12 +1,13 @@
 ---
 title: Preguntas frecuentes sobre Azure Active Directory Identity Protection | Microsoft Docs
-description: "Preguntas más frecuentes sobre Azure AD Identity Protection"
+description: Preguntas más frecuentes sobre Azure AD Identity Protection
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 102cf0108aeefa255d40bd932e41f1e7b5536205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4637420b712f98c3a8bf9d5965704cd043bb9a1c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713446"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Preguntas frecuentes sobre Azure Active Directory Identity Protection
 
@@ -27,7 +29,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>¿Por qué algunos eventos de riesgo tienen el estado "Cerrada (sistema)"?
 
-**R:** Son eventos que Azure Active Directory Identity Protection detectó y más adelante cerró porque dejaron de considerarse arriesgados. Estos eventos no cuentan para el nivel de riesgo del usuario. 
+**R:** Identity Protection detectó estos eventos de riesgo y más adelante los cerró porque dejaron de considerarse arriesgados. Estos eventos no cuentan para el nivel de riesgo del usuario. 
 
 ---
 

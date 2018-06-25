@@ -1,32 +1,29 @@
 ---
 title: 'Esquema de dispositivos en una solución de supervisión remota: Azure | Microsoft Docs'
 description: En este artículo se describe el esquema JSON que define un dispositivo simulado en la solución de supervisión remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627440"
 ---
 # <a name="understand-the-device-model-schema"></a>Descripción del esquema de modelo del dispositivo
 
-Puede usar dispositivos simulados en la solución de supervisión remota para probar su comportamiento. Al implementar la solución de supervisión remota, se aprovisiona automáticamente una colección de dispositivos simulados. Puede personalizar los dispositivos simulados existentes o crear los suyos propios.
+Puede usar dispositivos simulados en la solución Supervisión remota para probar su comportamiento. Al implementar la solución Supervisión remota, se aprovisiona automáticamente una colección de dispositivos simulados. Puede personalizar los dispositivos simulados existentes o crear los suyos propios.
 
 En este artículo se describe el esquema de modelo del dispositivo que especifica las características y el comportamiento de un dispositivo simulado. El modelo del dispositivo se almacena en un archivo JSON.
 
 Los siguientes artículos están relacionadas con el artículo actual:
 
-* [Implement the device model behavior](../iot-suite/iot-suite-remote-monitoring-device-behavior.md) (Implementar el comportamiento de modelo del dispositivo): describe los archivos de JavaScript que se usan para implementar el comportamiento de un dispositivo simulado.
+* [Implement the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md) (Implementar el comportamiento de modelo del dispositivo): describe los archivos de JavaScript que se usan para implementar el comportamiento de un dispositivo simulado.
 * [Create a new simulated device](iot-accelerators-remote-monitoring-test.md) (Crear un nuevo dispositivo simulado): reúne todos los elementos necesarios y le muestra cómo implementar un nuevo tipo de dispositivo simulado en la solución.
 
 En este artículo, aprenderá a:
@@ -39,7 +36,7 @@ En este artículo, aprenderá a:
 
 ## <a name="the-parts-of-the-device-model-schema"></a>Partes del esquema de modelo del dispositivo
 
-Cada modelo de dispositivo (como, por ejemplo, Chiller o Truck) define un tipo de dispositivo simulado para poder conectarse a la solución de supervisión remota. Cada modelo de dispositivo se almacena en un archivo JSON con el siguiente esquema de nivel superior:
+Cada modelo de dispositivo (como, por ejemplo, Chiller o Truck) define un tipo de dispositivo simulado para poder conectarse a la solución Supervisión remota. Cada modelo de dispositivo se almacena en un archivo JSON con el siguiente esquema de nivel superior:
 
 ```json
 {
@@ -203,12 +200,12 @@ Para enviar mensajes de telemetría en diferentes intervalos, agregue varios tip
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-Un dispositivo simulado puede responder a métodos de tipo "de la nube al dispositivo" si se llaman desde la solución de supervisión remota. La sección `CloudToDeviceMethods` que se encuentra en el archivo de esquema de modelo del dispositivo se encarga de:
+Un dispositivo simulado puede responder a métodos de tipo "de la nube al dispositivo" si se llaman desde la solución Supervisión remota. La sección `CloudToDeviceMethods` que se encuentra en el archivo de esquema de modelo del dispositivo se encarga de:
 
 * Definir los métodos a los que el dispositivo simulado puede responder.
 * Identificar el archivo de JavaScript que contiene la lógica que se va a ejecutar.
 
-El dispositivo simulado envía la lista de métodos que admite a la solución de supervisión remota.
+El dispositivo simulado envía la lista de métodos que admite a la solución Supervisión remota.
 
 Para obtener más información sobre el archivo de JavaScript dedicado a implementar el comportamiento del dispositivo, consulte [Understand the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md) (Descripción del comportamiento del modelo del dispositivo).
 

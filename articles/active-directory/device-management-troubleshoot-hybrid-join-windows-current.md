@@ -1,12 +1,13 @@
 ---
-title: "Solución de problemas de dispositivos híbridos de Windows 10 y Windows Server 2016 unidos a Azure Active Directory | Microsoft Docs"
-description: "Solución de problemas de dispositivos híbridos de Windows 10 y Windows Server 2016 unidos a Azure Active Directory"
+title: Solución de problemas de dispositivos híbridos de Windows 10 y Windows Server 2016 unidos a Azure Active Directory | Microsoft Docs
+description: Solución de problemas de dispositivos híbridos de Windows 10 y Windows Server 2016 unidos a Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,22 +15,23 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3b98d31efcdbd61cf12e2c905f200c1e54f68f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40303d72f4facc6cd8c762f2542c48df3e370c0a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713735"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Solución de problemas de dispositivos híbridos de Windows 10 y Windows Server 2016 unidos a Azure Active Directory 
 
-Este tema es aplicable a los siguientes clientes:
+Este artículo es aplicable a los clientes siguientes:
 
 -   Windows 10
 -   Windows Server 2016
 
 Para otros clientes Windows, consulte [Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory](device-management-troubleshoot-hybrid-join-windows-legacy.md).
 
-En este tema se da por supuesto que ha configurado [dispositivos híbridos unidos a Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md) para admitir los escenarios siguientes:
+En este artículo se da por supuesto que [configuró dispositivos híbridos unidos a Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md) para que admitan los escenarios siguientes:
 
 - Acceso condicional basado en dispositivos
 

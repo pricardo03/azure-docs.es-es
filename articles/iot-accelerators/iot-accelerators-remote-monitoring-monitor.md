@@ -1,26 +1,23 @@
 ---
 title: 'Supervisión avanzada en la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este tutorial se muestra cómo supervisar los dispositivos con el panel de la solución de supervisión remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627406"
 ---
-# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Supervisión avanzada mediante la solución de supervisión remota
+# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Supervisión avanzada mediante la solución Supervisión remota
 
-En este tutorial se muestran las funcionalidades del panel de supervisión remota. Para introducir estas funcionalidades, en el tutorial se usa un escenario de la aplicación IoT de Contoso.
+En este tutorial, se muestran las funcionalidades del panel de Supervisión remota. Para introducir estas funcionalidades, en el tutorial se usa un escenario de la aplicación IoT de Contoso.
 
 En este tutorial, se usan dos dispositivos de camión simulados de Contoso para saber cómo supervisar los dispositivos desde el panel del acelerador de la solución. Como operador de Contoso, debe supervisar la ubicación y el comportamiento de los camiones en el campo.
 
@@ -35,9 +32,9 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para seguir este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
+Para seguir este tutorial, necesitará una instancia implementada de la solución Supervisión remota en la suscripción de Azure.
 
-Si aún no ha implementado la solución de supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución de supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
+Si aún no ha implementado la solución Supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="choose-the-devices-to-display"></a>Elección de los dispositivos que se van a mostrar
 
@@ -103,7 +100,7 @@ Puede usar el filtro **Panel** para ajustar el intervalo de tiempo de la agregac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este tutorial muestra cómo usar la página **Panel** para filtrar y supervisar los camiones simulados aprovisionados en la solución de supervisión remota:
+Este tutorial le ha mostrado cómo usar la página **Panel** para filtrar y supervisar los camiones simulados aprovisionados en la solución Supervisión remota:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

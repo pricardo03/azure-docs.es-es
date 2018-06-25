@@ -1,25 +1,19 @@
 ---
 title: 'Preguntas frecuentes sobre la solución de factoría conectada: Azure | Microsoft Docs'
 description: Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627508"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 
@@ -67,7 +61,7 @@ Tiene dos opciones para quitar la dirección IP:
 
 Solo se admite el inicio de sesión en la máquina virtual de simulación si ha implementado la solución con el script de PowerShell `build.ps1` en el [repositorio](https://github.com/Azure/azure-iot-connected-factory).
 
-Si ha implementado la solución de www.azureiotsuite.com, no puede iniciar sesión en la máquina virtual. No se puede iniciar sesión porque la contraseña se genera aleatoriamente y no se puede restablecer.
+Si ha implementado la solución de www.azureiotsolutions.com, no puede iniciar sesión en la máquina virtual. No se puede iniciar sesión porque la contraseña se genera aleatoriamente y no se puede restablecer.
 
 1. Agregue una dirección IP pública a la máquina virtual. Consulte [¿Cómo se agrega una dirección IP pública a la máquina virtual de simulación](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Cree una sesión de SSH para la máquina virtual con la dirección IP de la máquina virtual.
@@ -148,11 +142,11 @@ Si ve que ningún dato se envía a IoT Hub, hay un problema con la simulación. 
 
 Para habilitar un mapa interactivo en una solución de factoría conectada, debe disponer de un plan de Bing Maps API for Enterprise.
 
-Cuando se implementa desde [www.azureiotsuite.com](http://www.azureiotsuite.com), el proceso de implementación comprueba que la suscripción tiene un plan de Bing Maps API for Enterprise e implementa automáticamente un mapa interactivo en Factoría conectada. Si no es el caso, de todos modos puede habilitar un mapa interactivo en la implementación, tal como se indica a continuación:
+Cuando se implementa desde [www.azureiotsolutions.com](http://www.azureiotsolutions.com), el proceso de implementación comprueba que la suscripción tiene un plan de API de Mapas de Bing para empresas e implementa automáticamente un mapa interactivo en Factoría conectada. Si no es el caso, de todos modos puede habilitar un mapa interactivo en la implementación, tal como se indica a continuación:
 
 Cuando realiza la implementación con el script `build.ps1` en el repositorio GitHub de Factoría conectada y tiene un plan de Bing Maps API for Enterprise, establezca la variable de entorno `$env:MapApiQueryKey` en la ventana de compilación a la clave de consulta del plan. El mapa interactivo se habilita de manera automática.
 
-Si no tiene un plan de Bing Maps API for Enterprise, implemente la solución Factoría conectada desde [www.azureiotsuite.com](http://www.azureiotsuite.com) o con el script `build.ps1`. Luego, agregue un plan de Bing Maps API for Enterprise a la suscripción, tal como se explica en [¿Cómo se crea una cuenta de Bing Maps API for Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Busque la clave de consulta de esta cuenta como se explica en [Cómo obtener la clave de consulta de Bing Maps API for Enterprise](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) y guarde esta clave. Vaya a Azure Portal y acceda al recurso App Service en la implementación de Factoría conectada. Vaya a **Configuración de la aplicación**, donde encontrará una sección denominada **Configuración de la aplicación**. Establezca el valor de **MapApiQueryKey** en la clave de consulta que obtuvo. Guarde la configuración, vaya a la **información general** y reinicie App Service.
+Si no tiene un plan de API de Mapas de Bing para empresas, implemente la solución Factoría conectada desde [www.azureiotsolutions.com](http://www.azureiotsolutions.com) o con el script `build.ps1`. Luego, agregue un plan de Bing Maps API for Enterprise a la suscripción, tal como se explica en [¿Cómo se crea una cuenta de Bing Maps API for Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Busque la clave de consulta de esta cuenta como se explica en [Cómo obtener la clave de consulta de Bing Maps API for Enterprise](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) y guarde esta clave. Vaya a Azure Portal y acceda al recurso App Service en la implementación de Factoría conectada. Vaya a **Configuración de la aplicación**, donde encontrará una sección denominada **Configuración de la aplicación**. Establezca el valor de **MapApiQueryKey** en la clave de consulta que obtuvo. Guarde la configuración, vaya a la **información general** y reinicie App Service.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>¿Cómo se crea una cuenta de Bing Maps API for Enterprise?
 
@@ -212,6 +206,6 @@ Para enviar datos de telemetría desde dispositivos que no son de OPC UA a la fa
 
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
-* [Introducción al acelerador de la solución de mantenimiento predictivo](../iot-suite/iot-suite-predictive-overview.md)
+* [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
 * [Información general del acelerador de soluciones de factoría conectada](iot-accelerators-connected-factory-overview.md)
-* [Seguridad de Internet de las cosas desde el principio](../iot-suite/securing-iot-ground-up.md)
+* [Seguridad de Internet de las cosas desde el principio](securing-iot-ground-up.md)

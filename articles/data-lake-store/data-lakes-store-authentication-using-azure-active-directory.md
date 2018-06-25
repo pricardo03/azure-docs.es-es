@@ -9,17 +9,18 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 061a44540cb618074764ae02fecb3f43d47fe5dd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bee65fbdc65807ac33ae425ed9d87dbf0c246d9d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625294"
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación con Data Lake Store mediante Azure Active Directory
 
-Azure Data Lake Store usa Azure Active Directory para la autenticación. Antes de crear una aplicación que funcione con Azure Data Lake Store, debe decidir cómo autenticar la aplicación con Azure Active Directory (Azure AD). 
+Azure Data Lake Store usa Azure Active Directory para la autenticación. Antes de crear una aplicación que funcione con Azure Data Lake Store, debe decidir cómo autenticar la aplicación con Azure Active Directory (Azure AD).
 
 ## <a name="authentication-options"></a>Opciones de autenticación
 
@@ -29,14 +30,14 @@ Azure Data Lake Store usa Azure Active Directory para la autenticación. Antes d
 
 En la tabla siguiente se indica cómo se admiten los mecanismos de autenticación de usuarios finales y entre servicios en Data Lake Store. Así es como se debe interpretar la tabla.
 
-* El símbolo ✔* indica que la opción de autenticación es compatible y se vincula a un artículo en el que se explica cómo utilizar la opción de autenticación. 
+* El símbolo ✔* indica que la opción de autenticación es compatible y se vincula a un artículo en el que se muestra cómo usar la opción de autenticación. 
 * El símbolo ✔ indica que se admite la opción de autenticación. 
 * Las celdas vacías significan que la opción de autenticación no es compatible.
 
 
 |Use esta opción de autenticación con…                   |.NET         |Java     |PowerShell |CLI 2.0 | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
-|Usuario final (sin MFA**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)** (en desuso)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
+|Usuario final (sin MFA**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(en desuso)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |Usuario final (con MFA)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
 |Entre servicios (con clave de cliente)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |Entre servicios (con certificado de cliente) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |

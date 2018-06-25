@@ -1,25 +1,27 @@
 ---
 title: Latencias de informes de Azure Active Directory | Microsoft Docs
-description: "Obtenga información acerca de la cantidad de tiempo necesaria para que los eventos de informes aparezcan en Azure Portal"
+description: Obtenga información acerca de la cantidad de tiempo necesaria para que los eventos de informes aparezcan en Azure Portal
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: rolyon;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f27efab05dc8580735c58eed20e9b48d8003dd17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589787"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
 
@@ -37,10 +39,10 @@ Hay dos áreas de informes de actividad:
 
 La tabla siguiente enumera la información de latencia para los informes de actividad.
 
-| Informe | Mínima | Media | Comentarios |
-| :-- | --- | --- | :-- |
-| Registros de auditoría | 30 minutos  | 1 hora  |En algunos casos, los datos de actividad de auditoría pueden tardar hasta 2 horas en aparecer.|
-| Inicios de sesión | 15 minutos  | 2 horas |En algunos casos, los datos de actividad de inicio de sesión pueden tardar hasta 24 horas en aparecer. Aquí se incluyen los datos de actividad de inicio de sesión procedentes de aplicaciones heredadas de Office. |
+| Informe | Latencia (P95) |Latencia (P99)|
+| :-- | --- | --- | 
+| Registros de auditoría | 2 minutos  | 5 minutos  |
+| Inicios de sesión | 2 minutos  | 5 minutos |
 
 
 

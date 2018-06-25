@@ -1,30 +1,27 @@
 ---
 title: 'Administración de dispositivos en la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este tutorial se muestra cómo administrar los dispositivos conectados a la solución de supervisión remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627286"
 ---
 # <a name="manage-and-configure-your-devices"></a>Administración y configuración de los dispositivos
 
 En este tutorial se muestran las funcionalidades de administración de dispositivos de la solución de supervisión remota. Para introducir estas funcionalidades, en el tutorial se usa un escenario de la aplicación IoT de Contoso.
 
-Contoso solicitó maquinaria nueva para expandir una de sus instalaciones y aumentar la producción. Mientras espera la entrega de la maquinaria nueva, desea ejecutar una simulación para comprobar el comportamiento de la solución. Como operador, desea administrar y configurar los dispositivos en la solución de supervisión remota.
+Contoso solicitó maquinaria nueva para expandir una de sus instalaciones y aumentar la producción. Mientras espera la entrega de la maquinaria nueva, desea ejecutar una simulación para comprobar el comportamiento de la solución. Como operador, le interesa administrar y configurar los dispositivos en la solución de supervisión remota.
 
-Para proporcionar una manera extensible de administrar y configurar los dispositivos, la solución de supervisión remota usa características de IoT Hub, como los [trabajos](../iot-hub/iot-hub-devguide-jobs.md) y los [métodos directos](../iot-hub/iot-hub-devguide-direct-methods.md). Para información sobre cómo un desarrollador de dispositivos implementa métodos en un dispositivo físico, consulte [Personalización del acelerador de la solución de supervisión remota](iot-accelerators-remote-monitoring-customize.md).
+Para proporcionar una manera extensible de administrar y configurar los dispositivos, la solución de supervisión remota usa características de IoT Hub, como los [trabajos](../iot-hub/iot-hub-devguide-jobs.md) y los [métodos directos](../iot-hub/iot-hub-devguide-direct-methods.md). Para obtener información sobre cómo un desarrollador de dispositivos implementa métodos en un dispositivo físico, vea [Personalización del acelerador de la solución de supervisión remota](iot-accelerators-remote-monitoring-customize.md).
 
 En este tutorial, aprenderá a:
 
@@ -50,7 +47,7 @@ Deje el número de dispositivos que se van a aprovisionar en **1**. Elija el mod
 
 ![Aprovisionamiento de un dispositivo de motor simulado](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine.png)
 
-Para información sobre cómo aprovisionar un dispositivo *físico*, consulte [Conectar el dispositivo al acelerador de la solución de supervisión remota](iot-accelerators-connecting-devices-node.md).
+Para obtener información sobre cómo aprovisionar un dispositivo *físico*, vea [Conectar el dispositivo al acelerador de la solución de supervisión remota](iot-accelerators-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Prueba del dispositivo simulado
 

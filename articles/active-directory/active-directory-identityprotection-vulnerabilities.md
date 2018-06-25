@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9ee926ff7cf44041c1969d541ca225395ba31a2f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713701"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas por Azure Active Directory Identity Protection
 Los puntos vulnerables son puntos débiles de su entorno que pueden ser aprovechados por un atacante. Se recomienda solucionar estas vulnerabilidades para mejorar la posición de seguridad de su organización y evitar que los atacantes se aprovechen de ellas.
@@ -34,20 +36,20 @@ En las siguientes secciones se ofrece información general de las vulnerabilidad
 ## <a name="multi-factor-authentication-registration-not-configured"></a>Registro de la autenticación multifactor no configurado
 Este punto vulnerable ayuda a controlar la implementación de Azure Multi-Factor Authentication en su organización. 
 
-Azure Multi-Factor Authentication proporciona una segunda capa de seguridad a la autenticación de usuario. Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Ofrece una autenticación segura a través de una gran variedad de opciones sencillas, como llamadas telefónicas, mensajes de texto o notificaciones de aplicaciones móviles, lo que permite a los usuarios elegir el mecanismo que prefieran.
+Azure Multi-Factor Authentication proporciona una segunda capa de seguridad a la autenticación de usuario. Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Ofrece una autenticación segura a través de una gran variedad de opciones de verificación sencillas, como las llamadas telefónicas, los mensajes de texto, las notificaciones de aplicaciones móviles, los códigos de verificación y los tokens OATH de terceros.
 
 Se recomienda pedir Azure Multi-Factor Authentication para los inicios de sesión de usuario. La autenticación multifactor desempeña un papel clave en las directivas de acceso condicional basadas en riesgos disponibles mediante Identity Protection.
 
-Para obtener más información, consulte [Qué es Azure Multi-Factor Authentication](authentication/multi-factor-authentication.md)
+Para más información, consulte [¿Qué es Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Aplicaciones en la nube no administradas
 Este punto vulnerable ayuda a identificar aplicaciones en la nube no administradas en su organización.
 
-En las empresas modernas, los departamentos de TI a menudo no son conscientes de todas las aplicaciones en la nube que usan los miembros de su organización para realizar su trabajo. Es fácil ver por qué a los administradores les podría preocupar el acceso no autorizado a datos corporativos, la posible pérdida de datos y otros riesgos de seguridad. 
+En las empresas modernas, los departamentos de TI a menudo no son conscientes de todas las aplicaciones en la nube que usan los miembros de su organización para realizar su trabajo. Es fácil entender por qué a los administradores les podría preocupar el acceso no autorizado a datos corporativos, la posible pérdida de datos y otros riesgos relacionados con la seguridad. 
 
-Le recomendamos que su organización implemente Cloud App Discovery para detectar aplicaciones en la nube no administradas, así como administrar estas aplicaciones con Azure Active Directory.
+Le recomendamos que implemente Cloud App Discovery para detectar aplicaciones en la nube no administradas, así como administrar estas aplicaciones con Azure Active Directory.
 
-Para obtener más detalles, consulte [Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+Para obtener más información, vea [Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Alertas de seguridad de administración de identidades con privilegios
 Este punto vulnerable ayuda a detectar y resolver alertas acerca de las identidades con privilegios en su organización.  
@@ -56,7 +58,7 @@ Para que los usuarios puedan realizar operaciones con privilegios, las organizac
 
 Recomendamos que la organización utilice Privileged Identity Management de Azure AD para administrar, controlar y supervisar las identidades con privilegios y su acceso a recursos en Azure AD y en otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.
 
-Para obtener más detalles, consulte [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+Para obtener más información, vea [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 ## <a name="see-also"></a>Otras referencias
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

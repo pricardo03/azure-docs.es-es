@@ -1,10 +1,10 @@
 ---
-title: "Adición de notificaciones push a una aplicación de Apache Cordova con la característica Mobile Apps de Azure App Service | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar Mobile Apps para enviar notificaciones push a su aplicación de Apache Cordova."
+title: Adición de notificaciones push a una aplicación de Apache Cordova con la característica Mobile Apps de Azure App Service | Microsoft Docs
+description: Obtenga información acerca de cómo usar Mobile Apps para enviar notificaciones push a su aplicación de Apache Cordova.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598001"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Agregar notificaciones push a su aplicación de Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ En este tutorial se da por hecho que tiene una aplicación de Apache Cordova que
 
 Para completar este tutorial, necesita:
 
-* Un equipo con [Visual Studio Community 2015][2] o posterior 
+* Un equipo con [Visual Studio Community 2015][2] o posterior
 * [Visual Studio Tools para Apache Cordova][4]
 * Una [cuenta de Azure activa][3]
 * Un proyecto de [inicio rápido de Apache Cordova][5] completado
 * (Android) Una [cuenta de Google][6] con una dirección de correo electrónico verificada
 * (iOS) La [pertenencia a un programa para desarrolladores de Apple][7] y un dispositivo iOS (el simulador de iOS no admite notificaciones push)
-* (Windows) Una [cuenta de desarrollador para la Tienda Windows][8] y un dispositivo con Windows 10
+* (Windows) Una [cuenta de desarrollador para Microsoft Store][8] y un dispositivo con Windows 10
 
 ## <a name="configure-hub"></a>Configurar un Centro de notificaciones
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -60,7 +61,7 @@ Si el proyecto usa una versión anterior a Apache Cordova 6.1.1, actualice el pr
 * Elija **6.1.1** en el cuadro de texto **Cordova CLI**. 
 * Para actualizar el proyecto, seleccione **Compilar**y, a continuación, **Compilar solución**.
 
-#### <a name="install-the-push-plugin"></a>Instalación del complemento de notificaciones push
+#### <a name="install-the-push-plugin"></a>Instalación del complemento de inserción
 Las aplicaciones de Apache Cordova no controlan el dispositivo ni las funcionalidades de red de forma nativa.  Estas funcionalidades las proporcionan los complementos que se publican en [npm][10] o en GitHub. El complemento `phonegap-plugin-push` controla las notificaciones push de la red.
 
 Puede instalar el complemento de notificaciones push de una de estas formas:
@@ -87,10 +88,10 @@ Ejecute el siguiente comando:
     >A partir de la versión 2.0.0, google-services.json debe instalarse en el directorio raíz del proyecto para configurar el identificador del remitente. Para más información, consulte la [documentación de instalación](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md).
 5. Seleccione **Agregar**.
 
-Ahora ya está instalado el complemento de notificaciones push.
+Ahora ya está instalado el complemento de inserción.
 
 #### <a name="install-the-device-plugin"></a>Instalación del complemento del dispositivo
-Siga el mismo procedimiento que usó para instalar el complemento de notificaciones push. Añada el complemento de dispositivo de la lista de complementos principales (haga clic en **Complementos** > **Principales** para encontrarlo). Este complemento es necesario para obtener el nombre de la plataforma.
+Siga el mismo procedimiento que usó para instalar el complemento de inserción. Añada el complemento de dispositivo de la lista de complementos principales (haga clic en **Complementos** > **Principales** para encontrarlo). Este complemento es necesario para obtener el nombre de la plataforma.
 
 #### <a name="register-your-device-when-the-application-starts"></a>Registro del dispositivo al inicio de la aplicación 
 Inicialmente, se incluirá el código mínimo para Android. Más tarde, puede modificar la aplicación para que se ejecute en iOS o en Windows 10.
@@ -198,7 +199,7 @@ Antes de implementar su aplicación en su dispositivo Android, debe habilitar la
 Cuando lo probamos, usamos un dispositivo Google Nexus 5X con Android 6.0 (Marshmallow). Sin embargo, las técnicas son comunes a cualquier versión moderna de Android.
 
 #### <a name="install-google-play-services"></a>Instalación de Google Play Services
-El complemento de notificaciones push se basa en Google Play Services de Android para las notificaciones push.
+El complemento de inserción se basa en Google Play Services de Android para las notificaciones push.
 
 1. En Visual Studio, seleccione **Herramientas** > **Android** > **Android SDK Manager**. A continuación, expanda la carpeta **Extras**. Active las casillas apropiadas para asegurarse de que se instala cada uno de los siguientes SDK:
 
@@ -242,7 +243,7 @@ Para poder ejecutar una aplicación de Cordova en iOS mediante Visual Studio, si
 Asegúrese de que puede compilar la aplicación para iOS. Los pasos de la guía de instalación son necesarios para compilar para iOS desde Visual Studio. Si no tiene un equipo Mac, puede compilar para iOS mediante el agente de compilación remoto en un servicio como MacInCloud. Para más información, consulte el artículo sobre la [ejecución de una aplicación iOS en la nube][21].
 
 > [!NOTE]
-> Se requiere XCode 7 o superior para usar el complemento de notificaciones push de iOS.
+> Se requiere XCode 7 o superior para usar el complemento de inserción de iOS.
 
 #### <a name="find-the-id-to-use-as-your-app-id"></a>Búsqueda del identificador que se va a usar como id. de la aplicación
 Antes de registrar la aplicación para las notificaciones push, abra config.xml en su aplicación de Cordova, busque el valor del atributo `id` en el elemento de widget y cópielo para su uso posterior. En el siguiente XML, el identificador es `io.cordova.myapp7777777`.

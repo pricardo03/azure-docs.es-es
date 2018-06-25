@@ -7,24 +7,26 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aab6e893a6da1c5b877498f2bf6cbeaa6d0a5c2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587790"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Preguntas más frecuentes (P+F)
 Esta página responde a las preguntas más frecuentes acerca de Azure Active Directory Domain Services. Siga comprobando si hay actualizaciones.
 
 ## <a name="troubleshooting-guide"></a>Guía de solución de problemas
-Consulte nuestra [Guía de solución de problemas](active-directory-ds-troubleshooting.md) para obtener soluciones para los problemas habituales detectados al configurar o administrar Azure AD Domain Services.
+Consulte nuestra [Guía de solución de problemas](active-directory-ds-troubleshooting.md) para obtener soluciones a los problemas más habituales al configurar o administrar Azure AD Domain Services.
 
 ## <a name="configuration"></a>Configuración
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>¿Se pueden crear varios dominios administrados para un único directorio de Azure AD?
@@ -55,7 +57,7 @@ Sí. Consulte [cómo puede habilitar Azure AD Domain Services mediante PowerShel
 Nº El dominio de Servicios de dominio de Azure AD es un dominio administrado. No es necesario aprovisionar, configurar o administrar controladores de dominio para este dominio, Microsoft proporciona estas actividades de administración como un servicio. Por lo tanto, no podrá agregar controladores de dominio adicionales (ni de lectura y escritura ni de solo lectura) para el dominio administrado.
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>¿Pueden los usuarios invitados a mi directorio usar Azure AD Domain Services?
-Nº Los usuarios invitados a su directorio de Azure AD mediante el proceso de invitación [B2B de Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) se sincronizan en el dominio administrado de Azure AD Domain Services. Sin embargo, las contraseñas para estos usuarios no se almacenan en el directorio de Azure AD. Por lo tanto, Azure AD Domain Services no tiene ninguna manera de sincronizar los códigos hash de Kerberos y NTLM para estos usuarios en el dominio administrado. Como resultado, estos usuarios no pueden iniciar sesión en el dominio administrado o unir equipos al dominio administrado.
+Nº Los usuarios invitados a su directorio de Azure AD mediante el proceso de invitación [B2B de Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) se sincronizan en el dominio administrado de Azure AD Domain Services. Sin embargo, las contraseñas para estos usuarios no se almacenan en el directorio de Azure AD. Por lo tanto, Azure AD Domain Services no tiene ninguna manera de sincronizar los códigos hash de Kerberos y NTLM para estos usuarios en el dominio administrado. Como resultado, estos usuarios no pueden iniciar sesión en el dominio administrado o unir equipos a este.
 
 ## <a name="administration-and-operations"></a>Administración y operaciones
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>¿Puedo conectarme al controlador de dominio para mi dominio administrado mediante Escritorio remoto?
@@ -65,13 +67,13 @@ Nº Los administradores de inquilinos no tienen privilegios para conectarse a co
 Los miembros del grupo administrativo "Administradores de controlador de dominio de AAD" pueden unir máquinas mediante dominio. Además, los miembros de este grupo se les concede acceso mediante Escritorio remoto a las máquinas que se han unido al dominio.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>¿Puedo tener privilegios de administrador de dominio para el dominio administrado proporcionado por Azure AD Domain Services?
-Nº No se le conceden privilegios administrativos en el dominio administrado. Los privilegios "Administrador de dominio" y "Administrador de organización" no estarán disponibles dentro del dominio. A los grupos de administradores de dominio o administradores de organización existentes dentro del directorio de Azure AD tampoco se les concederá privilegios de administrador de dominio o de organización en el dominio.
+Nº No se le conceden privilegios administrativos en el dominio administrado. Los privilegios "Administrador de dominio" y "Administrador de organización" no estarán disponibles dentro del dominio. A los miembros de los grupos de administradores de dominio o administradores de organización dentro del directorio local de Active Directory tampoco se les concederán privilegios de administrador de dominio o de organización en el dominio administrado.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>¿Puedo modificar pertenencias a grupos mediante LDAP u otras herramientas administrativas de AD en dominios administrados?
 Nº Las pertenencias a grupos en dominios ofrecidos por Servicios de dominio de Azure AD no se pueden modificar. Lo mismo se aplica para los atributos de usuario. Sin embargo, puede cambiar las pertenencias a grupos o los atributos de usuario en Azure AD o en el dominio local. Dichos cambios se sincronizarán automáticamente con Azure AD Domain Services.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>¿Cuánto tardan los cambios realizados en el directorio de Azure AD en estar visibles en mi dominio administrado?
-Los cambios realizados en su directorio de Azure AD mediante la interfaz de usuario de Azure AD o PowerShell se sincronizan con el dominio administrado. Este proceso de sincronización se ejecuta en segundo plano. Una vez completada la sincronización inicial de su directorio, suelen transcurrir unos 20 minutos hasta que los cambios realizados en Azure AD se reflejan en el dominio administrado.
+Los cambios realizados en su directorio de Azure AD mediante la interfaz de usuario de Azure AD o PowerShell se sincronizan con el dominio administrado. Este proceso de sincronización se ejecuta en segundo plano. Tras completar la sincronización inicial, los cambios realizados en Azure AD suelen tardar unos 20 minutos en aparecer reflejados en el dominio administrado.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>¿Puedo extender el esquema del dominio administrado por Azure AD Domain Services?
 Nº Microsoft administra el esquema del dominio administrado. No se admiten extensiones de esquema en los Servicios de dominio de Azure AD.
@@ -81,6 +83,9 @@ Sí. Los miembros del grupo "Administradores de controlador de dominio de AAD" r
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>¿Qué es la directiva de duración de la contraseña en un dominio administrado?
 La duración predeterminada de la contraseña en un dominio administrado de Azure AD Domain Services es de 90 días. Esta duración de la contraseña no está sincronizada con la duración de la contraseña configurada en Azure AD. Por lo tanto, podría darse una situación donde las contraseñas de los usuarios hayan expirado en el dominio administrado, pero sigan siendo válidas en Azure AD. En tales escenarios, los usuarios deben cambiar sus contraseñas en Azure AD y la nueva contraseña se sincronizará con el dominio administrado. Además, los atributos "password-does-not-expire" y "user-must-change-password-at-next-logon" de las cuentas de usuario no se sincronizan con el dominio administrado.
+
+### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>¿Azure AD Domain Services proporciona protección de bloqueo de cuentas de AD?
+Sí. Tras escribir una contraseña incorrecta del dominio administrado cinco veces en un lapso de dos minutos, la cuenta de usuario quedará bloqueada durante 30 minutos. Pasados los 30 minutos, la cuenta de usuario se desbloqueará automáticamente. Los intentos no válidos de escribir la contraseña del dominio administrado no provocarán el bloqueo de la cuenta de usuario en Azure AD. La cuenta de usuario solo se bloqueará en el dominio administrado de Azure AD Domain Services.
 
 ## <a name="billing-and-availability"></a>Facturación y disponibilidad
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>¿Azure AD Domain Services es un servicio de pago?

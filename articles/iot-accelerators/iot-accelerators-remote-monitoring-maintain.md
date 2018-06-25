@@ -1,22 +1,19 @@
 ---
 title: 'Solución de problemas de dispositivos en la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este tutorial se muestra cómo solucionar los problemas con los dispositivos en la solución de supervisión remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 1e6c74b5c952d5a387dbdac4d6e81d691758fb36
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 9a620d91238393ba0bde89f521f790b58ab35baf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628079"
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Solución de problemas de los dispositivos
 
@@ -32,9 +29,9 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para seguir este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
+Para seguir este tutorial, necesitará una instancia implementada de la solución Supervisión remota en la suscripción de Azure.
 
-Si aún no ha implementado la solución de supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución de supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
+Si aún no ha implementado la solución Supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="use-the-maintenance-dashboard"></a>Uso del panel de mantenimiento
 

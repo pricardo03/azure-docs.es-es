@@ -6,13 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: marsma
-ms.openlocfilehash: 80d12d1f5d6b388c46ed90eb84b7bc00250e17ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d6f42a5f3ce907fdb759bef29ca25bdc7fe365d9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757015"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuración de red en Azure Kubernetes Service (AKS)
 
@@ -38,7 +39,7 @@ Los nodos de un clúster de AKS configurado para el uso de red Avanzada utilizan
 Las redes avanzadas proporcionan las siguientes ventajas:
 
 * Implementar el clúster de AKS en una red virtual existente o crear una nueva red virtual y subred para el clúster.
-* Cada pod del clúster tiene asignada una dirección IP en la red virtual y puede comunicarse directamente con los otros pods del clúster y otras máquinas virtuales de la red virtual.
+* Cada pod del clúster tiene asignada una dirección IP en la red virtual y puede comunicarse directamente con los otros pods del clúster y otros nodos de la red virtual.
 * Un pod se puede conectar con otros servicios de una red virtual emparejada y con redes locales a través de ExpressRoute y conexiones VPN de sitio a sitio (S2S). Los pods también son accesibles desde el entorno local.
 * Exponer un servicio de Kubernetes de forma externa o de forma interna mediante Azure Load Balancer. También es una característica de la red Básica.
 * Los pods de una subred que tienen puntos de conexión de servicio habilitados pueden conectarse de forma segura a los servicios de Azure, como Azure Storage o SQL Database.
@@ -46,7 +47,33 @@ Las redes avanzadas proporcionan las siguientes ventajas:
 * Los pods pueden acceder a recursos públicos de Internet. También es una característica de la red Básica.
 
 > [!IMPORTANT]
-> Cada nodo de un clúster de AKS configurado para redes avanzadas puede hospedar un máximo de **30 pods**. Cada red virtual aprovisionada para su uso con el complemento Azure CNI está limitada a **4096 direcciones IP** (/ 20).
+> Cada nodo de un clúster de AKS configurado para redes avanzadas puede hospedar un máximo de **30 pods**. Cada red virtual aprovisionada para su uso con el complemento Azure CNI está limitada a **4096 direcciones IP configuradas**.
+
+## <a name="advanced-networking-prerequisites"></a>Requisitos previos de redes avanzadas
+
+* La red virtual del clúster AKS debe permitir la conectividad saliente de internet.
+* No cree más de un clúster AKS en la misma subred.
+* Las redes avanzadas de AKS no admiten redes virtuales que usen Azure DNS Private Zones.
+* Los clústeres AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16` para el intervalo de direcciones del servicio de Kubernetes.
+* La entidad de servicio que usa el clúster AKS debe tener permisos `Contributor` para el grupo de recursos que contiene la red virtual existente.
+
+## <a name="plan-ip-addressing-for-your-cluster"></a>Planeamiento de direccionamiento IP del clúster
+
+Los clústeres configurados con redes avanzadas requieren planeamiento adicional. El tamaño de la red virtual y su subred debe ajustarse al número de pods que tiene previsto ejecutar, así como al número de nodos del clúster.
+
+Se asignan direcciones IP para los pods y los nodos del clúster desde la subred especificada dentro de la red virtual. Cada nodo se configura con una dirección IP principal, que es la dirección IP del nodo, y 30 direcciones IP adicionales preconfiguradas por Azure CNI que se asignan a los pods programados para el nodo. Cuando se escala horizontalmente el clúster, cada nodo del mismo modo se configura de modo similar con direcciones IP de la subred.
+
+El plan de direcciones IP de un clúster AKS consta de una red virtual, al menos una subred para los nodos y pods, y un intervalo de direcciones del servicio de Kubernetes.
+
+| Intervalo de direcciones / recurso de Azure | Límites y tamaño |
+| --------- | ------------- |
+| Red virtual | La red virtual de Azure puede ser tan grande como /8, pero solo puede tener 4096 direcciones IP configuradas. |
+| Subred | Debe ser lo suficientemente grande como para dar cabida a los nodos y pods. Para calcular el tamaño mínimo de la subred: (número de nodos) + (número de nodos * pods por nodo). Para un clúster de 50 nodos: (50) + (50 * 30) = 1550; la subred tendría que ser /21 o mayor. |
+| Intervalo de direcciones del servicio de Kubernetes | Este intervalo no lo debe usar ningún elemento de red de esta red virtual o que esté conectado a ella. El CIDR de la dirección del servicio debe ser menor que /12. |
+| Dirección IP del servicio DNS de Kubernetes | Dirección IP del intervalo de direcciones del servicio de Kubernetes que se usará en la detección de servicios de clúster (kube-dns). |
+| Dirección de puente de Docker | Dirección IP (en notación CIDR) que se usa como la dirección IP del puente de Docker en los nodos. El valor predeterminado es 172.17.0.1/16. |
+
+Como se ha mencionado anteriormente, cada red virtual aprovisionada para su uso con el complemento Azure CNI está limitada a **4096 direcciones IP configuradas**. Cada nodo de un clúster configurado para redes avanzadas puede hospedar un máximo de **30 pods**.
 
 ## <a name="configure-advanced-networking"></a>Configuración de redes avanzada
 
@@ -66,14 +93,6 @@ La siguiente captura de pantalla de Azure Portal muestra un ejemplo de la config
 
 ![Configuración de redes avanzada en Azure Portal][portal-01-networking-advanced]
 
-## <a name="plan-ip-addressing-for-your-cluster"></a>Planeamiento de direccionamiento IP del clúster
-
-Los clústeres configurados con redes avanzadas requieren planeamiento adicional. El tamaño de la red virtual y la subred debe ajustarse al número de pods que tiene previsto ejecutar simultáneamente en el clúster, así como a los requisitos de escalado.
-
-Se asignan direcciones IP para los pods y los nodos del clúster desde la subred especificada dentro de la red virtual. Cada nodo se configura con una dirección IP principal, que es la dirección IP del propio nodo y 30 direcciones IP adicionales preconfiguradas por Azure CNI que se asignan a los pods programados para el nodo. Cuando se escala horizontalmente el clúster, cada nodo del mismo modo se configura de modo similar con direcciones IP de la subred.
-
-Como se mencionó anteriormente, cada red virtual aprovisionada para su uso con el complemento Azure CNI está limitada a **4096 direcciones IP** (/ 20). Cada nodo de un clúster configurado para redes avanzadas puede hospedar un máximo de **30 pods**.
-
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 Las siguientes preguntas y respuestas se aplican a la configuración de red **Avanzada**.
@@ -86,13 +105,13 @@ Las siguientes preguntas y respuestas se aplican a la configuración de red **Av
 
   Nº No se admite la implementación de máquinas virtuales en la subred usada por el clúster Kubernetes. Las máquinas virtuales se pueden implementar en la misma red virtual, pero en una subred diferente.
 
-* *¿Puedo configurar las directivas de red por pod?
+* *¿Puedo configurar las directivas de red por pod?*
 
   Nº Las directivas de redes por pod no se admiten actualmente.
 
 * *¿Es configurable el número máximo de pods que se puede implementar en un nodo ?*
 
-  De forma predeterminada, cada nodo puede hospedar un máximo de 30 pods. Actualmente, solo puede cambiar el valor máximo modificando la propiedad `maxPods` al implementar un clúster con una plantilla de Resource Manager.
+  De forma predeterminada, cada nodo puede hospedar un máximo de 30 pods. Solo puede cambiar el valor máximo si modifica la propiedad `maxPods` al implementar un clúster con una plantilla de Resource Manager.
 
 * *¿Cómo se pueden configurar propiedades adicionales para la subred que he creado durante la creación del clúster de AKS? Por ejemplo, los puntos de conexión de servicio.*
 

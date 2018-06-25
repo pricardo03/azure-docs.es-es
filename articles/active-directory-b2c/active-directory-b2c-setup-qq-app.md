@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configuración de QQ | Microsoft Docs'
+title: Configuración de QQ en Azure Active Directory B2C | Microsoft Docs
 description: Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de QQ en las aplicaciones protegidas por Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7a33a1b2a68b82b1d65b1187547695cccd7c395f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711678"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los usuarios con cuentas de QQ
 
@@ -25,14 +25,14 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="create-a-qq-application"></a>Creación de una aplicación de QQ
 
-Para usar QQ como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de Google+ y suministrarle los parámetros correctos. Necesita una cuenta de QQ para hacerlo. Si no tiene, puede obtenerla en [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+Para usar QQ como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de Google+ y suministrarle los parámetros correctos. Necesita una cuenta de QQ para hacerlo. Si no tiene ninguna, puede obtener una en [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### <a name="register-for-the-qq-developer-program"></a>Registro para el programa para desarrolladores de QQ
 
 1. Vaya al [portal para desarrolladores de QQ](http://open.qq.com) e inicie sesión con sus credenciales de cuenta de QQ.
 2. Después de iniciar sesión, vaya a [http://open.qq.com/reg](http://open.qq.com/reg) para registrarse como un programador.
-3. En el menú, seleccione**个人** (desarrollador individual).
-4. Escriba la información necesaria en el formulario y haga clic en **下一步** (paso siguiente).
+3. En el menú, seleccione **个人** (Desarrollador individual).
+4. Escriba la información necesaria en el formulario y haga clic en **下一步** (Paso siguiente).
 5. Complete el proceso de comprobación de correo electrónico.
 
 > [!NOTE]
@@ -41,16 +41,16 @@ Para usar QQ como proveedor de identidades en Azure Active Directory (Azure AD) 
 ### <a name="register-a-qq-application"></a>Registro de una aplicación QQ
 
 1. Vaya a [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
-2. Haga clic en **应用管理** (administración de la aplicación).
-3. Haga clic en **创建应用** (crear la aplicación).
+2. Haga clic en **应用管理** (Administración de aplicaciones).
+3. Haga clic en **创建应用** (Crear aplicación).
 4. Escriba la información de la aplicación necesaria.
-5. Haga clic en **创建应用** (crear la aplicación).
+5. Haga clic en **创建应用** (Crear aplicación).
 6. Escriba la información necesaria.
-7. Para el campo **授权回调域** (dirección URL de devolución de llamada), escriba `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por ejemplo, si `tenant_name` es contoso.onmicrosoft.com, establezca la dirección URL para que sea `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-8. Haga clic en **创建应用** (crear la aplicación).
-9. En la página de confirmación, haga clic en **应用管理** (administración de la aplicación) para volver a la página de administración de la aplicación.
-10. Haga clic en **查看** (ver) junto a la aplicación que acaba de crear.
-11. Haga clic en **修改** (editar).
+7. Para **授权回调域** (Dirección URL de devolución de llamada), escriba `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por ejemplo, si `tenant_name` es contoso.onmicrosoft.com, establezca la dirección URL para que sea `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+8. Haga clic en **创建应用** (Crear aplicación).
+9. En la página de confirmación, haga clic en **应用管理** (Administración de aplicaciones) para volver a la página de administración de aplicaciones.
+10. Haga clic en **查看** (Ver) junto a la aplicación que acaba de crear.
+11. Haga clic en **修改** (Editar).
 12. En la parte superior de la página, copie el **id. de la aplicación** y la **clave de la aplicación**.
 
 ## <a name="configure-qq-as-an-identity-provider-in-your-tenant"></a>Configuración de QQ como proveedor de identidades del inquilino

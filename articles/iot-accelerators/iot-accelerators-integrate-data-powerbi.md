@@ -1,22 +1,19 @@
 ---
 title: Visualización de datos de supervisión remota con Power BI (Azure) | Microsoft Docs
 description: En este tutorial se usa Power BI Desktop y Cosmos DB para integrar datos de una solución de supervisión remota en una visualización personalizada. De esta forma, los usuarios pueden compilar sus propios paneles personalizados y compartirlos con los usuarios, pero no en la solución.
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 55feb56008a54676bd0af332e251da94a9653aaf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e396d69a61679a85fdfbd3e8fd43216635dec51d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627797"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualización de datos de supervisión remota con Power BI
 
@@ -105,7 +102,7 @@ También conviene [actualizar los datos](https://docs.microsoft.com/en-us/power-
 
 En este artículo, ha aprendido cómo visualizar datos de supervisión remota con Power BI.
 
-Para más información sobre cómo personalizar la solución de supervisión remota, consulte:
+Para obtener más información sobre cómo personalizar la solución Supervisión remota, consulte:
 
 * [Personalización de la interfaz de usuario de la solución de supervisión remota](iot-accelerators-remote-monitoring-customize.md)
 * [Guía de referencia para desarrolladores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)

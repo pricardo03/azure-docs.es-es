@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625804"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid 
 
@@ -62,7 +63,7 @@ Event Grid usa una directiva de reintentos de retroceso exponencial para la entr
 
 Event Grid agrega una pequeña selección aleatoria a todos los intervalos de reintento. Después de una hora, la entrega del evento se vuelve a intentar cada una hora.
 
-De forma predeterminada, Azure Event Grid expira todos los eventos que no se entregan en 24 horas.
+Event Grid deja de intentar entregar todos los eventos que no se entregan en 24 horas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
