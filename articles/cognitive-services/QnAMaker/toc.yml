@@ -1,0 +1,118 @@
+- name: ¿Qué es QnA Maker?
+  href: Overview/overview.md
+- name: Información general
+  items:
+    - name: Idiomas admitidos
+      href: Overview/languages-supported.md
+- name: Guías de inicio rápido
+  items:
+    - name: Crear una base de conocimiento
+      items:
+        - name: 'C#'
+          href: Quickstarts/create-new-kb-csharp.md
+        - name: Java
+          href: Quickstarts/create-new-kb-java.md
+        - name: Go
+          href: Quickstarts/create-new-kb-go.md
+        - name: Node.js
+          href: Quickstarts/create-new-kb-nodejs.md
+        - name: Python
+          href: Quickstarts/create-new-kb-python.md
+    - name: Actualización de una base de conocimientos
+      items:
+        - name: 'C#'
+          href: Quickstarts/update-kb-csharp.md
+        - name: Java
+          href: Quickstarts/update-kb-java.md
+        - name: Go
+          href: Quickstarts/update-kb-go.md
+        - name: Node.js
+          href: Quickstarts/update-kb-nodejs.md
+        - name: Python
+          href: Quickstarts/update-kb-python.md
+- name: Conceptos
+  items:
+    - name: Base de conocimiento
+      href: Concepts/knowledge-base.md
+    - name: Ciclo de vida de desarrollo de una base de conocimiento
+      href: Concepts/development-lifecycle-knowledge-base.md
+    - name: Puntuación de confianza
+      href: Concepts/confidence-score.md
+    - name: Orígenes de datos admitidos
+      href: Concepts/data-sources-supported.md
+- name: Guías de procedimientos
+  items:
+    - name: Configurar un servicio QnA Maker
+      href: How-To/set-up-qnamaker-service-azure.md
+    - name: Crear y publicar una base de conocimiento
+      href: Quickstarts/create-publish-knowledge-base.md
+    - name: Creación de una base de conocimientos
+      href: How-To/create-knowledge-base.md
+    - name: Usar metadatos con GenerateAnswer API
+      href: How-To/metadata-generateanswer-usage.md
+    - name: Migrar una base de conocimiento desde la versión preliminar
+      href: Tutorials/migrate-knowledge-base.md
+    - name: Editar una base de conocimiento
+      href: How-To/edit-knowledge-base.md
+    - name: Colaborar en una base de conocimiento
+      href: How-To/collaborate-knowledge-base.md
+    - name: Probar una base de conocimiento
+      href: How-To/test-knowledge-base.md
+    - name: Publicación de una base de conocimientos
+      href: How-To/publish-knowledge-base.md
+    - name: Obtener análisis en la base de conocimiento
+      href: How-To/get-analytics-knowledge-base.md
+    - name: Administración de claves
+      href: How-To/key-management.md
+    - name: Crear una base de conocimiento en un idioma diferente
+      href: How-To/language-knowledge-base.md
+    - name: Crear un bot QnA con Azure Bot Service
+      href: Tutorials/create-qna-bot.md
+    - name: Integrar QnA Maker y LUIS
+      href: Tutorials/integrate-qnamaker-luis.md
+    - name: Crear un plan de continuidad del negocio para QnA Maker
+      href: How-To/business-continuity-plan.md
+    - name: Elegir capacidad para la implementación de QnA Maker
+      href: Tutorials/choosing-capacity-qnamaker-deployment.md
+    - name: Actualizar el servicio QnA Maker
+      href: How-To/upgrade-qnamaker-service.md
+    - name: Solucionar problemas y actualizar QnAMaker en tiempo de ejecución
+      href: How-To/troubleshooting-runtime.md
+    - name: Usar QnA Maker API
+      items:
+        - name: 'C#'
+          href: Quickstarts/csharp.md
+        - name: Java
+          href: Quickstarts/java.md
+        - name: Node.js
+          href: Quickstarts/nodejs.md
+        - name: Python
+          href: Quickstarts/python.md
+        - name: Go
+          href: Quickstarts/go.md
+- name: Referencia
+  items:
+    - name: Referencia de API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff'
+    - name: Preguntas más frecuentes
+      href: faqs.md
+    - name: Prácticas recomendadas
+      href: Concepts/best-practices.md
+    - name: límites
+      href: limits.md
+    - name: Glosario
+      href: glossary.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://aka.ms/qnamaker-pricing'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
+    - name: UserVoice
+      href: 'https://aka.ms/qnamaker-uservoice'
+    - name: Search
+      href: 'https://docs.microsoft.com/en-us/search/index?search=QnAMaker'
+    - name: Blog
+      href: 'https://blog.botframework.com/category/QnAMaker/'

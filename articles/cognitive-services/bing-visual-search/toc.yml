@@ -1,0 +1,60 @@
+- name: Documentación de Bing Video Search
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Bing Visual Search API?
+      href: overview.md
+- name: Guías de inicio rápido de API REST
+  expanded: true
+  items:
+    - name: 'Primera consulta en C#'
+      href: quickstarts/csharp.md
+    - name: Primera consulta en Java
+      href: quickstarts/java.md
+    - name: Primera consulta para Node.js
+      href: quickstarts/nodejs.md
+    - name: Primera consulta en Python
+      href: quickstarts/python.md
+- name: Tutoriales
+  items:
+    - name: Aplicación web de una sola página
+      href: tutorial-bing-visual-search-single-page-app.md
+    - name: Aplicación web de una sola página (código fuente)
+      href: tutorial-bing-visual-search-single-page-app-source.md
+- name: Ejemplos
+  items:
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
+- name: Conceptos
+  items:
+    - name: Información de imágenes predeterminada
+      href: default-insights-tag.md
+    - name: Uso de la información de Bing
+      href: bing-insights-usage.md
+    - name: Países y mercados admitidos
+      href: supported-countries-markets.md
+    - name: Análisis para Visual Search API
+      href: bing-visual-search-stats.md
+- name: Guías de procedimientos
+  items:
+    - name: Obtener información sobre el uso de token
+      href: use-insights-token.md
+    - name: Resultados de uso y visualización
+      href: use-and-display-requirements.md
+    - name: Cambio de tamaño y recorte de miniaturas
+      href: resize-and-crop-thumbnails.md
+- name: Referencia
+  expanded: true
+  items:
+    - name: API REST v7
+      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+- name: Recursos
+  items:
+    - name: Obtener clave de acceso gratis
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
+    - name: ¡Pruébelo!
+      href: 'https://aka.ms/bingvisualsearchtryforfree'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: Voz del usuario
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

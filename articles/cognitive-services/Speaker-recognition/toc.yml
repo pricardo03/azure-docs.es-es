@@ -1,0 +1,20 @@
+- name: Documentación de Speaker Recognition
+- name: Información general
+  items:
+    - name: Más información sobre Speaker Recognition
+      href: Home.md
+- name: Referencia
+  items:
+    - name: Referencia de API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797'
+      items:
+        - name: SDK
+          items:
+            - name: Android
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
+            - name: Windows
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
