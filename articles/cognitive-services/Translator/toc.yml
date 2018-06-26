@@ -35,6 +35,62 @@
           href: quickstart-java-languages.md
         - name: Obtener longitudes de frases en el texto
           href: quickstart-java-sentences.md
+    - name: Node.js
+      items:
+        - name: Traducir texto
+          href: quickstart-nodejs-translate.md
+        - name: Convertir script de texto
+          href: quickstart-nodejs-transliterate.md
+        - name: Identificar idioma desde el texto
+          href: quickstart-nodejs-detect.md
+        - name: Obtener traducciones alternativas
+          href: quickstart-nodejs-dictionary.md
+        - name: Obtener idiomas admitidos
+          href: quickstart-nodejs-languages.md
+        - name: Obtener longitudes de frases en el texto
+          href: quickstart-nodejs-sentences.md
+    - name: PHP
+      items:
+        - name: Traducir texto
+          href: quickstart-php-translate.md
+        - name: Convertir script de texto
+          href: quickstart-php-transliterate.md
+        - name: Identificar idioma desde el texto
+          href: quickstart-php-detect.md
+        - name: Obtener traducciones alternativas
+          href: quickstart-php-dictionary.md
+        - name: Obtener idiomas admitidos
+          href: quickstart-php-languages.md
+        - name: Obtener longitudes de frases en el texto
+          href: quickstart-php-sentences.md
+    - name: Python
+      items:
+        - name: Traducir texto
+          href: quickstart-python-translate.md
+        - name: Convertir script de texto
+          href: quickstart-python-transliterate.md
+        - name: Identificar idioma desde el texto
+          href: quickstart-python-detect.md
+        - name: Obtener traducciones alternativas
+          href: quickstart-python-dictionary.md
+        - name: Obtener idiomas admitidos
+          href: quickstart-python-languages.md
+        - name: Obtener longitudes de frases en el texto
+          href: quickstart-python-sentences.md
+    - name: Ruby
+      items:
+        - name: Traducir texto
+          href: quickstart-ruby-translate.md
+        - name: Convertir script de texto
+          href: quickstart-ruby-transliterate.md
+        - name: Identificar idioma desde el texto
+          href: quickstart-ruby-detect.md
+        - name: Obtener traducciones alternativas
+          href: quickstart-ruby-dictionary.md
+        - name: Obtener idiomas admitidos
+          href: quickstart-ruby-languages.md
+        - name: Obtener longitudes de frases en el texto
+          href: quickstart-ruby-sentences.md
 - name: Conceptos
   items:
     - name: Idiomas admitidos
@@ -55,18 +111,8 @@
       href: word-alignment.md
     - name: Usar la característica de diccionario dinámico
       href: dynamic-dictionary.md
-    - name: Uso de Translator Text API
-      items:
-        - name: Node.js
-          href: quickstarts/nodejs.md
-        - name: PHP
-          href: quickstarts/php.md
-        - name: Python
-          href: quickstarts/python.md
-        - name: Ruby
-          href: quickstarts/ruby.md
-        - name: Crear una aplicación Translator Text con WPF
-          href: tutorial-wpf-translation-csharp.md
+    - name: Crear una aplicación Translator Text con WPF
+      href: tutorial-wpf-translation-csharp.md
 - name: Referencia
   items:
     - name: Referencia de Translator Text API v3
