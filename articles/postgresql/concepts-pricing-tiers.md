@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 05/18/2018
+ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272189"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756643"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Planes de tarifa de Azure Database for PostgreSQL
 
@@ -24,7 +24,7 @@ Puede crear un servidor de Azure Database for PostgreSQL en tres planes de tarif
 |:---|:----------|:--------------------|:---------------------|
 | Generación de procesos | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Memoria por núcleo virtual | Línea base | 2x Básico | 2x Uso general |
+| Memoria por núcleo virtual | 2 GB | 5 GB | 10 GB |
 | Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 2 TB | De 5 GB a 2 TB |
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Período de retención de copias de seguridad de base de datos | De 7 a 35 días | De 7 a 35 días | De 7 a 35 días |
@@ -40,7 +40,7 @@ Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
 Después de crear un servidor, el número de núcleos virtuales se puede aumentar o reducir (en el mismo plan de tarifa) en cuestión de segundos. También puede ajustar de forma independiente la cantidad de almacenamiento y aumentar o reducir el período de retención sin que las aplicaciones experimenten tiempo de inactividad. No puede cambiar el plan de tarifa o el tipo de almacenamiento de copia de seguridad. Para más información, consulte la sección [Escalado de recursos](#scale-resources).
 
 
-## <a name="compute-generations-vcores-and-memory"></a>Generaciones de procesos, núcleos virtuales y memoria
+## <a name="compute-generations-and-vcores"></a>Procesar generaciones y núcleos virtuales
 
 Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Actualmente, puede elegir entre dos generaciones de proceso, Gen 4 y Gen 5. Las CPU lógicas Gen 4 se basan en los procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz. Las CPU lógicas Gen 5 se basan en los procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz. Las CPU lógicas Gen 4 y Gen 5 están disponibles en las siguientes regiones ("X" indica disponible). 
 
@@ -64,14 +64,12 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Sudeste asiático | X | X |
 | Australia Oriental |  | X |
 | Sudeste de Australia |  | X |
-| India Central | X |  |
-| Oeste de la India | X |  |
+| India Central | X | X |
+| Oeste de la India | X | X |
 | Sur de la India |  | X |
 | Este de Japón | X | X |
 | Oeste de Japón | X | X |
 | Corea del Sur |  | X |
-
-Según el plan de tarifa, cada núcleo virtual se aprovisiona con una cantidad específica de memoria. Al aumentar o reducir el número de núcleos virtuales para el servidor, la memoria aumenta o disminuye proporcionalmente. El plan Uso general proporciona el doble de memoria por núcleo virtual en comparación con el plan Básico. El plan Memoria optimizada proporciona el doble de memoria en comparación con el plan Uso general.
 
 ## <a name="storage"></a>Storage
 

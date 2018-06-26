@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: a38729c266a4dd214c3de97c6b9d92df6ed2dd96
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 93d5883071a012842106bdd946e4f09a0d7aa751
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735126"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260461"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Herramientas de Azure Functions para Visual Studio  
 
@@ -89,9 +89,7 @@ Para más información, consulte [Proyecto de biblioteca de clases de Functions]
 
 ## <a name="configure-the-project-for-local-development"></a>Configuración del proyecto para el desarrollo local
 
-El entorno de tiempo de ejecución de Functions usa internamente una cuenta de Azure Storage. Para todos los tipos de desencadenadores distintos de HTTP y webhooks, debe establecer la clave **Values.AzureWebJobsStorage** en una cadena de conexión de cuenta de Azure Storage válida. 
-
-[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
+El entorno de tiempo de ejecución de Functions usa internamente una cuenta de Azure Storage. Para todos los tipos de desencadenadores distintos de HTTP y webhooks, debe establecer la clave **Values.AzureWebJobsStorage** en una cadena de conexión de cuenta de Azure Storage válida. La aplicación de función puede usar el [Emulador de Azure Storage](../storage/common/storage-use-emulator.md) para la configuración de conexión **AzureWebJobsStorage** que el proyecto requiere. Para usar el emulador, establezca el valor de **AzureWebJobsStorage** en `UseDevelopmentStorage=true`. Debe cambiar esta configuración a una conexión de almacenamiento real antes de la implementación.
 
 Para establecer la cadena de conexión de cuenta de almacenamiento:
 
@@ -111,7 +109,7 @@ En las funciones compiladas previamente, los enlaces que la función usa se defi
 
     ![Crear una función desencadenada por la cola](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    Este ejemplo de desencadenador usa una cadena de conexión con una clave denominada **QueueStorage**. Esta configuración de la cadena de conexión se debe definir en el archivo local.settings.json.
+    Este ejemplo de desencadenador usa una cadena de conexión con una clave denominada **QueueStorage**. Esta configuración de la cadena de conexión se debe definir en el [archivo local.settings.json](functions-run-local.md#local-settings-file).
 
 3. Examine la clase recién agregada. Verá un método **Run** estático, que cuenta con el atributo **FunctionName**. Este atributo indica que el método es el punto de entrada de la función.
 

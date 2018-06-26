@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ce2bc8cc8d9b149b16aee9c5e601d9872621e277
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f486ce5c058286289873d87767f02bf92f91459e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701449"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
@@ -105,7 +106,10 @@ El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifr
 > [!NOTE]
 > No se puede cambiar el protocolo de un servicio durante la actualización de la aplicación. Si se modifica en el transcurso, se tratará de un cambio brusco.
 > 
-> 
+
+> [!WARNING] 
+> Si usa HTTPS, no utilice el mismo puerto y certificado para distintas instancias de servicio (independientes de la aplicación) implementadas en el mismo nodo. Al actualizar dos servicios diferentes que usan el mismo puerto en diferentes instancias de aplicación, se producirá un error de actualización. Para más información, consulte [Actualización de varias aplicaciones con puntos de conexión HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. Necesitará proporcionar la huella digital para el certificado. EndpointRef es una referencia a EndpointResource en ServiceManifest, para la que establece el protocolo HTTPS. Puede agregar más de un certificado EndpointCertificate.  
 
@@ -158,7 +162,7 @@ En ApplicationManifest, agregue una sección denominada ResourceOverrides que se
 
 Para invalidar Endpoint en ServiceManifest mediante ApplicationParameters cambie ApplicationManifest como se indica a continuación:
 
-En la sección ServiceManifestImport, agregue una nueva sección "ResourceOverrides"
+En la sección ServiceManifestImport, agregue una nueva sección "ResourceOverrides".
 
 ```xml
 <ServiceManifestImport>
@@ -188,7 +192,7 @@ En Parameters, agregue a continuación:
   </Parameters>
 ```
 
-Ahora, al implementar la aplicación puede pasar estos valores como ApplicationParameters, por ejemplo:
+Al implementar la aplicación puede pasar estos valores como ApplicationParameters.  Por ejemplo: 
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}

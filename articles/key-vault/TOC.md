@@ -41,11 +41,11 @@
 # Referencia
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [CLI de Azure](/cli/azure/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
-## [Java](/java/api/com.microsoft.azure.keyvault)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
+## [Java](/java/api/overview/azure/keyvault/client)
 ## Node.js
-### [Administración de almacenes](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-### [Administración de contenido de un almacén](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
+### [Administración de almacenes](https://docs.microsoft.com/en-us/javascript/api/overview/azure/keyvault/client?view=azure-node-latest)
+### [Administración de contenido de un almacén](https://docs.microsoft.com/en-us/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
 ## [REST](/rest/api/keyvault)
 ## Desarrollo
 ### [Vídeo de inicio rápido para desarrolladores](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
