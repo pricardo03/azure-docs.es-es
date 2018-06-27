@@ -388,11 +388,10 @@
 ### [Roles de administrador](active-directory-assign-admin-roles-azure-portal.md)
 #### [Asignación de un rol de administrador a un usuario](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Comparación de permisos para miembros y para usuarios invitados](fundamentals/users-default-permissions.md)
-### [Protección de roles de administrador](admin-roles-best-practices.md)  
+### [Mejora de la seguridad del rol de administrador](admin-roles-best-practices.md)  
 #### [Creación de cuentas de administrador de acceso de emergencia](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
-### [Protección de los roles con privilegios](admin-roles-best-practices.md)
 
 ## Revisiones de acceso
 ### [Introducción a las revisiones de acceso](active-directory-azure-ad-controls-access-reviews-overview.md)
