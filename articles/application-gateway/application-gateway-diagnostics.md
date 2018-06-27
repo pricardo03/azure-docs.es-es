@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/2/2018
+ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314055"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293628"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -36,7 +36,7 @@ Application Gateway permite supervisar el mantenimiento de cada uno de los miemb
 El informe de mantenimiento del back-end refleja la salida del sondeo de mantenimiento de Application Gateway en las instancias de back-end. Cuando el sondeo es correcto y el back-end puede recibir tráfico, se considera que su mantenimiento es correcto. En caso contrario, se considera incorrecto.
 
 > [!IMPORTANT]
-> Si hay un grupo de seguridad de red (NSG) en una subred de Application Gateway, abra los intervalos de puertos 65503-65534 en la subred de Application Gateway para el tráfico de entrada. Estos puertos son necesarios para que la API de mantenimiento de back-end funcione correctamente.
+> Si hay un grupo de seguridad de red (NSG) en una subred de Application Gateway, abra los intervalos de puertos 65503-65534 en la subred de Application Gateway para el tráfico de entrada. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán iniciar ningún cambio en esos puntos de conexión.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visualización del mantenimiento del back-end mediante el portal

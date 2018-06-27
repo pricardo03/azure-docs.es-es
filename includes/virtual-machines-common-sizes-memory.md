@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d3e0f2680cbe703edc553ddff310fba2d1ddf77f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dba5a094ce4dfd55efd892c268e903d89fff90a9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323823"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269602"
 ---
 Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación. 
 
@@ -83,10 +83,22 @@ ACU: 160-180 <sup>1</sup>
 
 | Tamaño            | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M64s  | 64   | 1024        | 2048           | 64             | 80,000 / 800 (6348)       | 40 000 / 1000                            | 8 / 16000          |
-| Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)       | 40 000 / 1000                            | 8 / 16000          |
-| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2000                            | 8 / 30 000          |
-| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3892        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2000                            | 8 / 30 000          |
+| M8ms&nbsp;<sup>3</sup>    | 8  | 218,75 | 256  | 8  | 10 000 / 100 (793)  | 5 000 / 125 | 4 / 2 000 |
+| M16ms&nbsp;<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20 000 / 200 (1587) | 10 000 / 250 | 8 / 4 000 |
+| Standard_M32ts | 32 | 192    | 1024 | 32 | 40 000 / 400 (3174) | 20 000 / 500 | 8 / 8000 |
+| Standard_M32ls | 32 | 256    | 1024 | 32 | 40 000 / 400 (3174) | 20 000 / 500 | 8 / 8000 |
+| M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1024 | 32 | 40 000 / 400 (3174) | 20 000 / 500 | 8 / 8000 |
+| Standard_M64s  | 64 | 1024   | 2 048 | 64 | 80 000 / 800 (6348)| 40 000 / 1000 | 8 / 16 000          |
+|Standard_M64ls  | 64 | 512    | 2 048 | 64 | 80 000 / 800 (6348) | 40 000 / 1000 | 8 / 16 000 |
+| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1 792 | 2 048 | 64 | 80 000 / 800 (6348)| 40 000 / 1000 | 8 / 16 000          |
+| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2 048        | 4 096  | 64 | 160,000 / 1,600 (12,696) | 80 000 / 2000                            | 8 / 30 000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3 892  | 4 096 | 64 | 160,000 / 1,600 (12,696) | 80 000 / 2000                            | 8 / 30 000          |
+| Standard_M64   | 64  | 1024 | 7 168  | 64 | 80 000 / 800 (1 228) | 40 000 / 1 000 | 8 / 16000 |
+| Standard_M64m  | 64  | 1 792 | 7 168  | 64 | 80 000 / 800 (1 228) | 40 000 / 1 000 | 8 / 16000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2 048 | 14 336 | 64 | 250 000 / 1 600 (2 456) | 80 000 / 2 000 | 8 / 32 000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3 892 | 14 336 | 64 | 250 000 / 1 600 (2 456) | 80 000 / 2 000 | 8 / 32 000 |
+
+
 
 <sup>1</sup> Las VM de la serie M cuentan con la tecnología Hyper-Threading de Intel®
 

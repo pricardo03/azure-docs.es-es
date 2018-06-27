@@ -1,6 +1,6 @@
 ---
-title: Roles integrados para el control de acceso basado en rol (RBAC) en Azure | Microsoft Docs
-description: En este tema se describen los roles integrados para el control de acceso basado en rol (RBAC) en Azure. Enumera los valores actions y NotActions.
+title: Roles integrados de Azure | Microsoft Docs
+description: En este tema se describen los roles integrados para el control de acceso basado en rol (RBAC) en Azure. Se enumeran las acciones, notActions, dataActions y notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 06/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267380"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294503"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Roles integrados para el control de acceso basado en roles de Azure
+# <a name="built-in-roles-in-azure"></a>Roles integrados de Azure
 El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
 
 Los roles integrados siempre están en evolución. Para obtener las últimas definiciones de roles, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
@@ -101,7 +101,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de datos de blobs de almacenamiento (versión preliminar)](#storage-blob-data-contributor-preview) | Permite el acceso de lectura, escritura y eliminación a los contenedores de blobs y a los datos de Azure Storage |
 | [Lector de datos de blobs de almacenamiento (versión preliminar)](#storage-blob-data-reader-preview) | Permite el acceso de lectura a los contenedores de blobs y a los datos de Azure Storage |
 | [Colaborador de datos de la cola de almacenamiento (versión preliminar)](#storage-queue-data-contributor-preview) | Permite el acceso de lectura, escritura y eliminación a los mensajes de la cola y a la cola de Azure Storage |
-| [Lector de datos de la cola de almacenamiento (versión preliminar)](#storage-queue-data-reader-preview) | Permite el acceso de lectura a los mensajes de la cola y a las colas de Azure Storage |
+| [Lector de datos de la cola de almacenamiento (versión preliminar)](#storage-queue-data-reader-preview) | Permite el acceso de lectura a los mensajes de la cola y a las colas de Azure Storage. |
 | [Colaborador de la solicitud de soporte técnico](#support-request-contributor) | Permite crear y administrar solicitudes de soporte técnico. |
 | [Colaborador de Traffic Manager](#traffic-manager-contributor) | Le permite administrar perfiles de Traffic Manager, pero no controlar los usuarios que tienen acceso a ellos. |
 | [Administrador de acceso de usuario](#user-access-administrator) | Permite administrar el acceso de usuario a los recursos de Azure. |

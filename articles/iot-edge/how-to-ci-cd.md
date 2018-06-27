@@ -452,7 +452,7 @@ Por lo tanto, al realizar la implementación en dispositivos IoT Edge, hay tres 
 En este tutorial se muestra cómo puede usar las características de integración continua e implementación continua de VSTS o TFS. 
 
 * Puede encontrar información sobre la implementación de IoT Edge en [Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
-* Siga los pasos para crear, actualizar o eliminar una implementación en [Implementación y supervisión de módulos de IoT Edge a escala][how-to-deploy-monitor.md].
+* Siga los pasos para crear, actualizar o eliminar una implementación en [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-monitor.md).
 
 
 

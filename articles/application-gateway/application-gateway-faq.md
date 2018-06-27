@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699910"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295535"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -115,7 +115,7 @@ No, pero se pueden implementar otras puertas de enlace de aplicación en la subr
 
 Se admiten grupos de seguridad de red en la subred de Application Gateway con las restricciones siguientes:
 
-* Se deben colocar excepciones para el tráfico entrante en los puertos 65503-65534 para que el estado del back-end funcione correctamente.
+* Las excepciones se deben colocar en el tráfico entrante en los puertos 65503-65534. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán iniciar ningún cambio en esos puntos de conexión.
 
 * No puede bloquearse la conectividad saliente de Internet.
 
@@ -159,13 +159,17 @@ Este escenario puede hacerse mediante el uso de grupos de seguridad de red en la
 
 * Permitir el tráfico entrante de la IP o intervalo IP de origen.
 
-* Permitir las solicitudes entrantes de todos los orígenes a los puertos 65503-65534 para la [comunicación del estado del back-end](application-gateway-diagnostics.md).
+* Permitir las solicitudes entrantes de todos los orígenes a los puertos 65503-65534 para la [comunicación del estado del back-end](application-gateway-diagnostics.md). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán iniciar ningún cambio en esos puntos de conexión.
 
 * Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta AzureLoadBalancer) y el tráfico de red virtual entrante (con la etiqueta VirtualNetwork) en el [NSG](../virtual-network/security-overview.md).
 
 * Bloquear todo el tráfico entrante restante con una regla Denegar todo.
 
 * Permitir el tráfico saliente a Internet para todos los destinos.
+
+**P. ¿Se puede usar el mismo puerto para los agentes de escucha públicos y privados?**
+
+No, no se admite.
 
 ## <a name="performance"></a>Rendimiento
 

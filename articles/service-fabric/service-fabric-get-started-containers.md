@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643216"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294819"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 > [!div class="op_single_selector"]
@@ -40,17 +40,17 @@ Para ejecutar una aplicación que existe en un contenedor de Windows en un clús
   
   Para determinar la versión de Windows Server con Containers que necesita para el clúster, ejecute el comando `ver` desde un símbolo del sistema de Windows en la máquina de desarrollo:
 
-  * Si la versión contiene *x.x.14323.x*, [cree un clúster](service-fabric-cluster-creation-via-portal.md) sin olvidar que tiene que seleccionar *WindowsServer 2016-Datacenter-with-Containers* en el sistema operativo o [pruebe gratis Service Fabric](https://aka.ms/tryservicefabric) con un clúster de entidad.
-  * Si la versión contiene *x.x.16299.x*, [cree un clúster](service-fabric-cluster-creation-via-portal.md) sin olvidar que tiene que seleccionar *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* en el sistema operativo. No puede utilizar un clúster de entidad.
+  * Si la versión contiene *x.x.14323.x*, seleccione *WindowsServer 2016-Datacenter-with-Containers* como sistema operativo al [crear un clúster](service-fabric-cluster-creation-via-portal.md). También puede [probar Service Fabric de forma gratuita](https://aka.ms/tryservicefabric) con un clúster de entidades.
+  * Si la versión contiene *x.x.16299.x*, seleccione *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* como sistema operativo al [crear un cluster](service-fabric-cluster-creation-via-portal.md). Sin embargo, no puede utilizar un clúster de entidades.
 
 * Un registro de Azure Container Registry: [cree un registro de contenedor](../container-registry/container-registry-get-started-portal.md) en la suscripción de Azure.
 
 > [!NOTE]
-> La implementación de contenedores en un clúster de Service Fabric en Windows 10 o en un clúster con Docker CE no se admite aún. En este tutorial se realizan pruebas localmente mediante el motor de Docker en Windows 10 y, al final, se implementan los servicios de contenedor en un clúster de Windows Server de Azure que ejecuta Docker EE. 
+> Se admite la implementación de contenedores en un clúster de Service Fabric que se ejecuta en Windows 10.  En [este artículo](service-fabric-how-to-debug-windows-containers.md) encontrará información acerca de cómo configurar Windows 10 para ejecutar contenedores de Windows.
 >   
 
 > [!NOTE]
-> La versión 6.1 de Service Fabric tiene compatibilidad de versión preliminar con la versión 1709 de Windows Server. La apertura de las redes y el servicio DNS de Service Fabric no funciona con la versión 1709 de Windows Server. 
+> Las versiones 6.2 y posteriores de Service Fabric admiten la implementación de contenedores en clústeres que se ejecutan en la versión 1709 de Windows Server.  
 > 
 
 ## <a name="define-the-docker-container"></a>Definición del contenedor de Docker

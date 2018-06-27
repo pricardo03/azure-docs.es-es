@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265758"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294428"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Configuración de la replicación de datos internos de Azure Database for MySQL
 
-En este artículo, aprenderá cómo configurar la replicación de datos en el servicio Azure Database for MySQL mediante la configuración de servidores principales y réplicas.
+En este artículo, aprenderá a configurar Data-in Replication en el servicio Azure Database for MySQL mediante la configuración de los servidores principales y de réplicas. Data-in Replication le permite sincronizar los datos que proceden de un servidor MySQL principal que se ejecutan en el entorno local, en máquinas virtuales o en servidores de base de datos hospedados por otros proveedores de nube, con una réplica del servicio Azure Database for MySQL. 
 
 En este artículo se asume que tiene al menos alguna experiencia previa con servidores y bases de datos MySQL Database.
 
@@ -29,7 +29,7 @@ En este artículo se asume que tiene al menos alguna experiencia previa con serv
    Cree un nuevo servidor MySQL (ejemplo, "replica.mysql.database.azure.com"). Consulte [Creación de un servidor de Azure Database for MySQL mediante Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) para la creación del servidor. Este servidor es el servidor de "réplica" en la replicación de datos internos.
 
    > [!IMPORTANT]
-   > Este servidor debe crearse en los niveles de precios de propósito general u optimizados para memoria.
+   > El servidor de Azure Database for MySQL se debe crear en los planes de tarifa De uso general u Optimizada para memoria.
    > 
 
 2. Creación de las mismas cuentas de usuario y los privilegios correspondientes
@@ -37,6 +37,7 @@ En este artículo se asume que tiene al menos alguna experiencia previa con serv
    Las cuentas de usuario no se replican desde el servidor principal al servidor de réplica. Si planea proporcionar a los usuarios acceso al servidor de réplica, necesita crear manualmente todas las cuentas y privilegios correspondientes en este servidor recién creado de Azure Database for MySQL.
 
 ## <a name="configure-the-primary-server"></a>Configuración del servidor principal
+En los siguientes pasos se prepara y configura el servidor MySQL en el entorno local, en una máquina virtual o en un servicio de base de datos hospedado por otros proveedores de nube para Data-in Replication. Este servidor es el "principal" en Data-in Replication. 
 
 1. Activación del registro binario
 
@@ -226,3 +227,6 @@ Para omitir un error de replicación y permitir que continúe la replicación, u
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+- Aprenda más sobre [Data-in Replication](concepts-data-in-replication.md) para Azure Database for MySQL. 

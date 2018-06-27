@@ -12,19 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 73609e802eceea6aa94d77cef6ca1d654264973d
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26128233"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265014"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Control de errores en las directivas de API Management
-Azure API Management proporciona un objeto `ProxyError` que permite a los publicadores responder a las condiciones de error que se pueden producir durante el procesamiento de solicitudes en el proxy. Para acceder al objeto `ProxyError` se usa la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables). Este objeto se puede usar en las directivas de la sección de directivas `on-error`. En este tema se proporciona una referencia a las funcionalidades de control de errores de Azure API Management.  
+
+Azure API Management proporciona un objeto `ProxyError` que permite a los publicadores responder a las condiciones de error que se pueden producir durante el procesamiento de solicitudes. Para acceder al objeto `ProxyError` se usa la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables). Este objeto se puede usar en las directivas de la sección de directivas `on-error`. En este tema se proporciona una referencia a las funcionalidades de control de errores de Azure API Management.  
   
-## <a name="error-handling-in-api-management"></a>Control de errores en API Management  
+## <a name="error-handling-in-api-management"></a>Control de errores en API Management
+
  Las directivas de Azure API Management están divididas en las secciones `inbound`, `backend`, `outbound` y `on-error`, como se muestra en el ejemplo siguiente.  
   
 ```xml  
@@ -46,14 +48,16 @@ Azure API Management proporciona un objeto `ProxyError` que permite a los public
 </policies>  
 ```  
   
- Durante el procesamiento de una solicitud, se ejecutan pasos integrados junto con las directivas que están en el ámbito de la solicitud. Si se produce un error, el procesamiento salta inmediatamente a la sección de directivas `on-error`. La sección de directivas `on-error` se puede usar en cualquier ámbito, y los publicadores de API pueden configurar comportamientos predeterminados, como registrar el error en los centros de eventos o crear una nueva respuesta para devolver al autor de la llamada.  
+Durante el procesamiento de una solicitud, se ejecutan pasos integrados junto con las directivas que están en el ámbito de la solicitud. Si se produce un error, el procesamiento salta inmediatamente a la sección de directivas `on-error`.  
+La sección de directivas `on-error` se puede utilizar en cualquier ámbito. Los publicadores de API pueden configurar comportamientos predeterminados, como registrar el error en los centros de eventos o crear una nueva respuesta para devolver al autor de la llamada.  
   
 > [!NOTE]
 >  La sección `on-error` no está presente en las directivas de forma predeterminada. Para agregar la sección `on-error` a una directiva, vaya a la directiva deseada en el editor de directivas y agréguela. Para más información sobre cómo configurar directivas, consulte [Directivas en API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
 >   
 >  Si no hay ninguna sección `on-error`, los autores de la llamada recibirán mensajes de respuesta HTTP 400 o 500 si se produce una condición de error.  
   
-### <a name="policies-allowed-in-on-error"></a>Directivas permitidas en on-error  
+### <a name="policies-allowed-in-on-error"></a>Directivas permitidas en on-error
+
  Las siguientes directivas se pueden usar en la sección de directivas `on-error`.  
   
 -   [choose](api-management-advanced-policies.md#choose)  
@@ -69,53 +73,106 @@ Azure API Management proporciona un objeto `ProxyError` que permite a los public
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
-## <a name="lasterror"></a>LastError  
- Cuando se produce un error y el control salta a la sección de directivas `on-error`, el error se almacena en la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables) a la que pueden acceder las directivas de la sección `on-error` y tiene las siguientes propiedades.  
+## <a name="lasterror"></a>LastError
+
+ Cuando se produce un error y el control salta a la sección de directivas `on-error`, el error se almacena en la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables) a la que pueden acceder las directivas de la sección `on-error`. LastError tiene las siguientes propiedades:  
   
-|Nombre|Tipo|Descripción|Obligatorio|  
-|----------|----------|-----------------|--------------|  
-|Origen|string|Nombre del elemento donde se produjo el error. Puede ser el nombre de una directiva o el nombre de un paso de canalización integrado.|Sí|  
-|Motivo|string|Código de error reconocible por la máquina, que se puede utilizar en el control de errores.|No|  
-|Message|string|Descripción del error legible para el usuario.|Sí|  
-|Scope|string|Nombre del ámbito donde se produjo el error; podría ser "global", "producto", "api" u "operación"|No|  
-|Sección|string|Nombre de la sección donde se produjo el error; podría ser: "entrada", "back-end", "salida" o "error".|No|  
-|Ruta de acceso|string|Especifica directivas anidadas, por ejemplo, "choose[3]/when[2]".|No|  
-|PolicyId|string|Valor del atributo `id`, si lo especifica el cliente, en la directiva donde se produjo el error.|No|  
-  
+| NOMBRE     | Escriba   | DESCRIPCIÓN                                                                                               | Obligatorio |
+|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| Origen   | string | Nombre del elemento donde se produjo el error. Puede ser el nombre de una directiva o el nombre de un paso de canalización integrado.     | Sí      |
+| Motivo   | string | Código de error reconocible por la máquina, que se puede utilizar en el control de errores.                                       | Sin        |
+| Message  | string | Descripción del error legible para el usuario.                                                                         | Sí      |
+| Scope    | string | Nombre del ámbito donde se produjo el error; podría ser "global", "producto", "api" u "operación" | Sin        |
+| Sección  | string | Nombre de la sección donde se produjo el error. Valores posibles: "inbound", "backend", "outbound" u "on-error".       | Sin        |
+| Ruta de acceso     | string | Especifica directivas anidadas, por ejemplo, "choose[3]/when[2]".                                                        | Sin        |
+| PolicyId | string | Valor del atributo `id`, si lo especifica el cliente, en la directiva donde se produjo el error.             | Sin        |
+
+> [!TIP]
+> Se puede acceder al código de estado con context.Response.StatusCode.  
+
 > [!NOTE]
->  Todas las directivas tienen un atributo `id` opcional que se pude agregar al elemento raíz de la directiva. Si este atributo está presente en una directiva cuando se produce una condición de error, el valor del atributo se puede recuperar mediante la propiedad `context.LastError.PolicyId`.  
-  
+> Todas las directivas tienen un atributo `id` opcional que se pude agregar al elemento raíz de la directiva. Si este atributo está presente en una directiva cuando se produce una condición de error, el valor del atributo se puede recuperar mediante la propiedad `context.LastError.PolicyId`.
+
 ## <a name="predefined-errors-for-built-in-steps"></a>Errores predefinidos para pasos integrados  
  Los errores siguientes están predefinidos para condiciones de error que se pueden producir durante la evaluación de pasos de procesamiento integrados.  
   
-|Origen|Condición|Motivo|Message|  
-|------------|---------------|------------|-------------|  
-|configuración|El URI no coincide con ninguna API u operación.|OperationNotFound|No se puede hacer coincidir la solicitud entrante con una operación.|  
-|authorization|No se ha proporcionado la clave de suscripción.|SubscriptionKeyNotFound|Acceso denegado debido a que falta la clave de suscripción. Asegúrese de incluir la clave de la suscripción al realizar solicitudes a esta API.|  
-|authorization|El valor de la clave de suscripción no es válido.|SubscriptionKeyInvalid|Acceso denegado debido a una clave de suscripción no válida. Asegúrese de proporcionar una clave válida para una suscripción activa.|  
+| Origen        | Condición                                 | Motivo                  | Message                                                                                                                |
+|---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
+| configuración | El identificador URI no coincide con ninguna API u operación. | OperationNotFound       | No se puede hacer coincidir la solicitud entrante con una operación.                                                                      |
+| authorization | No se ha proporcionado la clave de suscripción.             | SubscriptionKeyNotFound | Acceso denegado debido a que falta la clave de suscripción. Asegúrese de incluir la clave de la suscripción al realizar solicitudes a esta API. |
+| authorization | El valor de la clave de suscripción no es válido.         | SubscriptionKeyInvalid  | Acceso denegado debido a una clave de suscripción no válida. Asegúrese de proporcionar una clave válida para una suscripción activa.            |
   
 ## <a name="predefined-errors-for-policies"></a>Errores predefinidos en directivas  
  Los errores siguientes están predefinidos para condiciones de error que se pueden producir durante la evaluación de directivas.  
   
-|Origen|Condición|Motivo|Message|  
-|------------|---------------|------------|-------------|  
-|rate-limit|Límite de velocidad excedido|RateLimitExceeded|Rate limit is exceeded (Se ha excedido el límite de velocidad).|  
-|quota|Cuota superada|QuotaExceeded|Out of call volume quota. (Fuera de la cuota de volumen de la llamada.) La cuota se reabastecerá en xx:xx:xx. O bien, Out of bandwidth quota (Fuera de la cuota de ancho de banda). La cuota se reabastecerá en xx:xx:xx.|  
-|jsonp|El valor del parámetro de devolución de llamada no es válido (contiene caracteres incorrectos).|CallbackParameterInvalid|Value of callback parameter {callback-parameter-name} is not a valid JavaScript identifier (El valor del parámetro de devolución de llamada {callback-parameter-name} no es un identificador de JavaScript válido).|  
-|ip-filter|No se pudo analizar la IP de autor de llamada de la solicitud.|FailedToParseCallerIP|Failed to establish IP address for the caller. Access denied (No se pudo establecer la dirección IP del autor de la llamada. Acceso denegado).|  
-|ip-filter|La IP del autor de la llamada no está en la lista de permitidos.|CallerIpNotAllowed|Caller IP address {ip-address} is not allowed. Access denied (No se permite la IP del autor de la llamada {ip-address}. Acceso denegado).|  
-|ip-filter|La IP del autor de la llamada está en la lista de bloqueados.|CallerIpBlocked|Caller IP address is blocked. Access denied (La IP del autor de la llamada está bloqueada. Acceso denegado).|  
-|check-header|El encabezado necesario no está presente o falta un valor.|HeaderNotFound|Header {header-name} was not found in the request. Access denied (No se encontró el encabezado {header-name} en la solicitud. Acceso denegado).|  
-|check-header|El encabezado necesario no está presente o falta un valor.|HeaderValueNotAllowed|Header {header-name} value of {header-value} is not allowed. Access denied (No se permite el valor {header-name} del encabezado de {header-value}. Acceso denegado).|  
-|validate-jwt|Falta el token Jwt en la solicitud.|TokenNotFound|JWT not found in the request. Access denied (No se encuentra JWT en la solicitud. Acceso denegado).|  
-|validate-jwt|Error de validación de contraseña.|TokenSignatureInvalid|<mensaje de la biblioteca de jwt\>. Acceso denegado.|  
-|validate-jwt|Audiencia no válida.|TokenAudienceNotAllowed|<mensaje de la biblioteca de jwt\>. Acceso denegado.|  
-|validate-jwt|Emisor no válido|TokenIssuerNotAllowed|<mensaje de la biblioteca de jwt\>. Acceso denegado.|  
-|validate-jwt|Token expirado|TokenExpired|<mensaje de la biblioteca de jwt\>. Acceso denegado.|  
-|validate-jwt|La clave de firma no se resolvió por el id.|TokenSignatureKeyNotFound|<mensaje de la biblioteca de jwt\>. Acceso denegado.|  
-|validate-jwt|Faltan las notificaciones necesarias del token.|TokenClaimNotFound|JWT token is missing the following claims (Falta el token de JWT en las siguientes notificaciones): <c1\>, <c2\>, … Acceso denegado.|  
-|validate-jwt|Error de coincidencia de valores de notificación.|TokenClaimValueNotAllowed|Claim {claim-name} value of {claim-value} is not allowed. Acceso denegado.|  
-|validate-jwt|Otros errores de validación|JwtInvalid|<mensaje de la biblioteca de jwt\>.|
+| Origen       | Condición                                                       | Motivo                    | Message                                                                                                                              |
+|--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| rate-limit   | Límite de velocidad excedido                                             | RateLimitExceeded         | Rate limit is exceeded (Se ha excedido el límite de velocidad).                                                                                                               |
+| quota        | Cuota superada                                                  | QuotaExceeded             | Out of call volume quota. (Fuera de la cuota de volumen de la llamada.) La cuota se reabastecerá en xx:xx:xx. O bien, Out of bandwidth quota (Fuera de la cuota de ancho de banda). La cuota se reabastecerá en xx:xx:xx. |
+| jsonp        | El valor del parámetro de devolución de llamada no es válido (contiene caracteres incorrectos). | CallbackParameterInvalid  | Value of callback parameter {callback-parameter-name} is not a valid JavaScript identifier (El valor del parámetro de devolución de llamada {callback-parameter-name} no es un identificador de JavaScript válido).                                          |
+| ip-filter    | No se pudo analizar la IP de autor de llamada de la solicitud.                          | FailedToParseCallerIP     | Failed to establish IP address for the caller. Access denied (No se pudo establecer la dirección IP del autor de la llamada. Acceso denegado).                                                                        |
+| ip-filter    | La IP del autor de la llamada no está en la lista de permitidos.                                | CallerIpNotAllowed        | Caller IP address {ip-address} is not allowed. Access denied (No se permite la IP del autor de la llamada {ip-address}. Acceso denegado).                                                                        |
+| ip-filter    | La IP del autor de la llamada está en la lista de bloqueados.                                    | CallerIpBlocked           | Caller IP address is blocked. Access denied (La IP del autor de la llamada está bloqueada. Acceso denegado).                                                                                         |
+| check-header | El encabezado necesario no está presente o falta un valor.               | HeaderNotFound            | Header {header-name} was not found in the request. Access denied (No se encontró el encabezado {header-name} en la solicitud. Acceso denegado).                                                                    |
+| check-header | El encabezado necesario no está presente o falta un valor.               | HeaderValueNotAllowed     | Header {header-name} value of {header-value} is not allowed. Access denied (No se permite el valor {header-name} del encabezado de {header-value}. Acceso denegado).                                                          |
+| validate-jwt | Falta el token Jwt en la solicitud.                                 | TokenNotFound             | JWT not found in the request. Access denied (No se encuentra JWT en la solicitud. Acceso denegado).                                                                                         |
+| validate-jwt | Error de validación de contraseña.                                     | TokenSignatureInvalid     | <mensaje de la biblioteca de jwt\>. Acceso denegado.                                                                                          |
+| validate-jwt | Audiencia no válida.                                                | TokenAudienceNotAllowed   | <mensaje de la biblioteca de jwt\>. Acceso denegado.                                                                                          |
+| validate-jwt | Emisor no válido                                                  | TokenIssuerNotAllowed     | <mensaje de la biblioteca de jwt\>. Acceso denegado.                                                                                          |
+| validate-jwt | Token expirado                                                   | TokenExpired              | <mensaje de la biblioteca de jwt\>. Acceso denegado.                                                                                          |
+| validate-jwt | La clave de firma no se resolvió por el identificador.                            | TokenSignatureKeyNotFound | <mensaje de la biblioteca de jwt\>. Acceso denegado.                                                                                          |
+| validate-jwt | Faltan las notificaciones necesarias del token.                          | TokenClaimNotFound        | JWT token is missing the following claims (Falta el token de JWT en las siguientes notificaciones): <c1\>, <c2\>, … Acceso denegado.                                                            |
+| validate-jwt | Error de coincidencia de valores de notificación.                                           | TokenClaimValueNotAllowed | Claim {claim-name} value of {claim-value} is not allowed. Acceso denegado.                                                             |
+| validate-jwt | Otros errores de validación                                       | JwtInvalid                | <mensaje de la biblioteca de jwt\>.                                                                                                          |
+
+## <a name="example"></a>Ejemplo
+
+Establecer una directiva de API en:
+
+```xml
+<policies>
+    <inbound>
+        <base />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <set-header name="ErrorSource" exists-action="override">
+            <value>@(context.LastError.Source)</value>
+        </set-header>
+        <set-header name="ErrorReason" exists-action="override">
+            <value>@(context.LastError.Reason)</value>
+        </set-header>
+        <set-header name="ErrorMessage" exists-action="override">
+            <value>@(context.LastError.Message)</value>
+        </set-header>
+        <set-header name="ErrorScope" exists-action="override">
+            <value>@(context.LastError.Scope)</value>
+        </set-header>
+        <set-header name="ErrorSection" exists-action="override">
+            <value>@(context.LastError.Section)</value>
+        </set-header>
+        <set-header name="ErrorPath" exists-action="override">
+            <value>@(context.LastError.Path)</value>
+        </set-header>
+        <set-header name="ErrorPolicyId" exists-action="override">
+            <value>@(context.LastError.PolicyId)</value>
+        </set-header>
+        <set-header name="ErrorStatusCode" exists-action="override">
+            <value>@(context.Response.StatusCode.ToString())</value>
+        </set-header>
+        <base />
+    </on-error>
+</policies>
+```
+
+y enviar una solicitud no autorizada dará como resultado la respuesta siguiente:
+
+![Respuesta de error no autorizado](media/api-management-error-handling-policies/error-response.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

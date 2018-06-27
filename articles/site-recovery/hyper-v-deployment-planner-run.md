@@ -1,24 +1,22 @@
 ---
 title: Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure | Microsoft Docs
-description: En este artículo se describe el modo de ejecutar Azure Site Recovery Deployment Planner cuando quiere pasar de Hyper-V a Azure.
-services: site-recovery
+description: Este artículo le enseña a ejecutar Azure Site Recovery Deployment Planner para la replicación de Hyper-V en Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236236"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287497"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure
 
-## <a name="modes-of-running-the-deployment-planner"></a>Modos de ejecutar Deployment Planner
-Puede ejecutar la herramienta de línea de comandos (ASRDeploymentPlanner.exe) en cualquiera de los cuatro modos siguientes: 
+Puede ejecutar la herramienta de línea de comandos Site Recovery Deployment Planner (ASRDeploymentPlanner.exe) en cualquiera de los cuatro modos siguientes: 
 -   [Obtención de la lista de máquinas virtuales (VM)](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Perfil](#profile-hyper-v-vms)
 -   [Generación de un informe](#generate-report)
@@ -40,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | El nombre de usuario para conectarse al host de Hyper-V o al clúster de Hyper-V. El usuario necesita tener acceso administrativo.|
-|-ServerListFile | El archivo con la lista de servidores que contiene las máquinas virtuales para las que se van a generar perfiles. La ruta de acceso del archivo puede ser absoluta o relativa. Este archivo debe contener uno de los siguientes datos en cada línea:<ul><li>Nombre o dirección IP del host de Hyper-V</li><li>Nombre o dirección IP del clúster de Hyper-V</li></ul><br>**Ejemplo:** El archivo ServerList.txt contiene los siguientes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | El archivo con la lista de servidores que contiene las máquinas virtuales para las que se van a generar perfiles. La ruta de acceso del archivo puede ser absoluta o relativa. Este archivo debe contener uno de los siguientes datos en cada línea:<ul><li>Nombre o dirección IP del host de Hyper-V</li><li>Nombre o dirección IP del clúster de Hyper-V</li></ul><br>**Ejemplo:** El archivo ServerList.txt contiene los siguientes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Opcional) La convención de nomenclatura universal (UNC) o la ruta de acceso del directorio local para almacenar los datos generados durante esta operación. Si no se especifica un nombre, el directorio llamado ProfiledData de la ruta de acceso actual se usa como directorio predeterminado.|
 |-OutputFile| (Opcional) El archivo donde se guarda la lista de máquinas virtuales obtenidas de los servidores de Hyper-V especificados. Si no se menciona ningún nombre, los detalles se almacenarán en VMList.txt.  Use el archivo para iniciar la generación de perfiles después de quitar las máquinas virtuales donde no se van a generar perfiles.|
 |-Password|(Opcional) La contraseña para conectarse al host de Hyper-V. Si no la especifica como un parámetro, se le pedirá que lo haga al ejecutar el comando.|
 
 ### <a name="getvmlist-discovery"></a>Detección de GetVMList
-**Clúster de Hyper-V**: cuando se da el nombre del clúster de Hyper-V en el archivo de lista de servidores, la herramienta busca todos los nodos de Hyper-V del clúster y obtiene las máquinas virtuales presentes en cada uno de los host de Hyper-V.
 
+- **Clúster de Hyper-V**: cuando se da el nombre del clúster de Hyper-V en el archivo de lista de servidores, la herramienta busca todos los nodos de Hyper-V del clúster y obtiene las máquinas virtuales presentes en cada uno de los host de Hyper-V.
 **Host de Hyper-V**: cuando se da el nombre del host de Hyper-V, la herramienta comprueba primero si pertenece a un clúster. En caso afirmativo, la herramienta captura los nodos que pertenecen al clúster. Luego, obtiene las máquinas virtuales de cada host de Hyper-V. 
 
 También puede elegir enumerar en un archivo los nombres descriptivos o las direcciones IP de las máquinas virtuales para las que desea generar perfiles de forma manual.
@@ -154,7 +152,7 @@ Si el servidor en el que se ejecuta la herramienta se reinicia o se ha bloqueado
 
 Cuando se pasan el nombre y la clave de la cuenta de almacenamiento, la herramienta mide el rendimiento en el último paso de la generación de perfiles. Si la herramienta se cierra antes de que se complete la generación de perfiles, no se calcula el rendimiento. Para hallar el rendimiento antes de generar el informe, puede ejecutar la operación de GetThroughput desde la consola de línea de comandos. Si no lo hace, el informe generado no contendrá la información de rendimiento.
 
-Azure Site Recovery no es compatible con máquinas virtuales que tengan discos iSCSI y de acceso directo. Sin embargo, la herramienta no puede detectar ni generar perfiles de discos iSCSI y de acceso directo que estén asociados a máquinas virtuales.
+Azure Site Recovery no es compatible con máquinas virtuales que tengan discos iSCSI y de acceso directo. La herramienta no puede detectar ni generar perfiles de discos iSCSI y de acceso directo que estén asociados a máquinas virtuales.
 
 ## <a name="generate-a-report"></a>Generación de un informe
 La herramienta genera un archivo de Microsoft Excel habilitado para macros (archivo XLSM) como la salida del informe. Este resume todas las recomendaciones de implementación. El informe se denomina DeploymentPlannerReport_*identificador numérico único*.xlsm y se coloca en el directorio especificado.

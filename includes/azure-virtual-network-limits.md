@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568133"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297973"
 ---
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "35568133"
 | Direcciones IP privadas por red virtual |4096 |4096 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 KB |500 KB |
 | Grupos de seguridad de red (NSG) |100 |200 |
-| Reglas de NSG por NSG |200 |400 |
+| Reglas de NSG por NSG |200 |1000 |
 | Tablas de rutas definidas por el usuario |100 |200 |
 | Rutas definidas por el usuario por tabla de ruta |100 |400 |
 | Direcciones IP públicas (dinámicas) |5 |ponerse en contacto con el servicio de soporte técnico |
@@ -50,7 +50,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Grupos de seguridad de red (NSG) |100 |5000 |
 | Reglas de NSG por NSG |1000** |1000 |
 | Direcciones IP y rangos especificados para el origen o destino en un grupo de seguridad |2000 |4000 |
-| Grupos de seguridad de aplicaciones |200 |500 |
+| Grupos de seguridad de aplicaciones |500 |3000 |
 | Grupos de seguridad de aplicaciones por configuración de IP, por NIC |10 |20 |
 | Configuraciones de IP por grupo de seguridad de aplicaciones |1000 |4000 |
 | Grupos de seguridad de aplicaciones que se pueden especificar en todas las reglas de seguridad de un grupo de seguridad de red |50 |100 |
@@ -64,6 +64,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 **Estos límites predeterminados se aplican a las suscripciones cuyos límites no habían aumentado anteriormente mediante soporte técnico
 
 #### <a name="load-balancer"></a>Límites de Load Balancer
+Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de los recursos actuales comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |

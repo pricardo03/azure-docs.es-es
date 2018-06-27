@@ -3,7 +3,7 @@ title: Creación mediante programación de paneles de Azure | Microsoft Docs
 description: En este artículo se explica cómo crear mediante programación paneles de Azure.
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 ms.service: azure-portal
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: dafada5cecbc6345da46bc3a32fc3b91eb72313a
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164395"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295518"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -89,11 +89,11 @@ Azure ofrece la capacidad de organizar la implementación de varios recursos. Pu
 Si ha elegido esta última opción, debe realizar la parametrización mediante la sintaxis de parámetros de la plantilla.  Reemplace todas las instancias del identificador del recurso, que hemos visto anteriormente, tal como se muestra aquí.
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>Ejemplo de propiedad JSON con el identificador de recurso codificado de forma rígida
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Ejemplo de propiedad JSON convertida a una versión con parámetros según los parámetros de plantilla
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 También debe declarar algunos metadatos de plantilla requeridos y los parámetros de la parte superior de la plantilla JSON del modo siguiente:
 
@@ -122,7 +122,7 @@ __Vista de la plantilla de trabajo completa al final de este documento.__
 
 Una vez diseñada la plantilla, puede implementarla mediante las [API de REST](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), la [CLI de Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) o la [página de implementación de plantillas del portal](https://portal.azure.com/#create/Microsoft.Template).
 
-Estas son dos versiones de nuestro panel de ejemplo JSON. La primera es la versión que hemos exportado desde el portal y que ya estaba enlazada a un recurso. La segunda es la versión de la plantilla que se puede enlazar mediante programación a cualquier máquina virtual e implementar con Azure Resource Manager.
+Estas son dos versiones de nuestro JSON del panel de ejemplo. La primera es la versión que hemos exportado desde el portal y que ya estaba enlazada a un recurso. La segunda es la versión de la plantilla que se puede enlazar mediante programación a cualquier máquina virtual e implementar con Azure Resource Manager.
 
 ## <a name="json-representation-of-our-example-dashboard-before-templating"></a>Representación JSON de nuestro panel de ejemplo (antes de la creación de plantillas)
 

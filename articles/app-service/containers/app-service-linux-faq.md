@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: msangapu
-ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294018"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222984"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
 Con el lanzamiento de App Service en Linux, estamos trabajando en incorporar características y realizar mejoras en nuestra plataforma. Este artículo proporciona respuestas a preguntas que nuestros clientes nos han formulado recientemente.
 
-Si tiene alguna pregunta, comente el artículo y le responderemos en cuanto sea posible.
+Si tiene alguna pregunta, comente este artículo.
 
 ## <a name="built-in-images"></a>Imágenes integradas
 
@@ -60,7 +60,7 @@ Debe establecer el campo **reservado** del servicio de aplicación en *true*.
 
 **Mi aplicación web sigue usando una imagen de contenedor de Docker antigua después de actualizar la imagen en Docker Hub. ¿Se admite la integración e implementación continuas de contenedores personalizados?**
 
-Para configurar la integración e implementación continua de las imágenes de Azure Container Registry o Docker Hub consulte el siguiente artículo: [Implementación continua con Web App for Containers](./app-service-linux-ci-cd.md). Para registros privados, puede actualizar el contenedor deteniendo y, luego, iniciando la aplicación web. También puede cambiar o agregar una configuración de aplicación ficticia para forzar una actualización del contenedor.
+Sí, para configurar la integración e implementación continua de Azure Container Registry o Docker Hub, consulte [Implementación continua con Web App for Containers](./app-service-linux-ci-cd.md). Para registros privados, puede actualizar el contenedor deteniendo y, luego, iniciando la aplicación web. También puede cambiar o agregar una configuración de aplicación ficticia para forzar una actualización del contenedor.
 
 **¿Los entornos de ensayo son compatibles?**
 
@@ -72,13 +72,13 @@ Sí, es necesario establecer un valor de la aplicación llamado `WEBSITE_WEBDEPL
 
 **Se produce un error en la implementación de GIT de la aplicación cuando se usa la aplicación web de Linux. ¿Cómo puedo solucionar el problema?**
 
-Si se produce un error en la implementación de GIT en la aplicación web de Linux, puede elegir las opciones alternativas siguientes para implementar el código de aplicación:
+Si se produce un error en la implementación de Git en la aplicación web de Linux, puede elegir una de las opciones siguientes para implementar el código de aplicación:
 
-- Use la característica Entrega continua (versión preliminar): puede almacenar el código fuente de la aplicación en un repositorio de GIT de Team Services o en un repositorio GitHub para usar Azure Continuous Delivery. Para más detalles, consulte el artículo sobre cómo [configurar Entrega continua para una aplicación web de Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Use la característica Entrega continua (versión preliminar): puede almacenar el código fuente de la aplicación en un repositorio de GIT de Team Services o en un repositorio GitHub para usar Azure Continuous Delivery. Para más información, consulte la publicación [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Configuración de entrega continua para aplicaciones web de Linux).
 
-- Use la [API ZIP deploy](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar esta API, [use SSH en la aplicación web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) y vaya a la carpeta en la que desea implementar el código. Ejecute lo siguiente:
+- Use la [API ZIP deploy](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar esta API, [use SSH en la aplicación web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) y vaya a la carpeta en la que desea implementar el código. Ejecute el código siguiente:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -86,10 +86,11 @@ Si se produce un error en la implementación de GIT en la aplicación web de Lin
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
-**Quiero usar protocolos WebSocket en mi aplicación Node.js. ¿Hay alguna opción o configuración especial que deba establecer?**
+**Quiero usar sockets web en mi aplicación Node.js. ¿Hay alguna opción o configuración especial que deba establecer?**
 
-Sí, deshabilite `perMessageDeflate` en el código de Node.js en el servidor. Por ejemplo, si usa socket.io, haga lo siguiente:
-```
+Sí, deshabilite `perMessageDeflate` en el código de Node.js en el servidor. Por ejemplo, si usa socket.io, use el código siguiente:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -101,16 +102,16 @@ Sí.
 
 **¿Admite un compositor como un administrador de dependencias para aplicaciones PHP?**
 
-Sí. Durante una implementación de Git, Kudu debe detectar que va a implementar una aplicación PHP (gracias a la presencia de un archivo composer.lock) y Kudu desencadenará una instalación del compositor automáticamente.
+Sí, durante una implementación de Git, Kudu debe detectar que va a implementar una aplicación PHP (gracias a la presencia de un archivo composer.lock) y Kudu desencadenará una instalación del compositor.
 
 ## <a name="custom-containers"></a>Contenedores personalizados
 
 **Utilizo mi propio contenedor personalizado. Deseo que la plataforma monte un recurso compartido de SMB en el directorio `/home/`.**
 
-Puede hacerlo estableciendo el valor `WEBSITES_ENABLE_APP_SERVICE_STORAGE` de la aplicación en *true* o mediante la eliminación completa del valor de la aplicación. Tenga en cuenta que de este modo se evitará que el contenedor se reinicie cuando el almacenamiento de la plataforma cambie. 
+Puede hacerlo estableciendo la opción `WEBSITES_ENABLE_APP_SERVICE_STORAGE` de la aplicación en *true*. Tenga en cuenta que de este modo se evitará que el contenedor se reinicie cuando el almacenamiento de la plataforma cambie.
 
 >[!NOTE]
->Si el valor `WEBSITES_ENABLE_APP_SERVICE_STORAGE` es *false*, el directorio `/home/` no se compartirá entre instancias de escala y los archivos que se escriben no se conservarán al reiniciar.
+>Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha especificado o es *false*, el directorio `/home/` no se compartirá entre instancias de escala y los archivos que se escriben no se conservarán al reiniciar.
 
 **Mi contenedor personalizado tarda mucho tiempo en iniciarse y la plataforma reinicia el contenedor antes de que finalice el inicio.**
 
@@ -162,6 +163,6 @@ Puede enviar su idea en el [foro de comentarios de Web Apps](https://aka.ms/weba
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué es Azure App Service en Linux?](app-service-linux-intro.md)
-* [Configuración de entornos de ensayo en Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implementación continua con Web App for Containers](./app-service-linux-ci-cd.md)
+- [¿Qué es Azure App Service en Linux?](app-service-linux-intro.md)
+- [Configuración de entornos de ensayo en Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Implementación continua con Web App for Containers](./app-service-linux-ci-cd.md)

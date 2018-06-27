@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 160f01c3094548277e1f68e0002954ae63c79ce6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738344"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296912"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -145,6 +145,9 @@ Para que Azure File Sync y DFS-R trabajen en paralelo:
 
 Para más información, consulte [Introducción a Espacios de nombres DFS y Replicación DFS](https://technet.microsoft.com/library/jj127250).
 
+### <a name="windows-search"></a>Windows Search
+Si en un punto de conexión de un servidor están habilitados los niveles en la nube, Windows Search omite y no indexa los archivos que están en capas. Los archivos que no están en capas se indexan correctamente.
+
 ### <a name="antivirus-solutions"></a>Soluciones antivirus
 Dado que un antivirus funciona examinando los archivos en busca de código malintencionado conocido, puede provocar la recuperación de archivos con niveles. Puesto que los archivos con niveles tienen establecido el atributo "sin conexión", se recomienda consultar con el proveedor de software respecto a cómo configurar su solución para omitir la lectura de archivos sin conexión. 
 
@@ -158,6 +161,11 @@ Las siguientes soluciones se sabe que admiten la omisión de archivos sin conexi
 
 ### <a name="backup-solutions"></a>Soluciones de copia de seguridad
 Al igual que sucede con las soluciones antivirus, las soluciones de backup pueden provocar la recuperación de archivos con niveles. Se recomienda usar una solución de backup en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure en lugar de usar un producto de backup local.
+
+Si está utilizando una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga los niveles en la nube deshabilitados. Al restaurar los archivos dentro de la ubicación del punto de conexión del servidor, utilice la opción de restauración en el nivel de archivo. Los archivos restaurados se sincronizarán en todos los puntos de conexión del grupo de sincronización y los archivos existentes se sustituirán por la versión restaurada de la copia de seguridad.
+
+> [!Note]  
+> Las opciones de restauración con reconocimiento de aplicaciones, de nivel de volumen y completas (BMR) pueden provocar resultados inesperados y actualmente no se admiten. Estas opciones de restauración se admitirán en una versión futura.
 
 ### <a name="encryption-solutions"></a>Soluciones de cifrado
 La compatibilidad con soluciones de cifrado depende de cómo se implementen. Está comprobado que Azure File Sync funciona con:
@@ -180,6 +188,7 @@ Azure File Sync solo está disponible en las siguientes regiones en versión pre
 | Region | Ubicación de centro de datos |
 |--------|---------------------|
 | Australia Oriental | Nueva Gales del Sur |
+| Sudeste de Australia | Victoria |
 | Centro de Canadá | Toronto |
 | Este de Canadá | Ciudad de Quebec |
 | Central EE. UU: | Iowa |
@@ -189,6 +198,7 @@ Azure File Sync solo está disponible en las siguientes regiones en versión pre
 | Europa del Norte | Irlanda |
 | Sudeste asiático | Singapur |
 | Sur del Reino Unido 2 | Londres |
+| Oeste de Reino Unido | Cardiff |
 | Europa occidental | Países Bajos |
 | Oeste de EE. UU | California |
 

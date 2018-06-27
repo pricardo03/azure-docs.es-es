@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264347"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287844"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas mediante Azure Monitor  
 
@@ -148,7 +148,13 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 2. Se abre el **panel de Alertas**, donde se unifican y muestran todas las alertas de Azure en un ![panel de alertas](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png) singular.
 3. Desde la parte superior izquierda a la derecha, en el panel aparecen de un vistazo los siguientes elementos, en los que se puede hacer clic para ver una lista detallada:
     - *Alertas desencadenadas*: el número de alertas que cumplen la lógica actualmente y que tienen el estado de desencadenadas.
-    - *Número total de reglas de alertas*: el número de reglas de alertas creadas y, en el subtexto, el número de las que están habilitadas actualmente.
+    - *Número total de reglas de alertas*: el número de reglas de alertas creadas y, en el subtexto, el número de las que están habilitadas actualmente. 
+    
+
+        > [!NOTE]
+        > Para garantizar un panel de información coherente con los detalles de todas las alertas activadas incluidas las alertas de registro de Application Insights y Log Analytics, debe usar [Enhanced Unified Alert (versión preliminar)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview)
+  
+  
 4. Se muestra una lista de todas las alertas desencadenadas en las que el usuario puede hacer clic para ver los detalles.
 5. Para facilitar la búsqueda de alertas específicas, se pueden usar las opciones de las listas desplegables de la parte superior para aplicar filtros específicos según la *suscripción, el grupo de recursos o el recurso*. Además, para cualquier alerta sin resolver, se puede usar la opción *Filtrar alerta* para buscar las palabras clave proporcionadas o alertas con coincidencias específicas con *nombre, criterios de alerta, grupo de recursos y recurso de destino*.
 

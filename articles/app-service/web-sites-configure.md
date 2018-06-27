@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234535"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293723"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en Azure App Service
 
@@ -46,7 +46,7 @@ La hoja **Configuración de la aplicación** tiene configuraciones agrupadas en 
 Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan las opciones .NET, PHP y Python.
 
 <a name="platform"></a>
-**Plataforma**. Seleccione si su aplicación web se ejecuta en un entorno de 32 o 64 bits. El entorno de 64 bits requiere el modo básico o estándar. Los modos libre y compartido siempre se ejecutan en un entorno de 32 bits.
+**Plataforma**. Seleccione si su aplicación web se ejecuta en un entorno de 32 o 64 bits. El entorno de 64 bits requiere el nivel básico o estándar. Los niveles libre y compartido siempre se ejecutan en un entorno de 32 bits.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -56,6 +56,13 @@ Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan 
 **AlwaysOn**. De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. En el modo básico o estándar puede habilitar **Siempre disponible** para mantener el sitio cargado continuamente. Si su aplicación ejecuta WebJobs continuos o WebJobs activados mediante una expresión CRON, debe habilitar **AlwaysOn** o los trabajos web no se ejecutarán de forma fiable.
 
 **Versión de canalización administrada**. Configura el [modo de canalización]IIS. Deje este valor en Integrado (el valor predeterminado) a no ser que tenga una aplicación web heredada que requiera una versión anterior de IIS.
+
+**Versión HTTP**. Establézcala en **2.0** para habilitar la compatibilidad con el protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2). 
+
+> [!NOTE]
+> Los exploradores más modernos admiten el protocolo HTTP/2 sobre TLS únicamente, mientras que el tráfico no cifrado sigue usando HTTP/1.1. Para asegurarse de que los exploradores del cliente se conectan a la aplicación con HTTP/2, [compre un certificado App Service Certificate](web-sites-purchase-ssl-web-site.md) para el dominio personalizado de la aplicación o [enlace con un certificado de terceros](app-service-web-tutorial-custom-ssl.md).
+
+**Afinidad ARR**. En una aplicación que se ha escalado horizontalmente a varias instancias de máquinas virtuales, las cookies de Afinidad ARR garantizan que el cliente se enruta hacia la misma instancia a lo largo de toda la duración de la sesión. Para mejorar el rendimiento de las aplicaciones sin estado, establezca esta opción en **Desactivado**.   
 
 **Intercambio automático**. Si habilita el Intercambio automático de una ranura de implementación, el servicio de aplicación intercambiará automáticamente la aplicación web en producción cuando inserte una actualización para esa zona. Para obtener más información, consulte [Implementación en ranuras de ensayo para las aplicaciones web en Azure App Service](web-sites-staged-publishing.md).
 
@@ -82,7 +89,7 @@ En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán dis
 * SQL Database: `SQLAZURECONNSTR_`
 * Personalizado: `CUSTOMCONNSTR_`
 
-Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de  `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
+Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
 
 Las cadenas de conexión siempre se cifran cuando se almacenan (cifrado en reposo).
 

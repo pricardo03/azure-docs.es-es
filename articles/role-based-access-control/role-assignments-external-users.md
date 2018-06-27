@@ -1,13 +1,13 @@
 ---
-title: Administración de asignaciones de roles para los usuarios externos en Azure | Microsoft Docs
-description: Administración del control de acceso basado en rol (RBAC) en Azure para los usuarios externos a una organización
+title: Administración del acceso de los usuarios externos mediante RBAC en Azure | Microsoft Docs
+description: Aprenda a administrar el acceso de los usuarios externos a una organización mediante el control de acceso basado en rol (RBAC) en Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: kgremban
+editor: ''
 ms.assetid: ''
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
@@ -16,14 +16,14 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: dc0d91482637e3ade1147083b6d9c890e2798036
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 98eb104981051bd5e7440954470960977b38286d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160383"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296972"
 ---
-# <a name="manage-role-assignments-for-external-users"></a>Administración de asignaciones de roles para los usuarios externos
+# <a name="manage-access-for-external-users-using-rbac"></a>Administración del acceso de usuarios externos mediante RBAC
 
 El control de acceso basado en rol (RBAC) permite una mejor administración de seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. RBAC proporciona la flexibilidad de tener una suscripción de Azure administrada por el administrador de la cuenta (rol de administrador de servicio en el nivel de suscripción) y tener múltiples usuarios invitados que trabajen con la misma suscripción pero sin tener derechos administrativos en ella.
 
@@ -44,10 +44,10 @@ Solo los **Propietarios** de la suscripción pueden conceder roles RBAC. Por lo 
 En Azure Portal, una vez que inicie sesión como administrador, seleccione "Suscripciones" y seleccione la suscripción deseada.
 ![Hoja Suscripciones en Azure Portal](./media/role-assignments-external-users/0.png) De forma predeterminada, si el usuario administrador adquirió la suscripción de Azure, el usuario aparecerá como **Administrador de la cuenta**, siendo este el rol de la suscripción. Para más información sobre los roles de la suscripción de Azure, consulte [Adición o cambio de roles de administrador de Azure que administran la suscripción o los servicios](../billing/billing-add-change-azure-subscription-administrator.md).
 
-En este ejemplo, el usuario "alflanigan@outlook.com" es el **Propietario** de la suscripción "Free Trial" en el inquilino de AAD "Default tenant Azure". Puesto que este usuario es el creador de la suscripción de Azure con la cuenta de Microsoft "Outlook" inicial (Microsoft Account = Outlook, Live, etc.), el nombre de dominio predeterminado para todos los demás usuarios agregados en este inquilino será **"@alflaniganuoutlook.onmicrosoft.com"**. Por diseño, la sintaxis del nuevo dominio se forma uniendo el nombre de usuario y el nombre de dominio del usuario que creó el inquilino y agregando la extensión **".onmicrosoft.com"**.
+En este ejemplo, el usuario "alflanigan@outlook.com" es el **Propietario** de la suscripción "Free Trial" en el inquilino de AAD "Default tenant Azure". Dado que este usuario es el creador de la suscripción de Azure con la cuenta de Microsoft "Outlook" inicial (cuenta Microsoft = Outlook, Live, etc.), el nombre de dominio predeterminado para todos los demás usuarios agregados en este inquilino será **"\@alflaniganuoutlook.onmicrosoft.com"**. Por diseño, la sintaxis del nuevo dominio se forma uniendo el nombre de usuario y el nombre de dominio del usuario que creó el inquilino y agregando la extensión **".onmicrosoft.com"**.
 Además, los usuarios pueden iniciar sesión con un nombre de dominio personalizado en el inquilino después de añadirlo y comprobarlo para el nuevo inquilino. Para más información sobre cómo comprobar un nombre de dominio personalizado en un inquilino de Azure Active Directory, consulte [Agregar un nombre de dominio personalizado a su directorio](/active-directory/active-directory-add-domain).
 
-En este ejemplo, el directorio "Default tenant Azure" contiene solo usuarios con el nombre de dominio "@alflanigan.onmicrosoft.com".
+En este ejemplo, el directorio "Default tenant Azure" contiene solo usuarios con el nombre de dominio "\@alflanigan.onmicrosoft.com".
 
 Después de seleccionar la suscripción, el usuario administrador debe hacer clic en **Control de acceso (IAM)** y, a continuación, en **Agregar un nuevo rol**.
 
@@ -55,7 +55,7 @@ Después de seleccionar la suscripción, el usuario administrador debe hacer cli
 
 ![Agregar un nuevo usuario en la característica de control de acceso IAM en Azure Portal](./media/role-assignments-external-users/2.png)
 
-El siguiente paso es seleccionar el rol que se va a asignar y el usuario al que se va a asignar el rol de RBAC. En el menú desplegable **Rol**, el usuario administrador ve únicamente los roles RBAC integrados que están disponibles en Azure. Para obtener explicaciones detalladas de cada rol y sus ámbitos asignables, consulte [Roles integrados en el control de acceso basado en roles de Azure](built-in-roles.md).
+El siguiente paso es seleccionar el rol que se va a asignar y el usuario al que se va a asignar el rol de RBAC. En el menú desplegable **Rol**, el usuario administrador ve únicamente los roles RBAC integrados que están disponibles en Azure. Para ver una explicación más detallada de cada rol y de sus ámbitos que se pueden asignar, consulte [Roles integrados en el control de acceso basado en roles de Azure](built-in-roles.md).
 
 El usuario administrador, a continuación, debe agregar la dirección de correo electrónico del usuario externo. El comportamiento esperado para el usuario externo es que no aparezca en el inquilino existente. Cuando el usuario externo haya sido invitado, será visible en **Suscripciones > Control de acceso (IAM)** con todos los usuarios que están asignados actualmente a un rol de RBAC en el ámbito de la suscripción.
 
