@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660093"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292050"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Migración de Media Services v2 a v3
 
@@ -50,6 +50,10 @@ En este artículo se describen los cambios realizados en Azure Media Services (A
 
 ## <a name="changes-from-v2"></a>Cambios desde la versión v2
 
+* En Media Services v3, el cifrado de almacenamiento (cifrado con AES-256) solo es compatible con versiones anteriores si los recursos se crearon con Media Services v2. Esto significa que la versión v3 funciona con los recursos cifrados de almacenamiento ya existentes pero no permitirá la creación de otros nuevos.
+
+    En el caso de recursos creados con v3, Media Services admite el cifrado de almacenamiento del lado servidor de [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+    
 * Los SDK de Media Services se han desacoplado del SDK de Storage, lo que proporciona mayor control sobre el SDK de Storage utilizado y se evitan problemas de control de versiones. 
 * En v3, todas las velocidades de bits de codificación se expresan en bits por segundo. Esto es diferente a los valores preestablecidos de Media Encoder Standard v2 de REST. Por ejemplo, la velocidad de bits en v2 se especificaría como 128, mientras que en v3 sería 128000. 
 * En v3 no existen AssetFiles, AccessPolicies ni IngestManifests.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Crear ContentKeyPolicy
 2. Crear Asset
 3. Cargar contenido o usar Asset como JobOutput
-4. Crear Locator
+4. Creación de StreamingLocator
 
 ## <a name="next-steps"></a>Pasos siguientes
 

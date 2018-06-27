@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 30b4a7ea0d3f68e48d02e5cb72e70de74dc2addf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4345199ed952b6d0e044d4ac99c29c47c477780d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658696"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287075"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creación, modificación o eliminación de una dirección IP pública
 
@@ -90,7 +90,17 @@ Si bien el portal proporciona la opción de crear dos recursos de direcciones IP
 |Herramienta|Get-Help|
 |---|---|
 |CLI|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list) para mostrar las direcciones IP públicas, [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) para mostrar la configuración, [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) para actualizar, [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar|
-|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para recuperar un objeto de dirección IP pública y ver su configuración, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) para actualizar la configuración, [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) para eliminar|
+|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para recuperar un objeto de dirección IP pública y ver su configuración, [Set-AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) para actualizar la configuración, [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) para eliminar|
+
+## <a name="assign-a-public-ip-address"></a>Asignación de una dirección IP pública
+
+Aprenda a asignar una dirección IP pública a los siguientes recursos:
+
+- Una máquina virtual [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (durante la creación), o una [máquina virtual ya existente](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [Equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Introducción a Puerta de enlace de aplicaciones](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Conexión de sitio a sitio con Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Conjunto de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>Permisos
 
@@ -107,4 +117,3 @@ Para realizar tareas en direcciones IP públicas, su cuenta debe estar asignada 
 
 - Crear una dirección IP pública con scripts de ejemplo de [PowerShell](powershell-samples.md) o [CLI de Azure](cli-samples.md) o con [plantillas de Azure Resource Manager](template-samples.md)
 - Crear y aplicar una [directiva de Azure](policy-samples.md) para direcciones IP públicas
-- Asignar direcciones IP públicas al crear una máquina virtual de Azure [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), una [instancia de Azure Load Balancer accesible desde Internet de Azure](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), una [instancia de Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), una [conexión de sitio a sitio mediante una instancia de Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o una instancia de [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

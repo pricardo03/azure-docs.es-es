@@ -3,30 +3,30 @@ title: Directivas de retención de informes de Azure Active Directory | Microsof
 description: Directivas de retención de datos de informes en Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
 ms.devlang: ''
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fac160d2d5916097afcbb9825bb82a52789e4a89
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edce7d1a633148cf361deec0c3d09ef4c16ac9b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589202"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36225185"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Directivas de retención de informes de Azure Active Directory
 
 
-Este tema proporciona respuestas a las preguntas más frecuentes en relación a la retención de datos de los distintos informes de actividad de Azure Active Directory. 
+En este artículo se proporcionan respuestas a las preguntas más frecuentes en relación a la retención de datos de los distintos informes de actividad de Azure Active Directory. 
 
 ### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>P: ¿Cómo puede empezar la recopilación de datos de actividad?
 
@@ -34,7 +34,7 @@ Este tema proporciona respuestas a las preguntas más frecuentes en relación a 
 
 | Edición de Azure AD | Inicio de la recopilación |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD Premium P2 | Al suscribirse a una suscripción |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | Cuándo suscribirse |
 | Azure AD Free | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
 
 ---

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831642"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294856"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
 
@@ -48,7 +48,10 @@ Azure Blockchain Workbench necesita varios requisitos previos antes de la implem
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Registro de aplicación de API de Blockchain Workbench
 
-La implementación de Blockchain Workbench requiere el registro de una aplicación de Azure AD. Necesita un inquilino de Azure Active Directory (Azure AD) para registrar la aplicación. Puede usar un inquilino existente o crear uno nuevo. Si va a usar un inquilino de Azure AD ya existente, necesitará suficientes permisos para registrar aplicaciones en un inquilino de Azure AD. Los registros de la aplicación deben estar en el inquilino del administrador de la suscripción en la que se ha implementado Workbench. Para más información sobre los inquilinos de Azure AD, consulte [Obtención de un inquilino de Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) e [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+La implementación de Blockchain Workbench requiere el registro de una aplicación de Azure AD. Necesita un inquilino de Azure Active Directory (Azure AD) para registrar la aplicación. Puede usar un inquilino existente o crear uno nuevo. Si va a usar un inquilino de Azure AD ya existente, necesitará suficientes permisos para registrar aplicaciones y otorgar permisos de Graph API dentro de un inquilino de Azure AD. Si no tiene permisos suficientes en un inquilino de Azure AD existente, cree un inquilino. 
+
+> [!IMPORTANT]
+> El área de trabajo no tiene que implementarse en el mismo inquilino que el que se usa para registrar una aplicación de Azure AD. Se debe implementar en un inquilino donde tenga permisos suficientes para implementar recursos. Para más información sobre los inquilinos de Azure AD, consulte [Obtención de un inquilino de Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) e [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione su cuenta en la esquina superior derecha y cambie al inquilino de Azure AD que desee. El inquilino debe ser el inquilino del administrador de la suscripción en la que está implementado Workbench y tener permisos suficientes para registrar aplicaciones.

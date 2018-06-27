@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864676"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292566"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
 
-Para que el restablecimiento de contraseña de Azure Active Directory (Azure AD) funcione, *debe tener al menos una licencia asignada en su organización*. No aplicamos la concesión de licencias por usuario en la experiencia de restablecimiento de contraseña. Se requiere una licencia apropiada si un usuario se beneficia directa o indirectamente de cualquier característica cubierta por esa licencia.
+Para que el restablecimiento de contraseña de Azure Active Directory (Azure AD) funcione, *debe tener al menos una licencia asignada en su organización* para ese usuario. Se requiere una licencia apropiada si un usuario se beneficia directa o indirectamente de cualquier característica cubierta por esa licencia.
 
 * **Solo usuarios en la nube**: Office 365, cualquier SKU de pago o Azure AD Basic
 * **Usuarios en la nube** o **locales**: Azure AD Premium P1 o P2, Enterprise Mobility + Security (EMS) o Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>Licencias necesarias para la escritura diferida de contraseñas
+## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licencia para la escritura diferida de contraseñas
+
+**El restablecimiento de contraseñas de autoservicio/cambio/desbloqueo con escritura diferida local es una característica premium de Azure AD**. Para más información sobre licencias, consulte la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Para poder usar la escritura diferida de contraseñas, debe tener una de las siguientes licencias asignadas en el inquilino:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + Security E3 o A3
+* Enterprise Mobility + Security E5 o A5
+* Microsoft 365 E3 o A3
+* Microsoft 365 E5 o A5
 * Microsoft 365 F1
 
 > [!WARNING]

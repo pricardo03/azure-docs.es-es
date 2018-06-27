@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/27/2018
+ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 38412713d625fc3c44e29444138675b98129f1fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 16c99c2c5524a321616ac9f0975f0c9b4255ca94
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643607"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215861"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creación de su primera aplicación Java de Reliable Actors de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -221,6 +221,9 @@ Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicio del cliente de prueba y ejecución de una conmutación por error
 Los actores no hacen nada por sí solos, necesitan que otro servicio o cliente les envíe mensajes. La plantilla de actor incluye un sencillo script de prueba que puede usar para interactuar con el servicio de actor.
+
+> [!Note]
+> El cliente de prueba usa la clase ActorProxy para comunicarse con los actores, que se deben ejecutar dentro del mismo clúster que el servicio de actor o compartir el mismo espacio de direcciones IP.  Puede ejecutar el cliente de prueba en el mismo equipo que el clúster de desarrollo local.  Sin embargo, para comunicarse con los actores en un clúster remoto, debe implementar una puerta de enlace en el clúster que administre la comunicación externa con los actores.
 
 1. Ejecute el script con la utilidad de inspección para ver la salida del servicio de actor.  El script de prueba llamad al método `setCountAsync()` en el servicio de actor para aumentar el contador, llama al método `getCountAsync()` en el servicio de actor para obtener el nuevo valor de contador y muestra ese valor en la consola.
 

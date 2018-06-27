@@ -1,6 +1,6 @@
 ---
-title: 'Herramienta What if de acceso condicional de Azure Active Directory: versión preliminar | Microsoft Docs'
-description: Obtenga información sobre cómo puede probar la configuración de las directivas de acceso condicional de Azure Active Directory.
+title: '¿Qué es la herramienta What If en el acceso condicional de Azure Active Directory? : versión preliminar | Microsoft Docs'
+description: Obtenga información sobre cómo puede entender el impacto de las directivas de acceso condicional en el entorno.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723837"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232076"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Herramienta What if de acceso condicional de Azure Active Directory: versión preliminar
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>¿Qué es la herramienta What If en el acceso condicional de Azure Active Directory? : versión preliminar
 
 El [acceso condicional](active-directory-conditional-access-azure-portal.md) es una funcionalidad de Azure Active Directory (Azure AD) que le permite controlar cómo acceden los usuarios autorizados a las aplicaciones en la nube. ¿Cómo puede saber qué esperar de las directivas de acceso condicional de su entorno? Puede usar la **herramienta What if de acceso condicional** para responder esta pregunta.
 
@@ -121,7 +121,7 @@ En la lista de las directivas que no se aplican al usuario, también puede encon
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
+- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

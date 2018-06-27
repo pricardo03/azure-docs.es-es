@@ -1,27 +1,28 @@
 ---
-title: Configuración personalizada del entorno de ejecución de integración de Azure-SSIS | Microsoft Docs
-description: En este artículo se describe cómo usar la interfaz de instalación personalizada para el entorno de ejecución de integración de Azure SSIS.
+title: Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure | Microsoft Docs
+description: En este artículo se describe cómo usar la interfaz de instalación personalizada en el entorno de ejecución para la integración de SSIS en Azure a fin de instalar componentes adicionales o cambiar opciones de configuración.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: douglasl
-ms.openlocfilehash: b377b5ca9d46d66fe99a8f60383076920b098a7d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33769722"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267877"
 ---
-# <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Configuración personalizada del entorno de ejecución de integración de Azure-SSIS
+# <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure
 
-La interfaz de instalación personalizada del entorno de ejecución de integración de Azure-SSIS le permite modificar la configuración o el entorno de operación predeterminado (por ejemplo, para iniciar servicios de Windows adicionales) o instalar componentes adicionales (como ensamblados, controladores o extensiones) en cada nodo del entorno de ejecución de integración de Azure-SSIS. En general, proporciona una interfaz para agregar sus propios pasos de instalación durante el aprovisionamiento o la reconfiguración del entorno de ejecución de integración de Azure-SSIS.
+La interfaz de instalación personalizada de la instancia de Integration Runtime para la integración de SSIS en Azure ofrece una interfaz para que agregue su propios pasos de instalación durante el aprovisionamiento o la reconfiguración de dicha instancia. La instalación personalizada le permite modificar la configuración o el entorno operativo predeterminado (por ejemplo, para iniciar servicios adicionales de Windows) o instalar componentes adicionales (por ejemplo, ensamblados, controladores o extensiones) en cada nodo de la instancia de Integration Runtime para la integración de SSIS en Azure.
 
 Para llevar a cabo la configuración personalizada, debe preparar un script y sus archivos asociados y cargarlos en un contenedor de blobs en la cuenta de Azure Storage. Proporcione un identificador URI de firma de acceso compartido (SAS) para el contenedor al aprovisionar o volver a configurar el entorno de ejecución de integración de Azure-SSIS. Cada nodo del entorno de ejecución de integración de Azure-SSIS descarga entonces el script y sus archivos asociados en el contenedor y ejecuta la instalación personalizada con privilegios elevados. Una vez finalizada la instalación personalizada, cada nodo carga la salida estándar de la ejecución y otros registros en el contenedor.
 
@@ -30,9 +31,13 @@ Puede instalar tanto componentes libres o sin licencia como componentes de pago 
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
--   Si desea utilizar `gacutil.exe` para instalar ensamblados en la caché global de ensamblados (GAC), debe proporcionarla como parte de su configuración personalizada o utilizar la copia proporcionada en el contenedor de versión preliminar pública.
+-   Si desea utilizar `gacutil.exe` para instalar ensamblados en la caché global de ensamblados (GAC), debe proporcionar `gacutil.exe` como parte de su configuración personalizada o utilizar la copia proporcionada en el contenedor en versión preliminar pública.
 
--   Si tiene que unir el entorno de ejecución de integración de Azure-SSIS con la instalación personalizada a una red virtual, tiene que ser la red virtual de Azure Resource Manager. La red virtual clásica no se admite.
+-   Si desea hacer referencia a una subcarpeta del script, `msiexec.exe` no admite la notación `.\` para hacer referencia a la carpeta raíz. Use un comando como `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` en lugar de `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
+
+-   Si tiene que unir una instancia de Integration Runtime para la integración de SSIS en Azure con instalación personalizada a una red virtual, tiene que ser la red virtual de Azure Resource Manager. No se admite la red virtual clásica.
+
+-   Actualmente no se admite el uso compartido administrativo en la instancia de Integration Runtime para la integración de SSIS en Azure.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -54,8 +59,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
     1.  Debe tener un archivo de script denominado `main.cmd`, que es el punto de entrada de la configuración personalizada.
 
-    2.  Si desea que otros registros generados por otras herramientas (por ejemplo, `msiexec.exe`) se carguen en el contenedor, especifique la variable de entorno predefinida, `CUSTOM_SETUP_SCRIPT_LOG_DIR`, como la carpeta de registro en sus scripts (por ejemplo, `msiexec /i xxx.msi /quiet
-        /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+    2.  Si desea que otros registros generados por otras herramientas (por ejemplo, `msiexec.exe`) se carguen en el contenedor, especifique la variable de entorno predefinida, `CUSTOM_SETUP_SCRIPT_LOG_DIR`, como la carpeta de registro en sus scripts (por ejemplo, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 4.  Descargue e instale e inicie el [Explorador de Azure Storage](http://storageexplorer.com/).
 
@@ -136,15 +140,15 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
        4. Una carpeta `MSDTC`, que contiene una instalación personalizada para modificar las configuraciones de red y seguridad para la instancia del Coordinador de transacciones distribuidas de Microsoft (MSDTC) en cada nodo del entorno de ejecución de integración de Azure-SSIS.
 
-       5. Una carpeta `ORACLE ENTERPRISE`, que contiene un script de instalación personalizada (`main.cmd`) y el archivo de configuración de instalación silenciosa (`client.rsp`) para instalar el controlador de Oracle OCI en cada nodo de la edición Enterprise del entorno de ejecución de integración de Azure-SSIS (versión preliminar privada). Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de Oracle. En primer lugar, tendrá que descargar `winx64_12102_client.zip` de [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) y, a continuación, cargarlo junto con `main.cmd` y `client.rsp` en su contenedor. Si usa TNS para conectar con Oracle, también debe descargar `tnsnames.ora`, editarlo y cargarlo en el contenedor, para que se pueda copiar en la carpeta de instalación de Oracle durante el proceso de instalación.
+       5. Una carpeta `ORACLE ENTERPRISE`, que contiene un script de instalación personalizada (`main.cmd`) y el archivo de configuración de instalación silenciosa (`client.rsp`) para instalar el controlador de Oracle OCI en cada nodo de la edición Enterprise de Integration Runtime para la integración de SSIS en Azure. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de Oracle. En primer lugar, descargue el cliente de Oracle más reciente —por ejemplo, `winx64_12102_client.zip`— de [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) y, a continuación, cárguelo junto con `main.cmd` y `client.rsp` en su contenedor. Si usa TNS para conectar con Oracle, también debe descargar `tnsnames.ora`, editarlo y cargarlo en el contenedor, para que se pueda copiar en la carpeta de instalación de Oracle durante el proceso de instalación.
 
-       6. Una carpeta `ORACLE STANDARD`, que contiene un script de instalación personalizada (`main.cmd`) para instalar el controlador ODP.NET de Oracle en cada nodo del entorno de ejecución de integración de Azure-SSIS. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de ADO.NET. En primer lugar, descargue `ODP.NET_Managed_ODAC122cR1.zip` de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) y, a continuación, cárguelo junto con `main.cmd` en su contenedor.
+       6. Una carpeta `ORACLE STANDARD`, que contiene un script de instalación personalizada (`main.cmd`) para instalar el controlador ODP.NET de Oracle en cada nodo del entorno de ejecución de integración de Azure-SSIS. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de ADO.NET. En primer lugar, descargue el controlador de Oracle ODP.NET más reciente —por ejemplo, `ODP.NET_Managed_ODAC122cR1.zip`— de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) y, a continuación, cárguelo junto con `main.cmd` en su contenedor.
 
-       7. Una carpeta `SAP BW`, que contiene un script de instalación personalizada (`main.cmd`) para instalar el ensamblado del conector (`librfc32.dll`) en cada nodo de la edición Enterprise del entorno de ejecución de integración de Azure-SSIS (versión preliminar privada). Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de SAP BW. En primer lugar, cargue la versión de 64 bits o de 32 bits de `librfc32.dll` desde la carpeta de instalación de SAP en el contenedor, junto con `main.cmd`. El script copia entonces el ensamblado de SAP en la carpeta `%windir%\SysWow64` o `%windir%\System32` durante la instalación.
+       7. Una carpeta `SAP BW`, que contiene un script de instalación personalizada (`main.cmd`) para instalar el ensamblado del conector SAP .NET (`librfc32.dll`) en cada nodo de la edición Enterprise de Integration Runtime para la integración de SSIS en Azure. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de SAP BW. En primer lugar, cargue la versión de 64 bits o de 32 bits de `librfc32.dll` desde la carpeta de instalación de SAP en el contenedor, junto con `main.cmd`. El script copia entonces el ensamblado de SAP en la carpeta `%windir%\SysWow64` o `%windir%\System32` durante la instalación.
 
        8. Una carpeta `STORAGE`, que contiene una instalación personalizada para instalar Azure PowerShell en cada nodo del entorno de ejecución de integración de Azure-SSIS. Este programa de instalación le permite implementar y ejecutar paquetes de SSIS que ejecutan [scripts de PowerShell para manipular la cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copie `main.cmd`, un `AzurePowerShell.msi` de ejemplo (o instale la versión más reciente) y `storage.ps1` en su contenedor. Use PowerShell.dtsx como plantilla para los paquetes. La plantilla de paquetes combina una [tarea de descarga de blobs de Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), que descarga `storage.ps1` como un script de PowerShell modificable, y una [tarea de ejecución de proceso](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) que ejecuta el script en cada nodo.
 
-       9. Una carpeta `TERADATA`, que contiene un script de instalación personalizada (`main.cmd)`), su archivo asociado (`install.cmd`) y los paquetes del instalador (`.msi`). Estos archivos instalan conectores Teradata, la API TPT y el controlador ODBC en cada nodo de la edición Enterprise del entorno de ejecución de integración de Azure-SSIS (versión preliminar privada). Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de Teradata. En primer lugar, descargue el archivo ZIP de 15.x de Teradata Tools and Utilities (por ejemplo, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) desde [Teradata](http://partnerintelligence.teradata.com) y, a continuación, cárguelo junto con los archivos anteriores `.cmd` y `.msi` en su contenedor.
+       9. Una carpeta `TERADATA`, que contiene un script de instalación personalizada (`main.cmd)`), su archivo asociado (`install.cmd`) y los paquetes del instalador (`.msi`). Estos archivos instalan conectores Teradata, la API TPT y el controlador ODBC en cada nodo de la edición Enterprise de Integration Runtime para la integración de SSIS en Azure. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de Teradata. En primer lugar, descargue el archivo ZIP de 15.x de Teradata Tools and Utilities (por ejemplo, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) desde [Teradata](http://partnerintelligence.teradata.com) y, a continuación, cárguelo junto con los archivos anteriores `.cmd` y `.msi` en su contenedor.
 
     ![Carpetas en la carpeta de escenarios de usuario](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

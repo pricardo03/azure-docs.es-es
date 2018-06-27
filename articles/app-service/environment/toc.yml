@@ -64,8 +64,6 @@
           href: app-service-app-service-environment-network-architecture-overview.md
         - name: Creación de una aplicación web en ASEv1
           href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: Hospedaje de alta densidad
-          href: app-service-high-density-hosting.md
         - name: Conexión al back-end
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Configuración de ExpressRoute

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7e828aa79d3a7fba53c0ef9f683ed16afc9a3e6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267465"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285763"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Linux con el comando Ejecutar
 
@@ -33,6 +33,7 @@ A continuación, se muestra una lista de restricciones que están presentes cuan
 * El tiempo mínimo para ejecutar un script es de aproximadamente 20 segundos
 * Los scripts se ejecutan de forma predeterminada como usuario con privilegios elevados en Linux
 * Se puede ejecutar un script a la vez
+* No se admiten los scripts que solicitan información (modo interactivo).
 * No se puede cancelar un script en ejecución
 * El tiempo máximo que se puede ejecutar un script es de 90 minutos después de agotarse el tiempo de espera
 

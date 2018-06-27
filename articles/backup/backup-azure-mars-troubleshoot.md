@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/4/2017
 ms.author: saurse
-ms.openlocfilehash: aee0a3044ea4d1b9b867e795e94a37f8835ad212
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 89a39f6189367f91248b3868b1e1cb9f6abf0407
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605763"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228397"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Solución de problemas de configuración y registro del Agente de Azure Backup
 ## <a name="recommended-steps"></a>Pasos recomendados
@@ -36,13 +36,19 @@ Consulte las acciones recomendadas en las tablas siguientes para resolver los er
 
 | Detalles del error | Causas posibles | Acciones recomendadas |
 | ---     | ---     | ---    |      
-| **Error** </br>*No se pudo establecer la clave de cifrado para proteger las copias de seguridad. No se pudo realizar la operación actual debido a un error de servicio interno "Error de entrada no válida". Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft*. |El servidor ya está registrado con otro almacén.| Anule el registro del servidor del almacén y vuelva a registrarlo.
+| **Error** </br>*No se pudo establecer la clave de cifrado para las copias de seguridad protegidas. La activación no se realizó completamente, pero la frase de contraseña de cifrado se guardó en el siguiente archivo*. |<li>El servidor ya está registrado con otro almacén.<li>Durante la configuración, se ha dañado la frase de contraseña.| Anule el registro del servidor del almacén y vuelva a registrarlo con una nueva frase de contraseña.
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]
 
 | Detalles del error | Causas posibles | Acciones recomendadas |
 | ---     | ---     | ---    |          
-| **Error** </br><ol><li>*La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft* <li>*Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente*. | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK. | <li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.
+| **Error** </br><ol><li>*La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft*| <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK. | <li>Actualice a la [versión más reciente](http://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.
+  
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente.
+
+| Detalles del error | Causas posibles | Acciones recomendadas |
+| ---     | ---     | ---    |          
+| **Error** </br><ol><li>*Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente*. | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK. | <li>Actualice a la [versión más reciente](http://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.  
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

@@ -1,31 +1,39 @@
 ---
-title: Protección de datos y operaciones en Azure Search | Microsoft Docs
-description: La seguridad de Azure Search se basa en el cumplimiento de SOC 2, el cifrado, la autenticación y el acceso a identidades mediante identificadores de seguridad de usuarios y grupos en los filtros de Azure Search.
+title: Seguridad y privacidad de datos en Azure Search | Microsoft Docs
+description: Azure Search es compatible con SOC 2, HIPAA y otras certificaciones. Conexión y cifrado de datos, autenticación y acceso a identidades mediante identificadores de seguridad de usuarios y grupos en los filtros de Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 7db1b6c6f72f3cea7446b5f96dac7cd6e9b4252d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 888f7c3ced0ef48cff222bffdbf0f278fa5f42b3
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795806"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285736"
 ---
-# <a name="security-and-controlled-access-in-azure-search"></a>Seguridad y acceso controlado en Azure Search
+# <a name="security-and-data-privacy-in-azure-search"></a>Seguridad y privacidad de datos en Azure Search
 
-Azure Search es [compatible con SOC 2](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), con una arquitectura de seguridad completa que incluye seguridad física, transmisiones cifradas, almacenamiento cifrado y medidas de seguridad de software en toda la plataforma. Azure Search solo acepta solicitudes autenticadas en sus operaciones. De modo opcional, puede agregar controles de acceso por usuario en el contenido. En este artículo se trata la seguridad en cada capa, pero se centra principalmente en cómo se protegen los datos y las operaciones en Azure Search.
+Los controles de acceso y las características de seguridad integrales se integran en Azure Search para garantizar que el contenido privado se mantenga privado. En este artículo se enumeran las características de seguridad y el cumplimiento de normas integrados en Azure Search.
 
-![Diagrama de bloques de las capas de seguridad](media/search-security-overview/azsearch-security-diagram.png)
+La arquitectura de seguridad de Azure Search abarca seguridad física, transmisiones cifradas, almacenamiento cifrado y cumplimiento de normas en toda la plataforma. Azure Search solo acepta solicitudes autenticadas en sus operaciones. De modo opcional, puede agregar controles de acceso por usuario en el contenido mediante filtros de seguridad. En este artículo se trata la seguridad en cada capa, pero se centra principalmente en cómo se protegen los datos y las operaciones en Azure Search.
 
-## <a name="physical-security"></a>Seguridad física
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Cumplimiento de normas: ISO 27001, SOC 2, HIPAA
 
-Los centros de datos de Microsoft proporcionan una seguridad física líder en la industria y son compatibles con una amplia gama de normas y reglas. Para más información, vaya a la página [Centros de datos globales](https://www.microsoft.com/cloud-platform/global-datacenters) o vea un vídeo corto sobre la seguridad de los centros de datos.
+Una lista parcial del cumplimiento de normas incluye HIPAA y SOC 2 tipo 2 para las características con disponibilidad general. Las características de versión preliminar están certificadas como parte de la disponibilidad general y no se deben usar en soluciones que tienen requisitos de normas específicos. La certificación de cumplimiento está documentada en [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Información general del cumplimiento de Microsoft Azure) y el [Centro de confianza](https://www.microsoft.com/en-us/trustcenter). 
 
-> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
+La certificación de las siguientes normas [se anunció en junio de 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/).
+
++ [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
++ [Cumplimiento de SOC 2 tipo 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Para ver el informe completo, vaya a [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) (Informe de SOC 2 de tipo II de Azure y Azure Government). 
++ [Ley de Portabilidad y Contabilidad de los Seguros de Salud (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
++ [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11) (GxP [21 CFR Parte 11])
++ [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
++ [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) (PCI DSS de nivel 1)
++ [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm) (DLM sin clasificar del programa IRAP en Australia)
 
 ## <a name="encrypted-transmission-and-storage"></a>Transmisión y almacenamiento cifrados
 
@@ -35,15 +43,14 @@ El cifrado se extiende a lo largo de la canalización de indización: desde las 
 |----------------|-------------|
 | Cifrado en tránsito | Azure Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. |
 | Cifrado en reposo | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.|
-| [Cumplimiento normativo de SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Todos los servicios de búsqueda de los centros que proporcionan Azure Search cumplen con la normativa AICPA SOC 2. Para revisar el informe completo, vaya a [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) (Informe de SOC 2 de tipo II de Azure y Azure Government). |
 
 El cifrado es interno para Azure Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación. 
 
 El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluidos los servicios (gratis) compartidos, y en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.
 
-## <a name="azure-wide-logical-security"></a>Seguridad lógica en todo Azure
+## <a name="azure-wide-user-access-controls"></a>Controles de acceso de usuario en todo Azure
 
-Hay disponibles varios mecanismos de seguridad en Azure Stack que, por tanto, están disponibles automáticamente para los recursos de Azure Search que cree.
+Hay disponibles varios mecanismos de seguridad en todo Azure que, por tanto, están disponibles automáticamente para los recursos de Azure Search que cree.
 
 + [Bloqueos en el nivel de suscripción y recurso para evitar la eliminación](../azure-resource-manager/resource-group-lock-resources.md)
 + [Control de acceso basado en roles (RBAC) para controlar el acceso a la información y las operaciones administrativas](../role-based-access-control/overview.md)
@@ -67,7 +74,7 @@ Se requiere autenticación en cada solicitud, y cada solicitud se compone de una
 
 En Azure Search, un índice individual no es un objeto protegible. En su lugar, el acceso a un índice se determina en la capa de servicio (acceso de lectura o escritura), junto con el contexto de una operación.
 
-En el caso del acceso del usuario final, puede estructurar las solicitudes de consulta en la aplicación para conectarse con una clave de consulta, lo que hace que cualquier solicitud sea de solo lectura e incluir el índice específico utilizado por la aplicación. En una solicitud de consulta, no existe el concepto de combinación de índices ni de acceso simultáneo a varios índices para que todas las solicitudes tengan un único índice de destino por definición. Por lo tanto, la estructura de la solicitud de consulta en si misma (una clave y un índice único de destino) define el límite de seguridad.
+Para el acceso del usuario final, puede estructurar las solicitudes de consulta para conectarse con una clave de consulta, lo que hace que cualquier solicitud sea de solo lectura e incluir el índice específico utilizado por la aplicación. En una solicitud de consulta, no existe el concepto de combinación de índices ni de acceso simultáneo a varios índices para que todas las solicitudes tengan un único índice de destino por definición. Por lo tanto, la construcción de la solicitud de consulta misma (una clave y un índice único de destino) define el límite de seguridad.
 
 Los accesos de administrador y de desarrollador a los índices no se diferencian: ambos necesitan tener acceso de escritura para crear, eliminar y actualizar objetos administrados por el servicio. Cualquier persona con una clave de administración del servicio puede leer, modificar o eliminar cualquier índice en el mismo servicio. Para la protección contra la eliminación accidental o malintencionada de índices, su control de código fuente interno para los recursos de código es la solución para revertir una eliminación o modificación de índices no deseada. Azure Search tiene conmutación por error dentro del clúster para garantizar la disponibilidad, pero no almacena ni ejecuta el código propietario utilizado para crear o cargar los índices.
 
@@ -106,6 +113,12 @@ En la tabla siguiente se resumen las operaciones permitidas en Azure Search y la
 | Consultar la información del sistema, como devolver estadísticas, recuentos y listas de objetos. | Clave de administración, RBAC en el recurso (propietario, colaborador y lector) |
 | Administrar claves de administración | Clave de administración, RBAC propietario o colaborador en el recurso |
 | Administrar claves de consulta |  Clave de administración, RBAC propietario o colaborador en el recurso  |
+
+## <a name="physical-security"></a>Seguridad física
+
+Los centros de datos de Microsoft proporcionan una seguridad física líder en la industria y son compatibles con una amplia gama de normas y reglas. Para más información, vaya a la página [Centros de datos globales](https://www.microsoft.com/cloud-platform/global-datacenters) o vea un vídeo corto sobre la seguridad de los centros de datos.
+
+> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
 ## <a name="see-also"></a>Otras referencias

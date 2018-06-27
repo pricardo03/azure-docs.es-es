@@ -1,5 +1,5 @@
 ---
-title: Condiciones de ubicación del acceso condicional de Azure Active Directory | Microsoft Docs
+title: ¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? | Microsoft Docs
 description: Obtenga información sobre el uso de la condición de ubicación para controlar el acceso a las aplicaciones en la nube en función de la ubicación de la red del usuario.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
@@ -9,20 +9,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 842fe8c194f1c88c7dabb073e0fa7b7806d92d44
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e5924262d9965c4e6732f8c23031cd575dc7958d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232185"
 ---
-# <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condiciones de ubicación del acceso condicional de Azure Active Directory 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? 
 
 Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados pueden acceder a las aplicaciones en la nube. La condición de ubicación de una directiva de acceso condicional le permite asociar la configuración de los controles de acceso a las ubicaciones de red de los usuarios.
 
@@ -164,6 +166,6 @@ La API y PowerShell no son compatibles todavía con las ubicaciones con nombre o
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
+- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md). 

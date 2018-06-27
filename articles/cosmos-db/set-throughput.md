@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: 777655d8976990396b2c78a5b6d977a92b1a2335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614084"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285780"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Configuración y obtención del rendimiento para contenedores y la base de datos de Azure Cosmos DB
 
@@ -177,7 +177,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 
 Azure Cosmos DB funciona con un modelo de reserva para el rendimiento. Es decir, se le cobrará por la cantidad de rendimiento *reservada*, independientemente de la que *use* activamente. A medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar y reducir verticalmente de forma sencilla la cantidad de unidades de solicitud reservadas mediante los SDK o con [Azure Portal](https://portal.azure.com).
 
-Cada contenedor, o conjunto de contenedores, está asignado a un recurso `Offer` de Azure Cosmos DB que contiene metadatos sobre el rendimiento aprovisionado. Puede cambiar el rendimiento asignado buscando el recurso de oferta correspondiente para un contenedor y, a continuación, actualizándolo con el nuevo valor de rendimiento. A continuación se muestra un fragmento de código para cambiar el rendimiento del contenedor a 5000 unidades de solicitud por segundo mediante el SDK de .NET:
+Cada contenedor, o conjunto de contenedores, está asignado a un recurso `Offer` de Azure Cosmos DB que contiene metadatos sobre el rendimiento aprovisionado. Puede cambiar el rendimiento asignado buscando el recurso de oferta correspondiente para un contenedor y, a continuación, actualizándolo con el nuevo valor de rendimiento. A continuación se muestra un fragmento de código para cambiar el rendimiento del contenedor a 5000 unidades de solicitud por segundo mediante el SDK de .NET. Después de cambiar el rendimiento, debe actualizar las ventanas existentes de Azure Portal para que aparezca el rendimiento modificado. 
 
 ```csharp
 // Fetch the resource to be updated

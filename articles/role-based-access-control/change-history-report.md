@@ -1,6 +1,6 @@
 ---
 title: Ver registros de actividad de cambios de RBAC en Azure | Microsoft Docs
-description: Vea los registros de actividad de los cambios de control de acceso basado en roles de los últimos 90 días.
+description: Vea los registros de actividad de los cambios de control de acceso basado en rol (RBAC) de los últimos 90 días.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03961de233861baf923402cc96ab8174b3233bd0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c82c24c6d652a65f5ba851de66a1f2fe595a46a5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266666"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293394"
 ---
-# <a name="view-activity-logs-for-role-based-access-control-changes"></a>Ver registros de actividad de cambios de control de acceso basado en roles
+# <a name="view-activity-logs-for-rbac-changes"></a>Visualización de los registros de actividad de cambios de RBAC
 
 En ciertas ocasiones, necesitará obtener información acerca de los cambios de control acceso basado en rol (RBAC), por ejemplo, para fines de auditoría y para solucionar problemas. Siempre que un usuario realiza cambios en las definiciones de roles o las asignaciones de roles de las suscripciones, los cambios se registran en el [Registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Puede consultar los registros de actividad para ver todos los cambios de RBAC de los últimos 90 días.
 
