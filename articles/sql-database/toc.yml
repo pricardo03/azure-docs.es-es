@@ -74,9 +74,9 @@
       href: sql-database-powershell-samples.md
 - name: Conceptos
   items:
-    - name: Niveles de servicio y recursos
+    - name: Modelos y recursos de compra
       items:
-        - name: Niveles de servicio
+        - name: Modelos de compra
           href: sql-database-service-tiers.md
         - name: Modelo basado en núcleos virtuales
           href: sql-database-service-tiers-vcore.md

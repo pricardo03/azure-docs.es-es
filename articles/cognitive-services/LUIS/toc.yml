@@ -2,7 +2,7 @@
   href: index.yml
 - name: Información general
   items:
-    - name: Información sobre Language Understanding
+    - name: ¿Qué es Language Understanding?
       href: Home.md
     - name: Idiomas admitidos
       href: luis-supported-languages.md
@@ -25,10 +25,10 @@
           href: luis-quickstart-primary-and-secondary-data.md
         - name: Entidad jerárquica
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: Entidad de lista
-          href: luis-quickstart-intent-and-list-entity.md
         - name: Entidad de expresión regular
           href: luis-quickstart-intents-regex-entity.md
+        - name: Entidad de lista
+          href: luis-quickstart-intent-and-list-entity.md
         - name: Entidad de KeyPhrase
           href: luis-quickstart-intent-and-key-phrase.md
         - name: análisis de opiniones
@@ -238,7 +238,33 @@
     - name: Límites
       href: luis-boundaries.md
     - name: Referencia de entidad creada previamente
-      href: luis-reference-prebuilt-entities.md
+      items:
+        - name: Entidades por referencia cultural
+          href: luis-reference-prebuilt-entities.md
+        - name: Entidad de edad
+          href: luis-reference-prebuilt-age.md
+        - name: Entidad de moneda
+          href: luis-reference-prebuilt-currency.md
+        - name: Entidad DatetimeV2
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: Entidad de dimensión
+          href: luis-reference-prebuilt-dimension.md
+        - name: Entidades en desuso
+          href: luis-reference-prebuilt-deprecated.md
+        - name: Entidad de correo electrónico
+          href: luis-reference-prebuilt-email.md
+        - name: Entidad de número
+          href: luis-reference-prebuilt-number.md
+        - name: Entidad ordinal
+          href: luis-reference-prebuilt-ordinal.md
+        - name: Entidad de porcentaje
+          href: luis-reference-prebuilt-percentage.md
+        - name: Entidad de número de teléfono
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: Entidad de temperatura
+          href: luis-reference-prebuilt-temperature.md
+        - name: Entidad de URL
+          href: luis-reference-prebuilt-url.md
     - name: Referencia de dominio creado previamente
       href: luis-reference-prebuilt-domains.md
     - name: Referencia a la aplicación creada previamente con Cortana

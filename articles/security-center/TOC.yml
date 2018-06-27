@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: Directiva de seguridad mediante la directiva de Azure
           href: security-center-azure-policy.md
+        - name: Visibilidad de todos los inquilinos
+          href: security-center-management-groups.md
     - name: Implementación de recomendaciones de seguridad
       href: security-center-recommendations.md
     - name: Supervisión del estado de la seguridad

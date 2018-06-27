@@ -45,6 +45,8 @@
       href: use-reports.md
     - name: Uso de paneles
       href: dashboards.md
+    - name: Administración de presupuestos
+      href: manage-budgets.md
 - name: Recursos
   items:
     - name: Vídeos sobre Cost Management

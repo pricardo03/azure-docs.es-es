@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03-20-2018
   ms.author: juliako
-  ms.openlocfilehash: 7e250b59ae9ea370b2c019c012d1e2a0e6be3cb4
-  ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+  ms.openlocfilehash: 4cab323284bd17de865d97a16b056dd1230010fe
+  ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36217619"
+  ms.lasthandoff: 06/25/2018
+  ms.locfileid: "36936317"
 abstract:
   description: Aprenda a hacer streaming de vídeos a petición, a realizar difusión en directo y a analizar los vídeos con Media Services. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.
 sections:
@@ -37,7 +37,7 @@ sections:
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: 'Aprenda a hacer streaming de archivos a petición, a realizar difusión en directo y a analizar los vídeos con Media Services:'
+    text: 'Aprenda a hacer streaming de archivos a petición, a realizar difusión en directo y a analizar los vídeos con Media Services v3:'
   - type: list
     style: icon48
     items:
@@ -53,6 +53,33 @@ sections:
         src: media/index/AMSIcons-media_analytics.svg
       text: Análisis de los vídeos
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+- title: Ejemplos
+  items:
+  - type: paragraph
+    text: 'Ejemplos que muestran cómo usar API para hacer streaming de vídeos, realizar difusión en directo y analizar los vídeos con Media Services v3:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/cli.svg
+      text: Azure CLI
+      href: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services
+    - image:
+        src: media/index/rest.svg
+      text: REST con Postman
+      href: https://github.com/Azure-Samples/media-services-v3-rest-postman
+    - image:
+        src: media/index/logo_dotnet_core.svg
+      text: .NET Core con Visual Studio Code
+      href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials
+    - image:
+        src: media/index/dotnet.svg
+      text: .NET con Visual Studio
+      href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://github.com/Azure-Samples/media-services-v3-node-tutorials
 - title: Referencia
   items:
   - type: paragraph

@@ -106,6 +106,8 @@
       items:
         - name: Azure PowerShell
           href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Creación de una puerta de enlace de red virtual con redundancia de zona en zonas de disponibilidad de Azure
+      href: create-zone-redundant-vnet-gateway.md
     - name: 'Enrutamiento, BGP y emparejamiento de VNET'
       items:
         - name: Configuración de BGP para una instancia de VPN Gateway
