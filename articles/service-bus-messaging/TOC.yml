@@ -6,6 +6,7 @@
       href: service-bus-messaging-overview.md
     - name: Comparación de los servicios de mensajería
       href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
 - name: Guías de inicio rápido
   items:
     - name: 'Envío de mensajes: PowerShell'

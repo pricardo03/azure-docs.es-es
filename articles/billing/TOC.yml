@@ -41,12 +41,6 @@
           href: billing-understand-reserved-instance-usage-ea.md
         - name: Administración de instancias reservadas de máquina virtual
           href: billing-manage-reserved-vm-instance.md
-    - name: Ejemplos de REST
-      items:
-        - name: Examen de los costos empresariales
-          href: billing-review-enterprise-billing.md
-        - name: Examen del uso de la suscripción
-          href: billing-review-subscription-billing.md
 - name: Administración de una cuenta
   items:
     - name: Cuenta gratuita
