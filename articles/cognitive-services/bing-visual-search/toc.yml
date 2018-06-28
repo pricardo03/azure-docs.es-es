@@ -20,6 +20,10 @@
   items:
     - name: Introducción a los ejemplos de SDK
       href: sdk.md
+    - name: 'SDK en C#'
+      href: visual-search-sdk-c-sharp.md
+    - name: SDK de Node
+      href: visual-search-sdk-node.md
     - name: SDK de Python
       href: visual-search-sdk-python.md
 - name: Tutoriales

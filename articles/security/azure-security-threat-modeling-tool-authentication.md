@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d53ade1e5c31ca25636b95d4f8b9e0fe29f9d081
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019677"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031114"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -306,7 +306,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | ClientCredentialType: Ninguno |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **Pasos** | La ausencia de autenticación significa que todo el mundo puede acceder a este servicio. Un servicio que no autentica a sus clientes permite el acceso a todos los usuarios. Configure la aplicación para autenticarse con credenciales de cliente. Para ello, establezca el mensaje clientCredentialType en Windows o Certificado. |
 
 ### <a name="example"></a>Ejemplo
@@ -322,7 +322,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | ClientCredentialType: Ninguno |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Pasos** | La ausencia de autenticación significa que todo el mundo puede acceder a este servicio. Un servicio que no se autentica a sus clientes permite que todos los usuarios accedan a su funcionalidad. Configure la aplicación para autenticarse con credenciales de cliente. Para ello, establezca el valor de clientCredentialType de transporte en Windows o Certificado. |
 
 ### <a name="example"></a>Ejemplo
