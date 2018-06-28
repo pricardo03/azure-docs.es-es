@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: f628f393f1ff5922d9d2c82b30d4fdbf4b5caf23
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738180"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029332"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Administración de recursos compartidos de archivos de Azure con el Explorador de Azure Storage 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. En este artículo se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/). El Explorador de Storage es una herramienta de cliente popular que está disponible para Windows, macOS y Linux. Puede usar el Explorador de Storage para administrar recursos compartidos de archivos de Azure y otros recursos de almacenamiento.
@@ -97,7 +97,7 @@ El progreso de la descarga aparece en el panel **Activities** (Actividades) en l
 
 ## <a name="create-and-modify-share-snapshots"></a>Creación y modificación de instantáneas de recurso compartido
 Una instantánea conserva una copia de un momento dado de un recurso compartido de archivos de Azure. Las instantáneas de recursos compartidos de archivos son similares a otras tecnologías con las que es posible que ya esté familiarizado:
-- [Servicio de instantáneas de volumen (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) para sistemas de archivos Windows como NTFS y ReFS
+- [Servicio de instantáneas de volumen (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de archivos Windows como NTFS y ReFS
 - Instantáneas del [Administrador de volúmenes lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantáneas de [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
 

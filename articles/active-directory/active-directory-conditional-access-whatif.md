@@ -1,5 +1,5 @@
 ---
-title: '¿Qué es la herramienta What If en el acceso condicional de Azure Active Directory? : versión preliminar | Microsoft Docs'
+title: ¿Qué es la herramienta What If en el acceso condicional de Azure Active Directory?
 description: Obtenga información sobre cómo puede entender el impacto de las directivas de acceso condicional en el entorno.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232076"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750089"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>¿Qué es la herramienta What If en el acceso condicional de Azure Active Directory? : versión preliminar
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>¿Qué es la herramienta What If en el acceso condicional de Azure Active Directory?
 
 El [acceso condicional](active-directory-conditional-access-azure-portal.md) es una funcionalidad de Azure Active Directory (Azure AD) que le permite controlar cómo acceden los usuarios autorizados a las aplicaciones en la nube. ¿Cómo puede saber qué esperar de las directivas de acceso condicional de su entorno? Puede usar la **herramienta What if de acceso condicional** para responder esta pregunta.
 

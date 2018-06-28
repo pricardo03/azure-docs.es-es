@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/16/2018
 ms.author: larryfr
-ms.openlocfilehash: ce5555068ac4a9160657b5c2f204172c828bea50
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a9853bb8a298daab265b70b99db68de276c77048
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779215"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018079"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guía de inicio rápido: Creación de un clúster de Kafka en HDInsight
 
@@ -105,6 +105,7 @@ New-AzureStorageContainer -Name $containerName -Context $storageContext
 Cree un clúster de Kafka en HDInsight con [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 ```powershell
+# Create a Kafka 1.0 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
     -UserName "admin"
@@ -116,6 +117,9 @@ $clusterType="Kafka"
 $clusterOS="Linux"
 $disksPerNode=2
 
+$kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$kafkaConfig.Add("kafka", "1.0")
+
 New-AzureRmHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
@@ -124,8 +128,9 @@ New-AzureRmHDInsightCluster `
         -ClusterType $clusterType `
         -OSType $clusterOS `
         -Version $clusterVersion `
+        -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
-        -DefaultStorageAccountName "$storageAccount.blob.core.windows.net" `
+        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $storageKey `
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials `
@@ -148,7 +153,7 @@ New-AzureRmHDInsightCluster `
 
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
 
-1. Para conectarse al nodo principal del clúster de Kafka, use el siguiente comando. Reemplace `sshuser` por el nombre de usuario de SSH. Reemplace `mykafka` por el nombre del clúster de Kafka.
+1. Para conectarse con el nodo principal del clúster de Kafka, use el siguiente comando. Reemplace `sshuser` por el nombre de usuario de SSH. Reemplace `mykafka` por el nombre del clúster de Kafka.
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -258,9 +263,9 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
     * Cada partición se replica en tres nodos de trabajo del clúster.
 
         > [!IMPORTANT]
-        > Si ha creado el clúster en una región de Azure que proporciona tres dominios de error, use un factor de replicación de 3. De lo contrario, use un factor de replicación de 4.
+        > Si ha creado el clúster en una región de Azure que proporciona tres dominios de error, use un factor de replicación de 3. De lo contrario, use un factor de replicación de 4.
         
-        En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
+        En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
         
         Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 

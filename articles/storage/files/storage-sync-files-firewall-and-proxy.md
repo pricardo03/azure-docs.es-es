@@ -48,7 +48,7 @@ Como resultado, se cifra todo el tráfico.
 ## <a name="networks-and-special-connections-to-azure"></a>Redes y conexiones especiales a Azure
 El agente de Azure File Sync no tiene ningún requisito en lo que respecta a canales especiales como [ExpressRoute](../../expressroute/expressroute-introduction.md), etc., en Azure.
 
-Azure File Sync funciona con cualquier medio disponible que permita conectarse con Azure, de modo que se adapta automáticamente a diversas características de red, como el ancho de banda, la latencia y la posibilidad de usar el control de administración para realizar ajustes. * No todas las características están disponibles en este momento. Si desea configurar un comportamiento específico, comuníquelo en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage?category_id=180670).
+Azure File Sync funciona con cualquier medio disponible que permita conectarse con Azure, de modo que se adapta automáticamente a diversas características de red, como el ancho de banda, la latencia y la posibilidad de usar el control de administración para realizar ajustes. No todas las características están disponibles en este momento. Si desea configurar un comportamiento específico, comuníquelo en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## <a name="proxy"></a>Proxy
 Azure File Sync admite actualmente la configuración del proxy en el nivel de máquinas. Esta configuración de proxy es transparente para el agente de Azure File Sync, ya que todo el tráfico del servidor se enruta a través de este proxy.

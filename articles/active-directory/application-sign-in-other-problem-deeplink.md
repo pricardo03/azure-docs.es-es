@@ -3,22 +3,24 @@ title: Problemas de inicio de sesión con un vínculo profundo en una aplicació
 description: Cómo solucionar problemas de acceso a una aplicación desde una dirección URL de vínculo profundo con Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 3bf357fef2aad85c45abb1fa8e06ff4420a6f14a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 2d325c4f806a1bd4f972de5725659a533ab1803a
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069917"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335543"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas de inicio de sesión con un vínculo profundo en una aplicación
 

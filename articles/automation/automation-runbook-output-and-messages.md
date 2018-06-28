@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 04fae653c72c127b22f994e89b050477dac6495d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dc1a4bc1de3560338e1734e73ad04910535be5b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194257"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751309"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
 La mayoría de los runbooks de Azure Automation generan alguna forma de salida, como el mensaje de error que verá el usuario o un objeto complejo que será consumido por otro flujo de trabajo. Windows PowerShell le ofrece [varios flujos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona con cada uno de estos flujos de forma diferente, y es aconsejable que siga los procedimientos recomendados sobre cómo usar cada uno de ellos cuando cree un runbook.
@@ -31,7 +31,7 @@ En la siguiente tabla verá una breve descripción de cada uno de los flujos y s
 | Depurar |Mensajes dirigidos a un usuario interactivo. No debe usarse en runbooks. |No se escribe en el historial de trabajos. |No se escribe en el panel de salida de la prueba. |
 
 ## <a name="output-stream"></a>Flujo de salida
-El flujo de salida está diseñado para la salida de los objetos creados por un script o flujo de trabajo, cuando se ejecuta correctamente. En Azure Automation, este flujo se usa principalmente para objetos destinados a ser consumidos por [runbooks primarios que llaman al runbook actual](automation-child-runbooks.md). Cuando [llama a un runbook en línea](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) desde un runbook primario, este devuelve los datos del flujo de salida al runbook primario. Solo debe usar el flujo de salida para comunicar información general al usuario si sabe que ningún otro runbook nunca llamará a ese runbook. Le aconsejamos, como procedimiento recomendado, que use la opción de [Flujo detallado](#Verbose) para comunicar información general al usuario.
+El flujo de salida está diseñado para la salida de los objetos creados por un script o flujo de trabajo, cuando se ejecuta correctamente. En Azure Automation, este flujo se usa principalmente para objetos destinados a ser consumidos por [runbooks primarios que llaman al runbook actual](automation-child-runbooks.md). Cuando [llama a un runbook en línea](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) desde un runbook primario, este devuelve los datos del flujo de salida al runbook primario. Solo debe usar el flujo de salida para comunicar información general al usuario si sabe que ningún otro runbook nunca llamará a ese runbook. Le aconsejamos, como procedimiento recomendado, que use la opción de [Flujo detallado](#verbose-stream) para comunicar información general al usuario.
 
 Puede escribir datos en el flujo de salida mediante [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) o colocando el objeto en su propia línea en el runbook.
 
@@ -118,7 +118,7 @@ Una nota acerca del comportamiento del control del tipo de salida. Cuando escrib
 A diferencia del flujo de salida, los flujos de mensajes están diseñados para comunicar información al usuario. Hay varios flujos de mensajes para los diferentes tipos de información, y Azure Automation controla cada uno de ellos de forma diferente.
 
 ### <a name="warning-and-error-streams"></a>Flujos de error y de advertencia
-Los flujos de error y de advertencia están diseñados para registrar los problemas que se producen en un runbook. Se escriben en el historial de trabajos cuando se ejecuta un runbook y se incluyen en el panel de salida de la prueba de Azure Portal cuando se prueba un runbook. De forma predeterminada, el runbook continuará ejecutándose después de un error o advertencia. Para especificar que el runbook debe suspenderse en caso de advertencia o error, puede establecer una [variable de preferencia](#PreferenceVariables) en el runbook antes de crear el mensaje. Por ejemplo, para hacer que un runbook se suspenda en caso de error, tal y como haría una excepción, establezca **$ErrorActionPreference** en Stop.
+Los flujos de error y de advertencia están diseñados para registrar los problemas que se producen en un runbook. Se escriben en el historial de trabajos cuando se ejecuta un runbook y se incluyen en el panel de salida de la prueba de Azure Portal cuando se prueba un runbook. De forma predeterminada, el runbook continuará ejecutándose después de un error o advertencia. Para especificar que el runbook debe suspenderse en caso de advertencia o error, puede establecer una [variable de preferencia](#preference-variables) en el runbook antes de crear el mensaje. Por ejemplo, para hacer que un runbook se suspenda en caso de error, tal y como haría una excepción, establezca **$ErrorActionPreference** en Stop.
 
 Cree un mensaje de advertencia o de error mediante los cmdlets [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) o [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). También se pueden escribir actividades en estos flujos.
 
@@ -172,7 +172,7 @@ En la siguiente tabla se muestra el comportamiento de los valores de las variabl
 
 ## <a name="retrieving-runbook-output-and-messages"></a>Recuperar salidas de runbooks y mensajes
 ### <a name="azure-portal"></a>Azure Portal
-Puede ver los detalles de un trabajo de runbook en el Portal de Azure de la pestaña llamada Trabajos de un runbook. La opción Resumen del trabajo le muestra los parámetros de entrada y el [Flujo de salida](#Output), además de información general sobre el trabajo y las excepciones que se han producido. En la opción Historial se incluyen los mensajes del [Flujo de salida](#Output) y los [Flujos de error y de advertencia](#WarningError), además del [Flujo detallado](#Verbose) y los [Registros de progreso](#Progress), si el runbook está configurado para escribir registros detallados y de progreso.
+Puede ver los detalles de un trabajo de runbook en el Portal de Azure de la pestaña llamada Trabajos de un runbook. La opción Resumen del trabajo le muestra los parámetros de entrada y el [Flujo de salida](#output-stream), además de información general sobre el trabajo y las excepciones que se han producido. En la opción Historial se incluyen los mensajes del [Flujo de salida](#output-stream) y los [Flujos de error y de advertencia](#warning-and-error-streams), además del [Flujo detallado](#verbose-stream) y los [Registros de progreso](#progress-records), si el runbook está configurado para escribir registros detallados y de progreso.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 En Windows PowerShell, puede recuperar la salida y los mensajes de un runbook con el cmdlet [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) . Este cmdlet requiere la identificación del trabajo y tiene un parámetro denominado Stream en el cual se especifica qué flujo hay que devolver. Puede elegir la opción **Cualquiera** para devolver todos los flujos del trabajo.

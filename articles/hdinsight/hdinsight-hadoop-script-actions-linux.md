@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: d5df67021e997df3a6344701f50be4871a11386d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406037"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018389"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
@@ -377,5 +377,5 @@ Reemplace `INFILE` con el archivo que contiene la marca BOM. `OUTFILE` debe ser 
 ## <a name="seeAlso"></a>Pasos siguientes
 
 * Obtenga información sobre cómo [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
-* Use la [referencia del SDK de .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
+* Use la [referencia del SDK de .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
 * Use la [API de REST de HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.

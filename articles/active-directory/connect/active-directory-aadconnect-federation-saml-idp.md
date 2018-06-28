@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 74051ae8ad4ca7065561607feb13a2b98094fffc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801786"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333189"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -47,7 +47,7 @@ Este documento contiene los requisitos detallados sobre el protocolo y el format
 
 Se recomienda que se asegure de que sus mensajes de salida del proveedor de identidades de SAML 2.0 sean lo más parecidos posibles a los seguimientos de ejemplo proporcionados. Además, cuando sea posible, use valores de atributo específicos de los metadatos de Azure AD suministrados. Cuando esté satisfecho con los mensajes de salida, puede probar con el Analizador de conectividad de Microsoft, como se describe a continuación.
 
-Los metadatos de Azure AD se pueden descargar desde esta dirección URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+Los metadatos de Azure AD se pueden descargar desde esta dirección URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
 Para los clientes en China que usan la instancia de Office 365 específica para China, se debe usar el punto de conexión de federación siguiente: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Requisitos del protocolo SAML

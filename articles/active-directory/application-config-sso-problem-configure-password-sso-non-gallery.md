@@ -3,22 +3,23 @@ title: Problema en la configuración del inicio de sesión único con contraseñ
 description: Comprender los problemas más comunes a los que se enfrentan los usuarios al configurar un inicio de sesión único con contraseña para las aplicaciones ajenas a la galería que no figuran en la Galería de aplicaciones de Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b671089bfac04b359717874928d6a342c44b3d4
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.author: barbkess
+ms.openlocfilehash: 69a2bf6e622cd2338d57e62ed82951cb2385edd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34069681"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334914"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 

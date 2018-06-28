@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 927a734b288f5bb0082e77be15ae540702fe4e8b
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808288"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959974"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -95,7 +95,7 @@ Puede usar NuGet para obtener ambos paquetes. Siga estos pasos:
 > 
 
 > [!TIP]
-> Los desarrolladores que ya están familiarizados con Azure Table Storage puede que ya hayan usado el paquete [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) anteriormente. Se recomienda que todas las aplicaciones de tabla nuevas usen la [biblioteca común de Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) y la [biblioteca de tablas de Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table); no obstante, el paquete WindowsAzure.Storage todavía es compatible. Si usa la biblioteca de WindowsAzure.Storage, incluya Microsoft.WindowsAzure.Storage.Table en las instrucciones que usa.
+> Los desarrolladores que ya están familiarizados con Azure Table Storage puede que ya hayan usado el paquete [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) anteriormente. Se recomienda que todas las aplicaciones de tabla nuevas usen la [biblioteca común de Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) y la [biblioteca de tablas de Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table); no obstante, el paquete WindowsAzure.Storage todavía es compatible. Si usa la biblioteca de WindowsAzure.Storage, incluya Microsoft.WindowsAzure.Storage.Table en las instrucciones que usa.
 >
 >
 
