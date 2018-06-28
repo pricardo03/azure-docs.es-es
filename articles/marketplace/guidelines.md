@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826263"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307492"
 ---
 # <a name="guidelines"></a>Directrices  
 
@@ -35,7 +35,7 @@ Si más de una persona requiere acceso al mismo identificador de Microsoft que s
 
 >[!IMPORTANT]
 >Para autorizar que varios usuarios tengan acceso a su cuenta del Centro para desarrolladores de Microsoft (centro de desarrollo), Microsoft recomienda que utilice Azure Active Directory (Azure AD) para asignar roles a usuarios individuales. Cada usuario obtiene acceso a la cuenta iniciando sesión con las credenciales de Azure AD individuales. Microsoft sugiere que, al crear el identificador de Microsoft mediante una dirección de correo electrónico en un dominio registrado en su compañía, el correo electrónico no se asigne a un usuario individual. Un ejemplo es `windowsapps@fabrikam.com`.  
->*   Para más información, vea la sección [Problema: Identificador de Microsoft en un dominio federado de Azure AD](#issue:-microsoft-id-in-an-azure-ad-federated-domain).  
+>*   Para más información, vea la sección [Problema: Identificador de Microsoft en un dominio federado de Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
 
 *   Limite el acceso al identificador de Microsoft al menor número posible de desarrolladores. 
 *   Configure una lista de distribución (DL) de correo electrónico corporativo que incluya todos los usuarios que tienen acceso a su cuenta del Centro de desarrollo. Agregue la dirección de correo electrónico de DL a la información de seguridad. La DL permite a todos los empleados de la lista recibir códigos de seguridad cuando lo pidan y administrar la información de seguridad del identificador de Microsoft. Si no es posible configurar una lista de distribución, el propietario de la cuenta de correo electrónico individual debe estar disponible para tener acceso al código de seguridad y compartirlo cuando se le solicite.  

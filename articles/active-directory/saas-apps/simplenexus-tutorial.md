@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a29ef6535d1d4e64df7b97fc7519e55f511df222
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 759052a073103304f89096a43f0cbef88e0a1624
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212179"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308265"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Tutorial: Integración de Azure Active Directory con SimpleNexus
 
@@ -117,7 +117,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://simplenexus.com/<companyname>`
 
     > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de SimpleNexus](https://simplenexus.com/site/contact) para obtener estos valores. 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de SimpleNexus](https://simplenexus.com/sn/contact-us/) para obtener estos valores. 
  
 4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -127,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/simplenexus-tutorial/tutorial_general_400.png)
 
-6. Para configurar el inicio de sesión único en el lado de **SimpleNexus**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de SimpleNexus](https://simplenexus.com/site/contact). El equipo de soporte técnico lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+6. Para configurar el inicio de sesión único en el lado de **SimpleNexus**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de SimpleNexus](https://simplenexus.com/sn/contact-us/). El equipo de soporte técnico lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.reviewer: elisol
+ms.openlocfilehash: d9379a54258b33277904d88b62dfdd7dfdec59a0
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267887"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317755"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Guía del desarrollador de Azure Active Directory
 En este artículo se incluyen definiciones de algunos de los conceptos básicos para el desarrollador de Azure Active Directory (AD), que son útiles para obtener información sobre el desarrollo de aplicaciones para Azure AD.

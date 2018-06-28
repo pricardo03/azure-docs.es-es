@@ -1,6 +1,6 @@
 ---
-title: Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones
-description: Obtenga información acerca de cómo conectarse de forma segura a los recursos de back-end desde un entorno del Servicio de aplicaciones.
+title: Conexión segura a los recursos de back-end desde un entorno de App Service
+description: Obtenga información acerca de cómo conectarse de forma segura a los recursos de back-end desde un entorno de App Service.
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: a43d88d64710b95dd753c19f02582f22accac8b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fb13a4dac923a19dc12910cb1b78e909b93abe1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986270"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317578"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones
+# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Conexión segura a los recursos de back-end desde un entorno de App Service
 ## <a name="overview"></a>Información general
 Dado que siempre se crea un entorno de App Service **en** una red virtual de Azure Resource Manager **o** en [una][virtualnetwork] del modelo de implementación clásica, las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.  Tras el cambio reciente realizado en junio de 2016, los entornos ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  
 
@@ -29,18 +29,18 @@ Por ejemplo, puede haber un servidor SQL Server que se ejecute en un clúster de
 
 Otro ejemplo: los puntos de conexión con información confidencial pueden ejecutarse localmente y conectarse a Azure mediante conexiones [De sitio a sitio][SiteToSite] o [Azure ExpressRoute][ExpressRoute].  Como resultado, solo los recursos de las redes virtuales conectadas a túneles ExpressRoute o De sitio a sitio podrán tener acceso a los extremos locales.
 
-En todos estos escenarios, las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones podrán conectarse de forma segura a los distintos servidores y recursos.  El tráfico saliente de las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones hacia extremos privados de la misma red virtual (o conectadas a la misma red virtual) solamente fluirá a través de la red virtual.  El tráfico saliente hacia extremos privados no fluirá a través de la red pública de Internet.
+En todos estos escenarios, las aplicaciones que se ejecutan en un entorno de App Service podrán conectarse de forma segura a los distintos servidores y recursos.  El tráfico saliente de las aplicaciones que se ejecutan en un entorno de App Service hacia extremos privados de la misma red virtual (o conectadas a la misma red virtual) solamente fluirá a través de la red virtual.  El tráfico saliente hacia extremos privados no fluirá a través de la red pública de Internet.
 
-Existe una excepción en cuanto al tráfico saliente desde un Entorno del Servicio de aplicaciones hacia los puntos de conexión de una red virtual.  Los Entornos del Servicio de aplicaciones no pueden acceder a los puntos de conexión de máquinas virtuales ubicadas en la **misma** subred que el Entorno del Servicio de aplicaciones.  Normalmente, esto no debería causar ningún problema siempre y cuando el Entorno del Servicio de aplicaciones se implemente en una subred reservada para uso exclusivo del mismo.
+Existe una excepción en cuanto al tráfico saliente desde un Entorno de App Service hacia los puntos de conexión de una red virtual.  Los Entornos de App Service no pueden acceder a los puntos de conexión de máquinas virtuales ubicadas en la **misma** subred que el Entorno de App Service.  Normalmente, esto no debería causar ningún problema siempre y cuando el Entorno de App Service se implemente en una subred reservada para uso exclusivo del mismo.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Requisitos de DNS y conectividad saliente
-Para que un Entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida a varios puntos de conexión. Una lista completa de los puntos de conexión externos utilizados por un ASE en la sección "Conectividad de red necesaria" del artículo [Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
+Para que un Entorno de App Service funcione correctamente, necesita acceso de salida a varios puntos de conexión. Una lista completa de los puntos de conexión externos utilizados por un ASE en la sección "Conectividad de red necesaria" del artículo [Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
 
-Los Entornos del Servicio de aplicaciones requieren una infraestructura DNS válida configurada para la red virtual.  Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS.  Si se desencadena un reinicio gradual del entorno mediante el icono de Reiniciar, ubicado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el portal, el entorno recogerá la nueva configuración de DNS.
+Los Entornos de App Service requieren una infraestructura DNS válida configurada para la red virtual.  Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno de App Service, los desarrolladores pueden forzar a un entorno de App Service para recoger la nueva configuración de DNS.  Si se desencadena un reinicio gradual del entorno mediante el icono de Reiniciar, ubicado en la parte superior de la hoja de administración del entorno de App Service en el portal, el entorno recogerá la nueva configuración de DNS.
 
-También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones.  Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno.  De manera similar, si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN y el servidor DNS es inaccesible o no está disponible, el proceso de creación del entorno de servicio de aplicaciones también producirá un error.
+También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno de App Service.  Si se cambia la configuración de DNS de una red virtual al crear un entorno de App Service, se generará un error en el proceso de creación de dicho entorno.  De manera similar, si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN y el servidor DNS es inaccesible o no está disponible, el proceso de creación del entorno de App Service también producirá un error.
 
 ## <a name="connecting-to-a-sql-server"></a>Conexión a un servidor SQL Server
 Una configuración común de SQL Server tiene un extremo que escucha en el puerto 1433:
@@ -57,7 +57,7 @@ El puerto 1433 se puede proteger mediante una lista de control de acceso de red.
 
 ![Ejemplo de lista de control de acceso de red][NetworkAccessControlListExample]
 
-Todas las aplicaciones que se ejecuten en el entorno del Servicio de aplicaciones en la misma red virtual que el servidor SQL Server pueden conectarse a la instancia de SQL Server mediante la dirección IP **interna de la red virtual** para la máquina virtual SQL Server.  
+Todas las aplicaciones que se ejecuten en el entorno de App Service en la misma red virtual que el servidor SQL Server pueden conectarse a la instancia de SQL Server mediante la dirección IP **interna de la red virtual** para la máquina virtual SQL Server.  
 
 La cadena de conexión de ejemplo siguiente hace referencia a SQL Server mediante su dirección IP privada.
 
@@ -94,7 +94,7 @@ Para obtener más detalles sobre cómo controlar el tráfico entrante en el ento
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
-[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
+[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/

@@ -25,7 +25,7 @@ El modelo de consumo no se puede usar con los valores de **travelMode**_bicycle_
 
 En ambos modelos de consumo, para especificar explícitamente algunos parámetros es necesario especificar también otros. Estas dependencias son:
 
-* Todos los parámetros requieren que el usuario especifique **constantSpeedConsumption**. Es un error especificar cualquier otro parámetro de modelo de consumo, a excepción de **vehicleWeight**, si no se ha especificado **constantSpeedConsumption***.
+* Todos los parámetros requieren que el usuario especifique **constantSpeedConsumption**. Es un error especificar cualquier otro parámetro de modelo de consumo, a excepción de **vehicleWeight**, si no se ha especificado **constantSpeedConsumption**\*.
 * **accelerationEfficiency** y **decelerationEfficiency** se deben especificar siempre como un par (es decir, ambos o ninguno).
 * Si se especifican **accelerationEfficiency** y **decelerationEfficiency**, el producto de los valores no debe ser mayor que 1 (para evitar el movimiento perpetuo).
 * **uphillEfficiency** y **downhillEfficiency** se deben especificar siempre como un par (es decir, ambos o ninguno).

@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 1acb95af7b62641c371627d6250067f9c2eac99c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600313"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36323640"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Procedimiento para buscar una dirección mediante el servicio de búsqueda de Azure Maps
 
