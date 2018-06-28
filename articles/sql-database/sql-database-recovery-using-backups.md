@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 027a10e687673bdeedf2858b4c23ff459df61b70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad4725ff6871ef489c6a10656af9a76e588edfa1
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649115"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308428"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
 SQL Database proporciona estas opciones para la recuperación de bases de datos mediante [copias de seguridad automatizadas de la base de datos](sql-database-automated-backups.md) y [copias de seguridad en retención a largo plazo](sql-database-long-term-retention.md). Puede restaurar de una copia de seguridad de base de datos a:
@@ -32,7 +32,7 @@ Una base de datos restaurada incurre en un costo de almacenamiento adicional en 
 - Restauración de P11 – P15 a S4-S12 o P1–P6 si el tamaño máximo de la base de datos es mayor de 500 GB.
 - Restauración de P1-P6 a S4-S12 si el tamaño máximo de la base de datos es mayor de 250 GB.
 
-El costo adicional es debido a que el tamaño máximo de la base de datos restaurada es mayor que la cantidad de almacenamiento incluido para el nivel de rendimiento, y se aplicarán cargos adicionales a cualquier almacenamiento adicional aprovisionado por encima del importe incluido.  Para más información sobre los precios del almacenamiento adicional, consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).  Si la cantidad de espacio real utilizado es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida. Para obtener más información sobre los tamaños de almacenamiento de las bases de datos y cómo cambiar el tamaño máximo de la base de datos, consulte [single database DTU-based resource limits](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) (Límites de recursos basados en DTU de una única base de datos) y [single database vCore-based resource limits](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) (Límites de recursos basados en núcleo virtual de una única base de datos).  
+El costo adicional es debido a que el tamaño máximo de la base de datos restaurada es mayor que la cantidad de almacenamiento incluido para el nivel de rendimiento, y se aplicarán cargos adicionales a cualquier almacenamiento adicional aprovisionado por encima del importe incluido.  Para más información sobre los precios del almacenamiento adicional, consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).  Si la cantidad de espacio real utilizado es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida.  
 
 > [!NOTE]
 > Las [copias de seguridad de base de datos automatizadas](sql-database-automated-backups.md) se usan cuando se crea una [copia de la base de datos](sql-database-copy.md). 

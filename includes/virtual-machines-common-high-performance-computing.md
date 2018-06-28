@@ -9,10 +9,10 @@ ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34152230"
 ---
 Las organizaciones tienen necesidades informáticas a gran escala. Las cargas de trabajo de Big Compute incluyen el diseño y análisis de ingeniería, los cálculos de riesgos financieros, la representación de imágenes, los modelos complejos, las simulaciones de Monte Carlo, etc. 

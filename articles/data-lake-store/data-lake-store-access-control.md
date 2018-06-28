@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: afe1a784ecc0a8f8846a71d21cc7ca8eb76078ec
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36336943"
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Control de acceso en Azure Data Lake Store
 
@@ -279,7 +278,7 @@ Estas son algunas preguntas que surgen a menudo con respecto a las ACL en Data L
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>¿Es preciso habilitar la compatibilidad con las ACL?
 
-Nº El control de acceso mediante las ACL siempre está activado en las cuentas de Data Lake Store.
+No. El control de acceso mediante las ACL siempre está activado en las cuentas de Data Lake Store.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>¿Qué permisos son necesarios para eliminar de forma recursiva una carpeta y su contenido?
 
@@ -326,7 +325,7 @@ No, pero las ACL predeterminada pueden usarse para establecer las ACL para archi
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>¿Dónde puedo obtener más información sobre el modelo de control de acceso POSIX?
 
-* [POSIX Access Control Lists on Linux](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html) (Listas de control de acceso de POSIX en Linux)
+* [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux) (Listas de control de acceso de POSIX en Linux)
 
 * [HDFS Permission Guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) (Guía de permisos de HDFS)
 

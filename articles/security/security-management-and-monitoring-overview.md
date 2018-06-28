@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 1e48131ff784ba5bb8d5a7dfffe8afb5ce8bb4c1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364376"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752295"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
 Azure proporciona mecanismos de seguridad que le ayudarán en la administración y la supervisión de servicios en la nube y máquinas virtuales (VM) de Azure. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. Además, se incluyen vínculos a artículos que ofrecen detalles de cada uno de estos servicios o características para que pueda tener más información al respecto.
@@ -39,7 +39,7 @@ El control de acceso basado en roles (RBAC) le permite administrar de forma avan
 
 Más información:
 
-* [Blog del equipo de Active Directory sobre RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+* [Blog del equipo de Active Directory sobre RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
