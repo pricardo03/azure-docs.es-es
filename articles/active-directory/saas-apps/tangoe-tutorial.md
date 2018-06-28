@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c87b90e82b1300e147533256e3286421a73f08d2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218901"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308615"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Integración de Azure Active Directory con Tangoe Command Premium Mobile
 
@@ -114,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://sso.tangoe.com/sp/ACS.saml2`.
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Tangoe Command Premium Mobile Client](https://www.tangoe.com/contact-2/) para obtener estos valores. 
+    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Tangoe Command Premium Mobile Client](https://www.tangoe.com/contact-us/) para obtener estos valores. 
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -128,7 +128,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Sección de configuración de Tangoe Command Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el [equipo de soporte técnico de Tangoe Command Premium Mobile Client](https://www.tangoe.com/contact-2/) y proporcione lo siguiente:
+7. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el [equipo de soporte técnico de Tangoe Command Premium Mobile Client](https://www.tangoe.com/contact-us/) y proporcione lo siguiente:
 
    - El archivo de metadatos descargado
    - El **identificador de entidad de SAML**
@@ -174,7 +174,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, creará un usuario llamado Britta Simon en Tangoe Command Premium Mobile. 
 
-La aplicación Tangoe Command Premium Mobile necesita que todos los usuarios estén aprovisionados en la aplicación antes de realizar el inicio de sesión único. Así pues, colabore con el [equipo de soporte técnico de Tangoe Command Premium Mobile Client](https://www.tangoe.com/contact-2/) para aprovisionar todos estos usuarios en la aplicación. 
+La aplicación Tangoe Command Premium Mobile necesita que todos los usuarios estén aprovisionados en la aplicación antes de realizar el inicio de sesión único. Así pues, colabore con el [equipo de soporte técnico de Tangoe Command Premium Mobile Client](https://www.tangoe.com/contact-us/) para aprovisionar todos estos usuarios en la aplicación. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

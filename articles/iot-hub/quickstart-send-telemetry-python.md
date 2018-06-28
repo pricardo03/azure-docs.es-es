@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: a6bece43f003ed5ddd2db2b03f12c02c1ccaa28e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7d4d29b7502f081de8385c7d88687ece4905b02b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636280"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334520"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub y leer datos de telemetría procedentes de este con una aplicación back-end (Python)
 
@@ -136,9 +136,7 @@ La siguiente captura de pantalla muestra la salida en la que la utilidad recibe 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene pensado completar el siguiente inicio rápido, deje IoT Hub y el grupo de recursos y vuelva a usarlos más adelante.
-
-Si ya no los va a necesitar más, elimínelos en el portal. Para ello, seleccione el grupo de recursos **qs-iot-hub-rg** que contiene la instancia de IoT Hub y haga clic en **Eliminar**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

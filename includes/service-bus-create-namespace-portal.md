@@ -11,7 +11,7 @@ Para crear un espacio de nombres:
 7. En **Ubicación**, elija el país o región donde se debe hospedar el espacio de nombres.
    
     ![Crear un espacio de nombres][create-namespace]
-8. Haga clic en **Crear**. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+8. Haga clic en **Create**(Crear). El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 ### <a name="obtain-the-management-credentials"></a>Obtención de las credenciales de administración
 La creación un nuevo espacio de nombres genera automáticamente una regla de firma de acceso compartido (SAS) inicial con un par asociado de claves principal y secundaria en el que ambas conceden control total sobre todos los aspectos del espacio de nombres. Para obtener información acerca de cómo crear reglas adicionales con derechos más restringidos para remitentes y destinatarios normales, consulte [Autenticación y autorización de Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). Para copiar la regla inicial, siga estos pasos: 

@@ -3,22 +3,23 @@ title: Cómo funciona el consentimiento de la aplicación | Microsoft Docs
 description: Más información sobre cómo funciona el marco de consentimiento de Azure AD para ver cómo se puede usar al desarrollar aplicaciones en Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 596911ef5add643f622ba062c4a8df43105eac52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 1966840bb664439069814c94299d4937020a9669
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26612115"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331691"
 ---
 # <a name="how-application-consent-works"></a>Cómo funciona el consentimiento de la aplicación
 

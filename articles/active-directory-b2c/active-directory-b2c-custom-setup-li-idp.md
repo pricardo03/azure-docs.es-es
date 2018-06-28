@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0544daf310d40ea419cb6a46cbbf308ebc924715
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 889264dc06d1a6f10713ff5fcd7ff644c113bb45
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709332"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752323"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: adición de LinkedIn como proveedor de identidades mediante directivas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 Complete los pasos del artículo [Azure Active Directory B2C: introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Paso 1: Creación de una aplicación de la cuenta de LinkedIn
-Para usar LinkedIn como proveedor de identidades en Azure Active Directory B2C (Azure AD B2C), es preciso crear una aplicación de LinkedIn y suministrarle los parámetros correctos. Para registrar una aplicación de LinkedIn, vaya a la [página de registro de LinkedIn](https://LinkedIn.com/signup).
+Para usar LinkedIn como proveedor de identidades en Azure Active Directory B2C (Azure AD B2C), es preciso crear una aplicación de LinkedIn y suministrarle los parámetros correctos. Para registrar una aplicación de LinkedIn, vaya a la [página de registro de LinkedIn](https://www.linkedin.com/start/join).
 
 1. Vaya el sitio web de [administración de aplicaciones de LinkedIn](https://www.linkedin.com/secure/developer?newapp=), inicie sesión con las credenciales de su cuenta de LinkedIn y haga clic en **Crear aplicación**.
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 0fde3cb77389994352b62f06d370c709fa115749
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1c91c1ed8358f58ab7a4d9a697ec2d7933c4f137
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155347"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316745"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Inicio de sesión de usuarios de cuentas Microsoft y Azure Active Directory en una sola aplicación
 Antes, los desarrolladores de aplicaciones que querían admitir cuentas de Microsoft personales y profesionales de Azure Active Directory debían realizar la integración con dos sistemas independientes. El punto de conexión de la versión 2.0 de Azure Active Directory (Azure AD) presenta una nueva versión de la API de autenticación que simplifica este proceso. El punto de conexión de la versión 2.0 de Azure AD permite iniciar sesión con ambos tipos de cuenta mediante el uso de una única integración. Las aplicaciones que usan el punto de conexión de la versión 2.0 de Azure AD también pueden usar las API de REST de [Microsoft Graph API](https://graph.microsoft.io) con cualquier tipo de cuenta.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 239134e7665b80ef78b6a3df12c14156bff9ae29
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600068"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317065"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Introducción a Azure Maps
 Azure Maps es una cartera de servicios geoespaciales que incluyen API de servicio para mapas, búsqueda, rutas, tráfico y zonas horarias. La cartera de servicios le permite usar herramientas conocidas para desarrollar y escalar rápidamente soluciones que integran la información de ubicación en las soluciones de Azure. Azure Maps ofrece a los desarrolladores de todos los sectores funcionalidades geoespaciales eficaces, integradas con nuevos datos de asignación que son imperativos para proporcionar contexto geográfico a aplicaciones web y móviles. Azure Maps es un conjunto de API de REST, acompañado de un control de JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios. 
@@ -77,27 +77,9 @@ La API de Azure Maps no está disponible actualmente en los siguientes países. 
 * Pakistán
 * Corea del Sur
 
-## <a name="relationship-with-bing-maps"></a>Relación con Mapas de Bing
-Los mapas descritos en este documento son distintos de los que proporciona Mapas de Bing. Aunque comparten gran parte de la funcionalidad, los dos servicios son diferentes y no están relacionados. Este servicio de Azure no afecta a la oferta de productos ni los mapas de ruta de Mapas de Bing.
-
-El objetivo de Microsoft es permitir elegir a la comunidad de desarrolladores con respecto a la ubicación de las ofertas de servicio. La tabla siguiente contiene instrucciones para los desarrolladores que están en proceso de decidir qué servicio usar: 
-
-| Escenario | Use Azure Maps cuando: | Use Mapas de Bing cuando: |
-| ------------- | ------------- | ------------- |
-| Entorno de desarrollo | Compile o coordine con otros servicios de Azure | Utilice una nube de terceros u otro entorno de desarrollador |
-| Fase de desarrollo  | Azure Maps está optimizado para las primeras pruebas y el desarrollo de la prueba de concepto | Un Acuerdo de Nivel de Servicio de nivel empresarial es necesario para un entorno de producción |
-| Opciones de precios | Las opciones de precios preliminares para desarrolladores son suficientes | Se requieren precios personalizados de nivel empresarial |
-| Entorno de casos prácticos | Se requiere el uso de vehículo | No se requiere el uso de vehículo |
-| Cobertura geográfica | No se requiere para India, China, Japón y Corea del Sur | Se requiere la cobertura de mapas para India, China, Japón y Corea del Sur |
-| Contenido de mapas | Los mapas con una superficie estándar son suficientes | Se requieren imágenes de calles laterales, aéreas o por satélite |
-| Origen de mapas básicos | Se prefieren datos de mapas de TomTom | Se prefieren datos de mapas de HERE |
-
-Regístrese para obtener una [cuenta de Azure Maps hoy mismo](http://aka.ms/azurelbsportal).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora tiene una introducción a Azure Maps. El paso siguiente es probar una aplicación de ejemplo que demuestra el servicio.
 
 > [!div class="nextstepaction"]
 > [Iniciar un mapa de búsqueda interactiva de demostración](quick-demo-map-app.md)
-

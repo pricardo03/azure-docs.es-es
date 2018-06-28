@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 152cf0c8504205e09b075714a58811d240ab431c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d4b84904db703d1e8e78240cb971250672ef9615
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598307"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753295"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar una aplicación en Azure
 En este artículo se muestra cómo restaurar una aplicación de [Azure App Service](../app-service/app-service-web-overview.md) de la que ha realizado previamente una copia de seguridad (consulte [Realizar una copia de seguridad de la aplicación en Azure](web-sites-backup.md)). Puede restaurar la aplicación con sus bases de datos vinculadas a petición a un estado anterior o crear una nueva aplicación basada en una copia de seguridad de la aplicación original. Azure App Service admite las siguientes bases de datos para copia de seguridad y restauración:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
-- [Azure Database para PostgreSQL](https://azure.microsoft.com/services/postgres)
+- [Azure Database para PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL en aplicación](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 La restauración de las copias de seguridad está disponible para las aplicaciones que se ejecutan en el nivel **Estándar** y **Premium**. Para obtener más información sobre la escalación de su aplicación, vea [Escalación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). El nivel **premium** permite realizar un mayor número de copias de seguridad diarias que se van a realizar en el nivel **estándar**.

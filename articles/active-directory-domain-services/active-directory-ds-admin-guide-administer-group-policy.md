@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 3f49e4ac0073c81a6e55e6653acc7c6531989379
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ea7aa6c9dbde9a161567a815870b05da06cc82c8
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212247"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331718"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administración de directiva de grupo en un dominio administrado de Azure AD Domain Services
 Azure Active Directory Domain Services incluye objetos de directiva de grupo (GPO) integrados para los contenedores "Usuarios del controlador de dominio de AAD" Y "Equipos del controlador de dominio de AAD". Puede personalizar estos GPO integrados para configurar la directiva de grupo en el dominio administrado. Además, los miembros del grupo "Administradores de DC de AAD" pueden crear sus propias unidades organizativas personalizadas en el dominio administrado. También pueden crear GPO personalizados y vincularlos a estas unidades organizativas personalizadas. A los usuarios que pertenecen al grupo "Administradores del controlador de dominio de AAD" se les conceden privilegios de administración de directiva de grupo en el dominio administrado.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:

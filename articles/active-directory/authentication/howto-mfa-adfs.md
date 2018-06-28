@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 3f1d6b00652270d143f7df48b0f690c5f33433e9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ce70641d9ccb3c86d1360a0aaf21a4817e2b3c5d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866070"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317868"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
 Si su organización está federada con Azure Active Directory, use Azure Multi-Factor Authentication o los servicios de federación de Active Directory (AD FS) para proteger los recursos a los que se accede mediante Azure AD. Utilice los siguientes procedimientos para proteger recursos de Azure Active Directory mediante Azure Multi-Factor Authentication o Servicios de federación de Active Directory.
@@ -80,7 +80,7 @@ Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configuración de las IP de confianza de Azure Multi-Factor Authentication con usuarios federados
 Ahora que las notificaciones están listas, podemos configurar direcciones IP de confianza.
 
-1. Inicie sesión en el [Azure Portal](https://portal.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione **Azure Active Directory** > **Acceso condicional** > **Ubicaciones con nombre**.
 3. Desde la hoja **Acceso condicional: ubicaciones con nombre**, seleccione **Configurar direcciones IP de confianza de MFA**
 

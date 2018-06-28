@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 3d85208096b1300904e1cc1f59c45dd4dd5713a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34684428"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313887"
 ---
 ## <a name="deleting-personal-information"></a>Eliminación de información personal
 
@@ -40,7 +40,7 @@ La información de contacto personal se puede eliminar de las maneras siguientes
 - Los datos guardados con el trabajo se eliminan junto con el trabajo. Los usuarios pueden eliminar manualmente los trabajos y los trabajos completados se eliminan automáticamente después de 90 días. Puede eliminar manualmente los trabajos a través de la API REST o de Azure Portal. Para eliminar el trabajo en Azure Portal, vaya a su trabajo de importación y exportación y haga clic en *Eliminar* en la barra de comandos. Para más información sobre cómo eliminar un trabajo de importación y exportación mediante la API REST, consulte [Cancelación y eliminación de trabajos de Azure Import/Export](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - La información de contacto que se guarda en la configuración del portal se puede quitar eliminando esta configuración. Puede eliminar la configuración del portal si realiza estos pasos:
-  - Inicie sesión en [Azure Portal](https://portal.azure.com).
+  - Inicie sesión en el [Azure Portal](https://portal.azure.com).
   - Haga clic en el icono *Configuración* ![icono de configuración de Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Haga clic en *Exportar todas las opciones de configuración* (para guardar la configuración actual en un archivo `.json`).
   - Haga clic en *Eliminar todas las opciones de configuración y los paneles privados* para eliminar todas las opciones de configuración, incluida la información de contacto de guardada.

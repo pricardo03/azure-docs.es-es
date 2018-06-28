@@ -2,7 +2,7 @@
 
 Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar la plantilla. Sin embargo, primero debe cargar la plantilla en la cuenta de almacenamiento de Cloud Shell. Si no ha usado Cloud Shell, vea [Introducción a Azure Cloud Shell](../articles/cloud-shell/overview.md) para más información sobre su configuración.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
 

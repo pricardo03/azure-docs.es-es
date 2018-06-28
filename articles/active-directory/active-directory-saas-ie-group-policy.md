@@ -15,12 +15,12 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34341013"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308543"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo
 En este tutorial se muestra cómo usar la directiva de grupo para instalar de forma remota la extensión de panel de acceso para Internet Explorer en los equipos de los usuarios. Esta extensión es necesaria para los usuarios de Internet Explorer que deben iniciar sesión en aplicaciones que están configuradas con un [inicio de sesión único basado en contraseña](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -44,7 +44,7 @@ En primer lugar, debe colocar el paquete del instalador en una ubicación de red
    
     ![Abra Servicios de archivos y almacenamiento.](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Complete el **Asistente para nuevo recurso compartido** y establezca permisos para asegurarse de que se pueda acceder desde los equipos de los usuarios. [Más información acerca de los recursos compartidos.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Descargue el paquete de Microsoft Windows Installer (archivo .msi) siguiente: [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+5. Descargue el paquete de Microsoft Windows Installer (archivo .msi) siguiente: [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Copie el paquete del instalador en la ubicación deseada del recurso compartido.
    
     ![Copie el archivo .msi en el recurso compartido.](./media/active-directory-saas-ie-group-policy/copy-package.png)

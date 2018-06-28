@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 22a3c5b2c7c4676c9c05c7cc67f30108a5dfbe5b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644688"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753459"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
 
 En este tutorial se describen varios escenarios clave de administración de rendimiento que se usan en aplicaciones de SaaS. Mediante un generador de carga para simular actividad en todas las bases de datos multiinquilino con particiones, se demuestran las características integradas de supervisión y alertas de SQL Database.
 
-La aplicación SaaS de base de datos multiinquilino llamada Wingtip Tickets usa un modelo de datos multiinquilino con particiones, en el que los datos de ubicación (inquilino) se distribuyen según el identificador de inquilino entre varias bases de datos. Al igual que en muchas aplicaciones SaaS, el patrón de carga de trabajo de inquilino previsto es imprevisible y esporádico. En otras palabras, las ventas de entradas pueden producirse en cualquier momento. Para sacar el máximo partido a este patrón típico de uso de base datos, se pueden escalar y reducir verticalmente las bases de datos para optimizar el costo de una solución. Con este tipo de patrón, es importante supervisar el uso de los recursos de la base de datos para asegurarse de que las cargas están razonablemente repartidas entre varias bases de datos. También debe asegurarse de que las bases de datos individuales tienen los recursos adecuados y de que no han alcanzado el límite de [unidades de transmisión de datos](sql-database-what-is-a-dtu.md). En este tutorial se exploran métodos para supervisar y administrar las bases de datos, y se explica cómo tomar medidas correctivas en respuesta a las variaciones en la carga de trabajo.
+La aplicación SaaS de base de datos multiinquilino llamada Wingtip Tickets usa un modelo de datos multiinquilino con particiones, en el que los datos de ubicación (inquilino) se distribuyen según el identificador de inquilino entre varias bases de datos. Al igual que en muchas aplicaciones SaaS, el patrón de carga de trabajo de inquilino previsto es imprevisible y esporádico. En otras palabras, las ventas de entradas pueden producirse en cualquier momento. Para sacar el máximo partido a este patrón típico de uso de base datos, se pueden escalar y reducir verticalmente las bases de datos para optimizar el costo de una solución. Con este tipo de patrón, es importante supervisar el uso de los recursos de la base de datos para asegurarse de que las cargas están razonablemente repartidas entre varias bases de datos. También debe asegurarse de que las bases de datos individuales tienen los recursos adecuados y de que no han alcanzado el límite de [unidades de transmisión de datos](sql-database-service-tiers.md#what-are-database-transaction-units-dtus). En este tutorial se exploran métodos para supervisar y administrar las bases de datos, y se explica cómo tomar medidas correctivas en respuesta a las variaciones en la carga de trabajo.
 
 En este tutorial, aprenderá a:
 

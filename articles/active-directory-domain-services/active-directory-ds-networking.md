@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265054"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301002"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Selección de una instancia de Azure Virtual Network
@@ -107,7 +107,7 @@ Además, el NSG muestra también cómo bloquear el acceso LDAP seguro a través 
 
 ![NSG de muestra para el acceso LDAPS seguro a través de Internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Más información** - [Creación de un grupo de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Más información** - [Creación de un grupo de seguridad de red](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Conectividad de red
@@ -145,4 +145,4 @@ Una red virtual basada en Resource Manager se puede conectar a una instancia cl�
 * [Emparejamiento de Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md)
 * [Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Grupos de seguridad de la red de Azure](../virtual-network/security-overview.md)
-* [Creación de un grupo de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Creación de un grupo de seguridad de red](../virtual-network/manage-network-security-group.md)

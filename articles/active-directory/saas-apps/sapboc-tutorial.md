@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 4848132254736aca12be5e31325d98a936754af2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220641"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integración de Azure Active Directory con SAP Business Object Cloud
 
@@ -129,7 +129,7 @@ Para configurar el inicio de sesión único en Azure AD con SAP Business Object 
     ![Direcciones URL de la página Dominio y direcciones URL de SAP Business Object Cloud](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > Los valores de estas direcciones URL se muestran solo con fines demostrativos. Debe actualizarlos con las direcciones URL reales de inicio de sesión único y de identificador. Para obtener la dirección URL de inicio de sesión, póngase en contacto con el [equipo de soporte técnico de SAP Business Object Cloud](https://www.sap.com/product/analytics/cloud-analytics.support.html). Para obtener la dirección URL de identificador, descargue los metadatos de SAP Business Object Cloud desde la consola de administración. Esto se explica posteriormente en este tutorial. 
+    > Los valores de estas direcciones URL se muestran solo con fines demostrativos. Debe actualizarlos con las direcciones URL reales de inicio de sesión único y de identificador. Para obtener la dirección URL de inicio de sesión, póngase en contacto con el [equipo de soporte técnico de SAP Business Object Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Para obtener la dirección URL de identificador, descargue los metadatos de SAP Business Object Cloud desde la consola de administración. Esto se explica posteriormente en este tutorial. 
 
 4. En **Certificado de firma de SAML**, seleccione **XML de metadatos**. Luego, guarde el archivo de metadatos en el equipo.
 

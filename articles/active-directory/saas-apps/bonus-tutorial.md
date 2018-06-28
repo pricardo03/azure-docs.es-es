@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: adde08f7981e6e23ba5bf2601d2f019702d1d33c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231651"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integración de Azure Active Directory con Bonusly
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://Bonus.ly/saml/<tenant-name>`.
 
     > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico al cliente de Bonusly](https://Bonusly/contact) para obtener estos valores.
+    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico al cliente de Bonusly](https://bonus.ly/contact) para obtener estos valores.
  
 4. En la sección **Certificado de firma de SAML**, copie el valor de **HUELLA DIGITAL** del certificado.
 

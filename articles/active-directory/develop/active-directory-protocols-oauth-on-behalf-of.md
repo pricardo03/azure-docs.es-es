@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: celested
-ms.reviewer: hirsin; nacanuma
+ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2bb0d10fee04c4ee48344695769fa7768b0f3a85
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e8957db002dd6fdeaf6da03b02e518e3e423539d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823873"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317738"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios mediante la identidad de usuarios delegada en el flujo de On-Behalf-Of
 El flujo en nombre de otra persona (OBO) de OAuth 2.0 se usa en los casos en que una aplicación invoca a una API web o de servicio que a su vez tiene que llamar a otra API web o de servicio. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de Azure Active Directory (Azure AD) en nombre del usuario.

@@ -3,22 +3,23 @@ title: Cómo determinar el método de inicio de sesión único que se debe usar 
 description: Conozca los modos de inicio de sesión único que se admiten en Azure AD y cómo seleccionar uno para la aplicación que le interesa.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 52f4045ebb30bf32989e9f7b946fd03d468a9de2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.author: barbkess
+ms.openlocfilehash: 79fe30fbe0baed9d62e6bc3328e754958516ef70
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34070675"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335414"
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Cómo determinar el método de inicio de sesión único que se debe usar
 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040300"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753326"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Comparación de productos de supervisión de Microsoft
 Este artículo proporciona una comparación entre System Center Operations Manager (SCOM) y Log Analytics en Operations Management Suite (OMS) en cuanto a su arquitectura, la lógica de cómo supervisan los recursos y la forma en la que realizan un análisis de los datos recopilados.  En él se proporciona información fundamental sobre sus diferencias y sus fuerzas relativas.  
 
 ## <a name="basic-architecture"></a>Arquitectura básica
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-Todos los componentes de SCOM están instalados en su centro de datos.  [Los agentes están instalados](http://technet.microsoft.com/library/hh551142.aspx) en equipos Windows y Linux administrados por SCOM.  Los agentes se conectan a [servidores de administración de](https://technet.microsoft.com/library/hh301922.aspx) , que se comunican con el almacén de datos y la base de datos de SCOM.  Los agentes se basan en la autenticación de dominio para conectarse a servidores de administración.  Los que están fuera de un dominio de confianza pueden realizar la autenticación de certificado o conectarse a un [servidor de puerta de enlace](https://technet.microsoft.com/library/hh212823.aspx).
+Todos los componentes de SCOM están instalados en su centro de datos.  [Los agentes están instalados](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) en equipos Windows y Linux administrados por SCOM.  Los agentes se conectan a [servidores de administración de](https://technet.microsoft.com/library/hh301922.aspx) , que se comunican con el almacén de datos y la base de datos de SCOM.  Los agentes se basan en la autenticación de dominio para conectarse a servidores de administración.  Los que están fuera de un dominio de confianza pueden realizar la autenticación de certificado o conectarse a un [servidor de puerta de enlace](https://technet.microsoft.com/library/hh212823.aspx).
 
 SCOM requiere dos bases de datos SQL, una para datos operativos y otro almacén de datos para admitir informes y análisis de datos.  Un [servidor de informes](https://technet.microsoft.com/library/hh298611.aspx) ejecuta SQL Reporting Services para informar sobre los datos del almacén de datos. 
 
@@ -42,7 +42,7 @@ La mayoría de los componentes de OMS se encuentran en la nube de Azure, por lo 
 Log Analytics puede recopilar datos desde uno de estos tres orígenes:
 
 * Máquinas físicas y virtuales con Windows y [Microsoft Monitoring Agent (MMA)](https://technet.microsoft.com/library/mt484108.aspx) o Linux y [Operations Management Suite Agent para Linux](https://technet.microsoft.com/library/mt622052.aspx).  Estos equipos pueden ser locales o máquinas virtuales en Azure u otra nube.
-* Una cuenta de Almacenamiento de Azure con datos de [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) que recopila datos de un rol de trabajo de Azure, rol web o máquina virtual.
+* Una cuenta de Azure Storage con datos de [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) que recopila datos de un rol de trabajo de Azure, rol web o máquina virtual.
 * [Conexión a un grupo de administración de SCOM](https://technet.microsoft.com/library/mt484104.aspx).  En esta configuración, los agentes se comunican con los servidores de administración de SCOM que entregan los datos a la base de datos de SCOM, y desde allí pasan al almacén de datos de OMS.
   Los administradores analizan los datos recopilados y configuran Log Analytics con el portal de OMS que se hospeda en Azure y al que puede obtenerse acceso desde cualquier explorador.  Las aplicaciones móviles para obtener acceso a estos datos están disponibles para las plataformas estándares.
 
@@ -139,7 +139,7 @@ Las vistas son especialmente útiles para analizar el estado actual del entorno,
 #### <a name="dashboards"></a>Paneles
 Los paneles de la consola del operador trabajan principalmente con los mismos datos que las vistas pero son más personalizables y pueden incluir visualizaciones más enriquecidas.  Hay disponible un conjunto de paneles estándar que puede personalizar con facilidad para sus propios fines.  También puede utilizar un widget de PowerShell que puede mostrar los datos devueltos de una consulta de PowerShell.
 
-![Panel](media/operations-management-suite-monitoring-product-comparison/scom-dashboard.png)
+![panel](media/operations-management-suite-monitoring-product-comparison/scom-dashboard.png)
 
 Los desarrolladores tienen la capacidad de agregar componentes personalizados a los paneles que se incluyen en sus módulos de administración.  Estos pueden disponer de una alta especialización en una aplicación determinada, como el panel en el módulo de administración de SQL que se muestra a continuación.  Este panel también puede utilizarse como plantilla para versiones personalizadas.
 

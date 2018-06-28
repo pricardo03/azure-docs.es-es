@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 89fcd88643bd793935e7476ef32641ffa5ff4713
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299800"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030963"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Escenario: Desencadenado de aplicaciones lógicas con Azure Functions y Service Bus
 
@@ -39,7 +39,7 @@ En este ejemplo, se ejecuta una función para cada aplicación lógica que neces
 ## <a name="build-the-function"></a>Compilación de la función
 Después, debe crear una función que actúe como el desencadenador y escuche a la cola.
 
-1. En el [portal de Azure Functions](https://functions.azure.com/signin), seleccione **Nueva función** y, luego, seleccione la plantilla **ServiceBusQueueTrigger - C#**.
+1. En el [portal de Azure Functions](https://functions.azure.com/), seleccione **Nueva función** y, luego, seleccione la plantilla **ServiceBusQueueTrigger - C#**.
    
     ![portal de Azure Functions][2]
 2. Configure la conexión a la cola de Service Bus (que va a usar el agente de escucha `OnMessageReceive()` del SDK de Azure Service Bus).
