@@ -14,12 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 1bdc7a4d50b81c615d9aca651c897796d9f60c00
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7a58fca716389f35db7312948674e86b3104fe62
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292283"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308003"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
 ## <a name="overview"></a>Información general
@@ -63,10 +63,10 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 ## <a name="sharing-an-account"></a>Uso compartido de una cuenta
 Para usar Azure AD para compartir una cuenta, debe hacer lo siguiente:
 
-* Agregar una aplicación de la [galería de aplicaciones](https://azure.microsoft.com/marketplace/active-directory/) o una [aplicación personalizada](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
+* Agregar una aplicación de la [galería de aplicaciones](https://azure.microsoft.com/marketplace/active-directory/) o una [aplicación personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configurar la aplicación para el inicio de sesión único (SSO) con contraseña
 * Usar la [asignación basada en grupos](active-directory-accessmanagement-group-saasapps.md) y seleccionar la opción para escribir una credencial compartida.
-* Opcional: en algunas aplicaciones, como Facebook, Twitter o LinkedIn, puede habilitar la opción para [reasignar la contraseña automatizada de Azure AD](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* Opcional: en algunas aplicaciones, como Facebook, Twitter o LinkedIn, puede habilitar la opción para [reasignar la contraseña automatizada de Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 También puede hacer que su cuenta compartida sea más segura con Multi-Factor Authentication (MFA) (más información acerca de la [protección de aplicaciones con Azure AD](authentication/concept-mfa-whichversion.md)) y puede delegar la capacidad para administrar quién tiene acceso a la aplicación mediante la administración de grupos de [autoservicio de Azure AD](active-directory-accessmanagement-self-service-group-management.md).
 
