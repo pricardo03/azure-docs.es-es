@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151015"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030060"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicación de revisiones al sistema operativo y al entorno de tiempo de ejecución en Azure App Service
 
@@ -74,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>Versiones en desuso
+### <a name="deprecated-versions"></a>Versiones en desuso  
 
 Cuando está en desuso una versión anterior, la fecha de eliminación se anuncia para que pueda planear la actualización de la versión en tiempo de ejecución. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>¿Cómo puedo consultar el estado de actualización del sistema operativo y en tiempo de ejecución en mis instancias?
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>¿Cómo puedo consultar el estado de actualización del sistema operativo y en tiempo de ejecución en mis instancias?  
 
 Aunque el acceso a información crítica sobre el sistema operativo está bloqueada (vea [Funcionalidad del sistema operativo en Azure App Service](web-sites-available-operating-system-functionality.md)), la [consola de Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) le permite consultar las versiones del sistema operativo y en tiempo de ejecución en la instancia de App Service. 
 
 En la tabla siguiente se muestra cómo consultar las versiones de Windows y del tiempo de ejecución de lenguaje que ejecutan las aplicaciones:
 
-| Información | Dónde encontrarla |
+| Información | Dónde encontrarla | 
 |-|-|
 | Versión de Windows | Consulte `https://<appname>.scm.azurewebsites.net/Env.cshtml` (en Información del sistema) |
 | Versión de .NET | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | Versión de .NET Core | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `dotnet --version` |
 | Versión de PHP | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `php --version` |
 | Versión de Node.js predeterminada | En [Cloud Shell](../cloud-shell/overview.md), ejecute el comando siguiente: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Versión de Python | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `python --version` |
+| Versión de Python | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > El acceso a la ubicación del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, donde se almacena la información sobre las [revisiones "KB"]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)), está bloqueado.
 >
 >
 
 ## <a name="more-resources"></a>Más recursos
 
-[Centro de confianza: seguridad](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Centro de confianza: seguridad](https://www.microsoft.com/en-us/trustcenter/security)  
 [ASP.NET Core de 64 bits en Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
