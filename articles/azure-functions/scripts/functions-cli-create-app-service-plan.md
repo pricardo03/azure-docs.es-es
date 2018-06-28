@@ -16,18 +16,16 @@ ms.workload: web
 ms.date: 10/22/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: d2c346424c5bcec7ec91b309799a1bf9fe3cab02
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 744c5310e08066dcbbfbde55b8e6ecb6c9361855
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29842789"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937305"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Creación de una instancia de Function App en un plan de App Service
 
 Este script de ejemplo de Azure Functions crea una aplicación de función, que es un contenedor para las funciones. La aplicación de función que se crea utiliza un plan de App Service dedicado, lo que significa que los recursos del servidor están siempre disponibles.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +49,7 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crea una cuenta de Azure Storage. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Crea un plan de App Service, |
+| [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Crea un plan de App Service, |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Crea una instancia de Azure Function App. |
 
 ## <a name="next-steps"></a>Pasos siguientes

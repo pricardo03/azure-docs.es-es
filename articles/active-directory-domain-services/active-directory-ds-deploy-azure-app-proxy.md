@@ -13,20 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 4ee07d8b9180c04c714476da845ceffaa4388bee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 43b43be154756838d8c130b2ec1a0dbc40405422
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229536"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332361"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementación del proxy de aplicación de Azure AD en dominios administrados de Azure Active Directory Domain Services.
 El proxy de aplicación de Azure Active Directory (AD) permite publicar aplicaciones locales para acceder a ellas a través de Internet y poder admitir trabajadores remotos. Con Azure AD Domain Services, ahora podrá trasladar aplicaciones heredadas que se ejecutan de forma local en los servicios de infraestructura de Azure. Después, podrá publicar estas aplicaciones mediante el proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a los usuarios de su organización.
 
 También, si no está familiarizado con el proxy de aplicación de Azure AD, obtenga más información sobre esta característica con el siguiente artículo [Provisión de acceso remoto seguro a aplicaciones locales](../active-directory/manage-apps/application-proxy.md).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:

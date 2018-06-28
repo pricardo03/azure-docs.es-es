@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: c8676b4e7228105216f23de7c898c43c40fc2d0a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 15024c4c8a5ae508a24d7452a21262c70ec9aba0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168697"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044772"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante la actividad de Spark en Azure Data Factory
 En este tutorial, se usa Azure PowerShell para crear una canalización de Data Factory que transforma los datos mediante la actividad de Spark y un servicio vinculado a HDInsight a petición. En este tutorial, realizará los siguientes pasos:
@@ -28,9 +28,6 @@ En este tutorial, se usa Azure PowerShell para crear una canalización de Data F
 > * Creación e implementación de una canalización 
 > * Inicio de la ejecución de una canalización
 > * Supervisión de la ejecución de la canalización
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dcfb43003e81bb51574b401c21202925b16305f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 458d01d61872d13cee735c7098cce5dcc905c31c
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26614420"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960413"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Uso de Azure AD Connect Health con AD DS
 La siguiente documentación es específica de la supervisión de Active Directory Domain Services con Azure AD Connect Health. Las versiones compatibles de AD DS son: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016.
 
 Para más información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md). Para obtener información adicional sobre la supervisión de Azure AD Connect (Sync) con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md).
 
-![Azure AD Connect Health para AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
+![Azure AD Connect Health para AD DS](./media/active-directory-aadconnect-health-adds/domainservicesnapshot.PNG)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>Alertas de Azure AD Connect Health para AD DS
 La sección Alertas de Azure AD Connect Health para AD DS le proporciona una lista de alertas activas y resueltas relacionadas con los controladores de dominio. Si selecciona una alerta activa o resuelta se abrirá una nueva hoja con información adicional, junto con los pasos para su resolución y vínculos a documentación adicional. Cada tipo de alerta puede tener una o más instancias que se corresponden con cada uno de los controladores de dominio afectados por esa alerta en concreto. En la parte inferior de la hoja de la alerta, puede hacer doble clic sobre un controlador de dominio afectado para abrir una hoja adicional con más detalles sobre esa instancia de alerta.

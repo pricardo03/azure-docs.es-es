@@ -13,19 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: bfbafa2edb1d9195760a99f63113d28d3a978a78
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c29bfd42a9e664d83a867debb6b984f3e99a5b7d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173141"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053014"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copia de datos del blob de Azure a Azure SQL Database mediante Azure Data Factory
 En este tutorial, creará una canalización de Data Factory que copia datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Almacenes de datos admitidos).
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -509,7 +505,7 @@ Checking copy activity run details...
   "throughput": 0.01,
   "errors": [],
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
-  "usedCloudDataMovementUnits": 2,
+  "usedDataIntegrationUnits": 2,
   "billedDuration": 2
 }
 

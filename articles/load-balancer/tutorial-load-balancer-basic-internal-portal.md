@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a16e9ad5b72d87614f5d3630e24e6aa36def8c51
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779582"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061852"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Tutorial: equilibrar la carga de tráfico interno de las máquinas virtuales con Load Balancer Básico mediante Azure Portal
 
@@ -43,6 +43,8 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
     - *myAGSubnet*: como nombre de la subred.
 2. Haga clic en **Crear** para crear una red virtual.
 
+![Crear un equilibrador de carga](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
 ## <a name="create-a-basic-load-balancer"></a>Creación de una instancia pública de Load Balancer Básico
 Creación de Load Balancer Básico con el portal.
 
@@ -57,10 +59,7 @@ Creación de Load Balancer Básico con el portal.
     - *myResourceGroupILB*: como nombre del nuevo grupo de recursos que creó.
 3. Haga clic en **Crear** para crear el equilibrador de carga.
    
-    ![Crear un equilibrador de carga](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## <a name="create-backend-servers"></a>Creación de servidores back-end
+    ## <a name="create-backend-servers"></a>Creación de servidores back-end
 
 En esta sección, se crean dos máquinas virtuales para el grupo de back-end de la instancia de Load Balancer Básico, y se instala IIS en las máquinas virtuales para ayudar a probar el equilibrador de carga.
 

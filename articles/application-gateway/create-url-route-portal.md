@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: e923167ef0b7cdb300fa5ad1421cc18489393ce2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ecb8a46c57d31c8a19f3a7b75306e42a7d3981bd
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265185"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335744"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -155,7 +155,7 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
     ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http://http://40.121.222.19.
+2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http://40.121.222.19.
 
     ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-iistest.png)
 

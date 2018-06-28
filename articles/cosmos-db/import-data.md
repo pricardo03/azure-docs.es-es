@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 07c41bb02863cc32372722cbcbac4be2c5071860
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611473"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029611"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: herramienta de migración de datos
 
@@ -222,16 +222,16 @@ El formato de la cadena de conexión de almacenamiento de tablas de Azure es:
 > 
 > 
 
-Escriba el nombre de la tabla de Azure desde la que se importarán los datos. Opcionalmente, puede especificar un [filtro](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Escriba el nombre de la tabla de Azure desde la que se importarán los datos. Opcionalmente, puede especificar un [filtro](../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 La opción del importador de origen de almacenamiento de tablas de Azure tiene las siguientes opciones adicionales:
 
 1. Incluir campos internos
    1. All: incluir todos los campos internos (PartitionKey, RowKey y Timestamp)
    2. None: excluir todos los campos internos
-   3. RowKey: incluir solo el campo RowKey
+   3. RowKey: incluir sólo el campo RowKey
 2. Seleccionar columnas
-   1. Los filtros de almacenamiento de tablas de Azure no admiten proyecciones. Si desea importar solo las propiedades específicas de la entidad de tablas de Azure, agréguelas a la lista Seleccionar columnas. Se omiten todas las demás propiedades de la entidad.
+   1. Los filtros de almacenamiento de tablas de Azure no admiten proyecciones. Si desea importar sólo las propiedades específicas de la entidad de tablas de Azure, agréguelas a la lista Seleccionar columnas. Se omiten todas las demás propiedades de la entidad.
 
 A continuación se muestra un ejemplo de línea de comandos para importar desde Azure Table Storage:
 
@@ -296,12 +296,12 @@ La opción del importador de origen de Azure Cosmos DB tiene las siguientes opci
 1. Incluir campos internos: especifica si se debe o no incluir propiedades del sistema de documentos de Azure Cosmos DB en la exportación (por ejemplo, _rid, _ts).
 2. Número de reintentos en caso de error: especifica el número de veces que se intentará la conexión a Azure Cosmos DB en caso de errores transitorios (por ejemplo, interrupciones de conectividad de red).
 3. Intervalo de reintento: especifica el tiempo de espera entre los reintentos de restablecimiento de conexión a Azure Cosmos DB en caso de errores transitorios (por ejemplo, interrupción de la conectividad de red).
-4. Modo de conexión: especifica el modo de conexión para utilizar con Azure Cosmos DB. Las opciones disponibles son DirectTcp, DirectHttps y puerta de enlace. Los modos de conexión directa son más rápidos, mientras que el modo de puerta de enlace es compatible con el firewall, ya que solo usa el puerto 443.
+4. Modo de conexión: especifica el modo de conexión para utilizar con Azure Cosmos DB. Las opciones disponibles son DirectTcp, DirectHttps y puerta de enlace. Los modos de conexión directa son más rápidos, mientras que el modo de puerta de enlace es compatible con el firewall, ya que sólo usa el puerto 443.
 
 ![Captura de pantalla de opciones avanzadas de origen de Azure Cosmos DB](./media/import-data/documentdbsourceoptions.png)
 
 > [!TIP]
-> El modo de conexión predeterminado de la herramienta de importación es DirectTcp. Si experimenta problemas de firewall, cambie al modo de conexión puerta de enlace, ya que solo requiere el puerto 443.
+> El modo de conexión predeterminado de la herramienta de importación es DirectTcp. Si experimenta problemas de firewall, cambie al modo de conexión puerta de enlace, ya que sólo requiere el puerto 443.
 > 
 > 
 
@@ -396,12 +396,12 @@ El importador masivo de Azure Cosmos DB tiene las siguientes opciones avanzadas 
 4. Actualización de documentos existentes: la opción predeterminada es no reemplazar los documentos existentes por conflictos de identificador. Si selecciona esta opción, permite que se sobrescriban los documentos existentes con identificadores que coinciden entre sí. Esta característica es útil para las migraciones de datos programadas que actualizan los documentos existentes.
 5. Número de reintentos en caso de error: especifica el número de veces que se intentará la conexión a Azure Cosmos DB en caso de errores transitorios (por ejemplo, interrupciones de conectividad de red).
 6. Intervalo de reintento: especifica el tiempo de espera entre los reintentos de restablecimiento de conexión a Azure Cosmos DB en caso de errores transitorios (por ejemplo, interrupción de la conectividad de red).
-7. Modo de conexión: especifica el modo de conexión para utilizar con Azure Cosmos DB. Las opciones disponibles son DirectTcp, DirectHttps y puerta de enlace. Los modos de conexión directa son más rápidos, mientras que el modo de puerta de enlace es compatible con el firewall, ya que solo usa el puerto 443.
+7. Modo de conexión: especifica el modo de conexión para utilizar con Azure Cosmos DB. Las opciones disponibles son DirectTcp, DirectHttps y puerta de enlace. Los modos de conexión directa son más rápidos, mientras que el modo de puerta de enlace es compatible con el firewall, ya que sólo usa el puerto 443.
 
 ![Captura de pantalla de opciones avanzadas de importación masiva de Azure Cosmos DB](./media/import-data/docdbbulkoptions.png)
 
 > [!TIP]
-> El modo de conexión predeterminado de la herramienta de importación es DirectTcp. Si experimenta problemas de firewall, cambie al modo de conexión puerta de enlace, ya que solo requiere el puerto 443.
+> El modo de conexión predeterminado de la herramienta de importación es DirectTcp. Si experimenta problemas de firewall, cambie al modo de conexión puerta de enlace, ya que sólo requiere el puerto 443.
 > 
 > 
 
@@ -455,12 +455,12 @@ El importador de registros secuenciales de Azure Cosmos DB tiene estas opciones 
 3. Actualización de documentos existentes: la opción predeterminada es no reemplazar los documentos existentes por conflictos de identificador. Si selecciona esta opción, permite que se sobrescriban los documentos existentes con identificadores que coinciden entre sí. Esta característica es útil para las migraciones de datos programadas que actualizan los documentos existentes.
 4. Número de reintentos en caso de error: especifica el número de veces que se intentará la conexión a Azure Cosmos DB en caso de errores transitorios (por ejemplo, interrupciones de conectividad de red).
 5. Intervalo de reintento: especifica el tiempo de espera entre los reintentos de restablecimiento de conexión a Azure Cosmos DB en caso de errores transitorios (por ejemplo, interrupción de la conectividad de red).
-6. Modo de conexión: especifica el modo de conexión para utilizar con Azure Cosmos DB. Las opciones disponibles son DirectTcp, DirectHttps y puerta de enlace. Los modos de conexión directa son más rápidos, mientras que el modo de puerta de enlace es compatible con el firewall, ya que solo usa el puerto 443.
+6. Modo de conexión: especifica el modo de conexión para utilizar con Azure Cosmos DB. Las opciones disponibles son DirectTcp, DirectHttps y puerta de enlace. Los modos de conexión directa son más rápidos, mientras que el modo de puerta de enlace es compatible con el firewall, ya que sólo usa el puerto 443.
 
 ![Captura de pantalla de opciones avanzadas de importación de registros secuenciales de Azure Cosmos DB](./media/import-data/documentdbsequentialoptions.png)
 
 > [!TIP]
-> El modo de conexión predeterminado de la herramienta de importación es DirectTcp. Si experimenta problemas de firewall, cambie al modo de conexión puerta de enlace, ya que solo requiere el puerto 443.
+> El modo de conexión predeterminado de la herramienta de importación es DirectTcp. Si experimenta problemas de firewall, cambie al modo de conexión puerta de enlace, ya que sólo requiere el puerto 443.
 > 
 > 
 

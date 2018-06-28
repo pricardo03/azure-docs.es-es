@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 23c9056bbfa6ae0be0f7c73a34250a2fff77f4d2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266013"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319095"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure
 
@@ -32,32 +32,6 @@ Para completar esta guía, necesita:
 
 > [!IMPORTANT]
 > Esta guía de procedimientos requiere el uso de la CLI de Azure versión 2.0 o posterior. Para confirmar la versión, en el símbolo del sistema de la CLI de Azure, escriba `az --version`. Para la instalación o la actualización, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Adición de la extensión
-Agregue la extensión de administración de Azure Database for MySQL actualizada con el comando siguiente:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Compruebe que tiene instalada la versión de la extensión correcta. 
-```azurecli-interactive
-az extension list
-```
-
-El JSON que se devuelva debe incluir lo siguiente: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Si no se devuelve la versión 0.0.5, ejecute el siguiente procedimiento para actualizar la extensión: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Configuración de copia de seguridad
 

@@ -2,7 +2,7 @@
 title: Creación de particiones y escalado horizontal en Azure Cosmos DB | Microsoft Docs
 description: Obtenga información sobre cómo funciona la creación de particiones en Azure Cosmos DB, cómo configurar la creación de particiones y las claves de partición y cómo seleccionar la clave de partición correcta para su aplicación.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d083181b379301ae80e6577ccc3ac8f142767db3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 046e45978d401e05d0ab8154aff994052f5d7717
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261090"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960379"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partición y escalado en Azure Cosmos DB
 

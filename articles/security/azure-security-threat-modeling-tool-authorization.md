@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9ab106a78aa56b8308207bcadb3db0b5a9714a9d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019524"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029499"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -312,7 +312,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Pasos** | <p>El sistema utiliza una referencia débil de clase, que podría permitir que un atacante ejecute código no autorizado. El programa hace referencia a una clase definida por el usuario que no se identifica de forma exclusiva. Cuando .NET carga esta clase débilmente identificada, el cargador de tipo CLR busca la clase en las ubicaciones siguientes en el orden especificado:</p><ol><li>Si se conoce el ensamblado del tipo, el cargador busca en las ubicaciones de redirección del archivo de configuración, la caché global de ensamblados, el ensamblado actual que utiliza información de configuración y el directorio base de la aplicación.</li><li>Si el ensamblado es desconocido, el cargador busca en el ensamblado actual, mscorlib y la ubicación devuelta por el controlador de eventos TypeResolve.</li><li>El orden de la búsqueda de CLR se puede modificar con enlaces, como el mecanismo de reenvío de tipos y el evento AppDomain.TypeResolve.</li></ol><p>Si un atacante aprovecha el orden de la búsqueda de CLR al crear una clase alternativa con el mismo nombre y colocarla en una ubicación alternativa que CLR cargará en primer lugar, CLR ejecutará involuntariamente el código proporcionado por el atacante.</p>|
 
 ### <a name="example"></a>Ejemplo
@@ -349,7 +349,7 @@ El elemento `<behaviorExtensions/>` del archivo de configuración de WCF siguien
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
 | **Pasos** | <p>Este servicio no usa un control de autorización. Cuando un cliente llama a un determinado servicio de WCF, WCF proporciona varios esquemas de autorización que comprueban que el llamador tiene permiso para ejecutar el método de servicio en el servidor. Si los controles de autorización no están habilitados para los servicios de WCF, un usuario autenticado puede lograr una elevación de privilegios.</p>|
 
 ### <a name="example"></a>Ejemplo
