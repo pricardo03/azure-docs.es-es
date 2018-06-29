@@ -38,6 +38,7 @@
 #### [Tarea 3: Habilitación de LDAP seguro para el dominio administrado mediante Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Crear una unidad organizativa en un dominio administrado](active-directory-ds-admin-guide-create-ou.md)
+### [Creación de una cuenta de servicio administrada de grupos en un dominio administrado](active-directory-ds-create-gmsa.md)
 ### [Administración de directivas de grupo en un dominio administrado](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Seleccionar una red virtual](active-directory-ds-networking.md)
 ## Implementación de aplicaciones

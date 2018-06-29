@@ -126,6 +126,10 @@
               href: service-bus-amqp-request-response.md
         - name: Características avanzadas
           items:
+            - name: Filtros de conexión de IP
+              href: service-bus-ip-filtering.md
+            - name: Puntos de conexión del servicio Virtual Network
+              href: service-bus-service-endpoints.md
             - name: Colas de mensajes fallidos
               href: service-bus-dead-letter-queues.md
             - name: Captura previa de mensajes

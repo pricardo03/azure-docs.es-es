@@ -50,7 +50,7 @@
       href: sql-database-design-first-database.md
     - name: 2 - Diseño de una base de datos con .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 3 - Migración a una base de datos de SQL Server mediante DMS
+    - name: 3 - Migración a una base de datos de SQL Server con DMA
       href: sql-database-migrate-your-sql-server-database.md
     - name: 4 - Protección de SQL Database
       href: sql-database-security-tutorial.md

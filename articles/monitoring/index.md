@@ -1,6 +1,6 @@
 ---
-title: 'Administración de Azure: supervisión | Microsoft Docs'
-description: Azure tiene varios servicios y herramientas que funcionan conjuntamente para proporcionar una administración completa no solo a las aplicaciones que se ejecutan en Azure, sino también en otras nubes y un entorno local.  Este artículo proporciona una descripción de alto nivel de las diferentes áreas de administración y tiene vínculos al contenido de las herramientas de Azure para administrar los recursos y aplicaciones en la nube.
+title: Azure Management y Operations Management Suite (OMS) | Microsoft Docs
+description: Información general de las áreas de administración para las aplicaciones y recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure que anteriormente estaban agrupadas como Operations Management Suite (OMS).
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8598e3528aa0a9fb171853e5f6554346ace937ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410301"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059957"
 ---
 # <a name="azure-management---monitoring"></a>Administración de Azure: supervisión
 
