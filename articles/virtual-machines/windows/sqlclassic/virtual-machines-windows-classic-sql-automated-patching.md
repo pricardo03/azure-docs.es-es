@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4bb13ec9d835959273801c2f53c8d736491080a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852717"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061342"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automated Patching para SQL Server en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Según este ejemplo, la siguiente tabla describe el efecto práctico en la máqu
 | --- | --- |
 | **DayOfWeek** |Las revisiones instaladas cada jueves. |
 | **MaintenanceWindowStartingHour** |Inicia las actualizaciones a las 11:00 a.m. |
-| **MaintenanceWindowsDuration** |Las revisiones deben instalarse en un plazo de 120 minutos. Según la hora de inicio, deben haberse completado a las 1:00 p.m. |
+| **MaintenanceWindowDuration** |Las revisiones deben instalarse en un plazo de 120 minutos. Según la hora de inicio, deben haberse completado a las 1:00 p.m. |
 | **PatchCategory** |La única configuración posible para este parámetro es “Importante”. |
 
 La instalación y configuración del agente de Iaas de SQL Server puede tardar algunos minutos.

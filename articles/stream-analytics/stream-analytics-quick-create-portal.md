@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651733"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031437"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
 
@@ -40,7 +40,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
      "hmdt": 44
    }
    ```
-2. Inicie sesión en el Portal de Azure.  
+2. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
 
 3. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**. Rellene la página del trabajo de la cuenta de almacenamiento. En **Nombre**, escriba "asaquickstartstorage", en **Ubicación**, escriba "Oeste de EE. UU. 2" y en **Grupo de recursos**, escriba "asaquickstart-resourcegroup" (para conseguir un mejor rendimiento, hospede la cuenta de almacenamiento en el mismo grupo de recursos que el trabajo de streaming). El resto de la configuración se puede dejar con sus valores predeterminados.  
 
@@ -116,7 +116,7 @@ En esta sección, configurará el almacenamiento de blobs como entrada al trabaj
    |---------|---------|---------|
    |Alias de salida |   BlobOutput   |   Escriba un nombre para identificar la salida del trabajo. |
    |Subscription  |  \<Su suscripción\>  |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
-   |Cuenta de almacenamiento |  myasastorageaccount |   Elija o escriba el nombre de la cuenta de almacenamiento. Los nombres de cuenta de almacenamiento se detectan automáticamente si se crean en la misma suscripción.       |
+   |Cuenta de almacenamiento |  asaquickstartstorage |   Elija o escriba el nombre de la cuenta de almacenamiento. Los nombres de cuenta de almacenamiento se detectan automáticamente si se crean en la misma suscripción.       |
    |Contenedor |   Contenedor1  |  Seleccione el contenedor existente que creó en la cuenta de almacenamiento.   |
    |Patrón de la ruta de acceso |   output  |  Escriba un nombre para que actúe como la ruta de acceso dentro del contenedor existente de la salida.   |
 
