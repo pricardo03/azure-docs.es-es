@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: Tutoriales
   items:
-    - name: Generador
-      items:
-        - name: 1 - Definición de un tipo de dispositivo nuevo
-          href: tutorial-define-device-type.md
-        - name: 2 - Configuración de reglas
-          href: tutorial-configure-rules.md
-        - name: 3 - Personalización de la vista del operador
-          href: tutorial-customize-operator.md
-    - name: Operador
-      items:
-        - name: 4 - Supervisión de los dispositivos
-          href: tutorial-monitor-devices.md
-        - name: 5 - Incorporación de un dispositivo
-          href: tutorial-add-device.md
+    - name: 1 - Definición de un tipo de dispositivo nuevo
+      href: tutorial-define-device-type.md
+    - name: 2 - Configuración de reglas
+      href: tutorial-configure-rules.md
+    - name: 3 - Personalización de la vista del operador
+      href: tutorial-customize-operator.md
+    - name: 4 - Supervisión de los dispositivos
+      href: tutorial-monitor-devices.md
+    - name: 5 - Incorporación de un dispositivo
+      href: tutorial-add-device.md
 - name: Conceptos
   items:
     - name: Architecture
