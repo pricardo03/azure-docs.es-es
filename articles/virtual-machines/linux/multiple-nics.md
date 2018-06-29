@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 1968222940888c1e5399e257a9694d47adce2e45
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2ad04b17fc4c5bafb7fa0b7eea946832430a4f17
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525189"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936758"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
 Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común es tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo describe cómo crear una máquina virtual con varias NIC asociadas a ella y cómo agregar o quitar las NIC de una máquina virtual existente. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
 
-En este artículo se describe cómo crear una máquina virtual con varias NIC con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](multiple-nics-nodejs.md).
+En este artículo se describe cómo crear una máquina virtual con varias NIC con la CLI de Azure 2.0. 
 
 
 ## <a name="create-supporting-resources"></a>Creación de recursos de apoyo

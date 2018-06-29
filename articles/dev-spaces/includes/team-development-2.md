@@ -10,23 +10,23 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 78dca327a470394d19e6befc6578abf2d499850c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247592"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936404"
 ---
 ### <a name="run-the-service"></a>Ejecución del servicio
 
-1. Presione la tecla F5 (o escriba `azds up` en la ventana de terminal) para ejecutar el servicio. El servicio se ejecutará automáticamente en el espacio recién seleccionado `scott`. 
-1. Puede confirmar que el servicio se ejecuta en su propio espacio mediante la ejecución de `azds space list` de nuevo. En primer lugar, observará que se ejecuta una instancia de `mywebapi` en el espacio `scott` (la versión que se ejecuta en `default` sigue ejecutándose, pero no aparece). En segundo lugar, la dirección URL del punto de acceso para `webfrontend` tiene como prefijo el texto "scott.s.". Esta dirección URL es única para el espacio `scott`. La dirección URL especial significa que las solicitudes enviadas a la "dirección URL de scott" intentarán, en primer lugar, enrutar a los servicios del espacio `scott`, pero si se produce un error, realizarán la conmutación por recuperación en los servicios del espacio `default`.
+1. Presione la tecla F5 (o escriba `azds up` en la ventana de terminal) para ejecutar el servicio. El servicio se ejecutará automáticamente en el espacio recién seleccionado `default/scott`. 
+1. Puede confirmar que el servicio se ejecuta en su propio espacio mediante la ejecución de `azds list` de nuevo. En primer lugar, observará que se ejecuta una instancia de `mywebapi` en el espacio `default/scott` (la versión que se ejecuta en `default` sigue ejecutándose, pero no aparece). En segundo lugar, la dirección URL del punto de acceso para `webfrontend` tiene como prefijo el texto "scott.s.". Esta dirección URL es única para el espacio `default/scott`. La dirección URL especial significa que las solicitudes enviadas a la "dirección URL de scott" intentarán, en primer lugar, enrutar a los servicios del espacio `default/scott`, pero si se produce un error, realizarán la conmutación por recuperación en los servicios del espacio `default`.
 
 ```
-Name         Space     Chart              Ports   Updated     Access Points
------------  --------  -----------------  ------  ----------  -------------
-mywebapi     scott     mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
-webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name         Space          Chart              Ports   Updated     Access Points
+-----------  --------       -----------------  ------  ----------  -------------
+mywebapi     default/scott  mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
+webfrontend  default        webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
 ![](../media/common/space-routing.png)

@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 906ad488d1851658f71d6308e8d0385ae8bc69a7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 93d4886d5c266555a5c61a121622943f218caa48
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617229"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045485"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiar datos de MariaDB con Azure Data Factory 
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de MariaDB. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de copia en V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -37,7 +34,7 @@ Actualmente, este conector es compatible con MariaDB en el caso de versiones inf
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de MariaDB.
 

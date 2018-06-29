@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: 28b17fb2e6af2da891e2d92069719e90e01e4db8
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5a818bf4078ce9cf38aa83e4af252eacf6e49982
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726877"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063729"
 ---
 En la siguiente tabla se explica cómo agregar compatibilidad para este enlace en cada entorno de desarrollo.
 
 | Entorno de desarrollo               | Para agregar compatibilidad en <br>Functions 2.x  |
 |----------------------|----------------|---------------|
-|Desarrollo local: biblioteca de clases C#       | [Instalación del paquete](../articles/azure-functions/functions-triggers-bindings.md#local-csharp) |
+|Desarrollo local: biblioteca de clases C#       | [Instalación del paquete](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) |
 |Desarrollo local: script de C#, JavaScript, F# |[Registro de la extensión](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools)         |
 |Desarrollo con Portal| [Automático](../articles/azure-functions/functions-triggers-bindings.md#azure-portal-development)    |

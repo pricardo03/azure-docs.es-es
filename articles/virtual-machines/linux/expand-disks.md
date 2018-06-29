@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: c3dcd2f9c71b64ac48c2c7b6f51d2694d649c15e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8b3a4d7feccc3af55415f54473ae1a2588ad5672
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30291289"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936894"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una máquina virtual Linux mediante la CLI de Azure
-Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Tiene la opción de [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir un disco de datos existente. En este artículo se explica cómo expandir discos administrados para una máquina virtual con Linux mediante la utilización de la CLI de Azure 2.0. También puede expandir el disco del sistema operativo no administrado con la [CLI de Azure 1.0](expand-disks-nodejs.md).
+Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Tiene la opción de [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir un disco de datos existente. En este artículo se explica cómo expandir discos administrados para una máquina virtual con Linux mediante la utilización de la CLI de Azure 2.0. 
 
 > [!WARNING]
 > Asegúrese siempre de realizar una copia de seguridad de los datos antes de cambiar el tamaño de los discos. Para más información, consulte [Copia de seguridad de máquinas virtuales Linux en Azure](tutorial-backup-vms.md).

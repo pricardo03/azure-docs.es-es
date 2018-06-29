@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942418"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018545"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 Estas notas de la versión de Azure Media Services resumen los cambios realizados desde las versiones anteriores y los problemas conocidos.
@@ -170,7 +170,6 @@ El equipo del SDK de Azure publicó una nueva versión del paquete [SDK de Azure
 
 Para más información, consulte:
 
-* El blog del [SDK de Media Services para PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
 * Los siguientes [ejemplos de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) le ayudan a empezar a trabajar rápidamente:
   * **vodworkflow_aes.php**: se trata de un archivo PHP que muestra cómo usar el cifrado dinámico AES-128 y el servicio de entrega de claves. Se basa en el ejemplo de .NET que se explica en [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128.md).
   * **vodworkflow_aes.php**: se trata de un archivo PHP que muestra cómo usar el cifrado dinámico de PlayReady y el servicio de entrega de licencias. Se basa en el ejemplo de .NET que se explica en [Uso del cifrado dinámico común de PlayReady y Widevine](media-services-protect-with-playready-widevine.md).
@@ -209,9 +208,7 @@ Para más información, vea [este blog](https://azure.microsoft.com/blog/azure-m
 
 ## <a id="august_changes_15"></a>Versión de agosto de 2015
 * Ya están disponibles el SDK de Media Services para la versión de Java 0.8.0 y nuevos ejemplos. Para más información, consulte:
-  
-  * [Esta publicación del blog](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [El Repositorio de ejemplos de Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * Actualización de Azure Media Player con compatibilidad con secuencias de audio múltiples. Para más información, vea [esta publicación del blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Versión de julio de 2015

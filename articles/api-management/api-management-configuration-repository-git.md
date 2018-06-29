@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0165de82850c0c80052564c5f31a5e5cf5effb11
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117544"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938315"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -219,9 +219,9 @@ El valor final, `$ref-policy`, se asigna al archivo de instrucciones de directiv
 ### <a name="apis-folder"></a>carpeta de API
 La carpeta `apis` contiene una carpeta para cada API de la instancia de servicio que contiene los elementos siguientes.
 
-* `apis\<api name>\configuration.json`: es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) con `export=true` en formato `application/json`.
-* `apis\<api name>\api.description.html`: es la descripción de la API y corresponde a la propiedad `description` de la [entidad de API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\`: esta carpeta contiene archivos `<operation name>.description.html` que se asignan a las operaciones de la API. Cada archivo contiene la descripción de una única operación en la API que se asigna a la propiedad `description` de la [entidad de operación](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) en la API de REST.
+* `apis\<api name>\configuration.json`: es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) con `export=true` en formato `application/json`.
+* `apis\<api name>\api.description.html`: es la descripción de la API y corresponde a la propiedad `description` de la [entidad de API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\`: esta carpeta contiene archivos `<operation name>.description.html` que se asignan a las operaciones de la API. Cada archivo contiene la descripción de una única operación en la API que se asigna a la propiedad `description` de la [entidad de operación](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) en la API de REST.
 
 ### <a name="groups-folder"></a>carpeta de grupos
 La carpeta `groups` contiene una carpeta para cada grupo definido en la instancia de servicio.
@@ -255,7 +255,7 @@ La carpeta `templates` contiene la configuración para las [plantillas de correo
 * `<template name>\configuration.json` : es la configuración de la plantilla de correo electrónico.
 * `<template name>\body.html` : es el cuerpo de la plantilla de correo electrónico.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre otras formas de administrar la instancia de servicio, consulte:
 
 * Administrar la instancia de servicio con los siguientes cmdlets de PowerShell

@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 9eaa8f369c69468a9bd6f4c5403d6a11476e8595
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 74a5d687535915fab7d518faaf916b98ab262c4b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619021"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053905"
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Actividad Wait en Azure Data Factory
 Cuando use una actividad Wait en una canalización, esta espera durante el período de tiempo especificado antes de continuar con la ejecución de actividades sucesivas. 
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintaxis
 

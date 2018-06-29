@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: b0a73ea89bec67cbf644cce60913981a0533360a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 095205752b8432a741aab16983b175c21b02c0f4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179697"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017877"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight
 
@@ -224,7 +224,7 @@ Nuevo comando:
 * [Envío de trabajos de Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migración al nuevo SDK de .NET de HDInsight
-El [SDK de .NET de HDInsight](https://msdn.microsoft.com/library/azure/mt416619.aspx) basado en Azure Service Management (ASM) ya está en desuso. Se recomienda utilizar el [SDK de .NET de HDInsight basado en Resource Manager](https://msdn.microsoft.com/library/azure/mt271028.aspx). Los siguientes paquetes de HDInsight basado en ASM quedarán obsoletos.
+El [SDK de .NET de HDInsight](https://msdn.microsoft.com/library/azure/mt416619.aspx) basado en Azure Service Management (ASM) ya está en desuso. Se recomienda utilizar el [SDK de .NET de HDInsight basado en Resource Manager](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). Los siguientes paquetes de HDInsight basado en ASM quedarán obsoletos.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`

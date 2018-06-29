@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 4c77c8a7209825477929ddc0997b75ace5fe04a1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910533"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030621"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
 
@@ -338,7 +338,7 @@ Se especifican una entrada de trabajo, la consulta y la salida. Está listo para
 
 Después de que el trabajo haya comenzado a ejecutarse y esté procesando el flujo de Twitter en tiempo real, puede ver la salida del análisis de opinión.
 
-Puede usar una herramienta como [Explorador de Azure Storage](https://http://storageexplorer.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) para ver la salida del trabajo en tiempo real. Desde aquí, puede usar [Power BI](https://powerbi.com/) para extender su aplicación con el fin de incluir un panel personalizado como el que se muestra en la captura de pantalla siguiente:
+Puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) para ver la salida del trabajo en tiempo real. Desde aquí, puede usar [Power BI](https://powerbi.com/) para extender su aplicación con el fin de incluir un panel personalizado como el que se muestra en la captura de pantalla siguiente:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

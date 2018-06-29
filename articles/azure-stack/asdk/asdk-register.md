@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: bc17045106b2656cdeb5f51037b3138aeac9ee0f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 08a300d0e2d1565428f282a2073d91b5dd08c060
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757474"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017006"
 ---
 # <a name="azure-stack-registration"></a>Registro de Azure Stack
 La instalación del Kit de desarrollo de Azure Stack se puede registrar en Azure para descargar elementos de Marketplace de Azure y configurar informes de datos comerciales para Microsoft. Es necesario que el registro admita todas funcionalidades de Azure Stack, incluida la redifusión de Marketplace. Dicho registro es aconsejable, porque permite probar una funcionalidad importante de Azure Stack, como es la redifusión de Marketplace y los informes de uso. Después de registrar Azure Stack, se informa del uso para el comercio de Azure. Puede verlo en la suscripción que usó para el registro. Sin embargo, a los usuarios del ASDK no se les cobra ningún uso que comuniquen.
@@ -83,4 +83,4 @@ Siga estos pasos para comprobar que el registro de ASDK con Azure se realizó co
     ![](media/asdk-register/3.PNG)
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Incorporación de un elemento de Marketplace de Azure Stack](asdk-marketplace-item.md)
+[Incorporación de un elemento de Marketplace de Azure Stack](.\.\azure-stack-marketplace.md)

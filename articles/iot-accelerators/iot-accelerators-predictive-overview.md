@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: c43b440f8bce8b85c690eb0e3a35a6e5048fff9d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 064c94c420b1ca9e45be37024e9b2b73135e1242
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659956"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938356"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Introducción al acelerador de soluciones de mantenimiento predictivo
 
@@ -50,7 +50,7 @@ La solución usa como plantilla un modelo de Azure Machine Learning existente di
 
 El acelerador de soluciones de mantenimiento predictivo de IoT de Azure usa el modelo de regresión creado a partir de esta plantilla. El modelo se implementa en la suscripción de Azure y se expone mediante una API generada automáticamente. La solución incluye un subconjunto de los datos de prueba que representa 4 motores (de un total de 100) y 4 flujos de datos de sensor (de un total de 21). Estos datos son suficientes para proporcionar un resultado preciso del modelo entrenado.
 
-*\[1\] A. Saxena and K. Goebel (2008). "Conjunto de datos de simulación de degradación del motor de turbofán", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
+*\[1\] A. Saxena and K. Goebel (2008). "Conjunto de datos de simulación de degradación del motor de turbofán", NASA Ames Prognostics Data Repository (https://c3.nasa.gov/dashlink/resources/139/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="get-started-with-predictive-maintenance"></a>Introducción al mantenimiento predictivo
 
@@ -139,12 +139,12 @@ También puede explorar algunas de las demás características y funcionalidades
 [lnk-predictive-walkthrough]:iot-accelerators-predictive-walkthrough.md
 [lnk_preconfigured_solutions]:iot-accelerators-what-are-solution-accelerators.md
 [lnk_iot_suite]:iot-accelerators-options.md
-[lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
+[lnk_infographic]: https://azure.microsoft.com/en-us/solutions/architecture/predictive-maintenance/
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 [lnk-faq]: iot-accelerators-faq.md
-[lnk-security-groundup]:securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com

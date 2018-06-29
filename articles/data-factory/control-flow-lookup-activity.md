@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618664"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055749"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
@@ -26,9 +26,6 @@ La actividad de búsqueda se puede usar para recuperar un conjunto de datos de c
 - Determinar dinámicamente en qué objetos (archivos, tablas, etc.) operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto
 
 La actividad de búsqueda puede leer y devolver el contenido de un archivo de configuración, una tabla de configuración o el resultado de la ejecución de una consulta o procedimiento almacenado.  El resultado de la actividad de búsqueda se puede usar en una actividad de transformación o copia posterior si es un valor singleton, o bien en una actividad ForEach si es una matriz de atributos.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Azure Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -61,7 +58,7 @@ NOMBRE | DESCRIPCIÓN | Escriba | ¿Necesario?
 ---- | ----------- | ---- | --------
 dataset | Proporciona la referencia de conjunto de datos para la búsqueda. Obtenga los detalles de la sección "Propiedades del conjunto de datos" de cada artículo del conector correspondiente. | Par clave-valor | Sí
 de origen | Contiene propiedades de origen específicas para el conjunto de datos, al igual que el origen de la actividad de copia. Obtener los detalles de la sección "Copiar propiedades de la actividad" de cada artículo del conector correspondiente. | Par clave-valor | Sí
-firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean | Nº El valor predeterminado es `true`.
+firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean | No. El valor predeterminado es `true`.
 
 **Tenga en cuenta los siguientes puntos:**
 

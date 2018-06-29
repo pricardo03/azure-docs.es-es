@@ -13,19 +13,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 91887bad9c3ca976612522c161663fb0b35f587c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 248967f736fcd10cf398917d3cd1e2760537df7c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266930"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051991"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfiguración de un entorno de ejecución para la integración de SSIS en Azure
 En este artículo se describe cómo reconfigurar un entorno de ejecución existente para la integración de SSIS en Azure. Para crear una instancia de Integration Runtime (IR) para la integración de SSIS en Azure Data Factory, vea [Creación de una instancia de Integration Runtime para la integración de SSIS en Azure](create-azure-ssis-integration-runtime.md).  
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
-
 
 ## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory 
 Puede usar la interfaz de usuario de Data Factory para detener, editar y volver a configurar o eliminar un entorno de ejecución de integración de SSIS de Azure. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 65c7262916219a74dcd6bdab487306b5bd5f709f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1882207207327214ee6519a98715d06a7e32ab93
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299103"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045609"
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Recuperación ante desastres de Logic Apps B2B entre regiones
 
@@ -85,7 +85,7 @@ Para revertir a una región primaria si está disponible, siga estos pasos:
 La continuidad empresarial de los documentos EDI X12 se basa en los números de control:
 
 > [!TIP]
-> También puede usar la [plantilla de inicio rápido de X12](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) para crear aplicaciones lógicas. La creación de cuentas de integración primaria y secundaria es un requisito previo para usar la plantilla. La plantilla ayuda a crear dos aplicaciones lógicas, una para números de control recibidos y otra para números de control generados. Las acciones y los desencadenadores respectivos se crean en las aplicaciones lógicas, conectando el desencadenador a la cuenta de integración primaria y la acción a la cuenta de integración secundaria.
+> También puede usar la [plantilla de inicio rápido de X12](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) para crear aplicaciones lógicas. La creación de cuentas de integración primaria y secundaria es un requisito previo para usar la plantilla. La plantilla ayuda a crear dos aplicaciones lógicas, una para números de control recibidos y otra para números de control generados. Las acciones y los desencadenadores respectivos se crean en las aplicaciones lógicas, conectando el desencadenador a la cuenta de integración primaria y la acción a la cuenta de integración secundaria.
 
 **Requisitos previos**
 

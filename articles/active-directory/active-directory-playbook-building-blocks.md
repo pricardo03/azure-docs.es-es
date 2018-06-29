@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293116"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754419"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -100,10 +100,10 @@ Tiempo aproximado para completarlo: 15 minutos
 | Paso | Recursos |
 | --- | --- |
 | Vaya al Portal de administración de Azure AD. | [Portal de administración de Azure AD: Personalización de marca de empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Cargue los recursos de la página de inicio de sesión (logotipo prominente o pequeño, etiquetas, etc.). Opcionalmente, si tiene AD FS, alinee los mismos recursos con páginas de inicio de sesión ADFS. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso: Elementos personalizables](customize-branding.md) |
+| Cargue los recursos de la página de inicio de sesión (logotipo prominente o pequeño, etiquetas, etc.). Opcionalmente, si tiene AD FS, alinee los mismos recursos con páginas de inicio de sesión ADFS. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso: Elementos personalizables](fundamentals/customize-branding.md) |
 | Espere unos minutos para que surta efecto el cambio. |  |
 | Inicie sesión con las credenciales de usuario de POC para https://myapps.microsoft.com. |  |
-| Confirme la apariencia en el explorador. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](customize-branding.md) |
+| Confirme la apariencia en el explorador. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](fundamentals/customize-branding.md) |
 | Si lo desea, confirme la apariencia en otros dispositivos. |  |
 
 ### <a name="considerations"></a>Consideraciones
@@ -118,7 +118,7 @@ Tiempo aproximado para completarlo: 10 minutos
 
 | Requisito previo | Recursos |
 | --- | --- |
-| Todos los usuarios de prueba de concepto forman parte de un grupo de seguridad (en la nube o local) | [Creación de un grupo y adición de miembros en Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Todos los usuarios de prueba de concepto forman parte de un grupo de seguridad (en la nube o local) | [Creación de un grupo y adición de miembros en Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>Pasos
 
@@ -140,16 +140,16 @@ Tiempo aproximado para completarlo: 60 minutos
 | Requisito previo | Recursos |
 | --- | --- |
 | Entorno de prueba de la aplicación de SaaS disponible. En esta guía, se utiliza ServiceNow como ejemplo.<br/>Se recomienda encarecidamente usar una instancia de prueba para minimizar la fricción al desplazarse por las asignaciones y la calidad de los datos existentes. | Vaya a https://developer.servicenow.com/app.do#!/inicio para iniciar el proceso de obtención de una instancia de prueba. |
-| Acceso de administrador a la consola de administración de ServiceNow. | [Tutorial: Integración de Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
+| Acceso de administrador a la consola de administración de ServiceNow. | [Tutorial: Integración de Azure Active Directory con ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Conjuntos de usuarios de destino a los que asignar la aplicación. Se recomienda un grupo de seguridad que contenga los usuarios de prueba de concepto. <br/>Si no es posible crear el grupo, asigne los usuarios directamente a la aplicación para la prueba de concepto. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Pasos
 
 | Paso | Recursos |
 | --- | --- |
-| Comparta el tutorial con todos los actores desde Microsoft Documentation.  | [Tutorial: Integración de Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Convoque una reunión de trabajo y siga los pasos del tutorial con cada actor. | [Tutorial: Integración de Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Asigne la aplicación al grupo identificado en los requisitos previos. Si la prueba de concepto tiene acceso condicional en el ámbito, puede volver a visitarlo que más adelante y agregarle MFA y similares. <br/>Tenga en cuenta que esto activará en el proceso de aprovisionamiento (si está configurado). |  [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Comparta el tutorial con todos los actores desde Microsoft Documentation.  | [Tutorial: Integración de Azure Active Directory con ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Convoque una reunión de trabajo y siga los pasos del tutorial con cada actor. | [Tutorial: Integración de Azure Active Directory con ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Asigne la aplicación al grupo identificado en los requisitos previos. Si la prueba de concepto tiene acceso condicional en el ámbito, puede volver a visitarlo que más adelante y agregarle MFA y similares. <br/>Tenga en cuenta que esto activará en el proceso de aprovisionamiento (si está configurado). |  [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Utilice el Portal de administración de Azure AD para agregar la aplicación ServiceNow desde la galería.| [Portal de administración de AD Azure: Aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | En la hoja "Inicio de sesión único" de la aplicación ServiceNow, habilite "Inicio de sesión basado en SAML". |  |
 | Rellene los campos "URL de inicio de sesión" e "Identificador" con la dirección URL de ServiceNow.<br/>Active la casilla "Make new certificate active" (Activar nuevo certificado)<br/>y haga clic en Guardar configuración. |  |
@@ -163,7 +163,7 @@ Tiempo aproximado para completarlo: 60 minutos
 
 ### <a name="considerations"></a>Consideraciones
 
-1. El anterior [tutorial](active-directory-saas-servicenow-tutorial.md) hace referencia a una experiencia de administración de Azure AD antigua. Pero la prueba de concepto se basa en la experiencia [Inicio rápido](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away).
+1. El anterior [tutorial](saas-apps/servicenow-tutorial.md) hace referencia a una experiencia de administración de Azure AD antigua. Pero la prueba de concepto se basa en la experiencia [Inicio rápido](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away).
 2. Si la aplicación de destino no está en la galería, puede usar "Traiga su propia aplicación". Más información: [Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory: Incorporación de aplicaciones personalizadas desde un solo lugar](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>Configuración de SSO con contraseña en SaaS
@@ -242,7 +242,7 @@ Tiempo aproximado para completarlo: 20 minutos
 
 | Requisito previo | Recursos |
 | --- | --- |
-| Una suscripción Basic o Premium a Microsoft Azure AD y un directorio de Azure AD del que sea administrador global. | [Ediciones de Azure Active Directory](active-directory-whatis.md) |
+| Una suscripción Basic o Premium a Microsoft Azure AD y un directorio de Azure AD del que sea administrador global. | [Ediciones de Azure Active Directory](fundamentals/active-directory-whatis.md) |
 | Una aplicación web hospedada localmente que desea configurar para el acceso remoto. |  |
 | Un servidor en el que se ejecute Windows Server 2012 R2 o Windows 8.1 o superior, y en el que se pueda instalar el conector del proxy de la aplicación. | [Descripción de los conectores del Proxy de aplicación de Azure AD](manage-apps/application-proxy-connectors.md) |
 | Si hay un firewall en la ruta de acceso, es preciso asegurarse de que está abierto con el fin de que el conector pueda realizar solicitudes HTTPS (TCP) al proxy de la aplicación. | [Habilitación del proxy de aplicación en Azure Portal: requisitos previos del proxy de aplicación](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
@@ -306,8 +306,8 @@ Tiempo aproximado para completarlo: 10 minutos
 | Requisito previo | Recursos |
 | --- | --- |
 | Aplicación de SaaS (SSO federado o SSO de contraseña) ya configurado | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) |
-| El grupo en la nube al que se ha asignado acceso a la aplicación en el paso 1 está identificado. | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](active-directory-groups-create-azure-portal.md) |
-| Las credenciales del propietario del grupo están disponibles. | [Administración del acceso a recursos con grupos de Azure Active Directory](active-directory-manage-groups.md) |
+| El grupo en la nube al que se ha asignado acceso a la aplicación en el paso 1 está identificado. | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
+| Las credenciales del propietario del grupo están disponibles. | [Administración del acceso a recursos con grupos de Azure Active Directory](fundamentals/active-directory-manage-groups.md) |
 | Las credenciales del trabajador de información que acceden a las aplicaciones estén identificadas. | [¿Qué es el Panel de acceso?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -315,8 +315,8 @@ Tiempo aproximado para completarlo: 10 minutos
 
 | Paso | Recursos |
 | --- | --- |
-| Identifique el grupo al que se ha concedido acceso a la aplicación y configure el propietario de un determinado grupo.| [Administración de la configuración de un grupo en la versión preliminar de Azure Active Directory](active-directory-groups-settings-azure-portal.md) |
-| Inicie sesión como propietario del grupo, consulte la pertenencia al grupo en la pestaña de grupos del panel de acceso. | [Página de administración de grupos de Azure Active Directory](https://account.activedirectory.windowsazure.com/r/#/groups) |
+| Identifique el grupo al que se ha concedido acceso a la aplicación y configure el propietario de un determinado grupo.| [Administración de la configuración de un grupo en la versión preliminar de Azure Active Directory](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| Inicie sesión como propietario del grupo, consulte la pertenencia al grupo en la pestaña de grupos del panel de acceso. | [Página de administración de grupos de Azure Active Directory](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Agregue el trabajador de información que desea probar. |  |
 | Inicie sesión como trabajador de información, confirme que el icono está disponible. | [¿Qué es el Panel de acceso?](active-directory-saas-access-panel-introduction.md) |
 
@@ -331,7 +331,7 @@ Si la aplicación tiene habilitado el aprovisionamiento, puede ser necesario esp
 | Requisito previo | Recursos |
 | --- | --- |
 | Aplicación de SaaS (SSO federado o SSO de contraseña) ya configurado | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) |
-| El grupo en la nube al que se ha asignado acceso a la aplicación en el paso 1 está identificado. | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| El grupo en la nube al que se ha asignado acceso a la aplicación en el paso 1 está identificado. | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Las credenciales del trabajador de información que acceden a las aplicaciones estén identificadas. | [¿Qué es el Panel de acceso?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -339,7 +339,7 @@ Si la aplicación tiene habilitado el aprovisionamiento, puede ser necesario esp
 
 | Paso | Recursos |
 | --- | --- |
-| Quite el usuario del grupo al que está asignada la aplicación. | [Administración de la pertenencia a grupos de los usuarios del inquilino de Azure Active Directory](active-directory-groups-members-azure-portal.md) |
+| Quite el usuario del grupo al que está asignada la aplicación. | [Administración de la pertenencia a grupos de los usuarios del inquilino de Azure Active Directory](fundamentals/active-directory-groups-members-azure-portal.md) |
 | Espere unos minutos para la cancelación del aprovisionamiento. | [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory: ¿Cómo funciona el aprovisionamiento automático?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | En una sesión del explorador independiente, inicie sesión como trabajador de información en el portal de aplicaciones y confirme si falta el icono. | http://myapps.microsoft.com |
 

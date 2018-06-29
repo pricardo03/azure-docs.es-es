@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6fc4fefe6eaaf48061ea05bdbc087288ada35838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b6639ecc6fbd36df29458532d555b68b50b0a19c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264575"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018984"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
@@ -136,7 +136,7 @@ Get-AzureRmLogProfile
 #### <a name="add-a-log-profile"></a>Incorporación de un perfil de registro
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
@@ -144,9 +144,9 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | NOMBRE |Sí |Nombre de su perfil de registro. |
 | StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
 | serviceBusRuleId |Sin  |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
+| Ubicación |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
 | RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
-| Categorías |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+| Categoría |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 #### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro
 ```

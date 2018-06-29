@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: db7f1f85601cfcf4531bb11176a21126625ce7f0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c5819d39bf3ab7c0f4af32171aadea56e4f6a241
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31422018"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063534"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Uso del coordinador de Oozie basado en tiempo con Hadoop en HDInsight para definir flujos de trabajo y coordinar trabajos
 En este artículo, obtenga información sobre cómo definir los flujos de trabajo y los coordinadores, así como el modo de desencadenar los trabajos del coordinador basados en el tiempo. Le resultará útil repasar el artículo [Uso de Oozie con HDInsight][hdinsight-use-oozie] antes de leer este artículo. Además de con Oozie, también puede programar trabajos usando Azure Data Factory. Para obtener información sobre Azure Data Factory, consulte [Uso de Pig y Hive con la factoría de datos](../data-factory/transform-data.md).
@@ -752,7 +752,7 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordi
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

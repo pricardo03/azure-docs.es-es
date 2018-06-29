@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cea96234083abd01cdf280129e6f75a1f69af9c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019830"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028991"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -75,7 +75,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Filtro de protección de XSS](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
-| **Pasos** | <p>La configuración del encabezado de respuesta X-XSS-Protection controla el filtro de script entre sitios del explorador. Este encabezado de respuesta puede tener los siguientes valores:</p><ul><li>`0:` Esto deshabilitará el filtro</li><li>`1: Filter enabled` Si se detecta un ataque de scripting entre sitios (XSS), para detenerlo, el explorador saneará la página</li><li>`1: mode=block : Filter enabled`. En lugar de sanearla, cuando se detecta un ataque XSS, el explorador impedirá la representación de la página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. El explorador saneará la página y notificará la infracción.</li></ul><p>Se trata de una función de cromo que usa los informes de infracción de la CSP para enviar detalles al URI que elija. Las 2 últimas opciones se consideran valores seguros.</p>|
+| **Pasos** | <p>La configuración del encabezado de respuesta X-XSS-Protection controla el filtro de script entre sitios del explorador. Este encabezado de respuesta puede tener los siguientes valores:</p><ul><li>`0:` Esto deshabilitará el filtro</li><li>`1: Filter enabled` Si se detecta un ataque de scripting entre sitios (XSS), para detenerlo, el explorador saneará la página</li><li>`1: mode=block : Filter enabled`(Unión permanente)(Unión permanente). En lugar de sanearla, cuando se detecta un ataque XSS, el explorador impedirá la representación de la página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`(Unión permanente)(Unión permanente). El explorador saneará la página y notificará la infracción.</li></ul><p>Se trata de una función de cromo que usa los informes de infracción de la CSP para enviar detalles al URI que elija. Las 2 últimas opciones se consideran valores seguros.</p>|
 
 ## <a id="trace-deploy"></a>Deshabilitación obligatoria del seguimiento y la depuración de las aplicaciones ASP.NET antes de la implementación
 
@@ -107,7 +107,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet) (Hoja de referencia rápida de OWASP sobre la defensa ante el secuestro de clic), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-click-jacking-with-x-frame-options/) (Elementos internos de Internet Explorer: combatir el secuestro de clic con X-Frame-Options) |
+| **Referencias**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet) (Hoja de referencia rápida de OWASP sobre la defensa ante el secuestro de clic), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) (Elementos internos de Internet Explorer: combatir el secuestro de clic con X-Frame-Options) |
 | **Pasos** | <p>el secuestro de clic, también conocido como "clickjacking" o "ataque UI redress", se produce cuando un atacante utiliza varias capas transparentes u opacas para engañar al usuario para que haga clic en un botón o vínculo de otra página al intentar hacer clic en la página del nivel superior.</p><p>Estas capas se logran al elaborar una página malintencionada con un iframe, que carga la página de la víctima. Por lo tanto, el atacante "secuestra" el clic destinado a su página y los enruta a otra página, muy probablemente propiedad de otra aplicación, dominio o ambos. Para evitar el secuestro de clic, establezca los encabezados de respuesta HTTP X-Frame-Options adecuados que indiquen al explorador que no permita enmarcar a otros dominios</p>|
 
 ### <a name="example"></a>Ejemplo

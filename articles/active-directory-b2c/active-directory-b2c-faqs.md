@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b56cdd119bac28eec819dbf38afcd2be5aaf907
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710739"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939940"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: preguntas más frecuentes (P+F) 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
@@ -56,7 +56,7 @@ No, puede hospedar la aplicación en cualquier lugar (en la nube o de forma loca
 Antes de abrir "Azure AD B2C" en el menú de la izquierda de Azure Portal, debe cambiarse al directorio que desea administrar.  Cambie los directorios haciendo clic en su identidad en la esquina superior derecha de Azure Portal y después elija un directorio en la lista desplegable que aparece.  Para una descripción paso a paso con imágenes, consulte la sección [Ir a la configuración de B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>¿Cómo puedo personalizar los mensajes de correo electrónico de comprobación (el contenido y el campo "De:") enviados por Azure AD B2C?
-Puede utilizar la [característica de personalización de marca de compañía](../active-directory/customize-branding.md) para personalizar el contenido de los mensajes de correo electrónico de comprobación. En concreto, se pueden personalizar estos dos elementos del correo electrónico:
+Puede utilizar la [característica de personalización de marca de compañía](../active-directory/fundamentals/customize-branding.md) para personalizar el contenido de los mensajes de correo electrónico de comprobación. En concreto, se pueden personalizar estos dos elementos del correo electrónico:
 
 * **Logotipo del banner**: se muestra en la parte inferior derecha.
 * **Color de fondo**: se muestra en la parte superior.
@@ -89,7 +89,7 @@ No, por motivos de seguridad, las páginas de Azure AD B2C no se pueden abrir de
 La integración básica con el portal de Microsoft Dynamics 365 está disponible.  Consulte [Configuración del proveedor Azure AD B2C para portales](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>¿Funciona Azure AD B2C con SharePoint local 2016 o una versión anterior?
-Azure AD B2C no se ha diseñado para escenarios de uso compartido con asociados externos de SharePoint; en su lugar, consulte [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
+Azure AD B2C no se ha diseñado para escenarios de uso compartido con asociados externos de SharePoint; en su lugar, consulte [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/).
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>¿Debo utilizar Azure AD B2C o B2B para administrar identidades externas?
 Lea este artículo sobre [identidades externas](../active-directory/active-directory-b2b-compare-external-identities.md) para obtener más información sobre cómo aplicar las características apropiadas a los escenarios de identidades externas.

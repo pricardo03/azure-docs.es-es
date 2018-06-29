@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c96d8b273a0e74ced5b121d19e1c3e5343a754b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 534df0dfef1f69297c5728ed892a5457944e4468
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621826"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052297"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -27,9 +27,6 @@ Si desea **copiar los archivos tal cual** entre los almacenes basados en archivo
 * [Formato Avro](#avro-format)
 * [Formato ORC](#orc-format)
 * [Formato Parquet](#parquet-format)
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte los [formatos de compresión de archivos admitidos en Data Factory, versión 1](v1//data-factory-supported-file-and-compression-formats.md).
 
 > [!TIP]
 > Obtenga información acerca de cómo la actividad de copia asigna los datos de origen al receptor en [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md), incluido cómo los metadatos se determinan según la configuración del formato del archivo y sugerencias acerca de cuándo se debe especificar la sección del [conjunto de datos`structure`](concepts-datasets-linked-services.md#dataset-structure).

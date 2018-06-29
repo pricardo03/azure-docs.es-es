@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650118"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061651"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de la base de datos en Azure SQL Database
 
@@ -31,7 +31,6 @@ En este artículo se describen algunas de las características básicas de Azure
 - Seguridad y cumplimiento normativo
 - Supervisión y mantenimiento inteligentes de la base de datos
 - Movimiento de datos
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Recuperación ante desastres y continuidad empresarial (BCDR)
 Las capacidades de recuperación ante desastres y continuidad empresarial le permiten continuar con su actividad empresarial del modo habitual en caso de desastre. El desastre podría ser un evento de nivel de base de datos (por ejemplo, alguien elimina erróneamente una tabla de vital importancia) o un evento de nivel de centro de datos (una catástrofe regional, como un tsunami). 
@@ -171,7 +170,7 @@ ExpressRoute permite ampliar el límite de ancho de banda que adquiere hasta el 
 - [Flujos de trabajo](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>¿Cumple SQL Database con los requisitos de regulación y cómo ayuda con el cumplimiento de mi propia organización?
-SQL Database cumple con una variedad de regulaciones de cumplimiento. Para ver el conjunto más reciente de cumplimientos que se han alcanzado, visite [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) para profundizar en los cumplimientos que son importantes para su organización para ver si SQL Database se incluye en los servicios de Azure compatibles. Es importante tener en cuenta que aunque SQL Database puede estar certificada como un servicio conforme, contribuye al cumplimiento del servicio en la organización pero no lo garantiza automáticamente.
+SQL Database cumple con una variedad de regulaciones de cumplimiento. Para ver el conjunto más reciente de cumplimientos que se han alcanzado, visite [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) para profundizar en los cumplimientos que son importantes para su organización para ver si SQL Database se incluye en los servicios de Azure compatibles. Es importante tener en cuenta que aunque SQL Database puede estar certificada como un servicio conforme, contribuye al cumplimiento del servicio en la organización pero no lo garantiza automáticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Supervisión y mantenimiento inteligentes de la base de datos después de la migración
 
@@ -235,7 +234,7 @@ SQL Database ofrece varios niveles de servicio: Básico, Estándar y Premium. Co
 
 Para asegurarse de que se encuentra en el nivel de rendimiento adecuado, puede supervisar el consumo de recursos de consulta y base de datos a través de uno de los métodos mencionados anteriormente en "¿Cómo se supervisa el rendimiento y la utilización de recursos en SQL Database?". Si encuentra que sus consultas o bases de datos se ejecutan constantemente con un alto consumo de CPU/memoria, etc., puede considerar la posibilidad de escalar verticalmente a un nivel de rendimiento superior. De forma similar, si observa que, incluso durante las horas de máxima actividad, no usa tantos recursos, considere la posibilidad de reducir verticalmente desde el nivel de rendimiento actual. 
 
-Si tiene un patrón de aplicación de SaaS o un escenario de consolidación de bases de datos, considere la posibilidad de usar un grupo elástico para optimizar los costos. Un grupo elástico es una excelente manera de lograr la consolidación de bases de datos y la optimización de costos. Para obtener más información sobre cómo administrar varias bases de datos mediante un grupo elástico, consulte el tema sobre [administración de grupos y bases de datos](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal). 
+Si tiene un patrón de aplicación de SaaS o un escenario de consolidación de bases de datos, considere la posibilidad de usar un grupo elástico para optimizar los costos. Un grupo elástico es una excelente manera de lograr la consolidación de bases de datos y la optimización de costos. Para obtener más información sobre cómo administrar varias bases de datos mediante un grupo elástico, consulte el tema sobre [administración de grupos y bases de datos](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>¿Con qué frecuencia es necesario ejecutar comprobaciones de integridad de base de datos en mi base de datos?
 SQL Database utiliza algunas técnicas inteligentes que permiten controlar ciertas clases de datos dañados automáticamente y sin pérdida de datos. Estas técnicas se han integrado en el servicio, que las usa cuando es necesario. De forma regular, se prueban las copias de seguridad de la base de datos en el servicio, para lo cual se restauran y se ejecuta DBCC CHECKDB en ellas. Si hay problemas, SQL Database los resuelve proactivamente. [Reparación de página automática](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) se usa para corregir páginas que están dañadas o que tienen problemas de integridad de datos. Las páginas de base de datos siempre se comprueban con el valor de SUMA DE COMPROBACIÓN predeterminado que comprueba la integridad de la página. SQL Database supervisa y revisa proactivamente la integridad de los datos de la base de datos y, si surgen problemas, los aborda con la prioridad más alta. Además, puede ejecutar sus propias comprobaciones de integridad como desee.  Para más información, consulte [Data Integrity in SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) (Integridad de datos en SQL Database).

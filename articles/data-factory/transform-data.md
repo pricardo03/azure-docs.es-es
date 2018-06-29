@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 90089c009d3515df3df2453c710bac143ee7d90f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 23471a4ae912ee4947a91f0aef7fb2557e6ebba3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619755"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050974"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 > [!div class="op_single_selector"]
@@ -35,10 +35,6 @@ ms.locfileid: "34619755"
 En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información. Una actividad de transformación se ejecuta en un entorno informático, como clúster de Azure HDInsight o una instancia de Azure Batch. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
 
 Data Factory admite las siguientes actividades de transformación de datos que se pueden agregar a las [canalizaciones](concepts-pipelines-activities.md) tanto individualmente como encadenadas a otra actividad.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte las [actividades de transformación de la versión 1 de Data Factory](v1/data-factory-data-transformation-activities.md).
- 
 
 ## <a name="hdinsight-hive-activity"></a>Actividad de HDInsight Hive
 La actividad de Hive de HDInsight en una canalización de Data Factory ejecuta consultas de Hive en su propio clúster de HDInsight o en uno a petición basado en Windows/Linux. Vea el artículo [Actividad de Hive](transform-data-using-hadoop-hive.md) para más información sobre esta actividad. 

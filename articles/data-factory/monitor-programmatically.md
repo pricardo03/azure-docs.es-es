@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 5b7b473bdc411e11d6d1c90c63c4f05c6dac3280
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 343af57cc8f3e63965dc1fe1827b2945009ea8bf
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619609"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045789"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Supervisión mediante programación de una factoría de datos de Azure
 En este artículo se describe cómo supervisar una canalización de una factoría de datos mediante distintos kits de desarrollo de software (SDK). 
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Supervisión y administración de canalizaciones en Data Factory, versión 1](v1/data-factory-monitor-manage-pipelines.md).
 
 ## <a name="data-range"></a>Intervalo de datos
 

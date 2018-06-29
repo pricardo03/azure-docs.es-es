@@ -13,20 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: bf51e0ce03c2f69ab08aa56b8d48cf3e3636ed40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9b4de73c04d7c7c753f007c02c775366b882e81
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618392"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047316"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar datos de Spark con Azure Data Factory 
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Spark. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de copia en V1](v1/data-factory-data-movement-activities.md).
-
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -36,7 +32,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Spark.
 

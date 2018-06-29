@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659900"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960362"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Red de un único miembro de Hyperledger Fabric
 
@@ -89,7 +89,7 @@ A continuación, en **Network size and performance** (Tamaño de red y rendimien
 Nombre de parámetro| DESCRIPCIÓN| Valores permitidos|Valor predeterminado
 ---|---|---|---
 **Número de nodos de pertenencia**|El número de nodos que ejecutan el servicio de pertenencia. Para más información sobre el servicio de pertenencia, examine los servicios de seguridad y pertenencia en la [documentación](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf) de Hyperledger.<br /><br />Este valor está restringido actualmente a 1 nodo, pero está prevista la compatibilidad con el escalado horizontal mediante la agrupación en clústeres en la próxima revisión.|1| 1
-**Número de nodos solicitantes** |El número de nodos que ordenan (organizan) transacciones en un bloque. Esta afirmación es farragosa y confusa. Para más información sobre el servicio de ordenación, consulte la [documentación](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html) de Hyperledger.<br /><br />Este valor está restringido actualmente a 1 nodo. |1 |1
+**Número de nodos solicitantes** |El número de nodos que ordenan (organizan) transacciones en un bloque. Esta afirmación es farragosa y confusa. Para más información sobre el servicio de ordenación, consulte la [documentación](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) de Hyperledger.<br /><br />Este valor está restringido actualmente a 1 nodo. |1 |1
 **Número de nodos del mismo nivel**| Nodos que pertenecen a los miembros de un consorcio que ejecutan transacciones y mantienen el estado y una copia del libro de contabilidad.<br /><br />Para más información sobre el servicio de ordenación, consulte la [documentación](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) de Hyperledger.|3| Entre 3 y 9
 **Rendimiento del almacenamiento**|El tipo de almacenamiento que respalda cada uno de los nodos implementados. Para más información sobre el almacenamiento, visite [Introducción a Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) y [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Estándar o Premium|Estándar
 **Tamaño de la máquina virtual** |El tamaño de máquina virtual usado para todos los nodos de la red.|Estándar A,<br />Estándar D,<br />Estándar D-v2,<br />Serie F estándar,<br />Estándar DS,<br />y Estándar FS|Estándar D1_v2

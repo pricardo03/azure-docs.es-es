@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2017
 ms.author: jingwang
-ms.openlocfilehash: d17af33a3cfa0720649c8c4c7cffd5c4b0a8f272
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fc4eb2b717ea9f4c1b2813db7dcf02062948bae0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618086"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048363"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar datos de Phoenix con Azure Data Factory 
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Phoenix. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de copia en V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -35,7 +32,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Phoenix.
 

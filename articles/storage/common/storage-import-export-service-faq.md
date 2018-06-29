@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
-ms.openlocfilehash: ed928452946b871ee9192bda82fcbf205b96e6e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d324025a50346415de8232af4adc487a5d907331
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660333"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031403"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Servicio Azure Import/Export: preguntas frecuentes 
 Estas son algunas de las preguntas que puede plantearse, junto con sus respuestas, al usar el servicio Azure Import/Export para transferir datos a Azure Storage. Las preguntas y respuestas se organizan en las categorías siguientes:
@@ -44,18 +44,18 @@ Sí. Para más información, consulte [Flujo de trabajo de copia de seguridad si
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>¿Puedo adquirir unidades de Microsoft para los trabajos de importación y exportación?
 
-Nº Deberá enviar sus propias unidades para los trabajos de importación y exportación.
+No. Deberá enviar sus propias unidades para los trabajos de importación y exportación.
 
 
 ## <a name="preparing-disks-for-importexport"></a>Preparación de discos para importación y exportación
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>¿Puedo omitir el paso de preparación de las unidades en un trabajo de importación? ¿Puedo preparar una unidad sin necesidad de copiar?
 
-Nº Todas las unidades usadas para importar los datos se deben preparar con la herramienta WAImportExport de Azure. Use la herramienta para copiar también los datos en la unidad.
+No. Todas las unidades usadas para importar los datos se deben preparar con la herramienta WAImportExport de Azure. Use la herramienta para copiar también los datos en la unidad.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>¿Es necesario realizar alguna preparación en el disco al crear un trabajo de exportación?
 
-Nº Se recomiendan algunas comprobaciones previas. Para comprobar el número de discos necesarios, use el comando PreviewExport de la herramienta WAImportExport. Para más información, consulte [Vista previa de uso de disco para un trabajo de exportación](https://msdn.microsoft.com/library/azure/dn722414.aspx). El comando le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se van a usar. Compruebe también que puede leer y escribir en la unidad de disco duro que se va a enviar para el trabajo de exportación.
+No. Se recomiendan algunas comprobaciones previas. Para comprobar el número de discos necesarios, use el comando PreviewExport de la herramienta WAImportExport. Para más información, consulte [Vista previa de uso de disco para un trabajo de exportación](https://msdn.microsoft.com/library/azure/dn722414.aspx). El comando le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se van a usar. Compruebe también que puede leer y escribir en la unidad de disco duro que se va a enviar para el trabajo de exportación.
 
 ## <a name="importexport-jobs"></a>Trabajos de importación y exportación
 
@@ -104,7 +104,7 @@ El centro de datos de Azure le devolverá la unidad que no cumple con los requis
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>¿El servicio formatea las unidades antes de devolverlas?
 
-Nº Todas las unidades están cifradas con BitLocker.
+No. Todas las unidades están cifradas con BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>¿Cómo puedo acceder a los datos importados por este servicio?
 
@@ -119,7 +119,7 @@ Al preparar una unidad de disco duro para un trabajo de importación, el destino
 Depende. Al preparar la unidad, puede especificar que los archivos de destino se sobrescriban u omitan mediante el campo del archivo CSV de conjunto de datos llamado Disposition:<rename|no-overwrite|overwrite>. De forma predeterminada, el servicio cambia el nombre de los nuevos archivos en lugar de sobrescribir los blobs o archivos existentes.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>¿Es compatible la herramienta WAImportExport con sistemas operativos de 32 bits?
-Nº La herramienta WAImportExport solo es compatible con sistemas operativos de Windows de 64 bits. Para obtener una lista completa de sistemas operativos admitidos, vaya a [Sistemas operativos compatibles](). 
+No. La herramienta WAImportExport solo es compatible con sistemas operativos de Windows de 64 bits. Para obtener una lista completa de sistemas operativos admitidos, vaya a [Sistemas operativos compatibles](). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>¿Qué tamaño máximo de blobs en bloques y blobs en páginas admite Azure Import/Export?
@@ -135,7 +135,7 @@ El servicio Azure Import/Export usa el cifrado de Bitlocker AES-128 de forma pre
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
-- Si usa [WAImportExport V2](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip), especifique "AlreadyEncrypted" y proporcione la clave en el archivo driveset.csv.
+- Si usa [WAImportExport V2](https://www.microsoft.com/en-us/download/details.aspx?id=55280), especifique "AlreadyEncrypted" y proporcione la clave en el archivo driveset.csv.
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

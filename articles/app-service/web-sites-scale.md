@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714942"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031005"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Escalado vertical de aplicaciones en Azure
 
@@ -98,7 +98,7 @@ Para ver una tabla de límites de servicio, presupuestos y restricciones, así c
   
     [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes]
   
-* Para obtener información sobre las prácticas recomendadas de Azure App Service, incluida la creación de una arquitectura resistente y escalable, consulte [Prácticas recomendadas: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* Para obtener información sobre las prácticas recomendadas de Azure App Service, incluida la creación de una arquitectura resistente y escalable, consulte [Prácticas recomendadas: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Para ver vídeos sobre cómo escalar aplicaciones de App Service, consulte los siguientes recursos:
   
   * [Cuándo escalar Azure Websites: con Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

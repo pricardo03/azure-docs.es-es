@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 848b571dd2664d4910d669faa4dce1aad16cd528
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e2c7e7d5a8f359eb811f67a7502f5fc11c05baba
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808434"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047333"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde y hacia Microsoft Dynamics 365 o Microsoft Dynamics CRM. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 de Data Factory, que está disponible con carácter general, consulte el artículo sobre la [actividad de copia de la versión 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -50,7 +47,7 @@ Otros tipos de aplicaciones como Operations and Finance, Talent, etc, no son com
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de Dynamics.
 

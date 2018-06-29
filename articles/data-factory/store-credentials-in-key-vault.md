@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: jingwang
-ms.openlocfilehash: f12c3a2a1193adc08c408292a4e0eca2e2458085
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620673"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052422"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
 
 Puede almacenar las credenciales de los almacenes de datos y los procesos en una instancia de [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory las recupera al ejecutar una actividad que usa el almacén de datos o el proceso.
 
 Actualmente, todos los tipos de actividad, excepto la actividad personalizada, admiten esta característica. En cuanto a la configuración de conectores concretos, revise la sección "Propiedades del servicio vinculado" de [cada tema de conector](copy-activity-overview.md#supported-data-stores-and-formats) para obtener más información.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 

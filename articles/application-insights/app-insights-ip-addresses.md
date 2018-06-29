@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4ed0c84dfab58f8a92e0f366bb65634b9e3dab82
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2e537f0a9b3e796f8dc2ac04d210a23fc558687b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935667"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025578"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
 El servicio [Azure Application Insights](app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
@@ -35,7 +35,6 @@ Debe abrir algunos puertos de salida en el firewall del servidor para permitir q
 | --- | --- | --- | --- |
 | Telemetría |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Secuencia de métricas en directo |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
-| Telemetría interna |breeze.aimon.applicationinsights.io |52.161.11.71 |443 |
 
 ## <a name="status-monitor"></a>Monitor de estado
 Configuración del Monitor de estado; solo lo necesitará en caso de que tenga que hacer cambios.

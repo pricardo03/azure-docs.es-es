@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a16de4cef82c29f9b6becfae1901662ee1936934
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 3df6951129f7beda7970e394ffdd32c7e02304dd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594486"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060314"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Activación de la sincronización sin conexión para la aplicación de Windows
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -29,15 +29,15 @@ Este tutorial muestra cómo agregar compatibilidad sin conexión a una aplicaci�
 
 En este tutorial, actualizará el proyecto de aplicación de UWP del tutorial [Creación de una aplicación para Windows] a fin de conseguir compatibilidad con las características sin conexión de Azure Mobile Apps. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Azure Mobile Apps].
+Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requisitos  
 Este tutorial requiere los siguientes requisitos previos:
 
 * Visual Studio 2013 funcionando en Windows 8.1 o versiones posteriores.
 * Finalización del tutorial [Creación de una aplicación para Windows][Creación de una aplicación para Windows].
 * [Almacén de SQLite de Azure Mobile Services][sqlite store nuget]
-* [SQLite for Universal Windows Platform development](http://www.sqlite.org/downloads)
+* [SQLite for Universal Windows Platform development](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Actualización de la aplicación cliente para que admita características sin conexión
 Las características sin conexión de Aplicaciones móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión. Para usar estas características en una aplicación, inicialice [SyncContext][synccontext] en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz [IMobileServiceSyncTable][IMobileServiceSyncTable] . SQLite se utiliza como almacén local en el dispositivo.
@@ -75,7 +75,7 @@ La primera vez que se ejecuta la aplicación, el controlador de eventos `OnNavig
 3. (Opcional) Vea los datos actualizados mediante el Explorador de objetos de SQL Server o una herramienta REST como Fiddler. Observe que los datos se han sincronizado entre la base de datos del back-end de la aplicación móvil de Azure y el almacén local.
 4. En la aplicación, haga clic en la casilla situada junto a algunos elementos para completarlos en el almacén local.
 
-   `UpdateCheckedTodoItem` llama a `SyncAsync` para sincronizar cada elemento completado con el back-end de Mobile App. `SyncAsync` llama a las operaciones de inserción y extracción. Sin embargo, **cada vez que se ejecuta una incorporación de cambios en una tabla en la que el cliente ha realizado cambios, siempre se ejecuta automáticamente una inserción** . De este modo se garantiza la coherencia de todas las tablas del almacén local, junto con sus relaciones. Este comportamiento puede provocar una inserción inesperada.  Para obtener más información sobre este comportamiento, consulte [Sincronización de datos sin conexión en Azure Mobile Apps].
+   `UpdateCheckedTodoItem` llama a `SyncAsync` para sincronizar cada elemento completado con el back-end de Mobile App. `SyncAsync` llama a las operaciones de inserción y extracción. Sin embargo, **cada vez que se ejecuta una incorporación de cambios en una tabla en la que el cliente ha realizado cambios, siempre se ejecuta automáticamente una inserción** . De este modo se garantiza la coherencia de todas las tablas del almacén local, junto con sus relaciones. Este comportamiento puede provocar una inserción inesperada.  Para obtener más información sobre este comportamiento, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 ## <a name="api-summary"></a>Resumen de la API
 Para admitir las características sin conexión de Mobile Services, se usa la interfaz [IMobileServiceSyncTable] y se inicializa [MobileServiceClient.SyncContext][synccontext] con una base de datos SQLite local. En el modo sin conexión, las operaciones CRUD normales para Mobile Apps funcionan como si la aplicación siguiera conectada y todas las operaciones se producen en el almacén local. Cuando se quiera sincronizar el almacén local con el servidor, se usan los métodos siguientes:
@@ -89,7 +89,7 @@ Para obtener más información sobre estos conceptos, consulte [Sincronización 
 ## <a name="more-info"></a>Más información
 En los temas siguientes se ofrece información de fondo adicional sobre la característica de sincronización sin conexión de Mobile Apps:
 
-* [Sincronización de datos sin conexión en Azure Mobile Apps]
+* [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 * [Procedimiento del SDK de .NET de Azure Mobile Apps][8]
 
 <!-- Anchors. -->
@@ -105,7 +105,7 @@ En los temas siguientes se ofrece información de fondo adicional sobre la carac
 
 
 <!-- URLs. -->
-[Sincronización de datos sin conexión en Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
 [Creación de una aplicación para Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920

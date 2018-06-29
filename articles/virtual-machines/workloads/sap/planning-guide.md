@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7848aa2e620218463bbe3faa325b4589ae6ac3b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657505"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047265"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -775,7 +775,7 @@ Es posible utilizar el siguiente árbol de decisión aproximado para decidir si 
 
 ![Árbol de decisión para decidir la capacidad de implementación de SAP en Azure][planning-guide-figure-700]
 
-**Paso 1:** La información más importante por la que empezar es el requisito de SAPS de un sistema SAP determinado. Los requisitos de SAPS deben dividirse en la parte de DBMS y en la de la aplicación SAP, aunque el sistema SAP ya esté implementado de forma local en una configuración de dos niveles. Para los sistemas existentes, los SAPS relacionados con el hardware que se usa se suele poder determinar o calcular mediante los bancos de pruebas de SAP existentes. Los resultados se pueden encontrar aquí: <http://global.sap.com/campaigns/benchmark/index.epx>.
+**Paso 1:** La información más importante por la que empezar es el requisito de SAPS de un sistema SAP determinado. Los requisitos de SAPS deben dividirse en la parte de DBMS y en la de la aplicación SAP, aunque el sistema SAP ya esté implementado de forma local en una configuración de dos niveles. Para los sistemas existentes, los SAPS relacionados con el hardware que se usa se suele poder determinar o calcular mediante los bancos de pruebas de SAP existentes. Los resultados se pueden encontrar aquí: <https://sap.com/about/benchmark.html>.
 En lo que respecta a los sistemas SAP de implementación reciente, tendrá que haber efectuado una tarea de determinación del tamaño con la que se habrán identificado los requisitos de SAPS del sistema.
 Consulte también este blog y el documento adjunto sobre el ajuste de tamaño de SAP en Azure: <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
@@ -988,7 +988,7 @@ En este caso, queremos cargar un VHD (con o sin un sistema operativo en él) y m
 
 * Cargue el VHD con PowerShell o la CLI de Azure.
 * (Opcional) Cree un disco de Managed Disks a partir del VHD con PowerShell, la CLI de Azure o Azure Portal.
-* Implemente la VM con una plantilla de JSON en la que se haga referencia al VHD, como se muestra en [esta plantilla de JSON de ejemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json) o con un disco de Managed Disks, como se muestra en [esta plantilla de JSON de ejemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-disk-md/azuredeploy.json).
+* Implemente la VM con una plantilla de JSON en la que se haga referencia al VHD, como se muestra en [esta plantilla de JSON de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) o con un disco de Managed Disks, como se muestra en [esta plantilla de JSON de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="deployment-of-a-vm-image"></a>Implementación de una imagen de máquina virtual
 Para cargar una máquina virtual o un VHD existente desde la red local a fin de poder utilizarlos como una imagen de máquina virtual de Azure, dichos elementos tendrán que cumplir los requisitos enumerados en el capítulo [Preparación para la implementación de una máquina virtual con una imagen específica del cliente para SAP][planning-guide-5.2.2] de este documento.

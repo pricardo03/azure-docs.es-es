@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: 0ec6aa9d226231802cd753c7216e9988b85ae5bd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617467"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050359"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Actividad de filtro en Azure Data Factory
 Puede usar una actividad de filtro en una canalización para aplicar una expresión de filtro a una matriz de entrada. 
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintaxis
 

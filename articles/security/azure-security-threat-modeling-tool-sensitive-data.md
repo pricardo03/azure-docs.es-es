@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfc1e8dd6acf2cba5b4622785aa3714a7ff037c9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019422"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031811"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: Información confidencial | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -410,7 +410,7 @@ Si la aplicación no es empresarial, use el almacén de claves proporcionado por
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **Pasos** | Si se usa un token UsernameToken con una contraseña sin cifrar en un canal no cifrado, se expone la contraseña a atacantes que puedan rastrear los mensajes SOAP. Es posible que los proveedores de servicios que usan UsernameToken acepten las contraseñas enviadas sin cifrar. Si se envían contraseñas sin cifrar por un canal no cifrado, se puede exponer la credencial a atacantes que puedan rastrear el mensaje SOAP. | 
 
 ### <a name="example"></a>Ejemplo
@@ -429,7 +429,7 @@ Establezca clientCredentialType en Certificate o Windows.
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | Modo de seguridad: Transport, modo de seguridad: Message |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) (Fundamentos de la seguridad de WCF en CoDe Magazine) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) (Fundamentos de la seguridad de WCF en CoDe Magazine) |
 | **Pasos** | No se ha definido la seguridad de transporte ni de mensajes. Las aplicaciones que transmiten mensajes sin seguridad de transporte ni de mensajes no pueden garantizar la integridad ni la confidencialidad de los mensajes. Cuando un enlace de seguridad de WCF se establece en None, se deshabilitan la seguridad de mensajes y la de transporte. |
 
 ### <a name="example"></a>Ejemplo

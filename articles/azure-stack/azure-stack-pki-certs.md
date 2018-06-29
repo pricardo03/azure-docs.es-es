@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234848"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030162"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 
@@ -76,20 +76,6 @@ En la implementación, los valores de [region] y [externalfqdn] deben coincidir 
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado SSL comodín) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL comodín) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL comodín) |  Almacén de claves interno |  adminvault.&lt;region>.&lt;fqdn> |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para el entorno de Azure Stack en versiones anteriores a 1803
-
-|Carpeta de implementación|Nombres alternativos del firmante (SAN) y firmante del certificado requeridos|Ámbito (por región)|Nombre del subdominio|
-|-----|-----|-----|-----|
-|Public Portal|portal.*&lt;región>.&lt;fqdn>*|Portales|*&lt;región>.&lt;fqdn>*|
-|Admin Portal|adminportal.*&lt;región>.&lt;fqdn>*|Portales|*&lt;región>.&lt;fqdn>*|
-|Azure Resource Manager Public|management.*&lt;región>.&lt;fqdn>*|Azure Resource Manager|*&lt;región>.&lt;fqdn>*|
-|Azure Resource Manager Admin|adminmanagement.*&lt;región>.&lt;fqdn>*|Azure Resource Manager|*&lt;región>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Un certificado comodín de subdominio múltiple con nombres alternativos del firmante para:<br>&#42;.blob.*&lt;región>.&lt;fqdn>*<br>&#42;.queue.*&lt;región>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;región>.&lt;fqdn>*<br>table.*&lt;región>.&lt;fqdn>*<br>queue.*&lt;región>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL comodín)|Key Vault|vault.*&lt;región>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL comodín)|Almacén de claves interno|adminvault.*&lt;región>.&lt;fqdn>*|
-|
-<sup>1</sup> El certificado ACS requiere tres del nombres alternativos del firmante comodín en un solo certificado. Puede que no todas las entidades de certificación públicas admitan varios nombres alternativos del firmante comodín en un solo certificado. 
 
 Si implementa Azure Stack con el modo de implementación de Azure AD, solo tiene que solicitar los certificados que se muestran en la tabla anterior. Sin embargo, si implementa Azure Stack utilizando el modo de implementación de AD FS, también debe solicitar los certificados descritos en la tabla siguiente:
 

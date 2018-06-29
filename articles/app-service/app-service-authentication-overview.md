@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: c180dcf5d769245f3fa2485ccee2cbc18ecf5f67
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6b536ba7792e66fe09ba2cc8a631dc5e934faaea
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763499"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937983"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -79,11 +79,11 @@ App Service usa la [identidad federada](https://en.wikipedia.org/wiki/Federated_
 
 | Proveedor | Punto de conexión de inicio de sesión |
 | - | - |
-| [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Cuenta Microsoft](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
+| [Cuenta Microsoft](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
-| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` |
+| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
 Cuando habilita la autenticación y autorización con uno de estos proveedores, su punto de conexión de inicio de sesión está disponible para la autenticación de usuarios y para la validación de tokens de autenticación del proveedor. Se puede proporcionar a los usuarios cualquier número de estas opciones de inicio de sesión con facilidad. También puede integrar otro proveedor de identidades o [su propia solución de identidad personalizada][custom-auth].
 

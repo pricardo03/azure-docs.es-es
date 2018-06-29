@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: d63cb26acdc0a8b6c8435167b1043428de9f0729
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 51cacb385f28cf70a65b9c0e1c14d48e22be0a4d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807625"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051117"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copia de datos de Google BigQuery con Azure Data Factory
 
 En este artículo se describe el uso de la actividad de copia de Azure Data Factory para copiar datos de Google BigQuery. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que presenta información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de copia en la versión 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -35,7 +32,7 @@ Puede copiar datos de Google BigQuery en cualquier almacén de datos de receptor
 
 ## <a name="get-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector Google BigQuery.
 

@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: 0beeb8fb7f7e46db97e179f3eacf3c68dd92cff3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798587"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061750"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Exploración y administración de recursos de almacenamiento mediante el Explorador de servidores
 
@@ -157,7 +157,7 @@ En la siguiente imagen se muestra una cola que contiene dos mensajes:
 
 ![Visualización de una cola](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Para más información sobre las colas de servicios de almacenamiento, consulte [Introducción a Azure Queue Storage mediante .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obtener información sobre el servicio web para colas de servicios de almacenamiento, vea [Conceptos del servicio Cola](http://go.microsoft.com/fwlink/?LinkId=264788). Para obtener información acerca de cómo enviar mensajes a una cola de servicios de almacenamiento mediante Visual Studio, vea [Enviar mensajes a una cola de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+Para más información sobre las colas de servicios de almacenamiento, consulte [Introducción a Azure Queue Storage mediante .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obtener información sobre el servicio web para colas de servicios de almacenamiento, vea [Conceptos del servicio Cola](http://go.microsoft.com/fwlink/?LinkId=264788). Para obtener información acerca de cómo enviar mensajes a una cola de servicios de almacenamiento mediante Visual Studio, vea [Enviar mensajes a una cola de servicios de almacenamiento](https://docs.microsoft.com/azure/visual-studio/vs-storage-cloud-services-getting-started-queues).
 
 > [!NOTE]
 > Las colas de servicios de almacenamiento son distintas de las colas de Azure Service Bus. Para más información sobre las colas de Service Bus, consulte [Colas, temas y suscripciones de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
