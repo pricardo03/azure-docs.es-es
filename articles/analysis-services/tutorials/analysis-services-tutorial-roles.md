@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: fcedba0a5b8a9684216f181a6d16f86044edb961
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10b2e77a89e2b8d7481559396d102177cf70161c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651501"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307380"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: configuración de los roles de administrador del servidor y de usuario
 
@@ -67,7 +67,7 @@ En las tareas restantes, para la conexión y la administración el servidor se u
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Incorporación de una cuenta de usuario al rol de administrador del servidor
 
-En esta tarea se agrega una cuenta de grupo o de usuario de Azure AD al rol de administrador del servidor.
+En esta tarea se agrega una cuenta de grupo o de usuario de Azure AD al rol de administrador del servidor. Si va a agregar un grupo de seguridad, debe tener la propiedad `MailEnabled` establecida en `True`.
 
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el nombre del servidor y haga clic en **Propiedades**. 
 2. En la ventana **Propiedades de Analysis Server**, haga clic en **Seguridad** > **Agregar**.

@@ -13,17 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: eec2b5f84d11c946c5cae1d7d90d0b96dacc9d8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f39b2b54509efabcab3a818c9f1b02645f5b099
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055195"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, será necesario que envíe los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, deberá enviar los detalles del error de la copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Descripción general del escenario: ![información general](media/tutorial-control-flow/overview.png)
 
@@ -488,7 +486,7 @@ En la propiedad "Url", pegue los puntos de conexión de la URL de solicitud del 
 - Message, que pasa el valor `@{activity('CopyBlobtoBlob').output.dataWritten`. Tiene acceso a una propiedad de la actividad de copia anterior y pasa el valor de dataWritten. En caso de error, pasa la salida de error en lugar de `@{activity('CopyBlobtoBlob').error.message`.
 - Data Factory Name, que pasa el valor `@{pipeline().DataFactory}`. Se trata de una variable del sistema, lo que le permite obtener acceso al nombre de la factoría de datos correspondiente. Para obtener una lista de las variables del sistema, vea el artículo [System Variables](control-flow-system-variables.md) (Variables del sistema).
 - Pipeline Name, que pasa el valor `@{pipeline().Pipeline}`. También es una variable del sistema, lo que le permite obtener acceso al nombre de canalización correspondiente. 
-- Receiver, que pasa el valor "@pipeline(). parameters.receiver") y accede a los parámetros de la canalización.
+- Receiver, que pasa el valor "\@pipeline().parameters.receiver"). y accede a los parámetros de la canalización.
  
 Este código crea una nueva dependencia de actividad, en función de la actividad de copia anterior que ejecuta correctamente.
 

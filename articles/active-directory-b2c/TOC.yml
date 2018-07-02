@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Uso del acceso por antigüedad
           href: basic-age-gating.md
+        - name: Inicio de sesión directo
+          href: direct-signin.md
     - name: Marco de experiencia de identidad
       items:
         - name: Directivas personalizadas

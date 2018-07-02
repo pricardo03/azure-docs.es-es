@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: b1e7fa441dc52a647828c7d3785f09533af06fd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651548"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034086"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -260,14 +260,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a sincronizar la información de estado entre los dispositivos y el centro de IoT realizando las siguientes tareas:
-
-> [!div class="checklist"]
-> * Creación de un centro de IoT e incorporación de un dispositivo de prueba en el registro de identidades.
-> * Uso de propiedades deseadas para enviar la información de estado para el dispositivo simulado.
-> * Uso de propiedades notificadas para recibir la información de estado del dispositivo simulado.
-
-Avance hasta el siguiente tutorial para aprender a usar dispositivos gemelos para implementar un proceso de actualización de firmware.
+En este tutorial, ha aprendido a sincronizar la información de estado entre los dispositivos y el centro de IoT. Avance hasta el siguiente tutorial para aprender a usar dispositivos gemelos para implementar un proceso de actualización de firmware.
 
 > [!div class="nextstepaction"]
-[Uso de un dispositivo simulado para probar la conectividad con IoT Hubs](tutorial-connectivity.md)
+[Implementación de un proceso de actualización de firmware de dispositivos](tutorial-firmware-update.md)

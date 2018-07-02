@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642400"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959552"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Inicio rápido: Implementación de una aplicación Java de servicios de confianza de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
@@ -120,13 +120,13 @@ Utilice el método con el que se sienta más cómodo para importar el certificad
 
 Es necesario agregar una huella digital a la aplicación porque esta está usando modelos de programación de Service Fabric. 
 
-1. Necesitará la huella digital del certificado en el archivo ```Voting/VotingApplication/ApplicationManiest.xml``` cuando se ejecuta en un clúster seguro. Ejecute el siguiente comando para extraer la huella digital del certificado.
+1. Necesitará la huella digital del certificado en el archivo `Voting/VotingApplication/ApplicationManifest.xml` cuando se ejecuta en un clúster seguro. Ejecute el siguiente comando para extraer la huella digital del certificado.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. En el archivo ```Voting/VotingApplication/ApplicationManiest.xml```, agregue el siguiente fragmento en la etiqueta **ApplicationManifest**. **X509FindValue** debe ser la huella digital del paso anterior (sin punto y coma). 
+2. En el archivo `Voting/VotingApplication/ApplicationManifest.xml`, agregue el siguiente fragmento en la etiqueta **ApplicationManifest**. **X509FindValue** debe ser la huella digital del paso anterior (sin punto y coma). 
 
     ```xml
     <Certificates>

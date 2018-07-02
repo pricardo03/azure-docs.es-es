@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a2d356afd33ddd2e641c6f9bc028f235623b448b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233121"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024782"
 ---
 # <a name="retrieve-access-review-results"></a>Recuperación de los resultados de la revisión de acceso
 
-Los administradores pueden usar Azure Active Directory (Azure AD) para [crear una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md) para miembros de grupo o usuarios asignados en una aplicación.  Un usuario que se encuentra en el rol **Administrador global**, **Administrador de seguridad** o **Lector de seguridad** también puede leer los resultados de una revisión de acceso.  Para asignar usuarios a uno de estos roles, un administrador de roles con privilegios puede usar Azure Active Directory Privileged Identity Management para hacer que un usuario pueda activar el rol o un administrador global puede [asignar un usuario al rol](active-directory-users-assign-role-azure-portal.md) permanentemente.
+Los administradores pueden usar Azure Active Directory (Azure AD) para [crear una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md) para miembros de grupo o usuarios asignados en una aplicación.  Un usuario que se encuentra en el rol **Administrador global**, **Administrador de cuentas de usuario**, **Administrador de seguridad** o **Lector de seguridad** también puede leer los resultados de una revisión de acceso.  Para asignar usuarios a uno de estos roles, un administrador de roles con privilegios puede usar Azure Active Directory Privileged Identity Management para hacer que un usuario pueda activar el rol o un administrador global puede [asignar un usuario al rol](fundamentals/active-directory-users-assign-role-azure-portal.md) permanentemente.
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Búsqueda de una revisión de acceso
 
@@ -46,7 +46,7 @@ Para ver los resultados de una instancia finalizada de una revisión de acceso q
 
 ## <a name="removing-users-from-an-access-review"></a>Eliminación de usuarios de una revisión de acceso
 
-De forma predeterminada, un usuario eliminado permanecerá eliminado en Azure AD durante 30 días, tiempo durante el cual un administrador puede restaurarlo si es necesario.  Después de 30 días, ese usuario se eliminará definitivamente.  Además, mediante el portal de Azure Active Directory, un administrador global puede [eliminar permanentemente un usuario eliminado recientemente](active-directory-users-restore.md) explícitamente antes de que se alcance ese período de tiempo.  Una vez que un usuario se ha eliminado permanentemente, los datos posteriores sobre ese usuario se eliminarán de las revisiones de acceso activas.  La información de auditoría de los usuarios eliminados se conserva en el registro de auditoría.
+De forma predeterminada, un usuario eliminado permanecerá eliminado en Azure AD durante 30 días, tiempo durante el cual un administrador puede restaurarlo si es necesario.  Después de 30 días, ese usuario se eliminará definitivamente.  Además, mediante el portal de Azure Active Directory, un administrador global puede [eliminar permanentemente un usuario eliminado recientemente](fundamentals/active-directory-users-restore.md) explícitamente antes de que se alcance ese período de tiempo.  Una vez que un usuario se ha eliminado permanentemente, los datos posteriores sobre ese usuario se eliminarán de las revisiones de acceso activas.  La información de auditoría de los usuarios eliminados se conserva en el registro de auditoría.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

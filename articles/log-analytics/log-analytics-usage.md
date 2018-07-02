@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9a9c898cf0f2e0b1387bbc2ac18b5009838d138b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209823"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317310"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
 Log Analytics incluye información sobre la cantidad de datos recopilados, qué orígenes envían los datos y los diferentes tipos de datos enviados.  Use el panel **Uso de Log Analytics** para revisar y analizar el uso de datos. El panel muestra la cantidad de datos que recopila cada solución y cuántos datos envían los equipos.
@@ -75,13 +75,13 @@ Siga los pasos explicados en [crear una nueva regla de alerta](../monitoring-and
 
 Al crear la alerta en la primera consulta; cuando hay más de 100 GB de datos en 24 horas, establezca los siguientes valores:  
 
-- **Definición de la condición de alerta**, especifique el área de trabajo de Log Analytics como el destino del recurso.
+- **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
 - **Criterios de alerta** especifique lo siguiente:
    - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
    - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - **Lógica de alerta** está **basada en** *número de resultados* y **Condición** es *Mayor que* un **umbral**  de *0*
    - **Período de tiempo** de *1440* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
-- **Definición de los detalles de la alerta**, especifique lo siguiente:
+- **Definición de los detalles de la alerta**: especifique lo siguiente:
    - **Nombre** en *Volumen de datos mayor que 100 GB en 24 horas*
    - **Gravedad** en *Advertencia*
 
@@ -89,13 +89,13 @@ Especifique un [grupo de acciones](../monitoring-and-diagnostics/monitoring-acti
 
 Al crear la alerta para la segunda consulta; cuando se prevé que va a haber más de 100 GB de datos en 24 horas, establezca los siguientes valores:
 
-- **Definición de la condición de alerta**, especifique el área de trabajo de Log Analytics como el destino del recurso.
+- **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
 - **Criterios de alerta** especifique lo siguiente:
    - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
    - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - **Lógica de alerta** está **basada en** *número de resultados* y **Condición** es *Mayor que* un **umbral**  de *0*
    - **Período de tiempo** de *180* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
-- **Definición de los detalles de la alerta**, especifique lo siguiente:
+- **Definición de los detalles de la alerta**: especifique lo siguiente:
    - **Nombre** en *Volumen de datos que se espera que sea mayor que 100 GB en 24 horas*
    - **Gravedad** en *Advertencia*
 
@@ -151,7 +151,7 @@ Use los pasos siguientes para reducir el volumen de registros recopilados:
 
 | Origen del mayor volumen de datos | Cómo reducir el volumen de datos |
 | -------------------------- | ------------------------- |
-| Eventos de seguridad            | Seleccione los [eventos de seguridad común o mínima](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Cambie la directiva de auditoría de seguridad para recopilar únicamente los eventos necesarios. En particular, revise la necesidad de recopilar eventos para <br> - [auditar plataforma de filtrado](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar registro](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [auditar sistema de archivos](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [auditar objeto de kernel](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [auditar manipulación de identificadores](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [auditar almacenamiento extraíble](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
+| Eventos de seguridad            | Seleccione los [eventos de seguridad común o mínima](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Cambie la directiva de auditoría de seguridad para recopilar únicamente los eventos necesarios. En particular, revise la necesidad de recopilar eventos para <br> - [auditar plataforma de filtrado](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar registro](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar sistema de archivos](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar manipulación de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditar almacenamiento extraíble |
 | contadores de rendimiento       | Cambie la [configuración de los contadores de rendimiento](log-analytics-data-sources-performance-counters.md) para: <br> - Reducir la frecuencia de la colección <br> - Reducir el número de contadores de rendimiento |
 | Registros de eventos                 | Cambie la [configuración del registro de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reducir el número de registros de eventos recopilados <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información*. |
 | syslog                     | Cambie la [configuración de syslog](log-analytics-data-sources-syslog.md) para: <br> - Reducir el número de instalaciones recopiladas <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información* y *depuración*. |

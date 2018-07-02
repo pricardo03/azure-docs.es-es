@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 00e4da5fa1867aeddebe0e452f78ea24a3d0a821
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 6f6a622c2b9faf6117a8212000e1e632df3526b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808526"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016614"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: crear, consultar y recorrer un grafo en la consola de Gremlin
 
@@ -45,11 +45,11 @@ También necesita instalar la [consola de Gremlin](http://tinkerpop.apache.org/)
 
 ## <a id="ConnectAppService"></a>Conectarse a su App Service
 1. Antes de iniciar la consola de Gremlin, cree o modifique el archivo de configuración remote-secure.yaml en el directorio `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Rellene sus configuraciones *host*, *puerto*, *nombre de usuario*, *contraseña*, *connectionPool* y *serializador*:
+2. Rellene sus configuraciones de *host*, *puerto*, *nombre de usuario*, *contraseña*, *connectionPool* y *serializador* como se define en la siguiente tabla:
 
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
-    hosts|[*nombre-de-la-cuenta*.gremlin.cosmosdb.azure.com] o [*nombre-de-la-cuenta*.graphs.azure.com] para las cuentas creadas antes del 20 de diciembre de 2017|Vea la siguiente captura de pantalla. Este es el valor del Identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.<br><br>Este valor también se puede obtener desde la pestaña Claves; para ello, use el valor del identificador URI mediante la supresión de https://, el cambio de los documentos a grafos o gremlin.cosmosdb y la eliminación de la terminación :443/.
+    hosts|[*nombre-de-la-cuenta*.gremlin.cosmosdb.azure.com] o [*nombre-de-la-cuenta*.graphs.azure.com] para las cuentas creadas antes del 20 de diciembre de 2017|Vea la siguiente captura de pantalla. Este es el valor del Identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.
     puerto|443|Se establece en 443.
     nombre de usuario|*Su nombre de usuario*|El recurso con la forma `/dbs/<db>/colls/<coll>` donde `<db>` es el nombre de la base de datos y `<coll>` es el nombre de la colección.
     contraseña|*La clave principal*| Ver la segunda captura de pantalla más adelante. Es la clave principal, que puede obtener en la página Claves de Azure Portal, en el cuadro de texto Clave principal. Use el botón Copiar a la izquierda del cuadro de texto para copiar el valor.

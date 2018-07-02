@@ -1,22 +1,22 @@
 ---
-title: Módulo C# de Azure IoT Edge | Microsoft Docs
-description: Crear un módulo IoT Edge con código de C# e implementarlo en un dispositivo perimetral
+title: Tutorial de C# de Azure IoT Edge | Microsoft Docs
+description: En este tutorial se muestra la creación de un módulo IoT Edge con código C# y su implementación en un dispositivo perimetral.
+services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1da3a246a2ad33a4563f491058f5d4d115f3954d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cd4f87e690d64e1f69ef39f3422ebc73d79974a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631078"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053099"
 ---
-# <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desarrollar e implementar un módulo IoT Edge C# en su dispositivo simulado: versión preliminar
+# <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con C# en el dispositivo simulado
 
 Los módulos de IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos de IoT Edge. Este tutorial le guía a través de la creación e implementación de un módulo de IoT Edge que filtra los datos de sensor. Usará el dispositivo de IoT Edge simulado que ha creado en los tutoriales sobre cómo implementar Azure IoT Edge en un dispositivo simulado de [Windows] [ lnk-tutorial1-win] o [Linux] [ lnk-tutorial1-lin]. En este tutorial, aprenderá a:    
 
@@ -29,15 +29,19 @@ Los módulos de IoT Edge se pueden usar para implementar código que, a su vez, 
 
 El módulo IoT Edge que se crea en este tutorial filtra los datos de temperatura generados por el dispositivo. Solo envía mensajes al siguiente nivel si la temperatura es superior al umbral especificado. Este tipo de análisis perimetral resulta útil para reducir la cantidad de datos que se comunican a la nube y se almacenan en ella. 
 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
+
+
 ## <a name="prerequisites"></a>requisitos previos
 
-* El dispositivo de Azure IoT Edge que creó en la guía de inicio rápido o en el primer tutorial.
+* El dispositivo Azure IoT Edge que creó en la guía de inicio rápido para [Linux](quickstart-linux.md) o [dispositivos Windows](quickstart.md).
 * La cadena de conexión de clave principal para el dispositivo de IoT Edge.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extensión de Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [Extensión de C# para Visual Studio Code (con tecnología de OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
-* [Docker](https://docs.docker.com/engine/installation/) en el mismo equipo que tiene Visual Studio Code. La Community Edition (CE) es suficiente para este tutorial. 
-* [SDK de .NET Core 2.0](https://www.microsoft.com/net/core#windowscmd). 
+* [Extensión de C# para Visual Studio Code (con tecnología de OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para Visual Studio Code.
+* [Extensión de Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
+* [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
+* [Docker CE](https://docs.docker.com/install/) instalado en la máquina de desarrollo. 
+
 
 ## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
 En este tutorial, puede usar la extensión de Azure IoT Edge para VS Code a fin de generar un módulo y crear una **imagen de contenedor** a partir de los archivos. Inserte luego esta imagen en un **Registro** que almacena y administra las imágenes. Por último, implemente la imagen en el Registro para que se ejecute en el dispositivo de IoT Edge.  
@@ -52,27 +56,20 @@ Puede usar cualquier registro compatible con Docker para este tutorial. Dos serv
 6. Copie los valores de **Servidor de inicio de sesión**, **Nombre de usuario** y **Contraseña**. Usará estos valores más adelante en este tutorial al publicar la imagen de Docker en el registro y al agregar las credenciales del registro al tiempo de ejecución de Edge. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Crear un proyecto de módulo IoT Edge
-En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET Core 2.0 mediante Visual Studio Code y la extensión de Azure IoT Edge.
+En los siguientes pasos puede ver cómo crear un proyecto de módulo IoT Edge basado en .NET Core 2.0 mediante Visual Studio Code y la extensión de Azure IoT Edge.
 1. En Visual Studio Code, seleccione **Ver** > **Terminal integrado** para abrir el terminal integrado de VS Code.
-2. En el terminal integrado, escriba el siguiente comando para instalar (o actualizar) la plantilla **AzureIoTEdgeModule** en dotnet:
-
-    ```cmd/sh
-    dotnet new -i Microsoft.Azure.IoT.Edge.Module
-    ```
-
-3. Cree un proyecto para el nuevo módulo. El comando siguiente crea la carpeta del proyecto, **FilterModule**, con el repositorio de contenedores. Si usa Azure Container Registry, el segundo parámetro debe tener el formato de `<your container registry name>.azurecr.io`. Escriba el siguiente comando en la carpeta de trabajo actual:
-
-    ```cmd/sh
-    dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
-    ```
+2. Seleccione **View** > **Command Palette** (Ver > Paleta de comandos) para abrir la paleta de comandos de VS Code. 
+3. En la paleta de comandos, escriba y ejecute el comando **Azure: Sign in** (Azure: iniciar sesión) y siga las instrucciones para iniciar sesión en la cuenta de Azure. Si ya ha iniciado sesión, puede omitir este paso.
+4. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución: 
+   1. Seleccione la carpeta en la que desea crear la solución. 
+   2. Proporcione un nombre para la solución o acepte el valor predeterminado **EdgeSolution**.
+   3. Elija el **módulo de C#** como la plantilla del módulo. 
+   4. Asigne al módulo el nombre **CSharpModule**. 
+   5. Especifique la instancia de Azure Container Registry que creó en la sección anterior como el repositorio de imágenes del primer módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión que copió. La cadena final se parece a **\<nombre del registro\>.azurecr.io/csharpmodule**.
  
-4. Seleccione **Archivo** > **Abrir carpeta**.
-5. Vaya a la carpeta **FilterModule** y haga clic en **Seleccionar carpeta** para abrir el proyecto en VS Code.
-6. En el explorador de VS Code, haga clic en **Program.cs** para abrirlo.
+4. La ventana de Visual Studio Code carga el área de trabajo de la solución de IoT Edge. Hay una carpeta **.vscode**, una carpeta **modules**, un archivo de plantilla de manifiesto de implementación y un archivo **.env**. Abra **modules** > **CSharpModule** > **Program.cs**.
 
-   ![Abrir Program.cs][1]
-
-7. En la parte superior del espacio de nombres **FilterModule**, agregue tres instrucciones `using` para los tipos que se usarán más adelante en:
+5. En la parte superior del espacio de nombres **CSharpModule**, agregue tres instrucciones `using` para los tipos que se usarán más adelante en:
 
     ```csharp
     using System.Collections.Generic;     // for KeyValuePair<>
@@ -80,13 +77,13 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
     using Newtonsoft.Json;                // for JsonConvert
     ```
 
-8. Agregue la variable `temperatureThreshold` a la clase **Program**. Esta variable establece el valor que debe superar la temperatura medida para que los datos se envíen a IoT Hub. 
+6. Agregue la variable `temperatureThreshold` a la clase **Program**. Esta variable establece el valor que debe superar la temperatura medida para que los datos se envíen a IoT Hub. 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-9. Agregue las clases `MessageBody`, `Machine` y `Ambient` a la clase **Program**. Estas clases definen el esquema esperado para el cuerpo de los mensajes entrantes.
+7. Agregue las clases `MessageBody`, `Machine` y `Ambient` a la clase **Program**. Estas clases definen el esquema esperado para el cuerpo de los mensajes entrantes.
 
     ```csharp
     class MessageBody
@@ -107,7 +104,7 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
     }
     ```
 
-10. En el método **Init**, el código crea y configura un objeto **DeviceClient**. Este objeto permite al módulo conectarse al runtime de Azure IoT Edge local para enviar y recibir mensajes. La cadena de conexión que se usa en el método **Init** la suministra el runtime de IoT Edge al módulo. Tras la creación de **DeviceClient**, el código lee el umbral de temperatura de las propiedades deseadas del módulo gemelo y registra una devolución de llamada para recibir mensajes del centro de IoT Edge a través del punto de conexión **input1**. Reemplace el método `SetInputMessageHandlerAsync` por otro y agregue un método `SetDesiredPropertyUpdateCallbackAsync` para las actualizaciones de propiedades que quiera. Para realizar este cambio, reemplace la última línea del método **Init** con el siguiente código:
+8. En el método **Init**, el código crea y configura un objeto **ModuleClient**. Este objeto permite al módulo conectarse al runtime de Azure IoT Edge local para enviar y recibir mensajes. La cadena de conexión que se usa en el método **Init** la suministra el runtime de IoT Edge al módulo. Tras la creación de **ModuleClient**, el código lee el umbral de temperatura de las propiedades deseadas del módulo gemelo y registra una devolución de llamada para recibir mensajes del centro de IoT Edge a través del punto de conexión **input1**. Reemplace el método `SetInputMessageHandlerAsync` por otro y agregue un método `SetDesiredPropertyUpdateCallbackAsync` para las actualizaciones de propiedades que quiera. Para realizar este cambio, reemplace la última línea del método **Init** con el siguiente código:
 
     ```csharp
     // Register callback to be called when a message is received by the module
@@ -119,7 +116,7 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
     try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
     } catch(ArgumentOutOfRangeException e) {
-        Console.WriteLine("Property TemperatureThreshold not exist");
+        Console.WriteLine($"Property TemperatureThreshold not exist: {e.Message}"); 
     }
 
     // Attach callback for Twin desired properties updates
@@ -129,7 +126,7 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-11. Agregue el método `onDesiredPropertiesUpdate` a la clase **Program**. Este método recibe las actualizaciones sobre las propiedades que se quieren del módulo gemelo y actualiza la variable **temperatureThreshold** para que coincida. Todos los módulos tienen su propio módulo gemelo, que le permite configurar el código que se ejecuta dentro de un módulo directamente desde la nube.
+9. Agregue el método `onDesiredPropertiesUpdate` a la clase **Program**. Este método recibe las actualizaciones sobre las propiedades que se quieren del módulo gemelo y actualiza la variable **temperatureThreshold** para que coincida. Todos los módulos tienen su propio módulo gemelo, que le permite configurar el código que se ejecuta dentro de un módulo directamente desde la nube.
 
     ```csharp
     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -160,16 +157,15 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
     }
     ```
 
-12. Reemplace el método `PipeMessage` por el método `FilterMessages`. Se llama a este método cada vez que el módulo recibe un mensaje del centro de IoT Edge. Filtra los mensajes que informan de temperaturas por debajo del umbral de temperatura que se establecen mediante el módulo gemelo. También agrega la propiedad **MessageType** al mensaje con el valor establecido en **Alerta**. 
+10. Reemplace el método `PipeMessage` por el método `FilterMessages`. Se llama a este método cada vez que el módulo recibe un mensaje del centro de IoT Edge. Filtra los mensajes que informan de temperaturas por debajo del umbral de temperatura que se establecen mediante el módulo gemelo. También agrega la propiedad **MessageType** al mensaje con el valor establecido en **Alerta**. 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
     {
         var counterValue = Interlocked.Increment(ref counter);
-
-        try {
-            DeviceClient deviceClient = (DeviceClient)userContext;
-
+        try
+        {
+            ModuleClient moduleClient = (ModuleClient)userContext;
             var messageBytes = message.GetBytes();
             var messageString = Encoding.UTF8.GetString(messageBytes);
             Console.WriteLine($"Received message {counterValue}: [{messageString}]");
@@ -188,7 +184,7 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
                 }
 
                 filteredMessage.Properties.Add("MessageType", "Alert");
-                await deviceClient.SendEventAsync("output1", filteredMessage);
+                await moduleClient.SendEventAsync("output1", filteredMessage);
             }
 
             // Indicate that the message treatment is completed
@@ -202,7 +198,7 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
                 Console.WriteLine("Error in sample: {0}", exception);
             }
             // Indicate that the message treatment is not completed
-            var deviceClient = (DeviceClient)userContext;
+            var moduleClient = (ModuleClient)userContext;
             return MessageResponse.Abandoned;
         }
         catch (Exception ex)
@@ -210,109 +206,105 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
             Console.WriteLine();
             Console.WriteLine("Error in sample: {0}", ex.Message);
             // Indicate that the message treatment is not completed
-            DeviceClient deviceClient = (DeviceClient)userContext;
+            ModuleClient moduleClient = (ModuleClient)userContext;
             return MessageResponse.Abandoned;
         }
     }
     ```
 
-13. Guarde este archivo.
+11. Guarde este archivo.
 
-## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Crear una imagen de Docker y publicarla en el Registro
+## <a name="build-your-iot-edge-solution"></a>Compilación de la solución de IoT Edge
 
-1. Inicie sesión en Docker escribiendo el comando siguiente en el terminal integrado de VS Code: 
+En la sección anterior se ha creado una solución de IoT Edge y se ha agregado código a CSharpModule que va a filtrar los mensajes donde la temperatura de la máquina informada está por debajo del umbral aceptable. Ahora tiene que compilar la solución como una imagen de contenedor e insertarla en el registro de contenedores. 
+
+1. Inicie sesión en Docker escribiendo el siguiente comando en el terminal integrado de Visual Studio Code, para que pueda insertar la imagen del módulo en el ACR: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Para buscar el nombre de usuario, la contraseña y el servidor de inicio de sesión que se van a usar en este comando, vaya a [Azure Portal] (https://portal.azure.com). En **Todos los recursos**, haga clic en el icono para que Azure Container Registry abra sus propiedades y, después, haga clic en **Claves de acceso**. Copie los valores en los campos **Nombre de usuario**, **Contraseña** y **Servidor de inicio de sesión**. 
+   Utilice el nombre de usuario, la contraseña y el servidor de inicio de sesión que ha copiado de Azure Container Registry en la primera sección. O recupérelos de nuevo desde la sección **Claves de acceso** del registro en Azure Portal.
 
-2. En el explorador de VS Code, haga clic con el botón derecho en el archivo **module.json** y haga clic en **Build and Push IoT Edge module Docker image** (Compilar e insertar la imagen de Docker del módulo de IoT Edge). En el cuadro de lista desplegable emergente situado en la parte superior de la ventana de VS Code, seleccione la plataforma de contenedor, **amd64** para el contenedor de Linux o **windows-amd64** para el contenedor de Windows. A continuación, VS Code compila el código, pone `FilterModule.dll` en contenedores y lo inserta en el registro de contenedor especificado.
+2. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge. Este archivo indica el agente `$edgeAgent` para implementar los dos módulos: **tempSensor** y **CSharpModule**. El valor `CSharpModule.image` se establece en una versión Linux amd64 de la imagen. Para aprender más sobre manifiestos de implementación, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
 
+3. En el archivo **deployment.template.json**, hay una sección **registryCredentials** que almacena las credenciales de registro de Docker. Los pares reales de nombre de usuario y contraseña se almacenan en el archivo .env que Git omite.
 
-3. Puede obtener la dirección de la imagen de contenedor completa con etiqueta en la terminal integrada de VS Code. Para obtener más información acerca de la definición de compilación y de inserción, puede consultar el archivo `module.json`.
-
-## <a name="add-registry-credentials-to-edge-runtime"></a>Agregar las credenciales del Registro al runtime de Edge
-Agregue las credenciales del Registro al runtime de Edge en el equipo en que ejecuta el dispositivo de Edge. Estas credenciales proporcionan acceso al runtime para extraer el contenedor. 
-
-- En Windows, ejecute el siguiente comando:
-    
-    ```cmd/sh
-    iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
-
-- En Linux, ejecute el siguiente comando:
-    
-    ```cmd/sh
-    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
-
-## <a name="run-the-solution"></a>Ejecución de la solución
-
-1. En [Azure Portal](https://portal.azure.com), navegue hasta su centro de IoT.
-2. Vaya a **IoT Edge (versión preliminar)** y seleccione el dispositivo de IoT Edge.
-3. Seleccione **Set modules** (Establecer módulos). 
-4. Compruebe que el módulo **tempSensor** se rellena automáticamente. Si no es así, realice los pasos siguientes para agregarlo:
-    1. Seleccione **Add IoT Edge module** (Agregar módulo de IoT Edge).
-    2. En el campo **Nombre**, escriba `tempSensor`.
-    3. En el campo **URI de la imagen**, escriba `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-    4. Deje los restantes valores intactos y haga clic en **Guardar**.
-5. Agregue el módulo **filterModule** que creó en secciones anteriores. 
-    1. Seleccione **Add IoT Edge module** (Agregar módulo de IoT Edge).
-    2. En el campo **Nombre**, escriba `filterModule`.
-    3. En el campo **URI de la imagen**, escriba la dirección de la imagen; por ejemplo, `<your container registry address>/filtermodule:0.0.1-amd64`. La dirección de la imagen completa puede encontrarse en la sección anterior.
-    4. Active la casilla **Habilitar** para que pueda modificar el módulo gemelo. 
-    5. Reemplace el archivo JSON del cuadro de texto del módulo gemelo por el siguiente: 
-
-        ```json
-        {
-           "properties.desired":{
-              "TemperatureThreshold":25
-           }
-        }
-        ```
- 
-    6. Haga clic en **Save**(Guardar).
-6. Haga clic en **Next**.
-7. En el paso **Specify Routes** (Especificar rutas), copie el archivo JSON siguiente en el cuadro de texto. Los módulos publican todos los mensajes en el runtime de Edge. Las reglas declarativas del runtime definen por dónde fluyen esos mensajes. En este tutorial, necesita dos rutas. La primera transporta mensajes desde el sensor de temperatura hasta el módulo de filtro a través del punto de conexión "input1", que es el que configuró con el controlador **FilterMessages**. La segunda transporta mensajes desde el módulo de filtro hasta IoT Hub. En esta ruta, `upstream` es un destino especial que indica a Edge Hub que envíe mensajes a IoT Hub. 
-
+4. Agregue el módulo gemelo CSharpModule al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección `moduleContent`, después del módulo gemelo `$edgeHub`: 
     ```json
-    {
-       "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterModule/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filterModule/outputs/output1 INTO $upstream"
-       }
-    }
+        "CSharpModule": {
+            "properties.desired":{
+                "TemperatureThreshold":25
+            }
+        }
     ```
 
-8. Haga clic en **Next**.
-9. En el paso **Review Template** (Revisar plantilla), haga clic en **Enviar**. 
-10. Vuelva a la página de detalles del dispositivo IoT Edge y haga clic en **Actualizar**. Debería ver el nuevo **filtermodule** en ejecución junto con el módulo **tempSensor** y el **runtime de IoT Edge**. 
+4. Guarde este archivo.
+5. En el explorador de VS Code, haga clic con el botón derecho en el archivo **deployment.template.json** y seleccione **Build IoT Edge solution** (Compilar solución de IoT Edge). 
 
-## <a name="view-generated-data"></a>Ver datos generados
+Cuando indica a Visual Studio Code que cree su solución, primero toma la información de la plantilla de implementación y genera un archivo `deployment.json` en una nueva carpeta **config**. Después, ejecuta dos comandos en el terminal integrado: `docker build` y `docker push`. Estos dos comandos compilan el código, empaquetan `CSharpModule.dll` en contenedores y lo insertan en el registro de contenedor que especificó cuando inicializó la solución. 
 
-Para supervisar los mensajes del dispositivo a la nube enviados al centro de IoT desde el dispositivo de IoT Edge:
+Puede ver la dirección de la imagen de contenedor completa con la etiqueta en el terminal integrado de VS Code. La dirección de la imagen se crea a partir de la información del archivo `module.json`, con el formato **\<repositorio\>:\<versión\>-\<plataforma\>**. Para este tutorial, debería ser similar a **registryname.azurecr.io/csharpmodule:0.0.1-amd64**.
+
+## <a name="deploy-and-run-the-solution"></a>Implementación y ejecución de la solución
+
 1. Configure la extensión de Azure IoT Toolkit con la cadena de conexión del centro de IoT: 
     1. Abra el explorador de VS Code seleccionando **Ver** > **Explorador**. 
-    2. En el explorador, haga clic en **IOT HUB DEVICES** y, luego, en **...**. Haga clic en **Set IoT Hub Connection String** (Establecer cadena de conexión de IoT Hub) y escriba la cadena de conexión del centro de IoT al que se conecta el dispositivo de IoT Edge en la ventana emergente. 
+    2. En el explorador, haga clic en **AZURE IOT HUB DEVICES** y, luego, en **...**. Haga clic en **Select IoT Hub** (Seleccionar IoT Hub). Siga las instrucciones para iniciar sesión en la cuenta de Azure y elija su instancia de IoT Hub. 
+       Tenga en cuenta que también puede realizar la configuración haciendo clic en **Set IoT Hub Connection String** (Establecer cadena de conexión de IoT Hub). Escriba la cadena de conexión del centro de IoT al que se conecta el dispositivo IoT Edge en la ventana emergente.
 
-        Para buscar la cadena de conexión, haga clic en el icono del centro de IoT en Azure Portal y, después, en **Directivas de acceso compartido**. En **Directivas de acceso compartido**, haga clic en la directiva **iothubowner** y copie la cadena de conexión de IoT Hub en la ventana **iothubowner**.   
+2. En el Explorador de dispositivos de Azure IoT Hub, haga clic con el botón derecho en el dispositivo IoT Edge y, a continuación, haga clic en **Create deployment for Edge device** (Crear implementación para dispositivo Edge). Seleccione el archivo **deployment.json** de la carpeta **config** y, a continuación, haga clic en **Select Edge Deployment Manifest** (Seleccionar manifiesto de implementación de Edge).
 
-2. Para supervisar los datos que llegan a IoT Hub, seleccione **Ver** > **Paleta de comandos** y busque el comando de menú **IoT: Start monitoring D2C message** (IoT: iniciar la supervisión del mensaje de D2C). 
-3. Para dejar de supervisar datos, use el comando de menú **IoT: Start monitoring D2C message** (IoT: detener la supervisión del mensaje de D2C). 
+3. Haga clic en el botón Actualizar. Debería ver el nuevo **CSharpModule** en ejecución junto con el módulo **TempSensor** y el **$edgeAgent** y **$edgeHub**. 
+
+## <a name="view-generated-data"></a>Visualización de datos generados
+
+1. Para supervisar los datos que llegan al centro de IoT, haga clic en **...** y seleccione **Start Monitoring D2C Messages** (Iniciar supervisión de mensajes de D2C).
+2. Para supervisar el mensaje de D2C para un dispositivo específico, haga clic con el botón derecho en el dispositivo en la lista y seleccione **Start Monitoring D2C Messages** (Iniciar supervisión de mensajes de D2C).
+3. Para dejar de supervisar datos, use el comando **Azure IoT Hub: Stop monitoring D2C message** (Azure IoT Hub: detener la supervisión del mensaje de D2C) en la paleta de comandos. 
+4. Para ver o actualizar el módulo gemelo, haga clic con el botón derecho en el módulo en la lista y seleccione **Edit module twin** (Editar módulo gemelo). Para actualizar el módulo gemelo, guarde el archivo JSON gemelo y haga clic con el botón derecho en el área del editor y seleccione **Update Module Twin** (Actualizar módulo gemelo).
+5. Para ver los registros de Docker, instale [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) para VS Code y encuentre los módulos en ejecución de manera local en el explorador de Docker. En el menú contextual, haga clic en **Show Logs** (Mostrar registros) en la vista del terminal integrado.
+ 
+## <a name="clean-up-resources"></a>Limpieza de recursos 
+
+<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+
+Si va a seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar.
+
+En caso contrario, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo para evitar gastos. 
+
+> [!IMPORTANT]
+> La eliminación de los recursos de Azure y del grupo de recursos es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
+>
+
+Para eliminar solo la instancia de IoT Hub, ejecute el siguiente comando usando el nombre del centro y el nombre del grupo de recursos:
+
+```azurecli-interactive
+az iot hub delete --name MyIoTHub --resource-group TestResources
+```
+
+
+Para eliminar un grupo de recursos entero por el nombre:
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Grupos de recursos**.
+
+2. Escriba el nombre del grupo de recursos que contiene la instancia de IoT Hub en el cuadro de texto **Filtrar por nombre...**. 
+
+3. A la derecha del grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
+
+4. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba otra vez el nombre del grupo de recursos para confirmar y haga clic en **Eliminar**. Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, creó un módulo IoT Edge que contiene código para filtrar datos sin procesar generados por el dispositivo IoT Edge. Puede continuar con cualquiera de los siguientes tutoriales para obtener información sobre otras formas en que Azure IoT Edge puede ayudarle a transformar datos en perspectivas empresariales en el límite.
+En este tutorial, creó un módulo IoT Edge que contiene código para filtrar datos sin procesar generados por el dispositivo IoT Edge. Cuando esté listo para compilar sus propios módulos, consulte [Develop a C# module with Azure IoT Edge for Visual Studio Code](how-to-develop-csharp-module.md) (Desarrollo de un módulo de C# con Azure IoT Edge para Visual Studio Code). Puede continuar con los siguientes tutoriales para aprender otras formas en las que Azure IoT Edge puede ayudarle a convertir los datos en información empresarial en el perímetro.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Function as a module (Implementar Azure Functions como módulo)](tutorial-deploy-function.md)
-> [Deploy Azure Stream Analytics as a module (Implementar Azure Stream Analytics como módulo)](tutorial-deploy-stream-analytics.md)
-
+> [Almacenamiento de datos en el perímetro con bases de datos de SQL Server](tutorial-store-data-sql-server.md)
 
 <!-- Links -->
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-tutorial1-win]: quickstart.md
+[lnk-tutorial1-lin]: quickstart-linux.md
 
 <!-- Images -->
 [1]: ./media/tutorial-csharp-module/programcs.png

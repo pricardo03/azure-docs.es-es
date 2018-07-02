@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603783"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752340"
 ---
 # <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -165,7 +165,7 @@ Para crear una cuenta de almacenamiento de uso general v2 en Azure Portal, siga 
 1. En Azure Portal, expanda el menú en el lado izquierdo para abrir el menú de servicios y elija **Todos los servicios**. A continuación, desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
 2. Escriba un nombre para la cuenta de almacenamiento.
 3. En el campo **Tipo de cuenta**, elija **StorageV2 (uso general v2)**.
-4. En el campo **Replicación**, deje la opción **Almacenamiento con redundancia local (LRS)**. Como alternativa, puede elegir **Almacenamiento con redundancia de zona (ZRS clásico)**, **Almacenamiento con redundancia geográfica (GRS)** o **Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)**.
+4. En el campo **Replicación**, deje la opción **Almacenamiento con redundancia local (LRS)**. Como alternativa, puede elegir **Almacenamiento con redundancia de zona (ZRS) (versión preliminar)**, **Almacenamiento con redundancia geográfica (GRS)** o **Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)**.
 5. Deje estos campos con sus valores predeterminados: **Modelo de implementación**, **Rendimiento** y **Se requiere transferencia segura**.
 6. Elija la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 7. En la sección **Grupo de recursos**, seleccione **Use existing** (Usar existente) y, a continuación, elija el grupo de recursos que creó en la sección anterior.
@@ -186,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia de zona (versión preliminar de ZRS), almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName**. 
+Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia de zona (ZRS) (versión preliminar), almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName**. 
 
 |Opción Replicación  |Parámetro SkuName  |
 |---------|---------|
@@ -219,13 +219,7 @@ Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con
 
 ---
 
-> [!NOTE]
-> [Almacenamiento con redundancia de zona](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) está actualmente en versión preliminar y solo está disponible en las siguientes ubicaciones:
->    - Este de EE. UU. - 2
->    - Centro de EE. UU.
->    - Centro de Francia (esta región está actualmente en versión preliminar. Para solicitar acceso, consulte [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) (Versión preliminar de Microsoft Azure con las zonas de disponibilidad que están abiertas en Francia) para solicitar acceso.
-    
-Para más información acerca de los distintos tipos de replicación disponibles, consulte [Opciones de replicación de Storage](storage-redundancy.md).
+Para más información acerca de las opciones de replicación, consulte [Opciones de replicación de Azure Storage](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

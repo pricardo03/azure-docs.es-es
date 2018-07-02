@@ -1,7 +1,7 @@
 ---
-title: Creación de una aplicación de varios contenedores (versión preliminar) mediante la aplicación Azure Web App for Containers
+title: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
 description: Obtenga información acerca de cómo utilizar varios contenedores en Azure con los archivos de configuración de Docker Compose y Kubernetes, con una aplicación de WordPress y MySQL.
-keywords: servicio de aplicaciones de azure, aplicación web, linux, docker, compose, varios contenedores, contenedor, kubernetes
+keywords: azure app service, aplicación web, linux, docker, componer, varios contenedores, contenedor, kubernetes
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651516"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751921"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
 
 [Web App for Containers](app-service-linux-intro.md) proporciona una manera flexible de utilizar imágenes de Docker. En este tutorial, aprenderá a crear una aplicación de varios contenedor usando WordPress y MySQL.
 
@@ -145,7 +145,7 @@ Copie y pegue el siguiente YAML localmente en un archivo llamado `compose-wordpr
 
 ## <a name="create-a-docker-compose-app"></a>Creación de una aplicación de Docker Compose
 
-En el terminal de símbolo del sistema local, cree una [aplicación web](app-service-linux-intro.md) de varios contenedores en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
+En el terminal del símbolo del sistema local, cree una [aplicación web](app-service-linux-intro.md) de varios contenedores en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -311,7 +311,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Actualización de la aplicación con una configuración nueva
 
-En el terminal de símbolo del sistema local, vuelva a configurar la [aplicación web](app-service-linux-intro.md) de varios contenedores con el comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). No olvide reemplazar _\<app_name >_ con el nombre de la aplicación web que creó anteriormente.
+En el terminal del símbolo del sistema local, vuelva a configurar la [aplicación web](app-service-linux-intro.md) de varios contenedores con el comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). No olvide reemplazar _\<app_name >_ con el nombre de la aplicación web que creó anteriormente.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -387,7 +387,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Actualización de la aplicación con una configuración nueva
 
-En el terminal de símbolo del sistema local, vuelva a configurar la [aplicación web](app-service-linux-intro.md) de varios contenedores con el comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
+En el terminal del símbolo del sistema local, vuelva a configurar la [aplicación web](app-service-linux-intro.md) de varios contenedores con el comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -458,7 +458,7 @@ Cuando se haya creado la configuración de aplicación, la CLI de Azure muestra 
 
 ### <a name="update-app-with-new-configuration"></a>Actualización de la aplicación con una configuración nueva
 
-En el terminal de símbolo del sistema local, vuelva a configurar la [aplicación web](app-service-linux-intro.md) de varios contenedores con el comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
+En el terminal del símbolo del sistema local, vuelva a configurar la [aplicación web](app-service-linux-intro.md) de varios contenedores con el comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -511,7 +511,7 @@ WordPress se conecta al servidor de Redis. El **estado** de la conexión aparece
 
 En esta sección, aprenderá a usar una configuración de Kubernetes para implementar varios contenedores. Asegúrese de que sigue los pasos anteriores para crear un [grupo de recursos](#create-a-resource-group) y un [plan de App Service](#create-an-azure-app-service-plan). Puesto que la mayoría de los pasos son similares a los de la sección compose, el archivo de configuración se ha combinado para usted.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>Opciones admitidas de Kubernetes para varios contenedores
+### <a name="supported-kubernetes-options-for-multicontainer"></a>Opciones de Kubernetes admitidas para varios contenedores
 
 * args
 * command
@@ -649,9 +649,9 @@ Cuando se haya creado la configuración de aplicación, la CLI de Azure muestra 
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>Creación de una aplicación de varios contenedores (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>Creación de una aplicación de varios contenedores (Kubernetes)
 
-En el terminal de símbolo del sistema local, cree una [aplicación web](app-service-linux-intro.md) de varios contenedores en el grupo de recursos `myResourceGroup` y el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
+En el terminal del símbolo del sistema local, cree una [aplicación web](app-service-linux-intro.md) de varios contenedores en el grupo de recursos `myResourceGroup` y el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml

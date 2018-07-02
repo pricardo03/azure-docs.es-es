@@ -3,7 +3,7 @@ title: Copia incremental de datos con Azure Data Factory | Microsoft Docs
 description: En estos tutoriales se muestra cómo copiar datos de forma incremental de un almacén de datos de origen a un almacén de datos de destino. La primera de ellas copia los datos de una tabla.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: shlo
-ms.openlocfilehash: 7265e20bf89cc9dbc1c44e568e779f2d13f87685
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: bb6cfc6575bdbe83aeb258069a9c239147d30bca
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174736"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049186"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carga incremental de datos de un almacén de datos de origen a un almacén de datos de destino
 
-En una solución de integración de datos, la carga incremental (o diferencial) de los datos después de una carga completa de los datos es un método ampliamente usado. En los tutoriales de esta sección se muestran distintas formas de cargar datos de forma incremental mediante la versión 2 de Azure Data Factory.
+En una solución de integración de datos, la carga incremental (o diferencial) de los datos después de una carga completa de los datos es un método ampliamente usado. En los tutoriales de esta sección se muestran distintas formas de cargar datos de forma incremental mediante Azure Data Factory.
 
 ## <a name="delta-data-loading-by-using-a-watermark"></a>Carga de datos diferenciales mediante una marca de agua
 En este caso, definirá una marca de agua en la base de datos de origen. Una marca de agua es una columna que tiene la marca de tiempo de la última actualización o una clave de incremento. La solución de carga diferencial carga los datos modificados entre una marca de agua antigua y una nueva marca de agua. En el siguiente diagrama se representa el flujo de trabajo de este enfoque: 
@@ -34,7 +34,6 @@ Consulte los siguientes temas para obtener instrucciones paso a paso:
 - [Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage](tutorial-incremental-copy-powershell.md)
 - [Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
-
 ## <a name="delta-data-loading-by-using-the-change-tracking-technology"></a>Carga de datos diferencial mediante la tecnología de control de cambios
 La tecnología de control de cambios es una solución ligera de SQL Server y Azure SQL Database que ofrece un mecanismo eficaz de control de cambios para las aplicaciones. Así, permite que una aplicación identifique fácilmente los datos que se insertaron, actualizaron o eliminaron. 
 
@@ -44,7 +43,6 @@ En el siguiente diagrama se representa el flujo de trabajo de este enfoque:
 
 Para ver instrucciones paso a paso, consulte el siguiente tutorial: <br/>
 [Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Avance al siguiente tutorial: 

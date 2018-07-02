@@ -1,7 +1,9 @@
-- name: ¿Qué es QnA Maker?
-  href: Overview/overview.md
+- name: Documentación de QnA Maker
+  href: index.yml
 - name: Información general
   items:
+    - name: ¿Qué es QnA Maker?
+      href: Overview/overview.md
     - name: Idiomas admitidos
       href: Overview/languages-supported.md
 - name: Guías de inicio rápido

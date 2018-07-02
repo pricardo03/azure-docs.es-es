@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234563"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937944"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -31,7 +31,7 @@ Con Azure Portal, puede [crear un servidor](analysis-services-create-server.md) 
 
 **Video:** vea [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) (Implementación automática) para aprender a usar Azure Automation para agilizar la creación de servidores.
 
-Azure Analysis Services se integra con muchos servicios de Azure lo que le permite compilar soluciones de análisis sofisticadas. La integración con [Azure Active Directory](../active-directory/active-directory-whatis.md) proporciona acceso seguro, basado en roles, a los datos críticos. Se integra en las canalizaciones de [Azure Data Factory](../data-factory/introduction.md) mediante la inclusión de una actividad que carga los datos en el modelo. [Azure Automation](../automation/automation-intro.md) y [Azure Functions](../azure-functions/functions-overview.md) se pueden usar para realizar una orquestación ligera de modelos mediante código personalizado. 
+Azure Analysis Services se integra con muchos servicios de Azure lo que le permite compilar soluciones de análisis sofisticadas. La integración con [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) proporciona acceso seguro, basado en roles, a los datos críticos. Se integra en las canalizaciones de [Azure Data Factory](../data-factory/introduction.md) mediante la inclusión de una actividad que carga los datos en el modelo. [Azure Automation](../automation/automation-intro.md) y [Azure Functions](../azure-functions/functions-overview.md) se pueden usar para realizar una orquestación ligera de modelos mediante código personalizado. 
 
 ## <a name="the-right-tier-when-you-need-it"></a>El nivel correcto cuando lo necesite
 
@@ -72,39 +72,41 @@ Este nivel es para aplicaciones de producción críticas que requieren concurren
 
 ## <a name="availability-by-region"></a>Disponibilidad por región
 
-Azure Analysis Services se admite en regiones de todo el mundo. Asegúrese de una [alta disponibilidad](analysis-services-bcdr.md) mediante la implementación de los modelos en servidores redundantes de varias regiones. Los niveles admitidos y las réplicas de consultas dependen de la región que elija. 
+Azure Analysis Services se admite en regiones de todo el mundo. Los planes admitidos y la disponibilidad de las réplicas de consultas dependen de la región que elija. La disponibilidad de planes y réplicas de consultas puede variar en función de la necesidad y los recursos disponibles en cada región. 
 
 ### <a name="americas"></a>América
 
-|Region  | Niveles que se admiten | Réplicas de consultas |
+|Region  | Planes admitidos | Réplicas de consultas (solo planes Estándar) |
 |---------|---------|:---------:|
 |Sur de Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centro de Canadá    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Este de EE. UU     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Este de EE. UU. 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|Este de EE. UU. 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |Centro-Norte de EE. UU     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Central EE. UU:     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Central EE. UU:     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Sur de EE. UU     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centro occidental de EE.UU.   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|Oeste de EE. UU     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|Oeste de EE. UU. 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|Centro occidental de EE.UU.   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|Oeste de EE. UU     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|Oeste de EE. UU. 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>Europa
 
-|Region  | Niveles que se admiten | Réplicas de consultas |
+|Region  | Planes admitidos | Réplicas de consultas (solo planes Estándar) |
 |---------|---------|:---------:|
-|Europa del Norte     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|Europa del Norte     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Sur del Reino Unido 2   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europa occidental     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|Europa occidental     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>Asia Pacífico 
 
-|Region  | Niveles que se admiten | Réplicas de consultas |
+|Region  | Planes admitidos | Réplicas de consultas (solo planes Estándar) |
 |---------|---------|:---------:|
 |Sudeste de Australia     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Este de Japón  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sudeste asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Sudeste asiático     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |Oeste de la India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+\* los planes S8 y S9 en el nivel Estándar admiten una réplica de consultas.
 
 ## <a name="scale-to-your-needs"></a>Adaptación a sus necesidades
 
@@ -116,7 +118,7 @@ Suba o baje de nivel o realice una pausa en el servidor. Use Azure Portal o teng
 
 Con el escalado horizontal, las consultas del cliente se distribuyen entre varias *réplicas de consultas* de un grupo de consultas. Las réplicas de consulta tienen copias sincronizadas de los modelos tabulares. Al repartir la carga de trabajo de consulta, se pueden reducir los tiempos de respuesta durante las cargas de trabajo de consulta elevadas. Las operaciones de procesamiento de modelos se pueden separar del grupo de consultas, lo que garantiza que las consultas de cliente no resultan afectadas negativamente por las operaciones de procesamiento. 
 
-Puede crear un grupo de consultas con hasta siete réplicas de consulta adicionales (ocho en total, incluido el servidor). El número de réplicas de consultas que puede tener en su grupo depende de la región que haya elegido. Las réplicas de consultas no se pueden propagar fuera de la región de su servidor. Las réplicas de consultas se facturan a la misma tarifa que el servidor.
+Puede crear un grupo de consultas con hasta siete réplicas de consulta adicionales (ocho en total, incluido el servidor). El número de réplicas de consultas que puede tener en el grupo depende del plan y la región que haya elegido. Las réplicas de consultas no se pueden propagar fuera de la región de su servidor. Las réplicas de consultas se facturan a la misma tarifa que el servidor.
 
 Al igual que sucede con los cambios de nivel, las réplicas de consultas se pueden escalar horizontalmente en función de sus necesidades. Configure el escalado horizontal en el portal o mediante las API REST. Para más información, consulte [Escalabilidad horizontal de Azure Analysis Services](analysis-services-scale-out.md).
 
@@ -148,7 +150,7 @@ El firewall de Azure Analysis Services bloquea todas las conexiones de cliente, 
 
 ### <a name="authentication"></a>Autenticación
 
-La autenticación de usuarios la controla [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Al iniciar sesión, los usuarios utilizan una identidad de cuenta de organización con acceso basado en rol a la base de datos. Las identidades de los usuarios deben ser miembros del directorio predeterminado de Azure Active Directory para la suscripción en que está el servidor. Para más información, consulte [Permisos de usuario y autenticación](analysis-services-manage-users.md).
+La autenticación de usuarios la controla [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Al iniciar sesión, los usuarios utilizan una identidad de cuenta de organización con acceso basado en rol a la base de datos. Las identidades de los usuarios deben ser miembros del directorio predeterminado de Azure Active Directory para la suscripción en que está el servidor. Para más información, consulte [Permisos de usuario y autenticación](analysis-services-manage-users.md).
 
 ### <a name="data-security"></a>Seguridad de los datos
 

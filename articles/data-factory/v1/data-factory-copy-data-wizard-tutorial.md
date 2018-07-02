@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8407249ed56059f278f8e4f84a4466ab286a0c24
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178096"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054501"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "30178096"
 > * [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea el [tutorial de la actividad de copia en la documentación de la versión 2](../quickstart-create-data-factory-dot-net.md). 
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el [tutorial de la actividad de copia](../quickstart-create-data-factory-dot-net.md). 
 
 
 Este tutorial muestra cómo utilizar el **Asistente para copia** para copiar datos desde un almacén de Azure Blob Storage a una base de datos SQL de Azure. 
@@ -75,7 +75,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    ![Página principal Factoría de datos](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>Inicio del Asistente para copia
-1. En la hoja Factoría de datos, haga clic en **Copiar datos [vista previa]** para iniciar el **Asistente para copia**. 
+1. En la hoja Factoría de datos, haga clic en **Copiar datos** para iniciar el **Asistente para copia**. 
    
    > [!NOTE]
    > Si ve que el explorador web se queda bloqueado en "Autorizando...", deshabilite o desactive la opción **Bloquear cookies y datos de sitios de terceros** en la configuración del explorador, o déjela habilitada y cree una excepción para **login.microsoftonline.com** e intente iniciar de nuevo el asistente.

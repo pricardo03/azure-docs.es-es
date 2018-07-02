@@ -1,0 +1,144 @@
+---
+title: Creación de una aplicación de varios contenedores (versión preliminar) en Azure Web App for Containers mediante una configuración de Docker Compose
+description: Implemente su primera aplicación de varios contenedores en Azure Web App for Containers en minutos
+keywords: azure app service, aplicación web, linux, docker, componer, varios contenedores, contenedor, kubernetes
+services: app-service\web
+documentationcenter: ''
+author: msangapu
+manager: jeconnoc
+editor: ''
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 06/22/2018
+ms.author: msangapu
+ms.custom: mvc
+ms.openlocfilehash: ec5c92415668c925fe360c0c8887fd792a121842
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753724"
+---
+# <a name="create-a-multicontainer-preview-app-using-web-app-for-containers"></a>Creación de una aplicación de varios contenedores (versión preliminar) con Web App for Containers
+
+[Web App for Containers](app-service-linux-intro.md) proporciona una manera flexible de utilizar imágenes de Docker. Esta guía de inicio rápido muestra cómo implementar una aplicación de varios contenedores en Web App for Containers con [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) mediante una configuración de Docker Compose. Para Kubernetes, siga los pasos de Kubernetes en el [tutorial de varios contenedores](tutorial-multi-container-app.md).
+
+Completará esta guía de inicio rápido en Cloud Shell, pero también puede ejecutar estos comandos localmente con la [CLI de Azure](/cli/azure/install-azure-cli) (2.0.32 o posterior). En esta guía de inicio rápido se utilizará un archivo de configuración Docker Compose.
+
+![Aplicación de varios contenedores de ejemplo en Web App for Containers][1]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## <a name="download-the-sample"></a>Descarga del ejemplo
+
+Para esta guía de inicio rápido, utilice el archivo de Compose de [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), pero tendrá que modificarlo incluyendo Azure Database for MySQL, el almacenamiento persistente y Redis. El archivo de configuración se pueden encontrar en los [ejemplos de Azure](https://github.com/Azure-Samples/multicontainerwordpress).
+
+[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
+
+En Cloud Shell, cree un directorio de inicio rápido y luego cambie a él.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+A continuación, ejecute el comando siguiente para clonar el repositorio de la aplicación de ejemplo en el directorio de inicio rápido.
+
+```bash
+git clone https://github.com/Azure-Samples/multicontainerwordpress
+```
+
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+
+[!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
+
+En Cloud Shell, cree un grupo de recursos con el comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *Centro y Sur de EE. UU.* Para ver todas las ubicaciones de App Service que se admiten en Linux en el nivel **Estándar**, ejecute el comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
+
+```azurecli-interactive
+az group create --name myResourceGroup --location "South Central US"
+```
+
+Generalmente se crean el grupo de recursos y los recursos en una región cercana.
+
+Cuando finaliza el comando, una salida de JSON muestra las propiedades del grupo de recursos.
+
+## <a name="create-an-azure-app-service-plan"></a>Crear un plan de Azure App Service
+
+En Cloud Shell, cree un plan de App Service en el grupo de recursos con el comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
+
+En el ejemplo siguiente se crea un plan de App Service denominado `myAppServicePlan` en el plan de tarifa **Estándar** (`--sku S1`) y en un contenedor Linux (`--is-linux`).
+
+```azurecli-interactive
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
+```
+
+Cuando se ha creado el plan de App Service, la CLI de Azure muestra información similar al ejemplo siguiente:
+
+```json
+{
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "South Central US",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "kind": "linux",
+  "location": "South Central US",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  < JSON data removed for brevity. >
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+}
+```
+
+## <a name="create-a-docker-compose-app"></a>Creación de una aplicación de Docker Compose
+
+En el terminal de Cloud Shell, vaya al directorio `multicontainerwordpress`. Cree una [aplicación web](app-service-linux-intro.md) de varios contenedores en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No olvide reemplazar _\<app_name_ por un nombre de aplicación exclusivo.
+
+```bash
+cd multicontainerwordpress
+
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+```
+
+Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:
+
+```json
+{
+  "additionalProperties": {},
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
+### <a name="browse-to-the-app"></a>Navegación hasta la aplicación
+
+Vaya a la aplicación implementada en (`http://<app_name>.azurewebsites.net`). La aplicación puede tardar unos minutos en cargarse. Si recibe un error, deje pasar unos minutos, y actualice el explorador.
+
+![Aplicación de varios contenedores de ejemplo en Web App for Containers][1]
+
+**Enhorabuena**, ha creado una aplicación de varios contenedores en Web App for Containers.
+
+[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Creación de una aplicación WordPress de varios contenedores en Web App for Containers](tutorial-multi-container-app.md)
+
+<!--Image references-->
+[1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

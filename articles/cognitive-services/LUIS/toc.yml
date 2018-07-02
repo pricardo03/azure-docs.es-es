@@ -9,36 +9,8 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Crear un modelo de aplicación
-      items:
-        - name: Usar un dominio creado previamente
-          href: luis-get-started-create-app.md
-        - name: Usar dominio personalizado
-          href: luis-quickstart-intents-only.md
-- name: Tutoriales
-  items:
-    - name: Agregar entidades e intenciones creados previamente
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: Obtener datos desde la entidad
-      items:
-        - name: Entidad simple
-          href: luis-quickstart-primary-and-secondary-data.md
-        - name: Entidad jerárquica
-          href: luis-quickstart-intent-and-hier-entity.md
-        - name: Entidad de expresión regular
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Entidad de lista
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: Entidad de KeyPhrase
-          href: luis-quickstart-intent-and-key-phrase.md
-        - name: análisis de opiniones
-          href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Mejorar la predicción
-      items:
-        - name: Con patrones
-          href: luis-tutorial-pattern.md
-        - name: Con una lista de frases
-          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: Compilación de una aplicación de un dominio creado previamente
+      href: luis-get-started-create-app.md
     - name: Usar las API
       items:
         - name: Obtener la predicción de expresiones con consulta de punto de conexión
@@ -73,6 +45,32 @@
               href: luis-get-started-php-add-utterance.md
             - name: Ruby
               href: luis-get-started-ruby-add-utterance.md
+- name: Tutoriales
+  items:
+    - name: Compilación de una aplicación
+      items:
+        - name: 1. Con dominio personalizado
+          href: luis-quickstart-intents-only.md
+        - name: 2. Agregar entidades e intenciones creados previamente
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 3. Incorporación de entidades de expresiones regulares
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 4. Incorporación de entidad de lista
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 5. Incorporación de entidad jerárquica
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: 6. Incorporación de entidad simple y lista de frases
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: 7. Adición de la entidad KeyPhrase
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: 8. Incorporación de análisis de sentimiento
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Mejorar la predicción
+      items:
+        - name: Con patrones
+          href: luis-tutorial-pattern.md
+        - name: Con una lista de frases
+          href: luis-tutorial-interchangeable-phrase-list.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 16ec493708f85e9b3819943e131b9f9c3649f27e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 3b0e03d47a03411e3e6dc2d073d5087bcb42e03e
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824645"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960430"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (.NET Core y Visual Studio)
 
@@ -29,7 +29,7 @@ En esta guía, aprenderá a:
 > [!Note]
 > **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página. También puede probar con este [tutorial](get-started-netcore-visualstudio.md), que es más detallado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Un clúster de Kubernetes que ejecute Kubernetes 1.9.6, en las regiones EastUS, WestEurope o CanadaEast, con Enrutamiento de solicitudes HTTP habilitado.
 
@@ -51,9 +51,9 @@ En Visual Studio 2017, cree un nuevo proyecto. Actualmente, el proyecto debe ser
 
 Seleccione la plantilla **Aplicación web (controlador de vista de modelos)** y asegúrese de que apunta a **.NET Core** y **ASP.NET Core 2.0**.
 
-### <a name="create-a-dev-space-in-azure"></a>Creación de un espacio de desarrollo en Azure
+### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Habilitación de Dev Spaces para un clúster de AKS
 
-Con el proyecto que acaba de crear abierto, seleccione **Azure Dev Spaces**  en el menú desplegable de configuración de inicio, como se muestra a continuación.
+Con el proyecto que acaba de crear, seleccione **Azure Dev Spaces**  en el menú desplegable de configuración de inicio, como se muestra a continuación.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -78,16 +78,41 @@ Mientras espera a que se cree el espacio de desarrollo, mire los archivos que se
 
 - Se ha agregado una carpeta llamada `charts` y, dentro de ella, un [gráfico de Helm](https://docs.helm.sh) para la aplicación a la que se ha aplicado la técnica scaffolding. Estos archivos se usan para implementar la aplicación en el espacio de desarrollo.
 - `Dockerfile` contiene la información necesaria para empaquetar la aplicación en el formato estándar de Docker.
-- `azds.yaml` contiene la información de configuración que necesita el espacio de desarrollo, como por ejemplo si se puede acceder a la aplicación a través de un punto de conexión público.
+- `azds.yaml` contiene la configuración de tiempo de desarrollo necesaria para el espacio de desarrollo.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Depuración de un contenedor en Kubernetes
 Cuando el espacio de desarrollo se haya creado correctamente, puede depurar la aplicación. Establezca un punto de interrupción en el código, por ejemplo, en la línea 20 del archivo `HomeController.cs`, donde se establece la variable `Message`. Pulse **F5** para iniciar la depuración. 
 
-Visual Studio se comunicará con el espacio de desarrollo para compilar e implementar la aplicación y, después, abrirá un explorador con la aplicación web en ejecución. Puede parecer que el contenedor se ejecuta localmente, pero en realidad lo hace en el espacio de desarrollo de Azure. La razón de la dirección de localhost es porque Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en Azure.
+Visual Studio se comunicará con el espacio de desarrollo para compilar e implementar la aplicación y, después, abrirá un explorador con la aplicación web en ejecución. Puede parecer que el contenedor se ejecuta localmente, pero en realidad lo hace en el espacio de desarrollo de Azure. La razón de la dirección de localhost es porque Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en AKS.
 
 Haga clic en el vínculo **Acerca de** en la parte superior de la página para desencadenar el punto de interrupción. Tiene acceso completo a la información de depuración, tal como lo haría si el código se ejecutara localmente, como la pila de llamadas, las variables locales o la información de excepción, por ejemplo.
+
+
+## <a name="iteratively-develop-code"></a>Desarrollo de código de forma iterativa
+
+Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en Kubernetes, sino de permitirle ver rápida e iterativamente que los cambios de código surtan efecto en un entorno de Kubernetes en la nube.
+
+### <a name="update-a-content-file"></a>Actualización de un archivo de contenido
+1. Busque el archivo `./Views/Home/Index.cshtml` y realice una edición en el código HTML. Por ejemplo, cambie la línea 70 que dice `<h2>Application uses</h2>` a algo como: `<h2>Hello k8s in Azure!</h2>`
+1. Guarde el archivo.
+1. Regrese al explorador y actualice la página. Debería ver la página web que muestra el código HTML actualizado.
+
+¿Qué ha ocurrido? Las ediciones de archivos de contenido, como HTML y CSS, no requieren compilarlos de nuevo en una aplicación web de .NET Core, por lo que un sesión de F5 activa sincroniza automáticamente cualquier archivo de contenido modificado en el contenedor que se está ejecutando en AKS, para que pueda ver sus ediciones de contenido de inmediato.
+
+### <a name="update-a-code-file"></a>Actualización de un archivo de código
+Actualizar archivos de código requiere un poco más de trabajo, porque una aplicación .NET Core necesita volver a crear y producir archivos binarios de aplicaciones actualizados.
+
+1. Detenga el depurador en Visual Studio.
+1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`.
+1. Guarde el archivo.
+1. Pulse **F5** para iniciar la depuración de nuevo. 
+
+En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez que se realizan modificaciones en el código, lo que a menudo lleva un tiempo considerable, Azure Dev Spaces volverá a compilar el código de manera incremental dentro del contenedor existente para proporcionar un bucle de modificación/depuración más rápido.
+
+Actualice la aplicación web en el explorador y vaya a la página Acerca de. Verá que aparece el mensaje personalizado en la interfaz de usuario.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

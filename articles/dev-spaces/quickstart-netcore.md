@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 3802e67503fd546ef71b9c26daddc8ef63cf4bd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823233"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945863"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (.NET Core y VS Code)
 
@@ -29,7 +29,7 @@ En esta guía, aprenderá a:
 > [!Note]
 > **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página. También puede probar con este [tutorial](get-started-netcore.md), que es más detallado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Una suscripción de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 - Un [clúster de Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) que ejecute Kubernetes 1.9.6, en las regiones EastUS, WestEurope o CanadaEast, con **Enrutamiento de solicitudes HTTP** habilitado.
@@ -40,7 +40,7 @@ En esta guía, aprenderá a:
 
 ## <a name="set-up-azure-dev-spaces"></a>Configuración de Azure Dev Spaces
 
-1. Instale la [CLI de Azure ](/cli/azure/install-azure-cli?view=azure-cli-latest) (versión 2.0.33 o superior).
+1. Instale la [CLI de Azure ](/cli/azure/install-azure-cli?view=azure-cli-latest) (versión 2.0.38 o superior).
 1. Configure Dev Spaces en su clúster de AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Descargue el [extensión de Azure Dev Spaces](https://aka.ms/get-azds-code) para VS Code.
 1. Instale la extensión: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -50,12 +50,15 @@ En esta guía, aprenderá a:
 1. Descargue el código de ejemplo de GitHub:[https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. Cambie el directorio a la carpeta webfrontend: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. Genere los recursos de Docker y del gráfico de Helm: `azds prep --public`
-1. Compile y ejecute el código en AKS. En la ventana del terminal, ejecute este comando desde la **carpeta de código raíz**, webfrontend: `azds up`
+1. Compile y ejecute el código en AKS. En la ventana del terminal, ejecute este comando desde la **carpeta webfrontend**: `azds up`
 1. Examine la salida de la consola para obtener información acerca de la dirección URL que creó el comando `up`. Tendrá el formato siguiente: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
    Abra esta dirección URL en una ventana del explorador y verá la aplicación web de carga. 
+   
+   > [!Note]
+   > En la primera ejecución, puede tardar varios minutos hasta que el DNS público esté preparado. Si no se resuelve la dirección URL pública, puede usar la dirección URL alternativa http://localhost:<portnumber> que se muestra en la salida de la consola. Si utiliza la dirección URL del host local, puede parecer que el contenedor se ejecuta localmente, pero en realidad se ejecuta en AKS. Para mayor comodidad y para facilitar la interacción con el servicio desde la máquina local, Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en Azure. Puede volver y probar la dirección URL pública más adelante cuando el registro DNS esté listo.
 
 ### <a name="update-a-content-file"></a>Actualización de un archivo de contenido
 

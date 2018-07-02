@@ -138,9 +138,11 @@
         - name: Funciones de prueba
           href: functions-test-a-function.md
         - name: Desarrollo y depuración locales
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Desarrollo de Visual Studio
           href: functions-develop-vs.md
+        - name: Desarrollo de Core Tools
+          href: functions-run-local.md
         - name: Administración de conexiones
           href: manage-connections.md
         - name: Control de errores

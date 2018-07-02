@@ -1,11 +1,11 @@
 - name: Documentación sobre Computer Vision
   href: index.yml
 - name: Información general
+  expanded: true
   items:
     - name: ¿Qué es Computer Vision?
       href: Home.md
-- name: Guías de inicio rápido
-  expanded: true
+- name: Guías de inicio rápido de API
   items:
     - name: Resumen
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: Extraer texto impreso
           href: QuickStarts/ruby-print-text.md
+- name: Guías de inicio rápido de SDK
+  items:
+    - name: 'C#'
+      items:
+        - name: Analizar una imagen
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Generar una miniatura
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Extraer texto manuscrito
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Guías de procedimientos
   items:
     - name: Primeras aplicaciones Computer Vision

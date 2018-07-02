@@ -1,81 +1,232 @@
 ---
-title: 'Ejemplo de JSON de Azure Policy: Imágenes de máquina virtual aprobadas | Microsoft Docs'
-description: Esta directiva de ejemplo de JSON requiere que solo las imágenes personalizadas aprobadas se puedan implementar en su entorno.
+title: 'Ejemplo de directiva de Azure: imágenes de máquina virtual aprobadas'
+description: Esta directiva requiere que solo las imágenes personalizadas aprobadas se puedan implementar en su entorno.
 services: azure-policy
-documentationcenter: ''
 author: DCtheGeek
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: ''
-ms.date: 10/30/2017
+ms.date: 06/03/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 18ad65fda35571a57a73c9a9215fae7a89ae8a3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 408968723ab9dc14a1db1321c4db3b3d8518d511
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602659"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319306"
 ---
 # <a name="approved-vm-images"></a>Imágenes de máquina virtual aprobadas
 
 Esta directiva requiere que solo las imágenes personalizadas aprobadas se puedan implementar en su entorno. Se especifica una matriz de identificadores de las imágenes aprobadas.
 
+Puede implementar esta directiva de ejemplo mediante:
+
+- [Azure Portal](#azure-portal)
+- [Azure PowerShell](#azure-powershell)
+- [CLI de Azure](#azure-cli)
+- [API de REST](#rest-api)
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Plantilla de ejemplo
+## <a name="sample-policy"></a>Directiva de ejemplo
 
-[!code-json[main](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Approved VM images")]
+### <a name="policy-definition"></a>Definición de directiva
 
-Puede implementar esta plantilla mediante [Azure Portal](#deploy-with-the-portal), con [PowerShell](#deploy-with-powershell) o con la [CLI de Azure](#deploy-with-azure-cli).
+Definición de directiva JSON compuesta completa, utilizada por la API REST, botones "Implementar en Azure" y manualmente en el portal.
 
-## <a name="deploy-with-the-portal"></a>Implementación con el portal
+[!code-json[full](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Complete policy definition (JSON)")]
 
-[![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+> [!NOTE]
+> Si va a crear manualmente una directiva en el portal, use las partes **properties.parameters** y **properties.policyRule** de los pasos anteriores. Encapsule las dos secciones con llaves `{}` para que sea un valor JSON válido.
 
-## <a name="deploy-with-powershell"></a>Implementación con PowerShell
+### <a name="policy-rules"></a>Reglas de directiva
+
+Código JSON que define las reglas de la directiva, utilizado por la CLI de Azure y Azure PowerShell.
+
+[!code-json[rule](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.rules.json "Policy rules (JSON)")]
+
+### <a name="policy-parameters"></a>Parámetros de directiva
+
+Código JSON que define los parámetros de la directiva, utilizado por la CLI de Azure y Azure PowerShell.
+
+[!code-json[parameters](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.parameters.json "Policy parameters (JSON)")]
+
+## <a name="parameters"></a>Parámetros
+
+|NOMBRE |Escriba |Campo |DESCRIPCIÓN |
+|---|---|---|---|
+|imageIds |Matriz |Microsoft.Compute/imageIds |Lista de imágenes de máquina virtual aprobadas|
+
+Al crear una asignación a través de PowerShell o la CLI de Azure, los valores de los parámetros se pueden pasar como JSON en una cadena o a través de un archivo mediante `-PolicyParameter` (PowerShell) o `--params` (la CLI de Azure).
+PowerShell también admite `-PolicyParameterObject`, que requiere que se pase al cmdlet una tabla de hash de nombre y valor donde **Nombre** es el nombre del parámetro y **Valor** es un valor único o una matriz de valores que se pasa durante la asignación.
+
+En este parámetro de ejemplo, solo se permitirán la versión de imagen _ContosoStdImage_ del grupo de recursos _YourResourceGroup_ o la versión de mayo de 2018 de Windows Server 2016 Datacenter ubicadas en "Central EE. UU.".
+
+```json
+{
+    "imageIds": {
+        "value": [
+            "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage",
+            "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510"
+        ]
+    }
+}
+```
+
+## <a name="azure-portal"></a>Azure Portal
+
+[![Implementación en Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+[![Implementación en Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+
+## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name "allowed-custom-images" -DisplayName "Approved VM images" -description "This policy governs the approved VM images" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
-$definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -imageIds <Approved VM images> -PolicyDefinition $definition
-$assignment
+### <a name="deploy-with-azure-powershell"></a>Implementación con Azure PowerShell
+
+```azurepowershell-interactive
+# Create the Policy Definition (Subscription scope)
+$definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
+
+# Set the scope to a resource group; may also be a subscription or management group
+$scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
+
+# Set the Policy Parameter (JSON format)
+$policyparam = '{ "imageIds": { "value": [ "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510" ] } }'
+
+# Create the Policy Assignment
+$assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Limpieza de la implementación de PowerShell
+### <a name="remove-with-azure-powershell"></a>Eliminación con Azure PowerShell
 
-Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Ejecute los siguientes comandos para eliminar la asignación y la definición anteriores:
 
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurepowershell-interactive
+# Remove the Policy Assignment
+Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
+
+# Remove the Policy Definition
+Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementación con la CLI de Azure
+### <a name="azure-powershell-explanation"></a>Explicación de Azure PowerShell
+
+Los scripts de implementación y eliminación usan los siguientes comandos. Cada comando de la tabla siguiente crea un vínculo a documentación específica del comando:
+
+| Get-Help | Notas |
+|---|---|
+| [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) | Crea una nueva definición de directiva de Azure. |
+| [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup) | Obtiene un único grupo de recursos. |
+| [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) | Crea una nueva asignación de directiva de Azure. En este ejemplo, se proporciona una definición, pero también puede tomar una iniciativa. |
+| [Remove-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | Elimina una asignación de directiva de Azure existente. |
+| [Remove-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | Elimina una definición de directiva de Azure existente. |
+
+## <a name="azure-cli"></a>Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
-az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All
-
-az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-custom-images"
-```
-
-### <a name="clean-up-azure-cli-deployment"></a>Limpieza de la implementación de la CLI de Azure
-
-Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+### <a name="deploy-with-azure-cli"></a>Implementación con la CLI de Azure
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+# Create the Policy Definition (Subscription scope)
+definition=$(az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All)
+
+# Set the scope to a resource group; may also be a subscription or management group
+scope=$(az group show --name 'YourResourceGroup')
+
+# Set the Policy Parameter (JSON format)
+policyparam='{ "imageIds": { "value": [ "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510" ] } }'
+
+# Create the Policy Assignment
+assignment=$(az policy assignment create --name 'allowed-custom-images-assignment' --display-name 'Approved VM images Assignment' --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
 ```
+
+### <a name="remove-with-azure-cli"></a>Eliminación con la CLI de Azure
+
+Ejecute los siguientes comandos para eliminar la asignación y la definición anteriores:
+
+```azurecli-interactive
+# Remove the Policy Assignment
+az policy assignment delete --name `echo $assignment | jq '.name' -r`
+
+# Remove the Policy Definition
+az policy definition delete --name `echo $definition | jq '.name' -r`
+```
+
+### <a name="azure-cli-explanation"></a>Explicación de la CLI de Azure
+
+| Get-Help | Notas |
+|---|---|
+| [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Crea una nueva definición de directiva de Azure. |
+| [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Obtiene un único grupo de recursos. |
+| [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Crea una nueva asignación de directiva de Azure. En este ejemplo, se proporciona una definición, pero también puede tomar una iniciativa. |
+| [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Elimina una asignación de directiva de Azure existente. |
+| [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Elimina una definición de directiva de Azure existente. |
+
+## <a name="rest-api"></a>API DE REST
+
+Hay varias herramientas que se pueden usar para interactuar con la API REST de Resource Manager, como [ARMClient](https://github.com/projectkudu/ARMClient) o PowerShell. Encontrará un ejemplo de llamada a la API REST desde PowerShell en la sección **Alias** de la [Estructura de definición de directiva](../policy-definition.md#aliases).
+
+### <a name="deploy-with-rest-api"></a>Implementación con la API de REST
+
+- Cree la definición de directiva (ámbito de la suscripción). Use el código JSON de [definición de directiva](#policy-definition) para el cuerpo de la solicitud.
+
+  ```http
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
+  ```
+
+- Cree la asignación de directiva (ámbito de grupo de recursos)
+
+  ```http
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
+  ```
+
+  Utilice el siguiente ejemplo JSON para el cuerpo de la solicitud:
+
+  ```json
+  {
+      "properties": {
+          "displayName": "Approved VM images Assignment",
+          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images",
+          "parameters": {
+              "imageIds": {
+                  "value": [
+                      "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage",
+                      "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510"
+                  ]
+              }
+          }
+      }
+  }
+  ```
+
+### <a name="remove-with-rest-api"></a>Eliminación con la API REST
+
+- Eliminación de la asignación de directiva
+
+  ```http
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
+  ```
+
+- Eliminación de la definición de directiva
+
+  ```http
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
+  ```
+
+### <a name="rest-api-explanation"></a>Explicación de la API REST
+
+| Servicio | Grupo | Operación | Notas |
+|---|---|---|---|
+| Administración de recursos | Definiciones de directiva | [Creación](/rest/api/resources/policydefinitions/createorupdate) | Crea una nueva definición de directiva de Azure en una suscripción. Alternativa: [Creación en el grupo de administración](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Administración de recursos | Asignaciones de directiva | [Creación](/rest/api/resources/policyassignments/create) | Crea una nueva asignación de directiva de Azure. En este ejemplo, se proporciona una definición, pero también puede tomar una iniciativa. |
+| Administración de recursos | Asignaciones de directiva | [Eliminar](/rest/api/resources/policyassignments/delete) | Elimina una asignación de directiva de Azure existente. |
+| Administración de recursos | Definiciones de directiva | [Eliminar](/rest/api/resources/policydefinitions/delete) | Elimina una definición de directiva de Azure existente. Alternativa: [Eliminación en el grupo de administración](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea más ejemplos en [Ejemplos de Azure Policy](../json-samples.md).
-- Ejemplos adicionales de Azure Policy para máquinas virtuales en [Aplicar directivas a máquinas virtuales Windows](../../virtual-machines/windows/policy.md).
+- Consulte otros [ejemplos de directivas de Azure](../json-samples.md)
+- Consulte la [Estructura de definición de Azure Policy](../policy-definition.md)
+- Puede consultar ejemplos adicionales de Azure Policy para máquinas virtuales en [Aplicación de directivas a máquinas virtuales Windows](../../virtual-machines/windows/policy.md)

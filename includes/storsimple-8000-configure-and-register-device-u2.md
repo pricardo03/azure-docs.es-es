@@ -9,7 +9,7 @@
 
 3. Se le pedirá que elija el idioma que desee establecer para el dispositivo. Especifique el idioma y, a continuación, presione **Entrar**.
 
-4. En el menú de la consola serie que se muestra, seleccione la opción 1 para **iniciar sesión con acceso completo**.
+4. En el menú de la consola serie que se muestra, elija la opción 1 para **iniciar sesión con acceso completo**.
      Complete los pasos 5-12 para configurar las opciones de red necesarias mínimas para el dispositivo. **Estos pasos de configuración deben realizarse en el controlador activo del dispositivo.** El menú de la consola serie indica el estado del controlador en el mensaje del banner. Si no está conectado al controlador activo, desconéctese y, a continuación, conéctese al controlador activo.
 
 5. En el símbolo del sistema, escriba su contraseña. La contraseña predeterminada del dispositivo es **Password1**.

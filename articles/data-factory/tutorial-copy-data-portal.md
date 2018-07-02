@@ -11,22 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2018
+ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 47fc3b44719caf430edf026bf776c4e85764ad08
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173345"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048444"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copia de datos de Azure Blob Storage a SQL Database mediante Azure Data Factory
 En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Si no está familiarizado con Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
->
-> - Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 de Data Factory, que está disponible con carácter general, consulte [Introducción a la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -104,7 +102,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
     b. Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos. 
          
     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md). 
-6. En **Versión**, seleccione **V2 (versión preliminar)**.
+6. En **Versión**, seleccione **V2**.
 7. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
 8. Seleccione **Anclar al panel**. 
 9. Seleccione **Crear**. 
@@ -128,74 +126,67 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización). 
 
    ![Creación de una canalización](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
-2. En la ventana **Properties** (Propiedades) de la canalización, en **Name** (Nombre), escriba **CopyPipeline** como nombre de la canalización.
+2. En la pestaña **General** de la canalización, escriba **CopyPipeline** como **nombre** de la canalización.
 
-    ![Nombre de la canalización](./media/tutorial-copy-data-portal/pipeline-name.png)
-3. En el cuadro de herramientas **Activities** (Actividades), expanda la categoría **Data Flow** (Flujo de datos) y arrastre y suelte la actividad **Copy** (Copia) desde el cuadro de herramientas hasta la superficie de diseño de la canalización. 
+3. En el cuadro de herramientas **Activities** (Actividades), expanda la categoría **Data Flow** (Flujo de datos) y arrastre y suelte la actividad **Copy** (Copia) desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** en **Name** (Nombre).
 
     ![Actividad de copia](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
-4. En la pestaña **General** de la ventana **Properties** (Propiedades), especifique **CopyFromBlobToSql** como nombre de la actividad.
 
-    ![Nombre de la actividad](./media/tutorial-copy-data-portal/activity-name.png)
-5. Vaya a la pestaña **Source** (Origen). Haga clic en **+ New** (+ Nuevo) para crear un conjunto de datos de origen. 
+### <a name="configure-source"></a>Configuración del origen
 
-    ![Pestaña Source (Origen)](./media/tutorial-copy-data-portal/new-source-dataset-button.png)
-6. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y después **Finish** (Finalizar). Los datos de origen están en Blob Storage, así que seleccionará **Azure Blob Storage** como conjunto de datos de origen. 
+1. Vaya a la pestaña **Source** (Origen). Haga clic en **+ New** (+ Nuevo) para crear un conjunto de datos de origen. 
 
-    ![Selección de almacenamiento](./media/tutorial-copy-data-portal/select-azure-storage.png)
-7. Verá que se abre una nueva pestaña en la aplicación que se llama **AzureBlob1**.
+2. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y después **Finish** (Finalizar). Los datos de origen están en Blob Storage, así que seleccionará **Azure Blob Storage** como conjunto de datos de origen. 
 
-    ![Pestaña AzureBlob1 ](./media/tutorial-copy-data-portal/new-tab-azure-blob1.png)        
-8. En la pestaña **General** de la parte inferior de la ventana **Properties** (Propiedades), en **Name** (Nombre), escriba **SourceBlobDataset**.
+    ![Selección de almacenamiento](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
+
+3. Verá que se abre una nueva pestaña para el conjunto de datos de blob. En la pestaña **General** de la parte inferior de la ventana **Properties** (Propiedades), en **Name** (Nombre), escriba **SourceBlobDataset**.
 
     ![Nombre del conjunto de datos](./media/tutorial-copy-data-portal/dataset-name.png)
-9. Vaya a la pestaña **Connection** (Conexión) de la ventana **Properties** (Propiedades). Junto al cuadro de texto **Linked service** (Servicio vinculado), seleccione **+ New** (+Nuevo). 
 
-    Un servicio vinculado enlaza un almacén de datos o un proceso a la factoría de datos. En este caso, creará un servicio vinculado de almacenamiento para vincular la cuenta de almacenamiento al almacén de datos. El servicio vinculado tiene la información de conexión que usa Data Factory para conectarse a Blob Storage en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) que contiene los datos de origen. 
+4. Vaya a la pestaña **Connection** (Conexión) de la ventana **Properties** (Propiedades). Junto al cuadro de texto **Linked service** (Servicio vinculado), seleccione **+ New** (+Nuevo). 
 
     ![Botón New linked service (Nuevo servicio vinculado)](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
-10. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
 
-    a. En **Name** (Nombre), escriba **AzureStorageLinkedService**. 
-
-    b. En **Storage account name** (Nombre de la cuenta de almacenamiento), seleccione la cuenta de almacenamiento.
-
-    c. Seleccione **Test connection** (Prueba de conexión) para probar la conexión a la cuenta de almacenamiento.
-
-    d. Seleccione **Save** (Guardar) para guardar el servicio vinculado.
+5. En la ventana **New Linked Service** (Nuevo servicio vinculado), escriba **AzureStorageLinkedService** como nombre, seleccione la cuenta de almacenamiento en la lista **Nombre de la cuenta de almacenamiento** y, finalmente, seleccione **Guardar** para implementar el servicio vinculado.
 
     ![Nuevo servicio vinculado](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
-11. Junto a **File path** (Ruta de acceso del archivo), seleccione **Browse** (Examinar).
+
+6. Una vez que se ha creado el servicio vinculado, volverá a la configuración del conjunto de datos. Junto a **File path** (Ruta de acceso del archivo), seleccione **Browse** (Examinar).
 
     ![Botón Browse (Examinar) de la ruta de acceso del archivo](./media/tutorial-copy-data-portal/file-browse-button.png)
-12. Vaya a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, luego, **Finish** (Finalizar). Como alternativa, puede hacer doble clic en **emp.txt**. 
+
+7. Vaya a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, luego, **Finish** (Finalizar). 
 
     ![Seleccionar archivo de entrada](./media/tutorial-copy-data-portal/select-input-file.png)
-13. Confirme que el **formato de archivo** está establecido en **Text format** (Formato de texto) y que el **delimitador de columna** está establecido en **Comma (Coma) (`,`)**. Si el archivo de origen usa diferentes delimitadores de fila y columna, puede seleccionar **Detect Text Format** (Detectar formato de texto) en **File format** (Formato de archivo). La herramienta Copy Data detecta automáticamente el formato de archivo y los delimitadores. Todavía puede invalidar estos valores. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
+
+8. Confirme que el **formato de archivo** está establecido en **Text format** (Formato de texto) y que el **delimitador de columna** está establecido en **Comma (Coma) (`,`)**. Si el archivo de origen usa diferentes delimitadores de fila y columna, puede seleccionar **Detect Text Format** (Detectar formato de texto) en **File format** (Formato de archivo). La herramienta Copy Data detecta automáticamente el formato de archivo y los delimitadores. Todavía puede invalidar estos valores. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
 
     ![Detectar el formato de texto](./media/tutorial-copy-data-portal/detect-text-format.png)
-14. Vaya a la pestaña **Schema** (Esquema) de la ventana **Properties** (Propiedades) y seleccione **Import Schema**. (Importar esquema). Tenga en cuenta que la aplicación detectó dos columnas en el archivo de origen. Aquí importará el esquema, así que puede asignar columnas del almacén de datos de origen al almacén de datos receptor. Si no es necesario asignar columnas, puede omitir este paso. En este tutorial, importará el esquema.
+
+9. Vaya a la pestaña **Schema** (Esquema) de la ventana **Properties** (Propiedades) y seleccione **Import Schema**. (Importar esquema). Tenga en cuenta que la aplicación detectó dos columnas en el archivo de origen. Aquí importará el esquema, así que puede asignar columnas del almacén de datos de origen al almacén de datos receptor. Si no es necesario asignar columnas, puede omitir este paso. En este tutorial, importará el esquema.
 
     ![Detectar el esquema de origen](./media/tutorial-copy-data-portal/detect-source-schema.png)  
-15. Ahora, vaya a la pestaña con la canalización o seleccione la canalización a la izquierda.
 
-    ![Pestaña Pipeline (Canalización)](./media/tutorial-copy-data-portal/pipeline-tab.png)
-16. En **Source Dataset** (Conjunto de datos de origen) en la ventana **Properties** (Propiedades), confirme que se ha seleccionado **SourceBlobDataset**. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos). 
+10. Ahora, vaya a la canalización -> pestaña **Origen** y confirme que **SourceBlobDataset** está seleccionado. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos). 
     
     ![Conjunto de datos de origen](./media/tutorial-copy-data-portal/source-dataset-selected.png)
-17. Vaya a la pestaña **Sink** (Receptor) y seleccione **+ New** (+Nuevo) para crear un conjunto de datos del receptor. 
+
+### <a name="configure-sink"></a>Configuración del receptor
+
+1. Vaya a la pestaña **Sink** (Receptor) y seleccione **+ New** (+Nuevo) para crear un conjunto de datos del receptor. 
 
     ![Conjunto de datos del receptor](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-18. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y luego seleccione **Finish** (Finalizar). En este tutorial, copiará los datos en una base de datos SQL. 
+2. En la ventana **Nuevo conjunto de datos**, escriba "SQL" en el cuadro de búsqueda para filtrar los conectores, seleccione **Azure SQL Database** y, finalmente, seleccione **Finalizar**. En este tutorial, copiará los datos en una base de datos SQL. 
 
-    ![Selección de base de datos SQL](./media/tutorial-copy-data-portal/select-azure-sql-database.png)
-19. En la pestaña **General** de la ventana **Properties** (Propiedades), en **Name** (Nombre), escriba **OutputSqlDataset**. 
+    ![Selección de base de datos SQL](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
+3. En la pestaña **General** de la ventana **Properties** (Propiedades), en **Name** (Nombre), escriba **OutputSqlDataset**. 
     
     ![Nombre del conjunto de datos de salida](./media/tutorial-copy-data-portal/output-dataset-name.png)
-20. Vaya a la pestaña **Connection** (Conexión) y, junto a **Linked service** (Servicio vinculado), seleccione **+ New** (+Nuevo). Un conjunto de datos debe estar asociado con un servicio vinculado. El servicio vinculado tiene la cadena de conexión que usa Data Factory para conectarse a la base de datos SQL en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) donde se copian los datos. 
+4. Vaya a la pestaña **Connection** (Conexión) y, junto a **Linked service** (Servicio vinculado), seleccione **+ New** (+Nuevo). Un conjunto de datos debe estar asociado con un servicio vinculado. El servicio vinculado tiene la cadena de conexión que usa Data Factory para conectarse a la base de datos SQL en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) donde se copian los datos. 
     
     ![Servicio vinculado](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
-21. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
+5. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
 
     a. En **Name** (Nombre), escriba **AzureSqlDatabaseLinkedService**.
 
@@ -213,160 +204,46 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
     
     ![Guardar nuevo servicio vinculado](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-22. En **Table** (Tabla), seleccione **[dbo].[emp]**. 
+6. En **Table** (Tabla), seleccione **[dbo].[emp]**. 
 
     ![Tabla](./media/tutorial-copy-data-portal/select-emp-table.png)
-23. Vaya a la pestaña **Schema** (Esquema) y seleccione **Import Schema** (Importar esquema). 
+7. Vaya a la pestaña **Schema** (Esquema) y seleccione **Import Schema** (Importar esquema). 
 
     ![Seleccionar Import schema (Importar esquema)](./media/tutorial-copy-data-portal/import-destination-schema.png)
-24. Seleccione la columna **ID** (Id.) y luego seleccione **Delete** (Eliminar). La columna **ID** (Id.) es una columna de identidad de la base de datos SQL, por lo que no es necesario insertar datos en esta columna durante la actividad de copia.
+8. Seleccione la columna **ID** (Id.) y luego seleccione **Delete** (Eliminar). La columna **ID** (Id.) es una columna de identidad de la base de datos SQL, por lo que no es necesario insertar datos en esta columna durante la actividad de copia.
 
     ![Eliminar columna ID (Identificador)](./media/tutorial-copy-data-portal/delete-id-column.png)
-25. Vaya a la pestaña con la canalización y, en **Sink Dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset**.
+9. Vaya a la pestaña con la canalización y, en **Sink Dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset**.
 
     ![Pestaña Pipeline (Canalización)](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
-26. Vaya a la pestaña **Mapping** (Asignación) en la parte inferior de la ventana **Properties** (Propiedades) y seleccione **Import Schemas** (Importar esquemas). Tenga en cuenta que las columnas primera y segunda del archivo de origen se asignan a **FirstName** y **LastName** de la base de datos SQL.
 
-    ![Esquemas de asignación](./media/tutorial-copy-data-portal/map-schemas.png)
-27. Para validar la canalización, seleccione **Validate** (Validar). En la esquina superior derecha, seleccione la flecha derecha para cerrar la ventana de validación.
+### <a name="confugure-mapping"></a>Configuración de la asignación
 
-    ![Salida de comprobación de canalización](./media/tutorial-copy-data-portal/pipeline-validation-output.png)   
-28. En la esquina superior derecha, seleccione **Code** (Código). Verá el código JSON asociado con la canalización. 
+Vaya a la pestaña **Mapping** (Asignación) en la parte inferior de la ventana **Properties** (Propiedades) y seleccione **Import Schemas** (Importar esquemas). Tenga en cuenta que las columnas primera y segunda del archivo de origen se asignan a **FirstName** y **LastName** de la base de datos SQL.
 
-    ![Botón Code (Código)](./media/tutorial-copy-data-portal/code-button.png)
-29. El código JSON será similar al fragmento de código siguiente: 
+![Esquemas de asignación](./media/tutorial-copy-data-portal/map-schemas.png)
 
-    ```json
-    {
-        "name": "CopyPipeline",
-        "properties": {
-            "activities": [
-                {
-                    "name": "CopyFromBlobToSql",
-                    "type": "Copy",
-                    "dependsOn": [],
-                    "policy": {
-                        "timeout": "7.00:00:00",
-                        "retry": 0,
-                        "retryIntervalInSeconds": 20
-                    },
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource",
-                            "recursive": true
-                        },
-                        "sink": {
-                            "type": "SqlSink",
-                            "writeBatchSize": 10000
-                        },
-                        "enableStaging": false,
-                        "parallelCopies": 0,
-                        "cloudDataMovementUnits": 0,
-                        "translator": {
-                            "type": "TabularTranslator",
-                            "columnMappings": "Prop_0: FirstName, Prop_1: LastName"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "referenceName": "SourceBlobDataset",
-                            "type": "DatasetReference",
-                            "parameters": {}
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "referenceName": "OutputSqlDataset",
-                            "type": "DatasetReference",
-                            "parameters": {}
-                        }
-                    ]
-                }
-            ]
-        }
-    }
-    ```
+## <a name="validate-the-pipeline"></a>Comprobación de la canalización
+Para validar la canalización, seleccione **Validar** en la barra de herramientas.
+ 
+También puede ver el código JSON asociado a la canalización. Para ello, haga clic en **Código** en la parte superior derecha.
 
-## <a name="test-run-the-pipeline"></a>Realización de la serie de pruebas de la canalización
-Puede realizar la serie de pruebas de una canalización antes de publicar artefactos (servicios vinculados, conjuntos de datos y canalizaciones) en Data Factory o en su propio repositorio Git de Visual Studio Team Services. 
+## <a name="debug-and-publish-the-pipeline"></a>Depuración y publicación de la canalización
+Puede depurar una canalización antes de publicar artefactos (servicios vinculados, conjuntos de datos y canalizaciones) en Data Factory o en su propio repositorio Git de Visual Studio Team Services. 
 
-1. Para realizar la serie de pruebas de la canalización, seleccione **Test Run** (Serie de pruebas) en la barra de herramientas. Verá el estado de ejecución de la canalización en la pestaña **Output** (Salida) en la parte inferior de la ventana. 
+1. Para depurar la canalización, seleccione **Depurar** en la barra de herramientas. Verá el estado de ejecución de la canalización en la pestaña **Output** (Salida) en la parte inferior de la ventana. 
 
-    ![Probar canalización](./media/tutorial-copy-data-portal/test-run-output.png)
-2. Compruebe que los datos del archivo de origen se insertan en la base de datos SQL de destino. 
-
-    ![Comprobar salida de SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. En el panel izquierdo, seleccione **Publish All** (Publicar todo). Esta acción publica las entidades (servicios vinculados, conjuntos de datos y canalizaciones) que creó para Data Factory.
+2. Una vez que la canalización se pueda ejecutar correctamente, en la barra de herramientas superior, seleccione **Publicar todo**. Esta acción publica las entidades (conjuntos de datos y canalizaciones) que creó para Data Factory.
 
     ![Publicar](./media/tutorial-copy-data-portal/publish-button.png)
-4. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver los mensajes de notificación, haga clic en la pestaña **Show Notifications** (Mostrar notificaciones) en la barra lateral izquierda. Para cerrar la ventana de notificaciones, seleccione **Close** (Cerrar).
 
-    ![Show Notifications (Mostrar notificaciones)](./media/tutorial-copy-data-portal/show-notifications.png)
-
-## <a name="configure-code-repository"></a>Configuración del repositorio de código
-Puede publicar el código asociado a los artefactos de la factoría de datos en un repositorio de código de Visual Studio Team Services. En este paso, creará el repositorio de código.  Para más información sobre la creación visual con integración de VSTS, consulte [Creación con la integración de Git de VSTS](author-visually.md#author-with-vsts-git-integration).
-
-Si no quiere trabajar con el repositorio de código de Visual Studio Team Services, puede omitir este paso. Puede seguir publicando en Data Factory como hizo en el paso anterior. 
-
-1. En la esquina superior izquierda, seleccione **Data Factory** o use la flecha abajo que hay al lado y seleccione **Configure Code Repository** (Configurar repositorio de código). 
-
-    ![Configuración del repositorio de código](./media/tutorial-copy-data-portal/configure-code-repository-button.png)
-2. En la página **Repository Settings** (Configuración del repositorio), realice los siguientes pasos:
-
-    a. En **Repository Type** (Tipo de repositorio), seleccione **Visual Studio Team Services Git** (Git de Visual Studio Team Services).
-
-    b. En **Visual Studio Team Services Account** (Cuenta de Visual Studio Team Services), seleccione su cuenta de Visual Studio Team Services.
-
-    c. En **Project Name** (Nombre del proyecto), seleccione un proyecto en su cuenta de Visual Studio Team Services.
-
-    d. En **Git repository name** (Nombre del repositorio Git), escriba **Tutorial2** como el repositorio Git que se va a asociar con la factoría de datos.
-
-    e. Confirme que está activada la casilla **Import existing Data Factory resources to repository** (Importar recursos existentes de Data Factory en el repositorio).
-
-    f. Haga clic en **Save** (Guardar) para guardar la configuración. 
-
-    ![Configuración del repositorio](./media/tutorial-copy-data-portal/repository-settings.png)
-3. Confirme que se selecciona **VSTS GIT** (GIT de VSTS) como repositorio.
-
-    ![Seleccionar VSTS GIT](./media/tutorial-copy-data-portal/vsts-git-selected.png)
-4. En una pestaña independiente del explorador web, vaya al repositorio **Tutorial2**. Verá dos ramas: **adf_publish** y **master**.
-
-    ![Ramas master y adf_publish](./media/tutorial-copy-data-portal/initial-branches-vsts-git.png)
-5. Compruebe que los archivos JSON de las entidades de Data Factory están en la rama **master**.
-
-    ![Archivos de la rama master](./media/tutorial-copy-data-portal/master-branch-files.png)
-6. Compruebe que los archivos JSON no están aún en la rama **adf_publish**. 
-
-    ![Archivos de la rama adf_publish](./media/tutorial-copy-data-portal/adf-publish-files.png)
-7. En **Description** (Descripción), agregue una descripción para la canalización y seleccione **Save** (Guardar) en la barra de herramientas. 
-
-    ![Descripción de una canalización](./media/tutorial-copy-data-portal/pipeline-description.png)
-8. Ahora, verá una rama con el nombre de usuario en el repositorio **Tutorial2**. El cambio que se realiza está en su propia rama, no en la rama master. Solo puede publicar entidades de la rama master.
-
-    ![Su rama](./media/tutorial-copy-data-portal/your-branch.png)
-9. Mueva el mouse sobre el botón **Sync** (Sincronizar) (no lo seleccione aún), active la casilla **Commit Changes** (Confirmar cambios) y seleccione **Sync** (Sincronizar) para sincronizar los cambios con la rama master. 
-
-    ![Confirmar y sincronizar cambios](./media/tutorial-copy-data-portal/commit-and-sync.png)
-10. En la ventana **Sync your changes** (Sincronizar cambios), realice las siguientes acciones: 
-
-    a. Confirme que se muestra **CopyPipeline** en la lista de **canalizaciones** actualizada.
-
-    b. Confirme que la opción **Publish changes after sync** (Publicar los cambios después de la sincronización) está seleccionada. Si desactiva esta casilla, solo se sincronizan los cambios de la rama con la rama master. No se publican en Data Factory. Puede publicarlos más adelante con el botón **Publish** (Publicar). Si selecciona esta casilla, los cambios se sincronizan primero con la rama master y luego se publican en Data Factory.
-
-    c. Seleccione **Sincronizar**. 
-
-    ![Sincronizar los cambios](./media/tutorial-copy-data-portal/sync-your-changes.png)
-11. Ahora, puede ver los archivos de la rama **adf_publish** del repositorio **Tutorial2**. También puede encontrar en esta rama la plantilla de Azure Resource Manager de su solución de Data Factory. 
-
-    ![Lista de archivos de la rama adf_publish](./media/tutorial-copy-data-portal/adf-publish-files-after-publish.png)
-
+4. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver los mensajes de notificación, haga clic en **Mostrar notificaciones** en la parte superior derecha (botón de campana). 
 
 ## <a name="trigger-the-pipeline-manually"></a>Desencadenamiento manual de la canalización
 En este paso, desencadenará manualmente la canalización que publicó en el paso anterior. 
 
 1. Seleccione **Trigger** (Desencadenar) en la barra de herramientas y, después, seleccione **Trigger Now** (Desencadenar ahora). En la página **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar).  
 
-    ![Desencadenar canalizaciones](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Vaya a la pestaña **Monitor** (Supervisar) de la izquierda. Verá una ejecución de canalización que se desencadena de forma manual. Puede usar los vínculos de la columna **Actions** (Acciones) para ver los detalles de la actividad y volver a ejecutar la canalización.
 
     ![La supervisión de la canalización se ejecuta](./media/tutorial-copy-data-portal/monitor-pipeline.png)
@@ -378,12 +255,10 @@ En este paso, desencadenará manualmente la canalización que publicó en el pas
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Desencadenamiento de la canalización de forma programada
 En esta programación, creará un desencadenador de programación para la canalización. El desencadenador ejecuta la canalización de acuerdo con la programación especificada, como diariamente o cada hora. En este ejemplo, establecerá el desencadenador para que se ejecute cada minuto hasta la fecha y hora de finalización especificadas. 
 
-1. Vaya a la pestaña **Edit** (Editar) de la izquierda. 
+1. Vaya a la pestaña **Author** (Creador) a la izquierda, por encima de la pestaña Monitor (Supervisar). 
 
-    ![Pestaña Edit (Editar)](./media/tutorial-copy-data-portal/edit-tab.png)
-2. Seleccione **Trigger** (Desencadenador) y luego **New/Edit** (Nuevo/Editar). Si la canalización no está activa, vaya a ella. 
+2. Vaya a la canalización, haga clic en **Desencadenar** en la barra de herramientas y seleccione **New/Edit** (Nuevo/Editar). 
 
-    ![Opción de desencadenador](./media/tutorial-copy-data-portal/trigger-new-edit-menu.png)
 3. En la página **Add Triggers** (Agregar desencadenadores), seleccione **Choose trigger** (Elegir desencadenador) y, después, seleccione **+New** (+Nuevo). 
 
     ![New button](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
@@ -414,9 +289,9 @@ En esta programación, creará un desencadenador de programación para la canali
 5. En la página **Trigger Run Parameters** (Parámetros de ejecución de desencadenador), revise la advertencia y luego seleccione **Finish** (Finalizar). La canalización de este ejemplo no toma ningún parámetro. 
 
     ![Parámetros de ejecución de desencadenador](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-6. Seleccione **Sync** (Sincronizar) para sincronizar los cambios en la rama con la rama master. De forma predeterminada, se selecciona **Publish changes after sync** (Publicar los cambios después de sincronizarlos). Por lo tanto, cuando se selecciona **Sync** (Sincronizar), también se publican las entidades actualizadas en Data Factory desde la rama master. El desencadenador no se activa realmente hasta que la publicación se realiza correctamente.
 
-    ![Sincronizar los cambios](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+6. Haga clic en **Publicar todo** para publicar el cambio. 
+
 7. Vaya a la pestaña **Monitor** (Supervisión) de la izquierda para ver las ejecuciones de canalización desencadenadas. 
 
     ![Ejecuciones de canalización desencadenadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    

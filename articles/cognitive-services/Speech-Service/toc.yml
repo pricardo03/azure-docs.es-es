@@ -17,18 +17,6 @@
       href: quickstart-cpp-linux.md
     - name: Introducción al SDK de dispositivos de voz
       href: speech-devices-sdk-qsg.md
-- name: Personalización
-  items:
-    - name: Personalizar los modelos de voz
-      href: how-to-customize-speech-models.md
-    - name: Personalizar las fuentes de voz
-      href: how-to-customize-voice-font.md
-    - name: Preparar transcripciones
-      href: prepare-transcription.md
-    - name: Usar secuencias de audio personalizadas
-      href: how-to-use-audio-input-streams.md
-    - name: Personalizar palabras de reactivación de dispositivos (SDK de dispositivos)
-      href: speech-devices-sdk-create-kws.md
 - name: Guías de procedimientos
   items:
     - name: Reconocer la voz
@@ -39,8 +27,22 @@
       href: how-to-translate-speech.md
     - name: Obtener el SDK de dispositivos de voz
       href: get-speech-devices-sdk.md
-    - name: Transcripción en lote (centros de llamadas)
+    - name: Transcripción en lote
       href: batch-transcription.md
+- name: Personalización
+  items:
+    - name: Personalización de modelos acústicos
+      href: how-to-customize-acoustic-models.md
+    - name: Personalización de modelos de lenguaje
+      href: how-to-customize-language-model.md
+    - name: Personalización de las fuentes de voz (voz de marca de bot)
+      href: how-to-customize-voice-font.md
+    - name: Preparar transcripciones
+      href: prepare-transcription.md
+    - name: Usar secuencias de audio personalizadas
+      href: how-to-use-audio-input-streams.md
+    - name: Personalizar palabras de reactivación de dispositivos (SDK de dispositivos)
+      href: speech-devices-sdk-create-kws.md
 - name: Ejemplos
   items:
     - name: Descargar ejemplos

@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293486"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048645"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-scheduling-and-execution.md)
-> * [Versión 2: versión preliminar](concepts-pipeline-execution-triggers.md)
+> * [Versión 1](v1/data-factory-scheduling-and-execution.md)
+> * [Versión actual](concepts-pipeline-execution-triggers.md)
 
-Una _ejecución de canalización_ en Azure Data Factory versión 2 define una instancia de dicha ejecución. Por ejemplo, supongamos que tiene una canalización que se ejecuta las 8:00 a. m., 9:00 a. m. y 10:00 a. m. En este caso, hay tres ejecuciones independientes de la canalización o ejecuciones de canalización. Cada canalización ejecutar tiene un identificador de canalización único. El identificador de ejecución es un GUID que define de forma exclusiva una ejecución de canalización concreta. 
+Una _ejecución de canalización_ en Azure Data Factory define una instancia de dicha ejecución. Por ejemplo, supongamos que tiene una canalización que se ejecuta las 8:00 a. m., 9:00 a. m. y 10:00 a. m. En este caso, hay tres ejecuciones independientes de la canalización o ejecuciones de canalización. Cada canalización ejecutar tiene un identificador de canalización único. El identificador de ejecución es un GUID que define de forma exclusiva una ejecución de canalización concreta. 
 
 Normalmente las instancias de ejecuciones de canalización se crean al pasar argumentos a parámetros que se definen en las canalizaciones. Puede ejecutar una canalización manualmente o mediante un _desencadenador_. En este artículo se proporcionan detalles sobre ambas maneras de ejecutar una canalización.
-
-> [!NOTE]
-> Este artículo se aplica a Azure Data Factory versión 2, que actualmente se encuentra en versión preliminar. Si usa Azure Data Factory versión 1, que está disponible con carácter general, consulte [Programación y ejecución de Data Factory](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="manual-execution-on-demand"></a>Ejecución manual (a petición)
 La ejecución manual de una canalización también se conoce como ejecución _a petición_.
@@ -136,7 +133,7 @@ Para obtener un ejemplo completo, consulte la guía de inicio rápido [Creación
 > Puede utilizar el SDK de .NET para invocar las canalizaciones de Data Factory desde Azure Functions o de sus propios servicios web, entre otros.
 
 <h2 id="triggers">Ejecución del desencadenador</h2>
-Los desencadenadores son otra forma de realizar una ejecución de canalización. Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Actualmente, Data Factory admite dos tipos de desencadenadores:
+Los desencadenadores son otra forma de realizar una ejecución de canalización. Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Actualmente, Data Factory admite tres tipos de desencadenadores:
 
 - Desencadenador de programación: un desencadenador que invoca una canalización en una programación de reloj.
 
