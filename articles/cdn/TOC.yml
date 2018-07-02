@@ -91,6 +91,8 @@
           href: cdn-resource-health.md
         - name: Invalidar el comportamiento con reglas
           href: cdn-rules-engine.md
+        - name: Uso de Traffic Manager
+          href: cdn-traffic-manager.md
     - name: Análisis
       href: cdn-log-analysis.md
       items:

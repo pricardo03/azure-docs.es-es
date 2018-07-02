@@ -269,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: Notas de la versión de App Service en la actualización 2 de Azure Stack
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: Implementación de Ethereum
+          href: azure-stack-ethereum.md
         - name: Rellenado de Marketplace
           items:
             - name: Introducción a Marketplace

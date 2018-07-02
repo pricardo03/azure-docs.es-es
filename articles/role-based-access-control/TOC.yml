@@ -1,4 +1,4 @@
-- name: Documentación sobre el control de acceso basado en rol (RBAC)
+- name: Documentación sobre el control de acceso basado en rol
   href: index.yml
   items: null
 - name: Información general
@@ -25,16 +25,11 @@
   items:
     - name: Descripción de definiciones de roles
       href: role-definitions.md
-    - name: Roles integrados
-      href: built-in-roles.md
-    - name: Operaciones del proveedor de recursos
-      href: resource-provider-operations.md
     - name: Privileged Identity Management (PIM) para RBAC
       href: pim-azure-resource.md
     - name: Acceso condicional para la administración de Azure
       href: conditional-access-azure-management.md
 - name: Guías de procedimientos
-  expanded: true
   items:
     - name: Administración del acceso
       items:
@@ -63,3 +58,17 @@
       href: role-assignments-external-users.md
     - name: Solución de problemas
       href: troubleshooting.md
+- name: Referencia
+  items:
+    - name: Roles integrados
+      href: built-in-roles.md
+    - name: Operaciones del proveedor de recursos
+      href: resource-provider-operations.md
+    - name: Límites del control de acceso basado en rol
+      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: Azure CLI
+      href: /cli/azure/role?view=azure-cli-latest
+    - name: API DE REST
+      href: /rest/api/authorization/

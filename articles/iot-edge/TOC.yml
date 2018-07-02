@@ -68,14 +68,18 @@
           href: how-to-register-device-vscode.md
     - name: Instalación de un entorno de tiempo de ejecución de IoT Edge
       items:
-        - name: En un dispositivo Linux X64
+        - name: Linux X64
           href: how-to-install-iot-edge-linux.md
-        - name: En un dispositivo Linux ARM32
+        - name: Linux ARM32
           href: how-to-install-iot-edge-linux-arm.md
-        - name: En Windows con contenedores de Windows
+        - name: Windows con contenedores de Windows
           href: how-to-install-iot-edge-windows-with-windows.md
-        - name: En Windows con contenedores de Linux
+        - name: Windows con contenedores de Linux
           href: how-to-install-iot-edge-windows-with-linux.md
+        - name: IoT Core
+          href: how-to-install-iot-core.md
+    - name: Aprovisionamiento automático con DPS
+      href: how-to-auto-provision-simulated-device-windows.md
     - name: Desarrollo y depuración de módulos
       items:
         - name: 'C#'
@@ -110,8 +114,6 @@
           href: how-to-create-transparent-gateway-windows.md
         - name: Puerta de enlace de protocolo ModBus
           href: deploy-modbus-gateway.md
-    - name: Aprovisionamiento de un dispositivo de IoT Core
-      href: how-to-install-iot-core.md
     - name: Integración y entrega continuas en VSTS
       href: how-to-ci-cd.md
     - name: Solución de problemas
