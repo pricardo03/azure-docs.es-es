@@ -278,3 +278,11 @@
               href: app-service-web-open-source-technologies-faq.md
             - name: Preguntas más frecuentes sobre la configuración y administración
               href: app-service-web-configuration-and-management-faq.md
+    - name: Cambio de direcciones IP
+      items:
+        - name: Dirección IP de entrada
+          href: ip-address-change-inbound.md
+        - name: Dirección IP de salida
+          href: ip-address-change-outbound.md
+        - name: Dirección SSL
+          href: ip-address-change-ssl.md

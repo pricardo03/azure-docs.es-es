@@ -5,6 +5,8 @@
     - name: ¿Qué es Speech Service?
       href: overview.md
       expanded: true
+    - name: Escenarios de voz
+      href: speech-scenarios.md
 - name: Guías de inicio rápido
   items:
     - name: Pruebe Speech Service gratis
@@ -25,16 +27,18 @@
       href: how-to-text-to-speech.md
     - name: Traducir voz
       href: how-to-translate-speech.md
-    - name: Obtener el SDK de dispositivos de voz
-      href: get-speech-devices-sdk.md
     - name: Transcripción en lote
       href: batch-transcription.md
+    - name: Obtener el SDK de dispositivos de voz
+      href: get-speech-devices-sdk.md
 - name: Personalización
   items:
     - name: Personalización de modelos acústicos
       href: how-to-customize-acoustic-models.md
     - name: Personalización de modelos de lenguaje
       href: how-to-customize-language-model.md
+    - name: Personalización de la pronunciación
+      href: how-to-customize-pronunciation.md
     - name: Personalización de las fuentes de voz (voz de marca de bot)
       href: how-to-customize-voice-font.md
     - name: Preparar transcripciones
