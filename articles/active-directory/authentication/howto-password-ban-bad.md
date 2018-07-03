@@ -36,7 +36,7 @@ La configuración de la lista personalizada de contraseñas prohibidas requiere 
    * La lista personalizada de contraseñas prohibidas puede contener hasta 1000 palabras.
    * La lista personalizada de contraseñas prohibidas distingue mayúsculas de minúsculas.
    * La lista personalizada de contraseñas prohibidas considera la sustitución de caracteres comunes.
-      * Por ejemplo: "o" y "0" o "a" y "@"
+      * Por ejemplo: "o" y "0" o "a" y "\@\"
    * La longitud mínima de la cadena es cuatro caracteres, mientras que la máxima es 16 caracteres.
 1. Cuando haya agregado todas las cadenas, haga clic en **Guardar**.
 

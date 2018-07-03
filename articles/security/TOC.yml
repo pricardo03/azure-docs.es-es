@@ -215,6 +215,16 @@
           href: ./blueprints/pci-dss-requirement-11-testing.md
         - name: 'Requisito 12: directiva'
           href: ./blueprints/pci-dss-requirement-12-policy.md
+    - name: Sistema sanitario nacional del Reino Unido
+      items:
+        - name: Análisis de datos
+          href: ./blueprints/uknhs-analytics-overview.md
+        - name: Almacenamiento de datos
+          href: ./blueprints/uknhs-datawarehouse-overview.md
+        - name: Aplicación web de IaaS
+          href: ./blueprints/uknhs-iaaswa-overview.md
+        - name: Aplicación web PaaS
+          href: ./blueprints/uknhs-paaswa-overview.md
     - name: UK-OFFICIAL
       href: ./blueprints/uk-official-three-tier-applications-overview.md
       items:

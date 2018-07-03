@@ -31,7 +31,7 @@ Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programad
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificaciones y alertas en el portal
 
-Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales adicionales a esta comunicación creando alertas de registro de actividad de Azure. Para más información, consulte [Supervisión de la actividad de suscripción con el registro de actividad de Azure] (../ articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales adicionales a esta comunicación creando alertas de registro de actividad de Azure. Para más información, consulte [Supervisión de la actividad de suscripción con el registro de actividad de Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el menú de la izquierda, seleccione **Monitor**. 
