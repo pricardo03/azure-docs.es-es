@@ -192,11 +192,11 @@
         - name: Mejorar la precisión de las pruebas en lote
           href: luis-tutorial-batch-testing.md
     - name: Publicación de la aplicación
-      href: PublishApp.md
+      href: luis-how-to-publish-app.md
     - name: Usar modelos creados previamente
       items:
         - name: Uso de entidades creadas previamente
-          href: Pre-builtEntities.md
+          href: luis-prebuilt-entities.md
         - name: Uso de dominios creados previamente
           href: luis-how-to-use-prebuilt-domains.md
         - name: Uso de la aplicación precompilada Cortana
@@ -208,7 +208,7 @@
         - name: Crear claves
           href: luis-how-to-azure-subscription.md
         - name: Agregar claves en LUIS
-          href: Manage-Keys.md
+          href: luis-how-to-manage-keys.md
         - name: Ver el uso de puntos de conexión con PowerShell
           href: luis-how-to-manage-from-cloud-shell.md
         - name: Administración de versiones
@@ -283,6 +283,10 @@
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
         - name: Node.js
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Go
+          href: 'https://aka.ms/luis-sdk-go'
+        - name: Java
+          href: 'https://aka.ms/luis-java-sdk'
         - name: Python
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
         - name: Punto de conexión de .NET

@@ -4,10 +4,10 @@
 ### Introducción y ventajas  
 ### Escaparates  
 #### [Comparación de AppSource y Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Haga crecer su negocio con AppSource](./grow-your-business-with-appsource.md)  
+#### [Haga crecer su negocio con AppSource](./grow-your-business-with-appsource.md) 
+#### [Soluciones preferidas](./preferred-solutions.md)
 ##### [Compilación de la página de aterrizaje](./build-your-landing-page.md)  
 ##### [Habilitación del intercambio de clientes potenciales](./enable-lead-sharing.md)  
-##### [Soluciones preferidas](./preferred-solutions.md)
 ##### [Ventajas de GTM en Marketplace](./gtm-benefits.md)  
 ##### [Haga crecer su negocio con Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Desarrollo de un negocio con Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
