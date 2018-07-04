@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c361f74147862585074f3c4475209ba6eb0c1e0c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019490"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029805"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: Seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -135,7 +135,7 @@ El ejemplo siguiente contiene una regla básica de URL Rewrite que impone el uso
   </system.webServer>
 </configuration>
 ```
-Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección permanente) cuando el usuario solicita una página mediante HTTP. El 301 redirige la solicitud a la misma URL que el visitante solicitó, pero sustituye la parte de HTTP de la solicitud por HTTPS. Por ejemplo, HTTP://contoso.com se redirigiría a HTTPS://contoso.com. 
+Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección permanente) cuando el usuario solicita una página mediante HTTP. El 301 redirige la solicitud a la misma URL que el visitante solicitó, pero sustituye la parte de HTTP de la solicitud por HTTPS. Por ejemplo, HTTP://contoso.com se redirigirá a HTTPS://contoso.com. 
 
 ## <a id="http-hsts"></a>Habilitación de seguridad de transporte estricto HTTP (HSTS)
 
@@ -288,7 +288,7 @@ namespace CertificatePinningExample
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Pasos** | La configuración de la aplicación debe garantizar que se utilice HTTPS siempre que se acceda a información confidencial.<ul><li>**EXPLICACIÓN:** si una aplicación administra información confidencial y no usa el cifrado de nivel de mensaje, solo debe poder comunicarse a través de un canal de transporte cifrado.</li><li>**RECOMENDACIONES:** asegúrese de que el transporte HTTP está deshabilitado y habilite el transporte HTTPS en su lugar. Por ejemplo, reemplace `<httpTransport/>` por la etiqueta `<httpsTransport/>`. No utilice una configuración de red (firewall) para asegurarse de que solo se pueda acceder a la aplicación a través de un canal seguro. Desde un enfoque filosófico, la seguridad de la aplicación no debe depender de la red.</li></ul><p>Desde un punto de vista práctico, las personas responsables de proteger la red no siempre llevan al día los requisitos de seguridad de la aplicación a medida que estos evolucionan.</p>|
 
 ## <a id="message-protection"></a>WCF: establecimiento del nivel de protección de seguridad de mensajes en EncryptAndSign

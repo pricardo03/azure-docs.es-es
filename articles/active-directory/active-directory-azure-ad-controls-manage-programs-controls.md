@@ -12,25 +12,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 3bce933787e49d787c9414ef75ee0e97a41b79aa
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 06e91b4d52a70ea33f4317a6434c2bd49e5c3bd3
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233645"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020981"
 ---
 # <a name="manage-programs-and-their-controls"></a>Administración de programas y de sus controles 
 
 Azure Active Directory (Azure AD) incluye revisiones de acceso de los miembros del grupo y acceso a la aplicación. Estos ejemplos de controles garantizan la vigilancia de quién dispone de acceso a sus aplicaciones y pertenencias a grupos de la organización. Las organizaciones pueden usar estos controles para abordar eficazmente sus requisitos de cumplimiento de normas, administración de riesgos y regulación.
 
 ## <a name="create-and-manage-programs-and-their-controls"></a>Creación y administración de programas y de sus controles
-Puede simplificar el seguimiento y la recopilación de revisiones de acceso para distintos fines organizándolos en programas. Cada revisión de acceso se puede vincular a un programa. Por lo tanto, cuando prepare los informes para un auditor, puede centrarse en las revisiones de acceso en el ámbito de una iniciativa determinada.  Los programas y los resultados de la revisión de acceso son visibles para los usuarios que se encuentran en el rol Administrador global, Administrador de seguridad o Lector de seguridad.
+Puede simplificar el seguimiento y la recopilación de revisiones de acceso para distintos fines organizándolos en programas. Cada revisión de acceso se puede vincular a un programa. Por lo tanto, cuando prepare los informes para un auditor, puede centrarse en las revisiones de acceso en el ámbito de una iniciativa determinada.  Los programas y los resultados de la revisión de acceso son visibles para los usuarios con el rol Administrador global, Administrador de cuentas de usuario, Administrador de seguridad o Lector de seguridad.
 
 Para ver una lista de programas, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) y seleccione **Programas**.
 
-El **programa predeterminado** siempre está presente. Si tiene el rol de administrador global, puede crear programas adicionales. Por ejemplo, puede elegir tener un programa cada para iniciativa de cumplimiento de normas u objetivo empresarial.
+El **programa predeterminado** siempre está presente. Si tiene el rol de administrador global o de administrador de cuentas de usuario, puede crear programas adicionales. Por ejemplo, puede elegir tener un programa cada para iniciativa de cumplimiento de normas u objetivo empresarial.
 
 Si ya no necesita un programa y no tiene ningún control vinculado a él, puede eliminarlo.
 

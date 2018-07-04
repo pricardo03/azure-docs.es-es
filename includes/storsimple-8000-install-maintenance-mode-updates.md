@@ -6,7 +6,7 @@ Cuando aplica las actualizaciones en modo de mantenimiento en un dispositivo de 
 > * Antes de entrar en el modo de mantenimiento, compruebe que ambos controladores de dispositivos aparecen con un estado correcto en Azure Portal. Si el controlador no es correcto, [póngase en contacto con Soporte técnico de Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para conocer los pasos siguientes.
 > * Cuando está en el modo de mantenimiento, primero debe actualizar un controlador y luego el otro.
 
-1. Use PuTTY para conectarse a la consola serie. Siga las instrucciones detalladas de [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) (Uso de PuTTy para conectarse a la consola serie). En el símbolo del sistema, presione **Entrar**. Seleccione Opción 1 para iniciar sesión en el dispositivo con acceso completo.
+1. Use PuTTY para conectarse a la consola serie. Siga las instrucciones detalladas de [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) (Uso de PuTTy para conectarse a la consola serie). En el símbolo del sistema, presione **Entrar**. Seleccione la opción 1, **Iniciar sesión con acceso completo**.
 
 2. Para colocar el controlador en modo de mantenimiento, escriba:
     
@@ -14,13 +14,13 @@ Cuando aplica las actualizaciones en modo de mantenimiento en un dispositivo de 
 
     Ambos controladores se reinician en modo de mantenimiento.
 
-3. Instale las actualizaciones en modo de mantenimiento. Escriba:
+3. Instale las actualizaciones en modo de mantenimiento. Escriba: 
 
     `Start-HcsUpdate`
 
     Se le pedirá confirmación. Después de confirmar las actualizaciones, se instalan en el controlador al que está accediendo en este momento. Una vez instaladas las actualizaciones, se reinicia el controlador.
 
-4. Supervise el estado de las actualizaciones. Inicie sesión en el controlador del mismo nivel cuando se actualiza el controlador actual y no puede procesar ningún otro comando. Escriba:
+4. Supervise el estado de las actualizaciones. Inicie sesión en el controlador del mismo nivel cuando el controlador actual se está actualizando y no puede procesar ningún otro comando. Escriba: 
 
     `Get-HcsUpdateStatus`
 

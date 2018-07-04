@@ -6,19 +6,19 @@ documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3e1dd8ad49ceb126a14070ed641146d91419640a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025562"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportación de plantillas de Azure Resource Manager desde recursos existentes
 En este artículo, aprenderá a exportar una plantilla de Resource Manager desde los recursos existentes en la suscripción. Puede usar la plantilla generada para conocer mejor de la sintaxis de la plantilla.
@@ -26,7 +26,7 @@ En este artículo, aprenderá a exportar una plantilla de Resource Manager desde
 Hay dos maneras de exportar una plantilla:
 
 * Se puede exportar la **plantilla real que se usó para una implementación**. La plantilla exportada incluye todos los parámetros y variables exactamente como aparecían en la plantilla original. Este enfoque es útil cuando se implementan recursos a través del portal y se desea ver la plantilla para crearlos. Esta plantilla es fácil de usar. 
-* Puede exportar una **plantilla generada que representa el estado actual del grupo de recursos**. La plantilla exportada no se basa en ninguna plantilla que usara para la implementación. Al contrario, crea una plantilla que es una "instantánea" o "copia de seguridad" del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Use esta opción para volver a implementar recursos en el mismo grupo de recursos. Para utilizar esta plantilla para otro grupo de recursos, es posible que tenga que modificarla de forma significativa.
+* Puede exportar una **plantilla generada que representa el estado actual del grupo de recursos**. La plantilla exportada no se basa en ninguna plantilla que se haya utilizado para la implementación. Al contrario, crea una plantilla que es una "instantánea" o "copia de seguridad" del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Use esta opción para volver a implementar recursos en el mismo grupo de recursos. Para utilizar esta plantilla para otro grupo de recursos, es posible que tenga que modificarla de forma significativa.
 
 En este artículo se muestran ambos métodos a través del portal.
 
@@ -64,8 +64,7 @@ La implementación puede tardar un momento. Una vez que finaliza la implementaci
    
    1. **Plantilla** : la plantilla que define la infraestructura de la solución. Cuando creó la cuenta de almacenamiento por medio del portal, Resource Manager usó una plantilla para implementarla y la guardó para futura referencia.
    2. **Parámetros**: un archivo de parámetros que puede usar para pasar valores durante la implementación. Contiene los valores que proporcionó en la primera implementación. Todos estos valores se pueden cambiar al volver a implementar la plantilla.
-   3. **CLI**: un archivo de script de la interfaz de la línea de comandos (CLI) de Azure que puede usar para implementar la plantilla.
-   3. **CLI 2.0**: archivo de script de la interfaz de línea de comandos (CLI) de Azure que puede usar para implementar la plantilla.
+   3. **CLI**: archivo de script de la CLI de Azure que se puede usar para implementar la plantilla.
    4. **PowerShell** : un archivo de script de Azure PowerShell que puede usar para implementar la plantilla.
    5. **.NET** : una clase .NET que puede utilizar para implementar la plantilla.
    6. **Ruby** : una clase Ruby que puede utilizar para implementar la plantilla.
@@ -93,7 +92,7 @@ Si ha cambiado los recursos o ha agregado recursos en varias implementaciones ma
    
 3. Tiene dos opciones para continuar trabajando con esta plantilla. Puede descargar la plantilla y trabajar en ella localmente con un editor de JSON. O bien, puede guardar la plantilla en la biblioteca y trabajar en ella a través del portal.
    
-     Si está familiarizado con el uso de un editor de JSON como [VS Code](https://code.visualstudio.com/) o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), es posible que prefiera descargar la plantilla localmente y usar ese editor. Para trabajar de forma local, seleccione **Descargar**.
+     Si está familiarizado con un editor de JSON, como [VS Code](https://code.visualstudio.com/) o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), es posible que prefiera descargar la plantilla localmente y usar ese editor. Para trabajar de forma local, seleccione **Descargar**.
    
       ![Descarga de una plantilla](./media/resource-manager-export-template/download-template.png)
    
@@ -120,7 +119,7 @@ La plantilla exportada funciona bien si desea crear la misma aplicación web y b
 2. Seleccione la plantilla.
    
      ![Editar plantilla](./media/resource-manager-export-template/select-added-template.png)
-3. Para poder pasar los valores que desea especificar durante la implementación, agregue los dos parámetros siguientes a la sección **parameters** de la plantilla:
+3. Para poder pasar los valores que desea especificar durante la implementación, agregue los dos parámetros siguientes a la sección **parameters** (parámetros) de la plantilla:
 
    ```json
    "administratorLogin": {
@@ -151,7 +150,7 @@ La plantilla exportada funciona bien si desea crear la misma aplicación web y b
    },
    ```
 
-6. Seleccione **Aceptar** cuando haya terminado la edición de la plantilla.
+6. Seleccione **Aceptar** cuando haya terminado de editar la plantilla.
 7. Seleccione **Guardar** para guardar los cambios en la plantilla.
    
      ![Guardar plantilla](./media/resource-manager-export-template/save-template.png)
@@ -162,12 +161,11 @@ La plantilla exportada funciona bien si desea crear la misma aplicación web y b
 
 
 ## <a name="fix-export-issues"></a>Solución de problemas de exportación
-No todos los tipos de recursos admiten la función de exportación de plantilla. Para evitar este problema, agregue manualmente los recursos que faltan a la plantilla. El mensaje de error incluye los tipos de recursos que no se puede exportar. Busque el tipo de recurso en [Referencia de plantilla](/azure/templates/). Por ejemplo, para agregar manualmente una puerta de enlace de red virtual, consulte [Microsoft.Network/virtualNetworkGateways template reference](/azure/templates/microsoft.network/virtualnetworkgateways) (Referencia de plantilla Microsoft.Network/virtualNetworkGateways).
+No todos los tipos de recursos admiten la función de exportación de plantilla. Solo se producirán problemas de exportación si esta se realiza desde un grupo de recursos y no desde el historial de implementación. Si su última implementación representa con precisión el estado actual del grupo de recursos, debe exportar la plantilla desde el historial de implementación en lugar de desde el grupo de recursos. Realice la exportación desde un grupo de recursos únicamente si ha realizado cambios en el grupo de recursos que no están definidos en una única plantilla.
 
-> [!NOTE]
-> Solo se encuentran problemas de exportación si se exporta desde un grupo de recursos en lugar de desde el historial de implementación. Si su última implementación representa con precisión el estado actual del grupo de recursos, debe exportar la plantilla desde el historial de implementación en lugar de desde el grupo de recursos. Exporte solo desde un grupo de recursos si ha realizado cambios en el grupo de recursos que no están definidos en una única plantilla.
-> 
-> 
+Para evitar los problemas de exportación, agregue manualmente los recursos que faltan a la plantilla. El mensaje de error incluye los tipos de recursos que no se pueden exportar. Busque el tipo de recurso en [Referencia de plantilla](/azure/templates/). Por ejemplo, para agregar manualmente una puerta de enlace de red virtual, consulte [Microsoft.Network/virtualNetworkGateways template reference](/azure/templates/microsoft.network/virtualnetworkgateways) (Referencia de plantilla Microsoft.Network/virtualNetworkGateways). La referencia a la plantilla proporciona el código JSON necesario para agregar el recurso a la plantilla.
+
+Después de obtener el formato JSON del recurso, debe obtener los valores del recurso. Puede ver los valores del recurso utilizando la operación GET en la API REST del tipo de recurso. Por ejemplo, para obtener los valores de la puerta de enlace de red virtual, consulte [Virtual Network Gateways - Get](/rest/api/network-gateway/virtualnetworkgateways/get) (Puertas de enlace de red virtual: Get).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

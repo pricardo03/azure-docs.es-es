@@ -1,25 +1,25 @@
 ---
-title: Procedimientos recomendados para Azure SQL Data Sync (versión preliminar) | Microsoft Docs
-description: Conozca los procedimientos recomendados para configurar y ejecutar Azure SQL Data Sync (versión preliminar).
+title: Procedimientos recomendados para Azure SQL Data Sync | Microsoft Docs
+description: Conozca los procedimientos recomendados para configurar y ejecutar Azure SQL Data Sync.
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 683cf1426f01b3ab495b2380612dbf37342fc27a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646014"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025569"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>Procedimientos recomendados para SQL Data Sync (versión preliminar) 
+# <a name="best-practices-for-sql-data-sync"></a>Procedimientos recomendados para SQL Data Sync 
 
-En este artículo se describen los procedimientos recomendados para Azure SQL Data Sync (versión preliminar).
+En este artículo, se describen los procedimientos recomendados para Azure SQL Data Sync.
 
-Para obtener información general sobre SQL Data Sync (versión preliminar), vea [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync (versión preliminar)](sql-database-sync-data.md).
+Para obtener información general acerca de SQL Data Sync, consulte [Sincronización de datos entre varias bases de datos locales y de la nube con Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a>Seguridad y fiabilidad
 
@@ -50,10 +50,10 @@ Azure SQL Database solo admite un único conjunto de credenciales. Para realizar
 
 #### <a name="sql-database-instance-size"></a>Tamaño de la instancia de SQL Database
 
-Al crear una nueva instancia de SQL Database, establezca el tamaño máximo de forma que siempre sea mayor que la base de datos que vaya a implementar. Si no lo hace así, se producirá un error de sincronización. Aunque SQL Data Sync (versión preliminar) no ofrecen un crecimiento automático, puede ejecutar el comando `ALTER DATABASE` para aumentar el tamaño de la base de datos una vez creada. Asegúrese de que no se sale de los límites de tamaño de la instancia de SQL Database.
+Al crear una nueva instancia de SQL Database, establezca el tamaño máximo de forma que siempre sea mayor que la base de datos que vaya a implementar. Si no lo hace así, se producirá un error de sincronización. Aunque SQL Data Sync no permite el crecimiento automático, puede ejecutar el comando `ALTER DATABASE` para aumentar el tamaño de la base de datos una vez creada. Asegúrese de que no se sale de los límites de tamaño de la instancia de SQL Database.
 
 > [!IMPORTANT]
-> SQL Data Sync (versión preliminar) almacena metadatos adicionales con cada base de datos. No olvide tener en cuenta estos metadatos al calcular el espacio necesario. La cantidad de sobrecarga adicional guarda relación con la cantidad de tráfico y con el ancho de las tablas (por ejemplo, las tablas estrechas necesitan más sobrecarga).
+> SQL Data Sync almacena metadatos adicionales con cada base de datos. No olvide tener en cuenta estos metadatos al calcular el espacio necesario. La cantidad de sobrecarga adicional guarda relación con la cantidad de tráfico y con el ancho de las tablas (por ejemplo, las tablas estrechas necesitan más sobrecarga).
 
 ### <a name="table-considerations-and-constraints"></a> Restricciones y consideraciones de la tabla
 
@@ -63,19 +63,19 @@ No deben incluir en un grupo de sincronización todas las tablas que se encuentr
 
 #### <a name="primary-keys"></a>Claves principales
 
-Cada tabla de un grupo de sincronización debe tener una clave principal. El servicio SQL Data Sync (versión preliminar) no puede sincronizar una tabla que no tiene una clave principal.
+Cada tabla de un grupo de sincronización debe tener una clave principal. El servicio SQL Data Sync no puede sincronizar una tabla que no tiene una clave principal.
 
-Antes de usar SQL Data Sync (versión preliminar) en producción, pruebe el rendimiento de la sincronización inicial y en curso.
+Antes de usar SQL Data Sync en producción, compruebe el rendimiento de la sincronización inicial y en curso.
 
 ### <a name="provisioning-destination-databases"></a> Aprovisionamiento de bases de datos de destino
 
-La versión preliminar de SQL Data Sync ofrece un aprovisionamiento automático de la base de datos básica.
+SQL Data Sync permite aprovisionar automáticamente la base de datos básica.
 
-En esta sección se describen los límites del aprovisionamiento de SQL Data Sync (versión preliminar).
+En esta sección, se describen los límites del aprovisionamiento de SQL Data Sync.
 
 #### <a name="autoprovisioning-limitations"></a>Limitaciones del aprovisionamiento automático
 
-SQL Data Sync (versión preliminar) tiene las siguientes limitaciones de aprovisionamiento automático:
+SQL Data Sync tiene las siguientes limitaciones de aprovisionamiento automático:
 
 -   Seleccione solo las columnas creadas en la tabla de destino.  
     Todas las columnas que no forman parte del grupo de sincronización no se aprovisionan en las tablas de destino.
@@ -88,7 +88,7 @@ SQL Data Sync (versión preliminar) tiene las siguientes limitaciones de aprovis
 
 #### <a name="recommendations"></a>Recomendaciones
 
--   Use la funcionalidad de aprovisionamiento automático de SQL Data Sync (versión preliminar) solo cuando vaya a probar el servicio.  
+-   Use la funcionalidad de aprovisionamiento automático de SQL Data Sync solo cuando vaya a probar el servicio.  
 -   Para entornos de producción, aprovisione el esquema de base de datos.
 
 ### <a name="locate-hub"></a> Dónde encontrar la base de datos central
@@ -114,7 +114,7 @@ En esta sección se describe la sincronización inicial de un grupo de sincroniz
 
 #### <a name="how-initial-sync-works"></a>Funcionamiento de la sincronización inicial
 
-Al crear un grupo de sincronización, comience con los datos en una sola base de datos. Si tiene datos en varias bases de datos, SQL Data Sync (versión preliminar) trata cada fila como un conflicto que hay que resolver. La resolución de conflictos hace que la sincronización inicial sea lenta. Si tiene datos en varias bases de datos, la sincronización inicial puede tardar entre varios días y varios meses, según el tamaño de la base de datos.
+Al crear un grupo de sincronización, comience con los datos en una sola base de datos. Si tiene datos en varias bases de datos, SQL Data Sync trata cada fila como un conflicto que hay que resolver. La resolución de conflictos hace que la sincronización inicial sea lenta. Si tiene datos en varias bases de datos, la sincronización inicial puede tardar entre varios días y varios meses, según el tamaño de la base de datos.
 
 Si las bases de datos están en distintos centros de datos, cada fila debe desplazarse entre ellos. Esto aumenta el costo de una sincronización inicial.
 
@@ -209,16 +209,16 @@ En su lugar, primero quite una base de datos de un grupo de sincronización. A c
 Si intenta quitar una base de datos para después modificar un grupo de sincronización sin implementar primero uno de los cambios, se produce un error en una de las dos operaciones. La interfaz del portal puede quedar en un estado incoherente. En este caso, actualice la página para restaurar el estado correcto.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre SQL Data Sync (versión preliminar), vea:
+Para más información acerca de SQL Data Sync, consulte:
 
--   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync (versión preliminar)](sql-database-sync-data.md)
--   [Configuración de Azure SQL Data Sync (versión preliminar)](sql-database-get-started-sql-data-sync.md)
--   [Supervisión de Azure SQL Data Sync (versión preliminar) con Log Analytics](sql-database-sync-monitor-oms.md)
--   [Solución de problemas de SQL Data Sync (versión preliminar)](sql-database-troubleshoot-data-sync.md)  
--   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync (versión preliminar):  
+-   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](sql-database-sync-data.md)
+-   [Configuración de Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Supervisión de Azure SQL Data Sync con Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Solución de problemas de SQL Data Sync de Azure](sql-database-troubleshoot-data-sync.md)  
+-   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:  
     -   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Descarga de la documentación de la API de REST de SQL Data Sync (versión preliminar)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Para obtener más información sobre SQL Database, vea:
 

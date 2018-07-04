@@ -1,5 +1,5 @@
 ---
-title: 'Información sobre el descuento de Azure Reserved Instances: Facturación de Azure | Microsoft Docs'
+title: Información sobre el descuento de instancias reservadas de Azure | Microsoft Docs
 description: Obtenga información sobre cómo se aplica el descuento de Azure Reserved VM Instance a las máquinas virtuales en ejecución.
 services: billing
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: yashar
-ms.openlocfilehash: a0800bafc3d6b858387e28a3b75bc7b3a6bfe6e8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d1229a49a5bb3bf3198c91a748ed37b7a626c506
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301420"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064469"
 ---
-# <a name="understand-how-the-reserved-instance-discount-is-applied"></a>Información sobre cómo se aplica el descuento de Reserved Instance
-Después de comprar Azure Reserved VM Instance, el descuento de Azure Reserved Instance se aplica automáticamente a las máquinas virtuales que coincidan con los atributos y la cantidad de la instancia reservada. Una instancia reservada cubre los costos de infraestructura de las máquinas virtuales. En la tabla siguiente se muestran los costos de la máquina virtual después de comprar una instancia reservada. En cualquier caso, se le cobrará por el almacenamiento y la administración de redes según las tarifas normales.
+# <a name="understand-how-the-reserved-instance-discount-is-applied"></a>Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual
+Después de comprar una instancia reservada de máquina virtual de Azure, el descuento de la instancia reservada se aplica automáticamente a las máquinas virtuales que coincidan con los atributos y la cantidad de la instancia reservada. Una instancia reservada cubre los costos de infraestructura de las máquinas virtuales. En la tabla siguiente se muestran los costos de la máquina virtual después de comprar una instancia reservada. En cualquier caso, se le cobrará por el almacenamiento y la administración de redes según las tarifas normales.
 
 | Tipo de máquina virtual  | Cargos con instancia reservada |    
 |-----------------------|--------------------------------------------|
@@ -32,7 +32,7 @@ Después de comprar Azure Reserved VM Instance, el descuento de Azure Reserved I
 |Máquinas virtuales con Windows con la [Ventaja híbrida de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | La instancia reservada cubre los costos de infraestructura. Los costos de software de Windows están cubiertos por la Ventaja híbrida de Azure. El software adicional se cobra por separado.| 
 
 ## <a name="application-of-reserved-instance-discount-to-non-windows-vms"></a>Aplicación del descuento de instancia reservada en máquinas virtuales que no ejecutan Windows
- El descuento de instancia reservada se aplica a las instancias de máquinas virtuales en ejecución en períodos de una hora. Las instancias reservadas que haya comprado se vinculan con el uso emitido por las máquinas virtuales en ejecución para aplicar el descuento de instancia reservada. Para las máquinas virtuales que puedan no ejecutarse la hora completa, se rellenará la instancia reservada desde otras máquinas virtuales que no usen una instancia reservada, incluidas las que se ejecutan simultáneamente. Al final de la hora, se bloquea la aplicación de la instancia reservada para las máquinas virtuales de dicha hora. En el caso de que una máquina virtual no se ejecute durante una hora o que haya máquinas virtuales concurrentes dentro de la hora que no llenen la hora de la instancia reservada, la instancia reservada estará infrautilizada durante esa hora. En el siguiente gráfico se muestra la aplicación de una instancia reservada a un uso de máquina virtual facturable. La ilustración se basa en una compra de instancia reservada y dos instancias de máquina virtual coincidentes.
+ El descuento de la instancia reservada de Azure se aplica a las instancias de máquinas virtuales en ejecución en períodos de una hora. Las instancias reservadas que haya comprado se vinculan con el uso emitido por las máquinas virtuales en ejecución para aplicar el descuento de instancia reservada. Para las máquinas virtuales que puedan no ejecutarse la hora completa, se rellenará la instancia reservada desde otras máquinas virtuales que no usen una instancia reservada, incluidas las que se ejecutan simultáneamente. Al final de la hora, se bloquea la aplicación de la instancia reservada para las máquinas virtuales de dicha hora. En el caso de que una máquina virtual no se ejecute durante una hora o que haya máquinas virtuales concurrentes dentro de la hora que no llenen la hora de la instancia reservada, la instancia reservada estará infrautilizada durante esa hora. En el siguiente gráfico se muestra la aplicación de una instancia reservada a un uso de máquina virtual facturable. La ilustración se basa en una compra de instancia reservada y dos instancias de máquina virtual coincidentes.
 
 ![Captura de pantalla de una instancia reservada aplicada y dos instancias de máquina virtual coincidentes](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
@@ -41,7 +41,7 @@ Después de comprar Azure Reserved VM Instance, el descuento de Azure Reserved I
 3.  Para las horas 2 y 3, ambas instancias se ejecutaron durante 1 hora cada una. Una instancia está cubierta por la instancia reservada, mientras que la otra se cobra según las tarifas de pago por uso.
 4.  Durante la hora 4, la instancia 1 se ejecuta durante 0,5 horas y la instancia 2 se ejecuta durante 1 hora. La instancia 1 está cubierta al completo por la instancia reservada y 0,5 horas de la instancia 2 también. Se le cobrará según la tarifa de pago por uso por las 0,5 horas restantes.
 
-Para obtener información sobre la aplicación de las instancias reservadas en informes de uso de facturación y ver cómo hacerlo, consulte [Interpretación del uso de instancias reservadas para la inscripción Enterprise](https://go.microsoft.com/fwlink/?linkid=862757).
+Para obtener información sobre la aplicación de las instancias reservadas de Azure en informes de uso de facturación y ver cómo hacerlo, consulte la [información sobre el uso de instancias reservadas](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reserved-instance-discount-to-windows-vms"></a>Aplicación del descuento de instancia reservada en máquinas virtuales Windows
 Cuando ejecuta instancias de máquina virtual con Windows, la instancia reservada se aplica para cubrir los costos de infraestructuras. La aplicación de la instancia reservada a los costos de infraestructuras de máquinas virtuales con Windows es la misma que para las máquinas virtuales que no ejecutan Windows. Se le cobra por separado por el software de Windows según el número de vCPU. Consulte [Costos de software de Windows no incluidos con las instancias reservadas](https://go.microsoft.com/fwlink/?linkid=862756). Puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure para Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)).
@@ -49,9 +49,9 @@ Cuando ejecuta instancias de máquina virtual con Windows, la instancia reservad
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de las instancias reservadas, consulte los siguientes artículos:
 
-- [Ahorrar en máquinas virtuales con instancias reservadas de máquina virtual](billing-save-compute-costs-reservations.md)
-- [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
+- [¿Qué es Azure Reserved VM Instances?](billing-save-compute-costs-reservations.md)
+- [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administración de instancias reservadas en Azure](billing-manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Interpretación del uso de instancias reservadas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602727"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36940188"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -27,7 +27,7 @@ En este artículo se explica cómo trasladar recursos a una nueva suscripción o
 
 Al mover los recursos, el grupo de origen y el grupo de destino se bloquean durante la operación. Las operaciones de escritura y eliminación están bloqueadas en los grupos de recursos hasta que se completa el movimiento. Este bloqueo significa que no puede agregar, actualizar ni eliminar recursos de los grupos de recursos, pero no que los recursos queden bloqueados. Por ejemplo, si mueve un servidor SQL Server y su base de datos a un nuevo grupo de recursos, una aplicación que utiliza la base de datos no experimenta ningún tiempo de inactividad. Todavía puede leer y escribir en la base de datos.
 
-No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos. El nuevo grupo de recursos puede tener una ubicación diferente, pero no cambia la ubicación del recurso.
+No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos. El nuevo grupo de recursos puede tener una ubicación diferente, pero eso no cambia la ubicación del recurso.
 
 > [!NOTE]
 > En este artículo se describe cómo mover los recursos de una oferta de cuenta de Azure. Si realmente desea cambiar la oferta de cuenta de Azure (por ejemplo, actualizar de pago por uso a prepago) sin dejar de trabajar con los recursos existentes, consulte [Cambio a otra oferta de Azure](../billing/billing-how-to-switch-azure-offer.md).
@@ -57,7 +57,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
   Si los identificadores de inquilino de las suscripciones de origen y destino no son los mismos, use los siguientes métodos para conciliarlos:
 
   * [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)
-  * [Asociación o adición de una suscripción de Azure a Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+  * [Asociación o adición de una suscripción de Azure a Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. El servicio debe permitir la capacidad de traslado de recursos. En este artículo se enumeran los servicios que permiten mover recursos y los servicios que no permiten el traslado de recursos.
 3. La suscripción de destino correspondiente al proveedor de recursos del recurso que se traslada debe estar registrada. Si no es así, recibirá un error en el que se indicará que la **suscripción no está registrada para un tipo de recurso**. Podría encontrar este problema al mover un recurso a una nueva suscripción que nunca se ha utilizado el suscripción con ese tipo de recurso.
@@ -93,6 +93,8 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** en el grupo de recursos de origen.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** en el grupo de recursos de destino.
 
+5. Antes de mover los recursos, compruebe las cuotas de la suscripción a la que está trasladando los recursos. Si trasladar los recursos significa que la suscripción excederá sus límites, debe revisar si puede solicitar un aumento de la cuota. Para ver una lista de estos límites y cómo solicitar un aumento, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+
 5. Cuando sea posible, divida las operaciones de movimiento grandes en varias operaciones de movimiento independientes. Resource Manager inmediatamente generará un error si intenta mover más de 800 recursos en una sola operación. No obstante, también se puede producir un error por agotamiento del tiempo de espera al mover menos de 800 recursos.
 
 ## <a name="when-to-call-support"></a>Al llamar al soporte técnico
@@ -115,6 +117,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Aplicaciones de App Service (aplicaciones web) - consulte las [limitaciones de App Service](#app-service-limitations)
 * App Service Certificate
 * Application Insights
+* Analysis Services
 * Automation
 * Azure Cosmos DB
 * Azure Relay
@@ -125,7 +128,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory: se puede mover V1, pero no se permite mover V2 (versión preliminar)
+* Data Factory: se puede mover V1, pero no se permite mover V2 (versión preliminar).
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -153,9 +156,10 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Storage
 * Storage (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Stream Analytics: los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
-* Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure SQL Data Warehouse. 
+* Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure SQL Data Warehouse.
+* Time Series Insights
 * Traffic Manager
-* Virtual Machines: no se pueden mover las máquinas virtuales con Managed Disks. Vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
+* Virtual Machines: no se pueden mover las máquinas virtuales con discos administrados. Vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Virtual Machines (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Conjuntos de escalado de máquinas virtuales; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Redes virtuales; vea [Limitaciones de las redes virtuales](#virtual-networks-limitations).
@@ -174,6 +178,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Azure Migrate
 * BizTalk Services
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
+* Container Service
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
 * Dynamics LCS
 * ExpressRoute
@@ -189,7 +194,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 
 ## <a name="virtual-machines-limitations"></a>Limitaciones de Virtual Machines
 
-Managed Disks no admite el traslado. Esta restricción indica que tampoco se pueden mover varios recursos relacionados. No se pueden mover los siguientes recursos:
+Los discos administrados no admiten el traslado. Esta restricción indica que tampoco se pueden mover varios recursos relacionados. No puede mover:
 
 * Discos administrados
 * Virtual Machines con Managed Disks
@@ -246,7 +251,7 @@ Al mover una instancia de Web App _entre suscripciones_, se aplican las limitaci
 
 ## <a name="classic-deployment-limitations"></a>limitaciones de la implementación clásica
 
-Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción.
+Las opciones para mover recursos implementados con el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción.
 
 ### <a name="same-subscription"></a>Misma suscripción
 
@@ -332,7 +337,7 @@ Es posible que esta operación tarde varios minutos.
 
 No se admite el traslado para recursos de Storage, Network o Compute que se usan para configurar la recuperación ante desastres de Azure Site Recovery.
 
-Por ejemplo, suponga que ha configurado la replicación de las máquinas locales en una cuenta de almacenamiento (Storage1) y desea que la máquina protegida aparezca después de la conmutación por error en Azure como una máquina virtual (VM1) conectada a una red virtual (Network1). No puede mover ninguno de estos recursos de Azure, Storage1, VM1 y Network1, en grupos de recursos dentro de la misma suscripción o entre suscripciones.
+Por ejemplo, suponga que ha configurado la replicación de las máquinas locales en una cuenta de almacenamiento (Storage1) y desea que la máquina protegida aparezca después de la conmutación por error en Azure como una máquina virtual (VM1) conectada a una red virtual (Network1). No puede mover ninguno de estos recursos de Azure: Storage1, VM1 y Network1, a grupos de recursos dentro de la misma suscripción o entre suscripciones.
 
 Procedimiento para mover una máquina virtual inscrita en **Azure Backup** entre grupos de recursos:
  1. Detenga temporalmente la copia de seguridad y conserve los datos de esta
@@ -359,7 +364,7 @@ En cambio, el equilibrador de carga de SKU estándar no se puede mover.
 ## <a name="pip-limitations"></a> Limitaciones de direcciones IP públicas
 
 Las direcciones IP de SKU básica se pueden mover.
-En cambio, las direcciones IP públicas de SKU estándar no se pueden mover.
+Las direcciones IP públicas de SKU Estándar no se pueden mover.
 
 ## <a name="use-portal"></a>Mediante el portal
 

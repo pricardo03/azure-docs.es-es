@@ -2,19 +2,19 @@
 title: 'Unidades de solicitud y estimación de rendimiento: Azure Cosmos DB | Microsoft Docs'
 description: Obtenga información sobre cómo entender, especificar y estimar los requisitos de la unidad de solicitud en Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823730"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053334"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Azure Cosmos DB ofrece un rendimiento predecible y rápido mediante la reserva d
 
 Con Azure Cosmos DB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo. Las unidades de solicitud se pueden considerar como la moneda de rendimiento. Se reserva un número garantizado de unidades de solicitud para que estén disponibles para su aplicación por segundo. Cada operación de Azure Cosmos DB, lo que incluye la escritura de un documento, la realización de una consulta y la actualización de un documento, consume CPU, memoria e IOPS. Es decir, cada operación implica un cargo de solicitud, que se expresa en unidades de solicitud. Cuando se comprenden los factores que afectan a los cargos de unidad de solicitud y los requisitos de rendimiento de la aplicación, se puede ejecutar la aplicación de la manera más rentable posible. 
 
-Para ayudarle a comenzar, Andrew Liu, jefe de programas de Azure Cosmos DB, explica las unidades de solicitud en el siguiente vídeo: <br /><br />
+Para ayudarle a ponerse en marcha, Andrew Liu, jefe de programas de Azure Cosmos DB, explica las unidades de solicitud en el siguiente vídeo (hay un pequeño error en el ejemplo de unidades de solicitud del vídeo. Si se utiliza 1 KB de datos con 100 000 registros, el almacenamiento total es 100 MB, no 100 GB): <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
@@ -111,7 +111,7 @@ Uso de la herramienta
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Uso del encabezado de respuesta de cargo de solicitud de Azure Cosmos DB
-Cada respuesta del servicio de Azure Cosmos DB incluye un encabezado personalizado (`x-ms-request-charge`) que contiene las unidades de solicitud consumidas por una solicitud determinada. También puede acceder a este encabezado mediante los SDK de Azure Cosmos DB. En el SDK de .NET, **RequestCharge** es una propiedad del objeto **ResourceResponse**. Para las consultas, el Explorador de datos de Azure Cosmos DB en Azure Portal proporciona la información de carga de solicitud para las consultas ejecutadas.
+Cada respuesta del servicio de Azure Cosmos DB incluye un encabezado personalizado (`x-ms-request-charge`) que contiene las unidades de solicitud consumidas por una solicitud determinada. También puede acceder a este encabezado mediante los SDK de Azure Cosmos DB. En el SDK de .NET, **RequestCharge** es una propiedad del objeto **ResourceResponse**. Para las consultas, el Explorador de datos de Azure Cosmos DB en Azure Portal proporciona la información de carga de solicitud para las consultas ejecutadas. Para aprender a obtener y establecer el rendimiento mediante el uso de distintas API varios modelos consulte el artículo acerca de la [obtención y el establecimiento del rendimiento en Azure Cosmos DB](set-throughput.md).
 
 Un método para calcular la cantidad de rendimiento reservado que necesita la aplicación es registrar los cargos de unidad de solicitud asociados a la ejecución de operaciones típicas, frente a un elemento representativo que usa la aplicación. A continuación, calcule el número de operaciones que crea que se realizarán cada segundo. Asegúrese de medir e incluir también las consultas típicas y el uso de scripts de Azure Cosmos DB.
 

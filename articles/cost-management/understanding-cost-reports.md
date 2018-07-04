@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167905"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064697"
 ---
 # <a name="understanding-cost-management-reports"></a>Informes de administración de costos
 
@@ -176,6 +176,10 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 
     Utilice Actions para guardar, exportar o programar el informe.
 
+15. **Directiva**
+
+    Aunque no aparecen en la imagen, algunos informes incluyen una directiva de cálculo de costos proyectados. En esos informes, la directiva **Consolidada** muestra recomendaciones para todas las cuentas y suscripciones de la entidad actual, como la inscripción a Microsoft o el pagador de AWS. La directiva **Independiente** muestra recomendaciones para una cuenta o suscripción como si no hubiera otra. La directiva que seleccione varía en función de la estrategia de optimización utilizada por la organización. Las proyecciones de costos se basan en los últimos 30 días de uso.
+
 ## <a name="save-and-schedule-reports"></a>Guardar y programar informes
 
 Después de crear un informe, puede guardarlo para usarlo más adelante. Los informes guardados están disponibles en **Mis herramientas** > **Mis informes**. Si realiza cambios en un informe existente y lo guarda, el informe se guarda como una nueva versión. También puede guardarlo como un nuevo informe.
@@ -199,4 +203,5 @@ Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si aún no ha completado el primer tutorial de Cost Management, léalo en [Revisión del uso y los costos](tutorial-review-usage.md).
+- Obtenga información sobre los informes que se incluyen en Cloudyn en [Uso de los informes de Cost Management](use-reports.md).
+- Obtenga información sobre cómo utilizar los informes para crear [paneles](dashboards.md).

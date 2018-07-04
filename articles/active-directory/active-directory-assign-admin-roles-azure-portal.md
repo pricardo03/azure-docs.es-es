@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1de2482b7795bbed82874b6eea29f89f1ff52560
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260421"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939971"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Asignación de roles de administrador en Azure Active Directory
 
@@ -29,12 +29,18 @@ Con Azure Active Directory (Azure AD), puede designar administradores independie
 El administrador global tiene acceso a todas las características administrativas. De forma predeterminada, a la persona que se suscribe a una suscripción de Azure se le asigna el rol de administrador global para el directorio. Los administradores globales son los únicos que pueden asignar otros roles de administrador.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
-Para obtener información sobre cómo asignar roles administrativos a un usuario en Azure Active Directory, consulte [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) (Asignación de roles de administrador a un usuario en Azure Active Directory).
+Para obtener información sobre cómo asignar roles administrativos a un usuario en Azure Active Directory, consulte [Assign a user to administrator roles in Azure Active Directory](fundamentals/active-directory-users-assign-role-azure-portal.md) (Asignación de roles de administrador a un usuario en Azure Active Directory).
 
 ## <a name="available-roles"></a>Roles disponibles
 Los roles de administrador disponibles son los siguientes:
 
+* **Administrador de aplicaciones**: los usuarios con este rol pueden crear y administrar todos los aspectos de las aplicaciones empresariales, registros de aplicaciones y configuración de proxy de aplicaciones. Este rol proporciona igualmente la capacidad de dar el consentimiento para permisos delegados y permisos de aplicaciones, excepto Microsoft Graph y Azure AD Graph. Los miembros de este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
+
+* **Desarrollador de aplicaciones**: los usuarios con este rol pueden crear registros de aplicaciones cuando la opción "Los usuarios pueden registrar aplicaciones" está establecida en No. Esta función también permite a los miembros dar su consentimiento en su propio nombre cuando la opción "Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre" está establecida en No. Los miembros de este rol se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
+
 * **Administrador de facturación**: hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
+
+* **Administrador de aplicaciones en la nube**: los usuarios con este rol tienen los mismos permisos que el rol de administrador de la aplicación, excluida la capacidad de administrar el proxy de aplicación. Este rol concede la capacidad de crear y administrar todos los aspectos de las aplicaciones empresariales y los registros de aplicaciones. Este rol proporciona igualmente la capacidad de dar el consentimiento para permisos delegados y permisos de aplicaciones, excepto Microsoft Graph y Azure AD Graph. Los miembros de este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
 * **Administrador de cumplimiento**: los usuarios con este rol tienen permisos de administración en el Centro de cumplimiento y seguridad de Office 365 y el Centro de administración de Exchange. Más información en "[Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)".
 
@@ -107,11 +113,29 @@ Los roles de administrador disponibles son los siguientes:
 
 ## <a name="administrator-permissions"></a>Permisos de administrador
 
+### <a name="application-administrator"></a>Administrador de aplicaciones
+
+| Puede hacer | No puede hacer |
+| --- | --- |
+| Leer toda la información del directorio<br>Crear registros de aplicaciones<br>Actualizar propiedades de registros de aplicaciones<br>Adquirir aplicaciones empresariales<br>Administrar permisos registros de aplicaciones<br>Eliminar registros de aplicaciones<br>Administrar configuración de inicio de sesión único de aplicaciones empresariales<br>Administrar configuración de aprovisionamiento de aplicaciones empresariales<br>Administrar configuración de autoservicio de aplicaciones empresariales<br>Administrar configuración de permisos de aplicaciones empresariales<br>Administrar accesos a aplicaciones<br>Administrar configuración de aprovisionamiento<br>Eliminar aplicaciones empresariales<br>Dar el consentimiento en nombre de todo el mundo para todas las solicitudes de permisos delegados<br>Dar el consentimiento en nombre de todo el mundo para todas las solicitudes de permisos de aplicaciones, excepto Azure AD Graph o Microsoft Graph<br>Administrar configuración del proxy de aplicación<br>Acceder a la configuración de servicios<br>Supervisar el estado del servicio<br>Administrar incidencias de soporte técnico<br>Leer pertenencia a grupo oculto | Crear, editar y eliminar grupos<br>Administrar licencias de usuario<br>Usar la sincronización de directorios<br>Ver informes de inicio de sesión y registros de auditoría | 
+
+### <a name="application-developer"></a>Desarrollador de aplicaciones
+
+| Puede hacer | No puede hacer |
+| --- | --- |
+| Leer toda la información del directorio<br>Crear registros de aplicaciones<br>Consentimiento en nombre propio | Ver registros de inicio de sesión y de auditoría<br>Leer pertenencia a grupo oculto |
+
 ### <a name="billing-administrator"></a>Administrador de facturación
 
 | Puede hacer | No puede hacer |
 | --- | --- |
-|<p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p> |<p>Restablecer las contraseñas de los usuarios</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Visualización de registros de auditoría</p>|
+|<p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p> |<p>Restablecer las contraseñas de los usuarios</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Visualización de registros de auditoría</p> |
+
+### <a name="cloud-application-administrator"></a>Administrador de aplicaciones en la nube
+
+| Puede hacer | No puede hacer |
+| --- | --- |
+| Leer toda la información del directorio<br>Crear registros de aplicaciones<br>Actualizar propiedades de registros de aplicaciones<br>Adquirir aplicaciones empresariales<br>Administrar permisos registros de aplicaciones<br>Eliminar registros de aplicaciones<br>Administrar configuración de inicio de sesión único de aplicaciones empresariales<br>Administrar configuración de aprovisionamiento de aplicaciones empresariales<br>Administrar configuración de autoservicio de aplicaciones empresariales<br>Administrar configuración de permisos de aplicaciones empresariales<br>Administrar accesos a aplicaciones<br>Administrar configuración de aprovisionamiento<br>Eliminar aplicaciones empresariales<br>Dar el consentimiento en nombre de todo el mundo para todas las solicitudes de permisos delegados<br>Dar el consentimiento en nombre de todo el mundo para todas las solicitudes de permisos de aplicaciones, excepto Azure AD Graph o Microsoft Graph<br>Acceder a la configuración de servicios<br>Supervisar el estado del servicio<br>Administrar incidencias de soporte técnico<br>Leer pertenencia a grupo oculto | Administrar configuración del proxy de aplicación<br>Crear, editar y eliminar grupos<br>Administrar licencias de usuario<br>Usar la sincronización de directorios<br>Ver informes de inicio de sesión y registros de auditoría |
 
 ### <a name="conditional-access-administrator"></a>Administrador de acceso condicional
 
@@ -169,13 +193,15 @@ Ver registros de auditoría e informes de inicio de sesión de Azure AD<br>Ver i
 
    ![Abrir el Centro de administración de Azure AD](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. Seleccione **Usuarios y grupos &gt; Todos los usuarios**.
+2. Seleccione **Usuarios** > **Todos los usuarios**.
 
-3. Busque el usuario al que quiera designar como administrador global y abra la hoja de ese usuario.
+3. Busque la página del usuario al que quiera designar como administrador global.
 
-4. En la hoja del usuario, seleccione **Rol de directorio**.
- 
-5. En la hoja de rol de directorio, seleccione el rol **Administrador global** y guárdelo.
+4. En la barra de comandos, haga clic en **Rol de directorio**.
+
+5. Seleccione **Agregar rol**.
+
+6. En la hoja de rol de directorio, seleccione el rol **Administrador global** y haga clic en **Seleccionar** para guardarlo.
 
 ## <a name="deprecated-roles"></a>Roles en desuso
 
@@ -190,9 +216,9 @@ Los siguientes roles no deben usarse. Están en desuso y se eliminarán de Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)
+* Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de los administradores de la suscripción de Azure](../billing-add-change-azure-subscription-administrator.md)
 * Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Administrar usuarios](active-directory-create-users.md)
 * [Administrar contraseñas](active-directory-manage-passwords.md)
-* [Administrar grupos](active-directory-manage-groups.md)
+* [Administrar grupos](fundamentals/active-directory-manage-groups.md)

@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248476"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752799"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -265,7 +265,7 @@ Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se acce
 
 ### <a name="expire-data-based-on-age"></a>Expiración de datos en función de la antigüedad
 
-Se espera que algunos datos expiren días o meses después de su creación, a fin de reducir costos o cumplir las normativas gubernamentales. Una directiva de administración del ciclo de vida se puede configurar para que expire en una fecha mediante su eliminación en función de la antigüedad de los datos. En el ejemplo siguiente se muestra una directiva que elimina todos los blobs en bloques (sin prefijo especificado) con una antigüedad superior a 365 días.
+Se espera que algunos datos expiren días o meses después de su creación, a fin de reducir costos o cumplir las normativas gubernamentales. Se puede configurar una directiva de administración del ciclo de vida para que expire en una fecha mediante su eliminación en función de la antigüedad de los datos. En el ejemplo siguiente se muestra una directiva que elimina todos los blobs en bloques (sin prefijo especificado) con una antigüedad superior a 365 días.
 
 ```json
 {

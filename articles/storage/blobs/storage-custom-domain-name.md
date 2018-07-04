@@ -1,35 +1,42 @@
 ---
-title: Configuración de un nombre de dominio personalizado para el punto de conexión de Azure Blob Storage | Microsoft Docs
-description: Utilice Azure Portal para asignar su propio nombre canónico (CNAME) al punto de conexión de Blob Storage en una cuenta de Azure Storage.
+title: Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage | Microsoft Docs
+description: Utilice Azure Portal para asignar su propio nombre canónico (CNAME) al punto de conexión del servicio web o de Blob service en una cuenta de Azure Storage.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/26/2018
 ms.author: tamram
-ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2f4267c25dfd31e6f1d5ae3a832be06b5ef6c828
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29559934"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017927"
 ---
-# <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar un nombre de dominio personalizado para el punto de conexión de Almacenamiento de blobs
+# <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage
 
-Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado del almacenamiento de blobs es `<storage-account-name>.blob.core.windows.net`. Si asigna un subdominio y un dominio personalizado, como **www.contoso.com**, al punto de conexión del blob para la cuenta de almacenamiento, entonces los usuarios pueden obtener acceso a los datos de blob en la cuenta de almacenamiento a través de ese dominio.
+Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado del almacenamiento de blobs es `<storage-account-name>.blob.core.windows.net`. También puede utilizar el punto de conexión de servicio web generado como parte de la [característica de sitios web estáticos (versión preliminar)](storage-blob-static-website.md). Si asigna un subdominio y un dominio personalizado, como **www.contoso.com**, al punto de conexión de servicio web o de Blob service para la cuenta de almacenamiento, los usuarios podrán acceder a los datos de blob en la cuenta de almacenamiento utilizando ese dominio.
 
 > [!IMPORTANT]
 > Azure Storage no admite aún HTTPS con dominios personalizados de forma nativa. Actual mente puede [usar la red CDN de Azure para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md).
 >
 
+> [!NOTE]  
+> Actualmente, las cuentas de almacenamiento admiten un único nombre de dominio personalizado por cuenta. Esto significa que no puede asignar un nombre de dominio personalizado a los puntos de conexión de servicio web y de Blob service.
+
 La siguiente tabla muestra algunas direcciones URL de ejemplo para datos de blob ubicados en una cuenta de almacenamiento denominada **mystorageaccount**. El dominio personalizado registrado para la cuenta de almacenamiento es **www.contoso.com**:
 
 | Tipo de recurso | Dirección URL predeterminada | URL de dominio personalizado |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Cuenta de almacenamiento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Contenedor raíz | http://mystorageaccount.blob.core.windows.net/myblob o http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob o http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] o http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] o http://mystorageaccount.[zone].web.core.windows.net/$web o http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web o http://www.contoso.com/ o http://www.contoso.com/$web/[indexdoc] o http://www.contoso.com/[indexdoc] |
+
+> [!NOTE]  
+> Todos los ejemplos del punto de conexión de Blob service también se aplican al punto de conexión de servicio web.
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Asignación de dominios directa frente a intermedia
 
@@ -155,6 +162,7 @@ Use el cmdlet de PowerShell [Set-AzureRmStorageAccount](/powershell/module/azure
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Asignación de un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Uso de la red CDN de Azure para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
+* [Hospedaje de sitios web estáticos en Azure Blob Storage (versión preliminar)](storage-blob-static-website.md)

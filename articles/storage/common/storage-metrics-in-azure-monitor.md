@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035256"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 
@@ -38,7 +39,7 @@ Una vez transcurrido un tiempo, las métricas se pueden supervisar en Azure Port
 
 ![captura de pantalla de acceso a métricas desde Azure Portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Para ver métricas que admitan las dimensiones, debe filtrar por el valor de la dimensión que desee. A continuación puede ver un ejemplo en el que se muestra cómo ver **transacciones** a nivel de cuenta con el tipo de respuesta **Correcto**.
+Para ver las métricas que admiten dimensiones, puede filtrar las métricas con el valor de dimensión deseado. En el ejemplo siguiente se muestra cómo ver **transacciones** en el nivel de cuenta en una operación específica mediante la selección de los valores de la dimensión **Nombre de API**.
 
 ![captura de pantalla de acceso a métricas con dimensión desde Azure Portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ A continuación se muestra el formato para especificar el identificador de recur
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * Identificador de recurso de File service `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Identificador de recurso en la API de REST de Azure Monitor
@@ -402,6 +403,12 @@ En el caso de las dimensiones compatibles con métricas, es preciso especificar 
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuidad en el servicio de métricas heredadas
 
 Las métricas heredades están disponibles en paralelo con las métricas de Azure Monitor. La compatibilidad sigue siendo la misma hasta que Azure Storage finaliza el servicio en las métricas heredadas.
+
+## <a name="faq"></a>Preguntas más frecuentes
+
+**¿Admite Azure Storage métricas de discos administrados o no administrados?**
+
+No, Azure Compute admite las métricas en discos. Consulte el [artículo](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

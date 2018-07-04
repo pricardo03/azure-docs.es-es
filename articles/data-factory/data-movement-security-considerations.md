@@ -11,28 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 80cec0bc8136142f30ea7b957de819379b1bb139
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619140"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053262"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-data-movement-security-considerations.md)
-> * [Versión 2: versión preliminar](data-movement-security-considerations.md)
+> * [Versión 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Versión actual](data-movement-security-considerations.md)
 
 En este artículo se describe la infraestructura de seguridad básica que utilizan los servicios de movimiento de datos en Azure Data Factory para ayudar a proteger los datos. Los recursos de administración de Data Factory están integrados en la infraestructura de seguridad de Azure y aplican todas las medidas de seguridad que ofrece Azure.
 
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Azure Data Factory: consideraciones de seguridad para el movimiento de datos](v1/data-factory-data-movement-security-considerations.md).
-
 En una solución de Data Factory, se crean una o varias [canalizaciones](concepts-pipelines-activities.md)de datos. Una canalización es una agrupación lógica de actividades que realizan una tarea. Estas canalizaciones residen en la región donde se creó la factoría de datos. 
 
-Aunque Data Factory solo está disponible en las regiones del Este de EE. UU., del Este de EE. UU. 2 y de Europa Occidental (versión preliminar de la versión 2), el servicio de movimiento de datos está disponible [de forma global en varias regiones](concepts-integration-runtime.md#azure-ir). Si el servicio de movimiento de datos no se ha implementado todavía en esa región, el servicio de Data Factory garantiza que los datos no abandonan un área geográfica o región, a menos que se indique explícitamente al servicio que utilice una región alternativa. 
+Aunque Data Factory solo está disponible en algunas regiones, el servicio de movimiento de datos está [disponible globalmente](concepts-integration-runtime.md#integration-runtime-location) para garantizar el cumplimiento de datos, la eficiencia y menores costos de salida de la red. 
 
 Azure Data Factory en sí no almacena datos, excepto las credenciales de servicio vinculadas de los almacenes de datos en la nube, que se cifran mediante certificados. Con Data Factory, puede crear flujos de trabajo controlados por datos para orquestar el movimiento de los datos entre los [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats) y organizar el procesamiento de los datos mediante [servicios de proceso](compute-linked-services.md) en otras regiones o en entornos locales. También puede supervisar y administrar flujos de trabajo mediante SDK y Azure Monitor.
 
@@ -42,7 +39,7 @@ El movimiento de datos mediante Data Factory tiene la certificación:
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-Si está interesado en el cumplimiento de Azure y en cómo Azure protege su propia infraestructura, visite el [Centro de confianza de Microsoft](https://www.microsoft.com/trustcenter).
+Si está interesado en el cumplimiento de Azure y en cómo Azure protege su propia infraestructura, visite el [Centro de confianza de Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 En este artículo, revisamos las consideraciones de seguridad en los dos escenarios de movimiento de datos siguientes: 
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cf32ea7b77db3fc78a404063b8a4d69ecebf58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195716"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062581"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -157,13 +157,9 @@ Guarde el runbook *Export-RunAsCertificateToHybridWorker* en el equipo con una e
 
 Los trabajos se controlan de forma ligeramente diferente en Hybrid Runbook Workers que cuando se ejecutan en espacios aislados de Azure. Una diferencia clave es que no hay ningún límite en la duración del trabajo en Hybrid Runbook Workers. Si tiene un runbook de larga ejecución, querrá asegurarse de que es resistente a posibles reinicios, por ejemplo, si se reinicia la máquina que hospeda Hybrid Worker. Si la máquina host de Hybrid Worker se reinicia, cualquier trabajo de runbook en ejecución se reinicia desde el principio o desde el último punto de comprobación para runbooks de flujo de trabajo de PowerShell. Si un trabajo de runbook se reinicia más de 3 veces, se suspende.
 
-## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Solución de problemas de runbooks en Hybrid Runbook Worker
+## <a name="troubleshoot"></a>Solución de problemas
 
-Los registros se almacenan localmente en cada Hybrid Worker en C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Los Hybrid Worker también registran los errores y eventos en el registro de eventos de Windows, en **Registros de aplicaciones y servicios\Microsoft-SMA\Operational**. Los eventos relacionados con los runbooks ejecutados en el trabajo de runbook se escriben en **Registros de aplicaciones y servicios\Microsoft-Automation\Operational**. El registro **Microsoft SMA** incluye muchos más eventos relacionados con los procesos de runbook insertados en el trabajo de runbook y el procesamiento del runbook. Aunque el registro de eventos **Microsoft-Automation** no tenga muchos eventos con detalles relacionados con la solución de problemas de ejecución de un runbook, contiene los resultados del trabajo de runbook.
-
-[La salida y los mensajes de runbooks](automation-runbook-output-and-messages.md) se envían a Azure Automation desde los trabajos híbridos igual que los trabajos de runbook que se ejecutan en la nube. También puede habilitar los flujos Detallado y Progreso de la misma manera que haría para otros runbooks.
-
-Si sus runbooks no están finalizando correctamente y el resumen del trabajo muestra el estado **Suspendido**, consulte el artículo de solución de problemas [Hybrid Runbook Worker: Un trabajo de Runbook finaliza con el estado Suspendido](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
+Si los runbooks no están finalizando correctamente y el resumen del trabajo muestra el estado **suspendido**, consulte la guía de solución de problemas sobre los [errores de ejecución de runbooks](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

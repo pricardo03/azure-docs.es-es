@@ -8,14 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: fe5ce960663f39d4f2c87a7bbffa091d327e9559
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29a56e212f842e8f4243eca7fc865175fd275a39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632455"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030774"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>Configuración y supervisión de dispositivos IoT a escala (versión preliminar)
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Configuración y supervisión de dispositivos IoT a escala mediante Azure Portal
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
 La administración automática de dispositivos de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos durante su ciclo de vida completo. Con la administración automática de dispositivos, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración deseada y permitir que IoT Hub actualice los dispositivos en cuanto estén dentro del alcance.  Esto se realiza mediante la configuración automática de dispositivos, lo que también le permite resumir la finalización y la conformidad, controlar combinaciones y conflictos y revertir las configuraciones por fases.
 
@@ -28,9 +30,6 @@ Las configuraciones automáticas de dispositivos funcionan mediante la actualiza
 * El **contenido de destino** define las propiedades deseadas que se van a agregar o actualizar en los dispositivos gemelos de destino. El contenido incluye una ruta de acceso a la sección de las propiedades que desea cambiar.
 
 * Las **métricas** definen el número de resúmenes de los distintos estados de configuración, como **Correcto**, **En curso** y **Error**. Las métricas personalizadas se especifican como consultas de las propiedades notificadas de los dispositivos gemelos.  Las métricas del sistema son las métricas predeterminadas que miden el estado de los dispositivos gemelos, como el número de dispositivos gemelos de destino y el número de dispositivos gemelos que se han actualizado correctamente. 
-
-> [!Note]
-> Durante la versión preliminar, esta característica no está disponible para los centros de IoT en las regiones del Este de EE., Oeste de EE. UU., Europa del Norte y Europa Occidental.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementación de dispositivos gemelos para configurar dispositivos
 
@@ -52,7 +51,7 @@ Antes de crear una configuración, tendrá que especificar a qué dispositivos d
 ## <a name="create-a-configuration"></a>Creación de una configuración
 
 1. En [Azure Portal][lnk-portal], vaya hasta su instancia de IoT Hub. 
-1. Seleccione **Configuración de dispositivo IoT (versión preliminar)**.
+1. Seleccione **Configuración de dispositivo IoT**.
 1. Seleccione **Agregar configuración**.
 
 Hay cinco pasos para crear una configuración. En las siguientes secciones se abordan cada uno de ellos. 
@@ -96,7 +95,7 @@ Use la propiedad de etiquetas en los dispositivos para dirigirse a los dispositi
 Como varias configuraciones pueden tener como destino el mismo dispositivo, debe dar a cada configuración un número de prioridad. En caso de conflicto, gana la configuración con la prioridad más alta. 
 
 1. Especifique un número entero positivo en el valor de **Prioridad** de la configuración. El valor numérico más alto se considera la máxima prioridad. Si dos configuraciones tienen el mismo número de prioridad, gana la que se creó más recientemente. 
-1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta configuración. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.chillerProperties.model='4000x'`. 
+1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta configuración. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.chillerProperties.model='4000x'`. Puede especificar `*` para dirigirse a todos los dispositivos.
 1. Seleccione **Siguiente** para pasar al último paso.
 
 ### <a name="step-5-review-configuration"></a>Paso 5: Revisar configuración
@@ -108,8 +107,8 @@ Revise la información de configuración y seleccione **Enviar**.
 Para ver los detalles de una configuración y supervisar los dispositivos que la ejecutan, siga estos pasos:
 
 1. En [Azure Portal][lnk-portal], vaya hasta su instancia de IoT Hub. 
-1. Seleccione **Configuración de dispositivo IoT (versión preliminar)**.
-1. Examine la lista de configuración. Para cada configuración, puede ver los detalles siguientes:
+1. Seleccione **Configuración de dispositivo IoT**.
+2. Examine la lista de configuración. Para cada configuración, puede ver los detalles siguientes:
    * **ID** (Identificador): nombre de la configuración.
    * **Target condition** (Condición de destino): la consulta que se utiliza para definir los dispositivos de destino.
    * **Priority** (Prioridad): el número de prioridad asignado a la configuración.
@@ -136,25 +135,25 @@ Si actualiza la condición de destino, se producen las siguientes actualizacione
 Para modificar una configuración, siga estos pasos: 
 
 1. En [Azure Portal][lnk-portal], vaya hasta su instancia de IoT Hub. 
-1. Seleccione **Configuración de dispositivo IoT (versión preliminar)**. 
-1. Seleccione la configuración que desea modificar. 
-1. Realice las actualizaciones en los campos siguientes: 
+1. Seleccione **Configuración de dispositivo IoT**. 
+2. Seleccione la configuración que desea modificar. 
+3. Realice las actualizaciones en los campos siguientes: 
    * Condición de destino 
    * Etiquetas 
    * Prioridad 
    * Métricas
-1. Seleccione **Guardar**.
-1. Siga los pasos de [Supervisión de una configuración][anchor-monitor] para observar la implementación de los cambios. 
+4. Seleccione **Guardar**.
+5. Siga los pasos de [Supervisión de una configuración][anchor-monitor] para observar la implementación de los cambios. 
 
 ## <a name="delete-a-configuration"></a>Eliminación de una configuración
 
 Al eliminar una configuración, los dispositivos gemelos adoptan la configuración con la siguiente prioridad más alta. Si los dispositivos gemelos no cumplen la condición de destino de cualquier otra configuración, no se aplica ningún otro ajuste. 
 
 1. En [Azure Portal][lnk-portal], vaya hasta su instancia de IoT Hub. 
-1. Seleccione **Configuración de dispositivo IoT (versión preliminar)**. 
-1. Utilice la casilla de verificación para seleccionar la configuración que desea eliminar. 
-1. Seleccione **Eliminar**.
-1. Un símbolo del sistema le pedirá que confirme la operación.
+1. Seleccione **Configuración de dispositivo IoT**. 
+2. Utilice la casilla de verificación para seleccionar la configuración que desea eliminar. 
+3. Seleccione **Eliminar**.
+4. Un símbolo del sistema le pedirá que confirme la operación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido cómo configurar y supervisar dispositivos IoT a escala. Siga estos vínculos para más información sobre la administración de Azure IoT Hub:

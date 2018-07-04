@@ -14,7 +14,7 @@ Ya tiene la definición de OpenAPI para su función; la creó siguiendo las inst
 
 1. En el panel derecho, use la configuración que se especifica en la tabla.
 
-    |Configuración|Descripción|
+    |Configuración|DESCRIPCIÓN|
     |--------|------------|
     |**Modo de exportación**|Seleccione **Rápido** para generar la API personalizada de forma automática. Si selecciona **Manual**, se exporta la definición de la API, pero después tendrá que importarla en PowerApps y Microsoft Flow de forma manual. Para más información, consulte, [Exportación a PowerApps y Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
     |**Entorno**|Seleccione el entorno en que se debe guardar la API personalizada. Para más información, consulte [Información general sobre los entornos (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) o [Información general sobre los entornos (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
@@ -23,4 +23,4 @@ Ya tiene la definición de OpenAPI para su función; la creó siguiendo las inst
  
     ![Exportación a PowerApps y Microsoft Flow](media/functions-export-api-definition/export-api-2.png)
 
-1. Haga clic en **Aceptar**. La API personalizada se ha compilado y agregado al entorno especificado.
+1. Haga clic en **OK**. La API personalizada se ha compilado y agregado al entorno especificado.

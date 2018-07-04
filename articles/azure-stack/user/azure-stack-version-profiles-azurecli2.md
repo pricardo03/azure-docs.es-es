@@ -10,22 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 3c80ce6e221acb8905c00e6178dd2fec1f8816af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939663"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Uso de los perfiles de la versión de la API con la CLI de Azure 2.0 en Azure Stack
 
-En este artículo, le guiaremos en el proceso de uso de la interfaz de la línea de comandos (CLI) de Azure para administrar los recursos del Kit de desarrollo de Azure Stack de las plataformas de cliente de Linux y Mac. 
+Puede seguir los pasos de este artículo para configurar la interfaz de la línea de comandos (CLI) de Azure para administrar los recursos del Kit de desarrollo de Azure Stack de las plataformas de cliente de Linux, Mac, Windows.
 
 ## <a name="install-cli"></a>Instalar la CLI
 
-A continuación, inicie sesión en la estación de trabajo de desarrollo e instalar la CLI. Azure Stack requiere la versión 2.0 de la CLI de Azure. Puede instarla usando los pasos descritos en el artículo [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Para comprobar si la instalación se realizó correctamente, abra un terminal o una ventana del símbolo del sistema y ejecute el siguiente comando:
+Inicie sesión en la estación de trabajo de desarrollo e instale la CLI. Azure Stack requiere la versión 2.0 de la CLI de Azure. Puede instarla usando los pasos descritos en el artículo [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Para comprobar si la instalación se realizó correctamente, abra un terminal o una ventana del símbolo del sistema y ejecute el siguiente comando:
 
 ```azurecli
 az --version
@@ -35,27 +36,47 @@ Debería ver la versión de la CLI de Azure y otras bibliotecas dependientes ins
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar en el certificado de raíz de CA de Azure Stack
 
-Obtenga el certificado de raíz de CA de Azure Stack del operador de Azure Stack y confíe en él. Para confiar en el certificado de raíz de CA de Azure Stack, debe anexarlo al certificado existente de Python. Si está ejecutando la CLI desde una máquina de Linux creada dentro del entorno de Azure Stack, ejecute el siguiente comando de bash:
+1. Obtenga el certificado raíz de CA de Azure Stack del [operador de Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) y confíe en él. Para confiar en el certificado de raíz de CA de Azure Stack, debe anexarlo al certificado existente de Python.
+
+2. Busque la ubicación del certificado en la máquina. La ubicación puede variar dependiendo de dónde haya instalado Python. Debe tener [pip](https://pip.pypa.io) y el módulo [certifi](https://pypi.org/project/certifi/) instalado. Puede usar el siguiente comando de Python desde el símbolo del sistema de bash:
+
+  ```bash  
+    python -c "import certifi; print(certifi.where())"
+  ```
+
+  Tome nota de la ubicación del certificado. Por ejemplo, `~/lib/python3.5/site-packages/certifi/cacert.pem`. La ruta de acceso particular dependerá del sistema operativo y de la versión de Python que esté instalada.
+
+### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Establecimiento de la ruta de acceso para una máquina de desarrollo dentro de la nube
+
+Si está ejecutando la CLI desde una máquina Linux creada dentro del entorno de Azure Stack, ejecute el siguiente comando de bash con la ruta de acceso al certificado.
 
 ```bash
-sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 ```
 
-Si está ejecutando la CLI desde una máquina fuera del entorno de Azure Sack, primero debe configurar la [conectividad VPN a Azure Stack](azure-stack-connect-azure-stack.md). Ahora copie el certificado PEM que ha exportado previamente en la estación de trabajo de desarrollo y ejecute los comandos siguientes según el sistema operativo de la estación de trabajo de desarrollo.
+### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Establecimiento de la ruta de acceso para una máquina de desarrollo fuera de la nube
 
-### <a name="linux"></a>Linux
+Si va a ejecutar la CLI en una máquina **fuera** del entorno de Azure Stack:  
+
+1. Debe configurar la [conectividad VPN a Azure Stack](azure-stack-connect-azure-stack.md).
+
+2. Copie el certificado PEM que obtuvo del operador de Azure Stack y anote la ubicación del archivo (PATH_TO_PEM_FILE).
+
+3. Ejecute los siguientes comandos, dependiendo del sistema operativo de la estación de trabajo de desarrollo.
+
+#### <a name="linux"></a>Linux
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="macos"></a>macOS
+#### <a name="macos"></a>macOS
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="windows"></a>Windows
+#### <a name="windows"></a>Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -181,14 +202,14 @@ Si el grupo de recursos se crea correctamente, el comando anterior da como resul
 ## <a name="known-issues"></a>Problemas conocidos
 Hay algunos problemas conocidos que debe tener en cuenta cuando use la CLI en Azure Stack:
 
-* El modo interactivo de la CLI, por ejemplo, el comando `az interactive` no se admite todavía en Azure Stack.
-* Para obtener la lista de imágenes de máquinas virtuales disponibles en Azure Stack, use el comando `az vm images list --all` en lugar del comando `az vm image list`. Al especificar la opción `--all`, se asegura de que la respuesta devuelve únicamente las imágenes que estén disponibles en el entorno de Azure Stack. 
-* Los alias de las imágenes de máquinas virtuales que están disponibles en Azure pueden no ser aplicables a Azure Stack. Al utilizar imágenes de máquinas virtuales, debe utilizar todo el parámetro URN (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) en lugar del alias de la imagen. Este URN debe coincidir con las especificaciones de la imagen como se derivan del comando `az vm images list`.
-* De forma predeterminada, CLI 2.0 utiliza "Standard_DS1_v2" como tamaño predeterminado de la imagen de máquina virtual. Sin embargo, este tamaño no está disponible todavía en Azure Stack, por lo tanto, debe especificar el parámetro `--size` explícitamente al crear una máquina virtual. Puede obtener la lista de tamaños de máquina virtual que están disponibles en Azure Stack con el comando `az vm list-sizes --location <locationName>`.
-
+ - El modo interactivo de la CLI, por ejemplo, el comando `az interactive` no se admite todavía en Azure Stack.
+ - Para obtener la lista de imágenes de máquinas virtuales disponibles en Azure Stack, use el comando `az vm images list --all` en lugar del comando `az vm image list`. Al especificar la opción `--all`, se asegura de que la respuesta devuelve únicamente las imágenes que estén disponibles en el entorno de Azure Stack.
+ - Los alias de las imágenes de máquinas virtuales que están disponibles en Azure pueden no ser aplicables a Azure Stack. Al utilizar imágenes de máquinas virtuales, debe utilizar todo el parámetro URN (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) en lugar del alias de la imagen. Este URN debe coincidir con las especificaciones de la imagen como se derivan del comando `az vm images list`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
+
+[Habilitación de la CLI de Azure para usuarios de Azure Stack (operador)](..\azure-stack-cli-admin.md)
 
 [Administración de permisos de usuario](azure-stack-manage-permissions.md)

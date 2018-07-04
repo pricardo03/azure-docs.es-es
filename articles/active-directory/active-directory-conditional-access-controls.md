@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232182"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028955"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory? 
 
@@ -77,7 +77,7 @@ La autenticación multifactor ayuda a proteger los recursos del acceso por parte
 
 ### <a name="compliant-device"></a>Dispositivos compatible
 
-Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basada en dispositivos es conceder acceso a los recursos configurados solo desde [dispositivos administrados](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Requerir el uso de un dispositivo compatible es una de las opciones que tiene para definir qué es un dispositivo administrado. Si esta opción está seleccionada, la directiva de acceso condicional concede acceso a los intentos que se realizan con dispositivos [registrados](device-management-introduction.md) en Azure Active Directory y marcados como compatibles por la solución de MDM.
+Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basada en dispositivos es conceder acceso a los recursos configurados solo desde [dispositivos administrados](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Requerir el uso de un dispositivo compatible es una de las opciones que tiene para definir qué es un dispositivo administrado. Si esta opción está seleccionada, la directiva de acceso condicional concede acceso a los intentos que se realizan con dispositivos [registrados](device-management-introduction.md) en Azure Active Directory y marcados como compatibles por Intune (en cualquier sistema operativo del dispositivo) o por un sistema MDM de terceros en dispositivos con Windows 10. No se pueden utilizar sistemas MDM de terceros con otros sistemas operativos que no sean Windows 10.
 
 Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 

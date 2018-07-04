@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621758"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053673"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre los [servicios vinculados de proceso en la versión 2](../compute-linked-services.md).
+> Este artículo se aplica a la versión 1 de Azure Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el [Servicios vinculados de Compute en](../compute-linked-services.md).
 
 En este artículo se explican los entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles sobre las distintas configuraciones (a petición en comparación con traiga una propia) compatibles con Data Factory cuando se configuran servicios vinculados que vinculan estos entornos de procesos a una instancia de Azure Data Factory.
 
@@ -66,7 +66,7 @@ Después del 31 de julio de 2018:
 - Si usa un servicio vinculado de HDInsight a petición para ejecutar la actividad personalizada de DotNet de Data Factory versión 1, actualice la definición JSON de actividad personalizada de DotNet para usar en su lugar un servicio vinculado de Azure Batch. Para más información, consulte [Uso de actividades personalizadas en una canalización de Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> Si usa el dispositivo vinculado de HDInsight de clúster del tipo traiga su propio clúster existente en Data Factory versión 1 o un servicio vinculado de HDInsight a petición y del tipo traiga su propio clúster en Azure Data Factory versión 2, no se requiere ninguna acción. En esos escenarios, ya se aplica la directiva de compatibilidad de versión más reciente de los clústeres de HDInsight. 
+> Si usa un dispositivo BYOD existente vinculado a un clúster de HDInsight en Data Factory versión 1 o un dispositivo BYOD bajo petición vinculado a HDInsight en Azure Data Factory, no se requiere ninguna acción. En esos escenarios, ya se aplica la directiva de compatibilidad de versión más reciente de los clústeres de HDInsight. 
 >
 > 
 

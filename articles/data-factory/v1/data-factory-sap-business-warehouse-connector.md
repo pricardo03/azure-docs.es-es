@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6debc77bf7232f5ee5d7e638ee25b5eccdbdeeef
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2104f2690e681c53649b9a37c6c764380aa94568
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622084"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051512"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Movimiento de datos de SAP Business Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-sap-business-warehouse-connector.md)
-> * [Versión 2: versión preliminar](../connector-sap-business-warehouse.md)
+> * [Versión 1](data-factory-sap-business-warehouse-connector.md)
+> * [Versión 2 (versión actual)](../connector-sap-business-warehouse.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [SAP Business Warehouse connector in V2](../connector-sap-business-warehouse.md) (Conector de SAP Business Warehouse en V2).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Conector SAP Business Warehouse en V2](../connector-sap-business-warehouse.md).
 
 
 En este artículo, se explica el uso de la actividad de copia en Azure Data Factory para mover datos desde un almacén de datos de SAP Business Warehouse (BW) local. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425340"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36962428"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola serie de máquina virtual (versión preliminar) 
 
@@ -32,6 +32,7 @@ La consola serie de máquina virtual en Azure ofrece acceso a una consola basada
 
 ## <a name="prerequisites"></a>requisitos previos 
 
+* Debe utilizar el modelo de implementación de Resource Manager. No se admiten implementaciones clásicas. 
 * La máquina virtual TIENE QUE tener los [diagnósticos de arranque](boot-diagnostics.md) habilitados 
 * La cuenta que utilice la de serie debe tener el [rol Colaborador](../../role-based-access-control/built-in-roles.md) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md). 
 * Para conocer valores específicos de distribución de Linux, consulte [Accessing the serial console for Linux](#accessing-serial-console-for-linux) (Acceso a la consola de serie para Linux).
@@ -90,7 +91,7 @@ Interacción con el cargador de arranque | Acceda a GRUB/BCD mediante la consola
 ## <a name="accessing-serial-console-for-linux"></a>Acceso a la consola de serie para Linux
 Para que la consola de serie funcione correctamente, el sistema operativo invitado debe configurarse para leer y escribir mensajes de la consola en el puerto de serie. La mayoría de [distribuciones de Linux aprobadas por Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tienen la consola de serie configurada de manera predeterminada. Con solo hacer clic en la sección Consola de serie del portal se accederá a la consola. 
 
-### <a name="access-for-redhat"></a>Acceso para Red Hat 
+### <a name="access-for-red-hat"></a>Acceso para Red Hat 
 Las imágenes de Red Hat disponibles en Azure tienen habilitado el acceso a la consola de forma predeterminada. El modo de usuario único en Red Hat requiere que el usuario raíz esté habilitado (está deshabilitado de manera predeterminada). Si tiene que habilitar el modo de usuario único, siga estas instrucciones:
 
 1. Inicie sesión en el sistema de Red Hat a través de SSH.

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: bbd38380370821c749a70d59a819a84ed06458a7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: d42fa432f57def5e4f80480e41c2299098e20d7d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264806"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020700"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
 
@@ -25,7 +25,7 @@ Puede crear un servidor de Azure Database for MySQL en tres planes de tarifa dif
 | Generación de procesos | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memoria por núcleo virtual | 2 GB | 5 GB | 10 GB |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 2 TB | De 5 GB a 2 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Período de retención de copias de seguridad de base de datos | De 7 a 35 días | De 7 a 35 días | De 7 a 35 días |
 
@@ -37,18 +37,18 @@ Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
 | Uso general | La mayoría de las cargas de trabajo de empresa que requieren un equilibrio entre proceso y memoria con rendimiento de E/S escalable. Por ejemplo, servidores para hospedar aplicaciones web y móviles, y otras aplicaciones empresariales.|
 | Memoria optimizada | Cargas de trabajo de base de datos de alto rendimiento que requieren rendimiento en memoria para un procesamiento de transacciones más rápido y una mayor simultaneidad. Por ejemplo, servidores para procesar datos en tiempo real y aplicaciones de análisis y transacciones de alto rendimiento.|
 
-Después de crear un servidor, el número de núcleos virtuales se puede aumentar o reducir (en el mismo plan de tarifa) en cuestión de segundos. También puede ajustar de forma independiente la cantidad de almacenamiento y aumentar o reducir el período de retención sin que las aplicaciones experimenten tiempo de inactividad. No puede cambiar el plan de tarifa o el tipo de almacenamiento de copia de seguridad. Para más información, consulte la sección [Escalado de recursos](#scale-resources).
+Después de crear un servidor, el número de núcleos virtuales, la generación de hardware y el plan de tarifa (excepto hacia y desde Básico) se puede aumentar o reducir en cuestión de segundos. También puede ajustar de forma independiente la cantidad de almacenamiento y aumentar o reducir el período de retención sin que las aplicaciones experimenten tiempo de inactividad. No puede cambiar el tipo de almacenamiento de copia de seguridad. Para más información, consulte la sección [Escalado de recursos](#scale-resources).
 
 ## <a name="compute-generations-and-vcores"></a>Procesar generaciones y núcleos virtuales
 
-Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Actualmente, puede elegir entre dos generaciones de proceso, Gen 4 y Gen 5. Las CPU lógicas Gen 4 se basan en los procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz. Las CPU lógicas Gen 5 se basan en los procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz. Las CPU lógicas Gen 4 y Gen 5 están disponibles en las siguientes regiones ("X" indica disponible). 
+Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Actualmente, puede elegir entre dos generaciones de proceso, Gen 4 y Gen 5. Las CPU lógicas Gen 4 se basan en los procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz. Las CPU lógicas Gen 5 se basan en los procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz. Las CPU lógicas Gen 4 y Gen 5 están disponibles en las siguientes regiones ("X" indica disponible).
 
 | **Región de Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
 | Central EE. UU: | X |  |
 | Este de EE. UU | X | X |
 | Este de EE. UU. 2 | X | X |
-| Centro-Norte de EE. UU | X |  |
+| Centro-Norte de EE. UU | X | X |
 | Centro-Sur de EE. UU | X | X |
 | Oeste de EE. UU | X | X |
 | Oeste de EE. UU. 2 |  | X |
@@ -57,9 +57,10 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Sur de Brasil | X | X |
 | Europa del Norte | X | X |
 | Europa occidental |  | X |
+| Centro de Francia |  | X |
 | Oeste de Reino Unido |  | X |
 | Sur del Reino Unido 2 |  | X |
-| Asia oriental | X |  |
+| Asia oriental | X | X |
 | Sudeste asiático | X | X |
 | Australia Oriental |  | X |
 | Sudeste de Australia |  | X |
@@ -68,6 +69,7 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Sur de la India |  | X |
 | Este de Japón | X | X |
 | Oeste de Japón | X | X |
+| Corea Central |  | X |
 | Corea del Sur |  | X |
 
 ## <a name="storage"></a>Storage
@@ -77,9 +79,9 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 |    | **Básico** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 2 TB | De 5 GB a 2 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
-| E/S | Variable |3 IOPS/GB<br/>100 IOPS mín. | 3 IOPS/GB<br/>100 IOPS mín. |
+| E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. |
 
 Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
 
@@ -97,9 +99,9 @@ El servicio realiza automáticamente copias de seguridad del servidor. El perío
 
 ## <a name="scale-resources"></a>Escalado de recursos
 
-Después de crear el servidor, puede cambiar los núcleos virtuales, la cantidad de almacenamiento y el período de retención de copia de seguridad de manera independiente. No puede cambiar el plan de tarifa o el tipo de almacenamiento de copia de seguridad. El número de núcleos virtuales se pueden escalar o reducir verticalmente dentro del mismo plan de tarifa. El período de retención de copia de seguridad se puede escalar o reducir verticalmente de 7 a 35 días. El tamaño de almacenamiento solo se puede aumentar. El escalado de los recursos puede realizarse a través del portal o la CLI de Azure. Para ver un ejemplo de escalado con la CLI de Azure, consulte [Supervisión y escalado de un servidor de Azure Database for MySQL mediante la CLI de Azure](scripts/sample-scale-server.md).
+Después de crear el servidor, puede cambiar los núcleos virtuales, la generación de hardware, el plan de tarifa (excepto hacia y desde Básico), la cantidad de almacenamiento y el período de retención de copia de seguridad de manera independiente. No puede cambiar el tipo de almacenamiento de copia de seguridad. El número de núcleos virtuales se pueden escalar o reducir verticalmente. El período de retención de copia de seguridad se puede escalar o reducir verticalmente de 7 a 35 días. El tamaño de almacenamiento solo se puede aumentar. El escalado de los recursos puede realizarse a través del portal o la CLI de Azure. Para ver un ejemplo de escalado con la CLI de Azure, consulte [Supervisión y escalado de un servidor de Azure Database for MySQL mediante la CLI de Azure](scripts/sample-scale-server.md).
 
-Al cambiar el número de núcleos virtuales, se crea una copia del servidor original con la nueva asignación de proceso. Una vez que el nuevo servidor está en funcionamiento, las conexiones se transfieren a él. Durante el breve espacio de tiempo en que el sistema cambia al nuevo servidor, no se puede establecer ninguna nueva conexión y todas las transacciones no confirmadas se revierten. Esta ventana varía, pero en la mayoría de los casos es inferior a un minuto.
+Al cambiar el número de núcleos virtuales, la generación de hardware o el plan de tarifa, se crea una copia del servidor original con la nueva asignación de recursos de proceso. Una vez que el nuevo servidor está en funcionamiento, las conexiones se transfieren a él. Durante el breve espacio de tiempo en que el sistema cambia al nuevo servidor, no se puede establecer ninguna nueva conexión y todas las transacciones no confirmadas se revierten. Este intervalo de tiempo varía, pero en la mayoría de los casos es inferior a un minuto.
 
 El escalado del almacenamiento y el cambio del período de retención de copia de seguridad son operaciones verdaderamente en línea. No hay ningún tiempo de inactividad y la aplicación no se ve afectada. A medida que el valor de IOPS se escala con el tamaño del almacenamiento aprovisionado, puede aumentar el número de IOPS disponibles para el servidor mediante el escalado vertical del almacenamiento.
 

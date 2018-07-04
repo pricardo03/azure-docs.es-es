@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293184"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031736"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
@@ -30,9 +30,9 @@ En este artículo se describe cómo comprobar el estado de aprovisionamiento de 
 
 ## <a name="overview"></a>Información general
 
-Los conectores de aprovisionamiento se configuran principalmente mediante el [Portal de administración de Azure](https://portal.azure.com), siguiendo la [documentación proporcionada](active-directory-saas-tutorial-list.md) para la aplicación en la que se desea aprovisionar las cuentas de usuario. Una vez configurados y en ejecución, es posible notificar trabajos de aprovisionamiento para una aplicación mediante uno de estos dos métodos:
+Los conectores de aprovisionamiento se configuran mediante [Azure Portal](https://portal.azure.com), siguiendo la [documentación proporcionada](saas-apps/tutorial-list.md) para la aplicación admitida. Una vez configurados y en ejecución, es posible notificar trabajos de aprovisionamiento mediante uno de estos dos métodos:
 
-* **Portal de administración de Azure**: en este artículo se describe principalmente la recuperación de información de informes en el [Portal de administración de Azure](https://portal.azure.com), que proporciona tanto un informe de resumen de aprovisionamiento como registros detallados de auditoría de aprovisionamiento para una aplicación determinada.
+* **Portal de administración de Azure**: en este artículo se describe principalmente la recuperación de información de informes en [Azure Portal](https://portal.azure.com), que proporciona tanto un informe de resumen de aprovisionamiento como registros detallados de auditoría de aprovisionamiento para una aplicación determinada.
 
 * **API de auditoría**: Azure Active Directory también proporciona una API de auditoría que permite la recuperación mediante programación de registros detallados de auditoría de aprovisionamiento. Consulte [Referencia de la API de auditoría de Azure Active Directory](active-directory-reporting-api-audit-reference.md) para ver documentación específica sobre el uso de esta API. Aunque este artículo no trata específicamente del uso de la API, detalla los tipos de eventos de aprovisionamiento que se registran en el registro de auditoría.
 
@@ -54,23 +54,23 @@ Para obtener información de informes para una aplicación de aprovisionamiento 
 Desde aquí, puede acceder al informe de resumen de aprovisionamiento y a los registros de auditoría de aprovisionamiento, que se describen a continuación.
 
 
-### <a name="provisioning-summary-report"></a>Informe de resumen de aprovisionamiento
+## <a name="provisioning-summary-report"></a>Informe de resumen de aprovisionamiento
 
-El informe de resumen de aprovisionamiento está visible en la pestaña **Aprovisionamiento** de la aplicación específica. Se encuentra en la sección Detalles de sincronización debajo de **Configuración** y proporciona la siguiente información:
+El informe de resumen de aprovisionamiento está visible en la pestaña **Aprovisionamiento** de la aplicación específica. Se encuentra en la sección **Detalles de sincronización** debajo de **Configuración** y proporciona la siguiente información:
 
 * El número total de usuarios y grupos que se han sincronizado y están actualmente en el ámbito para el aprovisionamiento entre el sistema de origen y el sistema de destino.
 
-* La última vez que se ejecutó la sincronización. Las sincronizaciones suelen producirse cada 20-40 minutos, una vez que haya finalizado una sincronización completa.
+* La última vez que se ejecutó la sincronización. Las sincronizaciones suelen producirse cada 20-40 minutos, una vez que haya finalizado una [sincronización inicial](active-directory-saas-app-provisioning.md#what-happens-during-provisioning).
 
-* Tanto si ha finalizado una sincronización completa inicial como si no.
+* Tanto si ha finalizado una [sincronización inicial](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) como si no.
 
-* Tanto si el proceso de aprovisionamiento se ha puesto en cuarentena como si no, y sea cual sea la razón para el estado de cuarentena (p. ej., error al comunicarse con el sistema de destino debido a credenciales de administrador no válidas)
+* Tanto si el proceso de aprovisionamiento se ha puesto en cuarentena como si no, y sea cual sea la razón para el estado de cuarentena (por ejemplo, error al comunicarse con el sistema de destino debido a credenciales de administrador no válidas).
 
 El informe de resumen de aprovisionamiento debe ser el primer lugar en el que busquen los administradores para comprobar el estado operativo del trabajo de aprovisionamiento.
 
  ![Informe de resumen](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>Registros de auditoría de aprovisionamiento
+## <a name="provisioning-audit-logs"></a>Registros de auditoría de aprovisionamiento
 Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los registros de auditoría de Azure AD, que pueden verse en la pestaña **Registros de auditoría** en la categoría **Aprovisionamiento de cuentas**. Los tipos de eventos de actividades registradas incluyen:
 
 * **Eventos de importación**: cada vez que el servicio de aprovisionamiento de Azure AD recupera información sobre un usuario individual o un grupo desde un sistema de origen o destino, se registra un evento de "importación". Durante la sincronización, los usuarios se recuperan en primer lugar del sistema de origen, con resultados que se registran como eventos de "importación". Los identificadores de coincidencias de los usuarios recuperados se consultan luego en el sistema de destino para comprobar si existen, con resultados que se registran también como eventos de "importación". Estos eventos registran todos los atributos de usuario asignados y sus valores, vistos por el servicio de aprovisionamiento de Azure AD en el momento del evento. 
@@ -89,7 +89,7 @@ Al examinar los eventos de aprovisionamiento para un usuario individual, los eve
 
 3. Evento de reglas de sincronización: los datos de usuario de los sistemas de origen y de destino se evalúan con las reglas de asignación del atributo configurado y los filtros de ámbito para determinar qué acción, si la hay, debe realizarse.
 
-4. Evento de exportación: si el evento de reglas de sincronización ha dictado que se debe realizar una acción (por ejemplo, agregar, actualizar, eliminar), los resultados de la acción se registran en un evento de exportación.
+4. Evento de exportación: si el evento de reglas de sincronización ha dictado que se debe realizar una acción (agregar, actualizar o eliminar), los resultados de la acción se registran en un evento de exportación.
 
 ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -112,6 +112,9 @@ El caso de uso más común para los registros de auditoría de aprovisionamiento
 
 7. Haga clic en los eventos individuales para ver detalles ampliados, incluidas todas las propiedades de usuario que se han recuperado, evaluado o escrito como parte del evento.
 
+Para ver una demostración sobre cómo usar los registros de auditoría, vea el vídeo siguiente. Los registros de auditoría se muestran alrededor del minuto 5:30:
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Sugerencias para ver los registros de auditoría de aprovisionamiento
 

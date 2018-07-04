@@ -1,5 +1,5 @@
 ---
-title: 'Asignación de servicios a medidores para la cuenta gratuita: Azure | Microsoft Docs'
+title: Asignación de servicios a medidores para la cuenta gratuita de Azure | Microsoft Docs
 description: Comprenda la asignación de servicios a medidores para los servicios incluidos con la cuenta gratuita.
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3019fe5f8b44eaa32d4ab309f296d6b4574df1d3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201052"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061377"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Descripción de la asignación de servicios a medidores
 

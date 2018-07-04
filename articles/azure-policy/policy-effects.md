@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796723"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751785"
 ---
 # <a name="understanding-policy-effects"></a>Descripción de los efectos de directivas
 
@@ -90,7 +90,7 @@ Ejemplo 3: único par **campo/valor** que usa un [alias](policy-definition.md#al
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -304,7 +304,7 @@ Ejemplo: evalúa las bases de datos de SQL Server para determinar si está habil
 
 ## <a name="layering-policies"></a>Directivas de distribución en capas
 
-Un recurso puede verse afectado por varias asignaciones. Estas asignaciones pueden estar en el mismo ámbito (recurso específico, grupo de recursos, suscripción o grupo de administración) o en distintos ámbitos. Cada una de estas asignaciones también es probable que tenga un efecto diferente al definido. En cualquier caso, la condición y el efecto de cada directiva (asignada directamente o como parte de una iniciativa) se evalúan por separado. Por ejemplo, si la directiva 1 tiene una condición que limita la ubicación para que la suscripción A no se cree en "Oeste de EE. UU" con el efecto deny y la directiva 2 limita los recursos en el grupo de recursos B (que está en la suscripción A) para que no se cree en "Este de EE. UU" con el efecto audit asignado en ambos casos, el resultado sería el siguiente:
+Un recurso puede verse afectado por varias asignaciones. Estas asignaciones pueden estar en el mismo ámbito (recurso específico, grupo de recursos, suscripción o grupo de administración) o en distintos ámbitos. Cada una de estas asignaciones también es probable que tenga un efecto diferente al definido. En cualquier caso, la condición y el efecto de cada directiva (asignada directamente o como parte de una iniciativa) se evalúan por separado. Por ejemplo, si la directiva 1 tiene una condición que limita la ubicación de recursos para que la suscripción A solo se cree en "Oeste de EE. UU" con el efecto deny y la directiva 2 tiene una condición que restringe la ubicación de los recursos en el grupo de recursos B (que está en la suscripción A) para que solo se cree en "Este de EE. UU" con el efecto audit asignado en ambos casos, el resultado sería el siguiente:
 
 - Cualquier recurso que ya esté en el grupo de recursos B en "Este de EE. UU." está conforme con la directiva 2, pero se marca como no conforme con la directiva 1.
 - Cualquier recurso que ya esté en el grupo de recursos B que no esté en "Este de EE. UU." se marcará como no conforme con la directiva 2, y también se marcaría como no conforme con la directiva 1 si no es "Oeste de EE. UU.".

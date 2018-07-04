@@ -13,7 +13,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
    
     Aparece la lista de revisiones; por ejemplo, la **actualización acumulativa 5.0 para la serie StorSimple 8000**.
    
-    ![Búsqueda de catálogo](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
+    ![Catálogo de búsqueda](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
 4. Haga clic en **Descargar**. Especifique o **busque** una ubicación local en la que quiera que aparezcan las descargas. Haga clic en los archivos que va a descargar en la ubicación y carpeta especificadas. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
 5. Busque las revisiones adicionales que se enumeran en la tabla anterior (**4037266**) y descargue los archivos correspondientes a las carpetas específicas, como se muestra en dicha tabla.
@@ -28,7 +28,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
 Realice los pasos siguientes para instalar y comprobar las revisiones de modo normal. Si ya las ha instalado a través de Azure Portal, puede ir directamente a la sección [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. Para instalar las revisiones, acceda a la interfaz de Windows PowerShell en la consola serie del dispositivo de StorSimple. Siga las instrucciones detalladas de [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) (Uso de PuTTy para conectarse a la consola serie). En el símbolo del sistema, presione **Entrar**.
-2. Seleccione **Opción 1** para iniciar sesión en el dispositivo con acceso completo. Se recomienda instalar primero la revisión en el controlador pasivo.
+2. Seleccione la opción 1, **Iniciar sesión con acceso completo**. Se recomienda instalar primero la revisión en el controlador pasivo.
 3. Para instalar la revisión, en el símbolo del sistema, escriba lo siguiente:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -82,7 +82,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
     > [!NOTE]
     > En ocasiones, el cmdlet notifica `False` cuando la actualización está todavía en curso. Para garantizar que la revisión está completada, espere unos minutos, vuelva a ejecutar este comando y compruebe que `RunInProgress` es `False`. Si es así, se habrá completado la revisión.
 
-7. Cuando se complete la actualización del software, compruebe las versiones de software del sistema. Escriba:
+7. Cuando se complete la actualización del software, compruebe las versiones de software del sistema. Escriba: 
    
     `Get-HcsSystem`
    
@@ -164,7 +164,7 @@ Para instalar las actualizaciones de firmware de disco, siga las instrucciones a
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Supervise el progreso de la instalación con el comando `Get-HcsUpdateStatus` . La actualización se habrá completado cuando `RunInProgress` cambie a `False`.
-4. Una vez completada la instalación, se reiniciará el controlador en el que se haya instalado la revisión de modo de mantenimiento. Inicie sesión como en la opción 1 con acceso completo y compruebe la versión de firmware del disco. Escriba:
+4. Una vez completada la instalación, se reiniciará el controlador en el que se haya instalado la revisión de modo de mantenimiento. Inicie sesión con la opción 1, **Iniciar sesión con acceso completo**, y compruebe la versión de firmware del disco. Escriba: 
    
    `Get-HcsFirmwareVersion`
    

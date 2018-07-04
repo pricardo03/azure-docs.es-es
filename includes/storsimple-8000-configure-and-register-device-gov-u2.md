@@ -6,7 +6,7 @@
 3. Se le pedirá que elija el idioma que desee establecer para el dispositivo. Especifique el idioma y, a continuación, presione **Entrar**.
    
     ![Configurar y registrar el dispositivo 1 de StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. En el menú de la consola serie que se muestra, seleccione la opción 1 para iniciar sesión con acceso completo.
+4. En el menú de la consola serie que se muestra, elija la opción 1, **Iniciar sesión con acceso completo**.
    
     ![Registrar el dispositivo 2 de StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
 5. Realice los siguientes pasos para configurar los valores de red mínimos necesarios para su dispositivo.

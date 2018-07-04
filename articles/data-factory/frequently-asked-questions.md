@@ -11,44 +11,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: b7f654fb3b24954bb1c9222a4e97dc4b6844411c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ebe8745db06113d0508d86554bf031a4235c8e44
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619038"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045956"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
-Este artículo se aplica a la versión 2 del servicio de Azure Data Factory. Proporciona respuestas a las preguntas más frecuentes acerca de Data Factory.  
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte las [preguntas más frecuentes de la versión 1 de Data Factory](v1/data-factory-faq.md).
+Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>¿Qué es Azure Data Factory? 
 Data Factory es un servicio de integración de datos basado en la nube que automatiza el movimiento y la transformación de datos. Al igual que las máquinas de una fábrica transforman las materias primas en productos acabados, Azure Data Factory organiza los servicios existentes que recopilan datos sin procesar y los transforman en información lista para utilizar. 
 
 Con Azure Data Factory, puede crear flujos de trabajo controlados por datos para mover datos entre almacenes de datos locales y en la nube. Puede procesar y transformar datos mediante servicios de proceso, como Azure HDInsight, Azure Data Lake Analytics e Integration Runtime de SQL Server Integration Services (SSIS). 
 
-Con Data Factory, puede ejecutar el procesamiento de datos en un servicio en la nube basado en Azure o en su propio entorno de proceso autohospedado, como SSIS, SQL Server u Oracle. Después de crear una canalización que realice la acción que necesita, puede programar que se ejecute periódicamente (por ejemplo, cada hora, diariamente o semanalmente) o desencadenarla a partir de la repetición de un evento. Para más información, consulte [Introducción a Azure Data Factory](introduction.md).
-
-## <a name="whats-different-in-version-2"></a>Diferencias en la versión 2
-La versión 2 de Azure Data Factory se basa en el servicio de transformación y movimiento de datos original de Azure Data Factory, que se extiende a un conjunto más amplio de escenarios de integración de datos en la nube en primer lugar. La versión 2 de Azure Data Factory ofrece las siguientes funcionalidades:
-
-- Escala y flujos de control
-- Implementación y ejecución de paquetes SSIS en Azure
-
-Tras el lanzamiento de la versión 1, detectamos que los clientes necesitaban diseñar escenarios complejos de integración de datos híbridos que requerían tanto el movimiento como el procesamiento de datos en la nube, en el entorno local y en las máquinas virtuales en la nube (VM). Estos requisitos ponen de manifiesto la necesidad de transferir y procesar los datos dentro de entornos de red virtual protegidos y escalar horizontalmente la potencia de procesamiento a petición.
-
-Como las canalizaciones de datos se están convirtiendo en una parte fundamental de una estrategia de análisis de negocios, hemos observado que estas actividades requieren una programación flexible para admitir cargas de datos incrementales y ejecuciones desencadenadas por eventos. Al ir aumentando la complejidad, también lo hacen los requisitos para que el servicio admita los paradigmas comunes de flujo de trabajo, como el procesamiento condicional, la creación de ramas y el bucle.
-
-Con la versión 2, también puede migrar paquetes SSIS existentes a la nube. Esta acción migra mediante lift-and-shift SSIS como servicio de Azure que se administra dentro de Data Factory, que utiliza una nueva característica de Integration Runtime. Al poner en marcha una instancia de Integration Runtime de SSIS en la versión 2, puede ejecutar, administrar, supervisar y generar paquetes SSIS en la nube.
+Con Data Factory, puede ejecutar el procesamiento de datos en un servicio en la nube basado en Azure o en su propio entorno de proceso autohospedado, como SSIS, SQL Server u Oracle. Después de crear una canalización que realice la acción que necesita, puede programarla para que se ejecute periódicamente (por ejemplo, cada hora, diariamente o semanalmente), programar una ventana de tiempo o desencadenarla a partir de la aparición de un evento. Para más información, consulte [Introducción a Azure Data Factory](introduction.md).
 
 ### <a name="control-flows-and-scale"></a>Escala y flujos de control 
-Para admitir los diferentes patrones y flujos de integración en el almacenamiento de datos actual, Data Factory ha habilitado un nuevo modelo de canalización de datos flexible que ya no está asociado a los datos de serie temporal. Con esta versión, puede modelar condicionales, crear una rama en el flujo de control de una canalización de datos, así como pasar explícitamente los parámetros dentro y entre estos flujos.
+Para admitir los diversos flujos y patrones del almacenamiento de datos actual, Data Factory permite un modelado flexible de la canalización de datos que incluye paradigmas completos de programación del flujo de control que incluyen la ejecución condicional, la bifurcación de las canalizaciones de datos y la posibilidad de pasar parámetros explícitamente dentro de estos flujos y entre ellos. Flujo de control también abarca la transformación de datos mediante la distribución de actividades a motores de ejecución externos y funcionalidades de flujo de datos que incluyen el movimiento de datos a escala mediante la actividad de copia.
 
-Ahora tiene la libertad de modelar cualquier estilo de flujo necesario para la integración de datos y que se puede enviar a petición o varias veces según una programación. A continuación, se indican algunos flujos comunes ya habilitados que anteriormente no eran posibles:   
+Data Factory proporciona la libertad de modelar cualquier estilo de flujo necesario para la integración de datos y que se puede enviar a petición o varias veces según una programación. Estos son algunos de los flujos habituales que permite este modelo:   
 
 - Flujos de control:
     - Encadenamiento de actividades en una secuencia dentro de una canalización.
@@ -67,29 +52,49 @@ Ahora tiene la libertad de modelar cualquier estilo de flujo necesario para la i
 
 Para más información, consulte el siguiente [tutorial: flujos de control](tutorial-control-flow.md).
 
+### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Transformación de los datos a escala con canalizaciones sin código
+La nueva experiencia de herramientas basadas en explorador proporciona la creación e implementación de canalizaciones sin código con una experiencia actual, interactiva y basada en la web.
+
+Para los desarrolladores de datos visuales y los ingenieros de datos, la interfaz de usuario web de ADF es el entorno idóneo de desarrollo sin código que usará para crear canalizaciones. Está totalmente integrado con el repositorio de Git en línea de Visual Studio y proporciona integración de CI/CD y desarrollo iterativo con opciones de depuración.
+
+### <a name="rich-cross-platform-sdks-for-advanced-users"></a>Potentes SDK multiplataforma para usuarios avanzados
+Si es un usuario avanzado y busca una interfaz programática, la versión 2 de ADF le proporciona un amplio conjunto de SDK que se pueden aprovechar para crear, administrar y supervisar canalizaciones mediante su IDE favorito.
+1.  SDK de Python
+2.  Powershell CLI
+3.  Los usuarios de SDK de C# también pueden aprovechar las API REST documentadas para interactuar con ADF V2
+
+### <a name="iterative-development-and-debugging-using-visual-tools"></a>Desarrollo y depuración iterativos mediante herramientas visuales
+Las herramientas visuales de Azure Data Factory (ADF) le permiten realizar un desarrollo y depuración iterativos. Puede crear canalizaciones y realizar series de pruebas con la funcionalidad Depurar en el lienzo de la canalización sin escribir ni una sola línea de código. Puede ver los resultados de las series de pruebas en la ventana Salida del lienzo de la canalización. Después de realizar correctamente una serie de pruebas, puede agregar más actividades a la canalización y continuar con la depuración de manera iterativa. También puede cancelar las series de pruebas cuando están en curso. No es necesario que publique los cambios en el servicio Data Factory antes de hacer clic en Depurar. Esto resulta útil en escenarios en los que se desea garantizar que los cambios o nuevas adiciones funcionan según lo esperado antes de actualizar el flujo de trabajo de la factoría de datos en entornos de desarrollo, pruebas o producción. 
+
 ### <a name="deploy-ssis-packages-to-azure"></a>Implementación de paquetes SSIS en Azure 
-Si desea mover las cargas de trabajo de SSIS, puede crear una versión 2 de Data Factory y aprovisionar una instancia de Integration Runtime de SSIS de Azure. Integration Runtime de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones paso a paso, vea el tutorial [Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). 
+Si desea mover las cargas de trabajo de SSIS, puede crear una instancia de Data Factory y aprovisionar una instancia de Integration Runtime para la integración de SSIS en Azure. Integration Runtime de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones paso a paso, vea el tutorial [Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). 
  
-
 ### <a name="sdks"></a>SDK
-Si es un usuario avanzado y busca una interfaz programática, la versión 2 le proporciona un amplio conjunto de SDK que puede usar para crear, administrar o supervisar canalizaciones mediante su IDE favorito.
-
-- **SDK de .NET**: el SDK de .NET se actualiza para la versión 2. 
-- **PowerShell**: los cmdlets de PowerShell se actualizan para la versión 2. La versión 2 de los cmdlets tienen *DataFactoryV2* en el nombre. Por ejemplo, *Get-AzureRmDataFactoryV2*. 
-- **SDK de Python**: este SDK es una novedad de la versión 2.
-- **API de REST**: la API de REST se actualiza para la versión 2.  
-
-Los SDK que se actualizan para la versión 2 no son compatibles con los clientes de la versión 1. 
+Si es un usuario avanzado y busca una interfaz programática, ADF le proporciona un amplio conjunto de SDK que puede usar para crear, administrar o supervisar canalizaciones mediante su IDE favorito. Entre los lenguajes compatibles se incluye: .NET, PowerShell, Python y REST.
 
 ### <a name="monitoring"></a>Supervisión
-Actualmente, la versión 2 admite la supervisión de factorías de datos usando solo SDK. El portal aún no es compatible con la supervisión de las factorías de datos de la versión 2. 
+Puede supervisar las factorías de datos mediante PowerShell, SDK o las herramientas de supervisión visual de la interfaz de usuario del explorador. Puede supervisar y administrar a petición flujos personalizados basados en desencadenadores y controlados por tiempo de una manera eficaz. Cancele tareas que ya existen, vea los errores de un solo vistazo, explore en profundidad para obtener mensajes de error detallados y depure los problemas, todo ello desde un único panel sin cambios de contexto y sin tener que desplazarse entre pantallas. 
+
+### <a name="new-features-for-ssis-in-adf"></a>Nuevas características de SSIS en ADF
+Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data Factory ha agregado las siguientes características para SSIS:
+
+-   Compatibilidad con tres configuraciones o variantes más de Azure SQL Database (DB) para hospedar el catálogo de proyectos y paquetes de SSIS (SSISDB):
+-   Azure SQL Database con puntos de conexión de servicio de red virtual
+-   Instancia administrada (MI)
+-   Grupo elástico
+-   Compatibilidad con la red virtual de Azure Resource Manager en lugar de la red virtual clásica que caerá en desuso en el futuro. Esto le permite insertar o unir su instancia de Integration Runtime para la integración de SSIS en Azure en una red virtual que está configurada para Azure SQL Database con acceso a puntos de conexión de servicio de red virtual, Instancias administradas o datos locales. Para ello, consulte: https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network. 
+-   Compatibilidad con la autenticación de Azure Active Directory (AAD) en lugar de la autenticación de SQL para conectarse a SSISDB. Esto le permite usar la autenticación de AAD con Managed Service Identity (MSI) de ADF.
+-   Compatibilidad para usar su propia licencia de SQL Server local para conseguir ahorros sustanciales de costos con la opción Ventaja híbrida de Azure (AHB).
+-   Compatibilidad con la versión empresarial de Integration Runtime para la integración de SSIS en Azure que le permite usar características avanzadas o premium, configuraciones personalizadas para instalar componentes o extensiones adicionales y ecosistemas de terceros. Para más información, consulte: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/. 
+-   Una integración más profunda de SSIS en ADF que le permite invocar o desencadenar actividades de primera clase de ejecución de paquetes SSIS en canalizaciones de ADF y programarlas mediante SSMS. Para más información, consulte: https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 
+
 
 ## <a name="what-is-integration-runtime"></a>¿Qué es Integration Runtime?
 Integration Runtime es la infraestructura de proceso que Azure Data Factory usa para proporcionar las siguientes funcionalidades de integración de datos en diversos entornos de red:
 
-- **Movimiento de datos**: mueva los datos entre almacenes de datos de redes públicas y de redes privadas (red privada local o virtual). Proporciona compatibilidad para conectores integrados, conversión de formato, asignación de columnas y transferencia de datos escalable y de rendimiento superior.
-- **Distribución de actividades**: distribuya y supervise actividades de transformación que se ejecuten en una gran variedad de servicios de proceso, como Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
-- **Ejecución de paquetes SSIS**: ejecuta de forma nativa paquetes SSIS en un entorno de proceso de Azure administrado.
+- **Movimiento de datos**: en el caso del movimiento de datos, Integration Runtime mueve los datos entre los almacenes de origen y de destino, e incluye compatibilidad con conectores integrados, conversión de formato, asignación de columnas y transferencia de datos eficaz y escalable.
+- **Distribución de actividades**: En el caso de la transformación, Integration Runtime permite ejecutar paquetes SSIS de forma nativa.
+- **Ejecución de paquetes SSIS**: ejecuta de forma nativa paquetes SSIS en un entorno de proceso de Azure administrado. Integration Runtime permite también distribuir y supervisar actividades de transformación que se ejecutan en una gran variedad de servicios de proceso, como Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
 
 Puede implementar una o varias instancias de Integration Runtime según sea necesario para mover y transformar los datos. Integration Runtime se puede ejecutar en una red de Azure pública o en una red privada (local, Azure Virtual Network o en la nube privada virtual de Amazon Web Services [VPC]). 
 
@@ -98,13 +103,7 @@ Para más información, consulte [Integration Runtime en Azure Data Factory](con
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>¿Cuál es el límite del número de Integration Runtimes?
 No hay ningún límite estricto acerca del número de instancias de Integration Runtime que puede tener en una factoría de datos. Sin embargo, existe un límite acerca del número de núcleos de máquina virtual que Integration Runtime puede usar por suscripción para la ejecución de paquetes SSIS. Para más información, consulte los [Límites de Data Factory](../azure-subscription-service-limits.md#data-factory-limits).
 
-## <a name="when-should-i-use-version-2-rather-than-version-1"></a>¿Cuándo debo utilizar la versión 2 en lugar de la versión 1? 
-Si es nuevo en Azure Data Factory, inicie directamente con la versión 2. Si ya usa la versión 1, recompile las factorías de datos en la versión 2.
-
-> [!WARNING]
-> La versión 2 de Data Factory está en versión preliminar y no en disponibilidad general (GA). Por lo tanto, no entran en los mismos compromisos del contrato de nivel de servicio (SLA) de Azure que la versión 1 de Data Factory, que se encuentra en versión GA. 
-
-## <a name="what-are-the-top-level-concepts-of-version-2"></a>¿Cuáles son los conceptos de nivel superior de la versión 2?
+## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>¿Cuáles son los conceptos de nivel superior de Azure Data Factory?
 Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory contiene cuatro componentes principales que funcionan juntos como plataforma en la que pueda crear flujos de trabajo orientados a datos con pasos para moverlos y transformarlos.
 
 ### <a name="pipelines"></a>Procesos
@@ -113,7 +112,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
 ### <a name="activity"></a>Actividad
 Las actividades representan un paso del procesamiento en una canalización. Por ejemplo, puede utilizar una actividad de *Copia* para copiar datos de un almacén de datos a otro. De igual forma, puede usar una actividad de Hive, que ejecuta una consulta de Hive en un clúster de Azure HDInsight para transformar o analizar los datos. Data Factory admite tres tipos de actividades: actividades de movimiento de datos, actividades de transformación de datos y actividades de control.
 
-### <a name="data-sets"></a>Conjuntos de datos
+### <a name="datasets"></a>Conjuntos de datos
 Los conjuntos de datos representan las estructuras de datos de los almacenes de datos que simplemente apuntan o hacen referencia a los datos que desea utilizar en sus actividades como entradas o salidas. 
 
 ### <a name="linked-services"></a>Servicios vinculados
@@ -125,8 +124,7 @@ Los servicios vinculados tienen dos fines en Data Factory:
 - Para representar un *recurso de proceso* que puede hospedar la ejecución de una actividad. Por ejemplo, la actividad HDInsight Hive se ejecuta en un clúster de Hadoop para HDInsight. Para ver una lista de actividades de transformación y de entornos de proceso admitidos, consulte el artículo [Transformar datos en Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Desencadenadores
-Los desencadenadores representan unidades de procesamiento que determinan cuándo se pone en marcha una ejecución de canalización. Existen diferentes tipos de desencadenadores para diferentes tipos de eventos. En versión preliminar, se admite un desencadenador del programador de reloj. 
-
+Los desencadenadores representan unidades de procesamiento que determinan cuándo se pone en marcha una ejecución de canalización. Existen diferentes tipos de desencadenadores para diferentes tipos de eventos. 
 
 ### <a name="pipeline-runs"></a>Ejecuciones de la canalización
 Una ejecución de una canalización es una instancia de la ejecución de la canalización. Normalmente, crea instancias de una ejecución de canalización al pasar argumentos a los parámetros definidos en la canalización. Puede pasar los argumentos manualmente o dentro de la definición del desencadenador.
@@ -151,9 +149,6 @@ Para más información sobre los conceptos de Data Factory, consulte los siguien
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>¿Qué es el modelo de precios de Data Factory?
 Consulte los [detalles de precios de Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) para obtener información al respecto.
 
-## <a name="what-regions-support-azure-data-factory-version-2"></a>¿Qué regiones admiten la versión 2 de Azure Data Factory?
-Actualmente, puede crear factorías de datos de la versión 2 en las regiones Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Sin embargo, una factoría de datos puede usar Integration Runtime en otra región para mover datos entre almacenes de datos, distribuir las actividades según los servicios de proceso o enviar paquetes SSIS. Para más información, consulte las [ubicaciones de Data Factory](concepts-integration-runtime.md#integration-runtime-location).
-
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>¿Cómo puedo mantenerme actualizado con información acerca de Data Factory?
 Para ver la información más actualizada acerca de Azure Data Factory, vaya a los sitios siguientes:
 
@@ -163,23 +158,11 @@ Para ver la información más actualizada acerca de Azure Data Factory, vaya a l
 
 ## <a name="technical-deep-dive"></a>Inmersión técnica profunda 
 
-### <a name="can-version-1-and-version-2-pipelines-run-side-by-side"></a>¿Pueden las canalizaciones de la versión 1 y de la versión 2 ejecutarse en paralelo?
-Nº Las factorías de datos de la versión 2 y la versión 1 no pueden contener entidades (por ejemplo, servicios vinculados, conjuntos de datos o canalizaciones) de la otra versión.   
+### <a name="how-can-i-schedule-a-pipeline"></a>¿Cómo puedo programar una canalización? 
+Puede usar el desencadenador de programador o el desencadenador de ventana de tiempo para programar una canalización. El desencadenador utiliza una programación del calendario del reloj y podrá utilizarlo para programar canalizaciones periódicamente o mediante patrones periódicos basados en calendarios (por ejemplo, semanalmente los lunes a las 6 p.m. y los jueves a las 9 p.m.). Para obtener más información, consulte [Desencadenadores y ejecución de la canalización](concepts-pipeline-execution-triggers.md).
 
-### <a name="do-i-still-need-to-define-data-sets-in-version-2"></a>¿Aún tengo que definir los conjuntos de datos en la versión 2?
-Un conjunto de datos ya no es una entidad obligatoria para la mayoría de las actividades. Es necesario para la copia, el aprendizaje automático, la búsqueda, la validación y las actividades personalizadas que utilizan el esquema y otra información de metadatos del conjunto de datos para la transformación. El resto de las actividades ya no requieren conjuntos de datos.
-
-### <a name="can-i-chain-two-activities-without-a-data-set-in-version-2"></a>¿Puedo encadenar dos actividades sin un conjunto de datos en la versión 2?
-Sí. Puede encadenar las actividades en la versión 2 sin necesidad de conjuntos de datos. Puede encadenar las actividades mediante la propiedad **dependsOn** en la definición de JSON de la canalización. 
-
-### <a name="are-all-the-version-1-activities-supported-in-version-2"></a>¿Todas las actividades de la versión 1 se admiten en la versión 2? 
-Sí, todas las actividades de la versión 1 se admiten en la versión 2.
-
-### <a name="how-can-i-schedule-a-version-2-pipeline"></a>¿Cómo puedo programar una canalización de la versión 2? 
-Puede usar el desencadenador de programador para programar una canalización de la versión 2. El desencadenador utiliza una programación del calendario del reloj y podrá utilizarlo para programar canalizaciones periódicamente o mediante patrones periódicos basados en calendarios (por ejemplo, semanalmente los lunes a las 6 p.m. y los jueves a las 9 p.m.). Para obtener más información, consulte [Desencadenadores y ejecución de la canalización](concepts-pipeline-execution-triggers.md).
-
-### <a name="can-i-pass-parameters-to-a-pipeline-run-in-version-2"></a>¿Puedo pasar parámetros a una canalización que se ejecuta en la versión 2?
-Sí, los parámetros son conceptos de primera clase de nivel superior en la versión 2. Puede definir parámetros en el nivel de canalización y pasar argumentos al ejecutar la canalización a petición o mediante un desencadenador.  
+### <a name="can-i-pass-parameters-to-a-pipeline-run"></a>¿Puedo pasar parámetros a una ejecución de canalización?
+Sí, los parámetros son conceptos de primera clase de nivel superior en ADF. Puede definir parámetros en el nivel de canalización y pasar argumentos al ejecutar la canalización a petición o mediante un desencadenador.  
 
 ### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>¿Puedo definir valores predeterminados para los parámetros de la canalización? 
 Sí. Puede definir valores predeterminados para los parámetros de las canalizaciones. 
@@ -193,12 +176,8 @@ Sí. Un resultado de la actividad se puede utilizar en una actividad posterior c
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>¿Cómo puedo controlar correctamente los valores NULL en una salida de actividad? 
 Puede usar la construcción de `@coalesce` en las expresiones para controlar correctamente los valores NULL. 
 
-### <a name="can-i-use-retry-and-timeout-at-the-activity-level-in-version-2"></a>¿Puedo usar el reintento o el tiempo de expiración en el nivel de actividad en la versión 2?
-Sí. Para controlar la ejecución de actividades en la versión 2, al igual que en la versión 1, puede configurar el reintento y el tiempo de expiración en el nivel de actividad. 
-
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener instrucciones paso a paso para crear una factoría de datos de la versión 2, consulte los siguientes tutoriales:
+Para obtener instrucciones paso a paso para crear una factoría de datos, consulte los siguientes tutoriales:
 
 - [Guía de inicio rápido: Creación de una factoría de datos](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: Copia de datos en la nube](tutorial-copy-data-dot-net.md)
-

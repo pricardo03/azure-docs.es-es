@@ -7,14 +7,14 @@ manager: carmonm
 keywords: copias de seguridad; realizar copia de seguridad
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/1/2018
+ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606643"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960175"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
@@ -34,11 +34,14 @@ Para proteger o realizar una copia de seguridad de una máquina virtual implemen
 Si estas condiciones ya existen en su entorno, vaya al artículo [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](backup-azure-arm-vms.md). Si necesita configurar o comprobar cualquiera de estos requisitos previos, este artículo le guía por los pasos necesarios para hacerlo.
 
 ## <a name="supported-operating-systems-for-backup"></a>Sistemas operativos compatibles para copia de seguridad
- * **Linux**: Azure Backup admite [una lista de distribuciones que Azure aprueba](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), con la excepción de CoreOS Linux. 
- 
+
+ * **Linux**: Azure Backup admite [una lista de distribuciones que Azure aprueba](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), con la excepción de CoreOS Linux. Para obtener la lista de sistemas operativos Linux que admiten la restauración de archivos, consulte [Recuperación de archivos desde una copia de seguridad de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
+
     > [!NOTE] 
     > Otras distribuciones del tipo "traiga su propio Linux" podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python. Sin embargo, estas distribuciones no se admiten.
- * **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
+    >
+ * **Windows Server**, **cliente de Windows**: no se admiten las versiones anteriores a Windows Server 2008 R2 o Windows 7.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitaciones al realizar copias de seguridad y restaurar una máquina virtual
 Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:

@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234080"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020413"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Creación de una revisión de acceso de los miembros de un grupo o el acceso a la aplicación con Azure AD
 
@@ -26,7 +26,7 @@ Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tiene
 
 ## <a name="create-an-access-review"></a>Creación de una revisión de acceso
 
-1. Como administrador global, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) y seleccione **Programas**.
+1. Como administrador global o administrador de cuentas de usuario, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) y seleccione **Programas**.
 
 2. Seleccione el programa que contiene el control de revisión de acceso que desee crear. El **Programa predeterminado** siempre está presente, o puede crear otro. Por ejemplo, puede elegir tener un programa cada para iniciativa de cumplimiento de normas u objetivo empresarial.
 
@@ -38,7 +38,7 @@ Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tiene
 
 6. Para que la revisión de acceso sea periódica, cambie la frecuencia de Una vez a Semanal, Mensual, Trimestral o Anual, y utilice el cuadro de texto o el control deslizante para definir el número de días que cada revisión de la serie periódica estará abierta para las aportaciones de los revisores. Por ejemplo, la duración máxima que puede establecer para una revisión mensual es 27 días, con el fin de evitar la superposición de revisiones. 
 
-7.  Puede terminar la serie de revisiones de acceso periódicas de tres formas: se ejecuta continuamente para iniciar revisiones indefinidamente, hasta una fecha concreta, o hasta que se haya completado un número definido de veces. Usted u otro administrador global puede detener la serie después de su creación cambiando la fecha en la configuración, de manera que termine en esa fecha.
+7.  Puede terminar la serie de revisiones de acceso periódicas de tres formas: se ejecuta continuamente para iniciar revisiones indefinidamente, hasta una fecha concreta, o hasta que se haya completado un número definido de veces. Un administrador de cuentas de usuario o un administrador global pueden detener la serie después de su creación cambiando la fecha en la configuración, de manera que termine en esa fecha.
 
 8. Las revisiones de acceso pueden ser de los miembros de un grupo o de los usuarios que se hayan asignado a una aplicación. Puede limitar aún más el ámbito de la revisión de acceso para revisar solo los usuarios invitados que sean miembros (o se hayan asignado a la aplicación), en lugar de revisar todos los usuarios miembros o que tengan acceso a la aplicación.
 

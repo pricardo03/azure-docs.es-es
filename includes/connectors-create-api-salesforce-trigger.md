@@ -1,7 +1,7 @@
 En este tutorial aprenderá a utilizar el desencadenador **Salesforce - When an object is created** (Salesforce: cuando se crea un objeto) para iniciar un flujo de trabajo de aplicación lógica cuando se crea un nuevo cliente potencial en Salesforce.
 
 > [!NOTE]
-> Si aún no ha creado una *conexión* a Salesforce se le pedirá que inicie sesión en su cuenta de Salesforce.  
+> Si aún no ha creado una *conexión* a Salesforce, se le pedirá que inicie sesión en su cuenta de Salesforce.  
 > 
 > 
 

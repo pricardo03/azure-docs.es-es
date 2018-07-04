@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 552e93e9bd1b17c73fb1638fbae2ac30b051c261
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29957556"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943477"
 ---
 1. En el explorador, abra la [imagen de Azure Marketplace para Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
@@ -33,12 +33,12 @@ ms.locfileid: "29957556"
 1. En la pestaña **Aspectos básicos**, especifique los siguientes valores:
 
     - **Nombre**: escriba `Jenkins`.
-    - **Nombre de usuario**: escriba el nombre de usuario que se usa al iniciar sesión en la máquina virtual en la que se ejecuta Jenkins. El nombre de usuario debe cumplir [requisitos específicos](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+    - **Nombre de usuario**: escriba el nombre de usuario que se usará para iniciar sesión en la máquina virtual en la que se ejecuta Jenkins. El nombre de usuario debe cumplir [requisitos específicos](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
     - En **Tipo de autenticación**, seleccione **Clave pública SSH**.
     - **Clave pública SSH**: copie y pegue una clave pública RSA en formato de una sola línea (que comience con `ssh-rsa`) o formato PEM de varias líneas. Puede generar claves SSH mediante ssh-keygen en Linux y macOS, o PuTTYGen en Windows. Para más información sobre las claves SSH y Azure, consulte el artículo [Uso de claves SSH con Windows en Azure](/azure/virtual-machines/linux/ssh-from-windows).
     - **Suscripción**: seleccione la suscripción de Azure en la que quiere instalar Jenkins.
     - **Grupo de recursos**: seleccione **Crear nuevo** y escriba un nombre para el grupo de recursos que actúa como contenedor lógico para la colección de recursos que componen la instalación Jenkins.
-    - **Ubicación**: seleccione **Este de EE. UU.**.
+    - **Ubicación**: seleccione **Este de EE. UU**.
 
     ![Escriba la información del grupo de recursos y la autenticación de Jenkins en la pestaña Aspectos básicos.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
 
