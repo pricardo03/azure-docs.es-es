@@ -83,8 +83,8 @@
 ## [Administración de grupos y miembros](fundamentals/active-directory-manage-groups.md)
 ### Administrar grupos
 #### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Administración de miembros del grupo](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Administración de propietarios de grupo](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Administración de pertenencia al grupo](fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -99,13 +99,13 @@
 ### [Configuración de la expiración de los grupos de Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Aplicación una directiva de nomenclatura para grupos](groups-naming-policy.md)
 ### [Visualización de todos los grupos](fundamentals/active-directory-groups-view-azure-portal.md)
-### [Administración del acceso de grupo a aplicaciones SaaS](active-directory-accessmanagement-group-saasapps.md)
+### [Administración del acceso de grupo a aplicaciones SaaS](users-groups-roles/groups-saasapps.md)
 ### [Restauración de un grupo eliminado de Office 365](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Administración de la configuración de grupo](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Creación de reglas avanzadas
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-### [Configuración de grupos de autoservicio](active-directory-accessmanagement-self-service-group-management.md)
-### [Solución de problemas](active-directory-accessmanagement-troubleshooting.md)
+### [Configuración de grupos de autoservicio](users-groups-roles/groups-self-service-management.md)
+### [Solución de problemas](users-groups-roles/groups-troubleshooting.md)
 
 ## [Administración de informes](active-directory-reporting-azure-portal.md)
 ### [Actividad de inicios de sesión](active-directory-reporting-activity-sign-ins.md)
@@ -363,7 +363,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Nombres de dominio personalizados
 #### [Guía de inicio rápido](fundamentals/add-custom-domain.md)
-#### [Agregar nombres de dominio personalizados](active-directory-domains-manage-azure-portal.md)
+#### [Agregar nombres de dominio personalizados](users-groups-roles/domains-manage.md)
 ### [Administración de directorios](fundamentals/active-directory-administer.md)
 ### [Eliminación de un directorio](directory-delete-howto.md)
 ### [Varios directorios](active-directory-licensing-directory-independence.md)
@@ -381,12 +381,12 @@
 
 ## Administración del acceso a los recursos
 ### [Visualización de los miembros de un rol de administrador](directory-manage-roles-portal.md)
-### [Roles de administrador](active-directory-assign-admin-roles-azure-portal.md)
+### [Roles de administrador](users-groups-roles/directory-assign-admin-roles.md)
 #### [Asignación de un rol de administrador a un usuario](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Comparación de permisos para miembros y para usuarios invitados](fundamentals/users-default-permissions.md)
 ### [Mejora de la seguridad del rol de administrador](admin-roles-best-practices.md)  
-#### [Creación de cuentas de administrador de acceso de emergencia](active-directory-admin-manage-emergency-access-accounts.md)
-### [Unidades administrativas](active-directory-administrative-units-management.md)
+#### [Creación de cuentas de administrador de acceso de emergencia](users-groups-roles/directory-emergency-access.md)
+### [Unidades administrativas](users-groups-roles/directory-administrative-units.md)
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
 
 ## Revisiones de acceso
@@ -406,6 +406,7 @@
 #### Guías de inicio rápido
 ##### [Configuración de Multi-Factor Authentication para aplicaciones por cada nube](active-directory-conditional-access-app-based-mfa.md)
 ##### [Solicitar la aceptación de los términos de uso](active-directory-conditional-access-tou.md)
+##### [Bloqueo del acceso si se detecta un riesgo de sesión](active-directory-conditional-access-app-sign-in-risk.md)
 #### Tutoriales
 ##### [Migración de directiva de MFA clásica](active-directory-conditional-access-migration-mfa.md)
 #### Conceptos

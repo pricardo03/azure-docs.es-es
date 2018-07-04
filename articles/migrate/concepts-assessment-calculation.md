@@ -4,14 +4,14 @@ description: En este artículo se proporciona una introducción a los cálculos 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639153"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287895"
 ---
 # <a name="assessment-calculations"></a>Cálculos de evaluación
 
@@ -132,7 +132,7 @@ Debido a uno de los siguientes motivos, puede que las valoraciones no tengan tod
 
 Una vez completadas las recomendaciones de ajuste de tamaño, Azure Migrate calcula los costos de almacenamiento y proceso posteriores a la migración.
 
-- **Costo de proceso**: con el tamaño recomendado de máquina virtual de Azure, Azure Migrate usa Billing API para calcular el costo mensual de la máquina virtual. El cálculo tiene en cuenta la configuración de moneda, ubicación, Software Assurance y sistema operativo. Para calcular el costo de proceso mensual total, agrega el costo a todas las máquinas.
+- **Costo de proceso**: con el tamaño recomendado de máquina virtual de Azure, Azure Migrate usa Billing API para calcular el costo mensual de la máquina virtual. El cálculo tiene en cuenta la configuración del sistema operativo, Software Assurance, las instancias reservadas, el tiempo de actividad de las máquinas virtuales, la ubicación y la moneda. Para calcular el costo de proceso mensual total, agrega el costo a todas las máquinas.
 - **Costo de almacenamiento**: el costo de almacenamiento mensual de una máquina se calcula sumando el costo mensual de todos los discos conectados a la máquina. Azure Migrate calcula los costos de almacenamiento mensuales totales agregando los costos de almacenamiento de todas las máquinas. Actualmente, el cálculo no tiene en cuenta las ofertas especificadas en la configuración de evaluación.
 
 Los costos se muestran en la moneda especificada en la configuración de evaluación.
