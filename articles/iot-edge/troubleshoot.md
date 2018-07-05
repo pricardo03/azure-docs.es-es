@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: efe3e31a1a92e21f2c3a3461deba248d2a8c97fa
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029448"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128067"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -237,4 +237,4 @@ Cuando vea este error, puede resolverlo configurando el nombre DNS de la máquin
       ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-¿Cree que encontró un error en la plataforma de IoT Edge? Use la opción [Enviar un problema](https://github.com/Azure/iot-edge/issues) para que podamos seguir mejorando. 
+¿Cree que encontró un error en la plataforma de IoT Edge? Use la opción [Enviar un problema](https://github.com/Azure/iotedge/issues) para que podamos seguir mejorando. 

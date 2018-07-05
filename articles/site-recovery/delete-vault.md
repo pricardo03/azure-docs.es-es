@@ -1,20 +1,16 @@
 ---
 title: Eliminación del almacén de Site Recovery
 description: Aprenda a eliminar un almacén de Azure Site Recovery, en función del escenario de Site Recovery.
-service: site-recovery
 author: rajani-janaki-ram
-manager: rochakm
-ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/01/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 80c479aa23da2a8471af3fd83879a2dbfc5d6195
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f5f92b0dc064a992b93447f785db6c717f81e47b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300578"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436650"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Eliminación del almacén de Site Recovery
 
@@ -52,7 +48,7 @@ Para eliminar el almacén, siga los pasos recomendados para su escenario.
 
 2. Desasocie y elimine todas las directivas de replicación examinando su Almacén -> **Infraestructura de Site Recovery** -> **Para Hyper-V Sites** -> **Directivas de replicación**.
 
-3. Siga los pasos del artículo sobre la [anulación del registro de un host de Hyper-V](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) para eliminar las referencias a los servidores Hyper-V.
+3. Siga los pasos del artículo sobre la [anulación del registro de un host de Hyper-V](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) para eliminar las referencias a los servidores Hyper-V.
 
 4. Elimine el sitio de Hyper-V.
 

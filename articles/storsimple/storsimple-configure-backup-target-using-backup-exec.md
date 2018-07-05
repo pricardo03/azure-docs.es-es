@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1326e4a84938c46a9e7acc10dd8ed94db708f62a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23112143"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113092"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como destino de copia de seguridad con Backup Exec
 
@@ -173,7 +173,7 @@ Para ver instrucciones detalladas para la implementación de StorSimple, consult
 
 ### <a name="deploy-backup-exec"></a>Implementación de Backup Exec
 
-Para conocer los procedimientos recomendados para la instalación de Backup Exec, consulte [Best practices for Backup Exec installation](https://www.veritas.com/support/en_US/article.000068207) (Procedimientos recomendados para la instalación de Backup Exec).
+Para conocer los procedimientos recomendados para la instalación de Backup Exec, consulte [Best practices for Backup Exec installation](https://www.veritas.com/content/support/en_US/doc/72686287-131623464-0/v70444238-131623464) (Procedimientos recomendados para la instalación de Backup Exec).
 
 ## <a name="set-up-the-solution"></a>Configuración de la solución
 

@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: na
+ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062786"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130091"
 ---
 # <a name="data-sources-in-log-analytics"></a>Orígenes de datos en Log Analytics
 Log Analytics recopila datos de los orígenes conectados y los almacena en el área de trabajo de Log Analytics.  Los orígenes de datos que configura definen los datos que se recopilan de cada uno de ellos.  Los datos de Log Analytics se almacenan como un conjunto de registros.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.

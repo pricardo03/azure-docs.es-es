@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5c2f13386a996a6c7895bd4755b6cf609a5df72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f963e63aa92e15205f20ecb3e502065b8dd2c58c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233261"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443076"
 ---
 # <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Realización de revisiones de acceso en recursos de Azure mediante Privileged Identity Management
 Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. Para reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios deben revisar regularmente los roles. En este documento se describen los pasos para iniciar una revisión de acceso en Privileged Identity Management (PIM) para Azure Resources.

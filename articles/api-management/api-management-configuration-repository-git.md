@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 0165de82850c0c80052564c5f31a5e5cf5effb11
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 87381a27a59d6719f4bfff9ed367598932c1985c
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938315"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436410"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -226,7 +226,7 @@ La carpeta `apis` contiene una carpeta para cada API de la instancia de servicio
 ### <a name="groups-folder"></a>carpeta de grupos
 La carpeta `groups` contiene una carpeta para cada grupo definido en la instancia de servicio.
 
-* `groups\<group name>\configuration.json`: es la configuración para el grupo. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un grupo específico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) .
+* `groups\<group name>\configuration.json`: es la configuración para el grupo. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un grupo específico](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) .
 * `groups\<group name>\description.html`: es la descripción del grupo y corresponde a la propiedad `description` de la [entidad de servicio](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>carpeta de directivas
@@ -246,8 +246,8 @@ La carpeta `portalStyles` contiene la configuración y las hojas de estilo para 
 ### <a name="products-folder"></a>carpeta de productos
 La carpeta `products` contiene una carpeta para cada producto que se define en la instancia de servicio.
 
-* `products\<product name>\configuration.json`: es la configuración del producto. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un producto específico](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) .
-* `products\<product name>\product.description.html`: es la descripción del producto y corresponde a la propiedad `description` de la [entidad de producto](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) de la API de REST.
+* `products\<product name>\configuration.json`: es la configuración del producto. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un producto específico](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) .
+* `products\<product name>\product.description.html`: es la descripción del producto y corresponde a la propiedad `description` de la [entidad de producto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) de la API de REST.
 
 ### <a name="templates"></a>plantillas
 La carpeta `templates` contiene la configuración para las [plantillas de correo electrónico](api-management-howto-configure-notifications.md) de la instancia de servicio.

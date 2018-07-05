@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7f0011172185f13f51bcea8061b36012aa5da33b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 125d521d840d2b06687d818ae7b31a2610886dfe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324220"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342538"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -170,8 +170,8 @@ Disco temporal | Siempre se excluyen de la replicación | El disco temporal se e
 Velocidad de cambio de datos en el disco | Máximo de 10 MBps por disco de almacenamiento premium y 2 MBps por disco de almacenamiento estándar | Si la velocidad media de cambio de los datos en el disco supera los 10 MBps (para premium) y 2 MBps (para estándar) de forma continua, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 10 MBps (para premium) y 2 MBps (para estándar) durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.
 Discos en cuentas de almacenamiento estándar | Compatible |
 Discos en cuentas de almacenamiento premium | Compatible | Si una máquina virtual tiene discos repartidas entre cuentas de almacenamiento estándar y premium, puede seleccionar una cuenta de almacenamiento de destino diferente para cada disco a fin de garantizar que tenga la misma configuración de almacenamiento en la región de destino.
-Discos administrados estándar | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. Las nubes de administración pública no se admiten en este momento.  |  
-Discos administrados premium | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. Las nubes de administración pública no se admiten en este momento. |
+Discos administrados estándar | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |  
+Discos administrados premium | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |
 Espacios de almacenamiento | Compatible |         
 Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada en las cuentas de almacenamiento.   
 Azure Disk Encryption (ADE) | No compatible |

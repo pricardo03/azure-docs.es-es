@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 10c5394935c59b21139c0e141c348ce20a7c0800
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.component: na
+ms.openlocfilehash: 8296f0756aef7180efa777795cb361e653c0e4e3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28932688"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128020"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Evaluación de aplicaciones y microservicios de Service Fabric con Azure Portal
 
@@ -162,6 +163,6 @@ La siguiente tabla muestra los métodos de recolección de datos y otros detalle
 >
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre los datos de eventos de Service Fabric.

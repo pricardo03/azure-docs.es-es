@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 53ed914a3890aab1dd49536856feeb8975986e00
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3d9a4454a1b3f65b42a46a26e8d483fad83f65f6
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33934815"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111276"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Administración de cuentas de usuario en Azure API Management
-En Administración de API, los desarrolladores son los usuarios de las API que se exponen mediante Administración de API. En esta guía se muestra cómo crear desarrolladores e invitarlos a usar las API y los productos que usted pone a su disposición con la instancia de API Management. Para obtener información acerca de cómo administrar cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://msdn.microsoft.com/library/azure/dn776330.aspx) en la referencia sobre [REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx).
+En Administración de API, los desarrolladores son los usuarios de las API que se exponen mediante Administración de API. En esta guía se muestra cómo crear desarrolladores e invitarlos a usar las API y los productos que usted pone a su disposición con la instancia de API Management. Para obtener información acerca de cómo administrar cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) en la referencia sobre [REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -66,7 +66,7 @@ Para bloquear a un usuario, siga los siguientes pasos.
 
 ## <a name="reset-a-user-password"></a>Restablecimiento de la contraseña del usuario
 
-Para trabajar con cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://msdn.microsoft.com/library/azure/dn776330.aspx) en la referencia sobre [REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx). Para restablecer la contraseña de una cuenta de usuario a un valor específico, puede utilizar la operación [Actualizar un usuario](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) y especificar la contraseña que desea utilizar.
+Para trabajar con cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) en la referencia sobre [REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx). Para restablecer la contraseña de una cuenta de usuario a un valor específico, puede utilizar la operación [Actualizar un usuario](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) y especificar la contraseña que desea utilizar.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribirse a productos y API. Para obtener más información, consulte [Creación y uso de grupos][How to create and use groups].

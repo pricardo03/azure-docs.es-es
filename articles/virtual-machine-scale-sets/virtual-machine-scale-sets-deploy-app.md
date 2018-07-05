@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: bbbe677b0a0d47147ace41ff5a229282f80bbf1b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ed43dc21c8b7c585abc0a2734a541f760ab3c487
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839522"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111570"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En este artículo se presentan distintas formas de crear una imagen de máquina virtual personalizada para las instancias de un conjunto de escalado o de ejecutar automáticamente la instalación de scripts en instancias de máquinas virtuales existentes. También puede obtener información sobre cómo administrar actualizaciones del sistema operativo de la aplicación en un conjunto de escalado.
@@ -91,7 +91,7 @@ Si la directiva de actualización del conjunto de escalado es *manual*, actualic
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Instalación de una aplicación en una máquina virtual Linux con cloud-init
-[cloud-init](https://cloudinit.readthedocs.io/latest/) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
+[cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
 
 cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. En su lugar, puede definir una lista de paquetes que se van a instalar. Cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
 

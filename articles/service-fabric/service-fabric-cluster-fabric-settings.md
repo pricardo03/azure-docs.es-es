@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 84f8827a58d7f3c5dcc32943d2ba891b02c1e1ab
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062286"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083199"
 ---
-# <a name="description-of-the-different-upgrade-policies"></a>Descripción de las diferentes directivas de actualización
-
-- **Dinámica**: los cambios en una configuración dinámica no provocan ningún reinicio de procesos de Service Fabric ni del host de servicios. 
-- **Estática**: los cambios en una configuración estática harán que se reinicie el nodo de Service Fabric para consumar el cambio. Los servicios de los nodos se reiniciarán.
-- **NotAllowed**: no se puede modificar esta configuración. Cambiar esta configuración requiere que se destruya el clúster y se cree uno nuevo. 
-
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
 
 > [!NOTE]
 > No todas las opciones están disponibles en el portal. En caso de que un ajuste que se muestra a continuación no esté disponible a través del portal, personalícelo mediante una plantilla de Azure Resource Manager.
 > 
+
+## <a name="description-of-the-different-upgrade-policies"></a>Descripción de las diferentes directivas de actualización
+
+- **Dinámica**: los cambios en una configuración dinámica no provocan ningún reinicio de procesos de Service Fabric ni del host de servicios. 
+- **Estática**: los cambios en una configuración estática harán que se reinicie el nodo de Service Fabric para consumar el cambio. Los servicios de los nodos se reiniciarán.
+- **NotAllowed**: no se puede modificar esta configuración. Cambiar esta configuración requiere que se destruya el clúster y se cree uno nuevo. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalización de la configuración de clústeres mediante plantillas de Resource Manager
 Los pasos siguientes muestran cómo agregar un nuevo ajuste *MaxDiskQuotaInMB* a la sección *Diagnostics*.

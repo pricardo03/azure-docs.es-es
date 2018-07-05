@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 980d554d96796a673db13bb369337d90088e8a75
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711074"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441906"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: creación de una aplicación de escritorio de Windows
 Con Azure Active Directory (Azure AD) B2C, puede agregar eficaces características de administración de identidades autoservicio a sus aplicaciones de escritorio en pocos pasos. En este artículo se le mostrará cómo crear una aplicación de "lista de tareas pendientes" de Windows Presentation Foundation (WPF) para .NET que incluya tareas de registro, inicio de sesión y administración de perfiles de usuarios. La aplicación permitirá registrarse e iniciar sesión mediante un nombre de usuario o un correo electrónico. También será posible registrarse e iniciar sesión con cuentas sociales, como Facebook y Google.

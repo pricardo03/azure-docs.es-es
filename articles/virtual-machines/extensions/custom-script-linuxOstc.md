@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: eac64a5b456eb040bcb1ac01c3c86dfde0847e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944927"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127659"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 1 con máquinas virtuales Linux
 La extensión de script personalizado versión 1 descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 
@@ -34,7 +34,7 @@ Hay dos extensiones de script personalizado para Linux:
 * Versión 1: Microsoft.OSTCExtensions.CustomScriptForLinux
 * Versión 2: Microsoft.Azure.Extensions.CustomScript
 
-Cambie las implementaciones nuevas y existentes para utilizar la nueva versión ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)) en su lugar. La nueva versión está diseñada para que sea un sustituto directo. Por lo tanto, la migración es tan sencilla como cambiar el nombre y la versión; no necesita cambiar la configuración de la extensión.
+Cambie las implementaciones nuevas y existentes para utilizar la nueva versión ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)) en su lugar. La nueva versión está diseñada para que sea un sustituto directo. Por lo tanto, la migración es tan sencilla como cambiar el nombre y la versión; no necesita cambiar la configuración de la extensión.
 
  
 
@@ -52,7 +52,7 @@ Distribuciones de Linux compatibles:
 
 ### <a name="script-location"></a>Ubicación del script
 
-Puede utilizar la extensión para usar las credenciales de Azure Blob Storage, para tener acceso Azure Blob Storage. Como alternativa, la ubicación del script puede ser cualquier lugar, siempre y cuando la máquina virtual pueda enrutarse a ese punto de conexión, como GitHub, servidor de archivos internos, etc.
+Puede emplear la extensión para usar las credenciales de Azure Blob Storage, a fin de tener acceso Azure Blob Storage. Como alternativa, la ubicación del script puede ser cualquier lugar, siempre y cuando la máquina virtual pueda enrutarse a ese punto de conexión, como GitHub, un servidor de archivos internos, etc.
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 Si necesita descargar un script externamente, como GitHub o Azure Storage, deben abrirse puertos adicionales de firewall/grupo de seguridad de red. Por ejemplo, si el script se encuentra en Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
@@ -63,8 +63,8 @@ Si el script se encuentra en un servidor local, puede que aún necesite que haya
 * La mayor tasa de errores para esta extensión se debe a errores de sintaxis en el script. Compruebe que el script se ejecute sin errores y también establezca registros adicionales en el script para facilitar la búsqueda de dónde se produjo el error.
 * Escriba scripts que sean idempotentes, para que, si se ejecutan más de una vez por accidente, no provoquen cambios en el sistema.
 * Asegúrese de que los scripts no requieran intervención del usuario cuando se ejecutan.
-* Los scripts tienen permitido un plazo de 90 minutos para ejecutarse; todo lo que dure más provocará un error de aprovisionamiento de la extensión.
-* No coloque reinicios dentro del script, esto provocará problemas con otras extensiones que se estén instalando y, tras reiniciar el equipo, la extensión no continuará. 
+* Los scripts tienen permitido un plazo de 90 minutos para ejecutarse; todo lo que dure más provocará un error de aprovisionamiento de la extensión.
+* No coloque reinicios dentro del script, ya que esto provocará problemas con otras extensiones que se estén instalando y, tras reiniciar el equipo, la extensión no continuará. 
 * Si tiene un script que provocará un reinicio, instale las aplicaciones y ejecute los scripts, etc. Debe programar el reinicio de un trabajo de Cron o usar herramientas como DSC, o extensiones de Chef o Puppet.
 * La extensión solo ejecutará un script una vez, si desea ejecutar un script en cada inicio, puede usar [cloud-init image](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init) y usar un módulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, puede usar el script para crear una unidad de servicio de Systemd.
 * Si desea programar cuándo se ejecutará un script, debe utilizar la extensión para crear un trabajo de Cron. 
@@ -180,7 +180,7 @@ Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Reso
 >Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Para evitar problemas de implementación, use los nombres como se muestran aquí.
 
 ## <a name="azure-cli"></a>Azure CLI
-Cuando se usa la CLI de Azure para ejecutar la extensión de script personalizado, cree un archivo o archivos de configuración. Como mínimo, debe tener 'commandToExecute'.
+Cuando se usa la CLI de Azure para ejecutar la extensión de script personalizado, cree un archivo o archivos de configuración. Como mínimo, debe tener "commandToExecute".
 
 ```azurecli
 az vm extension set -n VMAccessForLinux \

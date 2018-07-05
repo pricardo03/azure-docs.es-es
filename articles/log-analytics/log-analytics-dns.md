@@ -3,7 +3,7 @@ title: Solución DNS Analytics en Azure Log Analytics | Microsoft Docs
 description: Configure y use la solución DNS Analytics en Log Analytics para recopilar información en la infraestructura de DNS sobre seguridad, rendimiento y operaciones.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30241952"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127598"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 

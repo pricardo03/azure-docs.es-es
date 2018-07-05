@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b3ff0b2481b42f516d28ac17f2616685730b7d5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762377"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109593"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Conexiones de cuentas de LinkedIn para aplicaciones y servicios de Microsoft
 En este artículo, puede aprender a administrar conexiones de cuentas de LinkedIn para su inquilino en el centro de administración de Azure Active Directory (Azure AD). 
@@ -53,7 +53,7 @@ La funcionalidad de conexiones de cuentas de LinkedIn está activa de forma pred
 4. En **LinkedIn account connections** (Conexiones de cuentas de LinkedIn), siga estos pasos:
   * Seleccione **Sí** para habilitar las conexiones de cuentas de LinkedIn en todos los usuarios de su inquilino.
   * Elija **Selected** (Seleccionados) para habilitar las conexiones de cuentas de LinkedIn solo en determinados usuarios del inquilino.
-  * Seleccione **No** para deshabilitar las conexiones de cuentas de LinkedIn en todos los usuarios. ![Habilitación de conexiones de cuentas de LinkedIn](./media/linkedin-integration/LinkedIn-integration.png)
+  * Seleccione **No** para deshabilitar las conexiones de cuentas de LinkedIn en todos los usuarios. ![Habilitación de conexiones de cuentas de LinkedIn](./media/linkedin-integration/linkedin-integration.png)
 5. Guardar la configuración cuando haya terminado seleccionando **Guardar**.
 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Habilitar o deshabilitar las conexiones de cuentas de LinkedIn en las aplicaciones de Office 2016 de la organización mediante directiva de grupo
@@ -64,7 +64,7 @@ La funcionalidad de conexiones de cuentas de LinkedIn está activa de forma pred
 4. Cree un objeto de directiva de grupo con la siguiente configuración: **Configuración de usuario** > **Plantillas administrativas** > **Microsoft Office 2016** > **Varios** > **Show LinkedIn features in Office applications**(Mostrar características de LinkedIn en las aplicaciones de Office).
 5. Seleccione **Habilitado** o **Deshabilitado**.
   * Cuando la directiva está **habilitada**, la configuración **Show LinkedIn features in Office applications** (Mostrar características de LinkedIn en las aplicaciones de Office) del cuadro de diálogo Opciones de Office 2016 está habilitada. Esto también significa que los usuarios de la organización pueden usar las características de LinkedIn en las aplicaciones de Office.
-  * Cuando la directiva está **deshabilitada**, la configuración **Show LinkedIn features in Office applications** (Mostrar características de LinkedIn en las aplicaciones de Office) del cuadro de diálogo Opciones de Office 2016 está deshabilitada y los usuarios no pueden cambiarla. Los usuarios de la organización no podrán usar las características de LinkedIn en las aplicaciones de Office 2016. 
+  * Cuando la directiva está **deshabilitada**, la configuración **Show LinkedIn features in Office applications** (Mostrar características de LinkedIn en las aplicaciones de Office) del cuadro de diálogo Opciones de Office 2016 está deshabilitada y los usuarios no pueden cambiarla. Los usuarios de la organización no podrán usar las características de LinkedIn en las aplicaciones de Office 2016.
 
 Esta directiva de grupo afecta solo a las aplicaciones de Office 2016 de los equipos locales. Los usuarios pueden ver las características de LinkedIn en las tarjetas de perfil de Office 365, aunque se deshabilite LinkedIn en las aplicaciones de Office 2016. 
 

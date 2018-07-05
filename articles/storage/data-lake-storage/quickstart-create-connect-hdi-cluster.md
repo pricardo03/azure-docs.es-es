@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062086"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346593"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Guía de inicio rápido: Configuración de clústeres en HDInsight
 
@@ -55,7 +55,7 @@ Siga las instrucciones en pantalla para llevar a cabo una configuración básica
 
 * [Nombre del grupo de recursos](#resource-group-name)
 * [Tipos y configuración de clústeres](#cluster-types) 
-* [Inicio de sesión de clúster y nombre de usuario SSH](#cluster-login-and-ssh-username)
+* [Inicio de sesión de clúster y nombre de usuario SSH](#cluster-login-and-ssh-user-name)
 * [Ubicación](#location)
 
 > [!IMPORTANT]
@@ -117,7 +117,7 @@ Aunque una instalación local de Hadoop usa el sistema de archivos distribuido d
 
 Durante la configuración, como punto de conexión de almacenamiento predeterminado puede especificar Data Lake Storage. El almacenamiento predeterminado contiene los registros del sistema y de la aplicación. De manera opcional, puede especificar más cuentas vinculadas de Azure Data Lake Storage a las que el clúster pueda acceder. El clúster de HDInsight y las cuentas de almacenamiento dependientes deben estar en la misma ubicación de Azure.
 
-![Configuración de almacenamiento de clústeres: puntos de conexión de almacenamiento compatibles con HDFS](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Configuración de almacenamiento de clústeres: puntos de conexión de almacenamiento compatibles con HDFS](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > No olvide **deshabilitar el acceso a Data Lake Store**. Esta configuración hace referencia a la antigua funcionalidad de *Data Lake Store* y debe deshabilitarse para que las características de *Data Lake Storage* funcionen correctamente.
