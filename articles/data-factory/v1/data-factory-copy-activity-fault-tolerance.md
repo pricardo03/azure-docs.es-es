@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d0826db686b7fdea8389944b4b56f549ea03f751
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5cfab02fc248139c76bd6123ac942832f8e1a21a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621054"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052518"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Incorporación de tolerancia a errores en la actividad de copia a través de la omisión de filas incompatibles
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-copy-activity-fault-tolerance.md)
-> * [Versión 2: versión preliminar](../copy-activity-fault-tolerance.md)
+> * [Versión 1](data-factory-copy-activity-fault-tolerance.md)
+> * [Versión 2 (versión actual)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea el artículo acerca de la [tolerancia a fallos de la actividad de copia de Data Factory, versión 2](../copy-activity-fault-tolerance.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte el artículo acerca de la [tolerancia a errores en la actividad de copia de Data Factory](../copy-activity-fault-tolerance.md).
 
 La [actividad de copia](data-factory-data-movement-activities.md) de Azure Data Factory ofrece dos maneras para tratar con filas incompatibles cuando se copian datos entre almacenes de datos de origen y de receptor:
 

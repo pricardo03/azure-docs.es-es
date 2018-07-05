@@ -8,21 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 06/21/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 76308bbb06d6bf1cdc9147258f7c26babae371a9
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267877"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750492"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure
 
-La interfaz de instalación personalizada de la instancia de Integration Runtime para la integración de SSIS en Azure ofrece una interfaz para que agregue su propios pasos de instalación durante el aprovisionamiento o la reconfiguración de dicha instancia. La instalación personalizada le permite modificar la configuración o el entorno operativo predeterminado (por ejemplo, para iniciar servicios adicionales de Windows) o instalar componentes adicionales (por ejemplo, ensamblados, controladores o extensiones) en cada nodo de la instancia de Integration Runtime para la integración de SSIS en Azure.
+La interfaz de instalación personalizada de la instancia de Integration Runtime para la integración de SSIS en Azure ofrece una interfaz para que agregue su propios pasos de instalación durante el aprovisionamiento o la reconfiguración de dicha instancia. La instalación personalizada le permite modificar la configuración o el entorno operativo predeterminado (por ejemplo, para iniciar servicios adicionales de Windows o para que persistan las credenciales de acceso de recursos compartidos de archivos) o instalar componentes adicionales (por ejemplo, ensamblados, controladores o extensiones) en cada nodo de la instancia de Integration Runtime para la integración de SSIS en Azure.
 
 Para llevar a cabo la configuración personalizada, debe preparar un script y sus archivos asociados y cargarlos en un contenedor de blobs en la cuenta de Azure Storage. Proporcione un identificador URI de firma de acceso compartido (SAS) para el contenedor al aprovisionar o volver a configurar el entorno de ejecución de integración de Azure-SSIS. Cada nodo del entorno de ejecución de integración de Azure-SSIS descarga entonces el script y sus archivos asociados en el contenedor y ejecuta la instalación personalizada con privilegios elevados. Una vez finalizada la instalación personalizada, cada nodo carga la salida estándar de la ejecución y otros registros en el contenedor.
 
@@ -87,7 +87,10 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
        ![Obtención de una firma de acceso compartido para el contenedor](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-    7.  Cree el URI de SAS para el contenedor con un tempo de expiración suficientemente largo y con los permisos de lectura, escritura y lista. Necesita el URI de SAS para descargar y ejecutar el script de instalación personalizada y sus archivos asociados siempre que se restablezca la imagen de cualquier nodo de su entorno de ejecución de integración de Azure-SSIS. Se necesita permiso de escritura para cargar los registros de ejecución del programa de instalación.
+    7.  Cree el URI de SAS para el contenedor con un tempo de expiración suficientemente largo y con los permisos de lectura, escritura y lista. Necesita el URI de SAS para descargar y ejecutar el script de instalación personalizada y sus archivos asociados siempre que restablezca la imagen o reinicie cualquier nodo de su entorno de ejecución de integración de Azure-SSIS. Se necesita permiso de escritura para cargar los registros de ejecución del programa de instalación.
+
+        > [!IMPORTANT]
+        > Asegúrese de que el URI de SAS no expira y que los recursos de instalación personalizada están siempre disponibles durante todo el ciclo de vida del entorno de ejecución de integración de Azure-SSIS durante este período.
 
        ![Generación de la firma de acceso compartido para el contenedor](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
 
@@ -124,7 +127,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
     c. Seleccione el contenedor de versión preliminar pública conectado y haga doble clic en la carpeta `CustomSetupScript`. En esta carpeta se encuentran los siguientes elementos:
 
-       1. Una carpeta `Sample`, que contiene una instalación personalizada para instalar una tarea básica en cada nodo del entorno de ejecución de integración de Azure-SSIS. La tarea no hace nada, pero se queda en suspensión durante unos segundos. La carpeta también contiene una carpeta `gacutil`, que contiene `gacutil.exe`.
+       1. Una carpeta `Sample`, que contiene una instalación personalizada para instalar una tarea básica en cada nodo del entorno de ejecución de integración de Azure-SSIS. La tarea no hace nada, pero se queda en suspensión durante unos segundos. La carpeta también contiene una carpeta `gacutil`, que contiene `gacutil.exe`. Además, `main.cmd` contiene comentarios para conservar las credenciales de acceso para recursos compartidos de archivos.
 
        2. Una carpeta `UserScenarios`, que contiene varias configuraciones personalizadas para escenarios de usuario real.
 
@@ -138,7 +141,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
        3. Una carpeta `EXCEL`, que contiene una instalación personalizada para instalar ensamblados de código abierto (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` y `ExcelDataReader.dll`) en cada nodo del entorno de ejecución de integración de Azure-SSIS.
 
-       4. Una carpeta `MSDTC`, que contiene una instalación personalizada para modificar las configuraciones de red y seguridad para la instancia del Coordinador de transacciones distribuidas de Microsoft (MSDTC) en cada nodo del entorno de ejecución de integración de Azure-SSIS.
+       4. Una carpeta `MSDTC`, que contiene una instalación personalizada para modificar las configuraciones de red y seguridad para el servicio del Coordinador de transacciones distribuidas de Microsoft (MSDTC) en cada nodo del entorno de ejecución de integración de Azure-SSIS. Para asegurarse de que MSDTC se ha iniciado, agregue la tarea Ejecutar proceso al principio del flujo de control de los paquetes para ejecutar el comando siguiente: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        5. Una carpeta `ORACLE ENTERPRISE`, que contiene un script de instalación personalizada (`main.cmd`) y el archivo de configuración de instalación silenciosa (`client.rsp`) para instalar el controlador de Oracle OCI en cada nodo de la edición Enterprise de Integration Runtime para la integración de SSIS en Azure. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de Oracle. En primer lugar, descargue el cliente de Oracle más reciente —por ejemplo, `winx64_12102_client.zip`— de [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) y, a continuación, cárguelo junto con `main.cmd` y `client.rsp` en su contenedor. Si usa TNS para conectar con Oracle, también debe descargar `tnsnames.ora`, editarlo y cargarlo en el contenedor, para que se pueda copiar en la carpeta de instalación de Oracle durante el proceso de instalación.
 

@@ -3,8 +3,8 @@ title: Configuración de Service Map en Azure | Microsoft Docs
 description: Service Map es una solución de Azure que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información para implementar la solución Mapa de servicio en su entorno y utilizarla en distintos escenarios.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 872d5f05e4d607c9445d1af5cc9b9cb984c19e11
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204199"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752581"
 ---
 # <a name="configure-service-map-in-azure"></a>Configuración de Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Puede usarlo para ver los servidores tal como los considera: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente.
@@ -49,7 +49,7 @@ En Windows, tanto System Center Operations Manager como Log Analytics usan Micro
 
 En Linux, el Agente de OMS para Linux recopila y envía datos de supervisión a Log Analytics. Puede usar Service Map en servidores con agentes directos de OMS o en servidores que estén conectados a Log Analytics a través de los grupos de administración de System Center Operations Manager.  
 
-En este artículo hacemos referencia a todos los agentes, ya sean de Linux o Windows, y estén conectados a un grupo de administración de System Center Operations Manager o directamente a Log Analytics, como "Agente de OMS". Usaremos el nombre de implementación específico del agente solo si es necesario en contexto.
+En este artículo, se hace referencia a todos los agentes, ya sean de Linux o Windows, y estén conectados a un grupo de administración de System Center Operations Manager o directamente a Log Analytics, como el *Agente de OMS*. Usaremos el nombre de implementación específico del agente solo si es necesario en contexto.
 
 El agente de Mapa de servicio no transmite los datos en sí y no requiere ningún cambio en los firewalls o puertos. Los datos de Service Map siempre se transmiten mediante el agente de OMS a Log Analytics, directamente o a través de OMS Gateway.
 
@@ -60,7 +60,7 @@ Si es un cliente de System Center Operations Manager con un grupo de administrac
 - Si los agentes de System Center Operations Manager pueden obtener acceso a Internet para conectarse a Log Analytics, no se requiere ninguna configuración adicional.  
 - Si los agentes de System Center Operations Manager no pueden obtener acceso a Log Analytics a través de Internet, es necesario configurar OMS Gateway para que funcione con System Center Operations Manager.
   
-Si usa el agente directo OMS, tiene que configurar el agente de OMS para conectarse a Log Analytics o a OMS Gateway. Puede descargar la puerta de enlace de OMS en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
+Si usa el agente directo OMS, tiene que configurar el agente de OMS para conectarse a Log Analytics o a OMS Gateway. Puede descargar la puerta de enlace de OMS en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=52666). Para obtener más información sobre cómo implementar y configurar la puerta de enlace de OMS, vea [Conexión de equipos sin acceso a Internet mediante OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### <a name="management-packs"></a>Módulos de administración
 Cuando se activa Service Map en un área de trabajo de Log Analytics, se envía un módulo de administración de 300 KB a todos los servidores Windows en esa área de trabajo. Si usa agentes de System Center Operations Manager en un [grupo de administración conectado](../log-analytics/log-analytics-om-agents.md), el módulo de administración de Service Map se implementa desde System Center Operations Manager. Si los agentes se conectan directamente, Log Analytics ofrece el módulo de administración.
@@ -75,7 +75,7 @@ El agente de dependencia se instala en equipos Windows mediante InstallDependenc
 
 Utilice los pasos siguientes para instalar el agente de dependencia en cada equipo de Windows:
 
-1.  Siga las instrucciones que aparecen en [Conexión de equipos Windows al servicio Log Analytics de Azure](../log-analytics/log-analytics-windows-agent.md) para instalar el agente de OMS.
+1.  Instale el agente de OMS siguiendo uno de los métodos descritos en [Recopilar datos de equipos en su entorno con Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
 2.  Descargue el agente de Windows y ejecútelo mediante el comando siguiente: <br>`InstallDependencyAgent-Windows.exe`
 3.  Siga el asistente para instalar el agente.
 4.  Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Windows, el directorio de registro es %Programfiles%\Microsoft Dependency Agent\logs. 
@@ -99,7 +99,7 @@ El agente de dependencia se instala en equipos Linux con InstallDependencyAgent-
  
 Utilice los pasos siguientes para instalar el agente de dependencia en cada equipo de Linux:
 
-1.  Use las instrucciones que aparecen en [Recopilación y administración de datos de equipos Linux](https://technet.microsoft.com/library/mt622052.aspx) para instalar el agente de OMS.
+1.  Instale el agente de OMS siguiendo uno de los métodos descritos en [Recopilar datos de equipos en su entorno con Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
 2.  Instale el agente de dependencia de Linux como raíz mediante el comando siguiente:<br>`sh InstallDependencyAgent-Linux64.bin`
 3.  Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Linux, el directorio de registro es /var/opt/microsoft/dependency-agent/log.
 
@@ -143,6 +143,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 Puede implementar fácilmente el agente de dependencia en sus máquinas virtuales de Azure mediante una [extensión de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Con la extensión de máquina virtual de Azure, puede implementar al agente de dependencia en las máquinas virtuales mediante un script de PowerShell o directamente en la plantilla de Azure Resource Manager de la máquina virtual.  Hay una extensión disponible para Windows (DependencyAgentWindows) y Linux (DependencyAgentLinux).  Si la implementación se realiza mediante la extensión de máquina virtual de Azure, los agentes se pueden actualizar automáticamente a las versiones más recientes.
 
 Para implementar la extensión de máquina virtual de Azure mediante PowerShell, puede usar el siguiente ejemplo:
+
 ```PowerShell
 #
 # Deploy the Dependency Agent to every VM in a Resource Group
@@ -169,7 +170,8 @@ ForEach-Object {
 }
 ```
 
-Una manera incluso más fácil de garantizar que el agente de dependencia está en cada una de las máquinas virtuales consiste en incluir el agente en la plantilla de Azure Resource Manager.  Tenga en cuenta que el agente de dependencia depende todavía del agente de OMS, por lo que primero se debe implementar la [extensión de máquina virtual del agente de OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension).  El siguiente fragmento de JSON se puede agregar a la sección *Recursos* de la plantilla.
+Una manera incluso más fácil de garantizar que el agente de dependencia está en cada una de las máquinas virtuales consiste en incluir el agente en la plantilla de Azure Resource Manager.  Tenga en cuenta que el agente de dependencia depende todavía del agente de OMS, por lo que primero se debe implementar la [extensión de máquina virtual del agente de OMS](../virtual-machines/extensions/oms-linux.md).  El siguiente fragmento de JSON se puede agregar a la sección *Recursos* de la plantilla.
+
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
@@ -190,6 +192,7 @@ Una manera incluso más fácil de garantizar que el agente de dependencia está 
 
 ## <a name="desired-state-configuration"></a>Configuración de estado deseada
 Para implementar el agente de dependencia a través de Desired State Configuration, puede usar el módulo xPSDesiredStateConfiguration y un poco de código similar al siguiente:
+
 ```
 configuration ServiceMap {
 
@@ -231,10 +234,13 @@ Un administrador también puede ejecutar %Programfiles%\Microsoft Dependency Age
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Desinstalar Dependency Agent en Linux
 Puede desinstalar al agente de dependencia de Linux con el siguiente comando.
 <br>RHEL, CentOS y Oracle:
+
 ```
 sudo rpm -e dependency-agent
 ```
+
 Ubuntu:
+
 ```
 sudo apt -y purge dependency-agent
 ```
@@ -242,7 +248,7 @@ sudo apt -y purge dependency-agent
 Esta sección puede ayudarle si tiene problemas para instalar o ejecutar Service Map. Si sigue sin poder resolver el problema, póngase en contacto con Soporte técnico de Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemas de instalación del agente de dependencia
-#### <a name="installer-asks-for-a-reboot"></a>El instalador solicita un reinicio
+#### <a name="installer-prompts-for-a-reboot"></a>El instalador solicita un reinicio
 Agente de dependencia, *por lo general*, no requiere un reinicio durante su instalación o desinstalación. Sin embargo, en algunos casos poco frecuentes, un servidor de Windows Server requiere un reinicio para continuar con una instalación. Esto ocurre cuando una dependencia, normalmente los redistribuibles de Visual C++ de Microsoft, requiere un reinicio debido a un archivo bloqueado.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>Aparece el mensaje "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = [code_number])" (No se puede instalar el agente de dependencia: error al instalar las bibliotecas en tiempo de ejecución de Visual Studio (code = [code_number]))
@@ -272,7 +278,7 @@ Si su instalación de Agente de dependencia se ha realizado correctamente, pero 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  ¿obtuvo una amplia variedad de eventos en los resultados? ¿Son los datos recientes? Si es así, el agente OMS funciona correctamente y se comunica con el servicio de Log Analytics. Si no es así, compruebe el agente de OMS en el servidor: [Solución de problemas del agente OMS para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot- monitoring-onboarding-issues) o [Solución de problemas del agente OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  ¿obtuvo una amplia variedad de eventos en los resultados? ¿Son los datos recientes? Si es así, el agente OMS funciona correctamente y se comunica con el servicio de Log Analytics. Si no es así, compruebe el agente de OMS en el servidor: [Solución de problemas del agente OMS para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) o [Solución de problemas del agente OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>El servidor aparece en Service Map, pero no tiene procesos
 Si ve el servidor en Service Map (Mapa de servicios), pero no tiene datos de proceso ni de conexión, quiere decir que Agente de dependencia está instalado y se ejecuta. Sin embargo, el controlador kernel no se ha cargado. 

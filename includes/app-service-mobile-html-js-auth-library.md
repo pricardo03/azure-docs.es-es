@@ -1,12 +1,12 @@
 ### <a name="server-auth"></a>Autenticación con un proveedor (flujo de servidor)
-Para que Mobile Apps administre el proceso de autenticación en su aplicación, debe registrar esta última en el proveedor de identidades. A continuación, en el Servicio de aplicaciones de Azure, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor.
+Para que Mobile Apps administre el proceso de autenticación en su aplicación, debe registrar esta última en el proveedor de identidades. A continuación, en Azure App Service, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor.
 Para obtener más información, consulte el tutorial [Incorporación de la autenticación a su aplicación](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
 Una vez que haya registrado el proveedor de identidades, simplemente llame al método `.login()` con el valor del proveedor. Por ejemplo, para iniciar sesión con Facebook, use el siguiente código:
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -21,7 +21,7 @@ En este caso, Azure App Service administra el flujo de autenticación de OAuth 2
 
 ###<a name="client-auth"></a>Autenticación con un proveedor (flujo de cliente)
 
-La aplicación también puede ponerse en contacto de manera independiente con el proveedor de identidades y proporcionar el token devuelto al Servicio de aplicaciones para la autenticación. Este flujo de cliente le permite proporcionar una experiencia de inicio de sesión único para los usuarios o recuperar datos de usuario adicionales del proveedor de identidades.
+La aplicación también puede ponerse en contacto de manera independiente con el proveedor de identidades y proporcionar el token devuelto a App Service para la autenticación. Este flujo de cliente le permite proporcionar una experiencia de inicio de sesión único para los usuarios o recuperar datos de usuario adicionales del proveedor de identidades.
 
 #### <a name="social-authentication-basic-example"></a>Ejemplo básico de autenticación social
 
@@ -32,7 +32,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -50,7 +50,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);
@@ -59,7 +59,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 ```
 
-En este ejemplo simplificado se obtiene un token de Live Connect, que se suministra al Servicio de aplicaciones mediante la llamada a la función login.
+En este ejemplo simplificado se obtiene un token de Live Connect, que se suministra a App Service mediante la llamada a la función login.
 
 ###<a name="auth-getinfo"></a>Obtención de información sobre el usuario autenticado
 

@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36322642"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Otorgue a las aplicaciones acceso a los recursos de Azure Stack mediante la creación de entidades de servicio
 
@@ -93,54 +95,7 @@ Si ha implementado Azure Stack mediante AD FS como almacén de identidades, pue
 * Asignar un rol a la entidad de servicio.
 * Iniciar sesión mediante la identidad de la entidad de servicio.
 
-### <a name="before-you-begin"></a>Antes de empezar
-
-[Descargue las herramientas necesarias de Azure Stack en el equipo local.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>Importar el módulo de Identity PowerShell
-
-Vaya a la carpeta de descarga de las herramientas de Azure Stack e importe el módulo de Identity PowerShell mediante el comando siguiente:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-Al importar el módulo de Identity, puede recibir un mensaje de error: "AzureStack.Connect.psm1 no está firmado digitalmente. El script no se ejecutará en el sistema".
-
-Para corregir este problema, debe configurar la directiva de ejecución para permitir la ejecución del script. Para establecer la directiva de ejecución, ejecute el siguiente comando en una sesión de PowerShell con privilegios elevados:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>Creación de la entidad de servicio
-
-Puede crear una entidad de servicio mediante la ejecución del comando siguiente. Para ello, asegúrese de actualizar el parámetro **DisplayName**:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>Asignar un rol
-
-Una vez que ha creado la entidad de servicio, debe [asignarle un rol](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### <a name="sign-in-using-powershell"></a>Inicio de sesión con PowerShell
-
-Para iniciar sesión en Azure Stack, puede ejecutar el comando siguiente y asegurarse de actualizar el parámetro **EnvironmentName** con el nombre de la aplicación:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+Para obtener más información acerca de cómo crear la entidad de servicio, consulte [Crear una entidad de servicio para AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Asignación de un rol a la entidad de servicio
 

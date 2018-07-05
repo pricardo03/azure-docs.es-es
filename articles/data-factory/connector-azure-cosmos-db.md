@@ -10,25 +10,23 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052773"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copia de datos con Azure Cosmos DB como origen o destino mediante Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-azure-documentdb-connector.md)
-> * [Versión 2: versión preliminar](connector-azure-cosmos-db.md)
+> * [Versión 1](v1/data-factory-azure-documentdb-connector.md)
+> * [Versión actual](connector-azure-cosmos-db.md)
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Cosmos DB (API de SQL) como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Cosmos DB](v1/data-factory-azure-documentdb-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -111,8 +109,8 @@ Para copiar datos con Azure Cosmos DB como origen o destino, establezca la propi
 
 En los almacenes de datos sin esquemas como Azure Cosmos DB, la actividad de copia deduce el esquema de una de las maneras siguientes. Por lo tanto, a menos que desee [importar o exportar documentos JSON tal cual](#importexport-json-documents), el procedimiento recomendado consiste en especificar la estructura de datos en la sección **structure**.
 
-1. Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta como la estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
-2. Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
+*. Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta como la estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
+*. Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
@@ -210,8 +208,8 @@ Con este conector de Cosmos DB, le resultará muy sencillo
 
 Para lograr dicha copia independiente del esquema:
 
-- En conjuntos de datos de Cosmos DB, no especifique la sección "structure"; en el origen o receptor de Cosmos DB de la actividad de copia, no especifique la propiedad "nestingSeparator".
-- Al realizar operaciones de importación o exportación con archivos JSON, en el conjunto de datos del almacén de archivos correspondiente, especifique el tipo de formato como "JsonFormat" y la configuración "filePattern" correctamente (consulte la sección [JSON format](supported-file-formats-and-compression-codecs.md#json-format) (Formato JSON) para obtener más información) y, luego, no especifique la sección "structure" y omita la configuración de formato restante.
+* Cuando use la herramienta de copia de datos, active la opción **"Export as-is to JSON files or Cosmos DB collection"** (Exportar tal cual a archivos JSON o colección de Cosmos DB).
+* Al usar la creación de actividad, no especifique la sección "structure" (también conocida como esquema) en los conjuntos de datos de Cosmos DB ni la propiedad "nestingSeparator" en el receptor u origen de Cosmos DB en la actividad de copia. Al realizar operaciones de importación o exportación con archivos JSON, en el conjunto de datos del almacén de archivos correspondiente, especifique el tipo de formato como "JsonFormat" y la configuración "filePattern" correctamente (consulte la sección [JSON format](supported-file-formats-and-compression-codecs.md#json-format) (Formato JSON) para obtener más información) y, luego, no especifique la sección "structure"(también conocida como esquema) y omita la configuración de formato restante.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

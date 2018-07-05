@@ -1,3 +1,20 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313520"
+---
 Hay varios motivos que le pueden impedir iniciar o conectar con una aplicación que se ejecuta en una máquina virtual de Azure. Entre ellos se incluyen situaciones como que la aplicación no se esté ejecutando o no esté a la escucha en los puertos esperados, que el puerto de escucha esté bloqueado o que las reglas de redes no estén pasando el tráfico correctamente a la aplicación. En este artículo se describe un enfoque metódico para buscar y corregir el problema.
 
 Si tiene problemas para conectarse a la máquina virtual con RDP o SSH, consulte en primer lugar uno de los siguientes artículos:
@@ -15,7 +32,7 @@ Si tiene problemas para conectarse a una aplicación, intente los siguientes pas
 
 * Reiniciar la máquina virtual
 * Volver a crear el punto de conexión / reglas de firewall / reglas de grupo de seguridad de red (NSG)
-  * [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/manage-network-security-group.md)
   * [Modelo clásico: administración de puntos de conexión de Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Conectarse desde otra ubicación, como una red virtual de Azure diferente
 * Volver a implementar la máquina virtual
@@ -76,7 +93,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 * El software de detección de intrusiones o de supervisión de red que se ejecuta en la VM de destino permite el tráfico.
 * Los puntos de conexión de Cloud Services o los grupos de seguridad de red permiten el tráfico:
   * [Modelo clásico: administración de puntos de conexión de Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/manage-network-security-group.md)
 * Un componente independiente que se ejecuta en la VM en la ruta de acceso entre la VM de prueba y su VM (como un equilibrador de carga o un firewall) permite el tráfico.
 
 En una máquina virtual basada en Windows, use el Firewall de Windows con seguridad avanzada para determinar si las reglas de firewall excluyen el tráfico entrante y saliente de la aplicación.
@@ -99,7 +116,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
   
   * Compruebe que la configuración de la regla NAT de entrada de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
   * Compruebe que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente.
-  * Para más información, consulte [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
+  * Para más información, consulte [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/security-overview.md)
 
 Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio de carga:
 

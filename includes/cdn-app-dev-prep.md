@@ -32,7 +32,7 @@ Para crear una entidad de servicio, se siguen varios pasos, incluida la creació
 >
 >
 
-Una vez creada la entidad de servicio y asignado el rol **Colaborador de perfil de CDN	**, la hoja **Usuarios** del grupo de recursos debería parecerse a la imagen siguiente.
+Una vez creada la entidad de servicio y asignado el rol **CDN Profile Contributor** (Colaborador de perfil de CDN), la hoja **Usuarios** del grupo de recursos debería parecerse a la imagen siguiente.
 
 ![Hoja Usuarios](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
 

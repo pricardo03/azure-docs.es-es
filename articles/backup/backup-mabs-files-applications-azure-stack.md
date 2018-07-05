@@ -1,5 +1,5 @@
 ---
-title: Copia de seguridad de archivos y aplicaciones de Azure Stack
+title: Copia de seguridad de archivos en máquinas virtuales de Azure Stack
 description: Use Azure Backup para hacer una copia de seguridad de los archivos y aplicaciones de Azure Stack, así como para restaurarlos, en el entorno de Azure Stack.
 services: backup
 author: adiganmsft
@@ -8,26 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248867"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751711"
 ---
-# <a name="back-up-files-and-applications-on-azure-stack"></a>Copia de seguridad de archivos y aplicaciones en Azure Stack
-Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger las aplicaciones que se ejecutan en cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
+# <a name="back-up-files-on-azure-stack"></a>Copia de seguridad de archivos en Azure Stack
+Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger los archivos de cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
 
 > [!NOTE]
 > Aunque Azure Backup Server y System Center Data Protection Manager (DPM) son similares, el uso de DPM no es compatible con Azure Stack.
 >
 
-Este artículo no se trata de la instalación de Azure Backup Server en el entorno de Azure Stack. Para instalar Azure Backup Server en Azure Stack, consulte el artículo [Preparación para la copia de seguridad de cargas de trabajo en Azure Backup Server](backup-mabs-install-azure-stack.md).
+Este artículo no se trata de la instalación de Azure Backup Server en el entorno de Azure Stack. Para instalar Azure Backup Server en Azure Stack, consulte el artículo [Instalación de Azure Backup Server en Azure Stack](backup-mabs-install-azure-stack.md).
 
 
-## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>Copia de seguridad de datos de archivo de VM de Azure Stack en Azure
+## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Copia de seguridad en Azure de archivos y carpetas de las máquinas virtuales en Azure Stack
 
-Para configurar Azure Backup Server para proteger las máquinas virtuales de IaaS, abra la consola de Azure Backup Server. Usará la consola para configurar los grupos de protección y para proteger los datos de las máquinas virtuales.
+Para configurar Azure Backup Server a fin de proteger los archivos de las máquinas virtuales de Azure Stack, abra la consola de Azure Backup Server. Usará la consola para configurar los grupos de protección y para proteger los datos de las máquinas virtuales.
 
 1. En la consola de Azure Backup Server, haga clic en **Protección** y, en la barra de herramientas, haga clic en **Nuevo** para abrir el asistente para **crear un nuevo grupo de protección**.
 
@@ -49,7 +49,7 @@ Para configurar Azure Backup Server para proteger las máquinas virtuales de Iaa
 
     ![Se abre el asistente para crear nuevo grupo de protección](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft recomienda poner toda las máquinas virtuales que compartirán una directiva de protección en un mismo grupo de protección. Para información competa sobre cómo planificar e implementar los grupos de protección, consulte el artículo [Implementar grupos de protección](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801) de System Center DPM.
+    Microsoft recomienda poner todos los datos que compartirán una directiva de protección en un mismo grupo de protección. Para información competa sobre cómo planificar e implementar los grupos de protección, consulte el artículo [Implementar grupos de protección](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801) de System Center DPM.
 
 4. En la pantalla **Seleccionar método de protección de datos**, escriba un nombre para el grupo de protección. Active la casilla de verificación para **Deseo protección a corto plazo mediante:** y **Deseo protección en línea**. Haga clic en **Next**.
 
@@ -73,7 +73,7 @@ Para configurar Azure Backup Server para proteger las máquinas virtuales de Iaa
 
     **Total Data size** (Tamaño total de datos) es el tamaño de los datos cuya copia de seguridad quiere realizar y **Disk space to be provisioned** on Azure Backup Server (Espacio en disco que se aprovisionará en Azure Backup Server) es el espacio recomendado para el grupo de protección. Azure Backup Server elige el volumen ideal para la copia de seguridad en función de la configuración. Pero puede editar las opciones de volumen de la copia de seguridad en los detalles de asignación del disco. En el caso de las cargas de trabajo, seleccione el almacenamiento de su preferencia en el menú desplegable. Las modificaciones cambian los valores de Almacenamiento total y Almacenamiento libre en el panel Almacenamiento en disco disponible. El espacio insuficiente es la cantidad de almacenamiento que Azure Backup Server sugiere agregar al volumen para continuar en el futuro las copias de seguridad sin problemas.
 
-7. En **Elegir método de creación de réplica**, seleccione cómo quiere controlar la replicación inicial completa de los datos. Si decide replicar a través de la red, Azure recomienda que elija una hora de poco tráfico. Para grandes cantidades de datos o condiciones de red no del todo óptimas, considere la posibilidad de replicar los datos sin conexión con medios extraíbles.
+7. En **Elegir método de creación de réplica**, seleccione cómo quiere controlar la replicación inicial completa de los datos. Si decide replicar a través de la red, Azure recomienda que elija una hora de poco tráfico. Para grandes cantidades de datos o condiciones de red no del todo óptimas, considere la posibilidad de replicar los datos con medios extraíbles.
 
 8. En **Elegir las opciones de la comprobación de coherencia**, seleccione cómo quiere automatizar las comprobaciones de coherencia. Habilite las comprobaciones de coherencia para que se ejecuten solo cuando la replicación de datos sea incoherente o de acuerdo con una programación. Si no quiere configurar la comprobación de coherencia automática, ejecute una comprobación manual en cualquier momento, para lo que debe hacer lo siguiente:
     * En el área **Protección** de la consola de Azure Backup Server, haga clic con el botón derecho en el grupo de protección y seleccione **Realizar comprobación de coherencia**.
@@ -87,8 +87,6 @@ Para configurar Azure Backup Server para proteger las máquinas virtuales de Iaa
 11. En **Especificar la directiva de retención en línea**, especifique cómo se retienen en Azure los puntos de recuperación creados a partir de copias de seguridad diarias, semanales, mensuales y anuales.
 
 12. En **Elegir replicación en línea**, especifique cómo se realiza la replicación inicial total de los datos. 
-
-    Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la [característica Azure Import](./backup-azure-backup-import-export.md).
 
 13. En **Resumen**, revise la configuración. Cuando hace clic en **Crear grupo**, se realiza la replicación inicial de los datos. Cuando finalice la replicación de los datos, en la página **Estado**, el estado del grupo de protección se mostrará como **OK** (Correcto). El trabajo de copia de seguridad inicial se realiza según la configuración del grupo de protección.
 
@@ -116,7 +114,6 @@ Use la consola de Azure Backup Server para recuperar los datos en la máquina vi
     * En **Existing version recovery behavior** (Comportamiento de recuperación de la versión existente), seleccione **Create copy** (Crear copia), **Skip** (Omitir) o **Overwrite** (Sobrescribir). La opción Overwrite solo está disponible cuando la recuperación se realiza en la ubicación original.
     * En **Restore security** (Restaurar seguridad), elija **Apply settings of the destination computer** (Aplicar la configuración del equipo de destino) o **Apply the security settings of the recovery point version** (Aplicar la configuración de seguridad de la versión del punto de recuperación).
     * En **Network bandwidth usage throttling** (Límite de uso del ancho de banda de red), haga clic en **Modify** (Modificar) para habilitar el límite de uso del ancho de banda de red.
-    * Seleccione **Enable SAN-based recovery using hardware snapshots** (Habilitar la recuperación basada en SAN con instantáneas de hardware) para usar instantáneas de hardware basadas en SAN para realizar una recuperación más rápida. Esta opción solo es válida cuando tiene una red SAN en la que está habilitada la funcionalidad de instantánea de hardware. Para que se pueda escribir el punto de recuperación, la red SAN debe poder crear y dividir un clon. Azure Backup Server y la máquina virtual protegida deben estar conectadas a la misma SAN.
     * **Notification** (Notificación) Haga clic en **Send an e-mail when the recovery completes** (Enviar un correo electrónico cuando se complete la recuperación) y especifique los destinatarios que recibirán la notificación. Separe las direcciones de correo electrónico con comas.
     * Después de realizar las selecciones, haga clic en **Siguiente**.
 
@@ -132,16 +129,13 @@ Si usa Modern Backup Storage (MBS), no se admite la recuperación del usuario fi
 
 2. En el menú **Propiedades**, haga clic en **Versiones anteriores** y elija la versión que quiere recuperar.
 
-
-
-## <a name="register-azure-backup-server-with-a-vault"></a>Registro de Azure Backup Server con un almacén
-Indique los pasos para mostrar cómo:
-
+## <a name="view-azure-backup-server-with-a-vault"></a>Visualización de Azure Backup Server con un almacén
+Para ver entidades de Azure Backup Server en Azure Portal, se pueden seguir estos pasos:
 1. Abrir el almacén de Recovery Services.
 2. Hacer clic en la infraestructura de copia de seguridad.
 3. Ver los servidores de administración de copias de seguridad.
 
 ## <a name="see-also"></a>Otras referencias
 Para obtener información sobre cómo usar Azure Backup Server para proteger otras cargas de trabajo, consulte uno de los siguientes artículos:
-- [Hacer una copia de seguridad de la granja de SharePoint](backup-azure-backup-sharepoint-mabs.md)
-- [Hacer una copia de seguridad de SQL Server](backup-azure-sql-mabs.md)
+- [Hacer una copia de seguridad de la granja de SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Hacer una copia de seguridad de SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)

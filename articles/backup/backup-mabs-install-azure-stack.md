@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248901"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753361"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -42,18 +42,9 @@ Azure Backup Server protege las siguientes cargas de trabajo de máquina virtual
 | SQL Server 2016 | Base de datos |
 | SQL Server 2014 | Base de datos |
 | SQL Server 2012 SP1 | Base de datos |
+| SharePoint 2016 | Granja, base de datos, front-end, servidor web |
 | SharePoint 2013 | Granja, base de datos, front-end, servidor web |
 | SharePoint 2010 | Granja, base de datos, front-end, servidor web |
-
-
-### <a name="host-vs-guest-backup"></a>Copia de seguridad de host frente a copia de seguridad de invitado
-
-Azure Backup Server realiza copias de seguridad de nivel de host o de invitado de máquinas virtuales. En el nivel de host, el agente de Azure Backup está instalado en la máquina virtual o en el clúster y protege toda la máquina virtual y los archivos de datos que se ejecutan en el host. En el nivel de invitado, el agente de Azure Backup está instalado en cada máquina virtual y protege la carga de trabajo que existe en esa máquina.
-
-Ambos métodos presentan ventajas y desventajas:
-
-   * Las copias de seguridad de nivel de host funcionan, independientemente del sistema operativo que se ejecute en las máquinas virtuales, y no requieren que el agente de Azure Backup esté instalado en cada máquina virtual. Si implementa las copias de seguridad de nivel de host, recupera toda una máquina virtual o archivos y carpetas (recuperación en el nivel de elemento).
-   * La copia de seguridad de nivel de invitado resulta útil para proteger cargas de trabajo específicas que se ejecutan en una máquina virtual. En el nivel de host, puede recuperar toda una máquina virtual o archivos específicos, pero no se recuperan datos en el contexto de una aplicación específica. Por ejemplo, para recuperar archivos específicos de SharePoint desde una máquina virtual protegida, debe proteger la máquina virtual en el nivel de invitado. Si desea proteger los datos almacenados en discos de acceso directo, debe usar la copia de seguridad de nivel de invitado. El acceso directo permite que la máquina virtual acceda directamente al dispositivo de almacenamiento y no almacena datos de volúmenes virtuales en un archivo de disco duro virtual.
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Requisitos previos para el entorno de Azure Backup Server
 
@@ -84,13 +75,10 @@ El almacenamiento de datos de copia de seguridad de Azure reduce la infraestruct
 
 Para almacenar datos de copia de seguridad en Azure, cree o use un almacén de Recovery Services. Cuando se prepare para hacer una copia de seguridad de la carga de trabajo de Azure Backup Server, [configure el almacén de Recovery Services](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Una vez configurado, cada vez que se ejecuta un trabajo de copia de seguridad, se crea un punto de recuperación en el almacén. Cada almacén de Recovery Services contiene hasta 9999 puntos de recuperación. Puede conservar los datos de copias de seguridad durante muchos años, en función del número de puntos de recuperación creados y cuánto tiempo se conservaron. Por ejemplo, podría crear puntos de recuperación mensuales y conservarlos durante cinco años.
  
-### <a name="using-sql-server"></a>Uso de SQL Server
-Si quiere utilizar un servidor SQL Server remoto para la base de datos de Azure Backup Server, seleccione solo una VM de Azure Stack que ejecute SQL Server.
-
 ### <a name="scaling-deployment"></a>Escalado de la implementación
 Si quiere escalar su implementación, tiene las siguientes opciones:
   - Escalar verticalmente: aumente el tamaño de la máquina virtual Azure Backup Server de la serie A a la serie D y aumente el almacenamiento local [según las instrucciones de la máquina virtual de Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Descargar datos: envíe datos antiguos a Azure Backup Server y conserve solo los datos más recientes en el almacenamiento conectado a Azure Backup Server.
+  - Descargar datos: envíe los datos antiguos a Azure y conserve solo los datos más recientes en el almacenamiento conectado a Azure Backup Server.
   - Escalar horizontalmente: agregue más instancias de Azure Backup Server para proteger las cargas de trabajo.
 
 ### <a name="net-framework"></a>.NET Framework
@@ -216,7 +204,7 @@ En el paso anterior, hizo clic en **Finalizar** para salir de la fase de extracc
 
 ![Asistente para instalación de Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Azure Backup Server comparte código con Data Protection Manager. En el instalador de Azure Backup Server verá referencias a Data Protection Manager y a DPM. Si bien Azure Backup Server y Data Protection Manager son productos independientes, son productos estrechamente relacionados. En la documentación de Azure Backup Server, todas las referencias a Data Protection Manager y a DPM se aplican a Azure Backup Server.
+Azure Backup Server comparte código con Data Protection Manager. En el instalador de Azure Backup Server verá referencias a Data Protection Manager y a DPM. Si bien Azure Backup Server y Data Protection Manager son productos independientes, son productos estrechamente relacionados.
 
 1. Para iniciar el asistente de instalación, haga clic en **Microsoft Azure Backup Server**.
 
@@ -322,7 +310,7 @@ Azure Backup Server comparte código con Data Protection Manager. En el instalad
 
 ## <a name="add-backup-storage"></a>Incorporación de almacenamiento de copia de seguridad
 
-La primera copia de seguridad se mantiene en el almacenamiento conectado a la máquina de Azure Backup Server. Para obtener más información acerca de los discos, consulte [Configuración de bloques de almacenamiento y almacenamiento en disco](https://technet.microsoft.com/library/hh758075.aspx).
+La primera copia de seguridad se mantiene en el almacenamiento conectado a la máquina de Azure Backup Server. Para obtener más información acerca de cómo agregar discos, consulte [Add Modern Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801) (Agregar almacenamiento de copia de seguridad moderno).
 
 > [!NOTE]
 > Debe agregar el almacenamiento de copia de seguridad incluso si tiene pensado enviar los datos a Azure. En la arquitectura de Azure Backup Server, el almacén de Recovery Services contiene la *segunda* copia de los datos mientras que el almacenamiento local contiene la primera (y obligatoria) copia de seguridad.
@@ -372,10 +360,10 @@ También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El artículo sobre la [preparación del entorno para DPM](https://technet.microsoft.com/library/hh758176.aspx) contiene información sobre las configuraciones admitidas de Azure Backup Server.
+El artículo sobre la [preparación del entorno para DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contiene información sobre las configuraciones admitidas de Azure Backup Server.
 
 Puede usar los artículos siguientes para mejorar la comprensión sobre la protección de cargas de trabajo mediante Microsoft Azure Backup Server.
 
-- [Copia de seguridad de SQL Server](backup-azure-backup-sql.md)
-- [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
+- [Copia de seguridad de SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Copia de seguridad de una granja de SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)

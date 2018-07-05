@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212388"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: Integración de Azure Active Directory con Manabi Pocket
 
@@ -101,35 +100,29 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
     ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Cuadro de diálogo Inicio de sesión único](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Manabi Pocket**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+3. En la sección **Manabi Pocket Domain and URLs** (Dominio y direcciones URL de Manabi Pocket), lleve a cabo los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-    
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://ed-cl.com/`
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico del cliente de Manabi Pocket](mailto:info-ed-cl@ntt.com) para obtener estos valores.
+    > El valor del identificador no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte técnico del cliente de Manabi Pocket](mailto:info-ed-cl@ntt.com) para obtener este valor.
 
-4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://ed-cl.com/`
-
-5. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Vínculo de descarga del certificado](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+5. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. Para configurar el inicio de sesión único en **Manabi Pocket**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Manabi Pocket](mailto:info-ed-cl@ntt.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+6. Para configurar el inicio de sesión único en **Manabi Pocket**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Manabi Pocket](mailto:info-ed-cl@ntt.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -196,7 +189,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
@@ -222,4 +215,3 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

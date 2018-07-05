@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/09/2018
 ms.author: ponatara
-ms.openlocfilehash: 5c94e26c4639284f7e4c53d924f16040118d996c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 838eac510fc17d56f808f541f4e205a279f63c56
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874366"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318898"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Solución de problemas y errores cuando una máquina virtual se conmuta por error en Azure
-Es posible que aparezca uno de los errores siguientes mientras se realiza la conmutación por error de una máquina virtual en Azure. Para solucionar los problemas, use los pasos que se describen para cada condición de error.
 
+Es posible que aparezca uno de los errores siguientes mientras se realiza la conmutación por error de una máquina virtual en Azure. Para solucionar los problemas, use los pasos que se describen para cada condición de error.
 
 ## <a name="failover-failed-with-error-id-28031"></a>No se pudo realizar la conmutación por error con el identificador de error 28031
 
@@ -45,6 +45,35 @@ Site Recovery no pudo crear una máquina virtual clásica conmutada por error en
 
 * No existe uno de los recursos, como una red virtual, que se requieren para crear la máquina virtual. Cree la red virtual según lo indicado en la configuración de Proceso y red de la máquina virtual, o bien modifique la configuración a una red virtual que ya existe y reintente la conmutación por error.
 
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>No se puede conectar/RDP/SSH a la máquina virtual que conmutó por error debido a que el botón Conectar de la máquina virtual no está disponible.
+
+Si el botón Conectar no está disponible y no está conectado a Azure a través de una conexión VPN Express Route o de sitio a sitio, entonces:
+
+1. Vaya a la **Máquina virtual** > **Red**, y haga clic en el nombre de la interfaz de red necesaria.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navegue hasta **Configuraciones IP** y, después, haga clic en el campo de nombre de la configuración IP necesaria. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Para habilitar la dirección IP pública, haga clic en **Habilitar**. ![Habilitar IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Haga clic en **Configurar los valores obligatorios** > **Crear uno nuevo**. ![Cree uno nuevo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Escriba el nombre de la dirección pública, seleccione las opciones predeterminadas para **SKU**y **asignación** y, después, haga clic en **Aceptar**.
+6. Ahora, haga clic en **Guardar** para guardar los cambios.
+7. Cierre los paneles y navegue a la sección **Introducción** de la máquina virtual para conectar/RDP.
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>No se puede conectar/RDP/SSH a la máquina virtual que conmutó por error aunque el botón Conectar de la máquina virtual está disponible.
+
+Compruebe **Diagnósticos de arranque** en la máquina virtual y compruebe los errores que se muestran en este artículo.
+
+1. Si la máquina virtual no se ha iniciado, realice la conmutación por error a un punto de recuperación anterior.
+2. Si la aplicación dentro de la máquina virtual no aparece, realice la conmutación por error a un punto de recuperación coherente con la aplicación.
+3. Si la máquina virtual está unida al dominio, asegúrese de que ese controlador de dominio funciona correctamente. Esto se puede hacer siguiendo los siguientes pasos.
+    a. Cree una nueva máquina virtual en la misma red.
+
+    b.  Asegúrese de que es capaz de unirse al mismo dominio en el que se espera que aparezca la máquina virtual que ha conmutado por error.
+
+    c. Si el controlador de dominio no funciona correctamente, inicie sesión en la máquina virtual con conmutación por error mediante una cuenta de administrador local.
+4. Si está utilizando un servidor DNS personalizado, asegúrese de que es accesible. Esto se puede hacer siguiendo los siguientes pasos.
+    a. Cree una nueva máquina virtual en la misma red. b. Compruebe si la máquina virtual es capaz de realizar la resolución de nombres con el servidor DNS personalizado.
+
+>[!Note]
+>Habilitar cualquier ajuste que no sea Diagnósticos de arranque requiere que el agente de la máquina virtual de Azure esté instalado en la máquina virtual antes de la conmutación por error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

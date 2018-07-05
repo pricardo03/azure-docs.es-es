@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6fe7cad2910bed2dc08180d28fdf1af1d6cffd9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223423"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: Integración de Azure Active Directory con Hightail
 
@@ -105,31 +104,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Hightail**, siga estos pasos:
+3. En la sección **Dominio y direcciones URL de Hightail**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
     ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-     En el cuadro de texto **URL de respuesta**, escriba la dirección URL como se muestra a continuación: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+    En el cuadro de texto **URL de respuesta**, escriba la dirección URL como se muestra a continuación: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
-    > [!NOTE] 
-    > El valor anterior no es real. El valor se actualizará con la dirección URL de respuesta real, que se explica más adelante en el tutorial.
- 
-4. En la sección **Dominio y direcciones URL de Hightail**, si quiere configurar la aplicación en **SP initiated mode** (Modo iniciado por SP), realice los siguientes pasos:
-    
+    > [!NOTE]
+    > El valor de URL de respuesta no es real. El valor se actualizará con la dirección URL de respuesta real, que se explica más adelante en el tutorial.
+
+4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+
     ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-    a. Haga clic en **Mostrar configuración avanzada de URL**.
-
-    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL similar a la siguiente: `https://www.hightail.com/loginSSO`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL similar a la siguiente: `https://www.hightail.com/loginSSO`
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. La aplicación Hightail espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar el valor de estos atributos desde la pestaña **"Atributo"** de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto. 
+5. La aplicación Hightail espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar el valor de estos atributos desde la pestaña "**Atributo**" de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto. 
 
     ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -153,7 +150,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
 
     d. Deje **Espacio de nombres** en blanco.
-    
+
     e. Haga clic en **Aceptar**.
 
 7. Haga clic en el botón **Guardar** .
@@ -162,41 +159,32 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 8. En la sección **Configuración de Hightail**, haga clic en **Configurar Hightail** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_configure.png) 
+    ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Antes de configurar el inicio de sesión único en la aplicación Hightail, incluya su dominio de correo electrónico en la lista de permitidos con el equipo Hightail para que todos aquellos que utilicen este dominio puedan emplear la funcionalidad de inicio de sesión único.
 
+9. En otra ventana del explorador, abra el portal de administración de **Hightail**.
 
-9. Para configurar SSO para la aplicación, debe iniciar sesión en su inquilino de Hightail como administrador.
-   
-    a. En el menú de la parte superior, haga clic en la pestaña **Account** (Cuenta) y seleccione **Configure SAML** (Configurar SAML).
- 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_001.png) 
+10. Haga clic en el **icono de usuario** de la esquina superior derecha de la página. 
 
-    b. Active la casilla **Enable SAML Authentication**(Habilitar autenticación SAML).
+    ![Configurar inicio de sesión único](./media/hightail-tutorial/configure1.png)
 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_002.png) 
+11. Haga clic en la pestaña **Ver consola de administración**.
 
-    c. Abra el certificado codificado en base 64 descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **SAML Token Signing Certificate** (Certificado de firmas de token SAML).
+    ![Configurar inicio de sesión único](./media/hightail-tutorial/configure2.png)
 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_003.png) 
+12. En el menú de la parte superior, haga clic en la pestaña **SAML** y realice los pasos siguientes:
 
-    d. En el cuadro de texto **SAML Authority (Identity Provider)** [Autoridad de SAML (proveedor de identidades)], pegue el valor de **Dirección URL de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+    ![Configurar inicio de sesión único](./media/hightail-tutorial/configure3.png)
 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_004.png)
+    a. En el cuadro de texto **Login URL** (Dirección URL de inicio de sesión), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL de inicio de sesión único de SAML) que copió de Azure Portal.
 
-    e. Si desea configurar la aplicación en el **modo iniciado por el proveedor de identidades**, seleccione **"Identity Provider (IdP) initiated log in"** ("Inicio de sesión iniciado por el proveedor de identidades"). Si prefiere el **modo iniciado por el proveedor de servicios**, seleccione **"Service Provider (SP) initiated log in"** ("Inicio de sesión iniciado por el proveedor de servicios").
+    b. Abra el certificado codificado en Base 64 descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado SAML**.
 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_hightail_006.png)
+    c. Haga clic en **COPIAR** para copiar la dirección URL del consumidor de SAML de la instancia y péguela en el cuadro de texto **URL de respuesta** de la sección **Dominio y direcciones URL** de Hightail de Azure Portal.
 
-    f. Copie la dirección URL del consumidor de SAML de la instancia y péguela en el cuadro de texto **URL de respuesta** de la sección **Dominio y direcciones URL de Hightail** de Azure Portal.
-    
-    g. Haga clic en **Save**(Guardar).
-
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Haga clic en **Guardar configuraciones**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -256,7 +244,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-    ![Asignar usuario][202] 
+    ![Asignar usuario][202]
 
 4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
@@ -267,7 +255,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
@@ -279,8 +267,6 @@ Al hacer clic en el icono de Hightail en el Panel de acceso, debería iniciar se
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

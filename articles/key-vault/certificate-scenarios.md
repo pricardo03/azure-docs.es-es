@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333520"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -82,8 +83,9 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
       -   Información de renovación - > p. ej. 90 días hasta la expiración  
 
   - La creación de certificados suele ser un proceso asincrónico e implica el sondeo de estado de la operación de creación del certificado en el almacén de claves.  
-[Operación de obtención de certificado](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation): estado completado o erróneo con la información del error, o cancelado  
-            - Si la creación se retrasa, se puede iniciar una operación de cancelación. Puede que la cancelación se lleve a cabo o no.  
+[Operación de obtención de certificado](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   Estado: completado, erróneo con la información del error, o cancelado  
+      -   Si la creación se retrasa, se puede iniciar una operación de cancelación. Puede que la cancelación se lleve a cabo o no.  
 
 ## <a name="import-a-certificate"></a>Importación de un certificado  
  Como alternativa, se puede importar un certificado a Key Vault (PFX o PEM).  

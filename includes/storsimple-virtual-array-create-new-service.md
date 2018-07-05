@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Para crear un nuevo servicio
 
-1.  Con sus credenciales de cuenta de Microsoft, inicie sesión en Azure Portal en esta dirección URL: <https://portal.azure.com/>. Si va a implementar el dispositivo en el Portal de Government, inicie sesión en: <https://portal.azure.us/>.
+1.  Con las credenciales de su cuenta de Microsoft, inicie sesión en Azure Portal en esta dirección URL: <https://portal.azure.com/>. Si va a implementar el dispositivo en el Portal de Government, inicie sesión en: <https://portal.azure.us/>.
 
 2.  En Azure Portal, haga clic en **+ Crear un recurso** &gt; **Almacenamiento** &gt; **StorSimple Virtual Series** (Serie virtual de StorSimple).
 

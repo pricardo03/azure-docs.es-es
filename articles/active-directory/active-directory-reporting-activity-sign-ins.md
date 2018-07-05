@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/17/2018
+ms.date: 06/21/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3c3737d3a98093f752c1248460a8084436e60941
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232133"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333605"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -41,7 +41,7 @@ Este tema ofrece una visión general de las actividades de inicio de sesión.
 ## <a name="prerequisites"></a>requisitos previos
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
-* Usuarios de los roles Administrador de seguridad, Lector de seguridad o Lector de informes
+* Usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes o Administrador de aplicaciones
 * Administradores globales
 * Cualquier usuario (no administradores) puede acceder a sus propios inicios de sesión 
 
@@ -63,16 +63,14 @@ El primer punto de entrada a todos los datos de actividades de inicio de sesión
 ![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/61.png "Actividad de inicio de sesión")
 
 
-Un registro de inicios de sesión tiene una vista de lista predeterminada que muestra:
+Un registro de auditoría tiene una vista de lista predeterminada que muestra:
 
-- La fecha de inicio de sesión
-- El usuario relacionado
-- La aplicación en la que el usuario ha iniciado sesión
-- El estado de inicio de sesión
-- El estado de la detección de riesgos
-- El estado del requisito de la autenticación multifactor (MFA) 
+- el usuario relacionado,
+- la aplicación en que el usuario ha iniciado sesión,
+- el estado de inicio de sesión,
+- la hora de inicio de sesión.
 
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/01.png "Actividad de inicio de sesión")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/41.png "Actividad de inicio de sesión")
 
 Puede personalizar la vista de lista; para ello, haga clic en **Columnas** en la barra de herramientas.
 
@@ -80,94 +78,58 @@ Puede personalizar la vista de lista; para ello, haga clic en **Columnas** en la
 
 Esto le permite mostrar los campos adicionales o quitar los campos que ya se están mostrando.
 
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/02.png "Actividad de inicio de sesión")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/42.png "Actividad de inicio de sesión")
 
-Si hace clic en un elemento de la vista de lista, puede obtener todos los detalles disponibles sobre él en una vista horizontal.
+Si hace clic en un elemento de la vista de lista, puede obtener todos los detalles disponibles sobre él.
 
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/03.png "Actividad de inicio de sesión")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/43.png "Actividad de inicio de sesión")
 
 
-## <a name="filter-sign-in-activities"></a>Filtrado de las actividades de inicio de sesión
+## <a name="filtering-sign-in-activities"></a>Filtrado de actividades de inicio de sesión
 
-Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de inicio de sesión con los siguientes campos predeterminados:
+Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de inicio de sesión con los siguientes campos:
 
+- Intervalo de tiempo
 - Usuario
 - Application
+- Cliente
 - Estado de inicio de sesión
-- Estado de la detección de riesgos
-- Date
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/44.png "Actividad de inicio de sesión")
 
 
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/04.png "Actividad de inicio de sesión")
-
-El filtro **usuario** permite especificar el nombre o el nombre principal de usuario (UPN) del usuario que le interesa. 
-
-El filtro **aplicación** permite especificar el nombre de la aplicación que le interesa.  
-
-El filtro **estado de inicio de sesión** le permite seleccionar:
-
-- Todo 
-- Correcto
-- Error
-
-El filtro **Riesgo detectado** le permite seleccionar:
-
-- Todo
-- Sí
-- Sin  
-
-
-El filtro **Fecha** le permite definir un período de tiempo para los datos devueltos.  
+El filtro **Intervalo de tiempo** permite definir un período de tiempo para los datos devueltos.  
 Los valores posibles son:
 
 - 1 mes
 - 7 días
 - 24 horas
-- Intervalo de tiempo personalizado
+- Personalizado
 
 Cuando se selecciona un intervalo de tiempo personalizado, puede configurar una hora de inicio y una hora de finalización.
 
-Si agrega campos adicionales a la vista de inicios de sesión, estos campos se agregarán automáticamente a la lista de filtros. Por ejemplo, si agrega el campo **Aplicación cliente** a la lista, también obtendrá otra opción de filtro que le permitirá establecer los siguientes filtros:
+El filtro **usuario** permite especificar el nombre o el nombre principal de usuario (UPN) del usuario que le interesa.
 
-- Browser      
-- Exchange ActiveSync (compatible)               
-- Exchange ActiveSync (no compatible)
-- Otros clientes               
-    - IMAP
-    - MAPI
-    - Clientes antiguos de Office
-    - POP
-    - SMTP
+El filtro **aplicación** permite especificar el nombre de la aplicación que le interesa.
 
+El filtro **cliente** permite especificar información sobre el dispositivo que le interesa.
 
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/12.png "Actividad de inicio de sesión")
+El filtro **estado de inicio de sesión** permite seleccionar uno de los filtros siguientes:
 
-
-> [!TIP] 
-> Además de los filtros predeterminados, todos los campos adicionales que se agregan a la vista de inicios de sesión se convierten en campos de filtro.
-
-
-## <a name="download-sign-in-activities"></a>Descarga de actividades de inicio de sesión
-
-Puede descargar los datos de las actividades de inicio de sesión si desea trabajar con ellos fuera de Azure Portal. Además de un botón de descarga, Azure Portal también proporciona una opción para generar un script para descargar los datos.  
-
-![Descargar](./media/active-directory-reporting-activity-sign-ins/71.png "Descargar")
-
-Si hace clic en **Descargar** se crea un archivo CSV con los 5000 registros más recientes. Si necesita más flexibilidad, puede usar la solución de script. Si hace clic en **Script** se crea un script de PowerShell que incluye todos los filtros que ha establecido. Descargue y ejecute este script en **modo de administrador** para generar el archivo CSV. Además de la implementación técnica, el número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](active-directory-reporting-retention.md).  
-
+- Todo
+- Correcto
+- Error
 
 
 ## <a name="sign-in-activities-shortcuts"></a>Métodos abreviados de las actividades de inicio de sesión
 
 Además de Azure Active Directory, Azure Portal proporciona dos puntos de entrada adicionales para datos de actividades de inicio de sesión:
 
-- Información general sobre la protección de la seguridad de la identidad
-- Usuarios
-- Grupos
+- Usuarios y grupos
 - Aplicaciones empresariales
 
 
-### <a name="users-sign-ins-activities"></a>Actividades de inicios de sesión de usuarios
+### <a name="users-and-groups-sign-ins-activities"></a>Actividades de inicios de sesión de usuarios y grupos
 
 Con la información proporcionada por el informe de inicio de sesión del usuario, puede encontrar respuestas a preguntas tales como:
 
@@ -177,39 +139,29 @@ Con la información proporcionada por el informe de inicio de sesión del usuari
 
 
 
-El punto de entrada a estos datos es el gráfico de inicio de sesión del usuario de la página de información general de **protección de la seguridad de la identidad**. El gráfico de inicio de sesión de usuario muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período determinado. El valor predeterminado para el período es 30 días.
+El punto de entrada a los datos es el gráfico de inicio de sesión del usuario en la sección **Introducción** de **Usuarios y grupos**.
 
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/06.png "Actividad de inicio de sesión")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/45.png "Actividad de inicio de sesión")
 
-Al hacer clic en un día del gráfico de inicio de sesión, obtiene una vista general de las actividades de inicio de sesión de ese día.
+El gráfico de inicio de sesión de usuario muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período determinado. El valor predeterminado para el período es 30 días.
 
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/46.png "Actividad de inicio de sesión")
 
-Cada fila de la lista de actividades de inicio de sesión muestra:
+Al hacer clic en un día en el gráfico de inicio de sesión, obtiene una lista detallada de las actividades de inicio de sesión de ese día.
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/41.png "Actividad de inicio de sesión")
+
+Cada fila de la lista de actividades de inicio de sesión le ofrece la información detallada acerca del inicio de sesión seleccionado como:
 
 * ¿Quién ha iniciado sesión?
+* ¿Cuál era el UPN relacionado?
 * ¿Qué aplicación era el destino del inicio de sesión?
+* ¿Cuál es la dirección IP del inicio de sesión?
 * ¿Cuál es el estado del inicio de sesión?
-* ¿Cuál es el estado de MFA del inicio de sesión?
 
-Si hace clic en un elemento, obtendrá más detalles sobre la operación de inicio de sesión:
+La opción **Inicios de sesión** ofrece información general completa sobre todos los inicios de sesión de usuarios.
 
-- Id. de usuario
-- Usuario
-- Nombre de usuario
-- Identificador de aplicación
-- Application
-- Cliente
-- Ubicación
-- Dirección IP
-- Date
-- Se requiere MFA
-- Estado de inicio de sesión
-
- 
-En la página **Usuarios**, puede obtener una vista general completa de todos los inicios de sesión del usuario haciendo clic en **Inicios de sesión** en la sección **Actividad**.
-
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/08.png "Actividad de inicio de sesión")
-
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/51.png "Actividad de inicio de sesión")
 
 
 
@@ -221,9 +173,9 @@ Con una vista centrada en la aplicación de los datos de inicio de sesión, pued
 * ¿Cuáles son las tres aplicaciones principales en su organización?
 * Recientemente he implementado una aplicación. ¿Cómo sigue?
 
-El punto de entrada a los datos son las *tres aplicaciones principales de su organización en el informe de los últimos 30 días* en la sección **Introducción** de la página **Aplicaciones empresariales**.
+El punto de entrada a los datos son las tres aplicaciones principales de su organización en el informe de los últimos 30 días en la sección **Introducción** en **Aplicaciones empresariales**.
 
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/10.png "Actividad de inicio de sesión")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/64.png "Actividad de inicio de sesión")
 
 Agregaciones semanales del gráfico de uso de la aplicación de inicios de sesión para las tres aplicaciones principales en un período determinado. El valor predeterminado para el período es 30 días.
 
@@ -237,11 +189,12 @@ Si lo desea, puede establecer el foco en una aplicación específica.
 Al hacer clic en un día del gráfico de uso de la aplicación, obtendrá una lista detallada de las actividades de inicio de sesión.
 
 
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/48.png "Actividad de inicio de sesión")
 
 
 La opción **Inicios de sesión** ofrece una descripción completa de todos los eventos de inicio de sesión para sus aplicaciones.
 
-![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/11.png "Actividad de inicio de sesión")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/49.png "Actividad de inicio de sesión")
 
 
 

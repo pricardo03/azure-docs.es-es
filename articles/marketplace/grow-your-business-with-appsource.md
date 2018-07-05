@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: d93f66282e3f735565389904c65436ed2ad79480
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826294"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054184"
 ---
 # <a name="grow-your-business-with-appsource"></a>Haga crecer su negocio con AppSource  
 Use AppSource al interactuar con clientes empresariales para que busquen, prueben y obtengan servicios de implementación y aplicaciones de software como servicio (SaaS) de línea de negocio que les ayuden a impulsar los resultados empresariales y acelerar la rentabilidad.  
@@ -32,8 +32,7 @@ Use AppSource al interactuar con clientes empresariales para que busquen, pruebe
 | ***Aplicaciones que ayuden a mejorar la productividad, la eficacia y la información empresarial*** | Proporciona aplicaciones de línea de negocio, que incluyen servicio de atención al cliente, RR. HH., operaciones y mucho más. |  
 | ***Asociado de implementación con experiencia para ayudar a adaptar las aplicaciones a cada situación única del cliente***. | Proporciona un catálogo de ofertas de servicios de consultoría para soluciones basadas en Dynamics 365, Power BI, PowerApps y aplicaciones de asociados para ayudar a los usuarios de empresa a entregar resultados predecibles. |  
 
-<!-- # Grow your business with AppSource  -->
-Azure Marketplace y AppSource son las plataformas de lanzamiento para las actividades conjuntas de comercialización con Microsoft y un mecanismo de crecimiento del negocio. Con la promoción de lanzamientos, la generación de demanda y las ventas y el marketing conjuntos, la oferta de Marketplace puede ser la pieza central del motor de negocios en la nube. No hay ninguna cuota por participar. Los clientes de Microsoft visitan los escaparates de Marketplace cada día para buscar las aplicaciones y los servicios apropiados para ayudar a mejorar su negocio para los clientes. El objetivo de Microsoft es conectar a las organizaciones con las soluciones y los servicios de Microsoft y los asociados de Microsoft.  
+<!-- # Grow your business with AppSource  --> Azure Marketplace y AppSource son las plataformas de lanzamiento para las actividades conjuntas de comercialización con Microsoft y un mecanismo de crecimiento del negocio. Con la promoción de lanzamientos, la generación de demanda y las ventas y el marketing conjuntos, la oferta de Marketplace puede ser la pieza central del motor de negocios en la nube. No hay ninguna cuota por participar. Los clientes de Microsoft visitan los escaparates de Marketplace cada día para buscar las aplicaciones y los servicios apropiados para ayudar a mejorar su negocio para los clientes. El objetivo de Microsoft es conectar a las organizaciones con las soluciones y los servicios de Microsoft y los asociados de Microsoft.  
 
 ## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>Ventajas empresariales de unirse a un marketplace en la nube  
 Hay muchos motivos interesantes por los que debe combinar con los escaparates de Marketplace. Estas son las ventajas concretas de publicar sus ofertas en AppSource para ayudar a que su negocio crezca:  
@@ -53,7 +52,7 @@ Hay muchos motivos interesantes por los que debe combinar con los escaparates de
 *   **Publique sus ofertas de servicios de consultoría**  
     Los usuarios empresariales buscan asociados con experiencia que ayuden a los clientes a empezar con confianza ofreciendo servicios de consultoría de calidad diseñados para ofrecer resultados predecibles. Publique sus ofertas de servicios de consultoría para ayudar a los usuarios empresariales a encontrar las ofertas que ayuden a los clientes a empezar rápidamente.  
 *   **Empiece a trabajar con confianza**  
-    El equipo de Microsoft AppSource está a su disposición para proporcionarle una experiencia de incorporación sin problemas. Este equipo puede ayudarlo en cada paso del proceso, con independencia de que esté trabajando en la experiencia de la versión de prueba o en la de evaluación. Por ejemplo, lo ayudará a cumplir con los criterios de publicación.  
+    El equipo de Microsoft AppSource está a su disposición para proporcionarle una experiencia de incorporación sin problemas. Este equipo puede ayudarlo en cada paso del proceso, con independencia de que esté trabajando en la experiencia de la versión de prueba o en la de evaluación. Por ejemplo, le ayudará a cumplir con los criterios de publicación.  
 *   **Personalice la página de publicación de aplicaciones**  
     Dispone de flexibilidad en cuanto a decidir cómo le gustaría comercializar sus aplicaciones en AppSource. Proporcione un vídeo, hojas de datos, documentación y descripciones detalladas. Microsoft trabaja con usted para presentar la aplicación en AppSource de forma atractiva.  
 *   **Obtenga información procesable**  
@@ -68,7 +67,7 @@ La calidad de la publicación de las aplicaciones y el compromiso a la generaci�
 La siguiente lista de comprobación proporciona recomendaciones de marketing y recursos que debe tener en cuenta al crear ofertas para publicarlas en AppSource:  
 *   **Tenga en cuenta las directrices de marca y marca comercial de Microsoft.**  
     Cuando asigne un nombre a su aplicación y haga referencia a marcas comerciales de Microsoft y a nombres de software, productos y servicios de Microsoft, siga las directrices de marca y marca comercial de Microsoft, así como las directrices específicas de cada producto.  
-    *   Para más información sobre la personalización de marca y las marcas comerciales de Microsoft, visite la página de directrices sobre marcas y marcas comerciales de Microsoft en [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Para más información sobre la personalización de marca y las marcas comerciales de Microsoft, visite la página de directrices sobre marcas y marcas comerciales de Microsoft en [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
 *   **Cree una experiencia inmediata, una oferta de evaluación gratuita o una experiencia de versión de prueba de la aplicación.**  
     Los usuarios empresariales desean probar la aplicación directamente.  
 *   **Cree una propuesta de valor sólida.**  
@@ -105,14 +104,14 @@ Las siguientes tablas detallan cada paso del proceso de creación de la publicac
 
 | Configuración de la oferta | Procedimientos recomendados | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Name** | **Asignación de un nombre a la oferta**<br />Elegir un nombre para la aplicación es una decisión clave. Los nombres basados en las ventajas son más eficaces que los descriptivos. El nombre de la aplicación debe comunicar el principal valor que obtendrán los clientes. Incluir palabras clave de búsqueda en el título de la aplicación también puede ayudar a que la aplicación se clasifique en resultados superiores de los motores de búsqueda. Siga las directrices de marca y marca comercial de Microsoft, así como las directrices específicas de cada producto cuando haga referencia a marcas comerciales de Microsoft y a nombres de software, productos y servicios de Microsoft.<ul> <li>Para más información sobre la personalización de marca y las marcas comerciales de Microsoft, visite la página de directrices sobre marcas y marcas comerciales de Microsoft en [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Name** | **Asignación de un nombre a la oferta**<br />Elegir un nombre para la aplicación es una decisión clave. Los nombres basados en las ventajas son más eficaces que los descriptivos. El nombre de la aplicación debe comunicar el principal valor que obtendrán los clientes. Incluir palabras clave de búsqueda en el título de la aplicación también puede ayudar a que la aplicación se clasifique en resultados superiores de los motores de búsqueda. Siga las directrices de marca y marca comercial de Microsoft, así como las directrices específicas de cada producto cuando haga referencia a marcas comerciales de Microsoft y a nombres de software, productos y servicios de Microsoft.<ul> <li>Para más información sobre la personalización de marca y las marcas comerciales de Microsoft, visite la página de directrices sobre marcas y marcas comerciales de Microsoft en [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **Detalles del escaparate: información de la oferta**  
 
 | Configuración del escaparate | Procedimientos recomendados | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **Nombre de la oferta** | El resumen de la oferta aparece en la página de búsqueda de la oferta en la galería de la aplicación y en la página principal de AppSource. Incluya palabras clave de búsqueda en el resumen de la oferta para ayudar a mejorar la clasificación de la aplicación en los resultados de los motores de búsqueda. |
-| **Descripción de la oferta** | **Proporcione una buena descripción de la oferta**<br />Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción. Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda.<br />No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona. Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas.<br />Los componentes principales de la propuesta de valor deben incluir esta información:<br />• Cuál es el producto<br />• Quién saca el máximo provecho<br />• Qué necesidad o problema aborda<br />Indique al cliente cómo el negocio o el trabajo puede ser diferente después de usar la solución.<br />Incorpore palabras clave de búsqueda y variaciones de esta en la descripción de la oferta para ayudar a mejorar la clasificación de la oferta en los resultados de los motores de búsqueda.<br />Escriba la descripción de la oferta con HTML simple.<br />Este es un ejemplo de la página de publicación de una oferta simple (tal como se muestra en el ejemplo de publicación de arriba) que proporciona un resumen de la oferta seguido de una lista de funcionalidades clave. El número máximo de caracteres es 3000.<br />_HTML de ejemplo_<br /><p>Organization Insights para Dynamics 365 (en línea) proporciona métricas de uso y adopción importantes para su organización de Dynamics 365, así como las herramientas que lo ayudarán a anticiparse a los problemas de rendimiento y compatibilidad.</p> <ul><li><strong>Personalización de paneles</strong><br /> Configure el panel para proporcionar una experiencia de usuario enriquecida e instantáneas de sus datos importantes.<ul> <li><strong>Supervisión de la adopción y el uso:</strong> Identifique a los usuarios más activos, el número de solicitudes de páginas, las entidades más usadas, los flujos de trabajo y mucho más.</li> </ul><p>Versión mínima de la plataforma admitida: 8.1.1</p> |
+| **Descripción de la oferta** | **Proporcione una buena descripción de la oferta**<br />Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción. Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda.<br />No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona. Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas.<br />Los componentes principales de la propuesta de valor deben incluir esta información:<ul> <li>Cuál es el producto</li>  <li>Quién saca el máximo provecho</li> <li>Qué necesidad o problema aborda</li> </ul>Indique al cliente cómo el negocio o el trabajo puede ser diferente después de usar la solución.<br />Incorpore palabras clave de búsqueda y variaciones de esta en la descripción de la oferta para ayudar a mejorar la clasificación de la oferta en los resultados de los motores de búsqueda.<br />Escriba la descripción de la oferta con HTML simple.<br />Este es un ejemplo de la página de publicación de una oferta simple (tal como se muestra en el ejemplo de publicación de arriba) que proporciona un resumen de la oferta seguido de una lista de funcionalidades clave. El número máximo de caracteres es 3000.<br />*HTML de ejemplo*<br />Organization Insights para Dynamics 365 (en línea) proporciona métricas de uso y adopción importantes para su organización de Dynamics 365, así como las herramientas que lo ayudarán a anticiparse a los problemas de rendimiento y compatibilidad. <ul> <li>**Personalización de paneles**<br />Configure el panel para proporcionar una experiencia de usuario enriquecida e instantáneas de sus datos importantes.<ul> <li>**Supervisión de la adopción y el uso**<br />Identifique a los usuarios más activos, el número de solicitudes de páginas, las entidades más usadas, los flujos de trabajo y mucho más.</li> </ul></li> </ul>Versión mínima de la plataforma admitida: `8.1.1` |
 
 **Detalles del escaparate: información de la publicación**  
 
@@ -134,7 +133,7 @@ Las siguientes tablas detallan cada paso del proceso de creación de la publicac
 | **Capturas de pantalla** | Agregue hasta cinco capturas de pantalla e incorpore las palabras clave de búsqueda en los nombres. |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>Promocione la disponibilidad de su oferta en AppSource  
-Cuando su oferta aparece en AppSource, podrá mostrar el distintivo "Disponible en AppSource" en su página. 
+Cuando su oferta aparece en AppSource, podrá mostrar el distintivo ***Disponible en AppSource*** en su página. 
 
  ![Notificación de AppSource](./media/marketplace-appsource/appsourcebadge.png)
     

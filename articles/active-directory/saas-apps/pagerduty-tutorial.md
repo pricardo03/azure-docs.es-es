@@ -8,19 +8,18 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 37409ee72591d943a834ff38f077a002a1724ab9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215399"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: Integración de Azure Active Directory con Pagerduty
 
@@ -60,14 +59,14 @@ Para configurar la integración de PagerDuty en Azure AD, deberá agregar PagerD
 
 **Para agregar PagerDuty desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory][1]
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
-    
+
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
@@ -102,8 +101,8 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+
     ![Cuadro de diálogo Inicio de sesión único](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
 3. En la sección **Dominio y direcciones URL de PagerDuty**, lleve a cabo los pasos siguientes:
@@ -114,12 +113,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.pagerduty.com`
 
-    > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de PagerDuty](https://www.pagerduty.com/support/) para obtener estos valores. 
+    > [!NOTE]
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de PagerDuty](https://www.pagerduty.com/support/) para obtener estos valores.
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-    ![Vínculo de descarga del certificado](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![Vínculo de descarga del certificado](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. Haga clic en el botón **Guardar** .
 
@@ -127,34 +126,33 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 6. En la sección **Configuración de PagerDuty**, haga clic en **Configurar PagerDuty** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
 
-    ![Configuración de PagerDuty](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+    ![Configuración de PagerDuty](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. En otra ventana del explorador web, inicie sesión en el sitio de la compañía Pagerduty como administrador.
 
 8. En el menú de la parte superior, haga clic en **Configuración de cuenta**.
-   
+
     ![Configuración de la cuenta](./media/pagerduty-tutorial/ic778535.png "configuración de la cuenta")
 
 9. Haga clic en **Inicio de sesión único**.
-   
+
     ![Inicio de sesión único](./media/pagerduty-tutorial/ic778536.png "Inicio de sesión único")
 
 10. En la página **Habilitar inicio de sesión único (SSO)**, siga estos pasos:
-   
+
     ![Habilitar inicio de sesión único](./media/pagerduty-tutorial/ic778537.png "Habilitar inicio de sesión único")
-   
+
     a. Abra el certificado codificado en Base 64 que descargó de Azure Portal en el Bloc de notas, copie el contenido en el Portapapeles y, luego, péguelo en el cuadro de texto **X.509 Certificate** (Certificado X.509)
   
     b. En el cuadro de texto **Login URL** (Dirección URL de inicio de sesión), pegue la **dirección URL del servicio de inicio de sesión único de SAML** que copió desde Azure Portal.
   
     c. En el cuadro de texto **Logout URL** (Dirección URL de cierre de sesión), pegue la **Dirección URL de cierre de sesión** que copió de Azure Portal.
- 
-    d. Seleccione **Activar inicio de sesión único**.
- 
-    e. Haga clic en **Guardar cambios**.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. Seleccione **Allow username/password login** (Permitir inicio de sesión con nombre de usuario/contraseña).
+
+    e. Seleccione la casilla de verificación **Require EXACT authentication context comparison** (Requerir comparación de contexto de autenticación EXACT).
+
+    f. Haga clic en **Guardar cambios**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -262,8 +260,6 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -277,4 +273,3 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-

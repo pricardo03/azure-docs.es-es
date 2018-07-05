@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 06/21/2018
 ms.author: maheshu
-ms.openlocfilehash: 408d86d2d79e827da654ad71f66972fe76fc2431
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2929f85b738171f7fb7f5b66af90e4e2ab54f5d0
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212502"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317177"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Windows Server a un dominio administrado
 Este artículo muestra cómo implementar una máquina virtual de Windows Server mediante Azure Portal. A continuación, muestra cómo unir la máquina virtual a un dominio administrado de Azure Active Directory Domain Services (Azure AD DS).
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>Paso 1: Creación de una máquina virtual de Windows Server
 Para crear una máquina virtual de Windows que esté unida a la red virtual en la que ha habilitado Azure AD DS, haga lo siguiente:
@@ -68,16 +70,16 @@ Para crear una máquina virtual de Windows que esté unida a la red virtual en l
 ## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Paso 2: Conéctese a la máquina virtual de Windows Server con la cuenta de administrador local
 A continuación, conéctese a la máquina virtual de Windows Server recién creada para unirla al dominio. Use las credenciales de administrador local que especificó cuando creó la máquina virtual.
 
-Para conectarse a la máquina virtual, haga lo siguiente:
+Realice los pasos siguientes para conectarse a la máquina virtual:
 
 1. En el panel **Información general**, seleccione **Conectar**.  
     Se crea y se descarga un archivo de Protocolo de Escritorio remoto (.rdp).
 
     ![Conexión a máquina virtual de Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-2. Para conectarse a la máquina virtual, abra el archivo RDP descargado. Si se le pide, seleccione **Conectar**.
-3. En el aviso de inicio de sesión, escriba sus **credenciales de administrador local**, que especificó cuando creó la máquina virtual (por ejemplo, *localhost\mahesh*).
-4. Si recibe una advertencia de certificado durante el proceso de inicio de sesión, proceda con la conexión seleccionando **Sí** o **Continuar**.
+2. Para conectarse a la máquina virtual, abra el archivo RDP descargado. Cuando se le pida, seleccione **Conectar**.
+3. Escriba sus **credenciales de administrador local**, que especificó cuando creó la máquina virtual (por ejemplo, *localhost\mahesh*).
+4. Si ve una advertencia de certificado durante el proceso de inicio de sesión, seleccione **Sí**o **Continuar** para conectarse.
 
 En este punto, debe tener la sesión iniciada en la máquina virtual de Windows recién creada con las credenciales de administrador local. El siguiente paso es unir la máquina virtual al dominio.
 
@@ -90,7 +92,7 @@ Para unir la máquina virtual de Windows Server al dominio administrado con Azur
 
     ![Ventana Administrador del servidor en la máquina virtual](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-3. En **Propiedades**, seleccione **Grupo de trabajo**. 
+3. En **Propiedades**, seleccione **Grupo de trabajo**.
 4. En la ventana **Propiedades del sistema**, seleccione **Cambiar** para unirse al dominio.
 
     ![Ventana Propiedades del sistema](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
@@ -99,7 +101,7 @@ Para unir la máquina virtual de Windows Server al dominio administrado con Azur
 
     ![Especificar el dominio al que se unirá](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
-6. Se le solicitará que especifique sus credenciales para unirse al dominio. Asegúrese de especificar las credenciales de un *usuario que pertenezca al grupo de administradores de Azure AD DC*. Solo los miembros de este grupo tienen privilegios para unir máquinas al dominio administrado.
+6. Se le solicitará que especifique sus credenciales para unirse al dominio. Use las credenciales de un *usuario que pertenezca al grupo de administradores de Azure AD DC*. Solo los miembros de este grupo tienen privilegios para unir máquinas al dominio administrado.
 
     ![Ventana de seguridad de Windows para especificar credenciales](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
@@ -123,30 +125,30 @@ Para unir la máquina virtual de Windows Server al dominio administrado con Azur
 
 ## <a name="troubleshoot-joining-a-domain"></a>Solución de problemas de unión a un dominio
 ### <a name="connectivity-issues"></a>Problemas de conectividad
-Si la máquina virtual no puede encontrar el dominio, realice una o varias de las siguientes acciones:
+Si la máquina virtual no puede encontrar el dominio, pruebe los siguientes pasos de solución de problemas:
 
-* Asegúrese de que la máquina virtual está conectada a la misma red virtual en la que habilitó Azure AD DS. Si no está conectada, la máquina virtual no podrá conectarse al dominio y, por tanto, no podrá unirse al dominio.
+* Compruebe que la máquina virtual está conectada a la misma red virtual en la que habilitó Azure AD DS. De lo contrario, la máquina virtual no podrá conectarse ni unirse al dominio.
 
-* Asegúrese de que la máquina virtual está en una red virtual que a su vez está conectada a la red virtual en la que habilitó Azure AD DS.
+* Compruebe que la máquina virtual está en una red virtual que a su vez está conectada a la red virtual en la que se habilitó Azure AD DS.
 
-* Trate de hacer ping al dominio con el nombre del dominio administrado (por ejemplo, *ping contoso100.com*). Si no puede hacerlo, trate de hacer ping a las direcciones IP del dominio que aparece en la página en la que habilitó Azure AD DS (por ejemplo, *ping 10.0.0.4*). Si puede hacer ping a la dirección IP, pero no al dominio, es posible que el DNS no esté configurado correctamente. Compruebe si las direcciones IP del dominio están configuradas como servidores DNS de la red virtual.
+* Trate de hacer ping al nombre de dominio DNS administrado (por ejemplo, *ping contoso100.com*). Si no puede hacerlo, trate de hacer ping a las direcciones IP del dominio que aparece en la página en la que habilitó Azure AD DS (por ejemplo, *ping 10.0.0.4*). Si puede hacer ping a la dirección IP pero no al dominio, DNS puede estar configurado incorrectamente. Compruebe si las direcciones IP del dominio están configuradas como servidores DNS de la red virtual.
 
 * Intente vaciar la memoria caché de resolución DNS en la máquina virtual (*ipconfig /flushdns*).
 
 Si se muestra una ventana que solicita credenciales para unirse al dominio, significa que no tiene problemas de conectividad.
 
 ### <a name="credentials-related-issues"></a>Problemas relacionados con las credenciales
-Si tiene problemas con las credenciales y no puede unirse al dominio, realice una o varias de las siguientes acciones:
+Si tiene problemas con las credenciales y no puede unirse al dominio, realice uno de los siguientes pasos para solucionar problemas:
 
-* Pruebe a usar el formato UPN para especificar las credenciales. El atributo SAMAccountName de su cuenta se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. Por lo tanto, el formato del atributo SAMAccountName de su cuenta puede que no sea el mismo que espera o que usa en su dominio local.
+* Pruebe a usar el formato UPN para especificar las credenciales. El atributo SAMAccountName de su cuenta se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. En estos casos, el formato del atributo SAMAccountName de su cuenta puede que no sea el mismo que espera o que usa en su dominio local.
 
 * Intente usar las credenciales de una cuenta de usuario que pertenezca al grupo *Administradores de AAD DC*.
 
-* Asegúrese de que ha [habilitado la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) según los pasos que se describen en la guía de introducción.
+* Compruebe que [habilitó la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) en el dominio administrado.
 
-* Asegúrese de que utiliza el UPN del usuario según está configurado en Azure AD (por ejemplo, *bob@domainservicespreview.onmicrosoft.com*) para iniciar sesión.
+* Compruebe que usó el UPN del usuario según está configurado en Azure AD (por ejemplo, *bob@domainservicespreview.onmicrosoft.com*) para iniciar sesión.
 
-* Asegúrese de haber esperado suficiente tiempo para que la sincronización de contraseña se complete, como se especifica en la guía de introducción.
+* Espere suficiente tiempo para que la sincronización de contraseña se complete, como se especifica en la guía de introducción.
 
 ## <a name="related-content"></a>Contenido relacionado
 * [Guía de introducción a Azure AD DS](active-directory-ds-getting-started.md)

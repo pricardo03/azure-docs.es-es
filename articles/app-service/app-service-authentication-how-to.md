@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763149"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337183"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalización de la autenticación y autorización en Azure App Service
 
@@ -89,7 +89,7 @@ Cuando el token de acceso del proveedor expira, debe volver a autenticar el usua
 
 - **Google**: anexe un parámetro de cadena de consulta `access_type=offline` en su llamada API `/.auth/login/google`. Si usa el SDK de Mobile Apps, puede agregar el parámetro a una de las sobrecargas `LogicAsync` (vea [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Tokens de actualización de Google)).
 - **Facebook**: no proporciona tokens de actualización. Los tokens de larga duración expiran en 60 días (vea [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiración y extensión de tokens de acceso de Facebook)).
-- **Twitter**: los tokens de acceso no expiran (vea [Twitter OAuth FAQ](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq) (Preguntas más frecuentes sobre Twitter OAuth)).
+- **Twitter**: los tokens de acceso no expiran (vea [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq) (Preguntas más frecuentes sobre Twitter OAuth)).
 - **Cuenta Microsoft**: cuando [defina la configuración de autenticación de Cuenta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), seleccione el ámbito `wl.offline_access`.
 - **Azure Active Directory**: en [https://resources.azure.com](https://resources.azure.com), realice los pasos siguientes:
     1. En la parte superior de la página, seleccione **Lectura y escritura**.
@@ -103,7 +103,7 @@ Cuando el token de acceso del proveedor expira, debe volver a autenticar el usua
 
     1. Haga clic en **Put**. 
 
-Una vez configurado el proveedor, puede ver si los tokens de actualización se encuentran en el almacén de tokens mediante una llamada a `/.auth/me`. 
+Una vez configurado el proveedor, puede [buscar el token de actualización y el tiempo de expiración para el token de acceso](#retrieve-tokens-in-app-code) en el almacén de tokens. 
 
 Para actualizar el token de acceso en cualquier momento, simplemente llame a `/.auth/refresh` en cualquier lenguaje. El fragmento de código siguiente utiliza jQuery para actualizar los tokens de acceso de un cliente de JavaScript.
 

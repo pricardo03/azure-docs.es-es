@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213148"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334333"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -60,6 +60,8 @@ Esta solución de aprovisionamiento de usuarios de Workday se encuentra actualme
 * Organizaciones que necesitan combinar y mover usuarios y dejarles que se sincronicen con uno o varios bosques, dominios o unidades organizativas de Active Directory en función de únicamente la información de cambio detectada en el módulo HCM de Workday (consulte [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
 * Organizaciones que usan Office 365 para el correo electrónico
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="planning-your-solution"></a>Planeamiento de la solución
 
@@ -543,14 +545,13 @@ En las siguientes secciones se describe cómo configurar una conexión entre Wor
 
    * Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que la dirección URL y las credenciales de Workday sean válidas en Workday.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Parte 2: configuración de las asignaciones de atributos 
 
 En esta sección configurará cómo fluyen los datos de los usuarios de Workday a Azure Active Directory para los usuarios que solo están en la nube.
 
-1.  En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize Workers to Azure AD** (Sincronizar trabajadores con Azure AD).
+1. En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize Workers to Azure AD** (Sincronizar trabajadores con Azure AD).
 
-2.   En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en Azure AD; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "Todos los usuarios de Workday". Filtros de ejemplo:
+2. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en Azure AD; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "Todos los usuarios de Workday". Filtros de ejemplo:
 
    * Ejemplo: ámbito de los usuarios que tengan los id. de trabajador comprendidos entre 1 000 000 y 2 000 000
 
@@ -566,9 +567,9 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
       * Operador: NO ES NULO
 
-3.  En el campo **Acciones del objeto de destino**, puede filtrar de forma global las acciones permitidas en Azure AD. **Crear** y **Actualizar** son las más habituales.
+3. En el campo **Acciones del objeto de destino**, puede filtrar de forma global las acciones permitidas en Azure AD. **Crear** y **Actualizar** son las más habituales.
 
-4.  En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de Workday a los atributos de Active Directory.
+4. En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de Workday a los atributos de Active Directory.
 
 5. Haga clic en una asignación de atributos existente para actualizarla o haga clic en **Agregar nueva asignación** en la parte inferior de la pantalla para agregar asignaciones nuevas. Las asignaciones de atributos admiten estas propiedades:
 
@@ -602,7 +603,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 ### <a name="part-3-start-the-service"></a>Parte 3: inicio del servicio
 Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
-1.  En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
+1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
 2. Haga clic en **Save**(Guardar).
 
@@ -612,7 +613,6 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
 5. Una vez finalizada la operación, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
-
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configuración de la reescritura de direcciones de correo electrónico en Workday
 Siga estas instrucciones para configurar la reescritura de direcciones de correo electrónico de los usuarios de Azure Active Directory a Workday.
 
@@ -620,21 +620,21 @@ Siga estas instrucciones para configurar la reescritura de direcciones de correo
 
 **Para configurar Workday en el aprovisionamiento de Active Directory:**
 
-1.  Vaya a <https://portal.azure.com>.
+1. Vaya a <https://portal.azure.com>.
 
-2.  En la barra de navegación de la izquierda, seleccione **Azure Active Directory**.
+2. En la barra de navegación de la izquierda, seleccione **Azure Active Directory**.
 
-3.  Seleccione **Enterprise Applications** (Aplicaciones empresariales) y **All Applications** (Todas las aplicaciones).
+3. Seleccione **Enterprise Applications** (Aplicaciones empresariales) y **All Applications** (Todas las aplicaciones).
 
-4.  Seleccione **Agregar una aplicación** y, luego, seleccione la categoría **Todos**.
+4. Seleccione **Agregar una aplicación** y, luego, seleccione la categoría **Todos**.
 
-5.  Busque **Workday Writeback** (Reescritura de Workday) y agregue esa aplicación desde la galería.
+5. Busque **Workday Writeback** (Reescritura de Workday) y agregue esa aplicación desde la galería.
 
-6.  Una vez que se haya agregado la aplicación y se muestre la pantalla de detalles de la aplicación, seleccione **Aprovisionamiento**.
+6. Una vez que se haya agregado la aplicación y se muestre la pantalla de detalles de la aplicación, seleccione **Aprovisionamiento**.
 
-7.  Cambie el **modo** **de aprovisionamiento** a **Automático**.
+7. Cambie el **modo** **de aprovisionamiento** a **Automático**.
 
-8.  Cumplimente la sección **Credenciales de administrador** del siguiente modo:
+8. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
    * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe tener un aspecto similar al siguiente: username@contoso4
 
@@ -646,24 +646,22 @@ Siga estas instrucciones para configurar la reescritura de direcciones de correo
 
    * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que la dirección URL y las credenciales de Workday sean válidas en Workday.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Parte 2: configuración de las asignaciones de atributos 
-
 
 En esta sección configurará cómo fluyen los datos de los usuarios de Workday a Active Directory.
 
-1.  En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize Azure AD Users to Workday** (Sincronizar usuarios de Azure AD con Workday).
+1. En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize Azure AD Users to Workday** (Sincronizar usuarios de Azure AD con Workday).
 
-2.  En el campo **Ámbito de objeto de origen** tiene la opción de filtrar los conjuntos de usuarios de Azure Active Directory que deben reescribir sus direcciones de correo electrónico en Workday. El ámbito predeterminado es "Todos los usuarios de Azure AD". 
+2. En el campo **Ámbito de objeto de origen** tiene la opción de filtrar los conjuntos de usuarios de Azure Active Directory que deben reescribir sus direcciones de correo electrónico en Workday. El ámbito predeterminado es "Todos los usuarios de Azure AD". 
 
-3.  En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de Workday a los atributos de Active Directory. De forma predeterminada, hay una asignación para la dirección de correo electrónico, aunque el identificador coincidente se debe actualizar para hacer coincidir los usuarios de Azure AD con sus entradas correspondientes de Workday. Un método de búsqueda de coincidencias conocido consiste en sincronizar el Id. de trabajador de Workday o el Id. de empleado con el atributo extensionAttribute1-15 en Azure AD y, luego, usar dicho atributo en Azure AD para hacer coincidir los usuarios en Workday.
+3. En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de Workday a los atributos de Active Directory. De forma predeterminada, hay una asignación para la dirección de correo electrónico, aunque el identificador coincidente se debe actualizar para hacer coincidir los usuarios de Azure AD con sus entradas correspondientes de Workday. Un método de búsqueda de coincidencias conocido consiste en sincronizar el Id. de trabajador de Workday o el Id. de empleado con el atributo extensionAttribute1-15 en Azure AD y, luego, usar dicho atributo en Azure AD para hacer coincidir los usuarios en Workday.
 
-4.  Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
+4. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
 ### <a name="part-3-start-the-service"></a>Parte 3: inicio del servicio
 Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
-1.  En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
+1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
 2. Haga clic en **Save**(Guardar).
 
@@ -672,7 +670,6 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 4. Los eventos de sincronización se pueden ver en la pestaña **Registros de auditoría**. **[Consulte la guía de creación de informes de aprovisionamiento para obtener instrucciones detalladas sobre cómo leer los registros de auditoría](../active-directory-saas-provisioning-reporting.md)**.
 
 5. Una vez finalizada la operación, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
-
 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Personalización de la lista de atributos de usuario de Workday
 Las aplicaciones de aprovisionamiento de Workday para Active Directory y Azure AD incluyen ambas una lista predeterminada de atributos de usuario de Workday que puede seleccionar. Sin embargo, estas listas no son exhaustivas. Workday admite muchos cientos de posibles atributos de usuario, que pueden ser estándar o exclusivos de su inquilino de Workday. 
@@ -799,15 +796,9 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
 
 * Se ha resuelto un problema anterior en el que los registros de auditoría no aparecían en los inquilinos de Azure AD ubicados en la Unión Europea. Sin embargo, se requiere la configuración adicional del agente para inquilinos de Azure AD en la Unión Europea. Para más información, consulte [Parte 3: configuración del agente de sincronización local](#Part 3: Configure the on-premises synchronization agent).
 
-
 ## <a name="managing-personal-data"></a>Administración de datos personales
 
 La solución de aprovisionamiento Workday para Active Directory requiere que se instale un agente de sincronización en un servidor unido a un dominio, y este agente crea registros en el registro de eventos de Windows, que puede contener información de identificación personal.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]  donde .../ hace referencia a las coincidencias de la estructura jerárquica del artículo.
-
-> [!NOTE]
-> Si está interesado en ver o eliminar datos personales, revise las orientaciones de Microsoft en la página [Solicitudes del titular de los datos de Windows para el RGPD](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows). Si desea obtener información general sobre el RGPD, consulte la [sección sobre RGPD del Portal de confianza de servicios](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

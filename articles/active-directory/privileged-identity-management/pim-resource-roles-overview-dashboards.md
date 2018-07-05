@@ -15,12 +15,12 @@ ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2f96f9c70d6a12aeddd51602bccd7f03f89ec7d1
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b53ae66d927dfacd1048a6bd0fa9abdb6f2a7862
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260875"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751159"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Uso de un panel de control de recursos para realizar una revisión de acceso
 
@@ -32,7 +32,7 @@ Puede usar un panel de recursos para realizar una revisión de acceso en Privile
 
 ![Captura de pantalla del panel de la vista de administrador, que muestra gráficos y tablas](media/azure-pim-resource-rbac/rbac-overview-top.png)
 
-![Captura de pantalla del panel de la vista de administrador, que muestra lista de datos](media/azure-pim-resource-rbac/role-settings.png)
+![Captura de pantalla del panel de la vista de administrador, que muestra listas de datos](media/azure-pim-resource-rbac/role-settings.png)
 
 La representación gráfica de las activaciones de rol de recursos de los últimos siete días. Estos datos se limitan al recurso seleccionado y muestran las activaciones de los roles más comunes (propietario, colaborador, administrador de acceso de usuario) y de la combinación de todos los roles.
 

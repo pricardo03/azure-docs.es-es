@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 223829df11bb1c9add811b40b55e47ee1fbb1fe4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301378"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751845"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security and Compliance Blueprint: entornos de procesamiento de pagos compatibles con PCI DSS
 
@@ -298,7 +298,7 @@ La implementación predeterminada está diseñada para proporcionar una línea d
 
 ## <a name="deploy-the-solution"></a>Implementación de la solución
 
-Los componentes para implementar esta solución están disponibles en el [repositorio de código del proyecto de PCI][code-repo]. Para implementar la arquitectura fundamental, debe ejecutar una serie de pasos mediante Microsoft PowerShell v5. Para conectarse al sitio web, debe proporcionar un nombre de dominio personalizado (por ejemplo, contoso.com). Esto se especifica mediante el conmutador `-customHostName` del paso 2. Para obtener más información, consulte [Comprar un nombre de dominio personalizado para Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). No es necesario tener un nombre de dominio personalizado para implementar y ejecutar la solución correctamente, pero no se podrá conectar al sitio web si quiere realizar alguna demostración.
+Los componentes para implementar esta solución están disponibles en el [repositorio de código del proyecto de PCI](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). Para implementar la arquitectura fundamental, debe ejecutar una serie de pasos mediante Microsoft PowerShell v5. Para conectarse al sitio web, debe proporcionar un nombre de dominio personalizado (por ejemplo, contoso.com). Esto se especifica a través de una solicitud guiada del usuario en el script principal de implementación, en el paso 2. Para obtener más información, consulte [Comprar un nombre de dominio personalizado para Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). No es necesario tener un nombre de dominio personalizado para implementar y ejecutar la solución correctamente, pero no se podrá conectar al sitio web si quiere realizar alguna demostración.
 
 Los scripts agregan usuarios de dominio al inquilino de Azure AD que especifique. Le recomendamos crear un nuevo inquilino de Azure AD para usarlo como prueba.
 
@@ -323,19 +323,17 @@ Le recomendamos que use una instalación nueva de PowerShell para implementar la
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    Si quiere obtener instrucciones de uso detalladas, consulte las [instrucciones de script: implementar y configurar recursos de Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    Si quiere obtener instrucciones de uso detalladas, consulte las [instrucciones de script: implementar y configurar recursos de Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Este script se puede utilizar para soporte técnico de la demostración de Contoso Web Store o para realizar los pasos iniciales de la implementación de un entorno que admita el cumplimiento de PCI. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    Para obtener instrucciones detalladas sobre la utilización de la implementación de la demostración de Contoso Web Store, consulte las [instrucciones de script: recursos de Azure de demostración de Contoso Web Store](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md). Este script se puede utilizar para implementar la infraestructura de la demostración de Contoso Web Store. 
+    
+    Estos scripts están pensados para utilizarse de manera independiente entre sí. Para comprender mejor la solución, se recomienda completar la implementación de la demostración para identificar los recursos necesarios de Azure que se requieren para el soporte técnico de la solución. 
     
 3. Registro y supervisión. Una vez implementada la solución, podrá abrir un área de trabajo de Log Analytics y usar las plantillas de ejemplo incluidas en el repositorio de la solución para mostrar cómo se configura un panel de supervisión. Para las plantillas de ejemplo, consulte la [carpeta omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Tenga en cuenta que se deben recopilar datos de Log Analytics para que las plantillas se implementen correctamente. Esta operación puede durar una hora o más en función de la actividad del sitio.
  

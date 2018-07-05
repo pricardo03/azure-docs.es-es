@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d22720e71788493d3663524f2b70783ba26b84d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b5fb84f8d8fbed7e1d4112e96b00af3e460661a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218176"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: integración de Azure Active Directory con Fluxx Labs
 
@@ -67,7 +66,7 @@ Para configurar la integración de Fluxx Labs en Azure AD, será preciso que agr
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
-    
+
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
@@ -103,7 +102,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Cuadro de diálogo Inicio de sesión único](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
 3. En la sección **Dominio y direcciones URL de Fluxx Labs**, lleve a cabo los pasos siguientes:
@@ -123,8 +122,8 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     |-------------|------------|
     | Producción | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Preproducción | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-        
-    > [!NOTE] 
+
+    > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Fluxx Labs](mailto:travis@fluxxlabs.com) para obtener estos valores.
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
@@ -135,7 +134,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de Fluxx Labs**, haga clic en **Configurar Fluxx Labs** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
+6. En la sección **Configuración de Fluxx Labs**, haga clic en **Configurar Fluxx Labs** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
     ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
@@ -148,9 +147,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 9. En el panel de administración, seleccione **Plug-ins** (Complementos) > **Integrations** (Integraciones) y, a continuación, seleccione **SAML SSO-(Disabled)** [SAML SSO-(Deshabilitado)]
 
     ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config2.png)
-    
+
 10. En la sección de atributos, realice los siguientes pasos:
-    
+
     ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
 
     a. Seleccione la casilla de verificación **SAML SSO** (SSO de SAML).
@@ -159,15 +158,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. En el cuadro de texto **Callback Path** (Ruta de acceso de devolución de llamada), escriba **/auth/saml/callback**.
 
-    d. En el cuadro de texto **Assertion Consumer Service Url(Single Sign-On URL)** [Dirección URL del servicio de consumidor de aserciones(Dirección URL de inicio de sesión único)], pegue el valor de **URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+    d. En el cuadro **Assertion Consumer Service Url (Single Sign-On URL)** (URL del Servicio de consumidor de aserciones (URL de inicio de sesión único)), escriba el valor de **Reply URL** (URL de respuesta) que introdujo en Azure Portal.
 
-    e. En el cuadro de texto **Audience(SP Entity ID)** [Audiencia(Identificador de entidad del proveedor)], pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que copió de Azure Portal.
+    e. En el cuadro de texto **Audience(SP Entity ID)** (Público (ID de entidad SP)), introduzca el valor **Identificador**, que introdujo en Azure Portal.
 
-    f. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades**.
+    f. En el cuadro de texto **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL del servicio de inicio de sesión único de SAML**, que ha copiado desde Azure Portal.
 
-    g. En el cuadro de texto **Name identifier Format** (Formato de identificador de nombre), escriba el valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades**.
 
-    h. Haga clic en **Save**(Guardar).
+    h. En el cuadro de texto **Name identifier Format** (Formato de identificador de nombre), escriba el valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+
+    i. Haga clic en **Save**(Guardar).
 
     > [!NOTE]
     > Una vez guardado el contenido, el campo aparecerá en blanco por seguridad, pero se ha guardado el valor en la configuración.
@@ -221,7 +222,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Fluxx Labs, deben 
     ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config4.png)
 
 4. En la sección **NEW PEOPLE** (Nueva persona), lleve a cabo estos pasos:
-    
+
     ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config5.png)
 
     a. Fluxx Labs usa la dirección de correo electrónico como identificador único para los inicios de sesión SSO. Rellene el campo **SSO UID** con la dirección de correo electrónico del usuario, que coincide con la dirección de correo electrónico que usan como inicio de sesión con SSO.
@@ -232,7 +233,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Fluxx Labs, deben 
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Fluxx Labs.
 
-![Asignación de rol de usuario][200] 
+![Asignación de rol de usuario][200]
 
 **Para asignar a Britta Simon a Fluxx Labs, siga estos pasos:**
 
@@ -257,7 +258,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.

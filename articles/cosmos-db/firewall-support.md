@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 0407d3c58fa63a11c8391f069039f7c35a15ceb7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c55f90b944038a0e4ca216a357fc30f4cf6a6ddc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294744"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317293"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Compatibilidad con un firewall de Azure Cosmos DB
 Para proteger los datos almacenados en una cuenta de base de datos de Azure Cosmos DB, este proporciona compatibilidad con un [modelo de autorización](https://msdn.microsoft.com/library/azure/dn783368.aspx) basado en secreto que utiliza un código seguro de autenticación de mensajes basado en hash (HMAC). Ahora, además del modelo de autorización basado en secreto, Azure Cosmos DB admite controles de acceso basado en IP orientado a directivas para la compatibilidad con el firewall de entrada. Este modelo es muy parecido a las reglas de firewall de un sistema de base de datos tradicional y proporciona un nivel de seguridad adicional para la cuenta de base de datos de Azure Cosmos DB. Con él, ahora puede configurar una cuenta de base de datos de Azure Cosmos DB para que solo sea accesible desde un conjunto aprobado de máquinas o servicios en la nube. El acceso a recursos de Azure Cosmos DB desde estos conjuntos aprobados de máquinas y servicios requerirá que el autor de la llamada presente un token de autorización válido.
@@ -56,10 +56,10 @@ El acceso a Azure Portal está habilitado de forma predeterminada cuando se camb
 
 ![Captura de pantalla que muestra cómo habilitar el acceso a Azure Portal](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-public-azure-datacenters-or-azure-paas-services"></a>Conexiones desde centros de datos públicos de Azure o servicios PaaS de Azure
+## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Conexiones desde centros de datos globales de Azure o servicios PaaS de Azure
 En Azure, los servicios PaaS como Azure Stream Analytics, Azure Functions y Azure App Service se usan junto a Azure Cosmos DB. Para permitir el acceso a una cuenta de base de datos de Azure Cosmos DB desde estos servicios cuyas direcciones IP no están disponibles, agregue la dirección IP 0.0.0.0 a la lista de direcciones IP permitidas asociada a dicha cuenta mediante programación. 
 
-El acceso a las conexiones proveniente de los centros de datos públicos de Azure se habilita de manera predeterminada cuando se cambia la configuración del Firewall a **Redes seleccionadas** en Azure Portal. 
+El acceso a las conexiones proveniente de los centros de datos globales de Azure se habilita de manera predeterminada cuando se cambia la configuración del Firewall a **Redes seleccionadas** en Azure Portal. 
 
 ![Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal](./media/firewall-support/enable-azure-services.png)
 
@@ -87,6 +87,25 @@ Al agregar instancias adicionales de máquina virtual al grupo, se les proporcio
 
 ## <a name="connections-from-the-internet"></a>Conexiones desde Internet
 Cuando se accede a una cuenta de base de datos de Azure Cosmos DB desde un equipo de Internet, se debe agregar la dirección IP del cliente o el intervalo de direcciones IP de la máquina a la lista de direcciones IP permitidas para dicha cuenta. 
+
+## <a name="using-azure-resource-manager-template-to-set-up-the-ip-access-control"></a>Uso de la plantilla de Azure Resource Manager para configurar el control de acceso de IP
+
+Agregue el siguiente JSON a su plantilla para configurar el control de acceso de la IP. La plantilla de Resource Manager para una cuenta tendrá el atributo ipRangeFilter que es una lista de intervalos IP, que deberá incluirse en una lista blanca.
+
+```json
+   {
+     "apiVersion": "2015-04-08",
+     "type": "Microsoft.DocumentDB/databaseAccounts",
+     "kind": "GlobalDocumentDB",
+     "name": "[parameters('databaseAccountName')]",
+     "location": "[resourceGroup().location]",
+     "properties": {
+     "databaseAccountOfferType": "Standard",
+     "name": "[parameters('databaseAccountName')]",
+     "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
+   }
+   }
+```
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Solución de problemas de la directiva de control de acceso IP
 ### <a name="portal-operations"></a>Operaciones del portal

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284971"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332721"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar
 
@@ -33,9 +33,10 @@ Las siguientes consideraciones se aplican al usar el comando Ejecutar:
 * El tiempo mínimo para ejecutar un script es de aproximadamente 20 segundos
 * Los script se ejecutan como sistema en Windows
 * Se puede ejecutar un script a la vez
-* No se admiten los scripts que solicitan información (modo interactivo).
 * No se puede cancelar un script en ejecución
 * El tiempo máximo que se puede ejecutar un script es de 90 minutos después de agotarse el tiempo de espera
+
+**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
 
 ## <a name="run-a-command"></a>Ejecución de un comando
 

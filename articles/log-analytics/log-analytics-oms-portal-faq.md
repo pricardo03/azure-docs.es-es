@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851206"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333639"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Preguntas comunes para la transición desde el portal de OMS a Azure Portal para los usuarios de Log Analytics
 Log Analytics inicialmente usaba su propio portal denominado portal de OMS para administrar su configuración y analizar los datos recopilados.  Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose.
@@ -39,7 +39,7 @@ En la lista de áreas de trabajo en Azure Portal, haga clic en **Agregar**.  Par
 ![Página de información general](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>¿Dónde está mi página de introducción?
-La pantalla principal del portal de OMS muestra los iconos para todas las soluciones de administración instaladas en el área de trabajo y todas las vistas personalizadas que haya creado. En Azure Portal, esto se conoce como la página **Introducción**. Desde el área de trabajo de Azure Portal, seleccione **Introducción** en el menú o haga clic en el botón **Introducción** en la página principal.
+La pantalla principal del portal de OMS muestra los iconos para todas las soluciones de administración instaladas en el área de trabajo y todas las vistas personalizadas que haya creado. Esta misma vista está disponible en Azure Portal. En el área de trabajo, seleccione **Workspace Summary** (Resumen del área de trabajo).
 
 ![Página de información general](media/log-analytics-new-portal/overview.png)
 

@@ -3,8 +3,8 @@ title: Uso de la solución Service Map en Azure | Microsoft Docs
 description: Service Map es una solución de Azure que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información para implementar la solución Mapa de servicio en su entorno y utilizarla en distintos escenarios.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,20 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887495"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751435"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
 
-En este artículo se describen todos los detalles sobre cómo utilizar la característica Mapa de servicio. Para más información acerca de cómo configurar Service Map y los agentes de incorporación, consulte [Configuración de la solución Service Map en Azure]( monitoring-service-map-configure.md).
+En este artículo se describen los detalles sobre la incorporación y utilización de Service Map. Para más información acerca de cómo configurar Service Map y los agentes de incorporación, consulte [Configuración de la solución Service Map en Azure]( monitoring-service-map-configure.md).
 
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
+
+## <a name="enable-service-map"></a>Habilitar Service Map
+1. En Azure Portal, haga clic en **+ Crear un recurso**.
+2. En la barra de búsqueda, escriba **Service Map** y presione **ENTRAR**.
+3. En la página de resultados de la búsqueda de Marketplace, seleccione **Service Map** en la lista.<br><br> ![Seleccionar la solución Service Map en los resultados de la búsqueda en Azure Marketplace](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. En el panel de información general de **Service Map**, revise los detalles de la solución y, a continuación, haga clic en **Crear** para comenzar el proceso de incorporación al área de trabajo de Log Analytics.<br><br> ![Incorpore la solución Service Map](./media/monitoring-service-map/service-map-onboard.png).
+5. En el panel **Configurar una solución**, seleccione un área de trabajo de Log Analytics existente o cree uno nuevo.  Para obtener más información sobre cómo crear una nueva área de trabajo, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md). Después de proporcionar la información necesaria, haga clic en **Crear**.  
+
+Mientras se comprueba la información y se implementa la solución, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. 
+
+Se puede obtener acceso a Service Map en Azure Portal desde el área de trabajo de Log Analytics, y seleccionar la opción **Soluciones** en el panel de la izquierda.<br><br> ![Seleccione la opción Soluciones en el área de trabajo](./media/monitoring-service-map/select-solution-from-workspace.png).<br> En la lista de soluciones, seleccione **ServiceMap(workspaceName)** y en la página de información general de la solución Service Map, haga clic en el mosaico de resumen Service Map.<br><br> ![Mosaico de resumen Service Map](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Haga que sus procesos de TI tengan en cuenta la dependencia
 
@@ -44,9 +57,10 @@ Si utiliza Azure Site Recovery y necesita ayuda para definir la secuencia de rec
 ### <a name="patch-management"></a>Administración de revisiones
 Service Map mejora el uso de la evaluación de actualizaciones del sistema mostrando qué otros equipos y servidores dependen del servicio, por lo que puede notificarles por adelantado antes de que afecte a los sistemas para la revisión. Service Map también mejora la administración de revisiones mostrando si los servicios están disponibles y conectados correctamente después de que se revisen y se reinicien.
 
-
 ## <a name="mapping-overview"></a>Información general de asignación
-Los agentes de Service Map recopilan información acerca de todos los procesos de conexión TCP en el servidor donde están instalados, así como los detalles de las conexiones entrantes y salientes para cada proceso. En la lista del panel izquierdo, puede seleccionar equipos o grupos con agentes de Service Map para visualizar sus dependencias durante un intervalo de tiempo especificado. Las asignaciones de dependencias de equipos se centran en un equipo concreto y muestran todos los equipos que son clientes directos de TCP o servidores de ese equipo.  Las asignaciones de grupos de equipos muestran conjuntos de servidores y sus dependencias.
+Los agentes de Service Map recopilan información acerca de todos los procesos de conexión TCP en el servidor donde están instalados, así como los detalles de las conexiones entrantes y salientes para cada proceso.
+
+En la lista del panel izquierdo, puede seleccionar equipos o grupos con agentes de Service Map para visualizar sus dependencias durante un intervalo de tiempo especificado. Las asignaciones de dependencias de equipos se centran en un equipo concreto y muestran todos los equipos que son clientes directos de TCP o servidores de ese equipo.  Las asignaciones de grupos de equipos muestran conjuntos de servidores y sus dependencias.
 
 ![Introducción a Mapa de servicio](media/monitoring-service-map/service-map-overview.png)
 
@@ -187,16 +201,13 @@ El panel **Resumen de proceso** proporciona información adicional sobre la cone
 ![Panel Resumen de proceso](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>Integración de alertas
-Service Map se integra con alertas de Log Analytics para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de **alertas del equipo** enumera las alertas.
+Service Map se integra con Alertas de Azure para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de **alertas del equipo** enumera las alertas.
 
 ![Panel de alertas del equipo](media/monitoring-service-map/machine-alerts.png)
 
 Para que Service Map muestre las alertas relevantes, cree una regla de alerta que se active para un equipo determinado. Para crear alertas apropiadas, realice estos pasos:
-- Incluya una cláusula para agrupar por equipo (por ejemplo, **by Computer interval 1minute**).
+- Incluya una cláusula para agrupar por equipo (por ejemplo, **by Computer interval 1 minute**).
 - Elija que se envíen alertas según las unidades métricas.
-
-![Configuración de alertas](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>Integración de eventos de registro
 Mapa de servicio se integra con Búsqueda de registros para mostrar un recuento de todos los eventos de registro disponibles para el servidor seleccionado durante el intervalo de tiempo elegido. Puede hacer clic en cualquier fila de la lista de recuentos de eventos para acceder a Búsqueda de registros y ver los eventos de registro individuales.
@@ -224,7 +235,7 @@ El panel de **seguimiento de cambios del equipo** muestra todos los cambios, con
 
 La imagen siguiente es una vista detallada de un evento ConfigurationChange que se puede ver después de seleccionar **Mostrar en Log Analytics**.
 
-![Evento ConfigurationChange](media/monitoring-service-map/configuration-change-event.png)
+![Evento ConfigurationChange](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>Integración del rendimiento
@@ -254,7 +265,6 @@ La integración de Service Map con Security and Audit es automática cuando amba
 En el panel **Machine Security** (Seguridad de la máquina) se muestran datos de la solución Security and Audit del servidor seleccionado. El panel muestra un resumen de los problemas de seguridad pendientes del servidor durante el intervalo de tiempo seleccionado. Al hacer clic en cualquiera de los problemas de seguridad, se profundiza en una búsqueda de registros para obtener detalles sobre ellos.
 
 ![Panel de seguridad del equipo](media/monitoring-service-map/machine-security.png)
-
 
 ## <a name="updates-integration"></a>Integración de actualizaciones
 La integración de Service Map con Update Management es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Anlaytics.

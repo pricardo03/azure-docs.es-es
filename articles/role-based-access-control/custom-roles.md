@@ -1,6 +1,6 @@
 ---
-title: Creación de roles personalizados para Azure RBAC | Microsoft Docs
-description: Aprenda a definir roles personalizados con Control de acceso basado en roles de Azure para administrar las identidades de manera más precisa en la suscripción de Azure.
+title: Roles personalizados en Azure | Microsoft Docs
+description: Obtenga información sobre cómo definir roles personalizados con el control de acceso basado en roles (RBAC) para la administración de acceso específico de recursos en Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,173 +11,106 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/12/2018
+ms.date: 06/12/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3baf616e448f1f6d5292161ae125502d72141940
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 074c305cb15bc1fb25dfa5cfc52dcce53b661a7e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266601"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36324190"
 ---
-# <a name="create-custom-roles-in-azure"></a>Creación de roles personalizados en Azure
+# <a name="custom-roles-in-azure"></a>Roles personalizados en Azure
 
-Si los [roles integrados](built-in-roles.md) no satisfacen sus necesidades de acceso específicas, puede crear sus propios roles personalizados. Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso. Los roles personalizados se almacenan en un inquilino de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada inquilino puede tener hasta 2000 roles personalizados. Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
+Si los [roles integrados](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso. Los roles personalizados se almacenan en un inquilino de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada inquilino puede tener hasta 2000 roles personalizados. Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
 
-En este artículo se describe un ejemplo de cómo empezar a crear roles personalizados con PowerShell y la CLI de Azure.
+## <a name="custom-role-example"></a>Ejemplo de rol personalizado
 
-## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Creación de un rol personalizado para abrir solicitudes de soporte técnico con PowerShell
-
-Para crear un rol personalizado, puede empezar con un rol integrado, editarlo y, a continuación, crear un nuevo rol. En este ejemplo, el rol integrado [Lector](built-in-roles.md#reader) se personaliza para crear un rol personalizado denominado "Nivel de acceso de incidencias de soporte técnico de lector". Permite al usuario ver todo el contenido de la suscripción y también abrir las solicitudes de soporte técnico.
-
-> [!NOTE]
-> Los únicos dos roles integrados que permiten a un usuario abrir solicitudes de soporte técnico son [Propietario](built-in-roles.md#owner) y [Colaborador](built-in-roles.md#contributor). Para que un usuario sea capaz de abrir solicitudes de soporte técnico, se le debe asignar un rol en el ámbito de la suscripción, ya que todas las solicitudes de soporte técnico se crean en función de una suscripción de Azure.
-
-En PowerShell, use el comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para exportar el rol [Lector](built-in-roles.md#reader) en formato JSON.
-
-```azurepowershell
-Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
-```
-
-A continuación, se muestra la salida JSON para el rol [Lector](built-in-roles.md#reader). Un rol típico se compone de tres secciones principales: `Actions`, `NotActions` y `AssignableScopes`. En la sección `Actions`, se enumeran todas las operaciones permitidas para el rol. Para excluir las operaciones de `Actions`, debe agregarlas a `NotActions`. Los permisos vigentes se calculan restando las operaciones de `NotActions` de las de `Actions`.
+A continuación, se muestra un rol personalizado para supervisar y reiniciar máquinas virtuales, tal como se muestra mediante Azure PowerShell:
 
 ```json
 {
-    "Name":  "Reader",
-    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "IsCustom":  false,
-    "Description":  "Lets you view everything, but not make any changes.",
-    "Actions":  [
-                    "*/read"
-                ],
-    "NotActions":  [
+  "Name":  "Virtual Machine Operator",
+  "Id":  "88888888-8888-8888-8888-888888888888",
+  "IsCustom":  true,
+  "Description":  "Can monitor and restart virtual machines.",
+  "Actions":  [
+                  "Microsoft.Storage/*/read",
+                  "Microsoft.Network/*/read",
+                  "Microsoft.Compute/*/read",
+                  "Microsoft.Compute/virtualMachines/start/action",
+                  "Microsoft.Compute/virtualMachines/restart/action",
+                  "Microsoft.Authorization/*/read",
+                  "Microsoft.Resources/subscriptions/resourceGroups/read",
+                  "Microsoft.Insights/alertRules/*",
+                  "Microsoft.Insights/diagnosticSettings/*",
+                  "Microsoft.Support/*"
+  ],
+  "NotActions":  [
 
-                   ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+                 ],
+  "DataActions":  [
+
+                  ],
+  "NotDataActions":  [
+
+                     ],
+  "AssignableScopes":  [
+                           "/subscriptions/{subscriptionId1}",
+                           "/subscriptions/{subscriptionId2}",
+                           "/subscriptions/{subscriptionId3}"
+                       ]
 }
 ```
 
-A continuación, puede editar la salida JSON para crear el rol personalizado. En este caso, para crear incidencias de soporte técnico, se debe agregar la operación `Microsoft.Support/*`. Cada operación está disponible desde un proveedor de recursos. Para obtener una lista de las operaciones para un proveedor de recursos, puede usar el comando [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) o consultar [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md).
+Después de crear un rol personalizado, aparece en Azure Portal con un icono de recurso naranja.
 
-Es obligatorio que el rol contenga los identificadores explícitos de las suscripciones en las que se utiliza. Los identificadores de suscripción aparecen en la sección `AssignableScopes`; en caso contrario, no podrá importar el rol en su suscripción.
+![Icono de rol personalizado](./media/custom-roles/roles-custom-role-icon.png)
 
-Por último, debe establecer la propiedad `IsCustom` en `true` para especificar que se trata de un rol personalizado.
+## <a name="steps-to-create-a-custom-role"></a>Pasos para crear un rol personalizado
 
-```json
-{
-    "Name":  "Reader support tickets access level",
-    "IsCustom":  true,
-    "Description":  "View everything in the subscription and also open support requests.",
-    "Actions":  [
-                    "*/read",
-                    "Microsoft.Support/*"
-                ],
-    "NotActions":  [
+1. Determinar los permisos que necesita
 
-                   ],
-    "AssignableScopes":  [
-                             "/subscriptions/11111111-1111-1111-1111-111111111111"
-                         ]
-}
-```
+    Cuando crea un rol personalizado, debe conocer las operaciones del proveedor de recursos que están disponibles para definir los permisos. Para ver la lista de las operaciones, puede usar los comandos [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
+    Para especificar los permisos para el rol personalizado, agregue las operaciones a las propiedades `actions` o `notActions` de la [definición del rol](role-definitions.md). Si dispone de operaciones de datos, agréguelas a las propiedades `dataActions` o `notDataActions`.
 
-Para crear el nuevo rol personalizado, puede usar el comando [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) y proporcionar el archivo de definición de roles JSON actualizado.
+2. Creación del rol personalizado
 
-```azurepowershell
-New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
-```
+    Puede usar Azure PowerShell o la CLI de Azure para crear el rol personalizado. Por lo general, empiece con un rol integrado existente y, a continuación, modifíquelo según sus necesidades. A continuación, use los comandos [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) o [az role definition create](/cli/azure/role/definition#az-role-definition-create) y para crear el rol personalizado. Para crear un rol personalizado, debe tener el permiso `Microsoft.Authorization/roleDefinitions/write` en todos los `assignableScopes`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 
-Tras ejecutar [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition), el nuevo rol personalizado ya está disponible en Azure Portal y se puede asignar a los usuarios.
+3. Probar el rol personalizado
 
-![Captura de pantalla de un rol importado en Azure Portal](./media/custom-roles/18.png)
+    Una vez que tenga el rol personalizado, tiene que probarlo para comprobar que funciona según lo esperado. Si es necesario realizar ajustes, puede actualizar el rol personalizado.
 
-![Captura de pantalla de la asignación de un rol importado personalizado a un usuario del mismo directorio](./media/custom-roles/19.png)
+## <a name="custom-role-properties"></a>Propiedades del rol personalizado
 
-![Captura de pantalla de los permisos de un rol importado personalizado](./media/custom-roles/20.png)
+Un rol personalizado tiene las siguientes propiedades.
 
-Los usuarios con este rol personalizado pueden crear nuevas solicitudes de soporte técnico.
+| Propiedad | Obligatorio | Escriba | DESCRIPCIÓN |
+| --- | --- | --- | --- |
+| `Name` | Sí | string | Nombre para mostrar del rol personalizado. Debe ser único para el inquilino. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 128. |
+| `Id` | Sí | string | El identificador exclusivo del rol personalizado. Para Azure PowerShell y la CLI de Azure, este identificador se genera automáticamente cuando se crea un rol. |
+| `IsCustom` | Sí | string | Indica si es un rol personalizado. Establecido en `true` para los roles personalizados. |
+| `Description` | Sí | string | Descripción del rol personalizado. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 1024. |
+| `Actions` | Sí | String[] | Matriz de cadenas que especifica las operaciones de administración que el rol permite realizar. Para obtener más información, consulte [actions](role-definitions.md#actions). |
+| `NotActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `actions` permitidas. Para obtener más información, consulte [notActions](role-definitions.md#notactions). |
+| `DataActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Para obtener más información, consulte [dataActions (versión preliminar)](role-definitions.md#dataactions-preview). |
+| `NotDataActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `dataActions` permitidas. Para obtener más información, consulte [notDataActions (versión preliminar)](role-definitions.md#notdataactions-preview). |
+| `AssignableScopes` | Sí | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. No se puede establecer en el ámbito raíz (`"/"`). Para obtener más información, consulte [assignableScopes](role-definitions.md#assignablescopes). |
 
-![Captura de pantalla de un rol personalizado que puede crear solicitudes de soporte técnico](./media/custom-roles/21.png)
+## <a name="assignablescopes-for-custom-roles"></a>assignableScopes para roles personalizados
 
-Los usuarios con este rol personalizado no pueden realizar otras acciones como crear máquinas virtuales o grupos de recursos.
+Al igual que los roles integrados, la propiedad `assignableScopes` especifica los ámbitos en los que el rol está disponible para la asignación. Sin embargo, no puede usar el ámbito raíz (`"/"`) en sus propios roles personalizados. Si lo intenta, se producirá un error de autorización. La propiedad `assignableScopes` de un rol personalizado también controla quién puede crear, eliminar, modificar o ver dicho rol.
 
-![Captura de pantalla de un rol personalizado que no puede crear máquinas virtuales](./media/custom-roles/22.png)
+| Task | Operación | DESCRIPCIÓN |
+| --- | --- | --- |
+| Creación o eliminación de un rol personalizado | `Microsoft.Authorization/ roleDefinition/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `assignableScopes` del rol personalizado pueden crear (o eliminar) roles personalizados para usar en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
+| Modificación de un rol personalizado | `Microsoft.Authorization/ roleDefinition/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `assignableScopes` del rol personalizado pueden modificar roles personalizados en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
+| Visualización de un rol personalizado | `Microsoft.Authorization/ roleDefinition/read` | Los usuarios que tienen acceso a esta operación en un ámbito pueden ver los roles personalizados que están disponibles para su asignación en ese ámbito. Todos los roles integrados permiten que los roles personalizados estén disponibles para la asignación. |
 
-![Captura de pantalla de un rol personalizado que no puede crear nuevos grupos de recursos](./media/custom-roles/23.png)
-
-## <a name="create-a-custom-role-to-open-support-requests-using-azure-cli"></a>Creación de un rol personalizado para abrir solicitudes de soporte técnico con la CLI de Azure
-
-Los pasos para crear un rol personalizado mediante la CLI de Azure son similares a los que se usan con PowerShell, excepto en que la salida JSON es diferente.
-
-En este ejemplo, puede empezar con el rol integrado [Lector](built-in-roles.md#reader). Para enumerar las acciones del rol [Lector](built-in-roles.md#reader), use el comando [az role definition list](/cli/azure/role/definition#az_role_definition_list).
-
-```azurecli
-az role definition list --name "Reader" --output json
-```
-
-```json
-[
-  {
-    "additionalProperties": {},
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "Lets you view everything, but not make any changes.",
-    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "permissions": [
-      {
-        "actions": [
-          "*/read"
-        ],
-        "additionalProperties": {},
-        "notActions": [],
-      }
-    ],
-    "roleName": "Reader",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-  }
-]
-```
-
-Cree un archivo JSON con el formato siguiente. Se ha agregado la operación `Microsoft.Support/*` a las secciones `Actions` para que este usuario pueda abrir solicitudes de soporte técnico mientras continúa siendo un lector. Debe agregar el identificador de suscripción en el que se usará este rol en la sección `AssignableScopes`.
-
-```json
-{
-    "Name":  "Reader support tickets access level",
-    "IsCustom":  true,
-    "Description":  "View everything in the subscription and also open support requests.",
-    "Actions":  [
-                    "*/read",
-                    "Microsoft.Support/*"
-                ],
-    "NotActions":  [
-
-                   ],
-    "AssignableScopes": [
-                            "/subscriptions/11111111-1111-1111-1111-111111111111"
-                        ]
-}
-```
-
-Para crear un nuevo rol personalizado, use el comando [az role definition create](/cli/azure/role/definition#az_role_definition_create).
-
-```azurecli
-az role definition create --role-definition ~/roles/rbacrole1.json
-```
-
-El nuevo rol ahora está disponible en Azure Portal y el proceso para usarlo es el mismo que en la sección anterior de PowerShell.
-
-![Captura de pantalla de Azure Portal de un rol personalizado creado con la CLI 1.0](./media/custom-roles/26.png)
-
-
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
+- [Creación de roles personalizados con Azure PowerShell](custom-roles-powershell.md)
+- [Creación de roles personalizados con la CLI de Azure](custom-roles-cli.md)
 - [Descripción de definiciones de roles](role-definitions.md)
-- [Administración del control de acceso basado en rol con Azure PowerShell](role-assignments-powershell.md)
-- [Administración del control de acceso basado en rol con la CLI de Azure](role-assignments-cli.md)
-- [Administración del control de acceso basado en rol con la API REST](role-assignments-rest.md)
