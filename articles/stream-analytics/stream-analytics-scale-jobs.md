@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34652549"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalado de un trabajo de Azure Stream Analytics para incrementar el rendimiento
 En este artículo se muestra cómo ajustar una consulta de Stream Analytics para aumentar la capacidad de procesamiento de trabajos de Stream Analytics. Puede usar la guía siguiente para escalar un trabajo para administrar una carga más elevada y aprovecha más recursos del sistema, como más ancho de banda, más recursos de CPU y más memoria.
@@ -76,74 +77,8 @@ Para ciertos casos de uso de ISV, donde resulta más rentable procesar los datos
 > Este patrón de consulta a menudo tiene una gran cantidad de subconsultas y resulta una topología muy grande y compleja. Es posible que el controlador del trabajo no pueda controlar una topología de ese tamaño. Como regla general, manténgase bajo los 40 inquilinos por trabajo de 1 SU y 60 inquilinos en el caso de trabajos de 3 SU y 6 SU. Cuando se excede la capacidad del controlador, el trabajo no se iniciará correctamente.
 
 
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Un ejemplo de rendimiento de Stream Analytics a gran escala
-Para ayudarle a comprender cómo se escalan los trabajos de Stream Analytics, se ha realizado un experimento basado en un dispositivo Raspberry Pi. Este experimento permite ver los efectos sobre la capacidad de procesamiento de varias unidades de streaming y particiones.
 
-En este escenario, el dispositivo envía datos de sensores (clientes) a un centro de eventos. Stream Analytics procesa los datos y envía una alerta o estadísticas como salida a otro centro de procesamiento. 
-
-El cliente envía los datos del sensor en formato JSON. La salida de datos también está en formato JSON. Los datos tienen este aspecto:
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-La siguiente consulta se utiliza para enviar una alerta cuando se apaga una luz:
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>Medición de la capacidad de procesamiento
-
-En este contexto, la capacidad de procesamiento es la cantidad de datos de entrada que procesa Stream Analytics en una cantidad fija de tiempo. (Se mide durante 10 minutos). Para conseguir la mejor capacidad de procesamiento de los datos de entrada, tanto la entrada de flujo de datos como la consulta se han particionado. También se incluye **COUNT()** en la consulta para medir el número de eventos de entrada procesados. Para asegurarse de que el trabajo no está esperando simplemente a que lleguen los eventos de entrada, cada partición del centro de eventos de entrada se ha cargado previamente con aproximadamente 300 MB.
-
-La siguiente tabla muestra los resultados se observan al aumentar el número de unidades de streaming y los correspondientes recuentos de particiones en Event Hubs.  
-
-<table border="1">
-<tr><th>Particiones de entrada</th><th>Particiones de salida</th><th>Unidades de streaming</th><th>Capacidad de procesamiento sostenida
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4,06 MB/s</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8,06 MB/s</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38,32 MB/s</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172,67 MB/s</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454,27 MB/s</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609,69 MB/s</td>
-</tr>
-</table>
-
-Y en el gráfico siguiente se muestra una visualización de la relación entre unidades de streaming y capacidad de procesamiento.
-
-![IMG.Stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
-
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes

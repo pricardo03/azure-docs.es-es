@@ -3,21 +3,22 @@ title: Automatizar informes personalizados con datos de Azure Application Insigh
 description: Automatizar informes personalizados diarios, semanales o mensuales con datos de Azure Application Insights
 services: application-insights
 documentationcenter: ''
-author: sdash
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: sdash
-ms.openlocfilehash: 804e8c7a43d1ab16d11b6075be44599b33b46a3e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.topic: conceptual
+ms.date: 06/25/2018
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: c8cff54c67ab2c9c3d09f9261617b6312cc4434a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072662"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025565"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
@@ -41,7 +42,7 @@ Puede [consultar mediante programación datos de Application Insights](https://d
 
 * [Automatizar informes con Microsoft Flow](app-insights-automate-with-flow.md)
 * [Automatizar informes con Logic Apps](automate-with-logic-apps.md)
-* Use la plantilla "Resumen programado de Application Insights" de [Azure Functions](https://azure.microsoft.com/services/functions/) en el escenario Supervisión. Esta función usa SendGrid para enviar el correo electrónico. 
+* Use la plantilla "Resumen programado de Application Insights" de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) en el escenario Supervisión. Esta función usa SendGrid para enviar el correo electrónico. 
 
     ![Plantilla de Azure Functions](./media/automate-custom-reports/azure-function-template.png)
 
@@ -76,12 +77,90 @@ availabilityResults
 | project TotalRequests, FailedRequests, RequestsDuration, TotalDependencies, FailedDependencies, DependenciesDuration, TotalViews, TotalExceptions, OverallAvailability, AvailabilityDuration
 ```
 
-  
+## <a name="application-insights-scheduled-digest-report"></a>Informe de resumen programado de Application Insights
+
+1. En Azure Portal, seleccione **Crear un recurso** > **Compute** > **Function App**.
+
+   ![Captura de pantalla de la creación de una aplicación Function App de recursos de Azure](./media/automate-custom-reports/function-app-01.png)
+
+2. Escriba la información correspondiente para la aplicación y seleccione _Crear_. (La _activación_ de Application Insights solo es necesaria si quiere supervisar la nueva aplicación Function App con Application Insights).
+
+   ![Captura de pantalla de la configuración para crear una aplicación Function App de recursos de Azure](./media/automate-custom-reports/function-app-02.png)
+
+3. Una vez que la nueva aplicación Function App haya completado la implementación, seleccione **Ir al recurso**.
+
+4. Seleccione **Nueva función**.
+
+   ![Captura de pantalla para crear una nueva función](./media/automate-custom-reports/function-app-03.png)
+
+5. Seleccione la **_plantilla de resumen programada de Application Insights_**.
+
+   ![Captura de pantalla de la plantilla de Application Insights de la nueva función](./media/automate-custom-reports/function-app-04.png)
+
+6. Escriba una dirección de correo electrónico del destinatario correcta para el informe y seleccione **Crear**.
+
+   ![Captura de pantalla de configuración de la función](./media/automate-custom-reports/function-app-05.png)
+
+7. Seleccione **Function App** > **Características de la plataforma** > **Configuración de la aplicación**.
+
+    ![Captura de pantalla de configuración de la aplicación de función de Azure](./media/automate-custom-reports/function-app-07.png)
+
+8. Cree tres nuevas configuraciones de la aplicación con los valores correspondientes adecuados ``AI_APP_ID``, ``AI_APP_KEY`` y ``SendGridAPI``. Seleccione **Guardar**.
+
+     ![Captura de pantalla de interfaz de integración de la función](./media/automate-custom-reports/function-app-08.png)
+    
+    (Los valores AI_ pueden encontrarse en el acceso de API para el recurso de Application Insights sobre el cual quiere informar. Si no tiene ninguna clave de API de Application Insights, existe la opción **Crear clave de API**).
+    
+    * AI_APP_ID = Id. de aplicación
+    * AI_APP_KEY = Clave de API
+    * SendGridAPI = Clave de API de SendGrid
+
+    > [!NOTE]
+    > Si no tiene ninguna cuenta en SendGrid, puede crear una. Puede encontrar la documentación de SendGrid para Azure Functions [aquí](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid). Si solo quiere una explicación básica sobre cómo configurar SendGrid y generar una clave de API, se proporciona una al final de este artículo. 
+
+9. Seleccione **Integrar** y, en Salidas, haga clic en **SendGrid ($return)**.
+
+     ![Captura de pantalla de salida](./media/automate-custom-reports/function-app-09.png)
+
+10. En **SendGridAPI Key App Setting** (Configuración de la aplicación de clave de SendGridAPI), seleccione la configuración de la aplicación recién creada para **SendGridAPI**.
+
+     ![Captura de pantalla de la ejecución de Function App](./media/automate-custom-reports/function-app-010.png)
+
+11. Ejecute y pruebe la aplicación de Function App.
+
+     ![Captura de pantalla de la prueba](./media/automate-custom-reports/function-app-11.png)
+
+12. Compruebe su correo electrónico para confirmar que el mensaje se ha enviado o recibido correctamente.
+
+     ![Captura de pantalla de la línea del asunto del correo electrónico](./media/automate-custom-reports/function-app-12.png)
+
+## <a name="sendgrid-with-azure"></a>SendGrid con Azure
+
+Estos pasos se aplican solo si aún no ha configurado ninguna cuenta de SendGrid.
+
+1. En Azure Portal, seleccione **Crear un recurso**, busque **SendGrid Email Delivery** (Entrega de correo electrónico de SendGrid) > haga clic en **Crear** > y rellene las instrucciones de creación específicas de SendGrid. 
+
+     ![Captura de pantalla para crear recursos de SendGrid](./media/automate-custom-reports/function-app-13.png)
+
+2. Una vez creada, en Cuentas de SendGrid, seleccione **Administrar**.
+
+     ![Captura de pantalla de configuración de la clave de API](./media/automate-custom-reports/function-app-14.png)
+
+3. Esto iniciará el sitio de SendGrid. Seleccione **Configuración** > **Claves de API**.
+
+     ![Captura de pantalla de creación y visualización de la aplicación de claves de API](./media/automate-custom-reports/function-app-15.png)
+
+4. Cree una clave de API > elija **Create & View** (Crear y ver) (compruebe la documentación de SendGrid sobre el acceso restringido para determinar qué nivel de permisos es adecuado para su clave de API. A continuación, se selecciona el acceso total solo como ejemplo).
+
+   ![Captura de pantalla de acceso total](./media/automate-custom-reports/function-app-16.png)
+
+5. Copie la clave completa. Este es el valor que necesita como valor de SendGridAPI en la configuración de Function App.
+
+   ![Captura de pantalla de la copia de la clave de API](./media/automate-custom-reports/function-app-17.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre cómo crear [consultas de análisis](app-insights-analytics-using.md).
-- Obtenga más información sobre [consultar mediante programación los datos de Application Insights](https://dev.applicationinsights.io/).
-- Más información acerca de [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
-- Más información sobre [Microsoft Flow](https://ms.flow.microsoft.com).
-
-
+* Más información sobre cómo crear [consultas de análisis](app-insights-analytics-using.md).
+* Obtenga más información sobre [consultar mediante programación los datos de Application Insights](https://dev.applicationinsights.io/).
+* Más información acerca de [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+* Más información sobre [Microsoft Flow](https://ms.flow.microsoft.com).

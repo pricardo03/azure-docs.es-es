@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b8a35e19628ebbe75d3f1890a6d64ab777519698
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6577b8b2c99773887ecdac865684f6cb4c9d3b9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621554"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051583"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Movimiento de datos desde HDFS local mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-hdfs-connector.md)
-> * [Versión 2: versión preliminar](../connector-hdfs.md)
+> * [Versión 1](data-factory-hdfs-connector.md)
+> * [Versión 2 (versión actual)](../connector-hdfs.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [HDFS connector in V2](../connector-hdfs.md) (Conector de HDFS en V2).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [HDFS connector in V2](../connector-hdfs.md) (Conector HDFS en V2).
 
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de HDFS local. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 

@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642655"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062286"
 ---
+# <a name="description-of-the-different-upgrade-policies"></a>Descripción de las diferentes directivas de actualización
+
+- **Dinámica**: los cambios en una configuración dinámica no provocan ningún reinicio de procesos de Service Fabric ni del host de servicios. 
+- **Estática**: los cambios en una configuración estática harán que se reinicie el nodo de Service Fabric para consumar el cambio. Los servicios de los nodos se reiniciarán.
+- **NotAllowed**: no se puede modificar esta configuración. Cambiar esta configuración requiere que se destruya el clúster y se cree uno nuevo. 
+
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
 

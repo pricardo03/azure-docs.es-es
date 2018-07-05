@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8013a221f818b2aca8163e5f5195cae17c8a6a95
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232148"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063517"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -263,21 +263,217 @@ Para más información sobre los puertos que necesita Hybrid Runbook Worker, con
 
 ## <a name="search-logs"></a>Búsqueda de registros
 
-Además de los detalles que se proporcionan en Azure Portal, se pueden realizar búsquedas en los registros. En el panel **Change Tracking**, seleccione **Log Analytics**. Se abre el panel **Búsqueda de registros**.
+Además de los detalles que se proporcionan en Azure Portal, se pueden realizar búsquedas en los registros. En la página de la solución, seleccione **Log Analytics**. Se abre el panel **Búsqueda de registros**.
+
+También puede aprender a personalizar las consultas o a usarlas de diferentes clientes, entre otras cosas visitando: [Documentación de la API de búsqueda de Log Analytics](
+https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Consultas de ejemplo
 
-En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para los registros de actualizaciones recopilados por esta solución:
+En las secciones siguientes se proporcionan ejemplos de consultas de registros para los registros de actualizaciones recopilados por esta solución:
 
-| Consultar | DESCRIPCIÓN |
-| --- | --- |
-|Actualizar</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Todos los equipos con actualizaciones pendientes</br>Agregue uno de los siguientes para limitar el sistema operativo:</br>OSType != "Linux"</br>OSType == "Linux" |
-| Actualizar</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; where Computer == "ContosoVM1.contoso.com"</br>&#124; project Computer, Title, KBID, Product, PublishedDate |Actualizaciones pendientes para un equipo específico (reemplace el valor por el nombre del equipo)|
-| Evento</br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")</br>&#124; where UpdateState == "Needed" and Optional == false </br>&#124; distinct Computer)) |Eventos de error para las máquinas que tienen pendientes actualizaciones de seguridad o críticas necesarias |
-| Actualizar</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; distinct Title |Actualizaciones distintivas pendientes en todos los equipos |
-| UpdateRunProgress</br>&#124; where InstallationStatus == "failed" </br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Equipos con actualizaciones con error en la ejecución de la actualización</br>Agregue uno de los siguientes para limitar el sistema operativo:</br>OSType = "Windows"</br>OSType == "Linux" |
-| Actualizar</br>&#124; where OSType == "Linux"</br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")</br>&#124; summarize AggregatedValue = count() by Computer |Lista de todas las máquinas Linux que tienen un paquete de actualización disponible que soluciona puntos vulnerables de seguridad o críticos |
-| UpdateRunProgress</br>&#124; where UpdateRunName == "DeploymentName"</br>&#124; summarize AggregatedValue = count() by Computer|Equipos que se actualizaron en esta ejecución de la actualización (reemplace el valor por el nombre de la implementación de actualizaciones) |
+#### <a name="single-azure-vm-assessment-queries-windows"></a>Consultas individuales de evaluación de Azure VM (Windows)
+
+Reemplace el valor de VMUUID con el GUID de la máquina virtual en la que va a realizar la consulta. Para encontrar el VMUUID que se debe usar, ejecute la siguiente consulta en Log Analytics: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+
+##### <a name="missing-updates-summary"></a>Falta resumen de actualizaciones
+
+```
+Update
+| where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"b08d5afa-1471-4b52-bd95-a44fea6e4ca8"
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
+| where UpdateState=~"Needed" and Approved!=false
+| summarize by UpdateID, Classification
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+```
+
+##### <a name="missing-updates-list"></a>Falta lista de actualizaciones
+
+```
+Update
+| where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"8bf1ccc6-b6d3-4a0b-a643-23f346dfdf82"
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, KBID, PublishedDate, Approved) by Computer, SourceComputerId, UpdateID
+| where UpdateState=~"Needed" and Approved!=false
+| project-away UpdateState, Approved, TimeGenerated
+| summarize computersCount=dcount(SourceComputerId, 2), displayName=any(Title), publishedDate=min(PublishedDate), ClassificationWeight=max(iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1))) by id=strcat(UpdateID, "_", KBID), classification=Classification, InformationId=strcat("KB", KBID), InformationUrl=iff(isnotempty(KBID), strcat("https://support.microsoft.com/kb/", KBID), ""), osType=2
+| sort by ClassificationWeight desc, computersCount desc, displayName asc
+| extend informationLink=(iff(isnotempty(InformationId) and isnotempty(InformationUrl), toobject(strcat('{ "uri": "', InformationUrl, '", "text": "', InformationId, '", "target": "blank" }')), toobject('')))
+| project-away ClassificationWeight, InformationId, InformationUrl
+```
+
+#### <a name="single-azure-vm-assessment-queries-linux"></a>Consultas individuales de evaluación de Azure VM (Linux)
+
+En algunas distribuciones de Linux hay una falta de concordancia de la [codificación Endiannes](https://en.wikipedia.org/wiki/Endianness) con el valor de VMUUID que proviene de Azure Resource Manager y lo que se almacena en Log Analytics. La siguiente consulta busca una concordancia en cualquier codificación Endiannes. Reemplace los valores de VMUUID por el formato de big-endian y little-endian del GUID para devolver correctamente los resultados. Para encontrar el VMUUID que se debe usar, ejecute la siguiente consulta en Log Analytics: `Update | where Computer == "<machine name>"
+| summarize by Computer, VMUUID`
+
+##### <a name="missing-updates-summary"></a>Falta resumen de actualizaciones
+
+```
+Update
+| where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by Computer, SourceComputerId, Product, ProductArch
+| where UpdateState=~"Needed"
+| summarize by Product, ProductArch, Classification
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
+```
+
+##### <a name="missing-updates-list"></a>Falta lista de actualizaciones
+
+```
+Update
+| where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, BulletinUrl, BulletinID) by Computer, SourceComputerId, Product, ProductArch
+| where UpdateState=~"Needed"
+| project-away UpdateState, TimeGenerated
+| summarize computersCount=dcount(SourceComputerId, 2), ClassificationWeight=max(iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1))) by id=strcat(Product, "_", ProductArch), displayName=Product, productArch=ProductArch, classification=Classification, InformationId=BulletinID, InformationUrl=tostring(split(BulletinUrl, ";", 0)[0]), osType=1
+| sort by ClassificationWeight desc, computersCount desc, displayName asc
+| extend informationLink=(iff(isnotempty(InformationId) and isnotempty(InformationUrl), toobject(strcat('{ "uri": "', InformationUrl, '", "text": "', InformationId, '", "target": "blank" }')), toobject('')))
+| project-away ClassificationWeight, InformationId, InformationUrl
+
+```
+
+#### <a name="multi-vm-assessment-queries"></a>Consultas de evaluación de máquinas virtuales múltiples
+
+##### <a name="computers-summary"></a>Resumen de equipos
+
+```
+Heartbeat
+| where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
+| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+| where Solutions has "updates"
+| distinct SourceComputerId
+| join kind=leftouter
+(
+    Update
+    | where TimeGenerated>ago(14h) and OSType!="Linux"
+    | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Approved, Optional, Classification) by SourceComputerId, UpdateID
+    | distinct SourceComputerId, Classification, UpdateState, Approved, Optional
+    | summarize WorstMissingUpdateSeverity=max(iff(UpdateState=~"Needed" and (Optional==false or Classification has "Critical" or Classification has "Security") and Approved!=false, iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1)), 0)) by SourceComputerId
+)
+on SourceComputerId
+| extend WorstMissingUpdateSeverity=coalesce(WorstMissingUpdateSeverity, -1)
+| summarize computersBySeverity=count() by WorstMissingUpdateSeverity
+| union (Heartbeat
+| where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
+| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+| where Solutions has "updates"
+| distinct SourceComputerId
+| join kind=leftouter
+(
+    Update
+    | where TimeGenerated>ago(5h) and OSType=="Linux"
+    | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by SourceComputerId, Product, ProductArch
+    | distinct SourceComputerId, Classification, UpdateState
+    | summarize WorstMissingUpdateSeverity=max(iff(UpdateState=~"Needed", iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1)), 0)) by SourceComputerId
+)
+on SourceComputerId
+| extend WorstMissingUpdateSeverity=coalesce(WorstMissingUpdateSeverity, -1)
+| summarize computersBySeverity=count() by WorstMissingUpdateSeverity)
+| summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
+| summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeeedOtherUpdatesCount=sum(computersNeeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
+| extend allComputersCount=assessedComputersCount+notAssessedComputersCount
+
+
+```
+
+##### <a name="missing-updates-summary"></a>Falta resumen de actualizaciones
+
+```
+Update
+| where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
+| where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
+| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+| where Solutions has "updates"
+| distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by Computer, SourceComputerId, Product, ProductArch
+| where UpdateState=~"Needed"
+| summarize by Product, ProductArch, Classification
+| union (Update
+| where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((Heartbeat
+| where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
+| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+| where Solutions has "updates"
+| distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
+| where UpdateState=~"Needed" and Approved!=false
+| summarize by UpdateID, Classification )
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+```
+
+##### <a name="computers-list"></a>Lista de equipos
+
+```
+Heartbeat
+| where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
+| summarize arg_max(TimeGenerated, Solutions, Computer, ResourceId, ComputerEnvironment, VMUUID) by SourceComputerId
+| where Solutions has "updates"
+| extend vmuuId=VMUUID, azureResourceId=ResourceId, osType=1, environment=iff(ComputerEnvironment=~"Azure", 1, 2), scopedToUpdatesSolution=true, lastUpdateAgentSeenTime=""
+| join kind=leftouter
+(
+    Update
+    | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
+    | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
+    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+    | where Solutions has "updates"
+    | distinct SourceComputerId))
+    | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Product, Computer, ComputerEnvironment) by SourceComputerId, Product, ProductArch
+    | summarize Computer=any(Computer), ComputerEnvironment=any(ComputerEnvironment), missingCriticalUpdatesCount=countif(Classification has "Critical" and UpdateState=~"Needed"), missingSecurityUpdatesCount=countif(Classification has "Security" and UpdateState=~"Needed"), missingOtherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security" and UpdateState=~"Needed"), lastAssessedTime=max(TimeGenerated), lastUpdateAgentSeenTime="" by SourceComputerId
+    | extend compliance=iff(missingCriticalUpdatesCount > 0 or missingSecurityUpdatesCount > 0, 2, 1)
+    | extend ComplianceOrder=iff(missingCriticalUpdatesCount > 0 or missingSecurityUpdatesCount > 0 or missingOtherUpdatesCount > 0, 1, 3)
+)
+on SourceComputerId
+| project id=SourceComputerId, displayName=Computer, sourceComputerId=SourceComputerId, scopedToUpdatesSolution=true, missingCriticalUpdatesCount=coalesce(missingCriticalUpdatesCount, -1), missingSecurityUpdatesCount=coalesce(missingSecurityUpdatesCount, -1), missingOtherUpdatesCount=coalesce(missingOtherUpdatesCount, -1), compliance=coalesce(compliance, 4), lastAssessedTime, lastUpdateAgentSeenTime, osType=1, environment=iff(ComputerEnvironment=~"Azure", 1, 2), ComplianceOrder=coalesce(ComplianceOrder, 2)
+| union(Heartbeat
+| where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
+| summarize arg_max(TimeGenerated, Solutions, Computer, ResourceId, ComputerEnvironment, VMUUID) by SourceComputerId
+| where Solutions has "updates"
+| extend vmuuId=VMUUID, azureResourceId=ResourceId, osType=2, environment=iff(ComputerEnvironment=~"Azure", 1, 2), scopedToUpdatesSolution=true, lastUpdateAgentSeenTime=""
+| join kind=leftouter
+(
+    Update
+    | where TimeGenerated>ago(14h) and OSType!="Linux" and SourceComputerId in ((Heartbeat
+    | where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
+    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+    | where Solutions has "updates"
+    | distinct SourceComputerId))
+    | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, Optional, Approved, Computer, ComputerEnvironment) by Computer, SourceComputerId, UpdateID
+    | summarize Computer=any(Computer), ComputerEnvironment=any(ComputerEnvironment), missingCriticalUpdatesCount=countif(Classification has "Critical" and UpdateState=~"Needed" and Approved!=false), missingSecurityUpdatesCount=countif(Classification has "Security" and UpdateState=~"Needed" and Approved!=false), missingOtherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security" and UpdateState=~"Needed" and Optional==false and Approved!=false), lastAssessedTime=max(TimeGenerated), lastUpdateAgentSeenTime="" by SourceComputerId
+    | extend compliance=iff(missingCriticalUpdatesCount > 0 or missingSecurityUpdatesCount > 0, 2, 1)
+    | extend ComplianceOrder=iff(missingCriticalUpdatesCount > 0 or missingSecurityUpdatesCount > 0 or missingOtherUpdatesCount > 0, 1, 3)
+)
+on SourceComputerId
+| project id=SourceComputerId, displayName=Computer, sourceComputerId=SourceComputerId, scopedToUpdatesSolution=true, missingCriticalUpdatesCount=coalesce(missingCriticalUpdatesCount, -1), missingSecurityUpdatesCount=coalesce(missingSecurityUpdatesCount, -1), missingOtherUpdatesCount=coalesce(missingOtherUpdatesCount, -1), compliance=coalesce(compliance, 4), lastAssessedTime, lastUpdateAgentSeenTime, osType=2, environment=iff(ComputerEnvironment=~"Azure", 1, 2), ComplianceOrder=coalesce(ComplianceOrder, 2) )
+| order by ComplianceOrder asc, missingCriticalUpdatesCount desc, missingSecurityUpdatesCount desc, missingOtherUpdatesCount desc, displayName asc
+| project-away ComplianceOrder
+```
+
+##### <a name="missing-updates-list"></a>Falta lista de actualizaciones
+
+```
+Update
+| where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
+| where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
+| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+| where Solutions has "updates"
+| distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, BulletinUrl, BulletinID) by SourceComputerId, Product, ProductArch
+| where UpdateState=~"Needed"
+| project-away UpdateState, TimeGenerated
+| summarize computersCount=dcount(SourceComputerId, 2), ClassificationWeight=max(iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1))) by id=strcat(Product, "_", ProductArch), displayName=Product, productArch=ProductArch, classification=Classification, InformationId=BulletinID, InformationUrl=tostring(split(BulletinUrl, ";", 0)[0]), osType=1
+| union(Update
+| where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((Heartbeat
+| where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
+| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+| where Solutions has "updates"
+| distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, KBID, PublishedDate, Approved) by Computer, SourceComputerId, UpdateID
+| where UpdateState=~"Needed" and Approved!=false
+| project-away UpdateState, Approved, TimeGenerated
+| summarize computersCount=dcount(SourceComputerId, 2), displayName=any(Title), publishedDate=min(PublishedDate), ClassificationWeight=max(iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1))) by id=strcat(UpdateID, "_", KBID), classification=Classification, InformationId=strcat("KB", KBID), InformationUrl=iff(isnotempty(KBID), strcat("https://support.microsoft.com/kb/", KBID), ""), osType=2)
+| sort by ClassificationWeight desc, computersCount desc, displayName asc
+| extend informationLink=(iff(isnotempty(InformationId) and isnotempty(InformationUrl), toobject(strcat('{ "uri": "', InformationUrl, '", "text": "', InformationId, '", "target": "blank" }')), toobject('')))
+| project-away ClassificationWeight, InformationId, InformationUrl
+```
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integración con System Center Configuration Manager
 
@@ -309,39 +505,9 @@ Sin embargo, es posible que Update Management todavía notifique que esa máquin
 
 La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en CentOS de forma nativa. En SUSE, al seleccionar *solo* "Otras actualizaciones" como clasificación, puede dar lugar a que se instalen también algunas actualizaciones de seguridad si primero se requieren actualizaciones de seguridad relacionadas con zypper (administrador de paquetes) o sus dependencias. Esta es una limitación de zypper. En algunos casos, puede que se le pida volver a ejecutar la implementación de actualizaciones para comprobar el registro de actualizaciones.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshoot"></a>Solución de problemas
 
-En esta sección se proporciona información para resolver problemas con la solución Update Management.
-
-### <a name="windows"></a>Windows
-
-Si se producen problemas al intentar incorporar la solución o una máquina virtual, compruebe en los registros de eventos **Application and Services Logs/Operations Manager** de la máquina local los eventos con el identificador 4502 y los mensajes de eventos que contengan **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. En la tabla siguiente se destacan los mensajes de error específicos y una posible solución para cada uno:
-
-| Message | Motivo | Solución |
-|----------|----------|----------|
-| No se pudo registrar la máquina para la administración de revisiones,<br/>error en el registro con la excepción<br/>System.InvalidOperationException: {"Message":"La máquina ya<br/>está registrada en una cuenta diferente. "} | La máquina ya está incorporada a otra área de trabajo para Update Management. | Realice una limpieza de los artefactos antiguos y [elimine el grupo Hybrid Runbook](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
-| No se puede registrar la máquina para la administración de revisiones; no se pudo registrar con la excepción<br/>System.Net.Http.HttpRequestException: error al enviar la solicitud. ---><br/>System.Net.WebException: la conexión subyacente<br/>se cerró: error inesperado<br/>en una operación de recepción. ---> System.ComponentModel.Win32Exception:<br/>el cliente y el servidor no pueden comunicarse,<br/>dado que no poseen un algoritmo común | El proxy, la puerta de enlace o el firewall bloquean la comunicación. | [Revise los requisitos de red](automation-hybrid-runbook-worker.md#network-planning).|
-| No se pudo registrar la máquina para la administración de revisiones,<br/>error en el registro con la excepción<br/>Newtonsoft.Json.JsonReaderException: error al analizar el valor de infinito positivo. | El proxy, la puerta de enlace o el firewall bloquean la comunicación. | [Revise los requisitos de red](automation-hybrid-runbook-worker.md#network-planning).|
-| El certificado presentado por el servicio \<wsid\>.oms.opinsights.azure.com<br/>no fue emitido por una entidad de certificación<br/>utilizada para los servicios de Microsoft. Contacto<br/>el administrador de red para comprobar si están ejecutando un proxy que intercepte<br/>la comunicación TLS/SSL. |El proxy, la puerta de enlace o el firewall bloquean la comunicación. | [Revise los requisitos de red](automation-hybrid-runbook-worker.md#network-planning).|
-| No se pudo registrar la máquina para la administración de revisiones,<br/>error en el registro con la excepción<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>error al crear un certificado autofirmado. ---><br/>System.UnauthorizedAccessException: se denegó el acceso. | Error al generar un certificado autofirmado. | Compruebe que la cuenta del sistema tiene<br/>acceso de lectura a la carpeta:<br/>**C:\ProgramData\Microsoft\**<br/>** Crypto\RSA**|
-
-### <a name="linux"></a>Linux
-
-Si las ejecuciones de actualizaciones no se pueden iniciar en una máquina Linux, realice una copia del archivo de registro siguiente y consérvelo para la solución de problemas:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/worker.log
-```
-
-Si se producen errores durante una ejecución de actualizaciones después de que se ha iniciado correctamente en Linux, compruebe el trabajo de salida desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes del Administrador de paquetes de su máquina que puede investigar e intentar solucionar. Update Management requiere que el administrador de paquetes tenga un estado correcto para que las implementaciones de actualizaciones se realicen con éxito.
-
-En algunos casos, las actualizaciones de paquetes pueden interferir con Update Management e impedir que finalice una implementación de actualizaciones. Si ese fuera el caso, deberá excluir estos paquetes de las futuras ejecuciones de actualizaciones o instalarlos manualmente por su cuenta.
-
-Si no puede resolver un problema de aplicación de revisiones, realice una copia del archivo de registro siguiente y consérvela **antes** de que se inicie la siguiente implementación de actualizaciones para solucionar los problemas:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
-```
+Para aprender a solucionar los problemas de Update Management, consulte [Solución de problemas de Update Management](troubleshoot/update-management.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

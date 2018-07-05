@@ -1,26 +1,23 @@
 ---
-title: "Uso de la interfaz de la línea de comandos 2.0 de Azure para empezar a trabajar con Azure Data Lake Store | Microsoft Docs"
-description: "Uso de la línea de comandos 2.0 multiplataforma de Azure para crear una cuenta de Data Lake Store y realizar operaciones básicas"
+title: Uso de la interfaz de la línea de comandos 2.0 de Azure para empezar a trabajar con Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Uso de la línea de comandos 2.0 multiplataforma de Azure para crear una cuenta de Data Lake Store y realizar operaciones básicas
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 4ffa0f4a-1cca-46ac-803d-1fc8538c685b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: b93b9a801b3e5e1fd869cda7f3d67554e2d03195
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: acd1182fdc66374e9abbc4964207417a7de3aadb
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035492"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Introducción a Azure Data Lake Store mediante la CLI de Azure 2.0
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Introducción a Azure Data Lake Storage Gen1 mediante la CLI de Azure 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,7 +25,9 @@ ms.lasthandoff: 03/09/2018
 >
 > 
 
-Aprenda a usar la CLI 2.0 de Azure para crear una cuenta de Azure Data Lake Store y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para más información acerca de Data Lake Store, consulte [Información general de Data Lake Store](data-lake-store-overview.md).
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Aprenda a usar la CLI 2.0 de Azure para crear una cuenta de Azure Data Lake Store y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para más información acerca de Data Lake Store, consulte [Información general de Data Lake Storage Gen1](data-lake-store-overview.md).
 
 La CLI 2.0 de Azure es la nueva experiencia de línea de comandos de Azure para administrar recursos de Azure. Se puede usar en macOS, Linux y Windows. Para más información, consulte la [introducción a la CLI 2.0 de Azure](https://docs.microsoft.com/cli/azure). También puede examinar la [referencia de la CLI 2.0 de Azure Data Lake Store](https://docs.microsoft.com/cli/azure/dls) para obtener una lista completa de comandos y sintaxis.
 

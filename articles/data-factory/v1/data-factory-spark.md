@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622285"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046475"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -37,7 +37,7 @@ ms.locfileid: "34622285"
 > * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo acerca de la [transformación de datos mediante la actividad de Apache Spark en Data Factory, versión 2](../transform-data-using-spark.md).
+> Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si usa la versión actual del servicio Data Factory, consulte el artículo acerca de la [transformación de datos mediante la actividad Apache Spark en Data Factory](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introducción
 La actividad de Spark es una de las [actividades de transformación de datos](data-factory-data-transformation-activities.md) compatibles con Data Factory. Esta actividad ejecuta el programa Spark especificado en el clúster de Spark en Azure HDInsight. 
@@ -268,8 +268,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 
     ![Resultados de la consulta Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Para obtener instrucciones detalladas, consulte la sección [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Para obtener instrucciones detalladas, consulte la sección sobre [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>solución de problemas
 Puesto que establece getDebugInfo en **Siempre**, aparece una subcarpeta de registro en la carpeta pyFiles del contenedor de blobs. El archivo de registro en la carpeta de registro proporciona información adicional. Este archivo de registro es especialmente útil cuando se produce un error. En un entorno de producción, podría ser recomendable establecerlo en **Error**.

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620486"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046993"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-create-datasets.md)
-> * [Versión 2: versión preliminar](../concepts-datasets-linked-services.md)
+> * [Versión 1](data-factory-create-datasets.md)
+> * [Versión 2 (versión actual)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre los [conjuntos de datos en V2](../concepts-datasets-linked-services.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo sobre [conjuntos de datos in V2](../concepts-datasets-linked-services.md).
 
 En este artículo se describe qué son los conjuntos de datos, cómo se definen en formato JSON y cómo se usan en canalizaciones de Azure Data Factory. Se incluyen detalles sobre cada sección (por ejemplo, structure, availability y policy) en la definición JSON del conjunto de datos. También se ofrecen ejemplos de uso de las propiedades **offset**, **anchorDateTime** y **style** en una definición JSON de conjunto de datos.
 

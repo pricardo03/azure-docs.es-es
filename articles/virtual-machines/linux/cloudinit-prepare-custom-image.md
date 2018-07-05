@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ff5c76ca0a164d09e45488cb7abf7f2c2ee50a95
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943753"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064693"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparación de la imagen de máquina virtual Linux en Azure para usarse con cloud-init
 En este artículo se explica cómo utilizar una máquina virtual de Azure y prepararla para volver a implementarse y poder usar cloud-init. La imagen resultante se puede utilizar para implementar una nueva máquina virtual o conjuntos de escalado de máquinas virtuales (luego se pueden personaliza más aún mediante cloud-init durante la implementación).  Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -97,7 +97,7 @@ EOF
 
 Si la imagen de Azure existente tiene un archivo de intercambio configurado y desea cambiar la configuración del archivo de intercambio para incluir nuevas imágenes con cloud-init, debe quitar el archivo de intercambio existente.
 
-Para las imágenes basadas en RedHat, siga las instrucciones que aparecen en el siguiente documento de RedHat que explica cómo [quitar el archivo de intercambio](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s2-swap-removing-file.html).
+Para las imágenes basadas en Red Hat, siga las instrucciones que aparecen en el siguiente documento de Red Hat en el que se explica cómo [quitar el archivo de intercambio](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 Para las imágenes de CentOS con el archivo de intercambio habilitado, puede ejecutar el siguiente comando para desactivar el archivo de intercambio:
 ```bash

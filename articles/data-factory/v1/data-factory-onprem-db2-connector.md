@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622030"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046537"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-onprem-db2-connector.md)
-> * [Versión 2: versión preliminar](../connector-db2.md)
+> * [Versión 1](data-factory-onprem-db2-connector.md)
+> * [Versión 2 (versión actual)](../connector-db2.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [DB2 connector in V2](../connector-db2.md) (Conector de DB2 en V2).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo sobre el [conector DB2 en V2](../connector-db2.md).
 
 
 En este artículo se describe cómo se puede usar la actividad de copia en Azure Data Factory para copiar datos desde una base de datos DB2 local a un almacén de datos. Puede copiar los datos a cualquier almacén que aparezca como un receptor compatible en el artículo sobre [actividades de movimiento de datos de Data Factory](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Este tema se basa en el artículo sobre Data Factory, que presenta información general sobre el movimiento de datos mediante la actividad de copia y enumera las combinaciones de almacenes de datos compatibles. 

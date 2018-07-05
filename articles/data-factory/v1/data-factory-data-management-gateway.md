@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: abc542f79d722f24ff6a6e9d96d12364ed76894b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621190"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048924"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [Integration Runtime autohospedado en la versión 2](../create-self-hosted-integration-runtime.md). 
+> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory consulte el artículo sobre [IR autohospedado en](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > Data Management Gateway ahora se denomina Integration Runtime autohospedado.  
@@ -184,7 +184,7 @@ Hay tres opciones de configuración:
 
 * **No utilizar proxy**: la puerta de enlace no usa expresamente ningún proxy para conectarse a servicios en la nube.
 * **Usar proxy del sistema**: la puerta de enlace utiliza la configuración de proxy de diahost.exe.config y diawp.exe.config.  Si no hay ningún proxy configurado en diahost.exe.config y diawp.exe.config, la puerta de enlace se conecta al servicio en la nube directamente sin pasar por el proxy.
-* **Usar proxy personalizado**: establezca la configuración del proxy HTTP que se utilizará para la puerta de enlace, en lugar de usar las configuraciones de diahost.exe.config y diawp.exe.config.  La dirección y el puerto son obligatorios.  El nombre de usuario y la contraseña son opcionales según la configuración de autenticación del proxy.  Todas las configuraciones se cifran con el certificado de credencial de la puerta de enlace y se almacenan de forma local en el equipo host de la puerta de enlace.
+* **Usar proxy personalizado**: establezca la configuración del proxy HTTP que se utilizará para la puerta de enlace, en lugar de usar las configuraciones de diahost.exe.config y diawp.exe.config.  La dirección y el puerto son obligatorios.  El nombre de usuario y la contraseña son opcionales dependiendo de la configuración de autenticación del proxy.  Todas las configuraciones se cifran con el certificado de credencial de la puerta de enlace y se almacenan de forma local en el equipo host de la puerta de enlace.
 
 El servicio de host de Data Management Gateway se reinicia automáticamente después de guardar la configuración de proxy actualizada.
 
@@ -231,13 +231,13 @@ Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, la puert
 > No olvide actualizar **ambos**, diahost.exe.config y diawp.exe.config.  
 
 
-Además de estos puntos anteriores, también tiene que asegurarse de que Microsoft Azure se encuentra en la lista de permitidos de su compañía. Se puede descargar una lista de direcciones IP válidas de Microsoft Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Además de estos puntos anteriores, también tiene que asegurarse de que Microsoft Azure se encuentra en la lista blanca de su compañía. Se puede descargar una lista de direcciones IP válidas de Microsoft Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Posibles síntomas de problemas relacionados con el firewall y el servidor proxy
 Si se producen errores como los siguientes, es probable que se deban a una configuración incorrecta del servidor proxy o del firewall, que impide que la puerta de enlace se conecte a Data Factory para autenticarse. Consulte la sección anterior para garantizar que el firewall y el servidor proxy están configurados correctamente.
 
 1. Al intentar registrar la puerta de enlace, recibirá el siguiente error: "Error al registrar la clave de la puerta de enlace. Antes de volver a intentar registrar la clave de la puerta de enlace, confirme que Data Management Gateway está en estado conectado y el servicio de host de Data Management Gateway se ha iniciado."
-2. Al abrir el Administrador de configuración, aparece el estado como "Desconectado" o "Conectando". Al ver los registros de eventos de Windows, en Visor de eventos > Registros de aplicaciones y servicios > Puerta de enlace de administración de datos, puede ver mensajes de error como el siguiente: `Unable to connect to the remote server`
+2. Al abrir el Administrador de configuración, verá el estado "Desconectado" o "Conectando". Cuando se consultan los registros de eventos de Windows, en “Visor de eventos” > “Registros de aplicaciones y servicios” > “Data Management Gateway” aparecen mensajes de error como el siguiente: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Apertura del puerto 8050 para el cifrado de credenciales
@@ -288,12 +288,12 @@ Se puede habilitar o deshabilitar la función de actualización automática real
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[Para puerta de enlace escalable y altamente disponible de varios nodos (versión preliminar)](data-factory-data-management-gateway-high-availability-scalability.md)
+[Para puerta de enlace escalable y altamente disponible de varios nodos](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
 2. Cambie a la carpeta C:\Archivos de programa\Microsoft Integration Runtime\3.0\PowerShellScript.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.   
 
-    Se requiere un parámetro AuthKey adicional para la característica de puerta de enlace con alta disponibilidad (versión preliminar).
+    Se requiere un parámetro AuthKey adicional para la característica de puerta de enlace con alta disponibilidad.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
@@ -490,12 +490,12 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 3. Use el cmdlet **New-AzureRmDataFactoryGateway** para crear una puerta de enlace lógica como se indica a continuación:
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF �Description <desc>
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **Ejemplo de comando y salida**:
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF �Description �gateway for walkthrough�
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
     Name              : MyGateway
     Description       : gateway for walkthrough

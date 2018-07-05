@@ -1,37 +1,37 @@
 ---
 title: Composición del módulo de Azure IoT Edge | Microsoft Docs
-description: Información sobre qué incluyen los módulos de Azure IoT Edge y cómo se pueden reutilizar
+description: Obtenga información sobre cómo un manifiesto de implementación declara qué módulos se deben implementar, cómo implementarlos y cómo crear rutas de mensajes entre ellos.
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c886d1d9dea120a243693c12ae861a58126daadc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 84a0698a61e68c141cc79dbc779f352aab528afa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631690"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031488"
 ---
-# <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge (versión preliminar)
+# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Obtener información sobre cómo usar los manifiestos de implementación para implementar módulos y establecer rutas
 
 Cada dispositivo IoT Edge ejecuta al menos dos módulos: $edgeAgent y $edgeHub, que constituyen el tiempo de ejecución de IoT Edge. Además de esos dos estándar, cualquier dispositivo IoT Edge puede ejecutar varios módulos para llevar a cabo cualquier número de procesos. Si implementa todos estos módulos en un dispositivo a la vez, necesita una manera de declarar qué módulos se incluyen y cómo interactúan entre sí. 
 
 El *manifiesto de implementación* es un documento JSON que describe lo siguiente:
 
-* Qué módulos de IoT Edge tienen que implementarse, junto con las opciones de creación y administración.
+* La configuración del agente de Edge, que incluye la imagen del contenedor para cada módulo, las credenciales para acceder a los registros de contenedor privados y las instrucciones de cómo debe crearse y administrarse cada módulo.
 * La configuración del centro de Edge, lo que incluye cómo fluyen los mensajes entre los módulos y finalmente a IoT Hub.
-* De forma opcional, los valores para establecer en las propiedades deseadas de los módulos gemelos con el objetivo de configurar las aplicaciones de los módulos.
+* Opcionalmente, las propiedades deseadas de los módulos gemelos.
 
 Todos los dispositivos IoT Edge deben configurarse con un manifiesto de implementación. Si no, una instancia de IoT Edge en tiempo de ejecución recién instalada notificará un código de error hasta que se configuren con un manifiesto válido. 
 
-En los tutoriales de Azure IoT Edge, creará un manifiesto de implementación a través de un asistente del portal de Azure IoT Edge. También puede aplicar un manifiesto de implementación mediante programación con REST o el SDK del servicio IoT Hub. Consulte el artículo de [implementación y supervisión ][lnk-deploy] para obtener más información sobre implementaciones de IoT Edge.
+En los tutoriales de Azure IoT Edge, creará un manifiesto de implementación a través de un asistente del portal de Azure IoT Edge. También puede aplicar un manifiesto de implementación mediante programación con REST o el SDK del servicio IoT Hub. Para más información, consulte el artículo [Descripción de las implementaciones de IoT Edge][lnk-deploy].
 
 ## <a name="create-a-deployment-manifest"></a>Creación de un manifiesto de implementación
 
-A nivel general, el manifiesto de implementación configura las propiedades deseadas de un módulo gemelo en los módulos de IoT Edge implementados en un dispositivo de IoT Edge. Dos de estos módulos siempre están presentes: el agente y el centro de Edge.
+A nivel general, el manifiesto de implementación configura las propiedades deseadas de un módulo gemelo en los módulos de IoT Edge implementados en un dispositivo de IoT Edge. Dos de estos módulos siempre existen: `$edgeAgent`, y `$edgeHub`.
 
 Un manifiesto de implementación que contiene solo la instancia en tiempo de ejecución de IoT Edge (agente y centro) es válido.
 
@@ -44,6 +44,7 @@ El manifiesto sigue esta estructura:
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
+                // includes container registry credentials
             }
         },
         "$edgeHub": {
@@ -67,7 +68,7 @@ El manifiesto sigue esta estructura:
 
 ## <a name="configure-modules"></a>Configuración de módulos
 
-Además de establecer las propiedades deseadas de los módulos que se van a implementar, debe indicar al tiempo de ejecución de IoT Edge cómo instalarlos. La información de configuración y administración de todos los módulos va en el interior de las propiedades deseadas de **$edgeAgent**. Esta información incluye los parámetros de configuración para el propio agente de Edge. 
+Se debe indicar al entorno de ejecución de IoT Edge cómo instalar los módulos de la implementación. La información de configuración y administración de todos los módulos va en el interior de las propiedades deseadas de **$edgeAgent**. Esta información incluye los parámetros de configuración para el propio agente de Edge. 
 
 Para ver una lista completa de propiedades que pueden o deben incluirse, consulte [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md) (Propiedades del agente de Edge y el centro de Edge).
 
@@ -78,6 +79,11 @@ Las propiedades de $edgeAgent siguen esta estructura:
     "properties.desired": {
         "schemaVersion": "1.0",
         "runtime": {
+            "settings":{
+                "registryCredentials":{ // give the edge agent access to container images that aren't public
+                    }
+                }
+            }
         },
         "systemModules": {
             "edgeAgent": {
@@ -88,7 +94,7 @@ Las propiedades de $edgeAgent siguen esta estructura:
             }
         },
         "modules": {
-            "{module1}": { //optional
+            "{module1}": { // optional
                 // configuration and management details
             },
             "{module2}": { // optional
@@ -158,7 +164,7 @@ El receptor define dónde se envían los mensajes. Puede ser cualquiera de los s
 | `$upstream` | Envía el mensaje a IoT Hub. |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Envía el mensaje a la entrada `{input}` del módulo`{moduleId}`. |
 
-Es importante tener en cuenta que el centro Edge proporciona garantías de tipo "at-least-once" (por lo menos una vez); es decir, los mensajes se almacenan localmente en caso de que una ruta no pueda entregarlo a su receptor. Por ejemplo, el centro de Edge no se puede conectar a IoT Hub o el módulo de destino no está conectado.
+IoT Edge proporciona garantías de por lo menos una vez. El centro de Edge almacena mensajes localmente en caso de que una ruta no pueda entregar el mensaje a su receptor. Por ejemplo, si el centro de Edge no se puede conectar a IoT Hub, o el módulo de destino no está conectado.
 
 El centro de Edge almacena los mensajes durante el tiempo especificado en la propiedad `storeAndForwardConfiguration.timeToLiveSecs` de las [propiedades deseadas del centro de Edge](module-edgeagent-edgehub.md).
 
@@ -176,72 +182,79 @@ Esto es un ejemplo de documento JSON de manifiesto de implementación.
 
 ```json
 {
-"moduleContent": {
+  "moduleContent": {
     "$edgeAgent": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "runtime": {
-                "type": "docker",
-                "settings": {
-                    "minDockerVersion": "v1.25",
-                    "loggingOptions": ""
-                }
-            },
-            "systemModules": {
-                "edgeAgent": {
-                    "type": "docker",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-agent:1.0-preview",
-                    "createOptions": ""
-                    }
-                },
-                "edgeHub": {
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-hub:1.0-preview",
-                    "createOptions": ""
-                    }
-                }
-            },
-            "modules": {
-                "tempSensor": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-                    "createOptions": "{}"
-                    }
-                },
-                "filtermodule": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "myacr.azurecr.io/filtermodule:latest",
-                    "createOptions": "{}"
-                    }
-                }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "ContosoRegistry": {
+                "username": "myacr",
+                "password": "{password}",
+                "address": "myacr.azurecr.io"
+              }
             }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "microsoft/azureiotedge-agent:1.0-preview",
+              "createOptions": ""
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "microsoft/azureiotedge-hub:1.0-preview",
+              "createOptions": ""
+            }
+          }
+        },
+        "modules": {
+          "tempSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "filtermodule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "myacr.azurecr.io/filtermodule:latest",
+              "createOptions": "{}"
+            }
+          }
         }
+      }
     },
     "$edgeHub": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "routes": {
-                "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-                "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-            },
-            "storeAndForwardConfiguration": {
-                "timeToLiveSecs": 10
-            }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
         }
+      }
     }
-}
+  }
 }
 ```
 

@@ -4,18 +4,18 @@ description: Información sobre el entorno de ejecución de Azure IoT Edge y có
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632081"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030386"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Información sobre el entorno de ejecución de Azure IoT Edge y su arquitectura (versión preliminar)
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
 El entorno de ejecución de IoT Edge es una colección de programas que deben instalarse en un dispositivo para que se considere un dispositivo IoT Edge. Colectivamente, los componentes de la instancia de IoT Edge en tiempo de ejecución permiten que los dispositivos IoT Edge reciban el código para ejecutarse en el perímetro y comunican los resultados. 
 
@@ -90,9 +90,9 @@ Para iniciar la ejecución del agente de Edge, ejecute el comando de inicio azur
 
 Cada elemento del diccionario de módulos contiene información específica de un módulo y lo utiliza el agente de Edge para controlar el ciclo de vida del módulo. Estas son algunas de las propiedades más interesantes: 
 
-* **Settings.Image**: la imagen de contenedor que utiliza el agente de Edge al iniciar el módulo. El agente de Edge debe configurarse con las credenciales del registro de contenedor si la imagen está protegida por una contraseña. Para configurar al agente de Edge, use el comando siguiente:`azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image**: la imagen de contenedor que utiliza el agente de Edge al iniciar el módulo. El agente de Edge debe configurarse con las credenciales del registro de contenedor si la imagen está protegida por una contraseña. Para configurar el agente de Edge, actualice el archivo `config.yaml`. En Linux, use el siguiente comando: `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions**: una cadena que se pasa directamente al demonio de Docker cuando se inicia un contenedor del módulo. Al agregar las opciones de Docker en esta propiedad, se pueden obtener opciones avanzadas como reenvío de puertos o montaje de volúmenes en el contenedor de un módulo.  
-* **status**: el estado en el que el agente de Edge pone el módulo. Este valor se establece normalmente en *running*, ya que la mayoría de los usuarios quieren que el agente de Edge inicie inmediatamente todos los módulos del dispositivo. Sin embargo, puede especificar que el estado inicial de un módulo sea stopped y esperar a indicar más adelante al agente de Edge que inicie un módulo. El agente de Edge notifica el estado de cada módulo a la nube en las propiedades notificadas. Una diferencia entre la propiedad deseada y la notificada es un indicador o un dispositivo con un comportamiento incorrecto. Los estados admitidos son los siguientes:
+* **status**: el estado en el que el agente de Edge pone el módulo. Este valor se establece normalmente en *running*, ya que la mayoría de los usuarios quieren que el agente de Edge inicie inmediatamente todos los módulos del dispositivo. Sin embargo, puede especificar que el estado inicial de un módulo sea stopped y esperar a indicar más adelante al agente de Edge que inicie un módulo. El agente de Edge notifica el estado de cada módulo a la nube en las propiedades notificadas. Una diferencia entre la propiedad deseada y la notificada es un indicador de un dispositivo con un comportamiento incorrecto. Los estados admitidos son los siguientes:
    * Downloading (Descargando)
    * En ejecución
    * Unhealthy (Incorrecto)
@@ -104,7 +104,7 @@ Cada elemento del diccionario de módulos contiene información específica de u
    * Unhealthy: si el módulo se bloquea o se consideran incorrecto, el agente de Edge lo reinicia.
    * Always: si el módulo se bloquea, se considera incorrecto o se apaga, el agente de Edge lo reinicia. 
 
-El agente de IoT Edge envía la respuesta en tiempo de ejecución a IoT Hub. A continuación, se ofrece una lista de las posibles respuestas:
+El agente de IoT Edge envía la respuesta de entorno de ejecución a IoT Hub. A continuación, se ofrece una lista de las posibles respuestas:
   * 200 - CORRECTO
   * 400 - La configuración de implementación tiene un formato incorrecto o no es válida.
   * 417 - El dispositivo no tiene un conjunto de configuración de implementación.
@@ -114,7 +114,7 @@ El agente de IoT Edge envía la respuesta en tiempo de ejecución a IoT Hub. A c
 
 ### <a name="security"></a>Seguridad
 
-El agente de IoT Edge desempeña un papel fundamental en la seguridad de un dispositivo IoT Edge. Por ejemplo, realiza acciones como comprobar la imagen de un módulo antes de iniciarlo. Estas características se agregarán según la disponibilidad general de las características de la versión 2. 
+El agente de IoT Edge desempeña un papel fundamental en la seguridad de un dispositivo IoT Edge. Por ejemplo, realiza acciones como comprobar la imagen de un módulo antes de iniciarlo. Estas características se agregarán según la disponibilidad general. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

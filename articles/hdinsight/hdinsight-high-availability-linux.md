@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404967"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046686"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
 
@@ -63,9 +63,9 @@ Los nodos de trabajo realizan el análisis de los datos reales cuando se envía 
 
 El nodo perimetral no participa activamente en el análisis de datos dentro del clúster, sino que lo usan desarrolladores o científicos de datos al trabajar con Hadoop. El nodo perimetral se encuentra en la misma instancia de Azure Virtual Network como los demás nodos del clúster y puede acceder directamente a todos los demás nodos. El nodo perimetral se puede usar sin tener que quitar recursos a los trabajos de análisis o servicios críticos de Hadoop.
 
-Actualmente, el servidor de R en HDInsight es el único tipo de clúster que proporciona un nodo perimetral de forma predeterminada. Para el servidor de R en HDInsight, se usa el nodo perimetral para probar el código de R localmente en el nodo antes de enviarlo al clúster para su procesamiento distribuido.
+Actualmente, Machine Learning Services en HDInsight es el único tipo de clúster que proporciona un nodo perimetral de forma predeterminada. Para Machine Learning Services en HDInsight, se usa el nodo perimetral para probar el código de R localmente en el nodo antes de enviarlo al clúster para su procesamiento distribuido.
 
-Para más información sobre el uso de un nodo perimetral con tipos de clúster que no sean de R Server, consulte el documento [Uso de nodos perimetrales en HDInsight](hdinsight-apps-use-edge-node.md).
+Para más información sobre el uso de un nodo perimetral con otros tipos de clúster, consulte el documento [Uso de nodos perimetrales en HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="accessing-the-nodes"></a>Acceso a los nodos
 

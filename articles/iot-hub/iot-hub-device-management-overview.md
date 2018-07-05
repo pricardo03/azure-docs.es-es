@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 82a3ebcf4d208b550a792deddba5ce214105af13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4d0b5d5ba429dc5d839fa054476461f96a52143
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632754"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030740"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Información general sobre la administración de dispositivos con IoT Hub
 
@@ -51,16 +51,16 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
 
 * **Planeamiento**: permitir a los operadores que creen un esquema de metadatos de los dispositivos que les permita consultar y seleccionar, de forma fácil y rápida, un grupo de dispositivos para operaciones de administración masiva. Puede usar al dispositivo gemelo para almacenar los metadatos de este dispositivo en forma de etiquetas y propiedades.
   
-    *Lecturas adicionales*: [Introducción a los dispositivos gemelos][lnk-twins-getstarted], [Dispositivos gemelos][lnk-twins-devguide], [Uso de propiedades de dispositivos gemelos][lnk-twin-properties]
+    *Información adicional*: [Introducción a los dispositivos gemelos][lnk-twins-getstarted], [Información sobre los dispositivos gemelos][lnk-twins-devguide], [Uso de las propiedades de dispositivos gemelos][lnk-twin-properties], [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT][lnk-adm-best-practices].
 * **Aprovisionamiento**: aprovisionar de forma segura nuevos dispositivos en IoT Hub y permitir que los operadores puedan detectar de inmediato las funcionalidades de los dispositivos.  Use el registro de identidad de IoT Hub para crear credenciales e identidades de dispositivo flexibles, y para realizar esta operación de forma masiva mediante un trabajo. Cree dispositivos para informar de sus funcionalidades y condiciones mediante las propiedades de dispositivo en el dispositivo gemelo.
   
-    *Información adicional*: [Administración de identidades de dispositivo][lnk-identity-registry], [Administración de identidades de dispositivo de forma masiva][lnk-bulk-identity], [Uso de las propiedades de dispositivos gemelos][lnk-twin-properties], [servicio Azure IoT Hub Device Provisioning][lnk-dps].
+    *Información adicional*: [Administración de identidades de dispositivo][lnk-identity-registry], [Administración de identidades de dispositivo de forma masiva][lnk-bulk-identity], [Uso de las propiedades de dispositivos gemelos][lnk-twin-properties], [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT][lnk-adm-best-practices], [Servicio Azure IoT Hub Device Provisioning][lnk-dps].
 * **Configuración**: facilitar los cambios de configuración de forma masiva y las actualizaciones de firmware en dispositivos, a la vez que se mantienen el estado y la seguridad. Realice estas operaciones de administración de dispositivos de forma masiva usando las propiedades que desee o con métodos directos y trabajos de difusión.
   
-    *Lecturas adicionales*: [Uso de métodos directos][lnk-c2d-methods], [Invocación de un método directo en un dispositivo][lnk-methods-devguide], [Uso de propiedades de dispositivos gemelos][lnk-twin-properties], [Programación y difusión de trabajos ][lnk-jobs], [Programación de trabajos en varios dispositivos][lnk-jobs-devguide].
+    *Información adicional*: [Uso de las propiedades de dispositivos gemelos][lnk-twin-properties], [Configuración y supervisión de dispositivos IoT a escala][lnk-adm-how-to], [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT][lnk-adm-best-practices].
 * **Supervisión**: supervisar la situación general del conjunto de dispositivos y el estado de las operaciones en curso, y alertar a los operadores sobre los problemas que puedan necesitar su atención.  Aplique dispositivos gemelos para que los dispositivos puedan notificar en tiempo real las condiciones de funcionamiento y el estado de las operaciones de actualización. Genere informes de panel eficaces que expongan los problemas más inmediatos mediante el uso de dispositivos gemelos.
   
-    *Lecturas adicionales*: [Uso de las propiedades deseadas para configurar dispositivos][lnk-twin-properties], [Lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-query-language].
+    *Información adicional*: [Uso de las propiedades de dispositivos gemelos][lnk-twin-properties], [Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes][lnk-query-language], [Configuración y supervisión de dispositivos IoT a escala][lnk-adm-how-to], [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT][lnk-adm-best-practices].
 * **Retirada**: reemplazar o retirar dispositivos después de un error, ciclo de actualización o al final de la duración del servicio.  Use dispositivos gemelos para conservar la información del dispositivo si el dispositivo físico se va a reemplazar, o para archivarla si se va a retirar. Use el registro de identidades de IoT Hub para revocar de forma segura las credenciales y las identidades de los dispositivos.
   
     *Lecturas adicionales*: [Uso de propiedades de dispositivos gemelos][lnk-twin-properties], [Administración de identidades de dispositivo][lnk-identity-registry].
@@ -77,7 +77,7 @@ IoT Hub habilita el siguiente conjunto de patrones de administración de disposi
 * **Configuración**: la aplicación back-end usa las propiedades deseadas para configurar el software que se ejecuta en el dispositivo.  El dispositivo usa las propiedades notificadas para actualizar el estado de configuración del dispositivo.
   
     ![Gráfico de los patrones de configuración de la administración de dispositivos][img-config_pattern]
-* **Actualización de firmware**: la aplicación back-end usa un método directo para informar al dispositivo de que se ha iniciado una actualización de firmware.  El dispositivo inicia un proceso de varios pasos para descargar la imagen de firmware, aplicarla y, por último, volver a conectarse al servicio IoT Hub.  A lo largo del proceso de varios pasos, el dispositivo usa las propiedades notificadas para actualizar su progreso y estado.
+* **Actualización de firmware**: la aplicación de back-end utiliza una configuración de administración de dispositivos automática para seleccionar los dispositivos que recibirán la actualización, para indicarles dónde encontrar la actualización y para supervisar el proceso de actualización. El dispositivo inicia un proceso de varios pasos para descargar, verificar y aplicar la imagen de firmware y después reiniciar el dispositivo antes de volver a conectarse al servicio IoT Hub.  A lo largo del proceso de varios pasos, el dispositivo usa las propiedades notificadas para actualizar su progreso y estado.
   
     ![Gráfico del patrón de actualización del firmware de la administración de dispositivos][img-fwupdate_pattern]
 * **Informes de progreso y estado**: la solución back-end ejecuta consultas de dispositivos gemelos, en un conjunto de dispositivos, para informar sobre el estado y el progreso de las acciones que se ejecutan en el dispositivo.
@@ -111,3 +111,5 @@ Para más información acerca de las características de administración de disp
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+[lnk-adm-best-practices]: iot-hub-configuration-best-practices.md
+[lnk-adm-how-to]: iot-hub-auto-device-config.md

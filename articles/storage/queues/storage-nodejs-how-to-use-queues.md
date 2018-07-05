@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: cshoe
-ms.openlocfilehash: 2565f56324a070368c499a62ab54bb98830d8c20
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c19ac5f45504e3c19b0b300dbc3ea157861d05ed
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34653032"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Uso del almacenamiento de colas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -66,8 +67,6 @@ var azure = require('azure-storage');
 
 ## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT y AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener información necesaria para conectarse a su cuenta de Azure Storage. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
-
-Para ver un ejemplo de cómo configurar las variables de entorno de [Azure Portal](https://portal.azure.com) para un sitio web de Azure, consulte [Aplicación web de Node.js con Azure Table Service](../../cosmos-db/table-storage-cloud-service-nodejs.md).
 
 ## <a name="how-to-create-a-queue"></a>Creación de una cola
 El siguiente código crea un objeto **QueueService** , que le permite trabajar con colas.

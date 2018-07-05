@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ca501bb3ad37353f00ffe5d46f72822c7c5487bf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fde0ea00aacbb791836fc1076b88dafd3728454
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591402"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063483"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticación de paso a través de Azure Active Directory: información técnica detallada
 En este artículo se ofrece información general sobre el funcionamiento de la autenticación de paso a través de Azure Active Directory (Azure AD). Si desea información técnica y de seguridad detallada, consulte el artículo [Análisis a fondo de la seguridad](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
@@ -31,15 +31,16 @@ Cuando un usuario intenta iniciar sesión en una aplicación protegida mediante 
 
 1. Un usuario intenta acceder a una aplicación (por ejemplo, [Outlook Web App](https://outlook.office365.com/owa/)).
 2. Si el usuario todavía no ha iniciado sesión, se le redirige a la página **Inicio de sesión de usuario** de Azure AD.
-3. El usuario escribe su nombre de usuario y contraseña en la página de inicio de sesión de Azure AD y hace clic en el botón **Iniciar sesión**.
-4. Cuando Azure AD recibe la solicitud de inicio de sesión, pone el nombre de usuario y la contraseña (cifrada mediante una clave pública) en una cola.
-5. Un agente de autenticación local recupera el nombre de usuario y la contraseña cifrada de la cola. Tenga en cuenta que el agente no sondea con frecuencia las solicitudes de la cola, sino que recupera las solicitudes a través de una conexión persistente establecida previamente.
-6. El agente descifra la contraseña con su clave privada.
-7. El agente valida el nombre de usuario y la contraseña en Active Directory mediante las API de Windows, que es un mecanismo similar al que se usa en Servicios de federación de Active Directory (AD FS). El nombre de usuario puede ser el nombre de usuario predeterminado local (normalmente, `userPrincipalName`) u otro atributo (conocido como `Alternate ID`) configurado en Azure AD Connect.
-8. El controlador de dominio (DC) de Active Directory local evalúa la solicitud y devuelve la respuesta adecuada (correcto, error, contraseña expirada o bloqueo de usuario) al agente.
-9. El agente de autenticación, a su vez, devuelve esta respuesta a Azure AD.
-10. Azure AD evalúa la respuesta y responde al usuario según corresponda. Por ejemplo, Azure AD inicia la sesión del usuario inmediatamente o envía una solicitud a Azure Multi-Factor Authentication.
-11. Si el inicio de sesión del usuario se realiza correctamente, el usuario puede acceder a la aplicación.
+3. El usuario escribe su nombre de usuario en la página de inicio de sesión de Azure AD y después selecciona el botón **Siguiente**.
+4. El usuario escribe su contraseña en la página de inicio de sesión de Azure AD y después selecciona el botón **Inicio de sesión**.
+5. Cuando Azure AD recibe la solicitud de inicio de sesión, pone el nombre de usuario y la contraseña (cifrada mediante la clave pública de los agentes de autenticación) en una cola.
+6. Un agente de autenticación local recupera el nombre de usuario y la contraseña cifrada de la cola. Tenga en cuenta que el agente no sondea con frecuencia las solicitudes de la cola, sino que recupera las solicitudes a través de una conexión persistente establecida previamente.
+7. El agente descifra la contraseña con su clave privada.
+8. El agente valida el nombre de usuario y la contraseña en Active Directory mediante las API de Windows, que es un mecanismo similar al que se usa en Servicios de federación de Active Directory (AD FS). El nombre de usuario puede ser el nombre de usuario predeterminado local (normalmente, `userPrincipalName`) u otro atributo (conocido como `Alternate ID`) configurado en Azure AD Connect.
+9. El controlador de dominio (DC) de Active Directory local evalúa la solicitud y devuelve la respuesta adecuada (correcto, error, contraseña expirada o bloqueo de usuario) al agente.
+10. El agente de autenticación, a su vez, devuelve esta respuesta a Azure AD.
+11. Azure AD evalúa la respuesta y responde al usuario según corresponda. Por ejemplo, Azure AD inicia la sesión del usuario inmediatamente o envía una solicitud a Azure Multi-Factor Authentication.
+12. Si el inicio de sesión del usuario se realiza correctamente, el usuario puede acceder a la aplicación.
 
 En el diagrama siguiente se ilustran todos los componentes y los pasos implicados:
 
@@ -48,7 +49,7 @@ En el diagrama siguiente se ilustran todos los componentes y los pasos implicado
 ## <a name="next-steps"></a>Pasos siguientes
 - [Limitaciones actuales](active-directory-aadconnect-pass-through-authentication-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
 - [Inicio rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
-- [Bloqueo inteligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
+- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Preguntas más frecuentes](active-directory-aadconnect-pass-through-authentication-faq.md): encuentre respuestas a las preguntas más frecuentes.
 - [Solución de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
 - [Análisis a fondo de la seguridad](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): obtenga información técnica sobre la característica de autenticación de paso a través.

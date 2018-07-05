@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: a24cb03cd30b212650a36cd5ac40977de5eea11e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 441e99b86e9560d47af8ea18a2633e3f37a05e94
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34653848"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamaños de máquina virtual de proceso de alto rendimiento
 
@@ -74,7 +75,7 @@ Se necesita configuración adicional del sistema para ejecutar trabajos MPI en m
 - [Memoria optimizada](sizes-memory.md)
 - [Almacenamiento optimizado](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-
+- [Generaciones anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

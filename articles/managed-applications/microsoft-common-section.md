@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e6d7d5d7b205d275c72e96df527a354b072a9dd3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 90ffae3dd8b05041c34d766e464eb68f793f6066
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260976"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062985"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.Section
 Control que agrupa uno o varios elementos en un encabezado.
@@ -31,17 +31,17 @@ Control que agrupa uno o varios elementos en un encabezado.
 {
   "name": "section1",
   "type": "Microsoft.Common.Section",
-  "label": "Some section",
+  "label": "Example section",
   "elements": [
     {
-      "name": "element1",
+      "name": "text1",
       "type": "Microsoft.Common.TextBox",
-      "label": "Some text box 1"
+      "label": "Example text box 1"
     },
     {
-      "name": "element2",
+      "name": "text2",
       "type": "Microsoft.Common.TextBox",
-      "label": "Some text box 2"
+      "label": "Example text box 2"
     }
   ],
   "visible": true
@@ -49,14 +49,14 @@ Control que agrupa uno o varios elementos en un encabezado.
 ```
 
 ## <a name="remarks"></a>Comentarios
-- `elements` debe contener al menos un elemento, y puede contener todos los tipos de elementos excepto `Microsoft.Common.Section`.
+- `elements` debe tener al menos un elemento y puede tener todos los tipos de elementos, excepto `Microsoft.Common.Section`.
 - Este elemento no admite la propiedad `toolTip`.
 
 ## <a name="sample-output"></a>Salida de ejemplo
 Para obtener acceso a los valores de salida de los elementos en `elements`, use las funciones [basics()](create-uidefinition-functions.md#basics) o [steps()](create-uidefinition-functions.md#steps) y la notación de puntos:
 
 ```json
-basics('section1').element1
+steps('configuration').section1.text1
 ```
 
 Los elementos del tipo `Microsoft.Common.Section` no tienen valores de salida por sí mismos.

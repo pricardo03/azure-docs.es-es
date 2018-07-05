@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 92f83bb6656578792aea45efe62da75009c1391d
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3425558ac1ffa9e8d5146a5126f01c4ac55050dc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284954"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049637"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copia de datos desde un servidor SFTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-sftp-connector.md)
-> * [Versión 2: versión preliminar](connector-sftp.md)
+> * [Versión 1](v1/data-factory-sftp-connector.md)
+> * [Versión actual](connector-sftp.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos con un servidor SFTP como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector SFTP](v1/data-factory-sftp-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 

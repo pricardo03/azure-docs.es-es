@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 1f4afbe1849210c55c392d014449224f2fe97b04
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659916"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062213"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integración de Cloud Foundry con Azure
 
@@ -81,7 +81,7 @@ Aunque normalmente se recomienda la serie de máquinas virtuales F y D para el e
 #### <a name="managed-standard-disk"></a>Disco estándar administrado: 
 Para un rendimiento confiable en producción se recomendaban los discos premium.  Con [Disco administrado](https://azure.microsoft.com/services/managed-disks/), el almacenamiento estándar también puede proporcionar una confiabilidad similar, con otro rendimiento. Para cargas de trabajo en las que no se tiene en cuenta el rendimiento, como desarrollo o pruebas, o bien entorno no críticos, los discos administrados estándar ofrecen una opción alternativa con un costo menor.  
 ### <a name="cost-saving-in-general"></a>Ahorro de costos general 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Ahorro de costos de máquinas virtuales importante con instancias reservadas: 
+#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Ahorro importante de costos de máquinas virtuales con instancias reservadas: 
 Hoy en día, todas las máquinas virtuales de CF se facturan con precios "a petición", incluso cuando los entornos normalmente se mantienen activos de forma indefinida. Ahora puede reservar capacidad de máquina virtual en plazos de 1 o 3 años, y obtener descuentos del 45-65 %. Los descuentos se aplican en el sistema de facturación, sin cambios en el entorno. Para obtener más información, vea [cómo funcionan las instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Disco administrado premium con tamaños más pequeños: 
 Los discos administrados admiten tamaños de disco más pequeños, por ejemplo P4(32 GB) y P6(64 GB) para los discos estándar y premium. Si tiene cargas de trabajo pequeñas, puede ahorrar costos al migrar de discos premium estándar a discos premium administrados.

@@ -12,22 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 12402ea30e44534734e0429f850772cbef2f7381
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287470"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049305"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Store como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-azure-datalake-connector.md)
-> * [Versión 2: versión preliminar](connector-azure-data-lake-store.md)
+> * [Versión 1](v1/data-factory-azure-datalake-connector.md)
+> * [Versión actual](connector-azure-data-lake-store.md)
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Data Lake Store como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Data Lake Store](v1/data-factory-azure-datalake-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -42,6 +39,9 @@ En concreto, este conector de Azure Data Lake Store admite las siguientes funcio
 > Si copia los datos con Integration Runtime autohospedado, configure el firewall corporativo para permitir el tráfico saliente a `<ADLS account name>.azuredatalakestore.net` y a `login.microsoftonline.com/<tenant>/oauth2/token` en el puerto 443. El segundo es Azure Security Token Service (STS) con el que IR necesita comunicarse para obtener el token de acceso.
 
 ## <a name="get-started"></a>Introducción
+
+> [!TIP]
+> Para ver un tutorial del uso de conector de Azure Data Lake Store, consulte [Carga de datos en Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

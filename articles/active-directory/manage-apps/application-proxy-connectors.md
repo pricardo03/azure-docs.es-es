@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293014"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025577"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -92,7 +92,6 @@ Los conectores solo envían solicitudes salientes. El tráfico saliente se enví
 
 Para más información sobre cómo configurar reglas de firewall de salida, vea [Trabajo con servidores proxy locales existentes](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Use la [herramienta de prueba Connector Ports del proxy de aplicación de Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para comprobar que el conector puede comunicarse con el servicio Proxy de aplicación. Como mínimo, asegúrese de que la región de centro de EE. UU. y la región más cercana tienen todas las marcas de verificación en verde. Además, cuantas más marcas de verificación verde haya, mayor resistencia habrá. 
 
 ## <a name="performance-and-scalability"></a>Rendimiento y escalabilidad
 
@@ -104,7 +103,7 @@ El rendimiento del conector viene determinado por las redes y la CPU. El rendimi
 
 En cambio, la memoria no supone un problema para los conectores. El servicio en línea se encarga de gran parte del procesamiento y de todo el tráfico no autenticado. Todo lo que puede realizarse en la nube se realiza en la nube. 
 
-El equilibrio de carga se produce entre los conectores de un grupo de conectores determinado. Hacemos una variación de round robin para determinar qué conector del grupo sirve una solicitud determinada. Después de elegir un conector, mantenemos una afinidad de la sesión entre ese usuario y la aplicación para toda la duración de la sesión. Si por algún motivo ese conector o máquina no están disponibles, el tráfico comenzará a dirigirse a otro conector del grupo. Esta resistencia también es el motivo por el que se recomienda tener varios conectores.
+El equilibrio de carga se produce entre los conectores de un grupo de conectores determinado. Hacemos una variación de round robin para determinar qué conector del grupo sirve una solicitud determinada. Si por algún motivo ese conector o máquina no están disponibles, el tráfico comenzará a dirigirse a otro conector del grupo. Esta resistencia también es el motivo por el que se recomienda tener varios conectores.
 
 Otro factor que incide el rendimiento es la calidad de las conexiones entre los conectores; en particular: 
 

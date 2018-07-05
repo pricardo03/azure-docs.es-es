@@ -11,21 +11,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763463"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064509"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Procedimiento para instalar y configurar SAP HANA en Azure (instancias grandes)
 
 A continuación se muestran algunas definiciones importantes que debe conocer antes de leer esta guía. En [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) se presentan dos clases distintas de unidades de HANA (Instancias grandes) con:
 
-- S72, S72m, S144, S144m, S192, S192m y S192m a las que se hace referencia como "clase de tipo I" de SKU.
+- S72, S72m, S144, S144m, S192, S192m y S192xm, a las que se hace referencia como "clase Tipo I" de SKU.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm y S960m, a los que se hace referencia como "clase de tipo II" de SKU.
 
 El especificador de clase se va a usar en toda la documentación sobre Instancia grande de HANA para hacer referencia a diferentes capacidades y requisitos en función de las SKU de Instancia grande de HANA.
@@ -80,18 +80,7 @@ Se supone que ha seguido las recomendaciones de diseño de las redes virtuales d
 
 Hay algunos detalles que vale la pena mencionar acerca de las funciones de red de las unidades individuales. Cada unidad de instancia grande de HANA viene con dos o tres direcciones IP asignadas a dos o tres puertos NIC de la unidad. En las configuraciones de escalado horizontal de HANA y el escenario de replicación del sistema de HANA se utilizan tres direcciones IP. Una de las direcciones IP asignadas a la NIC de la unidad está fuera del grupo de direcciones IP del servidor que se describió en la [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-La distribución para las unidades con dos direcciones IP asignadas debería ser como lo siguiente:
-
-- eth0.xx debe tener una dirección IP asignada fuera del intervalo de direcciones del grupo de direcciones IP de servidor que envió a Microsoft. Esta dirección IP se usará para el mantenimiento en /etc/hosts del sistema operativo.
-- eth1.xx debe tener una dirección IP asignada, que se usa para la comunicación con NFS. Por lo tanto, estas direcciones **NO** necesitan permanecer en etc/hosts para permitir el tráfico de instancia a instancia dentro del inquilino.
-
-Para los casos de implementación de la replicación del sistema de HANA o el escalado horizontal de HANA, una configuración de hoja con dos direcciones IP asignadas no es adecuada. Si solo tiene dos direcciones IP asignadas y quiere implementar este tipo de configuración, póngase en contacto con SAP HANA en Azure Service Management para obtener una tercera dirección IP en otra red VLAN asignada. Para las unidades de instancia grande de HANA con tres direcciones IP asignadas en tres puertos de NIC, se aplican las reglas de uso siguientes:
-
-- eth0.xx debe tener una dirección IP asignada fuera del intervalo de direcciones del grupo de direcciones IP de servidor que envió a Microsoft. Por lo tanto, esta dirección IP no se usará para el mantenimiento en /etc/hosts del sistema operativo.
-- eth1.xx debe tener una dirección IP asignada, que se usa para la comunicación con el almacenamiento NFS. Por lo tanto, este tipo de direcciones no debe permanecer en etc/hosts.
-- eth2.xx debe usarse exclusivamente para el mantenimiento en etc/hosts, para la comunicación entre las distintas instancias. Estas direcciones también serían las direcciones IP que deben mantenerse en las configuraciones de escalado horizontal de HANA como las direcciones IP que HANA usa para la configuración entre nodos.
-
-
+Consulte los [escenarios admitidos por HLI](hana-supported-scenario.md) para conocer los detalles de Ethernet correspondiente a su arquitectura.
 
 ## <a name="storage"></a>Storage
 
@@ -111,7 +100,7 @@ Donde "SID" = el identificador de sistema de la instancia de HANA
 
 Y "tenant" = una enumeración interna de operaciones al implementar un inquilino.
 
-Como puede ver, HANA compartido y usr/sap están compartiendo el mismo volumen. La nomenclatura de los puntos de montaje incluye el identificador de sistema de las instancias de HANA así como el número de montaje. En las implementaciones de escalado vertical solo hay un montaje, como mnt00001. Al mismo tiempo, en la implementación de escalado horizontal puede que vea tantos montajes como nodos de trabajo y principales tiene. Para el entorno de escalado horizontal, los datos, el registro y los volúmenes de copia de seguridad del registro se comparten y se adjuntan a cada nodo en la configuración de escalado horizontal. Para las configuraciones que ejecutan varias instancias de SAP, se crea un conjunto diferente de volúmenes y se adjunta a la unidad de instancia grande de HANA.
+Como puede ver, HANA compartido y usr/sap están compartiendo el mismo volumen. La nomenclatura de los puntos de montaje incluye el identificador de sistema de las instancias de HANA así como el número de montaje. En las implementaciones de escalado vertical solo hay un montaje, como mnt00001. Al mismo tiempo, en la implementación de escalado horizontal puede que vea tantos montajes como nodos de trabajo y principales tiene. Para el entorno de escalado horizontal, los datos, el registro y los volúmenes de copia de seguridad del registro se comparten y se adjuntan a cada nodo en la configuración de escalado horizontal. Para las configuraciones que ejecutan varias instancias de SAP, se crea un conjunto diferente de volúmenes y se adjunta a la unidad de instancia grande de HANA. Consulte los [escenarios admitidos por HLI](hana-supported-scenario.md) para información detallada sobre la distribución de almacenamiento en su caso.
 
 Según vaya leyendo el documento y buscando una unidad de instancia grande de HANA, se dará cuenta de que las unidades vienen con un volumen de disco bastante amplio para HANA/data y que tenemos un volumen HANA/log/backup. El motivo por el que el tamaño de HANA/data es tan grande es que las instantáneas de almacenamiento que le ofrecemos como cliente usan el mismo volumen de disco. Esto significa que cuantas más instantáneas de almacenamiento realice, más espacio consumen las instantáneas en los volúmenes de almacenamiento asignados. HANA/log/backup no se considera el volumen en el que colocar las copias de seguridad de base de datos. Su tamaño se ajusta para usarlo como volumen de copia de seguridad para las copias de seguridad del registro de transacciones de HANA. En futuras versiones del autoservicio de almacenamiento de instantáneas, este volumen específico será el destino para tener instantáneas más frecuentes. Y con eso, replicaciones más frecuentes en el sitio de recuperación ante desastres si quiere participar en la funcionalidad de recuperación ante desastres que proporciona la infraestructura de instancias grandes de HANA. Vea los detalles en [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 
@@ -150,6 +139,7 @@ También puede configurar los parámetros después de la instalación de la base
 
 Con SAP HANA 2.0, el marco de hdbparam está en desuso. Como resultado, los parámetros deben establecerse mediante comandos SQL. Para más información, consulte la [nota de SAP n.º 2399079: Eliminación de hdbparam en HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
+Consulte los [escenarios admitidos por HLI](hana-supported-scenario.md) para conocer la distribución de almacenamiento correspondiente a su arquitectura.
 
 ## <a name="operating-system"></a>Sistema operativo
 

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2af093e4ce6284f4cee75543720d109fa71a9b66
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec3c87c39cd8b8d1dafa8ad062776171c602135b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621401"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047067"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-azure-blob-connector.md)
-> * [Versión 2: versión preliminar](../connector-azure-blob-storage.md)
+> * [Versión 1](data-factory-azure-blob-connector.md)
+> * [Versión 2 (versión actual)](../connector-azure-blob-storage.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Azure Blob Storage connector in V2](../connector-azure-blob-storage.md) (Conector de Azure Blob Storage en V2).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Conector de Azure Blob Storage en V2](../connector-azure-blob-storage.md).
 
 
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos hacia Azure Blob Storage y desde este servicio. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
@@ -195,7 +195,7 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
 3. Una vez finalizada la creación, puede ver la hoja **Data Factory** como se muestra en la siguiente imagen: ![página principal de Data Factory](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Asistente para copia
-1. En la página principal de Data Factory, haga clic en el icono **Copy data [PREVIEW]** (Copiar datos) [versión preliminar] para iniciar el **Asistente para copia de datos** en una pestaña aparte.    
+1. En la página principal de Data Factory, haga clic en el icono **Copiar datos** para iniciar el **Asistente para copia de datos** en una pestaña aparte.    
     
     > [!NOTE]
     >    Si ve que el explorador web está atascado en "Autorizando...", deshabilite o desactive la opción **Block third-party cookies and site data** (Bloquear cookies y datos de sitios de terceros) o déjela habilitada y cree una excepción para **login.microsoftonline.com** e intente volver a iniciar el asistente.

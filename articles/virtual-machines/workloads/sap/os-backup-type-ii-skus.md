@@ -11,24 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657611"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063281"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>Copia de seguridad y restauración del sistema operativo para SKU de tipo II
 
-En este documento se describen los pasos para realizar una copia de seguridad y una restauración del sistema operativo para las **SKU de tipo II** de instancias grandes de HANA. 
+En este documento se describen los pasos para realizar una copia de seguridad y una restauración a nivel de archivo del sistema operativo para las **SKU de tipo II** de instancias grandes de HANA. 
 
 >[!NOTE]
 >En los scripts de copia de seguridad del SO se usa el software ReaR, que viene preinstalado en el servidor.  
 
-Después de que el equipo de Microsoft Service Management ha realizado el aprovisionamiento, el servidor se configura de forma predeterminada con dos programaciones de copia de seguridad para realizar la copia de seguridad del sistema operativo completo. Puede comprobar la programación del trabajo de copia de seguridad mediante el comando siguiente:
+Después de que el equipo de Microsoft Service Management ha realizado el aprovisionamiento, el servidor se configura de forma predeterminada con la programación de dos copias de seguridad para realizar una copia de seguridad a nivel de archivo del sistema operativo. Puede comprobar la programación del trabajo de copia de seguridad mediante el comando siguiente:
 ```
 #crontab –l
 ```
@@ -38,7 +38,7 @@ En cualquier momento se puede cambiar la programación de la copia de seguridad 
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Creación de una copia de seguridad manual
 
-La copia de seguridad del sistema operativo ya está programada mediante un **trabajo de cron**. Sin embargo, también se puede realizar manualmente la copia de seguridad del sistema operativo. Para realizar una copia de seguridad manual, ejecute el siguiente comando:
+La copia de seguridad del sistema de archivos del sistema operativo se programa mediante un **trabajo de cron**. Sin embargo, también puede realizar la copia de seguridad a nivel de archivo del sistema operativo de forma manual. Para realizar una copia de seguridad manual, ejecute el siguiente comando:
 
 ```
 #rear -v mkbackup

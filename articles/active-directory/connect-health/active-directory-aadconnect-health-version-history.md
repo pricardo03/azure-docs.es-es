@@ -3,7 +3,7 @@ title: Historial de versiones de Azure AD Connect Health
 description: Este documento describe las versiones de Azure AD Connect Health y lo que se ha incluido en dichas versiones.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3e3cebd47a259c7c297d6df0eaf76a350111f2e3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590385"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319272"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: historial de versiones
 El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect Health con nuevas características y funciones. En este artículo se enumeran las versiones y características que se han publicado.
+
+## <a name="june-2018"></a>Junio de 2018 
+**Nuevas características de la versión preliminar:** 
+* Agente de Azure AD Connect Health para sincronización: diagnosticar y corregir errores de sincronización de atributo duplicado desde el portal 
+
+**Actualización del agente:** 
+*   Agente de Azure AD Connect Health para AD FS (versión 3.1.2.0)  
+   1. Revisión para la administración de memoria de agente y alertas relacionadas específicamente para la versión 3.0.244.0
+
 
 ## <a name="may-2018"></a>Mayo de 2018
 **Actualización del agente:**
@@ -35,7 +44,7 @@ El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect H
  2. Mejora de la privacidad de agente  
  3. Correcciones de errores y mejoras generales
 
-* Agente de Azure AD Connect Health para sincronización (versión 3.0.244.0)
+* Agente de Azure AD Connect Health para sincronización (versión 3.0.164.0), publicado con Azure AD Connect versión 1.1.819.0
  1. Mejora de la privacidad de agente  
  2. Correcciones de errores y mejoras generales
 
@@ -98,7 +107,7 @@ El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect H
 ## <a name="october-2016"></a>Octubre de 2016
 **Actualización del agente:**
 
-* Agente de Azure AD Connect Health para AD FS \(versión 2.6.408.0\)
+* Agente de Azure AD Connect Health para AD FS (versión 2.6.408.0)
 1. Mejoras en la detección de direcciones IP de cliente en las solicitudes de autenticación
 2. Correcciones de errores relacionados con las alertas
 * Agente de Azure AD Connect Health para AD DS (versión 2.6.408.0)

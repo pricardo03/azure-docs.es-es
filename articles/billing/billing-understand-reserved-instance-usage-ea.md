@@ -1,6 +1,6 @@
 ---
-title: Interpretación del uso de instancias reservadas de Azure en el nivel Enterprise | Microsoft Docs
-description: Obtenga información sobre cómo interpretar su uso para comprender la aplicación de instancias reservadas para su inscripción Enterprise.
+title: Interpretación del uso de instancias reservadas de Azure para la inscripción Enterprise | Microsoft Docs
+description: Aprenda a interpretar los datos de uso para comprender como se aplican las inscripciones Enterprise de Azure Reserved VM Instances.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: cf79926e6497c50156f2a0191997ca06bc605c16
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d6e8b2544f919abeb7fde0e37fc12bd29f0171ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064701"
 ---
-# <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Interpretación del uso de instancias reservadas para la inscripción Enterprise
-Le explicamos el uso de instancias reservadas con el valor de ReservationId de la [Página de reservas](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) y el archivo de uso del [portal de EA.](https://ea.azure.com) También puede ver el uso de reserva en la sección de resumen de uso del [portal de EA.](https://ea.azure.com)
+# <a name="understand-azure-reserved-instance-usage-for-your-enterprise-enrollment"></a>Interpretación del uso de instancias reservadas de Azure para la inscripción Enterprise
+Le explicamos el uso de instancias reservadas con el valor de **ReservationId** de la [Página de reservas](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) y el archivo de uso del [portal de EA](https://ea.azure.com). También puede ver el uso de la instancia reservada en la sección de resumen de uso del [portal de EA](https://ea.azure.com).
 
 >[!NOTE]
->Si compró la reserva en un contexto de facturación de Pago por uso, consulte [Understand Reserved Instance usage for your Pay-As-You-Go subscription (Interpretación del uso de instancias reservadas para su suscripción de Pago por uso).](billing-understand-reserved-instance-usage.md)
+>Si compró la instancia reservada en un contexto de facturación de pago por uso, consulte [Información sobre el uso de instancias reservadas para suscripciones de pago por uso.](billing-understand-reserved-instance-usage.md)
 
-En la siguiente sección se dará por hecho que está ejecutando una máquina virtual Windows Standard_D1_v2 en la región Este de EE. UU. y que la información de la reserva tiene un aspecto similar al de la siguiente tabla:
+En la siguiente sección se da por hecho que está ejecutando una máquina virtual Windows Standard_D1_v2 en la región Este de EE. UU. y que la información de la instancia reservada tiene un aspecto similar al de la siguiente tabla:
 
 | Campo | Valor |
 |---| --- |
@@ -35,38 +36,38 @@ En la siguiente sección se dará por hecho que está ejecutando una máquina vi
 |SKU | Standard_D1|
 |Region | estado |
 
-## <a name="reservation-application"></a>Aplicación de reserva
+## <a name="reserved-instance-application"></a>Aplicación de instancia reservada
 
-La parte de hardware de la máquina virtual está cubierta, dado que la máquina virtual implementada coincide con los atributos de la reserva. Para ver qué software de Windows no está cubierto por la instancia reservada, vaya a los costos de software de Azure Reserved VM Instances y vea los [costos de software de Windows para Azure Reserved VM Instances](billing-reserved-instance-windows-software-costs.md).
+La parte de hardware de la máquina virtual está cubierta, dado que la máquina virtual implementada coincide con los atributos de la instancia reservada. Para ver qué software de Windows no está cubierto por la instancia reservada, vaya a los costos de software de Azure Reserved VM Instances y vea los [costos de software de Windows para Azure Reserved VM Instances](billing-reserved-instance-windows-software-costs.md).
 
 
-### <a name="reservation-usage-in-csv"></a>Uso de la reserva en CSV
-Puede descargar el archivo CSV de uso de EA desde el portal de EA. En el archivo CSV descargado, filtre por la columna Additional Info (Información adicional) y escriba su id. de reserva. En la siguiente captura de pantalla se muestran los campos relacionados con la reserva:
+### <a name="reserved-instance-usage-in-csv"></a>Uso de la instancia reservada en csv
+Puede descargar el archivo CSV de uso de EA desde el portal de EA. En el archivo CSV descargado, filtre por la columna Additional Info (Información adicional) y escriba su **identificador de reserva**. En la siguiente captura de pantalla se muestran los campos relacionados con la instancia reservada:
 
-![Archivo CSV de EA para instancias reservadas](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+![Archivo csv del Contrato Enterprise (EA) para instancias reservadas de Azure](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
 
-1. ReservationId en el campo Additional Info representa la reserva que se usó para aplicar las ventajas a la máquina virtual.
+1. **ReservationId** en el campo Additional Info representa a la instancia reservada que se usó para aplicar las ventajas a la máquina virtual.
 2. ConsumptionMeter es el valor de MeterId de la máquina virtual.
-3. Se trata de ReservationMeter sin ningún costo, ya que el costo de la máquina virtual en ejecución ya se ha pagado con la reserva. 
+3. Se trata de ReservationMeter sin ningún costo, ya que el costo de la máquina virtual en ejecución ya se ha pagado con la instancia reservada. 
 4. Standard_D1 es una máquina virtual de vCPU y se implementa sin la Ventaja híbrida de Azure. Por lo tanto, este medidor cubre el costo extra del software de Windows. Consulte los [costos de software de Windows de las instancias reservadas de máquina virtual de Azure](billing-reserved-instance-windows-software-costs.md) para buscar el medidor correspondiente a la máquina virtual de un núcleo de la serie D. Si se usa la Ventaja híbrida de Azure, no se aplicará este cargo adicional.
 
-### <a name="reservation-usage-in-usage-summary-page-in-ea-portal"></a>Uso de reserva en la página de resumen de uso del portal de EA
+### <a name="reserved-instance-usage-in-usage-summary-page-in-ea-portal"></a>Uso de la instancia reservada en la página de resumen de uso del portal de EA
 
-El uso de instancias reservadas también aparece en la sección de resumen de uso del portal de EA: ![Resumen de uso de EA](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+El uso de instancias reservadas también aparece en la sección de resumen de uso del portal de EA: ![Resumen de uso del Contrato Enterprise (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. No se le cobra por el componente de hardware de la máquina virtual, ya que está cubierto por la instancia reservada. 
 2. Se le cobra por el software de Windows, ya que la Ventaja híbrida de Azure no se usa. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
+Para más información acerca de las instancias reservadas de Azure, consulte los siguientes artículos:
 
-- [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
-- [Ahorrar en máquinas virtuales con instancias reservadas de máquina virtual](billing-save-compute-costs-reservations.md)
+- [¿Qué es Azure Reserved Virtual Machine Instances?](billing-save-compute-costs-reservations.md)
+- [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administración de instancias reservadas en Azure](billing-manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Costos de software de Windows no incluidos con las instancias reservadas](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
+## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
