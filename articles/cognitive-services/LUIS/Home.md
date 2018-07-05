@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: bbd0a532e54f9b221739c8ae9ff097fe44fdc4df
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751602"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344838"
 ---
 # <a name="what-is-language-understanding-luis"></a>¿Qué es Language Understanding (LUIS)?
 Language Understanding (LUIS) es un servicio basado en la nube que aplica aprendizaje automático personalizado a un texto de lenguaje natural y conversacional de un usuario para predecir el significado global y extraer información pertinente y detallada. 
@@ -82,7 +82,7 @@ Una vez que LUIS devuelve las entidades que se encuentran en la expresión del u
 
 LUIS proporciona varias maneras de identificar y clasificar entidades.
 
-* **Entidades creadas previamente** LUIS tiene muchos modelos de dominio precompilados en los que se incluyen intenciones, expresiones y [entidades creadas previamente](pre-builtentities.md). Puede usar las entidades creadas previamente sin tener que utilizar las intenciones y expresiones del modelo precompilado. Las entidades creadas previamente le ahorran tiempo.
+* **Entidades creadas previamente** LUIS tiene muchos modelos de dominio precompilados en los que se incluyen intenciones, expresiones y [entidades creadas previamente](luis-prebuilt-entities.md). Puede usar las entidades creadas previamente sin tener que utilizar las intenciones y expresiones del modelo precompilado. Las entidades creadas previamente le ahorran tiempo.
 
 * **Entidades personalizadas** LUIS ofrece varias maneras de identificar sus propias [entidades](luis-concept-entity-types.md) personalizadas, como entidades de aprendizaje automático, entidades específicas o literales y una combinación de aprendizaje automático y literal.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359635"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441580"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -47,7 +47,7 @@ Para completar este artículo, debe tener permisos suficientes para registrar un
 
    ![ver registros de aplicaciones](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Si la opción Registros de aplicaciones está establecida en **No**, los [administradores globales](../active-directory/active-directory-assign-admin-roles-azure-portal.md) serán los únicos que podrán registrar aplicaciones. Compruebe si la cuenta es un administrador del inquilino de Active Directory. Seleccione **Información general** y eche un vistazo a la información del usuario. Si la cuenta está asignada al rol Usuario pero la opción Registros de aplicaciones (del paso anterior) está limitada a los usuarios administradores, pida al administrador que le asigne un rol de administrador global o que permita a los usuarios registrar las aplicaciones.
+1. Si la opción Registros de aplicaciones está establecida en **No**, los [administradores globales](../active-directory/users-groups-roles/directory-assign-admin-roles.md) serán los únicos que podrán registrar aplicaciones. Compruebe si la cuenta es un administrador del inquilino de Active Directory. Seleccione **Información general** y eche un vistazo a la información del usuario. Si la cuenta está asignada al rol Usuario pero la opción Registros de aplicaciones (del paso anterior) está limitada a los usuarios administradores, pida al administrador que le asigne un rol de administrador global o que permita a los usuarios registrar las aplicaciones.
 
    ![encontrar usuario](./media/resource-group-create-service-principal-portal/view-user-info.png)
 

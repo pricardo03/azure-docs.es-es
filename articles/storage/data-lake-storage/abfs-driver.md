@@ -10,12 +10,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a726779e731be2534e457ba595d93fe51c023601
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035225"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114340"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>El controlador Azure Blob Filesystem (ABFS): un controlador de Azure Storage dedicado para Hadoop
 
@@ -29,7 +29,7 @@ Por tanto, para superar las deficiencias inherentes al diseño de WASB, el nuevo
 
 ## <a name="the-azure-blob-file-system-driver"></a>El controlador Azure Blob File System
 
-La [interfaz de REST de Azure Data Lake Storage](https://docs.microsoft.com/en-us/rest/api/datalakestorage/) está diseñada para admitir la semántica de sistema de archivos a través de Azure Blob Storage. Dado que Hadoop FileSystem también está diseñado para admitir la misma semántica, no hay ningún requisito de una asignación compleja en el controlador. Por tanto, el controlador Azure Blob File System (o ABFS) es una mera corrección de compatibilidad (shim) de cliente para la API REST.
+La [interfaz de REST de Azure Data Lake Storage](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2) está diseñada para admitir la semántica de sistema de archivos a través de Azure Blob Storage. Dado que Hadoop FileSystem también está diseñado para admitir la misma semántica, no hay ningún requisito de una asignación compleja en el controlador. Por tanto, el controlador Azure Blob File System (o ABFS) es una mera corrección de compatibilidad (shim) de cliente para la API REST.
 
 Sin embargo, hay algunas funciones que el controlador debe seguir realizando:
 

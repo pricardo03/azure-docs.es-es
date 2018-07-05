@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0813e0f6b51c747d033ca2c44aed21cf94c32000
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895340"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113034"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 ## <a name="introduction"></a>Introducción
@@ -420,7 +420,7 @@ El firewall de aplicaciones web inspecciona el tráfico web entrante y bloquea l
 
 A continuación se presentan unos ejemplos de firewall de aplicaciones web disponibles en Azure Marketplace:
 
-[Firewall de aplicaciones web Barracuda, firewall de aplicaciones web virtuales Brocade (Brocade vWAF), Imperva SecureSphere y firewall ThreatSTOP IP.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Firewall de aplicaciones web Barracuda, firewall de aplicaciones web virtuales Brocade (Brocade vWAF), Imperva SecureSphere y firewall ThreatSTOP IP.](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
