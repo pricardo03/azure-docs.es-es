@@ -56,7 +56,7 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 
 &#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
 
-&#42;&#42 Los números de rendimiento antes de Update 3 pueden ser inferiores.
+&#42;&#42; Los números de rendimiento antes de Update 3 pueden ser inferiores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Revise los [Requisitos del sistema StorSimple](storsimple-8000-system-requirements.md).
