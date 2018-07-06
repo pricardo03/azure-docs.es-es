@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b63c10a8c092d6568f8caf9842f007a5dc9c027
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049169"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099192"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guía de inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux x64
 
@@ -134,8 +134,9 @@ El demonio de seguridad se instala como un servicio del sistema para que el ento
 6. Vea los módulos que se ejecutan en el dispositivo: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Después de un cierre de sesión y el inicio de sesión, *sudo* no es necesario para el comando anterior.
 
    ![Visualización de un módulo en el dispositivo](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -154,16 +155,19 @@ En esta guía de inicio rápido, ha creado un nuevo dispositivo de IoT Edge y ha
 Vuelva a abrir el símbolo del sistema en el equipo que ejecuta el dispositivo simulado. Confirme que el módulo implementado desde la nube se está ejecutando en el dispositivo IoT Edge:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Después de un cierre de sesión y el inicio de sesión, *sudo* no es necesario para el comando anterior.
 
    ![Ver tres módulos en el dispositivo](./media/quickstart-linux/iotedge-list-2.png)
 
 Vea los mensajes que se envían desde el módulo tempSensor:
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+Después de un cierre de sesión y el inicio de sesión, *sudo* no es necesario para el comando anterior.
 
 ![Ver los datos desde el módulo](./media/quickstart-linux/iotedge-logs.png)
 

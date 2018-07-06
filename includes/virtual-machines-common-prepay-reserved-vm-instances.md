@@ -1,20 +1,20 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683056"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063704"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances
 
-Pague las máquinas virtuales por adelantado y ahorre dinero con Azure Reserved Virtual Machine (VM) Instances. Para más información, consulte las [ofertas de Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Pague las máquinas virtuales por adelantado y ahorre dinero con Azure Reserved Virtual Machine (VM) Instances. Para más información, consulte las [ofertas de Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
-Azure Reserved Instances se puede comprar en [Azure Portal](https://portal.azure.com). Para comprar una instancia reservada de máquina virtual:
+Puede comprar Azure Reserved Instances en [Azure Portal](https://portal.azure.com). Para comprar una instancia reservada de máquina virtual:
 -   Debe tener un rol de propietario al menos en suscripción Enterprise o de Pago por uso.
 -   En el caso de las suscripciones Enterprise, las compras de instancias reservadas de máquina virtual deben habilitarse en el [portal de EA](https://ea.azure.com).
--   En el caso del programa del Proveedor de soluciones en la nube (CSP) los únicos que pueden comprarlas son los agentes de administración o de ventas.
+-   En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprarlas son los agentes de administración o de ventas.
 
 [!IMPORTANT]
 Debe usar uno de los métodos descritos a continuación para identificar el tamaño de máquina virtual correctamente para la compra de reserva.
@@ -24,7 +24,7 @@ Debe usar uno de los métodos descritos a continuación para identificar el tama
 2. También puede obtener la información precisa de tamaño de máquina virtual con Powershell, Azure Resource Manager o los detalles de la VM en Azure Portal.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Comprar una instancia reservada de máquina virtual
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione **Agregar** para comprar una nueva instancia reservada de máquina virtual.
 4. Rellene todos los campos obligatorios. Las instancias de máquina virtual en ejecución que coinciden con los atributos seleccionados cumplen los requisitos para obtener el descuento de las instancias reservadas de máquina virtual. El número real de las instancias de máquina virtual que obtienen el descuento depende el ámbito y la cantidad seleccionada.
@@ -50,13 +50,13 @@ Debe usar uno de los métodos descritos a continuación para identificar el tama
 ## <a name="next-steps"></a>Pasos siguientes 
 El descuento de la instancia reservada de máquina virtual se aplica automáticamente al número de máquinas virtuales en ejecución que coinciden con el ámbito y los atributos de la instancia reservada de máquina virtual. Dicho ámbito se puede actualizar desde [Azure Portal](https://portal.azure.com), PowerShell, la CLI o la API. 
 
-Para aprender a administrar una instancia reservada de máquina virtual, consulte [Administración de instancias reservadas de máquina virtual](../articles/billing/billing-manage-reserved-vm-instance.md).
+Para aprender a administrar una instancia reservada, consulte [Administración de instancias reservadas en Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Para más información acerca de las instancias reservadas de Azure, consulte los siguientes artículos:
+Para obtener más información acerca de las instancias reservadas de Azure, consulte los siguientes artículos:
 
-- [Ahorro en máquinas virtuales con las instancias reservadas de máquina virtual](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Administración de instancias reservadas de máquina virtual](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [¿Qué es Azure Reserved Virtual Machine Instances?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Administración de instancias reservadas en Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Información sobre cómo se aplica el descuento de instancia reservada](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Interpretación del uso de instancias reservadas para la inscripción Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Costos de software de Windows no incluidos con las instancias reservadas](../articles/billing/billing-reserved-instance-windows-software-costs.md)

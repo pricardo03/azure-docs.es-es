@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801122"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060524"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -229,7 +229,13 @@ Use la propiedad `ContainerSettings` de las clases de tarea para configurar opci
 
 Si ejecuta tareas en imágenes de contenedor, la [tarea en la nube](/dotnet/api/microsoft.azure.batch.cloudtask) y la [tarea del administrador de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) requieren la configuración del contenedor. Sin embargo, la [tarea de inicio](/dotnet/api/microsoft.azure.batch.starttask), la [tarea de preparación de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) y la [tarea de liberación de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) no requieren configuración del contenedor (es decir, pueden ejecutarse en un contexto de contenedor o directamente en el nodo).
 
-Al configurar las opciones de contenedor, todos los directorios recursivamente debajo de `AZ_BATCH_NODE_ROOT_DIR` (la raíz de los directorios de Azure Batch en el nodo) se asignan al contenedor, todas las variables de entorno de la tarea se asignan al contenedor y la línea de comandos de tarea se ejecuta en el contenedor.
+La línea de comandos de una tarea de contenedor de Azure Batch se ejecuta en un directorio de trabajo del contenedor muy similar al entorno que Batch configura para una tarea normal (que no es de tipo contenedor):
+
+* Todos los directorios incluidos de forma recursiva debajo de `AZ_BATCH_NODE_ROOT_DIR` (la raíz de los directorios de Azure Batch en el nodo) se asignan al contenedor.
+* Todas las variables de entorno de tareas se asignan al contenedor.
+* El directorio de trabajo de la aplicación establecido es el mismo que en el caso de una tarea normal, por lo que puede usar características como paquetes de aplicación y archivos de recursos.
+
+Dado que Batch cambia el directorio de trabajo predeterminado del contenedor, la tarea se ejecuta en una ubicación diferente al típico punto de entrada del contenedor (por ejemplo, `c:\` de manera predeterminada en un contenedor de Windows o `/` en Linux). Asegúrese de que el punto de entrada de línea de comandos o de contenedor de la tarea especifica una ruta de acceso absoluta, si aún no se ha configurado de este modo.
 
 En el siguiente fragmento de código de Python se muestra una línea de comandos básica que se ejecuta en un contenedor de Ubuntu extraído de Docker Hub. Las opciones de ejecución del contenedor son argumentos adicionales al comando `docker create` que la tarea ejecuta. En este caso, la opción `--rm` quita el contenedor después de que finaliza la tarea.
 
@@ -240,7 +246,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -251,7 +257,7 @@ En el siguiente ejemplo de C# muestra la configuración de contenedor básica pa
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

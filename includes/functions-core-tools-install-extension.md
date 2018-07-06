@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6fb497a5b6da00dece43c7f41ea3c411f385a2ba
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: d166a77a0636efea3b63660fde2187e3f2ec15c0
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726894"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063755"
 ---
 Al desarrollar funciones a nivel local, puede instalar las extensiones necesarias con el uso de Azure Functions Core Tools desde el terminal o desde un símbolo del sistema. 
 
@@ -22,7 +22,7 @@ Después de haber actualizado el archivo *function.json* para que incluya todos 
 Si desea instalar una versión concreta de un paquete o va a instalar paquetes antes de editar el archivo *function.json*, use el comando `func extensions install` con el nombre del paquete, tal como se muestra en el ejemplo siguiente:
 
 ```
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version <target_version>
+func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 
-Reemplace `<target_version>` con una versión específica del paquete. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org).
+Reemplace `<target_version>` con una versión específica del paquete, como `3.0.0-beta5`. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org).

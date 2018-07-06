@@ -3,7 +3,7 @@ title: Modificación del contenido de una página en el portal para desarrollado
 description: Aprenda a editar el contenido de una página en el portal para desarrolladores de Azure API Management.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: vlvinogr
 editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: vlvinogr
+ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29377806"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437603"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificación del contenido y el diseño de páginas en el portal para desarrolladores de Azure API Management
 Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:
@@ -34,7 +34,7 @@ El portal para desarrolladores se basa en el sistema de administración de conte
 
 ![Estructura de las páginas del portal para desarrolladores][api-management-customization-widget-structure]
 
-Todos los widgets son editables. 
+Todos los widgets son editables.
 * El contenido principal específico de cada página reside en el widget "Contenido". La edición de una página significa modificar el contenido de este widget.
 * Todos los elementos de diseño de página están contenidos con los widgets restantes. Los cambios realizados en estos widgets se aplican a todas las páginas. Se hace referencia a ellos como "widgets de diseño".
 
@@ -42,12 +42,12 @@ En las páginas del día a día, a menudo solo se modificaría el widget Conteni
 
 ## <a name="modify-layout-widget"></a>Modificación del contenido de un widget de diseño
 
-El portal para desarrolladores es accesible desde Azure Portal. 
+El portal para desarrolladores es accesible desde Azure Portal.
 
 1. Haga clic en **Portal para desarrolladores** en la barra de herramientas de la instancia de API Management.
-2. Para editar el contenido de los widgets, haga clic en el icono formado por dos pinceles en el menú del portal **Developer** a la izquierda. 
+2. Para editar el contenido de los widgets, haga clic en el icono formado por dos pinceles en el menú del portal **Developer** a la izquierda.
 3. Para modificar el contenido del encabezado, desplácese hasta la sección **Encabezado** en la lista de la izquierda.
-    
+
     Los widgets son editables dentro de los campos.
 4. Una vez que esté preparado para publicar los cambios, haga clic en **publicar** en la parte inferior de la página.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37db218010288912bf75d00fd5868aab171aef71
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 20914eec070452186295f6d87a85ea0675ebaf4c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592912"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060093"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager mediante PowerShell
 
@@ -96,6 +96,10 @@ Para mover el circuito, modifique y ejecute el siguiente fragmento de código:
 ```powershell
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
+
+> [!NOTE]
+> En el modo clásico, un circuito ExpressRoute no tiene el concepto de estar asociado a una región. En Resource Manager (ARM), todos los recursos deben asignarse a una región de Azure. La región especificada en el cmdlet Move-AzureRmExpressRouteCircuit puede ser cualquier región técnicamente. Por motivos organizativos, puede que quiera elegir una región que represente con precisión la ubicación de emparejamiento.
+> 
 
 > [!NOTE]
 > Una vez que se termine la transición, se usará el nombre nuevo que aparece en el cmdlet anterior para referirse al recurso. Básicamente, se cambiará el nombre del circuito.

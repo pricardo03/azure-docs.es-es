@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: c505f5c737b0e37e74bf136211aa0baca006658c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 62c2ebcdd3c40fd5204e20e4e15b0af784804ff0
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166147"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100477"
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Implementación de un clúster de Kubernetes para los contenedores de Linux
 
@@ -83,7 +83,7 @@ Para configurar kubectl para conectarse al clúster de Kubernetes, ejecute el co
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Para comprobar la conexión con el clúster, use el comando [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) para que devuelva una lista de los nodos del clúster.
+Para comprobar la conexión con el clúster, use el comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para que devuelva una lista de los nodos del clúster.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -166,7 +166,7 @@ spec:
     app: azure-vote-front
 ```
 
-Use el comando [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) para ejecutar la aplicación.
+Use el comando [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) para ejecutar la aplicación.
 
 ```azurecli-interactive
 kubectl create -f azure-vote.yml
@@ -185,7 +185,7 @@ service "azure-vote-front" created
 
 Cuando se ejecuta la aplicación, se crea un [servicio de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) que expone la aplicación front-end a Internet. Este proceso puede tardar unos minutos en completarse. 
 
-Para supervisar el progreso, utilice el comando [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) con el argumento `--watch`.
+Para supervisar el progreso, utilice el comando [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) con el argumento `--watch`.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

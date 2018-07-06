@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 8754e550f396c90504ed0fdaf1131173a10923ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619106"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055515"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Versión 2: versión preliminar](copy-activity-fault-tolerance.md)
+> * [Versión 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Versión actual](copy-activity-fault-tolerance.md)
 
 La actividad de copia de Azure Data Factory ofrece dos maneras de tratar filas incompatibles cuando se copian datos entre almacenes de datos de origen y de receptor:
 
 - Puede anular y omitir la actividad de copia cuando se encuentren datos incompatibles (comportamiento predeterminado).
 - Se puede continuar copiando todos los datos a través de la incorporación de tolerancia a errores y la omisión de filas de datos incompatibles. Además, puede registrar las filas incompatibles en Azure Blob Storage o Azure Data Lake Store. Luego puede examinar el registro para obtener información sobre la causa del error, corregir los datos en el origen de datos y reintentar la actividad de copia.
 
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea [la tolerancia a errores de la actividad de copia en V1](v1/data-factory-copy-activity-fault-tolerance.md).
-
-
- ## <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="supported-scenarios"></a>Escenarios admitidos
 La actividad de copia admite tres escenarios para detectar, omitir y registrar datos incompatibles:
 
 - **Incompatibilidad entre el tipo de datos de origen y el tipo nativo de receptor**. 

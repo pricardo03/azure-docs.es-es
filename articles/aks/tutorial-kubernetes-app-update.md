@@ -2,33 +2,31 @@
 title: 'Tutorial de Kubernetes en Azure: actualización de la aplicación'
 description: 'Tutorial de AKS: actualización de la aplicación'
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934063"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101037"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 
 Después de implementar una aplicación en Kubernetes, se puede actualizar especificando una nueva imagen de contenedor o la versión de la imagen. Si lo hace, la actualización se preconfigura para que solo una parte de la implementación se actualice simultáneamente. Esta actualización preconfigurada permite que la aplicación siga ejecutándose durante la actualización. También proporciona un mecanismo de reversión si se produce un error de implementación.
 
-En este tutorial, la sexta parte de ocho, se actualiza la aplicación de ejemplo Azure Vote. Las tareas que debe completar incluyen las siguientes:
+En este tutorial, la sección seis de siete, se actualiza la aplicación de ejemplo de Azure Vote. Las tareas que debe completar incluyen las siguientes:
 
 > [!div class="checklist"]
 > * Actualización del código de aplicación front-end
 > * Creación de una imagen de contenedor actualizado
 > * Inserción de una imagen de contenedor en Azure Container Registry
 > * Implementación de una imagen de contenedor actualizado
-
-En tutoriales posteriores, se va a configurar Log Analytics para supervisar el clúster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

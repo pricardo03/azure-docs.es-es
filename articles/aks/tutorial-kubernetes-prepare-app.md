@@ -2,23 +2,23 @@
 title: 'Tutorial de Kubernetes en Azure: preparación de aplicación'
 description: 'Tutorial de AKS: preparación de aplicación'
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3e500ec0c7acbf8d8e10756c944516cd7e589610
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934121"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101117"
 ---
 # <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparación de una aplicación para Azure Kubernetes Service (AKS)
 
-En este tutorial, la primera parte de ocho, se prepara una aplicación con varios contenedores para usarla en Kubernetes. Los pasos completados incluyen:
+En este tutorial, la primera parte de siete, se prepara una aplicación con varios contenedores para usarla en Kubernetes. Los pasos completados incluyen:
 
 > [!div class="checklist"]
 > * La clonación de origen de la aplicación desde GitHub

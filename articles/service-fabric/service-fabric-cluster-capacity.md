@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641890"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061565"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -27,6 +27,10 @@ En cualquier implementación de producción, la planeación de capacidad es un p
 * Número de tipos de nodos con los que el clúster tiene que empezar
 * Propiedades de cada tipo de nodo (tamaño, principal, accesible desde Internet, número de máquinas virtuales, etc.)
 * Características de confiabilidad y durabilidad del clúster
+
+> [!NOTE]
+> Como mínimo, debe revisar todos los valores **no permitidos** de la directiva de actualización durante la planeación. Esto es para asegurarse de que se establezcan correctamente los valores y para mitigar el consumo del clúster más adelante debido a un conjunto de configuración del sistema que no se puede cambiar. 
+> 
 
 Repasemos brevemente cada uno de estos elementos.
 
@@ -46,6 +50,8 @@ El **tipo de nodo** puede considerarse similar a los roles de Cloud Services. Lo
 Cada tipo de nodo es un conjunto de escalado diferente que se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y distintas métricas de capacidad. Para más información acerca de las relaciones entre los tipos de nodos y los conjuntos de escalado de máquinas virtuales, cómo conectarse con RDP a una de las instancias, cómo abrir nuevos puertos, etc., consulte [Tipos de nodos de clúster de Service Fabric](service-fabric-cluster-nodetypes.md).
 
 Un clúster de Service Fabric puede constar de más de un tipo de nodo. En ese caso, el clúster consta de un tipo de nodo principal y uno o más tipos de nodo no principales.
+
+Un tipo de nodo único simplemente no puede superar los 100 nodos por conjunto de escalado de máquinas virtuales. Es posible que tenga que agregar conjuntos de escalado de máquinas virtuales para lograr la escala de destino y el escalado automático no puede agregar automáticamente conjuntos de escalado de máquinas virtuales. La adición de conjuntos de escalado de máquinas virtuales locales en un clúster en vivo es una tarea difícil y, normalmente, provoca que los usuarios aprovisionen nuevos clústeres con los tipos de nodo adecuados en el momento de la creación. 
 
 ### <a name="primary-node-type"></a>Tipo de nodo principal
 
@@ -188,7 +194,7 @@ Esta guía se aplica a las cargas de trabajo sin estado en ejecución en el tipo
 
 **Número de instancias de máquina virtual:** en el caso de las cargas de trabajo de producción sin estado, el tamaño mínimo admitido del tipo de nodo no principal es 2. Esto le permite ejecutar dos instancias sin estado de la aplicación y permite que el servicio para sobreviva a la pérdida de una instancia de máquina virtual. 
 
-**SKU de máquina virtual**: es el tipo de nodo donde se ejecutan los servicios de aplicación, de modo que la SKU de máquina virtual que elija para él debe tener en cuenta la carga máxima que planea colocar en cada nodo. Las necesidades de capacidad del tipo de nodo vienen determinadas por la carga de trabajo que planea ejecutar en el clúster, por lo que no es posible proporcionar una guía cualitativa de su carga de trabajo específica, aunque sí una amplia información para ayudarle a comenzar
+**SKU de máquina virtual**: es el tipo de nodo donde se ejecutan los servicios de aplicación, de modo que la SKU de máquina virtual que elija para él debe tener en cuenta la carga máxima que planea colocar en cada nodo. Las necesidades de capacidad del tipo de nodo vienen determinadas por la carga de trabajo que planea ejecutar en el clúster, por lo que no es posible proporcionar una guía cualitativa de su carga de trabajo específica, aunque sí una amplia información para ayudarle a comenzar.
 
 Para cargas de trabajo de producción 
 
