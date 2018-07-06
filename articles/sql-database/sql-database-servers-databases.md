@@ -1,33 +1,22 @@
 ---
-title: Creación y administración de servidores y bases de datos SQL de Azure | Microsoft Docs
-description: Aprenda sobre los conceptos relativos a las bases de datos y los servidores de Transact-SQL, y sobre la creación y administración de bases de datos y servidores.
+title: Servidores lógicos y bases de datos únicas de Azure SQL | Microsoft Docs
+description: Obtenga información sobre los conceptos de servidor lógico y base de datos única de Azure SQL Database, y sobre sus recursos.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 2600e39dec91fc6916fa7bbd02e318d33cfa3c99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649064"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309187"
 ---
-# <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creación y administración de servidores y bases de datos de Azure SQL Database
-
-SQL Database ofrece tres tipos de bases de datos:
-
-- Una única base de datos creada dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un [conjunto combinado de recursos de proceso y almacenamiento](sql-database-service-tiers-dtu.md) o una [escala independiente de recursos de proceso y almacenamiento](sql-database-service-tiers-vcore.md). Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
-- Una base de datos creada como parte de un [grupo de bases de datos](sql-database-elastic-pool.md) dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un [conjunto combinado de recursos de proceso y almacenamiento (basados en DTU)](sql-database-service-tiers-dtu.md) o una [escala independiente de recursos de proceso y almacenamiento (basados en núcleos virtuales)](sql-database-service-tiers-vcore.md) que se comparten entre todas las bases de datos del grupo. Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
-- Una [instancia de SQL Server](sql-database-managed-instance.md) (una instancia administrada) creada dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de recursos de proceso y almacenamiento para todas las bases de datos en esa instancia de servidor. Una instancia administrada contiene bases de datos de usuario y del sistema. El servicio Instancia administrada está concebido para permitir que la base de datos migre mediante lift-and-shift a una plataforma como servicio (PaaS) completamente administrada, sin volver a diseñar la aplicación. Instancia administrada proporciona una gran compatibilidad con el modelo de programación de SQL Server local y con la gran mayoría de las características de SQL Server y las herramientas y los servicios complementarios.  
-
-Microsoft Azure SQL Database es compatible con la versión 7.3 o posterior del cliente de protocolo de secuencia de datos (TDS), y solo permite conexiones TCP/IP cifradas.
-
-> [!IMPORTANT]
-> Instancia administrada de SQL Database, actualmente en versión preliminar pública, ofrece un único nivel de servicio de uso general. Para más información, consulte [Instancia administrada de SQL Database](sql-database-managed-instance.md). El resto de este artículo no se aplica a Instancia administrada.
+# <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Servidores lógicos y bases de datos únicas de Azure SQL Database, y recursos de ambos
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>¿Qué es un servidor lógico de Azure SQL?
 
@@ -59,6 +48,20 @@ Un servidor lógico de Azure Database:
 - Los inicios de sesión de la entidad de seguridad en el nivel de servidor pueden administrar todas las bases de datos en un servidor.
 - Puede contener inicios de sesión similares a los de las instancias de SQL Server en sus instalaciones que tienen acceso a una o más bases de datos en el servidor y puede ser concesionario de derechos administrativos limitados. Para obtener más información, consulte el artículo sobre [inicios de sesión](sql-database-manage-logins.md).
 - La intercalación predeterminada para todas las bases de datos de usuario creadas en un servidor lógico es `SQL_LATIN1_GENERAL_CP1_CI_AS`, donde `LATIN1_GENERAL` es inglés (Estados Unidos), `CP1` es la página de códigos 1252, `CI` distingue mayúsculas de minúsculas y `AS` distingue acentos.
+
+## <a name="logical-servers-and-databases"></a>Servidores lógicos y bases de datos
+
+En un servidor lógico, puede crear lo siguiente:
+
+- Una única base de datos creada dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un [conjunto combinado de recursos de proceso y almacenamiento](sql-database-service-tiers-dtu.md) o una [escala independiente de recursos de proceso y almacenamiento](sql-database-service-tiers-vcore.md). Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
+- Una base de datos creada como parte de un [grupo de bases de datos](sql-database-elastic-pool.md) dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un [conjunto combinado de recursos de proceso y almacenamiento (basados en DTU)](sql-database-service-tiers-dtu.md) o una [escala independiente de recursos de proceso y almacenamiento (basados en núcleos virtuales)](sql-database-service-tiers-vcore.md) que se comparten entre todas las bases de datos del grupo. Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
+
+> [!IMPORTANT]
+> Una instancia administrada de SQL Database, actualmente en versión preliminar pública, es una [instancia de SQL Server](sql-database-managed-instance.md) (una instancia administrada) creada dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de recursos de proceso y almacenamiento para todas las bases de datos en esa instancia de servidor. Una instancia administrada contiene bases de datos de usuario y del sistema. El servicio Instancia administrada está concebido para permitir que la base de datos migre mediante lift-and-shift a una plataforma como servicio (PaaS) completamente administrada, sin volver a diseñar la aplicación. Instancia administrada proporciona una gran compatibilidad con el modelo de programación de SQL Server local y con la gran mayoría de las características de SQL Server y las herramientas y los servicios complementarios. Para más información, consulte [Instancia administrada de SQL Database](sql-database-managed-instance.md). El resto de este artículo no se aplica a Instancia administrada.
+
+## <a name="tds-and-tcpip-connections"></a>Conexiones TDS y TCP/IP
+
+Microsoft Azure SQL Database es compatible con la versión 7.3 o posterior del cliente de protocolo de secuencia de datos (TDS), y solo permite conexiones TCP/IP cifradas.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Protección de bases de datos SQL de Azure con el firewall de SQL Database
 
@@ -109,7 +112,7 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtiene una o más bases de datos.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Establece las propiedades de una base de datos, o mueve una base de datos existente en un grupo elástico.|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Quita una base de datos.|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Crea un grupo de recursos.
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Crea un grupo de recursos.|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Crea un servidor.|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Devuelve información sobre los servidores.|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Modifica las propiedades de un servidor.|

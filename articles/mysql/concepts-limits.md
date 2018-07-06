@@ -2,19 +2,19 @@
 title: Limitaciones en Azure Database for MySQL
 description: En este artículo se describen las limitaciones de Azure Database for MySQL como el número de conexiones o las opciones de motor de almacenamiento.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264891"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311199"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
@@ -60,29 +60,29 @@ Si las conexiones superan el límite, puede que reciba el error siguiente:
 ## <a name="data-manipulation-statement-support"></a>Compatibilidad de las instrucciones de manipulación de datos
 
 ### <a name="supported"></a>Compatible
-- LOAD DATA INFILE: compatible, pero debe especificar el parámetro [LOCAL] que se dirige a una ruta de acceso UNC (Azure Storage montado mediante XSMB).
+- `LOAD DATA INFILE` es compatible, pero el parámetro `[LOCAL]` debe especificarse y dirigirse a una ruta de acceso UNC (Azure Storage montado a través de SMB).
 
 ### <a name="unsupported"></a>No compatible
-- SELECT ... INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 
 ### <a name="scale-operations"></a>Operaciones de escalado
-- El escalado dinámico de servidores entre planes de tarifa no se admite en este momento. Es decir, no se admite el cambio entre los planes Básico, Uso general y Memoria optimizada.
+- El escalado dinámico a y desde niveles de precios Básico no se admite en este momento.
 - La reducción del tamaño de almacenamiento del servidor no se admite.
 
 ### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
 - La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento.
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
-- La restauración a un nivel de servicio o unidades de proceso y tamaño de almacenamiento diferente no se admite.
+- Al usar la característica PITR, el nuevo servidor se crea con la misma configuración que el servidor en el que se basa.
 - La restauración a un servidor que se ha eliminado no se admite en este momento.
 
 ### <a name="subscription-management"></a>Administración de suscripciones
 - El movimiento dinámico de servidores creados previamente entre grupo de suscripciones y recursos no se admite en este momento.
 
 ## <a name="current-known-issues"></a>Problemas conocidos actualmente
-- Instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener las versiones de la instancia de servidor correctas, utilice comando select version(); del símbolo del sistema de MySQL.
+- Instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Qué está disponible en cada nivel de servicio](concepts-pricing-tiers.md)

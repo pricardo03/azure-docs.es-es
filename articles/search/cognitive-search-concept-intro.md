@@ -3,17 +3,18 @@ title: Cognitive Search para extracción de datos y procesamiento de lenguaje na
 description: Extracción de datos, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes para crear contenido de búsqueda en la indexación de Azure Search a través de aptitudes cognitivas.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641118"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304286"
 ---
 # <a name="what-is-cognitive-search"></a>¿Qué es Cognitive Search?
 

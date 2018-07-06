@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: ad56580e73c06acff95b3146f6dc2d83ab2ba3ae
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 7afa50484c3ebf258bbdd2b7f16c9cd051710d28
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945979"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437899"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicación remota del servicio en C# con Reliable Services
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "36945979"
 >
 >
 
-Para los servicios que no están vinculados a una pila o un protocolo de comunicación concretos, como WebAPI, Windows Communication Foundation (WCF) u otros, el marco de Reliable Services ofrece un mecanismo de comunicación remota para configurar de manera rápida y sencilla llamadas a procedimiento remoto para servicios. En este artículo se describe la manera de configurar llamadas a procedimiento remoto para servicios que se escriben con C#.
+Para los servicios que no están vinculados a una pila o un protocolo de comunicación concretos, como WebAPI, Windows Communication Foundation (WCF) u otros, el marco de trabajo de Reliable Services ofrece un mecanismo de comunicación remota para configurar de manera rápida y sencilla llamadas a procedimiento remoto para servicios. En este artículo se describe la manera de configurar llamadas a procedimiento remoto para servicios que se escriben con C#.
 
 ## <a name="set-up-remoting-on-a-service"></a>Configuración de la comunicación remota en un servicio
 La configuración de la comunicación remota para un servicio se realiza en dos sencillos pasos:

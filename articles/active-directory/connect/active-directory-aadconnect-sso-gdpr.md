@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149534"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34592415"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidad del usuario e inicio de sesión único de conexión directa de Azure AD
 
@@ -28,11 +29,11 @@ ms.locfileid: "32149534"
 ## <a name="overview"></a>Información general
 
 
-SSO de conexión directa de Azure AD crea el tipo de registro siguiente, que puede contener EUII:
+SSO de conexión directa de Azure AD crea el tipo de registro siguiente, que puede contener datos personales: 
 
 - Archivos de registro de seguimiento de Azure AD Connect.
 
-El cumplimiento en materia de privacidad del usuario para el SSO de conexión directa se puede conseguir de dos maneras:
+Dispone de dos métodos para mejorar la privacidad del usuario para SSO de conexión directa:
 
 1.  Previa solicitud, extraer los datos de una persona y quitarlos de las instalaciones.
 2.  Asegurarse de que ningún dato se conserva más de 48 horas.

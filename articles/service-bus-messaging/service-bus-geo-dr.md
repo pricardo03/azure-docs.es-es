@@ -2,23 +2,18 @@
 title: Recuperación ante desastres con localización geográfica de Azure Service Bus | Microsoft Docs
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Service Bus
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237352"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301526"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
@@ -89,9 +84,9 @@ Si tiene un escenario en el que no se pueden cambiar las conexiones de productor
 
 Los [ejemplos en GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) muestran cómo configurar e iniciar una conmutación por error. Estos ejemplos demuestran los conceptos siguientes:
 
-- Una muestra de .Net y la configuración necesaria en Azure Active Directory para usar Azure Resource Manager con Service Bus para configurar y habilitar la recuperación ante desastres con localización geográfica.
+- Una muestra de .NET y la configuración necesarias en Azure Active Directory para usar Azure Resource Manager con Service Bus para configurar y habilitar la recuperación ante desastres con localización geográfica.
 - Pasos necesarios para ejecutar el código de ejemplo.
-- Uso de un espacio de nombres existente como alias.
+- Uso de un espacio de nombres existente como un alias.
 - Pasos para habilitar la recuperación ante desastres con localización geográfica de manera alternativa a través de PowerShell o CLI.
 - [Envío y recepción](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) desde el espacio de nombres principal o secundario actual usando el alias.
 
@@ -106,6 +101,17 @@ Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
 3. Conmutar por error una compleja infraestructura distribuida debe [ensayarse](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) al menos una vez. 
 
 4. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto. Las suscripciones y reglas también cuentan como entidades. 
+
+## <a name="availability-zones-preview"></a>Availability Zones (versión preliminar)
+
+La SKU de Service Bus Premium es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de una región de Azure. 
+
+> [!NOTE]
+> La versión preliminar de Availability Zones solo se admite en las regiones **Centro de EE. UU.**, **Este de EE. UU. 2** y **Centro de Francia**.
+
+Solo puede habilitar Availability Zones en los espacios de nombres nuevos mediante Azure Portal. Service Bus no admite la migración de espacios de nombres existentes. No se puede deshabilitar la redundancia de zona después de habilitarla en el espacio de nombres.
+
+![3][]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -123,3 +129,4 @@ Para más información sobre la mensajería de Service Bus, consulte los siguien
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

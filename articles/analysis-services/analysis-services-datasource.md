@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a98f2ed2ce55f74ea3967dbb23a762fce566a2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 60b6769dd3c15bbe628f60318cc08fcac78357ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595638"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307969"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -63,7 +63,8 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |Dynamics CRM*     |  
 |Libro de Excel     |  
 |Exchange*     |  
-|Carpeta*     | 
+|Carpeta*     |
+|IBM Informix* (beta) |
 |Documento JSON*     |  
 |Líneas de archivo binario*     | 
 |Base de datos MySQL     | 
@@ -71,6 +72,8 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |Consulta ODBC     | 
 |OLE DB     |   
 |Base de datos de Postgre SQL*    | 
+|Objectos de Salesforce* |  
+|Informes de Salesforce* |
 |SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   

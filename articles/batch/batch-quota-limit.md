@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310543"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304026"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -51,14 +51,10 @@ Si creó una cuenta de Batch con el modo de asignación de grupo establecido en 
 | [Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso |4 × número de núcleos de nodo |
 | [Aplicaciones](batch-application-packages.md) por cuenta de Batch |20 |
 | Paquetes de aplicación por aplicación |40 |
-| Tamaño del paquete de aplicación (cada uno) |Aprox. 195 GB<sup>1</sup> |
-| Tamaño máximo de la tarea de inicio | 32 768 caracteres<sup>2</sup> |
-| Duración máxima de la tarea | 7 días<sup>3</sup> |
+| Duración máxima de la tarea | 7 días<sup>1</sup> |
 | Nodos de cálculo en el grupo con la comunicación entre nodos habilitada | 100 |
 
-<sup>1</sup> Límite de Azure Storage para el tamaño máximo de blob en bloques<br />
-<sup>2</sup> Incluye archivos de recursos y variables de entorno<br />
-<sup>3</sup> La duración máxima de una tarea, desde el momento en que se agrega al trabajo hasta que se completa, es de 7 días. Las tareas completadas se mantienen de forma indefinida; los datos de las tareas no completadas dentro de la duración máxima no están accesibles.
+<sup>1</sup> La duración máxima de una tarea, desde el momento en que se agrega al trabajo hasta que se completa, es de 7 días. Las tareas completadas se mantienen de forma indefinida; los datos de las tareas no completadas dentro de la duración máxima no están accesibles.
 
 
 ## <a name="view-batch-quotas"></a>Visualización de las cuotas de Batch

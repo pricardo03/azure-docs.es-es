@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725452"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308166"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -280,6 +280,10 @@ Si comparte una cuenta de almacenamiento entre varias aplicaciones de función, 
 ## <a name="retry-behavior"></a>Comportamiento de reintento
 
 A diferencia del desencadenador de cola, el desencadenador de temporizador no vuelve a realizar el intento después de que se produce un error en una función. Cuando se produce un error en una función, no se la llamará nuevamente hasta la próxima vez en la programación.
+
+## <a name="troubleshooting"></a>solución de problemas
+
+Para obtener información sobre qué hacer cuando el desencadenador del temporizador no funcione según lo esperado, consulte [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing) (Investigación y notificación de problemas en que las funciones desencadenadas por el temporizador no se activan).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

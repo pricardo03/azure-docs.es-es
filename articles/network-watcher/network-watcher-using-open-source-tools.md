@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 61abda6053fe743e294f309df3a6e1041052ec6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036400"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302240"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualización de los patrones de tráfico de red de entrada y salida de las máquinas virtuales utilizando herramientas de código abierto
 
 Las capturas de paquetes contienen datos de red que permiten realizar análisis forense de la red e inspección profunda de paquetes. Hay muchas herramientas de código abierto que puede usar para analizar las capturas de paquetes y obtener información sobre la red. Una de estas herramientas es CapAnalysis, una herramienta de código abierto para la visualización de captura de paquetes. La visualización de los datos de captura de paquetes es una forma muy eficaz de derivar rápidamente información sobre patrones y anomalías dentro de la red. Las visualizaciones también proporcionan un medio para compartir dicha información de una manera fácil de consumir.
 
-Azure Network Watcher proporciona la capacidad para capturar estos valiosos datos permitiéndole realizar capturas de paquetes en su red. En este artículo, proporcionamos un tutorial en el que se explica cómo visualizar y obtener información de las capturas de paquetes usando CapAnalysis con Network Watcher.
+Azure Network Watcher proporciona la capacidad para capturar datos al permitirle realizar capturas de paquetes en su red. En este artículo, se incluye un tutorial en el que se explica cómo visualizar y obtener información de las capturas de paquetes usando CapAnalysis con Network Watcher.
 
 ## <a name="scenario"></a>Escenario
 
@@ -38,18 +38,18 @@ Tiene una aplicación web simple implementada en una máquina virtual en Azure y
 ### <a name="install-capanalysis"></a>Instalar CapAnalysis
 
 Para instalar CapAnalysis en una máquina virtual, puede acudir a las instrucciones oficiales en esta página https://www.capanalysis.net/ca/how-to-install-capanalysis.
-Para poder acceder de forma remota a CapAnalysis, es necesario abrir el puerto 9877 en la máquina virtual mediante la adición de una nueva regla de seguridad de entrada. Para más información sobre cómo crear reglas en los grupos de seguridad de red, consulte [Creación de reglas en un grupo de seguridad de red existente](../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg). Una vez que la regla se ha agregado correctamente, debe poder tener acceso a CapAnalysis desde `http://<PublicIP>:9877`
+Para poder acceder de forma remota a CapAnalysis, debe abrir el puerto 9877 en la máquina virtual mediante la adición de una nueva regla de seguridad de entrada. Para más información sobre cómo crear reglas en los grupos de seguridad de red, consulte [Creación de reglas en un grupo de seguridad de red existente](../virtual-network/manage-network-security-group.md#create-a-security-rule). Una vez que la regla se ha agregado correctamente, debe poder tener acceso a CapAnalysis desde `http://<PublicIP>:9877`
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Utilice Azure Network Watcher para iniciar una sesión de captura de paquetes
 
-Network Watcher le permite capturar paquetes para realizar el seguimiento del tráfico dentro y fuera de una máquina virtual. Puede acudir a las instrucciones en [Administración de capturas de paquetes con Network Watcher](network-watcher-packet-capture-manage-portal.md) para iniciar una sesión de captura de paquetes. Esta captura de paquetes se puede almacenar en un blob de almacenamiento para que CapAnalysis pueda acceder a ella.
+Network Watcher le permite capturar paquetes para realizar el seguimiento del tráfico dentro y fuera de una máquina virtual. Puede acudir a las instrucciones en [Administración de capturas de paquetes con Network Watcher](network-watcher-packet-capture-manage-portal.md) para iniciar una sesión de captura de paquetes. Una captura de paquetes se puede almacenar en un blob de almacenamiento para que CapAnalysis pueda acceder a ella.
 
 ### <a name="upload-a-packet-capture-to-capanalysis"></a>Carga de una captura de paquetes en CapAnalysis
 Puede cargar directamente una captura de paquetes realizada por Network Watcher usando la pestaña "Importar desde dirección URL" y proporcionando un vínculo al blob de almacenamiento donde está almacenada la captura de paquete.
 
 Cuando proporciona un vínculo a CapAnalysis, asegúrese de anexar un token de SAS a la dirección URL del blob de almacenamiento.  Para ello, vaya a la firma de acceso compartido de la cuenta de almacenamiento, designe los permisos concedidos y presione el botón Generar SAS para crear un token. A continuación, puede anexar este token de SAS a la URL del blob de almacenamiento de captura de paquetes.
 
-La dirección URL resultante tendrá un aspecto similar al siguiente: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+La URL resultante se parecerá a la siguiente: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
 ### <a name="analyzing-packet-captures"></a>Análisis de captura de paquetes
@@ -86,18 +86,18 @@ CapAnalysis ofrece varias opciones para visualizar la captura de paquetes, cada 
 
     ![filters][11]
 
-    Visite [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) para más información sobre todas las funcionalidades de CapAnalysis.
+    Visite [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) para obtener más información sobre todas las funcionalidades de CapAnalysis.
 
 ## <a name="conclusion"></a>Conclusión
 
-La característica de captura de paquetes de Network Watcher permite capturar los datos necesarios para realizar un análisis forense de red y comprender mejor el tráfico de red. En este escenario, hemos mostrado cómo las capturas de paquetes de Network Watcher se pueden integrar fácilmente con herramientas de visualización de código abierto. Mediante el uso de herramientas de código abierto como CapAnalysis para visualizar las capturas de paquetes, puede realizar una inspección profunda de los paquetes e identificar rápidamente las tendencias en el tráfico de red.
+La característica de captura de paquetes de Network Watcher permite capturar los datos necesarios para realizar un análisis forense de red y comprender mejor el tráfico de red. En este escenario, hemos mostrado cómo las capturas de paquetes de Network Watcher se pueden integrar fácilmente con herramientas de visualización de código abierto. Con herramientas de código abierto como CapAnalysis para visualizar las capturas de paquetes, puede realizar una inspección profunda de los paquetes e identificar rápidamente las tendencias en el tráfico de red.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de los registros de flujo de NSG, visite el artículo sobre [Registros de flujo de NSG](network-watcher-nsg-flow-logging-overview.md)
+Para más información acerca de los registros de flujo de NSG, visite el artículo sobre [Registros de flujo de NSG](network-watcher-nsg-flow-logging-overview.md).
 
-Aprenda a visualizar los registros de flujo de grupos de seguridad de red con Power BI en el artículo [Visualización de registros de flujo del grupo de seguridad de red de Azure con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-<!--Image references-->
+Aprenda a visualizar los registros de flujo del grupo de seguridad de red con Power BI en el artículo [Visualización de registros de flujo del grupo de seguridad de red con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+<!--Image references-->.
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
 [2]: ./media/network-watcher-using-open-source-tools/figure2.png

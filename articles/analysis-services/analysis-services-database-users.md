@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a2338045c43f9eb240ce55fd1ec31a4db40fd4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8870c4199d5f24d1e8d07bc97d61a09c07052c1e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598358"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307986"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
-En el nivel de base de datos modelo, todos los usuarios deben pertenecer a un rol. Los roles definen a los usuarios con permisos concretos para la base de datos modelo. Cualquier usuario o grupo de seguridad que se agregue a un rol debe tener una cuenta en un inquilino de Azure AD en la misma suscripción que el servidor.
+En el nivel de base de datos modelo, todos los usuarios deben pertenecer a un rol. Los roles definen a los usuarios con permisos concretos para la base de datos modelo. Cualquier usuario o grupo de seguridad que se agregue a un rol debe tener una cuenta en un inquilino de Azure AD en la misma suscripción que el servidor. 
 
 La forma en que se definen los roles es distinta en función de la herramienta que se usa, pero el efecto es el mismo.
 
@@ -27,6 +27,9 @@ Los permisos de los roles incluyen:
 *  **Lectura**: usuarios que pueden usar una aplicación cliente para conectarse a los datos de una base de datos modelo y analizarlo.
 
 Cuando se crea un proyecto de modelo tabular, crea roles y agrega usuarios o grupos a esos roles mediante el Administrador de roles de SSDT. Cuando se implementa en un servidor, se usa SSMS, [cmdlets de PowerShell para Analysis Services](https://msdn.microsoft.com/library/hh758425.aspx) o [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) para agregar o quitar roles de miembros de usuario.
+
+> [!NOTE]
+> Los grupos de seguridad deben tener la propiedad `MailEnabled` establecida en `True`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Para agregar o administrar roles y usuarios en SSDT  
   

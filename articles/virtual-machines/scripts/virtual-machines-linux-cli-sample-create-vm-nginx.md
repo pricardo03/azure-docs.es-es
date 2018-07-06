@@ -3,7 +3,7 @@ title: 'Ejemplo de script de la CLI de Azure: creación de una máquina virtual 
 description: 'Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con NGINX'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3f222a11c19c9a2ee1e6c5c245d0823f3269cddc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b3d3f0c50bdc4ca6295158c360659226c25d8b52
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654341"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096635"
 ---
 # <a name="create-a-vm-with-nginx"></a>Creación de una máquina virtual con NGINX
 
@@ -37,7 +37,7 @@ Este script crea una máquina virtual de Azure y, a continuación, usa la extens
 
 ## <a name="custom-script-extension"></a>Custom Script Extension
 
-La extensión de scripts personalizados copia este script en la máquina virtual. A continuación, se ejecuta el script para instalar y configurar un servidor web NGINX. 
+La extensión de scripts personalizados copia este script en la máquina virtual. A continuación, se ejecuta el script para instalar y configurar un servidor web NGINX.
 
 ```bash
 #!/bin/bash
@@ -49,11 +49,11 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="clean-up-deployment"></a>Limpieza de la implementación 
+## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

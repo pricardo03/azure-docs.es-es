@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823391"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309238"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guía del anunciante de Azure Marketplace y AppSource  
 
@@ -118,7 +118,7 @@ Cada escaparate ofrece opciones de publicación especializadas que le ayudan a m
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>Publicación en los escaparates de Marketplace  
-Las secciones siguientes le ayudarán a navegar por las opciones de publicación en AppSource y Azure Marketplace.  
+La página siguiente le ayudará a navegar por las opciones de publicación en AppSource y Azure Marketplace.  
 
 Conviértase en anunciante en los escaparates de Marketplace en tres sencillos pasos.  
 1.  Visite la página [Determinación del tipo de publicación para la solución](./determine-your-listing-type.md).  
@@ -135,7 +135,6 @@ Conviértase en anunciante en los escaparates de Marketplace en tres sencillos p
 ---  
 
 ## <a name="support"></a>Soporte técnico  
-
 *   Visite la página de [soporte técnico de AppSource](./support-appsource.md).  
 *   Visite la página de [soporte técnico de Azure Marketplace](./support-azure-marketplace.md).  
 
@@ -147,6 +146,7 @@ Conviértase en anunciante en los escaparates de Marketplace en tres sencillos p
 
 ## <a name="guidelines"></a>Directrices  
 *   Visite la página de [directrices](./guidelines.md).  
+    *   Visite la sección [Instrucciones de creación de un identificador de Microsoft para administrar una cuenta de Marketplace](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account).  
 *   Visite la página [Registro en el Centro para desarrolladores](./register-dev-center.md).  
 *   Visite la página [Adición de la información bancaria y fiscal](./add-bank-tax-info.md).  
 *   Visite la página [Habilitar evaluación gratuita con Azure AD](./enable-trial-using-azure-ad.md).  

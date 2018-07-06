@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: ac301daca769f9cec0d3395e7bde32494dd8e3d1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735334"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304136"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -101,7 +101,7 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 * [Referencia de API de REST de proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Esta referencia de API describe las API que puede usar para administrar la cuenta de almacenamiento mediante programación.
-* [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/) (Guía del desarrollador para la autenticación con la API de Azure Resource Manager)
+* [Uso de la API de autenticación de Resource Manager para acceder a suscripciones](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   En este artículo se muestra cómo realizar la autenticación mediante las API de Resource Manager.
 * [Role-Based Access Control for Microsoft Azure from Ignite (Control de acceso basado en rol para Microsoft Azure de Ignite)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -209,7 +209,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Autenticación de la Firma de acceso compartido por el servicio Azure Storage
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Autorización de la Firma de acceso compartido por el servicio Azure Storage
 Cuando el servicio de almacenamiento recibe la solicitud, toma los parámetros de consulta de entrada y crea una firma utilizando el mismo método que el programa que realiza la llamada. A continuación, compara las dos firmas. Si coinciden, el servicio de Storage puede comprobar la versión del servicio para asegurarse de que es válida, comprobar que la fecha y la hora actuales están dentro del período especificado, asegurarse de que el acceso solicitado corresponde a la solicitud realizada, etc.
 
 Por ejemplo, con la dirección URL anterior, si la dirección URL apuntase a un archivo en lugar de a un blob, esta solicitud produciría un error porque especifica que la Firma de acceso compartido es para un blob. Si el comando REST al que se llama fuera para actualizar un blob, se produciría un error porque la Firma de acceso compartido especifica que se permite acceso de solo lectura.
@@ -404,11 +404,11 @@ Este es un artículo que aparece en los siguientes recursos y que proporciona la
 
 ![Instantánea de los campos de un archivo de registro](./media/storage-security-guide/image3.png)
 
-Nos interesan las entradas de GetBlob y el modo de autenticación, así que nos fijaremos en las entradas con el tipo de operación "Get-Blob" y comprobaremos el estado de la solicitud (cuarta</sup> columna) y el tipo de autorización (octava</sup> columna).
+Nos interesan las entradas de GetBlob y el modo de autorización, así que nos fijaremos en las entradas con el tipo de operación "Get-Blob" y comprobaremos el estado de la solicitud (cuarta</sup> columna) y el tipo de autorización (octava</sup> columna).
 
-Por ejemplo, en las primeras filas del listado anterior, el estado de la solicitud es "Success" y el tipo de autorización es "authenticated". Esto significa que la solicitud se validó con la clave de la cuenta de almacenamiento.
+Por ejemplo, en las primeras filas del listado anterior, el estado de la solicitud es "Success" y el tipo de autorización es "authenticated". Esto significa que la solicitud se autorizó con la clave de la cuenta de almacenamiento.
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>¿Cómo se autentican mis blobs?
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>¿Cómo se autoriza el acceso a mis blobs?
 Son tres los casos que nos interesan.
 
 1. El blob es público y se tiene acceso a él mediante una dirección URL sin Firma de acceso compartido. En este caso, el estado de la solicitud es "AnonymousSuccess" y el tipo de autorización es "anonymous".

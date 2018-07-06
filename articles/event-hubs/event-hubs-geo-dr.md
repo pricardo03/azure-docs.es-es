@@ -11,26 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
-ms.locfileid: "26745901"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302120"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Event Hubs
 
-Cuando las regiones o los centros de datos enteros de Azure (si no se usan [zonas de disponibilidad](../availability-zones/az-overview.md)) experimentan tiempo de inactividad, es muy importante que el procesamiento de datos siga funcionando en una región o un centro de datos diferente. De esta forma, la *recuperación ante desastres con localización geográfica* y la *replicación geográfica* son características importantes para cualquier empresa. Azure Event Hubs admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
+Cuando hay regiones de Azure completas o centros de datos (si no se utilizan [zonas de disponibilidad](../availability-zones/az-overview.md)) que experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la *recuperación ante desastres con localización geográfica* y la *replicación geográfica* son características importantes para cualquier empresa. Azure Event Hubs admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
 
 La característica de recuperación ante desastres con localización geográfica está disponible globalmente para el SKU estándar de Event Hubs.
 
 ## <a name="outages-and-disasters"></a>Interrupciones y desastres
 
-Es importante advertir la distinción entre "interrupciones" y "desastres". Una *interrupción* es la falta de disponibilidad temporal de Azure Event Hubs y puede afectar a algunos componentes del servicio, como un almacén de mensajes o incluso todo el centro de datos. Sin embargo, después de corregir el problema, Event Hubs está de nuevo disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de una interrupción de este tipo podría ser un error de corriente en el centro de datos. Algunas interrupciones son solo pérdidas de conexión de corta duración debidas a problemas de red o transitorios. 
+Es importante tener en cuenta la distinción entre "interrupciones" y "desastres". Una *interrupción* es la falta de disponibilidad temporal de Azure Event Hubs y puede afectar a algunos componentes del servicio, como un almacén de mensajes o incluso todo el centro de datos. Sin embargo, después de corregir el problema, Event Hubs está de nuevo disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de una interrupción de este tipo podría ser un error de corriente en el centro de datos. Algunas interrupciones son solo breves pérdidas de conexión debido a problemas transitorios o de red. 
 
-Un *desastre* se define como la pérdida permanente o a largo plazo de un clúster de Event Hubs, una región de Azure o un centro de datos. Puede que la región o el centro de datos no vuelvan a estar disponibles, o que estén inactivos durante horas o días. Algunos ejemplos de esos desastres son los incendios, las inundaciones o los terremotos. Un desastre que se convierte en permanente podría provocar la pérdida de algunos mensajes, eventos u otros datos. Sin embargo, en la mayoría de los casos, no debe producirse una pérdida de datos y se pueden recuperar los mensajes una vez que se realiza la copia de seguridad del centro de datos.
+Un *desastre* se define como la pérdida permanente o a largo plazo de un clúster de Event Hubs, una región de Azure o un centro de datos. La región o el centro de datos no volverá necesariamente a estar disponible, o puede que esté fuera de servicio durante horas o días. Algunos ejemplos de esos desastres son los incendios, las inundaciones o los terremotos. Un desastre que se convierte en permanente podría provocar la pérdida de algunos mensajes, eventos u otros datos. Sin embargo, en la mayoría de los casos, no debe producirse una pérdida de datos y se pueden recuperar los mensajes una vez que se realiza la copia de seguridad del centro de datos.
 
 La característica de recuperación ante desastres con localización geográfica de Azure Event Hubs es una solución de recuperación ante desastres. Los conceptos y el flujo de trabajo descritos en este artículo se aplican a situaciones catastróficas y no a interrupciones transitorias o temporales. Para obtener una explicación detallada de la recuperación ante desastres en Microsoft Azure, consulte [este artículo](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -40,48 +40,48 @@ La característica de recuperación ante desastres implementa la recuperación a
 
 Los siguientes términos se utilizan en este artículo:
 
--  *Alias*: el nombre de una configuración de recuperación ante desastres que ha configurado. El alias proporciona una sola cadena de conexión estable de nombre de dominio completo (FQDN). Las aplicaciones usan esta cadena de conexión de alias para conectarse a un espacio de nombres. 
+-  *Alias*: el nombre para una configuración de recuperación ante desastres que ha configurado. El alias proporciona una sola cadena de conexión estable de nombre de dominio completo (FQDN). Las aplicaciones usan esta cadena de conexión de alias para conectarse a un espacio de nombres. 
 
--  *Espacio de nombres principal o secundario*: los espacios de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe los mensajes (puede ser un espacio de nombres nuevo o existente). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio en el código de la aplicación o la cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, se debe usar el alias. 
+-  *Espacio de nombres principal o secundario*: los espacios de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, se debe usar el alias. 
 
 -  *Metadatos*: entidades como centros de eventos y grupos de consumidores; y sus propiedades del servicio que están asociadas con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores de configuración se replican automáticamente. No se replican los mensajes ni los eventos. 
 
 -  *Conmutación por error*: El proceso de activación del espacio de nombres secundario.
 
-## <a name="setup-and-failover-flow"></a>Configuración y flujo de conmutación por error
+## <a name="setup-and-failover-flow"></a>Flujo de conmutación por error y configuración
 
-La siguiente sección contiene información general del proceso de conmutación por error y en ella se explica cómo configurar la conmutación por error inicial. 
+La siguiente sección contiene información general del proceso de conmutación por error y explica cómo configurar la conmutación por error inicial. 
 
 ![1][]
 
 ### <a name="setup"></a>Configuración
 
-Primero creará y usará un espacio de nombres principal existente y un nuevo espacio de nombres secundario, y luego emparejará los dos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. Por último, debe agregar alguna supervisión para detectar si se necesita una conmutación por error. En la mayoría de los casos, el servicio forma parte de un gran ecosistema, así que las conmutaciones por error automáticas rara vez son posibles, dado que con mucha frecuencia las conmutaciones por error se deben realizar en sincronización con el resto del subsistema o de la infraestructura.
+En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. Por último, debe agregar alguna supervisión para detectar si es necesario realizar una conmutación por error. En la mayoría de los casos, el servicio forma parte de un ecosistema mayor, por lo tanto las conmutaciones por error automáticas raramente son posibles, ya que a menudo las conmutaciones por error tienen que realizarse en sincronía con el subsistema o infraestructura restantes.
 
 ### <a name="example"></a>Ejemplo
 
-En un ejemplo de este escenario, se considere una solución de punto de venta (POS) que emite mensajes o eventos. Event Hubs pasa esos eventos a alguna solución de asignación o formato, que reenvía los datos asignados a otros sistema para continuar el procesamiento. En ese momento, todos estos sistemas podrían estar hospedados en la misma región de Azure. La decisión sobre cuándo y qué parte conmutar por error depende del flujo de datos de su infraestructura. 
+En un ejemplo de este escenario, se considera una solución de punto de venta (POS) que emite mensajes o eventos. Event Hubs pasa esos eventos a alguna solución de asignación o formato, que reenvía los datos asignados a otros sistema para continuar el procesamiento. En ese momento, todos estos sistemas podrían estar hospedados en la misma región de Azure. La decisión sobre cuándo y en qué parte se realizará la conmutación por error depende del flujo de datos en su infraestructura. 
 
-Puede automatizar la conmutación por error con sistemas de supervisión o con soluciones de supervisión creadas de forma personalizada. Sin embargo, dicha automatización implica planeamiento y trabajo adicionales, lo cual escapa del ámbito de este artículo.
+Puede automatizar la conmutación por error con la supervisión de sistemas, o con soluciones de supervisión personalizadas. Sin embargo, dicha automatización necesita planeamiento y trabajo extra que se encuentran fuera del ámbito de este artículo.
 
 ### <a name="failover-flow"></a>Flujo de conmutación por error
 
 Si inicia la conmutación por error, se requieren dos pasos:
 
-1. En caso de otra interrupción, querrá poder realizar de nuevo la conmutación por error. Por lo tanto, configure un segundo espacio de nombres pasivo y actualice el emparejamiento. 
+1. En caso de otra interrupción, tiene que poder volver a realizar la conmutación por error. Por lo tanto, configure un segundo espacio de nombres pasivo y actualice el emparejamiento. 
 
-2. Extraiga mensajes del espacio de nombres principal anterior una vez que vuelva a estar disponible. A continuación, use ese espacio de nombres para la mensajería normal fuera de la configuración de la recuperación con localización geográfica, o bien elimine el espacio de nombres principal antiguo.
+2. Extraiga mensajes del espacio de nombres anteriormente principal una vez que vuelva a estar disponible. Después de eso, utilice ese espacio de nombres para la mensajería regular fuera de la configuración de recuperación con localización geográfica, o elimine el espacio de nombres principal antiguo.
 
 > [!NOTE]
-> Solo se admite semántica de conmutación hacia delante. En este escenario, realizará una conmutación por error y volverá a realizar el emparejamiento con un nuevo espacio de nombres. No se admite la conmutación por recuperación, por ejemplo, en un clúster de SQL. 
+> Se admite solo la semántica de conmutación de reenvío. En este escenario, se realiza la conmutación por error y, a continuación, se vuelve a emparejar con un nuevo espacio de nombres. No se admite la conmutación por recuperación, por ejemplo en un clúster de SQL. 
 
 ![2][]
 
 ## <a name="management"></a>Administración
 
-Si cometió algún error; por ejemplo, emparejó las regiones incorrectas durante la configuración inicial, puede interrumpir el emparejamiento de los dos espacios de nombres en cualquier momento. Si quiere usar los espacios de nombres emparejados como espacios de nombres normales, elimine el alias.
+Si ha cometido algún error; por ejemplo, ha emparejado regiones incorrectas durante la configuración inicial, puede interrumpir el emparejamiento de los dos espacios de nombres en cualquier momento. Si desea usar los espacios de nombres emparejados como espacios de nombres normales, elimine el alias.
 
-## <a name="samples"></a>Muestras
+## <a name="samples"></a>Ejemplos
 
 En el [ejemplo de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) se muestra cómo configurar e iniciar una conmutación por error. En este ejemplo se demuestran los siguientes conceptos:
 
@@ -91,17 +91,28 @@ En el [ejemplo de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/
 
 ## <a name="considerations"></a>Consideraciones
 
-Tenga en cuenta los siguientes aspectos con esta versión:
+Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
 
-1. En el planeamiento de conmutación por error, también debe considerar el factor tiempo. Por ejemplo, si perdió conectividad durante más de 15 o 20 minutos, podría decidir iniciar la conmutación por error. 
+1. En el planeamiento de la conmutación por error, también debe considerar el factor de tiempo. Por ejemplo, si se pierde la conectividad durante más de 15 a 20 minutos, puede decidir iniciar la conmutación por error. 
  
-2. El hecho de que no se replique ningún dato significa que las sesiones actualmente activas no se replican. Además, es posible que la detección de duplicados y los mensajes programados no funcionen. Funcionarán las nuevas sesiones, los nuevos mensajes programados y los nuevos duplicados. 
+2. El hecho de que no se replican datos significa que las sesiones activas en la actualidad no se replican. Además, la detección de duplicados y mensajes programados puede no funcionar. Funcionarán las nuevas sesiones, los mensajes programados y los duplicados nuevos. 
 
-3. La conmutación por error de una infraestructura distribuida compleja se debe [ensayar](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) al menos una vez. 
+3. Conmutar por error una compleja infraestructura distribuida debe [ensayarse](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) al menos una vez. 
 
-4. La sincronización de entidades puede llevar algún tiempo, unas 50-100 entidades por minuto.
+4. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="availability-zones-preview"></a>Availability Zones (versión preliminar)
+
+La SKU de Event Hubs Standard es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de una región de Azure. 
+
+> [!NOTE]
+> La versión preliminar de Availability Zones solo se admite en las regiones **Centro de EE. UU.**, **Este de EE. UU. 2** y **Centro de Francia**.
+
+Solo puede habilitar Availability Zones en los espacios de nombres nuevos mediante Azure Portal. Event Hubs no admite la migración de espacios de nombres existentes. No se puede deshabilitar la redundancia de zona después de habilitarla en el espacio de nombres.
+
+![3][]
+
+## <a name="next-steps"></a>Pasos siguientes
 
 * El [ejemplo en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) le guía a través de un flujo de trabajo simple que crea un emparejamiento geográfico e inicia una conmutación por error para un escenario de recuperación ante desastres.
 * La [referencia de la API de REST](/rest/api/eventhub/disasterrecoveryconfigs) describe las API para llevar a cabo la configuración de recuperación de desastres con localización geográfica.
@@ -114,3 +125,4 @@ Para obtener más información acerca de Event Hubs, visite los vínculos siguie
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

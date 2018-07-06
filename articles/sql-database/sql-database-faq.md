@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 9bb79a2054a0e51ce435f51a52f964062427cea4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648003"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309136"
 ---
 # <a name="sql-database-faq"></a>Preguntas más frecuentes sobre la SQL Database
 
@@ -24,9 +24,9 @@ La versión actual de SQL Database es V12. Se ha retirado la versión V11.
 ## <a name="what-is-the-sla-for-sql-database"></a>¿Qué es el Acuerdo de Nivel de Servicio para SQL Database?
 Garantizamos la conectividad en el 99,99 % de las ocasiones, como mínimo, entre su instancia de Microsoft Azure SQL Database y nuestra puerta de enlace de Internet, con independencia del nivel de servicio. Para más información, consulte [Acuerdo de Nivel de Servicio](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>¿Qué es el nuevo modelo de compra basado en núcleos virtuales (versión preliminar) de Azure SQL Database?
+## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>¿Qué es el nuevo modelo de compra basado en núcleos virtuales (versión preliminar) de Azure SQL Database?
 
-El nuevo modelo de compra se suma al modelo basado en DTU ya existente. El modelo basado en núcleos virtuales está diseñado para proporcionar a los clientes flexibilidad, control, transparencia y una manera sencilla de trasladar los requisitos de las cargas de trabajo locales a la nube. También permite a los clientes escalar los recursos de proceso y almacenamiento en función de las necesidades de la carga de trabajo. Es posible obtener un ahorro de hasta un 30 % en las opciones de bases de datos únicas y grupos elásticos que usan el modelo de núcleos virtuales mediante la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Para más información, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). 
+El nuevo modelo de compra se suma al modelo basado en DTU ya existente. El modelo basado en núcleos virtuales está diseñado para proporcionar a los clientes flexibilidad, control, transparencia y una manera sencilla de trasladar los requisitos de las cargas de trabajo locales a la nube. También permite a los clientes escalar sus recursos de proceso y almacenamiento en función de las necesidades de la carga de trabajo. Es posible obtener un ahorro de hasta un 30 % en las opciones de bases de datos únicas y grupos elásticos que usan el modelo de núcleos virtuales mediante la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Para más información, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). 
 
 ## <a name="what-is-a-vcore"></a>¿Qué es un núcleo virtual? 
 Un núcleo virtual representa una CPU lógica que cuenta con una opción para elegir entre varias generaciones de hardware. Las CPU lógicas Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz y las CPU lógicas Gen 5 se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz.
@@ -36,7 +36,7 @@ No. La introducción del modelo basado en núcleos virtuales en las opciones de 
 
 En muchos casos, las aplicaciones pueden beneficiarse de la simplicidad de una agrupación de recursos preconfigurada. Por lo tanto, seguimos ofreciendo y respaldando estas opciones basadas en DTU para nuestros clientes. Si las está usando y satisfacen sus requisitos empresariales, debe seguir haciéndolo.
 
-Los modelos basados en DTU y en núcleos virtuales seguirán coexistiendo. Lanzamos el modelo basado en núcleos virtuales como respuesta a las solicitudes de los clientes de una mayor transparencia en torno a sus recursos de base de datos y la posibilidad de escalar los recursos de proceso y almacenamiento por separado. El modelo basado en núcleos virtuales también permite que los clientes con licencias activas de Software Assurance consigan un ahorro adicional gracias a la Ventaja híbrida de Azure para SQL Server.
+Los modelos basados en DTU y en núcleos virtuales seguirán coexistiendo. Lanzamos el modelo basado en núcleos virtuales como respuesta a las solicitudes de los clientes de una mayor transparencia en torno a sus recursos de base de datos y la posibilidad de escalar sus recursos de proceso y almacenamiento por separado. El modelo basado en núcleos virtuales también permite que los clientes con licencias activas de Software Assurance consigan un ahorro adicional gracias a la Ventaja híbrida de Azure para SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>¿Cómo debo elegir entre el modelo de compra basado en DTU y el modelo de compra basado en núcleos virtuales (versión preliminar)? 
 La unidad de transacción de base de datos (DTU) se basa en una medida combinada de CPU, memoria, lecturas y escrituras. Los niveles de rendimiento basados en DTU representan agrupaciones preconfiguradas de recursos que controlan distintos niveles de rendimiento de la aplicación. Los clientes que no desean preocuparse por los recursos subyacentes y prefieren la simplicidad de una agrupación preconfigurada y pagar una cantidad mensual fija, pueden encontrar que el modelo basado en DTU se ajusta mejor a sus necesidades. Sin embargo, para clientes que necesitan información detallada de los recursos subyacentes o escalarlos de manera independiente para lograr un rendimiento óptimo, el modelo basado en núcleos virtuales será el más adecuado.  Además, si el cliente tiene una licencia activa de Software Assurance (SA) para SQL Server, puede aprovechar su inversión actual y ahorrar hasta un 30 % con la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Las opciones dentro de cada modelo de compra ofrecen las ventajas de un servicio administrado, tales como copias de seguridad automatizadas, revisiones y actualizaciones de software. 
@@ -49,10 +49,10 @@ Dispone de 180 días de derechos de doble uso de la licencia para asegurarse de 
 
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>¿En qué se diferencia la Ventaja híbrida de Azure para SQL Server de la movilidad de licencias?
-En la actualidad, ofrecemos a los clientes de SQL Server las ventajas de Movilidad de licencias a través de Software Assurance, que permite la reasignación de sus licencias a servidores de terceros compartidos. Esta ventaja puede usarse en IaaS de Azure y AWS EC2.
+En la actualidad, ofrecemos las ventajas de la movilidad de licencias a los clientes de SQL Server con Software Assurance, lo que permite la reasignación de sus licencias a servidores compartidos de terceros. Esta ventaja puede usarse en IaaS de Azure y AWS EC2.
 La Ventaja híbrida de Azure para SQL Server se diferencia de la movilidad de licencias en dos áreas principales:
 - Proporciona ventajas económicas para mover cargas de trabajo muy virtualizadas a Azure. Los clientes de SQL EE pueden obtener 4 núcleos en Azure en la SKU de uso general por cada núcleo que posean en el entorno local para aplicaciones muy virtualizadas. La movilidad de licencias no ofrece ninguna ventaja especial sobre los costos de mover cargas de trabajo virtualizadas a la nube.
-- Se proporciona para destinos PaaS en Azure que son muy compatibles con SQL Server local, como Instancia administrada de SQL Database.
+- Se proporciona para destinos PaaS en Azure (Instancia administrada de SQL Database) que son muy compatibles con SQL Server local.
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>¿Cuáles son los derechos específicos de la Ventaja híbrida de Azure para SQL Server?
 Los clientes de SQL Database tendrán asociados los siguientes derechos con la Ventaja híbrida de Azure para SQL Server:
@@ -93,15 +93,15 @@ Puede configurar la retención de copia de seguridad de PITR entre 7 y 35 días.
 Nuestro objetivo es permitir la flexibilidad máxima para que pueda elegir una configuración de rendimiento que se ajuste lo más posible a las necesidades de la aplicación. En la tabla anterior se muestran las diferencias entre Gen4 y Gen5. En concreto, el hardware de Gen4 ofrece bastante más memoria por núcleo virtual. Sin embargo, el hardware de Gen5 permite escalar verticalmente mucho más alto los recursos de proceso. Queremos que estas diferencias sean transparentes, para que pueda lograr la relación óptima de precio/rendimiento para la aplicación.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>¿Hay que desconectar la aplicación para realizar la conversión de una base de datos basada en DTU a un nivel de servicio basado en núcleos virtuales? 
-Los nuevos niveles de servicio ofrecen un método sencillo de conversión en línea similar al proceso existente de actualizar las bases de datos desde el nivel de servicio Estándar a Premium, y viceversa. Esta conversión puede iniciarse con Portal, ARM, PowerShell, la CLI de Azure o T-SQL. Consulte [Administración de bases de datos únicas](sql-database-single-database-resources.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
+Los nuevos niveles de servicio ofrecen un método sencillo de conversión en línea similar al proceso existente de actualizar las bases de datos desde el nivel de servicio Estándar a Premium, y viceversa. Esta conversión puede iniciarse con Azure Portal, PowerShell, la CLI de Azure, T-SQL o la API de REST. Consulte [Administración de bases de datos únicas](sql-database-single-database-scale.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>¿Se puede convertir una base de datos de un nivel de servicio basado en núcleos virtuales a uno basado en DTU? 
-Sí, puede convertir fácilmente su base de datos a cualquier objetivo de rendimiento usando Portal o mediante programación con Portal, ARM, PowerShell, la CLI de Azure o T-SQL. Consulte [Administración de bases de datos únicas](sql-database-single-database-resources.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
+Sí, puede convertir fácilmente su base de datos a cualquier objetivo de rendimiento compatible usando Azure Portal, PowerShell, la CLI de Azure, T-SQL o la API de REST. Consulte [Administración de bases de datos únicas](sql-database-single-database-scale.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>¿Se puede actualizar o degradar entre los niveles de servicio De uso General y Crítico para la empresa? 
 Sí, con algunas restricciones. La SKU de destino debe cumplir el tamaño máximo de base de datos o grupo elástico configurado para la implementación existente. Si usa la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), la SKU Crítico para la empresa solo está disponible para los clientes con licencias Enterprise Edition. Solo los clientes que migraron del entorno local al nivel de servicio De uso general mediante Ventaja híbrida de Azure para SQL Server con licencias Enterprise Edition pueden actualizarse al nivel Crítico para la empresa. Para más información, consulte [¿Cuáles son los derechos específicos de la Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
-Esta conversión no produce tiempo de inactividad y se puede iniciar mediante Portal, ARM, PowerShell, la CLI de Azure o T-SQL. Consulte [Administración de bases de datos únicas](sql-database-single-database-resources.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
+Esta conversión no produce tiempo de inactividad y se puede iniciar mediante Azure Portal, PowerShell, la CLI de Azure, T-SQL o la API de REST. Consulte [Administración de bases de datos únicas](sql-database-single-database-scale.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Estoy usando una base de datos Premium RS que no estará disponible con carácter general. ¿Puedo actualizarla a un nuevo nivel y conseguir una ventaja similar de precio/rendimiento?
 Dado que el modelo de núcleos virtuales permite un control independiente sobre la cantidad de almacenamiento y proceso aprovisionados, puede administrar más eficazmente los costos resultantes, lo que lo convierte en un destino atractivo para las bases de datos Premium RS. Además, la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) proporciona un descuento considerable cuando se usa el modelo basado en núcleos virtuales. 
@@ -193,3 +193,4 @@ En [Azure Portal](https://portal.azure.com), haga clic en **Bases de datos SQL**
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Para mover una base de datos de una suscripción a otra
 En [Azure Portal](https://portal.azure.com), haga clic en **Servidores SQL Server** y, en la lista, seleccione el servidor que hospeda la base de datos. Haga clic en **Mover**y seleccione los recursos que va a mover y la suscripción a la que los va a mover.
+

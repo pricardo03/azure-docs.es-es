@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d97e380f83cc4e5e5a2d9686a7ac8426967f4b93
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237790"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302206"
 ---
 # <a name="expressroute-manager"></a>ExpressRoute Manager
 
@@ -37,7 +37,7 @@ Para abrir la configuración de Network Performance Monitor, abra la [solución 
 ### <a name="configure-network-security-group-rules"></a>Configuración de las reglas del grupo de seguridad de red 
 En el caso de los servidores de Azure que se utilizan para la supervisión a través de Network Performance Monitor, configure las reglas del grupo de seguridad de red (NSG) para permitir el tráfico TCP en un puerto utilizado por Network Performance Monitor para las transacciones sintéticas. El puerto predeterminado es 8084. Esta configuración permite al agente de Operations Management Suite instalado en máquinas virtuales de Azure comunicarse con un agente de supervisión local. 
 
-Para más información sobre NSG, consulte  [Grupos de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+Para más información sobre NSG, consulte  [Grupos de seguridad de red](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Antes de continuar con este paso, instale el agente del servidor local y el agente del servidor de Azure, y ejecute el script de PowerShell EnableRules.ps1. 

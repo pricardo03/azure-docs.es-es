@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: a82db16f2012672f6e2669f2fd8198b177f501f3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 56d21b76268f94f4254985a6924c4ca2d778a9cd
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264189"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300829"
 ---
 # <a name="create-sql-databases"></a>Creación de bases de datos SQL
 
@@ -27,7 +27,7 @@ Puede crear y administrar bases de datos de autoservicio en el portal de usuario
 
 1. Inicie sesión en el portal de usuarios de [Azure Stack](azure-stack-poc.md).
 
-2. Seleccione **+ New** (+ Nuevo) &gt;**Data + Storage"** (Almacenamiento y datos) &gt; **SQL Server Database** &gt; (Base de datos SQL Server) **Add** (Agregar).
+2. Seleccione **+ New** (+ Nuevo) &gt;**Data + Storage** (Datos y almacenamiento) &gt; **SQL Server Database** &gt; (Base de datos SQL Server) **Add** (Agregar).
 
 3. En **Create Database** (Crear base de datos), escriba la información necesaria, como **Database Name** (Nombre de la base de datos) y **Max Size in MB** (Tamaño máximo en MB).
 
