@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84facb99b2264b48ede7306ae87a79605e6e8bed
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f5a8c33f2bd3c89b1049435f15d7bf2020248afa
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597095"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019330"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Uso de Maven para compilar aplicaciones Java que utilicen HBase con HDInsight basado en Windows (Hadoop)
 Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache.org/) en Java con Apache Maven. Luego use la aplicación con Azure HDInsight (Hadoop).
 
-[Maven](http://maven.apache.org/) es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java. En este artículo, aprenderá a usarla para crear una aplicación Java básica que crea, consulta y elimina una tabla de HBase en un clúster de HDInsight de Azure.
+[Maven](http://maven.apache.org/) es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java. En este artículo aprenderá a usarla para crear una aplicación básica de Java que cree, consulte y elimine una tabla de HBase en un clúster de Azure HDInsight.
 
 > [!IMPORTANT]
-> Los pasos de este documento requieren un clúster de HDInsight con Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Los pasos de este documento requieren un clúster de HDInsight que use Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Requisitos
 * [JDK de la plataforma Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o posterior

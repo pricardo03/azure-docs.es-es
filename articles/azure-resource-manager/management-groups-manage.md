@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/15/2018
+ms.date: 06/22/2018
 ms.author: rithorn
-ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0a13627232904f4b14cdb5cbf5c3ca927d9ea167
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754411"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración 
 Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Puede cambiar, eliminar y administrar estos contenedores para que las jerarquías puedan usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basado en roles de Azure (RBAC)](../role-based-access-control/overview.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
@@ -55,8 +56,8 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoIt -DisplayName "Contoso Gr
 
 En la CLI de Azure, use el comando de actualización. 
 
-```azure-cli
-C:\> az account management-group update --group-name Contoso --display-name "Contoso Group" 
+```azurecli-interactive
+az account management-group update --name Contoso --display-name "Contoso Group" 
 ```
 
 ---
@@ -94,8 +95,8 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ### <a name="delete-in-azure-cli"></a>Eliminación en la CLI de Azure
 Con la CLI de Azure, use el comando az account management-group delete. 
 
-```azure-cli
-C:\> az account management-group delete --group-name Contoso
+```azurecli-interactive
+az account management-group delete --name Contoso
 ```
 ---
 
@@ -124,13 +125,13 @@ Get-AzureRmManagementGroup -GroupName Contoso
 ### <a name="view-in-azure-cli"></a>Ver en la CLI de Azure
 Use el comando list para recuperar todos los grupos.  
 
-```azure-cli
+```azurecli-interactive
 az account management-group list
 ```
 Para obtener información de un único grupo de administración, use el comando show.
 
-```azurepowershell-interactive
-az account management-group show --group-name Contoso
+```azurecli-interactive
+az account management-group show --name Contoso
 ```
 ---
 
@@ -185,14 +186,14 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 ### <a name="move-subscriptions-in-azure-cli"></a>Mover las suscripciones en la CLI de Azure
 Para mover una suscripción en la CLI, utilice el comando add. 
 
-```azure-cli
-C:\> az account management-group add --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription add --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 Para quitar la suscripción del grupo de administración, use el comando subscription remove.  
 
-```azure-cli
-C:\> az account management-group remove --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription remove --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 ---
@@ -216,13 +217,13 @@ Al mover un grupo de administración primario, todos los recursos secundarios qu
 Use el comando Update-AzureRmManagementGroup de PowerShell para mover un grupo de administración a un grupo diferente.  
 
 ```powershell
-C:\> Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
+Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
 ```  
 ### <a name="move-management-groups-in-azure-cli"></a>Mover grupos de administración en la CLI de Azure
 Use el comando update para mover un grupo de administración con CLI de Azure. 
 
-```azure-cli
-C:/> az account management-group udpate --group-name Contoso --parent-id "Contoso Tenant" 
+```azurecli-interactive
+az account management-group update --name Contoso --parent "Contoso Tenant" 
 ``` 
 
 ---

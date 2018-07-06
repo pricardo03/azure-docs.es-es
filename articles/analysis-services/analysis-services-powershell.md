@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 05/22/2018
+ms.date: 06/25/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4e819bdce971e92e4b2d99e68f51ddbf8a22182
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5c347a024af385e04bfdf3631ddcbaec89df4f40
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597474"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937371"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Administración de Azure Analysis Services con PowerShell
 
@@ -54,22 +54,22 @@ Módulo: [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 
 ## <a name="database-operations"></a>Operaciones de la base de datos
 
-Las operaciones de la base de datos de Azure Analysis Services utilizan el mismo módulo [SqlServer](https://www.powershellgallery.com/packages/SqlServer) que SQL Server Analysis Services. Pero no todos los cmdlets son compatibles con Azure Analysis Services. 
+Las operaciones de la base de datos de Azure Analysis Services utilizan el mismo [módulo SqlServer](https://www.powershellgallery.com/packages/SqlServer) que SQL Server Analysis Services. Pero no todos los cmdlets son compatibles con Azure Analysis Services. Para obtener más información, consulte [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
 
 El módulo SqlServer proporciona cmdlets de administración de base de datos específicos de la tarea, así como el cmdlet de uso general Invoke-ASCmd que acepta una consulta o script de Tabular Model Scripting Language (TMSL). Los siguientes cmdlets del módulo SqlServer son compatibles con Azure Analysis Services.
 
   
 |Cmdlet|DESCRIPCIÓN|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Agrega un miembro a un rol de base de datos.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Realiza una copia de seguridad de una base de datos de Analysis Services.|  
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Quita un miembro de un rol de base de datos.|   
-|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Ejecuta un script de TMSL.|
-|[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Procesa una base de datos.|  
-|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Procesa una partición.| 
-|[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Procesa una tabla.|  
-|[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Combina una partición.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Restaura una base de datos de Analysis Services.| 
+|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Agrega un miembro a un rol de base de datos.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Realiza una copia de seguridad de una base de datos de Analysis Services.|  
+|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Quita un miembro de un rol de base de datos.|   
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Ejecuta un script de TMSL.|
+|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Procesa una base de datos.|  
+|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Procesa una partición.| 
+|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Procesa una tabla.|  
+|[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Combina una partición.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Restaura una base de datos de Analysis Services.| 
   
 
 ## <a name="related-information"></a>Información relacionada

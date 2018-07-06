@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3afdcbfc2d1d6f40db0f0336be161a06908cb883
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618004"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048091"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copia de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-sap-hana-connector.md)
-> * [Versión 2: versión preliminar](connector-sap-hana.md)
+> * [Versión 1](v1/data-factory-sap-hana-connector.md)
+> * [Versión actual](connector-sap-hana.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos SAP HANA. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte el artículo sobre [la versión 1 del conector SAP HANA](v1/data-factory-sap-hana-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 

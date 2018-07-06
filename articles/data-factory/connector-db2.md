@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 808405de3391912433919d21b59214831b024866
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11647c231db3ff7beb2fed641dc72ff339b2b45a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616403"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046248"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copia de datos desde DB2 mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-onprem-db2-connector.md)
-> * [Versión 2: Versión preliminar](connector-db2.md)
+> * [Versión 1](v1/data-factory-onprem-db2-connector.md)
+> * [Versión actual](connector-db2.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos DB2. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector DB2](v1/data-factory-onprem-db2-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 

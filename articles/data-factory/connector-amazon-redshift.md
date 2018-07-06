@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5787f944211c5dd6c0c83e7dc10170d8a0cd9a23
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d36733b63645fd86580ccdc5af756739f77338c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616617"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048152"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-amazon-redshift-connector.md)
-> * [Versión 2: versión preliminar](connector-amazon-redshift.md)
+> * [Versión 1](v1/data-factory-amazon-redshift-connector.md)
+> * [Versión actual](connector-amazon-redshift.md)
 
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos de Amazon Redshift. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), vea el artículo sobre la [versión 1 del conector de Amazon Redshift](v1/data-factory-amazon-redshift-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -201,7 +198,7 @@ En este caso de uso de ejemplo, la actividad de copia descarga los datos de Amaz
                 "linkedServiceName": "AzureStorageLinkedService",
                 "path": "adfstagingcopydata"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]

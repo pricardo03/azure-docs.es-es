@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 176af41197810059a17daf5ab09d29e0169e9640
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 69e9d66458409bbc744416a58ceb508349418a76
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225014"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019560"
 ---
 # <a name="steps-to-configure-an-openidoauth-application-from-azure-ad-app-gallery"></a>Pasos para configurar una aplicación OpenID/OAuth desde la galería de aplicaciones de Azure AD
 
@@ -42,7 +42,7 @@ ms.locfileid: "36225014"
     ![Incorporación de una aplicación](./media/openidoauth-tutorial/addfromgallery.png)
 
     > [!NOTE]
-    > Para las aplicaciones OpenID Connect y OAuth, el botón Agregar está deshabilitado de forma predeterminada. Aquí, el administrador de inquilinos debe hacer clic en el botón de **suscripción** y proporcionar el consentimiento a la aplicación. Con eso, la aplicación se agregará al inquilino de cliente, no es necesario agregarla de forma explícita, y realizará las configuraciones.
+    > Para las aplicaciones OpenID Connect y OAuth, el botón Agregar está deshabilitado de forma predeterminada. Aquí, el administrador de inquilinos debe hacer clic en el botón de **suscripción** y proporcionar el consentimiento a la aplicación. Una vez hecho esto, la aplicación se agregará al inquilino de cliente (no es necesario agregarla de forma explícita), y realizará las configuraciones.
 
     ![Botón Agregar](./media/openidoauth-tutorial/addbutton.png)
 

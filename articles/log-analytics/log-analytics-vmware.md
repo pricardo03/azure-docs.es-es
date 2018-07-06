@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c07cc3e434a178a5f6a1ea10f7dc630c3d0d548d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775118"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019304"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solución de supervisión de VMware (versión preliminar)de Log Analytics
 
@@ -171,7 +171,7 @@ Después de crear las consultas, recomendamos utilizarlas para saber cuando se p
 La solución utiliza el mecanismo de reenvío nativo de syslog del host ESXi. No necesita otro software de Microsoft en el host ESXi para capturar los registros. El impacto en su entorno debería ser mínimo. Sin embargo, debe configurar el reenvío de syslog, que es la funcionalidad ESXi.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>¿Hay que reiniciar el host ESXi?
-Nº Este proceso no requiere reiniciar. A veces, vSphere no actualiza correctamente syslog. En tal caso, inicie sesión en el host ESXi y vuelva a cargar syslog. De nuevo, no necesita reiniciar el host, así que este proceso no afecta al rendimiento de su entorno.
+No. Este proceso no requiere reiniciar. A veces, vSphere no actualiza correctamente syslog. En tal caso, inicie sesión en el host ESXi y vuelva a cargar syslog. De nuevo, no necesita reiniciar el host, así que este proceso no afecta al rendimiento de su entorno.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>¿Puedo aumentar o disminuir el volumen de datos de registro enviados a Log Analytics?
 Sí, puede. Puede usar la configuración de nivel de registro del host ESXi en vSphere. La recopilación de registros se basa en el nivel *info*. Por lo tanto, si desea auditar la eliminación o creación de máquinas virtuales, debe mantener el nivel *info* en Hostd. Para obtener más información, consulte la [base de conocimientos de VMware](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).

@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: protection
-ms.date: 06/06/2017
+ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 885c7a144a2ac588e1f1b32fb03b7ed72d058e94
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 7c536a4e7f93a2f1ef42b7600513994dd80826a0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233461"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020877"
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Revisión de acceso en Privileged Identity Management de Azure AD
 Privileged Identity Management de Azure Active Directory (AD) simplifica el modo en que las empresas administra el acceso con privilegios a los recursos de Azure AD y en otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.  
 
 Si se le ha asignado un rol administrativo, el administrador de roles con privilegios de su organización le puede pedir que revise y confirme periódicamente que aún necesita ese rol para su trabajo. Puede que reciba un correo electrónico con un vínculo o que vaya directamente al [Portal de Azure](https://portal.azure.com). Siga los pasos de este artículo para realizar una autorrevisión de los roles asignados.
 
-Si es un administrador de roles con privilegios interesado en las revisiones de acceso, puede obtener más información en [Inicio de una revisión de acceso](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Si es un administrador de roles con privilegios o un administrador global y está interesado en las revisiones de acceso, puede obtener más información en [How to start an access review](active-directory-privileged-identity-management-how-to-start-security-review.md) (Cómo iniciar una revisión de acceso).
 
 ## <a name="add-the-privileged-identity-management-application"></a>Incorporación de la aplicación Privileged Identity Management
 Puede usar la aplicación Privileged Identity Management (PIM) de Azure AD en el [Portal de Azure](https://portal.azure.com/) para realizar la revisión.  Si no tiene la aplicación en el portal, siga estos pasos para comenzar:

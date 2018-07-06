@@ -12,24 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: be925521178bba0ae4ae9820e78042509b2f1741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb7009d0e7f31b2f503ac51d378fd117fff9f9b2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621010"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049958"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hadoop MapReduce en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-map-reduce.md)
-> * [Versión 2: versión preliminar](transform-data-using-hadoop-map-reduce.md)
-
+> * [Versión 1](v1/data-factory-map-reduce.md)
+> * [Versión actual](transform-data-using-hadoop-map-reduce.md)
 
 La actividad MapReduce de HDInsight en una [canalización](concepts-pipelines-activities.md) de Data Factory invoca el programa MapReduce en [su propio](compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en un clúster [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea [Actividad MapReduce en V1](v1/data-factory-map-reduce.md).
-
 
 Si no está familiarizado con Azure Data Factory, vea [Introduction to Azure Data Factory](introduction.md) (Introducción a Azure Data Factory) y siga el [tutorial de transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo. 
 

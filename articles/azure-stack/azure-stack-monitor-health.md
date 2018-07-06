@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 446df7922422ccfcf3fbb92ecf153c6dec2f6197
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26640385"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047248"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Supervisar el estado y las alertas en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Azure Stack incluye funciones de supervisión de infraestructura que le permiten ver el estado y las alertas de una región de Azure Stack. El icono **Region management** (Administración de regiones), anclado en el portal de administración de manera predeterminada para la suscripción de proveedor predeterminada, enumera todas las regiones implementadas de Azure Stack. El icono muestra el número de alertas críticas y de advertencia activas para cada región y representa el punto de entrada a la funcionalidad de mantenimiento y de alertas de Azure Stack.
 
@@ -32,6 +32,17 @@ Azure Stack incluye funciones de supervisión de infraestructura que le permiten
  ## <a name="understand-health-in-azure-stack"></a>Comprender el estado en Azure Stack
 
  El proveedor de recursos de estado administra el estado y las alertas. Los componentes de infraestructura de Azure Stack se registran en el proveedor de recursos de estado durante la implementación y configuración de Azure Stack. Este registro permite mostrar el estado y las alertas para cada componente. El estado en Azure Stack es un concepto simple. Si existen alertas para una instancia registrada de un componente, el estado de mantenimiento de dicho componente refleja la gravedad de la peor alerta activa: advertencia o crítica.
+
+## <a name="alert-severity-definition"></a>Definición de la gravedad de las alertas
+
+En Azure Stack las alertas se crean con solo dos niveles de severidad: **advertencia** y **crítica**.
+
+**Warning (ADVERTENCIA)**  
+Un operador puede abordar la alerta de advertencia de manera programada. Esta alerta generalmente no afecta a las cargas de trabajo del usuario.
+
+**Critical)** (Crítico)  
+Un operador debe abordar la alerta crítica con urgencia. Estos son problemas que actualmente afectan o que pronto afectarán a los usuarios de Azure Stack. 
+
  
  ## <a name="view-and-manage-component-health-state"></a>Ver y administrar el estado de mantenimiento de un componente
  
@@ -44,7 +55,7 @@ Para ver el estado de mantenimiento en el portal, haga clic en la región que qu
 Puede hacer clic en un proveedor de recursos o rol de infraestructura para ver información más detallada.
 
 > [!WARNING]
->Si hace clic en un rol de infraestructura y, luego, hace clic en la instancia de rol, hay opciones para iniciar, reiniciar o apagar. No use estas acciones al aplicar actualizaciones a un sistema integrado. **No** use tampoco estas opciones en un entorno de Azure Stack Development Kit. Estas opciones están diseñadas únicamente para un entorno de sistemas integrados, donde hay más de una instancia de rol por rol de infraestructura. Reiniciar una instancia de rol (especialmente AzS-Xrp01) en el kit de desarrollo provoca inestabilidad del sistema. Para obtener asistencia para solucionar problemas, publique su problema en el [foro de Azure Stack](https://aka.ms/azurestackforum).
+>Si hace clic en un rol de infraestructura y, luego, hace clic en la instancia de rol, hay opciones para iniciar, reiniciar o apagar. No use estas acciones al aplicar actualizaciones a un sistema integrado. **No** use tampoco estas opciones en un entorno del Kit de desarrollo de Azure Stack. Estas opciones están diseñadas únicamente para un entorno de sistemas integrados, donde hay más de una instancia de rol por rol de infraestructura. Reiniciar una instancia de rol (especialmente AzS-Xrp01) en el kit de desarrollo provoca inestabilidad del sistema. Para obtener asistencia para solucionar problemas, publique su problema en el [foro de Azure Stack](https://aka.ms/azurestackforum).
 >
  
 ## <a name="view-alerts"></a>Visualización de alertas

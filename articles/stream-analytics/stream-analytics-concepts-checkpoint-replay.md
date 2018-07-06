@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 1a7cb6c5d9c3383b127ce38ae21bb2dc811e1f2e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529208"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936724"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceptos de punto de control y reproducción en trabajos de Azure Stream Analytics
 En este artículo se describen los conceptos de punto de control y reproducción internos en Azure Stream Analytics y el impacto que tienen en la recuperación de trabajos. Cada vez que se ejecuta un trabajo de Stream Analytics, la información de estado se mantiene internamente. La información de estado se guarda en un punto de control de manera periódica. En algunos escenarios, la información de punto de control se usa para la recuperación del trabajo si se produce algún error o actualización del trabajo. En otros casos, no se puede usar el punto de control para la recuperación y es necesaria la reproducción.
@@ -48,7 +48,7 @@ En algunas ocasiones, Microsoft actualiza los archivos binarios que ejecutan los
 
 Actualmente, el formato del punto de control de recuperación no se conserva entre las actualizaciones. Como resultado, el estado de la consulta de streaming se debe restaurar completamente con la técnica de la reproducción. Para permitir que los trabajos de Stream Analytics reproduzcan exactamente la misma entrada de antes, resulta importante establecer la directiva de retención para los datos de origen en al menos los tamaños de intervalo de la consulta. Si no es así, se podrían generar resultados parciales o incorrectos durante la actualización del servicio, porque es posible que los datos de origen no vayan tan atrás como para incluir el tamaño de intervalo completo.
 
-En general, la cantidad de reproducción que se necesita es proporcional al tamaño del intervalo multiplicado por la tasa de eventos promedio. Por ejemplo, para un trabajo con una tasa de entrada de 1000 eventos por segundo, un tamaño de intervalo superior a una hora se considera como un tamaño de reproducción grande. En el caso de consultas con un tamaño de reproducción grande, puede observar retrasos en la salida (sin salida) durante un período prolongado. 
+En general, la cantidad de reproducción que se necesita es proporcional al tamaño del intervalo multiplicado por la tasa de eventos promedio. Por ejemplo, para un trabajo con una tasa de entrada de 1000 eventos por segundo, un tamaño de intervalo superior a una hora se considera como un tamaño de reproducción grande. Es posible que sea necesario volver a procesar hasta una hora de datos para inicializar el estado para que pueda producir resultados correctos y completos, que pueden causar la salida atrasada (sin salida) de algún periodo ampliado. Las consultas sin ventanas ni otros operadores temporales, como `JOIN` o `LAG`, no tendrían ninguna reproducción.
 
 ## <a name="estimate-replay-catch-up-time"></a>Estimación del tiempo de puesta al día de reproducción
 Para calcular la duración del retraso debido a una actualización de servicio, puede seguir esta técnica:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 5ba13aeb63a72b738aac435b63ebbcfd4eeb7fa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213221"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021419"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configuración de FabricTransport de Reliable Actors
 
@@ -51,6 +51,10 @@ En el ejemplo siguiente se muestra cómo cambiar el valor predeterminado de la c
 ## <a name="config-package"></a>Paquete de configuración
 
 Puede usar un [paquete de configuración](service-fabric-application-and-service-manifests.md) para modificar la configuración predeterminada.
+
+> [!IMPORTANT]
+> En los nodos Linux, los certificados deben tener el formato PEM. Para obtener más información sobre la ubicación y configuración de certificados para Linux, consulte [Configuración de certificados en Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configuración del valor de FabricTransport para el servicio de actor
 

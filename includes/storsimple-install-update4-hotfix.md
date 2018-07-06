@@ -28,7 +28,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
 Realice los pasos siguientes para instalar y comprobar las revisiones de modo normal. Si ya las ha instalado a través del Portal de Azure clásico, puede ir directamente a la sección [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. Para instalar las revisiones, acceda a la interfaz de Windows PowerShell en la consola serie del dispositivo de StorSimple. Siga las instrucciones detalladas de [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) (Uso de PuTTy para conectarse a la consola serie). En el símbolo del sistema, presione **Entrar**.
-2. Seleccione **Opción 1** para iniciar sesión en el dispositivo con acceso completo. Se recomienda instalar primero la revisión en el controlador pasivo.
+2. Seleccione la opción 1, **Iniciar sesión con acceso completo**. Se recomienda instalar primero la revisión en el controlador pasivo.
 3. Para instalar la revisión, en el símbolo del sistema, escriba lo siguiente:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -153,7 +153,7 @@ Para instalar las actualizaciones de firmware de disco, siga las instrucciones a
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Supervise el progreso de la instalación con el comando `Get-HcsUpdateStatus` . La actualización se habrá completado cuando `RunInProgress` cambie a `False`.
-4. Una vez completada la instalación, se reiniciará el controlador en el que se haya instalado la revisión de modo de mantenimiento. Inicie sesión como en la opción 1 con acceso completo y compruebe la versión de firmware del disco. Escriba: 
+4. Una vez completada la instalación, se reiniciará el controlador en el que se haya instalado la revisión de modo de mantenimiento. Inicie sesión con la opción 1, **Iniciar sesión con acceso completo**, y compruebe la versión de firmware del disco. Escriba: 
    
    `Get-HcsFirmwareVersion`
    

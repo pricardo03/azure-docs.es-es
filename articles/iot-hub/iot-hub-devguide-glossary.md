@@ -1,24 +1,19 @@
 ---
 title: Glosario de términos de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: glosario de términos comunes relativos a Azure IoT Hub.'
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960498"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -113,9 +108,6 @@ Los datos del dispositivo hacen referencia a los datos por dispositivo almacenad
 ## <a name="device-explorer"></a>Explorador de dispositivos
 [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) es una herramienta que se ejecuta en Windows y permite administrar los dispositivos en el [registro de identidad](#identity-registry). Esta herramienta también puede enviar y recibir mensajes a los dispositivos.
 
-## <a name="device-identities-rest-api"></a>API de REST de identidades de dispositivos
-La [API de REST de identidades de dispositivos](https://docs.microsoft.com/rest/api/iothub/iothubresource) permite administrar los dispositivos registrados en el [registro de identidad](#identity-registry) mediante una API de REST. Por lo general, debería usar uno de los [SDK de servicios](#azure-iot-service-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
-
 ## <a name="device-identity"></a>Identidad del dispositivo
 La identidad del dispositivo es el identificador único asignado a cada dispositivo registrado del [registro de identidad](#identity-registry).
 
@@ -128,8 +120,8 @@ La administración de dispositivos abarca el ciclo de vida completo asociado a l
 ## <a name="device-management-patterns"></a>Patrones de administración de dispositivos
 [IoT Hub](#iot-hub) permite patrones comunes de administración de dispositivos incluidos el reinicio, el restablecimiento de fábrica y las actualizaciones de firmware de los dispositivos.
 
-## <a name="device-messaging-rest-api"></a>API de REST de Device Messaging
-Puede usar la [API de REST de mensajería de dispositivos](https://docs.microsoft.com/rest/api/iothub/httpruntime) desde un dispositivo para enviar mensajes del dispositivo a la nube a IoT Hub y recibir mensajes [de la nube al dispositivo](#cloud-to-device) desde una instancia de IoT Hub. Por lo general, debería usar uno de los [SDK de dispositivos](#azure-iot-device-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
+## <a name="device-rest-api"></a>API REST de dispositivos
+Puede usar la [API REST de dispositivos](https://docs.microsoft.com/rest/api/iothub/device/device) desde un dispositivo para enviar mensajes del dispositivo a la nube a IoT Hub y recibir mensajes [de la nube al dispositivo](#cloud-to-device) desde una instancia de IoT Hub. Por lo general, debería usar uno de los [SDK de dispositivos](#azure-iot-device-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
 
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
 El aprovisionamiento de dispositivos es el proceso de agregar los [datos del dispositivo](#device-data) iniciales a los almacenes de la solución. Para habilitar un nuevo dispositivo y que se conecte al centro, debe agregar un nuevo identificador de dispositivo y claves al [registro de identidades](#identity-registry) del centro de IoT. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución.
@@ -141,10 +133,7 @@ Un [dispositivo gemelo](iot-hub-devguide-device-twins.md) es un documento JSON q
 De forma similar al dispositivo gemelo, un módulo gemelo es un documento JSON que almacena información sobre el estado de los módulos, como metadatos, configuraciones y condiciones. IoT Hub persiste un módulo gemelo para cada identidad de módulo aprovisionado en una identidad del dispositivo del centro de IoT. Los módulos gemelos permiten sincronizar las condiciones de módulo y las configuraciones entre el módulo y el back-end de soluciones. Puede consultar los módulos gemelos para buscar módulos específicos y consultar el estado de las operaciones de larga duración.
 
 ## <a name="twin-queries"></a>Consultas gemelas
-Las [consultas de dispositivos y módulos gemelos](iot-hub-devguide-query-language.md) usan el lenguaje de consulta de IoT Hub de tipo SQL para recuperar información de los dispositivos o módulos gemelos. Puede usar el mismo lenguaje de consulta de IoT Hub para recuperar información sobre [trabajos](#job) que se ejecutan en el centro de IoT.
-
-## <a name="device-twin-rest-api"></a>API de REST de dispositivos gemelos
-Puede usar la [API de REST de dispositivos gemelos](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) en el back-end de la solución para administrar sus dispositivos gemelos. La API le permite recuperar y actualizar las propiedades del [dispositivo gemelo](#device-twin) e invocar [métodos directos](#direct-method). Por lo general, debería usar uno de los [SDK de servicios](#azure-iot-service-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
+Las [consultas de dispositivos y módulos gemelos](iot-hub-devguide-query-language.md) usan el lenguaje de consulta de IoT Hub de tipo SQL para recuperar información de los dispositivos o módulos gemelos. Puede usar el mismo lenguaje de consulta de IoT Hub para recuperar información sobre los [trabajos](#job) que se ejecuten en IoT Hub.
 
 ## <a name="twin-synchronization"></a>Sincronización de gemelos
 La sincronización de gemelos usa las [propiedades deseadas](#desired-properties) en los dispositivos o módulos gemelos para configurar los dispositivos o módulos y recuperar las [propiedades notificadas](#reported-properties) de los dispositivos para almacenarlas en el gemelo.
@@ -185,22 +174,19 @@ IoT Hub es un servicio de Azure totalmente administrado que permite la comunicac
 Las [métricas de IoT Hub](iot-hub-metrics.md) ofrecen datos sobre el estado de los centros de IoT en la [suscripción de Azure](#subscription). Las métricas de IoT Hub permiten evaluar el estado general del servicio y de los dispositivos conectados a él. Las métricas de IoT Hub pueden ayudar a ver lo que está ocurriendo con el centro de IoT y a investigar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 ## <a name="iot-hub-query-language"></a>Lenguaje de consulta de IoT Hub
-El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un lenguaje de tipo SQL que permite consultar los [trabajos](#job) y dispositivos gemelos.
+El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un lenguaje de tipo SQL que permite consultar los [trabajos](#job) y sus dispositivos gemelos.
 
-## <a name="iot-hub-resource-provider-rest-api"></a>API de REST del proveedor de recursos de IoT Hub
-Puede usar la [API de REST del proveedor de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) para administrar los centros de IoT en la [suscripción de Azure](#subscription) realizando operaciones como crear, actualizar y eliminar centros.
+## <a name="iot-hub-resource-rest-api"></a>API REST de recursos de IoT Hub
+Puede usar la [API REST de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) para administrar los centros de IoT Hub en la [suscripción de Azure](#subscription); por ejemplo, puede realizar operaciones como crear, actualizar y eliminar centros.
 
 ## <a name="iot-solution-accelerators"></a>Aceleradores de soluciones de IoT
-Los aceleradores de soluciones de Azure IoT agrupan varios servicios de Azure en soluciones. Estas soluciones le permiten iniciar rápidamente implementaciones de un extremo a otro de escenarios comunes de IoT. Para más información, vea [¿Cuáles son los aceleradores de soluciones de Azure IoT?](../iot-suite/iot-suite-overview.md)
+Los aceleradores de soluciones de Azure IoT agrupan varios servicios de Azure en soluciones. Estas soluciones le permiten iniciar rápidamente implementaciones de un extremo a otro de escenarios comunes de IoT. Para más información, vea [¿Cuáles son los aceleradores de soluciones de Azure IoT?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>La extensión de IoT para la CLI de Azure 2.0
 [La extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) es una herramienta de la línea de comandos multiplataforma. La herramienta permite administrar los dispositivos en el [registro de identidades](#identity-registry), enviar y recibir mensajes y archivos de los dispositivos, así como supervisar las operaciones del centro de IoT.
 
 ## <a name="job"></a>Trabajo
-El back-end de solución puede utilizar [trabajos](iot-hub-devguide-jobs.md) para programar y realizar el seguimiento de actividades en un conjunto de dispositivos registrados con IoT Hub. Las actividades incluyen actualizar las [propiedades deseadas](#desired-properties) del dispositivo gemelo, actualizar las [etiquetas](#tags) del dispositivo gemelo e invocar [métodos directos](#direct-method). [IoT Hub](#iot-hub) también utiliza trabajos para [importar y exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) desde el [registro de identidades](#identity-registry).
-
-## <a name="jobs-rest-api"></a>API DE REST de trabajos
-La [API de REST de trabajos](https://docs.microsoft.com/rest/api/iothub/jobapi) permite administrar [trabajos](#job) que se ejecutan en IoT Hub.
+El back-end de solución puede utilizar [trabajos](iot-hub-devguide-jobs.md) para programar y realizar el seguimiento de actividades en un conjunto de dispositivos registrados con IoT Hub. Las actividades incluyen actualizar las [propiedades deseadas](#desired-properties) del dispositivo gemelo, actualizar las [etiquetas](#tags) del dispositivo gemelo e invocar [métodos directos](#direct-method). [IoT Hub](#iot-hub) también usa trabajos para [importar y exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) elementos desde el [registro de identidades](#identity-registry).
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) es uno de los protocolos de mensajería que admite [IoT Hub](#iot-hub) para la comunicación con dispositivos. Para obtener más información acerca de los protocolos de mensajería que admite IoT Hub, consulte [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).
@@ -238,6 +224,9 @@ Configure [reglas de enrutamiento](iot-hub-devguide-messages-read-custom.md) en 
 ## <a name="sasl-plain"></a>SASL PLAIN
 SASL PLAIN es un protocolo que el protocolo [AMQP](#advanced-message-queue-protocol) utiliza para transferir tokens de seguridad.
 
+## <a name="service-rest-api"></a>API de REST de servicio
+Puede usar la [API REST de servicio](https://docs.microsoft.com/rest/api/iothub/service/service) en el back-end de la solución para administrar sus dispositivos. La API le permite recuperar y actualizar las propiedades del [dispositivo gemelo](#device-twin), invocar [métodos directos](#direct-method) y programar [trabajos](#job). Por lo general, debería usar uno de los [SDK de servicios](#azure-iot-service-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
+
 ## <a name="shared-access-signature"></a>Firma de acceso compartido
 Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado en valores hash seguros SHA-256 o en URI. La autenticación de SAS tiene dos componentes: una _directiva de acceso compartido_ y una _firma de acceso compartido_ (a menudo denominada token). Un dispositivo utiliza SAS para autenticarse con un centro de IoT. Las [aplicaciones de back-end](#back-end-app) también utilizan SAS para autenticarse con los puntos de conexión accesibles desde servicios en un centro de IoT. Normalmente, se incluye el token de SAS en la [cadena de conexión](#connection-string) que una aplicación usa para establecer una conexión con un centro de IoT.
 
@@ -250,7 +239,7 @@ Para mayor comodidad, muchos de los tutoriales de IoT Hub usan dispositivos simu
 ## <a name="solution"></a>Solución
 Una _solución_ puede hacer referencia a una solución de Visual Studio que incluye uno o más proyectos. Una _solución_ también puede hacer referencia a una solución de IoT que incluye elementos como dispositivos, [aplicaciones para dispositivo](#device-app), un centro de IoT, otros servicios de Azure y [aplicaciones de back-end](#back-end-app).
 
-## <a name="subscription"></a>La suscripción
+## <a name="subscription"></a>Subscription
 Una suscripción de Azure es donde se realiza la facturación. Cada recurso de Azure que se crea o servicio de Azure que se utiliza está asociado a una única suscripción. Muchas cuotas también se aplican en el nivel de suscripción.
 
 ## <a name="system-properties"></a>Propiedades del sistema

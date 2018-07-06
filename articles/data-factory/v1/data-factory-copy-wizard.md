@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ef94f5cfa91422dddf9c684c2dc1b6eada754f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621299"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048727"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copia o movimiento sencillos de datos con el Asistente para copia de Azure Data Factory
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea el [tutorial de la actividad de copia en la documentación de la versión 2](../quickstart-create-data-factory-dot-net.md). 
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el [tutorial de la actividad de copia](../quickstart-create-data-factory-dot-net.md). 
 
 
 El Asistente para copia de factoría de datos de Azure se usa para simplificar el proceso de ingesta de datos, que normalmente es el primer paso en un escenario de integración de datos de un extremo a otro. Para aprender el uso del Asistente para copia de Azure Data Factory no es preciso conocer las definiciones de JSON de servicios vinculados, conjuntos de datos y canalizaciones. Sin embargo, después de completar todos los pasos del asistente, este crea automáticamente una canalización para copiar datos del origen de datos seleccionado al destino seleccionado. Además, el Asistente para copia ayuda a validar los datos que se van a ingerir en el momento de creación, lo que ahorra mucho tiempo, especialmente la primera vez que se van a ingerir datos del origen de datos. Si quiere iniciar el Asistente para copia, haga clic en el icono **Copiar datos** de la página principal de Data Factory.

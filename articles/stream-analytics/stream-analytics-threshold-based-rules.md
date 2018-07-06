@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 1c131c2c9ca12556c1d2cd52e7976d2f4272a0c8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32768039"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021632"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Procesar reglas configurables basadas en umbrales en Azure Stream Analytics
 En este artículo se describe cómo usar los datos de referencia para lograr una solución de alertas que use reglas configurables basadas en umbrales Azure Stream Analytics.
@@ -45,7 +45,7 @@ Estos datos de referencia de ejemplo muestran cómo podría representarse una re
 - La regla del ejemplo se utiliza para representar una alerta ajustable cuando la CPU supera (el promedio es mayor o igual que) el valor del `90` por ciento. El campo `value` puede configurarse según sea necesario.
 - Tenga en cuenta que la regla tiene un campo **operator**, que se interpreta dinámicamente en la sintaxis de consulta más adelante en `AVGGREATEROREQUAL`. 
 - La regla filtra los datos en una clave de dimensión determinada `2` con el valor `C1`. Otros campos son una cadena vacía, lo que indica que no se filtre el flujo de entrada según esos campos de evento. Podría configurar reglas de CPU adicionales para filtrar otros campos coincidentes según sea necesario.
-- No todas las columnas deben incluirse en el evento de alerta de salida. En este caso, la clave `includedDim` número `2` está activada `TRUE` para representar que el campo número 2 de datos del evento en el flujo se incluirá en los eventos de salida aptos. Los demás campos no se incluyen en el resultado de la alerta, pero se puede ajustar la lista de campos.
+- No todas las columnas deben incluirse en el evento de alerta de salida. En este caso, la clave `includedDim` número `2` está activada en `TRUE` para representar que el campo número 2 de datos del evento en el flujo se incluirá en los eventos de salida aptos. Los demás campos no se incluyen en el resultado de la alerta, pero se puede ajustar la lista de campos.
 
 
 ```json

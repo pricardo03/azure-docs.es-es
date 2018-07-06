@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: protection
-ms.date: 05/04/2017
+ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 699076a8e651dd8dbbab08b518d7be7e60a0ac47
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a4ef91f7055db8f202e3a4e48375427c85964781
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233679"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020954"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Inicio de una revisión de acceso en Privileged Identity Management de Azure AD
-Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. Con el fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios deben revisar regularmente los roles que se han concedido a los usuarios. En este documento se describen los pasos para iniciar una revisión de acceso en Azure AD Privileged Identity Management (PIM).
+Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. A fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios o los administradores globales deben revisar regularmente los accesos para así poder supervisar los roles que se han concedido a los usuarios. En este documento se describen los pasos para iniciar una revisión de acceso en Azure AD Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Inicio de una revisión de acceso
 > [!NOTE]

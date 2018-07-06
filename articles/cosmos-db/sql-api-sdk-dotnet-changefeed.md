@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798872"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937424"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -74,6 +74,17 @@ ms.locfileid: "34798872"
 * Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.14.1 y anteriores.
 
 ### <a name="pre-release-builds"></a>Compilaciones de versión preliminar
+
+### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>Versión preliminar 2.0.3
+* Se han corregido los siguientes problemas:
+  * Al producirse la división de particiones, podrían modificarse procesamientos de documentos duplicados antes de la partición.
+  * GetEstimatedRemainingWork API devolvió 0 cuando no había concesiones en la colección de concesiones.
+
+* Se han hecho públicas las siguientes excepciones. Las extensiones que implementan IPartitionProcessor pueden iniciar estas excepciones.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
 ### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
 * Cambios menores en la API:

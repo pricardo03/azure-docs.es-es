@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84734b89aeb95745d237c062e5654afc4d49f966
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711151"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754329"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C
 
 La experiencia del usuario es primordial en una aplicación de cliente.  Aumentar su base de clientes mediante el diseño de experiencias de usuario con la apariencia de su marca. Azure Active Directory B2C (Azure AD B2C) permite personalizar las páginas de registro, inicio de sesión, edición de perfil y restablecimiento de contraseña del cliente con control perfecto de píxeles.
 
 > [!NOTE]
-> La característica de personalización de la interfaz de usuario de la página que se describe en este artículo no se aplica a la directiva de inicio de sesión único, a la página de restablecimiento de contraseña adjunta y a los correos electrónicos de verificación.  Estas características utilizan en su lugar la [característica de personalización de marca de empresa](../active-directory/customize-branding.md).
+> La característica de personalización de la interfaz de usuario de la página que se describe en este artículo no se aplica a la directiva de inicio de sesión único, a la página de restablecimiento de contraseña adjunta y a los correos electrónicos de verificación.  Estas características utilizan en su lugar la [característica de personalización de marca de empresa](../active-directory/fundamentals/customize-branding.md).
 >
-> De manera similar, si un usuario inicia una directiva de edición de perfil *antes* de iniciar sesión, se redirigirá al usuario a una página que se puede personalizar con la [característica de personalización de marca de la empresa](../active-directory/customize-branding.md).
+> De manera similar, si un usuario inicia una directiva de edición de perfil *antes* de iniciar sesión, se redirigirá al usuario a una página que se puede personalizar con la [característica de personalización de marca de la empresa](../active-directory/fundamentals/customize-branding.md).
 
 En este artículo se tratan los temas siguientes:
 
@@ -315,7 +315,7 @@ Esta página permite a los usuarios verificar sus números de teléfono (mediant
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>Fragmento insertado en la ""página de error"
+### <a name="fragment-inserted-into-the-error-page"></a>Fragmento insertado en la "página de error"
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">

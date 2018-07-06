@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: pullabhk
-ms.openlocfilehash: e9d1c79d6485764f4b671ad529e0812b49df34b1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737025"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958627"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -173,7 +173,7 @@ En la siguiente tabla se muestra la compatibilidad entre los sistemas operativos
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>Para Linux
+### <a name="for-linux-os"></a>Para SO Linux
 
 En Linux, el sistema operativo del equipo usado para restaurar archivos debe admitir el sistema de archivos de la máquina virtual protegida. Al seleccionar un equipo para ejecutar el script, asegúrese de que este tiene un sistema operativo compatible y utiliza una de las versiones de la tabla siguiente:
 

@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure Backup; Agente de máquina virtual; Conectividad de red;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606365"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754330"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -84,15 +84,15 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 ### <a name="the-vm-has-no-internet-access"></a>La máquina virtual no tiene acceso a Internet.
 Según el requisito de implementación, la máquina virtual no tiene acceso a Internet. O bien, podría tener restricciones que impiden el acceso a la infraestructura de Azure.
 
-Para poder funcionar correctamente, la extensión de copia de seguridad requiere conectividad a las direcciones IP públicas de Azure. La extensión envía comandos a un punto de conexión de Azure Storage (dirección URL de HTTP) para administrar las instantáneas de la máquina virtual. Si la extensión no tiene acceso a la red Internet pública, se produce un error en la copia de seguridad.
+Para poder funcionar correctamente, la extensión de copia de seguridad requiere conectividad a las direcciones IP públicas de Azure. La extensión envía comandos a un punto de conexión de Azure Storage (dirección URL de HTTPS) para administrar las instantáneas de la máquina virtual. Si la extensión no tiene acceso a la red Internet pública, se produce un error en la copia de seguridad.
 
 Es posible implementar un servidor proxy para enrutar el tráfico de la máquina virtual.
-##### <a name="create-a-path-for-http-traffic"></a>Crear una ruta de acceso para el tráfico HTTP
+##### <a name="create-a-path-for-https-traffic"></a>Crear una ruta de acceso para el tráfico HTTPS
 
-1. Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico.
-2. Para permitir el acceso a Internet desde el servidor proxy HTTP, agregue las reglas al grupo de seguridad de red, si dispone de uno.
+1. Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTPS para enrutar el tráfico.
+2. Para permitir el acceso a Internet desde el servidor proxy HTTPS, agregue las reglas al grupo de seguridad de red, si dispone de uno.
 
-Para aprender a cómo configurar un proxy HTTP para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno de copia de seguridad de Azure Virtual Machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+Para aprender a configurar un proxy HTTPS para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno para la copia de seguridad de Azure Virtual Machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 La máquina virtual de la que se ha realizado la copia de seguridad o el servidor proxy mediante el cual se ha enrutado el tráfico requieren acceso a las direcciones IP públicas de Azure
 
@@ -121,7 +121,7 @@ Es posible que el agente de máquina virtual se haya dañado o que el servicio s
 2. Si el servicio Windows Guest Agent no se muestra en los servicios, vaya al Panel de control y seleccione **Programas y características** para determinar si dicho servicio está instalado.
 4. Si aparece en **Programas y características**, desinstálelo.
 5. Descargue e instale la [versión más reciente del MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
-6. Compruebe que el servicio Windows Guest Agent aparece en los servicios.
+6. Compruebe que los servicios de agente invitado de Windows aparecen en los servicios.
 7. Ejecute un trabajo de copia de seguridad a petición: 
     * En el portal, seleccione **Crear copia de seguridad ahora**.
 
@@ -197,7 +197,7 @@ Para resolver el problema, elimine el bloqueo del grupo de recursos y realice lo
 1. Quite el bloqueo en el grupo de recursos en el que se encuentra la máquina virtual. 
 2. Instale ARMClient mediante Chocolatey: <br>
    https://github.com/projectkudu/ARMClient
-3. Inicie sesión en ARMClient. <br>
+3. Inicie sesión en ARMClient: <br>
     `.\armclient.exe login`
 4. Obtenga la colección de puntos de restauración que corresponde a la máquina virtual: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`

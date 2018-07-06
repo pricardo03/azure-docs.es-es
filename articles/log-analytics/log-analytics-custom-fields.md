@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 59dbc4134ee11999e54d2eba51804939e7e14229
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030723"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020744"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados de Log Analytics
 La característica **Campos personalizados** de Log Analytics le permite ampliar los registros existentes de Log Analytics agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
@@ -138,7 +138,7 @@ Ahora, podemos usar el campo personalizado como cualquier otra propiedad del reg
 
 ![Agrupar por consulta](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Si desea crear consultas con campos personalizados en función de unos criterios, obtenga más información acerca de las [búsquedas de registros](log-analytics-log-searches.md) .
 * Supervise los [archivos de registro personalizados](log-analytics-data-sources-custom-logs.md) que se analizan con campos personalizados.
 

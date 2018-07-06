@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620568"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048621"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [Integration Runtime autohospedado en V2](../create-self-hosted-integration-runtime.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte el artículo sobre [Integration Runtime autohospedado en V2](../create-self-hosted-integration-runtime.md).
 
 Uno de los desafíos de la integración de datos moderna es la migración de datos entre la ubicación local y la nube. Data Factory realiza la integración con Data Management Gateway, un agente que se puede instalar de forma local para permitir la migración de datos híbridos.
 
@@ -127,12 +127,12 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 
     *  Controles reorganizados y simplificados.
 
-    *  Puede copiar datos desde un almacenamiento mediante la [herramienta de vista previa de código abierto](data-factory-copy-data-wizard-tutorial.md). Para obtener más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) .
+    *  Puede copiar datos desde un almacenamiento mediante la [herramienta de copia sin código](data-factory-copy-data-wizard-tutorial.md). Para obtener más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) .
 *  Puede utilizar Data Management Gateway para transferir los datos directamente de la base de datos de SQL Server local a Azure Machine Learning.
 
 *  Mejoras en el rendimiento
 
-    * Se ha mejorado el rendimiento al visualizar los esquemas y la vista previa en SQL Server mediante la herramienta de vista previa de copia sin código.
+    * Se ha mejorado el rendimiento al visualizar los esquemas y la vista previa en SQL Server, mediante la herramienta de copia sin código.
 
 ## <a name="11259531"></a>1.12.5953.1
 

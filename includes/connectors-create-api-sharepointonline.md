@@ -2,7 +2,7 @@
 
 Para poder establecer la conexión con **SharePoint Online**, tiene que proporcionar su identidad (nombre de usuario y contraseña, credenciales de tarjeta inteligente, etc.) a SharePoint Online. Una vez que se ha autenticado, podrá usar el conector de SharePoint Online en la aplicación lógica. 
 
-Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pasos para iniciar sesión en SharePoint y crear la **conexión** para su uso en la aplicación lógica:
+Mientras se encuentre en el diseñador de la aplicación lógica, siga estos pasos para iniciar sesión en SharePoint y crear la **conexión** que se usará en la aplicación lógica:
 
 1. Escriba SharePoint en el cuadro de búsqueda y espere a que la búsqueda devuelva todos los desencadenadores y acciones relacionados con SharePoint Online:   
    ![Configurar SharePoint][1]  
