@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754419"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446782"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -45,7 +45,7 @@ A continuación se proporcionan algunos requisitos previos necesarios para cualq
 | Dominios definidos y verificados | [Incorporación de un nombre de dominio personalizado a Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** Algunas cargas de trabajo como Power BI podrían haber aprovisionado un inquilino de Azure AD en segundo plano. Para comprobar si un dominio determinado está asociado a un inquilino, vaya a https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Si obtiene una respuesta correcta, el dominio ya está asignado a un inquilino y puede ser necesario adquirir el control. En ese caso, póngase en contacto con Microsoft para más información. Aprenda más sobre las opciones de adquisición en [¿Qué es la suscripción de autoservicio de Azure?](active-directory-self-service-signup.md) |
 | Prueba de Azure AD Premium o EMS habilitada | [Azure Active Directory Premium gratis durante un mes](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Tener asignadas licencias de Azure AD Premium o EMS para usuarios de prueba de concepto | [Obtención de una licencia para usted y sus usuarios en Azure Active Directory.](active-directory-licensing-get-started-azure-portal.md) |
-| Credenciales de administrador global de Azure AD | [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
+| Credenciales de administrador global de Azure AD | [Asignación de roles de administrador en Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
 | Opcional pero muy recomendado: entorno de laboratorio paralelo como reserva | [Requisitos previos de Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Sincronización de directorios: Sincronización de hash de contraseñas (PHS) y nueva instalación
@@ -428,7 +428,7 @@ Tiempo aproximado para completarlo: 10 minutos
 ### <a name="considerations"></a>Consideraciones
 
 1. Los pasos de la prueba de concepto de este bloque de creación se configuran explícitamente MFA para un usuario en todos los inicios de sesión. Hay otras herramientas como el acceso condicional y la protección de identidad que interactúan con MFA en otros escenarios. Se trata de algo que debe tener en cuenta al pasar de la prueba de concepto a producción.
-2. Los pasos de la prueba de concepto de este bloque de creación usan explícitamente las llamadas de teléfono como método de MFA para la experiencia. Al pasar de la prueba de concepto a la producción, se recomienda usar aplicaciones como [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) como segundo factor siempre que sea posible.
+2. Los pasos de la prueba de concepto de este bloque de creación usan explícitamente las llamadas de teléfono como método de MFA para la experiencia. Al pasar de la prueba de concepto a la producción, se recomienda usar aplicaciones como [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) como segundo factor siempre que sea posible.
 Más información: [Estándar DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Acceso condicional de MFA para aplicaciones SaaS
@@ -553,7 +553,7 @@ Tiempo aproximado para completarlo: 20 minutos
 | --- | --- |
 | Dispositivos con certificado de usuario aprovisionado (Windows, iOS o Android) de Enterprise PKI | [Implementar certificados de usuario](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Dominio de Azure AD federado con ADFS | [Azure AD Connect y la federación](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Información general de Servicios de certificados de Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Para dispositivos iOS, tener instalada la aplicación Microsoft Authenticator | [Introducción a la aplicación Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Para dispositivos iOS, tener instalada la aplicación Microsoft Authenticator | [Introducción a la aplicación Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Pasos
 

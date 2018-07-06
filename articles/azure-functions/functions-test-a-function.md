@@ -3,7 +3,7 @@ title: Prueba de Azure Functions | Microsoft Docs
 description: Pruebe las funciones de Azure con Postman, cURL y Node.js.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: wesmc
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41796a8cdde0756e5157ba276463a56b07679d04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22992200"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083267"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -183,10 +183,10 @@ En la ventana **Registros** del portal, se registra una salida similar a la sigu
     2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
     2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
 
-### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Prueba de un desencadenador de blob mediante el Explorador de almacenamiento
+### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Prueba de un desencadenador de blob mediante el Explorador de Storage
 Puede probar una función de desencadenador de blob mediante el [Explorador de Azure Storage](http://storageexplorer.com/).
 
-1. En [Azure Portal] para la Function App, cree una función de desencadenador de blob de C#, F# o JavaScript. Establezca la ruta de acceso que se va a supervisar en el nombre de su contenedor de blobs. Por ejemplo:
+1. En [Azure Portal] para la Function App, cree una función de desencadenador de blob de C#, F# o JavaScript. Establezca la ruta de acceso que se va a supervisar en el nombre de su contenedor de blobs. Por ejemplo: 
 
         files
 2. Haga clic en el botón **+** para seleccionar o crear la cuenta de almacenamiento que desea usar. A continuación, haga clic en **Crear**.
@@ -196,7 +196,7 @@ Puede probar una función de desencadenador de blob mediante el [Explorador de A
 4. Ejecute el [Explorador de Azure Storage](http://storageexplorer.com/) y conéctese al contenedor de blobs en la cuenta de almacenamiento que se está supervisando.
 5. Haga clic en **Cargar** para cargar el archivo de texto.
 
-    ![Captura de pantalla del Explorador de almacenamiento](./media/functions-test-a-function/azure-storage-explorer-test.png)
+    ![Captura de pantalla del Explorador de Storage](./media/functions-test-a-function/azure-storage-explorer-test.png)
 
 El código de la función de desencadenador de blobs predeterminada notifica el procesamiento del blob en los registros:
 
@@ -238,7 +238,7 @@ Algunas funciones no se pueden probar correctamente con las herramientas ya menc
 
 Puede usar un desencadenador de temporizador configurado con un enlace de salida de cola. Después, ese código de desencadenador de temporizador puede escribir los mensajes de prueba en la cola. Esta sección lo guía a través de un ejemplo.
 
-Para ver información más detallada sobre el uso de enlaces con funciones de Azure, consulte la [referencia para desarrolladores de Funciones de Azure](functions-reference.md).
+Para ver información más detallada sobre el uso de enlaces con Azure Functions, consulte la [referencia para desarrolladores de Azure Functions](functions-reference.md).
 
 #### <a name="create-a-queue-trigger-for-testing"></a>Creación de un desencadenador de cola para las pruebas
 Para demostrar este enfoque, en primer lugar se crea una función de desencadenador de cola en la que se va a probar una cola llamada `queue-newusers`. Esta función procesa la información de nombre y dirección que se coloca en Queue Storage para un nuevo usuario.
@@ -383,7 +383,7 @@ Ya se ha mencionado que puede probar un desencadenador de cola usando código pa
 Para probar este código en una aplicación de consola, debe:
 
 * [Configurar la cadena de conexión de almacenamiento en el archivo app.config](../storage/queues/storage-dotnet-how-to-use-queues.md).
-* Pase `name` y `address` como parámetros a la aplicación. Por ejemplo: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Este código acepta el nombre y la dirección de un nuevo usuario como argumentos de la línea de comandos durante el tiempo de ejecución).
+* Pase `name` y `address` como parámetros a la aplicación. Por ejemplo, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Este código acepta el nombre y la dirección de un nuevo usuario como argumentos de la línea de comandos durante el tiempo de ejecución).
 
 Ejemplo de código C#:
 

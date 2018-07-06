@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9b1779ed409a01356615561b1eb6fea0235529f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233927"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447564"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Configuración de alertas de seguridad en Privileged Identity Management de Azure AD
 ## <a name="security-alerts"></a>Alertas de seguridad
@@ -26,7 +26,7 @@ Privileged Identity Management (PIM) de Azure genera alertas cuando existen acti
 
 ![Alertas de seguridad del panel de PIM: captura de pantalla][1]
 
-| Alerta | Severity | Desencadenador | Recomendación |
+| Alerta | Gravedad | Desencadenador | Recomendación |
 | --- | --- | --- | --- |
 | **Se están asignando roles fuera de PIM** |Alto |Se asignó a un usuario un rol con privilegios de manera permanente, fuera de la interfaz de PIM. |Revise los usuarios de la lista y cancele la asignación de los roles con privilegios asignados fuera de PIM. |
 | **Se están activando roles con demasiada frecuencia** |Mediano |Había demasiadas reactivaciones del mismo rol en el tiempo permitido en la configuración. |Póngase en contacto con el usuario para ver por qué activó el rol tantas veces. Puede que el límite de tiempo sea demasiado corto para que complete sus tareas, o quizá utilice scripts para activar automáticamente un rol. Asegúrese de que la duración de la activación para su rol dure lo suficiente para que ejecuten sus tareas. |
@@ -34,7 +34,7 @@ Privileged Identity Management (PIM) de Azure genera alertas cuando existen acti
 | **Los usuarios no están usando sus roles con privilegios** |Bajo |Hay administradores aptos que no han activado sus roles recientemente. |Inicie una revisión de acceso para determinar los usuarios que ya no necesitan acceso. |
 | **Demasiados administradores globales** |Bajo |Hay más administradores globales de lo que se recomienda. |Si tiene un gran número de administradores globales, es probable que los usuarios estén obteniendo más permisos de los que necesitan. Mueva usuarios a roles con menos privilegios, o establezca algunos de ellos como aptos para el rol en lugar de asignarlos de forma permanente. |
 
-### <a name="severity"></a>Severity
+### <a name="severity"></a>Gravedad
 * **Alta**: requiere acción inmediata debido a la infracción de una directiva. 
 * **Media**: no requiere acción inmediata, pero indica una posible infracción de una directiva.
 * **Baja**: no requiere acción inmediata pero sugiere un cambio de directiva preferible.

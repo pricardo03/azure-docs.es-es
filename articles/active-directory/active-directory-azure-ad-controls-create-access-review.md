@@ -2,23 +2,24 @@
 title: Creación de una revisión de acceso para los miembros de un grupo o los usuarios con acceso a una aplicación con Azure AD | Microsoft Docs
 description: Aprenda a crear una revisión de acceso para los miembros de un grupo o los usuarios con acceso a una aplicación.
 services: active-directory
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.reviewer: mwahl
+ms.openlocfilehash: 853d8f09a94e46db218553500a50dc4ef1ec3d23
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020413"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448278"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Creación de una revisión de acceso de los miembros de un grupo o el acceso a la aplicación con Azure AD
 

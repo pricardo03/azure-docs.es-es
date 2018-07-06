@@ -3,7 +3,7 @@ title: Análisis del uso de datos en Log Analytics | Microsoft Docs
 description: Use el panel de uso y costo estimado en Log Analytics para evaluar cuántos datos se envían a Log Analytics e identificar los posibles motivos que podrían provocar aumentos imprevistos.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a9c898cf0f2e0b1387bbc2ac18b5009838d138b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.component: na
+ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317310"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128571"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
 Log Analytics incluye información sobre la cantidad de datos recopilados, qué orígenes envían los datos y los diferentes tipos de datos enviados.  Use el panel **Uso de Log Analytics** para revisar y analizar el uso de datos. El panel muestra la cantidad de datos que recopila cada solución y cuántos datos envían los equipos.

@@ -4,22 +4,23 @@ description: Mediante el Diseñador de vistas de Log Analytics, puede crear vist
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: fc5dc00a05486c1f781016df63877f40d21b0205
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29947323"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131277"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guía de referencia de los iconos del Diseñador de vistas en Log Analytics
 Mediante el Diseñador de vistas de Azure Log Analytics, puede crear vistas personalizadas en Azure Portal que presenten diversas visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.

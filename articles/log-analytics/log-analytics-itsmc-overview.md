@@ -3,7 +3,7 @@ title: IT Service Management Connector en Azure Log Analytics | Microsoft Docs
 description: En este artículo se proporciona información general sobre el Conector de Administración de servicios de TI (ITSMC) e información sobre cómo usar esta solución para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM en Azure Log Analytics y resolver rápidamente cualquier problema.
 services: log-analytics
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: da81d1455649f1e3f3ab43016df49953ce90e0ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: da37e7558f93bc5073cd4ee1726a409c7defe127
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637623"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131725"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 

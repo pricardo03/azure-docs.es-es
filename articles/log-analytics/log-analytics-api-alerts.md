@@ -4,23 +4,23 @@ description: Con la API de REST de alertas de Log Analytics se pueden crear y ad
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 9097ca13bf4f65db4b0924044a9c0f075e3703af
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178538"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128901"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST
 Con la API de REST de alertas de Log Analytics se pueden crear y administrar alertas de Operations Management Suite (OMS).  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
@@ -137,7 +137,7 @@ Una programación debe tener una acción de alerta única y exclusivamente.  Las
 | Sección | DESCRIPCIÓN | Uso |
 |:--- |:--- |:--- |
 | Umbral |Criterios para establecer cuándo se va a ejecutar la acción.| Se requiere para cada alerta, ya sea antes o después de extenderlas a Azure. |
-| Severity |Etiqueta que se usa para clasificar la alerta cuando se desencadena.| Se requiere para cada alerta, ya sea antes o después de extenderlas a Azure. |
+| Gravedad |Etiqueta que se usa para clasificar la alerta cuando se desencadena.| Se requiere para cada alerta, ya sea antes o después de extenderlas a Azure. |
 | Grupos de acciones |Identificadores para Azure ActionGroup donde se especifican las acciones requeridas, como correos electrónicos, mensajes SMS, llamadas de voz, webhooks, runbooks de Automation, conectores ITSM, etc.| Se requiere una vez que las alertas se extienden a Azure|
 | Personalizar las acciones|Modifica la salida estándar para seleccionar acciones en ActionGroup| Opcional para cada alerta, se puede usar después de que las alertas se extienden a Azure. |
 | EmailNotification |Se envía un correo electrónico a varios destinatarios. | No se requiere si las alertas se extendieron a Azure|
@@ -182,7 +182,7 @@ Use el método Put con un identificador de acción existente para modificar una 
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>Severity
+#### <a name="severity"></a>Gravedad
 Log Analytics permite clasificar las alertas en categorías, para permitir una administración y una evaluación de prioridades más sencillas. La gravedad de la alerta que se define es: informativa, advertencia y crítica. Estos valores se asignan a la escala de gravedad normalizada de Alertas de Azure como:
 
 |Nivel de gravedad de Log Analytics  |Nivel de gravedad de Alertas de Azure  |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: d4832807bb8ce3a854bee16eae5d0ced37fedcd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 547c3785fa307838e9a86d38280b90fb31b040b3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215082"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutorial: Integración de Azure Active Directory con Sedgwick CMS
 
@@ -123,7 +123,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | `https://claimlookup.com/Voe/sso` |
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx) para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Sedgwick CMS](https://www.sedgwick.com/help) para obtener estos valores.
  
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.

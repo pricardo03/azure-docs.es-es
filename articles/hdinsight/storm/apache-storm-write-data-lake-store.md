@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c870b0c8de648ac65bec6857bf850c2913e7aeb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 149f91f3091f08da2e54458d708a17da928c1972
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412635"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131742"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Escritura de datos en HDFS desde Apache Storm en HDInsight
 
-Obtenga más información sobre cómo usar Storm para escribir datos en el almacenamiento compatible con HDFS que usa Apache Storm en HDInsight. HDInsight puede usar tanto Azure Storage como Azure Data Lake como almacenamiento compatible con HDFS. Storm proporciona un componente [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) que permite escribir datos en HDFS. En este documento se proporciona información sobre cómo escribir datos en ambos tipos de almacenamiento desde HdfsBolt. 
+Obtenga más información sobre cómo usar Storm para escribir datos en el almacenamiento compatible con HDFS que usa Apache Storm en HDInsight. HDInsight puede usar tanto Azure Storage como Azure Data Lake como almacenamiento compatible con HDFS. Storm proporciona un componente [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) que permite escribir datos en HDFS. En este documento se proporciona información sobre cómo escribir datos en ambos tipos de almacenamiento desde HdfsBolt. 
 
 > [!IMPORTANT]
 > La topología de ejemplo que se usa en este documento depende de componentes que se incluyen con Storm en HDInsight. Puede que sea necesario realizar alguna modificación para que funcione con Azure Data Lake Store al usarlo con otros clústeres de Apache Storm.
@@ -65,7 +65,7 @@ En la siguiente tabla se proporcionan ejemplos de cómo usar el esquema de archi
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Cuenta de Azure Storage no predeterminada (adicional) asociada al clúster. |
 | `adl://STORENAME/` | Raíz de Data Lake Store que usa el clúster. El uso de este esquema permite acceder a datos que se encuentren fuera del directorio que contiene el sistema de archivos del clúster. |
 
-Para obtener más información, consulte la referencia de [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) en Apache.org.
+Para obtener más información, consulte la referencia de [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) en Apache.org.
 
 ### <a name="example-configuration"></a>Configuración de ejemplo
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/02/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 330350d6ac6838ea5b09763fe1f73fab1934710c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 950e422b3076e5abd5db6dd0ac452fa1c2d500d0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315055"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129275"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
@@ -182,7 +182,7 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 ## <a name="example-construct-a-filter-string"></a>Ejemplo: construcción de una cadena filter
 Al construir una cadena filter para [ODATADetailLevel.FilterClause][odata_filter], consulte la tabla en la sección "Asignaciones de las cadenas filter" para buscar la página de documentación de la API de REST correspondiente a la operación de lista que desea realizar. Encontrará las propiedades filtrables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar todas las tareas cuyo código de salida era distinto de cero, en [Lista de las tareas asociadas a un trabajo][rest_list_tasks] esta fila especifica la cadena de propiedad aplicable y los operadores permitidos:
 
-| Propiedad | Operaciones permitidas | type |
+| Propiedad | Operaciones permitidas | Escriba |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -193,7 +193,7 @@ Por lo tanto, la cadena filter para enumerar todas las tareas con un código de 
 ## <a name="example-construct-a-select-string"></a>Ejemplo: construcción de una cadena select
 Para construir [ODATADetailLevel.SelectClause][odata_select], consulte la tabla de "Asignaciones de las cadenas select" y navegue a la página de la API de REST correspondiente al tipo de entidad que vaya a enumerar. Encontrará las propiedades seleccionables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar solo el identificador y la línea de comandos para cada tarea de una lista, encontrará estas filas en la tabla correspondiente en la página sobre cómo [obtener información acerca de una tarea][rest_get_task]:
 
-| Propiedad | type | Notas |
+| Propiedad | Escriba | Notas |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -248,15 +248,12 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ### <a name="parallel-node-tasks"></a>Tareas paralelas de nodo
 [Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas nodo](batch-parallel-node-tasks.md) es otro artículo relacionada con rendimiento de aplicaciones de Batch. Algunos tipos de cargas de trabajo pueden beneficiarse de la ejecución de tareas paralelas en una menor cantidad de nodos de proceso que, sin embargo, sean de mayor tamaño. Consulte la sección [Escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo para obtener detalles sobre dicho escenario.
 
-### <a name="batch-forum"></a>Foro de Batch
-El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y formular preguntas sobre el servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx

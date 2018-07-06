@@ -3,7 +3,7 @@ title: Recopilación de registros y métricas de servicios de Azure en Log Analy
 description: Configure los diagnósticos en recursos de Azure para escribir registros y métricas en Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e8c930acd12b5197238be48722947dac5380be6
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.component: na
+ms.openlocfilehash: dec2abdf68b3a38706549b4b655e33bc7abca1a3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751418"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131017"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recopilación de registros y métricas de Azure para servicios de Log Analytics
 

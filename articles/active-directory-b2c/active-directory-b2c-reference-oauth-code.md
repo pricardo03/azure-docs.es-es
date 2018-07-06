@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0bb15fbc5461ec76a1450bbb9ca452a6f26c8d35
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6baeba9cc7e631c6dbdf2284db484dc5f95adcce
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711511"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444208"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: flujo de código de autorización de OAuth 2.0
 Puede usar la concesión de un código de autorización de OAuth 2.0 en las aplicaciones instaladas en un dispositivo para obtener acceso a recursos protegidos, como las API web. Mediante la implementación de OAuth 2.0 de Azure Active Directory B2C (Azure AD B2C) puede agregar tareas de registro, inicio de sesión y otras tareas de administración de identidades a las aplicaciones móviles y de escritorio. Este artículo es independiente del lenguaje y en él describimos cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto.

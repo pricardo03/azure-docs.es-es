@@ -8,17 +8,17 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6bf918428312c511505304bd23b68cd19e46471
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035612"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130716"
 ---
 # <a name="azure-iot-edge-support"></a>Compatibilidad con Azure IoT Edge
 Hay varias maneras de buscar compatibilidad para el producto de Azure IoT Edge.
 
-**Notificación de errores**: la mayor parte del desarrollo que lleva el producto de Azure IoT Edge se produce en el proyecto de código abierto de IoT Edge. Los errores se pueden notificar en la [página de problemas](https://github.com/azure/iot-edge/issues) del proyecto. Las correcciones pasan pronto del proyecto a las actualizaciones de producto.
+**Notificación de errores**: la mayor parte del desarrollo que lleva el producto de Azure IoT Edge se produce en el proyecto de código abierto de IoT Edge. Los errores se pueden notificar en la [página de problemas](https://github.com/azure/iotedge/issues) del proyecto. Las correcciones pasan pronto del proyecto a las actualizaciones de producto.
 
 **Equipo de soporte técnico al cliente de Microsoft**: los usuarios que dispongan de un [plan de soporte técnico](https://azure.microsoft.com/support/plans/) pueden ponerse en contacto con este equipo creando una incidencia de soporte técnico directamente en [Azure Portal]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
@@ -33,8 +33,8 @@ Los sistemas de nivel 1 se pueden considerar como oficialmente compatibles. Esto
 * proporciona paquetes de instalación para ellos
 
 Disponibilidad general
-* Ubuntu 18.04
-* Ubuntu 16.04
+* Ubuntu Server 18.04
+* Ubuntu Server 16.04
 * Raspbian-stretch
 
 Vista previa pública
@@ -47,9 +47,9 @@ Los sistemas de nivel 2 se pueden considerar como compatible con Azure IoT Edge 
 * Microsoft ha realizado pruebas ad hoc en las plataformas o conoce a un asociado que ha ejecutado correctamente Azure IoT Edge en la plataforma
 * Los paquetes de información de otras plataformas pueden funcionar en estas plataformas
 
-Ubuntu Server 18.04
+Ubuntu 18.04
 
-Ubuntu Server 16.04
+Ubuntu 16.04
 
 Wind River 8
 

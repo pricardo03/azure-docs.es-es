@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5f25213d8d1fbc95aa419c86ca5b780f345952ed
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867672"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130206"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -52,14 +52,14 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | Código de error | Mensaje de error | Pasos para solucionar problemas |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | El inquilino autor de la llamada no tiene permisos de acceso para realizar la autenticación por el usuario | Revise si el dominio del inquilino y el dominio del nombre principal de usuario (UPN) son iguales. Por ejemplo, asegúrese de que user@contoso.com intenta autenticarse en el inquilino Contoso. El nombre principal de usuario representa un usuario válido para el inquilino en Azure. |
-| **AuthenticationMethodNotConfigured** | El método de autenticación especificado no se configuró para el usuario | Haga que el usuario agregue o compruebe los métodos de comprobación según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotConfigured** | El método de autenticación especificado no se configuró para el usuario | Haga que el usuario agregue o compruebe los métodos de comprobación según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **AuthenticationMethodNotSupported** | No se admite el método de autenticación especificado. | Recopile todos los registros que incluyen este error y [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support). Cuando lo haga, proporcione el nombre de usuario y el método de comprobación secundario que desencadenó el error. |
-| **BecAccessDenied** | La llamada Bec de MSODS devolvió un acceso denegado, probablemente porque el nombre de usuario no está definido en el inquilino | El usuario se encuentra en la instancia local de Active Directory, pero AD Connect no la sincroniza en Azure AD. O bien puede que el usuario falte en el inquilino. Agregue el usuario a Azure AD y haga que agregue sus métodos de comprobación según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **BecAccessDenied** | La llamada Bec de MSODS devolvió un acceso denegado, probablemente porque el nombre de usuario no está definido en el inquilino | El usuario se encuentra en la instancia local de Active Directory, pero AD Connect no la sincroniza en Azure AD. O bien puede que el usuario falte en el inquilino. Agregue el usuario a Azure AD y haga que agregue sus métodos de comprobación según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** o **StrongAuthenticationServiceInvalidParameter** | El número de teléfono tiene un formato no reconocible | Haga que el usuario corrija los números de teléfono de comprobación. |
 | **InvalidSession** | La sesión especificada no es válida o puede haber expirado | La sesión tarda más de tres minutos en completarse. Compruebe que el usuario escribe el código de verificación o que responde a la notificación de aplicación en menos de tres minutos después de que se inicia la solicitud de autenticación. Si no se soluciona el problema, compruebe que no haya latencias de red entre el cliente, el servidor NAS, el servidor NPS y el punto de conexión de Azure MFA.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | No se configuró ningún método de autenticación predeterminado para el usuario | Haga que el usuario agregue o compruebe los métodos de comprobación según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Compruebe que el usuario eligió un método de autenticación predeterminado y que configuró dicho método para la cuenta. |
+| **NoDefaultAuthenticationMethodIsConfigured** | No se configuró ningún método de autenticación predeterminado para el usuario | Haga que el usuario agregue o compruebe los métodos de comprobación según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Compruebe que el usuario eligió un método de autenticación predeterminado y que configuró dicho método para la cuenta. |
 | **OathCodePinIncorrect** | Se escribió un PIN y un código de error incorrectos. | Este error no se espera en la extensión de NPS. Si el usuario encuentra este error, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para ayuda en la solución de problemas. |
-| **ProofDataNotFound** | No se configuraron datos de prueba para el método de autenticación especificado. | Haga que el usuario pruebe con otro método de comprobación o agregue métodos de comprobación nuevos según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Si el usuario sigue viendo este error una vez que confirmó que el método de comprobación está configurado correctamente, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support). |
+| **ProofDataNotFound** | No se configuraron datos de prueba para el método de autenticación especificado. | Haga que el usuario pruebe con otro método de comprobación o agregue métodos de comprobación nuevos según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Si el usuario sigue viendo este error una vez que confirmó que el método de comprobación está configurado correctamente, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Se escribió un PIN y un código de error incorrectos. (OneWaySMS) | Este error no se espera en la extensión de NPS. Si el usuario encuentra este error, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para ayuda en la solución de problemas. |
 | **TenantIsBlocked** | El inquilino está bloqueado | [Póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) con la identificación de directorio de la página de propiedades de Azure AD en Azure Portal. |
 | **UserNotFound** | No se encontró el usuario especificado | El inquilino ya no está visible como activo en Azure AD. Compruebe que la suscripción está activa y que tiene las aplicaciones propias requeridas. Además, asegúrese de que el inquilino del asunto del certificado sea el esperado y que el certificado siga siendo válido y esté registrado en la entidad de servicio. |
@@ -96,7 +96,7 @@ Si encuentra uno de estos errores, se recomienda [ponerse en contacto con el ser
 
 ### <a name="troubleshoot-user-accounts"></a>Solución de problemas de cuentas de usuario
 
-Si los usuarios [tienen problemas con la verificación en dos pasos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md), ayúdelos a autodiagnosticar problemas. 
+Si los usuarios [tienen problemas con la verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-troubleshoot.md), ayúdelos a autodiagnosticar problemas. 
 
 ### <a name="contact-microsoft-support"></a>Consultar al soporte técnico de Microsoft
 

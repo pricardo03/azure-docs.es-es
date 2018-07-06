@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3426b6f3f248b670016713d2b58425ff030605af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709128"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449379"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: adición de una cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas
 
@@ -58,7 +58,7 @@ Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Dir
 
     ![Cuenta de Microsoft: En la lista de plataformas, selección de Web](media/active-directory-b2c-custom-setup-ms-account-idp/msa-web.png)
 
-7.  Escriba `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **URI de redireccionamiento**. Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com).
+7.  Escriba `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **URI de redireccionamiento** . Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com).
 
     ![Cuenta de Microsoft: Establecimiento de las direcciones URL de redireccionamiento](media/active-directory-b2c-custom-setup-ms-account-idp/msa-redirect-url.png)
 
@@ -150,7 +150,7 @@ El proveedor de identidades ya se ha configurado, pero no está disponible en ni
 1.  Abra el archivo base de la directiva (por ejemplo, TrustFrameworkBase.xml).
 2.  Busque el elemento `<UserJourneys>` y copie el contenido entero del nodo `<UserJourneys>`.
 3.  Abra el archivo de extensión (por ejemplo, TrustFrameworkExtensions.xml) y busque el elemento `<UserJourneys>`. Si el elemento no existe, agréguelo.
-4.  Pegue el contenido entero del nodo `<UserJournesy>` que copió como secundario del elemento `<UserJourneys>`.
+4.  Pegue el contenido entero del nodo `<UserJourneys>` que copió como secundario del elemento `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Visualización del botón
 El elemento `<ClaimsProviderSelections>` define la lista de opciones de selección del proveedor de notificaciones y su orden.  El elemento `<ClaimsProviderSelection>` es análogo a un botón de proveedor de identidades de una página de registro o inicio de sesión. Si agrega un elemento `<ClaimsProviderSelection>` para la cuenta de Microsoft, se muestra un nuevo botón cuando un usuario llega a la página. Para agregar este elemento:
@@ -160,7 +160,7 @@ El elemento `<ClaimsProviderSelections>` define la lista de opciones de selecci�
 3.  Agregue el siguiente fragmento de código XML en el nodo `<ClaimsProviderSelections>`:
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
@@ -170,7 +170,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
 2.  Agregue el siguiente fragmento de código XML en el nodo `<ClaimsExchanges>`:
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]

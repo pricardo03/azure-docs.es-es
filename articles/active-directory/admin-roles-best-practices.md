@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 729cb89fbe63dbecb65c6f948052b920bf6e70fe
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4facc88aad5338362f2220148f1b1870ade5fe7e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937459"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445490"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -117,7 +117,7 @@ Asegúrese de que no llegará a una situación en la que se les podría bloquear
 
 Las cuentas de acceso de emergencia ayudan a las organizaciones a restringir el acceso con privilegios en un entorno de Azure Active Directory existente. Estas cuentas tienen privilegios elevados y no se asignan a usuarios específicos. Las cuentas de acceso de emergencia se limitan a situaciones "excepcionales" o de emergencia en las que no se pueden usar las cuentas administrativas normales. Las organizaciones deben asegurarse el objetivo de controlar y reducir el uso de las cuentas de emergencia solo para aquellos casos en los que sea necesario. 
 
-Evalúe las cuentas que están asignadas al rol de administrador global o que son aptas para él. Si no ve que ninguna cuenta que se use solo en la nube emplee el dominio *.onmicrosoft.com (destinado al acceso de emergencia "excepcional"), para crearlos. Para más información, consulte [Administración de cuentas administrativas de acceso de emergencia en Azure AD](active-directory-admin-manage-emergency-access-accounts.md).
+Evalúe las cuentas que están asignadas al rol de administrador global o que son aptas para él. Si no ve que ninguna cuenta que se use solo en la nube emplee el dominio *.onmicrosoft.com (destinado al acceso de emergencia "excepcional"), para crearlos. Para más información, consulte [Administración de cuentas administrativas de acceso de emergencia en Azure AD](users-groups-roles/directory-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activación de la autenticación multifactor y registro de las restantes cuentas de administrador no federadas de usuario único con privilegios elevados 
 
@@ -345,7 +345,7 @@ Esta fase final de la hoja de ruta del acceso con privilegios protegido incluye 
 
 #### <a name="review-admin-roles-in-azure-active-directory"></a>Revise los roles de administración en Azure Active Directory 
 
-Determine si los actuales roles de administrador de Azure AD integrados siguen estando actualizados y asegúrese de los usuarios están en los roles y las delegaciones que necesitan para los permisos correspondientes. Con Azure AD puede designar administradores independientes que desempeñen distintas funciones. Para más información, consulte [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Determine si los actuales roles de administrador de Azure AD integrados siguen estando actualizados y asegúrese de los usuarios están en los roles y las delegaciones que necesitan para los permisos correspondientes. Con Azure AD puede designar administradores independientes que desempeñen distintas funciones. Para más información, consulte [Asignación de roles de administrador en Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md).
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Examine los usuarios que tengan la administración de dispositivos unidos a Azure AD
 

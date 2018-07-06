@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: b23c170e557d019abf2b9aab8edcb74728bc872d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783169"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128782"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Orígenes de datos de rendimiento de Windows y Linux en Log Analytics
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Log Analytics puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -84,7 +85,7 @@ Los parámetros de este elemento se describen en la tabla siguiente.
 | Parámetros | DESCRIPCIÓN |
 |:--|:--|
 | object\_name | Nombre de objeto de la colección. |
-| instance\_regex |  Una *expresión regular* que define las instancias que desea recopilar. El valor: `.*` especifica todas las instancias. Para recopilar métricas de procesador solamente de la instancia \_Total, puede especificar `_Total`. Para recopilar métricas de procesamiento solamente de las instancias rond o sshd, puede especificar: `(crond\|sshd)`. |
+| instance\_regex |  Una *expresión regular* que define las instancias que desea recopilar. El valor: `.*` especifica todas las instancias. Para recopilar métricas de procesador solamente de la instancia \_Total, puede especificar `_Total`. Para recopilar métricas de procesamiento solamente de las instancias rond o sshd, puede especificar `(crond\|sshd)`. |
 | counter\_name\_regex | Una *expresión regular* que define los contadores (para el objeto) que desea recopilar. Para recopilar todos los contadores para el objeto, especifique: `.*`. Para recopilar, por ejemplo, solo contadores de espacio de intercambio para el objeto de memoria, puede especificar: `.+Swap.+` |
 | interval | Frecuencia con la que se recopilan los contadores del objeto. |
 
@@ -224,7 +225,7 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Recopilación de contadores de rendimiento desde aplicaciones de Linux](log-analytics-data-sources-linux-applications.md), lo que incluye MySQL y Apache HTTP Server.
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
 * Exporte los datos recopilados a [Power BI](log-analytics-powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.

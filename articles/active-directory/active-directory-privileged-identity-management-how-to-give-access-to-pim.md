@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: efbfcdd1a50069a943fc57da9d402e4cc7c408ed
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8d52469e11ac508ee8b353311f6040ac9d6f2e4e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260566"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447156"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Concesión de acceso para administrar Azure AD Privileged Identity Management
 El administrador global que habilita Privileged Identity Management (PIM) de Azure AD para una organización, obtiene automáticamente asignaciones de roles y acceso a PIM. Nadie más obtiene acceso de escritura de forma predeterminada, ni siquiera otros administradores globales. Otros administradores globales, administradores de seguridad y lectores de seguridad tienen acceso de solo lectura a PIM de Azure AD. Para proporcionar acceso a PIM, el primer usuario puede asignar a otros el rol **Administrador de rol con privilegios** .

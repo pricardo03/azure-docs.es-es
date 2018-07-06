@@ -3,7 +3,7 @@ title: Optimización del entorno de SQL Server con Azure Log Analytics | Microso
 description: Con Azure Log Analytics, puede usar periódicamente la solución SQL Health Check para evaluar el riesgo y el estado de los entornos de servidor.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: na
+ms.openlocfilehash: e83a722ee58f49c20871faaca6aae7d7a5678361
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886321"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130614"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Log Analytics
 

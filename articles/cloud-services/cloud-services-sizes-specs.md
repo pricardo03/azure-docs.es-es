@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940291"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34608821"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamaños de Cloud Services
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos. Cada tamaño tiene un identificador que pondrá en su [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). Los precios para cada tamaño están disponibles en la página [Precios de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -85,13 +85,13 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 | Tamaño            | Núcleos de CPU | Memoria: GiB  | Almacenamiento temporal: GiB       | Ancho de banda de red/NIC máx. |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / bajo |
-| Pequeña           | 1         | 1,75         | 70                   | 1 / moderado |
-| Mediano          | 2         | 3,5          | 135                  | 1 / moderado |
-| grande           | 4         | 7            | 285                  | 2 / alto |
-| ExtraLarge      | 8         | 14           | 605                  | 4 / alto |
-| A5              | 2         | 14           | 135                  | 1 / moderado |
-| A6              | 4         | 28           | 285                  | 2 / alto |
-| A7              | 8         | 56           | 605                  | 4 / alto |
+| Pequeña           | 1         | 1,75         | 225                  | 1 / moderado |
+| Mediano          | 2         | 3,5          | 490                  | 1 / moderado |
+| grande           | 4         | 7            | 1000                 | 2 / alto |
+| ExtraLarge      | 8         | 14           | 2040                 | 4 / alto |
+| A5              | 2         | 14           | 490                  | 1 / moderado |
+| A6              | 4         | 28           | 1000                 | 2 / alto |
+| A7              | 8         | 56           | 2040                 | 4 / alto |
 
 ## <a name="a-series---compute-intensive-instances"></a>Serie A: instancias de proceso intensivo
 Para más información y consideraciones sobre el uso de estos tamaños, consulte [Tamaños de máquina virtual de informática de alto rendimiento](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

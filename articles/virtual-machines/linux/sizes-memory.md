@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 760426ab6255c6e42383cc19f523b2dbfc55d404
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: eed637ecaa4e0deaff3ba6e5d07ef5d8687716c9
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943685"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34653576"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para memoria
 
@@ -36,6 +36,7 @@ ms.locfileid: "33943685"
 - [Almacenamiento optimizado](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
+- [Generaciones anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.

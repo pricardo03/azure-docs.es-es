@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869876"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128697"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 
@@ -118,7 +118,7 @@ El modelo de licencia requiere Azure Active Directory porque las licencias se ag
 
 Es de esperar que todos los usuarios hayan configurado más de un método de comprobación. Indíqueles que intenten volver a iniciar sesión, pero que seleccionen un método de comprobación distinto en la página de inicio de sesión.
 
-Puede indicarles a los usuarios que consulte la [guía de solución de problemas del usuario final](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+Puede indicarles a los usuarios que consulte la [guía de solución de problemas del usuario final](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **P: ¿Qué debo hacer si uno de los usuarios no puede ingresar a su cuenta?**
@@ -131,7 +131,7 @@ Para evitar el acceso no autorizado, elimine todas las contraseñas de aplicaci�
 
 **P: ¿Qué puede hacer un usuario si no puede iniciar sesión en aplicaciones sin explorador?**
 
-Si la organización todavía usa clientes heredados y se [permite el uso de contraseñas de aplicación](howto-mfa-mfasettings.md#app-passwords), los usuarios no podrán iniciar sesión en estos clientes heredados con su nombre de usuario y contraseña. En lugar de eso, deberán [configurar contraseñas de aplicación](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md). Los usuarios deben borrar (eliminar) su información de inicio de sesión, reiniciar la aplicación y, luego, iniciar sesión con su nombre de usuario y la *contraseña de aplicación* en lugar de la contraseña habitual.
+Si la organización todavía usa clientes heredados y se [permite el uso de contraseñas de aplicación](howto-mfa-mfasettings.md#app-passwords), los usuarios no podrán iniciar sesión en estos clientes heredados con su nombre de usuario y contraseña. En lugar de eso, deberán [configurar contraseñas de aplicación](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Los usuarios deben borrar (eliminar) su información de inicio de sesión, reiniciar la aplicación y, luego, iniciar sesión con su nombre de usuario y la *contraseña de aplicación* en lugar de la contraseña habitual.
 
 Si la organización no tiene clientes heredados, no debe permitir que los usuarios creen contraseñas de aplicación.
 

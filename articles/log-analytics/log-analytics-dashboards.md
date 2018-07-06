@@ -3,7 +3,7 @@ title: Creación de un panel personalizado en Azure Log Analytics | Microsoft Do
 description: Con esta guía le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le permite ver su entorno en una sola vista.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010778"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129319"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Creación de un panel personalizado para usarse en Log Analytics
 

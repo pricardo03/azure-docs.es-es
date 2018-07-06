@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751503"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444249"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -26,7 +26,7 @@ Tras la implementación, muchas organizaciones quieren saber cómo se usa (y si 
 Las siguientes preguntas se pueden responder mediante informes existentes en [Azure Portal] (https://portal.azure.com/):
 
 > [!NOTE]
-> Debe ser [administrador global](../active-directory-assign-admin-roles-azure-portal.md) y habilitar la opción para que estos datos se recopilen en nombre de la organización. Para habilitarla, debe visitar la pestaña **Informes** o los registros de auditoría como mínimo una vez. Hasta entonces, no se recopilan datos para la organización.
+> Debe ser [administrador global](../users-groups-roles/directory-assign-admin-roles.md) y habilitar la opción para que estos datos se recopilen en nombre de la organización. Para habilitarla, debe visitar la pestaña **Informes** o los registros de auditoría como mínimo una vez. Hasta entonces, no se recopilan datos para la organización.
 >
 
 * ¿Cuántas personas se han registrado para el restablecimiento de contraseña?

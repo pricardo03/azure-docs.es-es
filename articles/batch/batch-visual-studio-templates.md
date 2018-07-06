@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316756"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128867"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Uso de plantillas de proyecto de Visual Studio para empezar a crear soluciones de Batch
 
@@ -439,10 +439,7 @@ parameters.json y, si lo encuentra, lo carga como el diccionario de parámetros.
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Guardar salidas de trabajos y tareas en Azure Storage
 Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] (Convenciones de archivos de Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
 
-### <a name="batch-forum"></a>Foro de Batch
-El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y formular preguntas sobre el servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Batch.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files

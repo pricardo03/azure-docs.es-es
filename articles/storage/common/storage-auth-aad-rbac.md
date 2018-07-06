@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660317"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082237"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Administración de los derechos de acceso a los datos de Azure Storage con RBAC (versión preliminar)
 
@@ -35,7 +35,7 @@ Para más información acerca de cómo se definen los roles integrados para Azur
 También puede definir roles personalizados para su uso con contenedores y colas. Para más información, consulte [Creación de roles personalizados para el control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md). 
 
 > [!IMPORTANT]
-> Esta versión preliminar está destinada para usos distintos del de producción. Los Acuerdos de nivel de servicio (SLA) de producción no estarán disponibles hasta que la integración de Azure AD para Azure Storage se declare disponible con carácter general. Si la integración de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones. Para más información sobre la versión preliminar, consulte [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Autenticación del acceso en Azure Storage mediante Azure Active Directory [versión preliminar]).
+> Esta versión preliminar está destinada para usos distintos del de producción. Los Acuerdos de nivel de Servicio (SLA) de producción no estarán disponibles hasta que la integración de Azure AD para Azure Storage se declare disponible con carácter general. Si la integración de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones. Para más información sobre la versión preliminar, consulte [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Autenticación del acceso en Azure Storage mediante Azure Active Directory [versión preliminar]).
 >
 > Durante la versión preliminar, las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse.
 
@@ -61,7 +61,7 @@ Las secciones siguientes muestran cómo asignar un rol con ámbito limitado a la
 
 Para asignar un rol integrado que conceda acceso a todos los contenedores o colas en la cuenta de almacenamiento en Azure Portal:
 
-1. En [Azure Portal](https://azure.portal.com/), vaya a la cuenta de almacenamiento.
+1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 2. Seleccione la cuenta de almacenamiento, a continuación, seleccione **Control de acceso (IAM)** para mostrar la configuración de control de acceso para la cuenta. Haga clic en el botón **Agregar** para agregar un nuevo rol.
 
     ![Captura de pantalla que muestra la configuración de control de acceso del almacenamiento](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Para asignar un rol integrado que conceda acceso a todos los contenedores o cola
 
 Los pasos para asignar un rol integrado limitado a un contenedor o a una cola son similares. El procedimiento mostrado aquí asigna un rol limitado a un contenedor, pero puede seguir los mismos pasos para asignar un rol limitado a una cola: 
 
-1. En [Azure Portal](https://azure.portal.com/), vaya a la cuenta de almacenamiento y muestre la **Introducción** para la cuenta.
+1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento y muestre la **Introducción** para la cuenta.
 2. En Blob Service seleccione **Examinar blobs**. 
 3. Busque el contenedor para el que desea asignar un rol y visualice la configuración del contenedor. 
 4. Seleccione **Control de acceso (IAM)** para mostrar la configuración de control de acceso para el contenedor.

@@ -3,23 +3,24 @@ title: Solucionar problemas de extensión de la máquina virtual de Azure Log An
 description: Aquí se describen los síntomas, causas y soluciones de los problemas más comunes que surgen con la extensión de máquinas virtuales de Log Analytics para máquinas virtuales de Azure que se ejecutan en Windows y Linux.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e70d8f9fb929e3877c88fd4c1169a0c76ac2a6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 700d6b2c3bcd39aed38bf75556bcdcb59d1ab78b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29394993"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128833"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Solución de problemas de la extensión de máquina virtual de Log Analytics
 En este artículo se proporciona ayuda y posibles soluciones para resolver los errores que puedan surgir con la extensión de máquinas virtuales de Log Analytics para aquellas máquinas virtuales que se ejecutan en Microsoft Azure para Windows y Linux.
@@ -70,6 +71,6 @@ Si la extensión de la máquina virtual *Agente de OMS para Linux* no se instala
 
 Para más información, consulte [Solución de problemas de la extensión de máquina virtual de Linux Azure](../virtual-machines/linux/extensions-oms.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener instrucciones adicionales para solucionar problemas relacionados con el agente de OMS para Linux que está hospedado en equipos externos a Azure, consulte [Troubleshoot Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md) (Solución de problemas del agente de Linux para Azure Log Analytics).  
