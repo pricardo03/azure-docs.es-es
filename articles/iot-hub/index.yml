@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: dobett
-  ms.openlocfilehash: 6995c2006b32bb2fc6b9e86307b7573d0293a250
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+  ms.openlocfilehash: 35f60b4fef75c3eebb9ac203aaded26d32773c53
+  ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34632931"
+  ms.lasthandoff: 07/05/2018
+  ms.locfileid: "37858354"
 abstract:
   description: Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recursos de Internet de las cosas. Tutoriales, referencias de API, vídeos y otra documentación le ayudan a implementar una comunicación confiable y bidireccional entre los dispositivos de IoT y una solución de back-end.
 sections:
@@ -56,6 +56,7 @@ sections:
     items:
     - html: <a href="/azure/iot-hub/tutorial-routing">Configuración del enrutamiento automatizado de mensajes en IoT Hub</a>
     - html: <a href="/azure/iot-hub/tutorial-device-twins">Configuración de dispositivos desde un servicio back-end</a>
+    - html: <a href="/azure/iot-hub/tutorial-firmware-update">Implementación de un proceso de actualización de firmware de dispositivos</a>
     - html: <a href="/azure/iot-hub/tutorial-connectivity">Uso de un dispositivo simulado para probar la conectividad con IoT Hubs</a>
 - title: Referencia
   items:

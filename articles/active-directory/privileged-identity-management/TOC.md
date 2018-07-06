@@ -1,6 +1,6 @@
 # Información general
 ## [¿Qué es Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Protección del acceso con privilegios](../admin-roles-best-practices.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Protección del acceso con privilegios](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Roles del directorio en PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM para recursos de Azure](azure-pim-resource-rbac.md)
 ## [Flujo de trabajo de aprobación de PIM](azure-ad-pim-approval-workflow.md)

@@ -86,7 +86,7 @@ En esta sección se explica cómo configurar el entorno de desarrollo. Se incluy
 
     ![Captura de pantalla del cuadro de diálogo Agregar scaffold](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller.png)
 
-1. En el cuadro de diálogo **Add Empty MVC Controller** (Agregar controlador de MVC vacío)**, denomine *BlobsController* al controlador y seleccione **Agregar**.
+1. En el cuadro de diálogo **Add Empty MVC Controller** (Agregar controlador de MVC vacío), denomine *BlobsController* al controlador y seleccione **Agregar**.
 
     ![Captura de pantalla del cuadro de diálogo Agregar controlador de MVC vacío](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-name.png)
 
