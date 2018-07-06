@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 02a7533cf1c06142f564ed9fd6008a25be9fc603
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 98a4be02188f7e0462979792a6061d535a64a18d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035304"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095983"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli-20"></a>Implementación de módulos de Azure IoT Edge con la CLI de Azure 2.0
 
@@ -26,10 +26,10 @@ En este artículo se muestra cómo crear un manifiesto de implementación de JSO
 
 ## <a name="prerequisites"></a>requisitos previos
 
-* Un [centro de IoT](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
-* Un [dispositivo IoT Edge](how-to-register-device-cli.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
+* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
+* Un [dispositivo de IoT Edge](how-to-register-device-cli.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
 * [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure 2.0 debe ser la 2.0.24. Use `az –-version` para realizar la validacion. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
-* [La extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* La [extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
 
@@ -62,7 +62,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "microsoft/azureiotedge-agent:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
                  "createOptions": "{}"
                }
              },
@@ -71,7 +71,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-hub:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
                  "createOptions": "{}"
                }
              }
@@ -83,7 +83,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
                  "createOptions": "{}"
                }
              }
@@ -136,4 +136,4 @@ El parámetro "device id" distingue mayúsculas y minúsculas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [implementar y supervisar módulos de IoT Edge a escala](how-to-deploy-monitor.md).
+Aprenda a [implementar y supervisar módulos de IoT Edge a escala](how-to-deploy-monitor.md)

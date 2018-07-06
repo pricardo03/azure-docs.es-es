@@ -2,18 +2,18 @@
 title: Uso de discos de Azure con AKS
 description: Usar de Azure Disks con AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: nepeters
-ms.openlocfilehash: 3841222d08b23f43f69e77fa43c469793b70ce63
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: iainfou
+ms.openlocfilehash: ddac68b2a47fc830055b9dd5bd705802cc29c52f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801388"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095933"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Volúmenes persistentes con discos de Azure
 
@@ -118,6 +118,6 @@ Obtenga más información sobre los volúmenes persistentes de Kubernetes con di
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[azure-disk-volume]: azure-disk-volume.md 
+[azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

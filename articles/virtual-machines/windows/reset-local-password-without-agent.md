@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: ad892aee646b1a5f8c96d5bdeca24b7a0d88f38e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6745d5f7c31ca00c7915874b038488f4487959a9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915612"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343260"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Restablecimiento de una contraseña de Windows local para VM de Azure sin conexión
 Puede restablecer la contraseña de Windows local de una VM en Azure mediante [Azure Portal o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) siempre que el agente invitado de Azure esté instalado. Este método es la manera principal de restablecer una contraseña para una VM de Azure. Si tiene problemas con el agente de invitado de Azure, como puede ser que no responda o que no se pueda instalar después de cargar una imagen personalizada, puede restablecer manualmente una contraseña de Windows. En este artículo se detalla cómo restablecer la contraseña de una cuenta local asociando el disco virtual de SO de origen a otra VM. Los pasos descritos en este artículo no se aplican a los controladores de dominio de Windows. 
@@ -94,7 +94,7 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
      ```
      
      ![Creación de gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Cree `scripts.ini` en `\Windows\System32\GroupPolicy\Machine\Scripts`. Asegúrese de que se muestran las carpetas ocultas. Si es necesario, cree las carpetas `Machine` o `Scripts`.
+5. Cree `scripts.ini` en `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Asegúrese de que se muestran las carpetas ocultas. Si es necesario, cree las carpetas `Machine` o `Scripts`.
    
    * Agregue las líneas siguientes al archivo `scripts.ini` que creó:
      
@@ -134,7 +134,7 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
      ![Copia del URI de disco](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Cree una VM desde el disco del SO de la VM de origen:
    
-   * Use [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) para crear una VM desde un disco duro virtual especializado. Haga clic en el botón `Deploy to Azure` para abrir Azure Portal con los detalles de la plantilla rellenados automáticamente.
+   * Use [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) para crear una VM desde un disco duro virtual especializado. Haga clic en el botón `Deploy to Azure` para abrir Azure Portal con los detalles de la plantilla rellenados automáticamente.
    * Si desea conservar toda la configuración anterior de la VM, seleccione *Editar plantilla* para proporcionar la red virtual, la subred, el adaptador de red o la dirección IP pública existentes.
    * En el cuadro de texto del parámetro `OSDISKVHDURI`, pegue el URI de su disco duro virtual de origen obtenido en el paso anterior:
      

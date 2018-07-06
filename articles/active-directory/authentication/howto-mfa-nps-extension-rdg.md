@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33932105"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098012"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -95,7 +95,7 @@ Siga los pasos de [Introducción a Azure Multi-Factor Authentication en la nube]
 ### <a name="configure-accounts-for-two-step-verification"></a>Configuración de cuentas para la verificación en dos pasos
 Una vez que una cuenta se ha habilitado para MFA, no puede iniciar sesión en los recursos controlados por la directiva MFA hasta que se haya configurado correctamente un dispositivo de confianza que se usará para el segundo factor de autenticación y haya realizado la autenticación mediante la verificación en dos pasos.
 
-Siga los pasos de [¿Qué significa Azure Multi-Factor Authentication para mí?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) para comprender y configurar correctamente los dispositivos para MFA con su cuenta de usuario.
+Siga los pasos de [¿Qué significa Azure Multi-Factor Authentication para mí?](end-user/current/multi-factor-authentication-end-user.md) para comprender y configurar correctamente los dispositivos para MFA con su cuenta de usuario.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalación y configuración de la extensión NPS
 Esta sección proporciona instrucciones para configurar la infraestructura de RDS para usar Azure MFA para la autenticación de cliente con la puerta de enlace de Escritorio remoto.

@@ -2,19 +2,19 @@
 title: Implementación de grupos de varios contenedores en Azure Container Instances
 description: Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances.
 services: container-instances
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db3f616d85c21f01c751fd82532289593a6e7e45
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 6d337c9ed23ac9af884f4113b046a8e9756fd441
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850576"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097111"
 ---
 # <a name="deploy-a-container-group"></a>Implementación de un grupo de contenedores
 
@@ -160,7 +160,7 @@ Para ver el estado de la implementación, use el siguiente comando [az container
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Si desea ver la aplicación en ejecución, vaya a su dirección IP en su explorador. Por ejemplo, la dirección IP es `52.168.26.124` en esta salida de ejemplo:
+Si desea ver la aplicación en ejecución, vaya a su dirección IP en el explorador. Por ejemplo, la dirección IP es `52.168.26.124` en esta salida de ejemplo:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

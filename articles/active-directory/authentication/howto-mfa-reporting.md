@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a3e7390e0df707c4898ad9573baa96b567499de1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 4eb91e37331a5af064d2af0e937eb071d805688f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866615"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097886"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Informes en Azure Multi-Factor Authentication
 
@@ -49,5 +49,5 @@ Identifique los usuarios que no se han registrado en MFA mediante el PowerShell 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Para los usuarios](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+* [Para los usuarios](end-user/current/multi-factor-authentication-end-user.md)
 * [Lugar de implementación](concept-mfa-whichversion.md)

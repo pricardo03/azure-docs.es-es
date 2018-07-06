@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 06/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d033cc09de8e115324067d7bbdf052751730d63
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e33a3f843017ec24f3a79701fac9a62e15b4f9ba
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28031056"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109195"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Uso de la nueva autenticación de StorSimple
 
@@ -59,9 +59,9 @@ Si utiliza una matriz virtual de StorSimple, use la siguiente tabla para determi
 
 | Si el dispositivo ejecuta  | Siga estos pasos                                    |
 |----------------------------|--------------------------------------------------------------|
-| La actualización Update 1.0 o posterior y está sin conexión. <br> Se muestra una alerta que indica que la dirección URL no está incluida en la lista blanca.| Modifique las reglas de firewall para que incluyan la dirección URL de autenticación. Consulte [las direcciones URL de autenticación](#url-changes-for-aad-authentication). |
+| La actualización Update 1.0 o posterior y está sin conexión. <br> Se muestra una alerta que indica que la dirección URL no está incluida en la lista blanca.| 1. Modifique las reglas de firewall para que incluyan la dirección URL de autenticación. Consulte [las direcciones URL de autenticación](#url-changes-for-aad-authentication). <br> 2. [Obtenga la clave de registro de AAD del servicio](#aad-based-registration-keys). <br> 3. Realice los pasos 1 a 5 para [conectarse a la interfaz de Windows PowerShell de la matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Use el cmdlet `Invoke-HcsReRegister` para registrar el dispositivo mediante Windows PowerShell. Proporcione la clave que obtuvo en el paso anterior.|
 | La actualización Update 1.0 o posterior y el dispositivo está en línea.| no se requiere ninguna acción.                                       |
-| La actualización Update 0.6 o anterior y el dispositivo está sin conexión. | [Descargue la actualización Update 1.0 del servidor de catálogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>[Aplique la actualización Update 1.0 mediante la interfaz de usuario web local](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix). <br> [Obtenga la clave de registro de AAD del servicio](#aad-based-registration-keys). <br> Realice los pasos 1 a 5 para [conectarse a la interfaz de Windows PowerShell de la matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> Use el cmdlet `Invoke-HcsReRegister` para registrar el dispositivo mediante Windows PowerShell. Proporcione la clave que obtuvo en el paso anterior.|
+| La actualización Update 0.6 o anterior y el dispositivo está sin conexión. | 1. [Descargue la actualización Update 1.0 del servidor de catálogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Aplique la actualización Update 1.0 mediante la interfaz de usuario web local](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Obtenga la clave de registro de AAD del servicio](#aad-based-registration-keys). <br>4. Realice los pasos 1 a 5 para [conectarse a la interfaz de Windows PowerShell de la matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Use el cmdlet `Invoke-HcsReRegister` para registrar el dispositivo mediante Windows PowerShell. Proporcione la clave que obtuvo en el paso anterior.|
 | La actualización Update 0.6 o anterior y el dispositivo está en línea. | Modifique las reglas de firewall para que incluyan la dirección URL de autenticación.<br> Instale la actualización Update 1.0 mediante Azure Portal. |
 
 ## <a name="aad-based-registration-keys"></a>Claves del registro basadas en AAD
@@ -90,6 +90,6 @@ Realice los pasos siguientes para generar una clave de registro del servicio AAD
 
     ![Confirmar regeneración](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre cómo implementar la [matriz virtual de StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).

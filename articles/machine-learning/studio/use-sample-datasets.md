@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 5e225a16baef53c12a5d0a719c36a2042d391c7f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: acdc2ca6f0746f4495f6b3747b7fc303574f712c
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959109"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342555"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -147,7 +147,7 @@ Etiquetas del concurso sobre la previsión de relaciones con los clientes de KDD
 <tr>
   <td>Conjunto de datos CRM compartido</td>
   <td>
-Estos datos están relacionados con el concurso sobre la previsión de relaciones con los clientes de KDD Cup 2009 (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).
+Estos datos están relacionados con el concurso sobre la previsión de relaciones con los clientes de KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>).
 <p></p>
 El conjunto de datos contiene 50.000 clientes de la empresa de telecomunicaciones francesa Orange. Cada cliente tiene 230 características anónimas, 190 de las cuales son numéricas y 40, categóricas. Las características están muy dispersas.
   </td>
@@ -403,7 +403,7 @@ Asignaciones de tema para artículos de prensa en el conjunto de datos de notici
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Estos datos se han extraído del concurso de evaluación del rendimiento de los estudiantes KDD Cup 2010 (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">evaluación del rendimiento de estudiantes</a>). Los datos utilizados se corresponden con el conjunto de formación de álgebra 2008 y 2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Álgebra I 2008-2009. Conjunto de datos obtenidos de la minería de datos educativos de KDD Cup 2010. Lo encontrará en <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Estos datos se han extraído del concurso de evaluación del rendimiento de los estudiantes KDD Cup 2010 (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">evaluación del rendimiento de estudiantes</a>). Los datos utilizados se corresponden con el conjunto de formación de álgebra 2008 y 2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Álgebra I 2008-2009. Conjunto de datos obtenidos de la minería de datos educativos de KDD Cup 2010. Lo encontrará en <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 El conjunto de datos se ha descargado y almacenado en Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) y contiene archivos de registro de un sistema de tutoría de estudiantes. Las características suministradas incluyen el identificador del problema y una breve descripción, el identificador del alumno, la marca de tiempo y cuántos intentos realizó el estudiante antes de solucionar el problema de la manera correcta. El conjunto de datos original contiene 8,9 millones de registros; este conjunto de datos se ha muestreado para las primeras 100.000 filas. El conjunto de datos tiene 23 columnas de varios tipos separadas por tabulaciones: numéricas, categóricas y con marcas de tiempo.
   </td>

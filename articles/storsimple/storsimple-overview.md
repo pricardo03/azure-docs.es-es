@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0d6a797e4fe84ce2cb969d001ff96177f6ac641
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23665604"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097053"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
 ## <a name="overview"></a>Información general
@@ -249,7 +249,7 @@ A continuación se muestra una lista de otro software que se usa con StorSimple 
 | Destino de copia de seguridad |Veeam |Veeam versión 9 y versiones posterior |[StorSimple como destino de copia de seguridad con Veeam](storsimple-configure-backup-target-veeam.md)|
 | Destino de copia de seguridad |Veritas Backup Exec |Backup Exec 16 y versiones posteriores |[StorSimple como destino de copia de seguridad con Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Destino de copia de seguridad |Veritas NetBackup |NetBackup 7.7.x y versiones posteriores  |[StorSimple como destino de copia de seguridad con NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Uso compartido de archivos global <br></br> Colaboración |Talon  |[StorSimple con Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Uso compartido de archivos global <br></br> Colaboración |Talon  |[StorSimple con Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>Terminología de StorSimple
 Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que revise los siguientes términos y definiciones.

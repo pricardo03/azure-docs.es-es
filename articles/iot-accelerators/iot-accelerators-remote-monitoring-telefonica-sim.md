@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628290"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097087"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integración de datos de la SIM en la solución de supervisión remota
 
@@ -33,9 +33,9 @@ En este tutorial, aprenderá a:
 
 Esta característica de supervisión remota adicional se encuentra actualmente en versión preliminar. Para sincronizar los datos de conectividad en la solución de supervisión remota de Azure, siga estos pasos:
 
-1. Rellene una solicitud en el [sitio de Telefónica](https://iot.Telefónica.com/contact), seleccione la opción **Supervisión remota de Azure** e incluya sus datos de contacto.
+1. Rellene una solicitud en el [sitio de Telefónica](https://iot.telefonica.com/contact), seleccione la opción **Supervisión remota de Azure** e incluya sus datos de contacto.
 2. Telefónica activará la cuenta.
-3. Si aún no es cliente de Telefónica y quiere disfrutar de esta ventaja o de otros servicios preparados para la nube con conectividad de IoT, visite el [sitio de Telefónica](https://iot.Telefónica.com/contact) y seleccione la opción **Conectividad**.
+3. Si aún no es cliente de Telefónica y quiere disfrutar de esta ventaja o de otros servicios preparados para la nube con conectividad de IoT, visite el [sitio de Telefónica](https://iot.telefonica.com/) y seleccione la opción **Conectividad**.
 
 ### <a name="telefnica-sim-setup"></a>Configuración de la SIM de Telefónica
 La asociación entre la SIM de Telefónica y el identificador del dispositivo gemelo de Azure se basa en la propiedad del "alias" de la SIM de IoT de Telefónica. 

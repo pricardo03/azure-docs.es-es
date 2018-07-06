@@ -3,7 +3,7 @@ title: Guía de introducción para operadores de TI de Azure | Microsoft Docs
 description: Guía de introducción para operadores de TI de Azure
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361667"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099500"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introducción a la informática en la nube y Microsoft Azure
 
@@ -61,7 +61,7 @@ SaaS es un software que se hospeda y administra de forma centralizada. Normalmen
 
 Microsoft Office 365 es un buen ejemplo de una oferta de SaaS. Los suscriptores pagan una cuota de suscripción mensual o anual y obtienen Microsoft Exchange, Microsoft OneDrive y el resto de Microsoft Office Suite como un servicio. Los suscriptores reciben siempre la versión más reciente y el servidor de Exchange se administra para ellos. En comparación con la instalación y actualización de Office cada año, esto resulta más económico y requiere menos esfuerzo.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como servicio 
+#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como servicio
 
 Con PaaS, se implementa la aplicación en un entorno proporcionado por el proveedor de servicios en la nube. El proveedor lleva a cabo la administración de la infraestructura de forma que el cliente pueda centrarse en el desarrollo de aplicaciones.
 
@@ -381,11 +381,11 @@ Las cuentas de Azure Storage pueden configurarse con distintos niveles de redund
 
 -   **Almacenamiento con redundancia geográfica con acceso de lectura** es un almacenamiento con redundancia geográfica más la funcionalidad de leer los datos desde la región secundaria. Esta funcionalidad resulta adecuada para una recuperación ante desastres parcial. Si hay un problema con la región principal, puede cambiar la aplicación y tener acceso de solo lectura a la región emparejada.
 
-### <a name="use-cases"></a>Casos de uso 
+### <a name="use-cases"></a>Casos de uso
 
 Cada tipo de almacenamiento tiene un caso de uso diferente.
 
-**Blob storage** 
+**Blob storage**
 
 La palabra *blob* es un acrónimo de *objeto binario grande*. Los blobs son archivos no estructurados, como los que se almacenan en el equipo. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos". Azure Blob Storage también contiene los discos de datos de Azure Virtual Machines.
 
@@ -445,7 +445,7 @@ Del mismo modo, puede utilizar la CLI de Azure para implementar una plantilla de
 
 ### <a name="access-and-security-for-azure-storage"></a>Acceso y seguridad en Azure Storage
 
-Hay acceso a Azure Storage de varias maneras, por ejemplo desde Azure Portal durante la creación y operación de máquinas virtuales o desde bibliotecas de cliente de Storage. 
+Hay acceso a Azure Storage de varias maneras, por ejemplo desde Azure Portal durante la creación y operación de máquinas virtuales o desde bibliotecas de cliente de Storage.
 
 **Discos de máquina virtual**
 

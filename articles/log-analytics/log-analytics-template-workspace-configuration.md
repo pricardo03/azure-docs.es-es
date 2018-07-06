@@ -3,22 +3,24 @@ title: Uso de las plantillas de Azure Resource Manager para crear y configurar u
 description: Puede utilizar las plantillas de Azure Resource Manager para crear y configurar áreas de trabajo de Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 04/25/2018
-ms.author: richrund
-ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: na
+ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133537"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
 Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
@@ -35,6 +37,16 @@ Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-mana
 * Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
 Este artículo contiene ejemplos de plantilla que ilustran algunas de las funciones que puede realizar con las plantillas.
+
+## <a name="api-versions"></a>Versiones de API
+En la tabla siguiente se muestra la versión de API de los recursos usados en este ejemplo.
+
+| Recurso | Tipo de recurso | Versión de API |
+|:---|:---|:---|:---|
+| Área de trabajo   | áreas de trabajo    | 2017-03-15-preview |
+| Search      | savedSearches | 2017-03-15-preview |
+| Origen de datos | datasources   | 2015-11-01-preview |
+| Solución    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
 En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno.  

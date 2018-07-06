@@ -1,19 +1,17 @@
 ---
 title: Exclusión de discos de la protección con Azure Site Recovery | Microsoft Docs
 description: Describe por qué y cómo excluir discos de máquina virtual de la replicación de Hyper-V a Azure.
-services: site-recovery
 author: nsoneji
-manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 07/01/2018
 ms.author: nisoneji
-ms.openlocfilehash: 131c98c6772a68c8617df3160b159ece62bd1fc9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8803b87b21e30e3ff3770147e4d56e965dc41c22
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466841"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341885"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
 En este artículo se describe cómo excluir discos de la replicación. Esta exclusión puede optimizar el ancho de banda consumido con la replicación u optimizar los recursos del lado del destino que utilizan estos discos.
@@ -226,5 +224,5 @@ Esta es la configuración del archivo de paginación en la máquina virtual de A
 
 ![Configuración del archivo de paginación en la máquina virtual de Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.
