@@ -66,9 +66,9 @@ Durante el cifrado, la biblioteca de cliente generará un vector de inicializaci
 > 
 > 
 
-Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los prácticos métodos **DownloadTo***/** BlobReadStream**. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
+Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los prácticos métodos **DownloadTo**/** BlobReadStream**\*. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
 
-Descargar un intervalo arbitrario (métodos**DownloadRange***) en el objeto de blob cifrado implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden utilizarse para descifrar correctamente el intervalo solicitado.
+Descargar un intervalo arbitrario (métodos**DownloadRange**\*) en el objeto de blob cifrado implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden utilizarse para descifrar correctamente el intervalo solicitado.
 
 Todos los tipos de blobs (blobs en bloques, blobs de anexión) se pueden cifrar y descifrar usando este esquema.
 

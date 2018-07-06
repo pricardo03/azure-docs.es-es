@@ -122,7 +122,7 @@ La versión instalada de Caffe requiere Python 2.7 y no funcionará con Python 3
 | Vínculos a ejemplos      | Se incluyen blocs de notas de ejemplo en JupyterHub. |
 | Herramientas relacionadas en DSVM      | Caffe      |
 | ¿Cómo se usa o ejecuta?  | * En el terminal: active el entorno de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition), ejecute _python_ y luego importe Chainer. <br/>
-* * En JupyterHub: [conéctese a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y desplácese al directorio Chainer para buscar blocs de notas de ejemplo.
+* En JupyterHub: [conéctese a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y desplácese al directorio Chainer para buscar blocs de notas de ejemplo.
 
 
 ## <a name="deep-water"></a>Deep Water
@@ -145,8 +145,8 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 ```
 
 Para utilizar Deep Water:
-* * En el terminal: active el entorno de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) y luego ejecute _python_. <br/>
-* * En JupyterHub: [conéctese a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y desplácese al directorio deep_water para buscar blocs de notas de ejemplo.
+* En el terminal: active el entorno de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) y luego ejecute _python_. <br/>
+* En JupyterHub: [conéctese a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y desplácese al directorio deep_water para buscar blocs de notas de ejemplo.
 
 ## <a name="mxnet"></a>MXNet
 
@@ -197,7 +197,7 @@ El servicio tarda cerca de un minuto en iniciarse. Abra un explorador web y vaya
 | Ediciones compatibles de DSVM      | Ubuntu     |
 | ¿Cómo se configura/instala en DSVM?  | Theano se instala en el entorno de Python 2.7 (_root_), así como en el entorno de Python 3.5 (_py35_).   |
 | Herramientas relacionadas en DSVM      | Keras      |
-| ¿Cómo se usa o ejecuta?    | En un terminal, active la versión de Python que quiera (root o py35), ejecute Python e importe Theano. <br/> 
+| ¿Cómo se usa o ejecuta?    | * En un terminal, active la versión de Python que quiera (root o py35), ejecute Python e importe Theano. <br/> 
 * En Jupyter, seleccione el kernel de Python 2.7 o 3.5 e importe Theano.  
 <br/>
 Para solucionar de forma alternativa un error de MKL reciente, primero debe establecer la capa de subprocesos MKL:<br/><br/>
@@ -227,7 +227,7 @@ _export MKL_THREADING_LAYER=GNU_
 | Herramientas relacionadas en DSVM      | Torch      |
 | ¿Cómo se usa o ejecuta? | 
 * En un terminal: active el entorno correcto y ejecute Python. <br/>
- * * En Jupyter: conéctese a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y luego abra el directorio PyTorch para acceder a los ejemplos.  |
+ * En Jupyter: conéctese a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y luego abra el directorio PyTorch para acceder a los ejemplos.  |
 
 ## <a name="mxnet-model-server"></a>MXNet Model Server
 
