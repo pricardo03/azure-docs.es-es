@@ -5,18 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 47846af015bf02940da7a7b8a4154113aab57b08
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597637"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449232"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticación y permisos de usuario
-Azure Analysis Services usa Azure Active Directory (Azure AD) para la administración de identidades y la autenticación de usuarios. Todo usuario que cree, administre o se conecte a un servidor de Azure Analysis Services debe tener una identidad de usuario válida en un [inquilino de Azure AD](../active-directory/active-directory-administer.md) en la misma suscripción.
+Azure Analysis Services usa Azure Active Directory (Azure AD) para la administración de identidades y la autenticación de usuarios. Todo usuario que cree, administre o se conecte a un servidor de Azure Analysis Services debe tener una identidad de usuario válida en un [inquilino de Azure AD](../active-directory/fundamentals/active-directory-administer.md) en la misma suscripción.
 
 Azure Analysis Services admite la [colaboración B2B de Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Con B2B, los usuarios fuera de una organización pueden ser usuarios invitados en un directorio de Azure AD. Los invitados pueden provenir de otro directorio de inquilino de Azure AD o de cualquier dirección de correo electrónico válida. Una vez que se invita a un usuario y este acepta la invitación que se envía por correo electrónico desde Azure, la identidad del usuario se agrega al directorio del inquilino. Esas identidades se pueden agregar a grupos de seguridad o como miembros de un rol de base de datos o administrador del servidor.
 
@@ -76,7 +76,7 @@ Los roles en este nivel se aplican a los usuarios o cuentas que necesitan realiz
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Administración del acceso a recursos con grupos de Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
+[Administración del acceso a recursos con grupos de Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Administración de usuarios y roles de base de datos](analysis-services-database-users.md)  
 [Administración de administradores de servidor](analysis-services-server-admins.md)  
 [Control de acceso basado en roles](../role-based-access-control/overview.md)  
