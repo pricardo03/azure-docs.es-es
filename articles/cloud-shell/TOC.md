@@ -5,13 +5,12 @@
 ## [PowerShell: inicio rápido](quickstart-powershell.md)
 
 # Características y herramientas
-## [Bash: características y herramientas](features.md)
-## [PowerShell: características y herramientas](features-powershell.md)
+## [Características y herramientas](features.md)
 
 # Procedimiento
-## [Bash: almacenamiento persistente](persisting-shell-storage.md)
-## [PowerShell: almacenamiento persistente](persisting-shell-storage-powershell.md)
+## [Almacenamiento de persistencia](persisting-shell-storage.md)
 ## [Uso de la ventana](using-the-shell-window.md)
+## [PowerShell Cloud Shell para usuarios de Windows](cloud-shell-windows-users.md)
 
 # Ejemplos
 ## [Bash: creación de recursos con Terraform](example-terraform-bash.md)

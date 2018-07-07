@@ -47,6 +47,8 @@
       items:
         - name: Introducción a Change Tracking
           href: automation-change-tracking.md
+        - name: Visualización del contenido de los archivos con seguimiento
+          href: change-tracking-file-contents.md
     - name: Inventario
       items:
         - name: Administración de una máquina virtual con la recopilación de inventario
