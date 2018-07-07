@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308567"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447547"
 ---
 # <a name="what-is-baseline-protection---preview"></a>¿Qué es la protección de base de referencia? : versión preliminar  
 
@@ -51,7 +51,7 @@ Los usuarios con acceso a cuentas con privilegios tienen acceso sin restriccione
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-La directiva de base de referencia permite excluir usuarios y grupos. Podría desear excluir una *[cuenta administrativa de acceso de emergencia](active-directory-admin-manage-emergency-access-accounts.md)* para asegurarse de que no queda bloqueado fuera del inquilino.
+La directiva de base de referencia permite excluir usuarios y grupos. Podría desear excluir una *[cuenta administrativa de acceso de emergencia](users-groups-roles/directory-emergency-access.md)* para asegurarse de que no queda bloqueado fuera del inquilino.
 
 
 ## <a name="enable-a-baseline-policy"></a>Habilitar una directiva de base de referencia 
@@ -67,9 +67,9 @@ Mientras están en versión preliminar, las directivas de base de referencia est
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en **Acceso condicional**.
+3. En la página **Azure Active Directory**, en la sección **Seguridad**, haga clic en **Acceso condicional**.
 
-    ![Acceso condicional](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Acceso condicional](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. En la lista de directivas, haga clic en una directiva que empiece por **Baseline policy:** (Directiva de base de referencia:). 
 
