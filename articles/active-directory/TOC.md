@@ -127,11 +127,13 @@
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### Solución de problemas
 #### [Datos de auditoría que faltan](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Datos que faltan en las descargas](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Errores de los paquetes de contenido de los registros de actividad de Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Errores de la API de informes de Azure Active Directory](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ### [Acceso mediante programación](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Requisitos previos](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Ejemplos de auditoría](active-directory-reporting-api-audit-samples.md)

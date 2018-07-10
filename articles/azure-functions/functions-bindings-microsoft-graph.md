@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 3b9a7d998e7153318b21adcada7c143b428e591f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: af748f234a27ed9b37ac50438d7497fd680bc193
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724781"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085579"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -976,7 +976,7 @@ Los webhooks le permiten reaccionar antes los eventos de Microsoft Graph. Para a
 - Un [enlace de entrada de la suscripción de webhook de Microsoft Graph](#webhook-input) le permite mostrar las suscripciones existentes y, opcionalmente, actualizarlas.
 - Un [enlace de salida de la suscripción de webhook de Microsoft Graph](#webhook-output) le permite crear o eliminar suscripciones de webhook.
 
-Los enlaces en sí mismos no requieren ningún permiso de Azure AD, pero es necesario solicitar permisos relevantes para el tipo de recurso ante el que va a reaccionar. Para obtener una lista de los permisos necesarios para cada tipo de recurso, consulte [permisos de suscripción](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+Los enlaces en sí mismos no requieren ningún permiso de Azure AD, pero es necesario solicitar permisos relevantes para el tipo de recurso ante el que va a reaccionar. Para obtener una lista de los permisos necesarios para cada tipo de recurso, consulte [permisos de suscripción](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
 
 Para más información sobre los webhooks, consulte [Trabajar con Intune en Microsoft Graph].
 
@@ -1576,5 +1576,5 @@ public class UserSubscription {
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)
 
-[Desencadenador HTTP]: functions-bindings-http-webhook.md
+[desencadenador HTTP]: functions-bindings-http-webhook.md
 [Trabajar con Intune en Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

@@ -4,22 +4,11 @@
 ### Introducción y ventajas  
 ### Escaparates  
 #### [Comparación de AppSource y Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Haga crecer su negocio con AppSource](./grow-your-business-with-appsource.md) 
-##### [Compilación de la página de aterrizaje](./build-your-landing-page.md)  
-##### [Habilitación del intercambio de clientes potenciales](./enable-lead-sharing.md)  
-##### [Ventajas de GTM en Marketplace](./gtm-benefits.md)  
-##### [Haga crecer su negocio con Microsoft](./promote-your-business-with-microsoft.md)  
-#### [Desarrollo de un negocio con Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
-##### [Compilación de la página de aterrizaje](./build-your-landing-page.md)  
-##### [Habilitación del intercambio de clientes potenciales](./enable-lead-sharing.md)  
-##### [Ventajas de GTM en Marketplace](./gtm-benefits.md)  
-##### [Haga crecer su negocio con Microsoft](./promote-your-business-with-microsoft.md)  
 
 ### Publicación en los escaparates de Marketplace  
 #### [Determinación del tipo de publicación para la solución](./determine-your-listing-type.md)  
 #### [Conviértase en anunciante en los escaparates de Marketplace](./become-publisher.md)  
 #### [Requisitos por tipo de publicación](./listing-type-requirements.md) 
-#### [Soluciones preferidas](./preferred-solutions.md) 
 
 ### Listas de comprobación de publicación  
 #### [Lista de comprobación de publicación para AppSource](./publishing-checklist-appsource.md)  
@@ -38,6 +27,9 @@
 #### [Adición de la información bancaria y fiscal](./add-bank-tax-info.md)  
 #### [Habilitar evaluación gratuita con Azure AD](./enable-trial-using-azure-ad.md)  
 #### [Opciones de facturación de Azure Marketplace](./billing-options-azure-marketplace.md)  
+
+### [Desarrollo del negocio con Marketplace](./grow-your-business-with-azure-marketplace.md)  
+#### [Soluciones preferidas](./preferred-solutions.md) 
 
 ## [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 
