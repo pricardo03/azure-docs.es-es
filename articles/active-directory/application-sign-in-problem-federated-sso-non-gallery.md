@@ -66,7 +66,7 @@ Después de actualizar el valor del identificador de Azure AD y de comprobar que
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación. 
 
-*Error AADSTS50011: La dirección de respuesta "https://contoso.com"no coincide con las direcciones de respuesta configuradas para la aplicación*. 
+*Error AADSTS50011: La dirección de respuesta " https://contoso.com " no coincide con las direcciones de respuesta configuradas para la aplicación*. 
 
 **Causa posible** 
 

@@ -138,8 +138,7 @@ En esta sección se creará una aplicación de Windows Phone que se registra aut
 3. En la ventana **Envío de prueba**, siga estos pasos:
 
     1. En **Plataformas**, seleccione **Windows Phone**. 
-    2. En **Tipo de notificación**, seleccione ** 
-Notificación del sistema**. 
+    2. En **Tipo de notificación**, seleccione **Notificación del sistema**. 
     3. Seleccione **Enviar**.
     4. Vea el **resultado** en la lista en la parte inferior de la ventana. 
 

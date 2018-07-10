@@ -80,7 +80,7 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 
 - La **copia de seguridad de infraestructura** aparece ahora en el icono de proveedores de recursos y están habilitadas alertas de copia de seguridad. Para más información sobre el servicio Copia de seguridad de infraestructura, consulte [Copia de seguridad y recuperación de datos para Azure Stack con el servicio Copia de seguridad de infraestructura](azure-stack-backup-infrastructure-backup.md).
 
-- **Actualice al cmdlet *Test-AzureStack*** para mejorar el diagnóstico de almacenamiento. Para más información sobre este cmdlet, consulte [Validación de Azure Stack](azure-stack-diagnostic-test.md).
+- **Actualice al cmdlet *Test-AzureStack* para** mejorar el diagnóstico de almacenamiento. Para más información sobre este cmdlet, consulte [Validación de Azure Stack](azure-stack-diagnostic-test.md).
 
 - **Mejoras de control de acceso (RBAC) basado en roles**: ahora puede usar RBAC para delegar permisos en grupos de usuarios universales cuando se implementa Azure Stack con AD FS. Para más información sobre RBAC, consulte [Administración de RBAC](azure-stack-manage-permissions.md).
 

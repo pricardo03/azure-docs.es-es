@@ -251,7 +251,7 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
 -   **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
 
-    -   Por ejemplo: **la dirección url interna "**" no es válida puesto que ya está en usohttp://bing.com/
+    -   Por ejemplo: **la dirección url interna " http://bing.com/ " no es válida puesto que ya está en uso**
 
 -   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto
 

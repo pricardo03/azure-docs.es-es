@@ -153,8 +153,7 @@ Puede probar rápidamente la recepción de notificaciones en la aplicación si e
     ![Botón Envío de prueba](./media/notification-hubs-windows-store-dotnet-get-started/test-send-button.png)
 2. En la ventana **Envío de prueba**, lleve a cabo las siguientes acciones: 
     1. En **Plataformas**, seleccione **Windows**.
-    2. En **Tipo de notificación**, seleccione ** 
-Notificación del sistema**. 
+    2. En **Tipo de notificación**, seleccione **Notificación del sistema**. 
     3. Seleccione **Enviar**. 
     
         ![Panel Envío de prueba](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)

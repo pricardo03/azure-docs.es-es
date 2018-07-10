@@ -123,7 +123,7 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
    ![Adición de rol desde Administrador del servidor](./media/load-balancer-get-started-internet-portal/servermanager.png)
 6. En el Asistente para agregar roles y características, use los siguientes valores:
    - En la página **Seleccionar tipo de instalación**, seleccione **Instalación basada en características o en roles**.
-   - En la página **Seleccionar servidor de destino **, seleccione** myVM1**.
+   - En la página **Seleccionar servidor de destino**, seleccione **myVM1**.
    - En la página **Seleccionar rol de servidor**, seleccione **Servidor web (IIS)**.
    - Siga las instrucciones para completar el resto del asistente. 
 7. Repita los pasos 1 a 6 para la máquina virtual **myVM2**.
