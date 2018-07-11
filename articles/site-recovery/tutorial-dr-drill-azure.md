@@ -1,43 +1,42 @@
 ---
-title: Ejecutar una exploración en profundidad de una recuperación ante desastres de máquinas locales en Azure con Azure Site Recovery | Microsoft Docs
-description: Obtener información sobre la ejecución de la exploración en profundidad de una recuperación ante desastres desde máquinas locales en Azure con Azure Site Recovery
-services: site-recovery
+title: Ejecución de una exploración en profundidad de una recuperación ante desastres de máquinas locales en Azure con Azure Site Recovery | Microsoft Docs
+description: Obtenga información sobre la ejecución de la exploración en profundidad de una recuperación ante desastres desde máquinas locales en Azure con Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fa66e47715940584259e5cf555f3f6cd6f07e267
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286586"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437219"
 ---
-# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastresen Azure
+# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure
 
 En este artículo se muestra cómo ejecutar una exploración en profundidad de una recuperación ante desastres de una máquina local en Azure, mediante una conmutación por error de prueba. Una exploración en profundidad valida su estrategia de replicación sin pérdida de datos.
 
-Este es el cuarto tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware.
+Este es el cuarto tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware o máquinas virtuales de Hyper-V.
 
 En este tutorial se da por supuesto que ha completado los tres primeros tutoriales: 
-    - En el [primer tutorial](tutorial-prepare-azure.md), se configuraron los componentes de Azure necesarios para la recuperación ante desastres de VMware.
-    - En el [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), se prepararon los componentes locales para la recuperación ante desastres y se repasaron los requisitos previos.
-    - En el [tercer tutorial](vmware-azure-tutorial.md) se configuró y habilitó la replicación de nuestras máquinas virtuales locales de VMware.
+    - En el [primer tutorial](tutorial-prepare-azure.md), [preparamos componentes de Azure](tutorial-prepare-azure.md) para recuperación ante desastres de VMware o Hyper-V.
+    - En el segundo tutorial, preparamos componentes locales para la recuperación ante desastres de [VMware](vmware-azure-tutorial-prepare-on-premises.md) o [Hyper-V](hyper-v-prepare-on-premises-tutorial.md).
+    - En el tercero, configuramos y habilitamos la replicación de las [máquinas virtuales de VMware](vmware-azure-tutorial.md) locales, las [máquinas virtuales de Hyper-V con System Center VMM](hyper-v-vmm-azure-tutorial.md) o las [máquinas virtuales de Hyper-V sin VMM](hyper-v-azure-tutorial.md).
 - Los tutoriales están diseñados para mostrarle la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Todos los tutoriales configuran Site Recovery con la configuración más sencilla, usando los valores predeterminados si procede. Para más información acerca de los pasos de la conmutación por error de prueba, lea la [guía de procedimientos](site-recovery-test-failover-to-azure.md).
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar una red aislada para la conmutación por error de prueba
-> * Preparación para la conexión a la máquina virtual de Azure después de una conmutación por error
+> * Preparar la conexión a la máquina virtual de Azure después de una conmutación por error
 > * Ejecutar una conmutación por error de prueba para una sola máquina
 
-Este tutorial:
+Este tutorial
 
-## <a name="verify-vm-properties"></a>Comprobación de las propiedades de una máquina virtual
+## <a name="verify-vm-properties"></a>Comprobación de las propiedades de la máquina virtual
 
-Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual de VMware y asegúrese de que la [máquina virtual de Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) o la [máquina virtual de VMware o el servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) cumplen con los requisitos de Azure.
+Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual y asegúrese de que la [máquina virtual de Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) o la [máquina virtual de VMware](vmware-physical-azure-support-matrix.md#replicated-machines) cumpla con los requisitos de Azure.
 
 1. En **Elementos protegidos**, haga clic en **Elementos replicados** y luego en la máquina.
 2. En el panel **Elemento replicado**, puede ver un resumen de la información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
@@ -70,3 +69,4 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 
 > [!div class="nextstepaction"]
 > [Ejecución de una conmutación por error y una conmutación por recuperación entre máquinas de VMware locales](vmware-azure-tutorial-failover-failback.md).
+> [Ejecución de una conmutación por error y una conmutación por recuperación entre máquinas de Hyper-V locales](hyper-v-azure-failover-failback-tutorial.md).

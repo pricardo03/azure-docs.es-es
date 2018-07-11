@@ -1,31 +1,31 @@
 ---
-title: Enviar eventos personalizados para Azure Event Grid a la conexión híbrida | Microsoft Docs
+title: Envío de eventos personalizados para Azure Event Grid a la conexión híbrida | Microsoft Docs
 description: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento. Una conexión híbrida se usa para el punto de conexión.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302984"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127720"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Enrutar eventos personalizados a Conexiones híbridas de Azure Relay con la CLI de Azure y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. La solución Conexiones híbridas de Azure Relay es uno de los controladores de eventos compatibles. Las conexiones híbridas se usan como el controlador de eventos cuando es necesario procesar los eventos de las aplicaciones que no tienen un punto de conexión público. Estas aplicaciones pueden estar dentro de la red empresarial corporativa. En este artículo, se usa la CLI de Azure para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Los eventos se envían a la conexión híbrida.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo, se presupone que ya tiene una conexión híbrida y una aplicación de escucha. Para empezar a trabajar con las conexiones híbridas, consulte [Introducción a Conexiones híbridas de Relay: .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) o [Introducción a Conexiones híbridas de Relay: nodo](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+## <a name="create-a-resource-group"></a>Creación de un grupo de recursos
 
 Los temas de Event Grid son recursos de Azure y se deben colocar en un grupo de recursos de Azure. El grupo de recursos de Azure es una colección lógica en la que se implementan y administran los recursos de Azure.
 
@@ -51,11 +51,11 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="subscribe-to-a-topic"></a>Suscripción a un tema
 
-Suscríbase a un tema para indicar a Event Grid los eventos cuyo seguimiento desea realizar. En el ejemplo siguiente se suscribirá al tema que creó y pasará el id. de recurso de la conexión híbrida para el punto de conexión. El id. de conexión híbrida tiene el formato siguiente:
+Suscríbase a un tema para indicar a Event Grid los eventos cuyo seguimiento desea realizar. En el ejemplo siguiente se suscribirá al tema que creó y pasará el id. de recurso de la conexión híbrida para el punto de conexión. El identificador de conexión híbrida tiene el formato siguiente:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-En el siguiente script, el id. de recurso se obtiene del espacio de nombres de Relay. Se genera el id. de la conexión híbrida y se suscribe a un tema de la cuadrícula de eventos. Se establece el tipo de punto de conexión en `hybridconnection` y se utiliza el id. de conexión híbrida para el punto de conexión.
+En el siguiente script, el identificador de recurso se obtiene del espacio de nombres de Relay. Se genera el identificador de la conexión híbrida y se suscribe a un tema de la cuadrícula de eventos. El script establece el tipo de punto de conexión en `hybridconnection` y se usa el identificador de conexión híbrida para el punto de conexión.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -73,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>Creación de una aplicación para procesar eventos
+
+Necesita una aplicación que puede recuperar eventos desde la conexión híbrida. El [ejemplo de consumidor de conexión híbrida de Microsoft Azure Event Grid para C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) ejecuta esa operación. Ya completó los pasos de requisitos previos.
+
+1. Asegúrese de tener Visual Studio 2017 versión 15.5 o posterior.
+
+1. Clone el repositorio en la máquina local.
+
+1. Cargue el proyecto HybridConnectionConsumer en Visual Studio.
+
+1. En Program.cs, reemplace `<relayConnectionString>` y `<hybridConnectionName>` por la cadena de conexión de Relay y el nombre de la conexión híbrida que creó.
+
+1. Compile y ejecute la aplicación desde Visual Studio.
+
 ## <a name="send-an-event-to-your-topic"></a>Envío de un evento al tema
 
-Vamos a desencadenar un evento para ver cómo Event Grid distribuye el mensaje al punto de conexión. En primer lugar, vamos a obtener la dirección URL y la clave del tema personalizado. De nuevo, use el nombre de su tema en `<topic_name>`.
+Vamos a desencadenar un evento para ver cómo Event Grid distribuye el mensaje al punto de conexión. En este artículo se muestra cómo usar la CLI de Azure para desencadenar el evento. De manera alternativa, puede usar la [aplicación de publicador de Event Grid](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).
+
+En primer lugar, vamos a obtener la dirección URL y la clave del tema personalizado. De nuevo, use el nombre de su tema en `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
@@ -102,7 +118,7 @@ az group delete --name gridResourceGroup
 
 Ahora que sabe cómo crear suscripciones a temas y eventos, aprenda más sobre cómo Event Grid puede ayudarle:
 
-- [About Event Grid](overview.md) (Acerca de Event Grid)
+- [Una introducción a Azure Event Grid](overview.md)
 - [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) (Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps)
+- [Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: crear un clúster de Spark en HDInsight con Azure PowerShell'
+title: 'Inicio rápido: Creación de un clúster de Spark en HDInsight con Azure PowerShell'
 description: Este inicio rápido muestra cómo usar Azure PowerShell para crear un clúster de Apache Spark en Azure HDInsight y ejecutar una consulta básica de Spark SQL.
 services: azure-hdinsight
 author: mumian
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: 1e3f1d5edf12980cb0324bb130725ec2588aa220
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c9f923268e8ca137ceaf88a0c8daa44fdee75095
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36957987"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097519"
 ---
-# <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Inicio rápido: crear un clúster de Spark en HDInsight con PowerShell
+# <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Inicio rápido: Creación de un clúster de Spark en HDInsight con PowerShell
 Aprenda cómo crear clústeres de Apache Spark en Azure HDInsight y cómo ejecutar consultas de Spark SQL en tablas de Hive. Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para obtener información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md).
 
-En este inicio rápido, usará Azure PowerShell para crear un clúster de Spark de HDInsight. El clúster usa Azure Storage Blob como almacenamiento de clústeres.
+En esta guía de inicio rápido, usará Azure PowerShell para crear un clúster de Spark de HDInsight. El clúster usa Azure Storage Blob como almacenamiento de clústeres. Para más información sobre el uso de Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]
 > La facturación de los clústeres de HDInsight se prorratea por minuto, tanto si se usan como si no. Por consiguiente, es aconsejable eliminar el clúster al terminar de usarlo. Para obtener más información, consulte la sección [Limpieza de recursos](#clean-up-resources) de este artículo.
@@ -33,14 +33,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Crear un clúster de HDInsight incluye la creación de los siguientes objetos y recursos de Azure:
 
 - Grupo de recursos de Azure. Un grupo de recursos de Azure es un contenedor para recursos de Azure. 
-- Cuenta de Azure Storage o Azure Data Lake Store.  Cada clúster de HDInsight requiere un almacenamiento de datos dependiente. En este inicio rápido, puede crear una cuenta de almacenamiento.
+- Cuenta de Azure Storage o Azure Data Lake Store.  Cada clúster de HDInsight requiere un almacenamiento de datos dependiente. En esta guía de inicio rápido, puede crear una cuenta de almacenamiento.
 - Un clúster de HDInsight de diferentes tipos de clúster.  En esta guía de inicio rápido, creará un clúster de Spark 2.3.
 
 Usará un script de PowerShell para crear los recursos.  Cuando ejecute el script, se le solicita que escriba los valores siguientes:
 
-|.|Valor|
+|Parámetro|Valor|
 |------|------|
-|Nombre del grupo de recursos de Azure. | Proporcione un nombre único para el grupo de recursos.|
+|Nombre del grupo de recursos de Azure | Proporcione un nombre único para el grupo de recursos.|
 |Ubicación| Especifique la región de Azure, por ejemplo "Centro de EE. UU.". |
 |Nombre de la cuenta de almacenamiento predeterminada | Proporcione un nombre único para la cuenta de almacenamiento. |
 |Nombre del clúster | Proporcione un nombre único para el clúster de Spark HDInsight.|
@@ -116,7 +116,7 @@ Usará un script de PowerShell para crear los recursos.  Cuando ejecute el scrip
     
     Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     ```
-La creación del clúster tarda aproximadamente 20 minutos. El clúster debe crearse antes de poder pasar a la siguiente sesión.
+La creación del clúster tarda aproximadamente 20 minutos. El clúster debe crearse para poder pasar a la siguiente sesión.
 
 Si surge un problema con la creación de clústeres de HDInsight, podría deberse a que no tiene los permisos adecuados para hacerlo. Para más información, consulte [Requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
@@ -124,42 +124,42 @@ Si surge un problema con la creación de clústeres de HDInsight, podría debers
 
 Jupyter Notebook es un entorno de cuaderno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con el texto de marcado y realizar visualizaciones básicas. 
 
-1. Abra el [Azure Portal](https://portal.azure.com).
+1. Abra [Azure Portal](https://portal.azure.com).
 2. Seleccione **Clústeres de HDInsight** y, a continuación, seleccione el clúster que creó.
 
     ![abrir un clúster de HDInsight en Azure Portal](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
 
 3. En el portal, seleccione **Paneles de clúster** y, a continuación, **Jupyter Notebook**. Cuando se le solicite, escriba las credenciales de inicio de sesión del clúster.
 
-   ![Abrir un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Abrir un cuaderno de Jupyter para ejecutar consultas Spark SQL interactivas")
+   ![Apertura de un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Open Jupyter Notebook to run interactive Spark SQL query")
 
 4. Seleccione **Nuevo** > **PySpark** para crear un cuaderno. 
 
-   ![Crear un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Crear un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas")
+   ![Creación de un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
 
-   Se crea y se abre un nuevo Notebook con el nombre Untitled(Untitled.pynb).
+   Se crea y se abre un nuevo cuaderno con el nombre Untitled(Untitled.pynb).
 
 
 ## <a name="run-spark-sql-statements"></a>Ejecución de instrucciones de Spark SQL
 
 SQL (Lenguaje de consulta estructurado) es el lenguaje más común y ampliamente utilizado en la consulta y definición de datos. Spark SQL funciona como una extensión de Apache Spark para procesar datos estructurados, mediante la conocida sintaxis de SQL.
 
-1. Compruebe que el kernel esté listo. El kernel está listo cuando aparece un círculo vacío junto al nombre del kernel en el cuaderno. Un círculo sólido indica que el kernel está ocupado.
+1. Compruebe que el kernel esté preparado. El kernel está preparado cuando aparece un círculo vacío junto al nombre del kernel en el cuaderno. Un círculo sólido indica que el kernel está ocupado.
 
-    ![Consulta de Hive en HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Consulta de Hive en HDInsight Spark")
+    ![Consulta de Hive en HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive query in HDInsight Spark")
 
-    Al iniciar el cuaderno por primera vez, el kernel realiza tareas en segundo plano. Espere a que el kernel esté listo. 
+    Al iniciar el cuaderno por primera vez, el kernel realiza tareas en segundo plano. Espere a que el kernel esté preparado. 
 2. Pegue el código siguiente en una celda vacía y presione **MAYÚS + ENTRAR** para ejecutar el código. El comando muestra las tablas Hive del clúster:
 
     ```PySpark
     %%sql
     SHOW TABLES
     ```
-    Cuando se utiliza un cuaderno de Jupyter Notebook con el clúster de Spark en HDInsight, obtendrá un valor de `sqlContext` preestablecido que puede usar para ejecutar consultas de Hive con Spark SQL. `%%sql` indica a Jupyter Notebook que use el valor de `sqlContext` preestablecido para ejecutar la consulta de Hive. La consulta recupera las 10 primeras filas de una tabla de Hive (**hivesampletable**) que se incluye de forma predeterminada en todos los clústeres de HDInsight. Se tardan unos 30 segundos en obtener los resultados. El resultado tendrá un aspecto similar al siguiente: 
+    Cuando se utiliza un cuaderno de Jupyter Notebook con el clúster de Spark en HDInsight, obtiene un valor de `sqlContext` preestablecido que puede usar para ejecutar consultas de Hive con Spark SQL. `%%sql` indica a Jupyter Notebook que use el valor de `sqlContext` preestablecido para ejecutar la consulta de Hive. La consulta recupera las 10 primeras filas de una tabla de Hive (**hivesampletable**) que se incluye de forma predeterminada en todos los clústeres de HDInsight. Se tardan unos 30 segundos en obtener los resultados. El resultado tendrá una apariencia similar a la siguiente: 
 
-    ![Consulta de Hive en HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Consulta de Hive en HDInsight Spark")
+    ![Consulta de Hive en HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive query in HDInsight Spark")
 
-    Cada vez que se ejecuta una consulta en Jupyter, el título de la ventana del explorador web muestra el estado **(Busy)** (Ocupado) junto con el título del Notebook. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha.
+    Cada vez que se ejecuta una consulta en Jupyter, el título de la ventana del explorador web muestra el estado **(Busy)** (Ocupado) junto con el título del cuaderno. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha.
     
 2. Ejecute otra consulta para ver los datos en `hivesampletable`.
 
@@ -170,22 +170,22 @@ SQL (Lenguaje de consulta estructurado) es el lenguaje más común y ampliamente
     
     Debe actualizar la pantalla para mostrar la salida de la consulta.
 
-    ![Consulta de Hive en HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Consulta de Hive en HDInsight Spark")
+    ![Consulta de Hive en HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Hive query output in HDInsight Spark")
 
 2. En el menú **File** (Archivo) del cuaderno, seleccione **Close and Halt** (Cerrar y detener). Al cerrar el cuaderno, se liberan los recursos de clúster.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-HDInsight guarda los datos en Azure Storage o Azure Data Lake Store, por lo que puede eliminar de manera segura un clúster si no está en uso. También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso. Si tiene previsto pasar inmediatamente al tutorial de [Pasos siguientes](#next-steps), es aconsejable que no elimine el clúster.
+HDInsight guarda los datos en Azure Storage o Azure Data Lake Store, por lo que puede eliminar de manera segura un clúster si no se usa. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. Si tiene previsto pasar inmediatamente al tutorial de [Pasos siguientes](#next-steps), es aconsejable que no elimine el clúster.
 
 Vuelva a Azure Portal y seleccione **Eliminar**.
 
-![Eliminar un clúster de HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "Eliminar un clúster de HDInsight")
+![Eliminación de un clúster de HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
 
 También puede seleccionar el nombre del grupo de recursos para abrir la página del grupo de recursos y, a continuación, seleccionar **Eliminar grupo de recursos**. Al eliminar el grupo de recursos, se eliminan tanto el clúster de HDInsight Spark como la cuenta de almacenamiento predeterminada.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-En este inicio rápido, ha aprendido a crear un clúster de HDInsight Spark y a ejecutar una consulta básica de Spark SQL. Continúe hasta el siguiente tutorial para obtener información sobre cómo usar un clúster de Spark de HDInsight para ejecutar consultas interactivas en datos de ejemplo.
+En esta guía de inicio rápido, ha aprendido a crear un clúster de HDInsight Spark y a ejecutar una consulta básica de Spark SQL. Continúe hasta el siguiente tutorial para obtener información sobre cómo usar un clúster de Spark de HDInsight para ejecutar consultas interactivas en datos de ejemplo.
 
 > [!div class="nextstepaction"]
 >[Ejecución de consultas interactivas en Spark](./apache-spark-load-data-run-query.md)

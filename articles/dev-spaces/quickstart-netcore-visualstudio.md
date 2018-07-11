@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 3b0e03d47a03411e3e6dc2d073d5087bcb42e03e
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 43b232e612f2ea4b47789e29a7f241bf4c35271d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960430"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100128"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (.NET Core y Visual Studio)
 
@@ -29,7 +29,7 @@ En esta guía, aprenderá a:
 > [!Note]
 > **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página. También puede probar con este [tutorial](get-started-netcore-visualstudio.md), que es más detallado.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un clúster de Kubernetes que ejecute Kubernetes 1.9.6, en las regiones EastUS, WestEurope o CanadaEast, con Enrutamiento de solicitudes HTTP habilitado.
 
@@ -39,7 +39,7 @@ En esta guía, aprenderá a:
 
 ## <a name="set-up-azure-dev-spaces"></a>Configuración de Azure Dev Spaces
 
-Instale la [extensión de Visual Studio para Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+Instale [Visual Studio Tools para Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## <a name="connect-to-a-cluster"></a>Conectarse a un clúster
 
@@ -105,7 +105,7 @@ Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en 
 Actualizar archivos de código requiere un poco más de trabajo, porque una aplicación .NET Core necesita volver a crear y producir archivos binarios de aplicaciones actualizados.
 
 1. Detenga el depurador en Visual Studio.
-1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`.
+1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`
 1. Guarde el archivo.
 1. Pulse **F5** para iniciar la depuración de nuevo. 
 

@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061254"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130900"
 ---
-# <a name="tutorial-create-app-that-uses-simple-entity"></a>Tutorial: Creación de una aplicación que utiliza la entidad Simple
+# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Tutorial: 6. Incorporación de entidad simple y lista de frases
 En este tutorial se crea una aplicación que muestra cómo se extraen datos aprendidos automáticamente de una expresión con la entidad **Simple**.
 
 <!-- green checkmark -->
@@ -45,7 +45,7 @@ Esta aplicación muestra cómo extraer datos de una expresión. Fíjese en las s
 |Please submit my resume for the engineering position.|engineering|
 |Fill out application for job 123456|123456|
 
-En este tutorial se agrega una nueva entidad para extraer el nombre del trabajo. La capacidad para extraer un número de trabajo concreto se muestra en la expresión regular [tutorial](luis-quickstart-intents-regex-entity.md). 
+En este tutorial se agrega una nueva entidad para extraer el nombre del trabajo. 
 
 ## <a name="purpose-of-the-simple-entity"></a>Propósito de la entidad simple
 El propósito de la entidad simple en esta aplicación de LUIS es enseñar a LUIS qué es un nombre de trabajo y dónde se puede encontrar en una expresión. La parte de la expresión que es el trabajo puede cambiar de una expresión a otra en función de la longitud de la expresión y de la elección de las palabras. LUIS necesita ejemplos de trabajos en cualquier expresión de todas las intenciones.  
@@ -54,7 +54,7 @@ El nombre del trabajo es difícil de determinar porque un nombre puede ser un su
 
 |Trabajos|
 |--|
-|engineer|
+|producto|
 |software engineer|
 |senior software engineer|
 |engineering team lead |
@@ -85,7 +85,7 @@ Esta aplicación de LUIS tiene nombres de trabajos en varias intenciones. Median
 
     ![Crear cuadro de diálogo modal emergente de la entidad simple con el nombre Job y el tipo Simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. En la expresión, `Submit resume for engineering position`, etiquete la palabra engineering como entidad de Job. Seleccione la palabra engineering y después, seleccione Job en el menú emergente. 
+5. En la expresión, `Submit resume for engineering position`, etiquete la palabra `engineering` como entidad de Job. Seleccione la palabra `engineering` y después, seleccione **Job** en el menú emergente. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de pantalla de la entidad de trabajo de etiquetado de LUIS resaltada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -107,7 +107,7 @@ Esta aplicación de LUIS tiene nombres de trabajos en varias intenciones. Median
     |I'm a registered nurse. Here is my resume.|registered nurse|
     |I would like to submit my paperwork for the teaching position I saw in the paper.|teaching|
     |This is my c.v. for the stocker post in fruits and vegetables.|stocker|
-    |Apply for tile work.|tile|
+    |Apply for tile work.|Icono|
     |Attached resume for landscape architect.|landscape architect|
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
     |I would like to apply for the position in photography.|photography|git 
@@ -121,7 +121,7 @@ Esta aplicación de LUIS tiene nombres de trabajos en varias intenciones. Median
 
     |Expresión|Entidad de Job|
     |:--|:--|
-    |Is there any work in databases?|databases|
+    |Is there any work in databases?|bases de datos|
     |Looking for a new situation with responsibilities in accounting|accounting|
     |What positions are available for senior engineers?|senior engineers|
 
@@ -292,7 +292,7 @@ Abra el archivo [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura de pantalla del elemento emergente del cuadro de diálogo Create new phrase list (Crear lista de frases)")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Si desea agregar más palabras a la lista de frases, examine las palabras recomendadas y agregue todas aquellas que considere pertinentes. 
+    Si desea agregar más palabras a la lista de frases, examine **Related Values** (Valores relacionados) y agregue todas aquellas que considere pertinentes. 
 
 4. Seleccione **Save** (Guardar) para activar la lista de frases.
 
@@ -369,7 +369,7 @@ Abra el archivo [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples
 Al agregar la lista de frases se ha aumentado la señal de las palabras de la lista, pero **no** se utiliza como coincidencia exacta. La lista de frases tiene varios trabajos con la primera palabra de `lead` y también tiene el trabajo `welder`, pero no tiene el trabajo `lead welder`. Es posible que esta lista de frases de trabajo no esté completa. Como [examina expresiones de punto de conexión](label-suggested-utterances.md) con regularidad y encuentra otras palabras de trabajo, agréguelas a la lista de frases. A continuación, vuelva a entrenar y a publicar la aplicación.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>¿Qué ha logrado esta aplicación de LUIS?
-Esta aplicación, con una entidad simple y una lista de frases de palabras, ha identificado una intención de consulta en lenguaje natural y ha devuelto los datos del mensaje. 
+Esta aplicación, con una entidad simple y una lista de frases de palabras, ha identificado una intención de consulta en lenguaje natural y ha devuelto los datos del trabajo. 
 
 El bot de chat ya tiene suficiente información para determinar la acción principal de aplicar un trabajo y un parámetro de dicha acción, a qué trabajo se hace referencia. 
 
@@ -377,9 +377,9 @@ El bot de chat ya tiene suficiente información para determinar la acción princ
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de la entidad para usar una API de terceros para enviar la información del trabajo a un representante del departamento de recursos humanos. Si hay otras opciones de programación para el bot o la aplicación que realiza la llamada, LUIS no realiza ese trabajo. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para ello, seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en la parte superior, menú de la izquierda. Seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Eliminar**. En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprenda a agregar una entidad keyphrase creada previamente](luis-quickstart-intent-and-key-phrase.md)
+> [Incorporación de una entidad keyphrase precompilada](luis-quickstart-intent-and-key-phrase.md)

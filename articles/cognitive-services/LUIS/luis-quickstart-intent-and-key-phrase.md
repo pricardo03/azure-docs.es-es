@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063415"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340958"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Tutorial: Información acerca de cómo devolver datos de la entidad keyPhrase 
+# <a name="tutorial-7-add-keyphrase-entity"></a>Tutorial: 7. Adición de la entidad KeyPhrase 
 En este tutorial, va a usar una aplicación que muestra cómo extraer los temas principales de las expresiones.
 
 <!-- green checkmark -->
@@ -201,10 +201,10 @@ Su bot de chat ya tiene ahora suficiente información para determinar el siguien
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de keyPhrase de la expresión para realizar el siguiente paso. LUIS no realiza este trabajo de programación para el bot o la aplicación que realiza la llamada. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para ello, seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Eliminar**. En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de una aplicación que devuelve opiniones junto con la predicción de intenciones](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Adición de análisis de opiniones](luis-quickstart-intent-and-sentiment-analysis.md)
 

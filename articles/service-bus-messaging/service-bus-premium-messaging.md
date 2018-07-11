@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dde7691d2fe4503de8a671d7f29e36558d474699
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775530"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440400"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -57,7 +57,7 @@ Si tiene código en ejecución en mensajería estándar y desea migrarlo al nive
 
 ## <a name="get-started-with-premium-messaging"></a>Introducción a la Mensajería premium
 
-La introducción a la mensajería premium es muy sencilla y el proceso es similar al de la mensajería estándar. Comience por [crear un espacio de nombres](service-bus-create-namespace-portal.md) en [Azure portal](https://portal.azure.com). Asegúrese de que selecciona **Premium** en **Elegir su plan de tarifa**.
+La introducción a la mensajería premium es muy sencilla y el proceso es similar al de la mensajería estándar. Comience por [crear un espacio de nombres](service-bus-create-namespace-portal.md) en [Azure Portal](https://portal.azure.com). Asegúrese de que selecciona **Premium** en **Plan de tarifa**. Haga clic en **Ver todos los detalles de los precios** para ver más información sobre cada nivel.
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -65,7 +65,7 @@ También puede crear un [espacios de nombres premium con plantillas de Azure Res
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
+Para más información sobre Mensajería de Service Bus, consulte los vínculos siguientes:
 
 * [Introducción a la mensajería Premium de Azure Service Bus (entrada de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducción a la mensajería Premium de Azure Service Bus (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

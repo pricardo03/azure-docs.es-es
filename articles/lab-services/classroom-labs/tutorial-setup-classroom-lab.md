@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 39683c89db57dbeefd190a51415c783d012785e0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303782"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081863"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio de clase 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -61,7 +61,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
 
 ## <a name="set-up-the-template"></a>Configuración de la plantilla 
-En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Establezca la visibilidad de la plantilla como pública para que las instancias de la máquina virtual de plantilla estén disponibles para los usuarios del laboratorio. 
+En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Publique la plantilla si desea que las instancias de la máquina virtual de la plantilla estén disponibles para los usuarios del laboratorio. 
 
 ### <a name="set-title-and-description"></a>Establecimiento del título y descripción
 1. En la sección **Plantilla**, seleccione **Editar** (icono de lápiz) para la plantilla. 
@@ -96,8 +96,8 @@ Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en
 2. A continuación, seleccione el botón **Publicar**. Este proceso puede tardar algún tiempo en función del número de máquinas virtuales que se crean, que es el mismo que el número de usuarios permitidos en el laboratorio.
     
     > [!IMPORTANT]
-    > Cuando la plantilla está disponible públicamente, no se puede cambiar el acceso a privado. 
-4. Cambie a la página **Máquinas virtuales** y confirme que ve las cinco máquinas virtuales que se encuentran en estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. 
+    > Las plantillas publicadas no pueden dejar de publicarse. 
+4. Cambie a la página **Máquinas virtuales** y confirme que ve las máquinas virtuales que tienen el estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. 
 
     ![Máquinas virtuales](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Espere hasta que se creen las máquinas virtuales. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o dejar que los alumnos inicien las máquinas virtuales. 

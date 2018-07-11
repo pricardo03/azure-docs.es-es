@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 182d65ea955cfa2cac611080c30e145c26284369
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751486"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129105"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -506,8 +506,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 * Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
 * Recorra paso a paso una aplicación de Batch de ejemplo en [Introducción a la biblioteca de Azure Batch para .NET](batch-dotnet-get-started.md). También existe una [versión para Python](batch-python-tutorial.md) del tutorial, en la que se ejecuta una carga de trabajo en nodos de proceso de Linux.
 * Descargue e instale la herramienta [BatchLabs][batch_labs] para usarla durante el desarrollo de sus soluciones de Batch. Use BatchLabs para crear, depurar y supervisar aplicaciones de Azure Batch. 
-* Aprenda a [crear grupos de nodos de proceso de Linux](batch-linux-nodes.md).
-* Visite el [foro de Azure Batch][batch_forum] en MSDN. El foro es un buen lugar donde plantear preguntas tanto si está aprendiendo como si tiene experiencia en el uso de Batch.
+* Consulte los recursos de la comunidad entre los que se encuentran [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), el [repositorio de la Comunidad de Batch](https://github.com/Azure/Batch) y el [foro de Azure Batch] [ batch_forum] en MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

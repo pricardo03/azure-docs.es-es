@@ -27,7 +27,7 @@
       href: how-to-text-to-speech.md
     - name: Traducir voz
       href: how-to-translate-speech.md
-    - name: Transcripción en lote
+    - name: Transcripción de Azure Batch
       href: batch-transcription.md
     - name: Obtener el SDK de dispositivos de voz
       href: get-speech-devices-sdk.md
@@ -41,6 +41,8 @@
       href: how-to-customize-pronunciation.md
     - name: Personalización de las fuentes de voz (voz de marca de bot)
       href: how-to-customize-voice-font.md
+    - name: Grabación de ejemplos de voz
+      href: record-custom-voice-samples.md
     - name: Preparar transcripciones
       href: prepare-transcription.md
     - name: Usar secuencias de audio personalizadas

@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 844527fcfdcc2e0db22a322cafd81d07e5bd35e7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7d348bf2372ff3bc48590b6c5e97e8eee8a4136b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048118"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084950"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Creación de una factoría de datos y una canalización con Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,10 +31,10 @@ En esta guía de inicio rápido se describe cómo usar Python para crear una ins
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
-* **Cree una aplicación en Azure Active Directory**. Para hacerlo, siga [estas instrucciones](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
+* **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
 
 ### <a name="create-and-upload-an-input-file"></a>Crear y cargar un archivo de entrada
 
@@ -106,7 +106,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Agregue el código siguiente al método **main** que crea una instancia de la clase DataFactoryManagementClient. Este objeto se usa para crear la factoría de datos, el servicio vinculado, los conjuntos de datos y la canalización. También se usa para supervisar los detalles de ejecución de la canalización. Establezca la variable **subscription_id** en el identificador de su suscripción a Azure. Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+3. Agregue el código siguiente al método **main** que crea una instancia de la clase DataFactoryManagementClient. Este objeto se usa para crear la factoría de datos, el servicio vinculado, los conjuntos de datos y la canalización. También se usa para supervisar los detalles de ejecución de la canalización. Establezca la variable **subscription_id** en el identificador de su suscripción a Azure. Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
     ```python   
     def main():
@@ -219,7 +219,7 @@ Agregue el código siguiente al método **main** que crea una **canalización co
 ```
 
 
-## <a name="create-a-pipeline-run"></a>Crear una ejecución de canalización
+## <a name="create-a-pipeline-run"></a>Creación de una ejecución de canalización
 
 Agregue el código siguiente al método **Main** que **desencadena una ejecución de canalización**.
 

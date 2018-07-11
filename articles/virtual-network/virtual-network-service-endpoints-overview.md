@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e7e79d51b59d82ebf91d68f0714b8eb7bcaafbe6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824693"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443637"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -28,11 +28,13 @@ Los puntos de conexión del servicio Virtual Network (red virtual) extienden el 
 
 Esta característica está disponible en los siguientes servicios y regiones de Azure:
 
-- **Azure Storage**: disponible con carácter general en todas las regiones de Azure
-- **Azure SQL Database**: disponible con carácter general en todas las regiones de Azure
-- **Azure Cosmos DB**: disponible con carácter general en todas las regiones de nube pública de Azure 
-- **Azure SQL Data Warehouse**: versión preliminar en todas las regiones de nube pública de Azure
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: disponible con carácter general en todas las regiones de Azure.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible con carácter general en todas las regiones de Azure.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible con carácter general en todas las regiones de nube pública de Azure. 
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: versión preliminar en todas las regiones de nube pública de Azure.
 - **Servicios de base de datos de Azure para PostgreSQL y MySQL**: versión preliminar en las regiones de Azure en las que el servicio de base de datos esté disponible.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
 
 Para conocer las notificaciones más actualizadas sobre, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -50,7 +52,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Esta característica solo está disponible en las redes virtuales implementadas con el modelo de implementación de Azure Resource Manager.
 - Los puntos de conexión están habilitados en subredes configuradas en redes virtuales de Azure. No se pueden usar los puntos de conexión para el tráfico desde las instalaciones a los servicios de Azure. Para más información, consulte [Protección del acceso del servicio de Azure desde el entorno local](#securing-azure-services-to-virtual-networks)
-- Para Azure SQL, un punto de conexión de servicio se aplica solo al tráfico de servicio de Azure dentro de la región de una red virtual. En el caso de Azure Storage, para admitir tráfico RA-GRS y GRS, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Obtenga más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Para Azure SQL, un punto de conexión de servicio solo se aplica al tráfico del servicio de Azure dentro de la región de una red virtual. En el caso de Azure Storage, para admitir tráfico RA-GRS y GRS, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Obtenga más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Protección de servicios de Azure para las redes virtuales
 
@@ -68,7 +70,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Los puntos de conexión de servicio se configuran en una subred de una red virtual. Los puntos de conexión funcionan con cualquier tipo de instancias de proceso que se ejecute en esa subred.
 - Puede configurar varios puntos de conexión de servicio para todos los servicios de Azure admitidos (por ejemplo, Azure Storage o Azure SQL Database) en una subred.
-- Para Azure SQL, las redes virtuales deben estar en la misma región que el recurso de servicio de Azure. Si se usan cuentas de Azure Storage para GRS y RA-GRS, la cuenta principal debe encontrarse en la misma región que la red virtual. Para todos los demás servicios, los recursos de servicio de Azure se pueden proteger para las redes virtuales de cualquier región. 
+- Para Azure SQL Database, las redes virtuales deben estar en la misma región que el recurso de servicio de Azure. Si se usan cuentas de Azure Storage para GRS y RA-GRS, la cuenta principal debe encontrarse en la misma región que la red virtual. Para todos los demás servicios, los recursos de servicio de Azure se pueden proteger para las redes virtuales de cualquier región. 
 - La red virtual donde se ha configurado el punto de conexión puede estar en la misma suscripción o en otra distinta del recurso de servicio de Azure. Para más información sobre los permisos necesarios para configurar los puntos de conexión y proteger los servicios de Azure, consulte [Aprovisionamiento](#Provisioning).
 - Para los servicios compatibles, puede proteger los nuevos recursos o los recursos existentes a las redes virtuales con puntos de conexión de servicio.
 
@@ -80,7 +82,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 - Con los puntos de conexión de servicio, las entradas DNS para los servicios de Azure permanecen tal y como están ahora y seguirán resolviendo las direcciones IP públicas asignadas al servicio de Azure.
 - Grupos de seguridad de red (NSG) con puntos de conexión de servicio:
   - De forma predeterminada, los grupos de seguridad de red permiten el tráfico saliente de Internet y, por lo tanto, también permiten el tráfico desde la red virtual a los servicios de Azure. Esto continúa funcionando tal cual, con puntos de conexión de servicio. 
-  - Si desea denegar todo el tráfico de Internet saliente y permitir únicamente el tráfico a servicios de Azure específicos, puede hacerlo mediante las __"etiquetas de servicio de Azure"__ de sus grupos de seguridad de red. Puede especificar los servicios de Azure compatibles como destino en las reglas de grupos de seguridad de red y Azure proporciona el mantenimiento de las direcciones IP subyacentes en cada etiqueta. Para más información, consulte las [etiquetas de servicio de Azure para grupos de seguridad de red](https://aka.ms/servicetags). 
+  - Si desea denegar todo el tráfico de Internet saliente y permitir únicamente el tráfico a servicios de Azure específicos, puede hacerlo mediante las [etiquetas de servicio](security-overview.md#service-tags) de sus grupos de seguridad de red. Puede especificar los servicios de Azure compatibles como destino en las reglas de grupos de seguridad de red y Azure proporciona el mantenimiento de las direcciones IP subyacentes en cada etiqueta. Para más información, consulte las [etiquetas de servicio de Azure para grupos de seguridad de red](security-overview.md#service-tags). 
 
 ### <a name="scenarios"></a>Escenarios
 

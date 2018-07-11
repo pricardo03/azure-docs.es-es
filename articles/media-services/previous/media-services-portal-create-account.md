@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/03/2017
+ms.date: 07/01/2018
 ms.author: juliako
-ms.openlocfilehash: fcf02e39a305281501773db51383dff66c485493
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: da190bf2418f1cfb8ea952b69d3bf1d76258da5f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780626"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342334"
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Creación de una cuenta de Azure Media Services mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -31,7 +31,9 @@ ms.locfileid: "33780626"
 > 
 > 
 
-Azure Portal proporciona una forma de crear rápidamente una cuenta de Azure Media Services (AMS). Puede usar la cuenta para obtener acceso a Media Services que le permiten almacenar, cifrar, codificar, administrar y transmitir contenido multimedia en Azure. En el momento en el que crea una cuenta de Media Services, también crea una cuenta de almacenamiento asociada (o usa una ya existente) en la misma región geográfica que la cuenta de Media Services.
+Azure Portal proporciona una forma de crear rápidamente una cuenta de Azure Media Services (AMS). Puede usar la cuenta para obtener acceso a Media Services que le permiten almacenar, cifrar, codificar, administrar y transmitir contenido multimedia en Azure. En el momento en el que crea una cuenta de Media Services, también crea una cuenta de almacenamiento asociada (o usa una ya existente) en la misma región geográfica que la cuenta de Media Services. 
+
+La cuenta de almacenamiento principal puede ser de uso general v1 o de uso general v2. Actualmente, Azure portal solo permite seleccionar v1, pero puede agregar v2 al crear la cuenta mediante la API o Powershell. Para más información acerca de los tipos de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 En este artículo se explican algunos conceptos comunes y se muestra cómo crear una cuenta de Media Services con Azure Portal.
 
@@ -41,12 +43,9 @@ En este artículo se explican algunos conceptos comunes y se muestra cómo crear
 ## <a name="concepts"></a>Conceptos
 El acceso a Media Services requiere dos cuentas asociadas:
 
-* Una cuenta de Media Services. La cuenta le proporciona acceso a un conjunto de Media Services basados en la nube que están disponibles en Azure. Una cuenta de Media Services no almacena el contenido multimedia real, sino que almacena metadatos sobre el contenido multimedia y trabajos de procesamiento multimedia en su cuenta. En el momento en el que cree la cuenta, seleccione una región de Media Services disponible. La región que selecciona es un centro de datos que almacena los registros de metadatos para su cuenta.
+* Una cuenta de Media Services. La cuenta le proporciona acceso a un conjunto de recursos de Media Services basados en la nube que están disponibles en Azure. Una cuenta de Media Services no almacena el contenido multimedia real, sino que almacena metadatos sobre el contenido multimedia y trabajos de procesamiento multimedia en su cuenta. En el momento en el que cree la cuenta, seleccione una región de Media Services disponible. La región que selecciona es un centro de datos que almacena los registros de metadatos para su cuenta.
   
 * Una cuenta de almacenamiento de Azure. Las cuentas de almacenamiento deben ubicarse en la misma región geográfica que la cuenta de Media Services. Cuando cree una cuenta de Media Services, podrá elegir una cuenta de almacenamiento existente en la misma región o crear una nueva cuenta de almacenamiento en la misma región. Si elimina una cuenta de Media Services, no se eliminarán los blobs de la cuenta de almacenamiento relacionada.
-
-  > [!NOTE]
-  > Media Services restringe la cuenta de almacenamiento principal para que sea una cuenta **de almacenamiento de uso general** con tablas y colas. Para más información acerca de los tipos de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="create-an-ams-account"></a>Creación de una cuenta de AMS
 Los pasos de esta sección muestran cómo crear una cuenta de AMS.

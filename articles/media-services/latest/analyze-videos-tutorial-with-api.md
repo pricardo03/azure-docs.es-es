@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e81544d263bea3f367eaf2100ddb36a2835034c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637919"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114231"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: Análisis de vídeos con Azure Media Services 
 
@@ -34,9 +34,12 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > * Examen de la salida
 > * Limpieza de recursos
 
+> [!Note]
+> Use Azure portal, como se describe en [Escalado de procesamiento de medios](../previous/media-services-scale-media-processing-overview.md) para establecer la cuenta de Media Services en 10 unidades reservadas de medios S3.
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene Visual Studio instalado, puede obtener [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -85,7 +88,7 @@ La función siguiente realiza estas acciones:
 
 * Crea un recurso. 
 * Obtiene una [dirección URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) que se puede escribir en el [contenedor de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) del recurso.
-* Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS.
+* Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
@@ -115,7 +118,7 @@ En este ejemplo, la entrada de trabajo es un vídeo local.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#SubmitJob)]
 
-### <a name="wait-for-the-job-to-complete"></a>Espere a que el trabajo se complete.
+### <a name="wait-for-the-job-to-complete"></a>Espere a que el trabajo se complete
 
 El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir una notificación. Hay distintas opciones para obtener notificaciones sobre la realización del [trabajo](https://docs.microsoft.com/en-us/rest/api/media/jobs). La opción más sencilla (que se muestra aquí) es para utilizar el sondeo. 
 

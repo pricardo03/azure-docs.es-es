@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Introducción a Hadoop y Hive en Azure HDInsight con la plantilla de Resource Manager | Microsoft Docs'
+title: 'Inicio rápido: Introducción a Hadoop y Hive en Azure HDInsight con la plantilla de Resource Manager | Microsoft Docs'
 description: Aprenda a crear clústeres de HDInsight y a consultar datos con Hive.
 keywords: introducción a hadoop, hadoop linux, inicio rápido de hadoop, introducción a hive, inicio rápido en hive
 services: hdinsight
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 48dbd89216d27e9495a9129c6b873f86a9a23338
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c49371d194b3b6f94076cb00595ec9feaeb3fb44
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763262"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096407"
 ---
-# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Guía de inicio rápido: Introducción a Hadoop y Hive en Azure HDInsight con la plantilla de Resource Manager
+# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Inicio rápido: Introducción a Hadoop y Hive en Azure HDInsight con la plantilla de Resource Manager
 
-En este artículo, aprenderá a crear clústeres de [Hadoop](http://hadoop.apache.org/) en HDInsight con una plantilla de Resource Manager y, a continuación, ejecutar trabajos de Hive en HDInsight. La mayoría de los trabajos de Hadoop son trabajos por lotes. Se crea un clúster, se ejecutan algunos trabajos y luego se elimina el clúster. En este artículo, realizará las tres tareas.
+En este artículo, aprenderá a crear clústeres de [Hadoop](http://hadoop.apache.org/) en HDInsight con una plantilla de Resource Manager y, a continuación, a ejecutar trabajos de Hive en HDInsight. La mayoría de los trabajos de Hadoop son por lotes. Se crea un clúster, se ejecutan algunos trabajos y luego se elimina el clúster. En este artículo, realizará las tres tareas.
 
 En esta guía de inicio rápido, usará una plantilla de Resource Manager para crear un clúster de HDInsight Hadoop. También puede crear un clúster mediante [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).
 
@@ -47,11 +47,11 @@ En esta sección, se crea un clúster de Hadoop en HDInsight mediante una planti
     > 
     >
     
-    ![Introducción a HDInsight Linux, plantilla de Resource Manager en el portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Implementación de un clúster de Hadoop en HDInsight mediante Azure Portal y una plantilla de Resource Manager")
+    ![Introducción de HDInsight Linux a la plantilla de Resource Manager en el portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Implementación de un clúster de Hadoop en HDInsight mediante Azure Portal y una plantilla de Resource Manager")
 
     Escriba o seleccione los siguientes valores:
     
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |**Suscripción**     |  Seleccione su suscripción a Azure. |
     |**Grupos de recursos**     | Cree un grupo de recursos o seleccione uno existente.  Un grupo de recursos es un contenedor de componentes de Azure.  En este caso, el grupo de recursos contiene el clúster de HDInsight y la cuenta de Azure Storage dependiente. |
@@ -61,9 +61,9 @@ En esta sección, se crea un clúster de Hadoop en HDInsight mediante una planti
     |**Nombre de inicio de sesión y contraseña del clúster**     | El nombre de inicio de sesión predeterminado es **admin**. La contraseña debe tener un mínimo de 10 caracteres y contener al menos un dígito, una letra mayúscula y una letra minúscula, y un carácter no alfanumérico (excepto los caracteres ' " y `\). Asegúrese de **no proporcionar** contraseñas comunes, como "Pass@word1".|
     |**Nombre de usuario y contraseña de SSH**     | El nombre de usuario predeterminado es **sshuser**.  El nombre de usuario de SSH se puede cambiar.  La contraseña de usuario de SSH tiene los mismos requisitos que la contraseña de inicio de sesión del clúster.|
        
-    Algunas propiedades se han codificado de forma rígida en la plantilla.  Puede configurar estos valores de la plantilla. Para más información acerca de estas propiedades, consulte [Creación de clústeres de Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+    Algunas propiedades se han codificado de forma rígida en la plantilla.  Puede configurar estos valores desde la plantilla. Para más información acerca de estas propiedades, consulte [Creación de clústeres de Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y **Anclar al panel** y seleccione **Comprar**. Verá un icono nuevo llamado **Enviando implementación** en el panel del portal. Se tarda aproximadamente 20 minutos en crear un clúster.
+3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y **Anclar al panel**, y seleccione **Comprar**. Verá un icono nuevo llamado **Enviando implementación** en el panel del portal. Se tarda aproximadamente 20 minutos en crear un clúster.
 
     ![Progreso de Template Deployment](./media/apache-hadoop-linux-tutorial-get-started/deployment-progress-tile.png "Progreso de Azure Template Deployment")
 
@@ -71,7 +71,7 @@ En esta sección, se crea un clúster de Hadoop en HDInsight mediante una planti
    
     ![Introducción a HDInsight Linux: grupo de recursos](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Grupo de recursos de clúster de Azure HDInsight")
     
-5. El icono también muestra el almacenamiento predeterminado asociado con el clúster. Cada clúster depende de una [cuenta de Azure Storage](../hdinsight-hadoop-use-blob-storage.md) o de una [cuenta de Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Se conoce como cuenta de almacenamiento predeterminada. El clúster de HDInsight y su cuenta de almacenamiento predeterminada deben estar en la misma región de Azure. La eliminación de los clústeres no elimina la cuenta de almacenamiento.
+5. El icono también muestra el almacenamiento predeterminado asociado con el clúster. Cada clúster depende de una [cuenta de Azure Storage](../hdinsight-hadoop-use-blob-storage.md) o de una [cuenta de Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Se conoce como cuenta de almacenamiento predeterminada. El clúster de HDInsight y su cuenta de almacenamiento predeterminada deben estar en la misma región de Azure. Al eliminar los clústeres no se elimina la cuenta de almacenamiento.
     
 
 > [!NOTE]
@@ -83,7 +83,7 @@ En esta sección, se crea un clúster de Hadoop en HDInsight mediante una planti
 
 Para averiguar cómo obtener las herramientas de HDInsight en VSCode, consulte [Uso de las herramientas de Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 
-### <a name="submit-interactive-hive-queries"></a>Enviar consultas de Hive interactivas
+### <a name="submit-interactive-hive-queries"></a>Envío de consultas de Hive interactivas
 
 Herramientas de HDInsight para VSCode permite enviar consultas de Hive interactivas a clústeres de consultas interactivas de HDInsight.
 
@@ -106,7 +106,7 @@ Herramientas de HDInsight para VSCode permite enviar consultas de Hive interacti
 
 Una consulta interactiva tarda mucho menos en ejecutarse que un [trabajo por lotes de Hive](#submit-hive-batch-scripts).
 
-### <a name="submit-hive-batch-scripts"></a>Enviar scripts por lotes de Hive
+### <a name="submit-hive-batch-scripts"></a>Envío de scripts por lotes de Hive
 
 1. Si no tiene una carpeta de trabajo y un archivo de script Hive, créelos.
 
@@ -123,7 +123,7 @@ Una consulta interactiva tarda mucho menos en ejecutarse que un [trabajo por lot
 
     Después de enviar un trabajo de Hive, la información de envío correcto y el identificador del trabajo aparecen en el panel **SALIDA**. El trabajo de Hive también abre el **EXPLORADOR WEB**, que muestra el estado y los registros del trabajo en tiempo real.
 
-   ![enviar el resultado de un trabajo de Hive](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
+   ![envío del resultado de un trabajo de Hive](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
 
 El [envío de consultas Hive interactivas](#submit-interactive-hive-queries) tarda mucho menos tiempo que el envío de un trabajo por lotes.
 
@@ -133,7 +133,7 @@ Para averiguar cómo obtener las herramientas de HDInsight en Visual Studio, con
 
 ### <a name="run-hive-queries"></a>Ejecución de consultas de Hive
 
-Para crear y ejecutar consultas de Hive tiene dos opciones:
+Para crear y ejecutar consultas de Hive, tiene dos opciones:
 
 * Crear consultas ad hoc
 * Crear una aplicación de Hive
@@ -153,14 +153,14 @@ Para crear y ejecutar consultas ad hoc:
     ![Captura de pantalla del ejemplo 2 de Visual Studio Tools en HDInsight: IntelliSense](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "IntelliSense en U-SQL")
    
    > [!NOTE]
-   > IntelliSense solo sugiere los metadatos del clúster que se selecciona en la barra de herramientas de HDInsight.
+   > IntelliSense solo sugiere los metadatos del clúster que se seleccionan en la barra de herramientas de HDInsight.
    > 
    
-4. Seleccione **Enviar** o en **Enviar (avanzado)**. 
+4. Seleccione **Enviar** o **Enviar (avanzado)**. 
    
     ![Captura de pantalla del envío de una consulta de Hive](./media/apache-hadoop-linux-tutorial-get-started/vs-batch-query.png)
 
-   Si selecciona la opción de envío avanzado, configure las opciones **Nombre del trabajo**, **argumentos**, **Configuraciones adicionales** y **Estado de directorio** del script:
+   Si selecciona la opción de envío avanzado, configure las opciones **Nombre del trabajo**, **Argumentos**, **Configuraciones adicionales** y **Estado de directorio** del script:
 
     ![Captura de pantalla de consulta de Hive para Hadoop en HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Envío de consultas")
 
@@ -185,11 +185,11 @@ Para crear y ejecutar una solución de Hive:
 
 ## <a name="run-hive-queries"></a>Ejecución de consultas de Hive
 
-[Apache Hive](hdinsight-use-hive.md) es el componente más popular de los que se usan en HDInsight. Hay muchas maneras de ejecutar trabajos de Hive en HDInsight. En este tutorial se usa la vista de Hive de Ambari desde el portal. Para conocer otros métodos de enviar trabajos de Hive, consulte [Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra](hdinsight-use-hive.md).
+[Apache Hive](hdinsight-use-hive.md) es el componente más popular de los que se usan en HDInsight. Hay muchas maneras de ejecutar trabajos de Hive en HDInsight. En este tutorial se usa la vista de Hive de Ambari desde el portal. Para conocer otros métodos para enviar trabajos de Hive, consulte [Uso de Hive en HDInsight](hdinsight-use-hive.md).
 
 1. Para abrir Ambari, desde la captura de pantalla anterior, seleccione **Panel de clúster**.  También puede ir a **https://&lt;NombreDeClúster>.azurehdinsight.net**, donde &lt;NombreDeClúster> es el clúster que creó en la sección anterior.
 
-    ![Introducción de HDInsight Linux al panel de clúster](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "Introducción de HDInsight Linux al panel de clúster")
+    ![Introducción de HDInsight Linux al panel de clúster](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "HDInsight Linux get started cluster dashboard")
 
 2. Escriba el nombre de usuario de Hadoop y la contraseña que especificó al crear el clúster. El nombre de usuario predeterminado es **admin**.
 
@@ -222,14 +222,14 @@ Para crear y ejecutar una solución de Hive:
 
     ![Guardado de los resultados de la consulta de Hive](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "Save result of Hive query")
 
-Después de completar un trabajo de Hive, puede [exportar los resultados a Azure SQL Database o Base de datos SQL Server](apache-hadoop-use-sqoop-mac-linux.md), y también puede [visualizar los resultados con Excel](apache-hadoop-connect-excel-power-query.md). Para más información sobre el uso de Hive en HDInsight, consulte [Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra](hdinsight-use-hive.md).
+Después de completar un trabajo de Hive, puede [exportar los resultados a Azure SQL Database o Base de datos SQL Server](apache-hadoop-use-sqoop-mac-linux.md), y también puede [visualizar los resultados con Excel](apache-hadoop-connect-excel-power-query.md). Para más información sobre el uso de Hive en HDInsight, consulte [Uso de Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra](hdinsight-use-hive.md).
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
 Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Después de completar el artículo, puede eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no está en uso. También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso. 
+Después de completar el artículo, puede eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. 
 
 > [!NOTE]
 > Si avanza de *inmediato* al siguiente tutorial para aprender a ejecutar operaciones de ETL con Hadoop en HDInsight, es posible que quiera mantener el clúster en ejecución. Esto es porque en el tutorial tendrá que crear un clúster de Hadoop de nuevo. Sin embargo, si no va a continuar con el próximo tutorial de inmediato, debe eliminar el clúster ahora.
@@ -240,21 +240,22 @@ Después de completar el artículo, puede eliminar el clúster. Con HDInsight, l
 
 1. Vuelva a la pestaña de explorador en la que tenga Azure Portal. Estará en la página de información general del clúster. Si solo quiere eliminar el clúster, pero desea seguir conservando la cuenta de almacenamiento predeterminada, seleccione **Eliminar**.
 
-    ![HDInsight, eliminar clúster](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "Eliminar clúster de HDInsight")
+    ![Eliminación de un clúster de HDInsight](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "Delete HDInsight cluster")
 
 2. Si quiere eliminar el clúster y la cuenta de almacenamiento predeterminada, seleccione el nombre del grupo de recursos (resaltado en la captura de pantalla anterior) para abrir la página del grupo de recursos.
 
-3. Seleccione **Eliminar grupo de recursos** para eliminar el grupo de recursos, que contiene el clúster y la cuenta de almacenamiento predeterminada. Tenga en cuenta que, al eliminar el grupo de recursos, se elimina también la cuenta de almacenamiento. Si desea mantener la cuenta de almacenamiento, elija Eliminar solo el clúster.
+3. Seleccione **Eliminar grupo de recursos** para eliminar el grupo de recursos, que contiene el clúster y la cuenta de almacenamiento predeterminada. Tenga en cuenta que, al eliminar el grupo de recursos, se elimina también la cuenta de almacenamiento. Si desea mantener la cuenta de almacenamiento, elija eliminar solo el clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha aprendido cómo crear un clúster de HDInsight basado en Linux mediante una plantilla de Resource Manager y cómo realizar consultas básicas de Hive. En el siguiente artículo, aprenderá cómo realizar una operación ETL (extraer, transformar y cargar) mediante Hadoop en HDInsight.
+En este artículo, ha aprendido cómo crear un clúster de HDInsight basado en Linux mediante una plantilla de Resource Manager y cómo realizar consultas básicas de Hive. En el siguiente artículo, aprenderá a realizar una operación ETL (extraer, transformar y cargar) con Hadoop en HDInsight.
 
 > [!div class="nextstepaction"]
->[Extraer, transformar y cargar datos mediante Apache Hive en HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extracción, transformación y carga de datos mediante Apache Hive en HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
 
-Si está listo para empezar a trabajar con sus propios datos y necesita más información acerca de la forma en que HDInsight o de cómo obtener datos en HDInsight, consulte los siguientes artículos:
+Si está preparado para empezar a trabajar con sus propios datos y necesita más información acerca de la forma en que HDInsight almacena los datos o de cómo obtener datos en HDInsight, consulte los siguientes artículos:
 
 * Para más información sobre cómo HDInsight usa Azure Storage, consulte [Uso de Azure Storage con HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* Para obtener información sobre cómo crear un clúster de HDInsight con Data Lake Storage, consulte [Inicio rápido: configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Para más información sobre cómo cargar datos en HDInsight, consulte [Carga de datos en HDInsight](../hdinsight-upload-data.md).
 
 Para más información sobre el análisis de datos con HDInsight, consulte los siguientes artículos:
@@ -263,7 +264,7 @@ Para más información sobre el análisis de datos con HDInsight, consulte los s
 * Para más información sobre Pig, un lenguaje usado para transformar datos, consulte [Uso de Pig con HDInsight](hdinsight-use-pig.md).
 * Para más información sobre MapReduce, una manera de escribir programas que procesan datos en Hadoop, consulte [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md).
 * Para más información sobre el uso de las herramientas de HDInsight para Visual Studio para analizar datos en HDInsight, consulte [Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight para ejecutar una consulta de Hive](apache-hadoop-visual-studio-tools-get-started.md).
-* Para más información sobre el uso de las herramientas de HDInsight para VSCode para analizar datos en HDInsight, consulte [Uso de las Herramientas de Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
+* Para más información sobre el uso de las herramientas de HDInsight para VSCode para analizar datos en HDInsight, consulte [Uso de las herramientas de Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 
 
 Si desea más información acerca de cómo crear o administrar un clúster de HDInsight, consulte los siguientes artículos:

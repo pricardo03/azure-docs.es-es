@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062048"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345498"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementación de Azure Machine Learning como un módulo de IoT Edge (versión preliminar)
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 >[!NOTE]
 >Los módulos Azure Machine Learning en Azure IoT Edge están en versión preliminar pública. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para probar el módulo de Machine Learning que crea en este tutorial, necesitará un dispositivo IoT Edge. Puede usar el dispositivo que ha configurado en la guía de inicio rápido para [dispositivos Linux](quickstart-linux.md) o [Windows](quickstart.md). 
 
@@ -52,7 +52,7 @@ Asegúrese de tener los siguientes requisitos previos en la máquina de desarrol
 
 Para deshabilitar la identificación del proceso, deberá proporcionar la dirección IP y el puerto para **workload_uri** y **management_uri** en la sección **connect** de la configuración del demonio de IoT Edge.
 
-Obtenga la dirección IP primero. Escriba `ifconfig` en la línea de comandos y copie la dirección IP de la interfaz **docker0**.
+Obtenga primero la dirección IP. Escriba `ifconfig` en la línea de comandos y copie la dirección IP de la interfaz **docker0**.
 
 Edite el archivo de configuración del demonio de IoT Edge:
 
@@ -60,14 +60,14 @@ Edite el archivo de configuración del demonio de IoT Edge:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Actualice la sección **connect** de la configuración. Por ejemplo: 
+Actualice la sección **connect** de la configuración con la dirección IP. Por ejemplo:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
-Escriba las mismas direcciones de la sección **listen** de la configuración. Por ejemplo: 
+Escriba las mismas direcciones de la sección **listen** de la configuración. Por ejemplo:
 
 ```yaml
 listen:
@@ -125,14 +125,14 @@ Compruebe que la imagen de contenedor se creó y almacenó correctamente en Azur
 1. Si anteriormente implementó el módulo tempSensor en su dispositivo IoT Edge, puede que se rellene automáticamente. Si todavía no está en la lista de módulos, agréguelo.
 
     1. Haga clic en **Add** (Agregar) y seleccione **IoT Edge Module** (Módulo de IoT Edge).
-    2. En el campo **Nombre**, escriba `tempsensor`.
+    2. En el campo **Nombre**, escriba `tempSensor`.
     3. En el campo **URI de la imagen**, escriba `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Seleccione **Guardar**.
 
 1. Agregue el módulo de Machine Learning que creó.
 
     1. Haga clic en **Add** (Agregar) y seleccione **Azure Machine Learning Module** (Módulo de Azure Machine Learning).
-    1. En el campo **Nombre**, escriba `machinelearningmodule`.
+    1. En el campo **Nombre**, escriba `machinelearningmodule`
     1. En el campo **Imagen**, escriba la dirección de la imagen; por ejemplo, `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Seleccione **Guardar**.
 
@@ -218,7 +218,7 @@ az iot hub delete --name MyIoTHub --resource-group TestResources
 
 Para eliminar un grupo de recursos entero por el nombre:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Grupos de recursos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
 2. Escriba el nombre del grupo de recursos que contiene la instancia de IoT Hub en el cuadro de texto **Filtrar por nombre...**. 
 

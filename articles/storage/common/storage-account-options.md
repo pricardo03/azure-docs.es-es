@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335778"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445437"
 ---
 # <a name="azure-storage-account-options"></a>Opciones de la cuenta de Azure Storage
 
@@ -46,7 +46,10 @@ Las cuentas de almacenamiento de uso general v2 exponen el atributo **Access Tie
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Actualización de una cuenta de almacenamiento a GPv2
 
-Los usuarios pueden actualizar una cuenta de almacenamiento de GPv1 o Blob Storage a una cuenta de GPv2 en cualquier momento mediante PowerShell o la CLI de Azure. Este cambio no se puede revertir, y no se permite ningún otro cambio.
+Los usuarios pueden actualizar una cuenta de almacenamiento de GPv1 o Blob Storage a una cuenta de GPv2 en cualquier momento mediante Azure Portal, PowerShell o la CLI de Azure. Este cambio no se puede revertir, y no se permite ningún otro cambio.
+
+#### <a name="upgrade-with-azure-portal"></a>Actualización con Azure Portal
+Para actualizar una cuenta de almacenamiento GPv1 o de blobs a una cuenta GPv2 mediante Azure Portal, primero inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione su cuenta de almacenamiento. Seleccione **Configuración** > **Configuración**. Allí verá el botón **Actualizar** junto con una nota relacionada con el proceso de actualización.
 
 #### <a name="upgrade-with-powershell"></a>Actualización con PowerShell
 
@@ -262,9 +265,9 @@ El costo de transferencia de datos de replicación geográfica para cuentas de B
 
 ## <a name="migrating-existing-data"></a>Migración de datos existentes
 
-Una cuenta de uso general v1 se puede actualizar fácilmente a uso general v2 sin que se produzca ningún tiempo de inactividad ni sea preciso realizar cambios en la API y sin tener que migrar los datos. Por este motivo, se recomienda encarecidamente migrar cuentas de GPv1 a GPv2, en lugar de a cuentas de Blob Storage.
+Una cuenta de GPv1 o de almacenamiento de blobs se puede actualizar fácilmente a GPv2 sin ningún tiempo de inactividad o cambio de API, y sin tener que migrar los datos. Por este motivo, se recomienda encarecidamente migrar cuentas de GPv1 a GPv2, en lugar de a cuentas de Blob Storage. Para más información sobre la actualización a GPv2, consulte [Actualización de una cuenta de almacenamiento a GPv2](#upgrade-a-storage-account-to-gpv2).
 
-Sin embargo, si tiene que migrar a una cuenta de Blob Storage y no puede usar las cuentas de GPv2, puede usar las instrucciones siguientes. 
+Sin embargo, si tiene que migrar a una cuenta de GPv1 a una cuenta de almacenamiento de blobs y no puede usar las cuentas de GPv2, puede usar las instrucciones siguientes. 
 
 Las cuentas de Almacenamiento de blobs son especiales para almacenar solo blobs y anexar blobs. Las cuentas de almacenamiento de uso general existentes, que permiten almacenar tablas, colas, archivos y discos, así como blobs, no se pueden convertir en cuentas de Blob Storage. Para utilizar los niveles de almacenamiento, debe crear nuevas cuentas de Blob Storage y migrar los datos existentes a las cuentas recién creadas. 
 

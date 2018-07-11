@@ -2,19 +2,19 @@
 title: 'Guía de inicio rápido: creación de un clúster de Azure Kubernetes en el portal'
 description: Aprenda rápidamente cómo puede crear un clúster de Kubernetes para contenedores de Linux en AKS con Azure Portal.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286603"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344481"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -28,11 +28,9 @@ En esta guía rápida se presupone un conocimiento básico de los conceptos de K
 
 Inicie sesión en Azure Portal en http://portal.azure.com.
 
-
-
 ## <a name="create-aks-cluster"></a>Creación de un clúster de AKS
 
-Elija **Crear un recurso** > seleccione **Kubernetes Service** > **Crear**.
+Elija **Crear un recurso** > seleccione **Kubernetes Service**.
 
 Complete los pasos siguientes en cada encabezado del formulario de creación del clúster de AKS.
 

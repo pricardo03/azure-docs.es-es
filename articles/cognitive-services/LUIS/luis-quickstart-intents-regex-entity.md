@@ -7,17 +7,17 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316549"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128452"
 ---
-# <a name="tutorial-use-regular-expression-entity"></a>Tutorial: Uso de entidades de expresiones regulares
-En este tutorial, va a crear una aplicación que muestra cómo extraer datos con formato de forma coherente desde una expresión con la entidad **Expresión regular**.
+# <a name="tutorial-3-add-regular-expression-entity"></a>Tutorial: 3. Incorporación de entidades de expresiones regulares
+En este tutorial, va a crear una aplicación que demuestra cómo extraer datos con formato de forma coherente desde una expresión con la entidad **Expresión regular**.
 
 
 <!-- green checkmark -->
@@ -31,7 +31,7 @@ En este tutorial, va a crear una aplicación que muestra cómo extraer datos con
 Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md#luis-website) para crear la aplicación.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Si no tiene la aplicación de Recursos humanos desde el tutorial de entidades predefinidas [dominio personalizado](luis-tutorial-prebuilt-intents-entities.md), [importe](create-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web [LUIS](luis-reference-regions.md#luis-website), desde el repositorio Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Si no tiene la aplicación de Recursos humanos del tutorial de [entidades precompiladas](luis-tutorial-prebuilt-intents-entities.md), [importe](create-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web [LUIS](luis-reference-regions.md#luis-website), desde el repositorio Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
 Si desea conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `regex`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
 
@@ -144,54 +144,70 @@ Para obtener una predicción de LUIS en un bot de chat u otra aplicación, tiene
 
     ![Captura de pantalla de la página Publish (Publicar) con la dirección URL del punto de conexión resaltada](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
-2. Vaya al final de la dirección URL en la dirección y escriba `When were HRF-123456 and hrf-234567 published?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `FindForm` con los dos números de formulario `HRF-123456` y `hrf-234567`.
+2. Vaya al final de la dirección URL en la dirección y escriba `When were HRF-123456 and hrf-234567 published in the last year?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `FindForm` con los dos números de formulario `HRF-123456` y `hrf-234567`.
 
     ```
     {
-      "query": "When were HRF-123456 and hrf-234567 published?",
+      "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
         "intent": "FindForm",
-        "score": 0.970179737
+        "score": 0.9993477
       },
       "intents": [
         {
           "intent": "FindForm",
-          "score": 0.970179737
+          "score": 0.9993477
         },
         {
           "intent": "ApplyForJob",
-          "score": 0.0131893409
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00364777143
+          "score": 0.0206110049
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0024568392
+          "score": 0.00533067342
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.004215215
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.00173760345
+          "score": 0.00209096959
         },
         {
           "intent": "None",
-          "score": 0.00173070864
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00130692765
+          "score": 0.0017655947
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.00130328839
+          "score": 0.00109490135
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.0005704638
         },
         {
           "intent": "Utilities.Cancel",
-          "score": 0.0006671795
+          "score": 0.000525338168
         }
       ],
       "entities": [
+        {
+          "entity": "last year",
+          "type": "builtin.datetimeV2.daterange",
+          "startIndex": 53,
+          "endIndex": 61,
+          "resolution": {
+            "values": [
+              {
+                "timex": "2017",
+                "type": "daterange",
+                "start": "2017-01-01",
+                "end": "2018-01-01"
+              }
+            ]
+          }
+        },
         {
           "entity": "hrf-123456",
           "type": "HRF-number",
@@ -237,10 +253,10 @@ El bot de chat ahora tiene suficiente información para determinar la acción pr
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado topScoringIntent y los números de formulario y buscar una API de terceros. LUIS no hace ese trabajo. LUIS solo determina cuál es la intención del usuario y extrae datos sobre esa intención. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para ello, seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Eliminar**. En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre la entidad KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
+> [Obtenga información acerca de la entidad de la lista](luis-quickstart-intent-and-list-entity.md)
 

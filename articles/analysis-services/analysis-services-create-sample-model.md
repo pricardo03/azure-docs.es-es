@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Adición de un modelo de ejemplo básico al servidor de Azure Analysis Services mediante el portal | Microsoft Docs'
+title: 'Tutorial: Incorporación de un modelo de ejemplo básico al servidor de Azure Analysis Services mediante el portal | Microsoft Docs'
 description: En este tutorial, aprenderá a agregar un modelo de ejemplo a Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/23/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f44e33d2b735b6743b2b74760f816442c2cd17fe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c63995a461cee6bc39603a43604b8080942bd88b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596794"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442814"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adición de un modelo de ejemplo desde el portal
 
-En este tutorial, agregará una base de datos modelo tabular de ejemplo, Adventure Works, al servidor. El modelo de ejemplo es una versión completa del modelo de datos de Adventure Works Internet Sales (1200). Un modelo de ejemplo es útil para probar la administración de modelos, la conexión con las herramientas y las aplicaciones cliente, y para consultar datos de modelos. En el tutorial se usa [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) para: 
+En este tutorial, agregará una base de datos modelo tabular de ejemplo, Adventure Works, al servidor. El modelo de ejemplo es una versión completa del modelo de datos de Adventure Works Internet Sales (1200). Un modelo de ejemplo es útil para probar la administración de modelos, la conexión con las herramientas y las aplicaciones cliente, y para consultar datos de modelos. En el tutorial se usa [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
 
 > [!div class="checklist"]
 > * Agregar un modelo de datos tabulares de ejemplo completo a un servidor 
@@ -34,11 +34,11 @@ Para completar este tutorial, necesita:
 - [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en el [portal](https://portal.azure.com/).
 
-## <a name="add-a-sample-model"></a>Adición de un modelo de ejemplo
+## <a name="add-a-sample-model"></a>Incorporación de un modelo de ejemplo
 
 1. En **Información general** del servidor, haga clic en **Nuevo modelo**.
 

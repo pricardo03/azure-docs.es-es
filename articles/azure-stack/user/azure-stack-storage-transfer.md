@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3d9bd187a70e8b8292e9c47497c2c6b13764045d
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604733"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444143"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Uso de herramientas de transferencia de datos en almacenamiento de Azure Stack
 
@@ -43,6 +43,10 @@ Los requisitos determinan cuál de las siguientes herramientas es la que más le
 * [Explorador de Microsoft Azure Storage](#microsoft-azure-storage-explorer)
 
     Una aplicación independiente fácil de usar con una interfaz de usuario.
+
+* [Blobfuse ](#blobfuse)
+
+    Es un controlador del sistema de archivos virtual para Azure Blob Storage, que permite obtener acceso a los datos blob en bloque existentes en la cuenta de almacenamiento a través del sistema de archivos Linux. 
 
 Dadas las diferencias en los servicios de almacenamiento entre Azure y Azure Stack, puede haber ciertos requisitos específicos para cada herramienta que se describe en las secciones siguientes. Para ver una comparación entre el almacenamiento de Azure Stack y Azure Storage, consulte [Almacenamiento de Azure Stack: Diferencias y consideraciones](azure-stack-acs-differences.md).
 
@@ -300,6 +304,34 @@ El Explorador de Microsoft Azure Storage es una aplicación independiente de Mic
 
 * Para más información sobre cómo configurar el Explorador de Azure Storage para que funcione con Azure Stack, consulte [Conexión del Explorador de Storage a una suscripción de Azure Stack](azure-stack-storage-connect-se.md).
 * Para más información acerca del Explorador de Microsoft Azure Storage, consulte [Introducción al Explorador de Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+## <a name="blobfuse"></a>Blobfuse 
+
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) es un controlador del sistema de archivos virtual para Azure Blob Storage, que permite obtener acceso a los datos blob en bloque existentes en la cuenta de almacenamiento a través del sistema de archivos Linux. Azure Blob Storage es un servicio de almacenamiento de objetos y, por lo tanto, no tiene un espacio de nombres jerárquico. Blobfuse proporciona el espacio de nombres mediante el esquema de directorio virtual con el uso de la barra oblicua `/` como delimitador. Blobfuse funciona tanto en Azure como en Azure Stack. 
+
+Para más información sobre el montaje de almacenamiento de blobs como un sistema de archivos con Blobfuse en Linux, consulte [Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
+
+Para Azure Stack, **blobEndpoint** debe especificarse además de accountName, accountKey/sasToken, containerName, mientras configura las credenciales de su cuenta de almacenamiento en el paso de preparación para el montaje. 
+
+En el Kit de desarrollo de Azure Stack, el blobEndpoint debe ser `myaccount.blob.local.azurestack.external`. En el sistema integrado de Azure Stack, si no está seguro de cuál es su punto de conexión, póngase en contacto con el administrador de la nube. 
+
+Tenga en cuenta que accountKey y sasToken solo se pueden configurar de una en una. Cuando se proporciona la clave de la cuenta de almacenamiento, el archivo de configuración de credenciales tiene el siguiente formato: 
+
+```text  
+    accountName myaccount 
+    accountKey myaccesskey== 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
+
+Cuando se proporciona el token de acceso compartido, el archivo de configuración de credenciales tiene el siguiente formato:
+
+```text  
+    accountName myaccount 
+    sasToken ?mysastoken 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

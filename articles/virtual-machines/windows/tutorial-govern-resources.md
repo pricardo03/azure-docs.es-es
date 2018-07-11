@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Control de máquinas virtuales de Azure con Azure PowerShell | Microsoft Docs'
-description: En este tutorial, aprenderá a usar Azure PowerShell para administrar máquinas virtuales de Azure mediante la aplicación de RBAC, directivas, bloqueos y etiquetas.
+description: En este tutorial, aprenderá a usar Azure PowerShell para administrar máquinas virtuales de Azure mediante la aplicación de RBAC, directivas, bloqueos y etiquetas
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: eec54e0074cbc00fb8c51cf28ba477ef75f99a3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657247"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438241"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Información acerca del control de máquinas virtuales Windows con Azure PowerShell
 
@@ -55,7 +55,7 @@ Para administrar las soluciones de máquina virtual, hay tres roles específicos
 * [Colaborador de la red](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-En lugar de asignar roles a usuarios individuales, a menudo resulta más fácil [crear un grupo de Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para los usuarios que tienen que realizar acciones similares. A continuación, asigne a ese grupo el rol apropiado. Para simplificar este artículo, cree un grupo de Azure Active Directory sin miembros. Todavía puede asignar a este grupo un rol para un ámbito. 
+En lugar de asignar roles a usuarios individuales, a menudo resulta más fácil [crear un grupo de Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para los usuarios que tienen que realizar acciones similares. A continuación, asigne a ese grupo el rol apropiado. Para simplificar este artículo, cree un grupo de Azure Active Directory sin miembros. Todavía puede asignar a este grupo un rol para un ámbito. 
 
 En el siguiente ejemplo se crea un grupo de Azure Active Directory denominado *VMDemoContributors* con un alias de correo de *vmDemoGroup*. El alias de correo hace las veces de alias del grupo.
 
@@ -194,7 +194,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Búsqueda de recursos por etiqueta
 
-Para buscar recursos con un nombre y un valor de etiqueta, use el comando [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource):
+Para buscar recursos con un valor y nombre de etiqueta, use el comando [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource):
 
 ```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name

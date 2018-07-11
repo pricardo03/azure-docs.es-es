@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c29bfd42a9e664d83a867debb6b984f3e99a5b7d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3ba52417b8478884fdfdca3210c75844f0009219
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053014"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082570"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copia de datos del blob de Azure a Azure SQL Database mediante Azure Data Factory
 En este tutorial, creará una canalización de Data Factory que copia datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Almacenes de datos admitidos).
@@ -37,7 +37,7 @@ En este tutorial se usa SDK de .NET. Puede usar otros mecanismos para interactua
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Cuenta de Azure Storage**. Blob Storage se puede usar como almacén de datos de **origen**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
 * **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna instancia de Azure SQL Database, consulte el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
@@ -119,7 +119,7 @@ Con Visual Studio 2015 o 2017, cree una aplicación de consola .NET de C#.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
     
-2. Agregue el siguiente código al método **Main** que establece las variables. Reemplace los marcadores de posición con sus propios valores. Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+2. Agregue el siguiente código al método **Main** que establece las variables. Reemplace los marcadores de posición con sus propios valores. Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
     ```csharp
     // Set variables
@@ -162,7 +162,7 @@ Con Visual Studio 2015 o 2017, cree una aplicación de consola .NET de C#.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-Agregue el código siguiente al método **main** que crea una **factoría de datos**.
+Agregue el código siguiente al método **Main** que crea una **factoría de datos**.
 
 ```csharp
 // Create a data factory
@@ -188,7 +188,7 @@ En este tutorial se crean dos servicios vinculados para el origen y el receptor 
 
 ### <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
 
-Agregue el código siguiente al método **Main** que crea un **servicio vinculado a Azure Storage**. Obtenga más información en la sección [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties) (Propiedades del servicio vinculado del blob de Azure) sobre los detalles y las propiedades que se admiten.
+Agregue el código siguiente al método **main** que crea un **servicio vinculado de Azure Storage**. Obtenga más información en la sección [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties) (Propiedades del servicio vinculado del blob de Azure) sobre los detalles y las propiedades que se admiten.
 
 ```csharp
 // Create an Azure Storage linked service
@@ -293,7 +293,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDataset, client.Serializati
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
-Agregue el código siguiente al método **main** que crea una **canalización con una actividad de copia**. En este tutorial, esta canalización contiene una actividad: la actividad de copia, que toma el conjunto de datos del blob como origen y el conjunto de datos SQL como receptor. Obtenga más información en la sección [Copy Activity Overview](copy-activity-overview.md) (Información general de actividad de copia) sobre los detalles de la actividad de copia.
+Agregue el código siguiente al método **Main** que crea una **canalización con una actividad de copia**. En este tutorial, esta canalización contiene una actividad: la actividad de copia, que toma el conjunto de datos del blob como origen y el conjunto de datos SQL como receptor. Obtenga más información en la sección [Copy Activity Overview](copy-activity-overview.md) (Información general de actividad de copia) sobre los detalles de la actividad de copia.
 
 ```csharp
 // Create a pipeline with copy activity

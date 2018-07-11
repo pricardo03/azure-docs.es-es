@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046785"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446612"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conexión a través de SSH con HDInsight (Hadoop)
 
@@ -137,7 +137,19 @@ Para información acerca de cómo cambiar la contraseña de cuenta de usuario SS
 
 ## <a id="domainjoined"></a>Autenticación: HDInsight unido a un dominio
 
-Si está usando un __clúster de HDInsight unido a un dominio__, tiene que utilizar el comando `kinit` después de conectarse con SSH. Este comando le pide un usuario de dominio y una contraseña y autentica la sesión con el dominio de Azure Active Directory asociado con el clúster.
+Si está usando un __clúster de HDInsight unido a un dominio__, tiene que utilizar el comando `kinit` después de conectarse con el usuario local de SSH. Este comando le pide un usuario de dominio y una contraseña y autentica la sesión con el dominio de Azure Active Directory asociado con el clúster.
+
+También puede habilitar la autenticación Kerberos en cada nodo unido a un dominio (por ejemplo, nodo principal, nodo perimetral) para realizar un ssh mediante la cuenta de dominio. Para ello, edite el archivo de configuración de sshd:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+uncommnet y cambie `KerberosAuthentication` por `yes`
+
+```bash
+sudo service sshd restart
+```
+
+En cualquier momento, para verificar si la autenticación de Kerberos se ha realizado correctamente, utilice el comando `klist`.
 
 Para más información, consulte [Configuración de clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-configure.md).
 

@@ -2,30 +2,30 @@
 title: 'Tutorial de Kubernetes en Azure: implementación de la aplicación'
 description: 'Tutorial de AKS: implementación de la aplicación'
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e0e349361afaac9aec816d7f5d158322d6f4e691
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067680"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101053"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Ejecución de aplicaciones en Azure Kubernetes Service (AKS)
 
-En este tutorial, la cuarta parte de ocho, se implementa una aplicación de ejemplo en un clúster de Kubernetes. Los pasos completados incluyen:
+En este tutorial, la cuarta parte de siete, se implementa una aplicación de ejemplo en un clúster de Kubernetes. Los pasos completados incluyen:
 
 > [!div class="checklist"]
 > * Actualización de los archivos de manifiesto de Kubernetes
 > * Ejecución de una aplicación en Kubernetes
 > * Prueba de la aplicación
 
-En los tutoriales posteriores, esta aplicación se escala horizontalmente y se actualiza, y se configura Log Analytics para supervisar el clúster de Kubernetes.
+En los tutoriales posteriores, esta aplicación se escala horizontalmente y se actualiza.
 
 En este tutorial se da por hecho que tiene unos conocimientos básicos de los conceptos de Kubernetes. Para obtener información más detallada sobre esta aplicación, consulte la [documentación de Kubernetes][kubernetes-documentation].
 
@@ -61,7 +61,7 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-El código anterior pasa a ser este:
+El código anterior entonces se transforma.
 
 ```yaml
 containers:

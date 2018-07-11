@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 585dcd120c42562b1520d4454f9d04e445553101
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062766"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096199"
 ---
 # <a name="what-is-azure-redis-cache"></a>Qué es Azure Redis Cache
 
@@ -27,13 +27,13 @@ Azure Redis Cache se basa en la popular [caché en Redis](https://redis.io/) de 
 
 Azure Redis Cache también puede usarse como almacén de estructura de datos en memoria, base de datos no relacional distribuida y agente de mensajes. El rendimiento de las aplicaciones mejora porque se aprovecha de la baja latencia y alto rendimiento del motor Redis.
 
-Azure Redis Cache proporciona acceso a una instancia de Redis Cache segura y dedicada, administrada por Microsoft, hospedada en Azure y accesible a cualquier aplicación dentro de Azure.
+Azure Redis Cache proporciona acceso a una instancia de Redis Cache segura y dedicada, administrada por Microsoft, hospedada en Azure y accesible a cualquier aplicación dentro o fuera de Azure.
 
 ## <a name="why-use-azure-redis-cache"></a>Motivos para usar Azure Redis Cache
 
 Hay muchos patrones comunes en los que se usa Redis Cache para admitir la arquitectura de las aplicaciones o para mejorar el rendimiento de las aplicaciones. Estos son algunos de los más comunes:
 
-| Patrón      | DESCRIPCIÓN                                        |
+| Patrón      | Descripción                                        |
 | ------------ | -------------------------------------------------- |
 | [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | Dado que una base de datos puede ser grande, no se recomienda cargarla toda ella en la memoria caché. Es habitual usar el patrón [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) para cargar elementos de datos en la memoria caché solo cuando sea necesario. Cuando el sistema realiza cambios en los datos de back-end, también puede actualizar la caché, que se distribuye con otros clientes. Además, el sistema puede establecer una fecha de expiración en los elementos de datos o usar una directiva de expulsión para que las actualizaciones de los datos se vuelvan a cargar en la memoria caché.|
 | [Almacenamiento en caché de contenido](cache-aspnet-output-cache-provider.md) | La mayoría de las páginas web se generan a partir de plantillas con encabezados, pies de página, barras de herramientas, menús, etc. Realmente no cambian con frecuencia y no se deben generar dinámicamente. El uso de una caché en memoria, como Azure Redis Cache, proporcionará a los servidores web acceso rápido a este tipo de contenido estático, en comparación con almacenes de datos de back-end. Este patrón reduce tanto el tiempo de procesamiento como la carga del servidor necesarias para generar contenido dinámicamente, lo que mejora la capacidad de respuesta de los servidores web y le puede permiten reducir el número de servidores necesarios para controlar cargas. Azure Redis Cache proporciona el proveedor de caché de salida de Redis, que ayuda a admitir este patrón con ASP.NET.|
@@ -45,11 +45,11 @@ Hay muchos patrones comunes en los que se usa Redis Cache para admitir la arquit
 
 Azure Redis Cache está disponible en los niveles siguientes:
 
-| Nivel: | DESCRIPCIÓN |
+| Nivel | Descripción |
 |---|---|
-Básica | Una caché de nodo individual. Este nivel admite varios tamaños de memoria (250 MB - 53 GB). Es un nivel ideal para el desarrollo o la realización de pruebas, así como para cargas de trabajo no críticas. El nivel Básico no tiene ningún Acuerdo de Nivel de Servicio (SLA) |
-| Estándar | Una caché replicada en una configuración de dos nodos, principal y secundario, administrada por Microsoft y con un Acuerdo de Nivel de Servicio de alta disponibilidad (99,9 %). |
-| Premium | El nivel Premium es el nivel listo para empresas. Las memorias caché de nivel Premium admiten más características y tienen un rendimiento mayor con latencias más bajas. En el nivel Premium, las memorias caché se implementan en un hardware más potente, lo que proporciona un mejor rendimiento en comparación con los niveles Estándar o Básico. Esta ventaja significa que el rendimiento de una caché del mismo tamaño será mayor en el nivel Premium, en comparación con el nivel Estándar |
+Básico | Caché de un solo nodo. Este nivel admite varios tamaños de memoria (250 MB - 53 GB). Es un nivel ideal para el desarrollo o la realización de pruebas, así como para cargas de trabajo no críticas. El nivel Básico no tiene ningún Acuerdo de Nivel de Servicio (SLA) |
+| Estándar | Caché replicada en una configuración de dos nodos, principal y secundario, administrada por Microsoft y con un Acuerdo de Nivel de Servicio de alta disponibilidad (99,9 %). |
+| Premium | El nivel Premium es el nivel preparado para empresas. Las memorias caché de nivel Premium admiten más características y tienen un rendimiento mayor con latencias más bajas. En el nivel Premium, las memorias caché se implementan en un hardware más potente, lo que proporciona un mejor rendimiento en comparación con los niveles Estándar o Básico. Esta ventaja significa que el rendimiento de una caché del mismo tamaño será mayor en el nivel Premium, en comparación con el nivel Estándar |
 
 > [!TIP]
 > Para más información acerca del tamaño, la transferencia y el ancho de banda de las memorias caché de nivel Premium, consulte el artículo [P+F de Azure Redis Cache](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
@@ -61,7 +61,7 @@ Una vez creada, la memoria caché se puede escalar a un nivel superior. Sin emba
 
 En la página de [precios de Redis Cache](https://azure.microsoft.com/pricing/details/cache/) encontrará una comparación detallada de cada nivel. La tabla siguiente le ayuda a describir algunas de las características que admite cada nivel:
 
-| Descripción de la característica | Premium | Estándar | Básica |
+| Descripción de la característica | Premium | Estándar | Básico |
 | ------------------- | :-----: | :------: | :---: |
 | [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Persistencia de datos de Redis](cache-how-to-premium-persistence.md) |✔|-|-|
@@ -77,7 +77,7 @@ En la página de [precios de Redis Cache](https://azure.microsoft.com/pricing/de
 
 * [Inicio rápido de una aplicación web de ASP.NET](cache-web-app-howto.md) Cree una aplicación web de ASP.NET simple que use Azure Redis Cache.
 * [Inicio rápido de .NET](cache-dotnet-how-to-use-azure-redis-cache.md) Cree una aplicación .NET que use Azure Redis Cache.
-* [Guía de inicio rápido de .NET Core](cache-dotnet-core-quickstart.md) Cree una aplicación .NET Core que use Azure Redis Cache.
+* [Inicio rápido de .NET Core](cache-dotnet-core-quickstart.md) Cree una aplicación .NET Core que use Azure Redis Cache.
 * [Inicio rápido de Node.js](cache-nodejs-get-started.md) Cree una aplicación Node.js simple que use Azure Redis Cache.
 * [Inicio rápido de Java](cache-java-get-started.md) Cree una aplicación Java simple que use Azure Redis Cache.
 * [Inicio rápido de Python](cache-python-get-started.md) Cree una aplicación Python que use Azure Redis Cache.

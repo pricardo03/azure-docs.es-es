@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 06/14/2018
 ms.author: srinia
-ms.openlocfilehash: a15a64c1ccf1e40179a46baf9815f669ac4adfde
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: b2cbf7501b3c5006c7504c7af7d70c14035cfc74
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751135"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113364"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Administración de grupos de bases de datos con trabajos de Elastic Database
 
@@ -32,7 +32,7 @@ La siguiente imagen muestra a un agente de trabajos que ejecuta los trabajos en 
 
 - Programación de tareas administrativas para su ejecución todos los días laborables, después de las horas laborables, etc.
 - Implementación de cambios de esquema, administración de credenciales, recopilación de datos de rendimiento o recopilación de datos de telemetría de inquilinos (clientes). Actualización de datos de referencia (información común a todas las bases de datos).
-- Regeneración de índices para mejorar el rendimiento de consultas Configuración de trabajos para su ejecución en una colección de bases de datos periódicamente como, por ejemplo, fuera de horas pico.
+- Regeneración de índices para mejorar el rendimiento de consultas. Configuración de trabajos para su ejecución en una colección de bases de datos periódicamente como, por ejemplo, fuera de horas pico.
 - Recopile los resultados de consulta de un conjunto de bases de datos en una tabla central de forma continua. Las consultas de rendimiento pueden ejecutarse continuamente y configurarse para que desencadenen la ejecución de otras tareas.
 
 ### <a name="collect-data-for-reporting"></a>Recopilación de datos para informes
@@ -42,7 +42,7 @@ La siguiente imagen muestra a un agente de trabajos que ejecuta los trabajos en 
 
 ### <a name="reduce-overhead"></a>Reducción de la sobrecarga
 
-- Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones T-SQL o realizar otras tareas administrativas. Un trabajo controla la tarea de inicio de sesión en cada base de datos en el grupo de destino. También se definen, mantienen y conservan los scripts de Transact-SQL que se van a ejecutar en un grupo de instancias de Azure SQL Database.
+- Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones Transact-SQL o realizar otras tareas administrativas. Un trabajo controla la tarea de inicio de sesión en cada base de datos en el grupo de destino. También se definen, mantienen y conservan los scripts de Transact-SQL que se van a ejecutar en un grupo de instancias de Azure SQL Database.
 
 ### <a name="accounting"></a>Control
 
@@ -187,12 +187,12 @@ Para asegurarse de que los recursos no están sobrecargados al ejecutar trabajos
 
 ##  <a name="differences-between-elastic-jobs-and-sql-server-agent"></a>Diferencias entre los trabajos elásticos y el Agente SQL Server
 
-Cabe destacar un par de diferencias entre el Agente SQL Server (disponible de modo local y como parte de la Instancia administrada de SQL Database) y el agente de trabajos elásticos de Azure SQL Database (ahora disponible para SQL Database y SQL Data Warehouse).
+Cabe destacar un par de diferencias entre el Agente SQL Server (disponible de modo local y como parte de SQL Database Managed Instance) y el agente de trabajos elásticos de Azure SQL Database (ahora disponible para SQL Database y SQL Data Warehouse).
 
 
 |  |Trabajos elásticos  |Agente SQL Server |
 |---------|---------|---------|
-|Scope     |  Cualquier número de instancias de Azure SQL Database o almacenamientos de datos en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores lógicos, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
+|Ámbito     |  Cualquier número de instancias de Azure SQL Database o almacenamientos de datos en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores lógicos, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
 |Herramientas y API admitidas     |  Azure Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

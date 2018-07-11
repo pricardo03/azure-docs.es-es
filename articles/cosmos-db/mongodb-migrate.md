@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: cacda277082f62c9d98a7459cb5dbf74375bfd87
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795353"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100303"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: importar datos de MongoDB 
 
@@ -36,7 +36,7 @@ En este tutorial se describen las tareas siguientes:
 > * Importación de datos de MongoDB mediante mongoimport
 > * Importación de datos de MongoDB mediante mongorestore
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Aumente el rendimiento: la duración de la migración de datos depende de la cantidad de rendimiento configurado para una sola colección o un conjunto de colecciones. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información sobre cómo aumentar el rendimiento en [Azure Portal](https://portal.azure.com), consulte [Niveles de rendimiento y planes de tarifa de Azure Cosmos DB](performance-levels.md).
 
@@ -82,7 +82,7 @@ Ejemplo:
         
     * De forma predeterminada, Azure Cosmos DB aprovisiona una nueva colección de MongoDB con 1000 unidades de solicitud por segundo (RU/s). Antes de empezar la migración mediante mongoimport, mongorestore o mongomirror, cree todas las colecciones mediante [Azure Portal](https://portal.azure.com) o mediante los controladores y herramientas de MongoDB. Si la colección supera los 10 GB, asegúrese de crear una [colección con particiones](partition-data.md) con una clave de partición adecuada.
 
-    * En [Azure Portal](https://portal.azure.com), aumente el rendimiento de las colecciones desde 1000 RU/s para una colección con una sola partición y 2500 RU/s para una colección con particiones simplemente para la migración. Gracias al mayor rendimiento, puede evitar la limitación y realizar la migración en menos tiempo. Con la facturación por horas en Azure Cosmos DB, puede reducir el rendimiento inmediatamente después de la migración para ahorrar costes.
+    * En [Azure Portal](https://portal.azure.com), aumente el rendimiento de las colecciones desde 1000 RU/s para una colección con una sola partición y 2500 RU/s para una colección con particiones simplemente para la migración. Gracias al mayor rendimiento, puede evitar la limitación de velocidad y realizar la migración en menos tiempo. Con la facturación por horas en Azure Cosmos DB, puede reducir el rendimiento inmediatamente después de la migración para ahorrar costes.
 
     * Además de aprovisionar las RU/s en el nivel de colección, también puede aprovisionar RU/s para un conjunto de colecciones en el nivel de base de datos primaria. Para ello es necesario crear previamente la base de datos y las colecciones, así como definir una clave de partición para cada colección.
 
@@ -151,7 +151,7 @@ Ejemplo:
     |--------|-----|
     |batchSize| 24 |
     |RU aprovisionadas | 10000 |
-    |Latency | 0,100 s |
+    |Latencia | 0,100 s |
     |RU cargadas en una sola operación de escritura de documento | 10 RU |
     |numInsertionWorkers | ? |
     

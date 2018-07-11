@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: dfaf3fe1427c9069939f5421c6a87efb584ebe48
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763211"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081914"
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Tutorial: Consulta de la Graph API de Azure Cosmos DB mediante Gremlin
 
@@ -31,7 +31,7 @@ En este artículo se tratan las tareas siguientes:
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para que estas consultas funcionen, debe tener una cuenta de Azure Cosmos DB, así como datos del gráfico en el contenedor. ¿No tiene nada de lo anterior? Complete el [inicio rápido en 5 minutos](create-graph-dotnet.md) o el [tutorial de desarrolladores](tutorial-query-graph.md) para crear una cuenta y rellenar la base de datos. Puede ejecutar las siguientes consultas mediante la [biblioteca de gráficos de .NET de Azure Cosmos DB](graph-sdk-dotnet.md), la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) o su controlador de Gremlin favorito.
+Para que estas consultas funcionen, debe tener una cuenta de Azure Cosmos DB, así como datos del gráfico en el contenedor. ¿No tiene nada de lo anterior? Complete el [inicio rápido en 5 minutos](create-graph-dotnet.md) o el [tutorial de desarrolladores](tutorial-query-graph.md) para crear una cuenta y rellenar la base de datos. Puede ejecutar las siguientes consultas en la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) o en el controlador de Gremlin que prefiera.
 
 ## <a name="count-vertices-in-the-graph"></a>Recuento de vértices del gráfico
 
@@ -80,7 +80,8 @@ En este tutorial, ha hecho lo siguiente:
 > [!div class="checklist"]
 > * Ha obtenido información sobre cómo realizar consultas con Graph 
 
-Ahora puede continuar con el tutorial siguiente para obtener información sobre cómo distribuir sus datos globalmente.
+Ahora puede continuar a la sección de conceptos para obtener más información sobre Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Distribución de datos global](tutorial-global-distribution-graph.md)
+> [Distribución global](distribute-data-globally.md) 
+

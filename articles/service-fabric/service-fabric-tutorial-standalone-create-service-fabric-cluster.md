@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 85e6efcc4e213da4d6c650f7543403dd52e8337c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248442"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344162"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: instalación y creación del clúster de Service Fabric
 
@@ -61,13 +61,7 @@ Después de actualizar los nodos, aparecen como se indica a continuación:
         }
 ```
 
-A continuación, debe actualizar un par de propiedades.  En la línea 34 debe modificar la cadena de conexión para el almacén de diagnóstico; después de la modificación debe ser similar al siguiente, con la dirección IP reemplazada en `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
-
-Después de actualizar la cadena de conexión, asegúrese de crear la carpeta.  El comando siguiente la crea, no olvide reemplazar la dirección IP a continuación por la que insertó en la cadena de conexión:
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
+A continuación, debe actualizar un par de propiedades.  En la línea 34, debe modificar la cadena de conexión para el almacén de diagnóstico; debe ser similar a la siguiente `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
 Por último, en la sección `nodeTypes` de la configuración, agregue una nueva sección para asignar los puertos efímeros que usará Windows.  El archivo de configuración debería tener un aspecto similar al siguiente:
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: d9720377beb1973b8ae4e9423fc991aa82646924
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061603"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344718"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -49,7 +49,7 @@ Para completar este tutorial:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creación de un área de trabajo de Azure Databricks
 
@@ -65,7 +65,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     Proporcione los valores siguientes:
 
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |**Workspace name** (Nombre del área de trabajo)     | Proporcione un nombre para el área de trabajo de Databricks.        |
     |**Suscripción**     | En el cuadro desplegable, seleccione la suscripción de Azure.        |
@@ -117,7 +117,7 @@ En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks
 
 4. Escriba el código siguiente en la primera celda y ejecute el código:
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -132,11 +132,14 @@ En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks
 
 El siguiente paso es cargar un archivo de datos de ejemplo en la cuenta de almacenamiento para luego transformarlo en Azure Databricks. 
 
-1. Si aún no tiene una cuenta creada para Data Lake Storage Gen2, siga la guía de inicio rápido para crear una cuenta de Data Lake Storage Gen2.
-2. Los datos de ejemplo (**small_radio_json.json**) están disponibles en el repositorio [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) (Ejemplos y seguimiento de problemas de U-SQL). Descargue el archivo JSON y tome nota de la ruta de acceso en donde va a guardar el archivo.
-3. Cargue los datos en la cuenta de almacenamiento. El método que utiliza para cargar datos en la cuenta de almacenamiento difiere dependiendo de si tiene habilitado el servicio de espacio de nombres jerárquico.
+> [!NOTE]
+> Si no dispone de una cuenta de Azure Data Lake Storage Gen2 válida, siga el [inicio rápido para crear una](./quickstart-create-account.md).
 
-    Si el servicio de espacio de nombres jerárquico está habilitado en la cuenta de ADLS Gen2, puede usar Azure Data Factory, distp o AzCopy (versión 10) para controlar la carga. AzCopy versión 10 solo está disponible para los clientes de la versión preliminar. Para utilizar AzCopy desde Cloud Shell:
+1. Descargue (**small_radio_json.json**) desde el repositorio [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) (Ejemplos y seguimiento de problemas de U-SQL) y anote la ruta donde guarde el archivo.
+
+2. A continuación, cargue los datos de ejemplo en la cuenta de almacenamiento. El método que utiliza para cargar datos en la cuenta de almacenamiento difiere dependiendo de si tiene habilitado el espacio de nombres jerárquico.
+
+    Si el espacio de nombres jerárquico está habilitado en la cuenta de Azure Storage creada para Gen2, puede usar Azure Data Factory, distp o AzCopy (versión 10) para controlar la carga. AzCopy versión 10 solo está disponible para los clientes de la versión preliminar. Para usar AzCopy, pase el código siguiente en una ventana de comandos:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -150,7 +153,7 @@ Vuelva al cuaderno de DataBricks y escriba el código siguiente en una nueva cel
 
 1. Agregue el siguiente fragmento de código a una celda de código vacía y reemplace los valores de marcador de posición por los valores que guardó anteriormente en la cuenta de almacenamiento.
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
@@ -159,13 +162,13 @@ Vuelva al cuaderno de DataBricks y escriba el código siguiente en una nueva cel
 
 2. Ahora puede cargar el archivo JSON de ejemplo como trama de datos en Azure Databricks. Agregue el código siguiente a una nueva celda y, luego, presione **MAYÚS + ENTRAR** (asegúrese de reemplazar los valores del marcador de posición):
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. Ejecute el código siguiente para ver el contenido de la trama de datos.
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -190,7 +193,7 @@ Los datos de ejemplo sin procesar **small_radio_json.json** capturan la audienci
 
 1. Para comenzar, recupere solo las columnas *firstName*, *lastName*, *gender*, *location* y *level* de la trama de datos que ha creado.
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -225,7 +228,7 @@ Los datos de ejemplo sin procesar **small_radio_json.json** capturan la audienci
 
 2.  Puede transformar aún más estos datos para renombrar la columna **level** como **subscription_type**.
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -267,28 +270,28 @@ Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blo
 
 1. Proporcione la configuración para acceder a la cuenta de Azure Storage desde Azure Databricks.
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. Especifique una carpeta temporal que se usará al mover datos entre Azure Databricks y Azure SQL Data Warehouse.
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. Ejecute el siguiente fragmento de código para almacenar las claves de acceso de Azure Blob Storage en la configuración. De esta forma, se garantiza que no tiene que guardar la clave de acceso en el cuaderno en texto sin formato.
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. Proporcione los valores para conectarse a la instancia de Azure SQL Data Warehouse. Debe haber creado una instancia de SQL Data Warehouse como parte de los requisitos previos.
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -302,7 +305,7 @@ Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blo
 
 5. Ejecute el siguiente fragmento de código para cargar la trama de datos transformado, **renamedColumnsDF**, como una tabla en SQL Data Warehouse. Este fragmento de código crea una tabla denominada **SampleTable** en SQL Database.
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")

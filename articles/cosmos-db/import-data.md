@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52d5977b2a454dec803ad1233fcb12cc9573521c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029611"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100358"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: herramienta de migración de datos
 
@@ -27,7 +27,7 @@ En este tutorial, se muestra cómo usar la herramienta de migración de datos de
 * **[API de SQL ](documentdb-introduction.md)**: para importar los datos puede usar cualquiera de las opciones de origen disponibles en la herramienta de migración de datos.
 * **[Table API](table-introduction.md)**: para importar los datos, puede usar la herramienta de migración de datos o AzCopy. Consulte [Importación de datos para su uso con Table API de Azure Cosmos DB](table-import.md).
 * **[API de MongoDB](mongodb-introduction.md)**: la herramienta de migración de datos no es compatible actualmente con la API de MongoDB de Azure Cosmos DB, independientemente de si es un origen o un destino. Si quiere migrar los datos dentro o fuera de las colecciones de la API de MongoDB en Azure Cosmos DB, consulte [Azure Cosmos DB: How to migrate data for the MongoDB API](mongodb-migrate.md) (Azure Cosmos DB: importar datos en la API de MongoDB) para obtener instrucciones. De todos modos, todavía puede usar la herramienta de migración de datos para exportar datos desde MongoDB a las colecciones de API de SQL de Azure Cosmos DB, para así poder usarlos con la API de SQL. 
-* **[API Graph](graph-introduction.md)** : la herramienta de migración de datos no es una herramienta de importación admitida para las cuentas de API Graph en este momento. 
+* **[Graph API](graph-introduction.md)** : la herramienta de migración de datos no es una herramienta de importación admitida para las cuentas de Graph API en este momento. 
 
 En este tutorial se describen las tareas siguientes:
 
@@ -52,7 +52,7 @@ La herramienta de migración de datos es una solución de código abierto que im
 * Archivos CSV
 * Almacenamiento de tablas de Azure
 * Amazon DynamoDB
-* hbase
+* HBase
 * Colecciones de Azure Cosmos DB
 
 Aunque la herramienta de importación incluye una interfaz gráfica de usuario (dtui.exe), también se puede controlar desde la línea de comandos (dt.exe). De hecho, hay una opción para mostrar el comando asociado después de configurar una importación a través de la interfaz de usuario. Se pueden transformar datos tabulares de origen (por ejemplo, archivos de SQL Server o CSV) de tal forma que se pueden crear relaciones jerárquicas (subdocumentos) durante la importación. Siga leyendo para más información acerca de las opciones de origen, los comandos de ejemplo para importar desde cada origen, las opciones de destino y la visualización de los resultados de la importación.
@@ -144,7 +144,7 @@ La opción del importador de origen de archivos JSON de exportación de MongoDB 
 
 ![Captura de pantalla de las opciones de origen de exportación de MongoDB](./media/import-data/mongodbexportsource.png)
 
-Cuando se agregan carpetas que contienen archivos JSON de exportación de MongoDB para importarlos, tiene la opción de buscar archivos en subcarpetas de forma recursiva:
+Cuando se agregan carpetas que contienen archivos JSON de exportación de MongoDB para importarlos, tiene la opción de buscar archivos en subcarpetas de forma recursiva.
 
 A continuación se muestra un ejemplo de la línea de comandos para importar desde archivos JSON de exportación de MongoDB:
 
@@ -211,7 +211,7 @@ La opción del importador de código fuente de Azure Table Storage permite impor
 
 Los datos importados desde Azure Table Storage pueden dirigirse a tablas y entidades de Azure Cosmos DB para usarlos con Table API, o a colecciones y documentos para usarlos con la API de SQL. Sin embargo, Table API solo está disponible como destino en la utilidad de línea de comandos, no se puede exportar a API Table mediante la interfaz de usuario de la Herramienta de migración de datos. Para más información, consulte [Importación de datos para su uso con Table API de Azure Cosmos DB](table-import.md). 
 
-![Screenshot of Azure Table storage source options](./media/import-data/azuretablesource.png)
+![Captura de pantalla de las opciones de origen de Azure Table Storage](./media/import-data/azuretablesource.png)
 
 El formato de la cadena de conexión de almacenamiento de tablas de Azure es:
 
@@ -386,7 +386,7 @@ Además, al importar los tipos de fecha (por ejemplo, desde SQL Server o MongoDB
 
 * Cadena: conservar como un valor de cadena
 * Tiempo: conservar como un valor de número de tiempo
-* Ambos: conservar los valores de cadena y de número  Esta opción crea un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+* Ambos: conservar los valores de cadena y de número. Esta opción crea un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 El importador masivo de Azure Cosmos DB tiene las siguientes opciones avanzadas adicionales:
 
@@ -446,11 +446,11 @@ Hay una serie de opciones avanzadas disponibles durante la importación. En prim
 
 * Cadena: conservar como un valor de cadena
 * Tiempo: conservar como un valor de número de tiempo
-* Ambos: conservar los valores de cadena y de número  Esta opción crea un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+* Ambos: conservar los valores de cadena y de número. Esta opción crea un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 El importador de registros secuenciales de Azure Cosmos DB tiene estas opciones avanzadas adicionales:
 
-1. Número de solicitudes paralelas: la opción predeterminada es dos. Si los documentos que desea importar son pequeños, considere la posibilidad de aumentar el número de solicitudes paralelas. Si este número es demasiado elevado, podrá haber limitaciones en la importación.
+1. Número de solicitudes paralelas: la opción predeterminada es dos. Si los documentos que desea importar son pequeños, considere la posibilidad de aumentar el número de solicitudes paralelas. Si este número es demasiado elevado, podrá haber limitaciones en la velocidad de la importación.
 2. Deshabilitar generación de Id. automática: si cada documento que se va a importar contiene un campo de Id., seleccione esta opción para aumentar el rendimiento. No se importan los documentos que no contengan el campo de identificador exclusivo.
 3. Actualización de documentos existentes: la opción predeterminada es no reemplazar los documentos existentes por conflictos de identificador. Si selecciona esta opción, permite que se sobrescriban los documentos existentes con identificadores que coinciden entre sí. Esta característica es útil para las migraciones de datos programadas que actualizan los documentos existentes.
 4. Número de reintentos en caso de error: especifica el número de veces que se intentará la conexión a Azure Cosmos DB en caso de errores transitorios (por ejemplo, interrupciones de conectividad de red).
@@ -536,7 +536,7 @@ A continuación, elija si desea registrar todos los mensajes de error, los crít
 ## <a name="confirm-import-settings-and-view-command-line"></a>Confirmación de las opciones de importación y visualización de la línea de comandos
 1. Después de especificar la información de origen y destino, y la configuración avanzada, revise el resumen de la migración y, opcionalmente, vea o copie el comando resultante de la migración (copiar el comando es útil para automatizar las operaciones de importación):
    
-    ![Screenshot of summary screen](./media/import-data/summary.png)
+    ![Captura de la pantalla de resumen](./media/import-data/summary.png)
    
     ![Screenshot of summary screen](./media/import-data/summarycommand.png)
 2. Una vez que esté satisfecho con las opciones de origen y de destino, haga clic en **Importar**. El tiempo transcurrido, la cantidad de elementos transferidos y la información sobre los errores (si no se ha especificado un nombre de archivo en la configuración avanzada) se actualizarán mientras la importación esté curso. Una vez que haya finalizado, puede exportar los resultados (por ejemplo, para tratar los errores de importación).

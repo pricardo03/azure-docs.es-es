@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 93c1c9cb27e5eb2d56583dccaffe92e9d50ecc2d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c2d92f26bec2045e7f1e8afff189d58d8c29f25a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959281"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099483"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introducción a Azure Dev Spaces con .NET Core y Visual Studio
 
@@ -35,7 +35,7 @@ En esta guía, aprenderá a:
 1. Instale la versión más reciente de [Visual Studio 2017](https://www.visualstudio.com/vs/).
 1. En el instalador de Visual Studio, asegúrese de que está seleccionada la carga de trabajo siguiente:
     * ASP.NET y desarrollo web
-1. Instale la [extensión de Visual Studio para Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+1. Instalación de [Visual Studio Tools para Kubernetes](https://aka.ms/get-azds-visualstudio)
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Crear una aplicación web que se ejecuta en un contenedor
 
@@ -114,7 +114,7 @@ Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en 
 Actualizar archivos de código requiere un poco más de trabajo, porque una aplicación .NET Core necesita volver a crear y producir archivos binarios de aplicaciones actualizados.
 
 1. Detenga el depurador en Visual Studio.
-1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`.
+1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`
 1. Guarde el archivo.
 1. Pulse **F5** para iniciar la depuración de nuevo. 
 

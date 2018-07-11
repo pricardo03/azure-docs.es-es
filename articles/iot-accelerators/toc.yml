@@ -10,6 +10,8 @@
   items:
     - name: Implementación de una solución de supervisión remota
       href: quickstart-remote-monitoring-deploy.md
+    - name: Implementación de una solución de simulación de dispositivo
+      href: quickstart-device-simulation-deploy.md
 - name: Tutoriales
   items:
     - name: Supervisión de dispositivos de IoT
@@ -149,10 +151,10 @@
           href: iot-accelerators-connected-factory-customize.md
     - name: Simulación de dispositivo
       items:
-        - name: Implementación de acelerador de soluciones
-          href: iot-accelerators-device-simulation-deploy.md
-        - name: Ejecución de una simulación
-          href: iot-accelerators-device-simulation-explore.md
+        - name: Uso de una instancia de IoT Hub existente
+          href: iot-accelerators-device-simulation-choose-hub.md
+        - name: Uso de un modelo de dispositivo personalizado
+          href: iot-accelerators-device-simulation-custom-model.md
 - name: Referencia
   items:
     - name: Guía de referencia para desarrolladores

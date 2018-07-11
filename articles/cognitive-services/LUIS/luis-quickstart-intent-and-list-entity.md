@@ -7,30 +7,30 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335829"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127862"
 ---
-# <a name="tutorial-create-app-using-a-list-entity"></a>Tutorial: Creación de una aplicación mediante una entidad de lista
+# <a name="tutorial-4-add-list-entity"></a>Tutorial: 4. Incorporación de entidad de lista
 En este tutorial, cree una aplicación que muestra cómo obtener datos que coinciden con una lista predefinida. 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Descripción de las entidades de lista 
 > * Creación de una nueva aplicación de LUIS para el dominio de recursos humanos (RR. HH.) con la intención MoveEmployee
-> * Adición de una entidad de lista para extraer al empleado desde la expresión
+> * Incorporación de una entidad de lista para extraer al empleado desde la expresión
 > * Entrenamiento y publicación de la aplicación
 > * Consulta del punto de conexión de la aplicación para ver la respuesta JSON de LUIS
 
 Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md#luis-website) para crear la aplicación.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Si no tiene la aplicación de Recursos humanos desde el tutorial de entidades de [dominio personalizado](luis-quickstart-intents-regex-entity.md) de entidades de regex, [importe](create-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
+Si no tiene la aplicación de recursos humanos del tutorial de [entidades regex](luis-quickstart-intents-regex-entity.md), [importe](create-new-app.md#import-new-app) el archivo JSON en una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
 
 Si desea conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `list`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
 
@@ -67,7 +67,7 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 ```
 -->
 
-## <a name="add-moveemployee-intent"></a>Adición de la intención MoveEmployee
+## <a name="add-moveemployee-intent"></a>Incorporación de la intención MoveEmployee
 
 1. Asegúrese de que la aplicación de recursos humanos se encuentra en la sección **Build** (Crear) de LUIS. Para cambiar a esta sección, seleccione **Build** (Crear) en la barra de menús superior derecha. 
 
@@ -97,8 +97,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |234-56-7891 to hh-2345|
 
     [ ![Captura de pantalla de la página Intent (Intención) con nuevas expresiones resaltadas](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    Esta aplicación tiene una entidad de número creada previamente agregada del tutorial anterior, por lo que cada número está etiquetado. Esta información puede ser suficiente para la aplicación cliente, pero el número no se etiquetará con el tipo. La creación de una nueva entidad con un nombre apropiado permite a la aplicación cliente procesar la entidad cuando se devuelve desde LUIS.
 
 ## <a name="create-an-employee-list-entity"></a>Creación de una entidad de lista de empleados
 Ahora que la intención **MoveEmployee** tiene expresiones, LUIS debe comprender qué es un empleado. 
@@ -298,10 +296,10 @@ El bot de chat ahora tiene suficiente información para determinar la acción pr
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de la entidad para realizar el siguiente paso. LUIS no realiza este trabajo de programación para el bot o la aplicación que realiza la llamada. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para ello, seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprender a agregar una entidad jerárquica](luis-quickstart-intent-and-hier-entity.md)
+> [Incorporación de una entidad jerárquica a la aplicación](luis-quickstart-intent-and-hier-entity.md)
 

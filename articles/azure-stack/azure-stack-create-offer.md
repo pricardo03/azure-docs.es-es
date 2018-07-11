@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/2/2018
 ms.author: brenduns
-ms.openlocfilehash: e5b96a9464bf4d0e3b69d2f635da32c6648ce793
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: eed715a7c2cb967f6c9ea0b7d4442a4f9976bd17
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247524"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345896"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Creación de una oferta en Azure Stack
 
@@ -29,7 +29,7 @@ Las [ofertas](azure-stack-key-features.md) son grupos de uno o varios planes que
 
    ![Creación de una oferta](media/azure-stack-create-offer/image01.png)
   
-2. En **Nueva oferta**, escriba un **Nombre para mostrar** y un **Nombre de recurso** y, después, en **Grupo de recursos** seleccione **Crear nuevo** o **Usar existente**. El nombre para mostrar es el nombre descriptivo de la oferta. Este nombre descriptivo es la única información acerca de la oferta que verán los usuarios cuando se suscriban. Utilice un nombre intuitivo que ayude al usuario a entender lo que incluye la oferta. Solo el administrador puede ver el nombre del recurso. Es el nombre que usan los administradores para trabajar con la oferta como un recurso de Administrador de recursos de Azure.
+2. En **Nueva oferta**, escriba un **Nombre para mostrar** y un **Nombre de recurso** y, después, en **Grupo de recursos** seleccione **Crear nuevo** o **Usar existente**. El nombre para mostrar es el nombre descriptivo de la oferta. Este nombre descriptivo es la única información acerca de la oferta que verán los usuarios cuando se suscriban. Utilice un nombre intuitivo que ayude al usuario a entender lo que incluye la oferta. Solo el administrador puede ver el nombre del recurso. Es el nombre que usan los administradores para trabajar con la oferta como un recurso de Azure Resource Manager.
 
    ![Nueva oferta](media/azure-stack-create-offer/image01a.png)
   
@@ -59,7 +59,7 @@ Las [ofertas](azure-stack-key-features.md) son grupos de uno o varios planes que
      Seleccione **Todos los recursos**, busque la nueva oferta y, a continuación, selecciónela. Seleccione **Cambiar estado** y después seleccione **Público**.
 
    > [!NOTE]
-   > También puede usar PowerShell para crear ofertas, planes y cuotas predeterminados. Para más información, consulte [Azure Stack Service Administration](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin) (Administración del servicio Azure Stack).
+   > También puede usar PowerShell para crear ofertas, planes y cuotas predeterminados. Para más información, consulte [Azure Stack PowerShell Module 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 013369c84ca7f2ec232f542549c22260eca46980
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062541"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096923"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 (versión preliminar) con DataBricks mediante Spark
 
@@ -28,9 +28,9 @@ En este tutorial, aprenderá a ejecutar consultas Spark en un clúster de DataBr
 > * Desencadenamiento de una instancia de Azure Function para procesar datos
 > * Ejecución de análisis en los datos de almacenamiento de blobs
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial se muestra cómo consumir y consultar los datos de los vuelos de las líneas aéreas, que están disponibles en el [Departamento de Transporte de Estados Unidos](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Descargue al menos dos años de datos de líneas aéreas (seleccionando todos los campos) y guarde el resultado en la máquina. Asegúrese de tomar nota del nombre del archivo y la ruta de acceso de la descarga; necesita esta información en un paso posterior.
+En este tutorial se muestra cómo consumir y consultar los datos de los vuelos de las líneas aéreas, que están disponibles en el [Departamento de Transporte de Estados Unidos](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Descargue al menos dos años de datos de líneas aéreas (seleccionando todos los campos) y guarde el resultado en la máquina. Asegúrese de tomar nota del nombre del archivo y de la ruta de acceso de la descarga; necesita esta información en un paso posterior.
 
 > [!NOTE]
 > Active la casilla **Prezipped file** (Archivo precomprimido) para seleccionar todos los campos de datos. La descarga tendrá un tamaño de muchos gigabytes, pero esta cantidad de datos es necesaria para el análisis.
@@ -40,14 +40,14 @@ En este tutorial se muestra cómo consumir y consultar los datos de los vuelos d
 Para comenzar, cree una nueva [cuenta de Azure Data Lake Storage Gen2](quickstart-create-account.md) y asígnele un nombre único. A continuación, vaya a la cuenta de almacenamiento para recuperar los ajustes de configuración.
 
 > [!IMPORTANT]
-> Durante la versión preliminar, Azure Functions solo funcionan con las cuentas de Azure Data Lake Storage Gen2 creadas con un espacio de nombres plano.
+> Durante la versión preliminar, Azure Functions solo funciona con las cuentas de Azure Data Lake Storage Gen2 creadas con un espacio de nombres plano.
 
 1. En **Configuración**, haga clic en **Claves de acceso**.
 3. Haga clic en el botón **Copiar** junto a **key1** para copiar el valor de la clave.
 
 El nombre de cuenta y la clave se necesitan en los pasos posteriores de este tutorial. Abra un editor de texto y reserve el nombre de cuenta y la clave para futuras referencias.
 
-## <a name="create-a-databricks-cluster"></a>Creación de un clúster de Databricks
+## <a name="create-a-databricks-cluster"></a>Creación de un clúster de DataBricks
 
 El paso siguiente consiste en crear un [clúster de DataBricks](https://docs.azuredatabricks.net/) para crear un área de trabajo de datos.
 
@@ -61,10 +61,10 @@ El paso siguiente consiste en crear un [clúster de DataBricks](https://docs.azu
 8. Haga clic en **Create Cluster** (Crear clúster) en la parte superior de la página (este proceso puede tardar hasta 5 minutos en completarse).
 9. Cuando se completa el proceso, seleccione **Azure Databricks** en la parte superior izquierda de la barra de navegación.
 10. Seleccione **Notebook** en la sección **Nuevo** en la mitad inferior de la página.
-11. Escriba un nombre de su elección en el campo **Name** (Nombre).
-12. Todos los demás campos pueden dejarse como valores predeterminados.
+11. Escriba el nombre que desee en el campo **Nombre** y seleccione **Python** como lenguaje.
+12. Todos los demás campos pueden dejarse con los valores predeterminados.
 13. Seleccione **Crear**.
-14. Pegue el código siguiente en la celda **Cmd 1**, reemplace los valores por los valores que se conservan en la cuenta de almacenamiento.
+14. Pegue el código siguiente en la celda **Cmd 1**, reemplace los valores por los que se conservan en la cuenta de almacenamiento.
 
     ```bash
     spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
@@ -73,7 +73,7 @@ El paso siguiente consiste en crear un [clúster de DataBricks](https://docs.azu
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
     ```
 
-## <a name="ingest-data"></a>Introducir datos
+## <a name="ingest-data"></a>Introducción de datos
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copia de los datos de origen en la cuenta de almacenamiento
 
@@ -85,18 +85,18 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Uso del cuaderno de DataBricks para convertir CSV en Parquet
+### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Uso de DataBricks Notebook para convertir CSV en Parquet
 
-Vuelva a abrir DataBricks en el explorador y ejecute los siguientes pasos:
+Vuelva a abrir DataBricks en el explorador y realice los siguientes pasos:
 
 1. Seleccione **Azure Databricks** en la parte superior izquierda de la barra de navegación.
 2. Seleccione **Notebook** en la sección **Nuevo** en la mitad inferior de la página.
-3. Escriba **CSV2Parquet** en el campo de **nombre**.
-4. Todos los demás campos pueden dejarse como valores predeterminados.
+3. Escriba **CSV2Parquet** en el campo **Nombre**.
+4. Todos los demás campos pueden dejarse con los valores predeterminados.
 5. Seleccione **Crear**.
 6. Pegue el código siguiente en la celda **Cmd 1** (este código se guarda automáticamente en el editor).
 
-    ```
+    ```python
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  
@@ -114,9 +114,9 @@ Vuelva a abrir DataBricks en el explorador y ejecute los siguientes pasos:
     print("Done")
     ```
 
-## <a name="explore-data-using-hadoop-distributed-file-system"></a>Exploración de datos de un sistema de archivos distribuido de Hadoop
+## <a name="explore-data-using-hadoop-distributed-file-system"></a>Exploración de datos con un sistema de archivos distribuido de Hadoop
 
-Vuelva al área de trabajo de DataBricks y haga clic en el icono de **recientes** en la barra de navegación izquierda.
+Vuelva al área de trabajo de DataBricks y haga clic en el icono de **Recientes** en la barra de navegación izquierda.
 
 1. Haga clic en el cuaderno **Flight Data Analytics** (Análisis de datos de vuelo).
 2. Presione **Ctrl + Alt + N** para crear una nueva celda.
@@ -144,9 +144,9 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-Con estos ejemplos de código, ha explorado la naturaleza jerárquica de HDFS mediante el uso de datos almacenados en una cuenta compatible con Azure Data Lake Storage Gen2.
+Con estos ejemplos de código, ha explorado la naturaleza jerárquica de HDFS usando datos almacenados en una cuenta compatible con Azure Data Lake Storage Gen2.
 
-## <a name="query-the-data"></a>Consultar los datos
+## <a name="query-the-data"></a>Consulta de los datos
 
 A continuación, puede empezar a consultar los datos cargados en Azure Data Lake Storage. Escriba cada uno de los siguientes bloques de código en **Cmd 1** y presione **Cmd + ENTRAR** para ejecutar el script de Python.
 

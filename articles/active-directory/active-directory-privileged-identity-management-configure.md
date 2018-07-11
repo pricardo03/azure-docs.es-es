@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: protection
-ms.topic: article
+ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: fc7f7323f0c5c5975b74d3d30194ed0711b12eb4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 927d2ccef6a250d489273a17b070a4a0aa820bee
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233883"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37767562"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -27,13 +27,13 @@ Con Privileged Identity Management de Azure Active Directory (AD), puede adminis
 > [!NOTE]
 > Cuando se habilita Privileged Identity Management para un inquilino, se requiere una licencia de prueba o pago de Azure AD Premium P2 o Enterprise Mobility + Security E5 para cada usuario que interactúa con el servicio o que recibe un beneficio de él. Los ejemplos incluyen los usuarios de un grupo que:
 >
->- Están asignados al rol Administrador de roles con privilegios. 
+>- Están asignados al rol de administrador de roles con privilegios. 
 >- Están asignados como aptos para otros roles de directorio que se pueden administrar a través de PIM. 
 >- Tienen la capacidad de aprobar o rechazar solicitudes en PIM. 
 >- Están asignados a un rol de recursos de Azure con asignaciones Just-In-Time o directas (basadas en tiempo).  
 >- Están asignados a una revisión de acceso.
 >
->Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-whatis.md).
+>Para obtener más información, consulte [Ediciones de Azure Active Directory](fundamentals/active-directory-whatis.md).
 
 Las organizaciones buscan reducir el número de personas que tienen acceso a información segura o a recursos, ya que de esta manera se reduce la posibilidad de que usuarios malintencionados obtengan acceso a ellos o de que algún usuario autorizado haga algo involuntariamente que pueda afectar a recursos sensibles.  Sin embargo, los usuarios siguen teniendo la necesidad de llevar a cabo operaciones con privilegios en aplicaciones de Azure AD, Azure, Office 365 o SaaS. Las organizaciones pueden permitir a usuarios con privilegios acceder a los recursos de Azure como Suscripciones y Azure AD. Hay una necesidad de supervisión sobre lo que hacen estos usuarios con sus privilegios de administración. Azure AD Privileged Identity Management ayuda a mitigar el riesgo de unos derechos de acceso excesivos, innecesarios o mal utilizados.
 
@@ -59,8 +59,8 @@ Para empezar a usar Privileged Identity Management de Azure AD, acceda al [Porta
 > [!NOTE]
 > Necesita ser un administrador global con una cuenta profesional (por ejemplo, @yourdomain.com), no una cuenta Microsoft (por ejemplo, @outlook.com), para habilitar Azure AD Privileged Identity Management en un directorio.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) como administrador global de su directorio.
-2. Si su organización tiene más de un directorio, seleccione su nombre de usuario en la esquina superior derecha del Portal de Azure. Seleccione el directorio donde va a usar Privileged Identity Management de Azure AD.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global de su directorio.
+2. Si su organización tiene más de un directorio, seleccione su nombre de usuario en la esquina superior derecha de Azure Portal. Seleccione el directorio donde va a usar Privileged Identity Management de Azure AD.
 3. Seleccione **Todos los servicios** y use el cuadro de texto Filtro para buscar **Azure AD Privileged Identity Management**.
 4. Active **Anclar al panel** y haga clic en **Crear**. Se abre la aplicación Privileged Identity Management.
 

@@ -55,10 +55,6 @@
           href: tutorial-autoscale-powershell.md
         - name: Plantilla
           href: tutorial-autoscale-template.md
-    - name: Implementación de aplicaciones en un conjunto de escalado de máquinas virtuales de Azure con una imagen de Packer personalizada
-      items:
-        - name: CLI de Azure 2.0
-          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Ejemplos
   items:
     - name: CLI de Azure 2.0

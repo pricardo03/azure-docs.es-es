@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 79857f05505a59de94d7a6926afe38cceeac34f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35628724"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -27,6 +28,7 @@ Azure Cost Management muestra el uso y los costos para que pueda realizar un seg
 > * Realizar un seguimiento de las tendencias de uso y costos
 > * Detectar deficiencias de uso
 > * Crear alertas de gastos innecesarios o inusuales
+> * Exportar datos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -37,11 +39,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="open-the-cloudyn-portal"></a>Abrir el portal de Cloudyn
 
-Revise todos los usos y costos en el portal de Cloudyn. Abra el portal de Cloudyn desde Azure Portal o navegue a https://azure.cloudyn.com e inicie sesión.
+Revise todos los usos y costos en el portal de Cloudyn. Abra el portal de Cloudyn desde Azure Portal o vaya a https://azure.cloudyn.com e inicie sesión.
 
 ## <a name="track-usage-and-cost-trends"></a>Realizar un seguimiento de las tendencias de uso y costos
 
-El seguimiento del dinero real gastado en uso y costos se realiza con informes a lo largo del tiempo para identificar tendencias. Para empezar a observar tendencias, use el informe de costo real a lo largo del tiempo. En el menú de la parte superior del portal, haga clic en **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). Cuando abra el informe por primera vez, no tendrá grupos ni filtros aplicados.
+El seguimiento del dinero real gastado en uso y costos se realiza con informes a lo largo del tiempo para identificar tendencias. Para empezar a observar tendencias, use el informe de costo real a lo largo del tiempo. En la parte superior izquierda del portal, haga clic en **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). Cuando abra el informe por primera vez, no tendrá grupos ni filtros aplicados.
 
 A continuación se muestra un informe de ejemplo:
 
@@ -89,12 +91,15 @@ También pueden alertar automáticamente a las partes interesadas sobre anomalí
 
 Cree una alerta para cualquier gasto mediante cualquier informe de costos. En este ejemplo, use el informe de costo a lo largo del tiempo para recibir una notificación cuando el gasto de la máquina virtual de Azure se acerque al presupuesto total. Para crear la alerta es necesario realizar los pasos siguientes. En el menú de la parte superior del portal, haga clic en **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**. En la parte superior derecha del informe, haga clic en **Acciones** y, a continuación, seleccione **Schedule report (Programar informe)**.
 
-Use la pestaña **Programación** para enviarse un correo electrónico del informe con la frecuencia que desee. Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Las etiquetas, la agrupación y el filtrado que usa se incluyen en el informe enviado por correo electrónico. Haga clic en la pestaña **Umbral** y seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. Si tiene un presupuesto total de 500 000 USD y desea una notificación cuando los costos se acerquen a la mitad, cree un **alerta roja** en 250 000 dólares y una **alerta amarilla** en 240 000 USD. No incluya comas en los valores que especifique. A continuación, elija el número de alertas consecutivas. Cuando recibe el número total de alertas especificado, no se envían más alertas. Guarde el informe programado.
+En el cuadro Save or Schedule this report (Guardar o programar este informe), utilice la pestaña **Scheduling** (Programación) para que se envíe a su propia dirección un correo electrónico del informe con la frecuencia que desee. Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Las etiquetas, la agrupación y el filtrado que usa se incluyen en el informe enviado por correo electrónico. Haga clic en la pestaña **Umbral** y seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. Si tiene un presupuesto total de 500 000 USD y desea una notificación cuando los costos se acerquen a la mitad, cree un **alerta roja** en 250 000 dólares y una **alerta amarilla** en 240 000 USD. No incluya comas en los valores que especifique. A continuación, elija el número de alertas consecutivas. Cuando recibe el número total de alertas especificado, no se envían más alertas. Guarde el informe programado.
 
 ![informe de ejemplo](./media/tutorial-review-usage/schedule-alert01.png)
 
 También puede elegir la métrica del umbral de porcentaje frente a presupuesto para crear alertas. Si usa esa métrica, puede emplear porcentajes de presupuesto en lugar de valores de divisa.
 
+## <a name="export-data"></a>Exportar datos
+
+De igual forma que puede crear alertas de los informes, también puede exportar los datos de cualquier informe. Por ejemplo, es posible que desee exportar una lista de las cuentas de Cloudyn u otros datos de usuario. Para exportar un informe, ábralo y, en la parte superior derecha, haga clic en **Actions** (Acciones). Una de las acciones disponibles es **Export all report data** (Exportar todos los datos del informe), lo que le permitirá descargar o imprimir la información. También puede seleccionar **Schedule report** (Programar informe) si desea programar un informe para que se envíe por correo electrónico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -104,6 +109,7 @@ En este tutorial aprendió lo siguiente:
 > * Realizar un seguimiento de las tendencias de uso y costos
 > * Detectar deficiencias de uso
 > * Crear alertas de gastos innecesarios o inusuales
+> * Exportar datos
 
 
 Avance al siguiente tutorial para aprender a pronosticar gastos mediante datos históricos.

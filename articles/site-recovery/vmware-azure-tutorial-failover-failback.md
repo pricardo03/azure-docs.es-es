@@ -1,19 +1,20 @@
 ---
-title: "Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure con Site Recovery | Microsoft Docs"
-description: "Obtenga información sobre cómo conmutar por error servidores físicos y máquinas virtuales de VMware en Azure y conmutar por recuperación en el sitio local con Azure Site Recovery."
+title: Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure con Site Recovery | Microsoft Docs
+description: Obtenga información sobre cómo conmutar por error servidores físicos y máquinas virtuales de VMware en Azure y conmutar por recuperación en el sitio local con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/05/2018
+ms.date: 06/13/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57be12e3d203ba88cf7900598a09abdd206e1495
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115138"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure
 
@@ -54,7 +55,7 @@ Compruebe las propiedades de la máquina virtual y asegúrese de que la máquina
 
 2. En el panel **Elemento replicado**, puede ver un resumen de la información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
 
-3. En **Proceso y red**, puede modificar el nombre de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) y la [configuración de discos administrados](#managed-disk-considerations).
+3. En **Proceso y red**, puede modificar el nombre de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) y la [configuración de discos administrados](#managed-disk-considerations)
 
 4. Puede ver y modificar la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
 
@@ -113,7 +114,7 @@ En este procedimiento se da por supuesto que la máquina virtual local no está 
 
 4. En **Almacén de datos**, seleccione el almacén de datos de destino maestro en el que quiera recuperar los discos en el entorno local. Use esta opción cuando se haya eliminado la máquina virtual local y sea necesario crear discos nuevos. Esta configuración se omite si los discos ya existen, pero debe especificar un valor.
 5. Seleccione la unidad de retención de destino maestra. La directiva de conmutación por recuperación se selecciona automáticamente.
-6. Haga clic en **Aceptar** para comenzar con la reprotección. Comienza un trabajo para replicar la máquina virtual desde Azure en el sitio local. Puede realizar el seguimiento del progreso en la pestaña **Trabajos** .
+6. Haga clic en **Aceptar** para comenzar con la reprotección. Comienza un trabajo para replicar la máquina virtual desde Azure en el sitio local. Puede realizar el seguimiento del progreso en la pestaña **Trabajos**.
 
 > [!NOTE]
 > Si desea recuperar la máquina virtual de Azure en una máquina virtual local existente, el almacén de datos de la máquina virtual local debe montarse con acceso de lectura/escritura en el host ESXi del servidor de destino maestro.

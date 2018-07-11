@@ -59,16 +59,20 @@
           href: luis-quickstart-intent-and-list-entity.md
         - name: 5. Incorporación de entidad jerárquica
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: 6. Incorporación de entidad simple y lista de frases
+        - name: 6. Incorporación de entidad compuesta
+          href: luis-tutorial-composite-entity.md
+        - name: 7. Incorporación de entidad simple y lista de frases
           href: luis-quickstart-primary-and-secondary-data.md
-        - name: 7. Adición de la entidad KeyPhrase
+        - name: 8. Adición de la entidad KeyPhrase
           href: luis-quickstart-intent-and-key-phrase.md
-        - name: 8. Incorporación de análisis de sentimiento
+        - name: 9. Incorporación de análisis de sentimiento
           href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Mejora de la aplicación
       items:
         - name: Revisar las expresiones de punto de conexión
           href: luis-tutorial-review-endpoint-utterances.md
+        - name: Con prueba por lotes
+          href: luis-tutorial-batch-testing.md
         - name: Con patrones
           href: luis-tutorial-pattern.md
 - name: Ejemplos
@@ -138,7 +142,7 @@
     - name: Planeamiento de la aplicación
       href: luis-how-plan-your-app.md
     - name: Inicio de una nueva aplicación
-      href: Create-new-app.md
+      href: luis-how-to-start-new-app.md
     - name: Crear modelo
       items:
         - name: Adición de intenciones
@@ -147,15 +151,15 @@
           href: luis-how-to-add-example-utterances.md
         - name: agregar entidades
           href: luis-how-to-add-entities.md
-        - name: Usar entidad compuesta para extraer datos agrupados
-          href: luis-tutorial-composite-entity.md
-        - name: Usar entidad de lista para que coincida con el texto exacto mediante Node.js
-          href: luis-tutorial-list-entity.md
-        - name: Compilar la aplicación mediante programación con Node.js
-          href: luis-tutorial-node-import-utterances-csv.md
+        - name: Con API
+          items:
+            - name: Compilar la aplicación mediante programación con Node.js
+              href: luis-tutorial-node-import-utterances-csv.md
+            - name: Usar entidad de lista para que coincida con el texto exacto mediante Node.js
+              href: luis-tutorial-list-entity.md
     - name: Integrate
       items:
-        - name: Corregir la ortografía con Bing Spell Check API v7
+        - name: Con Bing Spell Check API v7
           href: luis-tutorial-bing-spellcheck.md
         - name: Con Speech Service
           href: luis-tutorial-speech-to-intent.md
@@ -176,7 +180,7 @@
     - name: Mejorar la precisión de la predicción
       items:
         - name: Revisar las expresiones de punto de conexión
-          href: Label-Suggested-Utterances.md
+          href: luis-how-to-review-endoint-utt.md
         - name: Agregar lista de frases
           href: luis-how-to-add-features.md
         - name: Agregar patrones
@@ -189,36 +193,36 @@
           href: interactive-test.md
         - name: Pruebas en lote
           href: luis-how-to-batch-test.md
-        - name: Mejorar la precisión de las pruebas en lote
-          href: luis-tutorial-batch-testing.md
-    - name: Publicación de la aplicación
+    - name: Publicación de aplicación
       href: luis-how-to-publish-app.md
     - name: Usar modelos creados previamente
       items:
-        - name: Uso de entidades creadas previamente
+        - name: Uso de entidades
           href: luis-prebuilt-entities.md
-        - name: Uso de dominios creados previamente
+        - name: Uso de dominios
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Uso de la aplicación precompilada Cortana
+        - name: Uso de Cortana
           href: luis-how-to-cortana-prebuilt-app.md
-    - name: Administración de una aplicación de LUIS
+    - name: Administración de aplicaciones
       items:
         - name: Usar el panel
           href: luis-how-to-use-dashboard.md
-        - name: Crear claves
+        - name: Creación de claves de punto de conexión
           href: luis-how-to-azure-subscription.md
-        - name: Agregar claves en LUIS
+        - name: Incorporación de claves de punto de conexión a la aplicación
           href: luis-how-to-manage-keys.md
-        - name: Ver el uso de puntos de conexión con PowerShell
-          href: luis-how-to-manage-from-cloud-shell.md
         - name: Administración de versiones
           href: luis-how-to-manage-versions.md
         - name: Colaborar con otros creadores
           href: luis-how-to-collaborate.md
-        - name: Propagar la cuota de puntos de conexión por claves con Traffic Manager
-          href: traffic-manager.md
-    - name: Administrar la cuenta de LUIS
-      href: luis-how-to-account-settings.md
+        - name: Administración de la clave de creación
+          href: luis-how-to-account-settings.md
+        - name: Administración del uso del punto de conexión
+          items:
+            - name: Ver el uso de puntos de conexión con PowerShell
+              href: luis-how-to-manage-from-cloud-shell.md
+            - name: Propagar la cuota de puntos de conexión por claves con Traffic Manager
+              href: traffic-manager.md
     - name: Migrar a las API V2
       href: migration-v1-to-v2.md
     - name: Buscar región mediante programación
@@ -251,6 +255,8 @@
           href: luis-reference-prebuilt-deprecated.md
         - name: Entidad de correo electrónico
           href: luis-reference-prebuilt-email.md
+        - name: Entidad de KeyPhrase
+          href: luis-reference-prebuilt-keyphrase.md
         - name: Entidad de número
           href: luis-reference-prebuilt-number.md
         - name: Entidad ordinal
