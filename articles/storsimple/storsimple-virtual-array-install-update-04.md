@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
 ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109813"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232196"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Instalación de Update 0.4 en StorSimple Virtual Array
 
@@ -56,7 +56,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
    
     Aparece la lista de revisiones, por ejemplo, **StorSimple Virtual Array Update 0.4**.
    
-    ![Búsqueda de catálogo](./media/storsimple-virtual-array-install-update-04/download1.png)
+    ![Catálogo de búsqueda](./media/storsimple-virtual-array-install-update-04/download1.png)
 
 4. Haga clic en **Agregar**. La actualización se agrega a la cesta.
 
@@ -97,7 +97,7 @@ Utilice este método para instalar actualizaciones en un dispositivo que ejecute
    
     ![actualizar dispositivo](./media/storsimple-virtual-array-install-update/update6m.png)
 
-## <a name="use-the-azure-portal"></a>Uso del Portal de Azure
+## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
 Si se ejecuta Update 0.2, o cualquier versión posterior, se recomienda instalar las actualizaciones mediante Azure Portal. El procedimiento del Portal requiere que el usuario examine, descargue e instale las actualizaciones. Este procedimiento tarda aproximadamente 7 minutos en completarse. Realice los pasos siguientes para instalar la actualización o revisión.
 

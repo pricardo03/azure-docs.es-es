@@ -1,19 +1,19 @@
 ---
 title: Eliminación de un almacén de Recovery Services en Azure
 description: En este artículo se explica cómo eliminar un almacén de Recovery Services. El artículo incluye pasos para solucionar los problemas que se producen cuando se intenta eliminar un almacén, pero no puede.
-services: service-name
+services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: d8169eba6790e49a85d69434663faabe7430942e
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 5a3a67a41525d30b73bb203eeeacbdf49bb35193
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937607"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901857"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
@@ -77,7 +77,7 @@ Para eliminar un almacén de Recovery Services:
 
 4. Ejecute el comando siguiente para descargar el paquete de cliente de Azure Resource Manager desde chocolately.org.
 
-    `iex ((New-Object System.Net.WebClient) DownloadString('https://chocolatey.org/install.ps1))`
+    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 5. Use el siguiente comando para instalar el cliente de API de Azure Resource Manager.
 
@@ -174,7 +174,7 @@ Use el menú **Infraestructura de copia de seguridad** (consulte la imagen) para
       ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Cuando no haya ningún elemento en la lista, desplácese al panel **Essentials** en el menú del almacén de Recovery Services. No debería haber **elementos de copia de seguridad**, **servidores de administración de copias de seguridad** ni **elementos replicados** en la lista. Si todavía aparecen elementos en el almacén, vuelva al paso 3 y elija otra lista de tipos de elemento.  
-6. Cuando no hay ningún elemento más en el almacén, haga clic en **Eliminar** en el panel del almacén.
+6. Cuando no haya ningún otro elemento en el almacén, haga clic en **Eliminar** en el panel del almacén.
 
     ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 

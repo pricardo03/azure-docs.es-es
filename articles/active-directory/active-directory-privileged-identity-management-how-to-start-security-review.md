@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 28a998647dacdf57390638b8ce1629a76077b450
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 38386de86c83733e3539048de9e263ed6225eee5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446901"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952167"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Inicio de una revisión de acceso en Privileged Identity Management de Azure AD
 Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. A fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios o los administradores globales deben revisar regularmente los accesos para así poder supervisar los roles que se han concedido a los usuarios. En este documento se describen los pasos para iniciar una revisión de acceso en Azure AD Privileged Identity Management (PIM).
@@ -37,12 +37,12 @@ En la página principal de la aplicación PIM, hay tres formas de comenzar una r
 
 Al hacer clic en el botón **Revisar**, aparece la hoja **Iniciar revisión de acceso**. En esta hoja, va a configurar la revisión con un nombre y un límite de tiempo, elija un rol para revisar y decida quién llevará a cabo la revisión.
 
-![Inicio de una revisión de acceso: captura de pantalla][1]
+![Inicio de una revisión de acceso: captura de pantalla](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png)
 
 ### <a name="configure-the-review"></a>Configuración de la revisión
 Para crear una revisión de acceso, necesitará nombrarla y establecer una fecha de inicio y finalización.
 
-![Configuración de una revisión: captura de pantalla][2]
+![Configuración de una revisión: captura de pantalla](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png)
 
 Asegúrese de que la longitud de la revisión sea lo suficientemente larga para que los usuarios la completen. Si finaliza antes de la fecha de finalización, siempre puede detener pronto la revisión.
 
@@ -51,7 +51,7 @@ Cada revisión se centra solo en un rol. A menos que iniciara la revisión de ac
 
 1. Vaya a **Revisar la pertenencia al rol**
    
-    ![Revisión de pertenencia al rol: captura de pantalla][3]
+    ![Revisión de pertenencia al rol: captura de pantalla](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png)
 2. Elija un rol de la lista.
 
 ### <a name="decide-who-will-perform-the-review"></a>Decida quién llevará a cabo la revisión
@@ -59,7 +59,7 @@ Hay tres opciones para realizar una revisión. Puede asignar la revisión a otra
 
 1. Vaya a **Seleccionar revisores**
    
-    ![Selección de revisores: captura de pantalla][4]
+    ![Selección de revisores: captura de pantalla](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png)
 2. Elija una de las opciones:
    
    * **Seleccionar revisor**: utilice esta opción si no sabe quién requiere acceso. Con esta opción, puede asignar la revisión a un propietario de recursos o al administrador de grupos.
@@ -79,10 +79,3 @@ Hasta que termine el período de revisión, puede recordar a los usuarios comple
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="pim-table-of-contents"></a>Tabla de contenido de PIM
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png

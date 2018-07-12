@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
 ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895299"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972203"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 
@@ -41,7 +41,7 @@ Con Microsoft Azure, puede:
 
 - Proteger su negocio.
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Ámbito
 
 Estas notas del producto se centran en las características y funcionalidades de seguridad que dan soporte a los componentes principales de Microsoft Azure, es decir, a [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/), [el modelo de máquinas virtuales de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/), y a las herramientas e infraestructura encargados de la administración de todos ellos. Este documento se centra en las funcionalidades técnicas de Microsoft Azure que están disponibles para cumplir su función a la hora de proteger la seguridad y privacidad de sus datos.
 

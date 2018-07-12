@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 489801852202163ef40d57da0082e39793196d85
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264101"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971914"
 ---
 # <a name="what-is-azure-media-services-v3"></a>¿Qué es Azure Media Services v3?
 
@@ -45,7 +45,7 @@ Media Services le permite generar una variedad de flujos de trabajo multimedia e
 * Cree un servicio de suscripción de vídeo y haga streaming de contenido protegido por DRM cuando un cliente (por ejemplo, un estudio cinematográfico) necesite restringir el acceso y el uso de una obra con derechos de autor.
 * Entregue contenido sin conexión para su reproducción en aviones, trenes y automóviles. Es posible que un cliente tenga que descargar el contenido en su teléfono o tableta para reproducirlo cuando tenga previsto desconectarse de la red.
 * Agregue subtítulos y leyendas a los vídeos para llegar a un público más amplio (por ejemplo, personas con discapacidades auditivas o usuarios que quieren leer el contenido en un idioma diferente). 
-* Implemente una plataforma de vídeo educativa con Azure Media Services y [Azure Cognitive Services APIs](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) para subtítulos de voz a texto, traducción a varios idiomas, etc.
+* Implemente una plataforma de vídeo educativa con Azure Media Services y [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para subtítulos de voz a texto, traducción a varios idiomas, etc.
 * Habilite Azure CDN para lograr un gran escalado y mejorar la administración de cargas instantáneas pesadas (por ejemplo, al inicio de un evento de lanzamiento de un producto). 
 
 ## <a name="v3-capabilities"></a>Funcionalidades de v3
@@ -78,7 +78,7 @@ Microsoft genera y admite las bibliotecas de cliente siguientes:
 |Biblioteca de cliente|Ejemplos|
 |---|---|
 |[SDK de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Ejemplos de la CLI de Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
-|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[Ejemplos de .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
+|[SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[Ejemplos de .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
 |[SDK de .NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (elija la pestaña **CLI de .NET**)|[Ejemplos de .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
 |[SDK de Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
 |[SDK de Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Ejemplos de Node.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|

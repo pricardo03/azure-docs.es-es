@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 06/04/2018
 ms.topic: article
-ms.openlocfilehash: b7cd9ad90198ead7c68d838547232429dbd1289f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757327"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971840"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale"></a>Uso de Terraform para crear un escalado de máquinas virtuales de Azure
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure
 
 [Los conjuntos de escalado de máquinas virtuales de Azure](/azure/virtual-machine-scale-sets) permiten crear y administrar un grupo de máquinas virtuales idénticas y con equilibrado de carga en las que el número de instancias de máquinas virtuales puede aumentar o disminuir automáticamente en respuesta a la demanda o a una programación definida. 
 

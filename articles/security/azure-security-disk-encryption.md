@@ -14,22 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f350716d0ca906376f3eadce9e117694ff14515c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35756403"
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows
 Microsoft Azure está muy comprometido a garantizar la privacidad y soberanía de los datos, y permite controlar los datos hospedados en Azure datos mediante varias tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Esto proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentaremos a una nueva solución de tecnología, "Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows", que le ayudara a proteger sus datos para que cumplan los compromisos de seguridad y compatibilidad de su organización. Ofrece información detalladas sobre cómo usar las características de cifrado de disco de Azure, incluidos los escenarios admitidos y las experiencias de los usuarios.
 
-> [!NOTE]
-> Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones.
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## <a name="overview"></a>Información general
 Azure Disk Encryption es una nueva funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS con Windows y Linux. Azure Disk Encryption aprovecha la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) de Windows, estándar en el sector, y la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo. La solución se integra con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ayudarle a controlar y administrar los secretos y las claves de cifrado de discos en su suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
 
 Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux ahora tiene **disponibilidad general** en todas las regiones públicas de Azure y regiones de AzureGov para VM estándares y VM con Premium Storage.
+
+> [!NOTE]
+> Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones.
+
 
 ### <a name="encryption-scenarios"></a>Escenarios de cifrado
 La solución Azure Disk Encryption admite los tres escenarios de cliente siguientes:
@@ -417,7 +422,7 @@ Puede habilitar el cifrado de disco en nuevas máquinas virtuales IaaS con Windo
 > [!NOTE]
 > Esta plantilla crea una nueva máquina virtual con Windows cifrada que usa una imagen de la galería de Windows Server 2012.
 
-Puede habilitar el cifrado de disco en una nueva máquina virtual IaaS con RedHat Linux 7.2 con una matriz RAID-0 de 200 GB mediante esta [plantilla de Resource Manager](https://aka.ms/fde-rhel). Después de implementar la plantilla, compruebe el estado de cifrado de la máquina virtual mediante el cmdlet `Get-AzureRmVmDiskEncryptionStatus`, tal como se describe en [Cifrado de la unidad del sistema operativo en una máquina virtual con Linux en ejecución](#encrypting-os-drive-on-a-running-linux-vm). Cuando la máquina devuelva un estado _VMRestartPending_, reinicie la máquina virtual.
+Puede habilitar el cifrado de disco en una nueva máquina virtual IaaS con Red Hat Linux 7.2 con una matriz RAID-0 de 200 GB mediante esta [plantilla de Resource Manager](https://aka.ms/fde-rhel). Después de implementar la plantilla, compruebe el estado de cifrado de la máquina virtual mediante el cmdlet `Get-AzureRmVmDiskEncryptionStatus`, tal como se describe en [Cifrado de la unidad del sistema operativo en una máquina virtual con Linux en ejecución](#encrypting-os-drive-on-a-running-linux-vm). Cuando la máquina devuelva un estado _VMRestartPending_, reinicie la máquina virtual.
 
 En la tabla siguiente figuran los parámetros de la plantilla de Resource Manager para nuevas máquinas virtuales en el escenario de Marketplace con el identificador de cliente de Azure AD:
 

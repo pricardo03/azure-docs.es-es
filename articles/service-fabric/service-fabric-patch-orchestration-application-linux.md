@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643131"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971273"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Linux en el clúster de Service Fabric
 
@@ -324,7 +324,7 @@ A. Sí, la limpieza se produce como parte de los pasos posteriores a la instalac
 
 P: **¿La aplicación Patch Orchestration se puede utilizar para aplicar revisiones al clúster de desarrollo (clúster con un solo nodo)?**
 
-A. No, la aplicación Patch Orchestration no se puede utilizar para aplicar revisiones a clústeres de un nodo. Esta limitación es así por naturaleza, ya que los [servicios del sistema de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) o las aplicaciones del cliente van a registrar tiempos de inactividad y, por tanto, cualquier trabajo de reparación que se realice durante la aplicación de revisiones nunca conseguirá la aprobación del administrador de reparaciones.
+A. No, la aplicación Patch Orchestration no se puede utilizar para aplicar revisiones a clústeres de un nodo. Esta limitación es así por naturaleza, ya que los [servicios del sistema de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) o las aplicaciones del cliente van a registrar tiempos de inactividad y, por tanto, cualquier trabajo de reparación que se realice durante la aplicación de revisiones nunca conseguirá la aprobación del administrador de reparaciones.
 
 ## <a name="troubleshooting"></a>solución de problemas
 

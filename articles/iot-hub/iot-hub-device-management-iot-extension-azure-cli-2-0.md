@@ -11,11 +11,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
 ms.openlocfilehash: dc96e70a031d6080217e71b829ec5de3c64e4cf7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632822"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971761"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Extensión de IoT de la CLI de Azure 2.0 para la administración de dispositivos de Azure IoT Hub
 
@@ -63,7 +63,7 @@ Deberá ejecutar la CLI de Azure 2.0 y la extensión de IoT de la CLI de Azure 2
 - Instale la extensión de IoT. La manera más sencilla es ejecutar `az extension add --name azure-cli-iot-ext`. En el [archivo Léame de la extensión de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) se describen varias maneras de instalarla.
 
 
-## <a name="log-in-to-your-azure-account"></a>Inicie sesión en la cuenta de Azure.
+## <a name="log-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure
 
 Inicie sesión en la cuenta de Azure mediante el siguiente comando:
 

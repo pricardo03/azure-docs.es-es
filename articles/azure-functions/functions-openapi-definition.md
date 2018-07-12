@@ -18,11 +18,11 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 3205fc8597d4d501b19ace7d50c4807a47d31d03
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234196"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602622"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Creación de una definición de OpenAPI para una función
 Las API de REST a menudo se describen con una definición de OpenAPI (anteriormente conocida como el archivo [Swagger](http://swagger.io/)). Esta definición contiene información sobre las operaciones que están disponibles en una API y cómo se deben estructurar los datos de la solicitud y la respuesta para la API.

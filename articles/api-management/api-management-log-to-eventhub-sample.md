@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4c58be8f501e72027e1692ceb73552a3f252f92a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117075"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38603185"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Supervisión de las API con Azure API Management, Event Hubs y Runscope
 El [servicio Administración de API](api-management-key-concepts.md) proporciona muchas capacidades para mejorar el procesamiento de solicitudes de HTTP enviadas a la API HTTP. Sin embargo, la existencia de las solicitudes y respuestas es transitoria. Se realiza la solicitud y fluye a través del servicio Administración de API a la API de back-end. La API procesa la solicitud y se pasa una respuesta al consumidor de API. El servicio API Management mantiene algunas estadísticas importantes acerca de las API que se muestran en el panel de Azure Portal, pero aparte de eso, los detalles desaparecen.
@@ -274,12 +274,12 @@ En la siguiente imagen animada, puede ver una solicitud realizada a una API en e
 ## <a name="summary"></a>Resumen
 El servicio Azure API Management proporciona un lugar ideal para capturar el tráfico HTTP hacia y desde la API. Azure Event Hubs es una solución altamente escalable y de bajo costo para capturar ese tráfico y colocarlo en sistemas de procesamiento secundario para registro, supervisión y otros análisis sofisticados. La conexión a sistemas de supervisión de tráfico de terceros como Runscope se reduce a unas cuantas docenas de líneas de código.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de Azure Event Hubs
   * [Introducción a Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guía de programación de Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Obtener más información acerca de la integración de API Management y Event Hubs
   * [Cómo registrar eventos en Azure Event Hubs en Azure API Management](api-management-howto-log-event-hubs.md)
-  * [Referencia de entidad del registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+  * [Referencia de entidad del registrador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)

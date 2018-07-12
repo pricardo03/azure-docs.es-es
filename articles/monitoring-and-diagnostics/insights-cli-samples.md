@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 0b98cc29325310cfc0c7a62de693c309b6731447
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262409"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971652"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Ejemplos de inicio rápido de CLI de Azure Monitor 2.0
 En este artículo se muestran comandos de la interfaz de la línea de comandos (CLI) de ejemplo que lo ayudarán a acceder a las características de supervisión de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Si aún no ha instalado la CLI de Azure, siga las instrucciones para [instalar la CLI de Azure 2.0](/cli/azure/install-azure-cli). También puede usar [Azure Cloud Shell](/azure/cloud-shell) para ejecutar la CLI como una experiencia interactiva en el explorador. Consulte una referencia completa de todos los comandos disponibles en la [referencia de la CLI de Azure Monitor](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
+Si aún no ha instalado la CLI de Azure, siga las instrucciones para [instalar la CLI de Azure 2.0](/cli/azure/install-azure-cli). También puede usar [Azure Cloud Shell](/azure/cloud-shell) para ejecutar la CLI como una experiencia interactiva en el explorador. Consulte una referencia completa de todos los comandos disponibles en la [referencia de la CLI de Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 El primer paso consiste en iniciar sesión en su cuenta de Azure.

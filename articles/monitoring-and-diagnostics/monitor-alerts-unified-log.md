@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264381"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971727"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de registro en Azure Monitor: Alertas 
 En este artículo se proporcionan detalles de Alertas de registro, uno de los tipos de alerta que se admiten en el nuevo [Alertas de Azure](monitoring-overview-unified-alerts.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas. Para detalles de las alertas de métrica mediante los registros, consulte las [alertas de métricas casi en tiempo real](monitoring-near-real-time-metric-alerts.md)
@@ -120,7 +120,7 @@ Las API proporcionadas para Alertas de registro son de tipo RESTful y puede acce
 
 Para obtener más información, así como ejemplos sobre el uso de la API de REST, consulte:
 - [API de REST de alertas de Log Analytics](../log-analytics/log-analytics-api-alerts.md): para crear y administrar reglas de alertas de búsqueda de registros de Azure Log Analytics
-- [API de REST de reglas de consulta programadas de Azure Monitor ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/): para crear y administrar reglas de alertas de búsqueda de registros de Azure Application Insights
+- [API de REST de reglas de consulta programadas de Azure Monitor ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/): para crear y administrar reglas de alertas de búsqueda de registros de Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Plantilla de Azure Resource Manager
 Los usuarios también pueden utilizar la flexibilidad proporcionada por [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para crear y actualizar recursos, para crear o actualizar Alertas de registro.

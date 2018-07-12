@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344838"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952545"
 ---
 # <a name="what-is-language-understanding-luis"></a>¿Qué es Language Understanding (LUIS)?
 Language Understanding (LUIS) es un servicio basado en la nube que aplica aprendizaje automático personalizado a un texto de lenguaje natural y conversacional de un usuario para predecir el significado global y extraer información pertinente y detallada. 
@@ -99,7 +99,7 @@ Una [expresión](luis-how-to-add-example-utterances.md) de ejemplo es una entrad
 Una vez que la aplicación de LUIS está publicada y recibe expresiones de usuario reales, LUIS ofrece varios métodos para mejorar la precisión de la predicción: [aprendizaje activo](#active-learning) de expresiones de punto de conexión, [listas de frases](#phrase-lists) para la inclusión de palabras de dominio y [patrones](#patterns) para reducir el número de expresiones necesarias.
 
 ### <a name="active-learning"></a>Aprendizaje activo
-En el proceso de [aprendizaje activo](label-suggested-utterances.md), LUIS le permite adaptar la aplicación de LUIS a expresiones reales seleccionando las expresiones que recibió en el punto de conexión para su revisión. Puede aceptar o corregir la predicción de punto de conexión, volver a entrenar y volver a publicar. LUIS aprende rápidamente con este proceso iterativo, requiriendo una cantidad mínima de su tiempo y esfuerzo. 
+En el proceso de [aprendizaje activo](luis-how-to-review-endoint-utt.md), LUIS le permite adaptar la aplicación de LUIS a expresiones reales seleccionando las expresiones que recibió en el punto de conexión para su revisión. Puede aceptar o corregir la predicción de punto de conexión, volver a entrenar y volver a publicar. LUIS aprende rápidamente con este proceso iterativo, requiriendo una cantidad mínima de su tiempo y esfuerzo. 
 
 ### <a name="phrase-lists"></a>Listas de frases 
 LUIS proporciona [listas de frases](luis-concept-feature.md) para que pueda indicar palabras o frases importantes en el dominio modelo. LUIS usa estas listas para agregar una pertinencia adicional a las palabras y frases que, en caso contrario, no se encontrarían en el modelo.

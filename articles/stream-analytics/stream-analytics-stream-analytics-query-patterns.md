@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652253"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971788"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 
@@ -225,7 +225,7 @@ GROUP BY
 
 
 **Explicación:**
-**COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
+** COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: determinar si un valor ha cambiado
 **Descripción**: busque un valor anterior para determinar si es diferente del valor actual.
@@ -617,7 +617,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ````
 
-**Explicación**: la cláusula [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examina la escala de tiempo de cada dispositivo por separado mediante subtransmisiones. Los eventos de salida para cada TollID se generan a medida que se calculan, lo que significa que los eventos están en orden con respecto a cada TollID en lugar de que se vuelvan a ordenar como si todos los dispositivos estuvieran en el mismo reloj.
+**Explicación**: la cláusula [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examina la escala de tiempo de cada dispositivo por separado mediante subtransmisiones. Los eventos de salida para cada TollID se generan a medida que se calculan, lo que significa que los eventos están en orden con respecto a cada TollID en lugar de que se vuelvan a ordenar como si todos los dispositivos estuvieran en el mismo reloj.
 
 
 ## <a name="get-help"></a>Obtención de ayuda

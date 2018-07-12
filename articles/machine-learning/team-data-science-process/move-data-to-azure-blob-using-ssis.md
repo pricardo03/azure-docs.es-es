@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 165180c49de75cf4b635a89dacec311d5370acd3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5db1e7b9c97a0c19ef5ec0a41ea675c33c4d46fc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837752"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950923"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS
 El [Feature Pack de SQL Server Integration Services para Azure](https://msdn.microsoft.com/library/mt146770.aspx) ofrece componentes para conectarse a Azure, transferir datos entre Azure y orígenes de datos locales y procesar datos almacenados en Azure.
@@ -54,7 +54,7 @@ Para usar los **conectores SSIS**, debe descargar:
 > 
 > 
 
-Para obtener materiales de aprendizaje sobre SSIS, consulte [Aprendizaje práctico para SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
+Para obtener materiales de aprendizaje sobre SSIS, consulte [Aprendizaje práctico para SSIS](https://www.microsoft.com/sql-server/training-certification)
 
 Si desea obtener información sobre cómo trabajar con SISS para compilar paquetes de extracción, transformación y carga (ETL) sencillos, consulte [Tutorial de SSIS: Creación de un paquete ETL sencillo](https://msdn.microsoft.com/library/ms169917.aspx).
 

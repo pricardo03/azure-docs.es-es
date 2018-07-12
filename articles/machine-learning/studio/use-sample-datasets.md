@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: acdc2ca6f0746f4495f6b3747b7fc303574f712c
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342555"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903037"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -308,7 +308,7 @@ Los grados del acero siguen una norma establecida, definida por la SAE y otras o
 <p></p>
 <b>Investigación relacionada:</b> Sterling, D. &amp; Buntine, W., (NA). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información 
 <p></p>
-Aquí encontrará una guía útil para los grados del acero: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Aquí encontrará una guía útil para los grados del acero: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 

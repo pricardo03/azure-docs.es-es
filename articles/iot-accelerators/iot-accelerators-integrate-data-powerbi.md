@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: e396d69a61679a85fdfbd3e8fd43216635dec51d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627797"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970412"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualización de datos de supervisión remota con Power BI
 
@@ -94,9 +94,9 @@ Una vez conectado el flujo, ya puede crear paneles personalizados. El panel sigu
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publicación en el panel y actualización de los datos
 
-Una vez creados correctamente los paneles, se recomienda que [publique los paneles de Power BI](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files) para compartirlos con otros.
+Una vez creados correctamente los paneles, se recomienda que [publique los paneles de Power BI](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) para compartirlos con otros.
 
-También conviene [actualizar los datos](https://docs.microsoft.com/en-us/power-bi/refresh-data) en el panel publicado para asegurarse de que dispone del último conjunto de datos.
+También conviene [actualizar los datos](https://docs.microsoft.com/power-bi/refresh-data) en el panel publicado para asegurarse de que dispone del último conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

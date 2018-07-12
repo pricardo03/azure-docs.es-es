@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114231"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972005"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: Análisis de vídeos con Azure Media Services 
 
@@ -112,7 +112,7 @@ Al crear una **transformación**, debe comprobar primero si ya existe una con el
 
 #### <a name="job"></a>Trabajo
 
-Como se mencionó anteriormente, el objeto [Transform](https://docs.microsoft.com/rest/api/media/transforms) es la receta y un [trabajo](https://docs.microsoft.com/en-us/rest/api/media/jobs) es la solicitud real a Media Services para aplicar que dicho objeto **Transform** a un determinado contenido de audio o vídeo de entrada. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo mediante direcciones URL HTTPS, direcciones URL de SAS o recursos que están en la cuenta de Media Service. 
+Como se mencionó anteriormente, el objeto [Transform](https://docs.microsoft.com/rest/api/media/transforms) es la receta y un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services para aplicar que dicho objeto **Transform** a un determinado contenido de audio o vídeo de entrada. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo mediante direcciones URL HTTPS, direcciones URL de SAS o recursos que están en la cuenta de Media Service. 
 
 En este ejemplo, la entrada de trabajo es un vídeo local.  
 
@@ -120,7 +120,7 @@ En este ejemplo, la entrada de trabajo es un vídeo local.
 
 ### <a name="wait-for-the-job-to-complete"></a>Espere a que el trabajo se complete
 
-El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir una notificación. Hay distintas opciones para obtener notificaciones sobre la realización del [trabajo](https://docs.microsoft.com/en-us/rest/api/media/jobs). La opción más sencilla (que se muestra aquí) es para utilizar el sondeo. 
+El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir una notificación. Hay distintas opciones para obtener notificaciones sobre la realización del [trabajo](https://docs.microsoft.com/rest/api/media/jobs). La opción más sencilla (que se muestra aquí) es para utilizar el sondeo. 
 
 El sondeo no es un procedimiento recomendado para aplicaciones de producción debido a la posible latencia. El sondeo se puede limitar si se sobreutiliza en una cuenta. Los desarrolladores deben utilizar en su lugar Event Grid.
 

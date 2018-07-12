@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2816a19833f45a7e3a344e31f4131d23d9a8417a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7960ab4aee80c7d15ea0f031790dd089424565d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29382566"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610264"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Uso de una identidad de servicio administrada (MSI) en una máquina virtual Windows para acceder a Resource Manager
 
@@ -46,7 +46,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 En este tutorial, se crea una nueva máquina virtual Windows.  También puede habilitar MSI en una máquina virtual existente.
 
 1.  Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2.  Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**. 
+2.  Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
 3.  Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
 4.  Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
 5.  Para seleccionar un nuevo **grupo de recursos** en el que crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.

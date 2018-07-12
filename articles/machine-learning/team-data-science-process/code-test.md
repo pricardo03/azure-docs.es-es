@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: de1ed0b85957413a254503fc72375866dfd1bea1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837164"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970866"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Prueba de código de ciencia de datos con el conjunto de datos de predicción de ingresos de adultos UCI
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 
@@ -128,7 +128,7 @@ Use los pasos siguientes para configurar y ejecutar pruebas de código y una com
 
        ![Lista de plantillas y botón "Proceso vacío"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar un DSVM para finalizar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
+    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar un DSVM para finalizar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
     
        ![Selecciones de compilación y agentes](./media/code-test/select_agent.PNG)
 

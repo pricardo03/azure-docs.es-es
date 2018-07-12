@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 34d923cdf2dd96412996c766632ae42aac576e8c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2b16135e83ba52f7a2e6bd214791910db80634bc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061485"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952848"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinación de ScaleR y SparkR en HDInsight
 
@@ -273,7 +273,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Combinación de los datos de líneas aéreas y meteorológicos
 
-Ahora usamos la función [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) de SparkR para realizar una combinación externa izquierda de los datos de líneas áreas y meteorológicos por AirportID y datetime de salida. La combinación externa nos permite conservar todos los registros de datos de líneas aéreas incluso si no hay ningún dato meteorológico coincidente. Tras la combinación, se quitan algunas columnas redundantes y se cambia el nombre de las columnas que quedan para quitar el prefijo DataFrame entrante introducido por la combinación.
+Ahora usamos la función [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) de SparkR para realizar una combinación externa izquierda de los datos de líneas áreas y meteorológicos por AirportID y datetime de salida. La combinación externa nos permite conservar todos los registros de datos de líneas aéreas incluso si no hay ningún dato meteorológico coincidente. Tras la combinación, se quitan algunas columnas redundantes y se cambia el nombre de las columnas que quedan para quitar el prefijo DataFrame entrante introducido por la combinación.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

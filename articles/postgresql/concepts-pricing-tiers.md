@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/21/2018
+ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018346"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970268"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Planes de tarifa de Azure Database for PostgreSQL
 
@@ -31,7 +31,7 @@ Puede crear un servidor de Azure Database for PostgreSQL en tres planes de tarif
 
 Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
 
-| Nivel de precios | Carga de trabajo objetivo |
+| Plan de tarifa | Carga de trabajo objetivo |
 |:-------------|:-----------------|
 | Básica | Cargas de trabajo que requieren proceso y rendimiento de E/S ligeros. Algunos ejemplos son los servidores que se usan para desarrollo o prueba, o bien las aplicaciones a pequeña escala que se usan con poca frecuencia. |
 | Uso general | La mayoría de las cargas de trabajo de empresa que requieren un equilibrio entre proceso y memoria con rendimiento de E/S escalable. Por ejemplo, servidores para hospedar aplicaciones web y móviles, y otras aplicaciones empresariales.|
@@ -46,12 +46,12 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 
 | **Región de Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central EE. UU: | X |  |
+| Centro de EE. UU. | X |  |
 | Este de EE. UU | X | X |
 | Este de EE. UU. 2 | X | X |
 | Centro-Norte de EE. UU | X | X |
 | Centro-Sur de EE. UU | X | X |
-| Oeste de EE. UU | X | X |
+| Oeste de EE. UU. | X | X |
 | Oeste de EE. UU. 2 |  | X |
 | Centro de Canadá | X | X |
 | Este de Canadá | X | X |
@@ -60,10 +60,12 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Europa occidental |  | X |
 | Centro de Francia |  | X |
 | Oeste de Reino Unido |  | X |
-| Sur del Reino Unido 2 |  | X |
+| Sur de Reino Unido 2 |  | X |
 | Asia oriental | X | X |
 | Sudeste asiático | X | X |
-| Australia Oriental |  | X |
+| Este de Australia |  | X |
+| Centro de Australia |  | X |
+| Centro de Australia 2 |  | X |
 | Sudeste de Australia |  | X |
 | India Central | X | X |
 | Oeste de la India | X | X |
@@ -96,7 +98,7 @@ Si el servidor se establece en solo lectura, todas las sesiones existentes se de
 
 Puede aumentar la cantidad de almacenamiento aprovisionado en el servidor, o iniciar una sesión nueva en modo de lectura-escritura y quitar datos para recuperar almacenamiento disponible. Al ejecutar `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;`, la sesión actual se establece en modo de lectura-escritura. Para evitar daños en los datos, no realice operaciones de escritura cuando el servidor aún esté en estado de solo lectura.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Copia de seguridad
 
 El servicio realiza automáticamente copias de seguridad del servidor. El período mínimo de retención de las copias de seguridad es siete días. Puede establecer un período de retención de hasta 35 días. La retención se puede ajustar en cualquier momento de la vigencia del servidor. Puede elegir entre copia de seguridad con redundancia geográfica y con redundancia local. Las copias de seguridad con redundancia geográfica también se almacenan en la [región emparejada geográficamente](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) de la región en la que se crea el servidor. Esta redundancia proporciona un nivel de protección en caso de desastre. También ofrece la posibilidad de restaurar el servidor en cualquier otra región de Azure en la que el servicio está disponible con las copias de seguridad con redundancia geográfica. Una vez que se crea el servidor, no es posible cambiar entre las dos opciones de almacenamiento de copia de seguridad.
 

@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/21/2018
 ms.author: mlearned
-ms.openlocfilehash: 4442c1d763f4ed21a5efeedbe957727254e2a0b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58df17b17de1d93683875b68dd7c6c087bc6d16d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658478"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972315"
 ---
 # <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Implementación de un contenedor ASP.NET en un registro de contenedor con Visual Studio
 ## <a name="overview"></a>Información general
 Docker es un motor de contenedor ligero, semejante de alguna manera a una máquina virtual, que puede utilizar para hospedar aplicaciones y servicios.
-Este tutorial le guía a través del uso de Visual Studio para publicar su aplicación en contenedores en una instancia de [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry).
+Este tutorial le guía a través del uso de Visual Studio para publicar su aplicación en contenedores en una instancia de [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) antes de empezar.
 
 ## <a name="prerequisites"></a>requisitos previos
 Para completar este tutorial:
 
-* Instalar la versión más reciente de [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/) con la carga de trabajo "ASP.NET y desarrollo web"
+* Instalar la versión más reciente de [Visual Studio 2017](https://azure.microsoft.com/downloads/) con la carga de trabajo "ASP.NET y desarrollo web"
 * Instalar [Docker para Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. Cree una aplicación web ASP.NET Core
@@ -50,7 +50,7 @@ Los siguientes pasos le guían en el proceso de creación de una aplicación ASP
     | **Prefijo de DNS** | Nombre único globalmente | Nombre que identifica de forma única el nuevo registro de contenedor. |
     | **Suscripción** | Elija una suscripción | La suscripción de Azure que se va a usar. |
     | **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nombre del grupo de recursos en el que se va a crear el registro de contenedor. Elija **Nuevo** para crear un grupo de recursos nuevo.|
-    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Estándar | Nivel de servicio del registro de contenedor  |
+    | **[SKU](https://docs.microsoft.com/azure/container-registry/container-registry-skus)** | Estándar | Nivel de servicio del registro de contenedor  |
     | **Ubicación del registro** | Una ubicación cercana a usted | Elija una ubicación en una [región](https://azure.microsoft.com/regions/) cercana a usted o a otros servicios que usarán el registro de contenedor. |
     ![Cuadro de diálogo Crear Azure Container Registry de Visual Studio][0]
 5. Haga clic en **Crear**

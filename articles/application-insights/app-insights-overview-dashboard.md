@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36336773"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970979"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
@@ -28,7 +28,7 @@ Application Insights siempre ha proporcionado un panel de información general d
 
 Ahora, el nuevo panel de información general se inicia de forma predeterminada:
 
-![Panel de información general (versión preliminar)](.\media\app-insights-overview-dashboard\overview-0001.png)
+![Panel de información general (versión preliminar)](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>Mejor rendimiento
 
@@ -60,12 +60,6 @@ Puede conservar la vista predeterminada si así lo desea. Aunque también puede 
 Para volver a la experiencia de información general, simplemente seleccione:
 
 ![Botón Información general](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
-
-## <a name="access-the-classic-overview-dashboard"></a>Acceso al panel de información general clásico
-
-Si prefiere la información general anterior, elija **Classic Overview** (Información general clásica).
-
-![Información general clásica](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

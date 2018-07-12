@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447564"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952469"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Configuración de alertas de seguridad en Privileged Identity Management de Azure AD
 ## <a name="security-alerts"></a>Alertas de seguridad
 Privileged Identity Management (PIM) de Azure genera alertas cuando existen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en el panel de PIM. Seleccione la alerta para ver un informe en el que se enumeren los usuarios o roles que activaron la alerta.
 
-![Alertas de seguridad del panel de PIM: captura de pantalla][1]
+![Alertas de seguridad del panel de PIM: captura de pantalla](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | Alerta | Gravedad | Desencadenador | Recomendación |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Puede personalizar algunas de las alertas de seguridad de PIM para que funcionen
 1. Vaya al [Portal de Azure](https://portal.azure.com/) y seleccione el icono **Privileged Identity Management de Azure AD** en el panel.
 2. Seleccione **Roles con privilegios administrados** > **Configuración** > **Configuración de alertas**.
    
-    ![Navegación a la configuración de alertas de seguridad][2]
+    ![Navegación a la configuración de alertas de seguridad](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>Alerta "Los roles se están activando con demasiada frecuencia"
 Esta alerta se desencadena si un usuario activa el mismo rol con privilegios varias veces dentro de un período especificado. Puede configurar el período de tiempo y el número de activaciones.
@@ -66,8 +66,3 @@ Esta alerta se desencadena si un usuario pasa un cierto tiempo sin activar un ro
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

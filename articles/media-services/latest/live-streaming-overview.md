@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: juliako
-ms.openlocfilehash: b8c9375d8ad915200cbc8b2e1a62979fd1b7d179
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237106"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972186"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -32,7 +32,7 @@ En este artículo se proporciona una descripción detallada y se incluyen diagra
 
 ## <a name="overview-of-main-components"></a>Información general de los componentes principales
 
-En Media Services, los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son los responsables de procesar el contenido de streaming en vivo. Un objeto LiveEvent proporciona un punto de conexión de entrada (dirección URL de ingesta) que luego se puede ofrecer a un codificador en directo local. El objeto LiveEvent recibe flujos de entrada en vivo desde el codificador en directo en formato RTMP o Smooth Streaming y los deja a disposición del streaming a través de uno o más objetos [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Un objeto [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) permite controlar la publicación, la grabación y la configuración de la ventana DVR del flujo en vivo. El objeto LiveEvent también proporciona un punto de conexión de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de un procesamiento y entrega ulteriores. 
+En Media Services, los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son los responsables de procesar el contenido de streaming en vivo. Un objeto LiveEvent proporciona un punto de conexión de entrada (dirección URL de ingesta) que luego se puede ofrecer a un codificador en directo local. El objeto LiveEvent recibe flujos de entrada en vivo desde el codificador en directo en formato RTMP o Smooth Streaming y los deja a disposición del streaming a través de uno o más objetos [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Un objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite controlar la publicación, la grabación y la configuración de la ventana DVR del flujo en vivo. El objeto LiveEvent también proporciona un punto de conexión de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de un procesamiento y entrega ulteriores. 
 
 Media Services proporciona **empaquetado dinámico** que permite previsualizar y difundir contenido en los formatos de streaming MPEG DASH, HLS y Smooth Streaming sin tener que volver a empaquetar manualmente en dichos formatos. Puede reproducir con cualquier reproductor compatible con HLS, DASH o Smooth. También puede usar [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) para probar el flujo.
 
@@ -101,7 +101,7 @@ El estado actual de un objeto LiveEvent. Los valores posibles son:
 
 ## <a name="liveoutput"></a>LiveOutput
 
-Un objeto [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) permite controlar la publicación, la grabación y la configuración de la ventana DVR del flujo en vivo. La relación entre LiveEvent y LiveOutput es similar a los medios tradicionales, donde un canal (LiveEvent) tiene un flujo constante de contenido y un programa (LiveOutput) se enfoca en algún evento programado en dicho objeto LiveEvent.
+Un objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite controlar la publicación, la grabación y la configuración de la ventana DVR del flujo en vivo. La relación entre LiveEvent y LiveOutput es similar a los medios tradicionales, donde un canal (LiveEvent) tiene un flujo constante de contenido y un programa (LiveOutput) se enfoca en algún evento programado en dicho objeto LiveEvent.
 Puede especificar la cantidad de horas que desea conservar el contenido grabado del objeto LiveOutput en la configuración de la propiedad **ArchiveWindowLength**. **ArchiveWindowLength** es una duración de marca de tiempo ISO 8601 de la longitud de la ventana de archivo (grabadora de vídeo digital o DVR). Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas. 
 
 **ArchiveWindowLength** también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los objetos LiveOutput pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.

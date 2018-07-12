@@ -18,11 +18,11 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082672"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38586983"
 ---
 # <a name="call-a-function-from-powerapps"></a>Llamada a una función desde PowerApps
 La plataforma [PowerApps](https://powerapps.microsoft.com) está diseñada para que expertos empresariales creen aplicaciones sin código de aplicación tradicional. Los desarrolladores profesionales pueden usar Azure Functions para ampliar las capacidades de PowerApps, evitándoles los detalles técnicos a los compiladores de aplicaciones de PowerApps.

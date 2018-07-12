@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 8e1790b7d0b3a210a9142fc8580ff8ed4d64311c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: be09773a1ce3e80547d9e5f0e9de2a2d9e093c60
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360461"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970924"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Notas de la versión de App Service en la actualización 2 de Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "34360461"
 Estas notas de la versión describen las mejoras y correcciones de la actualización 2 de Azure App Service en Azure Stack y todos los problemas conocidos. Los problemas conocidos se dividen en aquellos que están relacionados directamente con el proceso de actualización y aquellos que están relacionados con la compilación (posteriores a la instalación).
 
 > [!IMPORTANT]
-> Aplique la actualización 1804 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.2.
+> Aplique la actualización 1804 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.2.
 >
 >
 
@@ -70,7 +70,7 @@ La actualización 2 de Azure App Service en Azure Stack incluye las siguientes c
 
 - Característica Testing in Production habilitada: [introducción a Testing in Production](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
-- Azure Functions Proxies habilitados: [trabajo con Azure Functions Proxies](https://docs.microsoft.com/en-us/azure/azure-functions/functions-proxies)
+- Azure Functions Proxies habilitados: [trabajo con Azure Functions Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies)
 
 - Se agregó compatibilidad UX con la extensión de administración de App Service para:
   - Rotación de secretos

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
 ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595234"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38595535"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Agregar autenticación a su aplicación de Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -61,7 +61,7 @@ A continuación, actualice la aplicación para autenticar usuarios antes de soli
 ## <a name="cache-tokens"></a>Almacenamiento en caché de tokens de autenticación en el cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Incorporación de notificaciones push a la aplicación de Android](app-service-mobile-android-get-started-push.md)
