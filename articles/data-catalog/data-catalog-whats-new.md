@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025573"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860010"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novedades en Azure Data Catalog
 De forma periódica se publican actualizaciones de **Azure Data Catalog**. No todas las versiones incluyen nuevas características de cara al usuario, ya que algunas se centran en las funcionalidades del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio Azure Data Catalog.
@@ -93,7 +93,7 @@ A partir de febrero de 2017 se han agregado las siguientes funcionalidades a Azu
 
 ## <a name="whats-new-for-january-2017"></a>Novedades de enero de 2017 
 A partir de enero de 2017 se han agregado las siguientes funcionalidades a Azure Data Catalog:
-*   Azure Data Catalog ahora es compatible con [CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification).
+*   Azure Data Catalog ahora es compatible con [CSA STAR](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification).
 *   Integración con [Obtener y transformar en Excel 2016 y Power Query para Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605). Los usuarios de Excel pueden compartir y detectar consultas mediante Azure Data Catalog desde Excel. Esta funcionalidad está disponible para los usuarios que disponen de licencias de Power BI Pro.
 
 ## <a name="whats-new-for-december-2016"></a>Novedades de diciembre de 2016
@@ -105,7 +105,7 @@ A partir de diciembre de 2016 se han agregado las siguientes funcionalidades a A
 
 ## <a name="whats-new-for-november-2016"></a>Novedades de noviembre de 2016
 A partir de noviembre de 2016 se han agregado las siguientes funcionalidades a Azure Data Catalog:
-*   Azure Data Catalog ahora es compatible con [ISO/IEC 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001) y con [ISO/IEC 27018](https://www.microsoft.com/TrustCenter/Compliance/iso-iec-27018).
+*   Azure Data Catalog ahora es compatible con [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) y con [ISO/IEC 27018](https://www.microsoft.com/en-us/TrustCenter/Compliance/iso-iec-27018).
 *   Compatibilidad con el registro manual de los orígenes de datos ODBC mediante el portal de Data Catalog y la API de REST.
 
 ## <a name="whats-new-for-september-2016"></a>Novedades de septiembre de 2016

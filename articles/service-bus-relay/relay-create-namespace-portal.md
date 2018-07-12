@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: c4c9c94d369e0ed1ddbfe31484f55b0d276918d3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159898"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701903"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Creación de un espacio de nombres de Relay mediante Azure Portal
 
@@ -34,7 +34,7 @@ Un espacio de nombres es un contenedor con un ámbito para todos los componentes
 
 Felicidades. Ha creado un espacio de nombres de Relay.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)

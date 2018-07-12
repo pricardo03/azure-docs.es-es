@@ -3,7 +3,7 @@ title: Conexión de un disco a una VM de Linux en Azure | Microsoft Docs
 description: Aprenda a conectar un disco de datos a una máquina virtual Linux mediante el modelo de implementación clásica y a inicializar el disco para que esté preparado para su uso.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
-ms.author: iainfou
-ms.openlocfilehash: 07b7f16cc019f993df90b217abd0c7ad16db75e1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: cynthn
+ms.openlocfilehash: b5bb3a9353f83cb569988a068f3ca02da85f739c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942224"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929158"
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Acoplamiento de un disco de datos a una máquina virtual Linux
 > [!IMPORTANT] 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27621230"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720236"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET Core) (ASP.NET Core)
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo escribir código de ASP.NET Core para algunos 
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -232,7 +232,7 @@ Después de [crear el contenedor de blobs](#create-a-blob-container), cargue los
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Como se explicó anteriormente, el almacenamiento de Azure es compatible con diferentes tipos de blob. En este tutorial se usan blobs en bloques. Para recuperar una referencia a un blob en bloques, llame al método `CloudBlobContainer.GetBlockBlobReference`.
+1. Como se explicó anteriormente, Azure Storage es compatible con diferentes tipos de blob. En este tutorial se usan blobs en bloques. Para recuperar una referencia a un blob en bloques, llame al método `CloudBlobContainer.GetBlockBlobReference`.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
@@ -512,7 +512,7 @@ Los siguientes pasos muestran cómo eliminar un blob:
 
 1. Ejecute la aplicación y seleccione **Eliminar blob** para eliminar el blob especificado en la llamada al método `CloudBlobContainer.GetBlockBlobReference`. El texto *"success!"* debería aparecer en el explorador. Seleccione el botón **Atrás** del explorador y luego seleccione **Mostrar blobs** para comprobar que el blob ya no está en el contenedor.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprendió a almacenar, enumerar y recuperar blobs en Azure Storage mediante ASP.NET Core. Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
 

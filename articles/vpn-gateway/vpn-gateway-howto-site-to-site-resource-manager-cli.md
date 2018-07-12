@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
 ms.openlocfilehash: 76df3a03b559a1be04a969351ecbfafe3da67714
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29951612"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704460"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI
 
@@ -85,7 +85,7 @@ En el ejemplo siguiente se crea un grupo de recursos con el nombre 'TestRG1' en 
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="VNet"></a>3. Crear una red virtual
+## <a name="VNet"></a>3. Creación de una red virtual
 
 Si aún no tiene una red virtual, créela con el comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Al crear una red virtual, compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local.
 

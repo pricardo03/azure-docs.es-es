@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
 ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778249"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452420"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -34,13 +34,13 @@ Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azur
 En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
-> * Crear el proyecto WebAPI
+> * Creación del proyecto de API web
 > * Autenticar clientes en el back-end de WebAPI
 > * Registrar notificaciones mediante el back-end de WebAPI
 > * Enviar notificaciones desde el back-end de WebAPI
-> * Publicar del nuevo back-end de WebAPI
-> * Actualizar el código para el proyecto de cliente
-> * Probar la aplicación
+> * Publicación del nuevo back-end de WebAPI
+> * Actualización del código para el proyecto de cliente
+> * Prueba de la aplicación
 
 
 ## <a name="prerequisites"></a>requisitos previos
@@ -338,7 +338,7 @@ En esta sección se actualiza el código del proyecto que completó para el tuto
 En este tutorial, ha aprendido a enviar notificaciones push a usuarios concretos que tienen etiquetas asociadas a sus registros. Para aprender a enviar notificaciones push en función de la ubicación, pase al tutorial siguiente: 
 
 > [!div class="nextstepaction"]
->[Envío de notificaciones push en función de la ubicación](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Envío de notificaciones push basadas en la ubicación](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png

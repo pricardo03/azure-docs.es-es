@@ -3,7 +3,7 @@ title: Creación de una máquina virtual Linux con la API REST de Azure | Micros
 description: Aprenda a crear una máquina virtual Linux e Azure que use Managed Disks y autenticación de SSH con la API REST de Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
-ms.author: iainfou
-ms.openlocfilehash: e3f41bea26e9a5ff45b31ae9d9a2e5955317ad7a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.author: cynthn
+ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826363"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928189"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
 
@@ -49,7 +49,7 @@ Para más información sobre cómo crear la solicitud, consulte [ Componentes de
 
 Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comunes:
 
-| NOMBRE                       | Obligatorio | Escriba                                                                                | DESCRIPCIÓN  |
+| NOMBRE                       | Obligatorio | type                                                                                | DESCRIPCIÓN  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Ubicación del recurso |
 | Nombre                       |          | string                                                                              | Escriba un nombre para la máquina virtual. |
@@ -121,7 +121,7 @@ El cuerpo de solicitud de ejemplo siguiente define una imagen de Ubuntu 18.04 LT
 
 Hay dos respuestas correctas a la operación para crear o actualizar una máquina virtual:
 
-| NOMBRE        | Escriba                                                                              | DESCRIPCIÓN |
+| NOMBRE        | type                                                                              | DESCRIPCIÓN |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Creado     |

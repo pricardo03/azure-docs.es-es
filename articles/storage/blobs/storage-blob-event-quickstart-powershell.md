@@ -5,15 +5,15 @@ services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c61c58398b8c095002db4bc59afed1c95e3550f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650509"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865427"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con PowerShell
 
@@ -31,7 +31,7 @@ Para este artículo es necesario ejecutar la versión más reciente de Azure Pow
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en la suscripción de Azure con el comando `Connect-AzureRmAccount` y siga las instrucciones de la pantalla para autenticarse.
+Inicie sesión en la suscripción de Azure con el comando `Connect-AzureRmAccount` y siga las instrucciones que aparecen en pantalla para autenticarse.
 
 ```powershell
 Connect-AzureRmAccount
@@ -99,6 +99,8 @@ New-AzureRmResourceGroupDeployment `
 La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
 
 Debería ver el sitio, que no muestra ningún mensaje actualmente.
+
+[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
 ## <a name="subscribe-to-your-storage-account"></a>Suscríbase a una cuenta de almacenamiento
 
@@ -172,4 +174,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 Ahora que sabe cómo crear suscripciones a temas y eventos, obtenga más información acerca de los eventos de Blob Storage y lo que Event Grid puede ayudarle a hacer:
 
 - [Reacción a eventos de Blob Storage](storage-blob-event-overview.md)
-- [About Event Grid](../../event-grid/overview.md) (Acerca de Event Grid)
+- [Una introducción a Azure Event Grid](../../event-grid/overview.md)

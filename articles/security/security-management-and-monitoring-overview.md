@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 10c2ed359fa77ad00945ddcfbc55dc0901ba8bff
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752295"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697112"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
 Azure proporciona mecanismos de seguridad que le ayudarán en la administración y la supervisión de servicios en la nube y máquinas virtuales (VM) de Azure. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. Además, se incluyen vínculos a artículos que ofrecen detalles de cada uno de estos servicios o características para que pueda tener más información al respecto.
@@ -100,8 +100,8 @@ Privileged Identity Management introduce el concepto de administrador temporal p
 
 Más información:
 
-* [Administración de identidades con privilegios de Azure AD](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Introducción a Privileged Identity Management de Azure AD](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+* [Administración de identidades con privilegios de Azure AD](../active-directory/privileged-identity-management/pim-configure.md)
+* [Introducción a Privileged Identity Management de Azure AD](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## <a name="identity-protection"></a>Protección de identidad
 Azure AD Identity Protection proporciona una vista consolidada de actividades de inicio de sesión sospechosas y posibles vulnerabilidades que ayudan a proteger su negocio. Identity Protection detecta actividades sospechosas en los usuarios e identidades con privilegios (administradores), en función de señales como:

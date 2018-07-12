@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 ms.openlocfilehash: 53ac8c64a1b79560df30d9c94b401423ecd24586
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918224"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719029"
 ---
 # <a name="how-to-configure-an-availability-set-for-windows-virtual-machines-in-the-classic-deployment-model"></a>Configuración de un conjunto de disponibilidad para máquinas virtuales con Windows en el modelo de implementación clásica
 > [!IMPORTANT] 

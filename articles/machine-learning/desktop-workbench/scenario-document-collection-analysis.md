@@ -7,16 +7,16 @@ ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 60d65b17d4cbe8a45ff3fb62b06852d7b945e8f1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832866"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861489"
 ---
 # <a name="document-collection-analysis"></a>Análisis de una colección de documentos
 
@@ -75,7 +75,7 @@ Cree un nuevo proyecto usando este ejemplo como plantilla:
 
 ## <a name="data-description"></a>Descripción de los datos
 
-El conjunto de datos usado en este escenario contiene los resúmenes de texto y los metadatos asociados para cada acción legislativa tomada por el Congreso de EE. UU. Los datos se recopilan de [GovTrack.us](https://www.govtrack.us/), que realiza un seguimiento de las actividades del Congreso de Estados Unidos y ayuda a los norteamericanos a participar en su proceso legislativo nacional. Se pueden descargar los datos de forma masiva a través de [este vínculo](https://www.govtrack.us/data/congress/) mediante un script manual, que no se incluye en este escenario. Los detalles sobre cómo descargar los datos se pueden encontrar en la [documentación de la API de GovTrack](https://www.govtrack.us/developers/api).
+El conjunto de datos usado en este escenario contiene los resúmenes de texto y los metadatos asociados para cada acción legislativa tomada por el Congreso de EE. UU. Los datos se recopilan de [GovTrack.us](https://www.govtrack.us/), que realiza un seguimiento de las actividades del Congreso de Estados Unidos y ayuda a los norteamericanos a participar en su proceso legislativo nacional. Se pueden descargar los datos de forma masiva a través de [este vínculo](https://www.govtrack.us/data/congress/) mediante un script manual, que no se incluye en este escenario. Los detalles sobre cómo descargar los datos se pueden encontrar en la [documentación de la API de GovTrack](https://www.govtrack.us/developers).
 
 ### <a name="data-source"></a>Origen de datos
 
@@ -85,7 +85,7 @@ En este escenario, los datos sin procesar recopilados son una serie de acciones 
 
 Hay nueve campos de datos en el archivo de datos. Los nombres y descripciones de los campos de datos se enumeran a continuación.
 
-| Nombre del campo | Escriba | DESCRIPCIÓN | Faltan valores en el contenido |
+| Nombre del campo | type | DESCRIPCIÓN | Faltan valores en el contenido |
 |------------|------|-------------|---------------|
 | `ID` | string | El identificador de la propuesta o resolución. El formato de este campo es [tipo_de_propuesta][número]-[congreso]. Por ejemplo, "hconres1-93" significa que el tipo de propuesta es "hconres" (abreviatura de House Concurrent Resolution, puede consultar [este documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), el número de propuesta es '1' y el número de congreso es ' 93'. | Sin  |
 | `Text` | string | El contenido de la propuesta o resolución. | Sin  |
@@ -103,7 +103,7 @@ El ejemplo de análisis de una colección de documentos se divide en dos tipos d
 
 Los archivos de este ejemplo se organizan del siguiente modo.
 
-| Nombre de archivo | Escriba | DESCRIPCIÓN |
+| Nombre de archivo | type | DESCRIPCIÓN |
 |-----------|------|-------------|
 | `aml_config` | Carpeta | Carpeta de configuración de Azure Machine Learning Workbench, consulte [esta documentación](./experimentation-service-configuration-reference.md) para la configuración de la ejecución del experimento detallada |
 | `Code` | Carpeta | La carpeta de código usada para guardar el paquete de Python y los scripts de Python |

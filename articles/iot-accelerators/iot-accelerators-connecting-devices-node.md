@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 8bd614fd7aad248612d65717fe50e04a3fc3a9e1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627337"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481888"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conexión del dispositivo al acelerador de la solución Supervisión remota (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial muestra cómo conectar un dispositivo físico al acelerador de la solución Supervisión remota. En este tutorial, se usa Node.js, que es una buena opción para entornos con las restricciones de recursos mínimos.
+En este tutorial se muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota. En este tutorial, se usa Node.js, que es una buena opción para entornos con las restricciones de recursos mínimos.
 
 ## <a name="create-a-nodejs-solution"></a>Creación de una solución Node.js
 
