@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: Notas de la versión
   items:
+    - name: Junio de 2018
+      href: release-notes-june-2018.md
     - name: Mayo de 2018
       href: release-notes-may-2018.md
     - name: 2018 de abril de 2018
@@ -183,7 +185,7 @@
           href: sql-data-warehouse-install-visual-studio.md
     - name: Actualizar
       href: upgrade-to-latest-generation.md
-    - name: Restore
+    - name: Restauración
       items:
         - name: Portal
           href: sql-data-warehouse-restore-database-portal.md

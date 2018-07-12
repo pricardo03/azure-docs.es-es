@@ -4,7 +4,7 @@ Para registrar la aplicación web, use la configuración que se especifica en la
 
 ![Ejemplo de configuración de registro para la nueva aplicación web](./media/active-directory-b2c-register-web-app/b2c-new-app-settings.png)
 
-| Configuración      | Valor de ejemplo  | Descripción                                        |
+| Configuración      | Valor de ejemplo  | DESCRIPCIÓN                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Name** | Aplicación B2C de Contoso | Escriba un **Nombre** para la aplicación que la describa a los consumidores. | 
 | **Incluir aplicación web o API web** | Sí | Seleccione **Sí** para una aplicación web. |

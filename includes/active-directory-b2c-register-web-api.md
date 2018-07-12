@@ -4,7 +4,7 @@ Para registrar la API web, use la configuración que se especifica en la tabla.
 
 ![Ejemplo de configuración de registro para la nueva api web](./media/active-directory-b2c-register-web-api/b2c-new-web-api-settings.png)
 
-| Configuración      | Valor de ejemplo  | Descripción                                        |
+| Configuración      | Valor de ejemplo  | DESCRIPCIÓN                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Name** | API de B2C de Contoso | Escriba un **Nombre** para la aplicación que describa la API a los consumidores. | 
 | **Incluir aplicación web o API web** | Sí | Seleccione **Sí** para una API web. |
