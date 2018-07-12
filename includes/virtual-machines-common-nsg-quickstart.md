@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d9c8a0e6a3bd6d79a11ee0d0dab0500a209e5571
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34684989"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38943458"
 ---
 En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtual creando un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico.
 

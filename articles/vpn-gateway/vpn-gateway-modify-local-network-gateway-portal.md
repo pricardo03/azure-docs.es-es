@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23124393"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38651943"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificación de la configuración de la puerta de enlace de red local mediante Azure Portal
 
 A veces, cambia la configuración de la puerta de enlace de red local AddressPrefix o GatewayIPAddress. Este artículo muestra cómo modificar la configuración de puerta de enlace de red local. También puede modificar estas configuraciones mediante un método diferente, si selecciona una opción diferente de la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [CLI de Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >

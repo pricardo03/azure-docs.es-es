@@ -16,11 +16,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 09cad6b76b2fdefe1163530e5437427faf29d72f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046874"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299928"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de Azure Portal para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
       
          ![Hoja Nueva Factoría de datos](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
       
-       El nombre de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+       El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
       
            Data factory name “ADFTutorialDataFactory” is not available  
       

@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.openlocfilehash: 8fcc654b7f5068037ec0818e19d8dff09bc07537
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030196"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635095"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Administración de recursos compartidos de archivos de Azure mediante Azure PowerShell 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows, Linux y macOS. En esta guía se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante PowerShell. En este artículo, aprenderá a:

@@ -9,11 +9,11 @@ ms.date: 05/14/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f034b1e97ec88125dac0964de2e3be884795a690
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34685082"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38765902"
 ---
 Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Simplemente haga clic en **Copiar** para copiar el código, péguelo en la instancia de Cloud Shell y, a continuación, presione Entrar para ejecutarlo. Hay unas cuantas maneras de iniciar Cloud Shell:
 

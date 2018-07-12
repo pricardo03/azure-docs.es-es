@@ -3,7 +3,7 @@ title: Cifrado de discos para los conjuntos de escalado de Azure con Azure Power
 description: Obtenga información sobre cómo usar Azure PowerShell para cifrar las instancias de máquina virtual y los discos conectados en un conjunto de escalado de máquinas virtuales Windows
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: iainfou
-ms.openlocfilehash: 91138ffad0fd906061e0b0ce5cdb251f402d3341
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: cynthn
+ms.openlocfilehash: 850140404d95b77b3494754666e118b3566221c1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "32776115"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630240"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>Cifrado de discos de datos conectados y de SO en un conjunto de escalado de máquinas virtuales con Azure PowerShell (versión preliminar)
 

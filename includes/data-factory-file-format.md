@@ -10,17 +10,17 @@ Azure Data Factory admite los siguientes tipos de formato:
 ### <a name="specifying-textformat"></a>Especificación de TextFormat
 Si desea analizar los archivos de texto o escribir los datos en formato de texto, establezca la propiedad `format` `type` en **TextFormat**. También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de TextFormat](#textformat-example) sobre cómo realizar la configuración.
 
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| columnDelimiter |El carácter utilizado para separar las columnas en un archivo. Puede usar un carácter no imprimible excepcional que probablemente no existe en los datos: por ejemplo, especifique "\u0001", que representa el inicio de encabezado (SOH). |Solo se permite un carácter. El valor **predeterminado** es **coma (",")**. <br/><br/>Para usar un carácter Unicode, consulte [Caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obtener el código correspondiente. |No |
-| rowDelimiter |El carácter usado para separar las filas en un archivo. |Solo se permite un carácter. El valor **predeterminado** es cualquiera de los siguientes en lectura: **["\r\n", "\r", "\n"]** y **"\r\n"** en escritura. |No |
-| escapeChar |El carácter especial que se usa para anular un delimitador de columna en el contenido del archivo de entrada. <br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Ejemplo: si tiene la coma (',') como el delimitador de columna, pero quiere tener el carácter de coma en el texto (ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen. |No |
-| quoteChar |El carácter usado para poner entre comillas un valor de cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta propiedad se aplica a conjuntos de datos de entrada y salida.<br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Por ejemplo, si tiene la coma (',') como delimitador de columna, pero quiere tener el carácter de coma en el texto (por ejemplo: <Hello, world>), puede definir " (comillas dobles) como comillas y usar la cadena "Hello, world" en el origen. |No |
-| nullValue |Uno o más caracteres que se usan para representar un valor nulo. |Uno o más caracteres. Los valores **predeterminados** son **"\N" y "NULL"** en lectura y **"\N"** en escritura. |No |
-| encodingName |Especifique el nombre de codificación. |Un nombre de codificación válido. Consulte la [propiedad Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es **UTF-8**. |No |
-| firstRowAsHeader |Especifica si se tendrá en cuenta la primera fila como encabezado. Para un conjunto de datos de entrada, Data Factory lee la primera fila como encabezado. Para un conjunto de datos de salida, Data Factory escribe la primera fila como encabezado. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |True<br/>**False (valor predeterminado)** |No |
-| skipLineCount |Indica el número de filas que se omitirán al leer datos de archivos de entrada. Si se especifican skipLineCount y firstRowAsHeader, las líneas se omiten primero y luego la información del encabezado se lee del archivo de entrada. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |Entero |No |
-| treatEmptyAsNull |Especifica si las cadenas null o vacías se tratarán como valores null al leer datos de un archivo de entrada. |**True (predeterminado)**<br/>False |No |
+| columnDelimiter |El carácter utilizado para separar las columnas en un archivo. Puede usar un carácter no imprimible excepcional que probablemente no existe en los datos: por ejemplo, especifique "\u0001", que representa el inicio de encabezado (SOH). |Solo se permite un carácter. El valor **predeterminado** es **coma (",")**. <br/><br/>Para usar un carácter Unicode, consulte [Caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obtener el código correspondiente. |Sin  |
+| rowDelimiter |El carácter usado para separar las filas en un archivo. |Solo se permite un carácter. El valor **predeterminado** es cualquiera de los siguientes en lectura: **["\r\n", "\r", "\n"]** y **"\r\n"** en escritura. |Sin  |
+| escapeChar |El carácter especial que se usa para anular un delimitador de columna en el contenido del archivo de entrada. <br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Ejemplo: si tiene la coma (',') como el delimitador de columna, pero quiere tener el carácter de coma en el texto (ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen. |Sin  |
+| quoteChar |El carácter usado para poner entre comillas un valor de cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta propiedad se aplica a conjuntos de datos de entrada y salida.<br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Por ejemplo, si tiene la coma (',') como delimitador de columna, pero quiere tener el carácter de coma en el texto (por ejemplo: <Hello, world>), puede definir " (comillas dobles) como comillas y usar la cadena "Hello, world" en el origen. |Sin  |
+| nullValue |Uno o más caracteres que se usan para representar un valor nulo. |Uno o más caracteres. Los valores **predeterminados** son **"\N" y "NULL"** en lectura y **"\N"** en escritura. |Sin  |
+| encodingName |Especifique el nombre de codificación. |Un nombre de codificación válido. Consulte la [propiedad Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es **UTF-8**. |Sin  |
+| firstRowAsHeader |Especifica si se tendrá en cuenta la primera fila como encabezado. Para un conjunto de datos de entrada, Data Factory lee la primera fila como encabezado. Para un conjunto de datos de salida, Data Factory escribe la primera fila como encabezado. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |True<br/>**False (valor predeterminado)** |Sin  |
+| skipLineCount |Indica el número de filas que se omitirán al leer datos de archivos de entrada. Si se especifican skipLineCount y firstRowAsHeader, las líneas se omiten primero y luego la información del encabezado se lee del archivo de entrada. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |Entero |Sin  |
+| treatEmptyAsNull |Especifica si las cadenas null o vacías se tratarán como valores null al leer datos de un archivo de entrada. |**True (predeterminado)**<br/>False |Sin  |
 
 #### <a name="textformat-example"></a>Ejemplo de TextFormat
 En el ejemplo siguiente se muestran algunas de las propiedades de formato de TextFormat.
@@ -44,7 +44,7 @@ En el ejemplo siguiente se muestran algunas de las propiedades de formato de Tex
 },
 ```
 
-Para usar un `escapeChar` en lugar de `quoteChar`, reemplace la línea con `quoteChar` por el siguiente escapeChar:
+Para usar `escapeChar` en lugar de `quoteChar`, reemplace la línea con `quoteChar` por el siguiente escapeChar:
 
 ```json
 "escapeChar": "$",
@@ -60,13 +60,13 @@ Para **importar y exportar archivos JSON tal como están hacia o desde Azure Cos
 
 Si desea analizar los archivos JSON o escribir los datos en formato JSON, establezca la propiedad `format` `type` en **TextFormat**. También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración.
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| filePattern |Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** y **arrayOfObjects**. El valor **predeterminado** es **setOfObjects**. Consulte la sección [patrones de archivo JSON](#json-file-patterns) para obtener más información acerca de estos patrones. |No |
-| jsonNodeReference | Si desea iterar y extraer datos de los objetos dentro de un campo de matriz con el mismo patrón, especifique la ruta de acceso JSON de esa matriz. Esta propiedad se admite solo cuando se copian datos desde los archivos JSON. | No |
-| jsonPathDefinition | Especifique la expresión de ruta de acceso JSON para cada asignación de columna con un nombre de columna personalizado (que empiece con minúscula). Esta propiedad se admite solo cuando se copian datos desde archivos JSON y puede extraer datos del objeto o matriz. <br/><br/> Para los campos en el objeto raíz, comience por root $; para los campos dentro de la matriz elegida mediante la propiedad `jsonNodeReference`, empiece desde el elemento de matriz. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración. | No |
-| encodingName |Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, vea el artículo sobre la propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es **UTF-8**. |No |
-| nestingSeparator |Carácter que se usa para separar los niveles de anidamiento. El valor predeterminado es '.' (punto). |No |
+| filePattern |Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** y **arrayOfObjects**. El valor **predeterminado** es **setOfObjects**. Consulte la sección [patrones de archivo JSON](#json-file-patterns) para obtener más información acerca de estos patrones. |Sin  |
+| jsonNodeReference | Si desea iterar y extraer datos de los objetos dentro de un campo de matriz con el mismo patrón, especifique la ruta de acceso JSON de esa matriz. Esta propiedad se admite solo cuando se copian datos desde los archivos JSON. | Sin  |
+| jsonPathDefinition | Especifique la expresión de ruta de acceso JSON para cada asignación de columna con un nombre de columna personalizado (que empiece con minúscula). Esta propiedad se admite solo cuando se copian datos desde archivos JSON y puede extraer datos del objeto o matriz. <br/><br/> Para los campos en el objeto raíz, comience por root $; para los campos dentro de la matriz elegida mediante la propiedad `jsonNodeReference`, empiece desde el elemento de matriz. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración. | Sin  |
+| encodingName |Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, vea el artículo sobre la propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es **UTF-8**. |Sin  |
+| nestingSeparator |Carácter que se usa para separar los niveles de anidamiento. El valor predeterminado es '.' (punto). |Sin  |
 
 #### <a name="json-file-patterns"></a>Patrones de archivo JSON
 
@@ -201,7 +201,7 @@ y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente extrayen
 El conjunto de datos de entrada con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes). Más concretamente:
 
 - La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte [Especificación de la definición de la estructura de los conjuntos de datos rectangulares](#specifying-structure-definition-for-rectangular-datasets) para más información.
-- `jsonPathDefinition` especifica la ruta de acceso JSON para cada columna que indica de dónde se deben extraer los datos. Para copiar datos de matriz, puede usar **array[x].property** para extraer el valor de la propiedad especificada desde el objeto xº, o puede usar **array[*] .property** para encontrar el valor de cualquier objeto que contenga dicha propiedad.
+- `jsonPathDefinition` especifica la ruta de acceso JSON para cada columna que indica de dónde se deben extraer los datos. Para copiar datos de matriz, puede usar **array[x].property** para extraer el valor de la propiedad especificada desde el objeto xº, o puede usar **array[*].property** para encontrar el valor de cualquier objeto que contenga dicha propiedad.
 
 ```json
 "properties": {
@@ -342,7 +342,7 @@ y para cada registro espera escribir en un objeto JSON con el formato siguiente:
 }
 ```
 
-El conjunto de datos de salida con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes). Más concretamente, la sección `structure` permite definir los nombres personalizados de las propiedades en el archivo de destino, `nestingSeparator` (el valor predeterminado es ".") se usará para identificar el nivel de anidamiento del nombre. Esta sección es **opcional** a menos que desee cambiar el nombre de la propiedad comparándolo con el nombre de la columna de origen, o anidar algunas de las propiedades.
+El conjunto de datos de salida con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones pertinentes). Más concretamente, la sección `structure` permite definir los nombres personalizados de las propiedades en el archivo de destino, `nestingSeparator` (el valor predeterminado es ".") se usará para identificar el nivel de anidamiento del nombre. Esta sección es **opcional** a menos que desee cambiar el nombre de la propiedad comparándolo con el nombre de la columna de origen, o anidar algunas de las propiedades.
 
 ```json
 "properties": {

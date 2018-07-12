@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sngun
 ms.openlocfilehash: 3c92834085a95ea86dbe5d0c7458f8bef78a34bb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797104"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299798"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Java y Azure Portal
 
@@ -37,7 +37,7 @@ Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
 
 [!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="add-a-collection"></a>Incorporación de una colección
+## <a name="add-a-collection"></a>Agregar una colección
 
 Asígnele un nombre a la base de datos nueva (**db**) y a la nueva colección (**coll**).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: da24c0e616bbd5961edd4cfcb72040f66627c982
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: dfbedd7945231f4449735cc2f909b64190dcbe05
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568116"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38746257"
 ---
 Cuando se crea una máquina virtual (VM) de Azure, es preciso crear una [red virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) o usar una red virtual existente. También es preciso decidir la forma en que pretende que se acceda a las máquinas virtuales en la red virtual. Es importante [planear antes de crear recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) y asegurarse de que se conocen los [límites de los recursos de red](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -110,7 +110,7 @@ En esta tabla se enumeran los métodos que se pueden usar para crear un grupo de
 
 | Método | DESCRIPCIÓN |
 | ------ | ----------- |
-| [Azure Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Cuando se crea una máquina virtual en Azure Portal, se crea automáticamente un grupo de seguridad de red, que se asocia a la NIC que crea el portal. El nombre de dicho grupo es una combinación del nombre de la máquina virtual y **- nsg**. Este grupo de seguridad de red contiene una regla de entrada con una prioridad de 1000, un servicio establecido en RDP, el protocolo establecido en TCP, el puerto establecido en 3389 y la acción establecida en Allow (Permitir). Si desea permitir que otro tráfico de entrada a la máquina virtual, debe agregar más reglas al NSG. |
+| [Azure Portal](../articles/virtual-network/tutorial-filter-network-traffic.md) | Cuando se crea una máquina virtual en Azure Portal, se crea automáticamente un grupo de seguridad de red, que se asocia a la NIC que crea el portal. El nombre de dicho grupo es una combinación del nombre de la máquina virtual y **- nsg**. Este grupo de seguridad de red contiene una regla de entrada con una prioridad de 1000, un servicio establecido en RDP, el protocolo establecido en TCP, el puerto establecido en 3389 y la acción establecida en Allow (Permitir). Si desea permitir que otro tráfico de entrada a la máquina virtual, debe agregar más reglas al NSG. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Use [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) y especifique la información de las reglas requerida. Use [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) para crear el grupo de seguridad de red. Use [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) para configurar el grupo de seguridad de red para la subred. Use [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) para agregar el grupo de seguridad de red a la red virtual. |
 | [CLI de Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) para crear inicialmente el grupo de seguridad de red. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) para agregar reglas al grupo de seguridad de red. Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) para agregar el grupo de seguridad de red a la subred. |
 | [Plantilla](../articles/virtual-network/template-samples.md) | Use [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) (Creación de un grupo de seguridad de red) como guía para la implementación de un grupo de seguridad de red mediante una plantilla. |

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 42af2b5ec6b591929f37afebe6546d61b8a3a02a
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082855"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633310"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desarrollo e implementación de un módulo de Python para IoT Edge en un dispositivo simulado
 
@@ -237,23 +237,23 @@ Si va a seguir con el siguiente artículo recomendado, puede conservar los recur
 En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
 
 > [!IMPORTANT]
-> La eliminación de los recursos de Azure y del grupo de recursos es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos que contiene se suprimirán permanentemente. Tenga cuidado de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos existente que contiene recursos que desea conservar, elimine exclusivamente el recurso de IoT Hub que desee en lugar de eliminar todo el grupo de recursos.
+> La eliminación de los recursos de Azure y del grupo de recursos es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos que contiene se suprimirán permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
 >
 
-Para eliminar únicamente la instancia de IoT Hub, ejecute el siguiente comando utilizando el nombre del centro y el nombre del grupo de recursos:
+Para eliminar solo la instancia de IoT Hub, ejecute el siguiente comando usando el nombre del centro y el nombre del grupo de recursos:
 
 ```azurecli-interactive
 az iot hub delete --name MyIoTHub --resource-group TestResources
 ```
 
 
-Para eliminar todo el grupo de recursos utilizando su nombre:
+Para eliminar un grupo de recursos entero por el nombre:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
-2. Escriba el nombre del grupo de recursos que contiene la instancia de IoT Hub en el cuadro de texto **Filtrar por nombre...** 
+2. Escriba el nombre del grupo de recursos que contiene la instancia de IoT Hub en el cuadro de texto **Filtrar por nombre...**. 
 
-3. A la derecha del grupo de recursos de la lista de resultados, haga clic en **...** y después en **Eliminar grupo de recursos**.
+3. A la derecha del grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 
 4. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba otra vez el nombre del grupo de recursos para confirmar y haga clic en **Eliminar**. Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 

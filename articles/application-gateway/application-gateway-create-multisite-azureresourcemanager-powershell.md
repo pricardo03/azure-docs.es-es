@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
 ms.openlocfilehash: beacf3d36c2a74d1744a1048834bf66acfbc1682
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355974"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306740"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure PowerShell
 

@@ -9,11 +9,11 @@ ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: include file
 ms.openlocfilehash: e54813896eee8a58ae456f14f76151318ac1b9fc
-ms.sourcegitcommit: ff1896b01bfcc26df3b202011bb8ec8cfdb014fa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35620533"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38766973"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regiones y disponibilidad de máquinas virtuales en Azure
 Azure funciona en varios centros de datos del mundo. Estos centros de datos se agrupan en regiones geográficas, proporcionándole flexibilidad al elegir dónde crear sus aplicaciones. Es importante saber cómo y donde operan las máquinas virtuales (VM) en Azure, así como las opciones para maximizar el rendimiento, la disponibilidad y la redundancia. Este artículo proporciona una visión general de las características de disponibilidad y redundancia de Azure.
@@ -42,7 +42,7 @@ Entre los ejemplos de pares de región se incluyen:
 
 | Principal | Secundario |
 |:--- |:--- |
-| Oeste de EE. UU |Este de EE. UU |
+| Oeste de EE. UU. |Este de EE. UU |
 | Europa del Norte |Europa occidental |
 | Sudeste asiático |Asia oriental |
 
@@ -73,7 +73,7 @@ La tabla siguiente proporciona una breve descripción de las diferencias entre l
 | Estrategia de replicación | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | Los datos se replican entre varias instalaciones |Sin  |Sí |Sí |Sí |
-| Los datos se pueden leer tanto desde la ubicación secundaria como desde la ubicación principal. |Sin  |Sin  |Sin  |Sí |
+| Los datos se pueden leer tanto desde la ubicación secundaria como desde la ubicación principal. |Sin  |No |No |Sí |
 | Cantidad de copias de datos mantenidas en nodos independientes |3 |3 |6 |6 |
 
 Puede obtener más información sobre las [opciones de replicación de Azure Storage aquí](../articles/storage/common/storage-redundancy.md). Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Introducción a los discos administrados de Azure).

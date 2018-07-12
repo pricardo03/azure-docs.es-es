@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
 ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592151"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306581"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Incorporación de la autenticación a la aplicación de Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -156,7 +156,7 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Incorporación de notificaciones push a su aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md)  

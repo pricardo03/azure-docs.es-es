@@ -18,15 +18,15 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: fcb7ec2e40b5c0e8794d2f4d70395dcbecca019c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182165"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618957"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: CLI de Azure
 
-En este artículo implementará una máquina virtual (VM) y comprobará las comunicaciones hacia una dirección IP y una dirección URL. Además, podrá determinar la causa de un error de comunicación y aprenderá a resolverlo.
+En este artículo implementará una máquina virtual (VM) y comprobará las comunicaciones hacia una dirección IP y una dirección URL. Además, va a determinar la causa de un error de comunicación y cómo puede resolverlo.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -161,6 +161,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo creó una máquina virtual y diagnosticó el enrutamiento de red a partir de esa máquina virtual. Igualmente, aprendió que Azure crea varias rutas predeterminadas y probó el enrutamiento a dos destinos diferentes. Obtenga más información sobre [enrutamiento en Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) y cómo [crear rutas personalizadas](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+En este artículo creó una máquina virtual y diagnosticó el enrutamiento de red a partir de esa máquina virtual. Se informó que Azure crear varias rutas predeterminadas y prueba el enrutamiento a dos destinos diferentes. Obtenga más información sobre [enrutamiento en Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) y cómo [crear rutas personalizadas](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-Para las conexiones de máquinas virtuales salientes, también puede determinar la latencia, el tráfico de red permitido o denegado entre la máquina virtual y un punto de conexión mediante la funcionalidad de [resolución de problemas](network-watcher-connectivity-cli.md) de Network Watcher. Puede supervisar la comunicación entre una máquina virtual y un punto de conexión, como una dirección IP o una URL, gracias a la funcionalidad de supervisión de conexiones de Network Watcher. Para obtener información sobre cómo puede hacer esto, consulte [Monitor a network connection](connection-monitor.md) (Supervisar una conexión de red).
+Para las conexiones de máquinas virtuales salientes, también puede determinar la latencia y el tráfico de red permitido o denegado entre la máquina virtual y un punto de conexión mediante la funcionalidad de [resolución de problemas de conexión](network-watcher-connectivity-cli.md) de Network Watcher. Puede supervisar la comunicación entre una máquina virtual y un punto de conexión, como una dirección IP o una URL, gracias a la funcionalidad de supervisión de conexiones de Network Watcher. Para obtener información sobre cómo puede hacer esto, consulte [Supervisar la comunicación de red ](connection-monitor.md).

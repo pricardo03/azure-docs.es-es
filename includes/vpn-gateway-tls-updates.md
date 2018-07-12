@@ -9,11 +9,11 @@ ms.date: 06/05/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9a17f34333503436d3da340670abdde154e45ef6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36336033"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38727537"
 ---
 A partir del 1 de julio de 2018, se elimina la compatibilidad con TLS 1.0 y 1.1 de Azure VPN Gateway. VPN Gateway será solo compatible con TLS 1.2. Para mantener la compatibilidad y la conectividad con TLS para los clientes punto a sitio de Windows 7 y Windows 8 que usan TLS, se recomienda que instale las actualizaciones siguientes:
 

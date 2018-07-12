@@ -18,11 +18,11 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "31603715"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630333"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante PowerShell
 
@@ -240,7 +240,7 @@ Abra el archivo RDP descargado. Cuando se le pida, seleccione **Conectar**.
 
 Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual (puede que deba seleccionar **Más opciones** y luego **Usar una cuenta diferente**, para especificar las credenciales que escribió cuando creó la máquina virtual). A continuación, seleccione **Aceptar**. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Seleccione **Sí** para continuar con la conexión. 
 
-En el último paso, se usa el comando tracert.exe para probar el enrutamiento. Tracert usa el Protocolo de mensajes de control de Internet (ICMP), que se deniega a través del Firewall de Windows. Para permitir el uso de ICMP a través del Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
+En el último paso, se usa el comando tracert.exe para probar el enrutamiento. Tracert usa el Protocolo de mensajes de control de Internet (ICMP), que se deniega a través del Firewall de Windows. Para habilitar ICMP mediante el Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4

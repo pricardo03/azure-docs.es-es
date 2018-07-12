@@ -3,7 +3,7 @@ title: Cifrado de discos en una VM de Linux en Azure | Microsoft Docs
 description: Cifrado de discos virtuales en una VM de Linux para mejorar la seguridad con la CLI de Azure 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/31/2018
-ms.author: iainfou
-ms.openlocfilehash: 343408366c2970d10a952634ac671721caed74d4
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936877"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634627"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Cifrado de una máquina virtual Linux en Azure
 Para mejorar la seguridad y el cumplimiento de la máquina virtual (VM), se pueden cifrar los discos virtuales y la propia máquina vrtual. Las máquinas virtuales se cifran mediante claves criptográficas que están protegidas en Azure Key Vault. Estas claves criptográficas se pueden controlar y se puede auditar su uso. En este artículo se detalla cómo cifrar los discos virtuales en una VM de Linux con la CLI de Azure 2.0. 
