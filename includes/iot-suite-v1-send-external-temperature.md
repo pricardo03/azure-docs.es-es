@@ -22,7 +22,7 @@
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
-7. Guarde el archivo . Para instalar los paquetes necesarios, ejecute los siguientes comandos en un shell o símbolo del sistema de la carpeta que los contenga y ejecute la aplicación de ejemplo:
+7. Guarde el archivo. Para instalar los paquetes necesarios, ejecute los siguientes comandos en un shell o símbolo del sistema de la carpeta que los contenga y ejecute la aplicación de ejemplo:
    
     ```
     npm install

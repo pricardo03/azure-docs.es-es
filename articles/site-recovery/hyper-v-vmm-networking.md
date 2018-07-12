@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 531705bc704b3366c1c670ecf07c809ade67bc55
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 40a4b53229aad8f226cf3edcdba4ecbc6682e623
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29378680"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917615"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configuración del direccionamiento IP para conectarse a un sitio secundario local tras la conmutación por error
 
@@ -126,7 +126,7 @@ En este ejemplo, tenemos diferentes direcciones IP en los sitios principal y sec
 ![Diferente dirección IP: después de la conmutación por error](./media/hyper-v-vmm-networking/network-design11.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Ejecución de una conmutación por error](hyper-v-vmm-failover-failback.md)
 

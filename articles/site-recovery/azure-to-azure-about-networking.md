@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 7e717d06aaaef6031a0a3b26c5caf76f0c8c11df
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715945"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915932"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Acerca de las redes en Azure para la replicación de Azure
 
@@ -86,14 +86,14 @@ Los intervalos de direcciones IP de Site Recovery son los siguientes:
    Este de Japón | 52.185.150.140 | 138.91.1.105
    Oeste de Japón | 52.175.146.69 | 138.91.17.38
    Sur de Brasil | 191.234.185.172 | 23.97.97.36
-   Australia Oriental | 104.210.113.114 | 191.239.64.144
+   Este de Australia | 104.210.113.114 | 191.239.64.144
    Sudeste de Australia | 13.70.159.158 | 191.239.160.45
    Centro de Canadá | 52.228.36.192 | 40.85.226.62
    Este de Canadá | 52.229.125.98 | 40.86.225.142
    Centro occidental de EE.UU | 52.161.20.168 | 13.78.149.209
    Oeste de EE. UU 2 | 52.183.45.166 | 13.66.228.204
    Oeste de Reino Unido | 51.141.3.203 | 51.141.14.113
-   Sur del Reino Unido 2 | 51.140.43.158 | 51.140.189.52
+   Sur de Reino Unido 2 | 51.140.43.158 | 51.140.189.52
    Sur del Reino Unido 2 | 13.87.37.4| 13.87.34.139
    Norte del Reino Unido | 51.142.209.167 | 13.87.102.68
    Corea Central | 52.231.28.253 | 52.231.32.85
@@ -120,7 +120,7 @@ En este ejemplo se muestra cómo configurar reglas de NSG para la replicación d
 
    **Ubicación** | **Dirección IP de Site Recovery** |  **Dirección IP de supervisión de Site Recovery**
     --- | --- | ---
-   Central EE. UU: | 40.69.144.231 | 52.165.34.144
+   Centro de EE. UU. | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules---central-us"></a>Reglas de NSG: centro de EE. UU.
 
@@ -134,7 +134,7 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
 
    **Ubicación** | **Dirección IP de Site Recovery** |  **Dirección IP de supervisión de Site Recovery**
     --- | --- | ---
-   Central EE. UU: | 13.82.88.226 | 104.45.147.24
+   Centro de EE. UU. | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuración de la aplicación virtual de red
 

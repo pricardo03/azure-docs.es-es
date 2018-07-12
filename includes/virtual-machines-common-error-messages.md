@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: db241c1a3c8bfd15e13ae0bd9f1cdf4c92c7081d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 00cb6cb59f8144782fdacd8c2f9763c2f7036880
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34013943"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906843"
 ---
 >[!NOTE]
 > Puede dejar comentarios en esta página para proporcionar información o a través del [foro de comentarios acerca de Azure](https://feedback.azure.com/forums/216843-virtual-machines) con la etiqueta #azerrormessage.
@@ -164,7 +164,7 @@ En esta sección se muestran los mensajes de error habituales que pueden produci
 |  OperationNotAllowed  |  No se puede ajustar el tamaño de la máquina virtual porque el tamaño solicitado, {0}, no está disponible en el clúster en el que la máquina virtual está asignada actualmente. Para cambiar el tamaño de la máquina virtual a {1}, desasígnela (esta es la operación de detención de Azure Portal) y vuelva a intentar la operación de cambio de tamaño. Se puede encontrar más información sobre la estrategia de cambio de tamaño de máquinas virtuales en https://aka.ms/azure-resizevm.  |
 |  OSProvisioningClientError  |  No se pudo aprovisionar el sistema operativo para la máquina virtual "{0}" porque el sistema operativo invitado se está aprovisionando actualmente.  |
 |  OSProvisioningClientError  |  Error de aprovisionamiento del sistema operativo para la máquina virtual "{0}". Detalles del error: {1} Asegúrese de que la imagen se haya preparado (generalizado) correctamente. <ul><li>Instrucciones para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  Error de generación de claves del host SSH. Detalles del error: {0}. Para resolver este problema, compruebe si el agente de Linux está configurado correctamente. <ul><li>Puede comprobar las instrucciones que aparecen en: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |
+|  OSProvisioningClientError  |  Error de generación de claves del host SSH. Detalles del error: {0}. Para resolver este problema, compruebe si el agente de Linux está configurado correctamente. <ul><li>Puede comprobar las instrucciones que aparecen en: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  El nombre de usuario especificado para la máquina virtual no es válido para esta distribución de Linux. Detalles del error: {0}.  |
 |  OSProvisioningInternalError  |  Error de aprovisionamiento del sistema operativo para la máquina virtual "{0}" debido a un error interno.  |
 |  OSProvisioningTimedOut  |  El aprovisionamiento del sistema operativo para la máquina virtual "{0}" no finalizó en el tiempo asignado. La máquina virtual aún puede finalizar el aprovisionamiento satisfactoriamente. Compruebe el estado de aprovisionamiento posteriormente.  |

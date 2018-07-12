@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29559713"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917217"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar una implementación de XenApp y XenDesktop de Citrix de niveles múltiples mediante Azure Site Recovery
 
@@ -196,6 +196,6 @@ Siga [estas directrices](site-recovery-test-failover-to-azure.md) para llevar a 
 
 Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutación por error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Puede obtener [más información](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sobre la replicación de implementaciones de XenApp y XenDesktop de Citrix en estas notas del producto. Consulte las instrucciones para la [replicación de otras aplicaciones](site-recovery-workload.md) mediante Site Recovery.
