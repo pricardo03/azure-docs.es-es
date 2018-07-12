@@ -404,7 +404,7 @@
 
 ## Protección de las identidades
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
-#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
 #### Guías de inicio rápido
 ##### [Configuración de Multi-Factor Authentication para aplicaciones por cada nube](active-directory-conditional-access-app-based-mfa.md)
 ##### [Solicitar la aceptación de los términos de uso](active-directory-conditional-access-tou.md)
@@ -434,7 +434,7 @@
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Introducción](active-directory-certificate-based-authentication-get-started.md)
+#### [Primeros pasos](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Habilitación](active-directory-identityprotection-enable.md)
@@ -447,7 +447,7 @@
 #### [Preguntas más frecuentes](active-directory-identity-protection-faqs.md)
 #### [Glosario](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Integración de otros servicios con Azure AD 
 ### [Integración de LinkedIn con Azure AD](users-groups-roles/linkedin-integration.md)
@@ -477,7 +477,7 @@
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD para desarrolladores](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Administración de identidades con privilegios de Azure AD](./privileged-identity-management/pim-configure.md)
 
 # Recursos
 ## [Foro de comentarios de Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
