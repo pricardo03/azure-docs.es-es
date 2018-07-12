@@ -18,10 +18,10 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36232175"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>¿Qué son las condiciones en el acceso condicional de Azure Active Directory? 
@@ -223,7 +223,7 @@ Para "Otros clientes" se pueden configurar cualesquiera condiciones.
 
 **¿Admite Exchange ActiveSync todas las condiciones y controles?**
 
-Nº Este es el resumen de la compatibilidad de Exchange ActiveSync (EAS):
+No. Este es el resumen de la compatibilidad de Exchange ActiveSync (EAS):
 
 - EAS solo admite que los destinos sean usuario y grupo. No admite invitado ni rol. Si se configura la condición de invitado o de rol, todos los usuarios se bloquearán, ya que no podemos determinar si la directiva debe aplicarse al usuario, o no.
 
@@ -235,7 +235,7 @@ Nº Este es el resumen de la compatibilidad de Exchange ActiveSync (EAS):
 
 **¿Se aplicarán las directivas a todas las aplicaciones de manera predeterminada a partir de ahora?**
 
-Nº No hay ningún cambio en el comportamiento predeterminado de las directivas. Las directivas de continuarán aplicándose al explorador y a las aplicaciones móviles y clientes de escritorio de forma predeterminada.
+No. No hay ningún cambio en el comportamiento predeterminado de las directivas. Las directivas de continuarán aplicándose al explorador y a las aplicaciones móviles y clientes de escritorio de forma predeterminada.
 
 
 

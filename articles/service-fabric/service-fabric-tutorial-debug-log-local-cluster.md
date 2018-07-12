@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a0a50c4315540fba014c4f152f108a61b328a936
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109433"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652709"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depuración de una aplicación de Java implementada en un clúster local de Service Fabric
 
@@ -66,7 +66,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 4. Actualice el archivo entryPoint.sh del servicio que desea depurar para que comience el proceso de Java con parámetros de depuración remota. En este tutorial se usa el servidor front-end sin estado: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. En este ejemplo, el puerto 8001 está establecido para depuración.
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
     ```
 
 5. Actualice el manifiesto de aplicación y establezca en 1 el recuento de instancias o el recuento de réplicas del servicio que se está depurando. Esta configuración evita conflictos en el puerto que se usa para depuración. Por ejemplo, para servicios sin estado, establezca ``InstanceCount="1"`` y, para los servicios con estado, establezca los tamaños del conjunto de réplicas mínimo y de destino en 1 de la manera siguiente: ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
@@ -116,7 +116,7 @@ En los pasos siguientes se describe cómo redirigir los registros de aplicacione
     En el ejemplo siguiente se muestra una ejecución de ejemplo:
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
     ```
 
 En esta fase, ha aprendido a depurar los registros de aplicaciones, y a acceder a ellos, durante el desarrollo de aplicaciones de Java en Service Fabric.

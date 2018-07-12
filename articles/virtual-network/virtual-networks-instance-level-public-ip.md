@@ -44,7 +44,7 @@ Cuando se crea un servicio en la nube en Azure, los registros de DNS A correspon
 ## <a name="why-would-i-request-an-ilpip"></a>¿Por qué debo solicitar una ILPIP?
 Si desea poder conectarse a la máquina virtual o a la instancia de rol mediante una dirección IP asignada directamente a ella, en lugar de usar la VIP:&lt;número de puerto&gt; del servicio en la nube, solicite una ILPIP para la máquina virtual o la instancia de rol.
 
-* **FTP activo**: mediante la asignación de una ILPIP a una máquina virtual, puede recibir tráfico en cualquier puerto. Los puntos de conexión no son necesarios para que la máquina virtual reciba tráfico.  Consulte (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[Introducción al protocolo de FTP] para más información sobre el protocolo FTP.
+* **FTP activo**: mediante la asignación de una ILPIP a una máquina virtual, puede recibir tráfico en cualquier puerto. Los puntos de conexión no son necesarios para que la máquina virtual reciba tráfico.  Consulte (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) [Introducción al protocolo de FTP] para más información sobre el protocolo FTP.
 * **IP de salida**: el tráfico de salida procedente de la máquina virtual se asigna a la ILPIP como origen y, de esta forma, esta última identifica de forma exclusiva la máquina virtual ante entidades externas.
 
 > [!NOTE]

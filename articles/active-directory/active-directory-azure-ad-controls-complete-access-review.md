@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: e4199f9c201f80cac3df1b7e3af687e507b9fe9a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3b8fb474f163922844cf9b28568be58cf8cf62e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448584"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307356"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Realización de una revisión de acceso de los miembros de un grupo o del acceso de un usuario a una aplicación con Azure AD
 
@@ -62,4 +62,4 @@ Si ya no está interesado en la revisión, puede eliminarla. Seleccione **Elimin
 - [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Administración de los programas y los controles para las revisiones de acceso de Azure AD](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Crear una revisión de acceso para los miembros de un grupo o el acceso a una aplicación](active-directory-azure-ad-controls-create-access-review.md)
-- [Creación de una revisión de acceso de los usuarios en un rol administrativo de Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Creación de una revisión de acceso de los usuarios en un rol administrativo de Azure AD](privileged-identity-management/pim-how-to-start-security-review.md)

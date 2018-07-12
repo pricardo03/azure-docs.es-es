@@ -15,15 +15,15 @@ ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 07/11/2018
 ms.locfileid: "36300917"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operaciones de mantenimiento del proveedor de recursos de SQL
 
-El proveedor de recursos de SQL se ejecuta en una máquina virtual bloqueada. Para habilitar las operaciones de mantenimiento, debe actualizar la seguridad de la máquina virtual. Para hacerlo con el principio de privilegio mínimo, puede usar el punto de conexión de [JEA (Just Enough Administration) de PowerShell](https://docs.microsoft.com/en-us/powershell/jea/overview) *DBAdapterMaintenance*. El paquete de instalación del proveedor de recursos incluye un script para esta operación.
+El proveedor de recursos de SQL se ejecuta en una máquina virtual bloqueada. Para habilitar las operaciones de mantenimiento, debe actualizar la seguridad de la máquina virtual. Para hacerlo con el principio de privilegio mínimo, puede usar el punto de conexión de [JEA (Just Enough Administration) de PowerShell](https://docs.microsoft.com/powershell/jea/overview) *DBAdapterMaintenance*. El paquete de instalación del proveedor de recursos incluye un script para esta operación.
 
 ## <a name="patching-and-updating"></a>Revisiones y actualizaciones
 
