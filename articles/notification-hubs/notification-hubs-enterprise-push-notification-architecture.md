@@ -35,7 +35,7 @@ Esta es la arquitectura general de la solución (generalizada con varias aplicac
 ## <a name="architecture"></a>Architecture
 ![][1]
 
-La pieza clave en este diagrama arquitectónico es Azure Service Bus que proporciona un modelo de programación de temas y suscripciones (se puede obtener más información al respecto en [programación Pub/Sub de Service Bus]). El receptor, en este caso el back-end móvil (normalmente el [servicio móvil de Azure], que inicia una inserción en las aplicaciones móviles) no recibe los mensajes directamente de los sistemas back-end, sino de una capa de abstracción intermedia que proporciona [Azure Service Bus] que permite que el back-end móvil reciba mensajes de uno o varios sistemas back-end. Se debe crear un tema de Service Bus para cada uno de los sistemas back-end, por ejemplo, Cuentas, RR.HH., Finanzas, que son básicamente "temas" de interés que iniciarán mensajes para enviarse como notificaciones de inserción. Los sistemas back-end envían mensajes a estos temas. Un back-end móvil puede suscribirse a uno o varios de estos temas mediante la creación de una suscripción a Service Bus. Esto permite al back-end móvil recibir una notificación del sistema back-end correspondiente. El back-end móvil sigue escuchando mensajes en sus suscripciones y, en cuanto llega uno, da la vuelta y lo envía como notificación a su centro de notificaciones. Los centros de notificaciones entregan finalmente el mensaje a la aplicación móvil. Esta es la lista de componentes clave:
+La pieza clave en este diagrama arquitectónico es Azure Service Bus que proporciona un modelo de programación de temas y suscripciones (se puede obtener más información al respecto en [Programación Pub/Sub de Service Bus]). El receptor, en este caso el back-end móvil (normalmente el [servicio móvil de Azure], que inicia una inserción en las aplicaciones móviles) no recibe los mensajes directamente de los sistemas back-end, sino de una capa de abstracción intermedia que proporciona [Azure Service Bus que permite que el back-end móvil reciba mensajes de uno o varios sistemas back-end. Se debe crear un tema de Service Bus para cada uno de los sistemas back-end, por ejemplo, Cuentas, RR.HH., Finanzas, que son básicamente "temas" de interés que iniciarán mensajes para enviarse como notificaciones de inserción. Los sistemas back-end envían mensajes a estos temas. Un back-end móvil puede suscribirse a uno o varios de estos temas mediante la creación de una suscripción a Service Bus. Esto permite al back-end móvil recibir una notificación del sistema back-end correspondiente. El back-end móvil sigue escuchando mensajes en sus suscripciones y, en cuanto llega uno, da la vuelta y lo envía como notificación a su centro de notificaciones. Los centros de notificaciones entregan finalmente el mensaje a la aplicación móvil. Esta es la lista de componentes clave:
 
 1. Sistema back-end (sistema LoB o heredado)
    * Crea el tema de Service Bus
@@ -55,8 +55,8 @@ La pieza clave en este diagrama arquitectónico es Azure Service Bus que proporc
 ### <a name="prerequisites"></a>requisitos previos
 Para familiarizarse con los conceptos, así como con los pasos comunes de creación y configuración, realice los siguientes tutoriales:
 
-1. [programación Pub/Sub de Service Bus]: en este tutorial se explican los detalles de trabajar con temas y suscripciones de Service Bus, cómo crear un espacio de nombres que contenga temas o suscripciones y cómo enviar y recibir mensajes de ellos.
-2. [tutorial sobre Notification Hubs: Windows Universal]: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar Notification Hubs para registrar y, después, recibir notificaciones.
+1. [Programación Pub/Sub de Service Bus]: en este tutorial se explican los detalles de trabajar con temas y suscripciones de Service Bus, cómo crear un espacio de nombres que contenga temas o suscripciones y cómo enviar y recibir mensajes de ellos.
+2. [Tutorial sobre Notification Hubs: Windows Universal]: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar Notification Hubs para registrar y, después, recibir notificaciones.
 
 ### <a name="sample-code"></a>Código de ejemplo
 El código de ejemplo completo está disponible en [Ejemplos de centro de notificaciones]. Se divide en tres componentes:
@@ -261,9 +261,9 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 <!-- Links -->
 [Ejemplos de centro de notificaciones]: https://github.com/Azure/azure-notificationhubs-samples
-[servicio móvil de Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
+[Servicio móvil de Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[programación Pub/Sub de Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Programación Pub/Sub de Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [trabajo web de Azure]: ../app-service/web-sites-create-web-jobs.md
-[tutorial sobre Notification Hubs: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Tutorial sobre Notification Hubs: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure Portal]: https://portal.azure.com/
