@@ -6,14 +6,14 @@ author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 13456dc53f85f6f26aab222ab0cb499aabb7d1cc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596711"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916238"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -48,7 +48,7 @@ Además, en el ejemplo específico que se describe en este artículo verá que n
 
 1. Abra una consola de PowerShell y ejecute este comando para iniciar sesión en la cuenta de Azure. El cmdlet abrirá una página web que le solicitará las credenciales de la cuenta: **Connect-AzureRmAccount**.
     - Como alternativa, puede incluir sus credenciales de cuenta como un parámetro en el cmdlet **Connect-AzureRmAccount** mediante el parámetro **-Credential**.
-    - Si usted es un asociado CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Por ejemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    - Si usted es un asociado CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Por ejemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**.
 2. Ya que una cuenta puede tener varias suscripciones, le recomendamos que asocie la suscripción que quiera usar a esa cuenta:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`

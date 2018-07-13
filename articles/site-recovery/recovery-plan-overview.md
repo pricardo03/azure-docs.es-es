@@ -8,14 +8,14 @@ manager: carmonm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 871c9e8404438f966cab2fc5ab782e254295569e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 011c9acb5d34e15f65b64d59867e7501f0720a08
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30191603"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920127"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 
@@ -68,10 +68,10 @@ La recuperación de aplicaciones de gran tamaño puede ser una tarea compleja. L
 * **Tareas en la VM de Azure después de la conmutación por error**: cuando conmuta por error a Azure, normalmente debe realizar acciones para poder conectarse a la VM después de la conmutación por error. Por ejemplo:  
     * Crear una dirección IP pública en la VM de Azure.
     * Asignar a un grupo de seguridad de red al adaptador de red de la VM de Azure.
-    * Agregue un equilibrador de carga a un conjunto de disponibilidad.
+    * Agregar un equilibrador de carga a un conjunto de disponibilidad.
 * **Tareas dentro de la VM después a la conmutación por error**: estas tareas normalmente reconfiguran la aplicación que se ejecuta en la máquina a fin de que siga funcionando correctamente en el nuevo entorno. Por ejemplo: 
     * Modificar la cadena de conexión de base de datos dentro de la máquina.
-    * Cambie la configuración o las reglas del servidor web.
+    * Cambiar la configuración o las reglas del servidor web.
 
 
 ## <a name="test-failover"></a>Conmutación por error de prueba

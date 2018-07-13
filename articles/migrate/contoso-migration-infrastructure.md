@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf1406c8e361e0a1433b0e26c477c3c34e987fcf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232156"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38562765"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso: implementar una infraestructura de migración
 
@@ -25,12 +25,12 @@ Este documento es el segundo de una serie de artículos que documentan la manera
 
 **Artículo** | **Detalles** | **Estado**
 --- | --- | ---
-[Artículo 1: Overview](contoso-migration-overview.md) (Introducción) | Proporciona información general acerca de la estrategia de migración de Contoso, la serie de artículos y las aplicaciones de ejemplo que utilizamos. | Disponible
-Artículo 2: Implementación de una estructura de Azure (este artículo) | Describe cómo Contoso prepara la infraestructura local y de Azure para la migración. Se utiliza la misma infraestructura para todos los escenarios de migración de Contoso. | Disponible
-[Artículo 3: Assess on-premises resources](contoso-migration-assessment.md) (Evaluación de los recursos locales) | Muestra cómo Contoso ejecuta una evaluación de la aplicación local SmartHotel de dos niveles que se ejecuta en VMware. Evalúa las VM de la aplicación con el servicio [Azure Migrate](migrate-overview.md) y la base de datos de SQL Server de la aplicación con [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
-[Artículo 4: Volver a hospedar máquinas virtuales de Azure y una instancia administrada de SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Muestra cómo Contoso migra la aplicación SmartHotel a Azure. La VM de front-end de la aplicación se migra con [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), y la base de datos de la aplicación mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview), para migrar a una instancia administrada de SQL. | Disponible
+[Artículo 1: Introducción](contoso-migration-overview.md) | Se proporciona una introducción a la estrategia de migración de Contoso, la serie de artículos y las aplicaciones de ejemplo que usamos. | Disponible
+Artículo 2: Implementación de una estructura de Azure (este artículo) | Describe cómo Contoso prepara la infraestructura local y de Azure para la migración. Se usa la misma infraestructura para todos los escenarios de migración de Contoso. | Disponible
+[Artículo 3: Assess on-premises resources](contoso-migration-assessment.md) (Evaluación de los recursos locales) | Se muestra cómo Contoso realiza una valoración de su aplicación de dos niveles local SmartHotel que se ejecuta en VMware. Se evalúan las VM de la aplicación mediante el servicio [Azure Migrate](migrate-overview.md) y la base de datos de SQL Server de aplicaciones con [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
+[Artículo 4: Rehospedar en máquinas virtuales de Azure y una instancia administrada de SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Muestra cómo Contoso migra la aplicación SmartHotel a Azure. La VM de front-end de la aplicación se migra mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) y la base de datos de aplicaciones mediante el servicio [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) para migrar a una instancia administrada de SQL. | Disponible
 [Artículo 5: Volver a hospedar máquinas virtuales de Azure](contoso-migration-rehost-vm.md) | Muestra cómo Contoso migra las VM de la aplicación SmartHotel solo con Site Recovery.
-[Artículo 6: Volver a hospedar máquinas virtuales de Azure y grupos de disponibilidad de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Muestra cómo migra Contoso la aplicación SmartHotel. Usa Site Recovery para migrar las VM de la aplicación y Database Migration Service para migrar la base de datos de la aplicación a un grupo de disponibilidad de SQL Server. | Disponible
+[Artículo 6: Rehospedar en VM de Azure y grupos de disponibilidad de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Muestra cómo migra Contoso la aplicación SmartHotel. Usa Site Recovery para migrar las VM de la aplicación y el servicio Database Migration para migrar la base de datos de aplicaciones a un grupo de disponibilidad de SQL Server. | Disponible
 [Artículo 7: Rehospedaje de una aplicación Linux en VM de Azure](contoso-migration-rehost-linux-vm.md) | Muestra cómo Contoso migra la aplicación Linux osTicket a las VM de Azure. | Disponible
 [Artículo 8: Rehospedaje de una aplicación de Linux en VM de Azure y en Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Muestra cómo Contoso migra la aplicación Linux osTicket mediante el uso de Site Recovery, y usa MySQL Workbench para migrar (copia de seguridad o restauración) a una instancia de Azure MySQL Server. | Disponible
 
@@ -65,8 +65,8 @@ Aquí se muestra un diagrama de la infraestructura local de Contoso en la actual
  ![Arquitectura de Contoso](./media/contoso-migration-infrastructure/contoso-architecture.png)  
 
 - Contoso tiene un centro de datos principal situado en la ciudad de Nueva York, al este de los Estados Unidos.
-- Así mismo, tienen tres sucursales locales más en los Estados Unidos.
-- El centro de datos principal está conectado a Internet con una conexión Ethernet de Fibra Metro (500 mbps).
+- Así mismo, tiene tres sucursales locales más en los Estados Unidos.
+- El centro de datos principal está conectado a Internet con una conexión Metro Ethernet de fibra (500 Mbps).
 - Cada una de las sucursales está conectada localmente a Internet con conexiones de categoría empresarial, y con túneles VPN con IPSec hacia el centro de datos principal. Esto permite que toda la red esté conectada de forma permanente, así como optimizar la conectividad a Internet.
 - El centro de datos principal está completamente virtualizado con VMware. Tiene dos hosts de virtualización de ESXi 6.5, que administra vCenter Server 6.5.
 - Contoso usa Active Directory para la administración de identidades y servidores DNS en la red interna.
@@ -556,7 +556,7 @@ Después de actualizar la configuración de red, Contoso está listo para crear 
 1. En Azure Portal, se implementa una nueva VM de Windows Server en la red virtual adecuada.
 2. Se crean conjuntos de disponibilidad en cada ubicación para la VM. Los conjuntos de disponibilidad hacen lo siguiente:
     - Asegúrese de que el tejido de Azure separa las VM en infraestructuras diferentes en la región de Azure. 
-    -  Permite que Contoso sea apto para el SLA de 99,95 % para las VM de Azure.  [Más información](https://docs.microsoftcom/azure/virtual-machines/windows/regions-and-availability#availability-sets).
+    -  Permite que Contoso sea apto para el SLA de 99,95 % para las VM de Azure.  [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
     ![Grupo de disponibilidad](./media/contoso-migration-infrastructure/availability-group.png) 
 3. Una vez implementada la VM, hay que encargarse de la interfaz de red de la VM. En este caso, se establece la dirección IP privada en estático y se especifica un dirección válida.

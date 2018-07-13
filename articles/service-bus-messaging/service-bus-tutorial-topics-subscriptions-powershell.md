@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651681"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531667"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante PowerShell y temas y suscripciones
 
@@ -43,7 +43,7 @@ Para completar este tutorial, asegúrese de que tiene instalados los siguientes 
 1. [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](http://www.visualstudio.com/vs) o posterior.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
-En este tutorial es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarla o actualizarla, consulte [Instalación y configuración de Azure PowerShell][].
+En este tutorial es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarlo o actualizarlo, consulte [Instalación y configuración de Azure PowerShell][].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -136,7 +136,7 @@ Remove-AzureRmResourceGroup -Name my-resourcegroup
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
 
-Esta sección contiene información más detallada sobre lo que hace el código de ejemplo. 
+Esta sección contiene información más detallada acerca de lo que hace el código de ejemplo. 
 
 ### <a name="get-connection-string-and-queue"></a>Obtención de la cadena de conexión y la cola
 

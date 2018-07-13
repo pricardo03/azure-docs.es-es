@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6a8e6e7c6fbdbcbf58557a0896e976a608164041
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 115f4e76630a0ecd659fdd3aec0c6aa67d503817
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29811112"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920494"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>Configuración y administración de directivas de replicación para la replicación de VMware
 En este artículo se describe cómo configurar una directiva de replicación cuando se replican máquinas virtuales de VMware en Azure mediante [Azure Site Recovery](site-recovery-overview.md).

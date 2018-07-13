@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 70eab088ce87d8a62d3f258b70aaec5e2e147d0e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 73b85e99ae1c100cefd50a1f2136a6b526490776
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400646"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868963"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Uso de Hive con Hadoop en HDInsight con el escritorio remoto
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -96,7 +96,7 @@ Cuando se haya conectado al escritorio para el clúster de HDInsight, utilice lo
      Se deben devolver tres filas de datos y todas ellas deben contener **[ERROR]** en la columna t4.
 
 ## <a id="summary"></a>Resumen
-Como puede ver, el comando de Hive proporciona una manera fácil de ejecutar consultas de Hive interactivamente en un clúster de HDInsight, supervisar el estado del trabajo y recuperar el resultado.
+Como puede ver, el comando Hive proporciona una manera fácil de ejecutar consultas de Hive de manera interactiva en un clúster de HDInsight, supervisar el estado del trabajo y recuperar el resultado.
 
 ## <a id="nextsteps"></a>Pasos siguientes
 Para obtener información general acerca de Hive en HDInsight:

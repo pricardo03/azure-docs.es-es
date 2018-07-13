@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 191f8973e85186590a2ba840e473f8fff57a9d94
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37053055"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
@@ -1945,7 +1945,7 @@ Para definir un servicio vinculado de Oracle, establezca el **tipo** de servicio
 | --- | --- | --- |
 | driverType | Especifique qué controlador usar para copiar datos en bases de datos de Oracle o desde ellas. Los valores permitidos son **Microsoft** u **ODP** (valor predeterminado). Consulte la sección [Versiones compatibles e instalación](#supported-versions-and-installation) para obtener información detallada sobre los controladores. | Sin  |
 | connectionString | Especifique la información necesaria para conectarse a la instancia de Base de datos de Oracle para la propiedad connectionString. | Sí |
-| gatewayName | Nombre de la puerta de enlace que se usa para conectarse al servidor de Oracle local |Sí |
+| gatewayName | Nombre de la puerta de enlace que se usa para conectarse al servidor local de Oracle |Sí |
 
 #### <a name="example"></a>Ejemplo
 ```json
@@ -4966,12 +4966,12 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Escriba |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |Sí |
+| type |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |Sí |
 | accountName |Nombre de la cuenta de Análisis de Azure Data Lake |Sí |
 | dataLakeAnalyticsUri |Identificador URI de Análisis de Azure Data Lake. |Sin  |
 | authorization |El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de Factoría de datos y de completar el inicio de sesión de OAuth. |Sí |
 | subscriptionId |Identificador de suscripción de Azure |No (si no se especifica, se usa la suscripción de Data Factory). |
-| resourceGroupName |Nombre del grupo de recursos de Azure. |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
+| resourceGroupName |Nombre del grupo de recursos de Azure |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
 | sessionId |Identificador de sesión de la sesión de autorización de OAuth. Cada id. de sesión es único y solo se puede usar una vez. Si usa Data Factory Editor, este identificador se genera automáticamente. |Sí |
 
 

@@ -4,7 +4,7 @@ description: Este artículo trata sobre el SSO de conexión directa de Azure Act
 services: active-directory
 keywords: qué es Azure AD Connect, RGPD, componentes necesarios para Azure AD, SSO, inicio de sesión único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 50c97ce7a492c934e15634622d86bf587ffb3fb7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34592415"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915731"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidad del usuario e inicio de sesión único de conexión directa de Azure AD
 

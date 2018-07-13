@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 4b90d1b9b2ee64722d3c92bcbd8fa205c9b59ebd
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809614"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968993"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Copias de seguridad y restauración para SQL Server en Azure Virtual Machines
 
@@ -84,8 +84,8 @@ La solución de Azure Backup para VM de SQL se encuentra actualmente en versión
 
 Si desea administrar manualmente operaciones de copia de seguridad y restauración en sus VM de SQL, tiene a su disposición varias opciones, en función de la versión de SQL Server que utilice. Para obtener información general de copia de seguridad y restauración, consulte uno de los siguientes artículos según la versión de SQL Server:
 
-- [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://msdn.microsoft.com/en-us/library/ms187048%28v=sql.120%29.aspx)
+- [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
 - [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
 - [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
 - [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
@@ -105,7 +105,7 @@ A partir de SQL Server 2012 SP1 CU2, puede realizar copias y restaurar directame
 | Mejoras de la versión de 2016 | Detalles |
 | --- | --- |
 | **Seccionamiento** |Cuando realiza una copia de seguridad de Almacenamiento de blobs de Microsoft Azure, SQL Server 2016 admite la copia de seguridad de varios blobs para habilitar la copia de seguridad de bases de datos de gran tamaño, hasta un máximo de 12,8 TB. |
-| **Copia de seguridad de instantáneas** |Mediante el uso de instantáneas de Azure, Copia de seguridad de instantáneas de archivos de SQL Server ofrece copias de seguridad prácticamente instantáneas y restauraciones rápidas de los archivos de base de datos almacenados con el servicio de Azure Blob Storage. Esta capacidad le permite simplificar las directivas de copia de seguridad y restauración. Copia de seguridad de instantáneas de archivos también es compatible con la restauración a un momento dado. Para obtener más información, vea [Copias de seguridad de instantáneas para archivos de base de datos en Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Copia de seguridad de instantáneas** |Mediante el uso de instantáneas de Azure, Copia de seguridad de instantáneas de archivos de SQL Server ofrece copias de seguridad prácticamente instantáneas y restauraciones rápidas de los archivos de base de datos almacenados con el servicio de Azure Blob Storage. Esta capacidad le permite simplificar las directivas de copia de seguridad y restauración. Copia de seguridad de instantáneas de archivos también es compatible con la restauración a un momento dado. Para obtener más información, vea [Copias de seguridad de instantáneas para archivos de base de datos en Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
 Para obtener más información, consulte uno de los siguientes artículos según la versión de SQL Server:
 

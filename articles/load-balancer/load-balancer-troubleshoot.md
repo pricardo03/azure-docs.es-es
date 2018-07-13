@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 07/06/2018
 ms.author: genli
-ms.openlocfilehash: 294bb6dd780d1df642d6e793b29267da1e8b8336
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774920"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37890897"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solución de problemas de Azure Load Balancer
 
@@ -127,7 +127,6 @@ Si se configura una dirección VIP para el equilibrador de carga interno en una 
 ## <a name="additional-network-captures"></a>Capturas de red adicionales
 Si decide abrir un caso de soporte técnico, recopile la información siguiente para una resolución más rápida. Elija una sola máquina virtual de back-end para realizar las pruebas siguientes:
 - Use Psping de una de las máquinas virtuales de back-end de la red virtual para probar la respuesta del puerto de sondeo (ejemplo: psping 10.0.0.4:3389) y registre los resultados. 
-- Use TCPing de una de las máquinas virtuales de back-end de la red virtual para probar la respuesta del puerto de sondeo (ejemplo: psping 10.0.0.4:3389) y registre los resultados.
 - Si no se recibe respuesta con estas pruebas de ping, ejecute un seguimiento Netsh simultáneo en la máquina virtual de back-end y la máquina virtual de prueba de la red virtual mientras ejecuta PsPing y detenga el seguimiento Netsh. 
   
 ## <a name="next-steps"></a>Pasos siguientes

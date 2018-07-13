@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: ecbc88ebaaa93215f85b57becc8a643dc3e168a0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a13057769bad7fcad5f95e49102adac234ebcdb4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129047"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868946"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Conexión de equipos sin acceso a Internet mediante OMS Gateway
 Este documento describe cómo configurar la comunicación con Azure Automation y Log Analytics usando OMS Gateway cuando equipos que están directamente conectados o están supervisados por Operations Manager no tienen acceso a Internet.  OMS Gateway, que es un proxy de reenvío de HTTP que admite la tunelización de HTTP con el comando HTTP CONNECT, puede recopilar datos y enviarlos a Azure Automation y Log Analytics en su nombre.  
@@ -263,7 +263,7 @@ Un error en el paso 3 indica que el módulo no se ha importado. El error puede p
 | `Get-OMSGatewayConfig` |Clave |Obtiene la configuración del servicio |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Clave (se requiere) <br> Valor |Cambia la configuración del servicio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Obtiene la dirección del proxy de retransmisión (ascendente) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Dirección<br> Nombre de usuario<br> Password |Establece la dirección (y credencial) del proxy de retransmisión (ascendente) |1. Establezca un proxy de retransmisión y la credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Establezca un proxy de retransmisión que no necesite autenticación: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Desactive la configuración del proxy de retransmisión:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Dirección<br> Nombre de usuario<br> Contraseña |Establece la dirección (y credencial) del proxy de retransmisión (ascendente) |1. Establezca un proxy de retransmisión y la credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Establezca un proxy de retransmisión que no necesite autenticación: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Desactive la configuración del proxy de retransmisión:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Obtiene el host permitido actualmente (solo el host permitido configurado localmente, no se incluyen los hosts permitidos que se descargan automáticamente) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (obligatorio) |Agrega el host a la lista de permitidos |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (obligatorio) |Quita el host de la lista de permitidos |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  

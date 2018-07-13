@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 3d5311bda4fd0133bea57fee245386d451deb5c4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5ee3d29ceada238c5e4a633b501f63ed307ba76e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34653899"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900874"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Linux en Azure
 En este artículo se describen los tamaños y las opciones disponibles para las máquinas virtuales de Azure que puede usar para ejecutar las aplicaciones y cargas de trabajo de Linux. También ofrece consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos. Este artículo también está disponible para [máquinas virtuales Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-| Escriba                     | Tamaños           |    DESCRIPCIÓN       |
+| type                     | Tamaños           |    DESCRIPCIÓN       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Uso general](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2  | Uso equilibrado de la CPU en proporción de memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. |
 | [Proceso optimizado](sizes-compute.md)        | Fsv2, Fs, F             | Uso elevado de la CPU en proporción de memoria. Bueno para servidores web de tráfico medio, aplicaciones de red, procesos por lotes y servidores de aplicaciones.        |

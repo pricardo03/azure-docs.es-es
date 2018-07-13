@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
 ms.openlocfilehash: 250c66c3a39519a6eddc1ecb51259ec1944c88a9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522227"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38671129"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Cómo configurar la compatibilidad de red virtual para una instancia de Azure Redis Cache Premium
 Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Redis Cache se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con red virtual de una instancia de Azure Redis Cache Premium.

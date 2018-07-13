@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e3c80fe824d87c15a710b133c8e6cddf4ee0e096
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402114"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856562"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Instalación de aplicación publicada: H2O Sparkling Water
 
@@ -38,7 +38,7 @@ H2O Sparkling Water ofrece:
 
 ### <a name="resource-links"></a>Vínculos de recursos
 
-* [H2O.ai Engineering Roadmap](https://jira.h2o.ai/) (Mapa de ruta de ingeniería)
+* [H2O.ai Engineering Roadmap](http://jira.h2o.ai/) (Mapa de ruta de ingeniería)
 * [H2O.ai Home](http://www.h2o.ai/) (Página principal)
 * [H2O.ai Documentation](http://docs.h2o.ai/) (Documentación)
 * [H2O.ai Support](https://support.h2o.ai/) (Compatibilidad)

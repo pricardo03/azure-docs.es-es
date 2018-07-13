@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 233da393bb9e030d885ce588f4841dc1c707c1cb
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836273"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968798"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps para aplicaciones de inteligencia artificial (IA): creación de canalización de integración continua en Azure mediante Docker y Kubernetes
 Para una aplicación de IA, suele haber dos flujos de trabajo: los científicos de datos, que crean modelos de aprendizaje automático, y los desarrolladores de aplicaciones, que crean la aplicación y la exponen a los usuarios finales para que la consuman. En este artículo, se muestra cómo implementar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de IA. Una aplicación de IA es una combinación de código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para este artículo, obtenemos un modelo previamente entrenado de una cuenta de almacenamiento de blobs de Azure privada; también podría ser una cuenta de AWS S3. Usaremos una aplicación web sencilla de Python Flask para el artículo.
@@ -35,10 +35,10 @@ Puede descargar el código fuente de [GitHub](https://github.com/Azure/DevOps-Fo
 
 ## <a name="pre-requisites"></a>Requisitos previos
 Estos son los requisitos previos para seguir la canalización de CI/CD que se describe a continuación:
-* [Cuenta de Visual Studio Team Services](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student)
-* [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Clúster de Azure Container Service (AKS) donde se ejecuta Kubernetes](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Cuenta de Azure Container Registy (ACR)](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+* [Cuenta de Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Clúster de Azure Container Service (AKS) donde se ejecuta Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+* [Cuenta de Azure Container Registy (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Instale Kubectl para ejecutar comandos en clústeres de Kubernetes.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Necesitaremos esta opción para obtener la configuración del clúster de ACS. 
 * Bifurque el repositorio de GitHub a su cuenta de GitHub.
 
@@ -49,7 +49,7 @@ La aplicación extrae el modelo más reciente de forma segura desde una cuenta d
 
 La arquitectura de canalización se indica a continuación. 
 
-![Architecture](./media/ci-cd-flask/Architecture.PNG?raw=true)
+![Arquitectura](./media/ci-cd-flask/Architecture.PNG?raw=true)
 
 ## <a name="steps-of-the-cicd-pipeline"></a>Pasos de la canalización de CI/CD
 1. El programador trabaja en el IDE que prefiere en el código de aplicación.
@@ -69,6 +69,6 @@ La arquitectura de canalización se indica a continuación.
 
 ## <a name="references"></a>Referencias
 * [Proceso de ciencia de datos en equipo (TDSP)](https://aka.ms/tdsp)
-* [Azure Machine Learning (AML)](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
+* [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
 * [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
-* [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
+* [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

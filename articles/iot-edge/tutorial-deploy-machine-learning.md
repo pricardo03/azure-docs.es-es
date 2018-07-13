@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 47db87bf734674bd424fecd0f0f22bff9e2df5d5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345498"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299261"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementación de Azure Machine Learning como un módulo de IoT Edge (versión preliminar)
 
@@ -63,7 +63,7 @@ sudo nano /etc/iotedge/config.yaml
 Actualice la sección **connect** de la configuración con la dirección IP. Por ejemplo:
 ```yaml
 connect:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
@@ -71,7 +71,7 @@ Escriba las mismas direcciones de la sección **listen** de la configuración. P
 
 ```yaml
 listen:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
@@ -201,12 +201,12 @@ Los siguientes pasos le muestran cómo configurar Visual Studio Code para superv
 
 <!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
 
-Si va a seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar.
+Si va a seguir con el siguiente artículo recomendado, puede conservar los recursos y las configuraciones que ya ha creado para volverlos a utilizar.
 
-En caso contrario, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo para evitar gastos. 
+En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
 
 > [!IMPORTANT]
-> La eliminación de los recursos de Azure y del grupo de recursos es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
+> La eliminación de los recursos de Azure y del grupo de recursos es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos que contiene se suprimirán permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
 >
 
 Para eliminar solo la instancia de IoT Hub, ejecute el siguiente comando usando el nombre del centro y el nombre del grupo de recursos:

@@ -7,16 +7,16 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 3e7436c4b69a27931238ea80304231394074ffe3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831101"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906331"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Guardar los cambios y trabajar con archivos de gran tamaño
 Con el servicio Experimentación de Azure Machine Learning, puede configurar diversos destinos de ejecución. Algunos destinos son locales, como un equipo local o un contenedor de Docker en un equipo local. Otros son remotos, como un contenedor de Docker en un equipo remoto o un clúster de HDInsight. Para obtener más información, consulte [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Introducción al servicio de ejecución de experimentos de Azure Machine Learning). 
@@ -83,12 +83,12 @@ Estos son algunos ejemplos de código de Python para usar esta carpeta de uso co
 import os
 
 # write to the shared folder
-with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'wb') as f:
-    f.write(“Hello World”)
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', "w") as f1:
+    f1.write(“Hello World”)
 
 # read from the shared folder
-with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r') as f:
-    text = file.read()
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', "r") as f2:
+    text = f2.read()
 ```
 
 Para ver un ejemplo más completo, consulte el archivo *iris_sklearn_shared_folder.py* en el proyecto de ejemplo _Classifying Iris_ (Clasificación de iris).
@@ -162,6 +162,7 @@ Una opción es usar Azure Blob Storage desde el código de Python o PySpark. Est
 
 ```python
 from azure.storage.blob import BlockBlobService
+from azure.storage.blob.models import PublicAccess
 import glob
 import os
 
@@ -172,7 +173,7 @@ CONTAINER_NAME = "<container name>"
 blob_service = BlockBlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
 
 ## Create a new container if necessary, or use an existing one
-my_service.create_container(CONTAINER_NAME, fail_on_exist=False, public_access=PublicAccess.Container)
+blob_service.create_container(CONTAINER_NAME, fail_on_exist=False, public_access=PublicAccess.Container)
 
 # df is a pandas DataFrame
 df.to_csv('mydata.csv', sep='\t', index=False)

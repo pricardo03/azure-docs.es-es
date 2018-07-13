@@ -1,12 +1,12 @@
 ---
-title: "Creación de una regla personalizada en Conjunto de aplicaciones de IoT de Azure | Microsoft Docs"
-description: "Cómo crear una regla personalizada en una solución preconfigurada de Conjunto de aplicaciones de IoT."
-services: 
+title: Creación de una regla personalizada en Azure IoT Suite | Microsoft Docs
+description: Cómo crear una regla personalizada en una solución preconfigurada de Conjunto de aplicaciones de IoT.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 9bf2a13035de141766fd935966ce18459dccdaab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723357"
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>Creación de una regla personalizada en la solución preconfigurada de supervisión remota
 
@@ -221,7 +222,7 @@ Cambiar el operador **>** es más complejo y va más allá de los pasos descrito
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo crear reglas personalizadas, puede obtener más información sobre las soluciones preconfiguradas:
 
-- [Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota de Conjunto de aplicaciones de IoT de Azure][lnk-logic-app]
+- [Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota de Azure IoT Suite][lnk-logic-app]
 - [Metadatos de información de dispositivo en la solución preconfigurada de supervisión remota][lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-v1-remote-monitoring-device-info.md

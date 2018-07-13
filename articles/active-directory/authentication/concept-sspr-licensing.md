@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292566"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855531"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
 
@@ -51,7 +51,7 @@ En las páginas siguientes, encontrará información adicional sobre licencias, 
 
 ## <a name="enable-group-or-user-based-licensing"></a>Habilitar licencias basadas en grupos o usuarios
 
-Ahora, Azure AD admite licencias basadas en grupos. Los administradores pueden asignar licencias en bloque a un grupo de usuarios en lugar de asignarlas una a una. Para más información, consulte [Asignar, comprobar y resolver los problemas con licencias](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
+Ahora, Azure AD admite licencias basadas en grupos. Los administradores pueden asignar licencias en bloque a un grupo de usuarios en lugar de asignarlas una a una. Para más información, consulte [Asignar, comprobar y resolver los problemas con licencias](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad **Ubicación de uso** en el usuario. La asignación de licencias puede hacerse en la sección **Usuario** > **Perfil** > **Configuración** de Azure Portal. *Cuando se utiliza la asignación de licencias de grupo, los usuarios sin ubicación de uso especificada heredan la ubicación del directorio.*
 

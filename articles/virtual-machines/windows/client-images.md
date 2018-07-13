@@ -3,7 +3,7 @@ title: Uso de imágenes de cliente de Windows en Azure | Microsoft Docs
 description: Cómo usar las ventajas para la suscripción de Visual Studio a fin de implementar Windows 7, Windows 8 o Windows 10 en Azure para escenarios de desarrollo/pruebas
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: iainfou
-ms.openlocfilehash: c1fdf3e95fe0026dcb1b47dd6537008921d461fe
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: cynthn
+ms.openlocfilehash: a2b9a06e8e3b1bda91050e1607c7265d6fe66bb1
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017541"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931796"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas
 Puede usar Windows 7, Windows 8 o Windows 10 Enterprise (x64) en Azure para escenarios de desarrollo y pruebas siempre que tenga una suscripción adecuada a Visual Studio (anteriormente MSDN). En este artículo se describen los requisitos de idoneidad para ejecutar Windows 7, Windows 8.1 o Windows 10 Enterprise en Azure y usar las siguientes imágenes de la galería de Azure.

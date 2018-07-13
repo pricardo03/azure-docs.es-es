@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 44ecbcc51cb53f4d7b68f5c5e24e7d81c5a4208c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 73514b524f554affb9730ba63ccd608491497af2
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071594"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920477"
 ---
 # <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Uso de ExpressRoute con recuperación ante desastres de máquinas virtuales de Azure
 
@@ -124,7 +124,7 @@ Es recomendable ejecutar [ejercicios de recuperación ante desastres](azure-to-a
 Si usa un único circuito ExpressRoute, se recomienda utilizar un espacio de direcciones IP diferente para la red virtual de destino para evitar posibles problemas de establecimiento de conexión durante desastres regionales. Si no es posible usar direcciones IP diferentes para el entorno de producción recuperado, la conmutación por error de prueba del ejercicio de recuperación ante desastres se debería realizar en una red de prueba independiente con diferentes direcciones IP ya que no puede conectar dos redes virtuales con un espacio de direcciones IP que se superponga al mismo circuito ExpressRoute.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información acerca de los [circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
-- Más información acerca de los [dominios de enrutamiento de ExpressRoute](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
-- Más información acerca de las [ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md).
+- Obtenga más información sobre los [circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
+- Obtenga más información sobre los [dominios de enrutamiento de ExpressRoute](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
+- Obtenga más información sobre las [ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md).
 - Más información sobre los [planes de recuperación](site-recovery-create-recovery-plans.md) para automatizar la conmutación por error de las aplicaciones.

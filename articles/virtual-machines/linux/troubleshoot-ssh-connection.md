@@ -4,7 +4,7 @@ description: Cómo solucionar problemas de error de conexión SSH o de conexión
 keywords: conexión ssh rechazada, error de ssh azure ssh, error de conexión ssh
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: iainfou
-ms.openlocfilehash: 9db1252ffdb705308c6bdaf77f394a0e57145fb5
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 5d2544ec9ef758cf34a846562fa659b28044c52d
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701928"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932694"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error o se rechazan.
 Hay varias razones por las que podrían producirse errores de Secure Shell (SSH), errores de conexión de SSH o que se rechace SSH al intentar conectarse a una máquina virtual (VM) Linux. Este artículo le ayudará a identificar esos problemas y corregirlos. Para solucionar problemas de conexión, puede usar Azure Portal, la CLI de Azure o la extensión de acceso de máquina virtual para Linux.

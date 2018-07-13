@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/7/2017
 ms.author: sethm
 ms.openlocfilehash: 6af7e4d238c10c0fed3443db58644e3557525993
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26642467"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308372"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introducción a las colas de Service Bus
 
@@ -32,7 +32,7 @@ En este tutorial se describen los pasos siguientes:
 3. Escriba una aplicación de consola de .NET Core para enviar un conjunto de mensajes a la cola.
 4. Escriba una aplicación de consola de .NET Core para recibir esos mensajes de la cola.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 1. [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](http://www.visualstudio.com/vs) o posterior.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
@@ -408,7 +408,7 @@ Para recibir los mensajes que acaba de enviar, cree otra aplicación de consola 
    
     ![Longitud de la cola][queue-message-receive]
 
-¡Enhorabuena! Ahora ha creado una cola, ha enviado un mensaje a dicha cola y ha recibido esos mensajes de la misma cola.
+Felicidades. Ahora ha creado una cola, ha enviado un mensaje a dicha cola y ha recibido esos mensajes de la misma cola.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

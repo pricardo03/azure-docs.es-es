@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062213"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968626"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integración de Cloud Foundry con Azure
 
@@ -77,7 +77,7 @@ Haga clic [aquí](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms
 ## <a name="7-cost-saving"></a>7. Ahorro de costos
 ### <a name="cost-saving-for-devtest-environments"></a>Ahorro para entornos de desarrollo y pruebas
 #### <a name="b-series-"></a>Serie B: *
-Aunque normalmente se recomienda la serie de máquinas virtuales F y D para el entorno de producción de Pivotal Cloud Foundry, la nueva [serie B](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) "ampliable" aporta opciones nuevas. Las máquinas virtuales ampliables de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, pequeñas bases de datos y entornos de desarrollo y de prueba. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. Son 0,012 USD por hora (B1) en comparación con 0,05 USD por hora (F1), vea la lista completa de [tamaños de máquina virtual](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general) y [precios](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) para obtener más información. 
+Aunque normalmente se recomienda la serie de máquinas virtuales F y D para el entorno de producción de Pivotal Cloud Foundry, la nueva [serie B](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) "ampliable" aporta opciones nuevas. Las máquinas virtuales ampliables de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, pequeñas bases de datos y entornos de desarrollo y de prueba. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. Son 0,012 USD por hora (B1) en comparación con 0,05 USD por hora (F1), vea la lista completa de [tamaños de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) y [precios](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) para obtener más información. 
 #### <a name="managed-standard-disk"></a>Disco estándar administrado: 
 Para un rendimiento confiable en producción se recomendaban los discos premium.  Con [Disco administrado](https://azure.microsoft.com/services/managed-disks/), el almacenamiento estándar también puede proporcionar una confiabilidad similar, con otro rendimiento. Para cargas de trabajo en las que no se tiene en cuenta el rendimiento, como desarrollo o pruebas, o bien entorno no críticos, los discos administrados estándar ofrecen una opción alternativa con un costo menor.  
 ### <a name="cost-saving-in-general"></a>Ahorro de costos general 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: terrylan
 ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203978"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619116"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. Asimismo, copia los archivos de volcado de memoria en dicha área de trabajo.
@@ -36,7 +36,7 @@ Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
 2. Seleccione la suscripción.
 
-  ![Seleccione la suscripción.][7]
+  ![Selección de la suscripción][7]
 
 3. En **Directiva de seguridad**, seleccione **Recopilación de datos**.
 4. En **Aprovisionamiento automático**, seleccione **Activado** para habilitarlo.

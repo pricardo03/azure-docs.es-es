@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 563ee61b56af22ada662fcfff9f47ae58f3f32ba
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849937"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969102"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
  Para conectar su infraestructura local a Microsoft a través de un proveedor de conectividad, debe solicitar un *circuito ExpressRoute* . En la ilustración siguiente se muestra una representación lógica de conectividad entre la WAN y Microsoft.
@@ -89,7 +89,7 @@ Puede elegir habilitar uno o varios de los dominios de enrutamiento como parte d
 Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesiones de BGP (un par para cada tipo de emparejamiento). Los pares de sesión de BGP proporcionan un vínculo de alta disponibilidad. Si se va a conectar mediante proveedores de conectividad de capa 2, tendrá que encargarse de configurar y administrar el enrutamiento. Para obtener más información, revise los [flujos de trabajo](expressroute-workflows.md) para configurar ExpressRoute.
 
 ## <a name="expressroute-health"></a>Estado de ExpressRoute
-Los circuitos de ExpressRoute se pueden supervisar para comprobar la disponibilidad, la conectividad con redes virtuales y la utilización del ancho de banda mediante [ Network Performance Monitor ](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview) (NPM).
+Los circuitos de ExpressRoute se pueden supervisar para comprobar la disponibilidad, la conectividad con redes virtuales y la utilización del ancho de banda mediante [ Network Performance Monitor ](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
 NPM supervisa el estado del emparejamiento privado de Azure y el emparejamiento de Microsoft.  Para más información, consulte nuestra [publicación](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/).
 

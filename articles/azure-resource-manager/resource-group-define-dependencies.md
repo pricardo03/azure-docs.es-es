@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: d5a9bde85e894f2f4283348771dc5cacc7a08f23
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824662"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887436"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definición del orden de implementación de recursos en plantillas de Azure Resource Manager
 Antes de proceder a la implementación de un recurso determinado, es posible que deban existir otros recursos. Por ejemplo, debe existir un servidor SQL para intentar implementar una base de datos SQL. Esta relación se define al marcar un recurso como dependiente del otro. Una dependencia se define con el elemento **dependsOn** o mediante la función **reference**. 
@@ -55,12 +55,12 @@ Al definir las dependencias, puede incluir el espacio de nombres de proveedor de
 
 ```json
 "dependsOn": [
-  "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-  "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+  "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
+  "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
 ]
 ``` 
 
-Si bien puede que se sienta tentado a usar dependsOn para asignar relaciones entre los recursos, es importante comprender por qué lo hace. Por ejemplo, para documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. No se pueden consultar los recursos que se definieron en el elemento dependsOn después de realizar la implementación. El uso de dependsOn podría llegar a repercutir en el tiempo de implementación, ya que Resource Manager no implementa dos recursos en paralelo que tengan una dependencia. Para documentar las relaciones entre los recursos, utilice en su lugar la [vinculación de recursos](/rest/api/resources/resourcelinks).
+Si bien puede que se sienta tentado a usar dependsOn para asignar relaciones entre los recursos, es importante comprender por qué lo hace. Por ejemplo, para documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. No se pueden consultar los recursos que se definieron en el elemento dependsOn después de realizar la implementación. El uso de dependsOn podría llegar a repercutir en el tiempo de implementación, ya que Resource Manager no implementa dos recursos en paralelo que tengan una dependencia. 
 
 ## <a name="child-resources"></a>Recursos secundarios
 La propiedad resources permite especificar los recursos secundarios que están relacionados con el recurso que se está definiendo. Los recursos secundarios solo se pueden definir en cinco niveles de profundidad. Es importante tener en cuenta que no se crea una dependencia implícita entre un recurso secundario y el recurso principal. Si necesita que el recurso secundario se implemente después del recurso primario, debe declarar explícitamente esa dependencia con la propiedad dependsOn. 

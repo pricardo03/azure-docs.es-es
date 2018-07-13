@@ -1,6 +1,6 @@
 ---
 title: Uso de colas de Service Bus de Azure con Ruby | Microsoft Docs
-description: Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en Ruby.
+description: Obtenga información acerca de cómo usar las colas de Service Bus en Azure. Ejemplos de código escritos en Ruby.
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.openlocfilehash: 357a7277dd42b6973cf35a9f642b8eec36a745e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044290"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232945"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Uso de colas de Service Bus con Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos están escritos en Ruby y usan la gema de Azure. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y **eliminación de colas**. Para obtener más información sobre las colas de Service Bus, vea la sección [Pasos siguientes](#next-steps).
+Esta guía describe cómo utilizar las colas de Service Bus. Los ejemplos están escritos en Ruby y usan la gema de Azure. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y **eliminación de colas**. Para obtener más información sobre las colas de Service Bus, vea la sección [Pasos siguientes](#next-steps).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -71,7 +71,7 @@ El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB 
 ## <a name="how-to-receive-messages-from-a-queue"></a>Recepción de mensajes de una cola
 Los mensajes se reciben de una cola utilizando el método `receive_queue_message()` del objeto **Azure::ServiceBusService**. De forma predeterminada, los mensajes se leen y bloquean sin que se eliminen de la cola. Sin embargo, puede eliminar mensajes de la cola a medida que se leen estableciendo la opción `:peek_lock` en **false**.
 
-El comportamiento predeterminado convierte la lectura y eliminación en una operación de dos fases que también hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método `delete_queue_message()` y facilitando el mensaje que se va a eliminar a modo de parámetro. El método `delete_queue_message()` marcará el mensaje como consumido y lo eliminará de la cola.
+El comportamiento predeterminado convierte la lectura y eliminación en una operación de dos fases que también hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método `delete_queue_message()` y facilitando el mensaje que se va a eliminar a modo de parámetro. El método `delete_queue_message()` marcará el mensaje como consumido y lo eliminará de la cola.
 
 Si el parámetro `:peek_lock` se establece en **false**, la lectura y eliminación del mensaje se convierte en el modelo más simple y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
@@ -85,14 +85,14 @@ azure_service_bus_service.delete_queue_message(message)
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Actuación ante errores de la aplicación y mensajes que no se pueden leer
-El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción es incapaz de procesar el mensaje, entonces puede llamar al método `unlock_queue_message()` del objeto **Azure::ServiceBusService**. Esta llamada hará que Service Bus desbloquee el mensaje de la cola y esté disponible para volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
+Service Bus proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción es incapaz de procesar el mensaje, entonces puede llamar al método `unlock_queue_message()` del objeto **Azure::ServiceBusService**. Esta llamada hará que Service Bus desbloquee el mensaje de la cola y esté disponible para volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
-También hay otro tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
+También hay otro tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), entonces Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
 En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método `delete_queue_message()`, entonces el mensaje se vuelve a entregar a la aplicación cuando esta se reinicie. Este proceso habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; sin embargo, en determinadas situaciones, podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue con la propiedad `message_id` del mensaje, que permanece constante en todos los intentos de entrega.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
+Ahora que conoce los fundamentos de las colas de Service Bus, siga estos vínculos para obtener más información.
 
 * Información general de [colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
 * Visite el repositorio de [SDK de Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) en GitHub.

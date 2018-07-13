@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: saurse
 ms.openlocfilehash: f69975fc30dfdfbcdd801bcdb552e8b4be948607
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606280"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38584347"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 En este artículo se muestra cómo usar PowerShell para configurar Azure Backup en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.

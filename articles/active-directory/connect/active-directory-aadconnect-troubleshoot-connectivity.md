@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c12630deb45fd057537c42157d88fdeef22d18b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593020"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295403"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solución de problemas de conectividad con Azure AD Connect
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
@@ -174,7 +174,7 @@ La autenticación fue correcta, pero Azure AD PowerShell tiene un problema de au
 Autenticación realizada correctamente. Usted no es un administrador global.
 
 ### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
-Autenticación realizada correctamente. Se ha habilitado la administración de identidades con privilegios y en la actualidad usted no es un administrador global. Para más información, vea [Introducción a Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+Autenticación realizada correctamente. Se ha habilitado la administración de identidades con privilegios y en la actualidad usted no es un administrador global. Para más información, vea [Introducción a Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 ### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
 Autenticación realizada correctamente. No se pudo recuperar la información de la empresa de Azure AD.

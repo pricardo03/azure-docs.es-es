@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984148"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308159"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación de Azure Resource Manager
 

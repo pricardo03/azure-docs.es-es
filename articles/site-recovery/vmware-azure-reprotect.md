@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4ee6eefa431b06e0cb694635e188c87a8a4175c9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737272"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916486"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotección de máquinas de Azure a un sitio local
 
@@ -99,7 +99,7 @@ Después del arranque de una máquina virtual en Azure, el agente tarda algún t
 4. En **Almacén de datos**, seleccione aquel en el que quiera recuperar los discos en local. Se usa esta opción cuando se elimina la máquina virtual local y es necesario crear discos. Esta opción se omite si los discos ya existen. Todavía debe especificar un valor.
 5. Elija la unidad de retención.
 6. La directiva de conmutación por recuperación se selecciona automáticamente.
-7. Seleccione **Aceptar** para comenzar con la reprotección. Comienza un trabajo para replicar la máquina virtual desde Azure en el sitio local. Puede realizar el seguimiento del progreso en la pestaña **Trabajos** . Cuando la reprotección se haya realizado correctamente, la máquina virtual entra en un estado protegido.
+7. Seleccione **Aceptar** para comenzar con la reprotección. Comienza un trabajo para replicar la máquina virtual desde Azure en el sitio local. Puede realizar el seguimiento del progreso en la pestaña **Trabajos**. Cuando la reprotección se haya realizado correctamente, la máquina virtual entra en un estado protegido.
 
 Tenga en cuenta la información siguiente:
 - Si quiere recuperar en una ubicación alternativa (cuando se elimine la máquina virtual local), seleccione la unidad de retención y el almacén de datos configurados para el servidor de destino maestro. Cuando se conmuta por recuperación en el sitio local, las máquinas virtuales VMware del plan de protección de conmutación por recuperación usan el mismo almacén de datos que el servidor de destino maestro. Entonces se crea una nueva máquina virtual en vCenter.

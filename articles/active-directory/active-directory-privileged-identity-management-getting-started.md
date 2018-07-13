@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/17/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 6a9e4a93df02e55deb29ba372dc874ae1fac308c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 433bae28495e712cf79ad9e07e024e794e328a53
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446034"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950539"
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Comenzar a usar Azure AD Privileged Identity Management
 
@@ -31,7 +31,7 @@ En este artículo se explica cómo agregar la aplicación PIM (Privileged Identi
 Antes de usar Privileged Identity Management de Azure AD, debe agregar la aplicación al panel del Portal de Azure.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) como administrador global de su directorio.
-2. Si su organización tiene más de un directorio, seleccione su nombre de usuario en la esquina superior derecha del Portal de Azure. Seleccione el directorio en el que quiere usar PIM.
+2. Si su organización tiene más de un directorio, seleccione su nombre de usuario en la esquina superior derecha de Azure Portal. Seleccione el directorio en el que quiere usar PIM.
 3. Seleccione **Todos los servicios** y use el cuadro de texto Filtro para buscar **Azure AD Privileged Identity Management**.
 4. Active **Anclar al panel** y haga clic en **Crear**. Se abre la aplicación Privileged Identity Management.
 
@@ -54,7 +54,3 @@ Después de configurar Azure AD Privileged Identity Management, verá la hoja de
 En la información general de [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) , se incluye más información sobre cómo administrar el acceso administrativo en una organización.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png

@@ -7,15 +7,17 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 12a34bc98db396482d9fde8da778db0f0ef7de4b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 30795f542bca52159f2ff0fe052a94de3743f0e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767160"
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Inicio rápido: Instalar los servicios de Machine Learning y empezar a trabajar con ellos
 Los servicios de Azure Machine Learning (versión preliminar) son una solución integrada y completa de análisis avanzado y ciencia de datos. Ayuda a los científicos de datos profesionales a preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -145,7 +147,7 @@ Aquí, vamos a crear un nuevo proyecto de Workbench con una plantilla que incluy
    Nombre de proyecto | myIris |Elija un nombre único que identifique la cuenta. Puede usar su propio nombre o el nombre de departamento o proyecto que mejor identifique el experimento. El nombre debe tener entre 2 y 32 caracteres. Debe incluir solo caracteres alfanuméricos y el carácter de guión (-). 
    Directorio del proyecto | c:\Temp\ | Especifique el directorio en el que se creará el proyecto.
    Descripción del proyecto | _déjelo en blanco_ | Campo opcional útil para describir los proyectos.
-   Dirección URL de repositorio de GIT de VisualStudio.com |_déjelo en blanco_ | Campo opcional. Si lo desea, el proyecto puede asociarse con un repositorio de Git para el control de código fuente y la colaboración en Visual Studio Team Services. [Vea cómo configurarlo](/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Dirección URL de repositorio de GIT de VisualStudio.com |_déjelo en blanco_ | Campo opcional. Si lo desea, el proyecto puede asociarse con un repositorio de Git para el control de código fuente y la colaboración en Visual Studio Team Services. [Vea cómo configurarlo](../desktop-workbench/using-git-ml-project.md#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Área de trabajo seleccionada | IrisGarden (si existe) | Elija un área de trabajo que ha creado para su cuenta de Experimentación en Azure Portal. <br/>Si ha seguido la guía de inicio rápido, tendrá un área de trabajo con el nombre IrisGarden. Si no es así, seleccione el que creó cuando creó su cuenta de Experimentación o cualquier otro que desee utilizar.
    Plantilla de proyecto | Clasificación de iris | Las plantillas contienen scripts y datos que puede usar para explorar el producto. Esta plantilla contiene los scripts y los datos que necesita para esta guía de inicio rápido y otros tutoriales en este sitio de documentación. 
 

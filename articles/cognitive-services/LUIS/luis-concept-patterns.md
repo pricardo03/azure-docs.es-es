@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: c3c0d12bbbeec85d2cbf0daead49ee16ca7728fb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a23ebddc29c6c519e68a00ef6cbff107061c341
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046265"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888286"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas. Al proporcionar un patrón para la expresión, LUIS puede tener una confianza elevada en la predicción. 
@@ -123,5 +123,3 @@ Conozca los [procedimientos recomendados](luis-concept-best-practices.md).
 
 > [!div class="nextstepaction"]
 > [Aprenda cómo implementar patrones en este tutorial](luis-tutorial-pattern.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

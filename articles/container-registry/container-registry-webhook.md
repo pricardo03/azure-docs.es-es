@@ -2,18 +2,18 @@
 title: Webhooks de Azure Container Registry
 description: Aprenda a usar webhooks para desencadenar eventos cuando determinadas acciones tengan lugar en uno de los repositorios del registro.
 services: container-registry
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: iainfou
-ms.openlocfilehash: 538548fa211b2159b190ff1b689033c50ad801fe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: marsma
+ms.openlocfilehash: aff8f1b18c60610ff1d231661fe142eb6c69f3d7
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096315"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887582"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Webhooks de Azure Container Registry
 
@@ -41,7 +41,7 @@ Para obtener información detallada sobre las solicitudes de webhook, consulte [
 | Encabezados personalizados | Los encabezados que van a pasar junto con la solicitud POST. Deben tener el formato "clave: valor". |
 | Acciones de desencadenador | Acciones que desencadenan el webhook. Actualmente los webhooks pueden activarse mediante acciones de inserción o eliminación en una imagen. |
 | Status | El estado del webhook después de su creación. Esto está habilitada de manera predeterminada. |
-| Scope | El ámbito en el que trabaja el webhook. De forma predeterminada, el ámbito sirve para todos los eventos del registro. Se puede especificar para un repositorio o etiqueta con el formato "repositorio: etiqueta". |
+| Ámbito | El ámbito en el que trabaja el webhook. De forma predeterminada, el ámbito sirve para todos los eventos del registro. Se puede especificar para un repositorio o etiqueta con el formato "repositorio: etiqueta". |
 
 Formulario de webhook de ejemplo:
 

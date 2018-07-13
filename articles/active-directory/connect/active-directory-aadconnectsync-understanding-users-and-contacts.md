@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
-ms.author: markvi;andkjell
-ms.openlocfilehash: 2e249fbf63adc459a29aa3e39e22f97b5769586a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: billmath
+ms.openlocfilehash: 740908a87752d4e3b94e0cd25fa7107c45b9f0d7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593340"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915330"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronización de Azure AD Connect: descripción de usuarios, grupos y contactos
 Hay diversas razones por las que podría interesarle tener varios bosques de Active Directory y hay diversas topologías de implementación. Los modelos comunes incluyen una implementación cuenta-recurso y bosques sincronizados de lista global de direcciones tras una fusión y adquisición. Sin embargo, aunque existan modelos puros, los modelos híbridos también son comunes. La configuración predeterminada de Azure AD Connect no da por supuesto ningún modelo en particular, pero en función de cómo se haya seleccionado la coincidencia de usuarios en la guía de instalación, pueden observarse comportamientos diferentes.

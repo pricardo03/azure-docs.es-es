@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 90c70837b3afb589e5a503681aa9cd7cf1dae930
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594129"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969085"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introducción a la aplicación web de Node.js de Azure AD
 Aquí usamos Passport para:
@@ -62,7 +62,7 @@ La aplicación completa se ofrece también al final de este tutorial.
 
 6. Después de registrarse, Azure AD asigna a la aplicación un identificador de aplicación único. Necesita este valor en las secciones siguientes, así que cópielo de la página de la aplicación.
 7. En la página **Configuración** -> **Propiedades** de la aplicación, actualice el URI del identificador de la aplicación. El **URI de id. de aplicación** es un identificador único de su aplicación. La convención es usar el formato `https://<tenant-domain>/<app-name>`, por ejemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Para crear una clave secreta, siga el paso 4 de [Para agregar credenciales o permisos para tener acceso a las API web](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+8. Para crear una clave secreta, siga el paso 4 de [Para agregar credenciales o permisos para tener acceso a las API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Copie el valor de la clave de la aplicación. Este es el valor para el `clientSecret`, que necesitará para el **paso 3** a continuación. 

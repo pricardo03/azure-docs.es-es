@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809549"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232684"
 ---
 # <a name="what-is-azure-importexport-service"></a>¿Qué es el servicio Azure Import/Export?
 
@@ -114,11 +114,11 @@ El servicio Azure Import/Export permite copiar datos en todas las cuentas de alm
 |País  |País  |País  |País  |
 |---------|---------|---------|---------|
 |Este de EE. UU    | Europa del Norte        | India Central        |Gobierno de EE. UU. - Iowa         |
-|Oeste de EE. UU     |Europa occidental         | Sur de la India        | Departamento de Defensa de EE. UU. Este        |
+|Oeste de EE. UU.     |Europa occidental         | Sur de la India        | Departamento de Defensa de EE. UU. Este        |
 |Este de EE. UU. 2    | Asia oriental        |  Oeste de la India        | Departamento de Defensa de EE. UU. Centro        |
 |Oeste de EE. UU. 2     | Sudeste asiático        | Centro de Canadá        | Este de China         |
-|Central EE. UU:     | Australia Oriental        | Este de Canadá        | Norte de China        |
-|Centro-Norte de EE. UU     |  Sudeste de Australia       | Sur de Brasil        | Sur del Reino Unido 2        |
+|Centro de EE. UU.     | Este de Australia        | Este de Canadá        | Norte de China        |
+|Centro-Norte de EE. UU     |  Sudeste de Australia       | Sur de Brasil        | Sur de Reino Unido 2        |
 |Centro-Sur de EE. UU     | Oeste de Japón        |Corea Central         | Centro de Alemania        |
 |Centro occidental de EE.UU.     |  Este de Japón       | Gobierno de EE. UU. - Virginia        | Noreste de Alemania        |
 

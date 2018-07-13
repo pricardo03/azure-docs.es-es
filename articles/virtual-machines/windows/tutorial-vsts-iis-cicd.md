@@ -3,7 +3,7 @@ title: 'Tutorial: Creación de una canalización de CI/CD en Azure con Team Serv
 description: En este tutorial, obtendrá información acerca de cómo crear una canalización de Visual Studio Team Services para la integración y entrega continuas que implementa una aplicación web en IIS en una máquina virtual Windows en Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b23cec90573c4be73a73daf0bc0e793da012585c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192227"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932099"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Tutorial: Creación de una canalización de integración continua con Visual Studio Team Services e IIS
 Para automatizar las fases de creación, prueba e implementación del desarrollo de la aplicación, puede utilizar una canalización de integración e implementación continua (CI/CD). En este tutorial se creará una canalización CI/CD utilizando Visual Studio Team Services y una máquina virtual Windows en Azure que ejecuta IIS. Aprenderá a:
@@ -34,7 +34,7 @@ Para automatizar las fases de creación, prueba e implementación del desarrollo
 > * Crear una definición de versión para publicar nuevos paquetes de implementación en IIS
 > * Prueba de la canalización de CI/CD
 
-Para realizar este tutorial es necesaria la versión 5.7.0 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Para realizar este tutorial, es necesaria la versión 5.7.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="create-project-in-team-services"></a>Crear el proyecto en Team Services

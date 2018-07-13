@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1bf7a647ab2fdc175231133b0cfd8abdd51b6d43
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736762"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723597"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Uso de la administración de dispositivos para iniciar una actualización de firmware de los dispositivos (. NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -399,7 +399,7 @@ Para información sobre cómo ampliar la solución de IoT y programar llamadas d
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-dm-getstarted]: iot-hub-csharp-csharp-device-management-get-started.md
-[lnk-tutorial-jobs]: iot-hub-csharp-node-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-csharp-csharp-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

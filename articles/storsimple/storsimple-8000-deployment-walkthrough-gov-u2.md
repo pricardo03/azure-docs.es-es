@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108753"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681543"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implementación del dispositivo StorSimple local en el Portal de Government
 
@@ -34,13 +34,13 @@ La información de estos tutoriales da por supuesto que revisó las precauciones
 Necesitará privilegios de administrador para completar el proceso de instalación y configuración. Se recomienda que revise la lista de comprobación de configuración antes de comenzar. El proceso de implementación y configuración puede tardar algún tiempo en completarse.
 
 > [!NOTE]
-> La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure se aplica solo a los dispositivos StorSimple de la serie 8000. Para obtener información completa sobre los dispositivos de la serie 7000, vaya a: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obtener información sobre la implementación de la serie 7000, vea la [Guía de inicio rápido del sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure se aplica solo a los dispositivos StorSimple de la serie 8000. Para información completa sobre los dispositivos de la 7000 serie, vaya a: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obtener información sobre la implementación de la serie 7000, vea la [Guía de inicio rápido del sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 
 ## <a name="deployment-steps"></a>Pasos de implementación
 Siga estos pasos obligatorios para configurar el dispositivo StorSimple y conectarlo al servicio Administrador de dispositivos de StorSimple. Además de los pasos obligatorios, hay pasos y procedimientos opcionales que puede que necesite completar durante la implementación. Las instrucciones detalladas de implementación indican cuándo debe realizar cada uno de estos pasos opcionales.
 
-| Paso | Description |
+| Paso | DESCRIPCIÓN |
 | --- | --- |
 | **REQUISITOS PREVIOS** |Se deben llevar a cabo como preparación para la próxima implementación. |
 | [Lista de comprobación de la configuración de implementación](#deployment-configuration-checklist) |Use esta lista de comprobación para recopilar y registrar información antes y durante la implementación. |
@@ -170,7 +170,7 @@ Puede realizar una copia de seguridad manual en cualquier momento. Para conocer 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurar una nueva cuenta de almacenamiento para el servicio
 Se trata de un paso opcional que debe llevar a cabo únicamente si no habilitó la creación automática de una cuenta de almacenamiento con su servicio. Se requiere una cuenta de almacenamiento de Microsoft Azure para crear un contenedor de volúmenes de StorSimple.
 
-Si necesita crear una cuenta de almacenamiento de Azure en una región distinta, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md) para obtener instrucciones paso a paso.
+Si necesita crear una cuenta de Azure Storage en una región distinta, vea [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md) para obtener instrucciones paso a paso.
 
 Siga estos pasos en el Portal de Government, en la página **Servicio StorSimple Device Manager**.
 

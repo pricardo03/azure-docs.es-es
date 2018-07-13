@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a3de94aa11b9326a9eadfb3385db83724f427ff2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc6376a7bf1abd81e7a5ff17549a7b4a193edec4
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447241"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950587"
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Revisión de acceso en Privileged Identity Management de Azure AD
 Los administradores de roles con privilegios pueden revisar el acceso con privilegios cuando se [ha iniciado una revisión de seguridad](active-directory-privileged-identity-management-how-to-start-security-review.md). Privileged Identity Management (PIM) de Azure AD enviará automáticamente un correo electrónico para pedir a los usuarios que revisen su acceso. Si un usuario no recibió un correo electrónico, puede enviarle las instrucciones que se indican en [Privileged Identity Management de Azure AD: Realización de una revisión de seguridad](active-directory-privileged-identity-management-how-to-perform-security-review.md).
@@ -32,7 +32,7 @@ Después de que acabe el período de revisión de seguridad o de que todos los u
 
 En la hoja de detalles de la revisión de acceso, hay un número de opciones para administrar dicha revisión.
 
-![Botones de revisión de acceso de PIM: captura de pantalla][1]
+![Botones de revisión de acceso de PIM: captura de pantalla](./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png)
 
 ### <a name="remind"></a>Recuerde
 Si una revisión de acceso está configurada para que los usuarios revisen por sí mismos, el botón **Recordar** envía una notificación. 
@@ -54,7 +54,3 @@ Si ya no le interesa más la revisión, elimínela. El botón **Eliminar** quita
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png

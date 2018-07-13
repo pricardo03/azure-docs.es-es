@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fba04490aca4c7123ca478ae07a5f0c865d9a826
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302263"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968704"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitación de la copia de seguridad de Azure Stack desde el portal de administración
 Habilite el servicio Infrastructure Backup con el portal de administración para que Azure Stack pueda generar copias de seguridad. Puede utilizar estas copias de seguridad para restaurar el entorno mediante recuperación en la nube si se produce un [error catastrófico](.\azure-stack-backup-recover-data.md). La finalidad de la recuperación en la nube es garantizar que los operadores y usuarios puedan volver a iniciar sesión en el portal una vez que se complete la recuperación. Los usuarios tendrán sus suscripciones restauradas, incluidos los permisos de acceso basado en roles y los roles, los planes originales, las ofertas, así como el proceso, el almacenamiento y las cuotas de red definidos previamente.
@@ -49,7 +49,7 @@ Los administradores y los usuarios son los responsables de realizar copias de se
 4. Escriba el **nombre de usuario** con el dominio y el nombre de usuario con acceso suficiente para leer y escribir archivos. Por ejemplo, `Contoso\backupshareuser`.
 5. Escriba la **Contraseña** del usuario.
 5. Escriba la contraseña de nuevo para **Confirmar la contraseña**.
-6. Proporcione una clave precompartida en la casilla **Clave de cifrado**. Los archivos de copia de seguridad se cifran mediante esta clave. Asegúrese de almacenar esta clave en una ubicación segura. Una vez que configure esta clave por primera vez o la rote en el futuro, no podrá verla desde esta interfaz. Para obtener más instrucciones sobre cómo generar una clave precompartida, siga los scripts de [Habilitación de la copia de seguridad para Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 
+6. Proporcione una clave precompartida en la casilla **Clave de cifrado**. Los archivos de copia de seguridad se cifran mediante esta clave. Asegúrese de almacenar esta clave en una ubicación segura. Una vez que configure esta clave por primera vez o la rote en el futuro, no podrá verla desde esta interfaz. Para obtener más instrucciones sobre cómo generar una clave precompartida, siga los scripts de [Habilitación de la copia de seguridad para Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
 7. Seleccione **Aceptar** para guardar la configuración del controlador de copia de seguridad.
 
 Para ejecutar una copia de seguridad, debe descargar las herramientas de Azure Stack y, a continuación, ejecutar el cmdlet de PowerShell **Start-AzSBackup** en el nodo de administración de Azure Stack. Para obtener más información, consulte [Copia de seguridad de Azure Stack](azure-stack-backup-back-up-azure-stack.md ).

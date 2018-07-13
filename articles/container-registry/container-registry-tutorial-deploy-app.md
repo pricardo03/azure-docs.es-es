@@ -6,18 +6,19 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ac8f22f128b350844af10f309fd3b93512d54d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582308"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: Implementación de una aplicación web desde Azure Container Registry
 
-Esta es la segunda parte de una serie de tutoriales de tres partes. En la [primera parte](container-registry-tutorial-prepare-registry.md), se creó un registro de contenedor privado con replicación geográfica y se compiló una imagen de contenedor a partir del origen, que se insertó en el registro. En este artículo, se implementa el contenedor en dos instancias de aplicación web en dos regiones de Azure diferentes para aprovechar el aspecto cercano a la red del registro con replicación geográfica.
+Esta es la segunda parte de una serie de tutoriales de tres partes. En la [primera parte](container-registry-tutorial-prepare-registry.md), se creó un registro de contenedor privado con replicación geográfica y se compiló una imagen de contenedor a partir del origen, que se insertó en el registro. En este artículo, se implementa el contenedor en dos instancias de Web App en dos regiones de Azure diferentes para aprovechar el aspecto cercano a la red del registro con replicación geográfica. Cada instancia extrae la imagen del contenedor del registro más cercano.
 
 En este tutorial, segunda parte de la serie, se realizan las siguientes operaciones:
 
@@ -27,7 +28,7 @@ En este tutorial, segunda parte de la serie, se realizan las siguientes operacio
 
 Si aún no ha creado un registro con replicación geográfica e insertado la imagen de la aplicación de ejemplo en contenedor en el registro, vuelva al tutorial anterior de la serie, [Preparar un registro de contenedor de Azure con replicación geográfica](container-registry-tutorial-prepare-registry.md).
 
-En la parte siguiente de la serie, actualizará la aplicación y, luego, insertará una nueva imagen de contenedor en el registro. Por último, examinará cada una de las instancias de la aplicación web en ejecución para ver el cambio reflejado automáticamente en ambas, para mostrar la replicación geográfica de Azure Container Registry y los webhooks en acción.
+En el siguiente artículo de la serie, actualizará la aplicación y, a continuación, insertará una nueva imagen de contenedor actualizada en el registro. Por último, examinará cada una de las instancias de la aplicación web en ejecución para ver el cambio reflejado automáticamente en ambas, para mostrar la replicación geográfica de Azure Container Registry y los webhooks en acción.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implementación automática en Web App for Containers
 
@@ -103,11 +104,7 @@ Una vez implementada la imagen de Docker desde el registro de contenedor con rep
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se implementaron dos instancias de Web App for Containers desde un registro de contenedor de Azure con replicación geográfica. Al seguir los pasos de este tutorial, hizo lo siguiente:
-
-> [!div class="checklist"]
-> * Implementó una imagen de contenedor en dos instancias de *Web App for Containers*.
-> * Comprobó la aplicación implementada.
+En este tutorial, se implementaron dos instancias de Web App for Containers desde un registro de contenedor de Azure con replicación geográfica.
 
 Pase al siguiente tutorial para actualizar e implementar una nueva imagen de contenedor en el registro de contenedor y, a continuación, compruebe que las aplicaciones web que se ejecutan en ambas regiones se actualizaron automáticamente.
 

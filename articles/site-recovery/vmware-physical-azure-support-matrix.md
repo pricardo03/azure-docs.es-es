@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 16a19a862d4fc6b424e8441ec5377ea3c819fadb
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317449"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919767"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de compatibilidad para la replicación de VMware y servidores físicos en Azure
 
@@ -92,10 +92,10 @@ Sistema operativo Linux | Red Hat Enterprise Linux 5.2 a 5.11, 6.1 a 6.9 y 7.0 a
 
 **Versión compatible** | **Versión de Azure Site Recovery Mobility Service** | **Versión de kernel** |
 --- | --- | --- |
-Debian 7 | 9.17 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 Debian 7 | 9.14, 9.15, 9.16 | 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.17 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.17 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.16 | 3.16.0-4-amd64 to 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64 a 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
 

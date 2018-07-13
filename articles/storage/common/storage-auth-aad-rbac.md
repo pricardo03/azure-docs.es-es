@@ -8,27 +8,27 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cee319c4fb158e95b4a6d996f846038f0654dd32
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082237"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969160"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Administración de los derechos de acceso a los datos de Azure Storage con RBAC (versión preliminar)
 
 Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage define un conjunto de roles de RBAC integrados que abarcan conjuntos comunes de permisos utilizados para acceder a los contenedores o las colas. Cuando un rol RBAC se asigna a una identidad de Azure AD, se concede a esa identidad acceso a esos recursos según el ámbito especificado. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Puede asignar derechos de acceso para los recursos de Azure Storage con Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure. 
 
-Una identidad de Azure AD puede ser un usuario, un grupo o una entidad de servicio de aplicación, o puede ser una *identidad de servicio administrada*. Una entidad de seguridad puede ser un usuario, grupo o entidad de servicio de aplicación. Una [identidad de servicio administrada](../../active-directory/managed-service-identity/overview.md) es una identidad administrada automáticamente utilizada para autenticar desde aplicaciones que se ejecutan en máquinas virtuales de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros. Para información general de identidad en Azure AD, consulte [Información acerca de las soluciones de identidades de Azure](https://docs.microsoft.com/en-us/azure/active-directory/understand-azure-identity-solutions).
+Una identidad de Azure AD puede ser un usuario, un grupo o una entidad de servicio de aplicación, o puede ser una *identidad de servicio administrada*. Una entidad de seguridad puede ser un usuario, grupo o entidad de servicio de aplicación. Una [identidad de servicio administrada](../../active-directory/managed-service-identity/overview.md) es una identidad administrada automáticamente utilizada para autenticar desde aplicaciones que se ejecutan en máquinas virtuales de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros. Para información general de identidad en Azure AD, consulte [Información acerca de las soluciones de identidades de Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
 ## <a name="rbac-roles-for-azure-storage"></a>Funciones RBAC para Azure Storage
 
 Azure Storage es compatible con roles RBAC tanto integrados como personalizados. Azure Storage proporciona estos roles integrados de RBAC para su uso con Azure AD:
 
-- [Colaborador de datos de blobs de almacenamiento (versión preliminar)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
-- [Lector de datos de blobs de almacenamiento (versión preliminar)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
-- [Colaborador de datos de la cola de almacenamiento (versión preliminar)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
-- [Lector de datos de la cola de almacenamiento (versión preliminar)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
+- [Colaborador de datos de blobs de almacenamiento (versión preliminar)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
+- [Lector de datos de blobs de almacenamiento (versión preliminar)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [Colaborador de datos de la cola de almacenamiento (versión preliminar)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+- [Lector de datos de la cola de almacenamiento (versión preliminar)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
 Para más información acerca de cómo se definen los roles integrados para Azure Storage, consulte [Descripción de definiciones de roles](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 

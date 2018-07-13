@@ -17,12 +17,12 @@ ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
-ms.openlocfilehash: 738e96bf631833b8d35847114ee08fc3f5bec2a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767466"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856096"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Inicio rápido: Licencia de usuarios en Azure Active Directory
 Los servicios de Azure AD basados en licencia funcionan mediante la activación de una suscripción de Azure Active Directory (Azure AD) en el inquilino de Azure. Una vez activa la suscripción, los administradores de Azure AD pueden administrar las funcionalidades del servicio y los usuarios con licencia pueden usarlas. Cuando compra Enterprise Mobility + Security, Azure AD Premium o Azure AD Basic, el inquilino se actualiza con la suscripción, lo que incluye su período de validez y las licencias de prepago. La información de suscripción, incluido el número de licencias asignadas o disponibles, está disponible a través de Azure Portal en **Azure Active Directory** abriendo el icono **Licencias**. La hoja **Licencias** es también el mejor lugar para administrar las asignaciones de licencias.
@@ -35,7 +35,7 @@ Puede usar [asignación de licencias basada en grupo](active-directory-licensing
 * Puede delegar la decisión en otros administradores de la organización (mediante [grupos de autoservicio](../users-groups-roles/groups-self-service-management.md)).
 
 > [!TIP]
-> Para ver una explicación detallada sobre la asignación de licencias a grupos, incluidos escenarios avanzados y escenarios de concesión de licencias de Office 365, consulte [Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md).
+> Para ver una explicación detallada sobre la asignación de licencias a grupos, incluidos escenarios avanzados y escenarios de concesión de licencias de Office 365, consulte [Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
 ## <a name="assign-licenses-to-users-and-groups"></a>Asignación de licencias a usuarios y grupos
 Con una suscripción activa, debe asignarse una licencia a sí mismo en primer lugar y actualizar el explorador para asegurarse de que se vean todas las características esperadas incluidas con su suscripción. El siguiente paso es asignar licencias a los usuarios que necesitarán acceso a las características de pago de Azure AD. Una manera sencilla de asignar licencias es asignar licencias a grupos de usuarios en lugar de a usuarios. Al asignar licencias a un grupo, todos los miembros del grupo reciben una licencia. Si se agregan usuarios al grupo o se quitan de él, la licencia correspondiente se asigna o se quita automáticamente. 

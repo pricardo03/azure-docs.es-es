@@ -3,7 +3,7 @@ title: Uso de una máquina virtual Linux de solución de problemas en Azure Port
 description: Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal.
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
+authors: cynthn
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
-ms.author: iainfou
-ms.openlocfilehash: 89c4c5c986375177918f14417c6b5a9a24925908
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.author: cynthn
+ms.openlocfilehash: efa001a24be3fb646a2a10afe72cb9b4ebfbf836
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271749"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932020"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
 Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.

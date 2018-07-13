@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tdykstra
-ms.openlocfilehash: 4ea2b033d8d67dd3c921fb833462605ba0aeb687
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c0af8f6f7e1d4aea8880a7af311aaa21f474f7e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659834"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969011"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Administración de conexiones en Azure Functions
 
@@ -58,7 +58,7 @@ Una pregunta común acerca del cliente `HttpClient` de .NET es "¿Debería desec
 
 ## <a name="documentclient-code-example"></a>Ejemplo de código de DocumentClient
 
-`DocumentClient` se conecta a una instancia de Cosmos DB. La documentación de Cosmos DB recomienda el [uso de un cliente de Azure Cosmos DB singleton para el ciclo de vida de la aplicación](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips#sdk-usage). En el ejemplo siguiente se muestra un patrón para realizarlo en una función.
+`DocumentClient` se conecta a una instancia de Cosmos DB. La documentación de Cosmos DB recomienda el [uso de un cliente de Azure Cosmos DB singleton para el ciclo de vida de la aplicación](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). En el ejemplo siguiente se muestra un patrón para realizarlo en una función.
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"

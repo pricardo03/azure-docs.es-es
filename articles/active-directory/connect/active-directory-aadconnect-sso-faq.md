@@ -4,7 +4,7 @@ description: Respuestas a las preguntas más frecuentes sobre el inicio de sesi�
 services: active-directory
 keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1407af9e19df784f8dcb501e0556572276e9863e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e4cc67af4276bc244d402258a90dfec01d61add
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592252"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919026"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -36,7 +36,7 @@ SSO de conexión directa es una característica gratuita y no es necesario usar 
 
 ## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>¿Está disponible el inicio de sesión único de conexión directa en la [nube Microsoft Azure Alemania](http://www.microsoft.de/cloud-deutschland) y en la [nube de Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
 
-Nº El inicio de sesión único de conexión directa solo está disponible en la instancia mundial de Azure AD.
+No. El inicio de sesión único de conexión directa solo está disponible en la instancia mundial de Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>¿Qué aplicaciones aprovechan la funcionalidad de parámetro `domain_hint` o `login_hint` de SSO de conexión directa?
 

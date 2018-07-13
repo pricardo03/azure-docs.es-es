@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054501"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582543"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 2. En la hoja **Nueva factoría de datos** :
    
    1. Escriba **ADFTutorialDataFactory** como **nombre**.
-       El nombre del generador de datos de Azure debe ser único global. Si recibe el error: `Data factory name “ADFTutorialDataFactory” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryYYYYMMDD) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
+       El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el error: `Data factory name “ADFTutorialDataFactory” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryYYYYMMDD) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
       
        ![Nombre de Factoría de datos no disponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Selección la **suscripción**de Azure.

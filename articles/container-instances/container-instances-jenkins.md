@@ -2,18 +2,18 @@
 title: Uso de Azure Container Instances como agente de compilación de Jenkins
 description: Aprenda a usar Azure Container Instances como agente de compilación de Jenkins.
 services: container-instances
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: iainfou
-ms.openlocfilehash: 7d1fa80b6d9b76a37ff29db42c5119389b3aad2a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: marsma
+ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096441"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887698"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Uso de Azure Container Instances como agente de compilación de Jenkins
 

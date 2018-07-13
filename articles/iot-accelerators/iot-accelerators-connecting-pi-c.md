@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735501"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611448"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Conexión del dispositivo Raspberry Pi al acelerador de la solución de supervisión remota (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota. Como sucede con la mayoría de aplicaciones insertadas que se ejecutan en dispositivos restringidos, el código cliente para la aplicación del dispositivo Raspberry Pi se escribe en C. En este tutorial, compilará la aplicación en un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian.
+En este tutorial se muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota. Como sucede con la mayoría de aplicaciones insertadas que se ejecutan en dispositivos restringidos, el código cliente para la aplicación del dispositivo Raspberry Pi se escribe en C. En este tutorial, compilará la aplicación en un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian.
 
 ### <a name="required-hardware"></a>Requisitos de hardware
 

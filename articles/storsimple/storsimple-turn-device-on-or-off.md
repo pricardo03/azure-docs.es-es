@@ -16,11 +16,11 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27779455"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38670973"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activación o desactivación del dispositivo StorSimple serie 8000
 
@@ -172,6 +172,6 @@ Después de acceder a Windows PowerShell para StorSimple o a Azure Portal, siga 
 > [!NOTE]
 > Los cables SAS que se utilizan para conectar el gabinete EBOD con el gabinete principal no deben quitarse hasta después que se apague el sistema.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) .
 

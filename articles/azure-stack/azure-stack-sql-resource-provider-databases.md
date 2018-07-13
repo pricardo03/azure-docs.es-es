@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 56d21b76268f94f4254985a6924c4ca2d778a9cd
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 2f286c48822956c82f99808092c26f6637be5cb1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300829"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968833"
 ---
 # <a name="create-sql-databases"></a>Creación de bases de datos SQL
 
@@ -60,7 +60,7 @@ En **Essentials** (Información esencial), que se muestra después de implementa
 
 ## <a name="sql-always-on-databases"></a>Bases de datos de SQL AlwaysOn
 
-Por naturaleza, las bases de datos AlwaysOn se controlan de forma diferente que en un entorno de servidor independiente. Para más información, consulte [Introducción a los grupos de disponibilidad Always On de SQL Server en Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+Por naturaleza, las bases de datos AlwaysOn se controlan de forma diferente que en un entorno de servidor independiente. Para más información, consulte [Introducción a los grupos de disponibilidad Always On de SQL Server en Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
 
 ### <a name="verify-sql-always-on-databases"></a>Comprobación de las bases de datos SQL AlwaysOn
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Premium Storage: diseño de alto rendimiento en máquinas virtuales Windows | Microsoft Docs'
-description: Diseñe aplicaciones de alto rendimiento con Almacenamiento premium de Azure. El Almacenamiento premium le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure.
+description: Diseñe aplicaciones de alto rendimiento con Azure Premium Storage. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: aungoo
 ms.openlocfilehash: 788f00d899a57c6734c6f17ff67d2cb766b17394
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
-ms.locfileid: "23666987"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38680859"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

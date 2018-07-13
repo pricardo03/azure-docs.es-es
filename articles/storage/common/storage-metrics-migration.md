@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c64061aee94e8c08a3f6bcae78cffca0b4172d97
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9586d0c2b61fe97106378ec684c28be9143b5194
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650679"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969391"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migración de las métricas de Azure Storage
 
@@ -118,7 +118,7 @@ Si creó reglas de alertas clásicas en función de métricas de almacenamiento 
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>¿Los datos de métricas nuevas se almacenan en la misma cuenta de almacenamiento de manera predeterminada?
 
-Nº Para archivar los datos de métricas en una cuenta de almacenamiento, use la [API de configuración de diagnóstico de Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate).
+No. Para archivar los datos de métricas en una cuenta de almacenamiento, use la [API de configuración de diagnóstico de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

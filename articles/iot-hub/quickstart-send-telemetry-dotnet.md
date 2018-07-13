@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
 ms.openlocfilehash: 501a8f2dad0537f0288dfd6a6d7bedcac054ab86
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332293"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619308"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub y leer datos de telemetría procedentes de este con una aplicación back-end (C#)
 

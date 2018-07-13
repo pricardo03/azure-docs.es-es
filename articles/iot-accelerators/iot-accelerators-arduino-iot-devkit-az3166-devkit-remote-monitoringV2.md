@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 8aa4d660fbf785a4caf99bcdeddc86aa9929c50d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e900b952ab9bb2054b9e4174670894027cdd2618
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627746"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969459"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Conexión de MXChip IoT DevKit AZ3166 al acelerador de la solución Supervisión remota de IoT
 
@@ -157,4 +157,4 @@ Si tiene algún problema, acuda a [P+F](https://microsoft.github.io/azure-iot-de
 Ahora que ha aprendido cómo conectar un dispositivo de DevKit a los aceleradores de soluciones de IoT y visualizar los datos de sensor, aquí tiene los siguientes pasos sugeridos:
 
 * [Introducción a los aceleradores de soluciones de IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit) (Conectar un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Conectar un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)

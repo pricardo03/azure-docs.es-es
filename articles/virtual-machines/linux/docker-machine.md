@@ -3,7 +3,7 @@ title: Uso de Docker Machine para crear hosts Linux en Azure | Microsoft Docs
 description: Se describe el uso Docker Machine para crear hosts de Docker en Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: iainfou
-ms.openlocfilehash: 26e54efc32aa316e1da93598cc861003aefff182
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: cynthn
+ms.openlocfilehash: a59183365ada644f2ff1aae7d52bac5fb1f42354
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125510"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295774"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Uso de Docker Machine para crear hosts en Azure
 En este artículo se detalla cómo usar [Docker Machine](https://docs.docker.com/machine/) para crear hosts en Azure. El comando `docker-machine` crea una máquina virtual (VM) Linux en Azure para, a continuación, instalar Docker. De este modo, puede administrar los hosts de Docker en Azure con las mismas herramientas y flujos de trabajo locales. Para usar la máquina Docker en Windows 10, debe usar bash de Linux.
@@ -40,7 +40,7 @@ docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
-    --azure-size "Standard_D2_v2" \
+    --azure-size "Standard_DS2_v2" \
     myvm
 ```
 
@@ -136,5 +136,5 @@ Para ver el contenedor en acción, abra un explorador web y escriba la direcció
 
 ![Ejecución del contenedor ngnix](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 También puede crear hosts con la [extensión de máquina virtual de Docker](dockerextension.md). Para ver ejemplos sobre el uso de Docker Compose, consulte [Introducción a Docker y Compose en Azure](docker-compose-quickstart.md).

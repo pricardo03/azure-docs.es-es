@@ -2,19 +2,19 @@
 title: 'Guía de inicio rápido: Creación de un registro privado de Docker en Azure con la CLI de Azure'
 description: Aprenda rápidamente a crear un registro de contenedor privado de Docker con la CLI de Azure.
 services: container-registry
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: iainfou
+ms.author: marsma
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 745cfbb6ee72ac69ab5452701e654306e9645eb7
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 20dfae9c24bac7d9f76ae95f8b6d7c0610a0735e
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100704"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888548"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Guía de inicio rápido: Creación de un registro de contenedor con la CLI de Azure
 
@@ -34,7 +34,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
+## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
 
 En esta guía de inicio rápido, va a crear un registro *Básico*. Azure Container Registry está disponible en varias SKU diferentes, que se describen brevemente en la tabla siguiente. Para obtener detalles ampliados de cada una, consulte [SKU de Azure Container Registry][container-registry-skus].
 

@@ -17,11 +17,11 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
 ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304572"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38539998"
 ---
 # <a name="get-started"></a>Guía de inicio rápido: Creación de un equilibrador de carga público con Azure PowerShell
 En esta guía de inicio rápido, se explica cómo crear un equilibrador de carga básico utilizando Azure PowerShell. Para probar el equilibrador de carga, implemente dos máquinas virtuales que ejecuten Windows Server y equilibre la carga de una aplicación web entre ellas.
@@ -140,7 +140,7 @@ $lb = New-AzureRmLoadBalancer `
 ## <a name="create-network-resources"></a>Crear recursos de red
 Para poder implementar algunas máquinas virtuales y probar el equilibrador, debe crear unos recursos de red que lo permitan: una red virtual y varias NIC virtuales. 
 
-### <a name="create-a-virtual-network"></a>Crear una red virtual
+### <a name="create-a-virtual-network"></a>Creación de una red virtual
 Cree una red virtual con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). En el ejemplo siguiente se crea una red virtual denominada con una subred llamada *myVnet* con *mySubnet*:
 
 ```azurepowershell-interactive
@@ -206,7 +206,7 @@ $nsg = New-AzureRmNetworkSecurityGroup`
 -SecurityRules $rule1,$rule2
 ```
 
-###<a name="create-nics"></a>Cree tarjetas NIC
+###<a name="create-nics"></a>Creación de tarjetas NIC
 Cree NIC virtuales con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). En el ejemplo siguiente, se crean dos NIC virtuales. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Puede crear NIC virtuales y máquinas virtuales adicionales en cualquier momento y agregarlas al equilibrador de carga:
 
 ```azurepowershell-interactive

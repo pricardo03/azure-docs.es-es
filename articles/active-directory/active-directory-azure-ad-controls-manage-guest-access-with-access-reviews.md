@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 71569da662c5d5e5ef5ad6c7d9783a69e307f2fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 452501d5da58d06093f22009c6ecc30e02f581a5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441189"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295646"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administración del acceso de los invitados con las revisiones de acceso de Azure AD
 
@@ -30,7 +30,7 @@ Con Azure Active Directory (Azure AD), puede habilitar fácilmente la colaboraci
 También puede asegurarse fácilmente de que los usuarios invitados tengan el acceso adecuado. Puede pedir a los invitados o a quien decida en su lugar que participen en una revisión de acceso y vuelvan a certificar (o atestiguar) el acceso de los invitados. Los revisores pueden dar su aprobación para cada necesidad de acceso continuado de los usuarios, en función de las sugerencias de Azure AD. Cuando una revisión de acceso haya terminado, es posible hacer cambios y retirar la concesión de acceso a los invitados que ya no lo necesitan.
 
 > [!NOTE]
-> Este documento se centra en revisar el acceso de los usuarios invitados. Si desea revisar el acceso de todos los usuarios, no solo los invitados, vea [Administración del acceso de usuario con revisiones de acceso](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Si desea revisar la pertenencia de los usuarios a roles administrativos tales como administrador global, consulte [Inicio de una revisión de acceso en Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md). 
+> Este documento se centra en revisar el acceso de los usuarios invitados. Si desea revisar el acceso de todos los usuarios, no solo los invitados, vea [Administración del acceso de usuario con revisiones de acceso](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Si desea revisar la pertenencia de los usuarios a roles administrativos tales como administrador global, consulte [Inicio de una revisión de acceso en Azure AD Privileged Identity Management](privileged-identity-management/pim-how-to-start-security-review.md). 
 >
 >
 

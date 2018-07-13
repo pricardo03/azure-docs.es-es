@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 06/27/2018
 ms.author: danlep
-ms.openlocfilehash: addd1e9314a754b40cc5d49c0299f007580f512f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8f428df07de029bc79f26d5941d22e7472addb95
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29763949"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916003"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -41,9 +41,8 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | Serie A básica | Basic_A0 (A0) |
 | Serie A | Standard_A0 |
 | Serie B | Todo |
-| Serie Fsv2 <sup>*</sup> | Todo |
 
-<sup>*</sup>Los tamaños de esta serie se encuentran dentro de los planes para la compatibilidad futura.
+
 
 ### <a name="pools-in-cloud-service-configuration"></a>Grupos en la configuración de Cloud Service
 

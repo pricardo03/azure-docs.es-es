@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
 ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029332"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308504"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Administración de recursos compartidos de archivos de Azure con el Explorador de Azure Storage 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. En este artículo se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/). El Explorador de Storage es una herramienta de cliente popular que está disponible para Windows, macOS y Linux. Puede usar el Explorador de Storage para administrar recursos compartidos de archivos de Azure y otros recursos de almacenamiento.

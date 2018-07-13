@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593598"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869014"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -235,7 +235,7 @@ Este control designa si los usuarios que visitan el portal de restablecimiento d
 El restablecimiento y el cambio de contraseña son totalmente compatibles con todas las configuraciones negocio a negocio (B2B). Se admiten los tres casos siguientes para el restablecimiento de contraseña de usuario B2B:
 
    * **Usuarios de una organización asociada con un inquilino de Azure AD existente**: si la organización con la que se asocia tiene un inquilino de Azure AD existente, *respetamos todas las directivas de restablecimiento de contraseña habilitadas en dicho inquilino*. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No hay ningún cargo adicional para los clientes de Office 365 y puede habilitarse siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-   * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que se asocia usó la característica de [registro de autoservicio](../active-directory-self-service-signup.md) para acceder a un inquilino, le permitimos el restablecimiento de contraseña con el correo electrónico que registró.
+   * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que se asocia usó la característica de [registro de autoservicio](../users-groups-roles/directory-self-service-signup.md) para acceder a un inquilino, le permitimos el restablecimiento de contraseña con el correo electrónico que registró.
    * **Usuarios B2B**: los nuevos usuarios B2B creados mediante las nuevas [funcionalidades B2B de Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
 
 Para probar este escenario, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Si tienen un correo electrónico alternativo o de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 1764f4ed9dfe73763c288844be85d4805401887e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: dc316df754ea0b8630abe341dc5ce6b0adffa685
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285974"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920042"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -117,7 +117,7 @@ Revise los [requisitos previos](vmware-azure-deploy-configuration-server.md#prer
 Se recomienda usar la versión más reciente de la plantilla de OVF para [crear la máquina virtual del servidor de configuración](vmware-azure-deploy-configuration-server.md). Si por algún motivo no puede hacerlo, por ejemplo, si no tiene acceso al servidor de VMware, puede [descargar el archivo de instalación unificada](physical-azure-set-up-source.md) del portal y ejecutarlo en una máquina virtual. 
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>¿Un servidor de configuración se puede replicar en más de una región?
-Nº Para hacerlo, necesita configurar un servidor de configuración en cada región.
+No. Para hacerlo, necesita configurar un servidor de configuración en cada región.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>¿Puedo hospedar un servidor de configuración en Azure?
 Si bien es posible, la máquina virtual de Azure que ejecuta el servidor de configuración necesitaría comunicarse con las máquinas virtuales y la infraestructura de VMware locales. Es probable que la sobrecarga no sea viable.
