@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
 ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593035"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547182"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Incorporación de notificaciones push a la aplicación de Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -29,7 +29,7 @@ En este tutorial, agregará notificaciones de inserción al proyecto de [inicio 
 
 Si no usa el proyecto de servidor de inicio rápido descargado, necesita el paquete de extensión de la notificación de inserción. Para más información, vea [Trabajar con el SDK de servidor de back-end de .NET para Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Necesita lo siguiente:
 
 * Un IDE que depende del back-end del proyecto:
@@ -59,7 +59,7 @@ En esta sección, se actualiza la aplicación Android de cliente para controlar 
 
 El siguiente paso es instalar los servicios de Google Play. Firebase Cloud Messaging tiene algunos requisitos mínimos en el nivel de API para desarrollo y prueba, que debe cumplir la propiedad **minSdkVersion** del manifiesto.
 
-Si va a realizar pruebas con un dispositivo antiguo, consulte [Agrega Firebase a tu proyecto de Android] para determinar el valor mínimo que puede configurar y cómo configurarlo de forma adecuada.
+Si va a realizar pruebas con un dispositivo antiguo, consulte [Agregue Firebase a su proyecto de Android] para determinar el valor mínimo que puede configurar y cómo configurarlo de forma adecuada.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Agregar Firebase Cloud Messaging al proyecto
 [!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
@@ -70,7 +70,7 @@ Si va a realizar pruebas con un dispositivo antiguo, consulte [Agrega Firebase a
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Prueba de la aplicación con el servicio móvil publicado
 Puede probar la aplicación conectando directamente un teléfono Android con un cable USB o utilizando un dispositivo virtual en el emulador.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha completado este tutorial, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Adición de la autenticación a la aplicación de Android](app-service-mobile-android-get-started-users.md)
@@ -80,4 +80,4 @@ Ahora que ha completado este tutorial, considere la posibilidad de continuar con
 
 <!-- URLs -->
 [inicio rápido de Android]: app-service-mobile-android-get-started.md
-[Agrega Firebase a tu proyecto de Android]:https://firebase.google.com/docs/android/setup
+[Agregue Firebase a su proyecto de Android]:https://firebase.google.com/docs/android/setup

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 30409794807618f082cf98de14e374d97a9b4519
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a23702b40ea46edd6dd139ebdb0a3742193429e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592884"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857225"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
 
@@ -39,7 +39,7 @@ ms.locfileid: "34592884"
 
 | Error | Solución |
 | --- | --- |
-| No veo la sección **Restablecimiento de contraseña** en Azure AD en Azure Portal. | Este problema puede ocurrir si no tiene una licencia de Azure Active Directory Premium o Azure Active Directory Basic asignada al administrador que realiza la operación. <br> <br> Asigne una licencia a la cuenta de administrador en cuestión. Puede seguir los pasos descritos en el artículo [Asignación, comprobación y solución de los problemas de licencias](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).|
+| No veo la sección **Restablecimiento de contraseña** en Azure AD en Azure Portal. | Este problema puede ocurrir si no tiene una licencia de Azure Active Directory Premium o Azure Active Directory Basic asignada al administrador que realiza la operación. <br> <br> Asigne una licencia a la cuenta de administrador en cuestión. Puede seguir los pasos descritos en el artículo [Asignación, comprobación y solución de los problemas de licencias](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | No veo una opción de configuración determinada. | Muchos elementos de la interfaz de usuario están ocultos hasta que se necesitan. Pruebe a habilitar todas las opciones que desee ver. |
 | No veo la pestaña **Integración local**. | Esta opción solo está visible si ha descargado Azure AD Connect y configurado la escritura diferida de contraseñas. Para más información, vea [Introducción a Azure AD Connect mediante la configuración rápida](./../connect/active-directory-aadconnect-get-started-express.md). |
 
@@ -47,7 +47,7 @@ ms.locfileid: "34592884"
 
 | Error | Solución |
 | --- | --- |
-| No veo ningún tipo de actividad de administración de contraseñas en la categoría de evento de auditoría **Administración de autoservicio de contraseñas**. | Este problema puede ocurrir si no tiene una licencia de Azure Active Directory Premium o Azure Active Directory Basic asignada al administrador que realiza la operación. <br> <br> Puede resolver este problema si asigna una licencia a la cuenta de administrador en cuestión. Siga los pasos descritos en el artículo [Asignación, comprobación y solución de los problemas de licencias](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses). |
+| No veo ningún tipo de actividad de administración de contraseñas en la categoría de evento de auditoría **Administración de autoservicio de contraseñas**. | Este problema puede ocurrir si no tiene una licencia de Azure Active Directory Premium o Azure Active Directory Basic asignada al administrador que realiza la operación. <br> <br> Puede resolver este problema si asigna una licencia a la cuenta de administrador en cuestión. Siga los pasos descritos en el artículo [Asignación, comprobación y solución de los problemas de licencias](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | Los registros de usuario se muestran varias veces. | Actualmente, cuando un usuario se registra, anotamos cada dato individual registrado como un evento independiente. <br> <br> Si desea agregar estos datos y tener mayor flexibilidad en el modo de verlos, puede descargar el informe y abrirlos como una tabla dinámica de Excel.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>Solución de problemas con el portal de registro de restablecimiento de contraseña
@@ -55,7 +55,7 @@ ms.locfileid: "34592884"
 | Error | Solución |
 | --- | --- |
 | El directorio no está habilitado para el restablecimiento de contraseñas. **El administrador no lo ha habilitado para usar esta característica.** | Cambie la marca **Se habilitó el restablecimiento de contraseña del autoservicio** a **Seleccionado** o **Todos**, y haga clic en **Guardar**. |
-| El usuario no tiene asignada una licencia de Azure Active Directory Premium o Azure Active Directory Basic. **El administrador no lo ha habilitado para usar esta característica.** | Este problema puede ocurrir si no tiene una licencia de Azure Active Directory Premium o Azure Active Directory Basic asignada al administrador que realiza la operación. <br> <br> Puede resolver este problema si asigna una licencia a la cuenta de administrador en cuestión. Siga los pasos descritos en el artículo [Asignación, comprobación y solución de los problemas de licencias](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).|
+| El usuario no tiene asignada una licencia de Azure Active Directory Premium o Azure Active Directory Basic. **El administrador no lo ha habilitado para usar esta característica.** | Este problema puede ocurrir si no tiene una licencia de Azure Active Directory Premium o Azure Active Directory Basic asignada al administrador que realiza la operación. <br> <br> Puede resolver este problema si asigna una licencia a la cuenta de administrador en cuestión. Siga los pasos descritos en el artículo [Asignación, comprobación y solución de los problemas de licencias](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Se produjo un error al procesar la solicitud. | Aunque las causas pueden ser varias, en general este error se debe a una interrupción del servicio o a un problema de configuración. Si experimenta este error y afecta a su negocio, póngase en contacto con el servicio de soporte técnico de Microsoft para recibir ayuda adicional. |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>Solución de problemas con el portal de restablecimiento de contraseña
@@ -63,7 +63,7 @@ ms.locfileid: "34592884"
 | Error | Solución |
 | --- | --- |
 | El directorio no está habilitado para el restablecimiento de contraseñas. | Cambie la marca **Se habilitó el restablecimiento de contraseña del autoservicio** a **Seleccionado** o **Todos**, y haga clic en **Guardar**. |
-| El usuario no tiene asignada una licencia de Azure Active Directory Premium o Azure Active Directory Basic. | Este problema puede ocurrir si no tiene una licencia de Azure Active Directory Premium o Azure Active Directory Basic asignada al administrador que realiza la operación. <br> <br> Puede resolver este problema si asigna una licencia a la cuenta de administrador en cuestión. Siga los pasos descritos en el artículo [Asignación, comprobación y solución de los problemas de licencias](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses). |
+| El usuario no tiene asignada una licencia de Azure Active Directory Premium o Azure Active Directory Basic. | Este problema puede ocurrir si no tiene una licencia de Azure Active Directory Premium o Azure Active Directory Basic asignada al administrador que realiza la operación. <br> <br> Puede resolver este problema si asigna una licencia a la cuenta de administrador en cuestión. Siga los pasos descritos en el artículo [Asignación, comprobación y solución de los problemas de licencias](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | El directorio está habilitado para restablecer la contraseña, pero falta la información de autenticación del usuario o es incorrecta. | Antes de continuar, asegúrese de que el usuario ha formado correctamente los datos de contacto en el archivo del directorio. Para obtener más información, consulte los [Datos usados en el autoservicio de restablecimiento de contraseña de Azure AD](howto-sspr-authenticationdata.md). |
 | El directorio está habilitado para restablecer la contraseña, pero el usuario tiene solo una parte de los datos de contacto en el archivo cuando la directiva está configurada para requerir dos métodos de verificación. | Antes de continuar, asegúrese de que el usuario tenga al menos dos métodos de contacto configurados correctamente. Un ejemplo es tener tanto un número de teléfono móvil *como* un número de teléfono de trabajo. |
 | El directorio está habilitado para restablecer la contraseña y el usuario está configurado correctamente, pero no es posible ponerse en contacto con él. | Puede deberse a un error de servicio temporal o a que hay datos de contacto configurados incorrectamente que no hemos podido detectar como es debido. <br> <br> Si el usuario espera 10 segundos, aparecen los vínculos "Volver a intentarlo" y "Póngase en contacto con el administrador". Si el usuario selecciona "Volver a intentarlo", vuelve a intentar la llamada. Si el usuario selecciona "Póngase en contacto con el administrador", se envía a los administradores un correo electrónico de formulario para solicitarles que realicen el restablecimiento de la contraseña para esa cuenta de usuario. |

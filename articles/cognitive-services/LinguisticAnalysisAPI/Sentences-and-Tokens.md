@@ -1,0 +1,71 @@
+---
+title: Oraciones y tokens en Linguistic Analysis API | Microsoft Docs
+description: Aprenda sobre la separación y la tokenización de oraciones en Linguistic Analysis API de Cognitive Services.
+services: cognitive-services
+author: DavidLiCIG
+manager: wkwok
+ms.service: cognitive-services
+ms.component: linguistic-analysis
+ms.topic: article
+ms.date: 03/21/2016
+ms.author: davl
+ms.openlocfilehash: 4681098a0e56640e95463272be44f7432be26839
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "35380186"
+---
+# <a name="sentence-separation-and-tokenization"></a>Separación y tokenización de oraciones
+
+## <a name="background-and-motivation"></a>Contexto y motivación
+
+En un cuerpo de texto, el primer paso del análisis lingüístico es dividirlo en oraciones y tokens.
+
+### <a name="sentence-separation"></a>Separación de oraciones
+
+A primera vista, puede parecer sencillo dividir el texto en oraciones: basta con buscar los marcadores de fin de oración y separar por ahí las oraciones.
+Sin embargo, con frecuencia estas marcas son complicadas y ambiguas.
+
+Considere el texto de ejemplo siguiente.
+
+> What did you say?!? I didn't hear about the director's "new proposal." It's important to Mr. and Mrs. Smith.
+
+Este texto contiene tres oraciones:
+
+- What did you say?!?
+- I didn't hear about the director's "new proposal."
+- It's important to Mr. and Mrs. Smith.
+
+Observe cómo los finales de las oraciones se marcan de muchas maneras diferentes.
+La primera finaliza en una combinación de signos de interrogación y exclamación (en ocasiones se le conoce como signo de interrogación de cierre relleno).
+La segunda finaliza en un punto, pero la siguiente marca de comillas se debe insertar en la oración anterior.
+En la tercera oración, puede ver cómo ese mismo carácter de punto se puede usar también para marcar las abreviaturas.
+Con solo examinar la puntuación, tenemos un buen conjunto de candidatos, pero es necesario un análisis más profundo para identificar los límites verdaderos de la oración.
+
+### <a name="tokenization"></a>Tokenización
+
+La siguiente tarea consiste en dividir estas oraciones en tokens.
+En su mayor parte, los tokens de inglés están delimitados por espacios en blanco.
+(Buscar tokens o palabras es mucho más fácil en inglés que en chino, donde no es común el uso de espacios entre palabras.
+La primera oración podría escribirse como "Whatdidyousay?")
+
+Hay algunos casos difíciles.
+En primer lugar, los signos de puntuación se deben separar a menudo (aunque no siempre) del contexto que los rodea.
+En segundo lugar, el inglés tiene *contracciones*, como "didn't" o "it's", donde las palabras se han comprimido y abreviado en trozos más pequeños. El objetivo del tokenizador consiste en dividir la secuencia de caracteres en palabras.
+
+Vamos a volver a las oraciones del ejemplo anterior.
+Ahora hemos colocado un "punto central" (&middot;) entre cada token distintivo.
+
+- What &middot; did &middot; you &middot; say &middot; ?!?
+- I &middot; did &middot; n't &middot; hear &middot; about &middot; the &middot; director &middot; 's &middot; " &middot; new &middot; proposal &middot; . &middot; "
+- It &middot; 's &middot; important &middot; to &middot; Mr. &middot; and &middot; Mrs. &middot; Smith &middot; .
+
+Observe cómo la mayoría de los tokens son palabras que encontraría en el diccionario (por ejemplo, *important*, *director*).
+Otros constan solamente de signos de puntuación.
+Por último, hay tokens más inusuales para representar contracciones como *n't* para *not*, posesivos como *'s*, etc. Esta tokenización nos permite administrar la palabra *didn't* y la frase *did not* de forma más coherente, por ejemplo.
+
+## <a name="specification"></a>Especificación
+
+Es importante tomar decisiones coherentes sobre lo que constituye una oración y un token.
+Nosotros nos basamos en la especificación de [Penn Treebank](https://www.cis.upenn.edu/~treebank/) (aquí se pueden encontrar más detalles: [https://www.cis.upenn.edu/~treebank/tokenization.html]).

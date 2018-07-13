@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
 ms.openlocfilehash: 98cd606ce930624ec5c591ffd8f13e0feae1a6c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23124793"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688564"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configuración de BGP en Azure VPN Gateway con la CLI
 
@@ -75,7 +75,7 @@ az group create --name TestBGPRG1 --location eastus
 
 En el siguiente ejemplo se crean una red virtual denominada "TestVNet1" y tres subredes: GatewaySubnet, FrontEnd y Backend. Al reemplazar valores, es importante que siempre asigne el nombre "GatewaySubnet" a la subred de la puerta de enlace. Si usa otro, se produce un error al crear la puerta de enlace.
 
-El primer comando crea el espacio de direcciones de front-end y la subred de front-end. El segundo comando crea otro espacio de direcciones para la subred de back-end. Los comandos terceros y cuarto crean la subred de back-end y GatewaySubnet.
+El primer comando crea el espacio de direcciones de front-end y la subred de front-end. El segundo comando crea otro espacio de direcciones para la subred de back-end. Los comandos terceros y cuarto crean la subred Backend y GatewaySubnet.
 
 ```azurecli
 az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
@@ -139,7 +139,7 @@ Este ejercicio es continuación del paso de creación de la configuración mostr
 
 * La puerta de enlace de red local puede estar en la misma ubicación y grupo de recursos que la puerta de enlace de VPN o en una ubicación y grupo de recurso distintos. Este ejemplo los muestra las puertas de enlace en distintos grupos de recursos en diferentes ubicaciones.
 * El prefijo mínimo que debe declarar para la puerta de enlace de red local es la dirección del host de la dirección IP del par BGP en el dispositivo VPN. En este caso, es un prefijo /32 de 10.52.255.254/32.
-* Como recordatorio, debe usar diferentes ASN de BGP entre las redes locales y la red virtual de Azure. Si son iguales, debe cambiar el ASN de la red virtual si los dispositivos VPN local ya utilizan el ASN para estar al mismo nivel que otros vecinos BGP.
+* Como recordatorio, debe usar diferentes ASN de BGP entre las redes locales y la red virtual de Azure. Si son iguales, debe cambiar el ASN de la red virtual si los dispositivos VPN locales ya utilizan el ASN para estar al mismo nivel que otros vecinos BGP.
 
 Antes de continuar, asegúrese de haber completado la sección [Habilitar BGP para VPN Gateway](#enablebgp) de este ejercicio y de que aún está conectado a la suscripción 1. Tenga en cuenta que, en este ejemplo, se crea un grupo de recursos. Además, observe los dos parámetros adicionales para la puerta de enlace de red local: `Asn` y `BgpPeerAddress`.
 
@@ -240,7 +240,7 @@ az group create -n TestBGPRG2 -l westus
 
 #### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. Cree TestVNet2 en el nuevo grupo de recursos
 
-El primer comando crea el espacio de direcciones de front-end y la subred de front-end. El segundo comando crea otro espacio de direcciones para la subred de back-end. Los comandos terceros y cuarto crean la subred de back-end y GatewaySubnet.
+El primer comando crea el espacio de direcciones de front-end y la subred de front-end. El segundo comando crea otro espacio de direcciones para la subred de back-end. Los comandos terceros y cuarto crean la subred Backend y GatewaySubnet.
 
 ```azurecli
 az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 569dbfdeb7dcd526cb5a54b487ea1bfb59b13cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108283"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681595"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Uso del servicio StorSimple Device Manager de Azure Portal para administrar directivas de copia de seguridad
 
@@ -56,13 +56,13 @@ La lista tabular de directivas de copia de seguridad también permite filtrar la
 
 Estas son las operaciones utilizadas con frecuencia que se pueden realizar con las directivas de copia de seguridad:
 
-* Incorporación de una directiva de copia de seguridad
+* Agregar una directiva de copia de seguridad
 * Incorporación o modificación de una programación
 * Incorporación o eliminación de un volumen
 * Eliminación de una directiva de copia de seguridad
 * Creación de una copia de seguridad manual
 
-## <a name="add-a-backup-policy"></a>Incorporación de una directiva de copia de seguridad
+## <a name="add-a-backup-policy"></a>Agregar una directiva de copia de seguridad
 
 Agregue una directiva de copia de seguridad para programar automáticamente sus copias de seguridad. Cuando crea un volumen por primera vez, no hay ninguna directiva de copia de seguridad predeterminada asociada a este. Debe agregar y asignar una directiva de copia de seguridad para proteger los datos del volumen.
 
@@ -98,5 +98,5 @@ Siga estos pasos en Azure Portal para crear una copia de seguridad a petición (
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el [uso del servicio StorSimple Device Manager para administrar su dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

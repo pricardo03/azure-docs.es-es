@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: b51a4573ad7a8461b7261f08d94639d2030492d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923413"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad de replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario
 
@@ -27,7 +28,7 @@ En este artículo, se resumen los elementos que pueden utilizarse con el servici
 
 ## <a name="host-servers"></a>Servidores host
 
-**Sistema operativos** | **Detalles**
+**Sistema operativo** | **Detalles**
 --- | ---
 Servidor vCenter | vCenter 5.5, 6.0 y 6.5<br/><br/> Si ejecuta la versión 6.0 o 6.5, tenga en cuenta que solo se admiten las características de la versión 5.5.
 
@@ -36,7 +37,7 @@ Servidor vCenter | vCenter 5.5, 6.0 y 6.5<br/><br/> Si ejecuta la versión 6.0 o
 
 En la tabla siguiente se resume la compatibilidad del sistema operativo con las máquinas replicadas con Site Recovery. Cualquier carga de trabajo puede ejecutarse en el sistema operativo compatible.
 
-**Sistema operativos** | **Detalles**
+**Sistema operativo** | **Detalles**
 --- | ---
 Windows Server | Windows Server 2016 de 64 bits, Windows Server 2012 R2, Windows Server 2012 y Windows Server 2008 R2 con al menos SP1.
 Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1 o 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1 o 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 o 6.8 que ejecuten el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 u 11 SP4 

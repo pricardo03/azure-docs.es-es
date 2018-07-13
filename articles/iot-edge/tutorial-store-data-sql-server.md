@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: d0837787dcac44d2cc43701ac181ec7eac2dfa2c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034076"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687222"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 
@@ -35,16 +35,16 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>requisitos previos
 
 * El dispositivo Azure IoT Edge que creó en la guía de inicio rápido para [Linux](quickstart-linux.md) o [dispositivos Windows](quickstart.md).
-* [Visual Studio Code](https://code.visualstudio.com/). 
+* [Visual Studio Code](https://code.visualstudio.com/) 
 * [Extensión de C# para Visual Studio Code (con tecnología de OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 * [Extensión de Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [SDK de .NET Core 2.1](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/) instalado en la máquina de desarrollo. 
 
-## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
-En este tutorial, puede usar la extensión de Azure IoT Edge para VS Code a fin de generar un módulo y crear una **imagen de contenedor** a partir de los archivos. Inserte luego esta imagen en un **Registro** que almacena y administra las imágenes. Por último, implemente la imagen en el Registro para que se ejecute en el dispositivo de IoT Edge.  
+## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
+En este tutorial, puede usar la extensión de Azure IoT Edge para VS Code a fin de generar un módulo y crear una **imagen de contenedor** a partir de los archivos. Después, insertará esta imagen en un **Registro** donde se almacenan y administran las imágenes. Por último, implementará la imagen en el Registro para que se ejecute en el dispositivo IoT Edge.  
 
-Puede usar cualquier registro compatible con Docker para este tutorial. Dos servicios populares del Registro de Docker disponibles en la nube son [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) y [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). En este tutorial se usa Azure Container Registry. 
+En este tutorial, puede usar cualquier Registro compatible con Docker. Dos de los servicios de Registro de Docker más populares que están disponibles en la nube son [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) y [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). En este tutorial, utilizaremos Azure Container Registry. 
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Contenedores** > **Container Registry**.
 
@@ -54,7 +54,7 @@ Puede usar cualquier registro compatible con Docker para este tutorial. Dos serv
 3. Para el grupo de recursos, se recomienda que utilice el mismo nombre de grupo de recursos que contiene la instancia de IoT Hub. Al mantener todos los recursos en el mismo grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos que se usó con fines de prueba también se eliminarán todos los recursos que contiene. 
 4. Establezca la SKU en **Básico** y cambie **Usuario administrador** a **Habilitar**. 
 5. Haga clic en **Create**(Crear).
-6. Una vez creado el registro de contenedor, desplácese hasta él y seleccione **Claves de acceso**. 
+6. Una vez que se haya creado el Registro de contenedor, desplácese hasta él y seleccione **Claves de acceso**. 
 7. Copie los valores de **Servidor de inicio de sesión**, **Nombre de usuario** y **Contraseña**. Los usará más adelante en el tutorial. 
 
 ## <a name="create-a-function-project"></a>Creación de un proyecto de aplicación de una función
@@ -74,7 +74,7 @@ En los siguientes pasos puede ver cómo crear una función de IoT Edge mediante 
    4. Asigne el nombre **sqlFunction** al módulo. 
    5. Especifique la instancia de Azure Container Registry que creó en la sección anterior como el repositorio de imágenes del primer módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión que copió. La cadena final se parece a **\<nombre del registro\>.azurecr.io/sqlFunction**.
 
-4. La ventana de Visual Studio Code carga el área de trabajo de la solución de IoT Edge. Hay una carpeta de **módulos**, una carpeta **.vscode** y un archivo de plantilla de manifiesto de implementación. Abra **modules** > **sqlFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
+4. El área de trabajo de la solución de IoT Edge se carga en la ventana de Visual Studio Code. Hay una carpeta de **módulos**, una carpeta **.vscode** y un archivo de plantilla de manifiesto de implementación. Abra **modules** > **sqlFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
 5. Reemplace el contenido del archivo por el código siguiente:
 

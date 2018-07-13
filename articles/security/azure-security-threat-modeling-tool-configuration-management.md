@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: cea96234083abd01cdf280129e6f75a1f69af9c6
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5b9ef9691d3d9b9aaced3ad2aaa54e6cfc03fa14
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028991"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857453"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -42,7 +42,7 @@ ms.locfileid: "37028991"
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introducción a la directiva de seguridad del contenido), [Content Security Policy Reference](http://content-security-policy.com/) (Referencia a la directiva de seguridad del contenido), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Características de seguridad), [Introduction to content security policy](https://docs.webplatform.org/wiki/tutorials/content-security-policy) (Introducción a la directiva de seguridad del contenido), [Can I use CSP?](http://caniuse.com/#feat=contentsecuritypolicy) (¿Puedo usar la directiva de seguridad de contenido [CSP]?) |
+| **Referencias**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introducción a la directiva de seguridad del contenido), [Content Security Policy Reference](http://content-security-policy.com/) (Referencia a la directiva de seguridad del contenido), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Características de seguridad), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) (Introducción a la directiva de seguridad del contenido), [Can I use CSP?](http://caniuse.com/#feat=contentsecuritypolicy) (¿Puedo usar la directiva de seguridad de contenido [CSP]?) |
 | **Pasos** | <p>La directiva de seguridad de contenido (CSP) es un mecanismo de seguridad de defensa en profundidad, una norma de W3C, que permite controlar el contenido insertado en el sitio a los propietarios de aplicaciones web. La CSP se agrega como encabezado de respuesta HTTP al servidor web y se aplica en los exploradores del lado del cliente. Es una directiva basada en una lista blanca: un sitio web puede declarar un conjunto de dominios de confianza desde los que se puede cargar contenido activo, como JavaScript.</p><p>La CSP ofrece las siguientes ventajas de seguridad:</p><ul><li>**Protección frente a XSS:** si una página es vulnerable a XSS, los atacantes pueden aprovecharlo de dos maneras:<ul><li>Insertando `<script>malicious code</script>`. Gracias a la restricción básica 1 de la CSP, esta vulnerabilidad de seguridad no funcionará</li><li>Insertando `<script src=”http://attacker.com/maliciousCode.js”/>`. Esta vulnerabilidad de seguridad no funcionará, ya que el dominio que controla el atacante no estará en la lista de dominios aprobados de la CSP</li></ul></li><li>**Control de la exfiltración de datos:** si cualquier contenido malintencionado de una página web intenta conectarse a un sitio web externo y robar datos, la CSP anulará la conexión, ya que el dominio de destino no estará en la lista aprobada de la CSP</li><li>**Defensa contra el secuestro de clic:** el secuestro de clic es una técnica de ataque con la que un adversario puede enmarcar un sitio web auténtico y forzar a los usuarios a hacer clic en elementos de la interfaz de usuario. La defensa actual contra el secuestro de clic se consigue mediante la configuración de un encabezado de respuesta X-Frame-Option. No todos los exploradores respetan este encabezado y la implementación de la CSP será un método estándar de defensa contra el secuestro de clic</li><li>**Informes de ataques en tiempo real:** si se produce un ataque de inserción de código en un sitio web con la CSP habilitada, los exploradores desencadenarán automáticamente una notificación a un punto de conexión configurado en el servidor web. De esta manera, la CSP actúa como sistema de advertencia en tiempo real.</li></ul> |
 
 ### <a name="example"></a>Ejemplo
@@ -75,7 +75,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Filtro de protección de XSS](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
-| **Pasos** | <p>La configuración del encabezado de respuesta X-XSS-Protection controla el filtro de script entre sitios del explorador. Este encabezado de respuesta puede tener los siguientes valores:</p><ul><li>`0:` Esto deshabilitará el filtro</li><li>`1: Filter enabled` Si se detecta un ataque de scripting entre sitios (XSS), para detenerlo, el explorador saneará la página</li><li>`1: mode=block : Filter enabled`(Unión permanente)(Unión permanente). En lugar de sanearla, cuando se detecta un ataque XSS, el explorador impedirá la representación de la página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`(Unión permanente)(Unión permanente). El explorador saneará la página y notificará la infracción.</li></ul><p>Se trata de una función de cromo que usa los informes de infracción de la CSP para enviar detalles al URI que elija. Las 2 últimas opciones se consideran valores seguros.</p>|
+| **Pasos** | <p>La configuración del encabezado de respuesta X-XSS-Protection controla el filtro de script entre sitios del explorador. Este encabezado de respuesta puede tener los siguientes valores:</p><ul><li>`0:` Esto deshabilitará el filtro</li><li>`1: Filter enabled` Si se detecta un ataque de scripting entre sitios (XSS), para detenerlo, el explorador saneará la página</li><li>`1: mode=block : Filter enabled`. En lugar de sanearla, cuando se detecta un ataque XSS, el explorador impedirá la representación de la página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. El explorador saneará la página y notificará la infracción.</li></ul><p>Se trata de una función de cromo que usa los informes de infracción de la CSP para enviar detalles al URI que elija. Las 2 últimas opciones se consideran valores seguros.</p>|
 
 ## <a id="trace-deploy"></a>Deshabilitación obligatoria del seguimiento y la depuración de las aplicaciones ASP.NET antes de la implementación
 
@@ -562,7 +562,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Elección de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | [Introducción a la administración de dispositivos con IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Cómo actualizar firmware de dispositivo](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-device-jobs/) |
+| **Referencias**              | [Introducción a la administración de dispositivos con IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Cómo actualizar firmware de dispositivo](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
 | **Pasos** | LWM2M es un protocolo de Open Mobile Alliance para la administración de dispositivos IoT. La administración de dispositivos IoT de Azure permite interactuar con dispositivos físicos mediante trabajos de dispositivo. Asegúrese de que la puerta de enlace de la nube implementa un proceso para mantener al día de forma rutinaria el dispositivo y otros datos de configuración mediante la administración de dispositivos de Azure IoT Hub. |
 
 ## <a id="controls-policies"></a>Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas
