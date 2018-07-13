@@ -104,7 +104,7 @@
     - name: Compatibilidad
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
-    - name: Backup
+    - name: Copia de seguridad
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -289,6 +289,9 @@
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: Firewall
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: Guía
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/
@@ -299,7 +302,7 @@
         - name: Hadoop
           tocHref: /azure/hdinsight/hadoop
           topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
-        - name: hbase
+        - name: HBase
           tocHref: /azure/hdinsight/hbase
           topicHref: /azure/hdinsight/hbase/apache-hbase-overview
         - name: Interactive Query

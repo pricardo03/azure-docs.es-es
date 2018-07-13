@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 5cb93941751c8744a19a5473d13f1e135a589eaa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380262"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095758"
 ---
 # <a name="ecommerce-catalog-moderation-with-machine-learning"></a>Moderación de catálogo de comercio electrónico con aprendizaje automático
 
@@ -158,7 +158,7 @@ En este caso, se definen estas etiquetas personalizadas (**celebridad**, **bande
 
 ## <a name="classify-into-flags-toys-and-pens"></a>Clasificación en banderas, juguetes y bolígrafos
 
-1. [Inicie sesión](https://www.customvision.ai/account/signin) en la [versión preliminar de Custom Vision API](https://www.customvision.ai/).
+1. [Inicie sesión](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) en la [versión preliminar de Custom Vision API](https://www.customvision.ai/).
 2. Use la [guía de inicio rápido](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para compilar el clasificador personalizado para detectar la posible presencia de banderas, juguetes y bolígrafos.
    ![Imágenes de entrenamiento de Custom Vision](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Obtenga la dirección URL del punto de conexión de predicción](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) del clasificador personalizado.

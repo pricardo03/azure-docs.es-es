@@ -125,7 +125,7 @@
       items:
         - name: Pruebas interactivas
           href: luis-concept-test.md
-        - name: Pruebas en lote
+        - name: Pruebas por lotes
           href: luis-concept-batch-test.md
     - name: Enterprise
       items:
@@ -185,13 +185,13 @@
           href: luis-how-to-add-features.md
         - name: Agregar patrones
           href: luis-how-to-model-intent-pattern.md
-    - name: Entrenar
+    - name: Train
       href: luis-how-to-train.md
     - name: Prueba
       items:
         - name: Pruebas interactivas
           href: interactive-test.md
-        - name: Pruebas en lote
+        - name: Pruebas por lotes
           href: luis-how-to-batch-test.md
     - name: Publicación de aplicación
       href: luis-how-to-publish-app.md
@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: Uso de dominios
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Uso de Cortana
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: Administración de aplicaciones
       items:
         - name: Usar el panel
@@ -267,12 +265,10 @@
           href: luis-reference-prebuilt-phonenumber.md
         - name: Entidad de temperatura
           href: luis-reference-prebuilt-temperature.md
-        - name: Entidad de URL
+        - name: Entidad de dirección de URL
           href: luis-reference-prebuilt-url.md
     - name: Referencia de dominio creado previamente
       href: luis-reference-prebuilt-domains.md
-    - name: Referencia a la aplicación creada previamente con Cortana
-      href: luis-reference-cortana-prebuilt.md
     - name: Crear las API V2
       href: 'https://aka.ms/luis-authoring-apis'
     - name: API V2 de punto de conexión

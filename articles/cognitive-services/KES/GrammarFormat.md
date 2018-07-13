@@ -9,12 +9,12 @@ ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 27202379b8c36696a380049336229cac040b0108
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b64025be2f5a9708162da475c1f037d7f253d2c6
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380346"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865760"
 ---
 # <a name="grammar-format"></a>Formato de gramática
 La gramática es un archivo XML que especifica el conjunto ponderado de consultas en lenguaje natural que puede interpretar el servicio, así como la manera en que estas consultas en lenguaje natural se convierten en expresiones de consulta semántica.  La sintaxis de gramática se basa en [SRGS](http://www.w3.org/TR/speech-grammar/), un estándar de W3C para las gramáticas de reconocimiento de voz, con extensiones para admitir la integración de índices de datos y funciones semánticas.

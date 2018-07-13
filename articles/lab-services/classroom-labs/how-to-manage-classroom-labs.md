@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304126"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082531"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
 En este artículo se describe cómo crear y configurar un laboratorio de clase, ver todos los laboratorios de clase o eliminar un laboratorio de clase.
@@ -86,8 +86,8 @@ Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en
 2. A continuación, seleccione el botón **Publicar**. Este proceso puede tardar algún tiempo en función del número de máquinas virtuales que se crean, que es el mismo que el número de usuarios permitidos en el laboratorio.
     
     > [!IMPORTANT]
-    > Cuando la plantilla está disponible públicamente, no se puede cambiar el acceso a privado. 
-4. Cambie a la página **Máquinas virtuales** y confirme que ve las cinco máquinas virtuales que se encuentran en estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. 
+    > Las plantillas publicadas no pueden dejar de publicarse. 
+4. Cambie a la página **Máquinas virtuales** y confirme que ve las máquinas virtuales que tienen el estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. 
 
     ![Máquinas virtuales](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Espere hasta que se creen las máquinas virtuales. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o dejar que los alumnos inicien las máquinas virtuales. 

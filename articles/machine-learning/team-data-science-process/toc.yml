@@ -218,8 +218,6 @@
           items:
             - name: Información general
               href: create-features.md
-            - name: Uso de Pandas
-              href: create-features-blob.md
             - name: Uso de SQL + Python
               href: create-features-sql-server.md
             - name: Uso de consultas de Hive
@@ -263,7 +261,7 @@
               items:
                 - name: Información general
                   href: cortana-analytics-playbook-predictive-maintenance.md
-                - name: Architecture
+                - name: Arquitectura
                   href: cortana-analytics-architecture-predictive-maintenance.md
                 - name: Guía técnica
                   href: cortana-analytics-technical-guide-predictive-maintenance.md

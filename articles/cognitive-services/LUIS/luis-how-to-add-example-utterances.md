@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 80ccedc7299836cae689edd8a277a7c6d23befa7
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300645"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345063"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adición de expresiones de ejemplo y etiquetas con entidades
 
@@ -194,7 +194,7 @@ Fix this - moved to luis-how-to-add-intents.md - how ?
 
 -->
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>Entrenamiento de la aplicación después de cambiar el modelo con expresiones
-Después de agregar, editar o quitar expresiones, [entrene](luis-how-to-train.md) y [publique](PublishApp.md) la aplicación para que los cambios se apliquen a las consultas de punto de conexión. 
+Después de agregar, editar o quitar expresiones, [entrene](luis-how-to-train.md) y [publique](luis-how-to-publish-app.md) la aplicación para que los cambios se apliquen a las consultas de punto de conexión. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
