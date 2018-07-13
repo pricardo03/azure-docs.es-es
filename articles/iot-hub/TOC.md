@@ -212,7 +212,7 @@
 ### [Migración a la configuración de Diagnostics](iot-hub-migrate-to-diagnostics-settings.md)
 ### [Supervisión de operaciones](iot-hub-operations-monitoring.md)
 ## Uso de dispositivos reales
-### [Introducción](iot-hub-get-started.md)
+### [Primeros pasos](iot-hub-get-started.md)
 ### [Uso de un simulador en línea](iot-hub-raspberry-pi-web-simulator-get-started.md)
 ### [Uso de un dispositivo físico](iot-hub-get-started-physical.md)
 #### [Raspberry Pi con Python](iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -263,6 +263,11 @@
 ### [SDK de dispositivo IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Recursos
+## [Ejemplos de Azure IoT para C# (.NET)](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)
+## [Ejemplos de Azure IoT para Node.js](https://azure.microsoft.com/resources/samples/azure-iot-samples-node/)
+## [Ejemplos de Azure IoT para Java](https://azure.microsoft.com/resources/samples/azure-iot-samples-java/)
+## [Ejemplos de Azure IoT para Python](https://azure.microsoft.com/resources/samples/azure-iot-samples-python/)
+## [Ejemplos de Azure IoT para la plataforma iOS](https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/)
 ## [Catálogo de dispositivos de Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 ## [Centro para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot/)
 ## [Solicitudes de datos del cliente](iot-hub-customer-data-requests.md)

@@ -10,6 +10,8 @@
   items:
     - name: Implementación de una solución de supervisión remota
       href: quickstart-remote-monitoring-deploy.md
+    - name: Implementación de una solución de mantenimiento predictivo
+      href: quickstart-predictive-maintenance-deploy.md
     - name: Implementación de una solución de simulación de dispositivo
       href: quickstart-device-simulation-deploy.md
 - name: Tutoriales
@@ -38,7 +40,7 @@
     - name: Fábrica conectada
       href: iot-accelerators-connected-factory-features.md
       items:
-        - name: Architecture
+        - name: Arquitectura
           href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Permisos en azureiotsolutions.com
       href: iot-accelerators-permissions.md

@@ -11,12 +11,12 @@
   items:
     - name: 'Creación de función: Portal'
       href: functions-create-first-azure-function.md
-    - name: 'Creación de función: CLI de Azure'
-      href: functions-create-first-azure-function-azure-cli.md
     - name: 'Creación de función: Visual Studio'
       href: functions-create-your-first-function-visual-studio.md
     - name: 'Creación de función: Java/Maven'
       href: functions-create-first-java-maven.md
+    - name: 'Creación de función: CLI de Azure'
+      href: functions-create-first-azure-function-azure-cli.md
     - name: 'Creación de función: Linux'
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Desencadenadores
@@ -71,7 +71,7 @@
       href: functions-scale.md
     - name: Desencadenadores y enlaces
       href: functions-triggers-bindings.md
-    - name: Idiomas
+    - name: Lenguajes
       items:
         - name: Idiomas admitidos
           href: supported-languages.md
@@ -97,6 +97,8 @@
       items:
         - name: Información general
           href: durable-functions-overview.md
+        - name: Tipos y características de la función
+          href: durable-functions-types-features-overview.md
         - name: Enlaces
           href: durable-functions-bindings.md
         - name: Punto de control y reproducción

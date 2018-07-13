@@ -13,6 +13,7 @@
 ## [Tipos y proveedores de recursos](resource-manager-supported-services.md)
 ## [Grupos de administración](management-groups-overview.md)
 ## [Gobierno de suscripción](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Plantillas para mantener la coherencia en la nube](templates-cloud-consistency.md)
 
 # Procedimientos
 ## Crear plantillas
