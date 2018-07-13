@@ -182,7 +182,7 @@
           href: connector-google-bigquery.md
         - name: Greenplum
           href: connector-greenplum.md
-        - name: hbase
+        - name: HBase
           href: connector-hbase.md
         - name: HDFS
           href: connector-hdfs.md
@@ -279,6 +279,9 @@
           items: null
         - name: Carga de Data Lake Storage Gen2
           href: load-azure-data-lake-storage-gen2.md
+          items:
+            - name: Copia de Data Lake Storage Gen1
+              href: load-azure-data-lake-storage-gen2-from-gen1.md
         - name: Cargar SQL Data Warehouse
           href: load-azure-sql-data-warehouse.md
         - name: Carga de Data Lake Storage Gen1

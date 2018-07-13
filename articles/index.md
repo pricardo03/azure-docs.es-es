@@ -6,12 +6,12 @@ description: Aprenda a compilar y administrar aplicaciones eficaces mediante Mic
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 557717b6fbb93bf3e0ca007fcc8b793441a13283
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 60105912b075e1fa595a31f8274e02025335ec00
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920913"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990921"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -686,6 +686,12 @@ Obtenga información acerca de DevOps con Azure </a>
                                                 <p>Network Watcher</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/firewall/">
+                                                <img src="media/index/azure_firewall.svg" alt="" />
+                                                <p>Azure Firewall</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>AI + Aprendizaje automático</h3>
                                     <ul>
@@ -923,8 +929,6 @@ Obtenga información acerca de DevOps con Azure </a>
                                                 <p>Bing Visual Search API</p>
                                             </a>
                                         </li>
-
-
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
@@ -1532,7 +1536,7 @@ s" alt="" />
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Backup</p>
+                                                <p>Copia de seguridad</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2124,10 +2128,29 @@ s" alt="" />
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/firewall/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_firewall.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Firewall</h3>
+                                                    <p>Servicio de seguridad de red basado en la nube, altamente disponible y escalable</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Almacenamiento</a>
+                        <a href="#storage">Storage</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/azure/storage/">
@@ -3533,7 +3556,6 @@ s" alt="" />
                                                                     <span>Answer Search</span>
                                                                 </a>
                                                             </li>
-
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
                                                                     <img src="media/index/API_Anomaly_Finder.svg" alt="" />
@@ -3546,8 +3568,6 @@ s" alt="" />
                                                                     <span>Conversation Learner</span>
                                                                 </a>
                                                             </li>
-
-
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -4666,7 +4686,7 @@ s" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Backup</h3>
+                                                    <h3>Copia de seguridad</h3>
                                                     <p>Copias de seguridad de los servidores en la nube, sencillas y confiables</p>
                                                 </div>
                                             </div>

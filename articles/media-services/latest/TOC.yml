@@ -28,7 +28,7 @@
 - name: Ejemplos
   items:
     - name: Ejemplos de código de Azure
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure CLI
       href: cli-samples.md
 - name: Conceptos
@@ -95,12 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Esquemas de eventos
       href: media-services-event-schemas.md
-    - name: Esquemas de licencias de administración de derechos digitales
+    - name: Licencias de administración de derechos digitales
       items:
         - name: Plantilla de licencia de PlayReady
           href: playready-license-template-overview.md
         - name: Plantilla de licencia de Widevine
           href: widevine-license-template-overview.md
+        - name: Requisitos de licencia de FairPlay
+          href: fairplay-license-overview.md
 - name: Recursos
   items:
     - name: Azure Roadmap

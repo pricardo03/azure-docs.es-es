@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de la API de Text Analytics
+metadata:
+  title: 'Documentación sobre Text Analytics API: tutoriales y referencia de API: Azure Cognitive Services | Microsoft Docs'
+  description: Aprenda a usar Text Analytics API para realizar un procesamiento avanzado de lenguaje natural sobre texto. Los tutoriales le muestran cómo escribir código que utilice el servicio Text Analytics.
+  services: cognitive-services
+  author: HeidiSteen
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.component: text-analytics
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/07/2018
+  ms.author: heidist
+  ms.openlocfilehash: aee5b1c47d3db4f630c528707f03d175e52c2c4f
+  ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/11/2018
+  ms.locfileid: "38398640"
+abstract:
+  description: 'Text Analytics API es un servicio basado en la nube que proporciona un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. Aprenda a analizar el contenido de varias maneras con nuestros inicios rápidos, tutoriales y ejemplos.'
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Empiece a usar Text Analytics API mediante la detección de idioma, el análisis de opiniones y la extracción de frases clave:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      text: C&#35;
+      href: quickstarts/csharp
+    - image:
+        src: media/index/logo_java.svg
+      text: Java
+      href: quickstarts/java
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: quickstarts/nodejs
+    - image:
+        src: media/index/logo_python.svg
+      text: Python
+      href: quickstarts/python
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: quickstarts/go
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a desarrollar aplicaciones mediante Text Analytics API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Text Analytics con Power BI</a>
+    - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">Text Analytics en PowerApps</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">Referencia de API</a></p>

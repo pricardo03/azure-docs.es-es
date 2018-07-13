@@ -7,7 +7,7 @@
       href: blockchain-workbench-overview.md
 - name: Conceptos
   items:
-    - name: Architecture
+    - name: Arquitectura
       href: blockchain-workbench-architecture.md
     - name: Patrones de integración
       href: blockchain-workbench-integration-patterns.md
@@ -40,8 +40,6 @@
           href: blockchain-workbench-data-sql-management-studio.md
 - name: Referencia
   items:
-    - name: Ejemplos de código
-      href: 'https://github.com/Azure-Samples/blockchain'
     - name: Configuración
       href: blockchain-workbench-configuration-overview.md
     - name: Vistas de base de datos
@@ -50,6 +48,19 @@
       href: blockchain-workbench-messages-overview.md
     - name: API DE REST
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+- name: Recursos
+  expanded: true
+  items:
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Ejemplos de código
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: Comunidad
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Foro
+      href: 'https://aka.ms/workbenchforum'
+    - name: Comentarios sobre el producto
+      href: 'https://feedback.azure.com/forums/586780-blockchain'
     - name: Plantillas de solución
       items:
         - name: Consorcio de prueba de trabajo de Ethereum

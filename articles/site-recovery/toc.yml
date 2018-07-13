@@ -51,6 +51,8 @@
           href: tutorial-prepare-azure.md
         - name: Migración de máquinas locales a Azure
           href: migrate-tutorial-on-premises-azure.md
+        - name: 'Migración de servidores de Windows Server 2008, 2008 R2 a Azure'
+          href: migrate-tutorial-windows-server-2008.md
         - name: Migración de instancias de AWS a Azure
           href: migrate-tutorial-aws-azure.md
         - name: Migración de máquinas virtuales de Azure a otra región
@@ -211,7 +213,7 @@
               href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Conmutación por error y conmutación por recuperación
           items:
-            - name: Ejecución de un simulacro de recuperación ante desastresen Azure
+            - name: Ejecución de un simulacro de recuperación ante desastres en Azure
               href: site-recovery-test-failover-to-azure.md
             - name: Configuración de planes de recuperación
               href: site-recovery-create-recovery-plans.md
@@ -291,7 +293,7 @@
               href: hyper-v-exclude-disk.md
         - name: Conmutación por error y conmutación por recuperación
           items:
-            - name: Ejecución de un simulacro de recuperación ante desastresen Azure
+            - name: Ejecución de un simulacro de recuperación ante desastres en Azure
               href: site-recovery-test-failover-to-azure.md
             - name: Configuración de planes de recuperación
               href: site-recovery-create-recovery-plans.md

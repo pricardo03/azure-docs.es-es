@@ -19,7 +19,7 @@ Cuando se crea una máquina virtual (VM), se reinician las detenidas (desasignad
 
 **Código de error**: AllocationFailed o ZonalAllocationFailed
 
-**Mensaje de error**: "Allocation failed. We do not have sufficient capacity for the requested VM size in this region. Read more about improving likelihood of allocation success at http://aka.ms/allocation-guidance" (Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Lea más información sobre cómo mejorar la probabilidad de éxito de asignación en http://aka.ms/allocation-guidance")
+**Mensaje de error**: "Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Lea más información sobre cómo mejorar la probabilidad de éxito de asignación en http://aka.ms/allocation-guidance"
 
 En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones.
 

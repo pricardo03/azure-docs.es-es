@@ -90,7 +90,7 @@ Más adelante, en un paso de repatriación diferente, se conmutarán por error e
 Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento normal de la aplicación.
 1. En el explorador web, abra el centro de eventos de Wingtip Tickets (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net; sustituya &lt;usuario&gt; por el valor del usuario de la implementación).
     * Desplácese hasta la parte inferior de la página y observe el nombre y la ubicación del servidor del catálogo en el pie de página. La ubicación es la región en la que se implementó la aplicación.
-    *Sugerencia: mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla. *
+    *Sugerencia: mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla.*
     ![Estado correcto del centro de eventos en la región original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Haga clic en el inquilino Contoso Concert Hall y abra su página de eventos.
