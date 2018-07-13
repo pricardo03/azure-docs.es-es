@@ -8,18 +8,18 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: saneppal
-ms.openlocfilehash: f2721dfa9a0922ee4a5af1eb66fd4506feb94d28
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: fc430bf3aa7cad279d7a93bb6892aa19abee3378
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35383144"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109276"
 ---
 # <a name="create-a-qna-bot-with-azure-bot-service"></a>Crear un bot de QnA con Azure Bot Service
 Este tutorial le guía a través de la creación de un bot de QnA con el servicio Azure Bot en Azure Portal.
 
 ## <a name="prerequisite"></a>Requisito previo
-Antes de la compilación, siga los pasos descritos en [Creación de una base de conocimiento]() para crear un servicio QnA Maker con preguntas y respuestas.
+Antes de la compilación, siga los pasos descritos en [Creación de una base de conocimiento](../How-To/create-knowledge-base.md) para crear un servicio QnA Maker con preguntas y respuestas.
 
 El bot responde a las preguntas de la base de conocimiento que creó, a través de QnAMakerDialog.
 

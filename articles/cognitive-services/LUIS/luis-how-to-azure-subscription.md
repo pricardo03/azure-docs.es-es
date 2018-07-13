@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3526871f126ac975f323fe84b14883b361b684ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382989"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340780"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Administración de las claves de suscripción de punto de conexión de Azure
 
@@ -40,7 +40,7 @@ Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de 
     ![Claves de Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Inicie sesión en el sitio web [LUIS](luis-reference-regions.md) de la región y [agregue la nueva clave de punto de conexión de LUIS](Manage-Keys.md#assign-endpoint-key). 
+    > * Inicie sesión en el sitio web [LUIS](luis-reference-regions.md) de la región y [agregue la nueva clave de punto de conexión de LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
     > * Tendrá que recordar el nombre del servicio de Azure que creó para poder seleccionarlo en la página de publicación de [LUIS](luis-reference-regions.md) de la región.  
 
 ## <a name="change-luis-pricing-tier"></a>Cambiar el plan de tarifa de LUIS
@@ -53,7 +53,7 @@ Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de 
     ![Cambiar el plan de pago de LUIS](./media/luis-usage-tiers/plans.png)
 4.  Una vez completado el cambio de tarifa, el plan de tarifa nuevo se comprueba en una ventana emergente. 
     ![Comprobar el plan de pago de LUIS](./media/luis-usage-tiers/updated.png)
-5. No olvide [asignar esta clave de punto de conexión](manage-keys.md#assign-endpoint-key) en la página **Publicar** y usarla en todas las consultas de punto de conexión. 
+5. No olvide [asignar esta clave de punto de conexión](luis-how-to-manage-keys.md#assign-endpoint-key) en la página **Publicar** y usarla en todas las consultas de punto de conexión. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Superar el uso del plan de tarifa
 Cada plan permite solicitudes de punto de conexión a la cuenta de LUIS a una tasa específica. Si la tasa de solicitudes es mayor que la permitida para la cuenta de uso medido por minuto o por mes, las solicitudes reciben un error HTTP de "429: demasiadas solicitudes."
