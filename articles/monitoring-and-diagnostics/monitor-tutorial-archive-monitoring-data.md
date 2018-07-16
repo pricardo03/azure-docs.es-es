@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263157"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918278"
 ---
 # <a name="archive-azure-monitoring-data"></a>Archivado de datos de supervisión de Azure
 
@@ -30,7 +30,7 @@ Varias capas de su entorno de Azure generan datos de registros y de métricas qu
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
@@ -136,6 +136,11 @@ Los datos de supervisión del recurso ahora fluyen a la cuenta de almacenamiento
 Los datos de supervisión de las máquinas virtuales ahora fluyen a la cuenta de almacenamiento.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Visualización de los datos de supervisión en la cuenta de almacenamiento
+
+> [!WARNING]
+> El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Si ha seguido los pasos anteriores, los datos han comenzado a fluir a la cuenta de almacenamiento.
 

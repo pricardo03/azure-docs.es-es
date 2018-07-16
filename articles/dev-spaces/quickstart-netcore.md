@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 3bb190570cbdf795668dd6e9f9d36630b6f3201b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945863"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949873"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (.NET Core y VS Code)
 
@@ -32,18 +32,17 @@ En esta guía, aprenderá a:
 ## <a name="prerequisites"></a>requisitos previos
 
 - Una suscripción de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
-- Un [clúster de Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) que ejecute Kubernetes 1.9.6, en las regiones EastUS, WestEurope o CanadaEast, con **Enrutamiento de solicitudes HTTP** habilitado.
+- Un [clúster de Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) que ejecute Kubernetes 1.10.3, en las regiones Este de EE. UU., Centro de EE. UU., Oeste de EE. UU. 2, Europa Occidental o Este de Canadá, con **Enrutamiento de aplicación HTTP** habilitado.
 
   ![No olvide habilitar Enrutamiento de solicitudes HTTP.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-- [Visual Studio Code](https://code.visualstudio.com/download).
+- [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="set-up-azure-dev-spaces"></a>Configuración de Azure Dev Spaces
 
 1. Instale la [CLI de Azure ](/cli/azure/install-azure-cli?view=azure-cli-latest) (versión 2.0.38 o superior).
 1. Configure Dev Spaces en su clúster de AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Descargue el [extensión de Azure Dev Spaces](https://aka.ms/get-azds-code) para VS Code.
-1. Instale la extensión: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Descargue el [extensión de Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) para VS Code. Haga clic en Instalar una vez que se encuentre en la página de Marketplace de la extensión, y de nuevo en VS Code.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Compilación y ejecución de código en Kubernetes
 
@@ -72,7 +71,7 @@ En esta guía, aprenderá a:
 Actualizar archivos de código requiere un poco más de trabajo, porque una aplicación .NET Core necesita volver a crear y producir archivos binarios de aplicaciones actualizados.
 
 1. En la ventana de terminal, presione `Ctrl+C` (para detener `azds up`).
-1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`.
+1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`
 1. Guarde el archivo.
 1. Ejecute `azds up` en la ventana de terminal. 
 
@@ -89,7 +88,7 @@ En esta sección, usará VS Code para depurar directamente el contenedor que se 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inicialización de activos de depuración con la extensión de VS Code
 En primer lugar, debe configurar el proyecto de código para que VS Code se comunique con nuestro espacio de desarrollo en Azure. La extensión de VS Code para Azure Dev Spaces proporciona un comando auxiliar para establecer la configuración de depuración. 
 
-Abra la **Paleta de comandos** (mediante el menú **Vista | Paleta de comandos**) y use Autocompletar para escribir y seleccionar este comando: `Azure Dev Spaces: Create configuration files for connected development`. 
+Abra la **Paleta de comandos** (mediante el menú **Vista | Paleta de comandos**) y use Autocompletar para escribir y seleccionar este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
 
 Esto agrega la configuración de depuración para los espacios de Azure Dev Spaces en la carpeta `.vscode`.
 
@@ -143,4 +142,4 @@ Actualice la aplicación web en el explorador y vaya a la página Acerca de. Deb
 Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desarrollar aplicaciones más complejas en varios contenedores y cómo puede simplificar el desarrollo en colaboración mediante el uso de distintas versiones o bifurcaciones del código en distintos espacios. 
 
 > [!div class="nextstepaction"]
-> [Trabajo con varios contenedores y desarrollo en equipo](get-started-netcore.md#call-a-service-running-in-a-separate-container)
+> [Trabajo con varios contenedores y desarrollo en equipo](team-development-netcore.md)

@@ -1,12 +1,12 @@
 ---
-title: "Introducción a las soluciones preconfiguradas | Microsoft Docs"
-description: "Siga este tutorial para aprender a implementar una solución preconfigurada del conjunto de IoT de Azure."
-services: 
+title: Introducción a las soluciones preconfiguradas | Microsoft Docs
+description: Siga este tutorial para aprender a implementar una solución preconfigurada de Azure IoT Suite.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
@@ -16,14 +16,15 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 12eb858f0be4220419300019497070a081e58249
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723024"
 ---
 # <a name="get-started-with-the-preconfigured-solutions"></a>Introducción a las soluciones preconfiguradas
 
-Las [soluciones preconfiguradas][lnk-preconfigured-solutions] del Conjunto de aplicaciones de IoT de Azure combinan varios servicios de IoT de Azure para ofrecer soluciones integrales que implementan escenarios empresariales de IoT comunes. La solución preconfigurada de *supervisión remota* permite conectar y supervisar los dispositivos. Puede utilizar la solución para analizar la transmisión de datos de los dispositivos y mejorar los resultados de negocio realizando procesos para responder automáticamente a esa transmisión de datos.
+Las [soluciones preconfiguradas][lnk-preconfigured-solutions] de Azure IoT Suite combinan varios servicios de IoT de Azure para ofrecer soluciones integrales que implementan escenarios empresariales de IoT comunes. La solución preconfigurada de *supervisión remota* permite conectar y supervisar los dispositivos. Puede utilizar la solución para analizar la transmisión de datos de los dispositivos y mejorar los resultados de negocio realizando procesos para responder automáticamente a esa transmisión de datos.
 
 Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervisión remota. También le guía por las características básicas de la solución preconfigurada. Puede acceder a muchas de estas características desde el *panel* de soluciones que se implementa como parte de la solución preconfigurada:
 
@@ -61,7 +62,7 @@ El panel de la solución permite administrar la solución implementada. Por ejem
 
 El panel muestra la siguiente información:
 
-* Un mapa que muestra la ubicación de cada dispositivo conectado a la solución. La primera vez que se ejecuta la solución hay 25 dispositivos simulados. Los dispositivos simulados se implementan como WebJobs de Azure y la solución utiliza la API de Mapas de Bing para trazar la información en el mapa. Consulte el artículo sobre [preguntas más frecuentes][lnk-faq] para obtener información sobre cómo hacer que el mapa se vuelva dinámico.
+* Un mapa que muestra la ubicación de cada dispositivo conectado a la solución. La primera vez que se ejecuta la solución hay 25 dispositivos simulados. Los dispositivos simulados se implementan como Azure WebJobs y la solución utiliza la API de Mapas de Bing para trazar la información en el mapa. Consulte el artículo sobre [preguntas más frecuentes][lnk-faq] para obtener información sobre cómo hacer que el mapa se vuelva dinámico.
 * Un panel **Historial de telemetría** que traza los datos de telemetría de temperatura y humedad de un dispositivo seleccionado prácticamente en tiempo real y muestra los datos agregados, como la humedad máxima, mínima y media.
 * Un panel **Historial de alarmas** que muestra los últimos eventos de alarma cuando un valor de telemetría ha superado un umbral. Puede definir sus propias alarmas, además de los ejemplos que crea la solución preconfigurada.
 * Un panel **Trabajos** que muestra información acerca de los trabajos programados. En la página **Trabajos de administración** puede programar sus propios trabajos.
@@ -155,7 +156,7 @@ La versión de firmware puede ser la causa principal de los valores de temperatu
 
 1. Elija **InitiateFirmwareUpdate** como **Método**.
 
-1. Establezca el parámetro**FwPackageUri** como **https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin**.
+1. Establezca el parámetro **FwPackageUri** en **https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin**.
 
 1. Seleccione **Programación**. De forma predeterminada, el trabajo se ejecuta ahora.
 
@@ -283,7 +284,7 @@ No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, 
     ![Enumerar acciones de dispositivo][img-actions]
 
 > [!NOTE]
-> Es posible definir las acciones que pueden enviar un mensaje de correo electrónico o un SMS en respuesta a una regla, o bien integrarse en un sistema de línea de negocio a través de una [aplicación lógica][lnk-logic-apps]. Para más información, consulte el tutorial sobre [conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT de Azure][lnk-logicapptutorial].
+> Es posible definir las acciones que pueden enviar un mensaje de correo electrónico o un SMS en respuesta a una regla, o bien integrarse en un sistema de línea de negocio a través de una [aplicación lógica][lnk-logic-apps]. Para más información, consulte el tutorial sobre [conexión de una aplicación lógica a la solución preconfigurada de supervisión remota de Azure IoT Suite][lnk-logicapptutorial].
 
 ### <a name="manage-filters"></a>Administración de filtros
 

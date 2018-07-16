@@ -4,15 +4,15 @@ description: Proporciona información general acerca del servicio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285804"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920729"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -30,7 +30,11 @@ Azure Migrate le ayuda a:
 ## <a name="current-limitations"></a>Limitaciones actuales
 
 - Actualmente, solo puede evaluar máquinas virtuales de VMware locales para la migración a máquinas virtuales de Azure. Las máquinas virtuales de VMware las debe administrar vCenter Server (versiones 5.5, 6.0 o 6.5).
-- La compatibilidad con Hyper-V está en nuestra hoja de ruta. Mientras tanto, se recomienda usar [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) para planear la migración de las cargas de trabajo de Hyper-V.
+
+> [!NOTE]
+> La compatibilidad con Hyper-V y Servidores físicos está en nuestro mapa de ruta. Mientras tanto, se recomienda usar [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) para planear la migración de las cargas de trabajo de Hyper-V y las [herramientas de nuestros asociados](https://azure.microsoft.com/migration/partners/) para planear la migración de las cargas de trabajo físicas.
+
+
 - Puede detectar hasta 1500 máquinas virtuales en una sola detección y hasta 1500 en un solo proyecto. Además, puede evaluar hasta 1500 máquinas virtuales en una valoración única. Si desea detectar un entorno más grande puede dividir la detección y crear varios proyectos. Para más información, vaya [aquí](how-to-scale-assessment.md). Azure Migrate admite hasta 20 proyectos por suscripción.
 - Los proyectos de Azure Migrate solo se pueden crear en la región Centro occidental de EE. UU. o Este de EE. UU. Sin embargo, esto no afecta a su capacidad para planear la migración de otra ubicación de Azure de destino. La ubicación del proyecto de migración solo se usa para almacenar los metadatos que se detectan desde el entorno local.
 - Azure Migrate solo admite discos administrados para la valoración de la migración.
@@ -48,7 +52,7 @@ Una evaluación le ayuda a identificar si las máquinas virtuales locales son id
 **Propiedad** | **Detalles**
 --- | ---
 **Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración.<br/><br/>Azure Migrate admite actualmente 30 regiones entre las que se incluyen: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, India central, Centro de EE. UU., Este de China, Norte de China, Asia Oriental, Este de EE. UU., Centro de Alemania, Noreste de Alemania, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Europa del Norte, Centro y sur de EE. UU., Sudeste Asiático, India del Sur, Sur del Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro occidental de EE. UU., Europa Occidental, India occidental, Oeste de EE. UU. y Oeste de EE. UU. 2. De forma predeterminada, la ubicación de destino es la región Oeste de EE. UU. 2.
-**Tipo de almacenamiento** | Puede especificar el tipo de discos que desea asignar en Azure. Esta propiedad se aplica cuando el criterio de tamaño es como local. Puede especificar el tipo de disco de destino como Managed Disks Premium o Managed Disks Estándar. El valor predeterminado es Managed Disks Premium. Para el tamaño basado en el rendimiento, la recomendación del disco se realiza automáticamente en función de los datos de rendimiento de las máquinas virtuales. Tenga en cuenta que Azure Migrate solo admite discos administrados para la valoración de la migración.
+**Tipo de almacenamiento** | Puede especificar el tipo de discos que quiera asignar en Azure. Esta propiedad se aplica cuando el criterio de tamaño es como local. Puede especificar el tipo de disco de destino como Managed Disks Premium o Managed Disks Estándar. El valor predeterminado es Managed Disks Premium. Para el tamaño basado en el rendimiento, la recomendación del disco se realiza automáticamente en función de los datos de rendimiento de las máquinas virtuales. Tenga en cuenta que Azure Migrate solo admite discos administrados para la valoración de la migración.
 **Criterio de ajuste de tamaño** | El criterio que debe utilizar Azure Migrate para ajustar el tamaño de las máquinas virtuales para Azure. Puede ajustar el tamaño en función del *historial de rendimiento* de las máquinas virtuales locales o ajustar las máquinas virtuales *como locales* para Azure sin tener en cuenta el historial de rendimiento. El valor predeterminado es el tamaño como local.
 **Oferta de Azure** | Puede especificar la [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) en la que está inscrito y Azure Migrate hará una estimación del costo en función de ella.
 **Ventaja híbrida de Azure** | Puede especificar si dispone de Software Assurance y tiene derecho a [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) para obtener precios con descuento.

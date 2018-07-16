@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 99508d6e4e6502fe4fd2a81ee7aaefdde7cd2e15
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: d0cb1c113724af5d07abf75e6d3a45b54e5202dc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945809"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950777"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Guía de inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (Node.js)
 
@@ -32,7 +32,7 @@ En esta guía, aprenderá a:
 ## <a name="prerequisites"></a>requisitos previos
 
 - Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
-- Un [clúster de Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) que ejecute Kubernetes 1.9.6, en las regiones EastUS, WestEurope o CanadaEast, con **Enrutamiento de solicitudes HTTP** habilitado.
+- Un [clúster de Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) que ejecute Kubernetes 1.10.3, en las regiones Este de EE. UU., Centro de EE. UU., Oeste de EE. UU. 2, Europa Occidental o Este de Canadá, con **Enrutamiento de aplicación HTTP** habilitado.
 
   ![No olvide habilitar Enrutamiento de solicitudes HTTP.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -42,8 +42,7 @@ En esta guía, aprenderá a:
 
 1. Instale la [CLI de Azure ](/cli/azure/install-azure-cli?view=azure-cli-latest) (versión 2.0.38 o superior).
 1. Configure Dev Spaces en su clúster de AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Descargue el [extensión de Azure Dev Spaces](https://aka.ms/get-azds-code) para VS Code.
-1. Instale la extensión: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Descargue el [extensión de Azure Dev Spaces](https://aka.ms/get-azds-code) para VS Code. Haga clic en Instalar una vez que se encuentre en la página de Marketplace de la extensión, y de nuevo en VS Code.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Compilación y ejecución de código en Kubernetes
 
@@ -182,4 +181,4 @@ En esta configuración, el contenedor está configurado para iniciar *nodemon*. 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Trabajo con varios contenedores y desarrollo en equipo](get-started-nodejs.md#call-a-service-running-in-a-separate-container)
+> [Trabajo con varios contenedores y desarrollo en equipo](team-development-nodejs.md)

@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723194"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Tutorial: Uso de Azure Machine Learning Workbench para la preparación avanzada de datos (datos de uso compartido de bicicletas)
 Azure Machine Learning (versión preliminar) es una solución integrada y completa de análisis avanzado y ciencia de datos diseñada para que los científicos de datos profesionales preparen datos, desarrollen experimentos e implementen modelos a escala de nube.
@@ -253,7 +255,7 @@ Ya no necesita la columna __REPORTTYPE__. Haga clic con el botón derecho en el 
    ![Opción Remove Column (Quitar columna)](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Cambiar tipos de datos y eliminar errores
-1. Seleccione Ctrl (comando ⌘ en Mac) mientras selecciona encabezados de columna para seleccionar varias columnas a la vez. Use este método para seleccionar los siguientes encabezados de columna:
+1. Seleccione Ctrl (comando ⌘ en Mac) mientras elige los encabezados de columna para seleccionar varias columnas al mismo tiempo. Use este método para seleccionar los siguientes encabezados de columna:
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -452,7 +454,7 @@ Para preparar los datos, hay disponibles unas visualizaciones útiles llamadas i
 1. Seleccione al mismo tiempo las columnas **start station latitude** (latitud de la estación de inicio) y **start station longitude** (longitud de la estación de inicio). Haga clic con el botón derecho en una de las columnas y seleccione **Map** (Mapa).
 
     > [!TIP]
-    > Para habilitar la selección de varios elementos al mismo tiempo, mantenga presionada la tecla Ctrl (comando ⌘ en Mac) y seleccione el encabezado de cada columna.
+    > Para seleccionar varios elementos al mismo tiempo, mantenga presionada la tecla Ctrl (tecla Comando ⌘ en el Mac) y seleccione el encabezado de cada columna.
 
     ![Visualización de mapas](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -635,7 +637,7 @@ Para combinar los datos meteorológicos con los datos del viaje, siga estos paso
 
     ![Columna Period](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Para quitar las columnas **Date Hour Range** (Intervalo de fecha y hora) y **r_Date Hour Range**, presione Ctrl (comando ⌘ en Mac) y seleccione cada encabezado de columna. Haga clic con el botón derecho y seleccione **Remove Column** (Quitar columna).
+3. Para quitar las columnas **Date Hour Range** (Intervalo de fecha y hora) y **r_Date Hour Range**, presione Ctrl (tecla Comando ⌘ en el Mac) y seleccione cada encabezado de columna. Haga clic con el botón derecho y seleccione **Remove Column** (Quitar columna).
 
 ## <a name="read-data-from-python"></a>Leer datos de Python
 

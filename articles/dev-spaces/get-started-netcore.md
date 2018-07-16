@@ -6,17 +6,17 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 8b14f06f364bde1d4c5588e60a54aefe07c821d2
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 4da5b42ddd235fa26834e582a911140116692d34
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945928"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299566"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Introducción a Azure Dev Spaces con .NET Core
 
@@ -72,7 +72,7 @@ Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en 
 Actualizar archivos de código requiere un poco más de trabajo, porque una aplicación .NET Core necesita volver a crear y producir archivos binarios de aplicaciones actualizados.
 
 1. En la ventana de terminal, presione `Ctrl+C` (para detener `azds up`).
-1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`.
+1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`
 1. Guarde el archivo.
 1. Ejecute `azds up` en la ventana de terminal. 
 
@@ -130,80 +130,7 @@ Actualice la aplicación web en el explorador y vaya a la página Acerca de. Deb
 
 **Ahora tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
 
-## <a name="call-a-service-running-in-a-separate-container"></a>Llamada a un servicio que se ejecuta en un contenedor diferente
+## <a name="next-steps"></a>Pasos siguientes
 
-En esta sección, puede crear un segundo servicio `mywebapi` y hacer que `webfrontend` lo llame. Cada servicio se ejecutará en contenedores diferentes. A continuación, realizará la depuración entre los dos contenedores.
-
-![Varios contenedores](media/common/multi-container.png)
-
-### <a name="download-sample-code-for-mywebapi"></a>Descargue el código de ejemplo para *mywebapi*.
-Por motivos de tiempo, vamos a descargar código de ejemplo desde un repositorio de GitHub. Vaya a https://github.com/Azure/dev-spaces y seleccione **Clone or Download** (Clonar o descargar) para descargar el repositorio de GitHub. El código de esta sección se encuentra en `samples/dotnetcore/getting-started/mywebapi`.
-
-### <a name="run-mywebapi"></a>Ejecución de *mywebapi*
-1. Abra la carpeta `mywebapi` en una *ventana independiente de VS Code*.
-1. Presione F5 y espere a que el servicio se compile e implemente. Sabrá que está listo cuando aparezca la barra de depuración de VS Code.
-1. Anote la dirección URL del punto de conexión; se parecerá a esta http://localhost:\<portnumber\>. **Sugerencia: La barra de estado de VS Code mostrará una dirección URL en la que se puede hacer clic.** Puede parecer que el contenedor se ejecuta localmente, pero en realidad lo hace en el espacio de desarrollo de Azure. La razón de la dirección de localhost es que `mywebapi` no ha definido ningún punto de conexión público y solo se puede acceder a él desde la instancia de Kubernetes. Para mayor comodidad, y para facilitar la interacción con el servicio privado desde la máquina local, Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en Azure.
-1. Cuando `mywebapi` esté listo, abra el explorador en la dirección de localhost. Anexe `/api/values` a la dirección URL para invocar la GET API predeterminada para `ValuesController`. 
-1. Si todos los pasos se realizaron correctamente, verá una respuesta del servicio `mywebapi`.
-
-### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Realización de una solicitud de *webfrontend* a *mywebapi*
-Vamos ahora a escribir código en `webfrontend` que realiza una solicitud a `mywebapi`.
-1. Cambie a la ventana de VS Code para `webfrontend`.
-1. *Reemplace* el código por el método About:
-
-    ```csharp
-    public async Task<IActionResult> About()
-    {
-        ViewData["Message"] = "Hello from webfrontend";
-        
-        using (var client = new System.Net.Http.HttpClient())
-            {
-                // Call *mywebapi*, and display its response in the page
-                var request = new System.Net.Http.HttpRequestMessage();
-                request.RequestUri = new Uri("http://mywebapi/api/values/1");
-                if (this.Request.Headers.ContainsKey("azds-route-as"))
-                {
-                    // Propagate the dev space routing header
-                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
-                }
-                var response = await client.SendAsync(request);
-                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-            }
-
-        return View();
-    }
-    ```
-
-En el código de ejemplo anterior se reenvía el encabezado `azds-route-as` de la solicitud entrante a la solicitud saliente. Más adelante verá cómo esta función ayuda a los equipos con el desarrollo en colaboración.
-
-### <a name="debug-across-multiple-services"></a>Depuración entre varios servicios
-1. En este momento, `mywebapi` aún se estará ejecutando con el depurador asociado. Si no es así, presione F5 en el proyecto `mywebapi`.
-1. Establezca un punto de interrupción en el método `Get(int id)` que controla las solicitudes GET `api/values/{id}`.
-1. En el proyecto `webfrontend`, establezca un punto de interrupción justo antes de que se envíe una solicitud GET a `mywebapi/api/values`.
-1. Presione F5 en el proyecto `webfrontend`.
-1. Invoque la aplicación web y recorra el código de ambos servicios.
-1. En la aplicación web, la página Acerca de muestra un mensaje que han concatenado los dos servicios: "Hello from webfrontend and Hello from mywebapi".
-
-
-¡Listo! Ahora tiene una aplicación de varios contenedores donde cada uno se puede desarrollar e implementar por separado.
-
-## <a name="learn-about-team-development"></a>Aprenda sobre el desarrollo en equipo.
-
-[!INCLUDE[](includes/team-development-1.md)]
-
-Vamos a verlo en acción. Vaya a la ventana de VS Code para `mywebapi` y realice una edición de código para el método `string Get(int id)`, por ejemplo:
-
-```csharp
-[HttpGet("{id}")]
-public string Get(int id)
-{
-    return "mywebapi now says something new";
-}
-```
-
-
-[!INCLUDE[](includes/team-development-2.md)]
-
-[!INCLUDE[](includes/well-done.md)]
-
-[!INCLUDE[](includes/clean-up.md)]
+> [!div class="nextstepaction"]
+> [Más información sobre el desarrollo en equipo](team-development-netcore.md)

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
 ms.author: sethm
-ms.openlocfilehash: b970fe1d9d705bd91e616f19a6ef133d6cfd7dd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660633"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867212"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Guía de inicio rápido: Envío y recepción de mensajes mediante Azure Portal y .NET
 
@@ -43,7 +43,7 @@ Primero, vaya a [Azure Portal][Azure portal] e inicie sesión con su suscripció
 Un espacio de nombres de mensajería de Service Bus proporciona un contenedor con un único ámbito, al que hace referencia su [nombre de dominio completo][], en el que puede crear una o varias colas, temas y suscripciones. En el ejemplo siguiente se crea un espacio de nombres de mensajería de Service Bus en un [grupo de recursos](/azure/azure-resource-manager/resource-group-portal) nuevo o ya existente:
 
 1. En el panel de navegación izquierdo del portal, haga clic en **+ Crear un recurso**, luego, en **Enterprise Integration** y, finalmente, en **Service Bus**.
-2. En el cuadro de diálogo **Crear un espacio de nombres** , especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
+2. En el cuadro de diálogo **Crear un espacio de nombres**, especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 3. Después de asegurarse de que el espacio de nombres está disponible, elija el plan de tarifas (Estándar o Premium).
 4. En el campo **Suscripción** elija la suscripción de Azure en la que se va a crear el espacio de nombres.
 5. En el campo **Grupo de recursos** , elija un grupo de recursos existente en el que residirá el espacio de nombres o cree uno.      
@@ -87,7 +87,7 @@ Para ejecutar el código, haga lo siguiente:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-3. Navegue hasta la carpeta de ejemplos `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+3. Vaya a la carpeta de ejemplos `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
 4. Copie la cadena de conexión y el nombre de la cola que obtuvo en la sección [Obtención de las credenciales de administración](#obtain-the-management-credentials).
 
@@ -115,7 +115,7 @@ Puede usar el portal para quitar el grupo de recursos, el espacio de nombres y l
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
 
-Esta sección contiene información más detallada sobre lo que hace el código de ejemplo. 
+Esta sección contiene información más detallada acerca de lo que hace el código de ejemplo. 
 
 ### <a name="get-connection-string-and-queue"></a>Obtención de la cadena de conexión y la cola
 

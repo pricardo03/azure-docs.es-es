@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con Java | Microsoft Docs'
+title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con el SDK de Storage para Java V7 | Microsoft Docs'
 description: En esta guía de inicio rápido, creará una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de almacenamiento para Java a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: roygara
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 197777971b92ad9cd53e91602b88858a371ce1d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30d31a7f4b77864549dcb9e27030ba19c4fd84fe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192016"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606616"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Java
+# <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Guía de inicio rápido: Carga, descarga y enumeración de blobs mediante Java SDK V7
 
 En este tutorial de inicio rápido, aprenderá a usar Java para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage.
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
 
-La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-java-quickstart) utilizada en este tutorial de inicio rápido es una aplicación de consola básica. 
+La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-java-quickstart) utilizada en este tutorial de inicio rápido es una aplicación de consola básica.  
 
 Use [git](https://git-scm.com/) para descargar una copia de la aplicación en su entorno de desarrollo. 
 
@@ -48,7 +48,7 @@ Este comando clona el repositorio en la carpeta git local. Para abrir el proyect
 
 Cuando se termine de importar el proyecto, abra **AzureApp.java** (ubicado en **blobQuickstart.blobAzureApp** dentro de **src/principal/java**) y reemplace `accountname` y `accountkey` dentro de la cadena `storageConnectionString`. Después, ejecute la aplicación.
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]    
 
 ## <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
     
@@ -65,9 +65,7 @@ public static final String storageConnectionString =
 
 En este ejemplo se crea un archivo de prueba en el directorio predeterminado (Mis documentos, para usuarios de Windows), se carga a Blob Storage, se enumeran los blobs del contenedor y luego se descarga el archivo con un nombre nuevo para poder comparar los archivos antiguos y nuevos. 
 
-Ejecute el ejemplo presionando **Ctrl + F11** en Eclipse.
-
-Si desea ejecutar el ejemplo mediante Maven en la línea de comandos, abra un shell y navegue hasta **blobAzureApp** dentro de su directorio clonado. A continuación, escriba `mvn compile exec:java`.
+Ejecute el ejemplo con Maven en la línea de comandos. Abra un shell y vaya a **blobAzureApp** dentro del directorio clonado. A continuación, escriba `mvn compile exec:java`. 
 
 Lo siguiente es un ejemplo de salida si fuera a ejecutar la aplicación en Windows.
 
@@ -84,9 +82,9 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
- Antes de continuar, compruebe el directorio predeterminado (Mis documentos, para usuarios de Windows) de los dos archivos. Puede abrirlos y ver que son idénticas. Copie la dirección URL para el blob fuera de la ventana de consola y péguela en un explorador para ver el contenido del archivo de Blob Storage. Al presionar la tecla Entrar, se elimina el contenedor de almacenamiento y los archivos.
+Antes de continuar, compruebe el directorio predeterminado (Mis documentos, para usuarios de Windows) de los dos archivos. Puede abrirlos y ver que son idénticas. Copie la dirección URL para el blob fuera de la ventana de consola y péguela en un explorador para ver el contenido del archivo de Blob Storage. Al presionar la tecla Entrar, se elimina el contenedor de almacenamiento y los archivos. 
 
-También puede usar una herramienta como [Explorador de Azure Storage](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
+También puede usar una herramienta como [Explorador de Azure Storage](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento.
 
 Después de haber comprobado los archivos, presione la tecla Entrar para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo **AzureApp.java** para examinar el código. 
 
@@ -113,7 +111,7 @@ Lo primero que hay que hacer es crear las referencias a los objetos usados para 
 > [!IMPORTANT]
 > Los nombres de contenedor deben estar en minúsculas. Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
 
-### <a name="create-a-container"></a>Crear un contenedor 
+### <a name="create-a-container"></a>Crear un contenedor
 
 En esta sección, se crean instancias de los objetos, se crea un nuevo contenedor y luego se establecen permisos en el contenedor para que los blobs sean públicos y se pueda acceder a ellos con tan solo una dirección URL. El contenedor se denomina **quickstartblobs**. 
 
@@ -205,26 +203,13 @@ if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
 
-## <a name="resources-for-developing-java-applications-with-blobs"></a>Recursos para el desarrollo de aplicaciones Java con blobs
-
-Consulte estos recursos adicionales para el desarrollo de Java con Blob Storage:
-
-### <a name="binaries-and-source-code"></a>Archivos binarios y código fuente
-
-- Consulte e instale el [código fuente de la biblioteca de cliente de Java](https://github.com/Azure/azure-storage-java) para Azure Storage en GitHub.
-
-### <a name="client-library-reference-and-samples"></a>Referencia a la biblioteca de clientes y ejemplos
-
-- Para más información acerca de la biblioteca de cliente, consulte la [referencia de la API de Java](https://docs.microsoft.com/java/api/overview/azure/storage).
-- Explore los [ejemplos de Blob Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) escritos mediante la biblioteca de cliente de Java.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Java. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
+En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Java. Para más información sobre cómo trabajar con Java, vaya a nuestro repositorio de código fuente de GitHub.
 
 > [!div class="nextstepaction"]
-> [Procedimientos de las operaciones de Blob Storage](storage-java-how-to-use-blob-storage.md)
+> [SDK de Azure Storage para Java](https://github.com/azure/azure-storage-java) 
+> [Referencia de API](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [Ejemplos de código de Java](../common/storage-samples-java.md)
 
-Para más información sobre el Explorador de Storage y los blobs, consulte [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-explorer-blobs.md).
-
-Para más ejemplos de Java, consulte [Ejemplos de Azure Storage con Java](../common/storage-samples-java.md).
+* Para más información sobre el Explorador de Storage y los blobs, consulte [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

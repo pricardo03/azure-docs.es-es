@@ -11,12 +11,12 @@ ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054698"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866824"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -113,6 +113,7 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
 |Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"       |
+|Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: **True** o **False**.|
 
 ### <a name="add-a-linux-file"></a>Agregar un archivo de Linux
 
@@ -130,6 +131,7 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 |Recursión     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
 |Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
+|Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: **True** o **False**.|
 
    > [!NOTE]   
    > La opción de administración de vínculos no se recomienda. No se admite la recuperación de contenido de los archivos.

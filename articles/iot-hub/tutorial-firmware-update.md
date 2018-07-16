@@ -12,20 +12,18 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 515c9917add27663e8d145fee3e1effc89291bc0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0c8734bec1ce14a3a9692efa3a1fcf975067953a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034109"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968909"
 ---
-<!-- **TODO** Update publish config with repo paths before publishing! -->
-
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementación de un proceso de actualización de firmware de dispositivos
 
 Puede que tenga que actualizar el firmware de los dispositivos conectados a IoT Hub. Por ejemplo, puede que desee agregar nuevas características al firmware o aplicar revisiones de seguridad. En muchos escenarios de IoT, resulta poco práctico visitar físicamente y, después, aplicar manualmente las actualizaciones de firmware en los dispositivos. En este tutorial se muestra cómo puede iniciar y supervisar el proceso de actualización del firmware de forma remota mediante una aplicación back-end conectada al centro.
 
-Para crear y supervisar el proceso de actualización del firmware, la aplicación back-end de este tutorial crea una _configuración_ en IoT Hub. La administración automática de dispositivos de IoT Hub usa esta configuración para actualizar un conjunto de _propiedades deseadas de los dispositivos gemelos_ en todos los dispositivos de refrigerador. Las propiedades deseadas especifican los detalles de la actualización del firmware que se necesitan. Mientras se ejecuta en los dispositivos de refrigerador el proceso de actualización del firmware, estos notifican su estado a la aplicación back-end mediante las _propiedades notificadas de los dispositivos gemelos_. La aplicación de back-end puede usar la configuración para supervisar las propiedades notificadas enviadas desde el dispositivo y seguir el proceso de actualización del firmware hasta su finalización:
+Para crear y supervisar el proceso de actualización del firmware, la aplicación back-end de este tutorial crea una _configuración_ en IoT Hub. La [administración automática de dispositivos](iot-hub-auto-device-config.md) de IoT Hub usa esta configuración para actualizar un conjunto de _propiedades deseadas de los dispositivos gemelos_ en todos los dispositivos de refrigerador. Las propiedades deseadas especifican los detalles de la actualización del firmware que se necesitan. Mientras se ejecuta en los dispositivos de refrigerador el proceso de actualización del firmware, estos notifican su estado a la aplicación back-end mediante las _propiedades notificadas de los dispositivos gemelos_. La aplicación de back-end puede usar la configuración para supervisar las propiedades notificadas enviadas desde el dispositivo y seguir el proceso de actualización del firmware hasta su finalización:
 
 ![Proceso de actualización del firmware](media/tutorial-firmware-update/Process.png)
 
@@ -101,7 +99,7 @@ Si ejecuta estos comandos en un símbolo del sistema de Windows o de Powershell,
 
 ## <a name="start-the-firmware-update"></a>Inicio de la actualización del firmware
 
-Puede crear una configuración automática de administración de dispositivos en la aplicación back-end para empezar el proceso de actualización del firmware en todos los dispositivos etiquetados con un **devicetype** de refrigerador. En esta sección verá como:
+Puede crear una [configuración automática de administración de dispositivos](iot-hub-auto-device-config.md#create-a-configuration) en la aplicación back-end para empezar el proceso de actualización del firmware en todos los dispositivos etiquetados con un **devicetype** de refrigerador. En esta sección verá como:
 
 * Cree una configuración en una aplicación back-end.
 * Supervise el trabajo hasta su finalización.

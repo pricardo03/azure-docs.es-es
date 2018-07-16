@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1d23419df6f66ef430cb57f41a9a70c7babe7df
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30242057"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919149"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos de Azure Site Recovery Deployment Planner  
 
@@ -92,7 +92,7 @@ Si es un asociado o un cliente de Azure y tiene derecho a un descuento sobre el 
 ### <a name="number-of-virtual-machines-type-and-compute-cost-per-year"></a>Number of virtual machines type and compute cost (per year) [Número de tipo de máquinas virtuales y el cálculo de costo (anual)]
 Esta tabla muestra el número de máquinas virtuales Windows y no Windows, y el costo de los servicios de proceso para la recuperación ante desastres de las mismas.
 
-### <a name="settings"></a>Settings 
+### <a name="settings"></a>Configuración 
 **Using managed disk** (Uso de disco administrado): especifica si se está usando un disco administrado en el momento del simulacro de recuperación ante desastres. El valor predeterminado es "yes" (sí). Si ha configurado -UseManagedDisks en No, usa el precio de los discos no administrados para el cálculo de los costos.
 
 **Currency** (Moneda): la moneda en la que se genera el informe. Cost duration (Duración del costo): puede ver todos los costos del mes o de todo el año. 
@@ -160,7 +160,7 @@ Azure Site Recovery Deployment Planner puede generar el informe de costos en cua
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileño (R$)|
 |CAD|Dólar canadiense ($)||CHF|Franco suizo (chf)||DKK|Corona danesa (kr)|
 |EUR|Euro (€)||GBP|Libra británica (£)||HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rupia indonesia (Rp)||INR|Rupia india (₹)||JPY|Yen japonés (¥)|
+|IDR|Rupia indonesia (Rp)||INR|Rupia india ()||JPY|Yen japonés (¥)|
 |KRW|Won coreano (₩)||MXN|Peso mexicano (MX$)||MYR|Ringgit malayo (RM$)|
 |NOK|Corona noruega (kr)||NZD|Dólar de Nueva Zelanda ($)||RUB|Rublo ruso (руб)|
 |SAR|Saudi Riyal (SR)||SEK|Corona sueca (kr)||TWD|Dólar taiwanés (NT$)|

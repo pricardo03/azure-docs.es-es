@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651596"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869591"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Uso de un dispositivo simulado para probar la conectividad con IoT Hub
 
@@ -49,7 +49,7 @@ Puede verificar la versión actual de Node.js en el equipo de desarrollo con el 
 node --version
 ```
 
-Descargue el simulador de dispositivos de ejemplo de Node.js desde https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip y extraiga el archivo ZIP.
+Descargue el simulador de dispositivos de ejemplo de Node.js desde https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip y extraiga el archivo ZIP.
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -123,6 +123,9 @@ Esta vez verá un error de autenticación cuando la aplicación intenta conectar
 Si el dispositivo usa uno de los SDK de dispositivo de IoT Hub, el código de biblioteca del SDK genera el token de SAS usado para autenticarse con el centro. Un token de SAS se genera a partir del nombre del centro, el nombre del dispositivo y la clave del dispositivo.
 
 En algunos escenarios, como en una puerta de enlace de protocolo de nube o como parte de un esquema de autenticación personalizado, puede que deba generar el token de SAS por su cuenta. Para solucionar problemas con el código de generación de SAS, es útil poder generar un token de SAS conocido para usar durante las pruebas.
+
+> [!NOTE]
+> El ejemplo SimulatedDevice 2.js incluye ejemplos de generación de un token de SAS con y sin el SDK.
 
 Para generar un token de SAS conocido mediante la CLI, ejecute el siguiente comando:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: e4e90082f483720699fb029db33bc8110173c0aa
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: bc53d245dd814b6f9bb4edab89ddcbf841f16a8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082961"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38579184"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,6 +120,10 @@ Azure Data Factory no almacena ningún dato. Permite crear flujos de trabajo con
 Aunque Data Factory solamente está disponible en ciertas regiones, el servicio que produce el movimiento de datos en Data Factory está disponible de forma general en diversas regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de Integration Runtime autohospedado instalada en el entorno local la que mueva los datos en su lugar.
 
 Por ejemplo, supongamos que sus entornos de proceso, tales como el clúster de Azure HDInsight y Azure Machine Learning, se ejecutan fuera de la región de Europa Occidental. Puede crear y usar una instancia de Azure Data Factory en Este de EE. UU. o Este de EE. UU. 2, y usarla para programar trabajos en los entornos de proceso en Europa Occidental. Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
+
+## <a name="accessibility"></a>Accesibilidad
+
+La experiencia del usuario de Data Factory en Azure Portal es accesible.
 
 ## <a name="compare-with-version-1"></a>Comparación con la versión 1
 Para obtener una lista de las diferencias entre la versión 1 y la versión actual del servicio Data Factory, consulte [Comparación con la versión 1](compare-versions.md). 

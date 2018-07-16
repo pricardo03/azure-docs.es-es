@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 0074e0a66ae842d798d6fd8cd2f4392644d873fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 157fd47861857fedbe4886407ba464f886ef1be3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650764"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767143"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante .NET
 
@@ -63,7 +63,7 @@ Este comando clona el repositorio en la carpeta git local. Para abrir la soluci�
 
 ## <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
 
-Para ejecutar la aplicación, debe proporcionar la cadena de conexión de la cuenta de almacenamiento. La aplicación de ejemplo lee la cadena de conexión de una variable de entorno y la utiliza para autenticar las solicitudes en Azure Storage.
+Para ejecutar la aplicación, debe proporcionar la cadena de conexión de la cuenta de almacenamiento. La aplicación de ejemplo lee la cadena de conexión de una variable de entorno y la utiliza para autorizar las solicitudes en Azure Storage.
 
 Una vez que haya copiado la cadena de conexión, escríbala en una variable de entorno nueva en la máquina local que ejecuta la aplicación. Para establecer la variable de entorno, abra una ventana de consola y siga las instrucciones de su sistema operativo. Reemplace `<yourconnectionstring>` por la cadena de conexión real:
 

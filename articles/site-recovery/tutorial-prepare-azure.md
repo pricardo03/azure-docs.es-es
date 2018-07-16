@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737211"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915976"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos de Azure para la replicación de máquinas locales
 
@@ -54,11 +54,12 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 1. En el menú [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento: blob, archivo, tabla, cola**.
 2. En **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta. En estos tutoriales se usa **contosovmsacct1910171607**. El nombre que elija debe ser único en Azure, tener entre 3 y 24 caracteres, y contener solo números y letras minúsculas.
 3. En **Modelo de implementación**, seleccione **Resource Manager**.
-4. En **Tipo de cuenta** seleccione **Storage (uso general v1)**. No seleccione Blob Storage. En **Rendimiento**, seleccione **Estándar**. 
+4. En **Tipo de cuenta** seleccione **Storage (uso general v1)**. No seleccione Blob Storage.
 5. En **Replicación**, seleccione el valor predeterminado **Almacenamiento con redundancia geográfica con acceso de lectura** como redundancia de almacenamiento. Se ha dejado la opción **Se requiere transferencia segura** en **Deshabilitado**.
-6. En **Suscripción**, seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento. 
-2. En **Grupo de recursos**, especifique un nuevo grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En estos tutoriales se usa **ContosoRG**.
-3. En **Ubicación**, seleccione la ubicación geográfica de la cuenta de almacenamiento. 
+6. En **Rendimiento**, seleccione **Estándar** y en **Nivel de acceso** elija la opción predeterminada de **Frecuente**.
+7. En **Suscripción**, seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
+8. En **Grupo de recursos**, especifique un nuevo grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En estos tutoriales se usa **ContosoRG**.
+9. En **Ubicación**, seleccione la ubicación geográfica de la cuenta de almacenamiento. 
 
    ![Crear una cuenta de almacenamiento](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -90,7 +91,7 @@ Cuando se crean máquinas virtuales de Azure desde el almacenamiento después de
 8. Se van a dejar las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio en la red.
 9. Haga clic en **Create**(Crear).
 
-   ![Crear una red virtual](media/tutorial-prepare-azure/create-network.png)
+   ![Creación de una red virtual](media/tutorial-prepare-azure/create-network.png)
 
    La red virtual tarda unos segundos en crearse. Una vez creada, se ve en el panel de Azure Portal.
 
@@ -98,7 +99,7 @@ Cuando se crean máquinas virtuales de Azure desde el almacenamiento después de
 
 - [Más información](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sobre las redes de Azure.
 - [Más información](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) acerca de los tipos de almacenamiento de Azure.
-- - [Más información](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) acerca de la redundancia de almacenamiento y la [transferencia segura](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) para el almacenamiento.
+- [Más información](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) acerca de la redundancia de almacenamiento y la [transferencia segura](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) para el almacenamiento.
 
 
 

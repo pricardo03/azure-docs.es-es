@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 43b232e612f2ea4b47789e29a7f241bf4c35271d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 91302f21f3b3f9db50dc0c930a4cdfc02749d151
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100128"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951012"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (.NET Core y Visual Studio)
 
@@ -29,9 +29,9 @@ En esta guía, aprenderá a:
 > [!Note]
 > **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página. También puede probar con este [tutorial](get-started-netcore-visualstudio.md), que es más detallado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-- Un clúster de Kubernetes que ejecute Kubernetes 1.9.6, en las regiones EastUS, WestEurope o CanadaEast, con Enrutamiento de solicitudes HTTP habilitado.
+- Un clúster de Kubernetes que ejecute Kubernetes 1.10.3, en las regiones Este de EE. UU., Centro de EE. UU., Oeste de EE. UU. 2, Europa Occidental o Este de Canadá, con Enrutamiento de aplicación HTTP habilitado.
 
   ![No olvide habilitar Enrutamiento de solicitudes HTTP.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -117,4 +117,4 @@ Actualice la aplicación web en el explorador y vaya a la página Acerca de. Ver
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Trabajo con varios contenedores y desarrollo en equipo](get-started-netcore-visualstudio.md#call-another-container)
+> [Trabajo con varios contenedores y desarrollo en equipo](team-development-netcore-visualstudio.md)

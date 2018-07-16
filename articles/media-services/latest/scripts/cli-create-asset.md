@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41dfafe7ce8287d1bacac672209824c1c32067e2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 89120daf971586e8c2e360e9b6b064b10b14f707
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161302"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723058"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>Ejemplo de CLI: Creación de una cuenta de Azure Media Services
 
@@ -27,7 +27,7 @@ El script de la CLI de Azure de este artículo muestra cómo crear un recurso de
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.20 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.20 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Script de ejemplo
 

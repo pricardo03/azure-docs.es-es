@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c1277484d8f8b3073ac15534110b01903c265318
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795890"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453423"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilación de una aplicación .NET Framework o Core mediante Graph API
 
@@ -86,7 +86,7 @@ Los fragmentos de código siguientes se han tomado del archivo Program.cs.
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * Se muestran los comandos de Gremlin que se van a ejecutar en un diccionario (línea 26):
@@ -175,7 +175,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     `private static string database = "your-database";`
 
-5. De forma similar, con la información de la colección que se ha creado anteriormente, pegue la colección (que también incluye el nombre del grafo) en la variable `collection` en la línea 23. 
+5. De forma similar, con la información del contenedor que se ha creado anteriormente, pegue la colección (que también incluye el nombre del grafo) en la variable `collection` de la línea 23. 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -193,7 +193,7 @@ Haga clic en CTRL + F5 para ejecutar la aplicación. La aplicación imprimirá l
 
 Ahora puede volver al Explorador de datos en Azure Portal para examinar y consultar los datos del nuevo grafo.
 
-1. En el Explorador de datos, la nueva base de datos aparece en el panel Grafos. Expanda los nodos de la colección y la base de datos y, a continuación, haga clic en **Grafo**.
+1. En el Explorador de datos, la nueva base de datos aparece en el panel Grafos. Expanda los nodos del contenedor y de la base de datos y, a continuación, haga clic en **Grafo**.
 
 2. Haga clic en el botón **Aplicar filtro** para usar la consulta predeterminada para visualizar todos los vértices del grafo. Los datos generados por la aplicación de ejemplo se muestran en el panel grafos.
 

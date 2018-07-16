@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 001fefef900a0dd468f8deb8d705c308d8149f71
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1a713d23a385723517ba1fe924f9ec54d81eade5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055217"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857897"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,8 @@ Actividad de transformación de datos | Entorno de procesos
 [Actividades de Machine Learning: ejecución de Batch y recurso de actualización](transform-data-using-machine-learning.md) | MV de Azure
 [Procedimiento almacenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análisis con Azure Data Lake
+[Código personalizado](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 
 Para obtener más información, consulte el artículo sobre las [actividades de transformación de datos](transform-data.md).
 
@@ -93,7 +95,7 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 }
 ```
 
-Etiqueta | DESCRIPCIÓN | Escriba | Obligatorio
+Etiqueta | DESCRIPCIÓN | type | Obligatorio
 --- | ----------- | ---- | --------
 Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>•   No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | string | Sí
 Descripción | Especifique el texto que describe para qué se usa la canalización. | string | Sin 
