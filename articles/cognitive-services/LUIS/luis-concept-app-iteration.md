@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7f8dd46dc8289322726934f330761b0f1ab94bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265944"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888255"
 ---
 # <a name="authoring-cycle"></a>Ciclo de creación
 LUIS aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
@@ -40,7 +40,7 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 Una vez que tenga entre 10 y 15 expresiones diferentes en cada intención, con las entidades necesarias etiquetadas, debe entrenar a LUIS y efectuar la publicación para obtener los puntos de conexión. Asegúrese de crear y publicar la aplicación de manera que esté disponible en las [regiones de punto de conexión](luis-reference-regions.md) que necesite. 
 
 ## <a name="https-endpoint-testing"></a>Pruebas de puntos de conexión HTTPS
-Puede probar la aplicación de LUIS desde el punto de conexión HTTPS que aparece en la página **[Publish](publishapp.md)** (Publicar). La realización de pruebas desde el punto de conexión permite a LUIS elegir cualquier expresión con una confianza baja para la revisión.  
+Puede probar la aplicación de LUIS desde el punto de conexión HTTPS que aparece en la página **[Publish](luis-how-to-publish-app.md)** (Publicar). La realización de pruebas desde el punto de conexión permite a LUIS elegir cualquier expresión con una confianza baja para la revisión.  
 
 ## <a name="recycle"></a>Reciclar
 Cuando haya terminado un ciclo de creación, puede empezar de nuevo. Empiece revisando las expresiones de punto de conexión que LUIS ha marcado con una confianza baja. Compruebe la intención y la entidad de estas expresiones. Una vez revisadas las expresiones, la lista de revisión debería estar vacía.  
@@ -51,5 +51,3 @@ Las pruebas por lotes son una manera de ver cuántas expresiones de ejemplo punt
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre conceptos relativos a la [colaboración](luis-concept-collaborator.md).
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains

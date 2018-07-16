@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f68e05ba40827375fbd76448e38916c682075228
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264016"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951127"
 ---
 # <a name="best-practices"></a>Procedimientos recomendados
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS. 
@@ -25,7 +25,7 @@ Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS
 * Probar desde el punto de conexión 
 * Agregar características
 
-Una vez que la aplicación esté [publicada](publishapp.md), use el ciclo de creación de agregar características, publicar y probar desde el punto de conexión. No comience el siguiente ciclo de creación al agregar más expresiones de ejemplo, ya que, de esta forma, LUIS no aprende el modelo con expresiones reales del usuario. 
+Una vez que la aplicación esté [publicada](luis-how-to-publish-app.md), use el ciclo de creación de agregar características, publicar y probar desde el punto de conexión. No comience el siguiente ciclo de creación al agregar más expresiones de ejemplo, ya que, de esta forma, LUIS no aprende el modelo con expresiones reales del usuario. 
 
 Para que LUIS sea eficaz en su trabajo de aprendizaje, no expanda las expresiones hasta que el conjunto actual de expresiones de ejemplo y punto de conexión devuelva resultados seguros y con predicciones altas. Mejore las puntuaciones mediante un aprendizaje activo, [patrones](luis-concept-patterns.md) y [listas de frases](luis-concept-feature.md). 
 
@@ -77,7 +77,7 @@ No aplique estos procedimientos antes de que la aplicación haya recibido las so
 Esta es la intención de reserva, que indica todo lo que está fuera de la aplicación. Agregue una expresión de ejemplo en la intención None por cada 10 expresiones de ejemplo del resto de la aplicación de LUIS.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Aprovechar la característica de sugerencia para un aprendizaje activo
-Use la **revisión de las expresiones del punto de conexión** del [aprendizaje activo](label-suggested-utterances.md) de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
+Use la **revisión de las expresiones del punto de conexión** del [aprendizaje activo](luis-how-to-review-endoint-utt.md) de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Supervisar el rendimiento de la aplicación
 Supervise la precisión de las predicciones mediante un conjunto de pruebas. 
@@ -113,6 +113,4 @@ Agregue 10 o 15 expresiones antes de entrenar y publicar. De esta forma, puede v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [planear la aplicación](plan-your-app.md) en la aplicación de LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Obtenga información sobre cómo [planear la aplicación](luis-how-plan-your-app.md) en la aplicación de LUIS.

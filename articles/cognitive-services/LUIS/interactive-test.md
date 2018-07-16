@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 927d95f6b6fac922d2c3701b8a5124efb18825f6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221638"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951244"
 ---
 # <a name="test-your-luis-app"></a>Probar la aplicación de LUIS
 El <a name="train-your-app"></a>
@@ -65,7 +65,7 @@ Puede inspeccionar los detalles del resultado de las pruebas en el panel **Inspe
 
 ## <a name="view-sentiment-results"></a>Ver los resultados de sentimiento
 
-Si el **análisis de sentimiento** está configurado en la página **[Publicar](publishapp.md#enable-sentiment-analysis)**, los resultados de la prueba incluyen el sentimiento que se encontró en la expresión. 
+Si el **análisis de sentimiento** está configurado en la página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)**, los resultados de la prueba incluyen el sentimiento que se encontró en la expresión. 
 
 ![Imagen del panel Prueba con el análisis de sentimiento](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -129,5 +129,5 @@ Vea los [conceptos](luis-concept-batch-test.md) de las pruebas por lotes y obten
 
 Si las pruebas indican que la aplicación de LUIS no reconoce las entidades y las intenciones correctas, puede trabajar para mejorar la precisión de la aplicación de LUIS etiquetando más expresiones o agregando características. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) (Etiquetado de expresiones sugeridas con LUIS) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) (Etiquetado de expresiones sugeridas con LUIS) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) (Uso de características para mejorar el rendimiento de la aplicación de LUIS) 
