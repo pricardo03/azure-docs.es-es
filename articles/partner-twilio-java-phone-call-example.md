@@ -28,7 +28,7 @@ El siguiente ejemplo muestra cómo se puede usar Twilio para realizar una llamad
 
 Tendrá que hacer lo siguiente para utilizar el código de este tema:
 
-1. Adquiera una cuenta de Twilio y un token de autenticación. Para empezar con Twilio, evalúe los precios en [http://www.twilio.com/pricing][twilio_pricing]. Puede registrarse en [https://www.twilio.com/try-twilio][try_twiliotry_twilio]. Para más información sobre la API proporcionada por Twilio, vea [http://www.twilio.com/api][twilio_api].
+1. Adquiera una cuenta de Twilio y un token de autenticación. Para empezar con Twilio, evalúe los precios en [http://www.twilio.com/pricing][twilio_pricing]. Puede registrarse en [https://www.twilio.com/try-twilio][try_twilio]. Para más información sobre la API proporcionada por Twilio, vea [http://www.twilio.com/api][twilio_api].
 2. Obtenga el JAR de Twilio. En [https://github.com/twilio/twilio-java][twilio_java_github] puede descargar el código fuente de GitHub y crear su propio archivo JAR, o bien puede descargar un archivo JAR previamente generado (con o sin dependencias).
    El código de este tema se escribió usando JAR TwilioJava 3.3.8 con dependencias previamente compilado.
 3. Agregue el JAR a su ruta de acceso de compilación Java.
