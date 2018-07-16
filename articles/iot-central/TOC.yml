@@ -37,10 +37,12 @@
   items:
     - name: Administrador
       items:
-        - name: Creación de una aplicación
-          href: howto-create-application.md
+        - name: Creación y administración de una aplicación como un CSP
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: Administración de la aplicación
           href: howto-administer.md
+        - name: Exportación de los datos
+          href: howto-export-data.md
     - name: Generador
       items:
         - name: Configuración de la plantilla de dispositivo
@@ -49,6 +51,10 @@
           href: howto-version-devicetemplate.md
         - name: Creación de regla de telemetría
           href: howto-create-telemetry-rules.md
+        - name: Creación de una regla de eventos
+          href: howto-create-event-rules.md
+        - name: Compilación de flujos de trabajo en Microsoft Flow
+          href: howto-add-microsoft-flow.md
         - name: Configuración de página principal
           href: howto-configure-homepage.md
         - name: Preparación y carga de imágenes
