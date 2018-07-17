@@ -29,7 +29,7 @@ Desde una perspectiva general, esto se realiza en tres pasos:
 
 * **[Crear un experimento de entrenamiento]** : Azure Machine Learning Studio es un entorno de desarrollo visual de colaboración que se utiliza para entrenar y probar un modelo de análisis predictivo con los datos de entrenamiento que proporcione.
 * **[Convertirlo en un experimento predictivo]**: una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
-* **[Implementación como un servicio web]**: puede implementar el experimento predictivo como un servicio web de Azure [[New]] o [clásico]. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
+* **[Implementación como un servicio web]**: puede implementar el experimento predictivo como un servicio web de Azure [New] o [clásico]. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -63,7 +63,7 @@ Puede implementar el experimento predictivo como un servicio web nuevo o como un
 ### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Implementación del experimento predictivo como servicio web nuevo
 Una vez preparado el experimento predictivo, puede implementarlo como servicio web de Azure nuevo. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
 
-Para implementar un experimento predictivo, haga clic en la opción **Ejecutar** de la parte inferior del lienzo del experimento. Cuando el experimento haya terminado de ejecutarse, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [[New]]** (Implementar servicio web [nuevo]).  Se abrirá la página de implementación del portal Servicios web Machine Learning.
+Para implementar un experimento predictivo, haga clic en la opción **Ejecutar** de la parte inferior del lienzo del experimento. Cuando el experimento haya terminado de ejecutarse, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]).  Se abrirá la página de implementación del portal Servicios web Machine Learning.
 
 > [!NOTE] 
 > Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md). 
@@ -187,7 +187,7 @@ Una opción para actualizar el servicio web es volver a entrenar el modelo media
 [Crear un experimento de entrenamiento]: #create-a-training-experiment
 [Convertirlo en un experimento predictivo]: #convert-the-training-experiment-to-a-predictive-experiment
 [Implementación como un servicio web]: #deploy-it-as-a-web-service
-[[New]]: #deploy-the-predictive-experiment-as-a-new-web-service
+[New]: #deploy-the-predictive-experiment-as-a-new-web-service
 [clásico]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
