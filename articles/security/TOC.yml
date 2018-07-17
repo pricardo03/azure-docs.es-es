@@ -218,11 +218,10 @@
           href: ./blueprints/uknhs-iaaswa-overview.md
         - name: Aplicación web PaaS
           href: ./blueprints/uknhs-paaswa-overview.md
-    - name: UK-OFFICIAL
-      href: ./blueprints/uk-official-three-tier-applications-overview.md
+    - name: OFICIAL EN EL REINO UNIDO
       items:
-        - name: Información general acerca de los principios
-          href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
+        - name: Aplicación web de IaaS
+          href: ./blueprints/ukofficial-iaaswa-overview.md
     - name: Datos de mantenimiento y de AI de HIPAA/HITRUST
       href: ./blueprints/azure-health.md
 - name: Notas del producto

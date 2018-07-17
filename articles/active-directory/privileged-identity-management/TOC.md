@@ -42,9 +42,9 @@
 ### [Iniciar una revisión de acceso](pim-resource-roles-start-access-review.md)
 ### [Acabar una revisión de acceso](pim-resource-roles-complete-access-review.md)
 
-# Preguntas más frecuentes
-## PIM para roles de recurso
-### [Tipos de asignación](pim-resource-roles-eligible-visibility.md)
+# Conceptos
+## [Tipos de asignación](pim-resource-roles-eligible-visibility.md)
+## [Notificaciones por correo electrónico](pim-email-notifications.md)
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
