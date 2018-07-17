@@ -32,11 +32,6 @@
 ### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java](iot-hub-java-java-device-management-getstarted.md)
 ### [Python](iot-hub-python-python-device-management-get-started.md)
-## Uso de trabajos de dispositivos para actualizar el firmware del dispositivo
-### [Node.js](iot-hub-node-node-firmware-update.md)
-### [.NET](iot-hub-csharp-csharp-firmware-update.md)
-### [Java](iot-hub-java-java-firmware-update.md)
-### [Python](iot-hub-python-python-firmware-update.md)
 
 ### [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
 
@@ -180,11 +175,6 @@
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java](iot-hub-java-java-direct-methods.md)
 #### [Python](iot-hub-python-python-direct-methods.md)
-### Uso de propiedades gemelas
-#### [Node.js](iot-hub-node-node-twin-how-to-configure.md)
-#### [.NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
-#### [Java](iot-hub-java-java-twin-how-to-configure.md)
-#### [Python](iot-hub-python-python-twin-how-to-configure.md)
 ### Programación y difusión de trabajos
 #### [Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [.NET](iot-hub-csharp-csharp-schedule-jobs.md)
