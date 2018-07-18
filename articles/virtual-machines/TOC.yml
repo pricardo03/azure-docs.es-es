@@ -1,0 +1,26 @@
+- name: Documentación de Virtual Machines
+  href: index.md
+- name: Linux Virtual Machines en Azure
+  href: linux/overview.md
+- name: Windows Virtual Machines en Azure
+  href: windows/overview.md
+- name: Documentación sobre las extensiones de máquina virtual
+  href: extensions/overview.md
+- name: Cargas de trabajo
+  items:
+    - name: Oracle
+      href: workloads/oracle/oracle-considerations.md
+    - name: SAP
+      href: workloads/sap/get-started.md
+- name: Implementaciones clásicas
+  items:
+    - name: Máquinas virtuales con Linux mediante la implementación clásica
+      href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+    - name: Máquinas virtuales con Windows mediante la implementación clásica
+      href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'

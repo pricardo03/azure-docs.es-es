@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: f5ca579b446e5d3608d53cea73fa9392cd00db06
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4c45bc76c176ce9f2476f6a666afda1daf4cd9c5
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749936"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Pila de comunicación basada en WCF de Reliable Services
 El marco de Reliable Services permite a los autores de servicio elegir la pila de comunicación que desean usar para su servicio. Pueden conectar la pila de comunicaciones que deseen mediante la clase **ICommunicationListener** devuelta desde los métodos [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) . El marco proporciona una implementación de la pila de comunicación basada en Windows Communication Foundation (WCF) para los autores de servicio que desean usar la comunicación basada en WCF.
@@ -125,5 +126,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 ## <a name="next-steps"></a>Pasos siguientes
 * [Llamada a procedimiento remoto con la comunicación remota de Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Web API con OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)
+* [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
 

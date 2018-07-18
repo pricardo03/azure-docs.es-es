@@ -1,24 +1,25 @@
 ---
-title: "Solución de problemas y diagnóstico de errores: Azure Logic Apps | Microsoft Docs"
-description: "Comprender cómo y por qué se producirá un error en las aplicaciones lógicas"
+title: 'Solución de problemas y diagnóstico de errores: Azure Logic Apps | Microsoft Docs'
+description: Comprender cómo y por qué se producirá un error en las aplicaciones lógicas
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: de706f711e9c57b2e575d130a2a0cfd0bdc907a1
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298797"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Solución de problemas y diagnóstico de errores en las aplicaciones lógicas
 
@@ -41,7 +42,7 @@ Cada aplicación lógica se inicia con un desencadenador. Si no se activa el des
 
    Estos son los estados posibles de un intento de desencadenador:
 
-   | Estado | Descripción | 
+   | Status | DESCRIPCIÓN | 
    | ------ | ----------- | 
    | **Correcto** | El desencadenador comprueba el punto de conexión y encuentra datos disponibles. Por lo general, un estado "activado" también aparece junto a este estado. Si no es así, la definición del desencadenador puede tener una condición o un comando `SplitOn` que no se ha cumplido. <p>Este estado puede aplicarse a un desencadenador manual, uno de periodicidad o uno de sondeo. Un desencadenador se puede ejecutar correctamente, pero la misma ejecución podría fallar cuando las acciones generan errores no controlados. | 
    | **Omitido** | El desencadenador comprueba el punto de conexión, pero no ha encontrado datos. | 
@@ -82,7 +83,7 @@ Cada desencadenador activado inicia una ejecución de flujo de trabajo. Puede re
 
    Estos son los estados posibles de una ejecución:
 
-   | Estado | Descripción | 
+   | Status | DESCRIPCIÓN | 
    | ------ | ----------- | 
    | **Correcto** | Todas las acciones correctas. <p>Si se han producido errores en una acción específica, la acción siguiente en el flujo de trabajo es la que controla ese error. | 
    | **Erróneo** | Error en al menos una acción y ninguna de las acciones posteriores en el flujo de trabajo se ha configurado para controlar el error. | 
@@ -98,7 +99,7 @@ Cada desencadenador activado inicia una ejecución de flujo de trabajo. Puede re
 
    ![Visualización de los detalles de una ejecución de aplicación lógica](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Para examinar las entradas, salidas y los mensajes de error de un paso específico, seleccione ese paso para que la forma se expanda y muestre los detalles. Por ejemplo:
+3. Para examinar las entradas, salidas y los mensajes de error de un paso específico, seleccione ese paso para que la forma se expanda y muestre los detalles. Por ejemplo: 
 
    ![Visualización de los detalles del paso](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

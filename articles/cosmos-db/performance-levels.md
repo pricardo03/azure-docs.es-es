@@ -4,21 +4,18 @@ description: Obtenga información acerca de los niveles de rendimiento S1, S2 y 
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e565f4ee4d25afb29627e6beca99fd2998cd6396
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d1bb7551e6dfb6c42853ab95096f17f5285c69c1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796655"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retirada de los niveles de rendimiento S1, S2 y S3
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 04/06/2018
 > Los niveles de rendimiento S1, S2 y S3 descritos en este artículo se han retirado y ya no están disponibles para las nuevas cuentas de Azure Cosmos DB.
 >
 
-En este artículo se proporciona información general de los niveles de rendimiento S1, S2 y S3, y se describe cómo se migrarán las colecciones que usan estos niveles de rendimiento a colecciones de partición única a finales de 2017. Después de leer este artículo, podrá responder a las preguntas siguientes:
+En este artículo se proporciona información general de los niveles de rendimiento S1, S2 y S3, y se describe cómo se pueden migrar las colecciones que usan estos niveles de rendimiento a colecciones de partición única. Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 - [¿Por qué se han retirado los niveles de rendimiento S1, S2 y S3?](#why-retired)
 - [¿Cómo se comparan las colecciones de partición única y con particiones con los niveles de rendimiento S1, S2 y S3?](#compare)
@@ -35,7 +32,6 @@ En este artículo se proporciona información general de los niveles de rendimie
 - [¿Cómo cambiará mi facturación después migrar a colecciones de partición única?](#billing-change)
 - [¿Qué ocurre si necesito más de 10 GB de almacenamiento?](#more-storage-needed)
 - [¿Puedo cambiar entre los niveles de rendimiento S1, S2 y S3 antes de la migración planeada?](#change-before)
-- [¿Cómo puedo saber cuándo ha migrado mi colección?](#when-migrated)
 - [¿Cómo migro de los niveles de rendimiento S1, S2 y S3 a las colecciones de partición única por mí mismo?](#migrate-diy)
 - [¿Cómo me afecta si soy un cliente de EA?](#ea-customer)
 
@@ -64,25 +60,23 @@ En la tabla siguiente se comparan las opciones de rendimiento y almacenamiento d
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>¿Qué tengo que hacer para garantizar el acceso ininterrumpido a mis datos?
 
-Nada, Cosmos DB se ocupa de la migración por usted. Si tiene una colección de S1, S2 o S3, se migrará a una colección de partición única a finales de 2017. 
+Si tiene una colección S1, S2 o S3, debe migrar la colección a una sola colección de particiones mediante programación [mediante el SDL de .NET](#migrate-diy). 
 
 <a name="collection-change"></a>
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>¿Cómo cambiará mi colección después de la migración?
 
-Si tiene una colección de S1, se migrará a una colección de partición única con un rendimiento de 400 RU/s. 400 RU/s es el rendimiento más bajo disponible con colecciones de partición única. Sin embargo, el costo de 400 RU/s en la colección de partición única es aproximadamente el mismo que con la colección de S1 y 250 RU/s, por lo que no pagará las 150 RU/s extra disponibles.
+Si tiene una colección de S1, puede migrar a una colección de partición única con un rendimiento de 400 RU/s. 400 RU/s es el rendimiento más bajo disponible con colecciones de partición única. Sin embargo, el costo de 400 RU/s en la colección de partición única es aproximadamente el mismo que con la colección de S1 y 250 RU/s, por lo que no pagará las 150 RU/s extra disponibles.
 
-Si tiene una colección de S2, se migrará a una colección de partición única con 1000 RU/s. No verá ningún cambio en su nivel de rendimiento.
+Si tiene una colección de S2, puede migrar a una colección de partición única con 1 K RU/s. No verá ningún cambio en su nivel de rendimiento.
 
-Si tiene una colección de S3, se migrará a una colección de partición única con 2 500 RU/s. No verá ningún cambio en su nivel de rendimiento.
+Si tiene una colección de S3, puede migrar a una colección de partición única con 2 2,5 K RU/s. No verá ningún cambio en su nivel de rendimiento.
 
-En todos estos casos, después de migrar la colección, podrá personalizar el nivel de rendimiento o escalar y reducir verticalmente según sea necesario para proporcionar un acceso de baja latencia a los usuarios. Para cambiar el nivel de rendimiento después de migrar la colección, abra su cuenta de Cosmos DB en Azure Portal, haga clic en Escala, elija la colección y ajuste el nivel de rendimiento, como se muestra en la siguiente captura de pantalla:
-
-![Escalado del rendimiento en Azure Portal](./media/performance-levels/portal-scale-throughput.png)
+En todos estos casos, después de migrar la colección, podrá personalizar el nivel de rendimiento o escalar y reducir verticalmente según sea necesario para proporcionar un acceso de baja latencia a los usuarios. 
 
 <a name="billing-change"></a>
 
-## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>¿Cómo cambiará mi facturación después migrar a colecciones de partición única?
+## <a name="how-will-my-billing-change-after-i-migrated-to-the-single-partition-collections"></a>¿Cómo cambiará mi facturación después migrar a colecciones de partición única?
 
 Supongamos que tiene 10 colecciones S1 en la región Este de EE. UU. y 1 GB de almacenamiento para cada una, y las migra a 10 recopilaciones de partición única a 400 RU/seg. (el nivel mínimo). Su factura tendrá el siguiente aspecto si mantiene las 10 colecciones de partición única un mes completo:
 
@@ -92,55 +86,23 @@ Supongamos que tiene 10 colecciones S1 en la región Este de EE. UU. y 1 GB de a
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>¿Qué ocurre si necesito más de 10 GB de almacenamiento?
 
-Independientemente de si tiene una colección con un nivel de rendimiento S1, S2 o S3, o si tiene una colección de partición única, todos con 10 GB de almacenamiento disponibles, puede utilizar la herramienta de migración de datos de Cosmos DB para migrar los datos a una colección con particiones, con un almacenamiento prácticamente ilimitado. Para más información acerca de las ventajas de una colección con particiones, consulte el tema sobre [particiones y escalado en Azure Cosmos DB](sql-api-partition-data.md). 
+Independientemente de si tiene una colección con un nivel de rendimiento S1, S2 o S3, o si tiene una colección de partición única, todos con 10 GB de almacenamiento disponibles, puede utilizar la herramienta de migración de datos de Azure Cosmos DB para migrar los datos a una colección con particiones, con un almacenamiento prácticamente ilimitado. Para más información acerca de las ventajas de una colección con particiones, consulte el tema sobre [particiones y escalado en Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
 ## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>¿Puedo cambiar entre los niveles de rendimiento S1, S2 y S3 antes de la migración planeada?
 
-Solo las cuentas existentes con los niveles S1, S2 y S3 podrán cambiar y modificar los niveles de rendimiento con el portal o mediante programación. Si cambia de S1, S3 o S3 a una colección de partición única, no puede volver a los niveles de rendimiento S1, S2 o S3.
-
-<a name="when-migrated"></a>
-
-## <a name="how-will-i-know-when-my-collection-has-migrated"></a>¿Cómo puedo saber cuándo ha migrado mi colección?
-
-La migración se producirá a finales de 2017. Si tiene una colección que usa los niveles de rendimiento S1, S2 o S3, el equipo de Cosmos DB se comunicará con usted por correo electrónico antes de realizar la migración. Una vez completada, Azure Portal indicará que su colección utiliza el plan de tarifa Estándar.
-
-![Procedimientos para confirmar que la colección se ha migrado al plan de tarifa Estándar](./media/performance-levels/portal-standard-pricing-applied.png)
+Solo las cuentas existentes con los niveles de rendimiento S1, S2 y S3 pueden cambiar y modificar los niveles de rendimiento mediante programación [con el SDK de .NET](#migrate-diy). Si cambia de S1, S3 o S3 a una colección de partición única, no puede volver a los niveles de rendimiento S1, S2 o S3.
 
 <a name="migrate-diy"></a>
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>¿Cómo migro de los niveles de rendimiento S1, S2 y S3 a las colecciones de partición única por mí mismo?
 
-Puede migrar de los niveles de rendimiento S1, S2 y S3 a colecciones de partición única con Azure Portal o mediante programación. Puede hacerlo por sí mismo antes de la migración planeada para beneficiarse de las opciones de rendimiento flexible disponibles con colecciones de partición única, o bien se migrarán las colecciones por usted a finales de 2017.
+Puede migrar de los niveles de rendimiento S1, S2 y S3 a colecciones de partición única mediante programación [con el SDK de .NET](#migrate-diy). Puede hacerlo por sí mismo antes de la migración planeada para beneficiarse de las opciones de rendimiento flexible disponibles con colecciones de partición única.
 
-**Para migrar a las colecciones de partición única con Azure Portal**
+### <a name="migrate-to-single-partition-collections-by-using-the-net-sdk"></a>Migración a colecciones de partición única con el SDK de .NET
 
-1. En [**Azure Portal**](https://portal.azure.com), haga clic en **Azure Cosmos DB** y seleccione la cuenta de Cosmos DB que se va a modificar. 
- 
-    Si **Azure Cosmos DB** no está en la barra de accesos, haga clic en >, vaya a **Bases de datos**, seleccione **Azure Cosmos DB** y luego seleccione la cuenta.  
-
-2. En el menú de recursos, en **Contenedores**, haga clic en **Escala**, seleccione la colección que desea modificar en la lista desplegable y luego haga clic en **Plan de tarifa**. Las cuentas con un rendimiento predefinido tienen un plan de tarifa de S1, S2 o S3.  En la página **Elegir un plan de tarifa**, haga clic en **Estándar** para cambiar la capacidad de rendimiento definida por el usuario y en **Seleccionar** para guardar el cambio.
-
-    ![Captura de pantalla de la página Configuración que muestra dónde cambiar el valor de rendimiento](./media/performance-levels/change-performance-set-thoughput.png)
-
-3. En la página **Escala**, el **plan de tarifa** cambia a **Estándar** y el cuadro **Rendimiento (unidades de solicitud por segundo)** se muestra con un valor predeterminado de 400. Establezca el rendimiento entre 400 y 10 000 [unidades de solicitud](request-units.md)/segundo (RU/s). La opción **Factura mensual estimada** en la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del costo mensual. 
-
-    >[!IMPORTANT] 
-    > Cuando haya guardado los cambios y cambiado al plan de tarifa Estándar, no podrá revertir a los niveles de rendimiento S1, S2 o S3.
-
-4. Haga clic en **Guardar** para guardar los cambios.
-
-    Si cree que necesita más rendimiento (más de 10 000 RU/s) o espacio de almacenamiento (más de 10 GB), puede crear una colección con particiones. Para migrar una colección de partición única a una colección con particiones, consulte [Migración desde colecciones de partición única a colecciones con varias particiones](sql-api-partition-data.md#migrating-from-single-partition).
-
-    > [!NOTE]
-    > El cambio de S1, S2 o S3 a Estándar puede tardar hasta dos minutos.
-    > 
-    > 
-
-**Para migrar a colecciones de partición única con el SDK de .NET**
-
-Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de los SDK de Azure Cosmos DB. En esta sección solo se trata el cambio del nivel de rendimiento de una colección mediante la [API de .NET de SQL](sql-api-sdk-dotnet.md), pero el proceso es similar para los demás SDK.
+En esta sección solo se trata el cambio del nivel de rendimiento de una colección mediante la [API de .NET de SQL](sql-api-sdk-dotnet.md), pero el proceso es similar para los demás SDK.
 
 A continuación se muestra un fragmento de código para cambiar el rendimiento de la colección a 5 000 unidades de solicitud por segundo:
     

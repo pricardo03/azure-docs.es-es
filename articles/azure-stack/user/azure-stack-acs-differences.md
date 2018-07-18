@@ -1,40 +1,40 @@
 ---
-title: 'Azure Stack Storage: Diferencias y consideraciones'
-description: Comprender las diferencias entre Azure Stack Storage y Azure Storage, junto con las consideraciones de implementación de Azure Stack.
+title: 'Almacenamiento de Azure Stack: Diferencias y consideraciones | Microsoft Docs'
+description: Comprender las diferencias entre el almacenamiento de Azure Stack Storage y Azure Storage, junto con las consideraciones de implementación de Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197817"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604467"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Diferencias y consideraciones
+# <a name="azure-stack-storage-differences-and-considerations"></a>Almacenamiento de Azure Stack: Diferencias y consideraciones
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Azure Stack Storage es el conjunto de servicios de almacenamiento en la nube de Microsoft Azure Stack. Azure Stack Storage proporciona blob, tabla, cola y funcionalidad de administración de cuenta con una semántica coherente de Azure.
+El almacenamiento de Azure Stack es el conjunto de servicios de almacenamiento en la nube de Microsoft Azure Stack. El almacenamiento de Azure Stack proporciona blob, tabla, cola y funcionalidad de administración de cuenta con una semántica coherente de Azure.
 
-En este artículo se resumen las diferencias entre Azure Stack Storage y los servicios de Azure Storage. También se muestran los aspectos que se deben tener en cuenta al implementar Azure Stack. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el tema [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
+En este artículo se resumen las diferencias entre Azure Stack Storage y los servicios de Azure Storage. También se muestran los aspectos que se deben tener en cuenta al implementar Azure Stack. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el tema [Consideraciones clave](azure-stack-considerations.md).
 
 ## <a name="cheat-sheet-storage-differences"></a>Hoja de referencia rápida: Diferencias de almacenamiento
 
 | Característica | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Recursos compartidos de archivos SMB basado en la nube admitidos|Todavía no se admite
-|Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)|Cifrado de AES de 256 bits|Cifrado AES de 128 bits de BitLocker
+|Cifrado del servicio Azure Storage para datos en reposo|Cifrado de AES de 256 bits|Cifrado AES de 128 bits de BitLocker
 |Tipo de cuenta de almacenamiento|Cuentas de Azure Blob Storage y de uso general|Solo para uso general.
 |Opciones de replicación|Almacenamiento con redundancia local, almacenamiento con redundancia geográfica, almacenamiento con redundancia geográfica con acceso de lectura y almacenamiento con redundancia de zona|Almacenamiento con redundancia local.
 |Premium Storage|Totalmente compatible|Se pueden aprovisionar, pero no hay límite de rendimiento o garantía.
@@ -81,7 +81,7 @@ API de administración de los servicios de Azure Storage:
 
 ## <a name="sdk-versions"></a>Versiones del SDK
 
-Las siguientes bibliotecas de cliente son compatibles con Azure Stack Storage:
+Las siguientes bibliotecas de cliente son compatibles con el almacenamiento de Azure Stack:
 
 | Biblioteca de cliente | Versión compatible de Azure Stack | Vínculo                                                                                                                                                                                                                                                                                                                                     | Especificación de punto de conexión       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|

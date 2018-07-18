@@ -9,21 +9,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 06e07d566afe64b55470f73e232cf45feccd47fb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050872"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidad de servicio de Azure Data Factory
 
 Este artículo le ayudará a comprender qué es la identidad de servicio de Data Factory y cómo funciona.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="overview"></a>Información general
 
@@ -38,7 +36,7 @@ La identidad de servicio de Data Factory beneficia a las dos características si
 
 La identidad de servicio de Data Factory se genera de la manera siguiente:
 
-- Cuando se crea una factoría de datos mediante **Azure Portal o PowerShell**, la identidad de servicio siempre se crea automáticamente desde la versión preliminar pública de ADF V2.
+- Cuando crea una factoría de datos mediante **Azure Portal o PowerShell**, la identidad de servicio siempre se creará automáticamente.
 - Cuando crea una factoría de datos mediante **SDK**, la identidad de servicio se creará solo si especifica "Identity = new FactoryIdentity()" en el objeto de la factoría para la creación. Vea el ejemplo que aparece en el [Inicio rápido de .NET: Crear una factoría de datos](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Cuando crea una factoría de datos mediante la **API de REST**, la identidad de servicio solo se creará si especifica la sección "identity" en el cuerpo de la solicitud. Vea el ejemplo que aparece en el [Inicio rápido de REST: Crear una factoría de datos](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 

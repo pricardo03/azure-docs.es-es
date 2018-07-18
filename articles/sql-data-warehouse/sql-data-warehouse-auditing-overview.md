@@ -10,20 +10,21 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e0072602586b5a1b873a3a6a0ff71a9d640ff29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34643505"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Azure SQL Data Warehouse
 
 Aprenda sobre la auditoría y cómo configurarla en Azure SQL Data Warehouse.
 
 ## <a name="what-is-auditing"></a>¿Qué es la auditoría?
-La auditoría de SQL Data Warehouse permite grabar los eventos de la base de datos en un registro de auditoría de una cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas. La auditoría de SQL Data Warehouse también se integra con Microsoft Power BI para realizar informes y análisis.
+La auditoría de SQL Data Warehouse permite grabar los eventos de la base de datos en un registro de auditoría de una cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 
-Las herramientas de auditoría posibilitan y facilitan la observancia de estándares reguladores pero no garantizan el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro de confianza de Azure</a>.
+Las herramientas de auditoría posibilitan y facilitan la observancia de estándares reguladores pero no garantizan el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 ## <a id="subheading-1"></a>Conceptos básicos de auditoría
 La auditoría de SQL Data Warehouse la permite que:
@@ -32,48 +33,123 @@ La auditoría de SQL Data Warehouse la permite que:
 * **Informar** sobre la actividad de la base de datos. Puede usar informes preconfigurados y un panel para empezar rápidamente con el informe de actividades y eventos.
 * **Analizar** informes. Puede buscar eventos sospechosos, actividades inusuales y tendencias.
 
-Puede configurar la auditoría para las categorías de eventos siguientes:
-
-**SQL sin formato** y **SQL parametrizado** para los que los registros de auditoría recopilados se clasifican como  
-
-* **Acceso a datos**
-* **Cambios de esquema (DDL)**
-* **Cambios de datos (DML)**
-* **Cuentas, roles y permisos (DCL)**
-* **Procedimiento almacenado**, **Inicio de sesión** y **Administración de transacciones**.
-
-Para cada categoría de eventos, las operaciones de **aciertos** y **errores** se configuran por separado.
-
-Para más información acerca de las actividades y eventos auditados, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Referencia de formato del registro de auditoría (descarga de archivo .doc)</a>.
-
 Los registros de auditoría se almacenan en su cuenta de almacenamiento de Azure. Puede definir un período de retención de registro de auditoría.
 
-Puede definir una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada. Una directiva de auditoría de servidor predeterminada se aplica a todas las bases de datos de un servidor que no tengan una directiva de auditoría de base de datos de reemplazo específica definida.
 
-Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferior"](sql-data-warehouse-auditing-downlevel-clients.md)
+## <a id="subheading-4"></a>Definir la directiva de auditoría de nivel de servidor frente la de nivel de base de datos
 
-## <a id="subheading-2"></a>Configuración de la auditoría para su base de datos
-1. Inicie <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+Puede definirse una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada:
+
+* Una directiva de servidor se **aplica a todas las bases de datos recién creadas** en el servidor.
+
+* Si la *auditoría de blobs de servidor* está habilitada, *se aplica siempre a la base de datos*. La base de datos se auditará, independientemente de la configuración de auditoría de la base de datos.
+
+* Habilitar la auditoría en la base de datos, además de en el servidor, *no* invalidará ni cambiará ninguna de las opciones de la auditoría del servidor de blobs. Ambas auditorías existirán en paralelo. En otras palabras, la base de datos se auditará dos veces en paralelo; una vez por la directiva de servidor y otra vez por la directiva de base de datos.
+
+> [!NOTE]
+> Se recomienda habilitar solo la **auditoría de blobs de nivel de servidor** y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
+> Debe habilitar tanto la auditoría de servidor como la auditoría de base de datos, a menos que:
+> * Quiera usar una *cuenta de almacenamiento* o un *período de retención* diferentes para una base de datos específica.
+> * Quiera auditar tipos de eventos o categorías para una base de datos específica que difieren del resto de las bases de datos del servidor. Por ejemplo, es posible que tenga inserciones de tabla que solo tengan que deban auditarse para una base de datos concreta.
+> * Desea utilizar la detección de amenazas, que actualmente solo es compatible con la auditoría de nivel de base de datos.
+>
+
+
+## <a id="subheading-5"></a>Configuración de la auditoría de nivel de servidor para todas las bases de datos
+
+Una directiva de auditoría de servidor se aplica a **todas las bases de datos recién creadas** en un servidor.
+
+En la sección siguiente se describe la configuración de auditoría mediante Azure Portal.
+
+1. Vaya a [Azure Portal](https://portal.azure.com).
+2. Vaya al **servidor de SQL** que desea auditar (importante, asegúrese de que está viendo el servidor SQL, no una base de datos/DW específica). En el menú **Seguridad**, seleccione **Auditoría y detección de amenazas**.
+
+    ![Panel de navegación][6]
+4. En la hoja *Auditoría y detección de amenazas*, en **Auditoría** seleccione **Activar**. Esta directiva de auditoría de servidor se aplicará a todas las bases de datos existentes y recién creadas en este servidor.
+
+    ![Panel de navegación][7]
+5. Para abrir la hoja **Almacenamiento de registros de auditoría**, seleccione **Detalles de almacenamiento**. Seleccione o cree la cuenta de Azure Storage donde se guardarán los registros y, después, seleccione el período de retención (los registros antiguos se eliminarán). A continuación, haga clic en **Aceptar**.
+
+    ![Panel de navegación][8]
+
+    > [!IMPORTANT]
+    > Los registros de auditoría de nivel de servidor se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure.
+    >
+    > * **Premium Storage** actualmente **no es compatible** con Append Blobs.
+    > * **El almacenamiento en VNet** actualmente **no se admite**.
+
+8. Haga clic en **Save**(Guardar).
+
+
+
+## <a id="subheading-2"></a>Configuración de la auditoría de nivel de base de datos para una base de datos única
+
+Puede definir una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada.
+
+Se recomienda encarecidamente utilizar la auditoría de nivel de servidor y no la auditoría de nivel de base de datos, tal como se describe en [Definición de la directiva de auditoría de nivel de servidor frente a la directiva de auditoría de nivel de base de datos](#subheading-4).
+
+Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferior"](sql-data-warehouse-auditing-downlevel-clients.md).
+
+
+1. Inicie [Azure Portal](https://portal.azure.com).
 2. Vaya a **Configuración** de la instancia de SQL Data Warehouse que quiere auditar. Seleccione **Auditoría y detección de amenazas**.
-   
+
     ![][1]
 3. A continuación, para habilitar la auditoría, haga clic en el botón **ACTIVADO** .
-   
+
     ![][3]
-4. En el panel de configuración de auditoría, seleccione **DETALLES DE ALMACENAMIENTO** para abrir el panel Almacenamiento de registros de auditoría. Seleccione la cuenta de Azure Storage donde se guardarán los registros y el período de retención. 
->[!TIP]
->Use la misma cuenta de almacenamiento para todas las bases de datos auditadas con el fin de obtener el máximo rendimiento de las plantillas de informes preconfiguradas.
-   
+4. En el panel de configuración de auditoría, seleccione **DETALLES DE ALMACENAMIENTO** para abrir el panel Almacenamiento de registros de auditoría. Seleccione la cuenta de Azure Storage donde se guardarán los registros y el período de retención.
+    >[!TIP]
+    >Use la misma cuenta de almacenamiento para todas las bases de datos auditadas con el fin de obtener el máximo rendimiento de las plantillas de informes preconfiguradas.
+
     ![][4]
+
 5. Haga clic en el botón **Aceptar** para guardar los detalles de configuración de almacenamiento.
 6. En **REGISTRO POR EVENTO**, haga clic en **CORRECTO** y **ERROR** para registrar todos los eventos, o elija categorías individuales de eventos.
 7. Si va a configurar la auditoría para una base de datos, puede que tenga que modificar la cadena de conexión del cliente para asegurarse de que los datos de auditoría se capturan correctamente. Consulte el tema [Modificación del FDQN de servidor en la cadena de conexión](sql-data-warehouse-auditing-downlevel-clients.md) sobre conexiones de cliente de nivel inferior.
 8. Haga clic en **OK**.
 
 ## <a id="subheading-3"></a>Análisis de registros e informes de auditoría
-Los registros de auditoría se agregan en una recopilación de tablas de Almacenamiento con el prefijo **SQLDBAuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver archivos de registro usando una herramienta como el <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Explorador de Azure Storage</a>.
 
-Hay una plantilla de informe de panel preconfigurada disponible como <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">hoja de cálculo de Excel descargable</a> para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede descargar <a href="http://www.microsoft.com/download/details.aspx?id=39379">aquí</a>.
+###<a name="server-level-policy-audit-logs"></a>Registros de auditoría de la directiva de nivel de servidor
+Los registros de auditoría de nivel de servidor se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure. Se guardan como una colección de archivos de blob dentro de un contenedor llamado **sqldbauditlogs**.
+
+Para obtener más información sobre la jerarquía de la carpeta de almacenamiento, las convenciones de nomenclatura y el formato del registro, vea la [referencia del formato de registro de auditoría de blobs](https://go.microsoft.com/fwlink/?linkid=829599).
+
+Existen varios métodos que puede usar para ver los registros de auditoría de blobs:
+
+* Use **Combinar archivos de auditoría** en SQL Server Management Studio (a partir de SSMS 17):
+    1. En el menú SSMS, seleccione **Archivo** > **Abrir** > **Combinar archivos de auditoría**.
+
+    2. Se abre el cuadro de diálogo **Agregar archivos de auditoría**. Seleccione una de las opciones **Agregar** para elegir si quiere combinar los archivos de auditoría desde un disco local o importarlos desde Azure Storage. Debe proporcionar los detalles de Azure Storage y la clave de cuenta.
+
+    3. Una vez agregados todos los archivos que se van a combinar, haga clic en **Aceptar** para completar la operación de combinación.
+
+    4. El archivo combinado se abre en SSMS, donde puede verlo y analizarlo, y también exportarlo a un archivo XEL o CSV, o a una tabla.
+
+* Use la [aplicación de sincronización](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que hemos creado. Se ejecuta en Azure y usa las API públicas de Log Analytics para insertar los registros de auditoría SQL en Log Analytics. La aplicación de sincronización inserta los registros de auditoría SQL en Log Analytics para su consumo mediante el panel de Log Analytics.
+
+* Use Power BI. Puede ver y analizar los datos de registro de auditoría en Power BI. Obtenga más información sobre [Power BI y tenga acceso a una plantilla que se puede descargar](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+
+* Descargue los archivos de registro del contenedor de blobs de Azure Storage mediante el portal o con una herramienta como el [Explorador de Azure Storage](http://storageexplorer.com/).
+    * Después de descargar localmente un archivo de registro, puede hacer doble clic en él para abrir, ver y analizar los registros en SSMS.
+    * También puede descargar varios archivos al mismo tiempo a través del Explorador de Azure Storage. Haga clic con el botón derecho en una subcarpeta específica y seleccione **Guardar como** para guardar en una carpeta local.
+
+* Otros métodos:
+   * Después de descargar varios archivos o una subcarpeta que contenga archivos de registro, puede combinarlos localmente como se describe en las instrucciones anteriores para combinar archivos de auditoría de SSMS.
+
+   * Ver los registros de auditoría de blobs mediante programación:
+
+     * Use la biblioteca de C# de [lector de eventos extendidos](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/).
+     * [Consulta de archivos de eventos extendidos](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) mediante PowerShell.
+
+
+
+<br>
+###<a name="database-level-policy-audit-logs"></a>Registros de auditoría de la directiva de nivel de base de datos
+Los registros de auditoría de nivel de servidor se agregan en una recopilación de tablas de Almacenamiento con el prefijo **SQLDBAuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver archivos de registro usando una herramienta como el [Explorador de Azure Storage](http://azurestorageexplorer.codeplex.com).
+
+Hay una plantilla de informe de panel preconfigurada disponible como [hoja de cálculo de Excel descargable](http://go.microsoft.com/fwlink/?LinkId=403540) para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede [descargar aquí](http://www.microsoft.com/download/details.aspx?id=39379).
 
 La plantilla contiene datos de ejemplo ficticios y puede configurar Power Query para importar el registro de auditoría directamente desde la cuenta de almacenamiento de Azure.
 
@@ -84,7 +160,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
    ![][4]
 2. Vaya al panel de configuración de almacenamiento y **vuelva a generar** la *clave de acceso principal*.
-3. Vuelva al panel de configuración de auditoría, 
+3. Vuelva al panel de configuración de auditoría,
 4. cambie el valor de **Clave de acceso de almacenamiento** de *Secundaria* a *Principal* y presione **GUARDAR**.
 4. Vuelva a la interfaz de usuario de almacenamiento y **regenere** la *Clave de acceso secundaria* (como preparación para el siguiente ciclo de actualización de las claves).
 
@@ -128,7 +204,8 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 [Database Auditing basics]: #subheading-1
 [Set up auditing for your database]: #subheading-2
 [Analyze audit logs and reports]: #subheading-3
-
+[Define server-level vs. database-level auditing policy]: #subheading-4
+[Set up server-level auditing for all databases]: #subheading-5
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing.png
@@ -136,5 +213,6 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 [3]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-enable.png
 [4]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-storage-account.png
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
-
-
+[6]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-server_1_overview.png
+[7]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-server_2_enable.png
+[8]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-server_3_storage.png

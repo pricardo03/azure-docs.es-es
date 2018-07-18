@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 767b0e76b73c082ddb75374f51700b85272f713e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 13b4dc6e49c67ae9fd880ab64880966835242dec
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923423"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la replicación de máquinas virtuales de Hyper-V en un sitio secundario
 
@@ -25,7 +26,7 @@ En este artículo se resumen las características que son compatibles cuando usa
 
 ## <a name="host-servers"></a>Servidores host
 
-**Sistema operativos** | **Detalles**
+**Sistema operativo** | **Detalles**
 --- | ---
 Windows Server 2012 R2 | Los servidores deben ejecutar las actualizaciones más recientes.
 Windows Server 2016 |  Actualmente, no se admiten las nubes VMM 2016 que combinan hosts de Windows Server 2016 y 2012 R2.<br/><br/> Actualmente no se admiten las implementaciones que se actualizaron de System Center 2012 R2 VMM 2012 R2 a System Center 2016.

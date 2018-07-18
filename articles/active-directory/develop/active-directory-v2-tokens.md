@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164465"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316675"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referencia de tokens de Azure Active Directory v2.0
 El punto de conexión de Azure Active Directory (Azure AD) v2.0 emite varios tipos de tokens de seguridad en cada [flujo de autenticación](active-directory-v2-flows.md). Esta referencia describe el formato, las características de seguridad y el contenido de cada tipo de token.
@@ -95,8 +95,7 @@ Cuando se canjea un token de actualización por un nuevo token de acceso (y si s
 ## <a name="validating-tokens"></a>Validación de los tokens
 En este momento, la única validación de tokens que deberían realizar las aplicaciones es la validación de tokens de identificador. Para validar un token de identificador, la aplicación debe validar tanto la firma del token de identificador como las notificaciones en el token de identificador.
 
-<!-- TODO: Link -->
-Microsoft proporciona bibliotecas y ejemplos de código que le muestran cómo controlar fácilmente la validación de token. En las secciones siguientes, se describe el proceso subyacente. Varias bibliotecas de código abierto de terceros también están disponibles para validación de JWT. Hay al menos una opción de biblioteca para casi cualquier plataforma y lenguaje.
+<!-- TODO: Link --> Microsoft proporciona bibliotecas y ejemplos de código que le muestran cómo controlar fácilmente la validación de token. En las secciones siguientes, se describe el proceso subyacente. Varias bibliotecas de código abierto de terceros también están disponibles para validación de JWT. Hay al menos una opción de biblioteca para casi cualquier plataforma y lenguaje.
 
 ### <a name="validate-the-signature"></a>validar la firma
 Un JWT contiene tres segmentos, que están separados por el carácter `.` . El primer segmento se conoce como el *encabezado*, el segundo, como el *cuerpo*, y el tercero como la *firma*. El segmento de firma se puede usar para validar la autenticidad del token de identificador para que la aplicación pueda confiar en él.
@@ -113,7 +112,7 @@ Los tokens de identificador se firman con algoritmos de cifrado asimétrico est�
 
 La notificación `alg` indica el algoritmo que se usó para firmar el token. La notificación `kid` indica la clave pública que se usó para firmar el token.
 
-En cualquier momento, el punto de conexión v2.0 puede firmar un token de identificador mediante cualquiera de un determinado conjunto de pares de claves pública y privada. El punto de conexión v2.0 gira el conjunto de claves posible de manera periódica, por lo que la aplicación debería estar escrita de manera de controlar automáticamente esos cambios de clave. Una frecuencia razonable para comprobar las actualizaciones de las claves públicas que usa el punto de conexión v2.0 es cada 24 horas.
+El punto de conexión v2.0 firma los tokens de acceso e identificador mediante cualquiera de un determinado conjunto de pares de claves públicas y privadas. El punto de conexión v2.0 gira el conjunto de claves posible de manera periódica, por lo que la aplicación debería estar escrita de manera de controlar automáticamente esos cambios de clave. Una frecuencia razonable para comprobar las actualizaciones de las claves públicas que usa el punto de conexión v2.0 es cada 24 horas.
 
 Puede adquirir los datos de la clave de firma que necesita para validar la firma usando el documento de metadatos de OpenID Connect, ubicado en:
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > Pruebe la dirección URL en un explorador.
->
->
 
 Este documento de metadatos es un objeto JSON que tiene varias piezas útiles de información, como la ubicación de los diferentes puntos de conexión que se necesitan para la autenticación de OpenID Connect. El documento también incluye un *jwks_uri*, que ofrece la ubicación del conjunto de claves públicas que se usan para firmar los tokens. El documento JSON que se encuentra en el jwks_uri tiene toda la información de la clave pública que actualmente está en uso. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se usó en este documento para firmar un token. Luego realiza la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
+
+> [!NOTE]
+> La notificación `x5t` está en desuso en el punto de conexión v2.0. Le recomendamos que utilice la notificación `kid` para validar su token.
 
 Cómo se realiza la validación de la firma queda fuera del ámbito de este documento. Hay muchas bibliotecas de código abierto disponibles para ayudarle con esto.
 

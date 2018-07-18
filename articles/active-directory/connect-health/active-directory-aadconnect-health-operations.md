@@ -3,7 +3,7 @@ title: Operaciones de Azure Active Directory Connect Health
 description: Este artículo describe las operaciones adicionales que pueden realizarse una vez que haya implementado Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 68be732b2a375d1667c743ac277ce653c78105f1
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886876"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operaciones de Azure Active Directory Connect Health
 Este tema describe las distintas operaciones que se pueden realizar mediante Azure Active Directory (Azure AD) Connect Health.
@@ -121,7 +122,7 @@ Para permitir a un usuario acceder al nivel de *todas las instancias de servicio
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Paso 2: Agregar usuarios, grupos y asignar roles
 1. En la sección **Configurar**, haga clic en **Usuarios**.<br>
-   ![Captura de pantalla de la hoja principal del control de acceso basado en rol de Azure AD Connect Health, con usuarios resaltados](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Captura de pantalla de la barra lateral de recursos de Azure AD Connect Health](./media/active-directory-aadconnect-health/startRBAC.png)
 2. Seleccione **Agregar**.
 3. En el panel **Seleccionar rol**, seleccione un rol (por ejemplo, **Propietario**).<br>
    ![Captura de pantalla de la ventana Usuarios del control de acceso basado en rol de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)

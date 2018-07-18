@@ -11,6 +11,7 @@
 ### [Configuración con ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Configuración con PagerDuty](service-health-alert-webhook-pagerduty.md)
 ### [Configuración con OpsGenie](service-health-alert-webhook-opsgenie.md)
+### [Recuperación de eventos de mantenimiento con REST](service-health-rest.md)
 # Recursos
 ## [Preguntas más frecuentes](resource-health-faq.md)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)

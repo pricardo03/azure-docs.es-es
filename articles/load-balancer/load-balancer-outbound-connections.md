@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361954"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825006"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -141,7 +141,7 @@ Está preasignado el mismo número de puertos SNAT para UDP y TCP respectivament
 >[!IMPORTANT]
 >La programación SNAT de SKU estándar corresponde a cada protocolo de transporte IP y se deriva de la regla del equilibrio de carga.  Si solo existe una regla de equilibrio de carga de TCP, SNAT solo está disponible para TCP. Si tiene solo una regla de equilibrio de carga de TCP y necesita SNAT saliente para UDP, cree una regla de equilibrio de carga desde el mismo front-end al mismo grupo de back-end.  Con esto se desencadenará la programación de SNAT para UDP.  No se necesita una regla de trabajo ni un sondeo de estado.  El SNAT de SKU básico programa siempre SNAT para el protocolo de transporte de IP, con independencia del protocolo de transporte especificado en la regla del equilibrio de carga.
 
-Azure asigna previamente puertos SNAT a la configuración de IP de la NIC de cada máquina virtual. Cuando se agrega una configuración IP al grupo, los puertos SNAT se asignan previamente a esta configuración IP en función del tamaño del grupo de servidores back-end. Cuando se crean flujos de salida, [PAT](#pat) consume dinámicamente (hasta el límite asignado previamente) y libera estos puertos cuando el flujo se cierra o se [agota el tiempo de espera de inactividad](#ideltimeout).
+Azure asigna previamente puertos SNAT a la configuración de IP de la NIC de cada máquina virtual. Cuando se agrega una configuración IP al grupo, los puertos SNAT se asignan previamente a esta configuración IP en función del tamaño del grupo de servidores back-end. Cuando se crean flujos de salida, [PAT](#pat) consume dinámicamente (hasta el límite asignado previamente) y libera estos puertos cuando el flujo se cierra o se [agota el tiempo de espera de inactividad](#idletimeout).
 
 En la tabla siguiente se muestran las asignaciones previas de puertos SNAT para los niveles de tamaño de grupo de servidores back-end:
 

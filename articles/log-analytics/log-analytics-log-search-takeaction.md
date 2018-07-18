@@ -1,24 +1,26 @@
 ---
-title: "Acción de runbook de Azure Automation iniciada por el usuario en Log Analytics | Microsoft Docs"
-description: "En este artículo se describe cómo ejecutar un runbook de Automation desde un resultado de búsqueda de Log Analytics a petición."
+title: Acción de runbook de Azure Automation iniciada por el usuario en Log Analytics | Microsoft Docs
+description: En este artículo se describe cómo ejecutar un runbook de Automation desde un resultado de búsqueda de Log Analytics a petición.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: c59a32e1b2d460e04c4c6f5d1be2dd655abbef27
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 48e184206d9f1cf5b14c2e18b4ca1ed260d70161
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130223"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Realizar acciones con un runbook de Automation desde un resultado de búsqueda de registros de Log Analytics
 

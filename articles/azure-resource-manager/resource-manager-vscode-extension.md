@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
+ms.date: 05/22/2018
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f05b0baee3f11f498976377c69c38b3118f3c922
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 190d4713f5c84281bc2637fc0d8323a2dabf6f21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358666"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603770"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Uso de la extensión Visual Studio Code para crear plantillas de Azure Resource Manager
 En este artículo se muestran las ventajas de instalar y usar la extensión de herramientas de Azure Resource Manager en Visual Studio Code. Puede crear plantillas de Resource Manager en VS Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Sugiere funciones de plantilla, parámetros y variables que están disponibles en la plantilla.
@@ -171,7 +171,18 @@ Este artículo se basa en la plantilla que creó en [Creación e implementación
 
    ![Mostrar variables](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. Seleccione la variable **storageName**. Agregue el corchete de cierre. En el siguiente ejemplo se muestran la sección de salida:
+10. Seleccione la variable **storageName**. Ahora el código se parece a esto:
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. El código anterior no funcionará porque `reference` devuelve un objeto, pero el valor de salida está establecido en *string*. Debe especificar uno de los valores en ese objeto. La función de referencia se puede utilizar con cualquier tipo de recurso, por lo que VS Code no sugiere propiedades para el objeto. En su lugar, puede encontrar que un valor [devuelto para una cuenta de almacenamiento](/rest/api/storagerp/storageaccounts/getproperties) es `.primaryEndpoints.blob`. 
+
+   Agregue esa propiedad después del último paréntesis. Agregue el corchete de cierre. En el siguiente ejemplo se muestran la sección de salida:
 
    ```json
    "outputs": { 
@@ -181,7 +192,7 @@ Este artículo se basa en la plantilla que creó en [Creación e implementación
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -249,7 +260,7 @@ La plantilla final es:
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }
@@ -257,7 +268,7 @@ La plantilla final es:
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
-Está listo para implementar esta plantilla. Use PowerShell o la CLI de Azure para crear un grupo de recursos. Después, implemente una cuenta de almacenamiento en ese grupo de recursos.
+Ya está listo para implementar esta plantilla. Use PowerShell o la CLI de Azure para crear un grupo de recursos. Después, implemente una cuenta de almacenamiento en ese grupo de recursos.
 
 * Para PowerShell, use los siguientes comandos desde la carpeta que contenga la plantilla:
 

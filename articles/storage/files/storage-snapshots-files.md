@@ -5,7 +5,7 @@ services: storage
 documentationcenter: .net
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064479"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
@@ -45,12 +46,12 @@ En el nivel del recurso compartido de archivos se proporciona la funcionalidad d
 
 Una instantánea de recurso compartido de un recurso compartido de archivos es idéntica a su recurso compartido de archivos base. La única diferencia es que se anexa un valor **DateTime** al URI del recurso compartido para indicar el momento en que se tomó la instantánea de recurso compartido. Por ejemplo, si el URI de un recurso compartido de archivos es http://storagesample.core.file.windows.net/myshare, el URI de instantánea es similar a:
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Las instantáneas de recurso compartido se conservan hasta que se eliminan explícitamente. Una instantánea de recurso compartido no puede durar más que su recurso compartido de archivos base. Puede enumerar las instantáneas asociadas al recurso compartido de archivos base para llevar a cabo un seguimiento de las instantáneas actuales. 
 
-Cuando cree una instantánea de recurso compartido de un recurso compartido de archivos, los archivos que se encuentren en las propiedades del sistema del recurso compartido se copiarán en la instantánea de recurso compartido con los mismos valores. Los metadatos del recurso compartido de archivos y los archivos base también se copian en la instantánea de recurso compartido, a menos que especifique los metadatos independientes de la instantánea de recurso compartido al crearla.
+Cuando crea una instantánea de recurso compartido de un recurso compartido de archivos, los archivos que se encuentren en las propiedades del sistema del recurso compartido se copian en la instantánea de recurso compartido con los mismos valores. Los metadatos del recurso compartido de archivos y los archivos base también se copian en la instantánea de recurso compartido, a menos que especifique los metadatos independientes de la instantánea de recurso compartido al crearla.
 
 No puede eliminar un recurso compartido que disponga de instantáneas de recurso compartido sin eliminar todas sus instantáneas de recurso compartido primero.
 

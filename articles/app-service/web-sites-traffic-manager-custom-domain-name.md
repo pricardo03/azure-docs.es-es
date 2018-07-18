@@ -1,11 +1,11 @@
 ---
-title: "Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service que usa el Administrador de tráfico para el equilibrio de carga."
-description: "Use un nombre de dominio personalizado para un una aplicación web en Azure App Service que incluya el Administrador de tráfico para el equilibrio de carga."
+title: Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service que usa el Administrador de tráfico para el equilibrio de carga.
+description: Use un nombre de dominio personalizado para un una aplicación web en Azure App Service que incluya el Administrador de tráfico para el equilibrio de carga.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.service: app-service-web
 ms.workload: web
@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317397"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service utilizando el Administrador de tráfico
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]

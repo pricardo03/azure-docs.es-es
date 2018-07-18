@@ -1,11 +1,11 @@
 ---
-title: "Información general y conceptos clave de Azure API Management | Microsoft Docs"
-description: "Obtenga información acerca de las API, los productos, los roles, los grupos y otros conceptos clave de API Management."
+title: Información general y conceptos clave de Azure API Management | Microsoft Docs
+description: Obtenga información acerca de las API, los productos, los roles, los grupos y otros conceptos clave de API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,13 +14,14 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0410e0176d5c853e1110fe3460c7d9314e7fd397
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436018"
 ---
-# <a name="what-is-api-management"></a>¿Qué es Administración de API?
+# <a name="what-is-api-management"></a>¿Qué es API Management?
 
 API Management ayuda a las organizaciones a publicar API para desarrolladores externos, asociados e internos a fin de desbloquear el potencial de sus datos y servicios. Todas y cada una de las empresas pretenden extender sus operaciones como una plataforma digital creando nuevos canales, buscando nuevos clientes y estrechando la relación con los existentes. API Management proporciona las competencias esenciales para garantizar un programa de API de éxito mediante compromisos con desarrolladores, información detallada empresarial, análisis, seguridad y protección. Puede usar Azure API Management para tomar cualquier back-end e iniciar un programa de API completo basado en él.
 
@@ -28,7 +29,7 @@ Este artículo proporciona información general de escenarios comunes que implic
 
 ## <a name="overview"></a>Información general
 
-Para usar Administración de API, los administradores crean API. Cada API consta de una o varias operaciones y se puede agregar a uno o varios productos. Para usar una API, los desarrolladores se suscriben a un producto que contiene esa API y después pueden llamar a la operación de la API cumpliendo cualquier directiva de uso que pueda estar en vigor. Entre los escenarios habituales se incluyen los siguientes:
+Para usar API Management, los administradores crean API. Cada API consta de una o varias operaciones y se puede agregar a uno o varios productos. Para usar una API, los desarrolladores se suscriben a un producto que contiene esa API y después pueden llamar a la operación de la API cumpliendo cualquier directiva de uso que pueda estar en vigor. Entre los escenarios habituales se incluyen los siguientes:
 
 * **Protección de la infraestructura móvil** mediante el control de acceso con claves de API, la prevención de ataques de denegación de servicio mediante la limitación o el uso de directivas de seguridad avanzadas como la validación de tokens JWT.
 * **Habilitación de los ecosistemas de asociados de fabricantes de software independiente** mediante la oferta de una incorporación rápida de asociados a través del portal para desarrolladores y la creación de una fachada de API para desacoplar desde implementaciones internas que no son adecuada para el consumo de los asociados.
@@ -58,14 +59,14 @@ El sistema consta de los siguientes componentes:
   * crear una cuenta y suscribirse para obtener claves de API
   * obtener acceso a análisis sobre su propio uso
 
-Para obtener más información, consulte las notas del producto en PDF [Administración de API basadas en la nube: aprovechamiento de la capacidad de las API](http://j.mp/ms-apim-whitepaper) . Estas notas del producto introductorias sobre la administración de API por CITO Research cubren: 
+Para más información, consulte las notas del producto en PDF [API Management basada en la nube: aprovechamiento de la capacidad de las API](http://j.mp/ms-apim-whitepaper). Estas notas del producto introductorias sobre la administración de API por CITO Research cubren: 
  
  * Desafíos y requisitos comunes de API
  * Desacoplamiento de API y presentación de fachadas
  * Puesta en marcha de los desarrolladores rápidamente
  * Protección de acceso
  * Análisis y métricas
- * Obtención de control e información con una plataforma de administración de API
+ * Obtención de control e información con una plataforma de API Management
  * Uso de soluciones de nube frente a locales
  * Azure API Management
  
@@ -74,7 +75,7 @@ Las API son el fundamento de una instancia del servicio Administración de API. 
 
 Para más información, consulte [Creación de API][How to create APIs] e [Incorporación de operaciones a una API][How to add operations to an API].
 
-## <a name="products"></a> Productos
+## <a name="products"> </a> Productos
 Los productos son la forma de presentar las API a los desarrolladores. Los productos en Administración de API tienen una o varias API y se configuran con un título, una descripción y términos de uso. Los productos pueden ser de tipo **Abierto** o **Protegido**. Para poder usar los productos protegidos es necesario suscribirse antes a ellos, mientras que los productos abiertos pueden usarse sin suscripción. Cuando un producto está preparado para que lo usen los desarrolladores, se puede publicar. Una vez publicado, los desarrolladores pueden verlo (y, en el caso de los productos protegidos, suscribirse a él). La aprobación de la suscripción se configura en el ámbito de producto y puede requerir la aprobación del administrador o aprobarse automáticamente.
 
 Los grupos se usan para administrar la visibilidad de productos a los desarrolladores. Los productos conceden visibilidad a los grupos y los desarrolladores pueden ver los productos visibles a los grupos a los que pertenecen y suscribirse a ellos. 
@@ -90,14 +91,14 @@ Además de estos grupos del sistema, los administradores pueden crear grupos per
 
 Para más información, consulte [Creación y uso de grupos][How to create and use groups].
 
-## <a name="developers"></a> Desarrolladores
-Los desarrolladores representan las cuentas de usuario de una instancia del servicio Administración de API. Los desarrolladores pueden ser creados por administradores o invitados por estos y también pueden suscribirse desde el [Portal para desarrolladores][Developer portal]. Cada desarrollador es un miembro de uno o varios grupos y se puede suscribir a los productos que conceden visibilidad a dichos grupos.
+## <a name="developers"> </a> Desarrolladores
+Los desarrolladores representan las cuentas de usuario de una instancia del servicio API Management. Los desarrolladores pueden ser creados por administradores o invitados por estos y también pueden suscribirse desde el [Portal para desarrolladores][Developer portal]. Cada desarrollador es miembro de uno o varios grupos y se puede suscribir a los productos que conceden visibilidad a esos grupos.
 
 Cuando los desarrolladores se suscriben a un producto, se les concede la clave principal y secundaria para dicho producto. Esta clave se usa cuando se realizan llamadas en las API del producto.
 
 Para más información, consulte [Creación o invitación de desarrolladores][How to create or invite developers] y [Asociación de grupos a desarrolladores][How to associate groups with developers].
 
-## <a name="policies"></a> Directivas
+## <a name="policies"> </a> Directivas
 Las directivas son una eficaz funcionalidad de API Management que permite a Azure Portal cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir el número de llamadas entrantes de un desarrollador, pero también hay muchas otras directivas disponibles.
 
 Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de API Management, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) y [Establecer variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) se basan en expresiones de directiva. Para más información, consulte [Directivas avanzadas](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) y [Expresiones de directiva](https://msdn.microsoft.com/library/azure/dn910913.aspx).
@@ -106,12 +107,12 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 Para obtener una lista completa de las directivas de API Management, consulte [Referencia de la directiva][Policy reference]. Para más información acerca del uso y la configuración de directivas, consulte [Directivas de API Management][API Management policies]. Para ver un tutorial sobre la creación de un producto con directivas de cuota y límite de tasas, consulte [Creación y definición de configuraciones de productos avanzadas][How create and configure advanced product settings].
 
 
-## <a name="developer-portal"></a> Portal para desarrolladores
+## <a name="developer-portal"> </a> Portal para desarrolladores
 El portal para desarrolladores es el lugar en el que los desarrolladores pueden aprender acerca de sus API, ver operaciones y llamarlas y suscribirse a productos. Los clientes potenciales pueden visitar el portal para desarrolladores, ver API y operaciones y suscribirse. La dirección URL del portal para desarrolladores se encuentra en Azure Portal para la instancia del servicio API Management.
 
 Puede personalizar el aspecto y apariencia del portal para desarrolladores agregando contenido personalizado, personalizando estilos e incorporando su toque diferenciador.
 
-## <a name="api-management-and-the-api-economy"></a>Administración de API y la economía de la API
+## <a name="api-management-and-the-api-economy"></a>API Management y la economía de la API
 
 Para más información acerca de API Management, vea la siguiente presentación de la conferencia Microsoft Ignite 2017.
 

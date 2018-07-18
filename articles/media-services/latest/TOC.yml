@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: Con REST
           href: stream-files-tutorial-with-rest.md
+    - name: Streaming en vivo
+      items:
+        - name: Con .NET Core
+          href: stream-live-tutorial-with-api.md
     - name: Análisis del vídeo
       items:
         - name: Con .NET
@@ -24,19 +28,25 @@
 - name: Ejemplos
   items:
     - name: Ejemplos de código de Azure
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure CLI
       href: cli-samples.md
 - name: Conceptos
   items:
     - name: Recursos
       href: assets-concept.md
+    - name: Protección de contenido
+      items:
+        - name: Información general
+          href: content-protection-overview.md
     - name: Encoding
       items:
         - name: Información general
           href: encoding-concept.md
         - name: Escala de velocidad de bits adaptativa generada automáticamente
           href: autogen-bitrate-ladder.md
+    - name: Streaming en directo
+      href: live-streaming-overview.md
     - name: Inteligencia multimedia
       href: intelligence-concept.md
     - name: Reacción a eventos
@@ -53,23 +63,25 @@
       href: create-account-cli-how-to.md
     - name: 'Acceso a API: CLI'
       href: access-api-cli-how-to.md
-    - name: 'Eventos de estado de trabajo: CLI'
+    - name: 'Supervisión de eventos de estado de trabajo: CLI'
       href: job-state-events-cli-how-to.md
-    - name: 'Carga de contenido: .NET'
+    - name: 'Personalización de los valores preestablecidos de transformación: .NET Core'
+      href: customize-encoder-presets-how-to.md
+    - name: Carga de contenido
       items:
-        - name: Desde HTTP
+        - name: 'Desde HTTP: .NET'
           href: job-input-from-http-how-to.md
-        - name: Desde un archivo local
+        - name: 'Desde un archivo local: .NET'
           href: job-input-from-local-file-how-to.md
-    - name: Personalización de los valores preestablecidos de transformación
+    - name: Proteger contenido
       items:
-        - name: Con .NET Core
-          href: customize-encoder-presets-how-to.md
+        - name: 'Con AES-128: .NET'
+          href: protect-with-aes128.md
 - name: Referencia
   items:
     - name: Especificación OpenAPI (Swagger)
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
-    - name: CLI de Azure 2.0
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST
       href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
@@ -83,6 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Esquemas de eventos
       href: media-services-event-schemas.md
+    - name: Licencias de administración de derechos digitales
+      items:
+        - name: Plantilla de licencia de PlayReady
+          href: playready-license-template-overview.md
+        - name: Plantilla de licencia de Widevine
+          href: widevine-license-template-overview.md
+        - name: Requisitos de licencia de FairPlay
+          href: fairplay-license-overview.md
 - name: Recursos
   items:
     - name: Azure Roadmap

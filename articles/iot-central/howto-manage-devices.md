@@ -1,19 +1,19 @@
 ---
 title: Administración de dispositivos en una aplicación de Azure IoT Central | Microsoft Docs
 description: Como operador, aprenda a administrar dispositivos en la aplicación de Azure IoT Central.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303586"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937625"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
@@ -49,7 +49,7 @@ Para agregar un dispositivo real a una aplicación de Azure IoT Central:
 1. Elija **Real** o **Simulado**. Un dispositivo real hace referencia a un dispositivo físico que se conecta a la aplicación de Azure IoT Central. Un dispositivo simulado tiene datos de ejemplo generados por Azure IoT Central, que los pone a su disposición. En este ejemplo se utiliza un dispositivo real. Elija **Real** para navegar hasta la página **Detalles del dispositivo** para el dispositivo nuevo.
 
 
-## <a name="bulk-import-devices"></a>Importación en bloque de dispositivos
+## <a name="import-devices"></a>Importación de dispositivos
 
 Para conectar un gran número de dispositivos a la aplicación, Azure IoT Central ofrece importar dispositivos en bloque a través de un archivo CSV. 
 
@@ -65,9 +65,12 @@ Para registrar dispositivos en la aplicación en bloque:
 
 1. En el panel izquierdo, elija la plantilla de dispositivo para la que desea crear dispositivos en bloque.
 
-1. Elija **Nuevo** y seleccione **Importación en bloque**.
+ >   [!NOTE] 
+    Si aún no tiene una plantilla de dispositivo, puede importar dispositivos en **Unassociated devices** (Dispositivos no asociados) y registrarlos sin ninguna plantilla. Una vez que se han importado, puede asociarlos con una plantilla como un paso posterior.
 
-    [![Acción de importación en bloque](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. Haga clic en **Import**.
+
+    [![Acción de importación](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. Seleccione el archivo CSV que tiene la lista de identificadores de dispositivo que desea importar.
 
@@ -75,10 +78,51 @@ Para registrar dispositivos en la aplicación en bloque:
 
 1. Una vez finalizada la importación, se muestra un mensaje de confirmación en la cuadrícula de dispositivos.
 
-    [![Importación en bloque correcta](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![Importación correcta](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 Si se produce un error en la operación de importación de dispositivos, aparecerá un mensaje de error en la cuadrícula de dispositivos. Se genera un archivo de registro que captura todos los errores, que se puede descargar haciendo clic en el mensaje de error.
 
+
+**Asociación de dispositivos con una plantilla**
+
+Si registra dispositivos mediante la importación en **Unassociated devices** (Dispositivos no asociados), los dispositivos se crean sin asociación con una plantilla de dispositivo. El dispositivo debe estar asociado con una plantilla para explorar los datos y otros detalles sobre él. Siga estos pasos para asociar dispositivos con una plantilla:
+1. Elija **Explorer** en el menú de navegación de la izquierda.
+1. En el panel izquierdo, elija **Unassociated devices** (Dispositivos no asociados).
+    [![Dispositivos no asociados](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. Seleccione los dispositivos que quiere asociar con una plantilla.
+1. Haga clic en la opción **Associate** (Asociar).
+    [![Asociar dispositivos](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. Elija la plantilla de la lista de plantillas disponibles y haga clic en el botón **Associate** (Asociar).
+1. Los dispositivos seleccionados se mueven a la plantilla de dispositivo correspondiente.
+
+ >   [!NOTE] 
+    Una vez que un dispositivo se ha asociado con una plantilla, no se puede desasociar ni asociar con una plantilla diferente.
+
+## <a name="export-devices"></a>Exportación de dispositivos
+
+Para aprovisionar dispositivos para conectarse a IoT Central, necesitará la cadena de conexión del dispositivo que se genera mediante IoT Central. Puede usar la característica de exportación para obtener las cadenas de conexión y otras propiedades de los dispositivos en masa desde la aplicación. La exportación crea un archivo CSV con la identidad, el nombre y la cadena de conexión principal de todos los dispositivos seleccionados.
+
+Para realizar la exportación masiva de dispositivos desde la aplicación:
+1. Elija **Explorer** en el menú de navegación de la izquierda.
+
+1. En el panel izquierdo, elija la plantilla de dispositivo para la que desea exportar los dispositivos.
+
+1. Seleccione los dispositivos que desea exportar y, a continuación, haga clic en la acción **Exportar**.
+
+    [![Exportar](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. Se inicia el proceso de exportación y puede realizar el seguimiento del estado en la parte superior de la cuadrícula. 
+
+1. Una vez finalizada la exportación, se muestra un mensaje de confirmación junto con un vínculo para descargar el archivo generado.
+
+1. Haga clic en el **mensaje de operación correcta** para descargar el archivo en una carpeta local en el disco.
+
+    [![Exportación correcta](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. El archivo CSV exportado tendrá la siguiente información:
+    1. NOMBRE
+    1. Id. de dispositivo
+    1. Cadena de conexión principal
 
 
 ## <a name="delete-a-device"></a>Eliminar un dispositivo

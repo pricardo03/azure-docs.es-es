@@ -1,19 +1,19 @@
 ---
 title: Conexión de un dispositivo DevKit a una aplicación de Azure IoT Central | Microsoft Docs
 description: Como desarrollador de dispositivos, aprenda a conectar un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200748"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261583"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
 
@@ -28,7 +28,9 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 
 Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **MXChip** con las siguientes características:
 
-### <a name="telemetry-measurements"></a>Medidas de telemetría
+### <a name="measurements"></a>Medidas
+
+#### <a name="telemetry"></a>Telemetría 
 
 | Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -45,6 +47,20 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 | gyroscopeY (giróscopo Y)     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ (giróscopo Z)     | mdps   | -2000   | 2000    | 0              |
 
+#### <a name="states"></a>States 
+
+| NOMBRE          | Nombre para mostrar   | NORMAL | PRECAUCIÓN | PELIGRO | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Device State (Estado del dispositivo)   | Verde  | Naranja  | Rojo    | 
+
+#### <a name="events"></a>Eventos 
+
+| NOMBRE             | Nombre para mostrar      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Button B Pressed (Botón B presionado)  | 
+
+
+
 ### <a name="settings"></a>Settings
 
 Valores numéricos
@@ -53,7 +69,7 @@ Valores numéricos
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
-| Fan Speed (Velocidad del ventilador)    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 Cambiar configuración
 
@@ -65,20 +81,9 @@ Cambiar configuración
 
 | Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
-| Propiedad de dispositivo | Die number (Número de chip)   | dieNumber  | número    |
+| Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Texto            | Ubicación     | location   | N/D       |
 
-### <a name="states"></a>States 
-
-| NOMBRE          | Nombre para mostrar   | NORMAL | PRECAUCIÓN | PELIGRO | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Device State (Estado del dispositivo)   | Verde  | Naranja  | Rojo    | 
-
-### <a name="events"></a>Eventos 
-
-| NOMBRE             | Nombre para mostrar      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Button B Pressed (Botón B presionado)  | 
 
 ### <a name="add-a-real-device"></a>Adición de un dispositivo real
 

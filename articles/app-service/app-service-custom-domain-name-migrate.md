@@ -1,8 +1,8 @@
 ---
-title: "Migración de un nombre de DNS activo a Azure App Service | Microsoft Docs"
-description: "Obtenga información sobre cómo migrar un nombre de dominio DNS personalizado que ya esté asignado a un sitio activo a Azure App Service sin ningún tiempo de inactividad."
+title: Migración de un nombre de DNS activo a Azure App Service | Microsoft Docs
+description: Obtenga información sobre cómo migrar un nombre de dominio DNS personalizado que ya esté asignado a un sitio activo a Azure App Service sin ningún tiempo de inactividad.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
 ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307303"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
 

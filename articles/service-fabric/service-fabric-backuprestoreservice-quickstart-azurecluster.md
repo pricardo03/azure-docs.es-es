@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236127"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Restauración y copia de seguridad periódica de Azure Service Fabric (versión preliminar)
 > [!div class="op_single_selector"]
@@ -117,13 +118,13 @@ Vamos a examinar los pasos para habilitar la copia de seguridad periódica del s
 
 El primer paso consiste en crear una directiva de copia de seguridad que describa la programación de las copias de seguridad, el almacenamiento de destino para los datos de la copia de seguridad, el nombre de la directiva y el número máximo de copias de seguridad incrementales permitidas antes de desencadenar la copia de seguridad completa. 
 
-Para el almacenamiento de copia de seguridad, use la cuenta de Azure Storage creada anteriormente. En este ejemplo se asume que la cuenta de Azure Storage se denomina `sfbackupstore`. El contenedor `backup-container` está configurado para almacenar las copias de seguridad; si todavía no existe, el contenedor con este nombre se crea durante la carga de la copia de seguridad. Rellene `ConnectionString` con una cadena de conexión válida para la cuenta de Azure Storage.
+Para el almacenamiento de copia de seguridad, use la cuenta de Azure Storage creada anteriormente. El contenedor `backup-container` está configurado para almacenar copias de seguridad. Se crea un contenedor con este nombre, si aún no existe, durante la carga de la copia de seguridad. Rellene `ConnectionString` con una cadena de conexión válida para la cuenta de almacenamiento de Azure, reemplazando `account-name` con el nombre de la cuenta de almacenamiento y `account-key` con la clave de la cuenta de almacenamiento.
 
-Ejecute el siguiente script de PowerShell para invocar la API REST necesaria para crear la nueva directiva.
+Ejecute el siguiente script de PowerShell para invocar la API REST necesaria para crear la nueva directiva. Reemplace `account-name` por el nombre de la cuenta de almacenamiento y `account-key` por la clave de la cuenta de almacenamiento.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }

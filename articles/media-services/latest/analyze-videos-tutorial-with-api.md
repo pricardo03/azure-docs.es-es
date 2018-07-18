@@ -10,34 +10,36 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362301"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972005"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: Análisis de vídeos con Azure Media Services 
 
-En este tutorial se muestra cómo analizar vídeos con Azure Media Services. Hay muchos escenarios en los que puede desear obtener información detallada sobre los vídeos grabados o el contenido de audio. Por ejemplo, para lograr una mayor satisfacción del cliente, las organizaciones pueden ejecutar el procesamiento de voz a texto para convertir las grabaciones de soporte técnico al cliente en un catálogo de búsqueda, con índices y paneles. A continuación, puede obtener información sobre su empresa, como una lista de las quejas más habituales, orígenes de dichas quejas, etc.
+En este tutorial se muestra cómo analizar vídeos con Azure Media Services. Hay muchos escenarios en los que puede desear obtener información detallada sobre los vídeos grabados o el contenido de audio. Por ejemplo, para lograr una mayor satisfacción del cliente, las organizaciones pueden ejecutar el procesamiento de voz a texto para convertir las grabaciones de soporte técnico al cliente en un catálogo que permite búsquedas, con índices y paneles. A continuación, puede obtener información sobre su empresa, como una lista de las quejas más habituales, orígenes de dichas quejas, etc.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:    
 
 > [!div class="checklist"]
-> * Inicio de Azure Cloud Shell
 > * Creación de una cuenta de Media Services
 > * Acceso a la API de Media Services
 > * Configuración de la aplicación de ejemplo
-> * Examen el código de ejemplo con detalle
+> * Examen del código que analiza el vídeo especificado
 > * Ejecución de la aplicación
 > * Examen de la salida
 > * Limpieza de recursos
 
+> [!Note]
+> Use Azure portal, como se describe en [Escalado de procesamiento de medios](../previous/media-services-scale-media-processing-overview.md) para establecer la cuenta de Media Services en 10 unidades reservadas de medios S3.
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene Visual Studio instalado, puede obtener [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -49,23 +51,48 @@ Clone un repositorio GitHub que contenga el ejemplo de .NET en la máquina media
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
+El ejemplo se encuentra en la carpeta [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="examine-the-sample-code-in-detail"></a>Examen el código de ejemplo con detalle
+## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Examen del código que analiza el vídeo especificado
 
 En esta sección se examinan las funciones definidas en el archivo [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) del proyecto *AnalyzeVideos*.
 
+Este ejemplo realiza las acciones siguientes:
+
+1. Crea una transformación y un trabajo que analiza el vídeo.
+2. Crea un recurso de entrada y carga el vídeo en él. El recurso se usa como entrada del trabajo.
+3. Crea un recurso de salida que almacena la salida del trabajo. 
+4. Envía el trabajo.
+5. Comprueba el estado del trabajo.
+6. Descarga los archivos resultantes de la ejecución del trabajo. 
+
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Uso de las API de Media Services con SDK de .NET
 
-Para empezar a usar las API de Media Services con. NET, debe crear un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. Primero debe obtener un token y, después, crear un objeto **ClientCredential** desde el token devuelto. En el código que se clonó al comienzo del artículo, se ha usado el objeto **ArmClientCredential** para obtener el token.  
+Para empezar a usar las API de Media Services con. NET, debe crear un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. En el código que se clonó al principio del artículo, la función **GetCredentialsAsync** crea el objeto ServiceClientCredentials basándose en las credenciales proporcionadas en el archivo de configuración local. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
-### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Creación de un recurso de salida para almacenar el resultado de un trabajo 
+### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creación de un recurso de entrada y carga de un archivo local en él 
+
+La función **CreateInputAsset** crea un nuevo [recurso](https://docs.microsoft.com/rest/api/media/assets) de entrada y carga en él el archivo de vídeo local especificado. Este recurso se utiliza como entrada para el trabajo de codificación. En Media Services v3, la entrada a un trabajo puede ser un recurso, o puede ser contenido que se pone a disposición de la cuenta de Media Services a través de direcciones URL HTTPS. Para más información sobre cómo codificar desde una dirección URL HTTPS, consulte [este](job-input-from-http-how-to.md) artículo.  
+
+En Media Services v3, se utilizan las API de Azure Storage para cargar archivos. En el siguiente fragmento de código de .NET se muestra cómo hacerlo.
+
+La función siguiente realiza estas acciones:
+
+* Crea un recurso. 
+* Obtiene una [dirección URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) que se puede escribir en el [contenedor de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) del recurso.
+* Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
+
+### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>Creación de un recurso de salida para almacenar el resultado del trabajo 
 
 El [recurso](https://docs.microsoft.com/rest/api/media/assets) de salida almacena el resultado del trabajo. El proyecto define la función **DownloadResults** que descarga los resultados de este recurso de salida en la carpeta "output", para que se pueda ver lo que tiene.
 
@@ -85,15 +112,15 @@ Al crear una **transformación**, debe comprobar primero si ya existe una con el
 
 #### <a name="job"></a>Trabajo
 
-Como se mencionó anteriormente, el objeto [Transform](https://docs.microsoft.com/rest/api/media/transforms) es la receta y un [trabajo](https://docs.microsoft.com/en-us/rest/api/media/jobs) es la solicitud real a Media Services para aplicar que dicho objeto **Transform** a un determinado contenido de audio o vídeo de entrada. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo mediante direcciones URL HTTPS, direcciones URL de SAS o recursos que están en la cuenta de Media Service. 
+Como se mencionó anteriormente, el objeto [Transform](https://docs.microsoft.com/rest/api/media/transforms) es la receta y un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services para aplicar que dicho objeto **Transform** a un determinado contenido de audio o vídeo de entrada. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo mediante direcciones URL HTTPS, direcciones URL de SAS o recursos que están en la cuenta de Media Service. 
 
 En este ejemplo, la entrada de trabajo es un vídeo local.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#SubmitJob)]
 
-### <a name="wait-for-the-job-to-complete"></a>Espere a que el trabajo se complete.
+### <a name="wait-for-the-job-to-complete"></a>Espere a que el trabajo se complete
 
-El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir una notificación. Hay distintas opciones para obtener notificaciones sobre la realización del [trabajo](https://docs.microsoft.com/en-us/rest/api/media/jobs). La opción más sencilla (que se muestra aquí) es para utilizar el sondeo. 
+El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir una notificación. Hay distintas opciones para obtener notificaciones sobre la realización del [trabajo](https://docs.microsoft.com/rest/api/media/jobs). La opción más sencilla (que se muestra aquí) es para utilizar el sondeo. 
 
 El sondeo no es un procedimiento recomendado para aplicaciones de producción debido a la posible latencia. El sondeo se puede limitar si se sobreutiliza en una cuenta. Los desarrolladores deben utilizar en su lugar Event Grid.
 
@@ -111,7 +138,7 @@ La siguiente función descarga los resultados del [recurso](https://docs.microso
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Limpieza de recursos en la cuenta de Media Services
 
-Por lo general, debe limpiar todo excepto los objetos que piensa reutilizar (típicamente, reutilizará transformaciones y conservará objetos StreamingLocators, etc.). Si desea que la cuenta esté limpia después de la experimentación, debe eliminar los recursos que no piensa volver a usar. Por ejemplo, el código siguiente elimina los trabajos.
+Por lo general, debe limpiar todo excepto los objetos que piensa reutilizar (normalmente, reutilizará transformaciones y conservará objetos StreamingLocators). Si desea que la cuenta esté limpia después de la experimentación, debe eliminar los recursos que no piensa volver a usar. Por ejemplo, el código siguiente elimina los trabajos.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 

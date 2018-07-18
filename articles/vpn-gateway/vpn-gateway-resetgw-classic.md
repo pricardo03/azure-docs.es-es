@@ -1,11 +1,11 @@
 ---
-title: "Restablecimiento de una puerta de enlace de VPN de Azure para volver a establecer túneles IPsec | Microsoft Docs"
-description: "Este artículo lo guiará por el restablecimiento de Azure VPN Gateway para restablecer túneles IPsec. El artículo se aplica a puertas de enlace VPN en y los modelos de implementación clásico y de Resource Manager."
+title: Restablecimiento de una puerta de enlace de VPN de Azure para volver a establecer túneles IPsec | Microsoft Docs
+description: Este artículo lo guiará por el restablecimiento de Azure VPN Gateway para restablecer túneles IPsec. El artículo se aplica a puertas de enlace VPN en y los modelos de implementación clásico y de Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 604af54d034b6b51a96ff098827e2352a163be18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927696"
 ---
-# <a name="reset-a-vpn-gateway"></a>Restablecimiento de una puerta de enlace de VPN
+# <a name="reset-a-vpn-gateway"></a>Restablecimiento de una instancia de VPN Gateway
 
 Restablecer una puerta de enlace de VPN de Azure es útil si se pierde la conectividad VPN entre locales en uno o varios túneles VPN de sitio a sitio. En esta situación, todos tus dispositivos VPN locales funcionan correctamente, pero no pueden establecer túneles IPsec con las Puertas de enlace de VPN de Azure. Este artículo lo ayuda a restablecer la puerta de enlace de VPN.
 
@@ -54,7 +55,7 @@ Puede restablecer una puerta de enlace de VPN de Resource Manager mediante Azure
 1. Abra [Azure Portal](https://portal.azure.com) y vaya a la puerta de enlace de red virtual de Resource Manager que desea restablecer.
 2. En la hoja de la puerta de enlace de red virtual, haga clic en "Restablecer".
 
-  ![Hoja de restablecimiento de puerta de enlace de VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+  ![Hoja de restablecimiento de VPN Gateway](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. En la hoja de restablecimiento, haga clic en el botón **Restablecer**.
 
 ## <a name="ps"></a>PowerShell
@@ -64,7 +65,7 @@ Puede restablecer una puerta de enlace de VPN de Resource Manager mediante Azure
 El cmdlet para restablecer una puerta de enlace es **Reset-AzureRmVirtualNetworkGateway**. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Resource Manager](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). En el ejemplo siguiente, se restablece una puerta de enlace de red virtual denominada VNet1GW en el grupo de recursos TestRG1:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
+$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
@@ -74,7 +75,7 @@ Cuando reciba un resultado devuelto, se puede suponer que la puerta de enlace se
 
 ### <a name="resetclassic"></a>Modelo de implementación clásica
 
-El cmdlet para restablecer una puerta de enlace es **Reset-AzureVNetGateway**. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Service Management (SM)](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). En el ejemplo siguiente, se restablece la puerta de enlace para una red virtual denominada "ContosoVNet":
+El cmdlet para restablecer una puerta de enlace es **Reset-AzureVNetGateway**. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Service Management (SM)](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). En el ejemplo siguiente, se restablece la puerta de enlace para una red virtual denominada "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

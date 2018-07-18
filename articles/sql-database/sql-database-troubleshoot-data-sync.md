@@ -1,25 +1,26 @@
 ---
-title: Solución de problemas de Azure SQL Data Sync (versión preliminar) | Microsoft Docs
-description: Aprenda a solucionar problemas comunes con Azure SQL Data Sync (versión preliminar).
+title: Solución de problemas de Azure SQL Data Sync | Microsoft Docs
+description: Aprenda a solucionar problemas comunes de Azure SQL Data Sync.
 services: sql-database
-ms.date: 04/01/2018
-ms.topic: article
+ms.date: 06/20/2018
+ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: daa4ecd3ddf0e770049a81c771a8da52bac5be7f
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021398"
 ---
-# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Solución de problemas de SQL Data Sync (versión preliminar)
+# <a name="troubleshoot-issues-with-sql-data-sync"></a>Solución de problemas de SQL Data Sync
 
-En este artículo se describe cómo solucionar problemas conocidos con Azure SQL Data Sync (versión preliminar). Si hay una solución para un problema, la encontrará aquí.
+En este artículo se describe cómo solucionar problemas conocidos de Azure SQL Data Sync. Si hay una solución para un problema, la encontrará aquí.
 
-Para obtener información general sobre SQL Data Sync (versión preliminar), vea [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync de Azure (versión preliminar)](sql-database-sync-data.md).
+Para obtener información general acerca de SQL Data Sync, consulte [Sincronización de datos entre varias bases de datos locales y de la nube con Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## <a name="sync-issues"></a>Problemas de sincronización
 
@@ -27,7 +28,7 @@ Para obtener información general sobre SQL Data Sync (versión preliminar), vea
 
 #### <a name="description-and-symptoms"></a>Descripción y síntomas
 
-Se produce un error de sincronización en la interfaz de usuario del portal de SQL Data Sync (versión preliminar) para las bases de datos locales asociadas al agente. En el registro de eventos del equipo local que ejecuta el agente, verá los errores System.IO.IOException. Estos errores indican que el disco no tiene espacio suficiente.
+Se produce un error de sincronización en la interfaz de usuario del portal de SQL Data Sync en las bases de datos locales asociadas al agente. En el registro de eventos del equipo local que ejecuta el agente, verá los errores System.IO.IOException. Estos errores indican que el disco no tiene espacio suficiente.
 
 #### <a name="resolution"></a>Resolución
 
@@ -37,7 +38,7 @@ Cree más espacio en la unidad en la que se encuentra el directorio %TEMP%.
 
 #### <a name="description-and-symptoms"></a>Descripción y síntomas
 
-Un grupo de sincronización de SQL Data Sync (versión preliminar) lleva mucho tiempo en el estado de procesamiento. No responde al comando **stop** y los registros no muestran ninguna entrada nueva.
+Un grupo de sincronización de SQL Data Sync lleva mucho tiempo en estado de procesamiento. No responde al comando **stop** y los registros no muestran ninguna entrada nueva.
 
 #### <a name="cause"></a>Causa
 
@@ -47,14 +48,14 @@ Cualquiera de las condiciones siguientes puede hacer que un grupo de sincronizac
 
 -   **El agente cliente se ha desinstalado o no está presente**. Si el agente cliente se ha desinstalado o no está presente, haga lo siguiente:
 
-    1. Si el archivo XML de agente existe, quítelo de la carpeta de instalación de SQL Data Sync (versión preliminar).
+    1. Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.
     2. Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.
 
 -   **El servicio de SQL Data Sync se detiene**.
 
     1. En el menú **Inicio**, busque **Servicios**.
     2. En los resultados de la búsqueda, haga clic en **Servicios**.
-    3. Busque el servicio **SQL Data Sync (versión preliminar)**.
+    3. Busque el servicio **SQL Data Sync**.
     4. Si el estado del servicio es **Detenido**, haga clic con el botón derecho en el nombre del servicio y, después, seleccione **Iniciar**.
 
 #### <a name="resolution"></a>Resolución
@@ -69,7 +70,7 @@ Si se incluyen en una sincronización tablas que tienen el mismo nombre pero que
 
 #### <a name="cause"></a>Causa
 
-Para el proceso de aprovisionamiento de SQL Data Sync (versión preliminar), se usan las mismas tablas de seguimiento para las tablas con el mismo nombre pero con esquemas distintos. Por este motivo, los cambios de ambas tablas se reflejan en la misma tabla de seguimiento. Esto provoca cambios de datos erróneos durante la sincronización.
+El proceso de aprovisionamiento de SQL Data Sync usa las mismas tablas de seguimiento para las tablas que tienen el mismo nombre, pero que están en esquemas distintos. Por este motivo, los cambios de ambas tablas se reflejan en la misma tabla de seguimiento. Esto provoca cambios de datos erróneos durante la sincronización.
 
 #### <a name="resolution"></a>Resolución
 
@@ -108,10 +109,10 @@ La mejor corrección es la prevención. Asegúrese de que no haya referencias ci
 ### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a>He recibido el mensaje "No se puede insertar el valor NULL en la columna \<columna\>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error? 
 Este mensaje de error indica que se ha producido uno de los dos problemas siguientes:
 -  Una tabla no tiene ninguna clave principal. Para corregir este problema, agregue una clave principal a todas las tablas que va a sincronizar.
--  Hay una cláusula WHERE en la instrucción CREATE INDEX. Data Sync (versión preliminar) no controla esta condición. Para solucionar este problema, quite la cláusula WHERE o realice los cambios manualmente en todas las bases de datos. 
+-  Hay una cláusula WHERE en la instrucción CREATE INDEX. Data Sync no controla esta condición. Para solucionar este problema, quite la cláusula WHERE o realice los cambios manualmente en todas las bases de datos. 
  
-### <a name="how-does-data-sync-preview-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>¿Cómo trata Data Sync (versión preliminar) las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y sigue cambiando como resultado?
-Data Sync (versión preliminar) no controla las referencias circulares, así que asegúrese de no usarlas. 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y sigue cambiando como resultado?
+Data Sync no controla las referencias circulares, así que asegúrese de no usarlas. 
 
 ## <a name="client-agent-issues"></a>Problemas del agente cliente
 
@@ -130,27 +131,6 @@ Para encontrar la causa específica del error, debe generar y examinar los regis
 
 También puede activar el registro para todas las instalaciones realizadas por Windows Installer. En el artículo de Microsoft Knowledge Base [Cómo habilitar el registro de Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) se proporciona una solución de un solo clic para activar el registro en Windows Installer. También indica la ubicación de los registros.
 
-### <a name="my-client-agent-doesnt-work"></a>Mi agente cliente no funciona
-
-#### <a name="description-and-symptoms"></a>Descripción y síntomas
-
-Al intentar utilizar el agente cliente, recibe los siguientes mensajes:
-
-"Error de sincronización con la excepción 'Se ha producido un error al intentar deserializar el parámetro www.microsoft.com/.../05:GetBatchInfoResult'. Consulte InnerException para más información".
-
-"Mensaje de excepción interna: 'Microsoft.Synchronization.ChangeBatch' es un tipo de colección no válido porque no tiene ningún constructor predeterminado".
-
-#### <a name="cause"></a>Causa
-
-Se trata de un problema conocido de la instalación de SQL Data Sync (versión preliminar). La causa más probable de este mensaje es una de las siguientes:
-
--   está ejecutando Windows 8 Developer Preview, o
--   tiene instalado .NET Framework 4.5.
-
-#### <a name="resolution"></a>Resolución
-
-Asegúrese de instalar el agente cliente en un equipo que no esté ejecutando Windows 8 Developer Preview y que no tenga instalado .NET Framework 4.5.
-
 ### <a name="my-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a>El agente cliente no funciona cuando cancelo la desinstalación
 
 #### <a name="description-and-symptoms"></a>Descripción y síntomas
@@ -159,7 +139,7 @@ El agente cliente no funciona aunque cancele su desinstalación.
 
 #### <a name="cause"></a>Causa
 
-Este problema se produce porque el agente cliente de SQL Data Sync (versión preliminar) no almacena credenciales.
+Este problema se produce porque el agente cliente de SQL Data Sync no almacena credenciales.
 
 #### <a name="resolution"></a>Resolución
 
@@ -214,18 +194,18 @@ Una causa probable de este error es que la contraseña del servidor local ha cam
 
 Actualice la contraseña del agente con su contraseña actual del servidor:
 
-1. Busque el servicio de vista previa de agentes cliente de SQL Data Sync (versión preliminar).  
+1. Busque el servicio del agente de cliente de SQL Data Sync.  
     a. Seleccione **Iniciar**.  
     b. En el cuadro de búsqueda, escriba **services.msc**.  
     c. En los resultados de la búsqueda, haga clic en **Servicios**.  
-    d. En la ventana **Servicios**, desplácese hasta la entrada para la **vista previa de agentes de SQL Data Sync (versión preliminar)**.  
-2. Haga clic con el botón derecho en **Vista previa de agentes de SQL Data Sync (versión preliminar)** y, después, seleccione **Detener**.
-3. Haga clic con el botón derecho en **Vista previa de agentes de SQL Data Sync (versión preliminar)** y, después, seleccione **Propiedades**.
-4. En **Propiedades de vista previa de agentes de SQL Data Sync (versión preliminar)**, seleccione la pestaña **Inicio de sesión**.
+    d. En la ventana **Servicios**, desplácese hasta la entrada **Agente de SQL Data Sync**.  
+2. Haga clic con el botón derecho en **Agente de SQL Data Sync** y seleccione **Detener**.
+3. Haga clic con el botón derecho en **Agente de SQL Data Sync** y seleccione **Propiedades**.
+4. En **Propiedades del agente de SQL Data Sync**, seleccione la pestaña **Inicio de sesión**.
 5. En el cuadro de texto **Contraseña**, escriba su contraseña.
 6. En el cuadro de texto **Confirmar contraseña**, vuelva a escribir su contraseña.
 7. Seleccione **Aplicar** y luego **Aceptar**.
-8. En la ventana **Servicios**, haga clic con el botón derecho en el servicio **Vista previa de agentes de SQL Data Sync (versión preliminar)** y, después, haga clic en **Iniciar**.
+8. En la ventana **Servicios**, haga clic con el botón derecho en el servicio **Agente de SQL Data Sync** y, después, haga clic en **Iniciar**.
 9. Cierre la ventana **Servicios**.
 
 ### <a name="i-cant-submit-the-agent-key"></a>No puedo enviar la clave del agente
@@ -238,17 +218,16 @@ Después de crear o volver a crear una clave para un agente, intenta enviar esa 
 
 Antes de continuar, compruebe las condiciones siguientes:
 
--   El servicio de Windows SQL Data Sync (versión preliminar) se está ejecutando.  
--   La cuenta del servicio de Windows de vista previa de SQL Data Sync (versión preliminar) tiene acceso a la red.    
--   El agente cliente puede ponerse en contacto con el servicio de ubicación. Compruebe que la siguiente clave del Registro tiene el valor https://locator.sync.azure.com/LocatorServiceApi.svc:.  
-    -   En un equipo x86: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   En un equipo x64: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   El servicio de Windows SQL Data Sync se está ejecutando.  
+-   La cuenta del servicio de Windows SQL Data Sync tiene acceso a la red.    
+-   El puerto 1433 saliente está abierto en la regla de firewall local.
+-   Se agrega la dirección IP local al servidor o la regla de firewall de base de datos para la base de datos de metadatos de sincronización.
 
 #### <a name="cause"></a>Causa
 
 La clave del agente identifica de forma única cada agente local. La clave debe cumplir dos condiciones:
 
--   La clave del agente cliente del servidor SQL Data Sync (versión preliminar) y del equipo local debe ser idéntica.
+-   La clave del agente cliente del servidor de SQL Data Sync y del equipo local deben ser idénticas.
 -   La clave del agente cliente solo se puede usar una vez.
 
 #### <a name="resolution"></a>Resolución
@@ -272,7 +251,7 @@ Para aplicar la nueva clave al agente:
 
 #### <a name="description-and-symptoms"></a>Descripción y síntomas
 
-Si no se puede acceder a un punto de conexión local (es decir, a una base de datos) que está registrada con un agente cliente de SQL Data Sync (versión preliminar), el agente cliente no se puede eliminar.
+Si no se puede acceder a un punto de conexión local (es decir, a una base de datos) que está registrado en un agente cliente de SQL Data Sync (versión preliminar), dicho agente no se puede eliminar.
 
 #### <a name="cause"></a>Causa
 
@@ -295,8 +274,8 @@ Realice estos pasos:
 2. Abra el panel Servicios de componentes.  
     a. En el cuadro de búsqueda de la barra de tareas, escriba **services.msc**.  
     b. En los resultados de la búsqueda, haga doble clic en **Servicios**.  
-3. Detenga el servicio **Vista previa de SQL Data Sync (versión preliminar)**.
-4. Reinicie el servicio **Vista previa de SQL Data Sync (versión preliminar)**.  
+3. Detenga el servicio **SQL Data Sync**.
+4. Reinicie el servicio **SQL Data Sync**.  
 5. Vuelva a abrir la aplicación.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemas de configuración y mantenimiento
@@ -335,12 +314,12 @@ Para resolver el error al eliminar un grupo de sincronización:
 
 -   Asegúrese de que el agente cliente está en línea y vuelva a intentarlo.
 -   Si el agente cliente se ha desinstalado o no está presente, haga lo siguiente:  
-    a. Si el archivo XML de agente existe, quítelo de la carpeta de instalación de SQL Data Sync (versión preliminar).  
+    a. Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.  
     b. Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.
--   El servicio de SQL Data Sync (versión preliminar) se está ejecutando:  
+-   Asegúrese de que el servicio SQL Data Sync se está ejecutando:  
     a. En el menú **Inicio**, busque **Servicios**.  
     b. En los resultados de la búsqueda, haga clic en **Servicios**.  
-    c. Busque el servicio **Vista previa de SQL Data Sync (versión preliminar)**.  
+    c. Busque el servicio **SQL Data Sync**.  
     d. Si el estado del servicio es **Detenido**, haga clic con el botón derecho en el nombre del servicio y, después, seleccione **Iniciar**.
 -   Asegúrese de que las bases de datos de SQL Database y SQL Server están todas en línea.
 -   Espere a que finalice el proceso de aprovisionamiento o sincronización y, después, vuelva a intentar eliminar el grupo de sincronización.
@@ -361,7 +340,7 @@ Si con esta operación no se puede quitar la base de datos del grupo de sincroni
     a. Seleccione el menú **Inicio**.  
     b. En el cuadro de búsqueda, escriba **services.msc**.  
     c. En la sección **Programas** del panel de resultados, haga doble clic en **Servicios**.  
-    d. Haga clic con el botón derecho en el servicio **SQL Data Sync (versión preliminar)**.  
+    d. Haga clic con el botón derecho en el servicio **SQL Data Sync**.  
     e. Si el servicio se está ejecutando, deténgalo.  
     f. Haga clic con el botón derecho en el servicio y, después, seleccione **Iniciar**.  
     g. Compruebe si la base de datos sigue registrada. Si ya no lo está, habrá terminado. En caso contrario, continúe con el paso siguiente.
@@ -391,7 +370,7 @@ Conceda a la cuenta de usuario credenciales para iniciar sesión como servicio:
 
 #### <a name="cause"></a>Causa
 
-SQL Data Sync (versión preliminar) quita del servicio las bases de datos que han estado sin conexión durante 45 días o más (contados a partir del momento en que la base de datos quedó sin conexión). Si una base de datos está sin conexión durante 45 días o más y después vuelve a conectarse, su estado se establece en **Obsoleto**.
+SQL Data Sync quita del servicio las bases de datos que han estado sin conexión durante un mínimo de 45 días (contados a partir del momento en que la base de datos quedó sin conexión). Si una base de datos está sin conexión durante 45 días o más y después vuelve a conectarse, su estado se establece en **Obsoleto**.
 
 #### <a name="resolution"></a>Resolución
 
@@ -421,14 +400,14 @@ Si el estado de un grupo de sincronización es **Obsoleto**, tiene que eliminar 
 
 #### <a name="description-and-symptoms"></a>Descripción y síntomas
 
-No puede eliminar un grupo de sincronización durante los tres minutos posteriores a la desinstalación o detención del agente cliente de SQL Data Sync (versión preliminar) asociado.
+No puede eliminar un grupo de sincronización durante los tres minutos posteriores a la desinstalación o detención del agente cliente de SQL Data Sync asociado.
 
 #### <a name="resolution"></a>Resolución
 
 1. Quite un grupo de sincronización mientras los agentes de sincronización asociados estén en línea (opción recomendada).
-2. Si el agente está sin conexión pero instalado, póngalo en línea en el equipo local. Espere a que el estado del agente aparezca como **en línea** en el portal de SQL Data Sync (versión preliminar). A continuación, quite el grupo de sincronización.
+2. Si el agente está sin conexión pero instalado, póngalo en línea en el equipo local. Espere a que el estado del agente aparezca como **En línea** en el portal de SQL Data Sync. A continuación, quite el grupo de sincronización.
 3. Si el agente está sin conexión porque se ha desinstalado:  
-    a.  Si el archivo XML de agente existe, quítelo de la carpeta de instalación de SQL Data Sync (versión preliminar).  
+    a.  Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.  
     b.  Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.  
     c. Intente eliminar el grupo de sincronización.
 
@@ -437,16 +416,16 @@ No puede eliminar un grupo de sincronización durante los tres minutos posterior
 Si restaura una base de datos perdida o dañada desde una copia de seguridad, puede que los datos de los grupos de sincronización a los que pertenece la base de datos no coincidan.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre SQL Data Sync (versión preliminar), vea:
+Para más información acerca de SQL Data Sync, consulte:
 
--   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync (versión preliminar)](sql-database-sync-data.md)  
--   [Configuración de Azure SQL Data Sync (versión preliminar)](sql-database-get-started-sql-data-sync.md)  
--   [Procedimientos recomendados para SQL Data Sync de Azure (versión preliminar)](sql-database-best-practices-data-sync.md)  
--   [Supervisión de Azure SQL Data Sync (versión preliminar) con Log Analytics](sql-database-sync-monitor-oms.md)  
--   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync (versión preliminar):  
+-   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](sql-database-sync-data.md)  
+-   [Configuración de Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)  
+-   [Procedimientos recomendados para SQL Data Sync de Azure](sql-database-best-practices-data-sync.md)  
+-   [Supervisión de Azure SQL Data Sync con Log Analytics](sql-database-sync-monitor-oms.md)  
+-   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:  
     -   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Descarga de la documentación de la API de REST de SQL Data Sync (versión preliminar)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para obtener más información sobre SQL Database, vea:
 

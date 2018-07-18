@@ -1,0 +1,34 @@
+- name: Documentación sobre Virtual WAN
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Virtual WAN
+      href: virtual-wan-about.md
+- name: Tutoriales
+  items:
+    - name: Creación de una conexión de sitio a sitio
+      href: virtual-wan-site-to-site-portal.md
+- name: Guías de procedimientos
+  items:
+    - name: 'Configuración de la automatización: Asociados de WAN'
+      href: virtual-wan-configure-automation-providers.md
+- name: Referencia
+  items:
+    - name: REST
+      href: /rest/api/azure
+- name: Recursos
+  items:
+    - name: Preguntas más frecuentes
+      href: virtual-wan-faq.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Límites del servicio y la suscripción
+      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/vpn-gateway'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Contrato de nivel de servicio
+      href: 'https://azure.microsoft.com/support/legal/sla'

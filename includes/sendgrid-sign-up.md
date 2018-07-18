@@ -61,9 +61,9 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 
 Para administrar la configuración de las opciones de entrega de correo electrónico, haga clic en el botón **Administrar**. De esta forma, se le redirigirá al panel de SendGrid.
 
-    ![manage][manage]
+![administrar][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+Para más información sobre el envío de correos electrónicos a través de SendGrid, visite la [Introducción a Email API][Email API Overview].
 
 <!--images-->
 

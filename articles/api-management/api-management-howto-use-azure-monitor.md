@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973005"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -57,10 +58,14 @@ API Management emite métricas cada minuto, lo que le ofrece visibilidad casi en
 Para acceder a la métrica:
 
 1. Seleccione **Métricas** en el menú situado cerca de la parte inferior de la página.
-2. En la lista desplegable, seleccione las métricas que le interesan (puede agregar varias métricas). 
 
+    ![Métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. En la lista desplegable, seleccione las métricas que le interesan (puede agregar varias métricas).  
     Por ejemplo, seleccione **Total Gateway Requests** (Solicitudes totales de puerta de enlace) y **Failed Gateway Requests** (Solicitudes de puerta de enlace con error).
-3. El gráfico muestra el número total de llamadas API. También muestra el número de llamadas API que no se pudieron realizar. 
+3. El gráfico muestra el número total de llamadas API. También muestra el número de llamadas API que no se pudieron realizar.
+
+    ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configuración de una regla de alerta para solicitudes no autorizadas
 
@@ -72,7 +77,10 @@ Puede configurar la recepción de alertas en función de métricas y registros d
 
 Para configurar alertas:
 
-1. Seleccione **Reglas de alertas** en la barra de menús cerca de la parte inferior de la página.
+1. Seleccione **Alertas (clásico)** en la barra de menús cerca de la parte inferior de la página.
+
+    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. Seleccione **Agregar alerta de métrica**.
 3. Escriba un **nombre** para esta alerta.
 4. Seleccione **Unauthorized Gateway Requests** (Solicitudes de puerta de enlace no autorizadas), que es la métrica que quiere supervisar.
@@ -99,6 +107,12 @@ Para ver los registros de actividad:
 1. Seleccione la instancia del servicio APIM.
 2. Haga clic en **Registro de actividad**.
 
+    ![registro de actividad](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Seleccione el ámbito de filtrado que desee y haga clic en **Aplicar**.
+
+    ![registros de actividad](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
 Los registros de diagnóstico proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de diagnóstico son diferentes de los registros de actividad. Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan información detallada acerca de las operaciones que el recurso ha realizado.
@@ -106,7 +120,10 @@ Los registros de diagnóstico proporcionan información valiosa acerca de las op
 Para configurar registros de diagnóstico:
 
 1. Seleccione la instancia del servicio APIM.
-2. Haga clic en **Registro de diagnóstico**.
+2. Haga clic en **Registros de diagnóstico**.
+
+    ![registros de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. Haga clic en **Activar diagnóstico**. Los registros de diagnóstico se pueden archivar junto con las métricas en una cuenta de almacenamiento, transmitirlos en secuencias a un centro de eventos o enviarlos a Log Analytics. 
 
 Actualmente, API Management proporciona registros de diagnóstico (de los que se crean lotes cada hora) de una solicitud de API individual con cada entrada que tenga el esquema siguiente:

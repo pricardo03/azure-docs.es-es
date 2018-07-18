@@ -1,8 +1,8 @@
 ---
-title: "Pasos siguientes y cómo administrar Azure AD Connect en Azure AD Connect| Microsoft Docs"
-description: "Aprenda a ampliar la configuración predeterminada y las tareas operativas de Azure AD Connect."
+title: Pasos siguientes y cómo administrar Azure AD Connect en Azure AD Connect| Microsoft Docs
+description: Aprenda a ampliar la configuración predeterminada y las tareas operativas de Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e898ee203276b072605fe0f21af633ecfdaae1fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8b73e70606adc2b1fa593745b3ac426c679f417
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592092"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Pasos siguientes y cómo administrar Azure AD Connect
 Utilice los procedimientos operativos de este artículo para personalizar Azure Active Directory (Azure AD) Connect para satisfacer las necesidades y requisitos de su organización.  
@@ -64,7 +66,7 @@ En la tabla siguiente se proporciona un resumen de estas tareas y una breve desc
 
 ![Lista de tareas adicionales](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
-| Tarea adicional | Descripción |
+| Tarea adicional | DESCRIPCIÓN |
 | --- | --- |
 | **Ver el escenario seleccionado** |Visualice su solución actual de Azure AD Connect.  Incluye la configuración general, los directorios sincronizados y la configuración de sincronización. |
 | **Personalizar las opciones de sincronización** |Puede cambiar la configuración actual, como la adición de bosques de Active Directory adicionales a la configuración o habilitar las opciones de sincronización, como usuario, grupo, dispositivo o reescritura de contraseña. |

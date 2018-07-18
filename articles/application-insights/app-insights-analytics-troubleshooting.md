@@ -1,8 +1,8 @@
 ---
-title: "Diagnóstico de problemas de Analytics de Azure Application Insights | Microsoft Docs"
-description: "¿Problemas con Analytics de Application Insights? Comience aquí. "
+title: Diagnóstico de problemas de Analytics de Azure Application Insights | Microsoft Docs
+description: '¿Problemas con Analytics de Application Insights? Comience aquí. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
@@ -10,21 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936690"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Solución de problemas de Analytics en Application Insights
 ¿Problemas con [Analytics de Application Insights](app-insights-analytics.md)? Comience aquí. Analytics es la herramienta eficaz de búsqueda de Application Insights.
 
 ## <a name="limits"></a>límites
 * En la actualidad, los resultados de consulta están limitados exclusivamente a solo una semana de datos antiguos.
-* Exploradores en los que la hemos probado: últimas ediciones de Chrome, Microsoft Edge e Internet Explorer.
+* Exploradores en los que la hemos probado: últimas ediciones de Chrome, Edge e Internet Explorer.
 
 ## <a name="known-incompatible-browser-extensions"></a>Extensiones de explorador incompatibles conocidas
 * Ghostery
@@ -56,13 +57,13 @@ Se ha producido un error relacionado con la autenticación (durante la autentica
 4. Abra otra ventana de explorador (ordinaria) y vaya a [Azure](https://portal.azure.com). Cierre la sesión. A continuación, abra el vínculo e inicie sesión con las credenciales correctas.
 5. Los usuarios de Microsoft Edge y de Internet Explorer también pueden recibir este error cuando no se admite la configuración de zona Sitios de confianza.
    
-    Compruebe que tanto el [portal de Analytics](https://analytics.applicationinsights.io) como el [portal de Azure Active Directory](https://portal.azure.com) se encuentren en la misma zona de seguridad:
+    Compruebe que tanto el [portal de Analytics](https://portal.azure.com) como el [portal de Azure Active Directory](https://portal.azure.com) se encuentren en la misma zona de seguridad:
    
    * En Internet Explorer, abra **Opciones de Internet**, **Seguridad**, **Sitios de confianza**, **Sitios**:
      
      ![Cuadro de diálogo Opciones de Internet, agregar un sitio a Sitios de confianza](./media/app-insights-analytics-troubleshooting/033.png)
      
-     En la lista de sitios web, si se incluye alguna de las siguientes direcciones URL, asegúrese de que las otras se incluyan también:
+     En la lista de Websites, si se incluye alguna de las siguientes direcciones URL, asegúrese de que las otras se incluyan también:
      
      https://analytics.applicationinsights.io<br/>
      https://login.microsoftonline.com<br/>

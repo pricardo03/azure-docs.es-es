@@ -1,11 +1,11 @@
 ---
-title: "Introducción a las directivas SSL para Azure Application Gateway| Microsoft Docs"
-description: "Información acerca de cómo le permite Azure Application Gateway configurar la directiva SSL"
+title: Introducción a las directivas SSL para Azure Application Gateway| Microsoft Docs
+description: Información acerca de cómo le permite Azure Application Gateway configurar la directiva SSL
 services: application gateway
 documentationcenter: na
 author: amsriva
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987080"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Introducción a la directiva SSL de Application Gateway
 

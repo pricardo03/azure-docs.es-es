@@ -1,11 +1,11 @@
 ---
-title: "Instalación del dispositivo Microsoft Azure StorSimple 8100 | Microsoft Docs"
-description: "Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100 antes de implementar y configurar el software."
+title: Instalación del dispositivo Microsoft Azure StorSimple 8100 | Microsoft Docs
+description: Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100 antes de implementar y configurar el software.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701949"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
 ## <a name="overview"></a>Información general
@@ -156,7 +157,7 @@ El siguiente paso es la colocación de los cables de alimentación, red y acceso
 ## <a name="cable-your-storsimple-8100-device"></a>Instalación de cables del dispositivo StorSimple 8100
 En los siguientes procedimientos se explica cómo pasar los cables del dispositivo StorSimple 8100 de alimentación, red y conexiones en serie.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Antes de comenzar a pasar los cables del dispositivo, necesitará:
 
 * Desempaquetar por completo el dispositivo de almacenamiento y montar en bastidor.

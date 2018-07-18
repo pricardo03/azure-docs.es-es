@@ -1,5 +1,5 @@
 ---
-title: Controles de acceso en el acceso condicional de Azure Active Directory | Microsoft Docs
+title: ¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory? | Microsoft Docs
 description: Aprenda cómo funcionan los controles de acceso en el acceso condicional de Azure Active Directory.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
@@ -9,21 +9,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770730"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028955"
 ---
-# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controles de acceso en el acceso condicional de Azure Active Directory 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory? 
 
 Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En una directiva de acceso condicional, definirá la respuesta ("haga esto") al motivo para desencadenarla ("cuando esto suceda"). 
 
@@ -76,7 +77,7 @@ La autenticación multifactor ayuda a proteger los recursos del acceso por parte
 
 ### <a name="compliant-device"></a>Dispositivos compatible
 
-Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basada en dispositivos es conceder acceso a los recursos configurados solo desde [dispositivos administrados](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Requerir el uso de un dispositivo compatible es una de las opciones que tiene para definir qué es un dispositivo administrado. Si esta opción está seleccionada, la directiva de acceso condicional concede acceso a los intentos que se realizan con dispositivos [registrados](device-management-introduction.md) en Azure Active Directory y marcados como compatibles por la solución de MDM.
+Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basada en dispositivos es conceder acceso a los recursos configurados solo desde [dispositivos administrados](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Requerir el uso de un dispositivo compatible es una de las opciones que tiene para definir qué es un dispositivo administrado. Si esta opción está seleccionada, la directiva de acceso condicional concede acceso a los intentos que se realizan con dispositivos [registrados](device-management-introduction.md) en Azure Active Directory y marcados como compatibles por Intune (en cualquier sistema operativo del dispositivo) o por un sistema MDM de terceros en dispositivos con Windows 10. No se pueden utilizar sistemas MDM de terceros con otros sistemas operativos que no sean Windows 10.
 
 Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
@@ -172,6 +173,6 @@ Para más información sobre cómo requerir el acceso limitado con SharePoint co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
+- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md). 

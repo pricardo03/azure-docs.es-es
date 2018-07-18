@@ -1,24 +1,19 @@
 ---
-title: "Información general de la funcionalidad de escalado automático en Microsoft Azure Virtual Machines, Cloud Services y Web Apps | Microsoft Docs"
-description: "Información general sobre el escalado automático en Microsoft Azure. Esta funcionalidad se utiliza en Microsoft Azure Virtual Machines, Cloud Services y Web Apps."
+title: Información general de la funcionalidad de escalado automático de Virtual Machines, Cloud Services y Web Apps
+description: Escalado automático en Microsoft Azure. Se aplica a Virtual Machines, Virtual Machine Scale Sets, Cloud Services y Web Apps.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.component: autoscale
+ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264677"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
@@ -88,7 +83,7 @@ La lista íntegra de campos y descripciones configurables se encuentra en la [AP
 
 Para ver ejemplos de código, consulte los siguientes artículos:
 
-* [Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escala de máquina virtual](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [Configuración avanzada de escalado automático con plantillas de Resource Manager para VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
 * [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Escalado horizontal frente a escalado vertical
@@ -101,7 +96,7 @@ Para obtener más información, consulte [Escalado vertical de máquinas virtual
 ## <a name="methods-of-access"></a>Métodos de acceso
 Puede configurar el escalado automático en los siguientes lugares:
 
-* [Portal de Azure](insights-how-to-scale.md)
+* [Azure Portal](insights-how-to-scale.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 * [Interfaz de línea de comandos (CLI) multiplataforma](insights-cli-samples.md#autoscale)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
@@ -114,7 +109,7 @@ Puede configurar el escalado automático en los siguientes lugares:
 | Virtual Machines: clásico |[Escalado de conjuntos de disponibilidad clásicos de máquina virtual](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtual Machines: conjuntos de escalado de Windows |[Escalado de conjuntos de escalado de máquinas virtuales en Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtual Machines : conjuntos de escalado de Linux |[Escalado de conjuntos de escalado de máquinas virtuales en Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Virtual Machines: ejemplo de Windows |[Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escala de máquina virtual](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Virtual Machines: ejemplo de Windows |[Configuración avanzada de escalado automático con plantillas de Resource Manager para VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el escalado automático, consulte los tutoriales de escalado automático anteriores o los siguientes recursos:

@@ -8,14 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 01/17/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 49ba61ba8cf68a39eef21b1939a3e8a6c92f8827
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b96483232a1da5ae21e6ba8cbe873d876d38ed11
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050308"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory
 
@@ -34,9 +35,6 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
 > [!NOTE]
 > Para más información, consulte [Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory](connector-azure-sql-data-warehouse.md).
->
-> Este artículo se aplica a la versión 2 de Azure Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), consulte [Rendimiento de la actividad de copia en Azure Data Factory versión 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>requisitos previos
 
 * Suscripción a Azure: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -56,7 +54,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
     * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadSQLDWDemo\" no está disponible", escriba un nombre diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
     * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
-    * **Versión**: seleccione **V2 (versión preliminar)**.
+    * **Versión**: seleccione **V2**.
     * **Ubicación**: seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Store, Azure Storage, Azure SQL Database, etc.
 
 3. Seleccione **Crear**.
@@ -74,47 +72,72 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 2. En la página **Properties** (Propiedades), especifique **CopyFromSQLToSQLDW** en el campo **Task name** (Nombre de la tarea) y seleccione **Next** (Siguiente):
 
     ![Página de propiedades](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
-3. En la página **Source data store** (Almacén de datos de origen), seleccione **Azure SQL Database** y seleccione **Next** (Siguiente).
 
-    ![Página Source data store (Almacén de datos de origen)](./media/load-azure-sql-data-warehouse/specify-source.png)
-4. En la página **Specify the Azure SQL database** (Especificar la base de datos SQL de Azure), lleve a cabo los siguientes pasos: 
-   1. Seleccione el servidor de Azure SQL Server en **Server name** (Nombre del servidor).
-   2. Seleccione la base de datos SQL de Azure en **Database name** (Nombre de la base de datos).
-   3. Especifique el nombre de usuario en **User name** (Nombre de usuario).
-   4. Especifique la contraseña del usuario en **Password** (Contraseña).
-   5. Seleccione **Next** (Siguiente).
+3. En la página **Almacén de datos de origen**, realice los pasos siguientes:
+
+    a. Haga clic en **+ Crear nueva conexión**:
+
+    ![Página Source data store (Almacén de datos de origen)](./media/load-azure-sql-data-warehouse/new-source-linked-service.png)
+
+    b. Seleccione **Azure SQL Database** en la galería y seleccione **Continuar**. Puede escribir "SQL" en el cuadro de búsqueda para filtrar los conectores.
+
+    ![Seleccione Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
+
+    c. En la página **New Linked Service** (Nuevo servicio vinculado) seleccione el nombre del servidor y el de la base de datos en la lista desplegable y especifique el nombre de usuario y la contraseña. Haga clic en **Prueba de conexión** para validar la configuración y, después, seleccione **Finalizar**.
    
-   ![Especificación de la base de datos SQL de Azure](./media/load-azure-sql-data-warehouse/specify-source-connection.png)
-5. En la página **Select tables from which to copy the data or use a custom query** (Seleccionar tablas de donde copiar los datos o usar una consulta personalizada), escriba **SalesLT** para filtrar las tablas. Elija el cuadro **(Select all)** (Seleccionar todo) para usar todas las tablas para la copia y, a continuación, seleccione **Next** (Siguiente): 
+    ![Configurar Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
+
+    d. Seleccione el servicio vinculado recién creado como origen y, a continuación, haga clic en **Siguiente**.
+
+    ![Selección del servicio vinculado de origen](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
+
+4. En la página **Select tables from which to copy the data or use a custom query** (Seleccionar tablas de donde copiar los datos o usar una consulta personalizada), escriba **SalesLT** para filtrar las tablas. Elija el cuadro **(Select all)** (Seleccionar todo) para usar todas las tablas para la copia y, a continuación, seleccione **Next** (Siguiente): 
 
     ![Selección de las tablas de origen](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
-6. En la página **Destination data store** (Almacén de datos de destino), seleccione **Azure SQL Data Warehouse** y **Next** (Siguiente):
+6. En la página **Almacén de datos de destino**, realice los pasos siguientes:
 
-    ![Página Destination data store (Almacén de datos de destino)](./media/load-azure-sql-data-warehouse/specify-sink.png)
-7. En la página **Specify the Azure SQL Data Warehouse** (Especificar la instancia de Azure SQL Data Warehouse), lleve a cabo los siguientes pasos: 
+    a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
 
-   1. Seleccione el servidor de Azure SQL Server en **Server name** (Nombre del servidor).
-   2. Seleccione la instancia de Azure SQL Data Warehouse en el campo **Database name** (Nombre de la base de datos).
-   3. Especifique el nombre de usuario en **User name** (Nombre de usuario).
-   4. Especifique la contraseña del usuario en **Password** (Contraseña).
-   5. Seleccione **Next** (Siguiente).
+    ![Página del almacén de datos receptor](./media/load-azure-sql-data-warehouse/new-sink-linked-service.png)
+
+    b. Seleccione **Azure SQL Data Warehouse** en la galería y seleccione **Siguiente**.
+
+    ![Seleccionar Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+
+    c. En la página **New Linked Service** (Nuevo servicio vinculado) seleccione el nombre del servidor y el de la base de datos en la lista desplegable y especifique el nombre de usuario y la contraseña. Haga clic en **Prueba de conexión** para validar la configuración y, después, seleccione **Finalizar**.
    
-   ![Especificación de la instancia de Azure SQL Data Warehouse](./media/load-azure-sql-data-warehouse/specify-sink-connection.png)
-8. En la página **Table mapping** (Asignación de tabla), revise el contenido y seleccione **Next** (Siguiente). Se muestra una asignación de tabla inteligente. Las tablas de origen se asignan a las tablas de destino en función de los nombres de tabla. Si la tabla de origen no existe en el destino, Azure Data Factory crea una con el mismo nombre de manera predeterminada. También se puede asignar una tabla de origen a una tabla de destino existente. 
+    ![Configurar Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+
+    d. Seleccione el servicio vinculado recién creado como receptor y, a continuación, haga clic en **Siguiente**.
+
+    ![Seleccione el servicio vinculado de receptor](./media/load-azure-sql-data-warehouse/select-sink-linked-service.png)
+
+6. En la página **Table mapping** (Asignación de tabla), revise el contenido y seleccione **Next** (Siguiente). Se muestra una asignación de tabla inteligente. Las tablas de origen se asignan a las tablas de destino en función de los nombres de tabla. Si la tabla de origen no existe en el destino, Azure Data Factory crea una con el mismo nombre de manera predeterminada. También se puede asignar una tabla de origen a una tabla de destino existente. 
 
    > [!NOTE]
    > La creación automática de la tabla para el receptor de SQL Data Warehouse se aplica cuando el origen es SQL Server o Azure SQL Database. Si copia datos desde otro almacén de datos de origen, debe crear previamente el esquema en el receptor de Azure SQL Data Warehouse antes de copiar los datos.
 
-   ![Página Table mapping (Asignación de tabla)](./media/load-azure-sql-data-warehouse/specify-table-mapping.png)
+   ![Página Table mapping (Asignación de tabla)](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
 9. En la página **Schema mapping** (Asignación de esquema), revise el contenido y seleccione **Next** (Siguiente). La asignación inteligente de tabla se basa en el nombre de las columnas. Si permite que Data Factory cree automáticamente las tablas, la conversión de tipos de datos puede producirse cuando haya incompatibilidades entre los almacenes de origen y de destino. Si hay una conversión de tipos de datos no compatibles entre las columnas de origen y de destino, verá un mensaje de error junto a la tabla correspondiente.
 
-    ![Página Schema mapping (Asignación de esquema)](./media/load-azure-sql-data-warehouse/specify-schema-mapping.png)
+    ![Página Schema mapping (Asignación de esquema)](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
-11. En la página **Settings** (Configuración), seleccione una cuenta de Azure Storage en la lista desplegable **Storage account name** (Nombre de la cuenta de almacenamiento). La cuenta se usa para almacenar provisionalmente los datos antes de cargarlos en SQL Data Warehouse mediante PolyBase. Una vez que se completa la copia, los datos provisionales en Azure Storage se limpian automáticamente. En **Advanced settings** (Configuración avanzada), desactive la opción **Use type default** (Usar tipo predeterminado):
+11. En la página **Settings** (Configuración), siga estos pasos:
 
-    ![Página Configuración](./media/load-azure-sql-data-warehouse/copy-settings.png)
+    a. En la sección **Staging settings** (Configuración provisional), haga clic en **+ New** (+Nuevo) para crear un almacenamiento provisional. El almacenamiento se usa para almacenar provisionalmente los datos antes de cargarlos en SQL Data Warehouse mediante PolyBase. Una vez que se completa la copia, los datos provisionales en Azure Storage se limpian automáticamente. 
+
+    ![Configurar almacenamiento provisional](./media/load-azure-sql-data-warehouse/configure-staging.png)
+
+    b. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione su cuenta de almacenamiento y seleccione **Finish** (Finalizar).
+   
+    ![Configurar Azure Storage](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
+
+    c. En la sección **Advanced settings** (Configuración avanzada), anule la selección de la opción **Use type default** (Usar valor predeterminado de type) y seleccione **Next** (Siguiente).
+
+    ![Configurar PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
+
 12. En la página **Summary** (Resumen), revise la configuración y seleccione **Next** (Siguiente):
 
     ![Página de resumen](./media/load-azure-sql-data-warehouse/summary-page.png)
@@ -123,10 +146,10 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
     ![Página Deployment (Implementación)](./media/load-azure-sql-data-warehouse/deployment-page.png)
 14. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente. La columna **Actions** (Acciones) incluye los vínculos para ver los detalles de la ejecución de actividad y volver a ejecutar la canalización: 
 
-    ![La supervisión de la canalización se ejecuta](./media/load-azure-sql-data-warehouse/monitor-pipeline-run.png)
-15. Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). Hay diez actividades de copia en la canalización y cada una de ellas copia una tabla de datos. Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior. Seleccione **Refresh** (Actualizar) para actualizar la lista. 
+    ![La supervisión de la canalización se ejecuta](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
+15. Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior. Seleccione **Refresh** (Actualizar) para actualizar la lista. 
 
-    ![Supervisión de las ejecuciones de actividad](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+    ![Supervisión de las ejecuciones de actividad](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
 16. Para supervisar los detalles de la ejecución de cada actividad de copia, seleccione el vínculo **Details** (Detalles) en **Actions** (Acciones) en la vista de supervisión de la actividad. Puede supervisar detalles como el volumen de datos copiados desde el origen al receptor, el rendimiento de los datos, los pasos de ejecución con su duración correspondiente y las configuraciones que se utilizan:
 

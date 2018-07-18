@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114980"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
@@ -36,7 +37,8 @@ Para más información sobre el enrutamiento en una red virtual, lea [Rutas defi
 
 Si desea enrutar el tráfico saliente del ASE a algún otro lugar que no sea directamente a Internet, tiene las siguientes opciones:
 
-* Habilitar el ASE para que tenga acceso directo a internet
+* Habilitar el ASE para que tenga acceso directo a Internet
+* Configurar la subred del ASE para omitir las rutas de BGP
 * Configurar la subred del ASE para usar puntos de conexión de servicio a Azure SQL y Azure Storage
 * Agregar sus propias direcciones IP al firewall de Azure SQL de ASE
 
@@ -44,7 +46,7 @@ Si desea enrutar el tráfico saliente del ASE a algún otro lugar que no sea dir
 
 Para hacer que el ASE vaya directamente a internet, incluso si la red virtual de Azure se configura con ExpressRoute, haga lo siguiente:
 
-* Configurar ExpressRoute para anunciar 0.0.0.0/0. De forma predeterminada, enruta todo el tráfico saliente en local.
+* Configurar ExpressRoute para anunciar 0.0.0.0/0. De manera predeterminada, enruta todo el tráfico saliente en local.
 * Crear una UDR con el prefijo de direcciones 0.0.0.0/0 y un tipo de próximo salto de Internet y aplicarlo a la subred de ASE.
 
 Si realiza estos dos cambios, el tráfico destinado a Internet que se origina en la subred de App Service Environment no se fuerza hacia la conexión ExpressRoute.
@@ -58,8 +60,22 @@ Si la red ya enruta de tráfico local, es preciso que cree la subred que hospede
 
 ![Acceso directo a Internet][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Configurar la subred del ASE para omitir las rutas de BGP ## 
+
+Puede configurar la subred del ASE para omitir todas las rutas de BGP.  Cuando se configura, el ASE podrá acceder a sus dependencias sin ningún problema.  Sin embargo, deberá crear UDR para permitir que las aplicaciones accedan a los recursos locales.
+
+Para configurar la subred del ASE para omitir las rutas de BGP:
+
+* Cree una UDR y asígnela a la subred del ASE si todavía no tiene una.
+* En Azure Portal, abra la interfaz de usuario de la tabla de rutas asignada a la subred del ASE.  Seleccione Configuración.  Establezca la propagación de ruta de BGP en Deshabilitado.  Haga clic en Guardar. La documentación sobre cómo desactivar eso se encuentra en el documento [Creación de una tabla de rutas][routetable].
+
+Una vez que lo haga, las aplicaciones ya no podrán alcanzar el entorno local. Para solucionar este problema, edite la UDR asignada a la subred del ASE y agregue rutas para los intervalos de direcciones locales. El tipo de Próximo salto se debe establecer en Puerta de enlace de red virtual. 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Configuración del ASE con puntos de conexión de servicio ##
+
+ > [!NOTE]
+   > Los puntos de conexión de servicio con SQL no funcionan con ASE en las regiones del gobierno de EE. UU.  La información siguiente solo es válida en las regiones públicas de Azure.  
 
 Para enrutar todo el tráfico saliente desde el ASE, excepto el que va a SQL Azure y a Azure Storage, siga estos pasos:
 
@@ -141,3 +157,4 @@ Además de interrumpir simplemente la comunicación, puede afectar de forma desf
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

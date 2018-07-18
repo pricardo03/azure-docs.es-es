@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869808"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097502"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -292,7 +292,7 @@ De forma predeterminada, los usuarios no pueden crear contraseñas de aplicació
 
 Los usuarios pueden crear contraseñas de aplicación durante el registro inicial. El usuario tiene la opción de crear contraseñas de aplicación al final del proceso de registro.
 
-Los usuarios también pueden crear contraseñas de aplicación después del registro. Las contraseñas de aplicación se pueden cambiar en la configuración de Azure Portal o del Portal de Office 365. Para más información e instrucciones detalladas para los usuarios, consulte [¿Qué son las contraseñas de aplicación de Azure Multi-Factor Authentication?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md)
+Los usuarios también pueden crear contraseñas de aplicación después del registro. Las contraseñas de aplicación se pueden cambiar en la configuración de Azure Portal o del Portal de Office 365. Para más información e instrucciones detalladas para los usuarios, consulte [¿Qué son las contraseñas de aplicación de Azure Multi-Factor Authentication?](end-user/current/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>Recuerde el servicio Multi-Factor Authentication para los dispositivos de confianza
@@ -301,7 +301,7 @@ La característica _Recordar Multi-Factor Authentication_ para dispositivos y ex
 >[!IMPORTANT]
 >Si una cuenta o un dispositivo corren peligro, el hecho de recordar Multi-Factor Authentication para los dispositivos de confianza puede afectar a la seguridad. Si una cuenta corporativa se pone en peligro o un dispositivo de confianza es objeto de pérdida o robo, debe [restaurar Multi-Factor Authentication en todos los dispositivos](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->La acción de restauración revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la verificación en dos pasos. También puede pedir a los usuarios que restauren Multi-Factor Authentication en sus propios dispositivos con las instrucciones que se indican en [Administración de la configuración de la verificación en dos pasos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>La acción de restauración revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la verificación en dos pasos. También puede pedir a los usuarios que restauren Multi-Factor Authentication en sus propios dispositivos con las instrucciones que se indican en [Administración de la configuración de la verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### <a name="how-the-feature-works"></a>Cómo funciona la característica
@@ -341,7 +341,7 @@ Después de habilitar la característica Recordar Multi-Factor Authentication, a
 
 Puede elegir los métodos de verificación que están disponibles para los usuarios mediante la característica _métodos de verificación seleccionables_. En la tabla siguiente se proporciona una breve información general de los métodos.
 
-Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, deciden su método de verificación preferido de las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la verificación en dos pasos](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md).
+Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, deciden su método de verificación preferido de las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-first-time.md).
 
 | Método | DESCRIPCIÓN |
 |:--- |:--- |

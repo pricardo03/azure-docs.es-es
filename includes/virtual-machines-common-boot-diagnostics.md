@@ -70,7 +70,7 @@ Para implementar una máquina virtual de ejemplo con Diagnósticos de arranque h
 
 Para habilitar Diagnósticos de arranque en una máquina virtual existente, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, luego, seleccione la máquina virtual.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, a continuación, seleccione la máquina virtual.
 2. En **Support + troubleshooting** (Soporte técnico y solución de problemas), seleccione **Diagnósticos de arranque** > **Configuración**, cambie el estado a **Activado** y, luego, seleccione una cuenta de almacenamiento. 
 4. Asegúrese de que está seleccionada la opción Diagnósticos de arranque y, a continuación, guarde el cambio.
 

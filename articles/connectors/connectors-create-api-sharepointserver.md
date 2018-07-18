@@ -4,7 +4,7 @@ description: Introducción al uso del conector de SharePoint Server en Logic App
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c153b4987e37a5d97b95d4f1249de1ed92e851b3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295951"
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Introducción al conector de SharePoint
 El conector de SharePoint ofrece una manera de trabajar con listas en SharePoint.

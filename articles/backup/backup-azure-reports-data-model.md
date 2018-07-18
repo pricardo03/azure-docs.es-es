@@ -1,25 +1,20 @@
 ---
 title: Modelo de datos para Azure Backup
-description: "En este artículo se explican los detalles del modelo de datos de Power BI para los informes de Azure Backup."
+description: En este artículo se explican los detalles del modelo de datos de Power BI para los informes de Azure Backup.
 services: backup
-documentationcenter: 
-author: JPallavi
-manager: vijayts
-editor: 
-ms.assetid: 0767c330-690d-474d-85a6-aa8ddc410bb2
+author: adiganmsft
+manager: shivamg
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: pajosh
+ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1531e23d0e5fd34eff59868055ccd855b423e4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444310"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de datos para informes de Azure Backup
 En este artículo se describe el modelo de datos de Power BI utilizado para crear informes de Azure Backup. Con este modelo de datos, puede filtrar los informes existentes en función de los campos correspondientes, y lo que es más importante, crear sus propios informes mediante el uso de las tablas y campos del modelo. 
@@ -33,7 +28,7 @@ Los siguientes campos se pueden usar como parte del modelo de datos para crear i
 ### <a name="alert"></a>Alerta
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados de la alerta.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Número entero |Número de alertas creadas en el período seleccionado |
 | %ActiveAlertsCreatedInPeriod |Porcentaje |Porcentaje de alertas activas en el período seleccionado |
@@ -50,7 +45,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 ### <a name="backup-item"></a>Elemento de copia de seguridad
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el elemento de copia de seguridad.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | #BackupItems |Número entero |Número de elementos de copia de seguridad |
 | #UnprotectedBackupItems |Número entero |Número de elementos de copia de seguridad detenidos para su protección o configurados para que se realicen copias de seguridad, pero las copias de seguridad no se han iniciado|
@@ -68,16 +63,16 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 ### <a name="calendar"></a>Calendario
 Esta tabla proporciona detalles acerca de los campos relacionados con el calendario.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
-| Fecha |Fecha |Fecha seleccionada para filtrar datos |
+| Date |Date |Fecha seleccionada para filtrar datos |
 | DateKey |Texto |Clave única para cada elemento de fecha |
 | DayDiff |Número decimal |Diferencia en el día al filtrar datos, por ejemplo, 0 indican los datos del día actual, -1 indica los datos de un día anterior y 0 y -1 indican los datos del día actual y del anterior  |
 | Mes |Texto |Mes del año seleccionado para filtrar datos, el mes empieza el día 1 y termina el día 31 |
-| MonthDate | Fecha |Fecha del mes en que finaliza el mes, se selecciona para filtrar datos |
+| MonthDate | Date |Fecha del mes en que finaliza el mes, se selecciona para filtrar datos |
 | MonthDiff |Número decimal |Diferencia en el mes al filtrar datos, por ejemplo, 0 indican los datos del mes actual, -1 indica los datos de un mes anterior y 0 y -1 indican los datos del mes actual y del anterior |
 | Semana |Texto |Semana seleccionada para filtrar los datos; la semana comienza el domingo y termina el sábado |
-| WeekDate |Fecha |Fecha de la semana en que finaliza la semana, se selecciona para filtrar datos |
+| WeekDate |Date |Fecha de la semana en que finaliza la semana, se selecciona para filtrar datos |
 | WeekDiff |Número decimal |Diferencia en la semana al filtrar datos, por ejemplo, 0 indican los datos de la semana actual, -1 indica los datos de una semana anterior y 0 y -1 indican los datos de la semana actual y de la anterior |
 | Year |Texto |Año natural para filtrar datos |
 | YearDate |Fecha |Fecha del año en que finaliza el año, se selecciona para filtrar datos |
@@ -85,7 +80,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el calenda
 ### <a name="job"></a>Trabajo
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el trabajo.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Número entero |Número de trabajos creados en el período seleccionado |
 | %FailuresForJobsCreatedInPeriod |Porcentaje |Porcentaje de errores de los trabajos globales en el período seleccionado |
@@ -97,7 +92,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | EntityState |Texto |Estado actual del objeto del trabajo, por ejemplo, Active o Deleted |
 | JobFailureCode |Texto |Cadena del código de error por el que produjo el error del trabajo |
 | JobOperation |Texto |Operación para la que se ejecuta el trabajo, por ejemplo, Backup, Restore o Configure Backup |
-| JobStartDate |Fecha |Fecha en que comenzó la ejecución del trabajo |
+| JobStartDate |Date |Fecha en que comenzó la ejecución del trabajo |
 | JobStartTime |Hora |Hora en que comenzó la ejecución del trabajo |
 | Estado del trabajo |Texto |Estado del trabajo terminado, por ejemplo, Completed o Failed |
 | JobUniqueId |Texto |Identificador único que identifica el trabajo |
@@ -105,7 +100,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 ### <a name="policy"></a>Directiva
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con la directiva.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | #Directivas |Número entero |Número de directivas de copia de seguridad que existen en el sistema |
 | #PoliciesInUse |Número entero |Número de directivas que se usan actualmente para configurar copias de seguridad |
@@ -139,7 +134,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 ### <a name="protected-server"></a>Servidor protegido
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el servidor protegido.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | #ProtectedServers |Número entero |Número de servidores protegidos |
 | AsOnDateTime |Fecha y hora |Hora de la última actualización de la fila seleccionada |
@@ -155,10 +150,10 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | ProtectedServerName |Texto |Nombre del servidor protegido al que pertenece el elemento de copia de seguridad |
 | RegisteredContainerId |Texto |Identificador de contenedor registrado para copia de seguridad |
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el almacenamiento.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | #ProtectedInstances |Número decimal |Número de instancias protegidas que se utilizan para calcular el almacenamiento de front-end en la facturación; se calcula en función del valor más reciente del tiempo seleccionado |
 | AsOnDateTime |Fecha y hora |Hora de la última actualización de la fila seleccionada |
@@ -169,7 +164,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 ### <a name="time"></a>Hora
 Esta tabla proporciona detalles acerca de los campos relacionados con el tiempo.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | Hora |Hora |Hora del día, por ejemplo, 1:00:00 p.m. |
 | HourNumber |Número decimal |Número de hora en el día, por ejemplo, 13.00 |
@@ -181,7 +176,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el tiempo.
 ### <a name="vault"></a>Almacén
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el almacén.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | #Vaults |Número entero |Número de almacenes |
 | AsOnDateTime |Fecha y hora |Hora de la última actualización de la fila seleccionada |

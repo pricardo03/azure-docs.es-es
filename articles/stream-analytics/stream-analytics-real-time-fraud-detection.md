@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824768"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: detección de fraudes en tiempo real
 
@@ -131,12 +132,12 @@ Antes de iniciar la aplicación TelcoGenerator, debe configurarla para que enví
 1.  Abra una ventana de comandos y cambie a la carpeta en la que se ha descomprimido la aplicación TelcoGenerator.
 2.  Escriba el comando siguiente:
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     Los parámetros son los siguientes: 
 
     * Número de registros CDR por hora. 
-    * Probabilidad de fraude de tarjeta SIM: frecuencia, como porcentaje de todas las llamadas, con que la aplicación debe simular una llamada fraudulenta. El valor .2 indica que aproximadamente el 20 % de los registros de llamada tendrán un aspecto fraudulento.
+    * Probabilidad de fraude de tarjeta SIM: frecuencia, como porcentaje de todas las llamadas, con que la aplicación debe simular una llamada fraudulenta. El valor 0,2 indica que aproximadamente el 20 % de los registros de llamada tendrán un aspecto fraudulento.
     * Duración en horas. Número de horas que debe ejecutarse la aplicación. También puede detener la aplicación en cualquier momento presionando Ctrl+C en la línea de comandos.
 
     Después de unos segundos, la aplicación comienza a mostrar los registros de llamada telefónica en la pantalla tal y como los envía al centro de eventos.

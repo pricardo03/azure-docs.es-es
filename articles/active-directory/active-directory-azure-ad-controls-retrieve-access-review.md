@@ -3,26 +3,30 @@ title: Recuperación de los resultados de la revisión de acceso de Azure AD | M
 description: Cómo recuperar los resultados de las revisiones de acceso de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: cdd07fd837863d9a5abced0db8cacaded6288a41
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.component: compliance-reports
+ms.date: 06/21/2018
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 96676c3ec6d96fd6c6f78aa2dbed8cf4d0a6718d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192231"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295307"
 ---
 # <a name="retrieve-access-review-results"></a>Recuperación de los resultados de la revisión de acceso
 
-Los administradores pueden usar Azure Active Directory (Azure AD) para [crear una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md) para miembros de grupo o usuarios asignados en una aplicación.  Un usuario que se encuentra en el rol **Administrador global**, **Administrador de seguridad** o **Lector de seguridad** también puede leer los resultados de una revisión de acceso.  Para asignar usuarios a uno de estos roles, un administrador de roles con privilegios puede usar Azure Active Directory Privileged Identity Management para hacer que un usuario pueda activar el rol o un administrador global puede [asignar un usuario al rol](active-directory-users-assign-role-azure-portal.md) permanentemente.
+Los administradores pueden usar Azure Active Directory (Azure AD) para [crear una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md) para miembros de grupo o usuarios asignados en una aplicación.  Un usuario que se encuentra en el rol **Administrador global**, **Administrador de cuentas de usuario**, **Administrador de seguridad** o **Lector de seguridad** también puede leer los resultados de una revisión de acceso.  Para asignar usuarios a uno de estos roles, un administrador de roles con privilegios puede usar Azure Active Directory Privileged Identity Management para hacer que un usuario pueda activar el rol o un administrador global puede [asignar un usuario al rol](fundamentals/active-directory-users-assign-role-azure-portal.md) permanentemente.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Búsqueda de una revisión de acceso
 
@@ -43,9 +47,7 @@ Para ver los resultados de una instancia finalizada de una revisión de acceso q
 
 ## <a name="removing-users-from-an-access-review"></a>Eliminación de usuarios de una revisión de acceso
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
-
-De forma predeterminada, un usuario eliminado permanecerá eliminado en Azure AD durante 30 días, tiempo durante el cual un administrador puede restaurarlo si es necesario.  Después de 30 días, ese usuario se eliminará definitivamente.  Además, mediante el portal de Azure Active Directory, un administrador global puede [eliminar permanentemente un usuario eliminado recientemente](active-directory-users-restore.md) explícitamente antes de que se alcance ese período de tiempo.  Una vez que un usuario se ha eliminado permanentemente, los datos posteriores sobre ese usuario se eliminarán de las revisiones de acceso activas.  La información de auditoría de los usuarios eliminados se conserva en el registro de auditoría.
+De forma predeterminada, un usuario eliminado permanecerá eliminado en Azure AD durante 30 días, tiempo durante el cual un administrador puede restaurarlo si es necesario.  Después de 30 días, ese usuario se eliminará definitivamente.  Además, mediante el portal de Azure Active Directory, un administrador global puede [eliminar permanentemente un usuario eliminado recientemente](fundamentals/active-directory-users-restore.md) explícitamente antes de que se alcance ese período de tiempo.  Una vez que un usuario se ha eliminado permanentemente, los datos posteriores sobre ese usuario se eliminarán de las revisiones de acceso activas.  La información de auditoría de los usuarios eliminados se conserva en el registro de auditoría.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -53,6 +55,6 @@ De forma predeterminada, un usuario eliminado permanecerá eliminado en Azure AD
 - [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Administración de los programas y los controles para las revisiones de acceso de Azure AD](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Crear una revisión de acceso para los miembros de un grupo o el acceso a una aplicación](active-directory-azure-ad-controls-create-access-review.md)
-- [Creación de una revisión de acceso de los usuarios en un rol administrativo de Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Creación de una revisión de acceso de los usuarios en un rol administrativo de Azure AD](privileged-identity-management/pim-how-to-start-security-review.md)
 
 

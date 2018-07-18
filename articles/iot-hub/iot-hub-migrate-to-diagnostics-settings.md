@@ -1,24 +1,19 @@
 ---
 title: Migración de Azure IoT Hub a la configuración de diagnóstico | Microsoft Docs
 description: Se describe cómo actualizar Azure IoT Hub para usar la configuración de diagnóstico de Azure en lugar de la supervisión de operaciones para controlar el estado de las operaciones de IoT Hub en tiempo real.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: kgremban
-ms.openlocfilehash: a46f6798a71c93ed769ae68877e72801d45b74a4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 85bdb4b4802283c591e4d7a9e8b14ae74fa44e8d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666729"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migración de la supervisión de operaciones de IoT Hub a la configuración de diagnóstico
 
@@ -61,5 +56,5 @@ Para las estructuras de esquema específicas, vea la [información sobre el esqu
 [lnk-opsmon]: iot-hub-operations-monitoring.md
 [lnk-diagnostics-settings]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
 [lnk-diagnostics-schema]: iot-hub-monitor-resource-health.md#understand-the-logs
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-accelerators-with-azure-monitor-and-azure-resource-health
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/
 [lnk-monitor]: iot-hub-monitor-resource-health.md

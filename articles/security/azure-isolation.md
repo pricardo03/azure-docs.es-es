@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010887"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018421"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -121,7 +121,7 @@ Los servicios de negocios con certificaciones auditadas como la ISO/IEC 27001 se
 
 Si se elimina algún dato, Microsoft Azure eliminará los datos, incluidas las copias en memoria caché y las copias de seguridad. Para los servicios incluidos en el ámbito, la eliminación se realizará 90 días después del final del período de retención. (Los servicios incluidos en el ámbito se definen en los términos del procesamiento de datos, en los [términos de los servicios en línea](http://aka.ms/Online-Services-Terms).)
 
-Si una unidad de disco utilizada para el almacenamiento sufre un error de hardware, se [borra o destruye](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) de un modo seguro antes de que Microsoft la devuelva al fabricante para su reemplazo o reparación. Los datos de la unidad se sobrescriben para asegurarse de que no se puedan recuperar de ninguna forma.
+Si una unidad de disco utilizada para el almacenamiento sufre un error de hardware, se [borra o destruye](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) de un modo seguro antes de que Microsoft la devuelva al fabricante para su reemplazo o reparación. Los datos de la unidad se sobrescriben para asegurarse de que no se puedan recuperar de ninguna forma.
 
 ## <a name="compute-isolation"></a>Aislamiento de proceso
 Microsoft Azure proporciona diversos servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso que se pueden escalar vertical y horizontalmente para satisfacer las necesidades de su aplicación o de su empresa. Estos servicios e instancias de proceso ofrecen aislamiento en varios niveles para proteger los datos, sin sacrificar la flexibilidad en la configuración que los clientes demandan.

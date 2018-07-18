@@ -1,6 +1,6 @@
 ---
-title: Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo configurar directivas de acceso condicional basadas en dispositivos de Azure Active Directory.
+title: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional de Azure Active Directory | Microsoft Docs
+description: Aprenda a configurar directivas de acceso condicional basadas en dispositivos de Azure Active Directory (Azure AD) que necesiten dispositivos administrados para el acceso a aplicaciones en la nube.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -8,41 +8,53 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035303"
 ---
-# <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
-Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados pueden acceder a los recursos. Por ejemplo, puede limitar el acceso a determinados recursos a dispositivos administrados. Una directiva de acceso condicional que requiere un dispositivo administrado se conoce también como directiva de acceso condicional basada en dispositivos.
+En un mundo donde la nube y la movilidad son prioritarias, Azure Active Directory (Azure AD) permite el inicio de sesión único en aplicaciones y servicios desde cualquier parte. Los usuarios autorizados pueden acceder a las aplicaciones en la nube desde una amplia variedad de dispositivos, como dispositivos móviles y personales. No obstante, algunos entornos tienen algunas aplicaciones a las que solo se puede acceder mediante dispositivos que reúnan los estándares de seguridad y cumplimiento. A estos dispositivos también se les conoce como dispositivos administrados. 
 
-En este tema se explica cómo puede configurar directivas de acceso condicional basadas en dispositivos para aplicaciones de conectadas a Azure AD. 
+En este artículo se explica cómo puede configurar directivas de acceso condicional que requieran dispositivos administrados para acceder a determinadas aplicaciones en la nube del entorno. 
 
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>requisitos previos
 
-El acceso condicional basado en dispositivos une el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD**. Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
+Requerir dispositivos administrados para el acceso a aplicaciones en la nube une el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD**. Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
 
-- **[Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md)**: en este tema se proporcionan tanto información general conceptual de acceso condicional como la terminología relacionada.
+- **[Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md)**: en este artículo se proporciona tanto información general conceptual de acceso condicional como la terminología relacionada.
 
-- **[Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md)**: en este tema se proporciona información general de las diversas opciones que tiene para conectar dispositivos con Azure AD. 
+- **[Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md)**: en este artículo se proporciona información general de las diversas opciones que tiene para mantener los dispositivos bajo el control de la organización. 
 
+
+## <a name="scenario-description"></a>Descripción del escenario
+
+Dominar el equilibrio entre seguridad y productividad es un desafío. La proliferación de dispositivos compatibles para acceder a recursos en la nube ayuda a mejorar la productividad de los usuarios. Por otro lado, es posible que no desee que se pueda acceder a determinados recursos del entorno con un nivel de protección desconocido. Para estos recursos en cuestión debe hacer que los usuarios solo puedan acceder a ellos mediante un dispositivo administrado. 
+
+Con el acceso condicional de Azure AD, puede abordar este requisito con una única directiva que concede acceso:
+
+- A determinadas aplicaciones en la nube
+
+- A los usuarios y grupos seleccionados
+
+- Uso obligatorio de un dispositivo administrado
 
 
 ## <a name="managed-devices"></a>Dispositivos administrados  
 
-En un mundo Mobile First, Cloud First, Azure Active Directory permite el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier parte. Para determinados recursos de su entorno, es posible que conceder acceso a los usuarios adecuados no sea una acción lo suficientemente buena. Además de los usuarios adecuados, también podría requerir que los intentos de acceso solo se puedan realizar mediante un dispositivo administrado.
-
-Un dispositivo administrado es un dispositivo que cumple los estándares de seguridad y cumplimiento. En otras palabras, los dispositivos administrados son dispositivos que están bajo *algún tipo* de control de la organización. En Azure AD, el requisito previo para un dispositivo administrado es que se haya registrado en Azure AD. Al registrar un dispositivo, se crea una identidad para el dispositivo en forma de un objeto de dispositivo. Azure usa este objeto para realizar el seguimiento de información de estado sobre el dispositivo. Como administrador de Azure AD, ya puede utilizar este objeto para alternar (habilitar/deshabilitar) el estado de un dispositivo.
+En otras palabras, los dispositivos administrados son dispositivos que están bajo *algún tipo* de control de la organización. En Azure AD, el requisito previo para un dispositivo administrado es que se haya registrado en Azure AD. Al registrar un dispositivo, se crea una identidad para el dispositivo en forma de un objeto de dispositivo. Azure usa este objeto para realizar el seguimiento de información de estado sobre el dispositivo. Como administrador de Azure AD, ya puede utilizar este objeto para alternar (habilitar/deshabilitar) el estado de un dispositivo.
   
 ![Condiciones basadas en el dispositivo](./media/active-directory-conditional-access-policy-connected-applications/32.png)
 
@@ -50,14 +62,13 @@ Para registrar un dispositivo en Azure AD, tiene tres opciones:
 
 - **[Dispositivos registrados en Azure AD](device-management-introduction.md#azure-ad-registered-devices)**: registrar un dispositivo personal en Azure AD
 
-- **[Dispositivos unidos a Azure AD](device-management-introduction.md#azure-ad-joined-devices)**: registrar en Azure AD un dispositivo Windows 10 organizativo que no está unido a una implementación local de AD. 
+- **[Dispositivos unidos a Azure AD](device-management-introduction.md#azure-ad-joined-devices)**: registrar en Azure AD un dispositivo con Windows 10 de la organización que no se haya unido a una versión local de AD. 
 
 - **[Dispositivos unidos a Azure AD híbridos](device-management-introduction.md#hybrid-azure-ad-joined-devices)**: registrar en Azure AD un dispositivo Windows 10 que está unido a una implementación local de AD.
 
-Para convertirse en dispositivo administrado, un dispositivo registrado puede ser un dispositivo unido a Azure AD híbrido o un dispositivo que se ha marcado como compatible.  
+Para convertirse en dispositivo administrado, un dispositivo registrado debe ser un **dispositivo unido a Azure AD híbrido** o un **dispositivo que se ha marcado como compatible**.  
 
 ![Condiciones basadas en el dispositivo](./media/active-directory-conditional-access-policy-connected-applications/47.png)
-
 
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Requerir dispositivos unidos a Azure AD híbridos
@@ -66,7 +77,7 @@ En la directiva de acceso condicional, puede seleccionar **Requerir dispositivo 
 
 ![Condiciones basadas en el dispositivo](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Esta configuración solo se aplica a dispositivos Windows 10 que están unidos a Azure AD local. Estos dispositivos solo pueden registrarse en Azure AD con una unión a Azure AD híbrida, que es un [proceso automatizado](device-management-hybrid-azuread-joined-devices-setup.md) para registrar un dispositivo Windows 10. 
+Esta configuración solo se aplica a dispositivos Windows 10 unidos a una versión local de AD. Estos dispositivos solo pueden registrarse en Azure AD con una unión a Azure AD híbrida, que es un [proceso automatizado](device-management-hybrid-azuread-joined-devices-setup.md) para registrar un dispositivo Windows 10. 
 
 ![Condiciones basadas en el dispositivo](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 
@@ -81,8 +92,8 @@ La opción de *requerir que un dispositivo esté marcado como compatibles* es la
 
 Esta opción exige registrar un dispositivo en Azure AD y, también, que se marque como compatible por:
          
-- Intune 
-- Un sistema administrado de dispositivos móviles de terceros que administra los dispositivos de Windows 10 a través de la integración de Azure AD 
+- Intune.
+- Un sistema administrado de dispositivos móviles (MDM) de terceros que administra los dispositivos de Windows 10 a través de la integración de Azure AD. No se pueden utilizar sistemas MDM de terceros con otros sistemas operativos que no sean Windows 10.
  
 ![Condiciones basadas en el dispositivo](./media/active-directory-conditional-access-policy-connected-applications/46.png)
 

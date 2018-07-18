@@ -1,30 +1,30 @@
 ---
-title: Personalización de la interfaz de usuario - Azure AD B2C | Microsoft Docs
-description: Tema sobre las características de personalización de la interfaz de usuario de Azure Active Directory B2C
+title: Personalización de la interfaz de usuario en Azure Active Directory B2C | Microsoft Docs
+description: Un tema sobre las características de personalización de la interfaz de usuario de Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 385c13194063761d6449fafa49714d8627f6c6fc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447060"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C
 
 La experiencia del usuario es primordial en una aplicación de cliente.  Aumentar su base de clientes mediante el diseño de experiencias de usuario con la apariencia de su marca. Azure Active Directory B2C (Azure AD B2C) permite personalizar las páginas de registro, inicio de sesión, edición de perfil y restablecimiento de contraseña del cliente con control perfecto de píxeles.
 
 > [!NOTE]
-> La característica de personalización de la interfaz de usuario de la página que se describe en este artículo no se aplica a la directiva de inicio de sesión único, a la página de restablecimiento de contraseña adjunta y a los correos electrónicos de verificación.  Estas características utilizan en su lugar la [característica de personalización de marca de empresa](../active-directory/customize-branding.md).
+> La característica de personalización de la interfaz de usuario de la página que se describe en este artículo no se aplica a la directiva de inicio de sesión único, a la página de restablecimiento de contraseña adjunta y a los correos electrónicos de verificación.  Estas características utilizan en su lugar la [característica de personalización de marca de empresa](../active-directory/fundamentals/customize-branding.md).
 >
-> De manera similar, si un usuario inicia una directiva de edición de perfil *antes* de iniciar sesión, se redirigirá al usuario a una página que se puede personalizar con la [característica de personalización de marca de la empresa](../active-directory/customize-branding.md).
+> De manera similar, si un usuario inicia una directiva de edición de perfil *antes* de iniciar sesión, se redirigirá al usuario a una página que se puede personalizar con la [característica de personalización de marca de la empresa](../active-directory/fundamentals/customize-branding.md).
 
 En este artículo se tratan los temas siguientes:
 
@@ -315,7 +315,7 @@ Esta página permite a los usuarios verificar sus números de teléfono (mediant
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>Fragmento insertado en la ""página de error"
+### <a name="fragment-inserted-into-the-error-page"></a>Fragmento insertado en la "página de error"
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">

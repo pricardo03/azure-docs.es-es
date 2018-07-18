@@ -17,11 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446612"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conexión a través de SSH con HDInsight (Hadoop)
 
@@ -31,7 +32,7 @@ HDInsight puede usar Linux (Ubuntu) como sistema operativo para los nodos dentro
 
 | Dirección | Port | Se conecta a... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nodo perimetral (R Server en HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nodo perimetral (Machine Learning Services en HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nodo perimetral (cualquier otro tipo de clúster, si existe un nodo perimetral) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nodo principal primario |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nodo principal secundario |
@@ -136,7 +137,19 @@ Para información acerca de cómo cambiar la contraseña de cuenta de usuario SS
 
 ## <a id="domainjoined"></a>Autenticación: HDInsight unido a un dominio
 
-Si está usando un __clúster de HDInsight unido a un dominio__, tiene que utilizar el comando `kinit` después de conectarse con SSH. Este comando le pide un usuario de dominio y una contraseña y autentica la sesión con el dominio de Azure Active Directory asociado con el clúster.
+Si está usando un __clúster de HDInsight unido a un dominio__, tiene que utilizar el comando `kinit` después de conectarse con el usuario local de SSH. Este comando le pide un usuario de dominio y una contraseña y autentica la sesión con el dominio de Azure Active Directory asociado con el clúster.
+
+También puede habilitar la autenticación Kerberos en cada nodo unido a un dominio (por ejemplo, nodo principal, nodo perimetral) para realizar un ssh mediante la cuenta de dominio. Para ello, edite el archivo de configuración de sshd:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+uncommnet y cambie `KerberosAuthentication` por `yes`
+
+```bash
+sudo service sshd restart
+```
+
+En cualquier momento, para verificar si la autenticación de Kerberos se ha realizado correctamente, utilice el comando `klist`.
 
 Para más información, consulte [Configuración de clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-configure.md).
 

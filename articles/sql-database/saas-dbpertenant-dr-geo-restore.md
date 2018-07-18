@@ -7,15 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: ayolubek
-ms.openlocfilehash: 8fd25e13f6796b8be99ad3efd425bcde7bca3905
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc28622ad6d2569d455f82a30a84c47647baa1e2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193978"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645341"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 
@@ -78,7 +78,7 @@ Los scripts de recuperación ante desastres de este tutorial están disponibles 
 ## <a name="review-the-healthy-state-of-the-application"></a>Revisión del estado correcto de la aplicación
 Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento normal de la aplicación.
 
-1. En el explorador web, abra el centro de eventos de Wingtip Tickets: http://events.wingtip-dpt.&lt;usuario&gt;trafficmanager.net (reemplace &lt;usuario&gt; por el valor de usuario de la implementación).
+1. En el explorador web, abra el centro de eventos de Wingtip Tickets: http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net (sustituya &lt;usuario&gt; por el valor del usuario de la implementación).
     
    Desplácese hasta la parte inferior de la página y observe el nombre y la ubicación del servidor del catálogo en el pie de página. La ubicación es la región en la que se implementó la aplicación.    
 
@@ -198,7 +198,7 @@ Mientras que el punto de conexión de la aplicación esté deshabilitado en Traf
  
     ![Proceso de recuperación](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Si abre directamente la página de eventos de un inquilino mientras el inquilino está sin conexión, la página muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está sin conexión, intente abrir http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall.
+    * Si abre directamente la página de eventos de un inquilino mientras el inquilino está sin conexión, la página muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está desconectado, intente abrir http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Proceso de recuperación](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -264,7 +264,7 @@ En esta tarea, va a actualizar una de las bases de datos de inquilino restaurada
 
 3. Para ejecutar el script, seleccione F5.
 
-4. Actualice la página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt; usuario&gt;.trafficmanager.net/contosoconcerthall) y observe que falta el evento Seriously Strauss.
+4. Actualice la página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall) y observe que falta el evento Seriously Strauss.
 
 En este punto del tutorial, ha recuperado la aplicación, que ahora se está ejecutando en la región de recuperación. Ha aprovisionado a un nuevo inquilino en la región de recuperación y los datos modificados de uno de los inquilinos restaurados.  
 

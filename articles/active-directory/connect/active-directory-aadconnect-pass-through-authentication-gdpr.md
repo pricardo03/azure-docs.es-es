@@ -4,7 +4,7 @@ description: Este artículo trata sobre la autenticación de paso a través de A
 services: active-directory
 keywords: Autenticación de paso a través de Azure AD Connect, RGPD, componentes necesarios para Azure AD, SSO, inicio de sesión único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150630"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915884"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidad del usuario y autenticación de paso a través de Azure Active Directory
 
@@ -29,13 +30,13 @@ ms.locfileid: "32150630"
 
 ## <a name="overview"></a>Información general
 
-La autenticación paso a través de Azure AD crea los tipos de registro siguientes, que pueden contener EUII:
+La autenticación paso a través de Azure AD crea el tipo de registro siguiente, que puede contener datos personales:
 
 - Archivos de registro de seguimiento de Azure AD Connect.
 - Archivos de registro de seguimiento del agente de autenticación.
 - Archivos de registro de eventos de Windows.
 
-La privacidad del usuario para la autenticación de paso a través se puede conseguir de dos maneras:
+Puede mejorar la privacidad del usuario para la autenticación de paso de dos maneras:
 
 1.  Previa solicitud, extraer los datos de una persona y quitarlos de las instalaciones.
 2.  Asegurarse de que ningún dato se conserva más de 48 horas.

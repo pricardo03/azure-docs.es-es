@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c537b06c4ff50d90d9fd5a847b378038f252790
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972281"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Xamarin.Android mediante Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +32,7 @@ En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
 > * Crear un proyecto de Firebase y habilitar Firebase Cloud Messaging
-> * Crear un Centro de notificaciones
+> * Creación de un centro de notificaciones
 > * Crear una aplicación de Xamarin.Android y conectarla al Centro de notificaciones
 > * Enviar notificaciones de prueba desde Azure Portal
 
@@ -57,7 +58,7 @@ En este tutorial, realizará los siguientes pasos:
 
 El centro de notificaciones ya está configurado para funcionar con FCM y dispone de las cadenas de conexión para registrar la aplicación para que reciba notificaciones y para enviar notificaciones push.
 
-## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>Creación de una aplicación de Xamarin.Android y su conexión al Centro de notificaciones
+## <a name="create-xamarinandroid-app-and-connect-it-to-notification-hub"></a>Creación de una aplicación de Xamarin.Android y su conexión al centro de notificaciones
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Creación de un proyecto de Visual Studio y adición de paquetes NuGet
 1. En Visual Studio, seleccione **Archivo**, **Nuevo** y, finalmente, **Proyecto**. 
@@ -141,6 +142,7 @@ Abra el archivo **AndroidManifest.xml** e inserte los siguientes elementos `<rec
 8. Agregue las siguientes instrucciones using a la clase **MyFirebaseIIDService.cs**:
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -182,6 +184,7 @@ Abra el archivo **AndroidManifest.xml** e inserte los siguientes elementos `<rec
 12. Agregue las siguientes instrucciones using a la clase **MyFirebaseMessaging.cs**.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```

@@ -2,7 +2,7 @@
 title: 'Administración de aplicaciones lógicas con Visual Studio: Azure Logic Apps | Microsoft Docs'
 description: Administración de aplicaciones lógicas y otros recursos de Azure con Visual Studio Cloud Explorer
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b4d7f557923a67ae0c9fc513cd2b4fe7555241be
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362209"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301123"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -49,7 +49,7 @@ Si bien puede crear, editar, administrar e implementación aplicaciones lógicas
 
 * Acceso a la Web mediante el diseñador integrado de Logic Apps
 
-  El diseñador requiere una conexión a Internet para crear recursos en Azure, y leer las propiedades y los datos de los conectores de la aplicación lógica. 
+  El diseñador requiere una conexión a Internet para crear recursos en Azure y leer las propiedades y los datos de los conectores de la aplicación lógica. 
   Por ejemplo, si usa el conector de Dynamics CRM Online, el diseñador comprueba en la instancia de CRM si hay propiedades predeterminadas y propiedades personalizadas disponibles.
 
 <a name="find-logic-apps-vs"></a>
@@ -69,7 +69,7 @@ En Visual Studio, puede encontrar todas las aplicaciones lógicas que están aso
    * **Grupos de recursos**: en la suscripción de Azure, Cloud Explorer muestra todos los grupos de recursos que están asociados con esa suscripción. 
    Expanda el grupo de recursos que contiene la aplicación lógica y selecciónela.
 
-   * **Tipos de recursos**: en la suscripción de Azure, expanda **Aplicaciones lógicas**. Una vez que Cloud Explorer muestra todas las aplicaciones lógicas implementadas que están asociadas a la suscripción, seleccione su aplicación lógica.
+   * **Tipos de recursos**: en la suscripción de Azure, expanda **Logic Apps**. Una vez que Cloud Explorer muestra todas las aplicaciones lógicas implementadas que están asociadas a la suscripción, seleccione su aplicación lógica.
 
 <a name="open-designer"></a>
 
@@ -81,7 +81,7 @@ En Visual Studio, puede abrir las aplicaciones lógicas anteriormente creadas e 
 
 2. En el menú contextual de la aplicación lógica, seleccione **Abrir con el editor Logic App**.
 
-   Este ejemplo muestra las aplicaciones lógicas según el tipo de recurso, por lo que las aplicaciones lógicas aparecen en la sección **Aplicaciones lógicas**.
+   Este ejemplo muestra las aplicaciones lógicas según el tipo de recurso, por lo que las aplicaciones lógicas aparecen en la sección **Logic Apps**.
 
   ![Abrir aplicación lógica implementada desde Azure Portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
@@ -92,22 +92,22 @@ En Visual Studio, puede abrir las aplicaciones lógicas anteriormente creadas e 
 
 ## <a name="download-from-azure"></a>Descarga de Azure
 
-Puede descargar aplicaciones lógicas desde <a href="https://portal.azure.com" target="_blank">Azure Portal</a> y guardarlas como plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Luego puede editar de manera local las plantillas con Visual Studio y personalizar las aplicaciones lógicas para distintos entornos de implementación. Al descargar las aplicaciones lógicas, se *parametriza* automáticamente sus definiciones dentro de las [plantillas de Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), que también usan la notación de objetos JavaScript (JSON).
+Puede descargar aplicaciones lógicas desde <a href="https://portal.azure.com" target="_blank">Azure Portal</a> y guardarlas como plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Luego puede editar de manera local las plantillas con Visual Studio y personalizar las aplicaciones lógicas para distintos entornos de implementación. Al descargar las aplicaciones lógicas, se *parametrizan* automáticamente sus definiciones dentro de las [plantillas de Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), que también usan la notación de objetos JavaScript (JSON).
 
-1. En Visual Studio, abra Cloud Explorer y, luego, busque y seleccione la aplicación lógica que desea descargar de Azure.
+1. En Visual Studio, abra Cloud Explorer y busque y seleccione la aplicación lógica que desea descargar de Azure.
 
 2. En el menú contextual de la aplicación, seleccione **Abrir con el editor de Logic App**.
 
    El Diseñador de aplicaciones lógicas se abre y muestra la aplicación lógica. 
-   Para revisar la estructura y la definición subyacentes de la aplicación lógica, en la parte inferior del diseñador, elija la **vista Código**. 
+   Para revisar la estructura y la definición subyacentes de aplicaciones lógicas, en la parte inferior del diseñador, elija la **vista Código**. 
 
 3. En la barra de herramientas del diseñador, elija **Descargar**.
 
    ![Elegir "Descargar"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
 
-4. Cuando se le pida una ubicación, vaya a esa ubicación y guarde la plantilla de Resource Manager para la definición de aplicación lógica en formato de archivo JSON (.json). 
+4. Cuando se le pida una ubicación, vaya a esa ubicación y guarde la plantilla de Resource Manager para la definición de aplicaciones lógicas en formato de archivo JSON (.json). 
 
-La definición de aplicación lógica aparece en la subsección `resources` dentro de la plantilla de Resource Manager. Ahora puede editar la definición de aplicación lógica y la plantilla de Resource Manager con Visual Studio. También puede agregar la plantilla como un proyecto de Azure Resource Manager en una solución de Visual Studio. Obtenga más información sobre los [proyectos de Resource Manager para las aplicaciones lógicas en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+La definición de aplicaciones lógicas aparece en la subsección `resources` de la plantilla de Resource Manager. Ahora puede editar la definición de aplicaciones lógicas y la plantilla de Resource Manager con Visual Studio. También puede agregar la plantilla como un proyecto de Azure Resource Manager en una solución de Visual Studio. Obtenga más información sobre los [proyectos de Resource Manager para las aplicaciones lógicas en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
 
 <a name="refresh"></a>
 
@@ -143,7 +143,7 @@ Para comprobar el estado y diagnosticar problemas con las ejecuciones de la apli
 
    ![Abrir el historial de ejecución](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-2. Para ver los detalles de una ejecución específica, haga doble clic en una ejecución. Por ejemplo: 
+2. Para ver los detalles de una ejecución específica, haga doble clic en ella. Por ejemplo: 
 
    ![Historial de ejecución detallado](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
@@ -173,7 +173,7 @@ Para eliminar la aplicación lógica desde Azure Portal, en Cloud Explorer, abra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a administrar las aplicaciones lógicas implementadas con Visual Studio. A continuación, obtenga información sobre cómo personalizar las definiciones de aplicación lógica para la implementación:
+En este artículo, aprendió a administrar las aplicaciones lógicas implementadas con Visual Studio. A continuación, obtenga información sobre cómo personalizar las definiciones de aplicaciones lógicas para la implementación:
 
 > [!div class="nextstepaction"]
-> [Creación de definiciones de aplicación lógica en JSON](../logic-apps/logic-apps-author-definitions.md)
+> [Creación de definiciones de aplicaciones lógicas en JSON](../logic-apps/logic-apps-author-definitions.md)

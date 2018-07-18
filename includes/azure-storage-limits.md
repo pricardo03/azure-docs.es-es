@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 04/03/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6381f8f0e68853183fc3e17e76b4ab93b152b48b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6572adb0d8d629910492603a17988b89acce2f17
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34852065"
 ---
 | Recurso | Límite predeterminado |
 | --- | --- |
-| Número de cuentas de almacenamiento por región | 200<sup>1</sup> |
+| Número de cuentas de almacenamiento por suscripción y región | 200<sup>1</sup> |
 | Capacidad máxima de la cuenta de almacenamiento | 500 TiB<sup>2</sup> |
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento | Sin límite |
 | Tasa de solicitud total por cuenta de almacenamiento | 20 000 solicitudes por segundo<sup>2</sup> |
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/05/2018
 | Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 5 Gbps si RA-GRS/GRS están habilitados, 10 Gbps en el caso de LRS/ZRS<sup>4</sup> |
 | Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 10 Gbps si RA-GRS/GRS están habilitados, 15 Gbps en el caso de LRS/ZRS<sup>4</sup> |
 
-<sup>1</sup>Incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento. 
+<sup>1</sup>Incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento en una región dada, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento para una región dada. 
 
 <sup>2</sup> Si necesita límites ampliados de su cuenta de almacenamiento, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisa la solicitud y puede aprobar límites según el caso. Tanto las cuentas de uso general como las de Blob Storage admiten aumento de capacidad, entrada/salida y tasa de solicitudes por solicitud. Para información sobre los nuevos valores máximos para las cuentas de Blob Storage, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y a mayor escala).
 

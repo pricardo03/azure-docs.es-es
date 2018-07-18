@@ -1,45 +1,46 @@
 ---
-title: Ejecutar una exploración en profundidad de una recuperación ante desastres de máquinas locales en Azure con Azure Site Recovery | Microsoft Docs
-description: Obtener información sobre la ejecución de la exploración en profundidad de una recuperación ante desastres desde máquinas locales en Azure con Azure Site Recovery
-services: site-recovery
+title: Ejecución de una exploración en profundidad de una recuperación ante desastres de máquinas locales en Azure con Azure Site Recovery | Microsoft Docs
+description: Obtenga información sobre la ejecución de la exploración en profundidad de una recuperación ante desastres desde máquinas locales en Azure con Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 724144e8f2f2f76c4ad98b4c5cad84e69dadadbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209732"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920178"
 ---
-# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastresen Azure
+# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure
 
-En este tutorial se muestra cómo ejecutar una exploración en profundidad de una recuperación ante desastres para una máquina local en Azure, mediante una conmutación por error de prueba. Una exploración en profundidad valida su estrategia de replicación sin pérdida de datos. En este tutorial, aprenderá a:
+En este artículo se muestra cómo ejecutar una exploración en profundidad de una recuperación ante desastres de una máquina local en Azure, mediante una conmutación por error de prueba. Una exploración en profundidad valida su estrategia de replicación sin pérdida de datos.
+
+Este es el cuarto tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware o máquinas virtuales de Hyper-V.
+
+En este tutorial se da por supuesto que ha completado los tres primeros tutoriales: 
+    - En el [primer tutorial](tutorial-prepare-azure.md), se configuraron los componentes de Azure necesarios para la recuperación ante desastres de VMware.
+    - En el [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), se prepararon los componentes locales para la recuperación ante desastres y se repasaron los requisitos previos.
+    - En el [tercer tutorial](vmware-azure-tutorial.md) se configuró y habilitó la replicación de nuestras máquinas virtuales locales de VMware.
+    - Los tutoriales están diseñados para mostrarle la **ruta de implementación más sencilla para un escenario**. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para más información acerca de los pasos de la conmutación por error de prueba, lea la [guía de procedimientos](site-recovery-test-failover-to-azure.md).
+
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar una red aislada para la conmutación por error de prueba
-> * Preparación para la conexión a la máquina virtual de Azure después de una conmutación por error
+> * Preparar la conexión a la máquina virtual de Azure después de una conmutación por error
 > * Ejecutar una conmutación por error de prueba para una sola máquina
 
-Este es el cuarto tutorial de una serie. En este tutorial se da por hecho que ya ha realizado las tareas de los tutoriales anteriores.
+Este tutorial
 
-1. [Preparación de Azure](tutorial-prepare-azure.md)
-2. [Preparación de instancias locales de VMware](tutorial-prepare-on-premises-vmware.md)
-3. [Configuración de la recuperación ante desastres](tutorial-vmware-to-azure.md)
+## <a name="verify-vm-properties"></a>Comprobación de las propiedades de la máquina virtual
 
-## <a name="verify-vm-properties"></a>Comprobar las propiedades de la máquina virtual
+Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual y asegúrese de que la [máquina virtual de Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) o la [máquina virtual de VMware](vmware-physical-azure-support-matrix.md#replicated-machines) cumpla con los requisitos de Azure.
 
-Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual y asegúrese de que la máquina virtual de Hyper-V [hyper-v-azure-support-matrix.md#replicated-vms], la [máquina virtual de VMware o el servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) cumplen con los requisitos de Azure.
-
-1. En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
+1. En **Elementos protegidos**, haga clic en **Elementos replicados** y luego en la máquina.
 2. En el panel **Elemento replicado**, puede ver un resumen de la información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
-3. En **Proceso y red**, puede modificar el nombre de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) y la configuración de discos administrados.
-   
-      >[!NOTE]
-      La conmutación por recuperación en máquinas Hyper-V locales desde máquinas virtuales de Azure con discos administrados no se admite actualmente. Solo debe usar la opción de discos administrados para la conmutación por error si planea migrar máquinas virtuales locales a Azure, sin realizar una conmutación por recuperación.
-   
+3. En **Proceso y red**, puede modificar el nombre de Azure, el grupo de recursos, el tamaño de destino, el conjunto de disponibilidad y la configuración de discos administrados.
 4. Puede ver y modificar la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
 5. En **Discos** puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
 
@@ -68,3 +69,4 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 
 > [!div class="nextstepaction"]
 > [Ejecución de una conmutación por error y una conmutación por recuperación entre máquinas de VMware locales](vmware-azure-tutorial-failover-failback.md).
+> [Ejecución de una conmutación por error y una conmutación por recuperación entre máquinas de Hyper-V locales](hyper-v-azure-failover-failback-tutorial.md).

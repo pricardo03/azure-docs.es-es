@@ -3,17 +3,17 @@ title: Conexión a servidores de Azure Analysis Services | Microsoft Docs
 description: Aprenda a conectarse y obtener datos de un servidor de Analysis Services en Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 53a8a1eea5ffa50fcdaf4a60c9bbd03d30d8e311
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19f5fb7b779f538f46b1813f30795e01a75f065c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151321"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443263"
 ---
 # <a name="connecting-to-servers"></a>Conexión a servidores
 

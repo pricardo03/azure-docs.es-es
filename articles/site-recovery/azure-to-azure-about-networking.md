@@ -6,19 +6,18 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312634"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915932"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Acerca de las redes en Azure para la replicación de Azure
 
->[!NOTE]
-> La replicación de Site Recovery en máquinas virtuales de Azure se encuentra actualmente en versión preliminar.
+
 
 En este artículo se proporciona la guía de redes cuando se van a replicar y recuperar máquinas virtuales de Azure de una región a otra, mediante [Azure Site Recovery](site-recovery-overview.md).
 
@@ -87,14 +86,14 @@ Los intervalos de direcciones IP de Site Recovery son los siguientes:
    Este de Japón | 52.185.150.140 | 138.91.1.105
    Oeste de Japón | 52.175.146.69 | 138.91.17.38
    Sur de Brasil | 191.234.185.172 | 23.97.97.36
-   Australia Oriental | 104.210.113.114 | 191.239.64.144
+   Este de Australia | 104.210.113.114 | 191.239.64.144
    Sudeste de Australia | 13.70.159.158 | 191.239.160.45
    Centro de Canadá | 52.228.36.192 | 40.85.226.62
    Este de Canadá | 52.229.125.98 | 40.86.225.142
    Centro occidental de EE.UU | 52.161.20.168 | 13.78.149.209
    Oeste de EE. UU 2 | 52.183.45.166 | 13.66.228.204
    Oeste de Reino Unido | 51.141.3.203 | 51.141.14.113
-   Sur del Reino Unido 2 | 51.140.43.158 | 51.140.189.52
+   Sur de Reino Unido 2 | 51.140.43.158 | 51.140.189.52
    Sur del Reino Unido 2 | 13.87.37.4| 13.87.34.139
    Norte del Reino Unido | 51.142.209.167 | 13.87.102.68
    Corea Central | 52.231.28.253 | 52.231.32.85
@@ -121,7 +120,7 @@ En este ejemplo se muestra cómo configurar reglas de NSG para la replicación d
 
    **Ubicación** | **Dirección IP de Site Recovery** |  **Dirección IP de supervisión de Site Recovery**
     --- | --- | ---
-   Central EE. UU: | 40.69.144.231 | 52.165.34.144
+   Centro de EE. UU. | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules---central-us"></a>Reglas de NSG: centro de EE. UU.
 
@@ -135,7 +134,7 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
 
    **Ubicación** | **Dirección IP de Site Recovery** |  **Dirección IP de supervisión de Site Recovery**
     --- | --- | ---
-   Central EE. UU: | 13.82.88.226 | 104.45.147.24
+   Centro de EE. UU. | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuración de la aplicación virtual de red
 
@@ -156,7 +155,7 @@ Puede crear un punto de conexión de servicio de red en la red virtual de "Stora
 
 ### <a name="forced-tunneling"></a>Tunelización forzada
 
-Puede invalidar la ruta del sistema predeterminada de Azure para el prefijo de dirección 0.0.0.0/0 con una [ruta personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) y desviar el tráfico de la máquina virtual a una aplicación virtual de red (NVA) local, pero esta configuración no se recomienda para la replicación de Site Recovery. Si va a usar rutas personalizadas, debe [crear un punto de conexión de servicio de red virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) en su red virtual de "Almacenamiento" para que el tráfico de replicación no salga de los límites de Azure.
+Puede invalidar la ruta del sistema predeterminada de Azure para el prefijo de dirección 0.0.0.0/0 con una [ruta personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) y desviar el tráfico de la máquina virtual a una aplicación virtual de red (NVA) local, pero esta configuración no se recomienda para la replicación de Site Recovery. Si va a usar rutas personalizadas, debe [crear un punto de conexión de servicio de red virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) en su red virtual de "Storage" para que el tráfico de replicación no salga de los límites de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Comience a proteger las cargas de trabajo mediante la [replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure.md).

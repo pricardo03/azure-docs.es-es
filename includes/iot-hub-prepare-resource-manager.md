@@ -5,7 +5,7 @@ Instale los [cmdlets de Azure PowerShell][lnk-powershell-install] antes de conti
 
 En los pasos siguientes se muestra cómo configurar la autenticación de contraseña para una aplicación de AD mediante PowerShell. Puede ejecutar estos comandos en una sesión de PowerShell estándar.
 
-1. Inicie sesión en su suscripción de Azure con el siguiente comando:
+1. Inicie sesión en su suscripción a Azure con el siguiente comando:
 
     ```powershell
     Connect-AzureRmAccount
@@ -33,7 +33,8 @@ En los pasos siguientes se muestra cómo configurar la autenticación de contras
    * **{Contraseña}:** una contraseña que se usa para autenticarse en la aplicación.
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Anote el **ApplicationId** de la aplicación que ha creado. Lo necesitará más adelante.
 5. Cree una nueva entidad de servicio con el comando siguiente, reemplazando **{MyApplicationId}** por el valor de **ApplicationId** del paso anterior:

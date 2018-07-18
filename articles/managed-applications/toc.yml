@@ -31,6 +31,8 @@
       href: update-managed-resources.md
     - name: Uso del portal para publicación
       href: publish-portal.md
+    - name: Uso de un secreto de Key Vault
+      href: key-vault-access.md
 - name: Referencia
   items:
     - name: CLI de Azure
@@ -62,7 +64,7 @@
               href: microsoft-common-textblock.md
             - name: TextBox
               href: microsoft-common-textbox.md
-        - name: Proceso
+        - name: Compute
           items:
             - name: CredentialsCombo
               href: microsoft-compute-credentialscombo.md

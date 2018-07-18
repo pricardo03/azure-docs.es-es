@@ -7,14 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7daaf042d22ba4ac0369b732b586a3760d8cd51c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859581"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: ejecute su primer trabajo de Batch en Azure Portal
 
@@ -31,7 +32,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 Siga estos pasos para crear una cuenta de Batch de ejemplo para hacer pruebas. Necesita una cuenta de Batch para crear grupos y trabajos. Como se muestra aquí, cualquier cuenta de Azure Storage se puede vincular con la cuenta de Batch. Aunque no es necesaria para esta guía de inicio rápido, la cuenta de almacenamiento es útil para implementar aplicaciones y almacenar los datos de entrada y salida de la mayoría de las cargas de trabajo reales.
 
 
-1. Haga clic en **Nuevo** > **Proceso** > **Servicio de Batch**. 
+1. Seleccione **Crear un recurso** > **Proceso** > **Servicio de Batch**. 
 
   ![Batch en Marketplace][marketplace_portal]
 
@@ -39,7 +40,7 @@ Siga estos pasos para crear una cuenta de Batch de ejemplo para hacer pruebas. N
 
 3. **Cuenta de almacenamiento**: seleccione una cuenta de almacenamiento existente o cree una.
 
-4. En el resto mantenga los valores predeterminados y haga clic en **Crear** para crear la cuenta.
+4. En el resto mantenga los valores predeterminados y seleccione **Crear** para crear la cuenta.
 
   ![Crear una cuenta de Batch][account_portal]  
 
@@ -50,7 +51,7 @@ Cuando aparezca el mensaje **Implementación correcta**, vaya a la cuenta de Bat
 Ahora que tiene una cuenta de Batch, cree un grupo de ejemplo de nodos de proceso de Windows para realizar pruebas. El grupo de este ejemplo rápido consta de 2 nodos en los que se ejecutan una imagen de Windows Server 2012 R2 de Azure Marketplace.
 
 
-1. En la cuenta de Batch, haga clic en **Grupos** > **Agregar**.
+1. En la cuenta de Batch, seleccione **Grupos** > **Agregar**.
 
 2. En **Identificador del grupo**, escriba *mypool*. 
 
@@ -74,21 +75,21 @@ Ahora que tiene una cuenta de Batch, cree un grupo de ejemplo de nodos de proces
 
   ![Seleccione un tamaño de grupo][pool_size] 
 
-5. En el resto mantenga los valores predeterminados y haga clic en **Aceptar** para crear el grupo.
+5. En el resto mantenga los valores predeterminados y seleccione **Aceptar** para crear el grupo.
 
 Batch crea el grupo inmediatamente, pero tarda unos minutos en asignar e iniciar los nodos de proceso. Durante de este tiempo, el valor de **Estado de asignación** del grupo es **Cambio de tamaño**. Puede crear un trabajo y tareas mientras se cambia el tamaño del grupo. 
 
 ![Grupo en estado Cambio de tamaño][pool_resizing]
 
-Pocos minutos después el estado del grupo es **Estable** y se inician los nodos. Haga clic en **Nodos** para comprobar el estado de los nodos. Cuando el estado de un nodo es **Inactivo**, está listo para ejecutar las tareas. 
+Pocos minutos después el estado del grupo es **Estable** y se inician los nodos. Seleccione **Nodos** para comprobar el estado de los nodos. Cuando el estado de un nodo es **Inactivo**, está listo para ejecutar las tareas. 
 
 ## <a name="create-a-job"></a>Creación de un trabajo
 
 Ahora que tiene un grupo, cree un trabajo para que se ejecute en él. Un trabajo de Batch es un grupo lógico de una o varias tareas. Un trabajo incluye valores comunes para las tareas, como la prioridad y el grupo en el que se ejecutan las tareas. Inicialmente, el trabajo no tiene tareas. 
 
-1. En la vista de la cuentas de Batch, haga clic en **Trabajos** > **Agregar**. 
+1. En la vista de cuentas de Batch, seleccione **Trabajos** > **Agregar**. 
 
-2. En **Id. de trabajo**, escriba *myjob*. En **Grupo**, seleccione *mypool*. Deje los valores predeterminados para las opciones de configuración restantes y haga clic en **Aceptar**.
+2. En **Id. de trabajo**, escriba *myjob*. En **Grupo**, seleccione *mypool*. Mantenga los valores predeterminados de los valores de configuración restantes y seleccione **Aceptar**.
 
   ![Creación de un trabajo][job_create]
 
@@ -102,11 +103,11 @@ Cuando se usa Batch, la línea de comandos es el lugar en el que se especifica l
 
 Para crear la primera tarea:
 
-1. Haga clic en **Agregar**.
+1. Seleccione **Agregar**.
 
 2. En **Id. de tarea**, escriba *mytask*. 
 
-3. En **Línea de comandos**, escriba `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Deje los valores predeterminados para las opciones de configuración restantes y haga clic en **Aceptar**.
+3. En **Línea de comandos**, escriba `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Mantenga los valores predeterminados de los valores de configuración restantes y seleccione **Aceptar**.
 
   ![Crea una tarea.][task_create]
 
@@ -116,7 +117,7 @@ Para crear una segunda tarea, vuelva al paso 1. Escriba otro valor en **Id. de t
 
 ## <a name="view-task-output"></a>Visualización de la salida de la tarea
 
-Los ejemplos anteriores de la tarea se completan en un par de minutos. Para ver la salida de una tarea completada, haga clic en **Archivos en el nodo** y, después, seleccione el archivo `stdout.txt`. Este archivo muestra la salida estándar de la tarea. El contenido es similar al siguiente:
+Los ejemplos anteriores de la tarea se completan en un par de minutos. Para ver la salida de una tarea completada, seleccione **Archivos en el nodo** y, después, seleccione el archivo `stdout.txt`. Este archivo muestra la salida estándar de la tarea. El contenido es similar al siguiente:
 
 ![Visualización de la salida de la tarea][task_output]
 
@@ -126,9 +127,9 @@ El contenido muestra las variables de entorno de Azure Batch que se definen en e
 
 Si desea continuar con los ejemplos y tutoriales de Batch, utilice la cuenta de Batch y la cuenta de almacenamiento vinculada que se ha creado en esta guía de inicio rápido. Por la propia cuenta de Batch no se cobra nada.
 
-Se cobran el grupo mientras que los nodos estén en ejecución, aunque no haya trabajos programados. Cuando no necesite el grupo, elimínelo. En la vista de cuenta, haga clic en **Grupos** y en el nombre del grupo. Después, haga clic en **Eliminar**.  Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. 
+Se cobran el grupo mientras que los nodos estén en ejecución, aunque no haya trabajos programados. Cuando no necesite el grupo, elimínelo. En la vista de cuenta, seleccione **Grupos** y el nombre del grupo. A continuación, seleccione **Eliminar**.  Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. 
 
-Cuando no los necesite, elimine el grupo de recursos, la cuenta de Batch y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la cuenta de Batch y haga clic en **Eliminar grupo de recursos**.
+Cuando no los necesite, elimine el grupo de recursos, la cuenta de Batch y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la cuenta de Batch y seleccione **Eliminar grupo de recursos**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

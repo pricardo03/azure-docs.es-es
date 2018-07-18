@@ -3,7 +3,7 @@ title: Análisis del uso de datos en Log Analytics | Microsoft Docs
 description: Use el panel de uso y costo estimado en Log Analytics para evaluar cuántos datos se envían a Log Analytics e identificar los posibles motivos que podrían provocar aumentos imprevistos.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128571"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
 Log Analytics incluye información sobre la cantidad de datos recopilados, qué orígenes envían los datos y los diferentes tipos de datos enviados.  Use el panel **Uso de Log Analytics** para revisar y analizar el uso de datos. El panel muestra la cantidad de datos que recopila cada solución y cuántos datos envían los equipos.
@@ -58,7 +60,9 @@ En esta sección se describe cómo crear una alerta si:
 - El volumen de datos supera una cantidad especificada.
 - Se prevé que el volumen de datos supere un importe especificado.
 
-Las [alertas](log-analytics-alerts-creating.md) de Log Analytics utilizan consultas de búsqueda. La consulta siguiente produce un resultado cuando hay más de 100 GB de datos recopilados en las últimas 24 horas:
+Alertas de Azure admite [alertas de registro](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) que usen consultas de búsqueda. 
+
+La consulta siguiente produce un resultado cuando hay más de 100 GB de datos recopilados en las últimas 24 horas:
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -68,27 +72,35 @@ La consulta siguiente utiliza una fórmula simple para predecir cuándo se envia
 
 Para generar una alerta en un volumen de datos diferente, cambie el 100 de las consultas por el número de GB sobre el que desea alertar.
 
-Siga los pasos explicados en [Crear una regla de alerta](log-analytics-alerts-creating.md#create-an-alert-rule) para recibir una notificación cuando la colección de datos sea mayor de lo previsto.
+Siga los pasos explicados en [crear una nueva regla de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para recibir una notificación cuando la colección de datos sea mayor de lo previsto.
 
 Al crear la alerta en la primera consulta; cuando hay más de 100 GB de datos en 24 horas, establezca los siguientes valores:  
-- **Nombre** en *Volumen de datos mayor que 100 GB en 24 horas*  
-- **Gravedad** en *Advertencia*  
-- **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- **Ventana de tiempo** en *24 horas*.
-- **Frecuencia de la alerta** para que sea una hora, ya que los datos de uso solo se actualizan una vez a la hora.
-- **Generar alerta según** para que sea *número de resultados*
-- **Número de resultados** para que sea *Mayor que 0*
 
-Siga los pasos explicados en [Agregar acciones a reglas de alerta](log-analytics-alerts-actions.md) para configurar una acción de correo electrónico, webhook o runbook para la regla de alerta.
+- **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
+- **Criterios de alerta** especifique lo siguiente:
+   - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
+   - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Lógica de alerta** está **basada en** *número de resultados* y **Condición** es *Mayor que* un **umbral**  de *0*
+   - **Período de tiempo** de *1440* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
+- **Definición de los detalles de la alerta**: especifique lo siguiente:
+   - **Nombre** en *Volumen de datos mayor que 100 GB en 24 horas*
+   - **Gravedad** en *Advertencia*
+
+Especifique un [grupo de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md) existente o cree uno nuevo para que cuando la alerta de registro coincida con criterios, se le notifique.
 
 Al crear la alerta para la segunda consulta; cuando se prevé que va a haber más de 100 GB de datos en 24 horas, establezca los siguientes valores:
-- **Nombre** en *Volumen de datos que se espera que sea mayor que 100 GB en 24 horas*
-- **Gravedad** en *Advertencia*
-- **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- **Ventana de tiempo** en *3 horas*.
-- **Frecuencia de la alerta** para que sea una hora, ya que los datos de uso solo se actualizan una vez a la hora.
-- **Generar alerta según** para que sea *número de resultados*
-- **Número de resultados** para que sea *Mayor que 0*
+
+- **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
+- **Criterios de alerta** especifique lo siguiente:
+   - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
+   - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Lógica de alerta** está **basada en** *número de resultados* y **Condición** es *Mayor que* un **umbral**  de *0*
+   - **Período de tiempo** de *180* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
+- **Definición de los detalles de la alerta**: especifique lo siguiente:
+   - **Nombre** en *Volumen de datos que se espera que sea mayor que 100 GB en 24 horas*
+   - **Gravedad** en *Advertencia*
+
+Especifique un [grupo de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md) existente o cree uno nuevo para que cuando la alerta de registro coincida con criterios, se le notifique.
 
 Cuando se recibe una alerta, siga los pasos de la sección siguiente para solucionar el problema del uso mayor de lo esperado.
 
@@ -116,7 +128,7 @@ En la captura de pantalla siguiente, el tipo de datos *Log Management / Perf* en
 
 Ahora, vuelva al panel *Uso* y mire el gráfico *Volumen de datos por solución*. Para ver los equipos que envían la mayoría de los datos a una solución, haga clic en el nombre de la solución en la lista. Haga clic en el nombre de la primera solución de la lista. 
 
-En la captura de pantalla siguiente, se confirma que el equipo *acmetomcat* envía la mayoría de los datos a la solución de administración de registros.<br><br> ![volumen de datos para una solución](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+En la captura de pantalla siguiente, se confirma que el equipo *mycon* envía la mayoría de los datos a la solución Administración de registro.<br><br> ![volumen de datos para una solución](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Si es necesario, realice análisis adicionales para identificar grandes volúmenes dentro de una solución o tipo de datos. Entre las consultas de ejemplo se incluyen:
 
@@ -140,7 +152,7 @@ Use los pasos siguientes para reducir el volumen de registros recopilados:
 
 | Origen del mayor volumen de datos | Cómo reducir el volumen de datos |
 | -------------------------- | ------------------------- |
-| Eventos de seguridad            | Seleccione los [eventos de seguridad común o mínima](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Cambie la directiva de auditoría de seguridad para recopilar únicamente los eventos necesarios. En particular, revise la necesidad de recopilar eventos para <br> - [auditar plataforma de filtrado](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar registro](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [auditar sistema de archivos](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [auditar objeto de kernel](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [auditar manipulación de identificadores](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [auditar almacenamiento extraíble](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
+| Eventos de seguridad            | Seleccione los [eventos de seguridad común o mínima](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Cambie la directiva de auditoría de seguridad para recopilar únicamente los eventos necesarios. En particular, revise la necesidad de recopilar eventos para <br> - [auditar plataforma de filtrado](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar registro](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar sistema de archivos](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar manipulación de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditar almacenamiento extraíble |
 | contadores de rendimiento       | Cambie la [configuración de los contadores de rendimiento](log-analytics-data-sources-performance-counters.md) para: <br> - Reducir la frecuencia de la colección <br> - Reducir el número de contadores de rendimiento |
 | Registros de eventos                 | Cambie la [configuración del registro de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reducir el número de registros de eventos recopilados <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información*. |
 | syslog                     | Cambie la [configuración de syslog](log-analytics-data-sources-syslog.md) para: <br> - Reducir el número de instalaciones recopiladas <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información* y *depuración*. |
@@ -154,12 +166,11 @@ Haga clic en **Ver todos...**  para ver la lista completa de los equipos que env
 
 Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Búsquedas de registro en Log Analytics](log-analytics-log-searches.md) para obtener información sobre cómo usar el lenguaje de búsqueda. Puede utilizar las consultas de búsqueda para realizar análisis adicionales sobre los datos de uso.
-* Siga los pasos explicados en [Crear una regla de alerta](log-analytics-alerts-creating.md#create-an-alert-rule) para recibir una notificación cuando se cumplan los criterios de búsqueda.
+* Siga los pasos explicados en [Crear una nueva alerta de registro](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para recibir una notificación cuando se cumplan los criterios de búsqueda.
 * Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
-* Para configurar una directiva eficaz de recopilación de eventos de seguridad, revise [Directiva de filtrado de Azure Security Center](../security-center/security-center-enable-data-collection.md).
+* Para configurar una directiva eficaz de recopilación de eventos de seguridad, revise la [Directiva de filtrado de Azure Security Center](../security-center/security-center-enable-data-collection.md).
 * Cambie la [configuración de los contadores de rendimiento](log-analytics-data-sources-performance-counters.md).
-* Para modificar la configuración de recopilación de eventos, revise [Configuración de registros de eventos](log-analytics-data-sources-windows-events.md).
-* Para modificar la configuración de la recopilación de syslog, revise [Configuración de syslog](log-analytics-data-sources-syslog.md).
+* Para modificar la configuración de recopilación de eventos, revise la [configuración de registros de eventos](log-analytics-data-sources-windows-events.md).
+* Para modificar la configuración de la recopilación de syslog, revise la [configuración de syslog](log-analytics-data-sources-syslog.md).

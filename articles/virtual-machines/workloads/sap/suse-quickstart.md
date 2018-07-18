@@ -1,13 +1,13 @@
 ---
-title: "Pruebas de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure | Microsoft Docs"
-description: "Pruebas de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure"
+title: Pruebas de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure | Microsoft Docs
+description: Pruebas de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 645e358b-3ca1-4d3d-bf70-b0f287498d7a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858619"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Ejecución de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure
 En este artículo se describen diversos aspectos que deben considerarse al ejecutar SAP NetWeaver en máquinas virtuales (VM) con SUSE Linux de Microsoft Azure. A partir del 19 de mayo de 2016, SAP NetWeaver es compatible oficialmente con máquinas virtuales de SUSE Linux en Azure. Todos los detalles sobre las versiones de Linux, las versiones de kernel SAP y otros requisitos previos se encuentran en la nota de SAP 1928533 "SAP Applications on Azure: Supported Products and Azure VM types" (Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure).
@@ -128,7 +129,7 @@ SUSE ofrece un paquete denominado "sapconf" que administra un conjunto de opcion
 
 Mientras tanto, hay una herramienta nueva que reemplaza a "sapconf - tuned-adm". Puede encontrar más información acerca de esta herramienta en los dos vínculos siguientes:
 
-- La documentación de SLES sobre "tuned-adm" y el perfil de SAP Hana se encuentran [aquí](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html) 
+- La documentación de SLES sobre "tuned-adm" y el perfil de SAP Hana se encuentran [aquí](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_saptune.html) 
 
 - Puede encontrar información sobre el ajuste de sistemas para cargas de trabajo SAP con "tuned-adm" [aquí](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf) (capítulo 6.2)
 

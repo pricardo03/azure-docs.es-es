@@ -1,20 +1,19 @@
 ---
 title: Solución de problemas en Azure IoT Edge | Microsoft Docs
 description: Resolución de problemas habituales y adquisición de conocimientos sobre solución de problemas para Azure IoT Edge
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
-ms.topic: article
+ms.date: 06/26/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b03ece52c4ff77c9e0abbc794325cd7e9a20c915
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+services: iot-edge
+ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128067"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -24,36 +23,135 @@ Si experimenta problemas al ejecutar Azure IoT Edge en el entorno, use este art�
 
 Si detecta un problema, consiga más información sobre el estado del dispositivo de IoT Edge mediante la revisión de los registros de contenedor y de los mensajes que se envían hacia el dispositivo y desde este. Use los comandos y las herramientas de esta sección para recopilar información. 
 
-* Examine los registros de los contenedores de Docker para detectar problemas. Empiece por los contenedores implementados y, a continuación, examine los contenedores que componen el entorno de ejecución de IoT Edge: agente de Edge y centro de Edge. Los registros del agente de Edge normalmente proporcionan información sobre el ciclo de vida de cada contenedor. Los registros del centro de Edge proporcionan información sobre mensajería y enrutamiento. 
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Comprobación del estado del administrador de seguridad de IoT Edge y sus registros
 
-   ```cmd
-   docker logs <container name>
+En Linux:
+- Para ver el estado del administrador de seguridad de IoT Edge:
+
+   ```bash
+   sudo systemctl status iotedge
    ```
 
-* Vea los mensajes que se envían mediante el centro de Edge y recopile información sobre las actualizaciones de las propiedades del dispositivo con los registros detallados procedentes de los contenedores del entorno de ejecución.
+- Para ver los registros del administrador de seguridad de IoT Edge:
 
-   ```cmd
-   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
-   ```
+    ```bash
+    sudo journalctl -u iotedge -f
+    ```
+
+- Para ver registros más detallados del administrador de seguridad de IoT Edge:
+
+   - Edite la configuración del demonio de iotedge:
+
+      ```bash
+      sudo systemctl edit iotedge.service
+      ```
    
-* Vea registros detallados de los comandos de iotedgectl:
+   - Actualice las líneas siguientes:
+    
+      ```
+      [Service]
+      Environment=IOTEDGE_LOG=edgelet=debug
+      ```
+    
+   - Reinicie el demonio de seguridad de IoT Edge:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
 
-   ```cmd
-   iotedgectl --verbose DEBUG <command>
+En Windows:
+- Para ver el estado del administrador de seguridad de IoT Edge:
+
+   ```powershell
+   Get-Service iotedge
    ```
 
-* Si experimenta problemas de conectividad, inspeccione las variables del entorno del dispositivo perimetral, como la cadena de conexión del dispositivo:
+- Para ver los registros del administrador de seguridad de IoT Edge:
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+ 
+   Get-WinEvent -ea SilentlyContinue `
+   -FilterHashtable @{ProviderName= "iotedged";
+     LogName = "application"; StartTime = [datetime]::Today} |
+   select TimeCreated, Message |
+   sort-object @{Expression="TimeCreated";Descending=$false}
+   ```
+
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Comprobación del archivo de configuración de YAML si no se está ejecutando el administrador de seguridad de IoT Edge
+
+> [!WARNING]
+> Los archivos de YAML no pueden contener tabulaciones como sangría. Utilice en su lugar dos espacios.
+
+En Linux:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+En Windows:
 
    ```cmd
-   docker exec edgeAgent printenv
+   notepad C:\ProgramData\iotedge\config.yaml
+   ```
+
+### <a name="check-container-logs-for-issues"></a>Comprobación de los registros del contenedor para detectar problemas
+
+Cuando el demonio de seguridad de IoT Edge se esté ejecutando, examine los registros de los contenedores para detectar problemas. Empiece por los contenedores implementados y, a continuación, examine los contenedores que componen el entorno de ejecución de IoT Edge: agente de Edge y centro de Edge. Los registros del agente de Edge normalmente proporcionan información sobre el ciclo de vida de cada contenedor. Los registros del centro de Edge proporcionan información sobre mensajería y enrutamiento. 
+
+   ```cmd
+   iotedge logs <container name>
+   ```
+
+### <a name="view-the-messages-going-through-the-edge-hub"></a>Visualización de mensajes que se envían mediante el centro de Edge
+
+Vea los mensajes que se envían mediante el centro de Edge y recopile información sobre las actualizaciones de las propiedades del dispositivo con los registros detallados procedentes de los contenedores del entorno de ejecución de edgeAgent y edgeHub. Para habilitar los registros detallados en estos contenedores, establezca la variable de entorno `RuntimeLogLevel`: 
+
+En Linux:
+    
+   ```cmd
+   export RuntimeLogLevel="debug"
+   ```
+    
+En Windows:
+    
+   ```powershell
+   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
    ```
 
 También puede comprobar los mensajes que se envían entre los dispositivos de IoT Hub e IoT Edge. Vea estos mensajes mediante la extensión de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) para Visual Studio Code. Para más instrucciones, consulte [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Herramienta práctica para desarrollar con Azure IoT).
 
-Después de investigar los registros y mensajes para obtener información, también puede intentar reiniciar el entorno de ejecución de Azure IoT Edge:
+### <a name="restart-containers"></a>Reinicio de los contenedores
+Después de investigar los registros y mensajes para obtener información, puede intentar reiniciar los contenedores:
+
+```
+iotedge restart <container name>
+```
+
+Reinicie los contenedores del entorno de ejecución de IoT Edge:
+
+```
+iotedge restart edgeAgent && iotedge restart edgeHub
+```
+
+### <a name="restart-the-iot-edge-security-manager"></a>Reinicio del administrador de seguridad de IoT Edge
+
+Si el problema persiste, puede probar a reiniciar el administrador de seguridad de IoT Edge.
+
+En Linux:
 
    ```cmd
-   iotedgectl restart
+   sudo systemctl restart iotedge
+   ```
+
+En Windows:
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   sleep 5
+   Start-Service iotedge
    ```
 
 ## <a name="edge-agent-stops-after-about-a-minute"></a>El agente de Edge se detiene después de aproximadamente un minuto
@@ -101,29 +199,11 @@ No se puede ejecutar un contenedor y los registros del agente de Edge muestran u
 El agente de Edge no tiene permisos para acceder a la imagen de un módulo. 
 
 ### <a name="resolution"></a>Resolución
-Intente ejecutar el comando `iotedgectl login` de nuevo.
+Asegúrese de que las credenciales del registro se hayan especificado correctamente en el manifiesto de implementación.
 
-## <a name="iotedgectl-cant-find-docker"></a>iotedgectl no puede encontrar Docker
+## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>Error de nombre de host no válido del demonio de seguridad de IoT Edge
 
-Los comandos `iotedgectl setup` o `iotedgectl start` producen un error e imprimen el mensaje siguiente en los registros:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### <a name="root-cause"></a>Causa principal
-iotedgectl no puede encontrar Docker, que es un requisito previo.
-
-### <a name="resolution"></a>Resolución
-Instale Docker, asegúrese de que está ejecutando e inténtelo de nuevo.
-
-## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>La configuración de iotedgectl produce un error con un nombre de host no válido
-
-El comando `iotedgectl setup` produce un error e imprime el mensaje siguiente: 
+El comando `sudo journalctl -u iotedge` produce un error e imprime el mensaje siguiente: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -144,9 +224,17 @@ Cuando vea este error, puede resolverlo configurando el nombre DNS de la máquin
 4. Copie el nuevo nombre DNS, que debe tener el formato **\<etiquetanombreDNS\>.\< ubicaciónvm\>.cloudapp.azure.com**.
 5. Dentro de la máquina virtual, use el comando siguiente para configurar el tiempo de ejecución de IoT Edge con el nombre DNS:
 
-   ```input
-   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
-   ```
+   - En Linux:
+
+      ```bash
+      sudo nano /etc/iotedge/config.yaml
+      ```
+
+   - En Windows:
+
+      ```cmd
+      notepad C:\ProgramData\iotedge\config.yaml
+      ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-¿Cree que encontró un error en la plataforma de IoT Edge? Use la opción [Enviar un problema](https://github.com/Azure/iot-edge/issues) para que podamos seguir mejorando. 
+¿Cree que encontró un error en la plataforma de IoT Edge? Use la opción [Enviar un problema](https://github.com/Azure/iotedge/issues) para que podamos seguir mejorando. 

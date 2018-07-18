@@ -17,11 +17,11 @@ ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423548"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561135"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configuración de direcciones IP privadas para una máquina virtual mediante la CLI de Azure
 
@@ -71,7 +71,7 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
     }
     ```
 
-   * `--resource-group`: nombre del grupo de recursos en el que se creará la dirección IP pública.
+   * `--resource-group`: nombre del grupo de recursos en el que se creará la dirección IP pública.
    * `--name`: nombre de la dirección IP pública.
    * `--location`: región de Azure donde se va a crear la dirección IP pública.
 

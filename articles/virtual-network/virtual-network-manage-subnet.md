@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 68d4c54b2648dc3b40e69dcde9828d18de318796
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894466"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702081"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 
@@ -32,8 +32,8 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para seguir este tutorial se necesita la versión 5.7.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
-- Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para seguir este tutorial se necesita la versión 2.0.31 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.7.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+- Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial, es necesaria la versión 2.0.31 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
 
@@ -52,7 +52,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 
     Para quitar un punto de conexión de servicio, anule la selección del servicio para el que desea quitar el punto de conexión. Para más información sobre los puntos de conexión de servicio y sobre los servicios para los que se pueden habilitar, vea la [información general sobre los puntos de conexión de servicio de las redes virtuales](virtual-network-service-endpoints-overview.md). Una vez que habilita un punto de conexión para un servicio, también debe habilitar el acceso de red para la subred de un recurso creado con el servicio. Por ejemplo, si habilita el punto de conexión de servicio para *Microsoft.Storage*, también debe habilitar el acceso de red a todas las cuentas de Azure Storage a las que desea conceder acceso de red. Para detalles sobre cómo habilitar el acceso de red a las subredes para las que está habilitado un punto de conexión de servicio, consulte la documentación correspondiente al servicio individual para el que habilitó el punto de conexión de servicio.
 
-    Para validar que un punto de conexión de servicio está habilitado para una subred, consulte las [rutas efectivas](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-virtual-machine) para cualquier interfaz de red de la subred. Cuando se configura un punto de conexión, verá una ruta *predeterminada* con los prefijos de dirección del servicio y un nextHopType de **VirtualNetworkServiceEndpoint**. Para más información sobre el enrutamiento, vea la [introducción al enrutamiento](virtual-networks-udr-overview.md).
+    Para validar que un punto de conexión de servicio está habilitado para una subred, consulte las [rutas efectivas](diagnose-network-routing-problem.md) para cualquier interfaz de red de la subred. Cuando se configura un punto de conexión, verá una ruta *predeterminada* con los prefijos de dirección del servicio y un nextHopType de **VirtualNetworkServiceEndpoint**. Para más información sobre el enrutamiento, vea la [introducción al enrutamiento](virtual-networks-udr-overview.md).
 6. Para agregar la subred a la red virtual que seleccionó, seleccione **Aceptar**.
 
 **Comandos**

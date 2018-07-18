@@ -1,11 +1,11 @@
 ---
-title: "Guía de inicio rápido de Azure Security Center: incorporación de equipos Linux a Security Center | Microsoft Docs"
-description: "En esta guía de inicio rápido se explica cómo incorporar equipos Linux a Security Center."
+title: 'Guía de inicio rápido de Azure Security Center: incorporación de equipos Linux a Security Center | Microsoft Docs'
+description: En esta guía de inicio rápido se explica cómo incorporar equipos Linux a Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
 ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630104"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Linux a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos de Linux que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento del agente de Linux.

@@ -11,10 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971710"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Preguntas más frecuentes de SQL Data Warehouse
 
@@ -26,7 +27,7 @@ A. SQL Data Warehouse ofrece varias soluciones para proteger datos, como TDE y l
 
 P: ¿Dónde puedo encontrar los estándares empresariales o legales que cumple SQL Data Warehouse?
 
-A. Visite la página [Cumplimiento normativo] para consultar diversas ofertas de cumplimiento por producto, como SOC e ISO. Primero, elija por el título Cumplimiento, luego, expanda Azure en la sección de servicios en la nube de Microsoft del lado derecho de la página para ver qué servicios son compatibles con Azure.
+A. Visite la página [Cumplimiento de Microsoft] para consultar diversas ofertas de cumplimiento por producto, como SOC e ISO. Primero, elija por el título Cumplimiento, luego, expanda Azure en la sección de servicios en la nube de Microsoft del lado derecho de la página para ver qué servicios son compatibles con Azure.
 
 P: ¿Puedo conectar Power BI?
 
@@ -48,11 +49,11 @@ A. Si tiene una solicitud de característica, envíala a nuestra página [UserVo
 
 P: ¿Cómo puedo hacer una determinada acción?
 
-A. Para obtener ayuda con las tareas de desarrollo con SQL Data Warehouse, puede hacer preguntas en nuestra [Stack Overflow]. 
+A. Para obtener ayuda con las tareas de desarrollo con SQL Data Warehouse, puede hacer preguntas en nuestra [Desbordamiento de la pila]. 
 
 P: ¿Cómo puedo enviar una vale de asistencia técnica?
 
-A. Los [vales de asistencia técnica] puede presentarse a través de Azure Portal.
+A. Los [Vales de asistencia técnica] puede presentarse a través de Azure Portal.
 
 ## <a name="sql-languagefeature-support"></a>Compatibilidad con características o lenguajes de SQL 
 
@@ -62,13 +63,13 @@ A. Vea los [tipos de datos] de SQL Data Warehouse.
 
 P: ¿Qué características de tablas se admiten?
 
-A. Aunque SQL Data Warehouse es compatible con muchas características, algunas no se admiten y se documentan en la página sobre [características de tablas no admitidas].
+A. Aunque SQL Data Warehouse es compatible con muchas características, algunas no se admiten y se documentan en la página sobre [Características de tablas no compatibles].
 
 ## <a name="tooling-and-administration"></a>Administración y herramientas
 
 P: ¿Se admiten proyectos de bases de datos en Visual Studio?
 
-A. En estos momentos, no admitimos proyectos de bases de datos en Visual Studio para SQL Data Warehouse. Si desea enviar un voto para habilitar esta característica, visite nuestra página de [solicitudes de características de proyectos de bases de datos] de User Voice.
+A. En estos momentos, no admitimos proyectos de bases de datos en Visual Studio para SQL Data Warehouse. Si desea enviar un voto para habilitar esta característica, visite nuestra página de [Solicitud de características de proyectos de bases de datos] de User Voice.
 
 P: ¿SQL Data Warehouse admite las API de REST?
 
@@ -87,7 +88,7 @@ R.: Orc, RC, Parquet y texto delimitado sin formato.
 
 P.: ¿Qué puedo conectar desde SQL Data Warehouse con PolyBase? 
 
-R.: [Azure Data Lake Store] e instancias de [Azure Storage Blobs].
+R.: [Azure Data Lake Store] e instancias de [Blobs de Azure Storage].
 
 P.: ¿Se puede usar el cálculo de aplicación al conectarse a instancias de Azure Storage Blob o ADL? 
 
@@ -98,21 +99,21 @@ P.: ¿Puedo conectarlo a HDI?
 R.: HDI puede usar ADL o WASB como la capa HDFS. Si tiene uno de los dos como la capa HDFS, puede cargar datos en SQL Data Warehouse. Sin embargo, no se puede generar el cálculo de aplicación en la instancia HDI. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre SQL Data Warehouse, vea nuestra página [Introducción].
+Para obtener más información sobre SQL Data Warehouse, vea nuestra página [Información general].
 
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Cadenas de conexión]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[vales de asistencia técnica]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Desbordamiento de la pila]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Vales de asistencia técnica]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Seguridad]: ./sql-data-warehouse-overview-manage-security.md
-[Cumplimiento normativo]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
+[Cumplimiento de Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [límites de capacidad]: ./sql-data-warehouse-service-capacity-limits.md
 [tipos de datos]: ./sql-data-warehouse-tables-data-types.md
-[características de tablas no admitidas]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[Características de tablas no compatibles]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
-[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[solicitudes de características de proyectos de bases de datos]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
+[Blobs de Azure Storage]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Solicitud de características de proyectos de bases de datos]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
-[Introducción]: ./sql-data-warehouse-overview-faq.md
+[Información general]: ./sql-data-warehouse-overview-faq.md

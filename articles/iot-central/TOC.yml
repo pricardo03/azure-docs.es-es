@@ -17,23 +17,19 @@
       href: quick-deploy-iot-central.md
 - name: Tutoriales
   items:
-    - name: Generador
-      items:
-        - name: 1 - Definición de un tipo de dispositivo nuevo
-          href: tutorial-define-device-type.md
-        - name: 2 - Configuración de reglas
-          href: tutorial-configure-rules.md
-        - name: 3 - Personalización de la vista del operador
-          href: tutorial-customize-operator.md
-    - name: Operador
-      items:
-        - name: 4 - Supervisión de los dispositivos
-          href: tutorial-monitor-devices.md
-        - name: 5 - Incorporación de un dispositivo
-          href: tutorial-add-device.md
+    - name: 1 - Definición de un tipo de dispositivo nuevo
+      href: tutorial-define-device-type.md
+    - name: 2 - Configuración de reglas
+      href: tutorial-configure-rules.md
+    - name: 3 - Personalización de la vista del operador
+      href: tutorial-customize-operator.md
+    - name: 4 - Supervisión de los dispositivos
+      href: tutorial-monitor-devices.md
+    - name: 5 - Incorporación de un dispositivo
+      href: tutorial-add-device.md
 - name: Conceptos
   items:
-    - name: Architecture
+    - name: Arquitectura
       href: concepts-architecture.md
     - name: Conectividad
       href: concepts-connectivity.md
@@ -41,10 +37,12 @@
   items:
     - name: Administrador
       items:
-        - name: Creación de una aplicación
-          href: howto-create-application.md
+        - name: Creación y administración de una aplicación como un CSP
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: Administración de la aplicación
           href: howto-administer.md
+        - name: Exportación de los datos
+          href: howto-export-data.md
     - name: Generador
       items:
         - name: Configuración de la plantilla de dispositivo
@@ -55,6 +53,10 @@
           href: howto-create-telemetry-rules.md
         - name: Creación de una regla de eventos
           href: howto-create-event-rules.md
+        - name: Compilación de flujos de trabajo en Microsoft Flow
+          href: howto-add-microsoft-flow.md
+        - name: Configuración de página principal
+          href: howto-configure-homepage.md
         - name: Preparación y carga de imágenes
           href: howto-prepare-images.md
     - name: Operador

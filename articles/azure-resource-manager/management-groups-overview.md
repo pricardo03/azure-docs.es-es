@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604750"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure 
 
@@ -69,7 +70,7 @@ Cada directorio tiene un grupo de administración de nivel superior único denom
 
 Los grupos de administración de Azure admiten el [control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md) para todos los accesos a recursos y las definiciones de roles. Estos permisos se heredan en los recursos secundarios que existen en la jerarquía.   
 
-Aunque cualquier [rol de control de acceso basado en rol integrado](../role-based-access-control/overview.md#built-in-roles) puede asignarse a un grupo de administración, existen cuatro roles que se usan con frecuencia: 
+Aunque cualquier [rol de control de acceso basado en rol integrado](../role-based-access-control/built-in-roles.md) puede asignarse a un grupo de administración, existen cuatro roles que se usan con frecuencia: 
 - **propietario** tiene acceso completo a todos los recursos y cuenta con el derecho a delegar este acceso a otros. 
 - **Colaborador**: puede crear y administrar todos los tipos de recursos de Azure, pero no puede conceder acceso a otros.
 - **Colaborador de la directiva de recursos**: puede crear y administrar las directivas del directorio de los recursos.     

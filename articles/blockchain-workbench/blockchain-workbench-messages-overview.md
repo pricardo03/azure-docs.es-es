@@ -1,5 +1,5 @@
 ---
-title: Introducción a los mensajes de Azure Blockchain Workbench
+title: Introducción a la integración de los mensajes de Azure Blockchain Workbench
 description: Introducción al uso de mensajes en Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
@@ -10,23 +10,22 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 4a2e85cc619d17745be9d8f72af5f99049ce7c6b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f45396c3af285026e16ce641bd37bf0eadcee56d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302099"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607607"
 ---
-# <a name="azure-blockchain-workbench-messages-overview"></a>Introducción a los mensajes de Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-messaging-integration"></a>Integración de los mensajes de Azure Blockchain Workbench
 
 Además de proporcionar una API REST, Azure Blockchain Workbench proporciona integración basada en mensajería. Workbench publica eventos centrados en el libro de contabilidad a través de Azure Event Grid, lo que permite a los consumidores de nivel final ingerir datos o realizar acciones en función de estos eventos. Para aquellos clientes que precisan de mensajería de confianza, Azure Blockchain Workbench también entrega mensajes a un punto de conexión de Azure Service Bus.
 
 Los desarrolladores también han manifestado interés en la posibilidad de que sistemas externos puedan comunicarse e iniciar transacciones para crear usuarios, crear contratos y actualizar contratos en un libro de contabilidad. Aunque esta funcionalidad no se expone actualmente en la versión preliminar pública, puede encontrar un ejemplo que desarrolla esta funcionalidad en [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample).
 
-
 ## <a name="event-notifications"></a>Notificaciones de eventos
 
-Las notificaciones de eventos se pueden usar para notificar a los usuarios y a los sistemas de nivel final de eventos que se producen en Workbench y la red a la que está conectada la cadena de bloques. Las notificaciones de eventos se pueden consumir directamente en código o se pueden utilizar con herramientas como Logic Apps y Flow para desencadenar el flujo de datos hacia los sistemas de nivel final.
+Las notificaciones de eventos se pueden usar para notificar a los usuarios y a los sistemas de nivel final de eventos que se producen en Blockchain Workbench y la red de cadena de bloques a la que está conectada. Las notificaciones de eventos se pueden consumir directamente en código o se pueden utilizar con herramientas como Logic Apps y Flow para desencadenar el flujo de datos hacia los sistemas de nivel final.
 
 Consulte la [Referencia de mensajes de notificación](#notification-message-reference) para más detalles sobre los distintos mensajes que se pueden recibir.
 
@@ -61,14 +60,14 @@ Los temas de Service Bus se pueden utilizar para notificar a los usuarios acerca
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Consumo de mensajes de Service Bus con Logic Apps
 
 1. Cree una nueva **aplicación lógica de Azure** en Azure Portal.
-2.  Al abrir la aplicación de la lógica de Azure en el portal, se le pedirá seleccionar un desencadenador. Escriba **Service Bus** en el cuadro de búsqueda y seleccione el desencadenador adecuado para el tipo de interacción que desea tener con Service Bus. Por ejemplo, **Service Bus: cuando se recibe un mensaje en una suscripción de tema (autocompletar)**.
+2. Al abrir la aplicación de la lógica de Azure en el portal, se le pedirá seleccionar un desencadenador. Escriba **Service Bus** en el cuadro de búsqueda y seleccione el desencadenador adecuado para el tipo de interacción que desea tener con Service Bus. Por ejemplo, **Service Bus: cuando se recibe un mensaje en una suscripción de tema (autocompletar)**.
 3. Cuando se muestra el diseñador de flujo de trabajo, especifique la información de conexión para Service Bus.
 4. Seleccione la suscripción y especifique el tema **workbench-external**.
 5. Desarrolle la lógica de la aplicación que utiliza el mensaje de este desencadenador.
 
 ## <a name="notification-message-reference"></a>Referencia de mensajes de notificación
 
-En función de OperationName (nombre de la operación), los mensajes de notificación tienen uno de los siguientes tipos de mensaje.
+En función del valor de **OperationName**, los mensajes de notificación tienen uno de los siguientes tipos de mensaje.
 
 ### <a name="accountcreated"></a>AccountCreated
 
@@ -76,8 +75,8 @@ Indica que se ha solicitado agregar una nueva cuenta a la cadena especificada.
 
 | NOMBRE    | DESCRIPCIÓN  |
 |----------|--------------|
-| UserId  | Identificador del usuario que se ha creado |
-| ChainIdentifier | Dirección del usuario que se ha creado en la red de la cadena de bloques. En Ethereum, esto sería la dirección del usuario "en la cadena". |
+| UserId  | Identificador del usuario que se ha creado. |
+| ChainIdentifier | Dirección del usuario que se ha creado en la red de la cadena de bloques. En Ethereum, esto sería la dirección del usuario **en la cadena**. |
 
 ``` csharp
 public class NewAccountRequest : MessageModelBase
@@ -94,15 +93,15 @@ Indica que se ha realizado una solicitud para insertar o actualizar un contrato 
 | NOMBRE | DESCRIPCIÓN |
 |-----|--------------|
 | ChainID | Identificador único de la cadena asociada a la solicitud.|
-  BlockId | Identificador único de un bloque en el libro de contabilidad.|
-  ContractId | Identificador único del contrato.|
-  ContractAddress |       Dirección del contrato en el libro de contabilidad.|
-  TransactionHash  |     Hash de la transacción en el libro de contabilidad.|
-  OriginatingAddress |   Dirección del remitente de la transacción.|
-  ActionName       |     Nombre de la acción.|
-  IsUpdate        |      Identifica si se trata de una actualización.|
-  Parámetros       |     Una lista de objetos que identifican el nombre, valor y tipo de datos de los parámetros que se envían a una acción.|
-  TopLevelInputParams |  En escenarios en los que un contrato está conectado a uno o más contratos, estos son los parámetros del contrato de nivel superior. |
+| BlockId | Identificador único de un bloque en el libro de contabilidad.|
+| ContractId | Identificador único del contrato.|
+| ContractAddress |       Dirección del contrato en el libro de contabilidad.|
+| TransactionHash  |     Hash de la transacción en el libro de contabilidad.|
+| OriginatingAddress |   Dirección del remitente de la transacción.|
+| ActionName       |     Nombre de la acción.|
+| IsUpdate        |      Identifica si se trata de una actualización.|
+| Parámetros       |     Una lista de objetos que identifican el nombre, valor y tipo de datos de los parámetros que se envían a una acción.|
+| TopLevelInputParams |  En escenarios en los que un contrato está conectado a uno o más contratos, estos son los parámetros del contrato de nivel superior. |
 
 ``` csharp
 public class ContractInsertOrUpdateRequest : MessageModelBase
@@ -242,6 +241,65 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 {
     public int ContractId { get; set; }
     public string ChainIdentifier { get; set; }
+}
+```
+
+## <a name="classes-used-by-message-types"></a>Clases que usan los tipos de mensaje
+
+### <a name="messagemodelbase"></a>MessageModelBase
+
+Modelo base de todos los mensajes.
+
+| NOMBRE          | DESCRIPCIÓN                          |
+|---------------|--------------------------------------|
+| nombreOperación | Nombre de la operación.           |
+| RequestId     | Identificador único de la solicitud. |
+
+``` csharp
+public class MessageModelBase
+{
+    public string OperationName { get; set; }
+    public string RequestId { get; set; }
+}
+```
+
+### <a name="contractinputparameter"></a>ContractInputParameter
+
+Contiene el nombre, el valor y el tipo de un parámetro.
+
+| NOMBRE  | DESCRIPCIÓN                 |
+|-------|-----------------------------|
+| NOMBRE  | El nombre del parámetro.  |
+| Valor | Valor del parámetro. |
+| Escriba  | Tipo de parámetro  |
+
+``` csharp
+public class ContractInputParameter
+{
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string Type { get; set; }
+}
+```
+
+#### <a name="contractproperty"></a>ContractProperty
+
+Contiene el identificador, el nombre, el valor y el tipo de una propiedad.
+
+| NOMBRE  | DESCRIPCIÓN                |
+|-------|----------------------------|
+| Id    | Identificador de la propiedad.    |
+| NOMBRE  | El nombre de la propiedad.  |
+| Valor | El valor de la propiedad. |
+| Escriba  | El tipo de la propiedad.  |
+
+``` csharp
+public class ContractProperty
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string DataType { get; set; }
 }
 ```
 

@@ -3,22 +3,24 @@ title: Introducción al control de acceso basado en rol para los recursos de Azu
 description: Introducción a la característica de control de acceso basado en rol en PIM, terminología y las notificaciones incluidas
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528627"
 ---
 # <a name="pim-for-azure-resources"></a>PIM para recursos de Azure
 
@@ -57,7 +59,7 @@ Mis roles contiene una lista de las asignaciones de rol activas y válidas para 
 
 ## <a name="activate-roles"></a>Activación de roles
 
-La activación de roles para los recursos de Azure presenta una nueva experiencia que permite a los miembros del rol aptos programar la activación de fechas y horas futuras, y seleccionar una duración de activación específica dentro de los límites (que configuren los administradores). Aprenda a [activar roles de Azure AD aquí](../active-directory-privileged-identity-management-how-to-activate-role.md).
+La activación de roles para los recursos de Azure presenta una nueva experiencia que permite a los miembros del rol aptos programar la activación de fechas y horas futuras, y seleccionar una duración de activación específica dentro de los límites (que configuren los administradores). Aprenda a [activar roles de Azure AD aquí](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -154,7 +156,7 @@ Seleccione Revisar en la barra de acción para ver las revisiones de acceso exis
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Más información sobre las revisiones de acceso](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Más información sobre las revisiones de acceso](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Actualmente, solo se admiten revisiones para los tipos de recursos de suscripción.
@@ -194,5 +196,5 @@ Seleccione Mis roles en el menú de navegación izquierdo y elija el rol que des
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md)
-- Obtenga información acerca de la [activación de roles de Azure AD aquí](../active-directory-privileged-identity-management-how-to-activate-role.md).
+- Obtenga información acerca de la [activación de roles de Azure AD aquí](pim-how-to-activate-role.md).
 - [Flujos de trabajo de aprobación de PIM](azure-ad-pim-approval-workflow.md)

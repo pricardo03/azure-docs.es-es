@@ -1,26 +1,20 @@
 ---
-title: 'Solución del error de Azure Backup: no está disponible el estado del agente invitado | Documentos de Microsoft'
+title: 'Solución del error de Azure Backup: no está disponible el estado del agente invitado'
 description: Síntomas, causas y soluciones de errores de Azure Backup relacionados con el agente, la extensión y los discos.
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Azure Backup; Agente de máquina virtual; Conectividad de red;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 06/25/2018
+ms.author: genli
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196770"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754330"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -64,7 +58,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Se produce un error en la copia de seguridad porque el agente de máquina virtual no responde
 
-Mensaje de error: "No se puede realizar la operación: el agente de máquina virtual no responde" <br>
+Mensaje de error: "No se pudo comunicar con el agente de máquina virtual para ver el estado de la instantánea". <br>
 Código de error: "GuestAgentSnapshotTaskStatusError"
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
@@ -90,7 +84,17 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 ### <a name="the-vm-has-no-internet-access"></a>La máquina virtual no tiene acceso a Internet.
 Según el requisito de implementación, la máquina virtual no tiene acceso a Internet. O bien, podría tener restricciones que impiden el acceso a la infraestructura de Azure.
 
-Para poder funcionar correctamente, la extensión de copia de seguridad requiere conectividad a las direcciones IP públicas de Azure. La extensión envía comandos a un punto de conexión de Azure Storage (dirección URL de HTTP) para administrar las instantáneas de la máquina virtual. Si la extensión no tiene acceso a la red Internet pública, se produce un error en la copia de seguridad.
+Para poder funcionar correctamente, la extensión de copia de seguridad requiere conectividad a las direcciones IP públicas de Azure. La extensión envía comandos a un punto de conexión de Azure Storage (dirección URL de HTTPS) para administrar las instantáneas de la máquina virtual. Si la extensión no tiene acceso a la red Internet pública, se produce un error en la copia de seguridad.
+
+Es posible implementar un servidor proxy para enrutar el tráfico de la máquina virtual.
+##### <a name="create-a-path-for-https-traffic"></a>Crear una ruta de acceso para el tráfico HTTPS
+
+1. Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTPS para enrutar el tráfico.
+2. Para permitir el acceso a Internet desde el servidor proxy HTTPS, agregue las reglas al grupo de seguridad de red, si dispone de uno.
+
+Para aprender a configurar un proxy HTTPS para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno para la copia de seguridad de Azure Virtual Machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+La máquina virtual de la que se ha realizado la copia de seguridad o el servidor proxy mediante el cual se ha enrutado el tráfico requieren acceso a las direcciones IP públicas de Azure
 
 ####  <a name="solution"></a>Solución
 Para solucionar este problema, pruebe uno de los métodos siguientes:
@@ -106,13 +110,6 @@ Para entender el procedimiento paso a paso para configurar etiquetas de servicio
 > [!WARNING]
 > Las etiquetas de servicio de almacenamiento se encuentran en versión preliminar. Solo están disponibles en determinadas regiones. Para ver la lista de regiones, consulte el apartado [Etiquetas de servicio para almacenamiento](../virtual-network/security-overview.md#service-tags).
 
-##### <a name="create-a-path-for-http-traffic"></a>Crear una ruta de acceso para el tráfico HTTP
-
-1. Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico.
-2. Para permitir el acceso a Internet desde el servidor proxy HTTP, agregue las reglas al grupo de seguridad de red, si dispone de uno.
-
-Para aprender a cómo configurar un proxy HTTP para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno de copia de seguridad de Azure Virtual Machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
 Si usa Azure Managed Disks, necesitará abrir otro puerto (8443) en los firewalls.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)
@@ -124,7 +121,7 @@ Es posible que el agente de máquina virtual se haya dañado o que el servicio s
 2. Si el servicio Windows Guest Agent no se muestra en los servicios, vaya al Panel de control y seleccione **Programas y características** para determinar si dicho servicio está instalado.
 4. Si aparece en **Programas y características**, desinstálelo.
 5. Descargue e instale la [versión más reciente del MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
-6. Compruebe que el servicio Windows Guest Agent aparece en los servicios.
+6. Compruebe que los servicios de agente invitado de Windows aparecen en los servicios.
 7. Ejecute un trabajo de copia de seguridad a petición: 
     * En el portal, seleccione **Crear copia de seguridad ahora**.
 
@@ -195,6 +192,19 @@ Este problema es específico de máquinas virtuales administradas en las que el 
 
 #### <a name="solution"></a>Solución
 
-Para resolver el problema, quite el bloqueo del grupo de recursos y deje que el servicio de Azure Backup borre la colección de puntos de recuperación y las instantáneas subyacentes en la siguiente copia de seguridad.
-Una vez hecho, puede activar de nuevo el bloqueo en el grupo de recursos de la máquina virtual. 
+Para resolver el problema, elimine el bloqueo del grupo de recursos y realice los pasos siguientes para quitar la colección de puntos de restauración: 
+ 
+1. Quite el bloqueo en el grupo de recursos en el que se encuentra la máquina virtual. 
+2. Instale ARMClient mediante Chocolatey: <br>
+   https://github.com/projectkudu/ARMClient
+3. Inicie sesión en ARMClient: <br>
+    `.\armclient.exe login`
+4. Obtenga la colección de puntos de restauración que corresponde a la máquina virtual: <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    Ejemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. Elimine la colección de puntos de restauración: <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. La próxima copia de seguridad programada crea automáticamente una colección de puntos de restauración y nuevos puntos de restauración.
+
+Una vez hecho, puede activar de nuevo el bloqueo en el grupo de recursos de la máquina virtual. 

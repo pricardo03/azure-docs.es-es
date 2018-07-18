@@ -1,10 +1,10 @@
 ---
-title: "Incorporación de notificaciones push a la aplicación iOS con las Azure Mobile Apps"
-description: "Obtenga información acerca de cómo usar las Azure Mobile Apps para enviar notificaciones push a su aplicación iOS."
+title: Incorporación de notificaciones push a la aplicación iOS con las Azure Mobile Apps
+description: Obtenga información acerca de cómo usar las Azure Mobile Apps para enviar notificaciones push a su aplicación iOS.
 services: app-service\mobile
 documentationcenter: ios
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
 ms.openlocfilehash: 1fd90df3b6935d35834e1f571e80b945716b55ff
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307262"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Incorporación de notificaciones push a la aplicación iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -56,4 +57,4 @@ El [simulador de iOS no admite notificaciones de inserción](https://developer.a
 <!-- Images. -->
 
 <!-- URLs. -->
-[inicio rápido de iOS]: app-service-mobile-ios-get-started.md
+[Inicio rápido de iOS]: app-service-mobile-ios-get-started.md

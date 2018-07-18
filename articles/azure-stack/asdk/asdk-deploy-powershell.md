@@ -1,6 +1,6 @@
 ---
 title: 'Implementación de Azure Stack: PowerShell | Microsoft Docs'
-description: En este tutorial, va a instalar el Kit de desarrollo de Azure Stack desde la línea de comandos.
+description: En este artículo, va a instalar el Kit de desarrollo de Azure Stack desde la línea de comandos mediante PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,29 +11,20 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 48ccccaba6b7f5780f1d42dfbe5d9747c5e30292
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849964"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>Tutorial: Implementación del Kit de desarrollo de Azure Stack desde la línea de comandos
-En este tutorial, va a implementar el Kit de desarrollo de Azure Stack desde la línea de comandos en un entorno que no sea de producción. 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>Implementación del Kit de desarrollo de Azure Stack desde la línea de comandos
 El Kit de desarrollo de Azure Stack es un entorno de desarrollo y pruebas que se puede implementar para evaluar y probar las características y servicios de Azure Stack. Para ponerlo en ejecución, debe preparar el hardware del entorno y ejecutar algunos scripts (esta operación tardará varias horas). Una vez finalizado, puede iniciar sesión en los portales del administrador y de usuarios para comenzar a usar Azure Stack.
-
-En este tutorial, aprenderá a:
-
-> [!div class="checklist"]
-> * Descargar y extraer el paquete de implementación
-> * Preparar el equipo host del kit de desarrollo 
-> * Realizar configuraciones posteriores a la implementación
-> * Registrarse en Azure
 
 ## <a name="prerequisites"></a>requisitos previos 
 Prepare el equipo host del kit de desarrollo. Planee el hardware, software y red. El equipo que hospeda el kit de desarrollo (el host del kit de desarrollo) debe cumplir requisitos de hardware, software y red. También debe elegir entre el uso de Azure Active Directory (Azure AD) o de Servicios de federación de Active Directory (AD FS). Asegúrese de cumplir estos requisitos previos antes de comenzar la implementación para que el proceso de instalación se ejecute sin problemas. 
@@ -61,7 +52,7 @@ Para configurar el equipo host del Kit de desarrollo de Azure Stack para arranca
 
   1. Inicie un símbolo del sistema como administrador.
   2. Ejecute `bcdedit /copy {current} /d "Azure Stack"`
-  3. Copie (CTRL + C) el valor CLSID devuelto, incluidos los {} obligatorios. Este valor se conoce como {CLSID} y deberá pegarlo (CTRL+V o mediante clic con el botón derecho) en los pasos restantes.
+  3. Copie (CTRL + C) el valor de CLSID devuelto, incluidos los {} obligatorios. Este valor se conoce como {CLSID} y deberá pegarlo (CTRL+V o mediante clic con el botón derecho) en los pasos restantes.
   4. Ejecute `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` 
   5. Ejecute `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` 
   6. Ejecute `bcdedit /set {CLSID} detecthal on` 
@@ -171,21 +162,10 @@ También debe restablecer la directiva de expiración de contraseñas para asegu
 ## <a name="register-with-azure"></a>Registrarse en Azure
 Debe registrar Azure Stack en Azure para que pueda [descargar elementos de Azure Marketplace](asdk-marketplace-item.md) a Azure Stack.
 
-**[Registro de Azure Stack con Azure](asdk-register.md)**
+**[Registro de Azure Stack en Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>Pasos siguientes
 Felicidades. Después de completar estos pasos, tendrá un entorno del kit de desarrollo con los portales del [administrador](https://adminportal.local.azurestack.external) y del [usuario](https://portal.local.azurestack.external). 
 
-En este tutorial aprendió a:
-
-> [!div class="checklist"]
-> * Descargar y extraer el paquete de implementación
-> * Preparar el equipo host del kit de desarrollo 
-> * Realizar configuraciones después de la implementación
-> * Registrarse en Azure
-
-Avance al siguiente tutorial para aprender a agregar un elemento de Marketplace de Azure Stack.
-
-> [!div class="nextstepaction"]
-> [Incorporación de un elemento de Marketplace de Azure Stack](asdk-marketplace-item.md)
+[Tareas de configuración posteriores a la instalación de ASDK](asdk-post-deploy.md)
 

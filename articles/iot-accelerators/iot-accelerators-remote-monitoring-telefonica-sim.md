@@ -1,29 +1,25 @@
 ---
 title: Integración de datos de la SIM en la solución de supervisión remota (Azure) | Microsoft Azure
 description: En este artículo se describe cómo integrar los datos de la SIM de Telefónica en la solución de supervisión remota.
-services: iot-suite
-suite: iot-suite
 author: hegate
-manager: timlt
+manager: ''
 ms.author: hegate
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 590a24113d66edacc6edcfe988330f643f1aa57a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367557"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097087"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integración de datos de la SIM en la solución de supervisión remota
 
 A menudo, los dispositivos IoT se conectan a la nube con una tarjeta SIM que les permite enviar flujos de datos desde cualquier lugar. La solución de supervisión remota de Azure IoT permite la integración de los datos de la conectividad administrada de IoT para que los operadores también puedan realizar un seguimiento del mantenimiento del dispositivo mediante los datos proporcionados por la SIM de IoT.
 
-La supervisión remota proporciona integración lista para usar con conectividad de IoT de Telefónica, lo que permite a los clientes usar la plataforma de conectividad de IoT para sincronizar los datos de conectividad de las tarjetas SIM de los dispositivos con las soluciones. Esta solución puede ampliarse para ofrecer compatibilidad con otros proveedores de conectividad de IoT mediante el [repositorio](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) de GitHub.
+La supervisión remota proporciona integración lista para usar con conectividad de IoT de Telefónica, lo que permite a los clientes usar la plataforma de conectividad de IoT para sincronizar los datos de conectividad de las SIM de dispositivo con las soluciones. Esta solución puede ampliarse para ofrecer compatibilidad con otros proveedores de conectividad de IoT mediante el [repositorio](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) de GitHub.
 
 En este tutorial, aprenderá a:
 
@@ -37,14 +33,14 @@ En este tutorial, aprenderá a:
 
 Esta característica de supervisión remota adicional se encuentra actualmente en versión preliminar. Para sincronizar los datos de conectividad en la solución de supervisión remota de Azure, siga estos pasos:
 
-1. Rellene una solicitud en el [sitio de Telefónica](https://iot.Telefónica.com/contact), seleccione la opción **Supervisión remota de Azure** e incluya sus datos de contacto.
+1. Rellene una solicitud en el [sitio de Telefónica](https://iot.telefonica.com/contact), seleccione la opción **Supervisión remota de Azure** e incluya sus datos de contacto.
 2. Telefónica activará la cuenta.
-3. Si aún no es cliente de Telefónica y quiere disfrutar de esta ventaja o de otros servicios preparados para la nube con conectividad de IoT, visite el [sitio de Telefónica](https://iot.Telefónica.com/contact) y seleccione la opción **Conectividad**.
+3. Si aún no es cliente de Telefónica y quiere disfrutar de esta ventaja o de otros servicios preparados para la nube con conectividad de IoT, visite el [sitio de Telefónica](https://iot.telefonica.com/) y seleccione la opción **Conectividad**.
 
 ### <a name="telefnica-sim-setup"></a>Configuración de la SIM de Telefónica
 La asociación entre la SIM de Telefónica y el identificador del dispositivo gemelo de Azure se basa en la propiedad del "alias" de la SIM de IoT de Telefónica. 
 
-Navegue al [Portal de la plataforma de conectividad de IoT de Telefónica](https://m2m-movistar-es.telefonica.com/) > Inventario de SIM > Seleccione su SIM y actualice el "alias" de cada SIM con el identificador del dispositivo gemelo deseado. Esta tarea también puede realizarse de modo masivo (consulte los manuales de usuario de la plataforma de conectividad de IoT de Telefónica).
+Navegue al [Portal de la plataforma de conectividad de IoT de Telefónica](https://m2m-movistar-es.telefonica.com/) > Inventario de SIM > Seleccione su SIM y actualice el "alias" de cada SIM con el identificador del dispositivo gemelo que quiera. Esta tarea también puede realizarse de modo masivo (consulte los manuales de usuario de la plataforma de conectividad de IoT de Telefónica).
 
 Esta tarea también puede realizarse de modo masivo (consulte los manuales de usuario de la plataforma de conectividad de IoT de Telefónica).
 

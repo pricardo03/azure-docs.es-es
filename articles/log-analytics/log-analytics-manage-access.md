@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271677"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637538"
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
 
@@ -98,7 +98,7 @@ Las siguientes actividades también requieren permisos de Azure:
 
 | .                                                          | Permisos de Azure necesarios | Notas |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Agregar y quitar soluciones de administración                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Agregar y quitar soluciones de administración                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Es necesario conceder estos permisos en el nivel de suscripción o grupo de recursos. |
 | Cambiar el plan de tarifa                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Ver los datos en los iconos de soluciones *Backup* y *Site Recovery* | Administrador o coadministrador | Accede a los recursos implementados mediante el modelo de implementación clásica |
 | Creación de un área de trabajo en Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ Los miembros del rol *Lector de Log Analytics* pueden:
 
 
 Los miembros del rol *Colaborador de Log Analytics* pueden:
-- Leer todos los datos de supervisión 
-- Crear y configurar cuentas de Automation
-- Agregar y quitar soluciones de administración
-- Leer las claves de las cuentas de almacenamiento 
-- Configurar la recopilación de registros de Azure Storage
+- Leer todos los datos de supervisión  
+- Crear y configurar cuentas de Automation  
+- Agregar y quitar soluciones de administración    
+    > [!NOTE] 
+    > Para llevar a cabo correctamente estas dos acciones, este permiso debe concederse en el nivel de suscripción o grupo de recursos.  
+
+- Leer las claves de las cuentas de almacenamiento   
+- Configurar la recopilación de registros de Azure Storage  
 - Editar la configuración de supervisión de los recursos de Azure:
   - Agregar la extensión de máquina virtual a las máquinas virtuales
   - Configurar Azure Diagnostics en todos los recursos de Azure
@@ -157,7 +160,7 @@ Use estos roles para conceder a los usuarios acceso en distintos ámbitos:
 - Grupo de recursos: acceso a todas las áreas de trabajo del grupo de recursos
 - Recurso: acceso solo al área de trabajo especificada
 
-Use [roles personalizados](../active-directory/role-based-access-control-custom-roles.md) para crear roles con los permisos específicos necesarios.
+Se recomienda que realice las asignaciones en el nivel de recurso (área de trabajo) para asegurarse de que el control de acceso es preciso.  Use [roles personalizados](../active-directory/role-based-access-control-custom-roles.md) para crear roles con los permisos específicos necesarios.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Roles de usuario de Azure y roles de usuario del portal de Log Analytics
 Si tiene al menos permiso de lectura de Azure en el área de trabajo de Log Analytics, puede abrir el portal de Log Analytics haciendo clic en la tarea **Portal de OMS** al visualizar el área de trabajo de Log Analytics.
@@ -269,7 +272,7 @@ Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben 
 6. Aparecerá una lista con las áreas de trabajo que aún no están vinculadas con su cuenta de Azure. Seleccione un área de trabajo.  
    ![seleccionar áreas de trabajo](./media/log-analytics-manage-access/manage-access-link-azure04.png)
 7. Si es necesario, puede cambiar los valores de los elementos siguientes:
-   * La suscripción
+   * Subscription
    * Grupos de recursos
    * Ubicación
    * Nivel de precios  

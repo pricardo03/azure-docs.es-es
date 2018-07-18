@@ -1,29 +1,25 @@
 ---
 title: Tutorial para la seguridad de X.509 en Azure IoT Hub | Microsoft Docs
-description: "Introducción a la seguridad basada en X.509 en Azure IoT Hub en un entorno simulado."
-services: iot-hub
-documentationcenter: 
+description: Introducción a la seguridad basada en X.509 en Azure IoT Hub en un entorno simulado.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 93f9099d7aef1161f7789e7b21a88a8691cb2a8e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: dd5b9f196f911011d9dd606d46f515b88d338531
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635583"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub
 
 Este tutorial simula los pasos necesarios para proteger Azure IoT Hub mediante la *autenticación de certificado X.509*. Con fines ilustrativos, mostraremos cómo usar la herramienta de código abierto OpenSSL para crear certificados localmente en una máquina Windows. Se recomienda usar este tutorial solo para la realización de pruebas. Para el entorno de producción debe comprar los certificados a una *entidad de certificación (CA) raíz*. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Este tutorial requiere que tenga listos los siguientes recursos:
 
 - Ha creado una instancia de IoT Hub con su suscripción de Azure. Para ver los pasos con detalle, consulte [Creación de una instancia de IoT Hub mediante Azure Portal](iot-hub-create-through-portal.md). 
@@ -67,7 +63,7 @@ Estos pasos muestran cómo agregar una entidad de certificación nueva a una ins
  
 9. Cargue la firma resultante del paso 8 en su instancia de IoT Hub del portal. En la hoja **Detalles del certificado** de Azure Portal, navegue hasta **Archivo .pem o .cer del certificado de verificación** y seleccione la firma, por ejemplo, *VerifyCert4.cer* creado por el comando de PowerShell de ejemplo mediante el icono del _Explorador de archivos_ que aparece al lado.
 
-10. Una vez que el certificado se cargue correctamente, haga clic en **Comprobar**. El **ESTADO** del certificado cambia a  **_Comprobado_**  en la hoja **Certificados**. Si no se actualiza automáticamente, haga clic en **Actualizar**.
+10. Una vez que el certificado se cargue correctamente, haga clic en **Comprobar**. El **ESTADO** del certificado cambia a **_Comprobado_** en la hoja **Certificados**. Si no se actualiza automáticamente, haga clic en **Actualizar**.
 
    ![Cargar comprobación de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
@@ -80,7 +76,7 @@ Estos pasos muestran cómo agregar una entidad de certificación nueva a una ins
 
 2. Haga clic en **Agregar** para agregar un dispositivo nuevo. 
 
-3. Escribe un nombre para mostrar descriptivo en **Id. de dispositivo** y seleccione **_X.509 CA Signed_** (X.509 con firma de CA) en **Tipo de autenticación**. Haga clic en **Guardar**.
+3. Escribe un nombre para mostrar descriptivo en **Id. de dispositivo** y seleccione **_X.509 CA Signed_** (X.509 con firma de CA) en **Tipo de autenticación**. Haga clic en **Save**(Guardar).
 
    ![Crear un dispositivo X.509 en el portal](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 

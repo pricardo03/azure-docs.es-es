@@ -8,14 +8,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 5b8a2ec7e0401ac239acdefdd77a13b522f73960
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050134"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -77,11 +78,12 @@ Instancia administrada admite las siguientes opciones de migración de base de d
 
 - Azure Database Migration Service: migración prácticamente sin tiempo de inactividad
 - RESTAURACIÓN nativa desde la dirección URL: usa copias de seguridad nativas de SQL Server y supone tiempo de inactividad
-- Migración con el archivo BACPAC: usa el archivo BACPAC de SQL Server o SQL Database y supone tiempo de inactividad
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 [Azure Database Migration Service (DMS)](../dms/dms-overview.md) es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover las bases de datos existentes de SQL Server y de terceros a Azure. En la versión preliminar pública, las opciones de implementación incluyen Azure SQL Database, Instancia administrada y SQL Server en una máquina virtual de Azure. DMS es el método recomendado de migración para las cargas de trabajo de la empresa. 
+
+Si usa SQL Server Integration Services (SSIS) en su servidor de SQL Server local, tenga en cuenta que el servicio DMS aún no admite la migración del catálogo de SSIS (SSISDB) que almacena paquetes SSIS; de todos modos, puede aprovisionar Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF), para crear un nuevo SSISDB en Azure SQL Database o la instancia administrada, y puede volver a implementar sus paquetes en esta opción. Para ello, consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Para más información acerca de este escenario y los pasos de configuración para DMS, consulte cómo [migrar una base de datos local a Instancia administrada con DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -106,10 +108,6 @@ La tabla siguiente proporciona más información sobre el método que puede usar
 > No se permite restaurar bases de datos del sistema. Para migrar objetos de nivel de instancia (almacenados en bases de datos maestras o msdb), se recomienda generar scripts y ejecutar scripts de T-SQL en la instancia de destino.
 
 Para un tutorial completo que incluye la restauración de una copia de seguridad de base de datos en una instancia administrada mediante credenciales SAS, consulte el artículo de [restauración en una instancia administrada de una copia de seguridad](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### <a name="migrate-using-bacpac-file"></a>Migración mediante el archivo BACPAC
-
-Para importar a Azure SQL Database e Instancia administrada, puede crear una copia de la base de datos original con los datos en un archivo BACPAC. Consulte [Importación de un archivo BACPAC en una base de datos de Azure SQL Database](sql-database-import.md).
 
 ## <a name="monitor-applications"></a>Supervisión de aplicaciones
 

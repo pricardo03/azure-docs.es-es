@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/03/2018
+ms.topic: conceptual
+ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: 1d797df3f03e9b92569d37495310a5c162f5f981
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130935"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Administración de los costos mediante el control del volumen de datos y la retención en Log Analytics
 Log Analytics está diseñado para escalar y admitir la recopilación, indexación y almacenamiento de grandes cantidades de datos por día provenientes de cualquier origen dentro de su empresa o implementados en Azure.  Aunque esto puede ser un factor clave principal para su organización, la rentabilidad es en última instancia el factor clave subyacente. Con este fin, es importante comprender que el costo de un área de trabajo de Log Analytics no se basa simplemente en el volumen de datos recopilados, también depende del plan seleccionado y de cuánto tiempo se decida almacenar los datos generados a partir de los orígenes conectados.  
@@ -36,7 +38,7 @@ El costo de datos puede ser considerable dependiendo de los factores siguientes:
 > [!NOTE]
 > Consulte la documentación de cada solución, ya que proporciona una estimación de la cantidad de datos que recopila.   
 
-Si se encuentra en un plan *Gratis*, los datos tienen una retención limitada de siete días. En el plan *Independiente* o *De pago*, los datos recopilados están disponibles durante los últimos 31 días. El plan *Gratis* tiene 500 MB diarios de límite de ingesta, si observa que supera de forma uniforme las cantidades permitidas de volumen, puede cambiar el área de trabajo a un plan de pago para recopilar datos más allá de este límite. 
+Los clientes con un contrato Enterprise firmado antes del 1 de julio de 2018 o que ya crearon un área de trabajo de Log Analytics en una suscripción, seguirán teniendo acceso al plan *Gratis*. Si su suscripción no está asociado a una inscripción de EA existente, el nivel *Gratis* no está disponible cuando se crea un área de trabajo en una suscripción nueva después del 2 de abril de 2018.  En un plan *Gratis*, los datos tienen una retención limitada de siete días.  En el plan *Independiente* o *De pago*, los datos recopilados están disponibles durante los últimos 31 días. El plan *Gratis* tiene 500 MB de límite de ingesta diaria; si observa que supera constantemente el volumen permitido, puede cambiar el área de trabajo a un plan de pago para recopilar datos más allá de este límite. 
 
 > [!NOTE]
 > Pueden aplicarse cargos si elige seleccionar un período de retención mayor para el nivel de pago. Puede cambiar el tipo de plan en cualquier momento. Para obtener más información sobre los precios, vea la [información sobre los precios](https://azure.microsoft.com/pricing/details/log-analytics/). 

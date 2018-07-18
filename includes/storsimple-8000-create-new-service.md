@@ -3,7 +3,7 @@
 
 #### <a name="to-create-a-new-service"></a>Para crear un nuevo servicio
 
-1. Use las credenciales de su cuenta Microsoft para iniciar sesión en [Azure Portal](https://portal.azure.com/).
+1. Use las credenciales de la cuenta Microsoft para iniciar sesión en [Azure Portal](https://portal.azure.com/).
 
 2. En Azure Portal, haga clic en **Crear un recurso** y, una vez en Marketplace, haga clic en **Ver todo**.
 

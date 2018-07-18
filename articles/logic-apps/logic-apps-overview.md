@@ -1,38 +1,35 @@
 ---
-title: "Introducción a la integración empresarial con Azure Logic Apps | Microsoft Docs"
-description: "Cree flujos de trabajo y procesos empresariales automatizados que integran datos, servicios, aplicaciones y sistemas en empresas y organizaciones. Cree soluciones para escenarios de integración de datos, integración de sistemas, Enterprise Application Integration (EAI) y orquestación."
-keywords: "automatizar, flujos de trabajo, enterprise application integration, EAI, integración de sistemas, integración de datos, orquestación, servicios de integración, iPaaS"
+title: Soluciones de integración empresarial con Azure Logic Apps | Microsoft Docs
+description: Descubra cómo Logic Apps le ayuda a crear flujos de trabajo y procesos empresariales automatizados que integran datos, servicios, aplicaciones y sistemas entre empresas y organizaciones. Cree soluciones para escenarios de integración de datos, integración de sistemas, Enterprise Application Integration (EAI) y orquestación.
 services: logic-apps
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 6c88c51eb4def92164e221efa5c6293f9b2247e4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 6/29/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d3640710b3ba209c8e701cf5e340103c1d3d6fa7
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082226"
 ---
 # <a name="what-is-azure-logic-apps"></a>¿Qué es Azure Logic Apps?
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) ayuda a crear, programar y automatizar procesos como [flujos de trabajo](#logic-app-concepts), permitiéndole integrar aplicaciones, datos, sistemas y servicios en empresas u organizaciones. Logic Apps simplifica cómo diseñar y crear soluciones escalables de integración de aplicaciones, integración de datos, integración de sistemas, Enterprise Application Integration (EAI) y comunicación de negocio a negocio (B2B), ya sea en la nube, localmente o en ambos entornos.
+[Logic Apps](https://azure.microsoft.com/services/logic-apps) le ayuda a crear soluciones que integran aplicaciones, datos, sistemas y servicios entre empresas u organizaciones automatizando tareas y procesos empresariales como [flujos de trabajo](#logic-app-concepts). Logic Apps es un servicio en la nube de Azure que simplifica el diseño y la creación de soluciones escalables para la integración de aplicaciones, la integración de datos, la integración de sistemas, la integración de aplicaciones empresariales (EAI) y la comunicación de negocio a negocio (B2B), ya sea en la nube, localmente o en ambos entornos.
 
 Por ejemplo, las siguientes son algunas de las cargas de trabajo que puede automatizar con Logic Apps:
 
 * Procesamiento y redirección de pedidos de sistemas locales y servicios en la nube.
-* Traslado de archivos cargados de un servidor FTP a Azure Storage. 
-* Supervisión de tweets para un asunto específico, análisis de opiniones y creación de alertas o tareas para los elementos que deben revisarse.
+* Traslado de archivos cargados de un servidor SFTP o FTP a Azure Storage. 
+* Envío de notificaciones por correo electrónico con Office 365 cuando se producen eventos en varios sistemas, aplicaciones y servicios.
+* Supervisión de tweets sobre un asunto específico, análisis de opiniones y creación de alertas o tareas para los elementos que deben revisarse.
 
-Para crear soluciones de integración con Logic Apps, elija entre una galería cada vez mayor de [alrededor de 200 conectores integrados](../connectors/apis-list.md), como SQL Database, servicios de Azure, Office 365, Salesforce, Google y mucho más. Estos [conectores](#logic-app-concepts) proporcionan [desencadenadores](#logic-app-concepts), [acciones](#logic-app-concepts) o ambos tipos de elementos para crear aplicaciones lógicas que acceden a datos y los procesan de forma segura en tiempo real.
+Para compilar soluciones de integración con Logic Apps, elija entre una galería con [más de 200 conectores](../connectors/apis-list.md) que incluye otros servicios de Azure, como Service Bus, Functions y Storage; SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, recursos compartidos de archivos y muchos más. Estos [conectores](#logic-app-concepts) proporcionan [desencadenadores](#logic-app-concepts), [acciones](#logic-app-concepts) o ambos tipos de elementos para crear aplicaciones lógicas que acceden a datos y los procesan de forma segura en tiempo real.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
@@ -58,56 +55,59 @@ Para ver cómo algunas empresas han conseguido mejorar su agilidad y centrarse e
 
 Aquí encontrará más detalles sobre las funcionalidades y ventajas que obtendrá con Logic Apps:
 
-* **Creación visual de flujos de trabajo con herramientas fáciles de utilizar**
+### <a name="visually-build-workflows-with-easy-to-use-tools"></a>Creación visual de flujos de trabajo con herramientas fáciles de utilizar
 
-  Ahorre tiempo y simplifique procesos complejos con herramientas de diseño visuales. 
-  Compile aplicaciones lógicas de principio a fin mediante el diseñador de aplicaciones lógicas desde Azure Portal con el explorador o en Visual Studio. Inicie su flujo de trabajo con un desencadenador y añada una serie de acciones de la [galería de conectores](../connectors/apis-list.md).
+Ahorre tiempo y simplifique procesos complejos con herramientas de diseño visuales. Compile aplicaciones lógicas de principio a fin mediante el diseñador de aplicaciones lógicas desde Azure Portal con el explorador o en Visual Studio. Inicie su flujo de trabajo con un desencadenador y añada una serie de acciones de la [galería de conectores](../connectors/apis-list.md).
 
-* **Plantillas de aplicaciones lógicas para avanzar más rápidamente**
+### <a name="get-started-faster-with-logic-app-templates"></a>Plantillas de aplicaciones lógicas para avanzar más rápidamente
 
-  Cree soluciones frecuentes más rápidamente al seleccionar flujos de trabajo predefinidos de la [galería de plantillas](../logic-apps/logic-apps-create-logic-apps-from-templates.md). 
-  En las plantillas puede encontrar desde sencillas aplicaciones de conectividad para software como servicio (SaaS) hasta soluciones B2B avanzadas, además de otras plantillas con las que divertirse. Descubra cómo [crear aplicaciones lógicas a partir de plantillas precompiladas](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+Cree soluciones frecuentes más rápidamente al seleccionar flujos de trabajo predefinidos de la [galería de plantillas](../logic-apps/logic-apps-create-logic-apps-from-templates.md). En las plantillas puede encontrar desde sencillas aplicaciones de conectividad para software como servicio (SaaS) hasta soluciones B2B avanzadas, además de otras plantillas con las que divertirse. Descubra cómo [crear aplicaciones lógicas a partir de plantillas precompiladas](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-* **Conexión de sistemas dispares en diferentes entornos**
+### <a name="connect-disparate-systems-across-different-environments"></a>Conexión de sistemas dispares en diferentes entornos
 
-  Determinados patrones y flujos de trabajo son fáciles de describir pero difíciles de implementar en el código. 
-  Las aplicaciones lógicas le ayudan a conectar fácilmente sistemas dispares en entornos locales y en la nube. Por ejemplo, puede conectar una solución de marketing de la nube en un sistema de facturación local, o centralizar la mensajería a través de las API y los sistemas con un bus de servicio empresarial. Las aplicaciones lógicas ofrecen una manera rápida, fiable y coherente de proporcionar soluciones que se pueden volver a utilizar y configurar para estos escenarios.
+Determinados patrones y flujos de trabajo son fáciles de describir pero difíciles de implementar en el código. Las aplicaciones lógicas le ayudan a conectar fácilmente sistemas dispares en entornos locales y en la nube. Por ejemplo, puede conectar una solución de marketing de la nube en un sistema de facturación local, o centralizar la mensajería a través de las API y los sistemas con un bus de servicio empresarial. Las aplicaciones lógicas ofrecen una manera rápida, fiable y coherente de proporcionar soluciones que se pueden volver a utilizar y configurar para estos escenarios.
 
-* **Soporte de primera clase para escenarios B2B y de integración empresarial**
+### <a name="first-class-support-for-enterprise-integration-and-b2b-scenarios"></a>Soporte de primera clase para escenarios B2B y de integración empresarial
 
-  Las empresas y organizaciones se comunican electrónicamente entre sí mediante el uso de estándares del sector, pero con diferentes protocolos y formatos de mensajes, como EDIFACT, AS2 y X12. 
-  Con las características de [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md), puede crear aplicaciones lógicas que transforman los formatos de mensaje que usan sus socios en formatos que los sistemas de su organización pueden interpretar y procesar. Las aplicaciones lógicas administran estos intercambios con facilidad y también con seguridad mediante cifrado y firmas digitales.
+Las empresas y organizaciones se comunican electrónicamente entre sí mediante el uso de estándares del sector, pero con diferentes protocolos y formatos de mensajes, como EDIFACT, AS2 y X12. Con las características de [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md), puede crear aplicaciones lógicas que transforman los formatos de mensaje que usan sus socios en formatos que los sistemas de su organización pueden interpretar y procesar. Logic Apps administra estos intercambios de forma fácil y también segura mediante cifrado y firmas digitales.
 
-  Empiece poco a poco con sus servicios y sistemas actuales y crezca de forma gradual a su propio ritmo. Cuando esté listo, Logic Apps y EIP le ayudarán a implementar y escalar verticalmente escenarios de integración más avanzados mediante estas funcionalidades y muchas más:
+Empiece poco a poco con sus servicios y sistemas actuales y crezca de forma gradual a su propio ritmo. Cuando esté listo, Logic Apps y EIP le ayudarán a implementar y escalar verticalmente escenarios de integración más avanzados mediante estas funcionalidades y muchas más:
 
-  * Utilice estos productos y servicios para compilar: 
-    * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server) 
-    * [API Management](../api-management/api-management-key-concepts.md) 
-    * [Azure Functions](../azure-functions/functions-overview.md) 
-    * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
-  * Procese [mensajes XML](../logic-apps/logic-apps-enterprise-integration-xml.md).
-  * Procese [archivos sin formato](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
-  * Intercambie mensajes con los protocolos [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) y [X12](../logic-apps/logic-apps-enterprise-integration-x12.md).
-  * Almacene y administre estos artefactos B2B y mucho más en un solo lugar con [cuentas de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md):
-    * [Asociados](../logic-apps/logic-apps-enterprise-integration-partners.md)
-    * [Contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
-    * [Mapas para transformación XML](../logic-apps/logic-apps-enterprise-integration-maps.md)
-    * [Esquemas para validación XML](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+* Utilice estos productos y servicios para compilar:
 
-* **Escriba una vez y úselo tanto como quiera**
+  * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Azure Functions](../azure-functions/functions-overview.md)
+  * [Azure API Management](../api-management/api-management-key-concepts.md)
+  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-  Cree aplicaciones lógicas como plantillas para poder [implementar y volver a configurar las aplicaciones](../logic-apps/logic-apps-create-deploy-template.md) en varias regiones y entornos.
+* Procese [mensajes XML](../logic-apps/logic-apps-enterprise-integration-xml.md).
+* Procese [archivos sin formato](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
+* Intercambie mensajes con los protocolos [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) y [X12](../logic-apps/logic-apps-enterprise-integration-x12.md).
+* Almacene y administre estos artefactos B2B y mucho más en un solo lugar con [cuentas de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md):
 
-* **Extensibilidad integrada**
+  * [Asociados](../logic-apps/logic-apps-enterprise-integration-partners.md)
+  * [Contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
+  * [Asignaciones de transformaciones XML](../logic-apps/logic-apps-enterprise-integration-maps.md)
+  * [Esquemas de validación XML](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+   
+Por ejemplo, si usa Microsoft BizTalk Server, Logic Apps podrá conectarse y comunicarse con BizTalk Server utilizando el [conector de BizTalk Server](../connectors/apis-list.md#on-premises-connectors). Posteriormente, podrá ampliar o realizar operaciones como en BizTalk mediante las aplicaciones lógicas. Para ello, solo tiene que incluir [conectores de cuentas de integración](../connectors/apis-list.md#integration-account-connectors), que están disponibles con Enterprise Integration Pack. 
 
-  Si no encuentra el conector que desea o necesita para ejecutar código personalizado, puede ampliar las aplicaciones lógicas creando y llamando a sus propios fragmentos de código a petición a través de [Azure Functions](../azure-functions/functions-overview.md). 
-  Cree sus propias [API](../logic-apps/logic-apps-create-api-app.md) y [conectores personalizados](../logic-apps/custom-connector-overview.md) a los que puede llamar desde aplicaciones lógicas.
+Por otro lado, BizTalk Server puede establecer conexión y comunicación con Logic Apps utilizando el [adaptador de Microsoft BizTalk Server para Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Aprenda a [configurar y usar el adaptador de BizTalk Server](https://docs.microsoft.com/biztalk/core/logic-app-adapter).
 
-* **Pague solo por lo que usa**
+### <a name="write-once-reuse-often"></a>Escriba una vez y úselo tanto como quiera
+
+Cree aplicaciones lógicas como plantillas para poder [implementar y volver a configurar las aplicaciones](../logic-apps/logic-apps-create-deploy-template.md) en varias regiones y entornos.
+
+### <a name="built-in-extensibility"></a>Extensibilidad integrada
+
+Si no encuentra el conector que desea o necesita para ejecutar código personalizado, puede ampliar las aplicaciones lógicas creando y llamando a sus propios fragmentos de código a petición a través de [Azure Functions](../azure-functions/functions-overview.md). Cree sus propias [API](../logic-apps/logic-apps-create-api-app.md) y [conectores personalizados](../logic-apps/custom-connector-overview.md) a los que puede llamar desde aplicaciones lógicas.
+
+### <a name="pay-only-for-what-you-use"></a>Pague solo por lo que usa
   
-  Logic Apps usa un modelo de [precios y valoración](../logic-apps/logic-apps-pricing.md) basado en el consumo, a menos que haya creado anteriormente aplicaciones lógicas con planes de App Service.
+Logic Apps usa un modelo de [precios y valoración](../logic-apps/logic-apps-pricing.md) basado en el consumo, a menos que haya creado anteriormente aplicaciones lógicas con planes de App Service.
 
 Obtenga más información sobre Logic Apps con estos vídeos de introducción:
+
 * [Integration with Logic Apps - Go from zero to hero](https://channel9.msdn.com/Events/Build/2017/C9R17) (Integración con Logic Apps: de la nada al todo)
 * [Enterprise integration with Microsoft Azure Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188) (Integración empresarial con Microsoft Azure Logic Apps)
 * [Building advanced business processes with Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179) (Creación de procesos empresariales avanzados con Logic Apps)
@@ -130,7 +130,7 @@ Obtenga más información sobre Logic Apps con estos vídeos de introducción:
 
 Todos estos servicios le ayudan a "unir" y conectar sistemas dispares. Cada servicio tiene sus ventajas y beneficios, por lo que la combinación de sus funcionalidades es la mejor manera de crear rápidamente un sistema de integración escalable y completo. Para más información, consulte [Elección entre Flow, Logic Apps, Functions y WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="get-started"></a>Introducción 
+## <a name="get-started"></a>Primeros pasos 
 
 Logic Apps es uno de los muchos servicios hospedados en Microsoft Azure. Por lo tanto, para empezar, necesita una suscripción de Azure. Si aún no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta de Azure gratuita</a>. 
 

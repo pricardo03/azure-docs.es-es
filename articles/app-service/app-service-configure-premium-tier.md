@@ -1,12 +1,12 @@
 ---
-title: "Configuración del nivel PremiumV2 para Azure App Service | Microsoft Docs"
-description: "Obtenga información sobre cómo mejorar el rendimiento para su aplicación web, móvil y de API en Azure App Service mediante el escalado al nuevo plan de tarifa de PremiumV2."
+title: Configuración del nivel PremiumV2 para Azure App Service | Microsoft Docs
+description: Obtenga información sobre cómo mejorar el rendimiento para su aplicación web, móvil y de API en Azure App Service mediante el escalado al nuevo plan de tarifa de PremiumV2.
 keywords: servicio de aplicaciones, servicio de aplicaciones de azure, escala, escalable, plan del servicio de aplicaciones, costo del servicio de aplicaciones
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714568"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configuración del nivel PremiumV2 para Azure App Service
 
@@ -51,9 +52,9 @@ El plan de tarifa de una aplicación de App Service se define en el [plan de App
 
 Cuando configure el plan de App Service en <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, seleccione **Plan de tarifa**. 
 
-Elija una de las opciones **PremiumV2** y haga clic en **Seleccionar**.
+Seleccione **Producción**, luego **P1V2**, **P2V2** o **P3V2** y, a continuación, haga clic en **Aplicar**.
 
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Si no ve **P1V2**, **P2V2** y **P3V2** como opciones, significa que **PremiumV2** no está disponible en la región elegida o que está configurando un plan de App Service de Linux que no admite **PremiumV2**.
@@ -70,7 +71,7 @@ En el panel izquierdo de navegación de la página de la aplicación de App Serv
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Seleccione uno de los tamaños de **PremiumV2** y haga clic en **Seleccionar**.
+Seleccione **Producción**, luego **P1V2**, **P2V2** o **P3V2** y, a continuación, haga clic en **Aplicar**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Registros de servidor en Azure Database for PostgreSQL
-description: "En este artículo se describe cómo Azure Database for PostgreSQL genera registros de consultas y de errores, y cómo se configura la retención de registros."
+description: En este artículo se describe cómo Azure Database for PostgreSQL genera registros de consultas y de errores, y cómo se configura la retención de registros.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,11 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: a8d560aa8906e3ba1f65758239b645cd1b1df032
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bcca8ce8d11482dd8517992297b7e8a5b94ac8b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435497"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registros de servidor en Azure Database for PostgreSQL 
 Azure Database for PostgreSQL genera registros de errores y consultas. Sin embargo, no se admite el acceso a los registros de transacciones. Los registros de consulta y errores se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. Para obtener más información, consulte [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) (Notificación y registro de errores).
@@ -28,7 +29,7 @@ Los archivos de registro rotan cada hora o 100 MB de tamaño, lo que ocurra pri
 ## <a name="configure-logging-for-azure-postgresql-server"></a>Configuración del registro para el servidor de Azure PostgreSQL
 Puede habilitar el registro de consultas y errores para el servidor. Los registros de error pueden contener información de vaciado automático, conexión y puntos de comprobación.
 
-Puede habilitar el registro de consultas para la instancia de PostgreSQL DB estableciendo dos parámetros de servidor: `log\_statement` y `log\_min\_duration\_statement`.
+Puede habilitar el registro de consultas para la instancia de PostgreSQL DB estableciendo dos parámetros de servidor: `log_statement` y `log_min_duration_statement`.
 
 El parámetro **log\_statement** controla las instrucciones SQL que se registran. Se recomienda establecer este parámetro en ***all*** para registrar todas las instrucciones; el valor predeterminado es none.
 

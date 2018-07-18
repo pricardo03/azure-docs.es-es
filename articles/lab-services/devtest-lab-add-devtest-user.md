@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0303f16de143247ac30a7dd4773b4da11f29c9d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573407"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adición de propietarios y usuarios en Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -60,21 +61,23 @@ En la tabla siguiente se muestran las acciones que pueden realizar los usuarios 
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Agregar un propietario o usuario en el nivel de laboratorio
-Los propietarios y los usuarios se pueden agregar en el nivel de laboratorio a través de Azure Portal. Esto incluye a los usuarios externos con una [cuenta Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account)válida.
+Los propietarios y los usuarios se pueden agregar en el nivel de laboratorio a través de Azure Portal. Un usuario puede ser un usuario externo con una [cuenta Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account)válida.
 Los siguientes pasos le guiarán a través del proceso de agregación de un propietario o usuario a un laboratorio de Azure DevTest Labs:
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el laboratorio que desee.
-4. En la hoja del laboratorio, seleccione **Configuración**. 
-5. En la hoja **Configuración**, seleccione **Usuarios**.
-6. En la hoja **Usuarios**, seleccione **+Agregar**.
-   
+4. En la hoja del laboratorio, seleccione **Directivas y configuración**. 
+5. En la página **Configuración y directivas**, seleccione **Control de acceso (IAM)** en el menú de la izquierda. 
+6. Seleccione **Agregar** en la barra de herramientas para agregar un usuario a un rol.
+
     ![Agregar usuario](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-7. En la hoja **Seleccionar un rol** , seleccione el rol que desee. En la sección [Acciones que se pueden realizar en cada rol](#actions-that-can-be-performed-in-each-role) se enumeran las distintas acciones que pueden realizar los usuarios de los roles de Propietario, Usuario de DevTest y Colaborador.
-8. En la hoja **Agregar usuarios** , escriba la dirección de correo electrónico o el nombre del usuario que desea agregar en el rol especificado. Si no se encuentra el usuario, aparecerá un mensaje de error que explica el problema. Si se encuentra el usuario, ese usuario se muestra y se selecciona. 
-9. Elija **Seleccionar**.
-10. Seleccione **Aceptar** para cerrar la hoja **Agregar acceso**.
+1. En la ventana **Agregar permisos**, realice las siguientes acciones: 
+    1. Seleccione un rol (por ejemplo: Usuario de DevTest Labs). En la sección [Acciones que se pueden realizar en cada rol](#actions-that-can-be-performed-in-each-role) se enumeran las distintas acciones que pueden realizar los usuarios de los roles de Propietario, Usuario de DevTest y Colaborador.
+    2. Seleccione el usuario que se va a agregar al rol. 
+    3. Seleccione **Guardar**. 
+
+        ![Agregar usuario al rol](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Cuando vuelva a la hoja **Usuarios** , el usuario ya se habrá agregado.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Incorporación de un usuario externo a un laboratorio mediante PowerShell

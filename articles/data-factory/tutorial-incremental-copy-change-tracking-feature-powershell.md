@@ -3,7 +3,7 @@ title: Copia incremental de datos con control de cambios y Azure Data Factory | 
 description: 'En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos SQL de Azure. '
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: d8299778ce5b713f4275a28c7f174a300197a6a2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: 09250a3ffc851b97c64642eb3076e9f40621a588
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082725"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos SQL de Azure hasta un almacenamiento de blobs de Azure.  
@@ -33,11 +34,8 @@ En este tutorial, realizará los siguientes pasos:
 > * Adición o actualización de datos en la tabla de origen
 > * Creación, ejecución y supervisión de la canalización de copia incremental
 
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 ## <a name="overview"></a>Información general
-En una solución de integración de datos, la carga incremental de los datos después de cargas completas iniciales es un método ampliamente usado. En algunos casos, los datos modificados en un período en el almacén de datos de origen pueden ser fácilmente segmentados (por ejemplo, LastModifyTime o CreationTime). En algunos casos, no hay ninguna manera explícita de identificar las diferencias de datos desde la última vez que se procesaron. Para identificar los datos diferenciales, puede usarse la tecnología de control de cambios, admitida por almacenes de datos como Azure SQL Database y SQL Server.  Este tutorial describe cómo usar Azure Data Factory versión 2 para trabajar con la tecnología de control de cambios de SQL Server para cargar incrementalmente los datos diferenciales desde Azure SQL Database a Azure Blob Storage.  Para obtener información más concreta sobre la tecnología de control de cambios de SQL, consulte [Acerca del control de cambios (SQL Server)](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+En una solución de integración de datos, la carga incremental de los datos después de cargas completas iniciales es un método ampliamente usado. En algunos casos, los datos modificados en un período en el almacén de datos de origen pueden ser fácilmente segmentados (por ejemplo, LastModifyTime o CreationTime). En algunos casos, no hay ninguna manera explícita de identificar las diferencias de datos desde la última vez que se procesaron. Para identificar los datos diferenciales, puede usarse la tecnología de control de cambios, admitida por almacenes de datos como Azure SQL Database y SQL Server.  Este tutorial describe cómo usar Azure Data Factory con la tecnología de control de cambios de SQL Server para cargar incrementalmente los datos diferenciales desde Azure SQL Database a Azure Blob Storage.  Para obtener información más concreta sobre la tecnología de control de cambios de SQL, consulte [Acerca del control de cambios (SQL Server)](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Flujo de trabajo de un extremo a otro
 Estos son los pasos del flujo de trabajo completo típico para cargar incrementalmente los datos mediante la tecnología de control de cambios.
@@ -70,7 +68,7 @@ En este tutorial, creará dos canalizaciones que llevan a cabo las dos operacion
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Azure PowerShell. Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna instancia de Azure SQL Database, consulte el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
 * **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación. Cree un contenedor denominado **adftutorial**. 
@@ -185,13 +183,13 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 
 Tenga en cuenta los siguientes puntos:
 
-* El nombre del generador de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
+* El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
 
     ```
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
-* Actualmente, la versión 2 de Data Factory permite crear factorías de datos solo en las regiones Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados

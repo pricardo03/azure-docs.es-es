@@ -27,7 +27,7 @@
 ### [Máquina virtual Windows Server a partir de plantilla](active-directory-ds-join-windows-vm-template.md)
 ### [CentOS](active-directory-ds-join-centos-linux-vm.md)
 ### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrar un dominio administrado
 ### [Administrar un dominio administrado](active-directory-ds-admin-guide-administer-domain.md)
@@ -38,6 +38,7 @@
 #### [Tarea 3: Habilitación de LDAP seguro para el dominio administrado mediante Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Crear una unidad organizativa en un dominio administrado](active-directory-ds-admin-guide-create-ou.md)
+### [Creación de una cuenta de servicio administrada de grupos en un dominio administrado](active-directory-ds-create-gmsa.md)
 ### [Administración de directivas de grupo en un dominio administrado](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Seleccionar una red virtual](active-directory-ds-networking.md)
 ## Implementación de aplicaciones
@@ -53,13 +54,14 @@
 #### [Restauración de las entidades de servicio que faltan](active-directory-ds-troubleshoot-service-principals.md)
 #### [Errores de LDAP seguro](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolución de errores de inquilinos que no coinciden](active-directory-ds-mismatched-tenant-error.md)
+### [Dominios suspendidos](active-directory-ds-suspension.md)
 
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Temas relacionados
-## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+## [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 

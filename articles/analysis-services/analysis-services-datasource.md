@@ -3,16 +3,17 @@ title: Orígenes de datos admitidos en Azure Analysis Services | Microsoft Docs
 description: Describe los orígenes de datos admitidos para los modelos de datos en Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3b60a5b96d7b8a0c48aacc916b1ba933dcd83705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442396"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -62,7 +63,8 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |Dynamics CRM*     |  
 |Libro de Excel     |  
 |Exchange*     |  
-|Carpeta*     | 
+|Carpeta*     |
+|IBM Informix* (beta) |
 |Documento JSON*     |  
 |Líneas de archivo binario*     | 
 |Base de datos MySQL     | 
@@ -70,6 +72,8 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |Consulta ODBC     | 
 |OLE DB     |   
 |Base de datos de Postgre SQL*    | 
+|Objectos de Salesforce* |  
+|Informes de Salesforce* |
 |SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   

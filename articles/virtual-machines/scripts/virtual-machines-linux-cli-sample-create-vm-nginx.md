@@ -1,26 +1,27 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con NGINX | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con NGINX"
+title: 'Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con NGINX | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con NGINX'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a88077d405a662c0b5f83022209712545fea537f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 642dd46ee44fd1c69f2c66549dbb5806bb4ee5d7
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927577"
 ---
 # <a name="create-a-vm-with-nginx"></a>Creación de una máquina virtual con NGINX
 
@@ -36,7 +37,7 @@ Este script crea una máquina virtual de Azure y, a continuación, usa la extens
 
 ## <a name="custom-script-extension"></a>Custom Script Extension
 
-La extensión de scripts personalizados copia este script en la máquina virtual. A continuación, se ejecuta el script para instalar y configurar un servidor web NGINX. 
+La extensión de scripts personalizados copia este script en la máquina virtual. A continuación, se ejecuta el script para instalar y configurar un servidor web NGINX.
 
 ```bash
 #!/bin/bash
@@ -48,11 +49,11 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="clean-up-deployment"></a>Limpieza de la implementación 
+## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

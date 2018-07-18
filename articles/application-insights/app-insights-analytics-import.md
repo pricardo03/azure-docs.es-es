@@ -1,23 +1,24 @@
 ---
-title: "Importación de datos a Analytics en Azure Application Insights | Microsoft Docs"
-description: "Importe datos estadísticos para asociarlos con la telemetría de la aplicación, o bien importe un flujo de datos independiente para consultar con Analytics."
+title: Importación de datos a Analytics en Azure Application Insights | Microsoft Docs
+description: Importe datos estadísticos para asociarlos con la telemetría de la aplicación, o bien importe un flujo de datos independiente para consultar con Analytics.
 services: application-insights
-keywords: "esquema abierto, importación de datos"
-documentationcenter: 
+keywords: esquema abierto, importación de datos
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293628"
 ---
 # <a name="import-data-into-analytics"></a>Importación de datos a Analytics
 

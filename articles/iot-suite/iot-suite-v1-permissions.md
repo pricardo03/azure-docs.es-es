@@ -1,12 +1,12 @@
 ---
-title: Conjunto de aplicaciones de IoT de Azure y Azure Active Directory | Microsoft Docs
-description: Describe la forma en que el conjunto de aplicaciones Azure IoT usa Azure Active Directory para administrar permisos.
-services: 
+title: Azure IoT Suite y Azure Active Directory | Microsoft Docs
+description: Describe la forma en que Azure IoT Suite usa Azure Active Directory para administrar permisos.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: a032fc4332c697748e658ad2615ed5b0915c56c1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4d0c7aff54ee20cf9ae4e6cdf2fc0718cd0b2f2a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35303191"
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permisos en el sitio azureiotsuite.com
 
@@ -113,7 +114,7 @@ Pida al administrador global que le nombre administrador global en el inquilino 
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>¿Cómo cambio el inquilino de AAD al que están asignadas mi solución preconfigurada de supervisión remota y mi aplicación?
 
-Puede ejecutar una implementación en la nube desde <https://github.com/Azure/azure-iot-remote-monitoring> e implementar de nuevo con un inquilino de ADD recién creado. Dado que, de manera predeterminada, ya es administrador global cuando crea un inquilino de AAD, tiene permisos para agregar usuarios y asignarles roles.
+Puede ejecutar una implementación de nube desde <https://github.com/Azure/azure-iot-remote-monitoring> y volver a implementar con un inquilino de AAD recién creado. Dado que, de manera predeterminada, ya es administrador global cuando crea un inquilino de AAD, tiene permisos para agregar usuarios y asignarles roles.
 
 1. Cree un directorio de AAD en [Azure Portal][lnk-portal].
 2. Vaya a <https://github.com/Azure/azure-iot-remote-monitoring>.
@@ -149,7 +150,7 @@ Para obtener más información sobre el Conjunto de aplicaciones de IoT, consult
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
-[lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
+[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs

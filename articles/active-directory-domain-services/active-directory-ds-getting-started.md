@@ -1,27 +1,41 @@
 ---
-title: "Azure Active Directory Domain Services: introducción | Microsoft Docs"
-description: "Habilitación de Azure Active Directory Domain Services mediante Azure Portal"
+title: 'Azure Active Directory Domain Services: introducción | Microsoft Docs'
+description: Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 340193f191bbdbe658769f9265f9e63844481c32
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265276"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 En este artículo se muestra cómo habilitar Azure Active Directory Domain Services (Azure AD DS) mediante Azure Portal.
+
+
+## <a name="before-you-begin"></a>Antes de empezar
+Para completar las tareas de este artículo, necesitará lo siguiente:
+
+* Una **suscripción de Azure**válida.
+* Un **directorio de Azure AD** : sincronizado con un directorio local o solo en la nube.
+* La **suscripción de Azure debe estar asociada con el directorio de Azure AD**.
+* Necesita privilegios de **administrador global** en su directorio de Azure AD para habilitar Azure AD Domain Services.
+
+
+## <a name="enable-azure-ad-domain-services"></a>Habilitación de Azure AD Domain Services
 
 Para iniciar el Asistente para **habilitar Azure AD Domain Services**, complete los pasos siguientes:
 
@@ -39,7 +53,7 @@ Para iniciar el Asistente para **habilitar Azure AD Domain Services**, complete 
 
 
 ## <a name="task-1-configure-basic-settings"></a>Tarea 1: Configuración básica
-En la página **Conceptos básicos** del asistente, puede especificar el nombre de dominio DNS del dominio administrado. También puede elegir el grupo de recursos y la ubicación de Azure en la que se debe implementar el dominio administrado.
+En la página **Conceptos básicos** del asistente, especifique el nombre de dominio DNS del dominio administrado. También puede elegir el grupo de recursos y la ubicación de Azure en la que se debe implementar el dominio administrado.
 
 ![Configurar conceptos básicos](./media/getting-started/domain-services-blade-basics.png)
 
@@ -59,11 +73,11 @@ En la página **Conceptos básicos** del asistente, puede especificar el nombre 
 
 2. Seleccione la **suscripción** de Azure en la que desea crear el dominio administrado.
 
-3. Seleccione el **grupo de recursos** al que debería pertenecer el dominio administrado. Puede elegir las opciones **Crear nuevo** o **Utilizar existente** para seleccionar el grupo de recursos.
+3. Seleccione el **grupo de recursos** al que debería pertenecer el dominio administrado. Elija **Crear nuevo** o **Utilizar existente** para seleccionar el grupo de recursos.
 
 4. Elija la **ubicación** de Azure en que se debe crear el dominio administrado. En la página **Red** del asistente, verá solo las redes virtuales que pertenecen a la ubicación que ha seleccionado.
 
-5. Cuando haya terminado, haga clic en **Aceptar** para ir a la página **Red** del asistente.
+5. Haga clic en **Aceptar** para ir a la página **Red** del asistente.
 
 
 ## <a name="next-step"></a>Paso siguiente

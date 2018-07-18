@@ -1,6 +1,6 @@
 ---
 title: Application Insights para aplicaciones de Microsoft Azure | Microsoft Docs
-description: "Analice el uso y el rendimiento de la aplicación de Azure con Application Insights."
+description: Analice el uso y el rendimiento de la aplicación de Azure con Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: mbullwin
-ms.openlocfilehash: 071e7099e57ed7156799af4ffb49cccbd003052d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a980ad7d078c27e91616f07187b75ab442ea5f70
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294962"
 ---
 # <a name="application-insights-for-microsoft-azure-apps"></a>Application Insights para aplicaciones de Microsoft Azure
 
@@ -29,7 +30,7 @@ La configuración es muy sencilla y obtendrá resultados en cuestión de minutos
 ¿Qué tipo de aplicación tiene?
 
 * [Aplicación web de Azure](app-insights-asp-net.md)
-* [Roles web y de trabajo de la aplicación Servicios en la nube de Azure](app-insights-cloudservices.md)
+* [Roles web y de trabajo de la aplicación Azure Cloud Services](app-insights-cloudservices.md)
 * [Aplicación fuera de Azure](app-insights-overview.md)
 
 Telemetría adicional

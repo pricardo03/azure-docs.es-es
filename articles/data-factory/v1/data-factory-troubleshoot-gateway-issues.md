@@ -9,21 +9,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047571"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [Integration Runtime autohospedado en Data Factory, versión 2](../create-self-hosted-integration-runtime.md).
+> Este artículo se aplica a la versión 1 de Azure Data Factory. Si usa la versión actual del servicio Data Factory, que se encuentra, consulte el artículo sobre [IR autohospedado en Data Factory](../create-self-hosted-integration-runtime.md).
 
 Para más información sobre la puerta de enlace, vea el artículo [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md). En el artículo [Mover datos entre implementaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) puede ver un tutorial sobre cómo mover datos entre una base de datos de SQL Server local a Microsoft Azure Blob Storage con la puerta de enlace.
 

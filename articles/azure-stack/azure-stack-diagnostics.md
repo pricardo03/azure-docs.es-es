@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196470"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064176"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Herramientas de diagnóstico de Azure Stack
 
@@ -46,6 +46,35 @@ Estos son algunos ejemplos de tipos de registro que se recopilan:
 *   **Registros de ETW**
 
 El Recopilador de seguimiento recopila estos archivos y los guarda en un recurso compartido. El cmdlet de PowerShell **Get-AzureStackLog** se puede utilizar después para recopilarlos cuando sea necesario.
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Para ejecutar Get-AzureStackLog en un sistema Azure Stack integrado 
+Para ejecutar la herramienta de recopilación de registros en un sistema integrado, debe tener acceso al punto de conexión con privilegios (PEP). Este es un script de ejemplo que se puede ejecutar mediante el PEP para recopilar registros en un sistema integrado:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Los parámetros **OutputSharePath** y **OutputShareCredential** se utilizan al cargar registros en una carpeta compartida externa.
+- Como se muestra en el ejemplo anterior, los parámetros **FromDate** y **ToDate** pueden utilizarse para recopilar registros durante un período de tiempo determinado. Puede resultar útil para escenarios como la recopilación de registros después de aplicar un paquete de actualización en un sistema integrado.
+
+
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para ejecutar Get-AzureStackLog en un sistema con el Kit de desarrollo de Azure Stack (ASDK)
 1. Inicie sesión como **AzureStack\CloudAdmin** en el host.
@@ -78,70 +107,11 @@ El Recopilador de seguimiento recopila estos archivos y los guarda en un recurso
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Para ejecutar Get-AzureStackLog en sistemas integrados de Azure Stack versión 1804 y posteriores
-
-Para ejecutar la herramienta de recopilación de registros en un sistema integrado, debe tener acceso al punto de conexión con privilegios (PEP). Este es un script de ejemplo que se puede ejecutar mediante el PEP para recopilar registros en un sistema integrado:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Los parámetros **OutputSharePath** y **OutputShareCredential** se utilizan al cargar registros en una carpeta compartida externa.
-- Como se muestra en el ejemplo anterior, los parámetros **FromDate** y **ToDate** pueden utilizarse para recopilar registros durante un período de tiempo determinado. Puede resultar útil para escenarios como la recopilación de registros después de aplicar un paquete de actualización en un sistema integrado.
-
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Para ejecutar Get-AzureStackLog en sistemas integrados de Azure Stack versión 1803 y anteriores
-
-Para ejecutar la herramienta de recopilación de registros en un sistema integrado, debe tener acceso al punto de conexión con privilegios (PEP). Este es un script de ejemplo que se puede ejecutar mediante el PEP para recopilar registros en un sistema integrado:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Al recopilar los registros desde el PEP, especifique el parámetro **OutputPath** para que sea una ubicación en la máquina Hardware Lifecycle Host (HLH). Asegúrese también de que la ubicación está cifrada.
-- Los parámetros **OutputSharePath** y **OutputShareCredential** son opcionales y se utilizan al cargar registros en una carpeta compartida externa. Use estos parámetros *además* de **OutputPath**. Si **OutputPath** no se especifica, la herramienta de recopilación de registros usa la unidad del sistema de la máquina virtual PEP para el almacenamiento. Así puede provocar que el script genere un error porque el espacio en disco es limitado.
-- Como se muestra en el ejemplo anterior, los parámetros **FromDate** y **ToDate** pueden utilizarse para recopilar registros durante un período de tiempo determinado. Puede resultar útil para escenarios como la recopilación de registros después de aplicar un paquete de actualización en un sistema integrado.
-
-
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Consideraciones sobre los parámetros para ASDK y sistemas integrados
 
 - Si no se especifican los parámetros **FromDate** y **ToDate**, se recopilan los registros de las últimas cuatro horas de forma predeterminada.
 - Puede usar el parámetro **TimeOutInMinutes** para establecer el tiempo de espera para la colección de registros. Se establece en 150 (2,5 horas) de forma predeterminada.
-
+- En la versión 1805 y versiones posteriores, la recopilación de registros de archivos de copia de seguridad está deshabilitada de forma predeterminada. Para habilitarla, utilice el parámetro de modificador **IncludeDumpFile**. 
 - Actualmente, no se puede usar el parámetro **FilterByRole** para filtrar la colección de registros de los roles siguientes:
 
    |   |   |   |
@@ -155,7 +125,7 @@ if($s)
    | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
    | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
    | ACSTableMaster         | FRP                              | SLB                        |   
-   | ACSTableServer         | Galería                          | SlbVips                    |
+   | ACSTableServer         | Gallery                          | SlbVips                    |
    | ACSWac                 | Puerta de enlace                          | SQL                        |   
    | ADFS                   | HealthMonitoring                 | SRP                        |
    | ASAppGateway           | HRP                              | Storage                    |   
@@ -167,7 +137,7 @@ if($s)
    | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
    | Nube                  | KeyVaultControlPlane             | VirtualMachines            |
    | Clúster                | KeyVaultDataPlane                | WAS                        |
-   | Proceso                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | Compute                | KeyVaultInternalControlPlane     | WASBootstrap               |
    | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
    | CRP                    | KeyVaultNamingService            |                            |
    | DatacenterIntegration  | MonitoringAgent                  |                            |
@@ -185,7 +155,7 @@ Para más información acerca del script de PowerShell ERCS_AzureStackLogs.ps1 s
 * Este comando tardará un rato en ejecutarse, en función de los roles que recopilen los registros. Entre los factores que contribuyen, se incluye la duración especificada para la colección de registros y el número de nodos en el entorno de Azure Stack.
 * Cuando se ejecuta la recopilación de registros, compruebe la nueva carpeta creada en el parámetro **OutputSharePath** especificado en el comando.
 * Cada rol tiene sus registros dentro de archivos ZIP individuales. Según el tamaño de los registros recopilados, un rol puede dividir sus registros en varios archivos ZIP. Para tal rol, si desea que todos los archivos de registro se descompriman en una sola carpeta, use una herramienta que pueda descomprimir de forma masiva (por ejemplo, 7zip). Seleccione todos los archivos comprimidos para el rol y seleccione **extraer aquí**. Así se descomprimen todos los archivos de registro para ese rol en una sola carpeta combinada.
-* También se crea un archivo denominado **Get-AzureStackLog_Output.log** en la carpeta que contiene los archivos de registro comprimidos. Este archivo es un registro de la salida del comando, que se puede usar para solucionar problemas durante la recopilación de registros.
+* También se crea un archivo denominado **Get-AzureStackLog_Output.log** en la carpeta que contiene los archivos de registro comprimidos. Este archivo es un registro de la salida del comando, que se puede usar para solucionar problemas durante la recopilación de registros. En ocasiones, el archivo de registro incluye entradas `PS>TerminatingError` que se pueden omitir sin problema, a menos que falten los archivos de registro esperados después de ejecutar la recopilación de registros.
 * Para investigar un error específico, es posible que sean necesarios registros de más de un componente.
     -   Los registros de eventos y del sistema de todas las máquinas virtuales de la infraestructura se recopilan en el rol *VirtualMachines*.
     -   Los registros de eventos y del sistema de todos los hosts se recopilan en el rol *Storage*.

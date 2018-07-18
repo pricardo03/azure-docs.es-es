@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465750"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Póngase a trabajar con PowerShell en Azure Stack
 
@@ -99,7 +100,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Configuración de PowerShell para las implementaciones basadas en AD FS
 
-Si al conectarse a Internet está trabajando con Azure Stack, puede utilizar el siguiente script. Sin embargo, si trabaja con Azure Stack sin conectividad a Internet, use la [forma desconectada de instalar PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) y los cmdlets para configurar PowerShell permanecerán igual que se muestran en este script. Inicie sesión en el Kit de desarrollo de Azure Stack o en un cliente externo basado en Windows, si está conectado a través de VPN. Abra una sesión de PowerShell ISE con privilegios elevados y, luego, ejecute el siguiente script. Asegúrese de actualizar las variables **ArmEndpoint** y **GraphAudience** según sea necesario para la configuración del entorno:
+Si al conectarse a Internet está trabajando con Azure Stack, puede utilizar el siguiente script. Sin embargo, si trabaja con Azure Stack sin conectividad a Internet, use la [forma desconectada de instalar PowerShell](azure-stack-powershell-install.md) y los cmdlets para configurar PowerShell permanecerán igual que se muestran en este script. Inicie sesión en el Kit de desarrollo de Azure Stack o en un cliente externo basado en Windows, si está conectado a través de VPN. Abra una sesión de PowerShell ISE con privilegios elevados y, luego, ejecute el siguiente script. Asegúrese de actualizar las variables **ArmEndpoint** y **GraphAudience** según sea necesario para la configuración del entorno:
 
 ```powershell
 

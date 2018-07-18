@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce5909bd522ab7af77846af598506ea69058bd5c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8f86f43b4d8c474f338285abffb3c444f5ebc2d7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054745"
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copia de datos hacia y desde Data Lake Store mediante Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-azure-datalake-connector.md)
-> * [Versión 2: versión preliminar](../connector-azure-data-lake-store.md)
+> * [Versión 1](data-factory-azure-datalake-connector.md)
+> * [Versión 2 (versión actual)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Azure Data Lake Store connector in V2](../connector-azure-data-lake-store.md) (Conector de Azure Data Lake Store en V2).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Azure Data Lake Store connector in V2](../connector-azure-data-lake-store.md) (Conector de Azure Data Lake Store en V2).
 
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos hacia y desde Azure Data Lake Store. Se basa en el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md), una introducción al movimiento de datos con la actividad de copia.
 

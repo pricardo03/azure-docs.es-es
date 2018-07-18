@@ -89,6 +89,9 @@
     - name: Azure China 21Vianet
       tocHref: /azure/china/
       topicHref: /azure/china/
+    - name: Azure NetApp Files
+      tocHref: /azure/azure-netapp-files/
+      topicHref: /azure/azure-netapp-files/
     - name: Azure Portal
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
@@ -104,7 +107,7 @@
     - name: Compatibilidad
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
-    - name: Backup
+    - name: Copia de seguridad
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -271,7 +274,7 @@
     - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: Data Lake Store
+    - name: Data Lake Storage Gen1
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: DevTest Lab
@@ -289,6 +292,9 @@
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: Firewall
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: Guía
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/
@@ -299,7 +305,7 @@
         - name: Hadoop
           tocHref: /azure/hdinsight/hadoop
           topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
-        - name: hbase
+        - name: HBase
           tocHref: /azure/hdinsight/hbase
           topicHref: /azure/hdinsight/hbase/apache-hbase-overview
         - name: Interactive Query
@@ -311,7 +317,7 @@
         - name: Seguridad de la empresa
           tocHref: /azure/hdinsight/domain-joined
           topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
-        - name: R Server
+        - name: Machine Learning Services
           tocHref: /azure/hdinsight/r-server
           topicHref: /azure/hdinsight/r-server-overview
         - name: Spark
@@ -469,6 +475,9 @@
     - name: Resistencia
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: Control de acceso basado en rol
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: Service Health
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/
@@ -515,6 +524,9 @@
         - name: Blobs
           tocHref: /azure/storage/blobs/
           topicHref: /azure/storage/blobs/storage-blobs-introduction
+        - name: Data Lake Storage Gen2
+          tocHref: /azure/storage/data-lake-storage-gen2/
+          topicHref: /azure/storage/data-lake-storage/introduction
         - name: Archivos
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction

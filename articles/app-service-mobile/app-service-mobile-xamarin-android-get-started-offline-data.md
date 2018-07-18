@@ -1,10 +1,10 @@
 ---
-title: "Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin Android)"
-description: "Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android."
+title: Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin Android)
+description: Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android.
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5c6ff5ac909e2dc6918f85d39beb781952ee6dd0
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e0146be345215701cf1afe86345afc286933d51b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750975"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -27,14 +28,14 @@ ms.lasthandoff: 01/04/2018
 Este tutorial presenta la característica de sincronización sin conexión de Aplicaciones móviles de Azure para Xamarin.Android. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local.
 Una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
 
-En este tutorial, se actualiza el proyecto de cliente del tutorial [Creación de una aplicación Xamarin.Android] para conseguir compatibilidad con las características sin conexión de Azure Mobile Apps. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+En este tutorial, se actualiza el proyecto de cliente del tutorial [Creación de una aplicación Xamarin Android] para conseguir compatibilidad con las características sin conexión de Azure Mobile Apps. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Actualización de la aplicación cliente para que admita características sin conexión
-Las características sin conexión de Aplicaciones móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión. Para usar estas características en una aplicación, inicialice [SyncContext] en un almacén local. A continuación, haga referencia a su tabla mediante la interfaz [IMobileServiceSyncTable][IMobileServiceSyncTable]. SQLite se utiliza como almacén local en el dispositivo.
+Las características sin conexión de Aplicaciones móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión. Para usar estas características en una aplicación, inicialice [SyncContext] en un almacén local. A continuación, haga referencia a la tabla mediante la interfaz [IMobileServiceSyncTable](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet). SQLite se utiliza como almacén local en el dispositivo.
 
-1. En Visual Studio, abra el administrador de paquetes NuGet en el proyecto que completó en el tutorial [Creación de una aplicación Xamarin.Android].  Busque e instale el paquete NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
+1. En Visual Studio, abra el administrador de paquetes NuGet en el proyecto que completó en el tutorial [Creación de una aplicación Xamarin Android].  Busque e instale el paquete NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 2. Abra el archivo ToDoActivity.cs y quite la marca de comentario de la definición de `#define OFFLINE_SYNC_ENABLED`.
 3. En Visual Studio, presione la tecla **F5** para volver a compilar y ejecutar la aplicación cliente. La aplicación funciona igual que lo hacía antes de habilitar la sincronización sin conexión. Sin embargo, la base de datos se rellena con datos que pueden utilizarse en un escenario sin conexión.
 
@@ -63,7 +64,7 @@ En esta sección, vuelva a conectar la aplicación al back-end de la aplicación
    `CheckItem` llama a `SyncAsync` para sincronizar cada elemento completado con el back-end de Mobile App. `SyncAsync` llama a las operaciones de inserción y extracción. **Cada vez que se ejecuta una incorporación de cambios en una tabla en la que el cliente ha realizado cambios, siempre se ejecuta automáticamente una inserción**. De este modo se garantiza la coherencia de todas las tablas del almacén local, junto con sus relaciones. Este comportamiento puede provocar una inserción inesperada. Para obtener más información sobre este comportamiento, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 ## <a name="review-the-client-sync-code"></a>Revisión del código de sincronización de cliente
-El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Creación de una aplicación Xamarin.Android] ya contiene el código que admite la sincronización sin conexión con una base de datos SQLite local. Esta es una breve descripción de lo que ya está incluido en el código del tutorial. Para obtener información general conceptual de la característica, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Creación de una aplicación Xamarin Android] ya contiene el código que admite la sincronización sin conexión con una base de datos SQLite local. Esta es una breve descripción de lo que ya está incluido en el código del tutorial. Para obtener información general conceptual de la característica, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 * Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. La base de datos del almacén local se inicializa cuando `ToDoActivity.OnCreate()` ejecuta `ToDoActivity.InitLocalStoreAsync()`. Este método crea una base de datos SQLite local que usa la clase `MobileServiceSQLiteStore` que proporciona el SDK de cliente de Azure Mobile Apps.
 
@@ -115,7 +116,7 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
 * [Procedimiento del SDK de .NET de Azure Mobile Apps][8]
 
 <!-- URLs. -->
-[Creación de una aplicación Xamarin.Android]: ../app-service-mobile-xamarin-android-get-started.md
+[Creación de una aplicación Xamarin Android]: ../app-service-mobile-xamarin-android-get-started.md
 [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: ../app-service-mobile-offline-data-sync.md
 
 <!-- Images -->

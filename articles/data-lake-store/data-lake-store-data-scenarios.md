@@ -1,24 +1,26 @@
 ---
-title: Escenarios de datos relacionados con Data Lake Store | Microsoft Docs
-description: Comprender los diferentes escenarios y herramientas mediante los cuales los datos se pueden recopilar, procesar, descargar y visualizar en un Almacén de Data Lake
+title: Escenarios de datos relacionados con Data Lake Storage Gen1| Microsoft Docs
+description: Descripción de los diferentes escenarios y herramientas mediante los cuales los datos se pueden ingerir, procesar, descargar y visualizar en Data Lake Storage Gen1 (anteriormente conocido como Azure Data Lake Store).
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: e6b89a4cb415c2d127244d55acf3e284425f03e0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e0c7ed22762ef19c6e68ad69d0cabcfeb8007251
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031046"
 ---
-# <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Uso del Almacén de Azure Data Lake para requisitos de macrodatos
+# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Hay cuatro fases principales en el procesamiento de macrodatos:
 
 * Introducción de grandes cantidades de datos en un almacén de datos, en tiempo real o por lotes
@@ -42,7 +44,7 @@ Representan conjuntos de datos más pequeños que se utilizan para la creación 
 | Blob de Azure Storage |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp ejecutándose en un clúster de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Datos de streaming
-Representa los datos que se pueden generar por diversos orígenes, como aplicaciones, dispositivos o sensores, entre otros. Estos datos los pueden introducir distintas herramientas en un Almacén de Data Lake. Estas herramientas normalmente capturan y procesan los datos en eventos individuales y en tiempo real y, después, escriben los eventos en lotes en el Almacén de Data Lake para que puedan procesarse posteriormente.
+Representa los datos que se pueden generar por diversos orígenes, como aplicaciones, dispositivos o sensores, entre otros. Estos datos se pueden ingerir en distintas herramientas en una instancia de Data Lake Store. Estas herramientas normalmente capturan y procesan los datos en eventos individuales y en tiempo real y, después, escriben los eventos en lotes en el Almacén de Data Lake para que puedan procesarse posteriormente.
 
 A continuación, se muestran las herramientas que se pueden usar:
 

@@ -1,6 +1,6 @@
 ---
-title: 'Opciones de contexto de proceso para R Server en HDInsight: Azure | Microsoft Docs'
-description: Conozca las distintas opciones de contexto de proceso disponibles para los usuarios con R Server en HDInsight.
+title: 'Opciones de contexto de proceso para ML Services en HDInsight: Azure | Microsoft Docs'
+description: Obtenga información acerca de las distintas opciones de contexto de proceso disponibles para los usuarios con ML Services en HDInsight
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,25 +11,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 2aa10e1eab6cabe058062519ecc023b88361d742
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 57480cef48182a56b315d7d6932883c485f5a7c8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050115"
 ---
-# <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)
+# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opciones de contexto de proceso para ML Services en HDInsight
 
-Microsoft R Server en Azure HDInsight controla cómo se ejecutan las llamadas estableciendo el contexto de proceso. En este artículo se describen las opciones que están disponibles para especificar si la ejecución se realiza o no en paralelo y, en caso afirmativo, cómo se lleva a cabo a través del nodo perimetral o del clúster de HDInsight.
+ML Services en Azure HDInsight controla cómo se ejecutan las llamadas mediante el establecimiento del contexto de proceso. En este artículo se describen las opciones que están disponibles para especificar si la ejecución se realiza o no en paralelo y, en caso afirmativo, cómo se lleva a cabo a través del nodo perimetral o del clúster de HDInsight.
 
 El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de RevoScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Spark o Hadoop MapReduce de RevoScaleR.
 
-## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server en Azure HDInsight
-[Microsoft R Server en Azure HDInsight](r-server-overview.md) proporciona las últimas funcionalidades para análisis basado en R. Puede usar datos almacenados en un contenedor HDFS en su cuenta de almacenamiento de [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como R Server se basa en el lenguaje R de código abierto integrado, las aplicaciones basadas en R que se crean aplican cualquiera de los más de 8000 paquetes de R de código abierto. También pueden utilizar las rutinas de [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), un paquete de análisis de macrodatos de Microsoft que se incluye con R Server.  
+## <a name="ml-services-on-azure-hdinsight"></a>ML Services en Azure HDInsight
+[ML Services en Azure HDInsight](r-server-overview.md) proporciona las más recientes funcionalidades para el análisis basado en R. Puede usar datos almacenados en un contenedor HDFS en su cuenta de almacenamiento de [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como ML Services se basa en el lenguaje R de código abierto integrado, las aplicaciones basadas en R que cree pueden aplicar cualquiera de los más de 8000 paquetes de R de código abierto. También pueden utilizar las rutinas de [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), un paquete de análisis de macrodatos de Microsoft que se incluye con ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de proceso de un nodo perimetral
-En general, el script de R que se ejecuta en el nodo perimetral de R Server lo hace dentro del intérprete de R de ese nodo. Las excepciones son esos pasos que llaman a una función RevoScaleR. Las llamadas a RevoScaleR se ejecutan en un entorno de proceso determinado por la manera en que establece el contexto de proceso de RevoScaleR.  Al ejecutar el script de R desde un nodo perimetral, los posibles valores del contexto de proceso son:
+En general, el script de R que se ejecuta en el nodo perimetral del clúster de ML Services lo hace dentro del intérprete de R de dicho nodo. Las excepciones son esos pasos que llaman a una función RevoScaleR. Las llamadas a RevoScaleR se ejecutan en un entorno de proceso determinado por la manera en que establece el contexto de proceso de RevoScaleR.  Al ejecutar el script de R desde un nodo perimetral, los posibles valores del contexto de proceso son:
 
 - secuencial local (*local*)
 - paralelo local (*localpar*)
@@ -77,9 +78,9 @@ Para más información sobre los contextos de proceso de RevoScaleR y ver alguno
 También puede consultar la [información general sobre la computación distribuida ](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) en la [documentación de Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo ha aprendido las opciones que están disponibles para especificar si la ejecución se realiza o no en paralelo y, en caso afirmativo, cómo se lleva a cabo a través del nodo perimetral o del clúster de HDInsight. Para más información sobre cómo usar R Server con clústeres de HDInsight, consulte los temas siguientes:
+En este artículo ha aprendido las opciones que están disponibles para especificar si la ejecución se realiza o no en paralelo y, en caso afirmativo, cómo se lleva a cabo a través del nodo perimetral o del clúster de HDInsight. Para más información acerca de cómo usar ML Services con clústeres de HDInsight, consulte los temas siguientes:
 
-* [Información general sobre R Server en Hadoop](r-server-overview.md)
-* [Introducción a R Server en Hadoop](r-server-get-started.md)
-* [Opciones de Azure Storage para R Server en HDInsight](r-server-storage.md)
+* [Introducción a ML Services en Hadoop](r-server-overview.md)
+* [Primeros pasos con ML Services para Hadoop](r-server-get-started.md)
+* [Soluciones de Azure Storage para ML Services en HDInsight](r-server-storage.md)
 

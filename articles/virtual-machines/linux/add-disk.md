@@ -1,92 +1,57 @@
 ---
-title: Incorporación de un disco a una máquina virtual con Linux mediante la CLI de Azure | Microsoft Docs
-description: Aprenda a agregar un disco persistente a la máquina virtual Linux mediante la CLI de Azure 1.0 y 2.0.
-keywords: máquina virtual de Linux, agregar disco de recursos
+title: Adición de un disco de datos a una máquina virtual de Linux con la CLI de Azure | Microsoft Docs
+description: Aprenda a agregar un disco de datos persistente a una VM de Linux con la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/02/2017
-ms.author: rclaus
+ms.date: 06/13/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331230"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos, incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. 
 
 
-## <a name="use-managed-disks"></a>Uso de discos administrados
-Azure Managed Disks simplifica la administración de discos para las máquinas virtuales de Azure gracias a la administración de las cuentas de almacenamiento asociadas a los discos de máquina virtual. Solo tiene que especificar el tipo (Premium o Estándar) y el tamaño del disco que necesita, y Azure creará y administrará el disco automáticamente. Para obtener más información, consulte [Introducción a Managed Disks](managed-disks-overview.md).
+## <a name="attach-a-new-disk-to-a-vm"></a>Conexión de un nuevo disco a una máquina virtual
 
-
-### <a name="attach-a-new-disk-to-a-vm"></a>Conexión de un nuevo disco a una máquina virtual
-Si sólo necesita un disco nuevo en la máquina virtual, use el comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) con el parámetro `--new`. Si la máquina virtual está en una zona de disponibilidad, el disco se crea automáticamente en la misma zona que la máquina virtual. Para obtener más información, consulte [Introducción a las zonas de disponibilidad](../../availability-zones/az-overview.md). En el ejemplo siguiente se crea un disco denominado *myDataDisk* con un tamaño de *50* Gb:
+Si quiere agregar un nuevo disco de datos en la VM, use el comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) con el parámetro `--new`. Si la máquina virtual está en una zona de disponibilidad, el disco se crea automáticamente en la misma zona que la máquina virtual. Para obtener más información, consulte [Introducción a las zonas de disponibilidad](../../availability-zones/az-overview.md). En el ejemplo siguiente se crea un disco denominado *myDataDisk* que tiene un tamaño de 50 Gb:
 
 ```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
+az vm disk attach \
+   -g myResourceGroup \
+   --vm-name myVM \
+   --disk myDataDisk \
+   --new \
+   --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>un disco existente 
-En muchos casos. conecta discos que ya se han creado. Para conectar un disco existente, busque el identificador del disco y páselo al comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach). El ejemplo siguiente consulta un disco llamado *myDataDisk* en *myResourceGroup* y, a continuación, lo asocia a la máquina virtual denominada *myVM*:
+## <a name="attach-an-existing-disk"></a>un disco existente 
+
+Para conectar un disco existente, busque el identificador del disco y páselo al comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach). El ejemplo siguiente consulta un disco llamado *myDataDisk* en *myResourceGroup* y, a continuación, lo asocia a la máquina virtual denominada *myVM*:
 
 ```azurecli
-# find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
-```
-
-El resultado es similar al siguiente (puede usar la opción `-o table` con cualquier comando para dar formato al resultado):
-
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Empty",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 50,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
-  "location": "westus",
-  "name": "myDataDisk",
-  "osType": null,
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
-  "type": "Microsoft.Compute/disks"
-}
-```
-
-
-## <a name="use-unmanaged-disks"></a>Uso de discos no administrados
-Los discos no administrados requieren una sobrecarga adicional para crear y administrar las cuentas de almacenamiento subyacente. Los discos no administrados se crean en la misma cuenta de almacenamiento que el disco del sistema operativo. Para crear y conectar un disco no administrado, use el comando [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach). En el ejemplo siguiente se conecta un disco no administrado de *50* GB a la máquina virtual llamada *myVM* del grupo de recursos denominado *myResourceGroup*:
-
-```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
 ```
 
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Conexión a la máquina virtual con Linux para montar el nuevo disco
-Para la partición, el formato y el montaje del disco nuevo para que la máquina virtual con Linux pueda usarlo, necesita SSH en la máquina virtual de Azure. Para más información, consulte [Creación de claves SSH en Linux y Mac para máquinas virtuales de Linux en Azure](mac-create-ssh-keys.md). En el siguiente ejemplo se realiza la conexión a una máquina virtual con la entrada DNS pública de *mypublicdns.westus.cloudapp.azure.com* con el nombre de usuario *azureuser*: 
+Para la partición, el formato y el montaje del disco nuevo para que la máquina virtual con Linux pueda usarlo, necesita SSH en la VM. Para más información, consulte [Creación de claves SSH en Linux y Mac para máquinas virtuales de Linux en Azure](mac-create-ssh-keys.md). En el siguiente ejemplo se realiza la conexión a una máquina virtual con la entrada DNS pública de *mypublicdns.westus.cloudapp.azure.com* con el nombre de usuario *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -114,7 +79,7 @@ En este caso, *sdc* es el disco que queremos. Particionamos el disco con `fdisk`
 sudo fdisk /dev/sdc
 ```
 
-La salida es similar a la del ejemplo siguiente:
+Use el comando `n` para agregar una nueva partición. En este ejemplo, también elegimos `p` para una partición principal y aceptamos el resto de los valores predeterminados. El resultado será similar al ejemplo siguiente:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -136,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Para crear la partición, escriba `p` en el símbolo del sistema como se muestra a continuación:
+Para imprimir la tabla de particiones, escriba `p` y luego use `w` para escribir la tabla en el disco y salga. El resultado debería similar al ejemplo siguiente:
 
 ```bash
 Command (m for help): p
@@ -224,7 +189,7 @@ Después, abra el archivo */etc/fstab* en un editor de texto como se indica a co
 sudo vi /etc/fstab
 ```
 
-En este ejemplo, usamos el valor de UUID para el nuevo dispositivo */dev/sdc1* que se ha creado en los pasos anteriores y el punto de montaje */datadrive*. Agregue la siguiente línea al final del archivo */etc/fstab* :
+En este ejemplo, use el valor de UUID para el dispositivo */dev/sdc1* que se creó en los pasos anteriores y el punto de montaje */datadrive*. Agregue la siguiente línea al final del archivo */etc/fstab* :
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
@@ -265,7 +230,6 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Recuerde que el nuevo disco no está disponible en la máquina virtual si esta se reinicia a menos que escriba dicha información en su archivo [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
 * Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](configure-raid.md) para obtener un mayor rendimiento.
 

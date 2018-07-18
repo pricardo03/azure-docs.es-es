@@ -12,18 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0171dba639e480a04cdd1c7f23d546d01121fb42
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247405"
 ---
-# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Aplicaciones web y API disponibles para los usuarios de Azure Stack
-Como administrador en la nube de Azure Stack, puede crear ofertas que permitan a los usuarios (inquilinos) crear aplicaciones web, móviles y de API, así como de Azure Functions. Si proporciona a los usuarios acceso a estas aplicaciones en la nube y a petición, puede ahorrarles tiempo y recursos. Para configurar esta opción, tendrá que:
+# <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Tutorial: Aplicaciones web y aplicaciones de API disponibles para los usuarios de Azure Stack
+
+Como administrador en la nube de Azure Stack, puede crear ofertas que permitan a los usuarios (inquilinos) crear aplicaciones web, móviles y de API, así como de Azure Functions. Si proporciona a los usuarios acceso a estas aplicaciones en la nube y a petición, puede ahorrarles tiempo y recursos.
+
+Para configurar esta opción, tendrá que:
 
 > [!div class="checklist"]
 > * Implementar el proveedor de recursos de App Service
@@ -47,39 +51,44 @@ Por ejemplo, puede crear una oferta que permita a los usuarios crear sistemas de
 
     > [!NOTE]
     > Para permitir que los usuarios creen otras aplicaciones, podrían ser necesarios otros servicios en el plan. Por ejemplo, Azure Functions requiere que el plan incluya el servicio **Microsoft.Storage**, mientras que Wordpress requiere **Microsoft.MySQL**.
-    > 
-    >
 
 3.  [Cree una oferta](azure-stack-create-offer.md), asígnele el nombre **OfertaDePruebaDeAppService** y seleccione el plan **PlanDePruebaDeAppService**.
 
 ## <a name="test-the-offer"></a>Probar la oferta
 
-Ahora que ha implementado el proveedor de recursos de App Service y ha creado una oferta, puede iniciar sesión como un usuario, suscribirse a la oferta y crear una aplicación. En este ejemplo, vamos a crear un sistema de administración de contenido de la plataforma DNN. Primero debe crear una base de datos SQL y, a continuación, la aplicación web DNN.
+Ahora que ha implementado el proveedor de recursos de App Service y ha creado una oferta, puede iniciar sesión como un usuario, suscribirse a la oferta y crear una aplicación.
+
+En este ejemplo, vamos a crear un sistema de administración de contenido de la plataforma DNN. Primero, cree una base de datos SQL y, a continuación, la aplicación web DNN.
 
 ### <a name="subscribe-to-the-offer"></a>Suscripción a la oferta
+
 1. Inicie sesión en el portal de Azure Stack (https://portal.local.azurestack.external)) como inquilino.
-2. Haga clic en **Obtener una suscripción** > escriba **SuscripciónDePruebaDeAppService** en **Nombre para mostrar** > **Seleccionar una oferta**  >  **OfertaDePruebaDeAppService** > **Crear**.
+2. Seleccione **Obtener una suscripción** >, escriba **SuscripciónDePruebaDeAppService** en **Nombre para mostrar** > **Seleccionar una oferta** > **OfertaDePruebaDeAppService** > **Crear**.
 
 ### <a name="create-a-sql-database"></a>Creación de una base de datos SQL
 
-1. Haga clic en **+** > **Datos y almacenamiento** > **SQL Database**.
-2. Deje los valores predeterminados para los campos, excepto los siguientes:
+1. Seleccione **+** > **Datos y almacenamiento** > **SQL Database**.
+2. Mantenga los valores predeterminados, excepto para los campos siguientes:
+
     - **Nombre de la base de datos**: DNNdb
     - **Tamaño máximo en MB**: 100
     - **Suscripción**: OfertaDePruebaDeAppService
     - **Grupo de recursos**: DNN-RG
-3. Haga clic en **Configuración de inicio de sesión**, escriba las credenciales de la base de datos y, a continuación, haga clic en **Aceptar**. Usará estas credenciales más adelante en estos pasos.
-4. Haga clic en **SKU** > seleccione la SKU de SQL que ha creado para el servidor de hospedaje SQL > **Aceptar**.
-5. Haga clic en **Create**(Crear).
 
-### <a name="create-a-dnn-app"></a>Creación de una aplicación DNN    
+3. Seleccione **Login Settings** (Configuración de inicio de sesión), escriba las credenciales de la base de datos y, a continuación, seleccione **Aceptar**. Usará estas credenciales más adelante en este tutorial.
+4. En **SKU** > seleccione la SKU de SQL que ha creado para el servidor de hospedaje SQL > y, después, seleccione **Aceptar**.
+5. Seleccione **Crear**.
 
-1. Haga clic en **+**  >  **Ver todo** > **DNN Platform preview** (Versión preliminar de la plataforma DNN)  > **Crear**.
+### <a name="create-a-dnn-app"></a>Creación de una aplicación DNN
+
+1. Seleccione **+** > **Ver todo** > **DNN Platform preview** (Versión preliminar de la plataforma DNN) > **Crear**.
 2. Escriba *AppDNN* en **Nombre de la aplicación** y seleccione **OfertaDePruebaDeAppService** en **Suscripción**.
-3. Haga clic en **Configurar los valores obligatorios** > **Crear nuevo** > escriba un nombre de **Plan de App Service**.
-4. Haga clic en **Nivel de precios** > **F1 gratuito** > **Seleccionar** > **Aceptar**.
-5. Haga clic en **Base de datos** y escriba la información de la base de datos SQL que creó anteriormente.
-6. Haga clic en **Create**(Crear).
+3. Seleccione **Configurar los valores obligatorios** > **Crear nuevo** > para escribir un nombre de **Plan de App Service**.
+4. Seleccione **Plan de tarifa** > **F1 gratuito** > **Seleccionar** > **Aceptar**.
+5. Seleccione **Base de datos** y escriba las credenciales de la base de datos SQL que creó anteriormente.
+6. Seleccione **Crear**.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

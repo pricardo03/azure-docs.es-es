@@ -1,39 +1,25 @@
 ---
-title: Información general sobre las métricas en Microsoft Azure | Microsoft Docs
+title: Información general sobre las métricas en Microsoft Azure
 description: Información general sobre las métricas y su uso en Microsoft Azure
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264228"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 En este artículo se explica qué son las métricas en Microsoft Azure, sus beneficios y cómo comenzar a utilizarlas.  
 
 ## <a name="what-are-metrics"></a>¿Qué son las métricas?
 Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y usar estas métricas para supervisar y solucionar problemas.
-
-## <a name="what-can-you-do-with-metrics"></a>¿Para qué sirven las métricas?
-Las métricas son una valiosa fuente de telemetría y le permiten realizar las siguientes tareas:
-
-* **Realizar un seguimiento del rendimiento** del recurso (por ejemplo, una máquina virtual, un sitio web o una aplicación lógica) mediante el trazado de las métricas en un gráfico de portal y anclando ese gráfico a un panel.
-* **Recibir una notificación de un problema** que afecta al rendimiento del recurso cuando una métrica cruza un umbral determinado.
-* **Configurar acciones automatizadas**, como escalar automáticamente un recurso o activar un runbook cuando una métrica cruza un umbral determinado.
-* **Realizar análisis avanzados** o elaborar informes de tendencias de rendimiento o de uso de los recursos.
-* **Archivar** el historial de rendimiento o estado de los recursos **para fines de cumplimiento y auditoría**.
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>¿Cuáles son las características de las métricas?
 Las métricas presentan las características siguientes:
@@ -43,19 +29,17 @@ Las métricas presentan las características siguientes:
 * Puede obtener acceso a **93 días del historial** de cada métrica. Puede buscar rápidamente las tendencias recientes y mensuales en el rendimiento o el estado del recurso.
 * Algunas métricas pueden tener atributos de par nombre-valor denominado **dimensiones**. Estas le permiten segmentar aún más y explorar una métrica de una manera más significativa.
 
-También puede:
+## <a name="what-can-you-do-with-metrics"></a>¿Para qué sirven las métricas?
+Las métricas le permiten realizar las tareas siguientes:
 
-* Configurar una **regla de alerta de métrica que envía una notificación o realiza una acción automatizada** cuando la métrica cruza el umbral establecido. El escalado automático es una acción automatizada especial que permite escalar horizontalmente los recursos para satisfacer las solicitudes entrantes o las cargas en el sitio web o los recursos de procesos. Puede definir una regla de configuración de escalado automático para escalar o reducir horizontalmente si una métrica supera un umbral.
 
-* **Enrute** todas las métricas a Application Insights o Log Analytics para habilitar análisis instantáneos, búsquedas y alertas personalizadas de los datos de métricas de los recursos. También puede transmitir métricas a un centro de eventos, lo que permite redirigirlas a Azure Stream Analytics o a aplicaciones personalizadas para realizar análisis casi en tiempo real. Puede configurar la transmisión del centro de eventos con la configuración de diagnóstico.
-
-* **Archivar métricas en almacenamiento** para una retención más prolongada o para crear informes sin conexión. Puede redirigir las métricas a Azure Blob Storage al configurar opciones de diagnóstico para el recurso.
-
-* Detectar fácilmente todas las métricas, acceder a ellas y **verlas** en Azure Portal al seleccionar un recurso y trazarlo en un gráfico.
-
-* **Consumir** las métricas a través de las nuevas API de REST de Azure Monitor.
-
-* **Consultar** métricas con los cmdlets de PowerShell o la API de REST multiplataforma.
+- Configurar una **regla de alerta de métrica que envía una notificación o realiza una acción automatizada** cuando la métrica cruza el umbral establecido. Las acciones se controlan a través de los [grupos de acciones](monitoring-action-groups.md). Las acciones de ejemplo incluyen correo electrónico, teléfono y las notificaciones de SMS, llamar a un webhook, iniciar un runbook, etc. **Escalado automático** es una acción automatizada especial que permite escalar y reducir verticalmente un recurso para controlar la carga y mantener costos más bajos cuando no hay carga. Puede definir una regla de configuración de escalado automático para escalar o reducir horizontalmente si una métrica supera un umbral.
+- **Enrute** todas las métricas a *Application Insights* o *Log Analytics* para habilitar análisis instantáneos, búsquedas y alertas personalizadas de los datos de métricas de los recursos. También puede transmitir métricas a un *centro de eventos*, lo que permite redirigirlas a Azure Stream Analytics o a aplicaciones personalizadas para realizar análisis casi en tiempo real. Puede configurar la transmisión del centro de eventos con la configuración de diagnóstico.
+- **Archivar** el historial de rendimiento o estado del recurso para fines de cumplimiento, auditoría o creación de informes sin conexión.  Puede redirigir las métricas a Azure Blob Storage al configurar opciones de diagnóstico para el recurso.
+- Use **Azure Portal** para descubrir, acceder y ver todas las métricas cuando selecciona un recurso y traza las métricas en un gráfico. Para hacer seguimiento del rendimiento del recurso (como una máquina virtual, un sitio web o una aplicación lógica), ancle ese gráfico al panel.  
+- **Realizar análisis avanzados** o elaborar informes de tendencias de rendimiento o de uso de los recursos.
+- **Consultar** métricas con los cmdlets de PowerShell o la API de REST multiplataforma.
+- **Consumir** las métricas a través de las nuevas API de REST de Azure Monitor.
 
   ![Enrutamiento de métricas en Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
@@ -109,7 +93,7 @@ Puede configurar esto a través de plantillas de Resource Manager, [PowerShell](
 > [!NOTE]
 > Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
 >
-> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representarán como todos los mensajes entrantes de todas las colas de Event Hub.
+> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representará con todos los mensajes entrantes de todas las colas de Event Hub.
 >
 >
 

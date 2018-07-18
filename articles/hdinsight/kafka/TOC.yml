@@ -61,8 +61,6 @@
           maintainContext: true
         - name: Uso de Kafka con Azure Container Service
           href: apache-kafka-azure-container-services.md
-        - name: Kafka y Azure Functions
-          href: apache-kafka-azure-functions.md
     - name: Desarrollo
       items:
         - name: Uso de nodos perimetrales vacíos
@@ -223,13 +221,10 @@
         - name: Conexión de HDInsight con la red local
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: Supervisión con OMS
+    - name: Supervisión del uso de Log Analytics
       items:
         - name: Uso de Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Paneles específicos de clúster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Uso de consultas con Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

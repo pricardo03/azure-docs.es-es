@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331527"
 ---
 # <a name="media-intelligence"></a>Inteligencia multimedia
 
@@ -177,10 +178,10 @@ Ejemplo:
 
 |NOMBRE|DESCRIPCIÓN|
 |---|---|
-|id|El identificador de rostros.|
+|id|El identificador del rostro.|
 |Nombre|El nombre del rostro. Puede ser "Unknown #0", una celebridad identificada o una persona capacitada del cliente.|
 |confidence|La confidencialidad de la identificación facial.|
-|Descripción|Si se trata de una celebridad, su descripción ("Satya Nadella nació en..."). |
+|Descripción|Si se trata de una celebridad, su descripción. |
 |thumbnalId|El identificador de la miniatura del rostro en cuestión.|
 |knownPersonId|Si se trata de alguien conocido, su identificador interno.|
 |referenceId|Si se trata de una celebridad de Bing, su identificador de Bing.|
@@ -328,33 +329,6 @@ Ejemplo:
       ]
     }
   ]
-```
-
-### <a name="audioeffects"></a>audioEffects
-
-|NOMBRE|DESCRIPCIÓN|
-|---|---|
-|id|El identificador del efecto de audio.|
-|Tipo|El tipo de efecto de audio (por ejemplo, aplausos, voz, silencio).|
-|instances|Una lista de los intervalos de tiempo donde apareció este efecto de audio.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
 ```
 
 

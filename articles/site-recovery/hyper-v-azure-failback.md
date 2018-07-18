@@ -1,18 +1,19 @@
 ---
-title: "Ejecución de una conmutación por recuperación en un sitio principal para máquinas virtuales de Hyper-V | Microsoft Docs"
-description: "Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Información acerca de la conmutación por recuperación de Azure a un centro de datos local."
+title: Ejecución de una conmutación por recuperación en un sitio principal para máquinas virtuales de Hyper-V | Microsoft Docs
+description: Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Información acerca de la conmutación por recuperación de Azure a un centro de datos local.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: d344174ffa290b55386918ae19e2f792bb801a8a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: fd171251ef465a28e4844901a529e0a3eaaf8f9d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920879"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Ejecución de una conmutación por recuperación para máquinas virtuales de Hyper-V
 

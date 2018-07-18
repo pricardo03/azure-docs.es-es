@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 95a3c1d3effe6d4b73354fb3ef871aeb7767bfb4
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140089"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228579"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)
 Puede especificar la vigencia de un token emitido por Azure Active Directory (Azure AD). La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización.
@@ -279,7 +279,7 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
 
 2.  Asigne la directiva a su entidad de servicio. También necesitará obtener el valor de **ObjectId** de su entidad de servicio. 
 
-    1.  Para ver todas las entidades de servicio de la organización, puede consultar [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). También, puede probar esto en el [Explorador de Azure AD Graph](https://graphexplorer.cloudapp.net/) y el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) mediante la cuenta de Azure AD.
+    1.  Para ver todas las entidades de servicio de la organización, puede consultar [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). También, puede probar esto en el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) mediante la cuenta de Azure AD.
 
     2.  Cuando tenga el valor de **ObjectId** de la entidad de servicio, ejecute el siguiente comando:
 
@@ -335,7 +335,7 @@ En este ejemplo, va a crear algunas directivas para obtener información sobre c
 
     Ahora tiene una directiva que se aplica a toda la organización. Es posible que quiera conservar esta directiva 30 días para una entidad de servicio específica, pero cambiar la directiva predeterminada de organización para que sea el límite superior de "hasta que se revoque".
 
-    1.  Para ver todas las entidades de servicio de la organización, puede consultar [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). También, puede probar esto en el [Explorador de Azure AD Graph](https://graphexplorer.cloudapp.net/) y el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) mediante la cuenta de Azure AD.
+    1.  Para ver todas las entidades de servicio de la organización, puede consultar [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). También, puede probar esto en el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) mediante la cuenta de Azure AD.
 
     2.  Cuando tenga el valor de **ObjectId** de la entidad de servicio, ejecute el siguiente comando:
 

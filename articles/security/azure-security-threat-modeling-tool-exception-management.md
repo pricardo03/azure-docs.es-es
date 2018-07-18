@@ -1,5 +1,5 @@
 ---
-title: "Administración de excepciones: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs"
+title: 'Administración de excepciones: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3fae9390b41d12361b820e2c37601283b37bc302
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031719"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Marco de seguridad: Administración de excepciones | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -35,7 +36,7 @@ ms.lasthandoff: 01/24/2018
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Pasos** | Los servicios de Windows Communication Framework (WCF) pueden configurarse para exponer información de depuración. La información de depuración no debe usarse en entornos de producción. La etiqueta `<serviceDebug>` define si la característica de información de depuración está habilitada para un servicio WCF. Si el atributo includeExceptionDetailInFaults se establece en True, la información de excepción de la aplicación se devolverá a los clientes. Los atacantes pueden aprovechar la información adicional que obtengan del resultado de la depuración para montar los ataques dirigidos en el marco de trabajo, la base de datos u otros recursos usados por la aplicación. |
 
 ### <a name="example"></a>Ejemplo
@@ -59,7 +60,7 @@ Deshabilite la información de depuración en el servicio. Puede hacerlo elimina
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Genérico, .NET Framework 3 |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Pasos** | Exponer públicamente información acerca de un servicio puede proporcionar a los atacantes valiosos detalles sobre cómo podrían aprovechar el servicio. La etiqueta `<serviceMetadata>` habilita la característica de publicación de metadatos. Los metadatos del servicio pueden contener información confidencial que no debe estar accesible públicamente. Como mínimo, permita solo a los usuarios de confianza acceder a los metadatos, y asegúrese de que no se expone información innecesaria. Mejor aún, deshabilite completamente la capacidad de publicar los metadatos. Una configuración segura de WCF no contendrá la etiqueta `<serviceMetadata>`. |
 
 ## <a id="exception"></a>Asegúrese de que se realiza un tratamiento adecuado de las excepciones en ASP.NET Web API

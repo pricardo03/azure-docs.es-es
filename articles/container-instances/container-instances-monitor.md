@@ -2,17 +2,18 @@
 title: Supervisión de contenedores en Azure Container Instances
 description: Aprenda a supervisar el consumo de los recursos de computación, como la CPU y la memoria, en los contenedores de Azure Container Instances.
 services: container-instances
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2018
-ms.author: nepeters
-ms.openlocfilehash: 814346bd8021b996b64cd7f0311f31b13b32a8c8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: marsma
+ms.openlocfilehash: 2ab2a550e1e64f84613eb0fcda79cbd2b6164824
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887647"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Supervisión de los recursos de los contenedores en Azure Container Instances
 

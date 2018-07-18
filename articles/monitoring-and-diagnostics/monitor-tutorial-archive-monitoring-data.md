@@ -1,20 +1,20 @@
 ---
-title: Archivado de datos de supervisión de Azure | Microsoft Docs
+title: Archivado de datos de registro y métricas de Azure con Azure Storage
 description: Archivar datos de registros y de métricas que se producen dentro de Azure para una cuenta de almacenamiento.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918278"
 ---
 # <a name="archive-azure-monitoring-data"></a>Archivado de datos de supervisión de Azure
 
@@ -30,7 +30,7 @@ Varias capas de su entorno de Azure generan datos de registros y de métricas qu
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
@@ -97,7 +97,7 @@ Los datos de supervisión del recurso ahora fluyen a la cuenta de almacenamiento
 > [!NOTE]
 > Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
 >
-> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representarán como todos los mensajes entrantes de todas las colas de Event Hub.
+> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representará con todos los mensajes entrantes de todas las colas de Event Hub.
 >
 >
 
@@ -136,6 +136,11 @@ Los datos de supervisión del recurso ahora fluyen a la cuenta de almacenamiento
 Los datos de supervisión de las máquinas virtuales ahora fluyen a la cuenta de almacenamiento.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Visualización de los datos de supervisión en la cuenta de almacenamiento
+
+> [!WARNING]
+> El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Si ha seguido los pasos anteriores, los datos han comenzado a fluir a la cuenta de almacenamiento.
 

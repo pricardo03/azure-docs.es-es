@@ -1,24 +1,26 @@
 ---
 title: 'Azure AD Connect: si ya tiene Azure AD | Microsoft Docs'
-description: "En este tema se describe cómo utilizar Connect si ya tiene un inquilino de Azure AD."
+description: En este tema se describe cómo utilizar Connect si ya tiene un inquilino de Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725214"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: cuando ya hay un inquilino
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
@@ -56,7 +58,7 @@ Para grupos y contactos habilitados para correo electrónico, puede hacer una co
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Creación de una instancia de Active Directory local a partir de los datos de Azure AD
 Algunos clientes comienzan con una solución solo en la nube con Azure AD y no tienen una implementación de AD local. Más adelante, desean consumir recursos locales y crear una implementación de AD local basada en los datos de Azure AD. Azure AD Connect no puede ayudarlo en este escenario, ya que no crea los usuarios locales y no tiene ninguna funcionalidad para hacer que la contraseña local sea la misma que la de Azure AD.
 
-Si la única razón por la que piensa agregar AD local es admitir LOB (aplicaciones de línea de negocio), quizá debería plantearse usar los [servicios de dominio de Azure AD](../../active-directory-domain-services/index.md) en su lugar.
+Si la única razón por la que piensa agregar AD local es admitir LOB (aplicaciones de línea de negocio), quizá debería plantearse usar los [servicios de dominio de Azure AD](../../active-directory-domain-services/index.yml) en su lugar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

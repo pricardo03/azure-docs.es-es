@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075228"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808152"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Administrar el acceso a recursos con el control de acceso basado en rol de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Azure Stack admite el control de acceso basado en rol (RBAC), que es el mismo [modelo de seguridad para la administración de acceso](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) que usa Microsoft Azure. Puede usar RBAC para administrar el acceso de usuarios, grupos o aplicaciones a las suscripciones, los recursos y los servicios.
+Azure Stack admite el control de acceso basado en rol (RBAC), que es el mismo [modelo de seguridad para la administración de acceso](https://docs.microsoft.com/azure/role-based-access-control/overview) que usa Microsoft Azure. Puede usar RBAC para administrar el acceso de usuarios, grupos o aplicaciones a las suscripciones, los recursos y los servicios.
 
 ## <a name="basics-of-access-management"></a>Aspectos básicos de la administración de acceso
 
-El control de acceso basado en rol proporciona control de acceso muy detallado que puede usar para proteger su entorno. Concede a los usuarios los permisos exactos que necesitan al asignarles un rol RBAC en un ámbito determinado. El ámbito de la asignación de roles puede ser una suscripción, un grupo de recursos o un único recurso. Lea el artículo [Control de acceso basado en roles en Azure Portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) para obtener información más detallada sobre la administración de acceso.
+El control de acceso basado en rol proporciona control de acceso muy detallado que puede usar para proteger su entorno. Concede a los usuarios los permisos exactos que necesitan al asignarles un rol RBAC en un ámbito determinado. El ámbito de la asignación de roles puede ser una suscripción, un grupo de recursos o un único recurso. Lea el artículo [Control de acceso basado en roles en Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/overview) para obtener información más detallada sobre la administración de acceso.
 
 ### <a name="built-in-roles"></a>Roles integrados
 
@@ -60,7 +60,7 @@ Puede asignar más de un rol a un usuario y cada rol puede estar asociado con un
 * Asigne a TestUser-A el rol Lector para Subscription-1.
 * Asigne a TestUser-A el rol Propietario para TestVM-1.
 
-En el artículo sobre [asignaciones de roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) de Azure, se proporciona información detallada sobre cómo ver, asignar y eliminar roles.
+En el artículo sobre [asignaciones de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) de Azure, se proporciona información detallada sobre cómo ver, asignar y eliminar roles.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Jerarquía y herencia de recursos
 
@@ -82,7 +82,7 @@ Puede asignar más de un rol a un usuario y cada rol puede estar asociado con un
 * Asigne a TestUser-A el rol Lector para Subscription-1.
 * Asigne a TestUser-A el rol Propietario para TestVM-1.
 
-En el artículo sobre [asignaciones de roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) de Azure, se proporciona información detallada sobre cómo ver, asignar y eliminar roles.
+En el artículo sobre [asignaciones de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) de Azure, se proporciona información detallada sobre cómo ver, asignar y eliminar roles.
 
 ## <a name="set-access-permissions-for-a-user"></a>Establecimiento de los permisos de acceso de un usuario
 

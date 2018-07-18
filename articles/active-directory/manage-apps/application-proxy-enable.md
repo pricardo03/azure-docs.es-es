@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0ac14f792c63ea06a484eb5b522c4d33958538ed
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025650"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Empezar a trabajar con el proxy de aplicación e instalar el conector
 En este artículo se explican los pasos para habilitar el proxy de aplicación de Microsoft Azure AD en el directorio en la nube de Azure AD.
@@ -29,7 +30,7 @@ Si aún no conoce los beneficios de seguridad y productividad que el proxy de ap
 ## <a name="application-proxy-prerequisites"></a>Requisitos previos del proxy de la aplicación
 Antes de poder habilitar y usar los servicios del proxy de la aplicación, debe tener lo siguiente:
 
-* Una [suscripción Basic o Premium a Microsoft Azure AD](../active-directory-whatis.md) y un directorio de Azure AD del que sea administrador global.
+* Una [suscripción Basic o Premium a Microsoft Azure AD](../fundamentals/active-directory-whatis.md) y un directorio de Azure AD del que sea administrador global.
 * Un servidor en el que se ejecute Windows Server 2012 R2 o 2016 y en el que se pueda instalar el conector del proxy de aplicación. El servidor necesita tener la capacidad de conectarse a los servicios del proxy de aplicación en la nube y a las aplicaciones locales que va a publicar.
   * Para habilitar el inicio de sesión único en las aplicaciones publicadas mediante la delegación limitada de kerberos, esta máquina debe estar unida al mismo dominio de AD que las aplicaciones que va a publicar. Para obtener información, vea la información sobre [la delegación limitada de kerberos para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -63,7 +64,6 @@ Para preparar su entorno para el proxy de aplicación de Azure AD, primero debe 
 
 4. El conector necesita tener acceso a login.windows.net y login.microsoftonline.net para el proceso de registro.
 
-5. Use la [herramienta de prueba Connector Ports del proxy de aplicación de Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para comprobar que el conector puede comunicarse con el servicio Proxy de aplicación. Como mínimo, asegúrese de que la región de centro de EE. UU. y la región más cercana tienen todas las marcas de verificación en verde. Además, cuantas más marcas de verificación verde haya, mayor resistencia habrá.
 
 ## <a name="install-and-register-a-connector"></a>Instalación y registro de un conector
 1. Inicie sesión como administrador en [Azure Portal](https://portal.azure.com/).

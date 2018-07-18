@@ -2,29 +2,30 @@
 title: 'Tutorial de Kubernetes en Azure: implementación de la aplicación'
 description: 'Tutorial de AKS: implementación de la aplicación'
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8649fc12bd36172f3a10e1a2c9da891685c0b821
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e0e349361afaac9aec816d7f5d158322d6f4e691
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101053"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Ejecución de aplicaciones en Azure Kubernetes Service (AKS)
 
-En este tutorial, la cuarta parte de ocho, se implementa una aplicación de ejemplo en un clúster de Kubernetes. Los pasos completados incluyen:
+En este tutorial, la cuarta parte de siete, se implementa una aplicación de ejemplo en un clúster de Kubernetes. Los pasos completados incluyen:
 
 > [!div class="checklist"]
 > * Actualización de los archivos de manifiesto de Kubernetes
 > * Ejecución de una aplicación en Kubernetes
 > * Prueba de la aplicación
 
-En los tutoriales posteriores, esta aplicación se escala horizontalmente y se actualiza, y se configura Log Analytics para supervisar el clúster de Kubernetes.
+En los tutoriales posteriores, esta aplicación se escala horizontalmente y se actualiza.
 
 En este tutorial se da por hecho que tiene unos conocimientos básicos de los conceptos de Kubernetes. Para obtener información más detallada sobre esta aplicación, consulte la [documentación de Kubernetes][kubernetes-documentation].
 
@@ -60,7 +61,7 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-El código anterior pasa a ser este:
+El código anterior entonces se transforma.
 
 ```yaml
 containers:
@@ -72,10 +73,10 @@ Guarde y cierre el archivo.
 
 ## <a name="deploy-application"></a>Implementación de la aplicación
 
-Use el comando [kubectl create][kubectl-create] para ejecutar la aplicación. Este comando analiza el archivo de manifiesto y crea los objetos de Kubernetes definidos.
+Use el comando [kubectl apply][kubectl-apply] para ejecutar la aplicación. Este comando analiza el archivo de manifiesto y crea los objetos de Kubernetes definidos.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Salida:
@@ -132,6 +133,7 @@ Pase al siguiente tutorial para obtener información acerca de cómo escalar una
 > [Escalar infraestructura y aplicación de Kubernetes][aks-tutorial-scale]
 
 <!-- LINKS - external -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/

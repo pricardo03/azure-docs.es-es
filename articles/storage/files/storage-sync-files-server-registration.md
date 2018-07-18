@@ -4,24 +4,25 @@ description: Aprenda a registrar y anular el registro de una instancia de Window
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738299"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Administración de servidores registrados con Azure File Sync (versión preliminar)
-Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
+Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
 
 En el artículo siguiente se ilustra cómo registrar y administrar un servidor con un servicio de sincronización de almacenamiento. Consulte [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) (Implementación de Azure File Sync [versión preliminar]).
 
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Cancelación del registro del servidor del servicio de sincronización de almacenamiento
 Hay varios pasos que son necesarios para anular el registro de un servidor del servicio de sincronización de almacenamiento. A continuación se indica cómo anular el registro correctamente de un servidor.
 
-#### <a name="optional-recall-all-tiered-data"></a>(Opcional) Recuperación de todos los datos con niveles
-Cuando la característica de niveles de nube está habilitada para un punto de conexión de servidor, los archivos se *apilan* a los recursos compartidos de Azure Files. De esta forma, los recursos compartidos de archivos locales funcionan como una caché, en lugar de como una copia completa del conjunto de datos, para realizar un uso eficiente del espacio del servidor de archivos. Sin embargo, si se quita un punto de conexión de servidor con archivos con niveles que aún se encuentran localmente en el servidor, esos archivos se volverán inaccesibles. Por tanto, si sigue queriendo acceder a los archivos, debe recuperar todos los archivos con niveles de Azure Files antes de continuar con la cancelación del registro. 
+> [!Warning]  
+> No intente solucionar los problemas de sincronización, niveles de la nube ni otros aspectos de Azure File Sync mediante la anulación del registro y posterior registro de un servidor o mediante la eliminación y nueva creación de los puntos de conexión de un servidor, salvo que lo indique explícitamente un ingeniero de Microsoft. La anulación del registro de un servidor y eliminación de sus puntos de conexión es una operación destructiva y los archivos en capas de los volúmenes con puntos de conexión de servidor no se "volverán a conectar" a sus ubicaciones del recurso compartido de archivos de Azure después de que el servidor registrado y los punto de conexión del servidor se creen de nuevo, lo que provocará errores de sincronización. Tenga también en cuenta que los archivos en capas que haya fuera de un espacio de nombres de un punto de conexión de servidor pueden perderse de forma permanente. Puede haber archivos en capas en los puntos de conexión de un servidor aunque nunca se hayan habilitado los niveles de la nube.
 
-Para ello, se puede usar el cmdlet de PowerShell, tal y como se muestra a continuación:
+#### <a name="optional-recall-all-tiered-data"></a>(Opcional) Recuperación de todos los datos con niveles
+Si desea que los archivos que actualmente están organizados en niveles estén disponibles después de quitar Azure File Sync (este es un entorno de producción, no de prueba), recupere todos los archivos de todos los volúmenes que contengan puntos de conexión de servidor. Deshabilite los niveles de la nube en todos los puntos de conexión del servidor y ejecute el siguiente cmdlet de PowerShell:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

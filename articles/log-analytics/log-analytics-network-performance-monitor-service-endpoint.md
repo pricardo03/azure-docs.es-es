@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: b21d711e59ddc762eaf72f49e501d9f324d75105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030716"
 ---
-# <a name="service-endpoint-monitor"></a>Monitor de puntos de conexión de servicio
+# <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
-Puede usar la funcionalidad Monitor de puntos de conexión de servicio en [Network Performance Monitor](log-analytics-network-performance-monitor.md) para supervisar la conectividad de red con cualquier punto de conexión que tiene un puerto TCP abierto. Dichos puntos de conexión incluyen sitios web, aplicaciones SaaS, aplicaciones PaaS y bases de datos SQL. 
+Puede usar la funcionalidad Monitor de conectividad de servicio en [Network Performance Monitor](log-analytics-network-performance-monitor.md) para supervisar la conectividad de red con cualquier punto de conexión que tenga un puerto TCP abierto. Dichos puntos de conexión incluyen sitios web, aplicaciones SaaS, aplicaciones PaaS y bases de datos SQL. 
 
-Puede realizar las funciones siguientes con Monitor de puntos de conexión de servicio: 
+Puede realizar las funciones siguientes con el Monitor de conectividad de servicio: 
 
 - Supervisar la conectividad de red con sus aplicaciones y servicios de red desde varias sucursales o ubicaciones. Entre las aplicaciones y servicios de red se incluyen Office 365, Dynamics CRM, aplicaciones de línea de negocio internas y bases de datos SQL.
 - Usar pruebas integradas para supervisar la conectividad de red con puntos de conexión de Office365 y Dynamics365. 
@@ -33,7 +34,7 @@ Puede realizar las funciones siguientes con Monitor de puntos de conexión de se
 - Identificar las zonas activas de la red que podrían estar generando un rendimiento deficiente de la aplicación mediante la visualización de la latencia aportada por cada salto en un mapa de topología.
 
 
-![Monitor de puntos de conexión de servicio](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Monitor de conectividad de servicio](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuración 
@@ -51,14 +52,14 @@ netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,a
 netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow 
 netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow 
 netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow 
-netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action 
+netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>Creación de pruebas de Monitor de puntos de conexión de servicio 
+### <a name="create-service-connectivity-monitor-tests"></a>Creación de pruebas del Monitor de conectividad de servicio 
 
 Comience a crear las pruebas para supervisar la conectividad de red con los puntos de conexión de servicio.
 
-1. Seleccione la pestaña **Monitor de puntos de servicio**.
+1. Seleccione la pestaña **Monitor de conectividad de servicio**.
 2. Seleccione **Agregar prueba** y escriba el nombre y la descripción de la prueba. 
 3. Seleccione el tipo de prueba:<br>
 
@@ -83,7 +84,7 @@ Comience a crear las pruebas para supervisar la conectividad de red con los punt
 
 ## <a name="walkthrough"></a>Tutorial 
 
-Vaya a la vista del panel Network Performance Monitor. Para ver un resumen del mantenimiento de las distintas pruebas que ha creado, consulte la página **Monitor de puntos de conexión de servicio**. 
+Vaya a la vista del panel Network Performance Monitor. Para ver un resumen del estado de las distintas pruebas que ha creado, consulte la página **Monitor de conectividad de servicio**. 
 
 ![Página del Monitor de puntos de conexión de servicio](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

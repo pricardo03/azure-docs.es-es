@@ -1,11 +1,11 @@
 ---
 title: Comprar un nombre de dominio personalizado para Azure Web Apps
-description: "Obtenga información sobre cómo comprar un nombre de dominio personalizado con una aplicación web en Azure App Service."
+description: Obtenga información sobre cómo comprar un nombre de dominio personalizado con una aplicación web en Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714891"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar un nombre de dominio personalizado para Azure Web Apps
 
@@ -57,17 +58,17 @@ En el panel de navegación izquierdo de la página de la aplicación, despláces
 
 ![Menú Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúrese de que la aplicación web no está en el nivel **Gratis**. No se admiten DNS personalizados en el nivel **Gratis**. 
+El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúrese de que la aplicación web no está en el nivel **F1**. No se admiten DNS personalizados en el nivel **F1**. 
 
 ![Comprobar plan de tarifa](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Si el plan de App Service no es **Gratuito**, cierre la página **Elegir un plan de tarifa** y vaya a [Comprar un dominio](#buy-the-domain).
+Si el plan de App Service no es **F1**, cierre la página **Escalar verticalmente** y vaya directamente a [Buy the domain](#buy-the-domain) (Comprar el dominio).
 
 ### <a name="scale-up-the-app-service-plan"></a>Escalado verticalmente del plan de App Service
 
-Seleccione alguno de los niveles de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). 
+Seleccione cualquiera de los niveles no gratuitos (**D1**, **B1**, **B2**, **B3**, o cualquier nivel de la categoría **Producción**). Para ver opciones adicionales, haga clic en **Ver opciones adicionales**.
 
-Haga clic en **Seleccionar**.
+Haga clic en **Aplicar**.
 
 ![Comprobar plan de tarifa](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

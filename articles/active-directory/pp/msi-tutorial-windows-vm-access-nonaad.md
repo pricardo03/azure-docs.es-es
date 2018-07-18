@@ -1,8 +1,8 @@
 ---
-title: "Uso de una identidad MSI de máquina virtual Windows para acceder a Azure Key Vault"
-description: "Tutorial que indica cómo usar una identidad de servicio administrada (MSI) en una máquina virtual Windows para acceder a Azure Key Vault."
+title: Uso de una identidad MSI de máquina virtual Windows para acceder a Azure Key Vault
+description: Tutorial que indica cómo usar una identidad de servicio administrada (MSI) en una máquina virtual Windows para acceder a Azure Key Vault.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 151a0a1fee72c7bd7adcda8e23ebb06d96e822ae
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f135d8560db8fc81c50bd63380751ac9d22580e9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610244"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Key Vault 
 
@@ -49,7 +50,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 En este tutorial, se crea una nueva máquina virtual Windows. También puede habilitar MSI en una máquina virtual existente.
 
 1.  Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2.  Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**. 
+2.  Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
 3.  Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
 4.  Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
 5.  Para seleccionar un nuevo **grupo de recursos** en el que quiere crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.

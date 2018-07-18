@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13e8b3bcb7de4093116b3e2198b210950ac16d78
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cf420c6b5f72b2109016bdb8b86d6cfcc506f4e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639527"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparación de codificadores multimedia a petición de Azure
 
@@ -83,6 +84,7 @@ En la tabla siguiente se compara la funcionalidad entre Media Encoder Standard (
 | Apple ProRes Proxy |Sí |Sin  |
 | Apple ProRes 4444 |Sí |Sin  |
 | Apple ProRes 4444 XQ |Sí |Sin  |
+| HEVC/H.265|Perfil Main|Perfil Main y Main 10|
 
 ## <a name="input-audio-codecs"></a>Códecs de audio de entrada
 | Códecs de audio de entrada | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |

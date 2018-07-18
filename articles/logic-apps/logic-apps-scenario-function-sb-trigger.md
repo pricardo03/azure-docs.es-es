@@ -1,11 +1,11 @@
 ---
-title: "Escenario: Desencadenado de aplicaciones lógicas con Azure Functions y Service Bus | Microsoft Docs"
-description: "Creación de una función para desencadenar una aplicación lógica con Azure Functions y Azure Service Bus"
+title: 'Escenario: Desencadenado de aplicaciones lógicas con Azure Functions y Service Bus | Microsoft Docs'
+description: Creación de una función para desencadenar una aplicación lógica con Azure Functions y Azure Service Bus
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 088f10bc32dd492f82f0a10a7e5829e76f588758
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030963"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Escenario: Desencadenado de aplicaciones lógicas con Azure Functions y Service Bus
 
-Puede utilizar Funciones de Azure para crear un desencadenador para una aplicación lógica cuando necesite implementar un agente de escucha o una tarea de ejecución prolongada. Por ejemplo, puede crear una función que escuche en una cola y que active inmediatamente una aplicación lógica como desencadenador de push.
+Puede utilizar Azure Functions para crear un desencadenador para una aplicación lógica cuando necesite implementar un agente de escucha o una tarea de ejecución prolongada. Por ejemplo, puede crear una función que escuche en una cola y que active inmediatamente una aplicación lógica como desencadenador de push.
 
 ## <a name="build-the-logic-app"></a>Compilación de la aplicación lógica
 En este ejemplo, se ejecuta una función para cada aplicación lógica que necesite desencadenarse. En primer lugar, cree una aplicación lógica que tenga un desencadenador de solicitud HTTP. La función llama a ese punto de conexión siempre que se reciba un mensaje en cola.  
@@ -38,9 +39,9 @@ En este ejemplo, se ejecuta una función para cada aplicación lógica que neces
 ## <a name="build-the-function"></a>Compilación de la función
 Después, debe crear una función que actúe como el desencadenador y escuche a la cola.
 
-1. En el [portal de Azure Functions](https://functions.azure.com/signin), seleccione **Nueva función** y, luego, seleccione la plantilla **ServiceBusQueueTrigger - C#**.
+1. En el [portal de Azure Functions](https://functions.azure.com/), seleccione **Nueva función** y, luego, seleccione la plantilla **ServiceBusQueueTrigger - C#**.
    
-    ![portal de Funciones de Azure][2]
+    ![portal de Azure Functions][2]
 2. Configure la conexión a la cola de Service Bus (que va a usar el agente de escucha `OnMessageReceive()` del SDK de Azure Service Bus).
 3. Escriba una función básica para llamar al punto de conexión de la aplicación lógica (creado anteriormente) usando el mensaje de cola como desencadenador. Este es un ejemplo completo de una función. En el ejemplo se usa un tipo de contenido de mensaje `application/json`, pero puede cambiarlo si es necesario.
    
@@ -63,7 +64,7 @@ Después, debe crear una función que actúe como el desencadenador y escuche a 
    }
    ```
 
-Para probar, agregue un mensaje en cola a través de una herramienta como el [Explorador de Bus de servicio](https://github.com/paolosalvatori/ServiceBusExplorer). Consulte la aplicación lógica inmediatamente después de que la función reciba el mensaje.
+Para probar, agregue un mensaje en cola a través de una herramienta como el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer). Consulte la aplicación lógica inmediatamente después de que la función reciba el mensaje.
 
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-function-sb-trigger/manualtrigger.png

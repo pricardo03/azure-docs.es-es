@@ -1,24 +1,19 @@
 ---
-title: Consume monitoring data from Azure (Consumo de datos de supervisión de Azure) | Microsoft Docs
+title: Orígenes de datos de supervisión en Azure
 description: Obtenga información sobre todos los orígenes de datos de supervisión disponibles hoy en Azure.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/27/2017
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/12/2018
 ms.author: johnkem
-ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 78b3288cf4973efa2684252581000d0e4fc56cae
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083005"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consume monitoring data from Azure (Consumo de datos de supervisión de Azure)
 
@@ -33,7 +28,7 @@ En toda la plataforma Azure, reunimos datos de supervisión en un solo lugar con
 | Métricas personalizadas o de la aplicación | Métricas | Cualquier aplicación instrumentada con Application Insights | <ul><li>**API de REST:**[API de REST de Application Insights](https://dev.applicationinsights.io/reference)</li></ul> |
 | Métricas de almacenamiento | Métricas | Azure Storage | <ul><li>**Tabla de almacenamiento:**[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Datos de facturación | Métricas | Todos los servicios de Azure | <ul><li>**API de REST:**[uso de Azure Resource y API de RateCard](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| Registro de actividad | Eventos | Todos los servicios de Azure | <ul><li>**API de REST:**[API de eventos de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**Storage Blob o centro de eventos:**[perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Registro de actividad | Eventos | Todos los servicios de Azure | <ul><li>**API de REST:**[API de eventos de Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Storage Blob o centro de eventos:**[perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Registros de diagnóstico de Azure Monitor | Eventos | [Consulte la lista aquí](monitoring-diagnostic-logs-schema.md) | <ul><li>**Storage Blob o centro de eventos:**[configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | Registros de SO invitado de proceso (p. ej., IIS, ETW, syslogs) | Eventos | Máquinas virtuales [Windows](../virtual-machines-dotnet-diagnostics.md) y Linux (v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabla de almacenamiento o Storage Blob:**[diagnósticos de Azure para Windows o Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Centro de eventos:**[diagnósticos de Azure para Windows](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Registros de App Service | Eventos | App Services | <ul><li>**File Storage, Table Storage o Blob Storage:**[diagnósticos de la aplicación web](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
@@ -45,7 +40,7 @@ En toda la plataforma Azure, reunimos datos de supervisión en un solo lugar con
 | Alertas de métricas de Azure Monitor | Notificaciones | [Consulte la lista aquí](monitoring-supported-metrics.md) | <ul><li>**Webhook:**[alertas de métricas de Azure](insights-webhooks-alerts.md)</li></ul> |
 | Alertas de registro de actividad de Azure Monitor | Notificaciones | Todos los servicios de Azure | <ul><li>**Webhook:** alertas de registro de actividad de Azure</li></ul> |
 | Notificaciones de escalado automático | Notificaciones | [Consulte la lista aquí](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:**[esquema de carga útil de Webhook de notificación de escalado automático](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Alertas de consulta de búsqueda de registros | Notificaciones | Log Analytics | <ul><li>**Webhook:**[alertas de Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Alertas de consulta de búsqueda de registros | Notificaciones | Log Analytics | <ul><li>**Webhook:** [acciones de webhook para reglas de alertas de registro](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
 | Alertas de métricas de Application Insights | Notificaciones | Application Insights | <ul><li>**Webhook:**[alertas de Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 | Pruebas web de Application Insights | Notificaciones | Application Insights | <ul><li>**Webhook:**[alertas de Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 

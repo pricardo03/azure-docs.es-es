@@ -1,24 +1,26 @@
 ---
-title: "Guía de solución de problemas de Azure Active Directory Domain Services | Microsoft Docs"
-description: "Guía de solución de problemas Servicios de dominio de Azure AD"
+title: Guía de solución de problemas de Azure Active Directory Domain Services | Microsoft Docs
+description: Guía de solución de problemas Servicios de dominio de Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b15f339889aa2a4602295e662877e82a1d3a6b46
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36219445"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guía de solución de problemas de Azure AD Domain Services
 En este artículo se ofrecen sugerencias de solución de problemas para los problemas que puede encontrar al configurar o administrar Servicios de dominio de Azure Active Directory (AD).

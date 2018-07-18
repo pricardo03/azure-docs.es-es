@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916122"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una máquina virtual Windows en Azure Portal
 
@@ -28,7 +29,7 @@ Las máquinas virtuales de Azure pueden crearse mediante Azure Portal. Este mét
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
@@ -42,13 +43,13 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
     ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. Elija **Crear nuevo** para el grupo de recursos y proporcione un nombre, como *myResourceGroup*. Elija su **ubicación** deseada y seleccione **Aceptar**.
+5. Elija **Crear nuevo** para el grupo de recursos y proporcione un nombre, como *myResourceGroup*. Elija la **ubicación** y seleccione **Aceptar**.
 
-4. Seleccione un tamaño para la máquina virtual. Puede filtrar por *Tipo de proceso* o *Tipo de disco*, por ejemplo. Se recomienda un tamaño de máquina virtual de *D2s_v3*.
+4. Seleccione un tamaño para la máquina virtual. Puede filtrar por *Tipo de proceso* o *Tipo de disco*, por ejemplo. Se recomienda un tamaño de máquina virtual de *D2s_v3*. Haga clic en **Seleccionar** después de elegir un tamaño.
 
     ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. En **Configuración**, deje los valores predeterminados y seleccione **Aceptar**.
+5. En la página **Configuración**, en **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP (3389)** en el menú desplegable. Deje el resto de valores predeterminados y seleccione **Aceptar**.
 
 6. En la página de resumen, seleccione **Crear** para iniciar la implementación de la máquina virtual.
 
@@ -66,13 +67,13 @@ Cree una conexión a Escritorio remoto en la máquina virtual. Estas instruccion
 
 2. Abra el archivo RDP que descargó y haga clic en **Conectar** cuando se le solicite. 
 
-3. En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba el nombre de usuario con este formato *vmname*\*username*, especifique la contraseña que creó para la máquina virtual y luego haga clic en **Aceptar**.
+3. En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba el nombre de usuario con el formato *nombreDeMV*\\*nombreDeUsuario*, escriba la contraseña que creó para la máquina virtual y luego haga clic en **Aceptar**.
 
-4. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Haga clic en **Sí** o **Conectar** para continuar con la conexión.
+4. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Haga clic en **Sí** o en **Continuar** para crear la conexión.
 
 ## <a name="install-web-server"></a>Instalación del servidor web
 
-Para ver la máquina virtual en acción, instale al servidor web IIS. Abra un símbolo del sistema de PowerShell en la máquina virtual y ejecute el siguiente comando:
+Para ver la máquina virtual en acción, instale el servidor web IIS. Abra un símbolo del sistema de PowerShell en la máquina virtual y ejecute el siguiente comando:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -80,18 +81,10 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Cuando haya terminado, cierre la conexión RDP con la máquina virtual.
 
-## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web
-
-Los grupos de seguridad de red (NSG) protegen el tráfico entrante y saliente. Cuando se crea una máquina virtual desde Azure Portal, se crea una regla de entrada en el puerto 3389 para las conexiones RDP. Dado que esta máquina virtual hospeda un servidor web, es preciso crear una regla de NSG para el puerto 80.
-
-1. En la página de información general de la máquina virtual, seleccione **Redes**.
-2. Se muestra la lista de reglas entrantes y salientes existentes. Elija **Agregar regla de puerto de entrada**.
-3. Seleccione la opción **Básica** en la parte superior, y luego elija *HTTP* en la lista de servicios disponibles. Se proporcionan automáticamente el puerto 80, una prioridad y el nombre.
-4. Para crear la regla, seleccione **Agregar**
 
 ## <a name="view-the-iis-welcome-page"></a>Página principal de IIS
 
-Con IIS instalado y el puerto 80 abierto en la máquina virtual desde Internet, use el explorador web que prefiera para ver la página principal predeterminada de IIS. Use la dirección IP pública de la máquina virtual que obtuvo en el paso anterior. En el ejemplo siguiente se muestra el sitio web IIS predeterminado:
+En el portal, seleccione la maquina virtual y, en su información general, utilice el botón **Haga clic para copiar** a la derecha de la dirección IP para copiarla y pegarla en una pestaña del explorador. Se abrirá la página de bienvenida de IIS predeterminada, y debería tener el siguiente aspecto:
 
 ![Sitio predeterminado de IIS](./media/quick-create-powershell/default-iis-website.png)
 

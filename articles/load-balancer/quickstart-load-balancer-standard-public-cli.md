@@ -18,11 +18,11 @@ ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 48ed4270838a32c8060bf96a63fcfdd8c65f9689
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305079"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696130"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Guía de inicio rápido: Creación de una instancia de Load Balancer Estándar para equilibrar la carga de las máquinas virtuales mediante la CLI de Azure 2.0
 
@@ -32,7 +32,7 @@ En este tutorial rápido se muestra cómo crear una instancia de Load Balancer E
 
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.28 o versiones posteriores. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+## <a name="create-a-resource-group"></a>Creación de un grupo de recursos
 
 Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
@@ -108,7 +108,7 @@ Una regla de equilibrador de carga define la configuración de la dirección IP 
 
 Antes de implementar algunas máquinas virtuales y poder probar el equilibrador de carga, cree los recursos de red virtual auxiliares.
 
-### <a name="create-a-virtual-network"></a>Crear una red virtual
+### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
 Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myResourceGroup* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
 
@@ -147,7 +147,7 @@ Cree una regla de grupo de seguridad de red para permitir las conexiones entrant
     --access allow \
     --priority 200
 ```
-### <a name="create-nics"></a>Cree tarjetas NIC
+### <a name="create-nics"></a>Creación de tarjetas NIC
 
 Cree tres interfaces de red con el comando [az network nic create](/cli/azure/network/nic#az_network_nic_create) y asócielas con la dirección IP pública y el grupo de seguridad de red. 
 

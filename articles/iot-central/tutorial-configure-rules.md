@@ -1,21 +1,22 @@
 ---
 title: Configuración de reglas y acciones en Azure IoT Central | Microsoft Docs
 description: Este tutorial muestra cómo configurar las reglas basadas en la telemetría y acciones en la aplicación de Azure IoT Central como generador.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 5ac19e0e25ea3e25ede4d87776c01f8bcaea4655
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202244"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236338"
 ---
-# <a name="2---configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>2. Configuración de reglas y acciones para el dispositivo en Azure IoT Central
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configuración de reglas y acciones para el dispositivo en Azure IoT Central
 
 Este tutorial muestra cómo configurar las reglas basadas en la telemetría y acciones en la aplicación Microsoft Azure IoT Central como generador.
 
@@ -39,17 +40,17 @@ Antes de comenzar, debe completar el tutorial [Definición de un nuevo tipo de d
 
     Verá la plantilla de dispositivo **Connected Aire Conditioner (1.0.0)** y el dispositivo **Connected Aire Conditioner-1** creado en el tutorial anterior.
 
-1. Para empezar a personalizar el dispositivo de aire acondicionado conectado, elija el dispositivo que creó en el tutorial anterior:
+2. Para empezar a personalizar el dispositivo de aire acondicionado conectado, elija el dispositivo que creó en el tutorial anterior:
 
     ![Página del aire acondicionado conectado](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. Para empezar a agregar una regla en la vista **Rules** (Reglas), elija **Rules** (Reglas):
+3. Para empezar a agregar una regla en la vista **Rules** (Reglas), elija **Rules** (Reglas):
 
     ![Vista Rules (Reglas)](media/tutorial-configure-rules/builderrulesview.png)
 
-1. En este tutorial se agrega una regla de telemetría basada en umbrales. Para empezar a crear una regla basada en umbrales, elija **New Rule** (Nueva regla) y **Telemetry** (Telemetría).
+4. Para empezar a crear una regla de telemetría basada en umbrales, elija **New Rule** (Nueva regla) y **Telemetry** (Telemetría).
 
-1. Para definir la regla, use la información de la tabla siguiente:
+5. Para definir la regla, use la información de la tabla siguiente:
 
     | Configuración     | Valor                          |
     | ----------- | ------------------------------ |
@@ -67,7 +68,7 @@ Al definir una regla, también se defina una acción que se ejecuta cuando se cu
 
     ![Acción de regla de temperatura](media/tutorial-configure-rules/builderaddaction.png)
 
-1. Para definir la acción, use la información de la tabla siguiente:
+2. Para definir la acción, use la información de la tabla siguiente:
 
     | Configuración   | Valor                          |
     | --------- | ------------------------------ |
@@ -79,7 +80,7 @@ Al definir una regla, también se defina una acción que se ejecuta cuando se cu
 
     ![Acción de temperatura del generador de aplicaciones](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. Elija **Guardar**. La regla se muestra en la página **Rules** (Reglas):
+3. Elija **Guardar**. La regla se muestra en la página **Rules** (Reglas):
 
     ![Reglas del generador de aplicaciones](media/tutorial-configure-rules/builderrules.png)
 

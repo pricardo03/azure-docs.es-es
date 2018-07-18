@@ -1,12 +1,12 @@
 ---
-title: "Preguntas más frecuentes sobre el conjunto de aplicaciones de IoT de Azure | Microsoft Docs"
-description: "Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT"
-services: 
+title: Preguntas más frecuentes sobreAzure IoT Suite | Microsoft Docs
+description: Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 77b9fab68b66fe8998733a8f890acb9dd6b97899
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702338"
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
 
-Consulte también, la sección [preguntas más frecuentes](iot-suite-faq-cf.md) de la fábrica conectada específica.
+Consulte también, la sección [preguntas más frecuentes](../iot-accelerators/iot-accelerators-faq-cf.md) de la fábrica conectada específica.
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>¿Dónde se puede encontrar el código fuente de la solución preconfigurada?
 
@@ -34,7 +35,7 @@ El código fuente se almacena en los siguientes repositorios de GitHub:
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>¿Cómo puedo actualizar a la versión más reciente de la solución preconfigurada de supervisión remota que usa las características de administración de dispositivos de IoT Hub?
 
-* Si implementa una solución preconfigurada desde el sitio https://www.azureiotsuite.com/, siempre se implementa una nueva instancia de la versión más reciente de la solución.
+* Si implementa una solución preconfigurada desde el sitio https://www.azureiotsuite.com/, siempre se implementará una nueva instancia de la versión más reciente de la solución.
 * Si implementa una solución preconfigurada mediante la línea de comandos, puede actualizar una implementación existente con nuevo código. Consulte [Implementación de nube][lnk-cloud-deployment] en el [repositorio][lnk-remote-monitoring-github] de GitHub.
 
 ### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>¿Cómo se puede agregar compatibilidad con un nuevo método de dispositivo a la solución preconfigurada de supervisión remota?
@@ -104,11 +105,11 @@ Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
 * [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
-* [Introducción a la solución preconfigurada de fábrica conectada](iot-suite-connected-factory-overview.md)
+* [Introducción a la solución preconfigurada de fábrica conectada](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [Seguridad de Internet de las cosas desde el principio][lnk-security-groundup]
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639034"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: supervisar la comunicación de red entre dos máquinas virtuales mediante Azure Portal
 
@@ -52,7 +53,7 @@ Cree dos VM.
     |NOMBRE|myVm1|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |La suscripción| Seleccione su suscripción.|
+    |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Ubicación| Seleccione **Este de EE. UU**.|
 
@@ -141,7 +142,7 @@ De forma predeterminada, Azure permite la comunicación de todos los puertos ent
 
 5. Puesto que el monitor de conexión realiza sondeos a intervalos de 60 segundos, espere unos minutos y, a continuación, en el lado izquierdo del portal, seleccione **Network Watcher**; a continuación, seleccione **Monitor de conexión** y el monitor **myVm1-myVm2(22)** de nuevo. Ahora, los resultados son diferentes, tal como se muestra en la siguiente imagen:
 
-    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault .png)
+    ![Error de detalles de Monitor](./media/connection-monitor/vm-monitor-fault.png)
 
     Puede ver que hay un icono de signo de exclamación rojo en la columna Estado de la interfaz de red **myvm2529**.
 

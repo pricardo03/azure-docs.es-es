@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011533"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237839"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
@@ -26,9 +26,6 @@ La actividad de búsqueda se puede usar para recuperar un conjunto de datos de c
 - Determinar dinámicamente en qué objetos (archivos, tablas, etc.) operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto
 
 La actividad de búsqueda puede leer y devolver el contenido de un archivo de configuración, una tabla de configuración o el resultado de la ejecución de una consulta o procedimiento almacenado.  El resultado de la actividad de búsqueda se puede usar en una actividad de transformación o copia posterior si es un valor singleton, o bien en una actividad ForEach si es una matriz de atributos.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Azure Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -57,11 +54,11 @@ Se admiten los siguientes orígenes de datos para la búsqueda. El número máxi
 ```
 
 ## <a name="type-properties"></a>Propiedades de tipo
-NOMBRE | DESCRIPCIÓN | Escriba | ¿Necesario?
+NOMBRE | DESCRIPCIÓN | type | ¿Necesario?
 ---- | ----------- | ---- | --------
 dataset | Proporciona la referencia de conjunto de datos para la búsqueda. Obtenga los detalles de la sección "Propiedades del conjunto de datos" de cada artículo del conector correspondiente. | Par clave-valor | Sí
 de origen | Contiene propiedades de origen específicas para el conjunto de datos, al igual que el origen de la actividad de copia. Obtener los detalles de la sección "Copiar propiedades de la actividad" de cada artículo del conector correspondiente. | Par clave-valor | Sí
-firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean | Nº El valor predeterminado es `true`.
+firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean | No. El valor predeterminado es `true`.
 
 **Tenga en cuenta los siguientes puntos:**
 
@@ -279,11 +276,11 @@ Esta instancia de Azure SQL Database contiene los datos que se copiarán en Blob
 ```json
 {
   "Id": "1",
-  "tableName": "Table1",
+  "tableName": "Table1"
 }
 {
    "Id": "2",
-  "tableName": "Table2",
+  "tableName": "Table2"
 }
 ```
 
@@ -293,11 +290,11 @@ Esta instancia de Azure SQL Database contiene los datos que se copiarán en Blob
 [ 
     {
         "Id": "1",
-          "tableName": "Table1",
-    }
+        "tableName": "Table1"
+    },
     {
         "Id": "2",
-        "tableName": "Table2",
+        "tableName": "Table2"
     }
 ]
 ```

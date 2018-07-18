@@ -1,11 +1,11 @@
 ---
-title: "Supervisión de API con Azure API Management, Event Hubs y Runscope | Microsoft Docs"
-description: "Aplicación de ejemplo que muestra la directiva log-to-eventhub que conecta API Management de Azure, Event Hubs de Azure y Runscope para el registro y supervisión de HTTP"
+title: Supervisión de API con Azure API Management, Event Hubs y Runscope | Microsoft Docs
+description: Aplicación de ejemplo que muestra la directiva log-to-eventhub que conecta API Management de Azure, Event Hubs de Azure y Runscope para el registro y supervisión de HTTP
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: darrelmiller
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4c58be8f501e72027e1692ceb73552a3f252f92a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38603185"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Supervisión de las API con Azure API Management, Event Hubs y Runscope
 El [servicio Administración de API](api-management-key-concepts.md) proporciona muchas capacidades para mejorar el procesamiento de solicitudes de HTTP enviadas a la API HTTP. Sin embargo, la existencia de las solicitudes y respuestas es transitoria. Se realiza la solicitud y fluye a través del servicio Administración de API a la API de back-end. La API procesa la solicitud y se pasa una respuesta al consumidor de API. El servicio API Management mantiene algunas estadísticas importantes acerca de las API que se muestran en el panel de Azure Portal, pero aparte de eso, los detalles desaparecen.
@@ -280,5 +281,5 @@ El servicio Azure API Management proporciona un lugar ideal para capturar el tr�
   * [Guía de programación de Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Obtener más información acerca de la integración de API Management y Event Hubs
   * [Cómo registrar eventos en Azure Event Hubs en Azure API Management](api-management-howto-log-event-hubs.md)
-  * [Referencia de entidad del registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+  * [Referencia de entidad del registrador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)

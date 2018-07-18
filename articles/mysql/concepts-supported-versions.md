@@ -6,23 +6,24 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/22/2018
-ms.openlocfilehash: 53c8d51ddf9b7465a99b8b0685d7f6ce177fc526
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 05/23/2018
+ms.openlocfilehash: c9a533ed9b9eb9ac53a02439b98a78954c7aaa11
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265255"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 Azure Database for MySQL se ha desarrollado a partir de [MySQL Community Edition](https://www.mysql.com/products/community/), con el motor InnoDB.  Azure Database for MySQL actualmente admite las siguientes versiones:
 
-## <a name="mysql-version-5638"></a>Versión de MySQL 5.6.38
-Consulte la [documentación](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-38.html) de MySQL para obtener más información sobre las mejoras y correcciones de MySQL 5.6.38.
+## <a name="mysql-version-5639"></a>MySQL versión 5.6.39
+Consulte la [documentación](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) de MySQL para más información sobre las mejoras y correcciones de MySQL 5.6.39.
 
-## <a name="mysql-version-5720"></a>Versión de MySQL 5.7.20
-Consulte la [documentación](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-20.html) de MySQL para obtener más información sobre las mejoras y correcciones de MySQL 5.7.20.
+## <a name="mysql-version-5721"></a>MySQL versión 5.7.21
+Consulte la [documentación](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html) de MySQL para más información sobre las mejoras y correcciones de MySQL 5.7.21.
 
 > [!NOTE]
 > En el servicio, se usa una puerta de enlace para redirigir las conexiones a las instancias de servidor. Una vez establecida la conexión, el cliente de MySQL muestra la versión de MySQL establecida en la puerta de enlace, no la versión real que se ejecuta en la instancia del servidor MySQL. Para determinar la versión de la instancia del servidor MySQL, use el comando `SELECT VERSION();` en el símbolo del sistema de MySQL. 

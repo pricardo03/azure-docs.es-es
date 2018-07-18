@@ -7,14 +7,15 @@ author: AyoOlubeko
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34645800"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
 
@@ -87,9 +88,9 @@ Más adelante, en un paso de repatriación diferente, se conmutarán por error e
 ## <a name="review-the-healthy-state-of-the-application"></a>Revisión del estado de mantenimiento de la aplicación
 
 Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento normal de la aplicación.
-1. En el explorador web, abra el centro de eventos de Wingtip Tickets: http://events.wingtip-dpt.&lt;usuario&gt;trafficmanager.net (reemplace &lt;usuario&gt; por el valor de usuario de la implementación).
+1. En el explorador web, abra el centro de eventos de Wingtip Tickets (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net; sustituya &lt;usuario&gt; por el valor del usuario de la implementación).
     * Desplácese hasta la parte inferior de la página y observe el nombre y la ubicación del servidor del catálogo en el pie de página. La ubicación es la región en la que se implementó la aplicación.
-    *Sugerencia: mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla. *
+    *Sugerencia: mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla.*
     ![Estado correcto del centro de eventos en la región original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Haga clic en el inquilino Contoso Concert Hall y abra su página de eventos.
@@ -201,7 +202,7 @@ Mientras que el punto de conexión de la aplicación esté deshabilitado en Traf
  
     ![Centro de eventos sin conexión](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * Si abre directamente la página de eventos de un inquilino sin conexión, se muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está sin conexión, intente abrir http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall ![Página de Contoso sin conexión](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+    * Si abre directamente la página de eventos de un inquilino sin conexión, se muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está sin conexión, intente abrir http://events.wingtip-dpt.&lt.usuario&gt;.trafficmanager.net/contosoconcerthall ![Página de Contoso sin conexión](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Aprovisionamiento de un nuevo inquilino en la región de recuperación
 Incluso antes de que todas las bases de datos de inquilino existentes hayan realizado la conmutación por error, puede aprovisionar nuevos inquilinos en la región de recuperación.  
@@ -250,7 +251,7 @@ En esta tarea, va a actualizar una de las bases de datos de inquilino.
 2. En *PowerShell ISE*, en el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, establezca el siguiente valor:
     * **$DemoScenario = 5**, eliminar un evento de un inquilino en la región de recuperación
 3. Presione **F5** para ejecutar el script
-4. Actualice la página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall : sustituya &lt;usuario&gt; por el valor del usuario en la implementación) y observe que el último evento ha sido eliminado.
+4. Actualice la página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall; sustituya &lt;usuario&gt; por el valor del usuario en la implementación) y observe que el último evento se ha eliminado.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Repatriación de la aplicación a su región de producción original
 
@@ -283,7 +284,7 @@ Ahora imaginemos que la interrupción se resuelve y ejecuta el script de repatri
     * Presione **F5** para ejecutar el script de recuperación en una nueva ventana de PowerShell.  La repatriación tardará varios minutos y se puede supervisar en la ventana de PowerShell.
     ![Proceso de repatriación](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Mientras se ejecuta el script, actualice la página del centro de eventos (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net)
+4. Mientras se ejecuta el script, actualice la página del centro de eventos (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net).
     * Observe que todos los inquilinos están en línea y son accesibles durante este proceso.
 
 5. Después de finalizar la repatriación, actualice el centro de eventos y abra la página de eventos de Hawthorn Hall. Observe que esta base de datos se ha repatriado a la región original.

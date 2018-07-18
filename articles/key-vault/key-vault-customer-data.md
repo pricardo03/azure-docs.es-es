@@ -11,20 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 12a176a6eba3b6dd83ef7fb97f89ecfe99083059
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213324"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235540"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Características de datos del cliente de Azure Key Vault
 
 Azure Key Vault recibe los datos del cliente durante la creación o actualización de almacenes, claves, secretos, certificados y cuentas de almacenamiento administradas. Estos datos del cliente se pueden ver directamente en Azure Portal y con la API de REST. Los datos del cliente se pueden editar o eliminar mediante la actualización o eliminación del objeto que los contiene.
 
 Los registros de acceso del sistema se generan cuando un usuario o una aplicación acceden a Key Vault. Los clientes tienen a su disposición los registros de acceso detallados en Azure Insights.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="identifying-customer-data"></a>Identificación de los datos del cliente
 

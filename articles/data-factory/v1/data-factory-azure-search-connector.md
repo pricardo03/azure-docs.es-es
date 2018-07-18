@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa5ca52f399f74ac6b3eae5c6918442292f87955
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f68e1077ebc26245b25eae3b0310db74b6d1357e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046452"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Search mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-azure-search-connector.md)
-> * [Versión 2: versión preliminar](../connector-azure-search.md)
+> * [Versión 1](data-factory-azure-search-connector.md)
+> * [Versión 2 (versión actual)](../connector-azure-search.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre el [conector de Azure Search en V2](../connector-azure-search.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo sobre el [conector de Azure Search en V2](../connector-azure-search.md).
 
 Este artículo describe cómo usar la actividad de copia para insertar datos de un almacén de datos de origen admitido en un índice de Azure Search. Los almacenes de datos de origen compatibles se muestran en la columna Se admite como origen de la tabla de [almacenes de datos y receptores que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Este artículo se basa en el artículo sobre [movimiento de datos y actividad de copia](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones de almacén de datos admitidas.
 

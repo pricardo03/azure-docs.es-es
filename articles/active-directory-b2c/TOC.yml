@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Tutoriales
   items:
-    - name: 1 - Registro de aplicaciones
-      href: tutorial-register-applications.md
+    - name: 1 - Creación del inquilino B2C
+      href: tutorial-create-tenant.md
     - name: 2 - Autenticación de cuentas
       items:
         - name: ASP.NET
@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Uso del acceso por antigüedad
           href: basic-age-gating.md
+        - name: Inicio de sesión directo
+          href: direct-signin.md
     - name: Marco de experiencia de identidad
       items:
         - name: Directivas personalizadas

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207951"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701359"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -76,30 +76,29 @@ Se puede especificar cualquier número de certificados adicionales para las oper
 
 
 ## <a name="prerequisites"></a>requisitos previos 
-El concepto de creación de clústeres seguros es el mismo, tanto si son de Linux como de Windows. En esta guía se explica el uso de Azure PowerShell o la CLI de Azure para crear nuevos clústeres. Los requisitos previos son: 
+El concepto de creación de clústeres seguros es el mismo, tanto si son de Linux como de Windows. En esta guía se explica el uso de Azure PowerShell o la CLI de Azure para crear nuevos clústeres. Los requisitos previos son:
 
 -  [Azure PowerShell 4.1 y versiones posteriores][azure-powershell] o la [CLI de Azure 2.0 y versiones posteriores][azure-CLI].
--  En estos vínculos puede encontrar detalles sobre los módulos de Service Fabric, [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) y sobre el módulo de la CLI, [az sf](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest).
+-  En estos vínculos puede encontrar detalles sobre los módulos de Service Fabric, [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) y sobre el módulo de la CLI, [az SF](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest).
 
 
 ## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>Uso del módulo RM de Service Fabric para implementar un clúster
 
 En este documento, se usará el módulo de PowerShell y de la CLI de RM de Service Fabric para implementar un clúster. El comando del módulo de PowerShell o de la CLI permite varios escenarios. Vamos a examinar cada uno de ellos. Seleccione aquel escenario que piense que satisface mejor sus necesidades. 
 
-- Creación de un nuevo clúster, mediante un certificado autofirmado generado por el sistema
-    - Uso de una plantilla de clúster predeterminada
-    - Uso de una plantilla ya existente
-- Creación de un nuevo clúster, mediante un certificado ya existente
-    - Uso de una plantilla de clúster predeterminada
-    - Uso de una plantilla ya existente
+- Creación de un cliente nuevo 
+    - mediante un certificado autofirmado generado por el sistema
+    - mediante un certificado que ya posea
+
+Puede usar una plantilla de clúster predeterminada o una plantilla que ya tenga.
 
 ### <a name="create-new-cluster----using-a-system-generated-self-signed-certificate"></a>Creación de un nuevo clúster, mediante un certificado autofirmado generado por el sistema
 
 Si quiere que el sistema genere un certificado autofirmado y lo use para proteger el clúster, use el siguiente comando para crear el clúster. Este comando configura un certificado de clúster principal que se usa para la seguridad del clúster y para configurar el acceso de administrador para realizar operaciones de administración con ese certificado.
 
-### <a name="login-in-to-azure"></a>Inicio de sesión en Azure
+### <a name="login-to-azure"></a>Inicio de sesión en Azure
 
-```Powershell
+```PowerShell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -108,7 +107,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 azure login
 az account set --subscription $subscriptionId
 ```
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Uso de la plantilla predeterminada 5 Node 1 nodetype que se incluye con el módulo para configurar el clúster
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Uso de la plantilla predeterminada 5 Node 1 nodetype que se incluye con el módulo para configurar el clúster
 
 Use el siguiente comando para crear un clúster rápidamente, con solo los parámetros mínimos.
 
@@ -116,7 +115,7 @@ La plantilla que se usa está disponible en las [plantillas de ejemplo de Azure 
 
 Los comandos siguientes sirven para la creación de clústeres de Windows y Linux, solo es necesario especificar el sistema operativo correspondiente. Los comandos de PowerShell y de la CLI también generan el certificado en la carpeta de salida de certificados especificada; no obstante, asegúrese de que dicha carpeta de certificados ya está creada. El comando toma también otros parámetros, como la SKU de máquina virtual.
 
-```Powershell
+```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -154,7 +153,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 Si tiene que crear una plantilla personalizada para adaptarla a sus necesidades, es muy aconsejable comenzar con una de las ya disponibles en las [plantillas de ejemplo de Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Siga las instrucciones y explicaciones para [personalizar la plantilla del clúster][customize-your-cluster-template] en la sección que viene a continuación.
 
-Si ya tiene una plantilla personalizada, asegúrese de comprobar doblemente que los tres parámetros relacionados con el certificado de la plantilla y el archivo de parámetros tengan los nombres siguientes y que los valores sean null como se indica a continuación.
+Si ya tiene una plantilla personalizada, asegúrese de volver a comprobar que los tres parámetros relacionados con el certificado de la plantilla y el archivo de parámetros tengan los nombres siguientes y que los valores sean null como se indica a continuación.
 
 ```Json
    "certificateThumbprint": {
@@ -207,7 +206,7 @@ Si tiene un certificado que quiere usar para proteger el clúster, use el siguie
 Si es un certificado firmado por una entidad de certificación que terminará usándose también para otros fines, se recomienda proporcionar un grupo de recursos distinto específicamente para su almacén de claves. Se recomienda colocar el almacén de claves en su propio grupo de recursos. Esto le permite quitar los grupos de recursos de proceso y almacenamiento, incluido el grupo de recursos que tiene el clúster de Service Fabric, sin perder las claves y los secretos. **El grupo de recursos que contiene el almacén de claves_debe estar en la misma región_ que el clúster que lo usa.**
 
 
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Uso de la plantilla predeterminada 5 Node 1 nodetype que se incluye con el módulo
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module"></a>Uso de la plantilla predeterminada 5 Node 1 nodetype que se incluye con el módulo
 La plantilla que se usa está disponible en las [plantillas de Azure: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
 ```PowerShell
@@ -244,7 +243,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 #### <a name="use-the-custom-template-that-you-have"></a>Uso de la plantilla personalizada ya existente 
 Si tiene que crear una plantilla personalizada para adaptarla a sus necesidades, es muy aconsejable comenzar con una de las ya disponibles en las [plantillas de ejemplo de Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Siga las instrucciones y explicaciones para [personalizar la plantilla del clúster][customize-your-cluster-template] en la sección que viene a continuación.
 
-Si ya tiene una plantilla personalizada, asegúrese de comprobar doblemente que los tres parámetros relacionados con el certificado de la plantilla y el archivo de parámetros tengan los nombres siguientes y que los valores sean null como se indica a continuación.
+Si ya tiene una plantilla personalizada, asegúrese de volver a comprobar que los tres parámetros relacionados con el certificado de la plantilla y el archivo de parámetros tengan los nombres siguientes y que los valores sean null como se indica a continuación.
 
 ```Json
    "certificateThumbprint": {
@@ -334,7 +333,7 @@ Para simplificar algunos de los pasos necesarios para configurar Azure AD con un
 3. Extraiga el archivo ZIP.
 4. Ejecute `SetupApplications.ps1` y proporcione los parámetros TenantId, ClusterName y WebApplicationReplyUrl. Por ejemplo: 
 
-```powershell
+```PowerShell
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
@@ -500,14 +499,13 @@ Para agregar la configuración de Azure AD a una plantilla de Resource Manager d
 }
 ```
 
-### <a name="populate-the-parameter-file-with-the-values"></a>Rellene el archivo de parámetros con los valores.
-Por último, utilice los valores de salida del almacén de claves y los comandos de PowerShell de Azure AD para rellenar el archivo de parámetros:
+### <a name="populate-the-parameter-file-with-the-values"></a>Relleno del archivo de parámetros con los valores
+Por último, use los valores de salida del almacén de claves y los comandos de PowerShell de Azure AD para rellenar el archivo de parámetros.
 
-Si tiene previsto usar los módulos de PowerShell de RM de Service Fabric, no es necesario rellenar la información de certificado del clúster; si quiere que el sistema genere el certificado autofirmado para la seguridad del clúster, basta con mantener sus valores nulos. 
+Si tiene previsto usar los módulos de PowerShell de RM de Azure Service Fabric, no es necesario rellenar la información de certificado del clúster. Si desea que el sistema genere el certificado autofirmado para la seguridad del clúster, basta con mantenerlos como null. 
 
 > [!NOTE]
 > Para que los módulos de RM seleccionen y rellenen estos valores de parámetro vacíos, los nombres de parámetros deben coincidir en gran medida con los nombres siguientes.
->
 
 ```json
 "clusterCertificateThumbprint": {
@@ -524,9 +522,9 @@ Si tiene previsto usar los módulos de PowerShell de RM de Service Fabric, no es
 },
 ```
 
-Si va a usar certificados de aplicación o usa un clúster existente que ha cargado en el almacén de claves, debe obtener esta información y rellenarla. 
+Si va a usar certificados de aplicación o usa un clúster existente que ha cargado en el almacén de claves, debe obtener esta información y rellenarla.
 
-Los módulos de RM no tienen la capacidad de generar automáticamente la configuración de Azure AD. Por ello, si tiene previsto usar Azure AD para el acceso de cliente, debe rellenarla.
+Los módulos de RM no tienen la posibilidad de generar la configuración de Azure AD automáticamente. Por ello, si tiene previsto usar Azure AD para el acceso de cliente, debe rellenarla.
 
 ```json
 {
@@ -582,6 +580,16 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 En el diagrama siguiente se ilustra el lugar que ocupa el almacén de claves y la configuración de Azure AD en la plantilla de Resource Manager.
 
 ![Asignación de dependencias de Resource Manager][cluster-security-arm-dependency-map]
+
+
+## <a name="encrypting-the-disks-attached-to-your-windows-cluster-nodevirtual-machine-instances"></a>Cifrado de los discos asociados a las instancias de máquina virtual o nodo de clúster de Windows
+
+Para cifrar los discos (unidad de sistema operativo y otros discos administrados) asociados a los nodos, se aprovecha Azure Disk Encryption. Azure Disk Encryption es una nueva funcionalidad que permite [cifrar los discos de las máquinas virtuales Windows](service-fabric-enable-azure-disk-encryption-windows.md). Azure Disk Encryption aprovecha la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx), estándar del sector, de Windows para proporcionar el cifrado de volumen para el volumen del sistema operativo. La solución se integra con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ayudarle a controlar y administrar los secretos y las claves de cifrado de discos en su suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage. 
+
+## <a name="encrypting-the-disks-attached-to-your-linux-cluster-nodevirtual-machine-instances"></a>Cifrado de los discos asociados a las instancias de máquina virtual o nodo de clúster de Linux
+
+Para cifrar los discos (unidad de datos y otros discos administrados) asociados a los nodos, se aprovecha Azure Disk Encryption. Azure Disk Encryption es una nueva funcionalidad que permite [cifrar los discos de las máquinas virtuales Linux](service-fabric-enable-azure-disk-encryption-linux.md). Azure Disk Encryption aprovecha la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt), estándar del sector, de Linux para ofrecer cifrado de volumen para los discos de datos. La solución se integra con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ayudarle a controlar y administrar los secretos y las claves de cifrado de discos en su suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage. 
+
 
 ## <a name="create-the-cluster-using-azure-resource-template"></a>Creación del clúster mediante la plantilla de recursos de Azure 
 

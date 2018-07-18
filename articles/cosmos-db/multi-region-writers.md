@@ -5,23 +5,43 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2446fac7526015d11737529c26d54e910643b750
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724914"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Varios maestros a escala global con Azure Cosmos DB 
  
-Desarrollar aplicaciones distribuidas globalmente que responden con latencias locales y mantener al mismo tiempo vistas coherentes de los datos en todo el mundo, supone un problema complejo. Los clientes usan bases de datos distribuidas globalmente, dada la necesidad de mejorar la latencia del acceso a los datos, conseguir una alta disponibilidad de estos, garantizar la recuperación ante desastres, y también para satisfacer sus requisitos empresariales. La funcionalidad de varios maestros de Azure Cosmos DB proporciona altos niveles de disponibilidad (99,999 %), latencia de milisegundos de una sola cifra para escribir datos y escalabilidad con compatibilidad completa y flexible con la resolución de conflictos. Estas características simplifican enormemente el desarrollo de aplicaciones distribuidas globalmente. En las aplicaciones distribuidas globalmente, es esencial la compatibilidad con varios maestros. 
+Desarrollar aplicaciones distribuidas globalmente que responden con latencias locales y mantener al mismo tiempo vistas coherentes de los datos en todo el mundo, supone un problema complejo. Los clientes usan bases de datos distribuidas globalmente, dada la necesidad de mejorar la latencia del acceso a los datos, para conseguir una alta disponibilidad de estos, garantizar la recuperación ante desastres y satisfacer sus requisitos empresariales. La funcionalidad de varios maestros de Azure Cosmos DB proporciona altos niveles de disponibilidad (99,999 %), latencia de milisegundos de una sola cifra para escribir datos y escalabilidad con compatibilidad completa y flexible con la resolución de conflictos. Estas características simplifican enormemente el desarrollo de aplicaciones distribuidas globalmente. En las aplicaciones distribuidas globalmente, es esencial la compatibilidad con varios maestros. 
 
 ![Arquitectura de varios maestros](./media/multi-region-writers/multi-master-architecture.png)
 
 Gracias a la compatibilidad con varios maestros de Azure Cosmos DB, es posible realizar escrituras en contenedores de datos (por ejemplo, colecciones, grafos, tablas) distribuidos en cualquier parte del mundo. Puede actualizar los datos en cualquier región que esté asociada a su cuenta de base de datos. Estas actualizaciones de datos pueden propagarse de forma asincrónica. Además de proporcionar acceso rápido y latencia de escritura a los datos, la funcionalidad de varios maestros también proporciona una solución práctica para problemas de equilibrio de carga y conmutación por error. En resumen, con Azure Cosmos DB obtiene una latencia de escritura de <10 ms en el percentil 99, un 99,999 % de disponibilidad de lectura y escritura y la posibilidad de escalar el rendimiento de lectura y escritura, y todo esto en cualquier parte del mundo.   
+
+> [!IMPORTANT]
+> La compatibilidad con varios maestros se encuentra disponible en versión preliminar; para usar esta versión, [regístrese](#sign-up-for-multi-master-support) ahora.
+
+## <a name="sign-up-for-multi-master-support"></a>Registrarse para obtener la compatibilidad con varios maestros
+
+Si ya tiene una suscripción de Azure, puede registrarse para formar parte del programa de versión preliminar de compatibilidad con varios maestros en Azure Portal. Si es nuevo en Azure, regístrese para conseguir una [evaluación gratuita](https://azure.microsoft.com/free) con la que disfrutará de 12 meses de acceso gratuito a Azure Cosmos DB. Complete los pasos siguientes para solicitar acceso al programa de versión preliminar de compatibilidad con varios maestros.
+
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso** > **Bases de datos** > **Azure Cosmos DB**.  
+
+2. En la página Nueva cuenta, proporcione un nombre para la cuenta de Azure Cosmos DB, elija la API, la suscripción, el grupo de recursos y la ubicación.  
+
+3. Después, seleccione **Regístrese hoy para obtener la versión preliminar** en el campo Versión preliminar de varios maestros.  
+
+   ![Registrarse para obtener la versión preliminar de varios maestros](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. En el panel **Regístrese hoy para obtener la versión preliminar**, haga clic en **Aceptar**. Una vez enviada la solicitud, el estado cambia a **Pendiente de aprobación** en la hoja de creación de la cuenta.  
+
+Después de enviar la solicitud, recibirá una notificación por correo electrónico donde se indica que la solicitud se ha aprobado. Debido al elevado volumen de solicitudes, es posible que reciba la notificación en el plazo de una semana. No es necesario crear una incidencia de soporte técnico para completar la solicitud. Las solicitudes se revisarán según el orden de llegada.
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>Ejemplo sencillo de varios maestros: publicación de contenido  
 
@@ -93,7 +113,7 @@ Con varios maestros, la dificultad es, con frecuencia, que dos (o más) réplica
 
 **Ejemplo**: supongamos que usa Azure Cosmos DB Como almacén de persistencia para la aplicación del carro de la compra y esta aplicación se implementa en dos regiones: Este de EE. UU. y Oeste de EE. UU.  Si, casi al mismo tiempo, un usuario de San Francisco agrega un artículo a este carro de la compra (por ejemplo, un libro) mientras un proceso de administración del inventario de la región Este de EE. UU. invalida otro artículo del carro de la compra (por ejemplo, un nuevo teléfono) de ese mismo usuario en respuesta a una notificación del proveedor de que la fecha de lanzamiento se ha retrasado, a la hora T1, los registros del carro de la compra de las dos regiones son diferentes. La base de datos usa su mecanismo de replicación y resolución de conflictos para resolver esta incoherencia y que finalmente una de las dos versiones del carro de la compra se pueda seleccionar. Con la heurística de resolución de conflictos que la mayor parte del tiempo aplican las bases de datos de varios maestros (por ejemplo, la última escritura gana), resulta imposible para el usuario o la aplicación predecir qué versión se seleccionará. En cualquier caso, puede producirse la pérdida de datos o un comportamiento inesperado. Si se selecciona la versión de la región Este, la selección del usuario de un nuevo artículo de compra (es decir, un libro) se pierde, y si se selecciona la región Oeste, el artículo anteriormente elegido (es decir, el teléfono) sigue en el carro. En cualquiera de los casos, se pierde información. Por último, cualquier otro proceso que inspecciona el carro de la compra entre las horas T1 y T2 se va a ver también como un comportamiento no determinista. Por ejemplo, un proceso en segundo plano que selecciona el almacén de cumplimiento y actualiza los costos del carro de la compra generaría resultados que entran en conflicto con el contenido final del carro. Si el proceso se ejecuta en la región Oeste y la alternativa 1 se cumple, se calcularían los costos del envío de dos artículos, aun cuando el carro podría tener pronto uno solo, el libro. 
 
-Azure Cosmos DB implementa la lógica de tratar las escrituras en conflicto dentro del propio motor de base de datos. Azure Cosmos DB ofrece **compatibilidad completa y flexible con la resolución de conflictos** al ofrecer varios modelos de resolución de conflictos, como Automático (CRDT, tipos de datos replicados sin conflicto), Last Write Wins (LWW), donde la última escritura prevalece, Personalizado (procedimiento almacenado) y Manual para la resolución automática de conflictos. Los modelos de resolución de conflictos proporcionan garantía de exactitud y coherencia y eliminan la carga que supone para los desarrolladores tener que pensar en coherencia, disponibilidad, rendimiento, latencia de replicación y combinaciones complejas de eventos en situaciones de conmutaciones por error geográficas y conflictos de escritura entre regiones.  
+Azure Cosmos DB implementa la lógica de tratar las escrituras en conflicto dentro del propio motor de base de datos. Azure Cosmos DB ofrece **compatibilidad completa y flexible con la resolución de conflictos** al ofrecer varios modelos de resolución de conflictos, como Automático (CRDT, tipos de datos replicados sin conflicto), Last Write Wins (LWW), donde la última escritura prevalece y Personalizado (procedimiento almacenado) para la resolución automática de conflictos. Los modelos de resolución de conflictos proporcionan garantía de exactitud y coherencia y eliminan la carga que supone para los desarrolladores tener que pensar en coherencia, disponibilidad, rendimiento, latencia de replicación y combinaciones complejas de eventos en situaciones de conmutaciones por error geográficas y conflictos de escritura entre regiones.  
 
   ![Resolución de conflictos de varios maestros](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
@@ -111,7 +131,7 @@ En este artículo, aprendió a usar una configuración de varios maestros distri
 
 * [Más información sobre la compatibilidad de Azure Cosmos DB con la distribución global](distribute-data-globally.md)  
 
-* [Más información sobre las conmutaciones por error manuales y automáticas en Azure Cosmos DB](regional-failover.md)  
+* [Más información sobre las conmutaciones por error automáticas en Azure Cosmos DB](regional-failover.md)  
 
 * [Más información sobre la coherencia global con Azure Cosmos DB](consistency-levels.md)  
 

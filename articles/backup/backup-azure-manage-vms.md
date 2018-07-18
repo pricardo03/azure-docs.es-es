@@ -1,24 +1,19 @@
 ---
-title: "Administración de copias de seguridad de máquinas virtuales implementadas por Resource Manager | Microsoft Docs"
-description: "Aprenda a administrar y supervisar las copias de seguridad de máquinas virtuales implementadas por Resource Manager."
+title: Administración de copias de seguridad de máquinas virtuales implementadas por Resource Manager
+description: Aprenda a administrar y supervisar las copias de seguridad de máquinas virtuales implementadas por Resource Manager.
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
-ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: trinadhk
+ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465727"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 
@@ -42,7 +37,7 @@ Muchas tareas de administración con una copia de seguridad de máquina virtual 
 ![Vista completa con control deslizante](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Apertura de un almacén de Recovery Services en el panel:
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacén de Recovery Services**.
 
     ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)

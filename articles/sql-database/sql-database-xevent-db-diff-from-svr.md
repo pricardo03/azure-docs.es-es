@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.workload: On Demand
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4a1a8a332628e79972e7c03dbc2ac839f244a002
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9c0115254fc3368868584e76ead8da812656e4d1
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028853"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos extendidos en SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -189,7 +190,7 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 ## <a name="related-links"></a>Vínculos relacionados
 
 - [Usar Azure PowerShell con Azure Storage](../storage/common/storage-powershell-guide-full.md)
-- [Cmdlets de Azure Storage](http://msdn.microsoft.com/library/dn806401.aspx)
+- [Cmdlets de Azure Storage](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Usar Azure PowerShell con Azure Storage](../storage/common/storage-powershell-guide-full.md) proporciona información completa sobre PowerShell y el servicio Azure Storage.
 - [Uso del almacenamiento de blobs de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL).](http://msdn.microsoft.com/library/ms189522.aspx)

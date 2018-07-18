@@ -1,0 +1,68 @@
+- name: Documentación de Conversation Learner
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es Conversation Learner?
+      href: overview.md
+    - name: Idiomas admitidos
+      href: languages-supported.md
+- name: Conceptos
+  items:
+    - name: Flujo de control
+      href: control-flow.md
+    - name: Límites y valores predeterminados
+      href: cl-values-and-boundaries.md
+- name: Guías de procedimientos
+  items:
+    - name: Introducción a Conversation Learner
+      href: quickstart.md
+    - name: Hello World
+      href: tutorials/1-hello-world.md
+    - name: Acciones de espera frente a acciones de no espera
+      href: tutorials/2-wait-vs-nonwait-actions.md
+    - name: Introducción a las entidades
+      href: tutorials/3-introduction-to-entities.md
+    - name: Entidad esperada
+      href: tutorials/4-expected-entity.md
+    - name: Entidades negables
+      href: tutorials/5-negatable-entities.md
+    - name: Entidades de varios valores
+      href: tutorials/6-multi-value-entities.md
+    - name: Entidades integradas
+      href: tutorials/7-built-in-entities.md
+    - name: Entradas alternativas
+      href: tutorials/8-alternative-inputs.md
+    - name: Registrar diálogos
+      href: tutorials/9-log-dialogs.md
+    - name: Devolución de llamada de detección de entidades
+      href: tutorials/10-entity-detection-callback.md
+    - name: Devoluciones de llamada de sesión
+      href: tutorials/11-session-callbacks.md
+    - name: Llamadas a API
+      href: tutorials/12-api-calls.md
+    - name: Tarjetas parte 1
+      href: tutorials/13-cards-1.md
+    - name: Tarjetas parte 2
+      href: tutorials/14-cards-2.md
+    - name: Crear ramas y deshacer
+      href: tutorials/15-branching-and-undo.md
+    - name: Control de versiones y etiquetado
+      href: tutorials/16-versioning-and-tagging.md
+    - name: 'Demostración: restablecimiento de contraseña'
+      href: tutorials/demo-password-reset.md
+    - name: 'Demostración: orden de pizzas'
+      href: tutorials/demo-pizza-order.md
+    - name: 'Demostración: iniciador de aplicaciones de realidad virtual'
+      href: tutorials/demo-vr-app-launcher.md
+    - name: Implementar un bot de Conversation Learner
+      href: deploy-to-bf.md
+    - name: Enseñar con Conversation Learner
+      href: how-to-teach-cl.md
+    - name: Administración de datos del usuario
+      href: managing-data.md
+- name: Recursos
+  items:
+    - name: Bot de ejemplo de Conversation Learner
+      href: 'https://github.com/Microsoft/ConversationLearner-Samples'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

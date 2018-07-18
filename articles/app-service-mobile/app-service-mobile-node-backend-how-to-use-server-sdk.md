@@ -14,11 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473756"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Uso del SDK de Node.js de Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -155,7 +156,7 @@ Microsoft Azure proporciona varios mecanismos para publicar su back-end de Node.
 
 Azure App Service tiene instrucciones específicas para aplicaciones de Node.js que usted debe revisar antes de publicar el back-end:
 
-* [Especificación de una versión de Node]
+* [Especificación de una versión de Node.js en una aplicación Azure]
 * [Uso de módulos de Node]
 
 ### <a name="howto-enable-homepage"></a>Habilitación de una página de inicio para la aplicación
@@ -885,7 +886,7 @@ Azure Portal le permite editar los archivos de script de back-end de Node.js en 
 [Supervisión de Azure App Service]: ../app-service/web-sites-monitor.md
 [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
 [Solución de problemas de Azure App Service en Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
-[Especificación de una versión de Node]: ../nodejs-specify-node-version-azure-apps.md
+[Especificación de una versión de Node.js en una aplicación Azure]: ../nodejs-specify-node-version-azure-apps.md
 [Uso de módulos de Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps

@@ -14,20 +14,21 @@ ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 6356eb7ce7d34e973607b0588a9dc2854726f5d3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c1096567a42845a0be327edfb1be67838936a057
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434596"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>Ejemplos de Azure PowerShell para API Management
 
-En la tabla siguiente se incluyen vínculos a scripts de Bash creados con Azure PowerShell.
+En la tabla siguiente hay scripts de ejemplo para trabajar con el servicio de API Management desde PowerShell.
 
 | | |
 |-|-|
 |**Aprovisionamiento y administración**||
-|[Adición de un usuario](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un usuario en API Management y obtiene una clave de suscripción.|
+|[Incorporación de un usuario](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un usuario en API Management y obtiene una clave de suscripción.|
 |[Creación de un servicio APIM](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Crea un servicio de administración de API de SKU de desarrollador.|
 |[Restauración de servicio](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Realiza copias de seguridad y restaura un servicio APIM.|
 |[Escala un servicio APIM](./scripts/powershell-scale-and-addregion-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Escala y agrega regiones al servicio APIM.|

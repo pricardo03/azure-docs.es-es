@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33869009"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37444249"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -26,7 +26,7 @@ Tras la implementación, muchas organizaciones quieren saber cómo se usa (y si 
 Las siguientes preguntas se pueden responder mediante informes existentes en [Azure Portal] (https://portal.azure.com/):
 
 > [!NOTE]
-> Debe ser [administrador global](../active-directory-assign-admin-roles-azure-portal.md) y habilitar la opción para que estos datos se recopilen en nombre de la organización. Para habilitarla, debe visitar la pestaña **Informes** o los registros de auditoría como mínimo una vez. Hasta entonces, no se recopilan datos para la organización.
+> Debe ser [administrador global](../users-groups-roles/directory-assign-admin-roles.md) y habilitar la opción para que estos datos se recopilen en nombre de la organización. Para habilitarla, debe visitar la pestaña **Informes** o los registros de auditoría como mínimo una vez. Hasta entonces, no se recopilan datos para la organización.
 >
 
 * ¿Cuántas personas se han registrado para el restablecimiento de contraseña?
@@ -54,25 +54,6 @@ En la experiencia de Azure Portal, se ha mejorado la visualización de la activi
 6. Para filtrar esta vista y ver únicamente los eventos relacionados con el restablecimiento de contraseña, seleccione el botón **Filtrar** que se encuentra en la parte superior del panel.
 7. En el menú **Filtrar**, seleccione la lista desplegable **Categoría** y cámbiela al tipo de categoría **Self-service Password Management** (Administración de contraseñas de autoservicio).
 8. También puede filtrar la lista si elige la **actividad** específica que le interesa.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Recuperación de eventos de administración de contraseñas desde la API de eventos e informes de Azure AD
-
-La API de eventos e informes de Azure AD admite la recuperación de toda la información incluida en los informes de restablecimiento de contraseña y de registro de restablecimiento de contraseña. Mediante esta API, puede descargar eventos individuales de restablecimiento de contraseña y de registro de restablecimiento de contraseña e integrarlos con la tecnología de informes que prefiera.
-
-> [!IMPORTANT]
-> Actualmente, la API de eventos e informes de Azure AD recupera hasta *75 000 eventos individuales* de tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) y [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). La API abarca los últimos 30 días.
-> 
-> Si necesita recuperar o almacenar datos más allá de este período, se sugiere mantenerlos en una base de datos externa que use la API para consultar las diferencias que se generen. Se recomienda comenzar a recuperar estos datos cuando se empiece a usar SSPR en la organización. Manténgalos externamente y luego siga realizando el seguimiento de las diferencias a partir de ese momento.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Introducción a la API de informes
-
-Para obtener acceso a estos datos, debe escribir una pequeña aplicación o un script para recuperarlos de los servidores. Para obtener más información, vea [Introducción a la API de generación de informes de Azure Active Directory](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-Cuando tenga un script que funcione, querrá examinar los eventos de registro y de restablecimiento de contraseña que puede recuperar para cumplir con sus escenarios:
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): muestra las columnas disponibles para los eventos de restablecimiento de contraseña.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): muestra las columnas disponibles para eventos de registro de restablecimiento de contraseña.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descripción de las columnas de informe en Azure Portal
 

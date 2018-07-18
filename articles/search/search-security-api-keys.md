@@ -8,17 +8,24 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284988"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Crear y administrar claves de API para un servicio de Azure Search
 
-Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda. 
+Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API de solo lectura generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda y se debe incluir en todas las solicitudes. En las [soluciones REST](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key) la clave de API se especifica normalmente en un encabezado de solicitud. En las [soluciones .NET](search-howto-dotnet-sdk.md#core-scenarios), se especifica a menudo una clave como valor de configuración y, posteriormente, se pasa como [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (clave de administración) o [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (clave de consulta) en [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+
+Las claves se crean con el servicio de búsqueda durante el aprovisionamiento de este. Puede ver y obtener los valores de clave en [Azure Portal](https://portal.azure.com).
+
+![Página del portal, configuración, sección claves](media/search-manage/azure-search-view-keys.png)
+
+## <a name="what-is-an-api-key"></a>¿Qué es una clave de API?
 
 Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. A través de [permisos basados en roles](search-security-rbac.md), puede eliminar o leer las claves, pero no se puede reemplazar una clave con una contraseña definida por el usuario ni usar Active Directory como metodología de autenticación principal para acceder a las operaciones de búsqueda. 
 

@@ -8,7 +8,7 @@
 }
 ```
 
-|Propiedad  |Valor predeterminado | Descripción |
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |maxBatchSize|64|Número máximo de eventos recibido por cada bucle de recepción.|
 |prefetchCount|N/D|Valor predeterminado de PrefetchCount que utilizará el host de procesador de eventos subyacente.| 

@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 599dc158cde0508aa0836c7028a87ed708ba1d86
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2571420e3497e85ec1bf37b340015b061e8c91d4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833920"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net#  para Azure Machine Learning
 
@@ -261,7 +263,7 @@ Para obtener más información acerca de las capas de agrupación, consulte esto
 
 ## <a name="response-normalization-bundles"></a>Conjuntos de normalización de respuesta
 
-La **normalización de respuestas** es un esquema de normalización presentado por primera vez por Geoffrey Hinton, et al, en el documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Clasificación de ImageNet con redes neuronales convolucionales profundas). 
+**Normalización de respuestas** es un esquema de normalización local presentado por primera vez por Geoffrey Hinton, y otros, en el documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Clasificación de ImageNet con redes neuronales convolucionales profundas). 
 
 La normalización de respuesta se utiliza para ayudar a la generalización en redes neuronales. Cuando una neurona se activa a un nivel muy alto, una capa de normalización de respuesta local suprime la capa de activación de las neuronas circundantes. Esto se realiza mediante tres parámetros (`α`, `β` y `k`) y una estructura convolucional (o forma de entorno). Cada neurona de la capa de destino **y** se corresponde con una neurona **x** de la capa de origen. El nivel de activación de **y** se determina mediante la fórmula siguiente, donde `f` es el nivel de activación de una neurona y `Nx` es el kernel (o el conjunto que contiene las neuronas en el entorno de **x**) como se define en la siguiente estructura convolucional:  
 

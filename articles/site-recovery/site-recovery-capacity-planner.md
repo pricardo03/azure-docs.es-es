@@ -1,24 +1,25 @@
 ---
-title: "Estimación de la capacidad de replicación en Azure | Microsoft Docs"
-description: "Use este artículo para estimar la capacidad cuando se realizan replicaciones con Azure Site Recovery."
+title: Estimación de la capacidad de replicación en Azure | Microsoft Docs
+description: Use este artículo para estimar la capacidad cuando se realizan replicaciones con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d177dae71cd0787a343bbada7c900aebdbad86cc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920668"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planeamiento de la capacidad para proteger las máquinas virtuales de Hyper-V con Site Recovery
 

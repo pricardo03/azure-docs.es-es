@@ -4,20 +4,21 @@ description: Puede usar reglas de almacenamiento en caché de la red CDN para es
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: 09705893c50e56cce5d888db097d7b810624b5d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4095ed763de378a673908d033d87b2aa6d72f13c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260013"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché
 
@@ -105,9 +106,14 @@ Las reglas de almacenamiento en caché globales y personalizadas se procesan en 
 Cuando se establecen estas reglas, una solicitud de _&lt;endpoint hostname&gt;_.azureedge.net/home/index.html desencadena la regla de almacenamiento en caché personalizada n.º 2, que se establece en: **Set if missing** (Establecer si falta) y 3 días. Por lo tanto, si el archivo *index.html* tiene los encabezados HTTP `Cache-Control` o `Expires`, se respetan; de lo contrario, si estos encabezados no están establecidos, el archivo se almacena en caché durante 3 días.
 
 > [!NOTE] 
-> Los archivos que se almacenan en caché antes de un cambio de regla mantienen su valor de duración de caché de origen. Para restablecer sus duraciones de caché, debe [purgar el archivo](cdn-purge-endpoint.md). En el caso de los puntos de conexión de **Azure CDN de Verizon**, las reglas de almacenamiento en caché pueden tardar hasta 90 minutos en surtir efecto.
+> Los archivos que se almacenan en caché antes de un cambio de regla mantienen su valor de duración de caché de origen. Para restablecer sus duraciones de caché, debe [purgar el archivo](cdn-purge-endpoint.md). 
+>
+> Los cambios en la configuración de Azure CDN pueden tardar un tiempo en propagarse por la red: 
+> - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
+> - En los perfiles de **Azure CDN estándar de Verizon**, la propagación normalmente se completa en 10 minutos.  
+>
 
 ## <a name="see-also"></a>Otras referencias
 
 - [Cómo funciona el almacenamiento en caché](cdn-how-caching-works.md)
-- [Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN](cdn-caching-rules-tutorial.md)
+- [Tutorial: Set Azure CDN caching rules](cdn-caching-rules-tutorial.md) (Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN)

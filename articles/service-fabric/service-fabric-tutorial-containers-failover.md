@@ -1,14 +1,14 @@
 ---
-title: "Conmutación por error y escalado de una aplicación de contenedores de Azure Service Fabric | Microsoft Docs"
-description: "En este tutorial, aprenderá a administrar la conmutación por error en una aplicación de contenedores de Azure Service Fabric.  Asimismo, obtenga información sobre cómo escalar los contenedores y servicios en ejecución en un clúster."
+title: Conmutación por error y escalado de una aplicación de contenedores de Service Fabric en Azure | Microsoft Docs
+description: En este tutorial, aprenderá a administrar la conmutación por error en una aplicación de contenedores de Azure Service Fabric.  Asimismo, obtenga información sobre cómo escalar los contenedores y servicios en ejecución en un clúster.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, microservicios, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,24 +16,27 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 27d1918125b8c2f79f6506470ae43354e402f9af
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112276"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demostración de la conmutación por error y el escalado de servicios de contenedor con Service Fabric
 
 Este tutorial es la tercera parte de una serie. En este tutorial, obtiene información sobre cómo se administra la conmutación por error en aplicaciones contenedoras de Service Fabric. Además, obtiene información sobre cómo escalar contenedores. En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
-> * Obtener información sobre la conmutación por error del contenedor en un clúster de Service Fabric  
+> * Obtener información sobre la conmutación por error del contenedor en un clúster de Service Fabric
 > * Escalar los contenedores de front-end web en una aplicación
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
+
 La aplicación de [Parte 2](service-fabric-tutorial-package-containers.md) se ejecuta en un clúster de Service Fabric activo.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Conmutación por error de un contenedor en un clúster
+
 Service Fabric se asegura de que sus instancias de contenedor se mueven automáticamente a otros nodos del clúster, en caso de error. También puede descargar manualmente un nodo de contenedores y moverlos correctamente a otros nodos del clúster. Tiene varias formas de escalar sus servicios. En este ejemplo, usamos Service Fabric Explorer.
 
 Para conmutar por error el contenedor de front-end, siga estos pasos:
@@ -41,13 +44,14 @@ Para conmutar por error el contenedor de front-end, siga estos pasos:
 1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
 2. Haga clic en el nodo **fabric:/TestContainer/azurevotefront** en la vista de árbol y expanda el nodo de partición (representado por un GUID). Observe el nombre de nodo de la vista de árbol, que le muestra los nodos en los que el contenedor se ejecuta actualmente (por ejemplo, `_nodetype_1`)
 3. Expanda el nodo **Nodos** en la vista de árbol. Haga clic en el botón de puntos suspensivos (tres puntos) situado junto al nodo, que ejecuta el contenedor.
-1. Elija **Reiniciar** para reiniciar ese nodo y confirmar la acción de reinicio. El reinicio hace que el contenedor conmute por error a otro nodo del clúster.
+4. Elija **Reiniciar** para reiniciar ese nodo y confirmar la acción de reinicio. El reinicio hace que el contenedor conmute por error a otro nodo del clúster.
 
 ![noderestart][noderestart]
 
 Observe cómo cambia el nombre de nodo, que indica dónde se ejecutan los contenedores de front-end, por otro nodo del clúster. Transcurridos unos instantes, debería poder ir a la aplicación de nuevo y ver la aplicación ahora en ejecución en un nodo diferente.
 
 ## <a name="scale-containers-and-services-in-a-cluster"></a>Escalar contenedores y servicios en un clúster
+
 Se pueden escalar contenedores de Service Fabric en un clúster para adaptarse a la carga en los servicios. Para escalar un contenedor, cambie el número de instancias que se ejecutan en el clúster.
 
 Para escalar el front-end web, siga estos pasos:
@@ -73,10 +77,10 @@ Mediante esta sencilla tarea de administración, hemos duplicado los recursos di
 En este tutorial, se demostró la conmutación por error del contenedor, así como el escalado de una aplicación. Se han completado los siguientes pasos:
 
 > [!div class="checklist"]
-> * Obtener información sobre la conmutación por error del contenedor en un clúster de Service Fabric  
+> * Obtener información sobre la conmutación por error del contenedor en un clúster de Service Fabric
 > * Escalar los contenedores de front-end web en una aplicación
 
-En esta serie de tutoriales, aprendió lo siguiente: 
+En esta serie de tutoriales, aprendió lo siguiente:
 > [!div class="checklist"]
 > * Creación de imágenes de contenedor
 > * Inserción de imágenes de contenedor en Azure Container Registry

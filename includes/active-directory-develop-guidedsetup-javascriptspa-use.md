@@ -1,4 +1,4 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Use la biblioteca de autenticación de Microsoft (MSAL) para iniciar la sesión del usuario
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Uso de la biblioteca de autenticación de Microsoft (MSAL) para iniciar la sesión del usuario
 
 1.  Cree un archivo llamado `app.js`. Si se usa Visual Studio, seleccione el proyecto (carpeta raíz del proyecto), haga clic con el botón derecho y seleccione: `Add` > `New Item` > `JavaScript File`.
 2.  Agregue el siguiente código al archivo `app.js`:
@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-out button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -119,12 +119,12 @@ La instancia de SPA generada por esta guía no usa directamente el token de iden
 
 #### <a name="getting-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente
 
-Después del inicio de sesión inicial, no desea pedirle a los usuarios que se reautentiquen cada vez que tengan que solicitar un token para acceder a un recurso, por lo que *acquireTokenSilent* se debería usar la mayor parte del tiempo para adquirir los tokens. Sin embargo, hay situaciones en las que resulta necesario forzar a que los usuarios interactúen con el punto de conexión de Azure Active Directory v2. Algunos ejemplos de esto son los siguientes:
--   Es posible que los usuarios deban volver a escribir las credenciales porque la contraseña expiró
--   La aplicación solicita acceso a un recurso para el cual el usuario necesita consentimiento
--   Se requiere la autenticación en dos fases
+Después del inicio de sesión inicial, no desea pedir a los usuarios que se vuelvan a autenticar cada vez que tengan que solicitar un token para acceder a un recurso, por lo que se usará *acquireTokenSilent* la mayor parte del tiempo para adquirir los tokens. Sin embargo, hay situaciones en las que resulta necesario forzar a que los usuarios interactúen con el punto de conexión de Azure Active Directory v2. Algunos ejemplos de esto son los siguientes:
+- Es posible que los usuarios deban volver a escribir las credenciales porque la contraseña expiró
+- La aplicación solicita acceso a un recurso para el cual el usuario necesita consentimiento
+- Se requiere la autenticación en dos fases
 
-Llamar a *acquireTokenRedirect(scope)* genera que se redirija a los usuarios al punto de conexión de Azure Active Directory v2 (o *acquireTokenPopup(scope)* genera una ventana emergente) donde los usuarios deben interactuar, ya sea confirmando las credenciales, dándole el consentimiento al recurso requerido o completando la autenticación en dos fases.
+Al llamar a *acquireTokenRedirect(scope)*, se redirige a los usuarios al punto de conexión de Azure Active Directory v2 (o *acquireTokenPopup(scope)* abre una ventana emergente) donde los usuarios deben interactuar, ya sea confirmando las credenciales, dando el consentimiento al recurso requerido o completando la autenticación en dos fases.
 
 #### <a name="getting-a-user-token-silently"></a>Obtención de un token de usuario en silencio
 El método ` acquireTokenSilent` controla la renovación y las adquisiciones de tokens sin la interacción del usuario. Después de ejecutar `loginRedirect` (o `loginPopup`) por primera vez, `acquireTokenSilent` es el método usado habitualmente para obtener los tokens empleados para acceder a recursos protegidos en las llamadas posteriores, ya que las llamadas para solicitar o renovar los tokens se realizan en modo silencioso.
@@ -204,7 +204,7 @@ Agregue el siguiente código al archivo `app.js`:
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign out the user
  */
 function signOut() {
     userAgentApplication.logout();

@@ -4,16 +4,16 @@ description: Describe cómo Azure Policy usa la definición de directiva de recu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194655"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937339"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -64,7 +64,7 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
 }
 ```
 
-Todos los ejemplos de plantillas de Azure Policy están en [Plantillas para Azure Policy](json-samples.md).
+Todos los ejemplos de Azure Policy están en [Ejemplos de directivas](json-samples.md).
 
 ## <a name="mode"></a>Mode
 
@@ -192,7 +192,8 @@ Una condición evalúa si un **campo** cumple determinados criterios. Estas son 
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Cuando se usan las condiciones **like** y **notLike**, puede incluir un carácter comodín (*) en el valor.
+Cuando se usan las condiciones **like** y **notLike**, puede incluir un carácter comodín (`*`) en el valor.
+El valor no debe contener más de un carácter comodín `*`.
 
 Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para representar un dígito, `?` para una letra, y cualquier otro carácter para representar ese carácter en sí. Por ejemplo, consulte [Permitir varios patrones de nombre](scripts/allow-multiple-name-patterns.md).
 
@@ -204,7 +205,7 @@ Se admiten los siguientes campos:
 
 - `name`
 - `fullName`
-  - Devuelve el nombre completo del recurso, incluidos a los elementos primarios (por ejemplo, "miServidor/miBaseDeDatos").
+  - Devuelve el nombre completo del recurso. El nombre completo de un recurso es el nombre del recurso precedido por los nombres de recurso principal (por ejemplo "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
@@ -251,6 +252,8 @@ El valor puede ser una cadena o un objeto con formato JSON.
 
 Con **AuditIfNotExists** y **DeployIfNotExists**, puede evaluar la existencia de un recurso relacionado y aplicar una regla y un efecto correspondiente si no existe ese recurso. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales.
 Para un ejemplo de auditoría cuando no se implementa una extensión de máquina virtual, consulte el artículo sobre la [auditoría si la extensión no existe](scripts/audit-ext-not-exist.md).
+
+Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de la directiva](policy-effects.md).
 
 ## <a name="aliases"></a>Alias
 
@@ -314,7 +317,7 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
 
 ## <a name="initiatives"></a>Iniciativas
 
-Las iniciativas le permiten agrupan muchas definiciones de directivas relacionadas para simplificar las asignaciones y la administración, porque se trabaja con un grupo como un elemento único. Por ejemplo, puede agrupar todas las definiciones de directivas de etiquetado relacionadas en una sola iniciativa. En lugar de asignar individualmente cada directiva, la aplica.
+Las iniciativas le permiten agrupan varias definiciones de directivas relacionadas para simplificar las asignaciones y la administración, porque se trabaja con un grupo como un elemento único. Por ejemplo, puede agrupar todas las definiciones de directivas de etiquetado relacionadas en una sola iniciativa. En lugar de asignar individualmente cada directiva, la aplica.
 
 En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos etiquetas: `costCenter` y `productName`. Usa dos directivas integradas para aplicar el valor de etiqueta predeterminado.
 
@@ -392,4 +395,4 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise los ejemplos de plantilla de Azure Policy en [Plantillas para Azure Policy](json-samples.md).
+- Puede ver más ejemplos en [Ejemplos de Azure Policy](json-samples.md).

@@ -1,8 +1,8 @@
 ---
-title: "Creación de su primera función en Linux con la CLI de Azure (versión preliminar) | Microsoft Docs"
-description: "Obtenga información sobre cómo crear su primera función de Azure para ejecutarse en una imagen de Linux predeterminada con la CLI de Azure."
+title: Creación de su primera función en Linux con la CLI de Azure (versión preliminar) | Microsoft Docs
+description: Obtenga información sobre cómo crear su primera función de Azure para ejecutarse en una imagen de Linux predeterminada con la CLI de Azure.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -12,10 +12,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
 ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467788"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Creación de su primera función para ejecutarse en Linux con la CLI de Azure (versión preliminar)
 

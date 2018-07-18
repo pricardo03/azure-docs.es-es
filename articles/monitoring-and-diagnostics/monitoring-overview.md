@@ -1,25 +1,19 @@
 ---
-title: Supervisión de recursos y aplicaciones de Azure | Microsoft Docs
+title: Supervisión de aplicaciones y recursos de Azure
 description: Introducción a los servicios y funcionalidades de Microsoft que contribuyen a una estrategia de supervisión completa de los servicios y las aplicaciones de Azure.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: ''
+ms.openlocfilehash: e6adcc136c273210cc40d23ed2cb177287654005
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777559"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265139"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Supervisión de aplicaciones y recursos de Azure
 
@@ -118,9 +112,9 @@ Hay varias herramientas que funcionan conjuntamente para supervisar diversos asp
 
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) proporciona supervisión y diagnóstico basados en escenarios para distintos escenarios de red de Azure. Almacena datos en las métricas y diagnósticos de Azure para su posterior análisis. Funciona con las siguientes soluciones para supervisar diversos aspectos de la red.
 
-[Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/): una solución de supervisión basada en la nube, que controla la conectividad entre las nubes públicas, los centros de datos y los entornos locales.
+[Network Performance Monitor (NPM)](../log-analytics/log-analytics-network-performance-monitor.md): una solución de supervisión basada en la nube, que controla la conectividad entre las nubes públicas, los centros de datos y los entornos locales.
 
-[ExpressRoute Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/): funcionalidad de NPM que supervisa la conectividad de un extremo a otro y el rendimiento a través de circuitos Azure ExpressRoute.
+[ExpressRoute Monitor](../expressroute/how-to-npm.md): funcionalidad de NPM que supervisa la conectividad de un extremo a otro y el rendimiento a través de circuitos Azure ExpressRoute.
 
 [DNS Analytics](../log-analytics/log-analytics-dns.md): solución que proporciona información detallada relacionada con la seguridad, el rendimiento y las operaciones, en función de los servidores DNS.
 

@@ -1,20 +1,20 @@
 ---
-title: Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure | Microsoft Docs
+title: Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure
 description: Comprenda el historial de administración de recursos, el estado del servicio y otra actividad de suscripción en el Registro de actividad y, después, utilice una alerta del Registro de actividad para recibir una notificación por correo electrónico cuando se realice una operación con privilegios elevados en su suscripción.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 5a6f4d7ab978543a6871eb0ac3926fa25fb65ad2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263337"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure
 

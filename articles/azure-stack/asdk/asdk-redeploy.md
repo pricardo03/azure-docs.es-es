@@ -1,6 +1,6 @@
 ---
 title: Reimplementación del Kit de desarrollo de Azure Stack | Microsoft Docs
-description: En este tutorial, aprenderá a volver a instalar el Kit de desarrollo de Azure Stack.
+description: En este artículo, aprenderá a volver a instalar el Kit de desarrollo de Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,28 +11,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850327"
 ---
-# <a name="tutorial-redeploy-the-asdk"></a>Tutorial: Reimplementación del Kit de desarrollo de Azure Stack
-En este tutorial, aprenderá a reimplementar el Kit de desarrollo de Azure Stack en un entorno que no sea de producción. Dado que la actualización del Kit de desarrollo de Azure Stack, debe volver a implementarla completamente para pasar a una versión más reciente. También puede volver a implementar el Kit de desarrollo de Azure Stack en cualquier momento en el que desea volver a empezar desde el principio.
+# <a name="redeploy-the-asdk"></a>Reimplementación del Kit de desarrollo de Azure Stack
+En este artículo, aprenderá a reimplementar el Kit de desarrollo de Azure Stack (ASDK) en un entorno que no sea de producción. Dado que la actualización del Kit de desarrollo de Azure Stack, debe volver a implementarla completamente para pasar a una versión más reciente. También puede volver a implementar el Kit de desarrollo de Azure Stack en cualquier momento en el que desea volver a empezar desde el principio.
 
 > [!IMPORTANT]
 > No se admite la actualización del Kit de desarrollo de Azure Stack a una nueva versión. Tendrá que volver a implementar el Kit de desarrollo de Azure Stack en el equipo host del kit de desarrollo cada vez que desee evaluar una versión más reciente de Azure Stack.
-
-En este tutorial, aprenderá a:
-
-> [!div class="checklist"]
-> * Quitar el registro de Azure 
-> * Reimplementación del Kit de desarrollo de Azure Stack
 
 ## <a name="remove-azure-registration"></a>Quitar el registro de Azure 
 Si se ha registrado anteriormente la instalación del Kit de desarrollo de Azure Stack con Azure, debe quitar el recurso de registro antes de volver a implementar el kit de desarrollo. Vuelva a registrar el Kit de desarrollo de Azure Stack para habilitar la redifusión de Marketplace al volver a implementar el kit de desarrollo. Si no ha registrado previamente Kit de desarrollo de Azure Stack con su suscripción de Azure, puede omitir esta sección.
@@ -55,7 +50,7 @@ Para quitar el recurso de registro, utilice el cmdlet **Remove-AzsRegistration**
 
   # Unregister Azure Stack
   Remove-AzsRegistration `
-      -CloudAdminCredential $YourCloudAdminCredential `
+      -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
   # Remove the Azure Stack resource group
@@ -71,7 +66,7 @@ Para quitar el recurso de registro, utilice el cmdlet **Remove-AzsRegistration**
 
 Azure Stack ahora puede anular correctamente el registro de la suscripción de Azure. Además, también debería eliminarse el grupo de recursos azurestack creado al registrar Kit de desarrollo de Azure Stack con Azure.
 
-## <a name="redeploy-the-asdk"></a>Reimplementación del Kit de desarrollo de Azure Stack
+## <a name="deploy-the-asdk"></a>Implementación del ASDK
 Para volver a implementar Azure Stack, debe empezar desde el principio, tal y como se describe a continuación. Los pasos son diferentes dependiendo de si utiliza o no el script del instalador (asdk-installer.ps1) de Azure Stack para instalar el Kit de desarrollo de Azure Stack.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>Reimplementación del Kit de desarrollo de Azure Stack con el script del instalador
@@ -85,7 +80,7 @@ Para volver a implementar Azure Stack, debe empezar desde el principio, tal y co
 
 3. Después de que el host del kit de desarrollo se reinicie en el sistema operativo base, inicie sesión como administrador local. Localice y elimine el archivo **C:\CloudBuilder.vhdx** que se utilizó como parte de la implementación anterior. 
 
-4. Repita los mismos pasos realizados para [implementar primero el Kit de desarrollo de Azure Stack](asdk-deploy.md).
+4. Repita los mismos pasos realizados para [implementar primero el Kit de desarrollo de Azure Stack](asdk-install.md).
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Reimplementación del Kit de desarrollo de Azure Stack sin utilizar el instalador
 Si no usó el script asdk-installer.ps1 para instalar el Kit de desarrollo de Azure Stack, debe reconfigurar manualmente el equipo host del kit de desarrollo antes de volver a implementar el Kit de desarrollo de Azure Stack.
@@ -100,16 +95,7 @@ Si no usó el script asdk-installer.ps1 para instalar el Kit de desarrollo de Az
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Quitar el registro de Azure 
-> * Reimplementación del Kit de desarrollo de Azure Stack
-
-Avance al siguiente tutorial para aprender a agregar un elemento de Marketplace de Azure Stack.
-
-> [!div class="nextstepaction"]
-> [Incorporación de un elemento de Marketplace de Azure Stack](asdk-marketplace-item.md)
+[Tareas de configuración posteriores a la instalación de ASDK](asdk-post-deploy.md)
 
 
 

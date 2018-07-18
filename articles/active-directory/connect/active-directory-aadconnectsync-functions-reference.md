@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect Sync: referencia de funciones | Microsoft Docs'
-description: "Referencia de expresiones declarativas de aprovisionamiento en la sincronización de Azure AD Connect"
+description: Referencia de expresiones declarativas de aprovisionamiento en la sincronización de Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595162"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referencia de funciones
 En Azure AD Connect, las funciones se usan para manipular un valor de atributo durante la sincronización.  
@@ -1108,7 +1110,7 @@ El formato es {source1}:{target1},{source2}:{target2},{sourceN},{targetN} donde 
 * La función toma cada aparición de los orígenes definidos y los reemplaza por los destinos.
 * El origen debe ser exactamente un carácter (unicode).
 * El origen no puede estar vacío ni puede tener más de un carácter (error de análisis).
-* El destino puede tener varios caracteres, por ejemplo, ö:oe, β:ss.
+* El destino puede tener varios caracteres: por ejemplo, ö:oe, β:ss.
 * El destino puede estar vacío, lo que indica que el carácter debe quitarse.
 * El origen distingue mayúsculas y minúsculas, y debe ser una coincidencia exacta.
 * La coma (,) y los dos puntos (:) son caracteres reservados y no se puede reemplazar utilizando esta función.

@@ -1,23 +1,22 @@
 ---
 title: Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure | Microsoft Docs
-description: "En este artículo se describe el modo de ejecutar Azure Site Recovery Deployment Planner cuando quiere pasar de Hyper-V a Azure."
-services: site-recovery
+description: Este artículo le enseña a ejecutar Azure Site Recovery Deployment Planner para la replicación de Hyper-V en Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: ae539f136578c6461ef7f680d553fbd76b10ae98
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 432e1164e56c6afadfc76ec980de99837c106dc5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920003"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure
 
-## <a name="modes-of-running-the-deployment-planner"></a>Modos de ejecutar Deployment Planner
-Puede ejecutar la herramienta de línea de comandos (ASRDeploymentPlanner.exe) en cualquiera de los cuatro modos siguientes: 
+Puede ejecutar la herramienta de línea de comandos Site Recovery Deployment Planner (ASRDeploymentPlanner.exe) en cualquiera de los cuatro modos siguientes: 
 -   [Obtención de la lista de máquinas virtuales (VM)](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Perfil](#profile-hyper-v-vms)
 -   [Generación de un informe](#generate-report)
@@ -39,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | El nombre de usuario para conectarse al host de Hyper-V o al clúster de Hyper-V. El usuario necesita tener acceso administrativo.|
-|-ServerListFile | El archivo con la lista de servidores que contiene las máquinas virtuales para las que se van a generar perfiles. La ruta de acceso del archivo puede ser absoluta o relativa. Este archivo debe contener uno de los siguientes datos en cada línea:<ul><li>Nombre o dirección IP del host de Hyper-V</li><li>Nombre o dirección IP del clúster de Hyper-V</li></ul><br>**Ejemplo:** El archivo ServerList.txt contiene los siguientes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | El archivo con la lista de servidores que contiene las máquinas virtuales para las que se van a generar perfiles. La ruta de acceso del archivo puede ser absoluta o relativa. Este archivo debe contener uno de los siguientes datos en cada línea:<ul><li>Nombre o dirección IP del host de Hyper-V</li><li>Nombre o dirección IP del clúster de Hyper-V</li></ul><br>**Ejemplo:** El archivo ServerList.txt contiene los siguientes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Opcional) La convención de nomenclatura universal (UNC) o la ruta de acceso del directorio local para almacenar los datos generados durante esta operación. Si no se especifica un nombre, el directorio llamado ProfiledData de la ruta de acceso actual se usa como directorio predeterminado.|
 |-OutputFile| (Opcional) El archivo donde se guarda la lista de máquinas virtuales obtenidas de los servidores de Hyper-V especificados. Si no se menciona ningún nombre, los detalles se almacenarán en VMList.txt.  Use el archivo para iniciar la generación de perfiles después de quitar las máquinas virtuales donde no se van a generar perfiles.|
 |-Password|(Opcional) La contraseña para conectarse al host de Hyper-V. Si no la especifica como un parámetro, se le pedirá que lo haga al ejecutar el comando.|
 
 ### <a name="getvmlist-discovery"></a>Detección de GetVMList
-**Clúster de Hyper-V**: cuando se da el nombre del clúster de Hyper-V en el archivo de lista de servidores, la herramienta busca todos los nodos de Hyper-V del clúster y obtiene las máquinas virtuales presentes en cada uno de los host de Hyper-V.
 
+- **Clúster de Hyper-V**: cuando se da el nombre del clúster de Hyper-V en el archivo de lista de servidores, la herramienta busca todos los nodos de Hyper-V del clúster y obtiene las máquinas virtuales presentes en cada uno de los host de Hyper-V.
 **Host de Hyper-V**: cuando se da el nombre del host de Hyper-V, la herramienta comprueba primero si pertenece a un clúster. En caso afirmativo, la herramienta captura los nodos que pertenecen al clúster. Luego, obtiene las máquinas virtuales de cada host de Hyper-V. 
 
 También puede elegir enumerar en un archivo los nombres descriptivos o las direcciones IP de las máquinas virtuales para las que desea generar perfiles de forma manual.
@@ -57,7 +56,7 @@ Abra el archivo de salida en el Bloc de notas y, después, copie en otro archivo
 
 #### <a name="store-the-list-of-vms-in-a-file"></a>Almacenamiento de la lista de máquinas virtuales en un archivo
 ```
-ASRDeploymentPlanner.exe -Operation GetVMlist -ServerListFile “E:\Hyper-V_ProfiledData\ServerList.txt" -User Hyper-VUser1 -OutputFile "E:\Hyper-V_ProfiledData\VMListFile.txt"
+ASRDeploymentPlanner.exe -Operation GetVMlist -ServerListFile "E:\Hyper-V_ProfiledData\ServerList.txt" -User Hyper-VUser1 -OutputFile "E:\Hyper-V_ProfiledData\VMListFile.txt"
 ```
 
 #### <a name="store-the-list-of-vms-at-the-default-location--directory-path"></a>Almacenamiento de la lista de máquinas virtuales en la ubicación predeterminada, es decir, la ruta de acceso de directorio
@@ -95,7 +94,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|El tipo de virtualización (VMware o Hyper-V).|
 |-Directory|(Opcional) UNC o ruta de acceso del directorio local para almacenar los datos de generación de perfiles que se han producido durante esta. Si no se especifica un nombre, el directorio llamado "ProfiledData" de la ruta de acceso actual se usa como el directorio predeterminado.|
 |-Password|(Opcional) La contraseña para conectarse al host de Hyper-V. Si no la especifica como un parámetro, se le pedirá que lo haga al ejecutar el comando.|
-|-StorageAccountName|(Opcional) El nombre de la cuenta de almacenamiento que se usa para ver el rendimiento que se puede obtener en la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el rendimiento. La cuenta de almacenamiento debe ser v1 de uso general o v2 de uso general.|
+|-StorageAccountName|(Opcional) El nombre de la cuenta de almacenamiento que se usa para ver el rendimiento que se puede obtener en la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el rendimiento. La cuenta de almacenamiento debe ser de tipo de uso general v1 (GPv1).|
 |-StorageAccountKey|(Opcional) La clave que se utiliza para acceder a esa cuenta. Vaya a Azure Portal > **Cuentas de almacenamiento** > *Nombre de cuenta de almacenamiento* > **Configuración** > **Claves de acceso** > **Key1** (o una clave de acceso principal para una cuenta de almacenamiento clásico).|
 |-Environment|(Opcional) Su entorno de destino para la cuenta de Azure Storage. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de destino se corresponde con Azure US Government o Azure China.|
 
@@ -129,22 +128,22 @@ El comando de generación de perfiles genera varios archivos en el directorio de
 
 #### <a name="profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Generación de perfiles de máquinas virtuales durante 30 días y búsqueda del rendimiento desde una ubicación local en Azure
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 #### <a name="profile-vms-for-15-days"></a>Generación de perfiles de máquinas virtuales durante 15 días
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
 ```
 
 #### <a name="profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Generación de perfiles de máquinas virtuales durante 60 minutos para realizar una prueba rápida de la herramienta
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
 ```
 
 #### <a name="profile-vms-for-2-hours-for-a-proof-of-concept"></a>Generación de perfiles de máquinas virtuales durante 2 horas para una prueba de concepto
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfHoursToProfile 2 -User Contoso\HyperVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfHoursToProfile 2 -User Contoso\HyperVUser1
 ```
 
 ### <a name="considerations-for-profiling"></a>Consideraciones para la generación de perfiles
@@ -153,7 +152,7 @@ Si el servidor en el que se ejecuta la herramienta se reinicia o se ha bloqueado
 
 Cuando se pasan el nombre y la clave de la cuenta de almacenamiento, la herramienta mide el rendimiento en el último paso de la generación de perfiles. Si la herramienta se cierra antes de que se complete la generación de perfiles, no se calcula el rendimiento. Para hallar el rendimiento antes de generar el informe, puede ejecutar la operación de GetThroughput desde la consola de línea de comandos. Si no lo hace, el informe generado no contendrá la información de rendimiento.
 
-Azure Site Recovery no es compatible con máquinas virtuales que tengan discos iSCSI y de acceso directo. Sin embargo, la herramienta no puede detectar ni generar perfiles de discos iSCSI y de acceso directo que estén asociados a máquinas virtuales.
+Azure Site Recovery no es compatible con máquinas virtuales que tengan discos iSCSI y de acceso directo. La herramienta no puede detectar ni generar perfiles de discos iSCSI y de acceso directo que estén asociados a máquinas virtuales.
 
 ## <a name="generate-a-report"></a>Generación de un informe
 La herramienta genera un archivo de Microsoft Excel habilitado para macros (archivo XLSM) como la salida del informe. Este resume todas las recomendaciones de implementación. El informe se denomina DeploymentPlannerReport_*identificador numérico único*.xlsm y se coloca en el directorio especificado.
@@ -193,39 +192,39 @@ De forma predeterminada, la herramienta está configurada tanto para generar per
 ### <a name="examples"></a>Ejemplos
 #### <a name="generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Generación de un informe con los valores predeterminados cuando los datos de generación de perfiles están en la unidad local
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"
 ```
 
 #### <a name="generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Generación de un informe cuando los datos de generación de perfiles están en un servidor remoto
 El usuario debe tener acceso de lectura y escritura en el directorio remoto.
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “\\PS1-W2K12R2\Hyper-V_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "\\PS1-W2K12R2\Hyper-V_ProfiledData" -VMListFile "\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt"
 ```
 
 #### <a name="generate-a-report-with-a-specific-bandwidth-that-you-will-provision-for-the-replication"></a>Generación de un informe con un ancho de banda específico que se aprovisionará en la replicación
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -Bandwidth 100
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -Bandwidth 100
 ```
 
 #### <a name="generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Generación de un informe con un factor de crecimiento del 5 %, en lugar del valor predeterminado del 30 % 
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -GrowthFactor 5
 ```
 
 #### <a name="generate-a-report-with-a-subset-of-profiled-data"></a>Generación de un informe con un subconjunto de datos de la generación de perfiles
 Por ejemplo, tiene 30 días de datos de generación de perfiles y desea generar un informe de solo 20 días.
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
+ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
 #### <a name="generate-a-report-for-a-5-minute-rpo"></a>Generación de un informe para un RPO de 5 minutos
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
 ```
 
 #### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Generación de un informe para la región de Azure de India del Sur con la rupia india y un identificador de oferta específico
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
 
 
@@ -277,14 +276,14 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Virtualization|El tipo de virtualización (VMware o Hyper-V).|
 |-Directory|(Opcional) El UNC o la ruta de acceso del directorio local en que se almacenan los datos de la generación de perfiles (los archivos que se crean en la generación de perfiles). Estos datos son necesarios para generar el informe. Si no se especifica un nombre, el directorio llamado "ProfiledData" de la ruta de acceso actual se usa como el directorio predeterminado.|
-| -StorageAccountName | El nombre de la cuenta de almacenamiento que se usa para hallar el ancho de banda consumido durante la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el ancho de banda consumido. La cuenta de almacenamiento debe ser v1 de uso general o v2 de uso general.|
+| -StorageAccountName | El nombre de la cuenta de almacenamiento que se usa para hallar el ancho de banda consumido durante la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el ancho de banda consumido. La cuenta de almacenamiento debe ser de tipo de uso general v1 (GPv1).|
 | -StorageAccountKey | La clave de la cuenta de almacenamiento utilizada para acceder a dicha cuenta. Vaya a Azure Portal > **Cuentas de almacenamiento** > *nombre de la cuenta de almacenamiento* > **Configuración** > **Claves de acceso** > **Key1**.|
 | -VMListFile | El archivo que contiene la lista de máquinas virtuales de las que se va a generar el perfil para calcular el ancho de banda consumido. La ruta de acceso del archivo puede ser absoluta o relativa. En Hyper-V, este archivo es el archivo de salida de la operación GetVMList. Si va a realizar la preparación de forma manual, el archivo debe contener un nombre de servidor o una dirección IP seguidos de un nombre de máquina virtual, (separados por una barra diagonal inversa "\" por línea). El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del host de Hyper-V.<br><br>**Ejemplo:** El archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Opcional) Su entorno de destino para la cuenta de Azure Storage. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de Azure de destino se corresponde con Azure US Government o Azure China.|
 
 ### <a name="example"></a>Ejemplo
 ```
-ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 ### <a name="throughput-considerations"></a>Consideraciones de rendimiento

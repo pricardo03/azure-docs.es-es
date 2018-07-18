@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645368"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
 
@@ -108,7 +109,7 @@ Dentro de la aplicación, cada inquilino obtiene una base de datos SQL implement
 
 Una página de **Event Hubs** central proporciona una lista de vínculos a los inquilinos en su implementación.
 
-1. Use la dirección URL para abrir Event Hubs en el explorador web: http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net. Sustituya &lt;usuario&gt; por el valor de usuario de la implementación.
+1. Use la dirección URL para abrir Event Hubs en el explorador web: http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net. Sustituya &lt;usuario&gt; por el valor de usuario de la implementación.
 
     ![Centro de eventos](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
@@ -120,7 +121,7 @@ Una página de **Event Hubs** central proporciona una lista de vínculos a los i
 
 La aplicación Wingtip usa [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) para controlar la distribución de solicitudes entrantes. La dirección URL para acceder a la página de eventos para un inquilino específico utiliza el formato siguiente:
 
-- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/fabrikamjazzclub
 
     En la tabla siguiente se explican los elementos del formato anterior.
 

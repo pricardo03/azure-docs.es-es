@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: saysa
-ms.openlocfilehash: 047b3d00da4f192febeeab79c9c87b67a8a0489b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972255"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Uso de Jenkins para compilar e implementar las aplicación para Linux
 Jenkins es una herramienta popular para la integración e implementación continuas de aplicaciones. Así es como se compila e implementa una aplicación de Azure Service Fabric mediante Jenkins.
@@ -176,9 +177,9 @@ Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En 
   Cuando ejecute `docker info` en el terminal, verá en la salida que el servicio Docker se está ejecutando.
 
 ### <a name="steps"></a>Pasos
-1. Extraiga la imagen del contenedor de Jenkins de Service Fabric: `docker pull rapatchi/jenkins:latest` Esta imagen lleva preinstalado el complemento Jenkins de Servic Fabric.
+1. Extraiga la imagen del contenedor de Jenkins de Service Fabric: `docker pull rapatchi/jenkins:latest`. Esta imagen lleva preinstalado el complemento Jenkins de Service Fabric.
 2. Ejecute la imagen del contenedor: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
-3. Obtenga el identificador de la instancia de la imagen de contenedor. Puede enumerar todos los contenedores de Docker con el comando `docker ps –a`.
+3. Obtenga el identificador de la instancia de la imagen de contenedor. Puede enumerar todos los contenedores de Docker con el comando `docker ps –a`
 4. Inicie sesión en el portal de Jenkins con los siguientes pasos:
 
    1. Inicie sesión en un shell de Jenkins desde el host. Use los cuatro primeros dígitos del identificador de contenedor. Por ejemplo, si el identificador de contenedor es `2d24a73b5964`, use `2d24`.
@@ -297,12 +298,12 @@ En entornos de producción, es muy recomendable configurar una credencial de Azu
 
 En entornos de desarrollo y pruebas, puede configurar las credenciales de Azure o el punto de conexión de administración de clúster para implementar la aplicación. Para más información sobre cómo configurar un punto de conexión de administración de clúster, consulte [Configuración de la implementación mediante el punto de conexión de administración de clúster](#configure-deployment-using-cluster-management-endpoint).   
 
-1. Para crear una entidad de servicio de Azure Active Directory y asignarle permisos en las suscripciones de Azure, siga los pasos que se describen en [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Preste atención a lo siguiente:
+1. Para crear una entidad de servicio de Azure Active Directory y asignarle permisos en las suscripciones de Azure, siga los pasos que se describen en [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Preste atención a lo siguiente:
 
    * Mientras sigue los pasos descritos en el tema, asegúrese de copiar y guardar los valores siguientes: *Id. de aplicación*, *Clave de aplicación*, *Id. de directorio (id. de inquilino)* e *Id. de suscripción*. Los necesita para configurar las credenciales de Azure en Jenkins.
-   * Si no tiene los [permisos necesarios](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) sobre el directorio, deberá pedir al administrador que se los conceda o que le cree la entidad de servicio; o deberá configurar el punto de conexión de administración de su clúster en **Post-Build Actions** (Acciones posteriores a la compilación) para su trabajo en Jenkins.
-   * En la sección [Crear una aplicación de Azure Active Directory](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application), puede escribir cualquier dirección URL con formato correcto como **dirección URL de inicio de sesión**.
-   * En la sección [Asignación de aplicación a un rol](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role), puede asignar a la aplicación el rol *Lector* en el grupo de recursos del clúster.
+   * Si no tiene los [permisos necesarios](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) sobre el directorio, deberá pedir al administrador que se los conceda o que le cree la entidad de servicio; o deberá configurar el punto de conexión de administración de su clúster en **Post-Build Actions** (Acciones posteriores a la compilación) para su trabajo en Jenkins.
+   * En la sección [Crear una aplicación de Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application), puede escribir cualquier dirección URL con formato correcto como **dirección URL de inicio de sesión**.
+   * En la sección [Asignación de aplicación a un rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role), puede asignar a la aplicación el rol *Lector* en el grupo de recursos del clúster.
 
 2. De nuevo en el trabajo de Jenkins, haga clic en la pestaña **Post-build Actions** (Acciones posteriores a la compilación).
 3. En la lista desplegable **Post-Build Actions** (Acciones posteriores a la compilación), seleccione **Deploy Service Fabric Project** (Implementar proyecto de Service Fabric). 

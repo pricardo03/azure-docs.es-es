@@ -2,23 +2,20 @@
 title: 'Azure Cosmos DB: API, SDK y recursos de Java asincrónico para SQL | Microsoft Docs'
 description: Obtenga toda la información sobre la API y el SDK de Java asincrónico para SQL, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Java asincrónico para SQL de Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
-ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: reference
+ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359533"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300686"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -56,6 +53,16 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* La dependencia org.json se reemplazó por jackson por motivos de rendimiento y licencias ([github 29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* La clase OfferV2 en desuso se quitó.
+* Se agregó el método de descriptor de acceso a la clase Offer para el contenido de rendimiento.
+* Todos los métodos de Document/Resource que devuelven tipos org.json cambiaron para devolver un tipo de objeto jackson.
+* El método getObject(.) de clases de ampliación de JsonSerializable cambió para devolver un tipo jackson ObjectNode.
+* El método getCollection(.) cambió para devolver un tipo Collection ObjectNode.
+* Se eliminaron los constructores de subclases JsonSerializable con el argumento org.json.JSONObject.
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented) usa ahora dos espacios para la sangría.
+  
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
 * Se agregó compatibilidad con la directiva de índice único.
 * Se agregó compatibilidad para limitar la respuesta del tamaño del token de continuación en opciones de fuente.
@@ -92,6 +99,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.0.0](#2.0.0) |20 de junio de 2018|--- |
 | [1.0.2](#1.0.2) |18 de mayo de 2018|--- |
 | [1.0.1](#1.0.1) |20 de abril de 2018|--- |
 | [1.0.0](#1.0.0) |27 de febrero de 2018|--- |

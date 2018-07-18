@@ -1,6 +1,6 @@
 ---
 title: 'Las cinco preguntas de la ciencia de datos (Ciencia de datos para principiantes): Azure Machine Learning | Microsoft Docs'
-description: Ciencia de datos para principiantes explica los conceptos básicos en 5 vídeos breves, empezando por las 5 preguntas que responde la ciencia de datos. De Azure Machine Learning.
+description: Ciencia de datos para principiantes explica los conceptos básicos en 5 vídeos breves, empezando por las 5 preguntas a las que responde la ciencia de datos. De Azure Machine Learning.
 keywords: realizar ciencia de datos,ciencia de datos para principiantes,aspectos básicos de ciencia de datos,preguntas de ciencia de datos,vídeo de ciencia de datos, introducción a la ciencia de datos
 services: machine-learning
 documentationcenter: na
@@ -10,21 +10,23 @@ manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 494c8293a1dbfccbfe2df1e2f48f770edb6452dc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1d004eb16fcac13d6ba7592cbe432cbeac0401e8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834158"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
-Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en realizar ciencia de datos o trabajar con científicos de datos.
+Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.
 
-Este primer vídeo trata de los tipos de preguntas que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
+Este primer vídeo trata de los tipos de preguntas a los que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
@@ -43,7 +45,7 @@ Este primer vídeo trata de los tipos de preguntas que puede responder la cienci
 ## <a name="transcript-the-5-questions-data-science-answers"></a>Transcripción: Las cinco preguntas a las que responde la ciencia de datos
 ¡Hola! Esta es la serie de vídeos *Ciencia de datos para principiantes*.
 
-La ciencia de datos puede ser algo intimidante, por lo que he presentado aquí los fundamentos básicos sin ecuaciones ni jerga de programación.
+La ciencia de datos puede ser algo intimidante, por lo que he presentado aquí los aspectos básicos, sin ecuaciones ni jerga de programación.
 
 En este primer vídeo, hablaremos sobre "Las cinco preguntas a las que responde la ciencia de datos".
 
@@ -92,7 +94,7 @@ Esta pregunta puede ser útil de muchas formas. Por ejemplo:
 La detección de anomalías marca eventos o comportamientos inesperados o poco habituales. Proporciona pistas sobre dónde buscar problemas.
 
 ## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Pregunta 3: ¿cuánto? o ¿cuántos? utiliza algoritmos de regresión
-Aprendizaje automático también puede predecir la respuesta a ¿cuánto? o ¿cuántos? La familia de algoritmos que responde a esta pregunta se denomina regresión.
+Machine Learning también puede predecir la respuesta a las preguntas ¿cuánto? o ¿cuántos? La familia de algoritmos que responde a esta pregunta se denomina regresión.
 
 ![Algoritmos de regresión: ¿Cuánto? o ¿Cuántos?](./media/data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
@@ -101,14 +103,14 @@ Los algoritmos de regresión realizan predicciones numéricas, como:
 * ¿Qué temperatura hará el martes que viene?  
 * ¿Cuáles serán las ventas del cuarto trimestre?
 
-Ayudan a responder cualquier pregunta que pueda solicitar un número.
+Ayudan a responder a cualquier pregunta que pueda solicitar un número.
 
 ## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Pregunta 4: ¿cómo está organizado? utiliza algoritmos de clústeres
 Ahora bien, las dos últimas preguntas son un poco más avanzadas.
 
 A veces deseará comprender la estructura de un conjunto de datos: ¿cómo está organizado? Para esta pregunta, no hay ejemplos para los que ya conozca resultados.
 
-Hay muchas maneras de determinar la estructura de datos. Un enfoque son los clústeres. Separa los datos en "grupos" naturales para interpretarlos más fácilmente. Con los clústeres no hay una respuesta correcta.
+Hay muchas maneras de determinar la estructura de datos. Un enfoque son los clústeres. Separa los datos en grupos naturales para interpretarlos más fácilmente. Con los clústeres no hay una respuesta correcta.
 
 ![Algoritmos de clústeres ¿Cómo está organizado?](./media/data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
@@ -120,15 +122,15 @@ Algunos ejemplos comunes de preguntas con agrupación en clústeres son:
 Al comprender cómo se organizan los datos, puede comprender y predecir mejor eventos y comportamientos.  
 
 ## <a name="question-5-what-should-i-do-now-uses-reinforcement-learning-algorithms"></a>Pregunta 5: ¿qué debo hacer ahora? utiliza algoritmos de aprendizaje reforzado
-La última pregunta: ¿qué debo hacer ahora? utiliza una familia de algoritmos llamados aprendizaje reforzado.
+La última pregunta: ¿qué debo hacer ahora? utiliza una familia de algoritmos llamada aprendizaje reforzado.
 
-El aprendizaje reforzado se inspiró en cómo responde el cerebro de las ratas y los seres humanos los castigos y las recompensas. Estos algoritmos aprenden de los resultados y deciden la acción siguiente.
+El aprendizaje reforzado se inspiró en cómo responde el cerebro de las ratas y los seres humanos a los castigos y las recompensas. Estos algoritmos aprenden de los resultados y deciden la acción siguiente.
 
 Normalmente, el aprendizaje reforzado es una buena elección para los sistemas automatizados que tengan que tomar una gran cantidad de pequeñas decisiones sin ayuda humana.
 
 ![Algoritmos de aprendizaje reforzado ¿Qué debo hacer a continuación?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
-Las preguntas a las que responde son siempre sobre la acción que debe llevar a cabo una máquina o un robot (normalmente). Algunos ejemplos son:
+Las preguntas a las que responde son siempre sobre la acción que se debe llevar a cabo; normalmente dicha acción será realizada por una máquina o un robot. Algunos ejemplos son:
 
 * Si soy un sistema de control de temperatura de una casa: ¿ajusto la temperatura o la dejo como está?  
 * Si soy un automóvil sin conductor: ante un semáforo en ámbar ¿freno o acelero?  

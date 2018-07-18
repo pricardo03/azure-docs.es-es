@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604155"
 ---
 # <a name="azure-stack-1712-update"></a>Actualización de Azure Stack 1712
 
@@ -116,7 +117,25 @@ Esta sección contiene problemas conocidos posteriores a la instalación relacio
 
 #### <a name="health-and-monitoring"></a>Estado y supervisión
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerta 1:
+   - NOMBRE: rol de infraestructura incorrecto
+   - GRAVEDAD: advertencia
+   - COMPONENTE: controlador de mantenimiento
+   - DESCRIPCIÓN: el controlador de mantenimiento Heartbeat Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.  
+
+  Alerta 2:
+   - NOMBRE: rol de infraestructura incorrecto
+   - GRAVEDAD: advertencia
+   - COMPONENTE: controlador de mantenimiento
+   - Descripción: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
+
+  Ambas alertas pueden omitirse sin problemas. Se cerrarán automáticamente pasado un tiempo.  
+
 - Si reinicia una instancia de rol de infraestructura, es posible que reciba un mensaje que indica que se produjo un error en el reinicio. Sin embargo, el reinicio se realizó correctamente.
+
+
 
 #### <a name="marketplace"></a>Marketplace
 - Se han eliminado algunos elementos de Marketplace en esta versión por motivos de compatibilidad. Estos se volverán a habilitar después de una validación adicional.

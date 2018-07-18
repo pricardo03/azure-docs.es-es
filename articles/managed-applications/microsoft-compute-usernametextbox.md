@@ -4,20 +4,20 @@ description: Describe el elemento de la interfaz de usuario Microsoft.Common.Use
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: b65b62389fbb66c9461430d1dd2df42e71bf6cff
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9f07c5bf9ba1f1880fa142beb52455522425e68d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063308"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento de interfaz de usuario Microsoft.Compute.UserNameTextBox
 Control de cuadro de texto con validación integrada para nombres de usuario de Windows y Linux.
@@ -48,12 +48,11 @@ Control de cuadro de texto con validación integrada para nombres de usuario de 
 - `osPlatform` debe especificarse y puede ser **Windows** o **Linux**.
 - `constraints.regex` es un patrón de expresión regular de JavaScript. Si se especifica, el valor del cuadro de texto debe coincidir con el patrón para que la validación sea correcta. El valor predeterminado es **null**.
 - `constraints.validationMessage` es una cadena que se muestra cuando el valor del cuadro de texto produce un error en la validación especificada por `constraints.regex`. Si no se especifica, se utilizan los mensajes de validación integrados del cuadro de texto. El valor predeterminado es **null**.
-- Este elemento tiene validación integrada que se basa en el valor especificado para `osPlatform`. La validación integrada puede usarse junto con una expresión regular personalizada.
-Si se especifica un valor para `constraints.regex`, se activan las validaciones integradas y personalizadas.
+- Este elemento tiene validación integrada que se basa en el valor especificado para `osPlatform`. La validación integrada puede usarse junto con una expresión regular personalizada. Si se especifica un valor para `constraints.regex`, se activan las validaciones integradas y personalizadas.
 
 ## <a name="sample-output"></a>Salida de ejemplo
 ```json
-"tabrezm"
+"Example name"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,24 +1,25 @@
 ---
-title: "Invalidación del comportamiento HTTP mediante el motor de reglas de la red CDN de Azure | Microsoft Docs"
-description: "El motor de reglas permite personalizar cómo la red CDN de Azure controla las solicitudes HTTP, como el bloqueo de la entrega de determinados tipos de contenido, la definición de una directiva de almacenamiento en caché y la modificación de encabezados HTTP."
+title: Invalidación del comportamiento HTTP mediante el motor de reglas de la red CDN de Azure | Microsoft Docs
+description: El motor de reglas permite personalizar cómo la red CDN de Azure controla las solicitudes HTTP, como el bloqueo de la entrega de determinados tipos de contenido, la definición de una directiva de almacenamiento en caché y la modificación de encabezados HTTP.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: akucer
-editor: 
+manager: cfowler
+editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: mazha
-ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261056"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Invalidación del comportamiento HTTP mediante el motor de reglas de la red CDN de Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -46,9 +47,10 @@ Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administra
 ## <a name="tutorial"></a>Tutorial
 1. En la página **CDN profile** (Perfil de CDN), seleccione **Manage** (Administrar).
    
-    ![Botón de administración de perfil de la red CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Botón de administración del perfil de la red CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     Se abre el Portal de administración de CDN.
+
 2. Seleccione la pestaña **HTTP Large** (HTTP grande) y, a continuación, seleccione **Rules Engine** (Motor de reglas).
    
     Se muestran las opciones para una nueva regla.
@@ -58,7 +60,9 @@ Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administra
    > [!IMPORTANT]
    > El orden en que se muestran varias reglas afecta a la manera en que se controlan. Una regla posterior puede invalidar las acciones especificadas por una regla anterior.
    > 
+
 3. Escriba un nombre en el cuadro de texto **Nombre/Descripción** .
+
 4. Identifique el tipo de solicitudes al que se aplica la regla. Use la condición de coincidencia predeterminada **Always** (Siempre). 
    
    ![Condición de coincidencia de regla de CDN](./media/cdn-rules-engine/cdn-request-type.png)
@@ -71,7 +75,8 @@ Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administra
    > Para ver una lista detallada de las condiciones de coincidencia, consulte [Condiciones de coincidencia del motor de reglas](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-1. Para agregar una nueva función, haga clic en el botón **+** junto a **Features** (Características).  En la lista desplegable de la izquierda, seleccione **Aplicar Max-Age interno**.  En el cuadro de texto que aparece, escriba **300**. No cambie los valores predeterminados restantes.
+
+5. Para agregar una nueva función, haga clic en el botón **+** junto a **Features** (Características).  En la lista desplegable de la izquierda, seleccione **Aplicar Max-Age interno**.  En el cuadro de texto que aparece, escriba **300**. No cambie los valores predeterminados restantes.
    
    ![Características de reglas de CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -83,10 +88,11 @@ Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administra
    > Para obtener una lista detallada de características, consulte [Características del motor de reglas](cdn-rules-engine-reference-features.md).
    > 
    > 
-1. Haga clic en el botón **Agregar** para guardar la nueva regla.  La nueva regla ahora está pendiente de aprobación. Una vez aprobada, el estado cambia de **Pending XML** (XML pendiente) a **Active XML** (XML activo).
+
+6. Seleccione **Agregar** para guardar la nueva regla.  La nueva regla ahora está pendiente de aprobación. Una vez aprobada, el estado cambia de **Pending XML** (XML pendiente) a **Active XML** (XML activo).
    
    > [!IMPORTANT]
-   > Los cambios de las reglas pueden tardar hasta 90 minutos en propagarse a través de la red CDN.
+   > Los cambios de las reglas pueden tardar hasta 10 minutos en propagarse a través de Azure CDN.
    > 
    > 
 

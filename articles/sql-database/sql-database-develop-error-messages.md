@@ -7,15 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: af0cb98d679125d20b3f4b7819012bee70e04cd1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195335"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645504"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error para las aplicaciones cliente de SQL Database: errores de conexión de bases de datos y otros problemas
 
@@ -106,7 +106,7 @@ Los errores siguientes están relacionados con la creación y el uso de grupos e
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |El grupo elástico ha alcanzado su límite de almacenamiento. El uso del almacenamiento del grupo elástico no puede superar (%d) MB. |Límite de espacio del grupo elástico en MB. |Se ha intentado escribir datos en una base de datos cuando se ha alcanzado el límite de almacenamiento del grupo elástico. |Considere la posibilidad de incrementar el número de DTU y de agregar almacenamiento al grupo elástico si es posible para aumentar su límite de almacenamiento, reducir el almacenamiento usado por las bases de datos individuales del grupo elástico o quitar bases de datos de este. |
-| 10929 |EX_USER |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) para obtener ayuda. De lo contrario, Inténtelo de nuevo más tarde. |Número mínimo de DTU o de núcleos virtuales por base de datos; número máximo de DTU o de núcleos virtuales por base de datos |El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU o de núcleos virtuales del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
+| 10929 |EX_USER |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) para obtener ayuda. De lo contrario, inténtelo de nuevo más tarde. |Número mínimo de DTU o de núcleos virtuales por base de datos; número máximo de DTU o de núcleos virtuales por base de datos |El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU o de núcleos virtuales del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
 | 40844 |EX_USER |La base de datos '%ls' del servidor '%ls' es una base de datos de la versión '%ls' de un grupo elástico y no puede tener una relación de copia continua. |Nombre de la base de datos, versión de base de datos, nombre del servidor. |Se emitió un comando StartDatabaseCopy para una base de datos que no es Premium de un grupo elástico. |Próximamente |
 | 40857 |EX_USER |Grupo elástico no encontrado para el servidor: '%ls', nombre del grupo elástico: '%ls'. |Nombre del servidor; nombre del grupo elástico. |El grupo elástico especificado no existe en el servidor especificado. |Especifique un nombre de grupo elástico válido. |
 | 40858 |EX_USER |El grupo elástico '%ls' ya existe en el servidor: '%ls' |Nombre de grupo elástico, nombre del servidor. |El grupo elástico especificado ya existe en el servidor lógico especificado. |Proporcione un nuevo nombre de grupo elástico. |

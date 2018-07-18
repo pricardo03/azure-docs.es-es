@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639350"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
 
@@ -48,11 +49,11 @@ Puede descargar una versión editable de la imagen en formato svg. Obtenga más 
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Diagnóstico de problemas de filtrado del tráfico de red hacia o desde una máquina virtual
 
-Cuando se implementa una máquina virtual, Azure aplica varias reglas de seguridad de forma predeterminada a la máquina virtual que permiten o deniegan el tráfico hacia o desde la máquina virtual. Puede invalidar las reglas predeterminadas de Azure o crear reglas adicionales. En algún momento, puede que una máquina virtual no pueda comunicarse con otros recursos, debido a una regla de seguridad. La funcionalidad *Comprobación de flujo de IP* permite especificar una dirección IPv4 de origen y destino, el puerto, el protocolo (TCP o UDP) y la dirección de tráfico (entrante y saliente). La funcionalidad Comprobación de flujo de IP entonces comprueba la comunicación y le informa si la conexión es correcta o si genera algún error. Si se produce algún error en la conexión, la funcionalidad Comprobación de flujo de IP indica qué regla de seguridad permitió o denegó la comunicación, para poder resolver el problema. Obtenga más información sobre la funcionalidad [Comprobación de flujo de IP](network-watcher-ip-flow-verify-overview.md).
+Cuando se implementa una máquina virtual, Azure aplica varias reglas de seguridad de forma predeterminada a la máquina virtual que permiten o deniegan el tráfico hacia o desde la máquina virtual. Puede invalidar las reglas predeterminadas de Azure o crear reglas adicionales. En algún momento, puede que una máquina virtual no pueda comunicarse con otros recursos, debido a una regla de seguridad. La funcionalidad *Comprobación de flujo de IP* permite especificar una dirección IPv4 de origen y destino, el puerto, el protocolo (TCP o UDP) y la dirección de tráfico (entrante y saliente). La funcionalidad Comprobación de flujo de IP entonces comprueba la comunicación y le informa si la conexión es correcta o si genera algún error. Si se produce algún error en la conexión, la funcionalidad Comprobación de flujo de IP indica qué regla de seguridad permitió o denegó la comunicación, para poder resolver el problema. Más información acerca de la verificación del flujo IP en el tutorial [Diagnóstico de un problema de filtro de tráfico de red de la máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).
 
 ### <a name="diagnose-network-routing-problems-from-a-vm"></a>Diagnóstico de problemas de enrutamiento de red desde una máquina virtual
 
-Cuando se crea una red virtual, Azure crea varias rutas de salida predeterminadas para el tráfico de red. El tráfico saliente de todos los recursos, como las máquinas virtuales, implementados en una red virtual, se enruta por las rutas predeterminadas de Azure. Puede invalidar las rutas predeterminadas de Azure o crear rutas adicionales. Puede que una máquina virtual ya no pueda comunicarse con otros recursos debido a una ruta específica. La funcionalidad *Próximo salto* permite especificar una dirección IPv4 de origen y destino. La funcionalidad Próximo salto después comprueba la comunicación y le informa del tipo de próximo salto utilizado para enrutar el tráfico. A continuación, puede quitar, cambiar o agregar una ruta, para resolver un problema de enrutamiento. Obtenga más información sobre la funcionalidad [próximo salto](network-watcher-next-hop-overview.md?).
+Cuando se crea una red virtual, Azure crea varias rutas de salida predeterminadas para el tráfico de red. El tráfico saliente de todos los recursos, como las máquinas virtuales, implementados en una red virtual, se enruta por las rutas predeterminadas de Azure. Puede invalidar las rutas predeterminadas de Azure o crear rutas adicionales. Puede que una máquina virtual ya no pueda comunicarse con otros recursos debido a una ruta específica. La funcionalidad *Próximo salto* permite especificar una dirección IPv4 de origen y destino. La funcionalidad Próximo salto después comprueba la comunicación y le informa del tipo de próximo salto utilizado para enrutar el tráfico. A continuación, puede quitar, cambiar o agregar una ruta, para resolver un problema de enrutamiento. Obtenga más información sobre la funcionalidad [próximo salto](diagnose-vm-network-routing-problem.md).
 
 ### <a name="connection-troubleshoot"></a>Diagnóstico de conexiones de salida desde una máquina virtual
 
@@ -64,7 +65,7 @@ Las opciones de filtrado avanzadas y controles optimizados, con los que se puede
 
 ### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Diagnóstico de problemas con conexiones y la puerta de enlace de una red virtual de Azure
 
-Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y redes virtuales de Azure. La supervisión de puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. La funcionalidad *Diagnósticos de VPN* ofrece la posibilidad de diagnosticar puertas de enlace y conexiones. Diagnósticos de VPN diagnostica el estado de la puerta de enlace o de la conexión de la puerta de enlace y le informa de la disponibilidad de estas. Si la puerta de enlace o la conexión no están disponibles, la funcionalidad Diagnósticos de VPN le indica el motivo, para poder resolver el problema. Obtenga más información sobre [Diagnósticos de VPN](network-watcher-troubleshoot-overview.md).
+Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y redes virtuales de Azure. La supervisión de puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. La funcionalidad *Diagnósticos de VPN* ofrece la posibilidad de diagnosticar puertas de enlace y conexiones. Diagnósticos de VPN diagnostica el estado de la puerta de enlace o de la conexión de la puerta de enlace y le informa de la disponibilidad de estas. Si la puerta de enlace o la conexión no están disponibles, la funcionalidad Diagnósticos de VPN le indica el motivo, para poder resolver el problema. Más información sobre los diagnósticos VPN siguiendo el tutorial [Diagnóstico de un problema de comunicación entre redes](diagnose-communication-problem-between-networks.md).
 
 ### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Determinación de latencias relativas entre las regiones de Azure y los proveedores de acceso a Internet
 
@@ -90,7 +91,7 @@ Los grupos de seguridad de red (NSG) permiten o deniegan el tráfico entrante o 
 
 ![Análisis del tráfico](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Obtenga más información sobre [registros de flujos de NSG](network-watcher-nsg-flow-logging-overview.md) y [análisis de tráfico](traffic-analytics.md).
+Más información acerca de los registros de flujo NSG siguiendo el tutorial [Registro del tráfico de red hacia y desde una máquina virtual](network-watcher-nsg-flow-logging-portal.md) y los procedimientos para implementar el [análisis de tráfico](traffic-analytics.md).
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visualización de registros de diagnóstico de recursos de red
 

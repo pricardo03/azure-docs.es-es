@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6265a7f9f60b60d7b79e15a04feb0ec76dc59f6d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293125"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>¿Qué es una lista de control de acceso de puntos de conexión?
 
 > [!IMPORTANT]
 > Azure tiene dos [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para crear recursos y trabajar con ellos: Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de implementación Resource Manager. 
 
-Una lista de control de acceso (ACL) de puntos de conexión es una mejora de seguridad disponible para la implementación de Azure. Una ACL proporciona la capacidad de permitir o denegar tráfico a un extremo de la máquina virtual de forma selectiva. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Puede especificar ACL de red solo para extremos. No se puede especificar una ACL para una red virtual o para una subred específica contenida en una red virtual. Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Para obtener más información sobre los grupos de seguridad de red, consulte [Información general de los grupos de seguridad de red](security-overview.md).
+Una lista de control de acceso (ACL) de puntos de conexión es una mejora de seguridad disponible para la implementación de Azure. Una ACL proporciona la capacidad de permitir o denegar tráfico a un extremo de la máquina virtual de forma selectiva. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Puede especificar ACL de red solo para extremos. No se puede especificar una ACL para una red virtual o para una subred específica contenida en una red virtual. Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Al utilizar los grupos de seguridad de red, se reemplazará la lista de control de acceso del punto de conexión y ya no se aplicará más. Para obtener más información sobre los grupos de seguridad de red, consulte [Información general de los grupos de seguridad de red](security-overview.md).
 
 Las listas de control de acceso se pueden configurar mediante PowerShell o Azure Portal. Para configurar una ACL de red con PowerShell, consulte [Administración de listas de control de acceso para puntos de conexión mediante PowerShell](virtual-networks-acl-powershell.md). Para configurar una ACL de red con Azure Portal, vea [Configuración de puntos de conexión en una máquina virtual](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

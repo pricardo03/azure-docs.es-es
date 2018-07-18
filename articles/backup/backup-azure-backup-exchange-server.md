@@ -1,26 +1,21 @@
 ---
-title: Copia de seguridad de un servidor Exchange en Copia de seguridad de Azure con System Center 2012 R2 DPM | Microsoft Docs
-description: "Obtenga información acerca de cómo realizar una copia de seguridad de un servidor Exchange en Copia de seguridad de Azure con System Center 2012 R2 DPM"
+title: Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
+description: Obtenga información acerca de cómo realizar una copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 services: backup
-documentationcenter: 
 author: MaanasSaran
 manager: NKolli1
-editor: 
-ms.assetid: 13f32256-888e-416e-a78b-40c2a26a5939
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: masaran;jimpark;delhan;trinadhk;markgal
-ms.openlocfilehash: 9dc0105034e0d354a6cbbd7ba70634bdff83c1bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605107"
 ---
-# <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Copia de seguridad de un servidor Exchange en Copia de seguridad de Azure con System Center 2012 R2 DPM
+# <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 En este artículo se describe cómo configurar un servidor de System Center 2012 R2 Data Protection Manager (DPM) para realizar una copia de seguridad de un servidor Microsoft Exchange en Azure Backup.  
 
 ## <a name="updates"></a>Actualizaciones
@@ -31,8 +26,8 @@ Para registrar correctamente el servidor DPM con Copia de seguridad de Azure, de
 >
 >
 
-## <a name="prerequisites"></a>Requisitos previos
-Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites) para usar Copia de seguridad de Microsoft Azure a fin de proteger las cargas de trabajo. Entre estos requisitos previos se incluyen los siguientes:
+## <a name="prerequisites"></a>requisitos previos
+Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites) para usar Microsoft Azure Backup a fin de proteger las cargas de trabajo. Entre estos requisitos previos se incluyen los siguientes:
 
 * Se ha creado un almacén de Copia de seguridad en el sitio de Azure.
 * En el servidor DPM se han descargado las credenciales del almacén y del agente.
@@ -76,7 +71,7 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
    > ![Error de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Haga clic en **Siguiente**.
+8. Haga clic en **Next**.
 9. Seleccione la base de datos para **Copia de seguridad de copia**, y luego haga clic en **Siguiente**.
 
    > [!NOTE]
@@ -87,10 +82,10 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
 11. Revise el espacio en disco disponible y haga clic en **Siguiente**.
 12. Seleccione la hora a la que el servidor DPM creará la replicación inicial y haga clic en **Siguiente**.
 13. Seleccione las opciones de comprobación de coherencia y haga clic en **Siguiente**.
-14. Elija la base de datos de la que desea realizar una copia de seguridad en Azure y haga clic en **Siguiente**. Por ejemplo:
+14. Elija la base de datos de la que desea realizar una copia de seguridad en Azure y haga clic en **Siguiente**. Por ejemplo: 
 
     ![Especificar datos de protección en línea](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Defina la programación de **Copia de seguridad de Azure** y luego haga clic en **Siguiente**. Por ejemplo:
+15. Defina la programación de **Azure Backup** y luego haga clic en **Siguiente**. Por ejemplo: 
 
     ![Especificar programación de copia de seguridad en línea](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -98,7 +93,7 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
     > Los puntos de recuperación de notas en línea están basados en los puntos de recuperación completos rápidos. Por lo tanto, debe programar el punto de recuperación en línea después de la hora especificada para el punto de recuperación completo rápido.
     >
     >
-16. Configure la directiva de retención para **Copia de seguridad de Azure** y luego haga clic en **Siguiente**.
+16. Configure la directiva de retención para **Azure Backup** y luego haga clic en **Siguiente**.
 17. Elija una opción de replicación en línea y haga clic en **Siguiente**.
 
     Si tiene una base de datos grande, se puede tardar mucho tiempo en crear la copia de seguridad inicial a través de la red. Para evitar este problema, puede crear una copia de seguridad sin conexión.  
@@ -124,4 +119,4 @@ Para los puntos de recuperación en línea, existen cinco tipos de recuperación
     ![Elegir replicación en línea](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
+* [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)

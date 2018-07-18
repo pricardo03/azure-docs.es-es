@@ -1,6 +1,6 @@
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 
@@ -47,7 +47,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
    > [!IMPORTANT]
    > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* En el nivel Premium, actualmente está disponible más de 1 TB de almacenamiento en las siguientes regiones: Centro de Canadá, Sste de Canadá, Centro de Francia, Centro de Alemania, Este de Japón, Centro de Corea, Centro y Sur de EE. UU., Asia Suroriental, Aste de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](../articles/sql-database/sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* En el nivel Premium, actualmente está disponible más de 1 TB de almacenamiento en las siguientes regiones: Centro de Canadá, Sste de Canadá, Centro de Francia, Centro de Alemania, Este de Japón, Centro de Corea, Centro y Sur de EE. UU., Asia Suroriental, Aste de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](../articles/sql-database/sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Después de seleccionar el nivel del servidor, el número de DTU y la cantidad de almacenamiento, haga clic en **Aplicar**.  
@@ -94,7 +94,7 @@ Ahora puede conectarse al servidor de SQL Database y a sus bases de datos median
 
 Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse al servidor mediante SQL Server Management Studio.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**.
 

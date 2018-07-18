@@ -2,23 +2,21 @@
 title: 'Azure Cosmos DB: compilación de una aplicación de lista de tareas con Xamarin | Microsoft Docs'
 description: En este tema se incluye un ejemplo de código Xamarin que puede usar para conectarse a Azure Cosmos DB y realizar consultas
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 05/30/2018
 ms.author: sngun
-ms.openlocfilehash: ca6780f9cec478cf9ed756aaefc7f6c059b6316a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b224a40f1ed5e778da6429d44a449d3f9ffdf16d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38543907"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: compilación de una aplicación de lista de tareas con Xamarin
 
@@ -75,10 +73,10 @@ Ahora vamos a clonar la aplicación de la API de SQL Xamarin de github, revisar 
 3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-3. Luego, abra el archivo ToDoItems.sln desde la carpeta samples/xamarin/ToDoItems en Visual Studio.
+4. Luego, abra el archivo ToDoItems.sln desde la carpeta samples/xamarin/ToDoItems en Visual Studio.
 
 ## <a name="obtain-your-api-keys"></a>Obtención de las claves de API
 
@@ -97,6 +95,8 @@ Vuelva a Azure Portal para obtener la información de la clave de API y cópiela
 4. Después, copie el valor de la clave principal del portal y conviértalo en el valor de `Cosmos Auth Key` en APIKeys.cs.
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+
+[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
 ## <a name="review-the-code"></a>Revisión del código
 

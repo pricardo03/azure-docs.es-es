@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048846"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adición de inquilinos en Azure Stack para uso y facturación
 
@@ -63,7 +64,7 @@ Actualice el registro con la suscripción del nuevo cliente. Azure informa del u
 3. En la sesión de PowerShell, ejecute:
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>Parámetros del comando de PowerShell New-AzureRmResource
 | . | DESCRIPCIÓN |
@@ -72,6 +73,7 @@ Actualice el registro con la suscripción del nuevo cliente. Azure informa del u
 | customerSubscriptionID | La suscripción de Azure (no de Azure Stack) que pertenece al cliente que se va a registrar. Se debe crear en la oferta del CSP; en la práctica, esto significa mediante el centro de partners. Si un cliente tiene más de un inquilino de Azure Active Directory, esta suscripción debe crearse en el inquilino que se usará para iniciar sesión en Azure Stack.
 | resourceGroup | El grupo de recursos de Azure en el que se almacena el registro. 
 | registrationName | El nombre del registro de Azure Stack. Es un objeto almacenado en Azure. | 
+| Properties (Propiedades) | Especifica las propiedades del recurso. Use este parámetro para especificar los valores de las propiedades que son específicos del tipo de recurso.
 
 
 > [!Note]  

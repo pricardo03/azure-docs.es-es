@@ -1,24 +1,25 @@
 ---
-title: "Implementación de Azure Files | Microsoft Docs"
-description: "Obtenga información sobre cómo implementar Azure Files de principio a fin."
+title: Implementación de Azure Files | Microsoft Docs
+description: Obtenga información sobre cómo implementar Azure Files de principio a fin.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38a0e64bf958ef6aebac41136ffcb9c213cc7ec0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029788"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
@@ -29,23 +30,23 @@ Se recomienda encarecidamente leer [Planning for an Azure Files deployment](stor
 En este artículo se supone que ya ha completado los siguientes pasos:
 
 - Ha creado una cuenta de Azure Storage con las opciones de resistencia y cifrado deseadas en la región que quería. Consulte [Acerca de las cuentas de almacenamiento de Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener instrucciones paso a paso sobre cómo crear una cuenta de almacenamiento.
-- Ha creado un recurso compartido de Azure Files con su cuota deseada en su cuenta de almacenamiento. Consulte [Creación de un recurso compartido de archivos en Azure File Storage](storage-how-to-create-file-share.md) para obtener instrucciones paso a paso sobre cómo crear un recurso compartido de archivos.
+- Ha creado un recurso compartido de archivos de Azure con su cuota deseada en su cuenta de almacenamiento. Consulte [Creación de un recurso compartido de archivos en Azure File Storage](storage-how-to-create-file-share.md) para obtener instrucciones paso a paso sobre cómo crear un recurso compartido de archivos.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferencia de datos a Azure Files
-Puede que desee migrar recursos compartidos de archivos existentes, como los almacenados localmente, al nuevo recurso compartido de Azure Files. Esta sección le mostrará cómo mover datos a un recurso compartido de Azure Files a través de varios métodos populares detallados de la [guía de planeamiento](storage-files-planning.md#data-transfer-method).
+Puede migrar los recursos compartidos de archivos existentes, como los almacenados localmente, al nuevo recurso compartido de archivos de Azure. En esta sección se mostrará cómo mover datos a un recurso compartido de archivos de Azure mediante varios métodos populares que se detallan en la [guía de planeamiento](storage-files-planning.md#data-transfer-method).
 
 ### <a name="azure-file-sync-preview"></a>Azure File Sync (versión preliminar)
-Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
+Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
 
-Azure File Sync se puede usar para migrar datos a un recurso compartido de Azure Files, incluso si el mecanismo de sincronización no se desea para usarse a largo plazo. Puede encontrar más información sobre cómo usar Azure File Sync para transferir datos en el recurso compartido de archivos de Azure en [Planeamiento de una implementación de Azure File Sync (versión preliminar)](storage-sync-files-planning.md) y [Cómo implementar Azure File Sync (versión preliminar)](storage-sync-files-deployment-guide.md).
+Azure File Sync se puede usar para migrar datos a un recurso compartido de archivos de Azure, aunque el mecanismo de sincronización no se desee para usarlo a largo plazo. Se puede encontrar más información acerca de cómo usar Azure File Sync para transferir datos a un recurso compartido de archivos de Azure en [Planeamiento de una implementación de Azure File Sync (versión preliminar)](storage-sync-files-planning.md) e [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Azure Import/Export
-El servicio Azure Import/Export le permite transferir de forma segura grandes cantidades de datos a un recurso compartido de Azure Files mediante el envío de unidades de disco duro a un centro de datos de Azure. Consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener una descripción más detallada del servicio.
+El servicio Azure Import/Export permite transferir de forma segura grandes cantidades de datos a un recurso compartido de archivos de Azure mediante el envío de unidades de disco duro a un centro de datos de Azure. Consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener una descripción más detallada del servicio.
 
 > [!Note]  
-> Actualmente, el servicio Azure Import/Export no admite la exportación de archivos desde un recurso compartido de Azure Files.
+> Actualmente, el servicio Azure Import/Export no admite la exportación de archivos desde un recurso compartido de archivos de Azure.
 
-En los pasos siguientes se importarán datos desde una ubicación local al recurso compartido de Azure Files.
+Los pasos siguientes importarán datos desde una ubicación local a un recurso compartido de archivos de Azure.
 
 1. Obtenga el número necesario de discos duros para correo en Azure. Los discos duros pueden tener cualquier tamaño de disco, pero deben ser un SSD o HHD de 2,5" o 3,5" que admita el estándar SATA II o SATA III. 
 
@@ -62,7 +63,7 @@ En los pasos siguientes se importarán datos desde una ubicación local al recur
 
         ![Captura de pantalla del Asistente para nuevo volumen simple en MMC Administración de discos](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
-4. Cree el archivo CSV de conjunto de datos. El archivo CSV de conjunto de datos es una asignación entre la ruta de acceso a los datos locales y el recurso compartido de Azure Files deseado en el que se deben copiar los datos. Por ejemplo, el siguiente archivo CSV de conjunto de datos asigna un recurso compartido de archivos local ("F:\shares\scratch") a un recurso compartido de Azure Files ("MyAzureFileShare"):
+4. Cree el archivo CSV de conjunto de datos. El archivo CSV del conjunto de datos es una asignación entre la ruta de acceso a los datos locales y el recurso compartido de archivos de Azure deseado en el que se deben copiar los datos. Por ejemplo, el siguiente archivo CSV del conjunto de datos asigna un recurso compartido de archivos local ("F:\shares\scratch") a un recurso compartido de archivos de Azure ("MyAzureFileShare"):
     
     ```
     BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -82,7 +83,7 @@ En los pasos siguientes se importarán datos desde una ubicación local al recur
     
     Consulte [Preparación del archivo CSV InitialDriveSet o AdditionalDriveSet](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) para más información.
 
-6. Utilice la herramienta [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) para copiar sus datos a uno o varios discos duros.
+6. Utilice la herramienta [WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=55280) para copiar sus datos a uno o varios discos duros.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -91,18 +92,18 @@ En los pasos siguientes se importarán datos desde una ubicación local al recur
     > [!Warning]  
     > No modifique los datos de las unidades de disco duro o el archivo de diario después de completar la preparación del disco.
 
-7. [Cree un trabajo de importación](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-an-export-job).
+7. [Cree un trabajo de importación](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
 Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede utilizarse para transferir datos a Azure Files montando el recurso compartido de archivos localmente y luego utilizando la ubicación montada como destino en el comando Robocopy. El uso de Robocopy es bastante sencillo:
 
-1. [Monte el recurso compartido de Azure Files](storage-how-to-use-files-windows.md). Para obtener un rendimiento óptimo, se recomienda montar el recurso compartido de Azure Files localmente en el servidor que contiene los datos. En algunos casos, por ejemplo, cuando el servidor de archivos que proporciona los datos es un dispositivo NAS, esto puede no ser posible. En ese caso, es totalmente aceptable montar el recurso compartido de Azure Files en un equipo. En este ejemplo, `net use` se utiliza en la línea de comandos para montar el recurso compartido de archivos:
+1. [Monte un recurso compartido de archivos de Azure](storage-how-to-use-files-windows.md). Para obtener un rendimiento óptimo, es aconsejable montar el recurso compartido de archivos de Azure localmente, en el servidor que contiene los datos. En algunos casos, por ejemplo, cuando el servidor de archivos que proporciona los datos es un dispositivo NAS, esto puede no ser posible. En ese caso, es totalmente aceptable montar el recurso compartido de archivos de Azure en un equipo. En este ejemplo, `net use` se utiliza en la línea de comandos para montar el recurso compartido de archivos:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
     ```
 
-2. Use `robocopy` en la línea de comandos para mover datos al recurso compartido de Azure Files:
+2. Use `robocopy` en la línea de comandos para mover datos al recurso compartido de archivos de Azure.
 
     ```
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
@@ -114,7 +115,7 @@ Robocopy es una herramienta de copia conocida que se incluye con Windows y Windo
 AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo. Uso de AzCopy:
 
 1. Descargue la [versión más reciente de AzCopy en Windows](http://aka.ms/downloadazcopy) o [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
-2. Use `azcopy` en la línea de comandos para mover datos al recurso compartido de Azure Files. La sintaxis en Windows es la siguiente: 
+2. Use `azcopy` en la línea de comandos para mover datos al recurso compartido de archivos de Azure. La sintaxis en Windows es la siguiente: 
 
     ```
     azcopy /Source:<path-to-local-share> /Dest:https://<storage-account>.file.core.windows.net/<file-share>/ /DestKey:<storage-account-key> /S
@@ -132,7 +133,7 @@ AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y des
 Para reemplazar un recurso compartido de archivos local, es útil montar previamente los recursos compartidos en las máquinas en las que se usará. Esto puede hacerse automáticamente en una lista de máquinas.
 
 > [!Note]  
-> Montar un recurso compartido de Azure Files requiere el uso de la clave de cuenta de almacenamiento como la contraseña, por lo que solo recomendamos realizar el montaje en entornos de confianza. 
+> Montar un recurso compartido de archivos de Azure requiere el uso de la clave de la cuenta de almacenamiento como contraseña, por lo que solo se recomienda hacerlo en entornos de confianza. 
 
 ### <a name="windows"></a>Windows
 Puede usar PowerShell para ejecutar el comando de montaje en varios equipos. En el ejemplo siguiente, `$computers` es rellenar de forma manual, pero puede generar la lista de equipos para montar automáticamente. Por ejemplo, puede rellenar esta variable con resultados de Active Directory.

@@ -12,24 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
+ms.date: 05/24/2018
 ms.author: genli
-ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657288"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Ver y modificar los nombres de host
 Para permitir que el nombre de host haga referencia a las instancias de rol, debe establecer el valor del nombre de host en el archivo de configuración de servicio de cada rol. Para hacer esto, agregue el nombre de host que quiera al atributo **vmName** del elemento **Rol**. El valor del atributo **vmName** se usa como base para el nombre de host de cada instancia de rol. Por ejemplo, si el atributo **vmName** es *webrole* y hay tres instancias de ese rol, los nombres de host de las instancias serán *webrole0*, *webrole1* y *webrole2*. No es necesario especificar un nombre de host para máquinas virtuales en el archivo de configuración, porque el nombre de host de una máquina virtual se rellena según el nombre de esa máquina virtual. Para obtener más información sobre cómo configurar un servicio de Microsoft Azure, consulte [Esquema de configuración del servicio de Azure (archivo de .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>Ver nombres de host
 Puede ver los nombres de host de máquinas virtuales e instancias de rol en un servicio en la nube mediante cualquiera de las herramientas siguientes.
-
-### <a name="azure-portal"></a>Azure Portal
-Puede usar el [Portal de Azure](http://portal.azure.com) para ver los nombres de host de las máquinas virtuales en la hoja de información general para una máquina virtual. Tenga en cuenta que la hoja muestra un valor referente al **Nombre** y al **Nombre de host**. Aunque inicialmente son el mismo valor, si decide cambiar el nombre de host no cambiará el nombre de la máquina virtual o instancia de rol.
-
-Además, también puede ver las instancias de rol en el Portal de Azure, pero al enumerar las instancias de un servicio en la nube, el nombre de host no se mostrará. Verá el nombre de cada instancia, pero recuerde que ese nombre no representa al nombre de host.
 
 ### <a name="service-configuration-file"></a>Archivo de configuración de servicio
 Puede descargar en el Portal de Azure el archivo de configuración de servicio de un servicio implementado desde la hoja **Configurar** del servicio. Después, puede buscar el atributo **vmName** del elemento **Nombre de rol** para ver el nombre de host. Tenga en cuenta que ese nombre de host se usa como base para cada nombre de host de cada instancia de rol. Por ejemplo, si el atributo **vmName** es *webrole* y hay tres instancias de ese rol, los nombres de host de las instancias serán *webrole0*, *webrole1* y *webrole2*.
@@ -46,7 +42,7 @@ Desde un cliente REST, siga estas instrucciones:
 
 1. Asegúrese de que tiene un certificado de cliente para conectarse al Portal de Azure. Para obtener un certificado de cliente, siga los pasos que se indican en [Descarga e importación de la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Establezca una entrada de encabezado denominada x-ms-version con un valor de 2013-11-01.
-3. Envíe una solicitud con el siguiente formato: https://management.core.windows.net/\<subscription-id\>/services/hostedservices/\<nombre-del-servicio\>?embed-detail=true
+3. Envíe una solicitud con el formato siguiente: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. Busque el elemento **HostName** de cada elemento **RoleInstance**.
 
 > [!WARNING]

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Cambio de contraseña de autoservicio | Microsoft Docs'
-description: Tema en el que se demuestra cómo configurar el cambio de contraseña de autoservicio para los consumidores en Azure Active Directory B2C
+title: Cambio de contraseña de autoservicio en Azure Active Directory B2C | Microsoft Docs
+description: Tema en el que se muestra cómo configurar el cambio de contraseña de autoservicio de los consumidores en Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2016
 ms.author: davidmu
-ms.openlocfilehash: 4c54abe8c3375b49b786c7849c7e963e5849fa3a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 028d10b5c005be2db7cfd9c5ca5210ab55f0592a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448142"
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: Configuración del cambio de contraseña en las directivas personalizadas  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

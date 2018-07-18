@@ -3,7 +3,7 @@ title: 'Azure AD Connect: opciones de dispositivo | Microsoft Docs'
 description: En este documento se detallan las opciones de dispositivo disponibles en Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: anandy
+author: billmath
 manager: samueld
 editor: billmath
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: anandy
-ms.openlocfilehash: d592cbb55643099b6b628a44f182d0a079a6c71e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: e52f691c75d491897b06a4ebb492d87fda682e38
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354530"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917853"
 ---
 #<a name="azure-ad-connect-device-options"></a>Azure AD Connect: opciones de dispositivo
 
@@ -36,7 +37,7 @@ La siguiente documentación proporciona información acerca de las distintas opc
     ![Información general](./media/active-directory-aadconnect-device-options/deviceoverview.png)
 
     >[!NOTE]
-    > Configurar opciones de dispositivo está disponible únicamente en la versión 1.1.819.0, y en las posteriores.
+    > La nueva opción Configurar opciones de dispositivo está disponible únicamente en la versión 1.1.819.0 y posteriores.
 
 2.  Después de proporcionar las credenciales de Azure AD, en la página Opciones de dispositivo puede elegir la operación que se va a realizar.
     ![Operaciones de dispositivo](./media/active-directory-aadconnect-device-options/deviceoptionsselection.png)

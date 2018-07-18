@@ -10,29 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356093"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970979"
 ---
-# <a name="application-insights-overview-dashboard-preview"></a>Panel de información general de Application Insights (versión preliminar)
+# <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
-Application Insights siempre ha proporcionado un panel de información general de resumen para permitir una valoración rápida a simple vista del mantenimiento y el rendimiento de una aplicación. El nuevo panel de información general en versión preliminar proporciona una experiencia más rápida y flexible.
+Application Insights siempre ha proporcionado un panel de información general de resumen para permitir una valoración rápida a simple vista del mantenimiento y el rendimiento de una aplicación. El nuevo panel de información general proporciona una experiencia más rápida y flexible.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>¿Cómo se prueba la nueva experiencia?
 
- En Application Insights, en _Introducción_, seleccione _Please try new Overview before it becomes the default experience_ (Pruebe una introducción nueva antes de que se convierta en la predeterminada).
+Ahora, el nuevo panel de información general se inicia de forma predeterminada:
 
-![Información general (versión preliminar)](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
-
-Se inicia el nuevo panel de información general predeterminado:
-
-![Panel de información general (versión preliminar)](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
+![Panel de información general (versión preliminar)](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>Mejor rendimiento
 
@@ -40,7 +36,7 @@ Se ha simplificado la selección de intervalo de tiempo a favor de una interfaz 
 
 ![Intervalo de tiempo](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-El rendimiento en general ha aumentado enormemente. Cada icono de KPI de actualización dinámica predeterminada está vinculado a la característica correspondiente de Application Insights. Por ejemplo, al seleccionar las solicitudes con error se inicia el panel _Errores_:
+El rendimiento en general ha aumentado enormemente. Se tiene acceso con un solo clic a funciones populares como **Buscar** y **Análisis**. Cada mosaico de KPI de actualización dinámica predeterminado proporciona información de las funciones correspondientes de Application Insights. Para obtener más información acerca de las solicitudes erróneas, seleccione **Errores** en el encabezado **Investigar**:
 
 ![Errores](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
@@ -56,7 +52,7 @@ Si esta es la primera vez que accede al panel, se iniciará una vista predetermi
 
 ![Vista de panel](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-Aunque puede mantener la vista predeterminada si así lo desea, también puede agregar o eliminar vistas del panel para adaptarse mejor a las necesidades de su equipo.
+Puede conservar la vista predeterminada si así lo desea. Aunque también puede agregar o eliminar elementos del panel para adaptarlo mejor a las necesidades de su equipo.
 
 > [!NOTE]
 > Todos los usuarios con acceso al recurso de Application Insights comparten el mismo panel de la aplicación. Los cambios que realice cualquiera de ellos modificarán la vista de todos.

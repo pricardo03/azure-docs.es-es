@@ -2,7 +2,7 @@
 title: Comprobar el estado, configurar el registro y recibir alertas - Azure Logic Apps | Microsoft Docs
 description: Supervise el estado y el rendimiento de aplicaciones lógicas, registre datos de diagnóstico y configure alertas
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293530"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps
 
@@ -117,19 +118,11 @@ Para buscar y ver eventos de la aplicación lógica, como eventos de desencadena
 
    ![Selección del área de trabajo de Log Analytics](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. En **Administración**, elija **Portal de OMS**.
+3. En **Administración**, elija **Búsqueda de registros**.
 
-   ![Selección de "Portal de OMS"](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
+   ![Elija "Búsqueda de registros"](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. En la página principal, elija **Búsqueda de registros**.
-
-   ![Selección de "Búsqueda de registros" en la página principal](media/logic-apps-monitor-your-logic-apps/logsearch.png)
-
-   O bien
-
-   ![Seleccione "Búsqueda de registros" en el menú.](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
-
-5. En el cuadro de búsqueda, especifique un campo que quiera buscar y pulse **Entrar**. Cuando empiece a escribir, verá las posibles coincidencias y operaciones que puede usar. 
+4. En el cuadro de búsqueda, especifique un campo que quiera buscar y pulse **Entrar**. Cuando empiece a escribir, verá las posibles coincidencias y operaciones que puede usar. 
 
    Por ejemplo, para buscar los diez principales eventos que se han producido, escriba y seleccione esta consulta de búsqueda: **search Category == "WorkflowRuntime" | limit 10**
 
@@ -137,27 +130,27 @@ Para buscar y ver eventos de la aplicación lógica, como eventos de desencadena
 
    Más información sobre [cómo buscar datos en Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
-6. En la página de resultados, en la barra de la izquierda, elija el marco temporal que quiere ver.
+5. En la página de resultados, en la barra de la izquierda, elija el marco temporal que quiere ver.
 Para refinar la consulta con un filtro, elija **+Agregar**.
 
    ![Selección del marco temporal de los resultados de la consulta](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-7. En **Agregar filtros**, escriba el nombre del filtro para poder encontrar el que quiere. Seleccione el filtro y elija **+Agregar**.
+6. En **Agregar filtros**, escriba el nombre del filtro para poder encontrar el que quiere. Seleccione el filtro y elija **+Agregar**.
 
    En este ejemplo se usa la palabra "status" para buscar eventos con errores en **AzureDiagnostics**.
    El filtro de **status_s** ya está seleccionado.
 
    ![Selección de filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-8. En la barra de la izquierda, seleccione el valor de filtro que quiere usar y elija **Aplicar**.
+7. En la barra de la izquierda, seleccione el valor de filtro que quiere usar y elija **Aplicar**.
 
    ![Selección del valor de filtro y de "Aplicar"](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-9. Ahora vuelva a la consulta que está creando. La consulta se ha actualizado con el filtro y el valor seleccionados. Los resultados anteriores también se han filtrado.
+8. Ahora vuelva a la consulta que está creando. La consulta se ha actualizado con el filtro y el valor seleccionados. Los resultados anteriores también se han filtrado.
 
    ![Consulta con los resultados filtrados](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. Para guardar la consulta para su uso futuro, elija **Guardar**. Aprenda [cómo guardar la consulta](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+9. Para guardar la consulta para su uso futuro, elija **Guardar**. Aprenda [cómo guardar la consulta](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 <a name="extend-diagnostic-data"></a>
 

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 06/07/2018
 ms.author: marsma
-ms.openlocfilehash: 1a025ce647cb3c071a6549a433e6505b85409fdc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bc30352f50344031f8356d2be1b800dd035f12ad
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199014"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830469"
 ---
 # <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 
@@ -24,6 +24,8 @@ Por ejemplo, si ejecuta la imagen de contenedor [microsoft/aci-wordcount][aci-wo
 *NumWords*: el número de palabras enviadas a STDOUT.
 
 *MinLength*: el número mínimo de caracteres en una palabra para que se tenga en cuenta. Un número mayor omite palabras comunes como "de" y "la".
+
+Si necesita pasar información confidencial como las variables de entorno, Azure Container Instances permite [proteger valores](#secure-values) para los contenedores Windows y Linux.
 
 ## <a name="azure-cli-example"></a>Ejemplo de la CLI de Azure
 
@@ -152,6 +154,81 @@ Para ver un ejemplo, inicie el contenedor [microsoft/aci-wordcount][aci-wordcoun
 Para ver los registros del contenedor, en **CONFIGURACIÓN**, seleccione **Contenedores** y luego **Registros**. De forma similar a la salida que se muestra en las secciones de la CLI y PowerShell anteriores, puede ver cómo se ha modificado el comportamiento del script mediante las variables de entorno. Se muestran solo cinco palabras, cada una con una longitud mínima de ocho caracteres.
 
 ![Portal que muestra la salida de los registros de contenedor][portal-env-vars-02]
+
+## <a name="secure-values"></a>Protección de valores
+Los objetos con valores seguros están diseñados para contener información confidencial, como contraseñas o claves de la aplicación. Utilizar valores seguros para las variables de entorno es más confiable y más flexible que incluirlas en la imagen de su contenedor. Otra opción consiste en utilizar volúmenes secretos, según se describe en [Montaje de un volumen secreto en Azure Container Instances](container-instances-volume-secret.md).
+
+La protección de las variables de entorno con valores seguros no revelará el valor seguro en las propiedades de su contenedor, por lo que solo se puede acceder al valor desde dentro del contenedor. Por ejemplo, las propiedades del contenedor visualizadas en Azure Portal o con la CLI de Azure no mostrarán una variable de entorno con un valor seguro.
+
+Establezca una variable de entorno segura especificando la propiedad `secureValue` en lugar del valor `value` habitual para el tipo de variable. Las dos variables definidas en el siguiente YAML demuestran los dos tipos de variable.
+
+### <a name="yaml-deployment"></a>Implementación de YAML
+
+Cree un archivo `secure-env.yaml` con el siguiente fragmento de código.
+
+```yaml
+apiVersion: 2018-06-01
+location: westus
+name: securetest
+properties:
+  containers:
+  - name: mycontainer
+    properties:
+      environmentVariables:
+        - "name": "SECRET"
+          "secureValue": "my-secret-value"
+        - "name": "NOTSECRET"
+          "value": "my-exposed-value"
+      image: nginx
+      ports: []
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Ejecute el siguiente comando para implementar el grupo de contenedores con YAML.
+
+```azurecli-interactive
+az container create --resource-group myRG --name securetest -f secure-env.yaml
+```
+
+### <a name="verify-environment-variables"></a>Verificación de las variables de entorno
+
+Ejecute el comando siguiente para consultar las variables de entorno de su contenedor.
+
+```azurecli-interactive
+az container show --resource-group myRG --name securetest --query 'containers[].environmentVariables`
+```
+
+La respuesta JSON con los detalles de este contenedor mostrará solo la variable de entorno no segura y la clave de la variable de entorno segura.
+
+```json
+  "environmentVariables": [
+    {
+      "name": "NOTSECRET",
+      "value": "my-exposed-value"
+    },
+    {
+      "name": "SECRET"
+    }
+```
+
+Puede revisar si la variable de entorno segura tiene establecido el comando `exec`, que permite ejecutar un comando desde dentro de un contenedor en ejecución. 
+
+Ejecute el siguiente comando para iniciar una sesión de Bash interactiva con el contenedor.
+```azurecli-interactive
+az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"
+```
+
+Desde dentro del contenedor, imprima la variable de entorno con el siguiente comando de Bash.
+```bash
+echo $SECRET
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

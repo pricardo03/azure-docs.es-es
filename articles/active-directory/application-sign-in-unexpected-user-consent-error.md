@@ -3,31 +3,32 @@ title: Error inesperado al otorgar consentimiento a una aplicación | Microsoft 
 description: Explica los errores que pueden producirse durante el proceso de otorgar su consentimiento a una aplicación y qué puede hacer al respecto
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: bad508c59983f463aaa3247fa653064dfa03ab20
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331084"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
 En este artículo, se explican los errores que pueden producirse durante el proceso de otorgar su consentimiento a una aplicación. Si está solucionando solicitudes de consentimiento inesperadas que no contienen ningún mensaje de error, consulte [Escenarios de autenticación para Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Muchas aplicaciones que se integran con Azure Active Directory requieren permisos para acceder a otros recursos a fin de funcionar. Cuando estos recursos también se integran con Azure Active Directory, suelen solicitarse permisos para acceder a ellos mediante el marco de consentimiento común. 
+Muchas aplicaciones que se integran con Azure Active Directory requieren permisos para acceder a otros recursos a fin de funcionar. Cuando estos recursos también se integran con Azure Active Directory, suelen solicitarse permisos para acceder a ellos mediante el marco de consentimiento común. Se muestra una petición de consentimiento, que generalmente ocurre la primera vez que se usa una aplicación, pero que también se puede producir en un uso posterior de la aplicación.
 
-Esto produce que se muestre una solicitud de consentimiento, que generalmente ocurre la primera vez que se usa una aplicación, pero que también se puede producir en un uso posterior de la aplicación.
-
-Determinadas condiciones deben cumplirse para que un usuario otorgue su consentimiento a los permisos que requiere una aplicación. Si no se cumplen estas condiciones, pueden producirse varios errores. Entre ellas se incluyen las siguientes:
+Determinadas condiciones deben cumplirse para que un usuario otorgue su consentimiento a los permisos que requiere una aplicación. Si no se cumplen estas condiciones, pueden producirse estos errores.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Error por solicitud de permisos no autorizados
 * **AADSTS90093:**&lt;clientAppDisplayName&gt; solicita uno o más permisos que no está autorizado a conceder. Póngase en contacto con el administrador, que puede dar su consentimiento para esta aplicación en su nombre.
@@ -40,7 +41,7 @@ Este error se produce cuando un usuario que no es administrador de la empresa in
 Este error se produce cuando el administrador de una empresa desactiva la funcionalidad para que los usuarios otorguen consentimiento a aplicaciones y, a continuación, un usuario sin privilegios de administrador intenta usar una aplicación que requiere el consentimiento. Este error se puede solucionar si un administrador otorga el acceso a la aplicación en nombre de la organización.
 
 ## <a name="intermittent-problem-error"></a>Error de un problema intermitente
-* **AADSTS90090:** al parecer hemos detectado un problema intermitente para grabar los permisos que intenta conceder a &lt;clientAppDisplayName&gt;. Inténtelo de nuevo más tarde.
+* **AADSTS90090:** al parecer, el proceso de inicio de sesión detectó un problema intermitente para registrar los permisos que intenta conceder a &lt;clientAppDisplayName&gt;. Inténtelo de nuevo más tarde.
 
 Este error indica que se ha producido un problema de servicio intermitente. Se puede resolver intentando otorgar su consentimiento a la aplicación de nuevo.
 
@@ -57,11 +58,11 @@ Asegúrese de que este recurso esté disponible o póngase en contacto con un ad
 ## <a name="permissions-mismatch-error"></a>Error de coincidencia de permisos
 * **AADSTS65005:** la aplicación solicitó el consentimiento para acceder al recurso &lt;resourceAppDisplayName&gt;. Hay un error en esta solicitud porque no coincide con cómo se configuró anteriormente la aplicación durante el registro de aplicación. Póngase en contacto con el proveedor de la aplicación**.
 
-Todos estos errores se producen cuando la aplicación a la que un usuario está intentando otorgar consentimiento solicita permisos para tener acceso a una aplicación de recursos que no se encuentra en el directorio de la organización (inquilino). Esto puede ocurrir por varios motivos:
+Todos estos errores se producen cuando la aplicación a la que un usuario está intentando otorgar consentimiento solicita permisos para tener acceso a una aplicación de recursos que no se encuentra en el directorio de la organización (inquilino). Esta situación puede ocurrir por varios motivos:
 
 -   El desarrollador de aplicaciones cliente configuró su aplicación incorrectamente, lo que provocó que solicitara acceso a un recurso no válido. En este caso, el desarrollador de aplicaciones debe actualizar la configuración de la aplicación cliente para resolver este problema.
 
--   Una entidad de servicio que representa la aplicación de recurso de destino no existe en la organización o existía en el pasado, pero se ha eliminado. Para resolver este problema, se debe haber aprovisionado a una entidad de servicio en la organización para la aplicación de recurso a fin de que la aplicación cliente pueda solicitar permisos a ella. Esto puede ocurrir de varias maneras, según el tipo de aplicación, como por ejemplo:
+-   Una entidad de servicio que representa la aplicación de recurso de destino no existe en la organización o existía en el pasado, pero se ha eliminado. Para resolver este problema, se debe haber aprovisionado a una entidad de servicio en la organización para la aplicación de recurso a fin de que la aplicación cliente pueda solicitar permisos a ella. La entidad de servicio se puede aprovisionar de varias maneras, en función del tipo de aplicación, entre las que se incluyen:
 
     -   Adquirir una suscripción para la aplicación del recurso (aplicaciones publicadas de Microsoft)
 

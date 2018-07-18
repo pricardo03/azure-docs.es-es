@@ -1,5 +1,5 @@
 ---
-title: 'Servicio Azure Batch Rendering: representación a escala de nube | Microsoft Docs'
+title: 'Azure Batch Rendering: representación a escala de nube | Microsoft Docs'
 description: Represente trabajos en máquinas virtuales de Azure directamente desde Maya y según la modalidad de pago por uso.
 services: batch
 author: dlepow
@@ -8,23 +8,23 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076978"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128595"
 ---
-# <a name="get-started-with-the-batch-rendering-service"></a>Introducción al servicio Batch Rendering
+# <a name="get-started-with-batch-rendering"></a>Introducción a Batch Rendering 
 
-El servicio Azure Batch Rendering ofrece funcionalidades de representación para la nube según una modalidad de pago por uso. Este servicio controla la programación y la puesta en cola de los trabajos, la administración de errores y reintentos, y el escalado automático de los trabajos de representación. Admite aplicaciones de representación entre las que se incluyen [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) y [V-Ray](https://www.chaosgroup.com/vray/maya). El complemento de Batch para Maya 2017 facilita el inicio de un trabajo de representación en Azure justo desde el escritorio.
+Azure Batch Rendering ofrece funcionalidades de representación para la nube según una modalidad de pago por uso. Este servicio controla la programación y la puesta en cola de los trabajos, la administración de los errores y los reintentos, y el escalado automático de los trabajos de representación. Batch Rendering admite aplicaciones de representación entre las que se incluyen [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) y [V-Ray](https://www.chaosgroup.com/vray/maya). El complemento de Batch para Maya 2017 facilita el inicio de un trabajo de representación en Azure justo desde el escritorio.
 
 Con Maya y 3ds Max se pueden ejecutar trabajos mediante la aplicación de escritorio [BatchLabs](https://github.com/Azure/BatchLabs) o las [plantillas de la CLI de Batch](batch-cli-templates.md). Con la CLI de Azure Batch puede ejecutar trabajos de Batch sin escribir código. En su lugar, puede usar archivos de plantilla para crear grupos, trabajos y tareas de Batch. Para más información, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch](batch-cli-templates.md).
 
 
 ## <a name="supported-applications"></a>Aplicaciones admitidas
 
-El servicio Batch Rendering admite actualmente las siguientes aplicaciones:
+Batch Rendering admite actualmente las siguientes aplicaciones:
 
 En nodos de representación de CentOS 7:
 - Autodesk Maya I/O 2017 Actualización 5 (versión 201708032230)
@@ -49,7 +49,7 @@ En nodos de representación de Windows Server 2016:
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para usar el servicio Batch Rendering, necesita:
+Para utilizar Batch Rendering, necesita:
 
 - [Cuenta de Azure](https://azure.microsoft.com/free/).
 - **Cuenta de Azure Batch**. Para obtener instrucciones sobre cómo crear una cuenta de Batch en Azure Portal, consulte [Creación de una cuenta de Batch con Azure Portal](batch-account-create-portal.md).
@@ -64,7 +64,7 @@ Para usar el complemento de Batch para Maya, necesita:
 
 ## <a name="basic-batch-concepts"></a>Conceptos sobre Batch básico
 
-Antes de empezar a usar el servicio Batch Rendering, resulta útil familiarizarse con algunos conceptos sobre Batch, como los nodos de proceso, los grupos y los trabajos. Para aprender más sobre Azure Batch en general, consulte [Ejecución de cargas de trabajo paralelas intrínsecamente con Batch](batch-technical-overview.md).
+Antes de empezar a usar Batch Rendering, resulta útil familiarizarse con algunos conceptos sobre Batch, como los nodos de proceso, los grupos y los trabajos. Para aprender más sobre Azure Batch en general, consulte [Ejecución de cargas de trabajo paralelas intrínsecamente con Batch](batch-technical-overview.md).
 
 ### <a name="pools"></a>Grupos
 
@@ -104,7 +104,7 @@ Azure Batch permite proporcionar imágenes personalizadas. Con esta opción, pue
 
 ## <a name="options-for-submitting-a-render-job"></a>Opciones para enviar un trabajo de representación
 
-En función de la aplicación 3D, existen varias opciones para el envío de trabajos de representación al servicio:
+En función de la aplicación 3D, existen varias opciones para el envío de trabajos de representación:
 
 ### <a name="maya"></a>Maya
 
@@ -121,14 +121,14 @@ Con 3ds Max, puede usar:
 - La aplicación de escritorio [BatchLabs](https://azure.github.io/BatchLabs) (consulte el artículo sobre los [datos de BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) como guía de uso de las plantillas de BatchLabs para 3ds Max)
 - [Plantillas de la CLI de Batch](batch-cli-templates.md)
 
-Las plantillas de BatchLabs para 3ds Max permiten presentar escenas de VRay y Arnold con el servicio Azure Batch Rendering. Hay dos variaciones de la plantilla para VRay y Arnold, una para escenas estándar y otra para escenas más complejas que requieren un archivo de ruta de acceso a los recursos y las texturas de 3ds Max (archivo .mxp). Para más información sobre las plantillas de BatchLabs para 3ds Max, consulte el repositorio de [datos de BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) de GitHub.
+Las plantillas de BatchLabs para 3ds Max permiten presentar escenas de VRay y Arnold con Azure Batch Rendering. Hay dos variaciones de la plantilla para VRay y Arnold, una para escenas estándar y otra para escenas más complejas que requieren un archivo de ruta de acceso a los recursos y las texturas de 3ds Max (archivo .mxp). Para más información sobre las plantillas de BatchLabs para 3ds Max, consulte el repositorio de [datos de BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) de GitHub.
 
-Además, puede usar el [SDK de Batch para Python](https://docs.microsoft.com/azure/batch/batch-python-tutorial) para integrar el servicio de representación con la canalización existente.
+Además, puede usar el [SDK de Batch para Python](https://docs.microsoft.com/azure/batch/batch-python-tutorial) para integrar la representación con la canalización existente.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Uso del complemento de Batch para Maya para enviar un trabajo de representación
 
-Con el complemento de Batch para Maya, puede enviar un trabajo al servicio Batch Rendering directamente desde Maya. En las secciones siguientes se describe cómo configurar el trabajo desde el complemento y luego enviarlo. 
+Con el complemento de Batch para Maya, puede enviar un trabajo a Batch Rendering directamente desde Maya. En las secciones siguientes se describe cómo configurar el trabajo desde el complemento y luego enviarlo. 
 
 ### <a name="load-the-batch-plug-in-for-maya"></a>Carga del complemento de Batch para Maya
 

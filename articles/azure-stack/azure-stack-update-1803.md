@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2fdb77c133d5d8955ad6ae15864cbe0c78bc4e2f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: a74e77f84aa70519015a589cbc6e7478c0c41592
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258766"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318816"
 ---
 # <a name="azure-stack-1803-update"></a>Actualización de Azure Stack 1803
 
@@ -54,45 +54,40 @@ El número de compilación de la actualización de Azure Stack 1803 es **2018032
   
   A diferencia de las actualizaciones de Azure Stack, al instalar esta actualización no cambia la versión de Azure Stack. Para confirmar que esta actualización está instalada, vea la lista de **actualizaciones instaladas**.
 
-### <a name="post-update-steps"></a>Pasos posteriores a la actualización
-- Después de la instalación de 1803, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).
 
-  - [KB 4294441: Operations against tenant resources fail and unexpected shares are created on the same tenant or infrastructure volume](https://support.microsoft.com/en-us/help/4294441) (Las operaciones con recursos de inquilino generan errores y se crean recursos compartidos inesperados en el mismo inquilino o volumen de infraestructura)
-
-- Después de instalar esta actualización, revise la configuración del firewall para asegurarse de que están abiertos los [puertos necesarios](azure-stack-integrate-endpoints.md). Por ejemplo, esta actualización presenta Azure Monitor, que incluye un cambio de los registros de auditoría en los registros de actividad. Con este cambio, el puerto 13012 ahora se usa y también debe estar abierto.  
 
 ### <a name="new-features"></a>Nuevas características 
 Esta actualización incluye las siguientes correcciones y mejoras para Azure Stack.
 
 - **Actualización de los secretos de Azure Stack**: (cuentas y certificados). Para más información sobre cómo administrar los secretos, consulte [Cambio de secretos en Azure Stack](azure-stack-rotate-secrets.md). 
 
-- <!-- 1914853 --> **Automatic redirect to HTTPS** when you use HTTP to access the administrator and user portals. This improvement was made based on [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) feedback for Azure Stack. 
+- <!-- 1914853 --> **Redireccionamiento automático a HTTPS** cuando usa HTTP para acceder a los portales de usuario y administración. Esta mejora se realizó teniendo en cuenta los comentarios de [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) para Azure Stack. 
 
-- <!-- 2202621  --> **Access the Marketplace** – You can now open the Azure Stack Marketplace by using the [+New](https://ms.portal.azure.com/#create/hub) option from within the admin and user portals the same way you do in the Azure portals.
+- <!-- 2202621  --> **Acceso a Marketplace**: ya puede abrir el Marketplace de Azure Stack usando la opción [+Nuevo](https://ms.portal.azure.com/#create/hub) desde los portales de usuario y administración, como lo haría en Azure Portal.
  
-- <!-- 2202621 --> **Azure Monitor** - Azure Stack adds [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
+- <!-- 2202621 --> **Azure Monitor**: Azure Stack agrega [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) a los portales de usuario y administración. Esto incluye nuevos exploradores de métricas y registros de actividad. Para acceder a esta instancia de Azure Monitor desde redes externas, el puerto **13012** debe estar abierto en configuraciones de firewall. Para más información acerca de los puertos que requiere Azure Stack, consulte [Integración del centro de datos de Azure Stack: Publicar puntos de conexión](azure-stack-integrate-endpoints.md).
 
    Además, como parte de este cambio, en **Más servicios**, *Registros de auditoría* ahora aparece como *Registros de actividad*. Ahora la funcionalidad es coherente con Azure Portal. 
 
-- <!-- 1664791 --> **Sparse files** -  When you add a New image to Azure Stack, or add an image through marketplace syndication, the image is converted to a sparse file. Images that were added prior to using Azure Stack version 1803 cannot be converted. Instead, you must use marketplace syndication to resubmit those images to take advantage of this feature. 
+- <!-- 1664791 --> **Archivos dispersos**: cuando agregue una Nueva imagen a Azure Stack, o agregue una imagen a través de la difusión del Marketplace, dicha imagen se convertirá en un archivo disperso. Las imágenes que se agregaron antes de usar la versión 1803 de Azure Stack no se pueden convertir. En su lugar, debe utilizar la difusión del Marketplace para volver a enviar esas imágenes y aprovechar esta característica. 
  
    Los archivos dispersos son un formato de archivo eficaz que se usa para disminuir el uso del espacio de almacenamiento y mejorar la E/S.  Para más información, consulte el artículo [Fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) para Windows Server. 
 
 ### <a name="fixed-issues"></a>Problemas corregidos
 
-- <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
+- <!-- 1739988 --> El equilibrio de carga interno (ILB) ya administra correctamente las direcciones MAC de máquinas virtuales de back-end, lo que hace que descarte paquetes en la red de back-end cuando se usan instancias de Linux en la red de back-end. ILB funciona bien con instancias de Windows en la red de back-end. 
 
-- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure. 
+- <!-- 1805496 --> Un problema por el que las conexiones VPN entre Azure Stack se desconectarían debido a que Azure Stack y Azure usan configuraciones diferentes para la política IKE. Los valores de SALifetime (tiempo) y SALiftetime (bytes) no eran compatibles con Azure y se modificaron en la versión 1803 para coincidir con la configuración de Azure. El valor de SALifetime (segundos) era 14,400 y, después de la versión 1803, es 27,000. El valor de SALifetime (bytes) era 819,200 y, después de la versión 1803, es 33,553,408.
 
-- <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
+- <!-- 2209262 --> El problema de IP por el que las conexiones VPN estaban visibles en el portal; sin embargo, la activación o conmutación de Reenvío IP no tenía ningún efecto. La característica está activada de forma predeterminada y aún no se admite la posibilidad de cambiarla.  El control se ha eliminado del portal. 
 
-- <!-- 1766332 --> Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
+- <!-- 1766332 --> Azure Stack no admite VPN Gateways basadas en directivas, aunque la opción aparece en el portal.  La opción se ha eliminado del portal. 
 
-- <!-- 1868283 --> Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
+- <!-- 1868283 --> Azure Stack ahora previene el redimensionamiento de una máquina virtual que se crea con discos dinámicos. 
 
-- <!-- 1756324 --> Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
+- <!-- 1756324 --> Los datos de uso de las máquinas virtuales se separan ahora a intervalos de una hora. Esto es concuerda con Azure. 
 
-- <!--  2253274 --> The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+- <!--  2253274 --> El problema por el que, en los portales de administración y de usuario, la hoja Configuración para subredes vNet no se carga. Como solución, use PowerShell y el cmdlet [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) para ver y administrar esta información.
 
 - Cuando crea una máquina virtual, el mensaje *No se pueden mostrar los precios* ya no aparece cuando se elige un tamaño de máquina virtual.
 
@@ -104,17 +99,29 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización    
-<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+<!-- 2328416 --> Durante la instalación de la actualización 1803, puede haber tiempo de inactividad del servicio BLOB y de los servicios internos que usan el servicio BLOB. Esto incluye algunas operaciones de máquinas virtuales. Este tiempo de inactividad puede causar errores en las operaciones de los inquilinos o alertas de los servicios que no pueden acceder a los datos. Este problema se resuelve solo cuando la actualización completa la instalación. 
+
+
+
+### <a name="post-update-steps"></a>Pasos posteriores a la actualización
+- Después de la instalación de 1803, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).
+
+  - [KB 4341390: Azure Stack, revisión 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
+
+- Después de instalar esta actualización, revise la configuración del firewall para asegurarse de que están abiertos los [puertos necesarios](azure-stack-integrate-endpoints.md). Por ejemplo, esta actualización presenta *Azure Monitor*, que incluye un cambio de los registros de auditoría en los registros de actividad. Con este cambio, el puerto 13012 ahora se usa y también debe estar abierto.  
 
 
 ### <a name="known-issues-post-installation"></a>Problemas conocidos (posteriores a la instalación)
 Los siguientes son problemas conocidos posteriores a la instalación de la compilación **20180323.2**.
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS --> Cuando usa AD FS para el sistema de identidad de Azure Stack y actualiza a esta versión de Azure Stack, el propietario predeterminado de la suscripción del proveedor predeterminado se restablece al usuario **CloudAdmin** integrado.  
+  Solución alternativa: para resolver este problema después de instalar esta actualización, use el paso 3 del procedimiento [Automatización de desencadenador para configurar la relación de confianza de proveedor de notificaciones en Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) para restablecer el propietario de la suscripción de proveedor predeterminado.   
+
 - No está disponible la posibilidad de [abrir una nueva solicitud de soporte técnico desde la lista desplegable](azure-stack-manage-portals.md#quick-access-to-help-and-support) del portal de administración. En su lugar, use el siguiente vínculo:     
     - Para sistemas integrados de Azure Stack. use https://aka.ms/newsupportrequest.
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
+- <!-- 2050709 --> En el portal de administración no se pueden editar las métricas de almacenamiento de Blob service, Table service o Queue service. Si va a Storage y selecciona el icono de Blob service, Table service o Queue service, se abre una hoja nueva que muestra una tabla de métricas de dicho servicio. Si luego selecciona Editar en la parte superior del icono del gráfico de métricas, se abre la hoja Editar gráfico, pero no muestra las opciones para editar las métricas.
 
 - No es posible ver los recursos de proceso o almacenamiento en el portal de administración. La causa de este problema es un error durante la instalación de la actualización que hace que se notifique como correcta erróneamente. Si se produce este problema, póngase en contacto con los servicios de soporte técnico de Microsoft para obtener ayuda.
 
@@ -132,7 +139,23 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
   Esta alerta puede omitirse sin problemas. 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>Estado y supervisión
+- <!-- 1264761 - IS ASDK --> Es posible que vea alertas del componente *Controlador de mantenimiento* con los siguientes detalles:  
+
+   Alerta 1:
+   - NOMBRE: rol de infraestructura incorrecto
+   - GRAVEDAD: advertencia
+   - COMPONENTE: controlador de mantenimiento
+   - DESCRIPCIÓN: el controlador de mantenimiento Heartbeat Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.  
+
+  Alerta 2:
+   - NOMBRE: rol de infraestructura incorrecto
+   - GRAVEDAD: advertencia
+   - COMPONENTE: controlador de mantenimiento
+   - DESCRIPCIÓN: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
+
+  Ambas alertas pueden omitirse sin problemas. Se cerrarán automáticamente pasado un tiempo.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Los usuarios pueden examinar toda la plataforma Marketplace sin una suscripción y ver elementos administrativos, como planes y ofertas. Estos elementos no funcionan para los usuarios.
@@ -144,7 +167,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 - Cuando crea un conjunto de disponibilidad en el portal en **Nuevo** > **Compute** > **Conjunto de disponibilidad**, solo puede crear uno con un dominio de error y un dominio de actualización de 1. Como alternativa, al crear una nueva máquina virtual, cree el conjunto de disponibilidad mediante PowerShell, la CLI o el portal.
 
-- Al crear máquinas virtuales en el portal de usuario de Azure Stack, el portal muestra un número incorrecto de discos de datos que se pueden asociar a una máquina virtual de la serie DS. Las máquinas virtuales de la serie DS pueden albergar tantos discos de datos como la configuración de Azure.
+- Al crear máquinas virtuales en el portal de usuario de Azure Stack, el portal muestra un número incorrecto de discos de datos que se pueden asociar a una máquina virtual de la serie D. Todas las máquinas virtuales de la serie D pueden albergar tantos discos de datos como la configuración de Azure.
 
 - Cuando no es posible crear una imagen de máquina virtual, los elementos con error que no se pueden eliminar se podrían agregar a la hoja de proceso de imágenes de máquina virtual.
 
@@ -154,7 +177,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 -  Si aprovisionar una extensión en una implementación de máquina virtual tarda demasiado tiempo, los usuarios deberían dejar que se agote el tiempo de espera de aprovisionamiento en lugar de intentar detener el proceso para desasignar o eliminar la máquina virtual.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+- <!-- 1662991 --> No se admite el diagnóstico de máquinas virtuales Linux en Azure Stack. Si implementa una máquina virtual Linux con diagnósticos de máquina virtual habilitado, se producirá un error en la implementación. Tampoco se podrá realizar la implementación si habilita las métricas básicas de máquina virtual Linux a través de la configuración de diagnóstico.  
 
 
 #### <a name="networking"></a>Redes
@@ -172,7 +195,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 - Azure Stack no admite la adición de interfaces de red adicionales a una instancia de máquina virtual una vez implementada la máquina virtual. Si la máquina virtual requiere más de una interfaz de red, se deben definir en el momento de la implementación.
 
-- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+- <!-- 2096388 --> No se puede usar el portal de administración para actualizar las reglas de un grupo de seguridad de red. 
 
     Solución alternativa para App Service: si tiene que establecer una conexión de Escritorio remoto a las instancias del controlador, modifique las reglas de seguridad de los grupos de seguridad de red con PowerShell.  Estos son algunos ejemplos de cómo *permitir* y, luego, restaurar la configuración a *denegar*:  
     
@@ -243,7 +266,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 - Solo el proveedor de recursos puede crear elementos en servidores que hospedan SQL o MySQL. Los elementos creados en un servidor host que no se crean con el proveedor de recursos podrían dar lugar a un error de coincidencia de estado.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> Los caracteres especiales, entre los que se incluyen espacios y puntos, no se admiten en el nombre de **familia** al crear una SKU para los proveedores de recursos de SQL y MySQL.
 
 > [!NOTE]  
 > Después de actualizar a Azure Stack 1803, puede seguir usando los proveedores de recursos SQL y MySQL que implementó anteriormente.  Le recomendamos que actualice SQL y MySQL cuando haya disponible una nueva versión. Al igual que Azure Stack, aplique las actualizaciones a los proveedores de recursos SQL y MySQL de manera secuencial.  Por ejemplo, si usa la versión 1711, aplique primero la versión 1712, luego la versión 1802 y luego actualice a la 1803.      
@@ -265,6 +288,8 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Descarga de las herramientas de Azure Stack desde GitHub
 - Al usar el cmdlet *invoke-webrequest* de PowerShell para descargar las herramientas de Azure Stack de Github, recibirá un error:     

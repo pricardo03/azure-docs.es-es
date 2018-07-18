@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: introducción | Microsoft Docs"
-description: "Habilitación de Azure Active Directory Domain Services mediante Azure Portal"
+title: 'Azure Active Directory Domain Services: introducción | Microsoft Docs'
+description: Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 2a171490faf9804196c93d33c5ee74d22533c044
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263982"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 
@@ -40,16 +42,19 @@ El asistente crea automáticamente el grupo administrativo en el directorio de A
 
 3. Cuando haya terminado, haga clic en **Aceptar** para ir a la página **Resumen** del asistente.
 
-4. En la página **Resumen** del asistente, revise la configuración del dominio administrado. Puede volver a cualquier paso del asistente para realizar cambios, si es necesario. Cuando haya terminado, haga clic en **Aceptar** para crear el dominio administrado.
+
+## <a name="deploy-your-managed-domain"></a>Implementación del dominio administrado
+
+1. En la página **Resumen** del asistente, revise la configuración del dominio administrado. Puede volver a cualquier paso del asistente para realizar cambios, si es necesario. Cuando haya terminado, haga clic en **Aceptar** para crear el dominio administrado.
 
     ![Resumen](./media/getting-started/domain-services-blade-summary.png)
 
-5. Verá una notificación que muestra el progreso de la implementación de la instancia de Azure AD Domain Services. Haga clic en la notificación para ver el progreso detallado de la implementación.
+2. Verá una notificación que muestra el progreso de la implementación de la instancia de Azure AD Domain Services. Haga clic en la notificación para ver el progreso detallado de la implementación.
 
     ![Notificación: implementación en curso](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="provision-your-managed-domain"></a>Aprovisionamiento del dominio administrado
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Comprobación del estado de implementación del dominio administrado
 El proceso de aprovisionamiento del dominio administrado puede tardar hasta una hora.
 
 1. Mientras la implementación está en curso, puede buscar "servicios de dominio" en el cuadro de búsqueda **buscar recursos**. En el resultado de la búsqueda, seleccione **Azure AD Domain Services**. La hoja **Azure AD Domain Services** muestra el dominio administrado que se está aprovisionando.
@@ -67,6 +72,9 @@ El proceso de aprovisionamiento del dominio administrado puede tardar hasta una 
 4. Cuando el dominio administrado está aprovisionado por completo, la pestaña **Información general** muestra el estado del dominio como **En ejecución**.
 
     ![Domain Services: pestaña Información general después del aprovisionamiento completo](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >Durante el proceso de aprovisionamiento, Azure AD Domain Services crea las aplicaciones empresariales "Domain Controller Services" y "AzureActiveDirectoryDomainControllerServices" dentro de su directorio. Estas aplicaciones empresariales se necesitan para dar servicio al dominio administrado. Es imprescindible que no se eliminen en ningún momento.
+    >
 
 5. En la pestaña **Propiedades**, se ven dos direcciones IP en las que hay controladores de dominio disponibles para Virtual Network.
 

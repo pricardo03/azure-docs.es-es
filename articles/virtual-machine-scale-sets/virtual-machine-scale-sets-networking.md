@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abad57856db63c954f963a28b1dbd3c95395c9bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652593"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -212,7 +213,10 @@ Salida de ejemplo:
 Cada NIC asociada a una VM en un conjunto de escalado puede tener una o varias configuraciones de IP asociadas con ella. Se asigna a cada configuración una dirección IP privada. Cada configuración también puede tener un recurso de dirección IP pública asociado con ella. Para saber cuántas direcciones IP se pueden asignar a una NIC y cuántas direcciones IP públicas se pueden usar en una suscripción de Azure, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Varias NIC por máquina virtual
-Puede tener hasta 8 NIC por máquina virtual, según el tamaño de la máquina. El número máximo de NIC por máquina está disponible en el artículo sobre [Tamaños de las máquinas virtuales](../virtual-machines/windows/sizes.md). El ejemplo siguiente es un perfil de red del conjunto de escalado que muestra varias entradas NIC y varias direcciones IP públicas por máquina virtual:
+Puede tener hasta 8 NIC por máquina virtual, según el tamaño de la máquina. El número máximo de NIC por máquina está disponible en el artículo sobre [Tamaños de las máquinas virtuales](../virtual-machines/windows/sizes.md). Todas las NIC conectadas a una instancia de máquina virtual deben conectarse a la misma red virtual. Las NIC se pueden conectar a distintas subredes, pero todas las subredes deben formar parte de la misma red virtual.
+
+El ejemplo siguiente es un perfil de red del conjunto de escalado que muestra varias entradas NIC y varias direcciones IP públicas por máquina virtual:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [

@@ -5,15 +5,16 @@ services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333919"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de Azure Virtual Network
 
@@ -48,7 +49,7 @@ Una vez configurada la cuenta de Azure Cosmos DB con un punto de conexión de se
    ![Selección de la red virtual y la subred](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Si un punto de conexión de servicio para Azure Cosmos DB no se ha configurado previamente para las redes virtuales y las subredes de Azure seleccionadas, se puede configurar como parte de esta operación. El proceso para habilitar el acceso puede tardar hasta 15 minutos en completarse. 
+   > Si un punto de conexión de servicio para Azure Cosmos DB no se ha configurado previamente para las redes virtuales y las subredes de Azure seleccionadas, se puede configurar como parte de esta operación. El proceso para habilitar el acceso puede tardar hasta 15 minutos en completarse. Es muy importante deshabilitar el firewall de direcciones IP después de anotar el contenido de la lista de control de acceso del firewall para volverlo a habilitar más tarde. 
 
    ![red virtual y subred configuradas correctamente](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -57,6 +58,9 @@ Ahora, la cuenta de Azure Cosmos DB solo admitirá el tráfico desde esta subred
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configuración del punto de conexión de servicio para una subred y red virtual de Azure nuevas
 
 1. En la hoja **Todos los recursos**, busque la cuenta de Azure Cosmos DB que desea proteger.  
+
+> [!NOTE]
+> Si tiene un firewall para direcciones IP existente configurado para la cuenta de Azure Cosmos DB, tenga en cuenta la configuración del firewall, quite el firewall para direcciones IP y luego habilite el punto de conexión de servicio. Si habilita el punto de conexión de servicio sin deshabilitar el firewall, el tráfico de ese rango de IP perderá la identidad de IP virtual y caerá con un mensaje de error de filtro de IP. Para evitar este error debe siempre deshabilitar las reglas del firewall, copiarlas, habilitar el punto de conexión de servicio de la subred y, finalmente, obtener la lista de control de acceso de Cosmos DB. Una vez configurado el punto de conexión de servicio y agregada la lista de control de acceso, puede volver a habilitar el firewall de direcciones IP si es necesario.
 
 2. Antes de habilitar el punto de conexión de servicio de Virtual Network, copie la información del firewall para las direcciones IP asociada con la cuenta de Azure Cosmos DB para su futuro uso. Puede volver a habilitar el firewall para las direcciones IP después de configurar el punto de conexión de servicio.  
 
@@ -76,7 +80,7 @@ Una vez que los puntos de conexión de servicio de Azure Virtual Network están 
 
 Si otros servicios de Azure, como Azure Search, usan la cuenta de Azure Cosmos DB, o bien si se accede a ella desde Stream Analytics o Power BI, podrá permitir el acceso si marca la opción **Permitir acceso al servicio de Azure**.
 
-Para garantizar el acceso a las métricas de Azure Cosmos DB desde Azure Portal, debe habilitar las opciones **Allow access to Azure portal** (Permitir acceso a Azure Portal). Para más información sobre estas opciones, vea [Conexiones desde Azure Portal](firewall-support.md#connections-from-the-azure-portal) y [Conexiones desde otros servicios PaaS de Azure](firewall-support.md#connections-from-other-azure-paas-services). Después de seleccionar el acceso, seleccione **Guardar** para guardar la configuración.
+Para garantizar el acceso a las métricas de Azure Cosmos DB desde Azure Portal, debe habilitar las opciones **Allow access to Azure portal** (Permitir acceso a Azure Portal). Para más información sobre estas opciones, vea [Conexiones desde Azure Portal](firewall-support.md#connections-from-the-azure-portal) y [Conexiones desde otros servicios PaaS de Azure](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services). Después de seleccionar el acceso, seleccione **Guardar** para guardar la configuración.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Eliminación de una red virtual o subred 
 
@@ -95,6 +99,10 @@ Para garantizar el acceso a las métricas de Azure Cosmos DB desde Azure Portal,
 Use los pasos siguientes para configurar el punto de conexión de servicio de una cuenta de Azure Cosmos DB mediante Azure PowerShell:  
 
 1. Instale la última versión de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) e [inicie sesión](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Asegúrese de anotar la configuración del firewall para las direcciones IP y elimine el firewall por completo antes de habilitar el punto de conexión de servicio para la cuenta.
+
+
+> [!NOTE]
+> Si tiene un firewall para direcciones IP existente configurado para la cuenta de Azure Cosmos DB, tenga en cuenta la configuración del firewall, quite el firewall para direcciones IP y luego habilite el punto de conexión de servicio. Si habilita el punto de conexión de servicio sin deshabilitar el firewall, el tráfico de ese rango de IP perderá la identidad de IP virtual y caerá con un mensaje de error de filtro de IP. Para evitar este error debe siempre deshabilitar las reglas del firewall, copiarlas, habilitar el punto de conexión de servicio de la subred y, finalmente, obtener la lista de control de acceso de Cosmos DB. Una vez configurado el punto de conexión de servicio y agregada la lista de control de acceso, puede volver a habilitar el firewall de direcciones IP si es necesario.
 
 2. Antes de habilitar el punto de conexión de servicio de Virtual Network, copie la información del firewall para las direcciones IP asociada con la cuenta de Azure Cosmos DB para su futuro uso. Volverá a habilitar el firewall para las direcciones IP después de configurar el punto de conexión de servicio.  
 
@@ -117,15 +125,16 @@ Use los pasos siguientes para configurar el punto de conexión de servicio de un
 4. Prepárese para habilitar la ACL en la cuenta de Cosmos DB; para ello, asegúrese de que la red virtual y la subred tienen el punto de conexión de servicio habilitado para Azure Cosmos DB.
 
    ```powershell
-   $subnet = Get-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName  | Get-AzureRmVirtualNetworkSubnetConfig -Name $sname
-   $vnProp = Get-AzureRmVirtualNetwork `-Name $vnName  -ResourceGroupName $rgName
+   $vnProp = Get-AzureRmVirtualNetwork `
+     -Name $vnName  -ResourceGroupName $rgName
    ```
 
 5. Obtenga las propiedades de la cuenta de Azure Cosmos DB mediante la ejecución del siguiente cmdlet:  
 
    ```powershell
+   $apiVersion = "2015-04-08"
+   $acctName = "<Azure Cosmos DB account name>"
+
    $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -136,15 +145,24 @@ Use los pasos siguientes para configurar el punto de conexión de servicio de un
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $subnetName  
+   $subnetID = $vnProp.Id+"/subnets/" + $sname  
    $virtualNetworkRules = @(@{"id"=$subnetID})
    $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
    ```
@@ -158,7 +176,7 @@ Use los pasos siguientes para configurar el punto de conexión de servicio de un
    $cosmosDBProperties['virtualNetworkRules'] = $virtualNetworkRules
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
-   Set-AzureRmResource ``
+   Set-AzureRmResource `
      -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -219,9 +237,13 @@ Esto solo es necesario si desea que otros servicios propios de Azure accedan a l
 
 Se admiten sesenta y cuatro puntos de conexión de servicio de Virtual Network para una cuenta de Azure Cosmos DB.
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>¿Cuál es la relación del punto de conexión de servicio con respecto a las reglas del grupo de seguridad de red (NSG)?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>¿Cuál es la relación entre el punto de conexión de servicio y las reglas del grupo de seguridad de red (NSG)?  
 
-La regla de Azure Cosmos DB del NSG permite restringir el acceso solo al intervalo de direcciones IP de Azure Cosmos DB.
+Las reglas del grupo de seguridad de red de Azure Cosmos DB le permiten restringir el acceso a un intervalo de direcciones IP de Azure Cosmos DB. Si desea permitir el acceso a una instancia de Azure Cosmos DB en una [región](https://azure.microsoft.com/global-infrastructure/regions/) concreta, puede especificar la región en el siguiente formato: 
+
+    AzureCosmosDB.<region name>
+
+Para más información acerca de las etiquetas del grupo de seguridad de red, consulte el artículo sobre [etiquetas del servicio de red virtual](../virtual-network/security-overview.md#service-tags). 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>¿Cuál es la relación entre un firewall para direcciones IP y la funcionalidad del punto de conexión de servicio de Virtual Network?  
 

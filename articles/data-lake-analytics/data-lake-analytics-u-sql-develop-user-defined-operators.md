@@ -1,29 +1,24 @@
 ---
-title: Desarrollo de operadores U-SQL definidos por el usuario (UDO) | Microsoft Docs
-description: 'Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse a usar en trabajos de Análisis de Data Lake. '
+title: Desarrollo de operadores U-SQL definidos por el usuario (UDO) en Azure Data Lake Analytics
+description: Obtenga información sobre cómo desarrollar operadores definidos por el usuario para usarse y volverse a usar en trabajos de Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+manager: kfile
+editor: jasonwhowell
+ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 8d8937a6132f770e989d7595883b2c5cf804c44f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623862"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desarrollo de operadores U-SQL definidos por el usuario (UDO)
-Aprenda a desarrollar operadores definidos por el usuario para procesar datos en un trabajo de U-SQL.
-
-Para instrucciones sobre cómo desarrollar ensamblados de propósito general para U-SQL, consulte [Desarrollo de ensamblados U-SQL para trabajos de Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)
+En este artículo se describe cómo desarrollar operadores definidos por el usuario para procesar datos en un trabajo de U-SQL.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definición y uso de un operador definido por el usuario en U-SQL
 **Para crear y enviar un trabajo de U-SQL**

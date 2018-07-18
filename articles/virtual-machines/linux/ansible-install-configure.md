@@ -3,7 +3,7 @@ title: Instalación y configuración de Ansible para uso con máquinas virtuales
 description: Obtenga información sobre cómo instalar Ansible y configurarlo para administrar recursos de Azure en Ubuntu, CentOS y SLES.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
-ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: cynthn
+ms.openlocfilehash: e7d57ead2caff87db07380582b9085b831844f1e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896136"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930076"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalación y configuración de Ansible para la administración de máquinas virtuales en Azure
 
@@ -106,7 +106,7 @@ En la VM, instale los paquetes necesarios para los módulos de SDK de Python de 
 sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
 
 ## Install Ansible and Azure SDKs via pip
-pip install ansible[azure]
+sudo pip install ansible[azure]
 ```
 
 Seguidamente, pase a [Creación de credenciales de Azure](#create-azure-credentials).
@@ -150,7 +150,7 @@ Seguidamente, pase a [Creación de credenciales de Azure](#create-azure-credenti
 
 Ansible se comunica con Azure mediante un nombre de usuario y una contraseña, o a través de una entidad de servicio. Las entidades de servicio de Azure son identidades de seguridad que pueden usarse con aplicaciones, servicios y herramientas de automatización como Ansible. El usuario controla los permisos y los define con respecto a cuáles son las operaciones que la entidad de servicio puede realizar en Azure. Para incrementar la seguridad más allá de un nombre de usuario y una contraseña, en este ejemplo se crea una entidad de servicio básica.
 
-En el equipo host o en Azure Cloud Shell, cree una entidad de servicio con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). En la pantalla se muestran las credenciales que necesita Ansible:
+En el equipo host o en Azure Cloud Shell, cree una entidad de servicio con [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). En la pantalla se muestran las credenciales que necesita Ansible:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -166,7 +166,7 @@ A continuación puede ver un ejemplo del resultado de los comandos anteriores:
 }
 ```
 
-Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#az_account_show):
+Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#az-account-show):
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

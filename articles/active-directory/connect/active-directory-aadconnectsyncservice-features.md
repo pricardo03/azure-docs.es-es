@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f721c371687addfe48d753e7289df78c2be1f3c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150352"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958007"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Características del servicio de sincronización de Azure AD Connect
 La característica de sincronización de Azure AD Connect tiene dos componentes:
@@ -57,7 +58,8 @@ Las siguientes opciones se configuran mediante Azure AD Connect y no se pueden m
 | DeviceWriteback |[Azure AD Connect: habilitación de la escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Sincronización de Azure AD Connect: Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite poner un atributo en cuarentena si es un duplicado de otro objeto en lugar de consignar un error en todo el objeto durante la exportación. |
-| PasswordSync |[Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| Sincronización de hash de contraseñas |[Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+|Autenticación de paso a través|[Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory](active-directory-aadconnect-pass-through-authentication.md)|
 | UnifiedGroupWriteback |[Versión preliminar: reescritura de grupos](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |No se admite actualmente. |
 

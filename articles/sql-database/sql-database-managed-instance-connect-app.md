@@ -5,15 +5,16 @@ ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647840"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL Database
 
@@ -39,10 +40,10 @@ Para conectar redes virtuales hay dos opciones:
 - [Emparejamiento de Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md) 
 - Puerta de enlace VPN de red virtual a red virtual ([Azure Portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [CLI de Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-La opción de emparejamiento es la preferida, porque se usa la red troncal de Microsoft y, por lo tanto, desde la perspectiva de la conectividad, no hay diferencias notables de latencia entre máquinas virtuales de la red virtual emparejada y la propia. El emparejamiento de redes virtuales se limita a redes de la misma región, aunque el emparejamiento entre regiones está habilitado en algunas regiones como versión preliminar.  
+La opción de emparejamiento es la preferida, porque se usa la red troncal de Microsoft y, por lo tanto, desde la perspectiva de la conectividad, no hay diferencias notables de latencia entre máquinas virtuales de la red virtual emparejada y la propia. El emparejamiento de VNet está restringido a las redes de la misma región.  
  
 > [!IMPORTANT]
-> Es posible que los emparejamientos de redes virtuales entre regiones no tengan el mismo nivel de disponibilidad y confiabilidad que los de disponibilidad general. Es posible que los emparejamientos de redes virtuales tengan funcionalidades limitadas y no estén disponibles en todas las regiones de Azure. Para ver las notificaciones más recientes de disponibilidad y estado de esta característica, consulte la página de actualizaciones de  [Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network). 
+> El escenario de emparejamiento de VNet de la instancia administrada está restringido a las redes de la misma región debido a las [restricciones de emparejamiento de redes virtuales globales](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Conexión de una aplicación local 
 

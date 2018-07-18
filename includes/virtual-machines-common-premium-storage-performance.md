@@ -239,7 +239,7 @@ Es importante habilitar la memoria caché en el conjunto de discos correcto. Si 
 | **Tipo de disco** | **Configuración de la memoria caché predeterminada** |
 | --- | --- |
 | Disco del sistema operativo |ReadWrite |
-| Disco de datos |None |
+| Disco de datos |ReadOnly |
 
 A continuación se muestra la configuración de caché de disco recomendada para los discos de datos:
 

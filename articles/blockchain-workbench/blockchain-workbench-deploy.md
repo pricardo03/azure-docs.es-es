@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303950"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294856"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
 
@@ -48,7 +48,10 @@ Azure Blockchain Workbench necesita varios requisitos previos antes de la implem
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Registro de aplicación de API de Blockchain Workbench
 
-La implementación de Blockchain Workbench requiere el registro de una aplicación de Azure AD. Necesita un inquilino de Azure Active Directory (Azure AD) para registrar la aplicación. Puede usar un inquilino existente o crear uno nuevo. Si va a usar un inquilino de Azure AD ya existente, necesitará suficientes permisos para registrar aplicaciones en un inquilino de Azure AD. Los registros de la aplicación deben estar en el inquilino del administrador de la suscripción en la que se ha implementado Workbench. Para más información sobre los inquilinos de Azure AD, consulte [Obtención de un inquilino de Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) e [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+La implementación de Blockchain Workbench requiere el registro de una aplicación de Azure AD. Necesita un inquilino de Azure Active Directory (Azure AD) para registrar la aplicación. Puede usar un inquilino existente o crear uno nuevo. Si va a usar un inquilino de Azure AD ya existente, necesitará suficientes permisos para registrar aplicaciones y otorgar permisos de Graph API dentro de un inquilino de Azure AD. Si no tiene permisos suficientes en un inquilino de Azure AD existente, cree un inquilino. 
+
+> [!IMPORTANT]
+> El área de trabajo no tiene que implementarse en el mismo inquilino que el que se usa para registrar una aplicación de Azure AD. Se debe implementar en un inquilino donde tenga permisos suficientes para implementar recursos. Para más información sobre los inquilinos de Azure AD, consulte [Obtención de un inquilino de Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) e [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione su cuenta en la esquina superior derecha y cambie al inquilino de Azure AD que desee. El inquilino debe ser el inquilino del administrador de la suscripción en la que está implementado Workbench y tener permisos suficientes para registrar aplicaciones.
@@ -73,7 +76,7 @@ La implementación de Blockchain Workbench requiere el registro de una aplicaci�
 A continuación, debe modificar el manifiesto de aplicación para que use los roles de aplicación en Azure AD para especificar los administradores de Blockchain Workbench.  Para más información acerca de los manifiestos de aplicación, consulte [Manifiesto de aplicación de Azure Active Directory](../active-directory/develop/active-directory-application-manifest.md).
 
 1. Para la aplicación que registró, seleccione **Manifiesto** en el panel de detalles de la aplicación registrada.
-2. Genere un identificador único global. Puede usar el comando de PowerShell `[guid]::NewGuid()` o herramientas en línea para generar uno de estos identificadores. 
+2. Genere un identificador único global. Puede generar un GUID mediante el comando de PowerShell [guid] :: NewGuid () o el cmdlet New-GUID. Otra opción es usar un sitio web generador de GUID.
 3. Va a actualizar la sección **appRoles** del manifiesto. En el panel Editar manifiesto, seleccione **Editar** y sustituya `"appRoles": []` por el código JSON que se proporciona. Asegúrese de reemplazar el valor del campo **ID** por el identificador único global que generó. 
 
     ``` json
@@ -191,7 +194,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | SSH | Use una clave pública RSA en formato de una sola línea con **ssh-rsa** o utilice el formato PEM de varias líneas. Puede generar claves SSH mediante `ssh-keygen` en Linux y OS X o PuTTYGen en Windows. Para más información sobre las claves SSH, consulte [Uso de claves SSH con Windows en Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Contraseña de base de datos / Confirmar contraseña de la base de datos | Especifique la contraseña que se utilizará para acceder a la base de datos creada como parte de la implementación. |
     | Región de la implementación | Especifique dónde se van a implementar los recursos de Blockchain Workbench. Para una mejor disponibilidad, el valor debe ser el mismo que el de **Ubicación**. |
-    | La suscripción | Especifique la suscripción de Azure que desea usar para la implementación. |
+    | Subscription | Especifique la suscripción de Azure que desea usar para la implementación. |
     | Grupos de recursos | Cree un nuevo grupo de recursos seleccionando **Crear nuevo** y especifique un nombre de grupo de recursos único. |
     | Ubicación | Especifique la región en la que desea implementar la plataforma. |
 

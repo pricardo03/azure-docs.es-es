@@ -2,7 +2,7 @@
 title: 'Seguimiento de mensajes B2B con Azure Log Analytics: Azure Logic Apps | Microsoft Docs'
 description: Seguimiento de la comunicación B2B de la cuenta de integración y las aplicaciones lógicas con Azure Log Analytics
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -12,13 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293213"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Seguimiento de la comunicación B2B con Azure Log Analytics
 
@@ -55,39 +56,31 @@ Para que Log Analytics realice el seguimiento de los mensajes B2B de la aplicaci
 
    ![Selección del área de trabajo de Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. En **Administración**, elija **Portal de OMS**.
+3. En **Administración**, elija **Información general**.
 
-   ![Selección de Portal de OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Elección del portal de Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Cuando se abra la página principal, elija **Galería de soluciones**.    
+4. Cuando se abra la página principal, elija **Agregar** para instalar la solución Logic Apps B2B.    
+   ![Selección de Galería de soluciones](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![Selección de Galería de soluciones](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. En **Todas las soluciones**, busque y seleccione **Logic Apps B2B**.     
-
-   ![Selección de Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. En **Logic Apps B2B**, elija **Agregar**.
-
-   ![Elección de Agregar](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. En **Soluciones de administración**, busque y cree la solución **Logic Apps B2B**.     
+   ![Selección de Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    En la página principal aparece el icono de **Mensajes de Logic Apps B2B**. 
    Este icono actualiza el recuento de mensajes al procesar los mensajes B2B.
-
-   ![Página principal, icono de Mensajes de Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>Seguimiento del estado y los detalles de los mensajes en Log Analytics
 
-1. Una vez procesados los mensajes B2B, puede ver el estado y los detalles de esos mensajes. En la página principal, elija el icono de **Mensajes de Logic Apps B2B**.
+1. Una vez procesados los mensajes B2B, puede ver el estado y los detalles de esos mensajes. En la página Información general, elija el icono de **Mensajes B2B de Logic Apps**.
 
-   ![Recuento de mensajes actualizado](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Recuento de mensajes actualizado](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > De forma predeterminada, el icono de **Mensajes B2B de Logic Apps** muestra datos basados en un solo día. Para cambiar el ámbito de datos a otro intervalo, elija el control de ámbito de la parte superior de la página:
    > 
-   > ![Cambio del ámbito de datos](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![Cambio del ámbito de datos](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. Después de que aparezca el panel de estado de los mensajes, puede ver más detalles sobre un tipo de mensaje concreto, lo que muestra los datos basados en un solo día. Seleccione el icono de **AS2**, **X12** o **EDIFACT**.

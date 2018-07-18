@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: aplicaciones de una página con el flujo implícito | Microsoft Docs'
+title: Aplicaciones de una página con el flujo implícito en Azure Active Directory B2C | Microsoft Docs
 description: Obtenga información sobre cómo compilar aplicaciones de una página directamente con el flujo implícito de OAuth 2.0 con Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2017
 ms.author: davidmu
-ms.openlocfilehash: 3347eac16e447091ffcaaf403e1291e2c7175a2d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: B2C
+ms.openlocfilehash: ee341fd3b54d748849da34cd11db30e5ea758fb1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445279"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: inicio de sesión de aplicaciones de una página con el flujo implícito de OAuth 2.0
 

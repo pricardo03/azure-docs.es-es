@@ -1,52 +1,45 @@
 ---
-title: Implementación de Azure Stream Analytics con Azure IoT Edge | Microsoft Docs
-description: Implementación de Azure Stream Analytics como módulo en un dispositivo perimetral
-services: iot-edge
-keywords: ''
+title: 'Tutorial: Implementación de trabajos ASA en dispositivos Azure IoT Edge | Microsoft Docs'
+description: Implementación de Azure Stream Analytics como un módulo en un dispositivo de Iot Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/18/2018
-ms.topic: article
+ms.date: 06/25/2018
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362046"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38540179"
 ---
-# <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementación de Azure Stream Analytics como un módulo de IoT Edge (versión preliminar)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge (versión preliminar)
 
-Los dispositivos de IoT pueden generar grandes cantidades de datos. Para disminuir la cantidad de datos cargados o eliminar la latencia de ida y vuelta de una información práctica, a veces los datos se tienen que analizar o procesar antes de llegar a la nube.
+Muchas soluciones de IoT utilizan servicios de análisis para obtener información sobre los datos a medida que llegan a la nube desde los dispositivos de IoT. Con Azure IoT Edge, puede tomar la lógica de [Azure Stream Analytics][azure-stream] y llevarla al mismo dispositivo. Al procesar los flujos de telemetría en el perímetro, puede reducir la cantidad de datos cargados y reducir el tiempo que se tarda en reaccionar ante la información procesable.
 
-Azure IoT Edge aprovecha los módulos de Azure Service IoT Edge creados previamente para realizar una implementación rápida. [Azure Stream Analytics][azure-stream] es un módulo de ese tipo. Puede crear un trabajo de Azure Stream Analytics desde su portal y luego dirigirse al portal de Azure IoT Hub para implementarlo como un módulo de IoT Edge. 
+Azure IoT Edge y Azure Stream Analytics están integrados para que pueda crear un trabajo de Azure Stream Analytics en Azure Portal y después implementarlo como un módulo de IoT Edge sin código adicional.  
 
 Azure Stream Analytics proporciona una sintaxis de consulta con una estructura compleja para el análisis de datos tanto en la nube como en los dispositivos de IoT Edge. Para más información sobre Azure Stream Analytics en IoT Edge, consulte la [documentación de Azure Stream Analytics](../stream-analytics/stream-analytics-edge.md).
 
-Este tutorial le guiará a través de la creación de un trabajo de Azure Stream Analytics y su implementación en un dispositivo de IoT Edge. Esto le permite procesar un flujo de telemetría local directamente en el dispositivo y generar alertas que impulsen una acción inmediata en el dispositivo. 
-
-El tutorial presenta dos módulos: 
-* Un módulo de sensor de temperatura simulado (tempSensor) que genera datos de temperatura que oscila de 20 a 120 grados, incrementados en 1 cada 5 segundos. 
-* Un módulo de Stream Analytics que restablece tempSensor cuando la media de 30 segundos alcanza el valor de 70. En un entorno de producción, podría usar esta funcionalidad para apagar una máquina o tomar medidas preventivas cuando la temperatura alcance niveles peligrosos. 
+El módulo de Stream Analytics de este tutorial calcula la temperatura media en una ventana gradual de 30 segundos. Cuando ese promedio alcanza 70, el módulo envía una alerta para que el dispositivo tome medidas. En este caso, esa acción es restablecer el sensor de temperatura simulado. En un entorno de producción, podría usar esta funcionalidad para apagar una máquina o tomar medidas preventivas cuando la temperatura alcance niveles peligrosos. 
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un trabajo de Azure Stream Analytics para procesar los datos en los dispositivos perimetrales.
 > * Conectar el trabajo de Azure Stream Analytics nuevo con otros módulos de IoT Edge.
-> * Implemente el trabajo de Azure Stream Analytics en un dispositivo de IoT Edge.
+> * Implemente el trabajo de Azure Stream Analytics en un dispositivo IoT Edge desde Azure Portal.
+
+>[!NOTE]
+>Los módulos de Azure Stream Analytics para IoT Edge están en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>requisitos previos
 
-* Una instancia de IoT Hub. 
-* El dispositivo que creó y configuró en el tutorial de inicio rápido o en los artículos sobre la implementación de Azure IoT Edge en un dispositivo simulado en [Windows][lnk-tutorial1-win] o en [Linux][lnk-tutorial1-lin]. Debe conocer la clave de conexión del dispositivo y el identificador del dispositivo. 
-* Docker en ejecución en el dispositivo de IoT Edge.
-    * [Instalar Docker en Windows][lnk-docker-windows].
-    * [Instalar Docker en Linux][lnk-docker-linux].
-* Python 2.7.x en un dispositivo de IoT Edge.
-    * [Instalar Python 2.7 en Windows][lnk-python].
-    * La mayoría de las distribuciones de Linux, incluida Ubuntu, ya tienen Python 2.7 instalado. Para asegurarse de que PIP está instalado, use el comando siguiente: `sudo apt-get install python-pip`.
+* Una instancia de IoT Hub
+* El dispositivo IoT Edge que ha creado y configurado en la guía de inicio rápido para [Windows][lnk-quickstart-win] o [Linux][lnk-quickstart-lin]. 
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Creación de un trabajo de Azure Stream Analytics
 
@@ -54,7 +47,7 @@ En esta sección, se crea un trabajo de Azure Stream Analytics para tomar datos 
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Se requiere una cuenta de Azure Storage para proporcionar un punto de conexión que se use como salida en su trabajo de Azure Stream Analytics. En el ejemplo de esta sección se usa el tipo de almacenamiento de blobs. Para más información, consulte la sección "Blobs" de [la documentación de Azure Storage][azure-storage].
+Se requiere una cuenta de Azure Storage para los trabajos de Azure Stream Analytics que se use como punto de conexión en la salida del trabajo. En el ejemplo de esta sección se usa el tipo de almacenamiento de blobs. Para más información, consulte la sección "Blobs" de [la documentación de Azure Storage][azure-storage].
 
 1. En Azure Portal, vaya a **Crear un recurso**, escriba **Cuenta de almacenamiento** en el cuadro de búsqueda y, luego, seleccione **Cuenta de almacenamiento: blob, archivo, tabla, cola**.
 
@@ -62,11 +55,6 @@ Se requiere una cuenta de Azure Storage para proporcionar un punto de conexión 
 
     ![Crear una cuenta de almacenamiento][1]
 
-3. Vaya a la cuenta de almacenamiento que acaba de crear y, luego, seleccione **Examinar blobs**. 
-
-4. Cree un contenedor para que el módulo de Azure Stream Analytics almacene datos, establezca el nivel de acceso en **Contenedor** y, luego, seleccione **Aceptar**.
-
-    ![Configuración de almacenamiento][10]
 
 ### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
@@ -74,15 +62,15 @@ Se requiere una cuenta de Azure Storage para proporcionar un punto de conexión 
 
 2. En el panel **Nuevo trabajo de Stream Analytics**, haga lo siguiente:
 
-    a. En el cuadro **Nombre del trabajo**, escriba un nombre de trabajo.
-    
-    b. En **Entorno de hospedaje**, seleccione **Edge**.
-    
-    c. En el resto de los campos, use los valores predeterminados.
+   1. En el cuadro **Nombre del trabajo**, escriba un nombre de trabajo.
+   
+   2. Utilice el mismo **grupo de recursos** y **ubicación** como instancia de IoT Hub. 
 
-    > [!NOTE]
-    > Actualmente, no se admiten los trabajos de Azure Stream Analytics en IoT Edge en la región Oeste de EE. UU. 2. 
+      > [!NOTE]
+      > Actualmente, no se admiten los trabajos de Azure Stream Analytics en IoT Edge en la región Oeste de EE. UU. 2. 
 
+   3. En **Entorno de hospedaje**, seleccione **Edge**.
+    
 3. Seleccione **Crear**.
 
 4. En el trabajo creado, en **Topología de trabajo**, abra el campo **Entradas**.
@@ -91,21 +79,21 @@ Se requiere una cuenta de Azure Storage para proporcionar un punto de conexión 
 
 5. Seleccione **Agregar entrada de la secuencia** y, luego, seleccione **Centro de Microsoft Edge**.
 
-5. En el panel **Nueva entrada**, escriba **Temperatura** como alias de entrada. 
+6. En el panel **Nueva entrada**, escriba **Temperatura** como alias de entrada. 
 
-6. Seleccione **Guardar**.
+7. Seleccione **Guardar**.
 
-7. En **Topología de trabajo**, abra **Salidas**.
+8. En **Topología de trabajo**, abra **Salidas**.
 
    ![Salida de Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-8. Seleccione **Agregar** y, luego, **Centro de Microsoft Edge**.
+9. Seleccione **Agregar** y, luego, **Centro de Microsoft Edge**.
 
-8. En el panel **Nueva salida**, escriba **alerta** como alias de salida. 
+10. En el panel **Nueva salida**, escriba **alerta** como alias de salida. 
 
-9. Seleccione **Crear**.
+11. Seleccione **Guardar**.
 
-9. En **Topología de trabajo**, seleccione **Consulta** y reemplace el texto predeterminado por la consulta siguiente:
+12. En **Topología de trabajo**, seleccione **Consulta** y, a continuación, sustituya el texto predeterminado por la siguiente consulta que crea una alerta si la temperatura media de la máquina en una ventana de 30 segundos alcanza los 70 grados:
 
     ```sql
     SELECT  
@@ -118,59 +106,60 @@ Se requiere una cuenta de Azure Storage para proporcionar un punto de conexión 
     HAVING Avg(machine.temperature) > 70
     ```
 
-10. Seleccione **Guardar**.
+13. Seleccione **Guardar**.
+
+14. En **Configurar**, seleccione **Configuración de IoT Edge**.
+
+15. Seleccione la **cuenta de Storage**  en el menú desplegable.
+
+16. Para el campo **Contenedor**, seleccione **Crear nuevo** y proporcione un nombre para el contenedor de almacenamiento. 
+
+17. Seleccione **Guardar**. 
+
 
 ## <a name="deploy-the-job"></a>Implementación del trabajo
 
 Ya está listo para implementar el trabajo de Azure Stream Analytics en el dispositivo de IoT Edge.
 
-1. En Azure Portal, en la instancia de IoT Hub, vaya a **IoT Edge (versión preliminar)** y abra la página de detalles del dispositivo de IoT Edge.
+1. En Azure Portal, en la instancia de IoT Hub, vaya a **IoT Edge** y abra la página de detalles del dispositivo IoT Edge.
 
 2. Seleccione **Set modules** (Establecer módulos).  
-    Si anteriormente implementó el módulo tempSensor en este dispositivo, puede que se rellene automáticamente. Si no es así, haga lo siguiente para agregar el módulo:
 
-   a. Seleccione **Add IoT Edge module** (Agregar módulo de IoT Edge).
+   Si anteriormente implementó el módulo tempSensor en este dispositivo, puede que se rellene automáticamente. Si no es así, siga estos pasos para agregar el módulo:
 
-   b. Para el nombre, escriba **tempSensor**.
-    
-   c. Para el URI de la imagen, escriba **microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview**. 
+   1. Haga clic en **Add** (Agregar) y seleccione **IoT Edge Module** (Módulo de IoT Edge).
+   2. Para el nombre, escriba **tempSensor**.
+   3. Para el URI de la imagen, escriba **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
+   4. Deje intactos los valores restantes.
+   5. Seleccione **Guardar**.
 
-   d. Deje intactos los valores restantes.
-   
-   e. Seleccione **Guardar**.
+3. Agregue el trabajo de Edge de Azure Stream Analytics con los siguientes pasos:
 
-3. Para agregar el trabajo Edge de Azure Stream Analytics, seleccione **Import Azure Stream Analytics IoT Edge Module** (Importar módulo de IoT Edge de Azure Stream Analytics).
+   1. Haga clic en **Add** (Agregar) y seleccione **Azure Stream Analytics Module** (Módulo de Azure Stream Analytics).
+   2. Seleccione la suscripción y el trabajo Edge de Azure Stream Analytics que creó. 
+   3. Seleccione **Guardar**.
 
-4. Seleccione la suscripción y el trabajo Edge de Azure Stream Analytics que creó. 
+4. Seleccione **Next** (Siguiente).
 
-5. Seleccione la suscripción y la cuenta de almacenamiento que creó y, luego, seleccione **Guardar**.
-
-    ![Establecer módulo][6]
-
-6. Copie el nombre de su módulo de Azure Stream Analytics. 
-
-    ![Módulo de temperatura][11]
-
-7. Para configurar las rutas, seleccione **Siguiente**.
-
-8. Copie el código siguiente en **Rutas**. Reemplace _{moduleName}_ por el nombre del módulo que ha copiado:
+5. Reemplace el valor predeterminado de **Rutas** por el código siguiente. Actualice _{moduleName}_ con el nombre del módulo de Azure Stream Analytics. El módulo debe tener el mismo nombre que el trabajo con el que se creó. 
 
     ```json
     {
-        "routes": {                                                               
-          "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
-          "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream", 
-          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")", 
-          "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")" 
+        "routes": {
+            "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream",
+            "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream",
+            "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")",
+            "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")"
         }
     }
     ```
 
-9. Seleccione **Next** (Siguiente).
+6. Seleccione **Next** (Siguiente).
 
-10. En el paso **Revisar plantilla**, seleccione **Enviar**.
+7. En el paso **Review Deployment** (Revisar implementación), seleccione **Submit** (Enviar).
 
-11. Vuelva a la página de detalles del dispositivo y, luego, seleccione **Actualizar**.  
+8. Vuelva a la página de detalles del dispositivo y, luego, seleccione **Actualizar**.  
+
     Debería ver el nuevo módulo de Stream Analytics en ejecución junto con el módulo del agente de IoT Edge y el centro de IoT Edge.
 
     ![Salida del módulo][7]
@@ -182,25 +171,56 @@ Ahora puede ir a su dispositivo de IoT Edge para revisar la interacción entre e
 1. Compruebe que todos los módulos se ejecutan en Docker:
 
    ```cmd/sh
-   docker ps  
+   iotedge list  
    ```
-
-   ![Salida de Docker][8]
-
+<!--
+   ![Docker output][8]
+-->
 2. Vea todos los registros del sistema y datos de métrica. Use el nombre del módulo de Stream Analytics:
 
    ```cmd/sh
-   docker logs -f {moduleName}  
+   iotedge logs -f {moduleName}  
    ```
 
 Podrá observar que la temperatura de la máquina sube gradualmente hasta alcanzar 70 grados durante 30 segundos. Después, el módulo de Stream Analytics desencadena un restablecimiento y la temperatura de la máquina vuelve a bajar a 21. 
 
    ![Registro de Docker][9]
 
+## <a name="clean-up-resources"></a>Limpieza de recursos 
+
+<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+
+Si va a seguir con el siguiente artículo recomendado, puede conservar los recursos y las configuraciones que ya ha creado para volverlos a utilizar.
+
+En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
+
+> [!IMPORTANT]
+> La eliminación de los recursos de Azure y del grupo de recursos es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos que contiene se suprimirán permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
+>
+
+Para eliminar solo la instancia de IoT Hub, ejecute el siguiente comando usando el nombre del centro y el nombre del grupo de recursos:
+
+```azurecli-interactive
+az iot hub delete --name MyIoTHub --resource-group TestResources
+```
+
+
+Para eliminar un grupo de recursos entero por el nombre:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
+
+2. Escriba el nombre del grupo de recursos que contiene la instancia de IoT Hub en el cuadro de texto **Filtrar por nombre...**. 
+
+3. A la derecha del grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
+
+<!--
+   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+-->
+4. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba otra vez el nombre del grupo de recursos para confirmar y haga clic en **Eliminar**. Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha configurado un contenedor de Azure Storage y un trabajo de Stream Analytics para analizar datos desde un dispositivo de IoT Edge. Luego, ha cargado un módulo Azure Stream Analytics personalizado para mover datos desde el dispositivo a un blob, a través del flujo de datos para su descarga. Para ver cómo Azure IoT Edge puede crear más soluciones para la empresa, siga con los otros tutoriales.
+En este tutorial ha configurado un trabajo de Azure Stream Analytics para analizar datos desde un dispositivo IoT Edge. A continuación, ha cargado este módulo de Azure Stream Analytics en su dispositivo IoT Edge para procesar y reaccionar al aumento de temperatura localmente, así como para enviar el flujo de datos agregado a la nube. Para ver cómo Azure IoT Edge puede crear más soluciones para la empresa, siga con los otros tutoriales.
 
 > [!div class="nextstepaction"] 
 > [Implementación de un modelo de Azure Machine Learning como módulo][lnk-ml-tutorial]
@@ -210,7 +230,7 @@ En este tutorial ha configurado un contenedor de Azure Storage y un trabajo de S
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png
-[7]: ./media/tutorial-deploy-stream-analytics/module_output.png
+[7]: ./media/tutorial-deploy-stream-analytics/module_output2.png
 [8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
 [9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
 [10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
@@ -225,11 +245,8 @@ En este tutorial ha configurado un contenedor de Azure Storage y un trabajo de S
 [azure-storage]: https://docs.microsoft.com/azure/storage/
 [azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-quickstart-win]: quickstart.md
+[lnk-quickstart-lin]: quickstart-linux.md
 [lnk-module-tutorial]: tutorial-csharp-module.md
 [lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
 
-[lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-docker-linux]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
-[lnk-python]: https://www.python.org/downloads/

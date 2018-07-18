@@ -10,25 +10,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b6de6331b4d829f183c8b5dc03d6a29095a47479
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049339"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-copy-activity-performance.md)
-> * [Versión 2: versión preliminar](copy-activity-performance.md)
+> * [Versión 1](v1/data-factory-copy-activity-performance.md)
+> * [Versión actual](copy-activity-performance.md)
 
 
 Copiar actividad de Azure Data Factory ofrece una solución de carga de datos de alto rendimiento fiable y segura de primera clase. Le permite copiar decenas de terabytes de datos al día en una amplia variedad de almacenes de datos locales y en la nube. Un rendimiento acelerado de la carga de datos es clave para garantizar que puede centrarse en el problema principal de los "macrodatos": crear soluciones de análisis avanzadas y profundizar en todos esos datos.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), consulte [Rendimiento de la actividad de copia en Data Factory versión 1](v1/data-factory-copy-activity-performance.md).
 
 Azure proporciona un conjunto de soluciones de almacén de datos y almacenamiento de datos de clase empresarial, y la actividad de copia ofrece una experiencia de carga de datos enormemente optimizada que es fácil de configurar e instalar. Con solo una actividad de copia, puede conseguir:
 
@@ -39,7 +37,7 @@ Azure proporciona un conjunto de soluciones de almacén de datos y almacenamient
 En este artículo se describe:
 
 * [Números de referencia de rendimiento](#performance-reference) , para almacenes de datos origen y receptor que le ayudan a planear su proyecto.
-* Características que pueden aumentar el rendimiento de la copia en diferentes escenarios, como [unidades de movimiento de datos de nube](#cloud-data-movement-units), [copia en paralelo](#parallel-copy) y [copia almacenada provisionalmente](#staged-copy);
+* Características que pueden aumentar el rendimiento de la copia en diferentes escenarios, como [unidades de integración de datos](#data-integration-units), [copias en paralelo](#parallel-copy) y [copias almacenadas provisionalmente](#staged-copy);
 * [Directrices de ajuste de rendimiento](#performance-tuning-steps) , acerca de cómo optimizar el rendimiento y los factores clave que pueden afectar al rendimiento de la copia.
 
 > [!NOTE]
@@ -48,12 +46,12 @@ En este artículo se describe:
 
 ## <a name="performance-reference"></a>Referencia de rendimiento
 
-Como referencia, la tabla siguiente muestra la cantidad de procesamiento de copias **en Mbps** para los pares origen-receptor especificados **en una ejecución de actividad de copia única** en función de pruebas internas. A efectos de comparación, también muestra cómo distintos valores de [unidades de movimiento de datos de nube](#cloud-data-movement-units) o [escalabilidad de Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime) (varios nodos) pueden contribuir al rendimiento de copias.
+Como referencia, la tabla siguiente muestra la cantidad de procesamiento de copias **en Mbps** para los pares origen-receptor especificados **en una ejecución de actividad de copia única** en función de pruebas internas. A efectos de comparación, también muestra cómo distintas opciones de configuración de [unidades de integración de datos](#data-integration-units) o [escalabilidad de Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime) (varios nodos) pueden contribuir al rendimiento de las copias.
 
 ![Matriz de rendimiento](./media/copy-activity-performance/CopyPerfRef.png)
 
->[!IMPORTANT]
->En la versión 2 de Azure Data Factory, cuando la actividad de copia se ejecuta en una instancia de Azure Integration Runtime, la cantidad mínima permitida de unidades de movimiento de datos de nube es dos. Si no se especifica, vea las unidades de movimiento de datos predeterminadas usadas en [Unidades de movimiento de datos de nube](#cloud-data-movement-units).
+> [!IMPORTANT]
+> Cuando la actividad de una copia se ejecuta en una instancia de Azure Integration Runtime, la cantidad mínima permitida de unidades de integración de datos (antes conocidas como unidades de movimiento de datos) es dos. Si no se especifica, podrá ver las unidades de integración de datos predeterminadas que se usan en las [unidades de integración de datos](#data-integration-units).
 
 Puntos a tener en cuenta:
 
@@ -78,25 +76,25 @@ Puntos a tener en cuenta:
 
 
 > [!TIP]
-> Para lograr un mayor rendimiento, use más unidades de movimiento de datos (DMU) que el número máximo de DMU permitidas predeterminado, que son 32 para una ejecución de actividad de copia de nube a nube. Por ejemplo, con 100 DMU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1 GBps**. Consulte la sección [Unidades de movimiento de datos en la nube](#cloud-data-movement-units) para más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DMU.
+> Para lograr un mayor rendimiento, use más unidades de integración de datos (DIU) que el número máximo predeterminado de DIU permitidas, que son 32 para una ejecución de actividad de copias de nube a nube. Por ejemplo, con 100 DIU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1,0 GBps**. Consulte la sección [Unidades de integración de datos](#data-integration-units) para obtener más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DIU.
 
-## <a name="cloud-data-movement-units"></a>Unidades de movimiento de datos de nube
+## <a name="data-integration-units"></a>Unidades de integración de datos
 
-Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Una **DMU solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
+Una **unidad de integración de datos (DIU)**, antes conocida como Unidad de movimiento de datos en la nube o DMU, es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Una **DIU solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**La cantidad mínima de unidades de movimiento de datos de nube para impulsar la ejecución de la actividad de copia es dos**. Si no se especifica, en la tabla siguiente se muestran las DMU predeterminadas que se usan en distintos escenarios de copia:
+**La cantidad mínima de unidades de integración de datos para impulsar la ejecución de la actividad de copia, es dos.** Si no se especifica, en la tabla siguiente se muestran las DIU predeterminadas que se usan en distintos escenarios de copia:
 
-| Escenario de copia | DMU predeterminadas que determina el servicio |
+| Escenario de copia | DIU predeterminadas que determina el servicio |
 |:--- |:--- |
 | Copia de datos entre almacenes basados en archivos | Entre 4 y 32 según el número y el tamaño de los archivos. |
 | Todos los demás escenarios de copia | 4 |
 
-Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son **hasta 256**. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
+Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **dataIntegrationUnits** de la manera siguiente. Los **valores admitidos** para la propiedad **dataIntegrationUnits** son **256 como máximo**. El **número real de DIU** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
 
-Puede ver las unidades de movimiento de datos de nube que realmente se usan en cada ejecución de copia en la salida de la actividad de copia cuando se supervisa una ejecución de copia. Obtenga detalles en [Supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
+Puede ver las unidades de integración de datos que realmente se usan en cada ejecución de copia en la salida de la actividad, cuando se supervisa una ejecución de actividad. Obtenga detalles en [Supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Si necesita más DMU de nube para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de ocho y más actualmente solo funciona cuando se **copian varias archivos desde Blob Storage, Data Lake Store, Amazon S3, FTP en la nube o SFTP en la nube a cualquier otro almacén de datos en la nube**.
+> Si necesita más DIU para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de ocho y más actualmente solo funciona cuando se **copian varias archivos desde Blob Storage, Data Lake Store, Amazon S3, FTP en la nube o SFTP en la nube a cualquier otro almacén de datos en la nube**.
 >
 
 **Ejemplo:**
@@ -115,15 +113,15 @@ Puede ver las unidades de movimiento de datos de nube que realmente se usan en c
             "sink": {
                 "type": "AzureDataLakeStoreSink"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
 ```
 
-### <a name="cloud-data-movement-units-billing-impact"></a>Impacto en la facturación de las unidades de movimiento de datos de nube
+### <a name="data-integration-units-billing-impact"></a>Impacto de facturación de las unidades de integración de datos
 
-Es **importante** recordar que se cobra en función del tiempo total de la operación de copia. La duración total que se factura por el movimiento de datos es la suma de la duración de todas las DMU. Si un trabajo de copia solía tardar una hora con dos unidades de nube y ahora tarda 15 minutos con ocho, la factura general sigue siendo casi igual.
+Es **importante** recordar que se cobra en función del tiempo total de la operación de copia. La duración total que se factura en función del movimiento de datos, es la suma de la duración de todas las DIU. Si un trabajo de copia solía tardar una hora con dos unidades de nube y ahora tarda 15 minutos con ocho, la factura general sigue siendo casi igual.
 
 ## <a name="parallel-copy"></a>Copia en paralelo
 
@@ -133,7 +131,7 @@ Para cada ejecución de actividad de copia, Data Factory determina el número de
 
 | Escenario de copia | Recuento predeterminado de copias en paralelo determinado por servicio |
 | --- | --- |
-| Copia de datos entre almacenes basados en archivos |Depende del tamaño de los archivos y del número de unidades de movimiento de datos (DMU) de nube usadas para copiar datos entre dos almacenes de datos de nube, o de la configuración física de la máquina de Integration Runtime autohospedado. |
+| Copia de datos entre almacenes basados en archivos |Depende del tamaño de los archivos y del número de unidades de integración de datos (DIU) que se usan para copiar datos entre dos almacenes de datos en la nube, o de la máquina de Integration Runtime autohospedado. |
 | Copia de datos desde cualquier almacén de datos a Azure Table Storage |4 |
 | Todos los demás escenarios de copia |1 |
 
@@ -167,7 +165,7 @@ Puntos a tener en cuenta:
 * Cuando copie datos entre almacenes basados en archivos, **parallelCopies** determina el paralelismo en el nivel de archivo. La fragmentación dentro de un único archivo sucedería debajo de forma automática y transparente, y está diseñada para utilizar el tamaño de fragmento más adecuado para un tipo de almacén de datos de origen determinado para cargar datos en paralelo y ortogonales a parallelCopies. El número real de copias en paralelo que usa el servicio de movimiento de datos para la operación de copia en tiempo de ejecución no es superior al número de archivos que tenga. Si el comportamiento de copia es **mergeFile**, la actividad de copia no puede aprovechar las ventajas del paralelismo de nivel de archivo.
 * Cuando especifique un valor para la propiedad **parallelCopies**, considere el aumento de carga en los almacenes de datos de origen y receptor, y a Integration Runtime autohospedado lo usa la actividad de copia para, por ejemplo, realizar una copia híbrida. Esto sucede especialmente si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o Integration Runtime autohospedado están sobrecargados, disminuya el valor de la propiedad **parallelCopies** para aliviar la carga.
 * Cuando se copian datos de almacenes no basados en archivos en almacenes basados en archivos, el servicio de movimiento de datos ignora la propiedad **parallelCopies** . Aunque se especifica el paralelismo, no se aplica en este caso.
-* **parallelCopies** es ortogonal a **cloudDataMovementUnits**. Lo anterior se cuenta en todas las unidades de movimiento de datos de nube.
+* **parallelCopies** es ortogonal para **dataIntegrationUnits**. La información anterior se cuenta en todas las unidades de integración de datos.
 
 ## <a name="staged-copy"></a>copia almacenada provisionalmente
 
@@ -245,7 +243,7 @@ Para optimizar el rendimiento del servicio Data Factory con la actividad de copi
 
    * Características de rendimiento:
      * [Copia paralela](#parallel-copy)
-     * [Unidades de movimiento de datos de nube](#cloud-data-movement-units)
+     * [Unidades de integración de datos](#data-integration-units)
      * [Copias almacenadas provisionalmente](#staged-copy)
      * [Escalabilidad de Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Integration Runtime autohospedado](#considerations-for-self-hosted-integration-runtime)
@@ -340,7 +338,7 @@ Cuando el conjunto de datos de entrada o salida es un archivo, puede configurar 
 
 **Códec**: cada códec de compresión tiene sus ventajas. Por ejemplo, bzip2 tiene el rendimiento de copia más bajo, pero obtiene el mejor rendimiento de consulta de Hive porque puede dividirlo para el procesamiento. Gzip es la opción más equilibrada y es la que se usa con mayor frecuencia. Elija el códec que mejor se adapte a su escenario de principio a fin.
 
-**Nivel:**para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
+**Nivel:** para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
 
 **Una consideración**: para copiar una gran cantidad de datos entre un almacén local y la nube, considere usar la [copia almacenada provisionalmente](#staged-copy) con compresión habilitada. El uso de almacenamiento provisional resulta de utilidad cuando el ancho de banda de la red corporativa y los servicios de Azure son el factor limitador, y si quiere que el conjunto de datos de entrada y el conjunto de datos de salida estén ambos en formato sin comprimir.
 
@@ -376,11 +374,11 @@ Como puede ver, los datos se procesan y se mueven en streaming de forma secuenci
 
 Puede que uno o varios de los siguientes factores provoquen el cuello de botella en el rendimiento:
 
-* **Origen:**el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
+* **Origen:** el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
 * **Integration Runtime autohospedado**:
   * **LAN**: Integration Runtime se encuentra lejos de la máquina de SQL Server y tiene una conexión de ancho de banda bajo.
   * **Integration Runtime**: Integration Runtime alcanzó sus limitaciones de carga para llevar a cabo las siguientes operaciones:
-    * **Serialización:**la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
+    * **Serialización:** la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
     * **Compresión**: ha elegido un códec de compresión lenta (por ejemplo, bzip2, a 2,8 MBps con Core i7).
   * **WAN**: el ancho de banda entre la red corporativa y los servicios de Azure es bajo (por ejemplo, T1 = 1544 kbps. T2 = 6312 kbps).
 * **Receptor**: el Almacenamiento de blobs tiene un rendimiento bajo. (Esta situación es improbable porque su SLA garantiza un mínimo de 60 MBps).

@@ -51,6 +51,8 @@
           href: tutorial-prepare-azure.md
         - name: Migración de máquinas locales a Azure
           href: migrate-tutorial-on-premises-azure.md
+        - name: 'Migración de servidores de Windows Server 2008, 2008 R2 a Azure'
+          href: migrate-tutorial-windows-server-2008.md
         - name: Migración de instancias de AWS a Azure
           href: migrate-tutorial-aws-azure.md
         - name: Migración de máquinas virtuales de Azure a otra región
@@ -101,6 +103,14 @@
               href: hyper-v-vmm-secondary-support-matrix.md
             - name: Arquitectura de Hyper-V a sitio secundario
               href: hyper-v-vmm-architecture.md
+    - name: Redes
+      items:
+        - name: Azure Traffic Manager con Site Recovery
+          href: concepts-traffic-manager-with-site-recovery.md
+        - name: ExpressRoute con Site Recovery
+          href: concepts-expressroute-with-site-recovery.md
+        - name: Grupos de seguridad de red con Site Recovery
+          href: concepts-network-security-group-with-site-recovery.md
     - name: Recuperación ante desastres para aplicaciones
       href: site-recovery-workload.md
     - name: Acerca de los planes de recuperación
@@ -109,10 +119,6 @@
       href: migrate-overview.md
     - name: Acerca del control de acceso basado en rol con Site Recovery
       href: site-recovery-role-based-linked-access-control.md
-    - name: Acerca de Azure Traffic Manager con Site Recovery
-      href: concepts-traffic-manager-with-site-recovery.md
-    - name: Acerca de ExpressRoute con Site Recovery
-      href: concepts-expressroute-with-site-recovery.md
     - name: Preguntas más frecuentes
       href: site-recovery-faq.md
 - name: Guías de procedimientos
@@ -207,7 +213,7 @@
               href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Conmutación por error y conmutación por recuperación
           items:
-            - name: Ejecución de un simulacro de recuperación ante desastresen Azure
+            - name: Ejecución de un simulacro de recuperación ante desastres en Azure
               href: site-recovery-test-failover-to-azure.md
             - name: Configuración de planes de recuperación
               href: site-recovery-create-recovery-plans.md
@@ -231,6 +237,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: Administración del servidor de configuración para la replicación de un servidor físico
               href: physical-manage-configuration-server.md
+            - name: Administración de servidores de proceso
+              href: vmware-azure-manage-process-server.md
             - name: Administración de servidores vCenter
               href: vmware-azure-manage-vcenter.md
             - name: Quitar servidores y deshabilitar la protección
@@ -285,7 +293,7 @@
               href: hyper-v-exclude-disk.md
         - name: Conmutación por error y conmutación por recuperación
           items:
-            - name: Ejecución de un simulacro de recuperación ante desastresen Azure
+            - name: Ejecución de un simulacro de recuperación ante desastres en Azure
               href: site-recovery-test-failover-to-azure.md
             - name: Configuración de planes de recuperación
               href: site-recovery-create-recovery-plans.md

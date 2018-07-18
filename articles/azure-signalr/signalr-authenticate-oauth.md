@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c24e3045640471ed6ee7052f877850acd8e8cf00
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101133"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: autenticación del servicio Azure SignalR
 
@@ -51,7 +52,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
@@ -87,9 +88,10 @@ Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
 ### <a name="update-the-startup-class-to-support-github-authentication"></a>Actualización de la clase Startup para admitir la autenticación de GitHub
 
-1. Agregue una referencia a la versión más reciente del paquete *Microsoft.AspNetCore.Authentication.Cookies* y restaure todos los paquetes.
+1. Agregue una referencia a los paquetes *Microsoft.AspNetCore.Authentication.Cookies* y *AspNet.Security.OAuth.GitHub* más recientes y restaure todos los paquetes.
 
         dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
         dotnet restore
 
 1. Abra *Startup.cs* y agregue instrucciones `using` para los espacios de nombres siguientes:
@@ -431,7 +433,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
 ```
 
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | -------------------- | --------------- |
 | ResourceGroupName | Este nombre de grupo de recursos se sugirió en tutoriales anteriores. Es una buena idea para mantener agrupados todos juntos los recursos de los tutoriales. Use el mismo grupo de recursos que utilizó en los tutoriales anteriores. | 
 | WebAppPlan | Escriba un nombre nuevo y único del plan de App Service. | 
@@ -477,7 +479,7 @@ connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "Azure:SignalR:ConnectionString=$connstring" 
+    --settings "Azure__SignalR__ConnectionString=$connstring" 
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName \
@@ -489,7 +491,7 @@ az webapp config appsettings set --name $WebAppName \
 
 ```
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | -------------------- | --------------- |
 | GitHubClientId | Asigne a esta variable el identificador de cliente secreto de la aplicación de OAuth de GitHub. |
 | GitHubClientSecret | Asigne a esta variable la contraseña secreta de la aplicación de OAuth de GitHub. |
@@ -527,7 +529,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 ```
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | -------------------- | --------------- |
 | DeploymentUserName | Elija un nuevo nombre de usuario de implementación. |
 | DeploymentUserPassword | Elija una contraseña para el nuevo usuario de implementación. |
@@ -591,7 +593,7 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 > 
 > 
 
-Inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Grupos de recursos**.
+Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
 Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...**. En las instrucciones de este artículo se usa un grupo de recursos llamado *SignalRTestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 

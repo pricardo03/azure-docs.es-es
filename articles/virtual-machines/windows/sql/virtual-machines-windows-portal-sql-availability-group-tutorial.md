@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287810"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -55,9 +56,9 @@ Antes de comenzar con este tutorial, debe completar los requisitos de [Finalizac
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## Creación del clúster
+## <a name="create-the-cluster"></a>Creación de clústeres
 
-Una vez completados los requisitos previos, el primer paso es crear un clúster de conmutación por error de Windows Server que incluya dos servidores SQL Server y un servidor testigo.  
+Una vez completados los requisitos previos, el primer paso es crear un clúster de conmutación por error de Windows Server que incluya dos servidores SQL Server y un servidor testigo.
 
 1. Inicie RDP para el primer servidor SQL Server con una cuenta de dominio que sea administrador de los dos servidores SQL Server y el servidor testigo.
 
@@ -85,7 +86,8 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
 
    ![Propiedades de clúster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Seleccione **Dirección IP estática** y especifique una dirección disponible en la subred en la que está SQL Server en el cuadro de texto Dirección. A continuación, haga clic en **Aceptar**.
+3. Seleccione **Dirección IP estática** y especifique una dirección disponible en el rango de la dirección IP privada automática (APIPA): 169.254.0.1 a 169.254.255.254 en el cuadro de texto de dirección. Para este ejemplo puede usar cualquier dirección de ese rango. Por ejemplo: `169.254.0.1`. A continuación, haga clic en **Aceptar**.
+
 4. En la sección **Recursos principales de clúster**, haga clic con el botón derecho en el nombre del clúster y haga clic en **Poner en línea**. Después espere hasta que ambos recursos estén en línea. Cuando el recurso de nombre de clúster está en línea, actualiza el servidor DC con una nueva cuenta de equipo de AD. Use esta cuenta de AD para ejecutar más tarde el servicio de clúster del grupo de disponibilidad.
 
 ### <a name="addNode"></a>Agregar el otro servidor SQL Server al clúster
@@ -411,8 +413,8 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
    | **Name** | Texto | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al crear el equilibrador de carga. |
    | **Protocolo** | Elija TCP |TCP |
-   | **Puerto** | Utilice el puerto para la instancia de SQL Server | 1433 |
-   | **Puerto back-end** | Este campo no se utiliza cuando la IP flotante está establecida para Direct Server Return | 1433 |
+   | **Puerto** | Uso del puerto del agente de escucha de grupo de disponibilidad | 1435 |
+   | **Puerto back-end** | Este campo no se utiliza cuando la IP flotante está establecida para Direct Server Return | 1435 |
    | **Sondeo** |Nombre especificado para el sondeo | SQLAlwaysOnEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
    | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |

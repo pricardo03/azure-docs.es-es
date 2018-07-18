@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657594"
 ---
 # <a name="network-security"></a>Seguridad de las redes
 
@@ -138,7 +139,7 @@ Las reglas predeterminadas no se pueden quitar, pero puede reemplazarlas con reg
 
 Los grupos de seguridad de aplicaciones le permiten configurar la seguridad de red como una extensión natural de la estructura de una aplicación, lo que le permite agrupar máquinas virtuales y directivas de seguridad de red basadas en esos grupos. Esta característica le permite reutilizar la directiva de seguridad a escala sin mantenimiento manual de direcciones IP explícitas. La plataforma controla la complejidad de las direcciones IP explícitas y de varios conjuntos de reglas, lo que le permite centrarse en su lógica de negocios.
 
-Puede especificar un grupo de seguridad de aplicaciones como origen y destino en una regla de seguridad. Una vez que se define la directiva de seguridad, puede crear máquinas virtuales y asignar las interfaces de red de la máquina virtual a un grupo de seguridad de aplicaciones. La directiva se aplica en función de la pertenencia al grupo de seguridad de aplicaciones de cada interfaz de red de una máquina virtual. En el ejemplo siguiente se muestra cómo puede usar un grupo de seguridad de aplicaciones para todos los servidores web de la suscripción:
+Puede especificar un grupo de seguridad de aplicaciones como origen y destino en una regla de seguridad. No puede especificar varios grupos de seguridad de aplicaciones en el origen y el destino. Una vez que se define la directiva de seguridad, puede crear máquinas virtuales y asignar las interfaces de red de la máquina virtual a un grupo de seguridad de aplicaciones. La directiva se aplica en función de la pertenencia al grupo de seguridad de aplicaciones de cada interfaz de red de una máquina virtual. En el ejemplo siguiente se muestra cómo puede usar un grupo de seguridad de aplicaciones para todos los servidores web de la suscripción:
 
 1. Cree un grupo de seguridad de aplicaciones denominado *WebServers*.
 2. Cree un grupo de seguridad de red denominado *MyNSG*.
@@ -152,7 +153,7 @@ Para obtener información acerca de los límites a la hora de crear grupos de se
 Los grupos de seguridad de aplicaciones presentan las siguientes restricciones:
 
 -   Todas las interfaces de red asignadas a un grupo de seguridad de aplicaciones deben existir en la misma red virtual en la que se encuentra la primera interfaz de red asignada a dicho grupo. Por ejemplo, si la primera interfaz de red asignada a un grupo de seguridad de aplicaciones llamada *ASG1* está en la red virtual llamada *VNet1*, todas las sucesivas interfaces de red asignadas a *ASG1* deben existir en *VNet1*. No se pueden agregar interfaces de red de distintas redes virtuales al mismo grupo de seguridad de aplicaciones.
-- Si especifica grupos de seguridad de aplicaciones como origen y destino de una regla de seguridad, las interfaces de red de ambos grupos de seguridad de aplicaciones deben existir en la misma red virtual. Por ejemplo, si ASG1 contiene interfaces de red de VNet1 y ASG2 contiene interfaces de red de VNet2, no puede asignar ASG1 como origen y ASG2 como destino en una regla; todas las interfaces de red deben existir en VNet1.
+- Si especifica grupos de seguridad de aplicaciones como origen y destino de una regla de seguridad, las interfaces de red de ambos grupos de seguridad de aplicaciones deben existir en la misma red virtual. Por ejemplo, si ASG1 contiene interfaces de red de VNet1 y ASG2 contiene interfaces de red de VNet2, no puede asignar ASG1 como origen y ASG2 como destino en una regla. Todas las interfaces de red deben existir en VNet1.
 
 ## <a name="azure-platform-considerations"></a>Consideraciones de la plataforma Azure
 

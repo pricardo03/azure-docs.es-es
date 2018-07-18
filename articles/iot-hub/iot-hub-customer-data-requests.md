@@ -1,18 +1,21 @@
 ---
 title: Características de solicitud de datos de cliente
+description: Resumen de características de solicitud de datos del cliente
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 3af76fe22e93b6c5d502733196994bda61b9a93e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+services: iot-hub
+ms.openlocfilehash: 73da48d449a7cc5cdca598c8aef176952909ed85
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361522"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634930"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Resumen de las características de solicitud de datos de cliente
+# <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
 
 Azure IoT Hub es un servicio en la nube basado en la API de REST destinado a los clientes de empresas que permite una comunicación segura y bidireccional entre millones de dispositivos y un servicio de Azure con particiones.
 

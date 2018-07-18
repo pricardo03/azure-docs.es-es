@@ -17,11 +17,11 @@ ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: 0f10384e7e21d65b3a16869a10f8294b9643c74c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210205"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38705690"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Creación y administración de Azure VPN Gateway con el módulo de Azure PowerShell
 
@@ -72,7 +72,7 @@ Cree un grupo de recursos con el comando [New-AzureRmResourceGroup](/powershell/
 New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
 ```
 
-## <a name="create-a-virtual-network"></a>Crear una red virtual
+## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
 Azure VPN Gateway proporciona conectividad entre locales y funcionalidad de servidor VPN P2S para la red virtual. Agregue la puerta de enlace VPN a una red virtual existente o cree una nueva red virtual y la puerta de enlace. En este ejemplo se crea una nueva red virtual con tres subredes: Frontend, Backend y GatewaySubnet mediante [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) y [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 

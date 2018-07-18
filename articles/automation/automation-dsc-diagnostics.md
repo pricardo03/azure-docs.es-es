@@ -6,14 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218962"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Reenvío de datos de informes de DSC de Automatización de Azure a Log Analytics
 
@@ -85,14 +86,14 @@ La consulta también se puede restringir por nombre de operación. Por ejemplo: 
 
 Uno de nuestros principales clientes solicita la capacidad para enviar un correo electrónico o un mensaje de texto cuando aparece algún problema en una configuración de DSC.   
 
-Para crear una regla de alerta, primero debe crear una búsqueda de registros para los registros del informe de DSC que deben invocar la alerta.  Haga clic en el botón **Alerta** para crear y configurar la regla de alerta.
+Para crear una regla de alerta, primero debe crear una búsqueda de registros para los registros del informe de DSC que deben invocar la alerta.  Haga clic en el botón **+ Nueva regla de alertas** para crear y configurar la regla de alerta.
 
 1. En la página de información general de Log Analytics, haga clic en **Búsqueda de registros**.
 1. Cree una consulta de búsqueda de registros para la alerta; para ello, escriba la siguiente búsqueda en el campo de la consulta: `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Si ha configurado registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation.  
   El nombre de la cuenta de Automation puede derivarse del campo Resource (Recurso) en la búsqueda de DscNodeStatusData.  
-1. Para abrir la pantalla **Agregar regla de alerta**, haga clic en **Alerta** en la parte superior de la página. Para más información acerca de las opciones para configurar la alerta, consulte [Información sobre alertas en Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Para abrir la pantalla **Crear regla**, haga clic en **+ Nueva regla de alertas** en la parte superior de la página. Para obtener más información acerca de las opciones para configurar la alerta, consulte [Creación, visualización y administración de alertas mediante Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Búsqueda de recursos de DSC con errores en todos los nodos
 

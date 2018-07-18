@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972988"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -27,7 +28,7 @@ Para permitir a los usuarios restablecer su contraseña de Azure AD desde la pan
 * Actualización de Windows 10 de abril de 2018 o cliente más reciente que está [unido a Azure AD](../device-management-azure-portal.md) o [unido a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md).
 * El autoservicio de restablecimiento de contraseña de Azure AD debe estar habilitado.
 * Configure e implemente los valores para habilitar el vínculo de restablecimiento de contraseña a través de uno de los métodos siguientes:
-   * [Perfil de configuración de dispositivo de Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Perfil de configuración de dispositivo de Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Este método requiere la inscripción en Intune del dispositivo.
    * [Clave del Registro](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configuración del vínculo de restablecimiento de contraseña con Intune
@@ -65,7 +66,7 @@ Para permitir a los usuarios restablecer su contraseña de Azure AD desde la pan
    * Haga clic en **Seleccionar**
 4. Haga clic en **Crear**
 
-Para más información sobre cómo crear grupos, consulte el artículo [Administración del acceso a recursos con grupos de Azure Active Directory](../active-directory-manage-groups.md).
+Para más información sobre cómo crear grupos, consulte el artículo [Administración del acceso a recursos con grupos de Azure Active Directory](../fundamentals/active-directory-manage-groups.md).
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Asignación de la directiva de configuración de dispositivo al grupo de dispositivos
 

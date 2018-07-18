@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959389"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Escalado de Azure Redis Cache
 Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Después de crear una memoria caché, puede ajustar su tamaño y el plan de tarifa si cambian los requisitos de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.
@@ -153,7 +154,7 @@ Mientras las memorias caché Estándar y Premium tienen un Acuerdo de Nivel de S
 * Las memorias caché **Básicas** están sin conexión durante las operaciones de escalado a un tamaño diferente. Las memorias caché Básicas siguen estando disponibles al escalar de **Básica** a **Estándar**, pero pueden experimentar una breve interrupción momentánea de conexión. En caso de producirse una interrupción momentánea de conexión, los clientes de Redis deberían poder volver a establecer su conexión al instante.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>Limitaciones de escalado con replicación geográfica
+### <a name="scaling-limitations-with-geo-replication"></a>Limitaciones de escalado con replicación geográfica
 
 Cuando haya agregado un vínculo de replicación geográfica entre dos cachés, ya no podrá iniciar una operación de escalado ni cambiar el número de particiones en un clúster. Debe desvincular la memoria caché para emitir estos comandos. Para obtener más información, consulte [Configuración de replicación geográfica](cache-how-to-geo-replication.md).
 

@@ -16,11 +16,12 @@ ms.topic: hero-article
 ms.date: 03/23/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 051078bd3220c8d0f6b78c834cdf3628c2039e8e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 824d7c44488e382aef9fd0640e6c46e9f4672898
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317510"
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Obtención de un inquilino de Azure Active Directory
 
@@ -35,7 +36,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en su aplicación, de
 Muchos desarrolladores ya tienen inquilinos mediante servicios o suscripciones que están vinculados a inquilinos de Azure AD, como suscripciones de Office 365 o Azure. Para comprobar si ya tiene un inquilino, inicie sesión en [Azure Portal](https://portal.azure.com) con la cuenta que desea usar para administrar la aplicación y mire en la esquina superior derecha donde aparece la información de la cuenta. Si tiene un inquilino, iniciará sesión de forma automática en él y verá el nombre del inquilino directamente bajo el nombre de la cuenta. Si mantiene el puntero sobre el nombre de su cuenta en el lado superior derecho de Azure Portal, verá su nombre, correo electrónico, directorio e identificador de inquilino (un GUID) y dominio. Si la cuenta está asociada a varios inquilinos, puede seleccionar el nombre de la cuenta para abrir un menú donde puede cambiar entre los inquilinos. Cada inquilino tiene su propio identificador de inquilino.
 
 > [!TIP]
-> Si necesita buscar el identificador de inquilino, hay varias formas de encontrar esta información. Puede mantener el puntero del razón sobre el nombre de su cuenta para obtener el identificador de inquilino o puede seleccionar **Azure Active Directory > Propiedades > Id. de directorio** en Azure Portal.
+> Si necesita buscar el identificador de inquilino, hay varias formas de encontrar esta información. Puede mantener el puntero del ratón sobre el nombre de su cuenta para obtener el identificador de inquilino o puede seleccionar **Azure Active Directory > Propiedades > Id. de directorio** en Azure Portal.
 
 Si no tiene un inquilino existente asociado a la cuenta, verá un GUID bajo el nombre de la cuenta y no podrá realizar acciones como registrar aplicaciones hasta que [cree un inquilino](#create-a-new-azure-ad-tenant).
 

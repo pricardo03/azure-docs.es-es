@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: b809097e50a17178da12fdb424eba08dc8e0c4cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099616"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Exigencia de verificación en dos pasos para un usuario o grupo
 
@@ -38,7 +39,7 @@ Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguiente
 | Status | DESCRIPCIÓN | Aplicaciones que no son de explorador afectadas | Aplicaciones que son de explorador afectadas | Autenticación moderna afectada |
 |:---:|:---:|:---:|:--:|:--:|
 | Disabled |Estado predeterminado para un usuario nuevo no inscrito en Azure MFA. |Sin  |Sin  |Sin  |
-| habilitado |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. La próxima vez que inicie sesión, se le pedirá registrarse. |Nº  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro de Azure MFA.| Sí. Una vez que expire el token de acceso, se requerirá el registro de Azure MFA. |
+| habilitado |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. La próxima vez que inicie sesión, se le pedirá registrarse. |No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro de Azure MFA.| Sí. Una vez que expire el token de acceso, se requerirá el registro de Azure MFA. |
 | Aplicado |El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. |Sí.  Las aplicaciones requieren contraseñas de aplicación. |Sí. Se requiere Azure MFA en el inicio de sesión. | Sí. Se requiere Azure MFA en el inicio de sesión. |
 
 El estado de un usuario refleja si un administrador lo ha inscrito en Azure MFA, y si ha completado el proceso de registro.
@@ -70,7 +71,7 @@ Para acceder a la página donde puede ver y administrar los estados de usuario, 
 
 5. Confirme la selección en la ventana emergente que se abre. 
 
-Después de habilitar los usuarios, notifíquelos por correo electrónico. Debe indicarles que se les pedirá que se registren la próxima vez que inicien sesión. Además, si su organización utiliza aplicaciones sin explorador que no son compatibles con la autenticación moderna, deben crear contraseñas de aplicación. También puede incluir un vínculo a la [Guía del usuario final de Azure MFA](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md), que les ayudará a empezar a trabajar.
+Después de habilitar los usuarios, notifíquelos por correo electrónico. Debe indicarles que se les pedirá que se registren la próxima vez que inicien sesión. Además, si su organización utiliza aplicaciones sin explorador que no son compatibles con la autenticación moderna, deben crear contraseñas de aplicación. También puede incluir un vínculo a la [Guía del usuario final de Azure MFA](end-user/current/multi-factor-authentication-end-user.md), que les ayudará a empezar a trabajar.
 
 ### <a name="use-powershell"></a>Uso de PowerShell
 Para cambiar el estado del usuario mediante [Azure AD PowerShell](/powershell/azure/overview), debe cambiar `$st.State`. Hay tres estados posibles:

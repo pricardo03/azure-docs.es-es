@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2c560bf9eeac5f9aed1024bd87d450f7aee7ce05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a24e919f1bbde6188e3655399f1ef843fbec23b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052997"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Movimiento de datos hacia y desde Tabla de Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-azure-table-connector.md)
-> * [Versión 2: versión preliminar](../connector-azure-table-storage.md)
+> * [Versión 1](data-factory-azure-table-connector.md)
+> * [Versión 2 (versión actual)](../connector-azure-table-storage.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Azure Table Storage connector in V2](../connector-azure-table-storage.md) (Conector de Azure Table Storage en V2).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Azure Table Storage connector in V2](../connector-azure-table-storage.md) (Conector de Azure SQL Database en V2).
 
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos hacia Azure Table Storage y desde este servicio. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md). 
 
@@ -80,7 +81,7 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta de tabla de Azure. Consulte los ejemplos en la sección siguiente. |Nº Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino. |
+| AzureTableSourceQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta de tabla de Azure. Consulte los ejemplos en la sección siguiente. |No. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino. |
 | azureTableSourceIgnoreTableNotFound |Indica si se omite la excepción de la tabla inexistente. |TRUE<br/>FALSE |Sin  |
 
 ### <a name="azuretablesourcequery-examples"></a>ejemplos de azureTableSourceQuery
@@ -533,7 +534,7 @@ Teniendo en cuenta la asignación del tipo OData de Azure Table al tipo .NET ant
 
 **Esquema de tabla de Azure:**
 
-| Nombre de la columna | type |
+| Nombre de la columna | Escriba |
 | --- | --- |
 | userid |Edm.Int64 |
 | Nombre |Edm.String |

@@ -1,24 +1,19 @@
 ---
 title: Implementación de la puerta de enlace de factoría conectada (Azure) | Microsoft Docs
 description: Cómo implementar una puerta de enlace en Windows o Linux para permitir la conectividad al acelerador de la solución de factoría conectada.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626911"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implementación de una puerta de enlace de perímetro en Windows o Linux para el acelerador de la solución de factoría conectada
 
@@ -170,6 +165,6 @@ Para agregar sus propios servidores OPC UA al acelerador de la solución de fact
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la arquitectura del acelerador de la solución de factoría conectada, consulte el [tutorial sobre el acelerador de la solución de factoría conectada](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Para más información sobre la arquitectura del acelerador de la solución de factoría conectada, consulte el [tutorial sobre el acelerador de la solución de factoría conectada](iot-accelerators-connected-factory-sample-walkthrough.md).
 
 Aprenda sobre la [implementación de referencia de OPC Publisher](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

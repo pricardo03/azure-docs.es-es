@@ -1,30 +1,28 @@
 ---
-title: "Administración de Azure Data Lake Analytics con el SDK de Java de Azure | Microsoft Docs"
-description: "Uso del SDK de Java de Análisis de Azure Data Lake para desarrollar aplicaciones"
+title: Administración de Azure Data Lake Analytics con el SDK de Java de Azure
+description: En este artículo se describe cómo usar el SDK de Java de Azure para escribir aplicaciones que administran trabajos, orígenes de datos y usuarios de Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 8a0c1c7aab89f3bb62d0eb9f42e8ac65309d617e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
+ms.topic: conceptual
+ms.date: 06/18/2017
+ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624240"
 ---
-# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a>Administración de Azure Data Lake Analytics con el SDK de Java
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Administración de Azure Data Lake Analytics con una aplicación Java
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-En este tutorial, se desarrolla una aplicación de consola de Java que realiza operaciones comunes para Azure Data Lake.
+En este artículo se describe cómo administrar cuentas, orígenes de datos, usuarios y trabajos de Azure Data Lake Analytics con una aplicación escrita mediante el SDK de Java de Azure. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Kit de desarrollo de Java (JDK) 8** (con Java versión 1.8).
 * **IntelliJ** u otro entorno de desarrollo de Java adecuado. Las instrucciones de este documento usan IntelliJ.
 * Cree una aplicación de Azure Active Directory (AAD) y recupere su **identificador de cliente**, **identificador de inquilino** y **clave**. Para más información sobre las aplicaciones de AAD y ver instrucciones sobre cómo obtener un id. de cliente, consulte [Creación de una aplicación de Active Directory y una entidad de servicio mediante el portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). El URI de respuesta y la clave estarán disponibles en el portal una vez que se haya creado la aplicación y generado la clave.
@@ -381,4 +379,4 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 
 * Para aprender U-SQL, consulte el [Tutorial: Introducción al lenguaje U-SQL de Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) y la página de [referencia del lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Para conocer las tareas de administración, consulte [Administración de Azure Data Lake Analytics mediante el Azure Portal](data-lake-analytics-manage-use-portal.md).
-* Para obtener información general acerca de Análisis de Data Lake, consulte la página de [información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
+* Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).

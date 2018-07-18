@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930535"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -66,6 +67,7 @@ Para configurar las sesiones BGP, debe usar las direcciones IP públicas que pos
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Direcciones IP usadas para el emparejamiento de Microsoft
 Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet  y los registros de enrutamiento de Internet.
 
+* Las direcciones IP que se enumeran en el portal de los prefijos públicos anunciados del emparejamiento de Microsoft creará las ACL de los enrutadores principales de Microsoft para permitir el tráfico entrante de estas direcciones IP. 
 * Debe usar una única subred /29 (IPv4) o /125 (IPv6) o dos o dos subredes /30 (IPv4) o /126 (IPv6) para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno).
 * Si se usa una subred /29, se divide en dos subredes /30.
 * La primera subred /30 se usa para el vínculo principal, mientras que la segunda se usa para el secundario.
@@ -115,7 +117,7 @@ Con el emparejamiento de Microsoft se permite un número de sistema autónomo pr
 > 
 
 ## <a name="dynamic-route-exchange"></a>Cambio de ruta dinámica
-El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen sesiones EBGP entre los MSEE y los enrutadores. La autenticación de sesiones de BGP no es un requisito. Si es necesario, se puede configurar un hash MD5. Consulte las secciones [Configuración del enrutamiento](expressroute-howto-routing-classic.md) y [Flujos de trabajo de aprovisionamiento de circuitos y estados de circuito](expressroute-workflows.md) para más información sobre la configuración de las sesiones BGP.
+El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen sesiones EBGP entre los MSEE y los enrutadores. La autenticación de sesiones de BGP no es un requisito. Si es necesario, se puede configurar un hash MD5. Consulte las secciones [Configuración del enrutamiento](how-to-routefilter-portal.md) y [Flujos de trabajo de aprovisionamiento de circuitos y estados de circuito](expressroute-workflows.md) para más información sobre la configuración de las sesiones BGP.
 
 ## <a name="autonomous-system-numbers"></a>Números de sistema autónomo
 Microsoft usa AS 12076 para el emparejamiento público de Azure, privado de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits.
@@ -159,12 +161,12 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | **Norteamérica** | |
 | Este de EE. UU | 12076:51004 |
 | Este de EE. UU. 2 | 12076:51005 |
-| Oeste de EE. UU | 12076:51006 |
+| Oeste de EE. UU. | 12076:51006 |
 | Oeste de EE. UU. 2 | 12076:51026 |
 | Centro occidental de EE.UU. | 12076:51027 |
 | Centro-Norte de EE. UU | 12076:51007 |
 | Centro-Sur de EE. UU | 12076:51008 |
-| Central EE. UU: | 12076:51009 |
+| Centro de EE. UU. | 12076:51009 |
 | Centro de Canadá | 12076:51020 |
 | Este de Canadá | 12076:51021 |
 | **Sudamérica** | |
@@ -172,7 +174,7 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | **Europa** | |
 | Europa del Norte | 12076:51003 |
 | Europa occidental | 12076:51002 |
-| Sur del Reino Unido 2 | 12076:51024 |
+| Sur de Reino Unido 2 | 12076:51024 |
 | Oeste de Reino Unido | 12076:51025 |
 | Centro de Francia | 12076:51030 |
 | Sur de Francia | 12076:51031 |
@@ -183,7 +185,7 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | Este de Japón | 12076:51012 |
 | Oeste de Japón | 12076:51013 |
 | **Australia** | |
-| Australia Oriental | 12076:51015 |
+| Este de Australia | 12076:51015 |
 | Sudeste de Australia | 12076:51016 |
 | **Australia Government** | |
 | Centro de Australia | 12076:51032 |

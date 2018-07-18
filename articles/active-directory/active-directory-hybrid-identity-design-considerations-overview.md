@@ -1,29 +1,31 @@
 ---
-title: "Consideraciones de diseño de identidad híbrida de Azure Active Directory: introducción | Microsoft Docs"
-description: "Información general y mapa de contenido de la guía de consideraciones de diseño de identidad híbrida"
-documentationcenter: 
+title: 'Consideraciones de diseño de identidad híbrida de Azure Active Directory: introducción | Microsoft Docs'
+description: Información general y mapa de contenido de la guía de consideraciones de diseño de identidad híbrida
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 94e67c5ea0028419e9bf74420e2bb46709b3df01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e81908e3fd77b8fde706b27c3bed305ad0436677
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801643"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Consideraciones de diseño de identidad híbrida de Azure Active Directory
 Los dispositivos basados en el consumidor proliferan en el mundo empresarial y las aplicaciones de software como servicio (SaaS) basadas en la nube son fáciles de adoptar. Como resultado, resulta difícil mantener el control de acceso a las aplicaciones de los usuarios entre centros de datos internos y plataformas en la nube.  
 
-Las soluciones de identidad de Microsoft abarcan funcionalidades locales y de nube, de forma que se crea una sola identidad de usuario para la autenticación y la autorización en todos los recursos, sin importar su ubicación. A esto le llamamos identidad híbrida. Existen diferentes opciones de configuración y diseño para la identidad híbrida con las soluciones de Microsoft y, en algunos casos, puede ser difícil determinar qué combinación se adaptará mejor a las necesidades de su organización. 
+Las soluciones de identidad de Microsoft abarcan funcionalidades locales y de nube, de forma que se crea una sola identidad de usuario para la autenticación y la autorización en todos los recursos, sin importar su ubicación. Este concepto se conoce como Identidad híbrida. Existen diferentes opciones de configuración y diseño para la identidad híbrida con las soluciones de Microsoft y, en algunos casos, puede ser difícil determinar qué combinación se adaptará mejor a las necesidades de su organización. 
 
 Esta guía de consideraciones de diseño de identidad híbrida le ayudará a entender cómo diseñar una solución de identidad híbrida que se adapte bien a las necesidades empresariales y tecnológicas de su organización.  En ella se detallan una serie de pasos y tareas que puede seguir como ayuda para diseñar una solución de identidad híbrida que satisfaga los requisitos únicos de su organización. A través de estos pasos y tareas, se presentan las tecnologías y características pertinentes que tienen a su disposición las organizaciones para satisfacer los requisitos funcionales y de calidad de servicio (por ejemplo, disponibilidad, escalabilidad, rendimiento, capacidad de administración y seguridad). 
 
@@ -37,13 +39,13 @@ En concreto, los objetivos de esta guía son dar respuesta a las siguientes preg
  CIO, CITO, arquitectos de identidad jefe, arquitectos de empresa y arquitectos de TI responsables de diseñar una solución de identidad híbrida para organizaciones medianas o grandes.
 
 ## <a name="how-can-this-guide-help-you"></a>¿Cómo puede ayudarle esta guía?
-Puede usar a esta guía para aprender a diseñar una solución de identidad híbrida que sea capaz de integrar un sistema de administración de identidades basado en la nube con su solución de identidad local actual. 
+Puede usar esta guía para aprender a diseñar una solución de identidad híbrida que sea capaz de integrar un sistema de administración de identidades basado en la nube con su solución de identidad local actual. 
 
 En el gráfico siguiente se muestra un ejemplo de una solución de identidad híbrida que permite a los administradores de TI integrar su solución actual de Windows Server Active Directory ubicada en el entorno local con Microsoft Azure Active Directory para permitir a los usuarios usar el inicio de sesión único (SSO) en todas las aplicaciones que se encuentran en la nube y locales.
 
 ![](./media/hybrid-id-design-considerations/hybridID-example.png)
 
-La ilustración anterior es un ejemplo de una solución de identidad híbrida que aprovecha los servicios en la nube para integrarse con las funcionalidades locales con el fin de proporcionar una experiencia única en el proceso de autenticación del usuario final y facilitar la administración de esos recursos por parte de TI. Aunque este puede ser un escenario muy común, es probable que el diseño de identidad híbrida de cada organización sea diferente al del ejemplo que se muestra en la ilustración 1, debido a que los requisitos son diferentes. 
+La ilustración anterior es un ejemplo de una solución de identidad híbrida que aprovecha los servicios en la nube para integrarse con las funcionalidades locales con el fin de proporcionar una experiencia única en el proceso de autenticación del usuario final y facilitar la administración de esos recursos por parte de TI. Aunque este ejemplo puede ser un escenario común, es probable que el diseño de identidad híbrida de cada organización sea diferente al del ejemplo que se muestra en la ilustración 1, debido a que los requisitos son diferentes. 
 
 Esta guía proporciona una serie de pasos y las tareas que puede seguir para diseñar una solución de identidad híbrida que cumpla los requisitos únicos de su organización. A través de los siguientes pasos y tareas, la guía presenta las tecnologías y característica pertinentes que están disponibles para usted para satisfacer los requisitos funcionales y de nivel de servicio de su organización.
 

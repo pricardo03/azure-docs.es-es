@@ -2,35 +2,43 @@
 title: Implementación de grupos de varios contenedores en Azure Container Instances
 description: Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances.
 services: container-instances
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
-ms.author: nepeters
+ms.date: 06/08/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ecc4484eddd6541c1407e1ed816ba8830030d7c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888204"
 ---
 # <a name="deploy-a-container-group"></a>Implementación de un grupo de contenedores
 
 Azure Container Instances admite la implementación de varios contenedores en un solo host mediante un [grupo de contenedores](container-instances-container-groups.md). Esto es útil cuando se crea un sidecar de aplicación para el registro, la supervisión o cualquier otra configuración donde un servicio necesita un segundo proceso asociado.
 
-Este documento describe la ejecución de una configuración de sidecar de varios contenedores sencilla mediante la implementación de una plantilla de Azure Resource Manager.
+Hay dos métodos para implementar grupos con varios contenedores mediante la CLI de Azure:
+
+* Implementación de plantillas de Resource Manager (este artículo)
+* [Implementación de archivo YAML](container-instances-multi-container-yaml.md)
+
+La implementación con una plantilla de Resource Manager se recomienda cuando se necesita implementar recursos adicionales de un servicio de Azure adicionales (por ejemplo, un recurso compartido de Azure Files) en el momento de la implementación de una instancia de un contenedor. Dada la naturaleza más concisa del formato YAML, la implementación con un archivo YAML se recomienda cuando la implementación incluye *solo* instancias de contenedor.
 
 > [!NOTE]
 > Los grupos de varios contenedores están restringidos actualmente a los contenedores Linux. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones en Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Configuración de la plantilla
 
-Cree un archivo llamado `azuredeploy.json` y copie el siguiente código JSON en él.
+Las secciones de este artículo recorren la ejecución de una configuración de sidecar de varios contenedores sencilla mediante la implementación de una plantilla de Azure Resource Manager.
 
-En este ejemplo, se definen un grupo de contenedores con dos contenedores, una dirección IP pública y dos puertos expuestos. El primer contenedor del grupo ejecuta una aplicación accesible desde Internet. El segundo contenedor, el sidecar, realiza una solicitud HTTP a la aplicación web principal a través de la red local del grupo.
+Para empezar, cree un archivo llamado `azuredeploy.json` y copie el siguiente código JSON en él.
 
-```json
+Esta plantilla de Resource Manager define un grupo de contenedores con dos contenedores, una dirección IP pública y dos puertos expuestos. El primer contenedor del grupo ejecuta una aplicación accesible desde Internet. El segundo contenedor, el sidecar, realiza una solicitud HTTP a la aplicación web principal a través de la red local del grupo.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ En este ejemplo, se definen un grupo de contenedores con dos contenedores, una d
 
 Para usar un registro de imagen de contenedor privado, agregue un objeto al documento JSON con el formato siguiente. Para ver una implementación de ejemplo de esta configuración, consulte el documento [Referencia de plantilla de Resource Manager de ACI][template-reference].
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ Al cabo de unos segundos, debe recibir una respuesta inicial de Azure.
 
 ## <a name="view-deployment-state"></a>Visualización del estado de la implementación
 
-Para ver el estado de la implementación, use el comando [az container show][az-container-show]. Esto devuelve la dirección IP pública aprovisionada mediante la cual se puede acceder a la aplicación.
+Para ver el estado de la implementación, use el siguiente comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Salida:
+Si desea ver la aplicación en ejecución, vaya a su dirección IP en el explorador. Por ejemplo, la dirección IP es `52.168.26.124` en esta salida de ejemplo:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

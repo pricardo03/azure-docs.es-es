@@ -1,19 +1,20 @@
 ---
-title: "Conexión de aplicaciones a Azure Database for MySQL"
-description: "En este documento se enumeran todas las cadenas de conexión admitidas actualmente para que las aplicaciones se conecten con Azure Database for MySQL, incluidas ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python y Ruby."
+title: Conexión de aplicaciones a Azure Database for MySQL
+description: En este documento se enumeran todas las cadenas de conexión admitidas actualmente para que las aplicaciones se conecten con Azure Database for MySQL, incluidas ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python y Ruby.
 services: mysql
 author: mswutao
 ms.author: wuta
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 083c6850151340ba8cb307a237f489e5923761a5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265690"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Conexión de aplicaciones a Azure Database for MySQL
 En este documento se enumeran todos los tipos de cadena de conexión que Azure Database for MySQL admite, junto con plantillas y ejemplos. Su cadena de conexión puede tener otros parámetros y configuraciones.

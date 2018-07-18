@@ -2,7 +2,7 @@
 title: Esquemas de seguimiento de AS2 para la supervisión de B2B - Azure Logic Apps | Microsoft Docs
 description: Utilice esquemas de seguimiento de AS2 para supervisar mensajes B2B de transacciones en la cuenta de la integración de Azure.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 48e39fd20716e962c4a3e367fdff18e0b4fba32d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300888"
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Inicio o habilitación del seguimiento de mensajes AS2 y MDN para supervisar propiedades de mensaje, errores y éxitos
 Puede usar estos esquemas de seguimiento de AS2 en su cuenta de integración de Azure para ayudarle a supervisar las transacciones de negocio a negocio (B2B):
@@ -59,7 +60,7 @@ Puede usar estos esquemas de seguimiento de AS2 en su cuenta de integración de 
     }
 ````
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | senderPartnerName | string | Nombre de asociado del remitente del mensaje AS2. (Opcional) |
 | receiverPartnerName | string | Nombre de asociado del destinatario del mensaje AS2. (Opcional) |
@@ -111,7 +112,7 @@ Puede usar estos esquemas de seguimiento de AS2 en su cuenta de integración de 
     }
 ````
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | senderPartnerName | string | Nombre de asociado del remitente del mensaje AS2. (Opcional) |
 | receiverPartnerName | string | Nombre de asociado del destinatario del mensaje AS2. (Opcional) |

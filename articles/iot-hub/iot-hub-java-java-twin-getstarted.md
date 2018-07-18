@@ -1,23 +1,20 @@
 ---
 title: Introducción a los dispositivos gemelos de Azure IoT Hub (Java) | Microsoft Docs
 description: Describe cómo usar dispositivos gemelos de IoT Hub de Azure para agregar etiquetas y, luego, usar una consulta de IoT Hub. El SDK de dispositivos de Azure IoT para Java se usa con el fin de implementar la aplicación de dispositivo y el SDK de servicios Azure IoT para Java con el objetivo de implementar una aplicación de servicio que agrega las etiquetas y ejecuta la consulta de IoT Hub.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619444"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introducción a los dispositivos gemelos (Java)
 
@@ -26,10 +23,10 @@ ms.lasthandoff: 05/07/2018
 En este tutorial, creará dos aplicaciones de consola de Java:
 
 * **add-tags-query**, una aplicación de back-end de Java que agrega etiquetas y consulta dispositivos gemelos.
-* **simulated-device**, una aplicación de dispositivo de Java que se conecta al IoT Hub y notifica su condición de conectividad mediante una propiedad notificada.
+* **simulated-device**, una aplicación de dispositivo de Java que se conecta a IoT Hub y notifica su condición de conectividad mediante una propiedad notificada.
 
 > [!NOTE]
-> En el artículo [SDK de IoT de Azure](iot-hub-devguide-sdks.md) se proporciona información sobre los SDK de Azure IoT que se pueden usar para crear aplicaciones de dispositivo y de back-end.
+> En el artículo [SDK de IoT de Azure](iot-hub-devguide-sdks.md) se proporciona información sobre los SDK de IoT de Azure que se pueden usar para crear aplicaciones de dispositivo y de back-end.
 
 Para completar este tutorial, necesita:
 

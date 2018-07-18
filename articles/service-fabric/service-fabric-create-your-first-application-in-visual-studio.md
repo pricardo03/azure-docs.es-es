@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212677"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642230"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Creación de su primera aplicación de Reliable Services con estado de Service Fabric en C#
 
@@ -68,12 +68,15 @@ Para obtener información general del contenido del proyecto de servicio, consul
 
 Ahora que tiene una aplicación, ejecútela, impleméntela y depúrela, para lo que debe seguir estos pasos.
 
-1. Presione F5 en Visual Studio para implementar la aplicación, con el fin de depurarla.
+1. En Visual Studio, presione **F5** para implementar la aplicación para depurarla.  Haga clic en **Sí** si ve un cuadro de mensaje que pregunta si desea conceder al grupo "ServiceFabricAllowedUsers" permisos de lectura y ejecución en el directorio del proyecto de Visual Studio.
 
     >[!NOTE]
     >La primera vez que ejecute e implemente la aplicación localmente, Visual Studio creará un clúster local para la depuración. Esta operación puede tardar un tiempo. El estado de creación del clúster se muestra en la ventana de salida de Visual Studio.
-
-    Cuando el clúster esté listo, recibirá una notificación de la aplicación de administración de la bandeja de sistema del clúster local que se incluye con el SDK.
+    
+     Cuando el clúster esté listo, recibirá una notificación de la aplicación de administración de la bandeja de sistema del clúster local que se incluye con el SDK.
+     
+    >[!NOTE]
+    >Este ejercicio requiere un clúster de 5 nodos (frente a un clúster de un nodo). Puede comprobarlo de esta manera: para iniciar la herramienta Service Fabric Explorer, haga clic con el botón derecho en la aplicación de la bandeja del sistema **Administrador de clústeres locales de Service Fabric** y seleccione **Switch Cluster Mode** (Cambiar modo de clúster). Haga clic en **5 Node** (5 nodos) si 1 Node (1 nodo) está seleccionado actualmente.
     
     ![Notificación de bandeja de sistema del clúster local][4]
 
@@ -107,7 +110,7 @@ Ahora que tiene una aplicación, ejecútela, impleméntela y depúrela, para lo 
 
     ![Punto de interrupción en el método RunAsync de servicio con estado][7]
 
-7. Para iniciar la herramienta Service Fabric Explorer, haga clic con el botón derecho en la aplicación de la bandeja del sistema del **Administrador de clústeres locales** y seleccione **Manage Local Cluster** (Administrar clúster local).
+7. Para iniciar la herramienta Service Fabric Explorer, haga clic con el botón derecho en la aplicación de la bandeja del sistema **Administrador de clústeres locales de Service Fabric** y seleccione **Manage Local Cluster** (Administrar clúster local).
 
     ![Iniciar Service Fabric Explorer desde el Administrador de clústeres locales][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Ahora que tiene una aplicación, ejecútela, impleméntela y depúrela, para lo 
 
     ![Detener un nodo en el Explorador de Service Fabric][sfx-stop-node]
 
-    Momentáneamente, debería ver que se alcanza el punto de interrupción en Visual Studio cuando el cálculo hacía perfectamente en un nodo se conmuta por error a otro.
+    Momentáneamente, debería ver que se alcanza el punto de interrupción en Visual Studio cuando el cálculo hacía perfectamente en un nodo se conmuta por error a otro. Pulse **F5** para continuar.
 
 9. A continuación, vuelva al Visor de eventos de diagnóstico y observe los mensajes. El contador no ha dejado de incrementarse, aunque los eventos proceden de otro nodo.
 

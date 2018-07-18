@@ -1,22 +1,20 @@
 ---
-title: "Configuración de la nube del servicio Azure IoT Hub Device Provisioning en el portal | Microsoft Docs"
-description: "Aprovisionamiento automático de dispositivos de IoT Hub en Azure Portal"
-services: iot-dps
-keywords: 
+title: Configuración de la nube del servicio Azure IoT Hub Device Provisioning en el portal | Microsoft Docs
+description: Aprovisionamiento automático de dispositivos de IoT Hub en Azure Portal
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 247c2155943d651c3be7791571522b652cf63483
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619289"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar los recursos de la nube para el aprovisionamiento de dispositivos con el servicio IoT Hub Device Provisioning
 

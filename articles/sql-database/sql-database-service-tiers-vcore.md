@@ -1,72 +1,31 @@
 ---
 title: 'Servicio Azure SQL Database: núcleos virtuales | Microsoft Docs'
-description: Obtenga información acerca de los niveles de servicio para las bases de datos de grupo y únicas a fin de proporcionar niveles de rendimiento y tamaños de almacenamiento.
+description: El modelo de compra basado en núcleos virtuales (versión preliminar) permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212388"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309586"
 ---
-# <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Modelo de compra basado en núcleos virtuales de Azure SQL Database (versión preliminar)
+# <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Selección del nivel de servicio basado en núcleos virtuales, y los recursos de proceso, memoria, almacenamiento y E/S
 
-[Azure SQL Database](sql-database-technical-overview.md) ofrece dos modelos de compra para recursos de proceso, almacenamiento y E/S: uno basado en DTU y el otro en núcleos virtuales (que se encuentra en versión preliminar). En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos de compra.
-
-> [!IMPORTANT]
-> Con respecto al modelo de compra basado en DTU, consulte [Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md).
-
-
-|**Modelo de compra**|**Descripción**|**Más adecuado para**|
-|---|---|---|
-|Modelo basado en DTU|Este modelo se basa en una medida agrupada de recursos de proceso, almacenamiento y E/S. Los niveles de rendimiento se expresan como unidades de transmisión de datos (DTU) para las bases de datos únicas y como unidades de transmisión de datos elásticas (eDTU) para los grupos de bases de datos elásticas. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-what-is-a-dtu.md)|Recomendado para los clientes que desean opciones de recursos simples y configuradas previamente.| 
-|Modelo basado en núcleos virtuales|Este modelo le permite escalar los recursos de proceso y almacenamiento de manera independiente (hasta 80 núcleos virtuales, 4 TB de espacio de almacenamiento de datos y 200 000 IOPS). También permite usar Ventaja híbrida de Azure para SQL Server para ahorrar en los costos.|Recomendado para los clientes que valoran la flexibilidad, el control y la transparencia.|
-||||  
-
-![Modelo de precios](./media/sql-database-service-tiers/pricing-model.png)
-
-## <a name="vcore-based-purchasing-model--preview"></a>Modelo de compra basado en núcleos virtuales (versión preliminar)
-
-Un núcleo virtual representa una CPU lógica que cuenta con una opción para elegir entre varias generaciones de hardware. El modelo de compra basado en núcleos virtuales (versión preliminar) le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de carga de trabajo. En el modelo de compra basado en núcleos virtuales (versión preliminar), los clientes pueden elegir entre los niveles de servicio De uso general y Crítico para la empresa (versión preliminar) tanto para [bases de datos únicas](sql-database-single-database-resources.md) como para [grupos elásticos](sql-database-elastic-pool.md). 
-
-Los niveles de servicio se diferencian por una variedad de niveles de rendimiento, el diseño de alta disponibilidad, el aislamiento de errores, los tipos de almacenamiento y el intervalo de E/S. El cliente debe configurar por separado el periodo necesario de retención y almacenamiento de las copias de seguridad. Al usar el modelo de núcleos virtuales, es posible obtener un ahorro de hasta un 30 % en las bases de datos únicas y los grupos elásticos con la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
-
-En un modelo de compra basado en núcleos virtuales (versión preliminar), los clientes pagan por:
-- Proceso (nivel de servicio + número de núcleos virtuales + generación de hardware)*
-- Tipo y cantidad de almacenamiento de datos y registros 
-- Número de E/S**
-- Almacenamiento de copia de seguridad (RA-GRS)** 
-
-\* En la versión preliminar pública inicial, las CPU lógicas de Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) a 2,4 GHz.
-
-\*\* Durante la versión preliminar, las copias de seguridad y las E/S son gratuitas durante 7 días.
-
-> [!IMPORTANT]
-> Los recursos de proceso, E/S y almacenamiento de datos y registros se cobran por base de datos o grupo elástico. El almacenamiento de copia de seguridad se cobra por cada base de datos. Para más información sobre los precios de Instancia administrada, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md).
-
-> [!IMPORTANT]
-> Limitaciones regionales: 
->
-> El modelo de compra basado en núcleos virtuales aún no está disponible en el Sudeste de Australia. La versión preliminar no está disponible en las siguientes regiones: Europa Occidental, Centro de Francia, Sur de Reino Unido y Oeste de Reino Unido.
-> 
-
-## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Selección del nivel de servicio y los recursos de proceso, memoria, almacenamiento y E/S
-
-La conversión al modelo de compra de núcleos virtuales (versión preliminar) permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. Si la base de datos o el grupo elástico consumen más de 300 DTU, la conversión a núcleos virtuales puede reducir los costos. Puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria. Si el modelo de compra de DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide pasar del modelo de DTU al modelo de núcleos virtuales, debe seleccionar el nivel de rendimiento mediante la siguiente regla general: cada 100 DTU del nivel Estándar requieren al menos 1 núcleo virtual en el nivel De uso general, y cada 125 DTU del nivel Premium requieren como mínimo 1 núcleo virtual en el nivel Crítico para la empresa.
+Los niveles de servicio se diferencian por una variedad de niveles de rendimiento, el diseño de alta disponibilidad, el aislamiento de errores, los tipos de almacenamiento y el intervalo de E/S. El cliente debe configurar por separado el periodo necesario de retención y almacenamiento de las copias de seguridad. Con el modelo de núcleos virtuales, es posible obtener un ahorro de hasta un 30 % en las bases de datos únicas y los grupos elásticos con la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 La tabla siguiente le ayudará a comprender las diferencias entre estos dos niveles:
 
 ||**Uso general**|**Crítico para la empresa**|
 |---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables orientadas al presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|
-|Proceso|Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5 |Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5|
+|Compute|Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5 |Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5|
 |Memoria|7 GB por núcleo |7 GB por núcleo |
 |Storage|Almacenamiento remoto Premium, de 5 GB a 4 TB|Almacenamiento local de SSD, de 5 GB a 4 TB|
 |Rendimiento de E/S (aproximado)|500 IOPS por núcleo virtual con 7000 IOPS como máximo|5000 IOPS por núcleo con 200 000 IOPS como máximo|
@@ -79,8 +38,6 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos dos nive
 
 > [!IMPORTANT]
 > Si tiene menos de un núcleo virtual de capacidad de proceso, use el modelo de compra basado en DTU.
-
-Para más información sobre los niveles de rendimiento y las opciones de tamaño de almacenamiento específicos que están disponibles para bases de datos únicas, consulte [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) (Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas) y para grupos elásticos, consulte [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels) (Límites de recursos basados en núcleos virtuales de SQL Database para grupos elásticos).
 
 Consulte [Preguntas más frecuentes sobre SQL Database](sql-database-faq.md) para conocer las respuestas a las preguntas más frecuentes. 
 
@@ -118,7 +75,7 @@ En el modelo de compra basado en núcleos virtuales (versión preliminar), puede
 
 La migración del modelo basado en DTU al modelo basado en núcleos virtuales es similar a actualizar o degradar las relaciones de replicación geográfica entre las bases de datos Estándar y Premium. No es necesario terminar la replicación geográfica, pero el usuario debe respetar las reglas de secuenciación. Al actualizar, debe actualizar primero la base de datos secundaria y luego la principal. Al degradar, invierta el orden; es decir, debe degradar primero la base de datos principal y luego la secundaria. 
 
-Cuando se usa la replicación geográfica entre dos grupos elásticos, se recomienda encarecidamente designar un grupo como principal y otro como secundario. En ese caso, la migración de grupos elásticos debe seguir las mismas instrucciones.  Sin embargo, es técnicamente posible que un grupo elástico contenga bases de datos principales y secundarias. En este caso, para migrarlas correctamente se debe tratar el grupo con la utilización más alta como principal y seguir las reglas de secuenciación como corresponda.  
+Cuando se usa la replicación geográfica entre dos grupos elásticos, se recomienda designar un grupo como principal y otro como secundario. En ese caso, la migración de grupos elásticos debe seguir las mismas instrucciones.  Sin embargo, es técnicamente posible que un grupo elástico contenga bases de datos principales y secundarias. En este caso, para migrarlas correctamente se debe tratar el grupo con la utilización más alta como principal y seguir las reglas de secuenciación como corresponda.  
 
 En la tabla siguiente se proporcionan instrucciones para escenarios de migración específicos: 
 
@@ -142,7 +99,7 @@ La migración de grupos de conmutación por error con varias bases de datos requ
 
 ## <a name="creation-of-a-geo-replication-secondary"></a>Creación de una base de datos secundaria de replicación geográfica
 
-Solo puede crear una base de datos secundaria de replicación geográfica con el mismo nivel de servicio que la principal. Para base de datos con una tasa de generación de registros elevada, es muy recomendable que la base de datos secundaria se cree con el mismo nivel de rendimiento que la principal. Si va a crear una base de datos secundaria con replicación geográfica en el grupo elástico para una única base de datos principal, se recomienda encarecidamente que el valor `maxVCore` del grupo coincida con el nivel de rendimiento de la base de datos principal. Si va a crear una base de datos secundaria con replicación geográfica en el grupo elástico para una principal de otro grupo elástico, se recomienda encarecidamente que los grupos tengan la misma configuración de `maxVCore`.
+Solo puede crear una base de datos secundaria de replicación geográfica con el mismo nivel de servicio que la principal. Para una base de datos con una tasa de generación de registros elevada, es muy recomendable que la base de datos secundaria se cree con el mismo nivel de rendimiento que la principal. Si va a crear una base de datos secundaria con replicación geográfica en el grupo elástico para una única base de datos principal, se recomienda que el valor `maxVCore` del grupo coincida con el nivel de rendimiento de la base de datos principal. Si va a crear una base de datos secundaria con replicación geográfica en el grupo elástico para una principal de otro grupo elástico, se recomienda que los grupos tengan la misma configuración de `maxVCore`.
 
 ## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Uso de una copia de base de datos para convertir una base de datos basada en DTU en una base de datos basada en núcleos virtuales
 
@@ -150,6 +107,5 @@ Puede copiar cualquier base de datos con un nivel de rendimiento basado en DTU e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre niveles de rendimiento y opciones de tamaño de almacenamiento específicos disponibles, consulte [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) (Límites de recursos basados en DTU de SQL Database para bases de datos únicas) y [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md) (Límites de recursos basados en núcleos virtuales de SQL Database).
-- Consulte [Preguntas más frecuentes sobre SQL Database](sql-database-faq.md) para conocer las respuestas a las preguntas más frecuentes.
-- Información sobre [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).
+- Para más información sobre niveles de rendimiento y opciones de tamaño de almacenamiento específicos disponibles para bases de datos únicas, consulte [Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
+- Para más información sobre niveles de rendimiento y opciones de tamaño de almacenamiento específicos disponibles para grupos elásticos, consulte [Límites de recursos basados en núcleos virtuales de Azure SQL Database para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

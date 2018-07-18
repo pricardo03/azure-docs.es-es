@@ -1,17 +1,19 @@
 ---
 title: Procedimiento para buscar una dirección mediante el servicio de búsqueda de Azure Maps | Microsoft Docs
 description: Aprenda cómo buscar una dirección mediante el servicio de búsqueda de Azure Maps
-services: azure-maps
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-ms.openlocfilehash: 4a87c0d0a487706209acc1c6a4ded92e6aab8f9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: timlt
+ms.openlocfilehash: 1acb95af7b62641c371627d6250067f9c2eac99c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36323640"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Procedimiento para buscar una dirección mediante el servicio de búsqueda de Azure Maps
 

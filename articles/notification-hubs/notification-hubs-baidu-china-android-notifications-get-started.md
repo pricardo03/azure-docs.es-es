@@ -15,10 +15,11 @@ ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700907"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introducción a Notification Hubs con Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -41,7 +42,7 @@ Este tutorial requiere lo siguiente:
 ## <a name="create-a-baidu-account"></a>Creación de una cuenta de Baidu
 Para usar Baidu, tiene que tener una cuenta de Baidu. Si ya tiene una, inicie sesión en el [portal de Baidu] y vaya al paso siguiente. De lo contrario, consulte las siguientes instrucciones sobre cómo crear una cuenta de Baidu.  
 
-1. Vaya al [portal de Baidu] y haga clic en el vínculo **登录** (**Iniciar sesión**). Haga clic en **立即注册** (**Registrarse ahora**) para iniciar el proceso de registro de cuenta.
+1. Vaya al [portal de Baidu] y haga clic en el vínculo **登录**(**Iniciar sesión**). Haga clic en **立即注册** (**Registrarse ahora**) para iniciar el proceso de registro de la cuenta.
    
     ![Registro de Baidu](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
 
@@ -62,27 +63,27 @@ Una vez activada la cuenta de Baidu, inicie sesión en el [portal de Baidu].
 ## <a name="create-a-baidu-cloud-push-project"></a>Creación de un proyecto de inserción de nube Baidu
 Cuando se crea un proyecto de inserción de nube Baidu, recibirá el identificador de la aplicación, la clave de API y la clave secreta.
 
-1. Una vez que haya iniciado sesión en el [portal de Baidu], haga clic en **更多 >>** (**más**).
+1. Cuando haya iniciado sesión en el [portal de Baidu], haga clic en **更多 >>** (**Más**).
    
     ![Registro: más](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
-2. Desplácese hacia abajo en la sección **站长与开发者服务** (**Administrador de web y servicios para desarrolladores**) y haga clic en **百度开放云平台** (**Baidu Cloud Push**).
+2. Desplácese hacia abajo en la sección **站长与开发者服务** (**Servicios para desarrolladores y administradores web**) y haga clic en **百度云推送** (**Baidu Cloud Push**).
    
     ![Plataforma de nube abierta de Baidu](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
-3. En la siguiente página, haga clic en **登录** (**Inicio de sesión**) en la esquina superior derecha.
+3. En la página siguiente, haga clic en**登录**(**Iniciar sesión**) en la esquina superior derecha.
    
     ![Inicio de sesión de Baidu](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 
-4. A continuación, haga clic en**创建应用** (**Crear aplicación**) en esta página.
+4. A continuación, haga clic en **创建应用** (**Crear aplicación**) en esta página.
 
     ![Crear aplicación de Baidu](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
 
-5. En la siguiente página, haga clic en 创建新应用 (**Crear nueva aplicación**).
+5. En la página siguiente, haga clic en 创建新应用 (**Crear nueva aplicación**).
    
     ![Crear nueva aplicación de Baidu](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
 
-6. Escriba un nombre de aplicación y haga clic en 创建 (**Crear**).
+6. Escriba el nombre de la aplicación y haga clic en 创建 (**Crear**).
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
 
@@ -90,7 +91,7 @@ Cuando se crea un proyecto de inserción de nube Baidu, recibirá el identificad
    
     ![Secretos de inserción de Baidu](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
-8. Configure el proyecto para las notificaciones push haciendo clic en 云推送 (**Crear notificación**) en el panel izquierdo.
+8. Configure el proyecto para las notificaciones push haciendo clic en 创建通知 (**Crear notificación**) en el panel izquierdo.
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
@@ -116,7 +117,7 @@ Tome nota del valor de `DefaultListenSharedAccessSignature` y de `DefaultFullSha
 
     ![Centros de notificaciones de Azure: nuevo proyecto de Baidu](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2.  Escriba un nombre de la aplicación y asegúrese de que la versión de SDK mínima requerido esté establecida en API 16: Android 4.1. **Asegúrese también de que el nombre del paquete (应用包名) es el mismo que en el portal de Baidu Cloud Push**
+2.  Escriba un nombre de la aplicación y asegúrese de que la versión de SDK mínima requerido esté establecida en API 16: Android 4.1. **Asegúrese también de que el nombre del paquete (应用包名) es igual al del portal de Baidu Cloud Push**
 
     ![Azure Notifications Hubs: Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png)
     ![Azure Notifications Hubs: Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)

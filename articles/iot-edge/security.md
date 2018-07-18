@@ -1,30 +1,27 @@
 ---
 title: Seguridad en Azure IoT Edge | Microsoft Docs
-description: "Seguridad, autenticación y autorización de dispositivos de IoT Edge"
-services: iot-edge
-keywords: 
+description: Seguridad, autenticación y autorización de dispositivos de IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8a5bf1f35fcdd779cf27edeba7dfd5705cbae205
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: f198efe9ff5e4862a3bbe872ab50e5848c9dbb5c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030587"
 ---
-# <a name="securing-azure-iot-edge---preview"></a>Protección de Azure IoT Edge - versión preliminar
+# <a name="securing-azure-iot-edge"></a>Protección de Azure IoT Edge
 
 Es necesaria la protección del dispositivo perimetral inteligente para otorgar confianza en el funcionamiento de una solución de IoT de un extremo a otro. Azure IoT Edge está pensado para la seguridad que es extensible a diferentes perfiles de riesgo y escenarios de implementación, y ofrece la misma protección que se espera de todos los servicios de Azure.
 
 Azure IoT Edge se ejecuta en un hardware diferente, admite Linux y Windows y se aplica a escenarios de implementación diferentes.  El riesgo evaluado depende de muchas consideraciones, entre las que se incluyen la propiedad de la solución, la geografía de implementación, la confidencialidad de datos, la privacidad, el mercado vertical de aplicación y los requisitos normativos.  En lugar de ofrecer soluciones concretas a escenarios específicos, es más adecuado diseñar un marco de seguridad extensible basado en principios bien fundamentados y diseñados para la escala. 
  
 En este artículo se ofrece información general sobre el marco de seguridad. Para más información, consulte la entrada de blog [Securing the intelligent edge][lnk-edge-blog] (Protección del perímetro inteligente).
-
->[!NOTE]
->El marco de seguridad que se describe a continuación se está agregando al producto ahora y estará disponible en la versión de disponibilidad general de Azure IoT Edge. El producto se encuentra actualmente en versión preliminar pública, una versión diseñada a permitir el desarrollo y la creación de prototipos de soluciones perimetrales, no las implementaciones de producción completas que necesitan el marco de seguridad completo.   
 
 ## <a name="standards"></a>Estándares
 

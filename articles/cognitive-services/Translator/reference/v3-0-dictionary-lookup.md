@@ -1,0 +1,211 @@
+---
+title: Método de búsqueda de diccionario de Microsoft Translator Text API | Microsoft Docs
+description: Use el método de búsqueda de diccionario de Microsoft Translator Text API.
+services: cognitive-services
+author: Jann-Skotdal
+manager: chriswendt1
+ms.service: cognitive-services
+ms.technology: microsoft translator
+ms.topic: article
+ms.date: 03/29/2018
+ms.author: v-jansko
+ms.openlocfilehash: 31435fcfca61517bfc72d534e911a1dcadbee52b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "35382407"
+---
+# <a name="text-api-30-dictionary-lookup"></a>Text API 3.0: búsqueda de diccionario
+
+Proporciona traducciones alternativas para una palabra y un pequeño número de frases hechas. Cada traducción tiene funciones de sintaxis y una lista de traducciones inversas. Las traducciones inversas permiten al usuario comprender la traducción en contexto. La operación [Ejemplo de diccionario](.\v3-0-dictionary-examples.md) le permite profundizar más para ver ejemplos de usos de cada par de traducción.
+
+## <a name="request-url"></a>URL de la solicitud
+
+Envíe una solicitud `POST` a:
+
+```HTTP
+https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
+```
+
+## <a name="request-parameters"></a>Parámetros de solicitud
+
+Los parámetros de solicitud que se pasaron en la cadena de consulta son:
+
+<table width="100%">
+  <th width="20%">Parámetro de consulta</th>
+  <th>DESCRIPCIÓN</th>
+  <tr>
+    <td>api-version</td>
+    <td>*Parámetro obligatorio*.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
+  </tr>
+  <tr>
+    <td>De</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto de entrada. El idioma de origen debe ser uno de los [idiomas admitidos](.\v3-0-languages.md) que están incluidos en el ámbito `dictionary`.</td>
+  </tr>
+  <tr>
+    <td>to</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto de salida. El idioma de origen debe ser uno de los [idiomas admitidos](.\v3-0-languages.md) que están incluidos en el ámbito `dictionary`.</td>
+  </tr>
+</table>
+
+Los encabezados de solicitud incluyen lo siguiente:
+
+<table width="100%">
+  <th width="20%">encabezados</th>
+  <th>DESCRIPCIÓN</th>
+  <tr>
+    <td>_Un encabezado de_<br/>_autorización_</td>
+    <td>*Encabezado de solicitud obligatorio*.<br/>Consulte las [opciones disponibles para la autenticación](./v3-0-reference.md#authentication).</td>
+  </tr>
+  <tr>
+    <td>Content-Type</td>
+    <td>*Encabezado de solicitud obligatorio*.<br/>Especifica el tipo de contenido de la carga. Los valores posibles son: `application/json`.</td>
+  </tr>
+  <tr>
+    <td>Content-Length</td>
+    <td>*Encabezado de solicitud obligatorio*.<br/>Longitud del cuerpo de la solicitud.</td>
+  </tr>
+  <tr>
+    <td>X-ClientTraceId</td>
+    <td>*Opcional*.<br/>Un GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.</td>
+  </tr>
+</table> 
+
+## <a name="request-body"></a>Cuerpo de la solicitud
+
+El cuerpo de solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`, que representa el término que se va a buscar.
+
+```json
+[
+    {"Text":"fly"}
+]
+```
+
+Se aplican las siguientes limitaciones:
+
+* La matriz puede tener como máximo 10 elementos.
+* El valor de texto de un elemento de la matriz no puede superar los 100 caracteres, incluyendo los espacios.
+
+## <a name="response-body"></a>Response body
+
+Una respuesta correcta, es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
+
+  * `normalizedSource`: es una cadena que proporciona el formato normalizado del término de origen. Por ejemplo, si la solicitud es "JOHN", la forma normalizada será "john". El contenido de este campo se convierte en la entrada de los [ejemplos de búsqueda](.\v3-0-dictionary-examples.md).
+    
+  * `displaySource`: es una cadena que proporciona el término de origen de la forma más adecuada para mostrársela al usuario final. Por ejemplo, si la entrada es "JOHN", el formulario de visualización reflejará la ortografía habitual del nombre: "John". 
+
+  * `translations`: es una lista de traducciones para el término de origen. Cada elemento de la lista es un objeto que consta de las siguientes propiedades:
+
+    * `normalizedTarget`: es una cadena que da la forma normalizada del término en el idioma de destino. Este valor debe usarse como entrada para [buscar ejemplos](.\v3-0-dictionary-examples.md).
+
+    * `displayTarget`: es una cadena que proporciona el término en el idioma de destino y de una forma más adecuada para mostrársela al usuario final. Generalmente, esto solo se diferencia de `normalizedTarget` en lo que respecta al uso de las mayúsculas. Por ejemplo, un nombre propio como "Juan" tendrá `normalizedTarget = "juan"` y `displayTarget = "Juan"`.
+
+    * `posTag`: es una cadena que asocia este término con una etiqueta de funciones de sintaxis.
+
+        | Nombre de etiqueta | DESCRIPCIÓN  |
+        |----------|--------------|
+        | ADJ      | Adjetivos   |
+        | ADV      | Adverbios      |
+        | CONJ     | Conjunciones |
+        | DET      | Determinantes  |
+        | MODAL    | Verbos        |
+        | SUSTANTIVO     | Sustantivos        |
+        | PREP     | Preposiciones |
+        | PRON     | Pronombres     |
+        | VERBO     | Verbos        |
+        | OTHER    | Otros        |
+
+        Como nota de implementación, estas etiquetas se determinaron como funciones de sintaxis mediante el etiquetado de la parte en inglés, y usando la etiqueta más frecuente para cada par de origen o destino. Por lo tanto, si las personas traducen con frecuencia una palabra en español a una etiqueta de función de sintaxis que está en inglés, las etiquetas pueden terminar siendo incorrectas (con respecto a la palabra en español).
+
+    * `confidence`: es un valor entre 0,0 y 1,0 que representa la "confianza" o, más exactamente, la "probabilidad en los datos de aprendizaje" del par de traducción. La suma de las puntuaciones de confianza para una palabra de origen puede, o no, sumar 1,0. 
+
+    * `prefixWord`: es una cadena que indica que la palabra a mostrar es un prefijo en la traducción. En la actualidad, este es el determinante de género de los sustantivos, que se usa en idiomas que tienen determinantes de género. Por ejemplo, el prefijo de la palabra en español "mosca" es "la", ya que "mosca" es un nombre femenino en español. Esto solo depende de la traducción, y no del origen. Si no hay prefijo, la cadena quedará vacía.
+    
+    * `backTranslations`: es una lista de "traducciones inversas" del destino. Por ejemplo, las palabras de origen que se pueden traducir al idioma de destino. La lista garantiza que se encontrará la palabra de origen que se solicitó (por ejemplo, si la palabra de origen que se busca es "fly", entonces se garantiza que "fly" estará en la lista `backTranslations`). Sin embargo, no se garantiza que esté en la primera posición, y a menudo no lo estará. Cada elemento de la lista `backTranslations` es un objeto que consta de las siguientes propiedades:
+
+        * `normalizedText`: una cadena que proporciona la forma normalizada del término de origen, que es a su vez una traducción inversa del destino. Este valor debe usarse como entrada para [buscar ejemplos](.\v3-0-dictionary-examples.md).        
+
+        * `displayText`: una cadena que proporciona el término de origen que es una traducción inversa del destino, y que se muestra de la forma más adecuada para el usuario final.
+
+        * `numExamples`: es un entero que representa el número de ejemplos que están disponibles para este par de traducción. Los ejemplos reales deben obtenerse con una llamada independiente a la opción [buscar ejemplos](.\v3-0-dictionary-examples.md). El número está diseñado principalmente para facilitar la presentación en un diseño UX. Por ejemplo, una interfaz de usuario puede agregar un hipervínculo a la traducción inversa si el número de ejemplos es mayor que cero, y si se muestra la traducción inversa como texto sin formato si es que no hay ejemplos. Tenga en cuenta que el número real de ejemplos que devuelve una llamada a la opción [buscar ejemplos](.\v3-0-dictionary-examples.md) puede ser menor que `numExamples`, ya que se puede aplicar un filtro adicional sobre la marcha para quitar ejemplos que sean "incorrectos".
+        
+        * `frequencyCount`: un entero que representa la frecuencia de este par de traducción en los datos. El propósito principal de este campo es proporcionar una interfaz de usuario con un medio para ordenar traducciones inversas, y así conseguir que los términos más frecuentes aparezcan en primer lugar.
+
+    > [!NOTE]
+    > Si el término que está buscando no está en el diccionario, la respuesta es 200 (OK), pero la lista `translations` será una lista vacía.
+
+## <a name="examples"></a>Ejemplos
+
+En este ejemplo se muestra cómo buscar traducciones alternativas en español del término inglés `fly` .
+
+# <a name="curltabcurl"></a>[curl](#tab/curl)
+
+```
+curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
+```
+
+---
+
+El cuerpo de la respuesta (abreviado para mayor claridad) es:
+
+```
+[
+    {
+        "normalizedSource":"fly",
+        "displaySource":"fly",
+        "translations":[
+            {
+                "normalizedTarget":"volar",
+                "displayTarget":"volar",
+                "posTag":"VERB",
+                "confidence":0.4081,
+                "prefixWord":"",
+                "backTranslations":[
+                    {"normalizedText":"fly","displayText":"fly","numExamples":15,"frequencyCount":4637},
+                    {"normalizedText":"flying","displayText":"flying","numExamples":15,"frequencyCount":1365},
+                    {"normalizedText":"blow","displayText":"blow","numExamples":15,"frequencyCount":503},
+                    {"normalizedText":"flight","displayText":"flight","numExamples":15,"frequencyCount":135}
+                ]
+            },
+            {
+                "normalizedTarget":"mosca",
+                "displayTarget":"mosca",
+                "posTag":"NOUN",
+                "confidence":0.2668,
+                "prefixWord":"",
+                "backTranslations":[
+                    {"normalizedText":"fly","displayText":"fly","numExamples":15,"frequencyCount":1697},
+                    {"normalizedText":"flyweight","displayText":"flyweight","numExamples":0,"frequencyCount":48},
+                    {"normalizedText":"flies","displayText":"flies","numExamples":9,"frequencyCount":34}
+                ]
+            },
+            //
+            // ...list abbreviated for documentation clarity
+            //
+        ]
+    }
+]
+```
+
+En este ejemplo se muestra lo que sucede cuando el término que se va a buscar no existe para el par de diccionario válido.
+
+# <a name="curltabcurl"></a>[curl](#tab/curl)
+
+```
+curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
+```
+
+---
+
+Dado que el término no se encuentra en el diccionario, el cuerpo de la respuesta incluye la lista vacía `translations`.
+
+```
+[
+    {
+        "normalizedSource":"fly123456",
+        "displaySource":"fly123456",
+        "translations":[]
+    }
+]
+```

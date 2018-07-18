@@ -113,6 +113,14 @@
           href: how-to-manage-dps-with-cli.md
         - name: Control del acceso a las API del servicio de aprovisionamiento
           href: how-to-control-access.md
+    - name: Aprovisionamiento de dispositivos IoT Edge
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
     - name: Uso de los mecanismos de atestación con SDK
       href: use-hsm-with-sdk.md
     - name: Uso de herramientas de SDK para el desarrollo
@@ -149,6 +157,16 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
+    - name: 'Ejemplos de Azure IoT para C# (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Ejemplos de Azure IoT para Node.js
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Ejemplos de Azure IoT para Java
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Ejemplos de Azure IoT para Python
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: Ejemplos de Azure IoT para la plataforma iOS
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Azure IoT Hub
       href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: Catálogo de dispositivos de Azure Certified for IoT

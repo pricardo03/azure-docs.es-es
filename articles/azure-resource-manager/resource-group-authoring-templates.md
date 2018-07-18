@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4fa610f144277b73bb6d555d46e63a01c413e07e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334805"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 En este artículo se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para obtener instrucciones detalladas sobre cómo crear una plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de plantilla
-En la estructura más simple, una plantilla contiene los siguientes elementos:
+En la estructura más simple, una plantilla tiene los siguientes elementos:
 
 ```json
 {
@@ -41,14 +42,14 @@ En la estructura más simple, una plantilla contiene los siguientes elementos:
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | $schema |Sí |Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla. Use la dirección URL que se muestra en el ejemplo anterior. |
-| contentVersion |Sí |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
+| contentVersion |Sí |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
 | parameters |Sin  |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
 | variables |Sin  |Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla. |
 | functions |Sin  |Funciones definidas por el usuario que están disponibles dentro de la plantilla. |
 | resources |Sí |Tipos de servicios que se implementan o actualizan en un grupo de recursos. |
 | outputs |Sin  |Valores que se devuelven después de la implementación. |
 
-Cada elemento contiene propiedades que pueden incluirse. En el ejemplo siguiente, se muestra la sintaxis completa de una plantilla:
+Cada elemento tiene propiedades que puede configurar. En el ejemplo siguiente se muestra la sintaxis completa de una plantilla:
 
 ```json
 {
@@ -213,6 +214,7 @@ Dentro de la plantilla, puede crear sus propias funciones. Estas funciones está
 Al definir una función de usuario, hay algunas restricciones:
 
 * La función no puede acceder a las variables.
+* La función no puede llamar a otras funciones definidas por el usuario.
 * La función no puede usar la [función de referencia](resource-group-template-functions-resource.md#reference).
 * Los parámetros de la función no pueden tener valores predeterminados.
 

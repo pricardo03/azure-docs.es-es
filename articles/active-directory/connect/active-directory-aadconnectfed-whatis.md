@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect y federación | Microsoft Docs"
-description: "Esta página es la ubicación central para toda la documentación relacionada con las operaciones de AD FS que usan Azure AD Connect."
+title: Azure AD Connect y federación | Microsoft Docs
+description: Esta página es la ubicación central para toda la documentación relacionada con las operaciones de AD FS que usan Azure AD Connect.
 services: active-directory
-documentationcenter: 
-author: anandyadavmsft
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
-ms.author: anandy
-ms.openlocfilehash: 04516e38e72405ca797a0d748d9ed825ae452966
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: ce6b889d23959e9d04b95ec2bc5847340b596448
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915843"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect y la federación
 Connect de Azure Active Directory (Azure AD) le permite configurar la federación con Servicios de federación de Active Directory (AD FS) locales y Azure AD. Con el inicio de sesión federado, puede habilitar a los usuarios para que inicien sesión en los servicios basados en Azure AD con sus contraseñas locales y, mientras se encuentren en la red corporativa, sin necesidad de volver a escribir sus contraseñas. Mediante la opción de federación con AD FS, puede implementar una nueva instalación de AD FS o puede especificar una instalación existente en una granja de servidores de Windows Server 2012 R2.
@@ -26,7 +28,7 @@ Connect de Azure Active Directory (Azure AD) le permite configurar la federació
 Este tema constituye la principal referencia de las funcionalidades relacionadas con la federación correspondientes a Azure AD Connect. Ofrece vínculos a todos los demás temas relacionados. Para obtener vínculos para Azure AD Connect, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect: temas de federación
-| Tema. | ¿Qué aspectos cubre y cuándo debe leerlos? |
+| Tema | ¿Qué aspectos cubre y cuándo debe leerlos? |
 |:--- |:--- |
 | **Opciones para el inicio de sesión de los usuarios en Azure AD Connect** | |
 | [Descripción de las opciones de inicio de sesión de los usuarios](active-directory-aadconnect-user-signin.md) |Obtenga información sobre diferentes opciones de inicio de sesión de usuario y cómo afectan a la experiencia de inicio de sesión del usuario en Azure. |

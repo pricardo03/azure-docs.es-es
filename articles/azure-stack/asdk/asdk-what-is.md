@@ -13,14 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5a268a29c7a767084049bf56270aa8bc9d2ccc3f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850634"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>¿Qué es el Kit de desarrollo de Azure Stack?
 El tamaño de los [sistemas integrados de Microsoft Azure Stack](.\.\azure-stack-poc.md) va de los 4 a los 12 nodos. Estos sistemas son compatibles con Microsoft y con los asociados de hardware. Use los sistemas integrados de Azure Stack para permitir nuevos escenarios para las cargas de trabajo de producción. Si es un operador de Azure Stack que administra la infraestructura de sistemas integrados y ofrece servicios, consulte la [documentación del operador](https://docs.microsoft.com/azure/azure-stack).
@@ -58,7 +59,7 @@ Como operador de Azure Stack, debe saber qué servicios puede poner a disposici�
 
 ### <a name="foundational-services"></a>Servicios fundamentales
 De forma predeterminada, Azure Stack incluye los siguientes “servicios fundamentales” cuando se implementa el ASDK:
-- Proceso
+- Compute
 - Storage
 - Redes
 - Key Vault
@@ -79,4 +80,4 @@ Azure Stack continuará agregando compatibilidad con otros servicios de Azure. P
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para empezar a evaluar Azure Stack, debe preparar el equipo servidor host del kit de desarrollo y, a continuación, [instalar el ASDK](asdk-deploy.md). Una vez finalizado, puede iniciar sesión en los portales del administrador y de usuarios para comenzar a usar Azure Stack.
+Para empezar a evaluar Azure Stack, debe preparar el equipo servidor host del kit de desarrollo y, a continuación, [instalar el ASDK](asdk-install.md). Una vez finalizado, puede iniciar sesión en los portales del administrador y de usuarios para comenzar a usar Azure Stack.

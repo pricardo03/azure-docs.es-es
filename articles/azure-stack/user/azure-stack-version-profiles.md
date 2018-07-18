@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: e568ffd2c3adb97ed0b727b85e7888fb797db1f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: adbe88a44ac38868a68a6845c328ef4cf7fba60c
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258216"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604444"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Administre los perfiles de la versión de API en Azure Stack
 
@@ -37,7 +37,7 @@ Este tema le ayudará a:
 ## <a name="summary-of-api-profiles"></a>Resumen de perfiles de API
 
 - Los perfiles de API se utilizan para representar un conjunto de proveedores de recursos de Azure y sus versiones de API.
-- Los perfiles de API se crearon para que los desarrolladores puedan crear plantillas por varias nubes de Azure. Están diseñados para satisfacer la necesidad de tener una interfaz compatible y estable.
+- Los perfiles de API se crearon para que pueda crear plantillas por varias nubes de Azure. Estos perfiles están diseñados para satisfacer la necesidad de tener una interfaz compatible y estable.
 - Los perfiles se publican cuatro veces al año.
 - Se utilizan tres perfiles de convenciones de nomenclatura:
     - **más reciente**  
@@ -67,17 +67,11 @@ En lugar de investigar cada proveedor de recursos y la versión específica admi
 
 Los perfiles de API funcionan con herramientas que utilizan Azure Resource Manager, como PowerShell, CLI de Azure, código proporcionado en el SDK y Microsoft Visual Studio. Las herramientas y los SDK pueden utilizar perfiles para leer la versión de los módulos y bibliotecas que se van incluir al crear una aplicación.
 
-**Escenario de desarrollo para el perfil de uso**  
-Supongamos que usa PowerShell para crear:
+Por ejemplo, si utiliza PowerShell para crear una cuenta de almacenamiento con el proveedor de recursos **Microsoft.Storage** , que admite la versión de API 2016-03-30 y una máquina virtual que utiliza el proveedor de recursos Microsoft.Compute con la versión de API 2015-12-01, deberá buscar qué módulo de PowerShell admite 2016-03-30 para Storage y qué módulo admite 2015-02-01 para Compute e instalarlos. En su lugar, puede usar un perfil. Use el cmdlet **Install-Profile *profilename*** y PowerShell carga la versión correcta de los módulos.
 
-* Una cuenta de almacenamiento que use el proveedor de recursos **Microsoft.Storage**, que es compatible con la versión de API 2016-03-30.
-* Una VM que use el proveedor de recursos **Microsoft.Compute**, que es compatible con la versión de API 2015-12-01.
+De forma similar, cuando usa el SDK de Python para crear una aplicación basada en Python, puede especificar el perfil. El SDK carga los módulos correctos para los proveedores de recursos que ha especificado en el script.
 
-En lugar de buscar e instalar los módulos de PowerShell que admiten las versiones de API que necesita para el almacenamiento y el procesamiento, puede usar un perfil. Use el cmdlet **Install-Profile *profilename***, y PowerShell carga la versión correcta de los módulos.
-
-De forma similar, si usa el SDK de Python para crear una aplicación basada en Python, puede usar un perfil. El SDK carga los módulos correctos para los proveedores de recursos que especificó en el script.
-
-Como desarrollador, puede centrarse en escribir la solución. Puede usar un perfil, sabiendo que el código funcionará en todas las nubes que admiten el perfil.
+Como desarrollador, puede centrarse en escribir la solución. En lugar de investigar qué versiones de API, qué proveedor de recursos y qué nube funcionan juntos, utilice un perfil y conozca qué código va a funcionar en todas las nubes que admiten ese perfil.
 
 ## <a name="api-profile-code-samples"></a>Ejemplos de código de perfil de API
 
@@ -86,11 +80,13 @@ Puede encontrar ejemplos de código que le ayudarán a integrar la solución con
 - **PowerShell**  
 Se puede usar el módulo **AzureRM.Bootstrapper** disponible mediante la Galería de PowerShell para obtener cmdlets de PowerShell que son necesarios para trabajar con perfiles de la versión de la API. Para más información, consulte el artículo sobre el [uso de perfiles de versión de API para PowerShell](azure-stack-version-profiles-powershell.md).
 - **CLI de Azure 2.0**  
-Puede actualizar la configuración del entorno para usar el perfil de la versión de API específico de Azure Stack. Para más información, consulte el artículo acerca del [uso de perfiles de versión de API para la CLI de Azure 2.0](azure-stack-version-profiles-azurecli2.md).
+Puede actualizar la configuración del entorno para usar el perfil de la versión de API específico de Azure Stack. Para más información, consulte el artículo [Uso de los perfiles de la versión de la API con la CLI de Azure 2.0](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
 En el SDK de GO, un perfil es una combinación de diferentes tipos de recursos con distintas versiones de diferentes servicios. Los perfiles están disponibles en la ruta de acceso profiles/, con la versión en formato **AAAA-MM-DD**. Para obtener más información, consulte el artículo sobre el [uso de perfiles de versión de API para GO](azure-stack-version-profiles-go.md).
 - **Ruby**  
-El SDK de Ruby para el Administrador de recursos de Azure Stack proporciona herramientas que le ayudarán a crear y administrar su infraestructura. Proveedores de recursos en el SDK incluye Compute, Redes virtuales y opciones de almacenamiento con el lenguaje Ruby. Para obtener más información, consulte el [uso de perfiles de versión de API con Ruby](azure-stack-version-profiles-ruby.md).
+El SDK de Ruby para Resource Manager de Azure Stack proporciona herramientas que le ayudarán a crear y administrar su infraestructura. Proveedores de recursos en el SDK incluye Compute, Redes virtuales y opciones de almacenamiento con el lenguaje Ruby. Para obtener más información, consulte el [uso de perfiles de versión de API con Ruby](azure-stack-version-profiles-ruby.md).
+- **Python**  
+- El SDK de Python es compatible con los perfiles de la versión de la API para su uso con diferentes plataformas en la nube, como Azure Stack y Azure global. Puede utilizar los perfiles de la API para crear soluciones para una nube híbrida. Para más información, consulte [Usar perfiles de la versión de la API con Python](azure-stack-version-profiles-python.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

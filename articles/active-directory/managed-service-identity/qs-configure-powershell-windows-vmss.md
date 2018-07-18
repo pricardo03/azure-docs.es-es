@@ -9,16 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903886"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configuración de Managed Service Identity (MSI) en un VMSS con PowerShell
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/10/2018
 
 Managed Service Identity proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
 
-En este artículo, aprenderá a realizar las siguientes operaciones de Managed Service Identity en un conjunto de escalado de máquinas virtuales (VMSS) de Azure mediante PowerShell:
+En este artículo, aprenderá a realizar las operaciones de Managed Service Identity en un conjunto de escalado de máquinas virtuales (VMSS) mediante PowerShell:
 - Habilitar y deshabilitar la identidad asignada por el sistema en un VMSS de Azure
 - Agregar y quitar una identidad asignada por el usuario en un VMSS de Azure
 
@@ -53,7 +54,7 @@ Para crear un VMSS con la identidad asignada por el sistema habilitada:
 2. (Opcional) Agregue la extensión VMSS de MSI mediante los parámetros `-Name` y `-Type` en el cmdlet [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
 
     > [!NOTE]
-    > Este paso es opcional, ya que puede utilizar el punto de conexión de Azure Instance Metadata Service (IMDS) para recuperar tokens.
+    > Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.
 
    ```powershell
    $setting = @{ "port" = 50342 }
@@ -107,7 +108,7 @@ En esta sección, aprenderá a habilitar y quitar una identidad asignada por el 
 
 ### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Asignación de una identidad asignada por el usuario durante la creación de un VMSS de Azure
 
-Actualmente, no se admite crear un nuevo VMSS con una identidad asignada por el usuario mediante PowerShell. Consulte la sección siguiente sobre cómo agregar una identidad asignada por el usuario a un VMSS existente. Compruebe si hay actualizaciones.
+Actualmente, no se puede crear un nuevo VMSS con una identidad asignada por el usuario mediante PowerShell. Consulte la sección siguiente sobre cómo agregar una identidad asignada por el usuario a un VMSS existente. Compruebe si hay actualizaciones.
 
 ### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>Asignación de una identidad asignada por el usuario a un VMSS de Azure existente
 
@@ -121,8 +122,7 @@ Para asignar una identidad asignada por el usuario a un VMSS de Azure existente:
 
 2. En primer lugar, recupere las propiedades de la máquina virtual mediante el cmdlet `Get-AzureRmVM`. A continuación, para asignar una identidad asignada por el usuario al VMSS de Azure, use los parámetros `-IdentityType` y `-IdentityID` en el cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm). Reemplace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` con sus propios valores.
 
-   > [!IMPORTANT]
-   > La creación de identidades asignadas por el usuario solo admite caracteres alfanuméricos y guiones (0-9, a-z, A-z, -). Además, el nombre debe limitarse a una longitud de 24 caracteres para que la asignación a VM/VMSS funcione correctamente. Compruebe si hay actualizaciones. Para más información, consulte [Preguntas más frecuentes y problemas conocidos](known-issues.md).
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

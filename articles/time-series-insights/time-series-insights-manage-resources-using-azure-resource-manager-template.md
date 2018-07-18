@@ -1,22 +1,22 @@
 ---
 title: Administración del entorno de Azure Time Series Insights mediante plantillas de Azure Resource Manager| Microsoft Docs
 description: En este artículo se describe cómo administrar el entorno de Azure Time Series Insights mediante programación con Azure Resource Manager.
-services: time-series-insights
 ms.service: time-series-insights
-author: sandshadow
+services: time-series-insights
+author: ashannon7
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 561483b801773b39ed2ff61efa1496eba472530d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293360"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
 

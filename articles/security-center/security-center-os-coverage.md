@@ -5,20 +5,21 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335897"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas compatibles con Azure Security Center
 La supervisión del estado de seguridad y las recomendaciones están disponibles para las máquinas virtuales, tanto las creadas con los modelos de implementación clásica como de Resource Manager, y para los equipos.
@@ -41,12 +42,14 @@ Sistemas operativos Windows compatibles:
 ## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas compatibles con máquinas virtuales y equipos de Linux
 Sistemas operativos Linux compatibles:
 
-* Versiones de Ubuntu 12.04, 14.04 y 16.04 y 16.10
-* Versiones de Debian 7, 8
-* Versiones de CentOS 6.\*, 7.*
-* Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.\*
-* Versiones de SUSE Linux Enterprise Server (SLES) 11 SP4+, 12.\*
-* Versiones de Oracle Linux 6.\*, 7.\*
+* Ubuntu versiones 12.04 LTS, 14.04 LTS, 16.04 LTS
+* Debian versiones 6, 7, 8, 9
+* CentOS versiones 5, 6, 7
+* Red Hat Enterprise Linux (RHEL) versiones 5, 6, 7
+* SUSE Linux Enterprise Server (SLES) versiones 11, 12
+* Oracle Linux versiones 5, 6, 7
+* Amazon Linux 2012.09 hasta 2017
+* OpenSSL 1.1.0 solo se admite en plataformas x86_64 (64 bits)
 
 > [!NOTE]
 > El análisis de comportamiento de máquinas virtuales todavía no está disponible para los sistemas operativos Linux.
@@ -59,6 +62,6 @@ También se admiten máquinas virtuales que se ejecuten en un servicio en la nub
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a realizar planes y conozca las consideraciones de diseño necesarias para adoptar Azure Security Center.
-- [Alertas de seguridad por tipo de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis): obtenga más información sobre el análisis de comportamiento de máquinas virtuales y el análisis de la memoria de volcado en Security Center.
+- [Alertas de seguridad por tipo de Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis): obtenga más información sobre el análisis de comportamiento de máquinas virtuales y el análisis de la memoria de volcado en Security Center.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre cumplimiento y seguridad de Azure.

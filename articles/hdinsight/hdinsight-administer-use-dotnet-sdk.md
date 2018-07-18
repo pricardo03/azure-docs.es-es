@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0feb1e344d70207d48e4ef07f5b45790425727ad
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017944"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Administración de clústeres de Hadoop en HDInsight con el SDK de .NET
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Más información sobre cómo administrar los clústeres de HDInsight con el [SDK de .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx).
+Más información sobre cómo administrar los clústeres de HDInsight con el [SDK de .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Requisitos previos**
 
@@ -270,7 +271,7 @@ Vea [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDIn
 Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Otras referencias
-* [Documentación de referencia del SDK de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Documentación de referencia del SDK de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal]
 * [Administración de HDInsight con la interfaz de la línea de comandos][hdinsight-admin-cli]
 * [Creación de clústeres de HDInsight][hdinsight-provision]

@@ -1,36 +1,40 @@
 ---
-title: Desarrollo de componentes de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure | Microsoft Docs
-description: En este artículo se describe cómo ISV desarrolla e instala componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure
+title: Instalación de componentes con licencia en un entorno de ejecución para la integración de SSIS en Azure | Microsoft Docs
+description: Más información sobre cómo un ISV puede desarrollar e instalar componentes personalizados de pago o con licencia en un entorno de ejecución para la integración de SSIS en Azure
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
-ms.openlocfilehash: e22ca4bd5b749e8752f800590938199e06abbd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 146dc8c4475a041f28d7fe7ca464dfbc104258c7
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265961"
 ---
-# <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Desarrollo de componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure
+# <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalación de componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure
 
-## <a name="problem---the-azure-ssis-ir-requires-a-different-approach"></a>Problema: la instancia de Integration Runtime para la integración de SSIS en Azure requiere un enfoque diferente
+En este artículo se describe cómo un ISV desarrolla e instala componentes personalizados de pago o con licencia en un entorno de ejecución para la integración de SSIS en Azure.
 
-La naturaleza de la instancia de Integration Runtime para la integración de SSIS en Azure presenta varios retos, que hacen que los métodos de licencia típicos que se usan para la instalación local de componentes personalizados sea insuficiente.
+## <a name="the-problem"></a>El problema
+
+La naturaleza de la instancia de Integration Runtime para la integración de SSIS en Azure presenta varios retos, que hacen que los métodos de licencia típicos que se usan para la instalación local de componentes personalizados sea insuficiente. Por consiguiente, la instancia de Integration Runtime para la integración de SSIS en Azure requiere un enfoque diferente.
 
 -   Los nodos de la instancia de Integration Runtime para la integración de SSIS en Azure son volátiles y se pueden asignar o liberar en cualquier momento. Por ejemplo, puede iniciar o detener nodos para administrar los costos o escalar vertical y horizontalmente a través de varios tamaños de nodo. Como resultado, ya no es viable enlazar una licencia de componentes de terceros a un nodo concreto mediante la información específica de la máquina, como dirección MAC o el identificador de CPU.
 
 -   También puede escalar la instancia de Integration Runtime para la integración de SSIS en Azure vertical u horizontalmente para que el número de nodos se reduzca o aumente en cualquier momento.
 
-## <a name="solution---windows-environment-variables-and-ssis-system-variables-for-license-binding-and-validation"></a>Solución: las variables de entorno de Windows y las variables del sistema SSIS para el enlace de licencias y la validación
+## <a name="the-solution"></a>La solución
 
-Como resultado de las limitaciones de los métodos tradicionales de licencia que se describen en la sección anterior, la instancia de Integration Runtime para la integración de SSIS en Azure proporciona variables de entorno de Windows y variables del sistema SSIS para el enlace de la licencia y la validación de componentes de terceros. Los ISV pueden usar estas variables para obtener información duradera y única de la instancia de Integration Runtime para la integración de SSIS en Azure, como el identificador del clúster y el número de nodos del clúster. Con esta información, los ISV pueden enlazar la licencia de su componente a una instancia de Integration Runtime para la integración de SSIS en Azure *como clúster*, con un identificador que no cambia cuando se inician o detienen clientes, al escalar vertical y horizontalmente, al reducir y aumentar horizontalmente, ni al volver a configurar la instancia de Integration Runtime para la integración de SSIS en Azure de cualquier manera.
+Debido a las limitaciones de los métodos tradicionales de licencias que se describen en la sección anterior, la instancia de Integration Runtime para la integración de SSIS en Azure ofrece una nueva solución. Esta solución utiliza variables de entorno de Windows y variables del sistema de SSIS para el enlace y la validación de licencias de componentes de terceros. Los ISV pueden usar estas variables para obtener información duradera y única de la instancia de Integration Runtime para la integración de SSIS en Azure, como el identificador del clúster y el número de nodos del clúster. Con esta información, los ISV pueden luego enlazar la licencia del componente a una instancia de Integration Runtime para la integración de SSIS en Azure *como clúster*. Este enlace utiliza un identificador que no cambia cuando los clientes inician o detienen, escalan vertical u horizontalmente, reducen vertical u horizontalmente o reconfiguran la instancia de Integration Runtime para la integración de SSIS en Azure de algún modo.
 
 En el siguiente diagrama se muestra la instalación típica, la activación y el enlace de licencia, así como los flujos de validación de los componentes de terceros que utilizan estas variables nuevas:
 
@@ -70,6 +74,10 @@ En el siguiente diagrama se muestra la instalación típica, la activación y el
                                                                                                                                
     }
     ```
+
+## <a name="isv-partners"></a>Partners de ISV
+
+Puede encontrar una lista de partners de ISV que han adaptado sus componentes y extensiones a la instancia de Integration Runtime para la integración de SSIS en Azure al final de esta entrada de blog: [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/) (Enterprise Edition, instalación personalizada y extensibilidad de terceros para SSIS en ADF).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

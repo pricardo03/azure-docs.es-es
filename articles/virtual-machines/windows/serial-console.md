@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e9e98a0c9f1db805d62cdee038fb4754ff047e2
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960447"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola serie de máquina virtual (versión preliminar) 
 
@@ -32,6 +33,7 @@ La consola serie de máquina virtual en Azure ofrece acceso a una consola basada
 
 ## <a name="prerequisites"></a>requisitos previos 
 
+* Debe utilizar el modelo de implementación de Resource Manager. No se admiten implementaciones clásicas. 
 * La máquina virtual TIENE QUE tener los [diagnósticos de arranque](boot-diagnostics.md) habilitados 
 * La cuenta que utilice la consola serie tiene que tener el [rol Colaborador](../../role-based-access-control/built-in-roles.md) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md). 
 

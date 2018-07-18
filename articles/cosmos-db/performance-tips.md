@@ -5,21 +5,17 @@ keywords: cómo mejorar el rendimiento de la base de datos
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360213"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715027"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -41,27 +37,28 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     El modo en que un cliente se conecta a Azure Cosmos DB tiene implicaciones importantes sobre el rendimiento, especialmente en los términos de la latencia observada en el lado cliente. Existen dos opciones de configuración principales disponibles para configurar la directiva de conexión de cliente: el *modo* de conexión y el [protocolo *de* conexión](#connection-protocol).  Los dos modos disponibles son:
 
-   1. Modo de puerta de enlace (predeterminado)
+   * Modo de puerta de enlace (predeterminado)
       
-      El modo de puerta de enlace se admite en todas las plataformas de SDK y es el valor predeterminado configurado. Si la aplicación se ejecuta dentro de una red corporativa con restricciones de firewall estrictas, el modo de puerta de enlace es la mejor opción, ya que utiliza el puerto HTTPS estándar y un único punto de conexión. La desventaja para el rendimiento, sin embargo, es que el modo de puerta de enlace implica un salto de red adicional cada vez que se leen o escriben datos en Azure Cosmos DB. Por este motivo, el modo directo ofrece mejor rendimiento debido al número menor de saltos de red.
+     El modo de puerta de enlace se admite en todas las plataformas de SDK y es el valor predeterminado configurado. Si la aplicación se ejecuta dentro de una red corporativa con restricciones de firewall estrictas, el modo de puerta de enlace es la mejor opción, ya que utiliza el puerto HTTPS estándar y un único punto de conexión. La desventaja para el rendimiento, sin embargo, es que el modo de puerta de enlace implica un salto de red adicional cada vez que se leen o escriben datos en Azure Cosmos DB. Por este motivo, el modo directo ofrece mejor rendimiento debido al número menor de saltos de red.
 
-   2. Modo directo
+   * Modo directo
 
-     El modo Direct es compatible con la conectividad a través de protocolos TCP y HTTPS. Actualmente, Direct solo es compatible en .NET Standard 2.0 para la plataforma de Windows.
-      
-<a id="use-tcp"></a>
-2. **Directiva de conexión: uso del protocolo TCP**
+     El modo Direct es compatible con la conectividad a través de protocolos TCP y HTTPS. Actualmente, Direct solo es compatible en .NET Standard 2.0 para la plataforma de Windows. Al usar el modo directo, hay dos opciones de protocolo disponibles:
 
-    Al usar el modo directo, hay dos opciones de protocolo disponibles:
+    * TCP
+    * HTTPS
 
-   * TCP
-   * HTTPS
+    Al usar el modo de puerta de enlace, Azure Cosmos DB emplea el puerto 443 y la API de MongoDB utiliza los puertos 10250, 10255 y 10256. El puerto 10250 se asigna a una instancia de Mongodb predeterminada sin replicación geográfica y los puertos 10255/10256 se asignan a la instancia de Mongodb con funcionalidad de replicación geográfica. Al utilizar TCP en modo directo, además de los puertos de la puerta de enlace, debe garantizar que los puertos entre el 10000 y el 20000 estén abiertos, ya que Azure Cosmos DB utiliza puertos TCP dinámicos. Si estos puertos no están abiertos y trata de utilizar TCP, recibirá un error 503 de servicio no disponible. En la tabla siguiente se muestran los modos de conectividad disponibles para distintas API y el usuario de puertos de servicio para cada API:
 
-     Azure Cosmos DB ofrece un modelo de programación RESTful sencillo y abierto sobre HTTPS. Además, ofrece un protocolo TCP eficaz que también es RESTful en su modelo de comunicación y está disponible a través del SDK de cliente de .NET. Tanto HTTPS como TCP directo usan SSL para la autenticación inicial y cifrar el tráfico. Para obtener el mejor rendimiento, utilice el protocolo TCP cuando sea posible.
+    |Modo de conexión  |Protocolo admitido  |SDK admitidos  |API o puerto de servicio  |
+    |---------|---------|---------|---------|
+    |Puerta de enlace  |   HTTPS    |  Todos los SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Directo    |    HTTPS     |  SDK de .Net y Java    |    SQL(443)   |
+    |Directo    |     TCP    |  SDK de .NET    | Puertos incluidos en el intervalo 10 000-20 000 |
 
-     Al utilizar TCP en modo de puerta de enlace, el puerto TCP 443 es el de Azure Cosmos DB y el puerto 10255 es el de la API de MongoDB. Al utilizar TCP en modo directo, además de los puertos de la puerta de enlace, debe garantizar que los puertos entre el 10000 y el 20000 estén abiertos, ya que Azure Cosmos DB utiliza puertos TCP dinámicos. Si estos puertos no están abiertos y trata de utilizar TCP, recibirá un error 503 de servicio no disponible.
+    Azure Cosmos DB ofrece un modelo de programación RESTful sencillo y abierto sobre HTTPS. Además, ofrece un protocolo TCP eficaz que también es RESTful en su modelo de comunicación y está disponible a través del SDK de cliente de .NET. Tanto HTTPS como TCP directo usan SSL para la autenticación inicial y cifrar el tráfico. Para obtener el mejor rendimiento, utilice el protocolo TCP cuando sea posible.
 
-     El modo de conectividad se configura durante la construcción de la instancia de DocumentClient con el parámetro ConnectionPolicy. Si se utiliza el modo directo, el protocolo también puede establecerse en el parámetro ConnectionPolicy.
+    El modo de conectividad se configura durante la construcción de la instancia de DocumentClient con el parámetro ConnectionPolicy. Si se utiliza el modo directo, el protocolo también puede establecerse en el parámetro ConnectionPolicy.
 
     ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -78,19 +75,19 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     ![Ilustración de la directiva de conexión de Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
-3. **Llamada a OpenAsync para evitar la latencia de inicio en la primera solicitud**
+2. **Llamada a OpenAsync para evitar la latencia de inicio en la primera solicitud**
 
     De forma predeterminada, la primera solicitud tendrá una latencia mayor porque debe capturar la tabla de enrutamiento de direcciones. Para evitar esta latencia de inicio en la primera solicitud, se debe llamar a OpenAsync() una vez durante la inicialización de esta manera.
 
         await client.OpenAsync();
    <a id="same-region"></a>
-4. **Colocación de los clientes en la misma región de Azure para aumentar el rendimiento**
+3. **Colocación de los clientes en la misma región de Azure para aumentar el rendimiento**
 
     Cuando sea posible, coloque las aplicaciones que llaman a Azure Cosmos DB en la misma región que la base de datos de Azure Cosmos DB. Para obtener una comparación aproximada, las llamadas a Azure Cosmos DB en la misma región se realizan en menos de 1 o 2 ms, pero la latencia entre las costas este y oeste de Estados Unidos es mayor de 50 ms. Esta latencia podría variar de una solicitud a otra, según la ruta tomada por la solicitud cuando pasa del cliente al límite del centro de datos de Azure. Para conseguir la menor latencia posible, asegúrese de que la aplicación que llama se encuentra en la misma región de Azure que el punto de conexión de Azure Cosmos DB aprovisionado. Para obtener una lista de regiones disponibles, consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services).
 
     ![Ilustración de la directiva de conexión de Azure Cosmos DB](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-5. **Aumento del número de subprocesos y tareas**
+4. **Aumento del número de subprocesos y tareas**
 
     Dado que las llamadas a Azure Cosmos DB se realizan a través de la red, puede que tenga que variar el grado de paralelismo de las solicitudes para reducir todo lo posible el tiempo que la aplicación cliente espera entre una solicitud y otra. Por ejemplo, si usa la [biblioteca TPL](https://msdn.microsoft.com//library/dd460717.aspx) de .NET, cree del orden de 100 tareas de lectura o escritura en Azure Cosmos DB.
 

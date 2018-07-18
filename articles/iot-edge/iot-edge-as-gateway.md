@@ -1,21 +1,21 @@
 ---
 title: Uso de dispositivos Azure IoT Edge como puertas de enlace | Microsoft Docs
-description: "Use Azure IoT Edge para crear un dispositivo de puerta de enlace transparente, opaco o proxy que envíe datos desde varios dispositivos de nivel inferior a la nube y los procese localmente."
-services: iot-edge
-keywords: 
+description: Use Azure IoT Edge para crear un dispositivo de puerta de enlace transparente, opaco o proxy que envíe datos desde varios dispositivos de nivel inferior a la nube y los procese localmente.
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 11/27/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: fe7ad2444b9378550e9624e3d109c8be4fd29f23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+services: iot-edge
+ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028972"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Uso de un dispositivo IoT Edge como puerta de enlace (versión preliminar)
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
 La finalidad de las puertas de enlace en las soluciones IoT es específica de la solución y combina la conectividad de los dispositivos con el análisis perimetral. Azure IoT Edge se puede usar para satisfacer todas las necesidades de una puerta de enlace de IoT con independencia de si están relacionadas con la conectividad, la identidad o los análisis perimetrales. Los patrones de puerta de enlace de este artículo únicamente hacen referencia a las características de la conectividad de los dispositivos de nivel inferior y la identidad de los dispositivos, y no a cómo los datos del dispositivo se procesan en la puerta de enlace.
 
@@ -54,7 +54,7 @@ Cuando se usa un patrón de puerta de enlace opaca (traducción de protocolo), t
 ## <a name="next-steps"></a>Pasos siguientes
 Usar un dispositivo IoT Edge como [puerta de enlace transparente][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

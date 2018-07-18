@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311119"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -42,7 +44,7 @@ ms.lasthandoff: 04/16/2018
 **P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en la información del usuario en Azure Portal?**
 
 **R:** los dispositivos Windows 10 que están unidos a Azure AD híbrido no aparecen bajo los dispositivos del USUARIO.
-Debe usar PowerShell para ver todos los dispositivos. 
+Debe usar la vista Todos los dispositivos de Azure Portal. También puede usar el cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) de PowerShell.
 
 Los únicos que aparecen entre los dispositivos del USUARIO son los siguientes:
 
@@ -50,25 +52,24 @@ Los únicos que aparecen entre los dispositivos del USUARIO son los siguientes:
 - Todos los dispositivos que no tienen Windows 10 o Windows Server 2016
 - Todos los dispositivos que no son de Windows 
 
----
-
-**P: ¿Por qué no puedo ver en Azure Portal todos los dispositivos registrados en Azure Active Directory?** 
-
-**R:** Ahora, los encontrará en Azure AD Directory -> menú Todos los dispositivos. También puede usar Azure PowerShell para buscar todos los dispositivos. Para más información, vea el cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
-
 --- 
 
 **P: ¿Cómo puedo saber cuál es el estado de registro del dispositivo del cliente?**
 
-**R:** En los dispositivos Windows 10 y Windows Server 2016 o versiones posteriores, ejecute dsregcmd.exe /status.
+**R:** Puede usar Azure Portal, ir a Todos los dispositivos y buscar el dispositivo mediante el identificador de dispositivo. Compruebe el valor en la columna de tipo de unión.
 
-En las versiones anteriores del sistema operativo, ejecute "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
+Si desea comprobar el estado del registro del dispositivo local desde un dispositivo registrado:
+
+- En dispositivos Windows 10 y Windows Server 2016 o posteriores, ejecute dsregcmd.exe /status.
+- En las versiones anteriores del sistema operativo, ejecute "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
 
 ---
 
-**P: ¿Por qué aún aparece registrado un dispositivo que ya he eliminado de Azure Portal o con Windows PowerShell?**
+**P: He realizado la eliminación en Azure Portal o mediante Windows PowerShell, pero el estado local en el dispositivo indica que todavía está registrado.**
 
-**R:** Se debe al diseño. El dispositivo no puede acceder a los recursos en la nube. Si desea volver a registrar el dispositivo, deberá realizar algunas acciones manualmente. 
+**R:** Se debe al diseño. El dispositivo no puede acceder a los recursos en la nube. 
+
+Si desea volver a registrar el dispositivo, deberá realizar algunas acciones manualmente. 
 
 Para anular el estado de unión de los dispositivos Windows 10 y Windows Server 2016 unidos a un dominio de AD local:
 
@@ -83,6 +84,13 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 1.  Abra el símbolo del sistema como administrador.
 2.  Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+---
+** P: ¿Cómo se separa un dispositivo unido a Azure AD localmente en el dispositivo?
+**R:** 
+- Para dispositivos unidos a Azure AD híbrido, asegúrese de desactivar el registro automático para que la tarea programada no registre el dispositivo nuevamente. A continuación, abra un símbolo del sistema como administrador y escriba `dsregcmd.exe /debug /leave`. O bien, se puede ejecutar este comando como un script en varios dispositivos para realizar la separación de forma masiva.
+
+- Para dispositivos unidos a Azure AD puros, asegúrese de tener una cuenta de administrador local sin conexión o cree una, ya que no podrá iniciar sesión con credenciales de usuario de Azure AD. A continuación, vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y haga clic en **Desconectar**. Siga las indicaciones y proporcione las credenciales de administrador local cuando se le solicite. Reinicie el dispositivo para completar el proceso de separación.
 
 ---
 
@@ -117,7 +125,7 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 ---
 
 
-**P: Puedo ver el registro del dispositivo en la información del USUARIO en Azure Portal y puedo ver el estado como registrado en el cliente. ¿He establecido la configuración correctamente para utilizar el acceso condicional?**
+**P: Puedo ver el registro del dispositivo en la información del USUARIO en Azure Portal y puedo ver el estado como registrado en el dispositivo. ¿He establecido la configuración correctamente para utilizar el acceso condicional?**
 
 **R:** El estado de unión del dispositivo, especificado en deviceID, debe coincidir con el de Azure AD y satisfacer los criterios de evaluación del acceso condicional. Para más información, vea [Introducción al Registro de dispositivos de Azure Active Directory](active-directory-device-registration.md).
 
@@ -135,6 +143,8 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 - Los inicios de sesión federados requieren que el servidor de federación admita un punto de conexión activo de WS-Trust. 
 
+- Tiene habilitada la autenticación de paso a través y el usuario tiene una contraseña temporal que debe cambiarse al iniciar sesión.
+
 ---
 
 **P: ¿Por qué me aparece un cuadro de diálogo que indica que se ha producido un error cuando intento unir mi equipo a Azure AD?**
@@ -145,7 +155,7 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 **P: ¿Por qué se produce un error al intentar unir mi equipo a pesar de que no he obtenido información sobre el error?**
 
-**R:** Puede deberse a que el usuario ha iniciado sesión en el dispositivo con la cuenta de administrador integrada. Cree una cuenta local distinta antes de usar Azure Active Directory Join para completar la instalación. 
+**R:** Puede deberse a que el usuario ha iniciado sesión en el dispositivo con la cuenta de administrador integrada local. Cree una cuenta local distinta antes de usar Azure Active Directory Join para completar la instalación. 
 
 ---
 

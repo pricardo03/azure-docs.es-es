@@ -3,17 +3,18 @@ title: Cognitive Search para extracción de datos y procesamiento de lenguaje na
 description: Extracción de datos, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes para crear contenido de búsqueda en la indexación de Azure Search a través de aptitudes cognitivas.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942166"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304286"
 ---
 # <a name="what-is-cognitive-search"></a>¿Qué es Cognitive Search?
 
@@ -71,7 +72,7 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 | Concepto | DESCRIPCIÓN| Vínculos |
 |---------|------------|-------|
 | Conjunto de aptitudes | Recurso con nombre de nivel superior que contiene una colección de aptitudes. Un conjunto de aptitudes es la canalización de enriquecimiento. Se invoca durante la indexación por parte del indexador. | [Define a skillset](cognitive-search-defining-skillset.md) (Definición de un conjunto de aptitudes) |
-| Aptitud cognitiva | Transformación atómica en una canalización de enriquecimiento. Normalmente, se trata de un componente que extrae o deduce la estructura y, por tanto, aumenta el reconocimiento de los datos de entrada. Casi siempre, la salida se basa en el texto y el procesamiento es el procesamiento de lenguaje natural o el procesamiento de imagen que extrae o genera texto a partir de entradas de imágenes. La salida de una aptitud se puede asignar a un campo en un índice o usar como entrada para el enriquecimiento de nivel inferior. Microsoft predefinida y proporciona una aptitud, o bien puede ser personalizada, es decir, el usuario puede crearla e implementarla. | [Predefined skills](cognitive-search-predefined-skills.md) (Aptitudes predefinidas) |
+| Aptitud cognitiva | Transformación atómica en una canalización de enriquecimiento. Normalmente, se trata de un componente que extrae o deduce la estructura y, por tanto, aumenta el reconocimiento de los datos de entrada. Casi siempre, la salida se basa en el texto y el procesamiento es el procesamiento de lenguaje natural o el procesamiento de imagen que extrae o genera texto a partir de entradas de imágenes. La salida de una aptitud se puede asignar a un campo en un índice o usar como entrada para el enriquecimiento de nivel inferior. Microsoft predefinida y proporciona una aptitud, o bien puede ser personalizada, es decir, el usuario puede crearla e implementarla. | [Aptitudes predefinidas](cognitive-search-predefined-skills.md) |
 | Extracción de datos | Abarca una amplia variedad de procesamiento, pero respecto a Cognitive Search, la aptitud de reconocimiento de entidades con nombre se usa principalmente para extraer datos (una entidad) a partir de un origen que no proporciona de manera nativa esa información. | [Named Entity Recognition Skill](cognitive-search-skill-named-entity-recognition.md) (Aptitud de reconocimiento de entidades con nombre)| 
 | Procesamiento de imágenes | Deduce texto a partir de una imagen, como la capacidad de reconocer un punto de referencia, o bien extrae texto a partir de una imagen. Algunos ejemplos comunes incluyen OCR para levantar caracteres de un archivo de documento escaneado (JPEG) o reconocer el nombre de una calle en una fotografía que incluye un letrero con el nombre. | [Image Analysis Skill](cognitive-search-skill-image-analysis.md) (Aptitud de análisis de imágenes) o [OCR Skill](cognitive-search-skill-ocr.md) (Aptitud de OCR)
 | Procesamiento de lenguaje natural | Procesamiento de texto para obtener conclusiones e información sobre entradas de texto. La detección de idioma, el análisis de sentimiento y la extracción de frases clave son aptitudes que se enmarcan en el procesamiento de lenguaje natural.  | [Key Phrase Extraction Skill](cognitive-search-skill-keyphrases.md) (Aptitud de Extracción de frases clave), [Language Detection Skill](cognitive-search-skill-language-detection.md) (Aptitud de Detección de idioma), [Sentiment Analysis Skill](cognitive-search-skill-sentiment.md) (Aptitud de Análisis de sentimiento) |
@@ -103,9 +104,9 @@ Actualmente, solo se proporcionan API de REST. Use `api-version=2017-11-11-Previ
 | API DE REST | DESCRIPCIÓN |
 |-----|-------------|
 | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Creación de un origen de datos)  | Recurso que identifica un origen de datos externo que proporciona los datos de origen que se usan para crear documentos enriquecidos.  |
-| [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md) (Creación del conjunto de aptitudes [api-version=2017-11-11-Preview])  | Recurso que coordina el uso de las [aptitudes predefinidas](cognitive-search-predefined-skills.md) y las [aptitudes cognitivas personalizadas](cognitive-search-custom-skill-interface.md) que se usan en una canalización de enriquecimiento durante el indexado. |
+| [Create Skillset (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) (Creación del conjunto de aptitudes [api-version=2017-11-11-Preview])  | Recurso que coordina el uso de las [aptitudes predefinidas](cognitive-search-predefined-skills.md) y las [aptitudes cognitivas personalizadas](cognitive-search-custom-skill-interface.md) que se usan en una canalización de enriquecimiento durante el indexado. |
 | [Crear índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Esquema que expresa un índice de Azure Search. Los campos del índice se asignan a los campos de los datos de origen o a los campos fabricados durante la fase de enriquecimiento (por ejemplo, un campo para los nombres de organización creado por el reconocimiento de entidades). |
-| [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md) (Creación de indexador [api-version=2017-11-11-Preview])  | Recurso que define los componentes usados durante la indexación, los que incluyen un origen de datos, un conjunto de aptitudes, asociaciones de campos desde el origen y estructuras de datos intermedias con el índice de destino, además del destino mismo. La ejecución del indexador es el desencadenador del enriquecimiento y la ingesta de datos. La salida es un corpus de búsqueda basado en el esquema del índice, que se rellena con los datos de origen y se enriquece a través de los conjuntos de aptitudes.  |
+| [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) (Creación de indexador [api-version=2017-11-11-Preview])  | Recurso que define los componentes usados durante la indexación, los que incluyen un origen de datos, un conjunto de aptitudes, asociaciones de campos desde el origen y estructuras de datos intermedias con el índice de destino, además del destino mismo. La ejecución del indexador es el desencadenador del enriquecimiento y la ingesta de datos. La salida es un corpus de búsqueda basado en el esquema del índice, que se rellena con los datos de origen y se enriquece a través de los conjuntos de aptitudes.  |
 
 **Lista de comprobación: un flujo de trabajo típico**
 
@@ -113,11 +114,11 @@ Actualmente, solo se proporcionan API de REST. Use `api-version=2017-11-11-Previ
 
 1. Cree un [objeto de origen de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source) en Azure Search para proporciona una cadena de conexión para la recuperación de datos.
 
-1. Cree un [conjunto de aptitudes](ref-create-skillset.md) con pasos de enriquecimiento.
+1. Cree un [conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset) con pasos de enriquecimiento.
 
 1. Defina el [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). La colección *Fields* (Campos) incluye campos de los datos de origen. También debe simular campos adicionales para contener valores generados para el contenido creado durante el enriquecimiento.
 
-1. Defina el [indexador](ref-create-skillset.md) que hace referencia al origen de datos, conjunto de aptitudes e índice.
+1. Defina el [indexador](https://docs.microsoft.com/rest/api/searchservice/create-skillset) que hace referencia al origen de datos, conjunto de aptitudes e índice.
 
 1. Dentro del indexador, agregue *outputFieldMappings*. En esta sección, la salida se asigna desde el conjunto de aptitudes (en el paso 3) a los campos de entrada del esquema de índice (en el paso 4).
 

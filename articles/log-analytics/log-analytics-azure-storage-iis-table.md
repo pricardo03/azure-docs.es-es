@@ -1,32 +1,33 @@
 ---
 title: Uso de Blob Storage para IIS y Table Storage para eventos en Azure Log Analytics | Microsoft Docs
-description: "Log Analytics puede leer los registros de los servicios de Azure que escriben los diagnósticos en Table Storage o los registros de IIS Blob Storage."
+description: Log Analytics puede leer los registros de los servicios de Azure que escriben los diagnósticos en Table Storage o los registros de IIS Blob Storage.
 services: log-analytics
-documentationcenter: 
-author: MGoedtel
+documentationcenter: ''
+author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 8f923cc081ea652c8e32d4109225044c70c8767d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128748"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Uso de Azure Blob Storage para el almacenamiento de tablas de Azure e IIS de eventos con Log Analytics
 
 Log Analytics puede leer los registros de los siguientes servicios que escriben los diagnósticos Table Storage o los registros de IIS en Blob Storage:
 
 * Clústeres de Service Fabric (versión preliminar)
-* Máquinas virtuales
+* Virtual Machines
 * Roles web y de trabajo
 
 Antes de que Log Analytics pueda recopilar los datos de estos recursos, es necesario habilitar Diagnósticos de Azure.
@@ -37,18 +38,18 @@ Diagnósticos de Azure es una extensión de Azure que le permite recopilar datos
 
 Para que Log Analytics recopile estos registros de Diagnóstico de Azure, deben estar en las siguientes ubicaciones:
 
-| Tipo de registro | Tipo de recurso | La ubicación |
+| Tipo de registro | Tipo de recurso | Ubicación |
 | --- | --- | --- |
-| Registros IIS |Máquinas virtuales <br> Roles web <br> Roles de trabajo |wad-iis-logfiles (Blob Storage) |
-| syslog |Máquinas virtuales |LinuxsyslogVer2v0 (Table Storage) |
+| Registros IIS |Virtual Machines <br> Roles web <br> Roles de trabajo |wad-iis-logfiles (Blob Storage) |
+| syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
 | Eventos operativos de Service Fabric |Nodos de Service Fabric |WADServiceFabricSystemEventTable |
 | Service Fabric Reliable Actor Events |Nodos de Service Fabric |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable Service Events |Nodos de Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Registros de eventos de Windows |Nodos de Service Fabric <br> Máquinas virtuales <br> Roles web <br> Roles de trabajo |WADWindowsEventLogsTable (Table Storage) |
-| Registros de ETW de Windows |Nodos de Service Fabric <br> Máquinas virtuales <br> Roles web <br> Roles de trabajo |WADETWEventTable (Table Storage) |
+| Registros de eventos de Windows |Nodos de Service Fabric <br> Virtual Machines <br> Roles web <br> Roles de trabajo |WADWindowsEventLogsTable (Table Storage) |
+| Registros de ETW de Windows |Nodos de Service Fabric <br> Virtual Machines <br> Roles web <br> Roles de trabajo |WADETWEventTable (Table Storage) |
 
 > [!NOTE]
-> Los registros de IIS de Sitios web Azure no son compatibles actualmente.
+> Los registros de IIS de Azure Websites no son compatibles actualmente.
 >
 >
 
@@ -70,7 +71,7 @@ Use el siguiente procedimiento para habilitar Diagnósticos de Azure en una máq
    3. Haga clic en **Diagnósticos**.
    4. Establezca el **Estado** en **Activado**.
    5. Seleccione los registros de diagnóstico que desee recopilar.
-   6. Haga clic en **Aceptar**.
+   6. Haga clic en **OK**.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Activación de Diagnósticos de Azure en un rol web para la recopilación de eventos y registros de IIS
 Consulte [Cómo habilitar diagnósticos en un servicio en la nube](../cloud-services/cloud-services-dotnet-diagnostics.md) para conocer los pasos generales para habilitar Diagnósticos de Azure. Las instrucciones siguientes utilizan esta información y la personalizan para utilizarse con Log Analytics.
@@ -123,7 +124,7 @@ Una vez que se aplica la configuración de diagnóstico actualizada al servicio 
 Con Azure Portal puede configurar Log Analytics para recopilar los registros para los siguientes servicios de Azure:
 
 * Clústeres de Service Fabric
-* Máquinas virtuales
+* Virtual Machines
 * Roles web y de trabajo
 
 En Azure Portal, vaya hasta el área de trabajo de Log Analytics y realice las siguientes tareas:
@@ -149,7 +150,7 @@ En aproximadamente 30 minutos podrá ver los datos de la cuenta de almacenamient
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Habilitación de Diagnósticos de Azure en una máquina virtual para la recopilación de registros de IIS y de eventos con PowerShell
 Siga los pasos de [Configuración de Log Analytics para indizar Diagnósticos de Azure](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) para usar PowerShell con el fin de leer datos desde los diagnósticos de Azure que se escribe en Table Storage.
 
-Con PowerShell de Azure puede especificar con mayor precisión los eventos que se escriben en Almacenamiento de Azure.
+Con PowerShell de Azure puede especificar con mayor precisión los eventos que se escriben en Azure Storage.
 Para obtener más información, vea[Habilitación de Diagnósticos en Azure](../virtual-machines-dotnet-diagnostics.md).
 
 Puede habilitar y actualizar Diagnósticos de Azure mediante el siguiente script de PowerShell.

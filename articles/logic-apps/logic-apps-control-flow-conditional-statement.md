@@ -1,29 +1,25 @@
 ---
-title: "Instrucciones condicionales: ejecución de pasos en función de una condición: Azure Logic Apps | Microsoft Docs"
-description: "Ejecute pasos en una aplicación lógica solo después de que se cumpla una condición. Cree árboles de decisión que ejecuten flujos de trabajo en función de las condiciones que se especifiquen."
+title: Agregar instrucciones condicionales a los flujos de trabajo - Azure Logic Apps | Microsoft Docs
+description: Cómo crear condiciones que controlen las acciones de los flujos de trabajo en Azure Logic Apps
 services: logic-apps
-keywords: "instrucciones condicionales, árboles de decisión"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298175"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>Instrucciones condicionales: ejecución de pasos en función de una condición en Logic Apps
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crear instrucciones condicionales que controlen las acciones de los flujo de trabajo en Azure Logic Apps
 
-Para que ciertos pasos solo se ejecuten cuando se cumpla una condición especificada, use una *instrucción condicional*. Esta estructura compara los datos de un flujo de con valores o campos concretos. A continuación, se pueden definir los distintos pasos que hay que dar en función de que los datos cumplan la condición, o no. Las condiciones se pueden anidar unas dentro de otras.
+Para ejecutar acciones específicas en la aplicación lógica solo después de pasar una condición especificada, agregue una *instrucción condicional*. Esta estructura compara los datos de un flujo de trabajo con valores o campos concretos. A continuación, se pueden definir las distintas acciones que se ejecutan en función de si los datos cumplen la condición, o no. Las condiciones se pueden anidar unas dentro de otras.
 
 Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados correos electrónicos cuando aparecen elementos nuevos en la fuente RSS de un sitio web. Puede agregar una instrucción condicional para que se envíe correo electrónico solo cuando el elemento nuevo incluya una cadena específica. 
 

@@ -4,7 +4,7 @@ description: Este artículo trata sobre el SSO de conexión directa de Azure Act
 services: active-directory
 keywords: qué es Azure AD Connect, RGPD, componentes necesarios para Azure AD, SSO, inicio de sesión único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50c97ce7a492c934e15634622d86bf587ffb3fb7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149534"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915731"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidad del usuario e inicio de sesión único de conexión directa de Azure AD
 
@@ -28,11 +29,11 @@ ms.locfileid: "32149534"
 ## <a name="overview"></a>Información general
 
 
-SSO de conexión directa de Azure AD crea el tipo de registro siguiente, que puede contener EUII:
+SSO de conexión directa de Azure AD crea el tipo de registro siguiente, que puede contener datos personales: 
 
 - Archivos de registro de seguimiento de Azure AD Connect.
 
-El cumplimiento en materia de privacidad del usuario para el SSO de conexión directa se puede conseguir de dos maneras:
+Dispone de dos métodos para mejorar la privacidad del usuario para SSO de conexión directa:
 
 1.  Previa solicitud, extraer los datos de una persona y quitarlos de las instalaciones.
 2.  Asegurarse de que ningún dato se conserva más de 48 horas.

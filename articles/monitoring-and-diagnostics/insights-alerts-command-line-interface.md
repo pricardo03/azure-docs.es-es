@@ -1,74 +1,67 @@
 ---
-title: Creación de alertas para servicios de Azure - CLI multiplataforma | Microsoft Docs
-description: Desencadenamiento de correos electrónicos y notificaciones, y llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones especificadas.
+title: Uso de la CLI de Azure multiplataforma para crear alertas clásicas de los servicios de Azure | Microsoft Docs
+description: Desencadene correos electrónicos o notificaciones o llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones especificadas.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: alerts
+ms.openlocfilehash: 8112b868bc8d2ca2a9478d38ee702d8b3350d48e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287119"
 ---
-# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creación de alertas de métricas clásicas en Azure Monitor para los servicios de Azure: CLI multiplataforma
+# <a name="use-the-cross-platform-azure-cli-to-create-classic-metric-alerts-in-azure-monitor-for-azure-services"></a>Uso de la CLI de Azure multiplataforma para crear alertas de métricas clásicas en Azure Monitor para los servicios de Azure 
+
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
 >
 >
-
-## <a name="overview"></a>Información general
 > [!NOTE]
-> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor admite ahora [nuevas y mejores alertas de métricas](monitoring-near-real-time-metric-alerts.md). Estas alertas pueden supervisar varias métricas y permiten alertas relacionadas con métricas de dimensiones. Próximamente estará disponible la compatibilidad de CLI con alertas de métricas más recientes.
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor admite ahora [nuevas y mejores alertas de métricas](monitoring-near-real-time-metric-alerts.md). Estas alertas pueden supervisar varias métricas y permiten alertas relacionadas con métricas de dimensiones. Próximamente estará disponible la compatibilidad de la CLI de Azure con alertas de métricas más recientes.
 >
 >
 
-En este artículo se muestra cómo configurar alertas de métricas clásicas de Azure con la interfaz de la línea de comandos (CLI) multiplataforma.
+En este artículo se muestra cómo configurar alertas de métricas clásicas de Azure con la interfaz de la línea de comandos (CLI de Azure) multiplataforma.
 
 > [!NOTE]
-> Azure Monitor es el nuevo nombre de lo que se conocía como "Azure Insights" hasta el 25 de septiembre de 2016. Sin embargo, los espacios de nombres y, por tanto, los siguientes comandos aún contienen el término "insights".
->
->
+> Azure Monitor es el nuevo nombre de lo que se conocía como "Azure Insights" hasta el 25 de septiembre de 2016. Sin embargo, los espacios de nombres y, por tanto, los comandos que se describen aquí, aún contienen el término "insights".
 
-Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
+Puede recibir una alerta basada en métricas de los servicios de Azure o basadas en eventos que se producen en Azure.
 
-* **Valores de métrica** : la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse.    
-* **Eventos de registro de actividades**: una alerta puede desencadenarse con *cada* evento o solo cuando se producen un determinado evento. Para obtener más información sobre las alertas de registro de actividad, [haga clic aquí](monitoring-activity-log-alerts.md).
+* **Valores de métrica**: la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando esa condición ya deja de cumplirse.    
+
+* **Eventos de registro de actividades**: una alerta puede desencadenarse con *cada* evento o cuando se producen ciertos eventos concretos. Para más información acerca de los registros de actividad, consulte [Creación de alertas del registro de actividad (clásica)](monitoring-activity-log-alerts.md). 
 
 Puede configurar una alerta de métrica clásica para hacer lo siguiente cuando se desencadena:
 
-* Enviar notificaciones de correo electrónico al administrador y los coadministradores del servicio.
-* Enviar un correo electrónico a direcciones de correo electrónico adicionales que especifique.
+* Enviar notificaciones de correo electrónico al administrador y los coadministradores del servicio. 
+* Enviar un correo electrónico a direcciones de correo electrónico que especifique.
 * Llamar a un webhook.
 * Iniciar la ejecución de un runbook de Azure (en este momento, solo desde Azure Portal).
 
-Puede obtener información sobre las reglas de alerta de métricas clásicas y configurarlas mediante:
+Puede obtener información sobre las reglas de alerta de métricas clásicas y configurarlas mediante: 
 
-* [Azure Portal](insights-alerts-portal.md)
+* [Portal de Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [Interfaz de la línea de comandos (CLI)](insights-alerts-command-line-interface.md)
+* [CLI de Azure](insights-alerts-command-line-interface.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Siempre puede escribir un comando y agregar -help al final para obtener ayuda sobre dicho comando. Por ejemplo: 
+También puede obtener ayuda sobre los comandos, escribiendo un comando con **-help** al final. El siguiente es un ejemplo: 
 
-    ```console
-    azure insights alerts -help
-    azure insights alerts actions email create -help
-    ```
+```console
+ azure insights alerts -help
+ azure insights alerts actions email create -help
+ ```
 
-## <a name="create-alert-rules-using-the-cli"></a>Creación de reglas de alerta mediante la CLI
-1. Cumpla los requisitos previos e inicie sesión en Azure. Consulte los [ejemplos de CLI de Azure Monitor](insights-cli-samples.md). En pocas palabras, instale la CLI y ejecute estos comandos. Con estos comandos, puede iniciar sesión, ver la suscripción que usa y prepararse para ejecutar comandos de Azure Monitor.
+## <a name="create-alert-rules-by-using-azure-cli"></a>Creación de reglas de alerta mediante la CLI de Azure
+1. Después de instalar los requisitos previos, inicie sesión en Azure. Consulte los [ejemplos de CLI de Azure Monitor](insights-cli-samples.md) para los comandos que necesita para empezar a trabajar. Estos comandos le ayudarán a iniciar sesión, a ver la suscripción que usa y a prepararse para ejecutar comandos de Azure Monitor.
 
     ```console
     azure login
@@ -77,31 +70,36 @@ Siempre puede escribir un comando y agregar -help al final para obtener ayuda so
 
     ```
 
-2. Para ver las reglas existentes en un grupo de recursos, use el formato siguiente **azure insights alerts rule list** *[opciones] &lt;grupoRecursos&gt;*
+2. Para ver las reglas existentes en un grupo de recursos, use el formato siguiente: 
+
+   **azure insights alerts rule list** *[opciones] &lt;GrupoDeRecursos&gt;*
 
    ```console
    azure insights alerts rule list myresourcegroupname
 
    ```
 3. Para crear una regla, primero debe contar con varios datos importantes.
-  * El **identificador de recurso** del recursos para el que desea establecer una alerta.
-  * Las **definiciones de métricas** disponibles para ese recurso.
+    * El **identificador del recurso** para el que quiere establecer una alerta.
+    * Las **definiciones de métricas** disponibles para ese recurso.
 
-     Una forma de obtener el identificador de recurso es usar Azure Portal. Seleccione el recurso en el portal, suponiendo que ya existe. En la sección *Configuración* de la hoja siguiente, seleccione *Propiedades*. El campo *RESOURCE ID* está en la hoja siguiente. Otra forma que puede usar es el [Explorador de recursos de Azure](https://resources.azure.com/).
+     Una forma de obtener el identificador de recurso es usar Azure Portal. Seleccione el recurso en el portal, suponiendo que ya existe. En la sección **Configuración** de la hoja siguiente, seleccione **Propiedades**. El campo **RESOURCE ID** está en la hoja siguiente. 
+     
+     También puede obtener el identificador de recurso mediante [Azure Resource Explorer](https://resources.azure.com/).
 
-     El siguiente es un ejemplo de identificador de recurso de una aplic. web:
+     A continuación se muestra un ejemplo de identificador de recurso de una aplicación web:
 
      ```console
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
      ```
 
-     Para obtener una lista de las métricas disponibles y las unidades de esas métricas para el ejemplo de recurso anterior, use el siguiente comando de CLI:  
+     Para obtener una lista de las métricas disponibles y las unidades de esas métricas para el ejemplo de recurso anterior, use el siguiente comando de la CLI de Azure:  
 
      ```console
      azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M
      ```
 
-     *PT1M* es la granularidad de la medida disponible (intervalos de 1 minuto). El uso de distintas granularidades le brinda opciones de métricas diferentes.
+     *PT1M* es la granularidad de la medida disponible (en intervalos de 1 minuto). El uso de distintas granularidades le brinda opciones de métricas diferentes.
+     
 4. Para crear una regla de alerta basada en métricas, use un comando con el siguiente formato:
 
     **azure insights alerts rule metric set***[opciones] &lt;nombreRegla&gt;&lt;ubicación&gt;&lt;grupoRecursos&gt;&lt;tamañoVentana&gt;&lt;operador&gt;&lt;umbral&gt;&lt;idRecursoObjetivo&gt;&lt;nombreMétrica&gt;&lt;horaInserciónOperador&gt;*
@@ -112,7 +110,7 @@ Siempre puede escribir un comando y agregar -help al final para obtener ayuda so
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. Para crear un webhook o enviar un correo electrónico cuando se active una alerta de métrica clásica, debe crear el correo electrónico o los webhooks. Cree la regla inmediatamente después. No puede asociar webhooks o correos electrónicos con reglas ya creadas mediante la CLI.
+5. Para crear un webhook o enviar un correo electrónico cuando se active una alerta de métrica clásica, debe crear antes el correo electrónico o el webhook. Cree la regla inmediatamente después. No se pueden asociar webhooks o mensajes de correo electrónico con reglas que ya haya creado.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
@@ -127,7 +125,7 @@ Siempre puede escribir un comando y agregar -help al final para obtener ayuda so
     ```console
     azure insights alerts rule list myresourcegroup --ruleName myrule
     ```
-7. Para eliminar reglas, use un comando con este formato:
+7. Para eliminar reglas, use un comando con el siguiente formato:
 
     **insights alerts rule delete** [opciones] &lt;grupoRecursos&gt;&lt;nombreRegla&gt;
 
@@ -140,9 +138,9 @@ Siempre puede escribir un comando y agregar -help al final para obtener ayuda so
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Obtenga información general sobre la supervisión de Azure](monitoring-overview.md) , incluidos los tipos de información que puede recopilar y supervisar.
+* [Obtenga información general sobre la supervisión de Azure](monitoring-overview.md), incluidos los tipos de información que puede recopilar y supervisar.
 * Obtenga más información sobre cómo [configurar webhooks en las alertas](insights-webhooks-alerts.md).
 * Obtenga más información sobre la [configuración de alertas sobre los eventos de registro de actividad](monitoring-activity-log-alerts.md).
 * Obtenga más información sobre los [runbooks de Azure Automation](../automation/automation-starting-a-runbook.md).
-* Obtenga [información general sobre la colección de registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md) para recopilar métricas detalladas de alta frecuencia sobre el servicio.
+* Obtenga [información general sobre la colección de registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md) para recopilar métricas detalladas de alta frecuencia para el servicio.
 * Obtenga [información general sobre la colección de métricas](insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

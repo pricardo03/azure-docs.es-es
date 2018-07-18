@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 6b45b00de53822224afbfb3a15dbc6790deb11ce
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: feb9b0c3d90aea9d5e0351b6691e93186dbfb9f6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34356348"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902085"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -142,8 +142,8 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
 1. Haga clic en **Reglas** y, a continuación, haga clic en **Basada en ruta de acceso**.
 2. Escriba *rule2* para el nombre.
-3. Escriba *Images* para el nombre de la primera ruta de acceso. Escriba */images /** para la ruta de acceso. Seleccione **imagesBackendPool** para el grupo de servidores back-end.
-4. Escriba *Video* para el nombre de la segunda ruta de acceso. Escriba */video/** para la ruta de acceso. Seleccione **videoBackendPool** para el grupo de servidores back-end.
+3. Escriba *Images* para el nombre de la primera ruta de acceso. Escriba */images /*\* para la ruta de acceso. Seleccione **imagesBackendPool** para el grupo de servidores back-end.
+4. Escriba *Video* para el nombre de la segunda ruta de acceso. Escriba */video/*\* para la ruta de acceso. Seleccione **videoBackendPool** para el grupo de servidores back-end.
 
     ![Creación de una regla basada en ruta de acceso](./media/create-url-route-portal/application-gateway-route-rule.png)
 
@@ -155,11 +155,11 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
     ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http://http://40.121.222.19.
+2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http://40.121.222.19.
 
     ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. Cambie la dirección URL a http://&lt;dirección-ip&gt;:8080/video/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
+3. Cambie la dirección URL a http://&lt;dirección-ip&gt;:8080/images/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
 
     ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-iistest-images.png)
 

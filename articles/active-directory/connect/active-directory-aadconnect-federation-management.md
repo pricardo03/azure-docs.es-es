@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect: administración y personalización de AD FS | Microsoft Docs"
-description: "Administración de AD FS con Azure AD Connect y personalización del inicio de sesión de AD FS del usuario con Azure AD Connect y PowerShell."
-keywords: "AD FS, ADFS, administración de AD FS, AAD Connect, Connect, inicio de sesión, personalización de AD FS, reparación de la confianza, Office 365, federación, usuario de confianza"
+title: 'Azure AD Connect: administración y personalización de AD FS | Microsoft Docs'
+description: Administración de AD FS con Azure AD Connect y personalización del inicio de sesión de AD FS del usuario con Azure AD Connect y PowerShell.
+keywords: AD FS, ADFS, administración de AD FS, AAD Connect, Connect, inicio de sesión, personalización de AD FS, reparación de la confianza, Office 365, federación, usuario de confianza
 services: active-directory
-documentationcenter: 
-author: anandyadavmsft
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917003"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Administre y personalice Servicios de federación de Active Directory con Azure AD Connect
 En este artículo se describe cómo administrar y personalizar Servicios de federación de Active Directory (AD FS) con Azure Active Directory (Azure AD) Connect. También se incluyen otras tareas comunes de AD FS que podría tener que hacer para configurar completamente una granja de servidores de AD FS.
 
-| Tema. | Qué trata |
+| Tema | Qué trata |
 |:--- |:--- |
 | **Administración de AD FS** | |
 | [Reparación de la confianza](#repairthetrust) |Cómo reparar la confianza de federación con Office 365. |
@@ -223,7 +225,7 @@ Además, al usar **add** y no **issue**, no se tiene que agregar una emisión de
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Esta regla define un marcador temporal **idflag**, que se establece en **useguid** si no hay ningún atributo **ms-ds-consistencyguid** rellenado para el usuario. Esto se debe a que ADFS no admite notificaciones vacías. Por tanto, cuando se agrega http://contoso.com/ws/2016/02/identity/claims/objectguid y http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid en la regla 1, terminará con la notificación **msdsconsistencyguid** solo si el valor está rellenado para el usuario. Si no se rellena, AD FS ve que tiene un valor vacío y lo coloca inmediatamente. Todos los objetos tendrán el atributo **objectGuid**, así que esa notificación seguirá estando después de que se ejecute la regla 1.
+Esta regla define un marcador temporal **idflag**, que se establece en **useguid** si no hay ningún atributo **ms-ds-consistencyguid** rellenado para el usuario. Esto se debe a que ADFS no admite notificaciones vacías. De este modo, al agregar notificaciones http://contoso.com/ws/2016/02/identity/claims/objectguid y http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid en la primera regla, solo se generará una notificación **msdsconsistencyguid** si se ha rellenado el valor del usuario. Si no se rellena, AD FS ve que tiene un valor vacío y lo coloca inmediatamente. Todos los objetos tendrán el atributo **objectGuid**, así que esa notificación seguirá estando después de que se ejecute la regla 1.
 
 **Regla 3: Emitir el atributo ms-ds-consistencyguid como identificador inmutable si está presente**
 
@@ -244,31 +246,8 @@ En esta regla, simplemente va a comprobar el atributo **idflag**temporal. Decida
 > La secuencia de estas reglas es importante.
 
 ### <a name="sso-with-a-subdomain-upn"></a>SSO con un UPN de subdominio
-Puede agregar más de un dominio para federarlo mediante Azure AD Connect, tal como se describe en [Incorporación de un nuevo dominio federado](active-directory-aadconnect-federation-management.md#addfeddomain). Debe modificar la notificación de nombre principal de usuario (UPN) para que el identificador de emisor se corresponda con el dominio raíz y no con el subdominio, ya que el dominio raíz federado cubre también el elemento secundario.
 
-De forma predeterminada, la regla de notificaciones para el identificador de emisor se establece como:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Notificación del identificador de emisor predeterminado](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-La regla predeterminada simplemente toma el sufijo UPN y lo utiliza en la notificación de identificador del emisor. Por ejemplo, John es un usuario de sub.contoso.com y contoso.com está federado con Azure AD. John escribe john@sub.contoso.com como el nombre de usuario mientras inicia sesión en Azure AD. La regla de notificación del id. del emisor predeterminada en AD FS lo controla de la siguiente manera:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Valor de notificación:** http://sub.contoso.com/adfs/services/trust/
-
-Para tener solo el dominio raíz en el valor de notificación del emisor, cambie la regla de notificaciones para que coincida con lo siguiente:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+Puede agregar más de un dominio para federarlo mediante Azure AD Connect, tal como se describe en [Incorporación de un nuevo dominio federado](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect versión 1.1.553.0 y versiones posteriores crea automáticamente la regla de notificación correcta para issuerID. Si no se puede utilizar Azure AD Connect versión 1.1.553.0 o versiones más recientes, se recomienda usar la herramienta [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) para generar y establecer reglas de notificación correctas para la confianza de usuarios autenticados de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre las [opciones de inicio de sesión del usuario](active-directory-aadconnect-user-signin.md).

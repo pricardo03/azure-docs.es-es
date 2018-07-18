@@ -1,11 +1,11 @@
 ---
-title: "Cómo configurar la persistencia de datos para Azure Redis Cache Premium"
-description: "Obtener información sobre cómo configurar y administrar la persistencia de datos de sus instancias de Azure Redis Cache de nivel Premium"
+title: Cómo configurar la persistencia de datos para Azure Redis Cache Premium
+description: Obtener información sobre cómo configurar y administrar la persistencia de datos de sus instancias de Azure Redis Cache de nivel Premium
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
 ms.workload: tbd
@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
 ms.openlocfilehash: 270158bbf85a58a48a367a091ad2b09a9d114b2b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700890"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Cómo configurar la persistencia de datos para Azure Redis Cache Premium
 Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la persistencia en una instancia de Azure Redis Cache premium.

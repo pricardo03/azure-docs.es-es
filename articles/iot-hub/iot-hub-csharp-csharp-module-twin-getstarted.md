@@ -1,28 +1,22 @@
 ---
 title: Introducción a la identidad de módulo y a los módulos gemelos de Azure IoT Hub (.NET) | Microsoft Docs
 description: Aprenda a crear la identidad de módulo y a actualizar módulos gemelos mediante los SDK de IoT para .NET.
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f71ac333aeb73df00856dde279b56f94464127b5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5855396fc87b7d8de17be65a66af40963c59fc71
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361132"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687943"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-backup-and-net-device"></a>Introducción a la identidad de módulo y los módulos gemelos de IoT Hub con un dispositivo .NET y la copia de seguridad de .NET
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Introducción a la identidad de módulo y los dispositivos gemelos de módulo de IoT Hub con un dispositivo .NET y un servidor back-end .NET
 
 > [!NOTE]
 > [Las identidades de módulo y los módulos gemelos](iot-hub-devguide-module-twins.md) son similares a la identidad de dispositivo y el dispositivo gemelo de Azure IoT Hub, pero ofrecen granularidad más fina. Aunque la identidad de módulo y los dispositivos gemelos de Azure IoT Hub permiten que la aplicación back-end configure un dispositivo y proporcionan visibilidad para las condiciones del dispositivo, la identidad de módulo y los módulos gemelos proporcionan estas funcionalidades para los componentes individuales del dispositivo. En los dispositivos compatibles con varios componentes, como dispositivos con sistema operativo o firmware, permiten la configuración individual y condiciones específicas por componente.
@@ -57,7 +51,7 @@ En esta sección se crea una aplicación de consola .NET en el dispositivo simul
 
     ![Creación de un proyecto de Visual Studio][13]
 
-2. **Instale el SDK de dispositivo .NET de Azure IoT Hub V1.16.0-preview-005**: la identidad de módulo y el módulo gemelo se encuentran en versión preliminar pública. Solo está disponible en los SDK de dispositivo de la versión preliminar de IoT Hub. En Visual Studio, abra Herramientas > Administrador de paquetes NuGet > Administrar paquetes NuGet para la solución. Busque Microsoft.Azure.Devices.Client. Asegúrese de que ha marcado la casilla de inclusión de la versión preliminar. Seleccione la versión V1.16.0-preview-005 e instálela. Ahora tendrá acceso a todas las características del módulo. 
+2. **Instale el SDK de dispositivo de Azure IoT Hub para .NET**: las funcionalidades de identidad de módulo y dispositivo gemelo de módulo se encuentran en versión preliminar pública. Solo está disponible en los SDK de dispositivo de la versión preliminar de IoT Hub. En Visual Studio, abra Herramientas > Administrador de paquetes NuGet > Administrar paquetes NuGet para la solución. Busque Microsoft.Azure.Devices.Client. Asegúrese de que ha marcado la casilla de inclusión de la versión preliminar. Seleccione la versión más reciente e instale. Ahora tendrá acceso a todas las características del módulo. 
 
     ![Instalación del SDK de servicio .NET de Azure IoT Hub V1.16.0-preview-005][14]
 
@@ -119,7 +113,7 @@ En esta sección se crea una aplicación de consola .NET en el dispositivo simul
             var twinTask = Client.GetTwinAsync();
             twinTask.Wait();
             var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin));
+            Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
 
             Console.WriteLine("Sending app start time as reported property");
             TwinCollection reportedProperties = new TwinCollection();
@@ -140,7 +134,7 @@ En esta sección se crea una aplicación de consola .NET en el dispositivo simul
 
     Este ejemplo de código muestra cómo recuperar el módulo gemelo y actualizar las propiedades notificadas con el protocolo AMQP. En la versión preliminar pública solo se admite AMQP para las operaciones de módulos gemelos.
 
-5. Además del método **Main** anterior, puede agregar a continuación el bloque de código para enviar eventos a IoT Hub desde el módulo:
+5. Además del método **Main** anterior, puede agregar el bloque de código siguiente para enviar eventos a IoT Hub desde el módulo:
     ```csharp
     Byte[] bytes = new Byte[2];
     bytes[0] = 0;

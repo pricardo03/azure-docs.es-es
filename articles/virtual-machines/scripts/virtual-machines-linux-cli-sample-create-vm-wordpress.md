@@ -1,30 +1,31 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con WordPress | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con WordPress"
+title: 'Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con WordPress | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: creación de una máquina virtual Linux con WordPress'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7676e139bb9629726c92ee7825c4905ca31e7aa3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1c543c2357dd31bb06a19c7d53284c65a7ca7299
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928131"
 ---
 # <a name="create-a-vm-with-wordpress"></a>Creación de una máquina virtual con WordPress
 
-Este script crea una máquina virtual y, a continuación, usa la extensión de scripts personalizados para máquinas virtuales de Azure para instalar WordPress. Después de ejecutar el script, puede acceder al sitio de configuración de WordPress en `http://<public IP of VM>/wordpress`. 
+Este script crea una máquina virtual y, a continuación, usa la extensión de scripts personalizados para máquinas virtuales de Azure para instalar WordPress. Después de ejecutar el script, puede acceder al sitio de configuración de WordPress en `http://<public IP of VM>/wordpress`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -34,11 +35,11 @@ Este script crea una máquina virtual y, a continuación, usa la extensión de s
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Limpieza de la implementación 
+## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

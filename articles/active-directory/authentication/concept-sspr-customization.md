@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ffd12d03dffb5deafc8605cc7352bd71d588d235
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: afcd39e6512ac7bcb46f56df157822efa463113e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449310"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -38,7 +39,7 @@ Este correo electrónico se envía a los siguientes destinatarios en el orden si
 
 En todos los casos, se notificará a un máximo de 100 destinatarios en total.
 
-Para obtener más información sobre los diferentes roles de administrador y cómo asignarlos, consulte [Asignación de roles de administrador en Azure Active Directory](../active-directory-assign-admin-roles-azure-portal.md).
+Para obtener más información sobre los diferentes roles de administrador y cómo asignarlos, consulte [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Deshabilitar los correos electrónicos para contactar con los administradores
 
@@ -68,7 +69,7 @@ Los gráficos que elija se muestran en los siguientes casos:
     * Pasando el parámetro *whr* a la página de restablecimiento de contraseña, como "https://login.microsoftonline.com/?whr=contoso.com".
     * Pasando el parámetro *username* a la página de restablecimiento de contraseña, como "https://login.microsoftonline.com/?username=admin@contoso.com".
 
-Obtenga información detallada sobre cómo configurar la personalización de marca de empresa en el artículo [Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD](../customize-branding.md).
+Obtenga información detallada sobre cómo configurar la personalización de marca de empresa en el artículo [Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md).
 
 ### <a name="directory-name"></a>Nombre de directorio
 

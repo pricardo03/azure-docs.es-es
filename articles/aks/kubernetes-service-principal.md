@@ -2,18 +2,19 @@
 title: Entidad de servicio del clúster de Azure Kubernetes
 description: Cree y administre una entidad de servicio de Azure Active Directory para un clúster de Kubernetes en AKS
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 04/19/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ffcc3a1a40973a4cf3b096ed82d35e21c9b20a44
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f933788968ffdbd4a856a84476d8d82b32637d62
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100341"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 

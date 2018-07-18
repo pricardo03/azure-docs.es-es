@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603736"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure
 
@@ -113,7 +114,7 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Implementación de los recursos desde una plantilla guardada en la cuenta
 
-El portal permite guardar una plantilla en su cuenta de Azure y volver a implementarla más adelante. Para obtener más información sobre cómo trabajar con estas plantillas guardadas, consulte [Introducción a las plantillas privadas del Portal de Azure](../marketplace-consumer/mytemplates-getstarted.md).
+El portal permite guardar una plantilla en su cuenta de Azure y volver a implementarla más adelante. Para más información sobre las plantillas, consulte [Creación e implementación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
 
 1. Para buscar las plantillas guardadas, haga clic en **Más servicios**.
 
@@ -135,4 +136,4 @@ El portal permite guardar una plantilla en su cuenta de Azure y volver a impleme
 * Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 * Para solucionar errores de implementación, vea [View deployment operations](resource-manager-deployment-operations.md) (Ver operaciones de implementación).
 * Para recuperar una plantilla de una implementación o un grupo de recursos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
-* Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
+* Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption-guide/subscription-governance).

@@ -2,25 +2,26 @@
 title: Migración de una base de datos SQL Server a Azure SQL Database mediante DMA | Microsoft Docs
 description: Aprenda a migrar una base de datos SQL Server a Azure SQL Database mediante DMA.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346848"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migración de una base de datos SQL Server a Azure SQL Database mediante DMA
 
 Mover una base de datos SQL Server a Azure SQL Database es tan sencillo como crear una base de datos SQL vacía en Azure y, después, usar [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) para importar la base de datos en Azure. Para conocer opciones de migración adicionales, consulte [Migración de su base de datos a Azure SQL Database](sql-database-cloud-migrate.md).
 
 > [!IMPORTANT]
-> Para migrar a Instancia administrada de Azure SQL Database, consulte [Migración desde SQL Server a Instancia administrada](sql-database-managed-instance-migrate.md).
+> Para migrar a Instancia administrada de Azure SQL Database, consulte [Migración desde SQL Server a Instancia administrada](sql-database-managed-instance-migrate.md)
 
 En este tutorial, aprenderá a:
 
@@ -32,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -71,7 +72,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
-   | **Password** | Cualquier contraseña válida | La contraseña debe tener un mínimo de ocho caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
+   | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de ocho caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
    | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
@@ -87,10 +88,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
 8. Acepte los términos de la versión preliminar para usar la opción de **almacenamiento de complementos**. 
 
    > [!IMPORTANT]
-   > - Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   > - En el nivel Premium, hay más de 1 TB de almacenamiento actualmente disponible en las siguientes regiones: Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Centro de Francia, Centro de Alemania, Este de Japón, Oeste de Japón, Centro de Corea, Centro y Norte de EE. UU., Europa del Norte, Centro y Sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Reino Unido, Este de EE. UU. 2, Oeste de EE. UU., US Gov Virginia y Europa Occidental. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+   > Hay más de 1 TB de almacenamiento en el nivel Premium disponible actualmente en todas las regiones, excepto en las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), USGov Iowa, Centro de Alemania, USDoD (este), US Gov (suroeste), Nordeste de Alemania, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. Después de seleccionar el nivel del servidor, el número de DTU y la cantidad de almacenamiento, haga clic en **Aplicar**.  
 
@@ -153,11 +151,11 @@ Siga estos pasos para usar **[Data Migration Assistant](https://www.microsoft.co
 
    | Configuración      | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Tipo de proyecto | Migración | Elija si desea evaluar la base de datos para la migración o elija evaluar y realizar la migración como parte del mismo flujo de trabajo. |
+   | Tipo de proyecto | Migración | Elija si desea evaluar la base de datos para la migración o elija evaluar y realizar la migración como parte del mismo flujo de trabajo |
    |Nombre de proyecto|Tutorial de migración| Un nombre descriptivo. |
-   |Tipo de servidor de origen| SQL Server | Este es el único origen admitido actualmente. |
-   |Tipo de servidor de destino| Azure SQL Database| Las opciones incluyen: Azure SQL Database, SQL Server y SQL Server en máquinas virtuales de Azure. |
-   |Ámbito de la migración| Esquema y datos| Las opciones incluyen: Esquema y datos, Solo esquema y Solo datos. |
+   |Tipo de servidor de origen| SQL Server | Este es el único origen admitido actualmente |
+   |Tipo de servidor de destino| Azure SQL Database| Las opciones incluyen: Azure SQL Database, SQL Server y SQL Server en máquinas virtuales de Azure |
+   |Ámbito de la migración| Esquema y datos| Las opciones incluyen: Esquema y datos, Solo esquema y Solo datos |
    
    ![nuevo proyecto de data migration assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
@@ -165,10 +163,10 @@ Siga estos pasos para usar **[Data Migration Assistant](https://www.microsoft.co
 
     | Configuración      | Valor sugerido | DESCRIPCIÓN | 
     | ------------ | ------------------ | ------------------------------------------------- | 
-    | Nombre de servidor | El nombre de servidor o dirección IP. | El nombre de servidor o dirección IP. |
-    | Tipo de autenticación | El tipo de autenticación preferido.| Opciones: Autenticación de Windows, Autenticación de SQL Server, Autenticación integrada de Active Directory y Autenticación de contraseña de Active Directory. |
-    | Nombre de usuario | El nombre de inicio de sesión. | El inicio de sesión debe tener permisos **CONTROL SERVER**. |
-    | Password| La contraseña. | La contraseña. |
+    | Nombre de servidor | El nombre de servidor o dirección IP | El nombre de servidor o dirección IP |
+    | Tipo de autenticación | El tipo de autenticación preferido| Opciones: Autenticación de Windows, Autenticación de SQL Server, Autenticación integrada de Active Directory y Autenticación de contraseña de Active Directory |
+    | Nombre de usuario | El nombre de inicio de sesión | El inicio de sesión debe tener permisos **CONTROL SERVER** |
+    | Contraseña| La contraseña | La contraseña |
     | Propiedades de la conexión| Seleccione **Cifrar conexión** y **Certificado de servidor de confianza** según corresponda para su entorno. | Elija las propiedades adecuadas para la conexión al servidor. |
 
     ![seleccione el origen de la nueva migración de datos](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
@@ -177,12 +175,12 @@ Siga estos pasos para usar **[Data Migration Assistant](https://www.microsoft.co
 
 6. En la página **Seleccionar destino**, complete los valores requeridos y, después, haga clic en **Conectar**:
 
-    | Configuración      | Valor sugerido | DESCRIPCIÓN | 
+    | Configuración      | Valor sugerido | Descripción | 
     | ------------ | ------------------ | ------------------------------------------------- | 
-    | Nombre de servidor | El nombre completo del servidor de Azure Database. | El nombre completo del servidor de Azure Database del procedimiento anterior. |
-    | Tipo de autenticación | Autenticación de SQL Server | Autenticación de SQL Server es la única opción en el momento en el que se escribió este tutorial; sin embargo, Autenticación integrada de Active Directory y Autenticación de contraseña de Active Directory también son compatibles con Azure SQL Database. |
-    | Nombre de usuario | El nombre de inicio de sesión. | El inicio de sesión debe tener permisos **CONTROL DATABASE** para la base de datos de origen. |
-    | Password| La contraseña. | La contraseña. |
+    | Nombre de servidor | El nombre completo del servidor de Azure Database | El nombre completo del servidor de Azure Database del procedimiento anterior |
+    | Tipo de autenticación | Autenticación de SQL Server | Autenticación de SQL Server es la única opción en el momento en el que se escribió este tutorial; sin embargo, Autenticación integrada de Active Directory y Autenticación de contraseña de Active Directory también son compatibles con Azure SQL Database |
+    | Nombre de usuario | El nombre de inicio de sesión | El inicio de sesión debe tener permisos **CONTROL DATABASE** para la base de datos de origen |
+    | Contraseña| La contraseña | La contraseña |
     | Propiedades de la conexión| Seleccione **Cifrar conexión** y **Certificado de servidor de confianza** según corresponda para su entorno. | Elija las propiedades adecuadas para la conexión al servidor. |
 
     ![seleccione el destino de la nueva migración de datos](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
@@ -226,13 +224,13 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
+   | Configuración       | Valor sugerido | Descripción | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
    | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170824.database.windows.net**. |
    | Autenticación | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
-   | Password | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
+   | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
    ![conectar con el servidor](./media/sql-database-connect-query-ssms/connect.png)
 

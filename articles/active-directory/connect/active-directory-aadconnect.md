@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 128a6bffe4e604eb4e02a10f13d561a336fc8c61
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f56ac74c62334ef64fca45a6430a539e3c4c372c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354425"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38442543"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integración de los directorios locales con Azure Active Directory
 Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y SaaS integradas con Azure AD. Este tema le guiará a través del planeamiento, implementación y pasos de la operación. Se ofrece una colección de vínculos a temas relacionados con esta área.
@@ -32,8 +33,9 @@ Azure AD Connect integrará sus directorios locales con Azure Active Directory. 
 
 > 
 > - Sincronizar usuarios con Azure AD es una **característica gratuita** y no requiere que los clientes tengan ninguna suscripción de pago.
->- A los usuarios sincronizados **no se les concede automáticamente** *ninguna* licencia. Los administradores todavía tienen control total sobre la asignación de licencias. 
+> - A los usuarios sincronizados **no se les concede automáticamente** *ninguna* licencia. Los administradores todavía tienen control total sobre la asignación de licencias. 
 > - La recomendación de Microsoft es que los administradores de TI sincronicen todos los usuarios. Esto no solo desbloquea a los usuarios para que accedan a cualquier recurso integrado de Azure AD, sino que también ofrece una visión mucho más amplia para que los administradores de TI vean a qué aplicaciones están accediendo los usuarios. 
+> - Microsoft recomienda encarecidamente no sincronizar a los usuarios con los roles de administrador en AAD.
 
 ![Qué es Azure AD Connect](media/active-directory-aadconnect/arch.png)
 
@@ -72,7 +74,7 @@ Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Mic
 [Después de la instalación](active-directory-aadconnect-whats-next.md) , debe comprobar que funciona según lo previsto y asignar licencias a los usuarios.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Pasos siguientes para instalar Azure AD Connect
-|Tema. |Vínculo|  
+|Tema |Vínculo|  
 | --- | --- |
 |Descarga de Azure AD Connect | [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalación mediante configuración rápida | [Instalación rápida de Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
@@ -83,7 +85,7 @@ Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Mic
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Más información sobre la instalación de Azure AD Connect
 También quiere prepararse para los problemas [operativos](active-directory-aadconnectsync-operations.md) . Puede que desee tener un servidor en espera que le permita conmutar por error fácilmente en caso de [desastre](active-directory-aadconnectsync-operations.md#disaster-recovery). Si planea realizar cambios frecuentes en la configuración, debe preparar un servidor en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode) .
 
-|Tema. |Vínculo|  
+|Tema |Vínculo|  
 | --- | --- |
 |Topologías admitidas | [Topologías de Azure AD Connect](active-directory-aadconnect-topologies.md)|
 |Conceptos de diseño | [Conceptos de diseño de Azure AD Connect](active-directory-aadconnect-design-concepts.md)|
@@ -107,7 +109,7 @@ La característica para [evitar eliminaciones accidentales](active-directory-aad
 [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) está habilitada de forma predeterminada para las instalaciones de configuración rápida y garantiza que Azure AD Connect está siempre actualizado con la versión más reciente.
 
 ### <a name="next-steps-to-configure-sync-features"></a>Pasos siguientes para configurar características de sincronización
-|Tema. |Vínculo|  
+|Tema |Vínculo|  
 | --- | --- |
 |Configuración del filtrado | [Azure AD Connect Sync: configuración del filtrado](active-directory-aadconnectsync-configure-filtering.md)|
 |Sincronización de hash de contraseña | [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
@@ -126,7 +128,7 @@ En la [configuración predeterminada](active-directory-aadconnectsync-understand
 El modelo de configuración sincronizado se denomina [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). Los flujos de atributos avanzados usan [funciones](active-directory-aadconnectsync-functions-reference.md) para expresar transformaciones de atributo. Puede ver y examinar toda la configuración con las herramientas que se incluyen en Azure AD Connect. Si tiene que realizar cambios en la configuración, asegúrese de seguir los [procedimientos recomendados](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) para que sea más fácil adoptar nuevas versiones.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Pasos siguientes para personalizar Azure AD Connect Sync
-|Tema. |Vínculo|  
+|Tema |Vínculo|  
 | --- | --- |
 |Todos los artículos de sincronización de Azure AD Connect | [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md)|
 |conceptos técnicos | [Azure AD Connect Sync: conceptos técnicos](active-directory-aadconnectsync-technical-concepts.md)|
@@ -150,7 +152,7 @@ Se puede configurar AD FS para que admita [varios dominios](active-directory-aad
 Si no se configuró el servidor de AD FS para actualizar automáticamente los certificados de Azure AD o si utiliza una solución que no es AD FS, se le notificará cuando tenga que [actualizar los certificados](active-directory-aadconnect-o365-certs.md).
 
 ### <a name="next-steps-to-configure-federation-features"></a>Pasos siguientes para configurar características de federación
-|Tema. |Vínculo|  
+|Tema |Vínculo|  
 | --- | --- |
 |Todos los artículos de AD FS | [Azure AD Connect y la federación](active-directory-aadconnectfed-whatis.md)|
 |Configuración de AD FS con subdominios | [Compatibilidad con varios dominios para la federación con Azure AD](active-directory-aadconnect-multiple-domains.md)|
@@ -158,7 +160,7 @@ Si no se configuró el servidor de AD FS para actualizar automáticamente los ce
 |Actualización manual de certificados de federación | [Renovación de certificados de federación para Office 365 y Azure AD](active-directory-aadconnect-o365-certs.md)|
 
 ## <a name="more-information-and-references"></a>Más información y referencias
-|Tema. |Vínculo|  
+|Tema |Vínculo|  
 | --- | --- |
 |Historial de versiones | [Historial de versiones](active-directory-aadconnect-version-history.md)|
 |Comparación de DirSync, Sincronización de Azure AD y Azure AD Connect | [Comparación de las herramientas para la integración de directorios](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|

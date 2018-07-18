@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 06/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7c012bdf025a352788aec2d2d70bab33d7914577
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301774"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849549"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Controladores de eventos de Azure Event Grid
 
-Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos. También puede usar cualquier webhook para controlar los eventos. El webhook no necesita estar hospedado en Azure para controlar los eventos.
+Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos. También puede usar cualquier webhook para controlar los eventos. El webhook no necesita estar hospedado en Azure para controlar los eventos. Event Grid solo admite puntos de conexión de webhook HTTPS.
 
 Este artículo contiene vínculos a contenido para cada controlador de eventos.
 
@@ -33,12 +33,22 @@ Use Azure Automation para procesar los eventos con runbooks automatizados.
 
 Use Azure Functions para responder sin servidor a los eventos.
 
+Cuando use Azure Functions como controlador, utilice el desencadenador de Event Grid en lugar de los desencadenadores HTTP genéricos. Event Grid valida automáticamente los desencadenadores Function de Event Grid. Con desencadenadores HTTP genéricos, debe implementar la [respuesta de validación](security-authentication.md#webhook-event-delivery).
+
 |Título  |DESCRIPCIÓN  |
 |---------|---------|
 | [Desencadenador de Event Grid para Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Información general sobre el uso del desencadenador de Event Grid en Functions. |
 | [Automatización del cambio de tamaño de las imágenes cargadas mediante Event Grid](resize-images-on-storage-blob-upload-event.md) | Los usuarios cargan imágenes a través de la aplicación web en la cuenta de almacenamiento. Cuando se crea un blob de almacenamiento, Event Grid envía un evento a la aplicación de función, que cambia el tamaño de la imagen cargada. |
 | [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md) | Cuando Event Hubs crea un archivo de captura, Event Grid envía un evento a una aplicación de función. La aplicación recupera el archivo de captura y migra los datos a un almacenamiento de datos. |
 | [Ejemplos de integración de Azure Service Bus en Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envía mensajes de temas de Service Bus a la aplicación de función y a la aplicación lógica. |
+
+## <a name="event-hubs"></a>Event Hubs
+
+Use Event Hubs cuando la solución obtenga eventos más rápido de lo que puede procesarlos. La aplicación procesa los eventos de Event Hubs según su propia programación. Puede escalar el procesamiento de eventos para controlar los eventos entrantes.
+
+|Título  |DESCRIPCIÓN  |
+|---------|---------|
+| [Enrutamiento de eventos personalizados a Azure Event Hubs con la CLI de Azure y Event Grid](custom-event-to-eventhub.md) | Envía un evento personalizado a un centro de eventos para que lo procese una aplicación. |
 
 ## <a name="hybrid-connections"></a>conexiones híbridas
 
@@ -60,7 +70,7 @@ Use Logic Apps para automatizar los procesos de negocios para responder a evento
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Use Queue Storage para recibir eventos que deben extraerse.
+Use Queue Storage para recibir eventos que deben extraerse. Puede usar Queue Storage cuando tenga un proceso de ejecución prolongada que tarde demasiado tiempo en responder. Al enviar eventos a Queue Storage, la aplicación puede extraer y procesar eventos siguiendo su propia programación.
 
 |Título  |DESCRIPCIÓN  |
 |---------|---------|

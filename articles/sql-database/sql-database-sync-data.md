@@ -1,22 +1,23 @@
 ---
-title: SQL Data Sync de Azure (versión preliminar) | Microsoft Docs
-description: Se trata de una introducción a SQL Data Sync de Azure (versión preliminar).
+title: Azure SQL Data Sync | Microsoft Docs
+description: Esta introducción presenta Azure SQL Data Sync
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017442"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync (versión preliminar)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
 SQL Data Sync es un servicio basado en Azure SQL Database que permite sincronizar los datos seleccionados de manera bidireccional entre varias bases de datos SQL e instancias de SQL Server.
 
@@ -52,15 +53,15 @@ Data Sync es útil en los casos en que es necesario mantener los datos actualiza
 
 -   **Aplicaciones globalmente distribuidas:** muchas empresas abarcan varias regiones e incluso varios países. Para minimizar la latencia de red, es preferible disponer de los datos en una región más cercana. Con Data Sync, puede mantener sincronizadas con facilidad las bases de datos de regiones de todo el mundo.
 
-Data Sync no es adecuado para los escenarios siguientes:
+Data Sync no es la mejor solución para los siguientes escenarios:
 
--   Recuperación ante desastres
-
--   Escalado de lectura
-
--   ETL (OLTP a OLAP)
-
--   Migración de SQL Server local a Azure SQL Database
+| Escenario | Algunas soluciones recomendadas |
+|----------|----------------------------|
+| Recuperación ante desastres | [Copias de seguridad con redundancia geográfica de Azure](sql-database-automated-backups.md) |
+| Escalado de lectura | [Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura](sql-database-read-scale-out.md) |
+| ETL (OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migración de SQL Server local a Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>¿Cómo funciona Data Sync? 
 
@@ -81,6 +82,8 @@ Como Data Sync se basa en desencadenadores, la coherencia transaccional no está
 
 #### <a name="performance-impact"></a>Impacto en el rendimiento
 Data Sync usa desencadenadores de inserción, actualización y eliminación para realizar un seguimiento de los cambios. Crea tablas laterales en la base de datos de usuario para hacer un seguimiento de los cambios. Estas actividades de seguimiento de cambios afectan a la carga de trabajo de la base de datos. Evalúe el nivel de servicio y realice la actualización si fuera necesario.
+
+El aprovisionamiento y desaprovisionamiento durante la creación, actualización y eliminación de grupos de sincronización pueden afectar también al rendimiento de la base de datos. 
 
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -124,13 +127,13 @@ Data Sync usa desencadenadores de inserción, actualización y eliminación para
 
 ## <a name="faq-about-sql-data-sync"></a>Preguntas frecuentes sobre SQL Data Sync
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>¿Cuánto cuesta el servicio SQL Data Sync (versión preliminar)?
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>¿Cuánto cuesta el servicio SQL Data Sync?
 
-Durante este periodo de versión preliminar, el servicio SQL Data Sync (versión preliminar) se ofrece sin coste alguno.  Sin embargo, sí se acumularán los cargos de transferencia de datos por la entrada y salida de datos de su instancia de SQL Database. Para más información, consulte [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+El servicio SQL Data Sync en sí no se cobra.  Sin embargo, sí se acumularán los cargos de transferencia de datos por la entrada y salida de datos de su instancia de SQL Database. Para más información, consulte [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>¿En qué regiones se admite Data Sync?
 
-SQL Data Sync (versión preliminar) está disponible en todas las regiones de la nube pública.
+SQL Data Sync está disponible en todas las regiones de la nube pública.
 
 ### <a name="is-a-sql-database-account-required"></a>¿Es necesaria una cuenta de SQL Database? 
 
@@ -149,7 +152,7 @@ Sí. Cree el esquema manualmente en la base de datos nueva mediante la generaci�
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>¿Se debe usar SQL Data Sync para realizar una copia de seguridad de las bases de datos y restaurarlas?
 
-No se recomienda usar SQL Data Sync (versión preliminar) para crear una copia de seguridad de los datos. No se puede realizar una copia de seguridad y restaurar a un momento específico porque las sincronizaciones de SQL Data Sync (versión preliminar) no tienen asignada una versión. Además, SQL Data Sync (versión preliminar) no realiza una copia de seguridad de otros objetos SQL, como procedimientos almacenados, ni hace el equivalente a una operación de restauración rápidamente.
+No se recomienda usar SQL Data Sync para crear una copia de seguridad de los datos. No se puede realizar una copia de seguridad y restaurarla a un momento específico, ya que las sincronizaciones de SQL Data Sync no tienen asignada una versión. Además, SQL Data Sync no realiza una copia de seguridad de otros objetos SQL, como procedimientos almacenados, ni hace el equivalente a una operación de restauración rápidamente.
 
 Consulte [Copiar una base de datos Azure SQL Database](sql-database-copy.md) para ver una técnica de copia de seguridad recomendada.
 
@@ -169,7 +172,7 @@ Sí. SQL Data Sync admite intercalación en los escenarios siguientes:
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>¿Se admite la federación en SQL Data Sync?
 
-La base de datos raíz de federación puede utilizarse en el servicio SQL Data Sync (versión preliminar) sin limitaciones. No se puede añadir el punto de conexión de la base de datos federada a la versión actual de SQL Data Sync (versión preliminar).
+La base de datos raíz de federación puede utilizarse en el servicio SQL Data Sync sin limitaciones. No se puede añadir el punto de conexión de la base de datos federada a la versión actual de SQL Data Sync.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,22 +3,23 @@ title: Problemas al agregar una aplicación de la galería de Azure AD | Microso
 description: Conozca los problemas habituales a los que se enfrentan los usuarios al agregar aplicaciones de la galería de Azure AD y los pasos que se deben dar para resolverlos
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 5cb43976c17bfd46d1f16f0bdaff1c164bdc0fb6
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: 906a089417cefab72e036dbf1e5650285c7440bc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053766"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334992"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problemas al agregar una aplicación de la galería de Azure AD
 
@@ -123,7 +124,7 @@ Consulte las descripciones siguientes para más información acerca de las notif
 
 -   **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
 
-    -   Por ejemplo: **la dirección url interna "**" no es válida puesto que ya está en usohttp://bing.com/
+    -   Por ejemplo: **la dirección url interna " http://bing.com/ " no es válida puesto que ya está en uso**
 
 -   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o grupo de  
 -   producto

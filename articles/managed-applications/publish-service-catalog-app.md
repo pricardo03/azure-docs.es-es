@@ -8,18 +8,18 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305317"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247887"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicación de una aplicación administrada para consumo interno
 
-Puede crear y publicar [aplicaciones administradas](overview.md) de Azure que están diseñadas para los miembros de su organización. Por ejemplo, un departamento de TI puede publicar aplicaciones administradas que garantizan el cumplimiento de los estándares de la organización. Estas aplicaciones administradas están disponibles a través del catálogo de servicios y no en Azure Marketplace.
+Puede crear y publicar [aplicaciones administradas](overview.md) de Azure que están diseñadas para los miembros de su organización. Por ejemplo, un departamento de TI puede publicar aplicaciones administradas que cumplen los estándares de la organización. Estas aplicaciones administradas están disponibles a través del catálogo de servicios y no en Azure Marketplace.
 
 Para publicar una aplicación administrada en el catálogo de servicios:
 
@@ -29,11 +29,13 @@ Para publicar una aplicación administrada en el catálogo de servicios:
 * Decida qué usuario, grupo o aplicación necesita acceder al grupo de recursos en la suscripción del usuario.
 * Cree la definición de aplicación administrada que apunta al paquete .zip y solicita acceso para la identidad.
 
-Para este artículo, la aplicación administrada contiene solo una cuenta de almacenamiento. Está pensado para ilustrar los pasos necesarios para publicar una aplicación administrada. Para ver ejemplos completos, consulte [Sample projects for Azure managed applications](sample-projects.md) (Ejemplos de proyectos para aplicaciones administradas de Azure).
+Para este artículo, la aplicación administrada solo tiene una cuenta de almacenamiento. Está pensado para ilustrar los pasos necesarios para publicar una aplicación administrada. Para ver ejemplos completos, consulte [Sample projects for Azure managed applications](sample-projects.md) (Ejemplos de proyectos para aplicaciones administradas de Azure).
+
+Los ejemplos de PowerShell de este artículo requieren Azure PowerShell 6.2 o posterior. Si es necesario, [actualice la versión](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-the-resource-template"></a>Creación de la plantilla de recursos
 
-Todas las definiciones de aplicaciones administradas contienen un archivo denominado **mainTemplate.json**. En él, se definen los recursos de Azure que desea aprovisionar. La plantilla no difiere de una plantilla habitual de Resource Manager.
+Todas las definiciones de aplicaciones administradas incluyen un archivo denominado **mainTemplate.json**. En él, se definen los recursos de Azure que desea implementar. La plantilla no difiere de una plantilla habitual de Resource Manager.
 
 Cree un archivo denominado **mainTemplate.json**. El nombre distingue mayúsculas de minúsculas.
 
@@ -209,6 +211,10 @@ New-AzureRmManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+### <a name="make-sure-users-can-see-your-definition"></a>Asegurarse de que los usuarios pueden ver la definición
+
+Tiene acceso a la definición de la aplicación administrada, pero desea asegurarse de que otros usuarios de su organización puedan acceder a ella. Concédales al menos el rol de lector en la definición. Puede haber heredado este nivel de acceso de la suscripción o del grupo de recursos. Para comprobar quién tiene acceso a la definición y agregar usuarios o grupos, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md).
+
 ## <a name="create-the-managed-application"></a>Creación de una aplicación administrada
 
 Puede implementar la aplicación administrada mediante el portal, PowerShell o la CLI de Azure.
@@ -256,6 +262,16 @@ Ahora, vamos a usar el portal para implementar la aplicación administrada. Pued
 1. Busque la aplicación administrada que desea crear a partir de la lista de soluciones disponibles y selecciónela. Seleccione **Crear**.
 
    ![Búsqueda de la aplicación administrada](./media/publish-service-catalog-app/find-application.png)
+
+   Si no puede ver la definición de la aplicación administrada mediante el portal, es posible que tenga que cambiar la configuración del portal. Seleccione el **filtro de directorio y suscripciones**.
+
+   ![Seleccionar filtro de suscripciones](./media/publish-service-catalog-app/select-filter.png)
+
+   Compruebe que el filtro de suscripción global incluye la suscripción que contiene la definición de la aplicación administrada.
+
+   ![Comprobar filtro de suscripciones](./media/publish-service-catalog-app/check-global-filter.png)
+
+   Después de seleccionar la suscripción, comience de nuevo con la creación de la aplicación administrada del catálogo de servicios. Debería verla ahora.
 
 1. Proporcione la información básica necesaria para la aplicación administrada. Especifique la suscripción y un nuevo grupo de recursos que contenga la aplicación administrada. Seleccione **Centro occidental de EE. UU.** como ubicación. Cuando haya terminado, seleccione **Aceptar**.
 

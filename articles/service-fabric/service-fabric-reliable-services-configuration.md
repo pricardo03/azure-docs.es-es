@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3e058242840a3fa8b86c9ae9d5a0940cc02f04d2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020396"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
 Hay dos conjuntos de valores de configuración para los servicios de confianza. Un conjunto es global para todos los servicios de confianza del clúster, mientras que el otro conjunto es específico para un servicio de confianza determinado.
@@ -81,6 +82,11 @@ De forma predeterminada, el tiempo de ejecución de Azure Service Fabric busca l
 
 ### <a name="replicator-security-configuration"></a>Configuración de seguridad del replicador
 Las configuraciones de seguridad del replicador se utilizan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no podrán ver el tráfico de replicación del otro, lo que garantiza que los datos de alta disponibilidad también están seguros. De forma predeterminada, una sección de configuración de seguridad vacía impide la seguridad de la replicación.
+
+> [!IMPORTANT]
+> En los nodos Linux, los certificados deben tener el formato PEM. Para más información sobre la ubicación y configuración de certificados para Linux, consulte [Configuración de certificados en Linux](./service-fabric-configure-certificates-linux.md). 
+> 
+> 
 
 ### <a name="default-section-name"></a>Nombre de sección predeterminado
 ReplicatorSecurityConfig

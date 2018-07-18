@@ -1,24 +1,25 @@
 ---
-title: "Incorporación de un script a un plan de recuperación en Azure Site Recovery | Microsoft Docs"
-description: "Obtenga información sobre los requisitos previos para agregar un script nuevo de System Center Virtual Machine Manager (VMM) a un plan de recuperación en Azure."
+title: Incorporación de un script a un plan de recuperación en Azure Site Recovery | Microsoft Docs
+description: Obtenga información sobre los requisitos previos para agregar un script nuevo de System Center Virtual Machine Manager (VMM) a un plan de recuperación en Azure.
 services: site-recovery
-documentationcenter: 
-author: ruturaj
-manager: shons
-editor: 
+documentationcenter: ''
+author: rajani-janaki-ram
+manager: rochakm
+editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/13/2017
-ms.author: ruturaj
-ms.openlocfilehash: 2e00f812fb35ac9a0cb390fc6a3ba40a8678f8dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 07/06/2018
+ms.author: rajanaki
+ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917354"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Incorporación de un script de VMM a un plan de recuperación
 
@@ -75,9 +76,9 @@ Si tiene un sitio de origen de VMM, puede crear un script en el servidor VMM. Lu
 Después de agregar las máquinas virtuales o los grupos de replicación a un plan de recuperación y crear el plan, puede agregar el script al grupo.
 
 1. Abra el plan de recuperación.
-2. En la lista **Paso**, seleccione un elemento. Luego, seleccione **Script** o **Acción manual**.
+2. En la lista de **pasos**, seleccione un elemento. Luego, seleccione **Script** o **Acción manual**.
 3. Especifique si agregar el script o la acción antes o después del elemento seleccionado. Para subir o bajar la posición del script, seleccione los botones **Subir** o **Bajar**.
-4. Si agrega un script de VMM, seleccione **Failover to VMM script** (Conmutación por error en script de VMM). En **Ruta de acceso del script**, escriba la ruta de acceso relativa al recurso compartido. Por ejemplo, escriba **\RPScripts\RPScript.PS1**.
+4. Si agrega un script de VMM, seleccione **Failover to VMM script** (Conmutación por error en script de VMM). En **Script Path** (Ruta de acceso del script), escriba la ruta de acceso relativa al recurso compartido. Por ejemplo, escriba **\RPScripts\RPScript.PS1**.
 5. Si agrega un runbook de Azure Automation, especifique la cuenta de Automation en la que se encuentra el runbook. A continuación, seleccione el script del runbook de Azure que quiere usar.
 6. Para asegurarse de que el script funciona según lo previsto, realice una conmutación por error de prueba del plan de recuperación.
 

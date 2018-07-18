@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b01df5d89784c9982ebbf2351ae61a5d9f79aee8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359448"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602822"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
-Para implementar la solución, puede utilizar una sola plantilla o una plantilla principal con varias plantillas relacionadas. La plantilla relacionada puede ser un archivo independiente que está vinculado a partir de la plantilla principal, o bien una plantilla que está anidada dentro de la plantilla principal.
+Para implementar la solución, puede utilizar una sola plantilla o una plantilla principal con muchas plantillas relacionadas. La plantilla relacionada puede ser un archivo independiente que está vinculado a partir de la plantilla principal, o bien una plantilla que está anidada dentro de la plantilla principal.
 
-En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Es posible ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos y volver a usar plantillas.
+En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos y volver a usar plantillas.
 
 Al usar una plantilla vinculada, se crea una plantilla principal que recibe los valores de parámetro durante la implementación. La plantilla principal contiene todas las plantillas vinculadas y pasa valores a esas plantillas según sea necesario.
 
@@ -86,6 +86,8 @@ Para anidar la plantilla dentro de la plantilla principal, use la propiedad **te
 >
 > No se puede utilizar la función `reference` en la sección de salidas de una plantilla anidada. Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
 
+La plantilla anidada requiere las [mismas propiedades](resource-group-authoring-templates.md) que una plantilla estándar.
+
 ### <a name="external-template-and-external-parameters"></a>Plantilla externa y parámetros externos
 
 Para vincular a una plantilla externa y a un archivo de parámetros, utilice **templateLink** y **parametersLink**. Al vincular a una plantilla, el servicio Resource Manager debe tener acceso a ella. No se puede especificar un archivo local o un archivo que solo está disponible en la red local. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
@@ -110,6 +112,8 @@ Para vincular a una plantilla externa y a un archivo de parámetros, utilice **t
   }
 ]
 ```
+
+No tiene que proporcionar la propiedad `contentVersion` para la plantilla ni los parámetros. Si no proporciona un valor de versión del contenido, se implementará la versión actual de la plantilla. Si proporciona un valor, este debe coincidir con la versión de la plantilla vinculada o, de lo contrario, se producirá un error durante la implementación.
 
 ### <a name="external-template-and-inline-parameters"></a>Plantilla externa y parámetros insertados
 
@@ -149,7 +153,7 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
 }
 ```
 
-También puede usar la función [deployment()](resource-group-template-functions-deployment.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla. La propiedad templateLink solo se devuelve al vincular una plantilla remota a una URL. Si utiliza una plantilla local, dicha propiedad no está disponible.
+También puede usar la función [deployment()](resource-group-template-functions-deployment.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla. La propiedad templateLink solo se devuelve al vincular una plantilla remota a una URL. Si utiliza una plantilla local, esa propiedad no está disponible.
 
 ```json
 "variables": {

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3fcbcbe5d5f8dab956f40cde112f3536e1ae668c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34356178"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263999"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -141,8 +141,8 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
 1. Haga clic en **Reglas** y, a continuación, haga clic en **Basada en ruta de acceso**.
 2. Escriba *rule2* para el nombre.
-3. Escriba *Images* para el nombre de la primera ruta de acceso. Escriba */images /** para la ruta de acceso. Seleccione **imagesBackendPool** para el grupo de servidores back-end.
-4. Escriba *Video* para el nombre de la segunda ruta de acceso. Escriba */video/** para la ruta de acceso. Seleccione **videoBackendPool** para el grupo de servidores back-end.
+3. Escriba *Images* para el nombre de la primera ruta de acceso. Escriba */images /*\* para la ruta de acceso. Seleccione **imagesBackendPool** para el grupo de servidores back-end.
+4. Escriba *Video* para el nombre de la segunda ruta de acceso. Escriba */video/*\* para la ruta de acceso. Seleccione **videoBackendPool** para el grupo de servidores back-end.
 
     ![Creación de una regla basada en ruta de acceso](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

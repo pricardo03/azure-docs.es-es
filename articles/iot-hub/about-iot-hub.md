@@ -1,22 +1,20 @@
 ---
 title: Introducción a Azure IoT Hub | Microsoft Docs
 description: Obtenga más información acerca de Azure IoT Hub. Este servicio de IoT está pensado para la ingesta de datos escalables, la administración de dispositivos y la seguridad.
-services: iot-hub
-keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 04/27/2018
+ms.date: 07/04/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.openlocfilehash: 7ba74834e1c3aad5915959e0457b6e034e4a49ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: iot-hub
+manager: briz
+ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860163"
 ---
 # <a name="what-is-azure-iot-hub"></a>¿Qué es Azure IoT Hub?
 
@@ -110,4 +108,4 @@ Cada suscripción de Azure tiene límites de cuota predeterminados para impedir 
 
 Para probar una solución de IoT de un extremo a otro, consulte los siguientes inicios rápidos de IoT Hub:
 
-* [Quickstart: Send telemetry from a device to an IoT hub](iot-hub-get-started.md) (Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub)
+* [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) (Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub)

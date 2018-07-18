@@ -3,24 +3,24 @@ documentType: LandingData
 title: Documentación de Azure Storage
 metadata:
   title: 'Documentación sobre Azure Storage: tutoriales y referencia de API | Microsoft Docs'
-  description: Azure Storage es un servicio en la nube administrado por Microsoft que proporciona almacenamiento altamente disponible, seguro, duradero, escalable y redundante. Azure Storage consta de Blob Storage, File Storage y Queue Storage.
+  description: Azure Storage es un servicio en la nube administrado por Microsoft que proporciona almacenamiento altamente disponible, seguro, duradero, escalable y redundante. Azure Storage incluye Azure Blobs, Azure Data Lake Storage Gen2, Azure Files, Azure Queues y Azure Tables.
   services: storage
   author: tamram
-  manager: jeconnoc
+  manager: twooley
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/08/2017
+  ms.date: 06/27/2018
   ms.author: tamram
-  ms.openlocfilehash: de0672c3f4f06dd20081e401121f1cbbe2d77c9f
-  ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+  ms.openlocfilehash: a2254967a9f7338e29105682ea6d496271bbbe75
+  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/05/2018
-  ms.locfileid: "34763177"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37030298"
 abstract:
-  description: Microsoft Azure Storage es un servicio en la nube administrado por Microsoft que proporciona almacenamiento altamente disponible, seguro, duradero, escalable y redundante. Azure Storage consta de Blob Storage, File Storage y Queue Storage.  Aprenda a sacar el máximo partido a Azure Storage en sus aplicaciones con nuestros inicios rápidos y tutoriales.
+  description: Azure Storage es un servicio administrado por Microsoft que proporciona almacenamiento en la nube altamente disponible, seguro, duradero, escalable y redundante. Azure Storage incluye Azure Blobs (objetos), Azure Data Lake Storage Gen2, Azure Files, Azure Queues y Azure Tables. Aprenda a sacar el máximo partido a Azure Storage en sus aplicaciones con nuestros inicios rápidos y tutoriales.
 sections:
 - title: Inicios rápidos en 5 minutos
   items:
@@ -65,30 +65,25 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-java
       - href: /azure/storage/blobs/storage-quickstart-blobs-python
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
+    - title: Data Lake Storage Gen2
+      values:
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-azure-cli
+      - href: 
+      - href: 
+      - href: 
+      - href: 
 - title: Tutoriales detallados
   items:
-  - type: paragraph
-    text: Aprenda a cargar y procesar datos de imagen en la nube.
   - type: list
-    style: unordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="/azure/storage/blobs/storage-upload-process-images">Carga y recuperación de datos de imagen en la nube</a>
-    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Desencadenamiento de Azure Functions para procesar blobs</a>
-    - html: <a href="/azure/storage/blobs/storage-secure-access-application">Protección de los datos de la aplicación</a>
-    - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Supervisión y solución de problemas de almacenamiento</a>
-  - type: paragraph
-    text: Aprenda a diseñar su aplicación para lograr una alta disponibilidad en Azure Storage.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Haga que los datos de la aplicación tengan alta disponibilidad</a>
-    - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulación de un error al acceder al almacenamiento con redundancia con acceso de lectura</a>
-  - type: paragraph
-    text: Aprenda a buscar datos no estructurados en Azure Storage.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-unstructured-search">Búsqueda de datos no estructurados en almacenamiento en la nube</a>
+    - title: Blobs
+      html: <p>Carga y procesamiento de datos de imagen en la nube</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Carga y recuperación de datos de imagen en la nube</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Desencadenamiento de Azure Functions para procesar blobs</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Protección de los datos de la aplicación</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Supervisión y solución de problemas de almacenamiento</a></li></ul><p>Diseño de la aplicación para una alta disponibilidad</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Haga que los datos de la aplicación tengan alta disponibilidad</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulación de un error al acceder al almacenamiento con redundancia con acceso de lectura</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Búsqueda de datos no estructurados en Azure Storage</a></p>
+    - title: Data Lake Storage Gen2
+      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Extracción, transformación y carga de datos mediante Azure Databricks</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Acceso a los datos de Azure Data Lake Storage Gen2 con DataBricks mediante Spark</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight</a></p>
 - title: Ejemplos
   items:
   - type: paragraph
@@ -126,6 +121,6 @@ sections:
     - title: Línea de comandos
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">CLI de Azure</a></p>
     - title: Idiomas
-      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
-      html: <p><a href="/rest/api/storageservices">Blobs, colas, tablas y archivos</a></p><p><a href="/rest/api/storagerp">Proveedor de recursos</a></p><p><a href="/rest/api/storageimportexport">Import/Export</a></p>
+      html: <p><a href="/rest/api/storageservices">API de blobs, colas, tablas y archivos</a></p><p><a href="/rest/api/storagerp">API del proveedor de recursos de almacenamiento</a></p><p><a href="/rest/api/storageimportexport">API del servicio Import/Export</a></p>

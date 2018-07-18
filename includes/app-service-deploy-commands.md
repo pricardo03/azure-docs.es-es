@@ -1,5 +1,5 @@
 
-Para implementar los recursos en Azure, debe haber iniciado sesión en la cuenta de Azure y debe usar el módulo Administrador de recursos de Azure. Para obtener información sobre cómo usar el Administrador de recursos de Azure con PowerShell de Azure o la CLI de Azure, consulte:
+Para implementar los recursos en Azure, debe haber iniciado sesión en la cuenta de Azure y debe usar el módulo de Azure Resource Manager. Para obtener información sobre cómo usar el Administrador de recursos de Azure con PowerShell de Azure o la CLI de Azure, consulte:
 
 * [Uso de Azure PowerShell con Azure Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
 * [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md)

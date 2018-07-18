@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895602"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960015"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
@@ -94,6 +94,8 @@ Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de
 3. Seleccione **Subredes** en **CONFIGURACIÓN**.
 4. Seleccione la subred a la que desea asociar la tabla de rutas.
 5. Seleccione **Tabla de rutas**, la tabla de rutas a la que desea asociar la subred y, luego, seleccione **Guardar**.
+
+Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a la [subred de la puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente. Para más información acerca del uso de 0.0.0.0/0 en una ruta, consulte [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md#default-route).
 
 **Comandos**
 
@@ -211,7 +213,7 @@ Las rutas eficaces de cada interfaz de red conectada a una máquina virtual son 
 **Comandos**
 
 - CLI de Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Validación del enrutamiento entre dos puntos de conexión
 

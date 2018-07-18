@@ -7,14 +7,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3fdc24a811544de87d97da498d7946507653cec5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646092"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Administración de bases de datos escaladas horizontalmente en la nube
 Para administrar bases de datos con particiones y escaladas horizontalmente en la nube, la característica **Trabajos de Elastic Database** (versión preliminar) permite ejecutar un script de Transact-SQL (T-SQL) de forma confiable en un grupo de bases de datos, lo que incluye:

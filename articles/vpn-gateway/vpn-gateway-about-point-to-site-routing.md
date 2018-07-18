@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702183"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Información sobre el enrutamiento de VPN de punto a sitio
 
@@ -228,7 +229,7 @@ Todo los clientes pueden acceder solo a VNet1.
 
 ## <a name="multivnets2sbranchbgp"></a>Varias redes virtual conectadas mediante sitio a sitio y una sucursal (BGP)
 
-En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 se conecta a VNet2 mediante una conexión VPN de sitio a sitio. VNet2 se conecta a VNet3 mediante una conexión VPN de sitio a sitio. No hay emparejamiento directo ni túnel VPN de sitio a sitio entre las redes VNet1 y VNet3. VNet3 se conecta a una sucursal (Site1) mediante una conexión VPN de sitio a sitio. Las conexiones VPN no ejecutan BGP. Las conexiones VPN ejecutan BGP.
+En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 se conecta a VNet2 mediante una conexión VPN de sitio a sitio. VNet2 se conecta a VNet3 mediante una conexión VPN de sitio a sitio. No hay emparejamiento directo ni túnel VPN de sitio a sitio entre las redes VNet1 y VNet3. VNet3 se conecta a una sucursal (Site1) mediante una conexión VPN de sitio a sitio. Las conexiones VPN ejecutan BGP.
 
 Los clientes que usan Windows pueden acceder a las redes virtuales y los sitios que están conectados mediante una conexión VPN de sitio a sitio, pero las rutas a VNet2, VNet3 y Site1 se deben agregar manualmente al cliente. Los clientes no Windows pueden acceder a las redes virtuales y los sitios que están conectados mediante una conexión VPN de sitio a sitio sin intervención manual de ningún tipo. El acceso es transitivo y los clientes pueden acceder a los recursos de todas las redes virtuales y sitios (locales) conectados.
 

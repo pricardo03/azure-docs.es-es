@@ -7,23 +7,27 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 6ed797ca25161919ccf5e69be0073a67bfcef6d6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4c6e25972b47edf67dac8557e1925bb44463f4d6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331036"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configuración de la delegación restringida de Kerberos (KCD) en un dominio administrado
 Muchas aplicaciones necesitan tener acceso a recursos en el contexto del usuario. Active Directory admite un mecanismo denominado "delegación de kerberos", que posibilita este caso de uso. Además, puede restringir la delegación para que solo se puedan acceder a recursos específicos en el contexto del usuario. Los dominios administrados de Azure AD Domain Services son diferentes de los tradicionales de Active Directory, puesto que se bloquean de forma más segura.
 
 En este artículo se muestra cómo configurar la delegación restringida de Kerberos en un dominio administrado de Azure AD Domain Services.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Delegación restringida de kerberos (KCD)
 La delegación de kerberos permite a una cuenta suplantar a otra entidad de seguridad (por ejemplo, un usuario) para acceder a los recursos. Veamos el caso de una aplicación web que accede a una API web de back-end web en el contexto de un usuario. En este ejemplo, la aplicación web (que se ejecuta en el contexto de una cuenta de servicio o una cuenta de equipo o máquina) suplanta al usuario al acceder a los recursos (API web de back-end). La delegación de kerberos no es segura, ya que no limita los recursos a los que puede acceder la cuenta de suplantación en el contexto del usuario.

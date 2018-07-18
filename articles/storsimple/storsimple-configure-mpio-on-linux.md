@@ -1,6 +1,6 @@
 ---
-title: "Configuración de MPIO en un host de Linux de StorSimple | Microsoft Docs"
-description: "Configuración de MPIO en StorSimple conectado a un host Linux que ejecuta CentOS 6.6"
+title: Configuración de MPIO en un host de Linux de StorSimple | Microsoft Docs
+description: Configuración de MPIO en StorSimple conectado a un host Linux que ejecuta CentOS 6.6
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ccd24e1498282cd2b627226df79af22e9647b64d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681584"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
 Este artículo explica los pasos necesarios para configurar E/S de múltiples rutas (MPIO) en el servidor host de Centos 6.6. El servidor host está conectado al dispositivo de Microsoft Azure StorSimple para una alta disponibilidad a través de los iniciadores iSCSI. Describe detalladamente la detección automática de dispositivos de múltiples rutas de acceso y el programa de instalación específico solo para los volúmenes de StorSimple.
@@ -66,7 +67,7 @@ Un dispositivo de StorSimple conectado a un host Linux puede configurarse para a
 
 Con el siguiente procedimiento explicamos cómo configurar las múltiples rutas cuando un dispositivo StorSimple con dos interfaces de red está conectado a un host con dos interfaces de red.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En esta sección se detallan los requisitos previos de configuración para el servidor CentOS y el dispositivo de StorSimple.
 
 ### <a name="on-centos-host"></a>En el host CentOS
@@ -444,5 +445,5 @@ Para obtener más información, consulte [Usar el comando interactivo de soluci�
 Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer referencia a los siguientes documentos de CentoS 6.6:
 
 * [Configuración de MPIO en CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-* [Guía de aprendizaje de Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
+* [Guía de aprendizaje de Linux](http://linux-training.be/linuxsys.pdf)
 

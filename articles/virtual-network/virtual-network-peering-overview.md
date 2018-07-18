@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: f2dddb6e9a933c1dc1eb4ccbf7ace6757d546fc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367113"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267135"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -53,7 +53,7 @@ Puede configurar las rutas definidas por el usuario que apuntan a máquinas virt
 
 Puede implementar redes del tipo de concentrador y radio, en los que el concentrador puede hospedar componentes de la infraestructura, como una aplicación virtual de red o puerta de enlace de VPN. Todas las redes virtuales de radio se pueden emparejar con la red virtual de concentrador. El tráfico puede fluir por las aplicaciones virtuales de red o puertas de enlace de VPN que se ejecutan en la red virtual de concentrador. 
 
-El emparejamiento de red virtual permite que el próximo salto de una ruta definida por el usuario sea la dirección IP de una máquina virtual de la red virtual emparejada o en una puerta de enlace de VPN. Sin embargo, no puede enrutar entre redes virtuales con una ruta definida por el usuario que especifique una puerta de enlace ExpressRoute como el tipo de salto siguiente. Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined). Para aprender a crear una topología de red en estrella tipo hub-and-spoke, consulte [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implementación de una topología en estrella tipo hub-and-spoke en Azure).
+El emparejamiento de red virtual permite que el próximo salto de una ruta definida por el usuario sea la dirección IP de una máquina virtual de la red virtual emparejada o en una puerta de enlace de VPN. Sin embargo, no puede enrutar entre redes virtuales con una ruta definida por el usuario que especifique una puerta de enlace ExpressRoute como el tipo de salto siguiente. Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined). Para aprender a crear una topología de red en estrella tipo hub-and-spoke, consulte [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) (Implementación de una topología en estrella tipo hub-and-spoke en Azure).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Puertas de enlace y conectividad local
 
@@ -71,7 +71,7 @@ Cuando las redes virtuales que comparten una única conexión de Azure ExpressRo
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Para confirmar un emparejamiento de redes virtuales puede [comprobar rutas efectivas](virtual-network-routes-troubleshoot-portal.md) para una interfaz de red en cualquier subred de una red virtual. Si el emparejamiento de redes virtuales existe, todas las subredes de la red virtual tienen rutas con próximo salto del tipo *emparejamiento de VNet*, para cada espacio de direcciones en cada red virtual emparejada.
+Para confirmar un emparejamiento de redes virtuales puede [comprobar rutas efectivas](diagnose-network-routing-problem.md) para una interfaz de red en cualquier subred de una red virtual. Si el emparejamiento de redes virtuales existe, todas las subredes de la red virtual tienen rutas con próximo salto del tipo *emparejamiento de VNet*, para cada espacio de direcciones en cada red virtual emparejada.
 
 También puede solucionar problemas con la conectividad de una máquina virtual en una red virtual emparejada con la [comprobación de conectividad](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Network Watcher. La comprobación de conectividad le permite ver cómo se enruta el tráfico desde la interfaz de red de una máquina virtual de origen a la interfaz de red de una máquina virtual de destino.
 
@@ -91,12 +91,12 @@ Hay un cargo nominal para el tráfico de entrada y salida que utiliza una conexi
 
 * Un emparejamiento de redes virtuales se crea entre redes virtuales creadas mediante el mismo modelo de implementación o mediante modelos distintos que existen en la misma suscripción o en cualquier suscripción diferente. Realice el tutorial para uno de los siguientes escenarios:
 
-    |Modelo de implementación de Azure             | La suscripción  |
+    |Modelo de implementación de Azure             | Subscription  |
     |---------                          |---------|
     |Ambas mediante Resource Manager              |[La misma](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|
     |Una mediante Resource Manager y la otra clásica  |[La misma](create-peering-different-deployment-models.md)|
     |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
-* Aprenda a crear una [topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Aprenda a crear una [topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Conozca toda la [configuración de emparejamiento de red virtual y cómo cambiarla](virtual-network-manage-peering.md).

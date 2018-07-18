@@ -7,22 +7,25 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332918"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Unión de una máquina virtual Ubuntu de Azure a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual Linux Ubuntu a un dominio administrado de Azure AD Domain Services.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:  
@@ -120,17 +123,17 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Solución de problemas:** Si la *detección de dominio kerberos* no puede encontrar el dominio administrado:
      * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).
      * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible.
      * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.
    >
 
-2. Inicialice Kerberos. En el terminal SSH, escriba el siguiente comando: 
+2. Inicialice Kerberos. En el terminal SSH, escriba el siguiente comando:
 
-    > [!TIP] 
-    > * Asegúrese de especificar un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". 
+    > [!TIP]
+    > * Asegúrese de especificar un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD".
     > * Especifique el nombre de dominio en mayúsculas o kinit generará un error.
     >
 
@@ -138,9 +141,9 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     kinit bob@CONTOSO100.COM
     ```
 
-3. Una la máquina al dominio. En el terminal SSH, escriba el siguiente comando: 
+3. Una la máquina al dominio. En el terminal SSH, escriba el siguiente comando:
 
-    > [!TIP] 
+    > [!TIP]
     > Utilice la misma cuenta de usuario que ha especificado el paso anterior ("kinit").
     >
 
@@ -173,7 +176,7 @@ Para habilitar la creación automática del directorio principal después de ini
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Agregue la siguiente línea en este archivo debajo de la línea "session optional pam_sss.so" y guárdelo:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077

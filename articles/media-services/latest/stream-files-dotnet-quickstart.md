@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: 40759fc65caa181651de68756f4374f879fd9c9c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701045"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Inicio rápido: streaming de archivos de vídeo: .NET
 
 > [!NOTE]
 > La versión más reciente de Azure Media Services está en versión preliminar y se denomina v3. Para empezar a usar las API de v3, debe crear una nueva cuenta de Media Services, como se describe en este inicio rápido. 
 
-Este inicio rápido muestra lo fácil que es iniciar el streaming de vídeos en una amplia variedad de navegadores y dispositivos con Azure Media Services. 
+Este inicio rápido muestra lo fácil que es iniciar el streaming de vídeos en una amplia variedad de navegadores y dispositivos con Azure Media Services. El ejemplo de este tema permite codificar contenido que se hace accesible a través de una dirección URL HTTPS. 
 
 Al final del inicio rápido, podrá hacer streaming de un vídeo.  
 
@@ -43,6 +44,18 @@ Clone un repositorio GitHub que contenga el ejemplo de .NET de streaming en la m
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+El ejemplo se encuentra en la carpeta [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
+
+Este ejemplo realiza las acciones siguientes:
+
+1. Crea una transformación (en primer lugar, comprueba si existe la transformación especificada). 
+2. Crea un recurso de salida que se utiliza como la salida del trabajo de codificación.
+3. Crea la entrada del trabajo que se basa en una dirección URL HTTPS.
+4. Envía al trabajo de codificación con la entrada y salida que se han creado anteriormente.
+5. Comprueba el estado del trabajo.
+6. Crea un objeto StreamingLocator.
+7. Crea direcciones URL de streaming.
 
 Para obtener una explicación sobre qué hace cada función en el ejemplo, examine el código y observe los comentarios en [este archivo de origen](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 

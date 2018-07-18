@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019702"
 ---
 # <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
 > [!div class="op_single_selector"]
@@ -115,7 +116,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-En este tutorial, nos centraremos en el método de punto de entrada `runAsync()`. Aquí es donde puede comenzar a ejecutar el código de inmediato.
+En este tutorial nos centraremos en el método del punto de entrada `runAsync()`. Aquí es donde puede comenzar a ejecutar el código de inmediato.
 
 ### <a name="runasync"></a>RunAsync
 La plataforma llama a este método cuando hay una instancia del servicio colocada y preparada para ejecutarse. En el caso de un servicio sin estado, esto simplemente significa que la instancia de servicio está abierta. Se proporciona un token de cancelación para coordinar cuando la instancia de servicio debe cerrarse. En Service Fabric, este ciclo de apertura y cierre de una instancia de servicio puede producirse muchas veces durante la vigencia del servicio en su conjunto. Esto puede ocurrir por diversos motivos, incluidos los siguientes:
@@ -200,16 +201,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) es una implementación de diccionario que se puede usar para almacenar estados en el servicio de manera confiable. Con Service Fabric y Reliable Hashmap, ahora puede almacenar datos directamente en el servicio sin necesidad de un almacén persistente externo. Gracias a Reliable Hashmap, los datos tendrán una alta disponibilidad. Service Fabric realiza esta tarea creando y administrando automáticamente varias *réplicas* de su servicio. También proporciona una API que elimina las complejidades derivadas de la administración de las réplicas y sus transiciones de estado.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) es una implementación de diccionario que se puede usar para almacenar estados en el servicio de manera confiable. Al usar Service Fabric y Reliable Hashmap, puede almacenar datos directamente en el servicio sin necesidad de un almacén persistente externo. Gracias a Reliable Hashmap, los datos tendrán una alta disponibilidad. Service Fabric realiza esta tarea creando y administrando automáticamente varias *réplicas* de su servicio. También proporciona una API que elimina las complejidades derivadas de la administración de las réplicas y sus transiciones de estado.
 
 Reliable Collections puede almacenar cualquier tipo de Java, incluidos los tipos personalizados, con un par de advertencias:
 
-* Service Fabric logra que su estado presente una alta disponibilidad mediante su *replicación* entre nodos y Reliable Hashmap almacena los datos en el disco local en cada réplica. Es decir, todo lo que se almacena en Reliable Hashmap debe ser *serializable*. 
+* Service Fabric logra que su estado presente una alta disponibilidad mediante su *replicación* entre nodos, y Reliable Hashmap almacena los datos en el disco local en cada réplica. Es decir, todo lo que se almacena en Reliable Hashmap debe ser *serializable*. 
 * Los objetos se replican para obtener una alta disponibilidad cuando se confirman transacciones en Reliable Hashmap. Los objetos almacenados en Reliable Hashmap se mantienen en la memoria local del servicio. Esto significa que tiene una referencia local al objeto.
   
-   Es importante no modificar las instancias locales de los objetos sin tener que realizar una operación de actualización en la colección fiable de una transacción. Esto se debe a que los cambios en las instancias de objetos locales no se replicarán automáticamente. Debe volver a insertar el objeto en el diccionario o utilizar uno de los métodos de *actualización* del diccionario.
+   Es importante no modificar las instancias locales de los objetos sin tener que realizar una operación de actualización en la colección fiable de una transacción. Esto se debe a que los cambios en las instancias de objetos locales no se replicarán automáticamente. Debe volver a insertar el objeto en el diccionario o usar uno de los métodos de *actualización* del diccionario.
 
-Reliable State Manager administra instancias de Reliable Hashmap de forma automática. Basta con solicitar a Reliable State Manager una colección confiable por nombre en cualquier momento y lugar del servicio. Reliable State Manager garantiza la obtención de una referencia. No recomendamos guardar referencias a instancias de colecciones fiables en variables o propiedades de miembros de clase. Debe tener especial cuidado para asegurarse de que se establece la referencia a una instancia en todo momento del ciclo de vida de servicio. Reliable State Manager controla esta tarea automáticamente y está optimizado para la repetición de visitas.
+Reliable State Manager administra instancias de Reliable Hashmap de forma automática. Basta con solicitar a Reliable State Manager una colección de confianza en función del nombre, en cualquier momento y lugar del servicio. Reliable State Manager garantiza la obtención de una referencia. No le recomendamos guardar referencias en instancias de colecciones de confianza en variables o propiedades de miembros de clase. Debe tener especial cuidado para asegurarse de que se establece la referencia a una instancia en todo momento del ciclo de vida de servicio. Reliable State Manager controla esta tarea automáticamente y está optimizado para la repetición de visitas.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>Operaciones transaccionales y asincrónicas
@@ -232,10 +233,10 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 
 Sin embargo, las operaciones relacionadas con Reliable Hashmap son asincrónicas. El motivo es que las operaciones de escritura con Reliable Collections realizarán operaciones de E/S para replicar y conservar los datos en el disco.
 
-Las operaciones de Reliable Hashmap son *transaccionales*, de modo que el estado puede mantenerse de forma coherente entre varias operaciones y colecciones de Reliable Hashmap. Por ejemplo, puede obtener un elemento de trabajo de Reliable Dictionary, realizar una operación en él y guardar el resultado en otra instancia Reliable Hashmap, todo en una única transacción. Se trata como una operación atómica y así se garantiza que toda la operación se complete correctamente o se revierta por completo. Si se produce un error después de quitar el elemento de la cola pero antes de guardar el resultado, toda la transacción se revierte y el elemento permanece en la cola para su procesamiento.
+Las operaciones de Reliable Hashmap son *transaccionales*, de modo que el estado puede mantenerse de forma coherente entre varias operaciones y colecciones de Reliable Hashmap. Por ejemplo, puede obtener un elemento de trabajo de Reliable Dictionary, realizar una operación en él y guardar el resultado en otra instancia de Reliable Hashmap; todo en una única transacción. Se trata como una operación atómica y así se garantiza que toda la operación se complete correctamente o se revierta por completo. Si se produce un error después de quitar el elemento de la cola pero antes de guardar el resultado, toda la transacción se revierte y el elemento permanece en la cola para su procesamiento.
 
 
-## <a name="run-the-application"></a>Ejecución de la aplicación
+## <a name="build-the-application"></a>Compilar la aplicación
 
 El scaffolding de Yeoman incluye un script de Gradle para compilar la aplicación y scripts de Bash para implementarla y quitarla. Para ejecutar la aplicación, primero hay que compilarla con Gradle:
 
@@ -245,13 +246,31 @@ $ gradle
 
 Esto crea un paquete de aplicación de Service Fabric que puede implementarse mediante la CLI de Service Fabric.
 
-### <a name="deploy-with-service-fabric-cli"></a>Implementación con la CLI de Service Fabric
+## <a name="deploy-the-application"></a>Implementación de la aplicación
 
-El script install.sh contiene los comandos de la CLI de Service Fabric necesarios para implementar el paquete de aplicación. Ejecute el script install.sh para implementar la aplicación.
+Una vez compilada la aplicación, se puede implementar en el clúster local.
 
-```bash
-$ ./install.sh
-```
+1. Conéctese al clúster de Service Fabric local.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Ejecute el script de instalación proporcionado en la plantilla para copiar el paquete de aplicación en el almacén de imágenes del clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.
+
+    ```bash
+    ./install.sh
+    ```
+
+La aplicación compilada se implementa de la misma forma que cualquier otra aplicación de Service Fabric. Consulte la documentación sobre la [Administración de una aplicación de Service Fabric con la CLI de Service Fabric](service-fabric-application-lifecycle-sfctl.md) para obtener instrucciones detalladas.
+
+Los parámetros de estos comandos se pueden encontrar en los manifiestos generados dentro del paquete de aplicación.
+
+Una vez que se haya implementado la aplicación, abra un explorador y vaya a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de dicho tipo.
+
+> [!IMPORTANT]
+> Para implementar la aplicación en un clúster de Linux seguro en Azure, debe configurar un certificado para validar la aplicación con el sistema de tiempo de ejecución de Service Fabric. Esto permite a los servicios de Reliable Services comunicarse con las API en tiempo de ejecución subyacentes de Service Fabric. Para obtener más información, consulte [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters) (Configurar una aplicación de Reliable Services para ejecutarla en clústeres Linux).  
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,7 +3,7 @@ title: 'Tutorial: Supervisión y actualización de máquinas virtuales Windows e
 description: En este tutorial, aprenderá a supervisar los diagnósticos de arranque y las métricas de rendimiento, así como a administrar las actualizaciones de paquetes en una máquina virtual Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9181d79e6eb0443a4607824cfde95068b509a917
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0f2388747d60f1911994431d8edbd57e32d5c35a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932660"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión y actualización de una máquina virtual Windows en Azure
 
@@ -284,7 +285,7 @@ Después de unos minutos, debería ver la nueva máquina virtual en el área de 
 En este tutorial, ha configurado y revisado las máquinas virtuales con Azure Security Center. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Crear una red virtual
+> * Creación de una red virtual
 > * Crear un grupo de recursos y una máquina virtual
 > * Habilitar los diagnósticos de arranque en la máquina virtual
 > * Ver los diagnósticos de arranque

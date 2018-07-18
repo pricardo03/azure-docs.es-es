@@ -7,15 +7,15 @@ manager: craigg
 ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187681"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308873"
 ---
 # <a name="sql-database-application-development-overview"></a>Introducción al desarrollo de aplicaciones en SQL Database
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Azure SQL Database.
@@ -33,9 +33,12 @@ Existen ejemplos de código para diferentes lenguajes de programación y platafo
 Puede aprovechar herramientas de código abierto como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) o [VS Code](https://code.visualstudio.com/). Además, Azure SQL Database funciona con herramientas de Microsoft como [Visual Studio](https://www.visualstudio.com/downloads/) y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  También puede usar el Portal de administración de Azure, PowerShell y API de REST, que le ayudan a obtener más productividad.
 
 ## <a name="resource-limitations"></a>Limitaciones de recursos
-Azure SQL Database administra los recursos disponibles para una base de datos mediante dos mecanismos diferentes: Regulación de recursos y Aplicación de límites.
+Azure SQL Database administra los recursos disponibles para una base de datos mediante dos mecanismos diferentes: regulación de recursos y aplicación de límites. Para más información, consulte:
 
-* Más información: [Límites del modelo de recursos basado en DTU de Azure SQL Database](sql-database-dtu-resource-limits.md) y [Límites del modelo de recursos basado en núcleos virtuales de Azure SQL Database (versión preliminar)](sql-database-vcore-resource-limits.md).
+- [Límites de modelo de recursos basados en DTU para bases de datos únicas](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Límites de modelo de recursos basados en DTU para bases de datos únicas](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Límites de recursos basados en núcleos virtuales para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md)
+- [Límites de recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Seguridad
 Azure SQL Database proporciona recursos para limitar el acceso, proteger los datos y supervisar las actividades en SQL Database.

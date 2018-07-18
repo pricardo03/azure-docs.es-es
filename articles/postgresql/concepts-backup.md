@@ -1,6 +1,6 @@
 ---
-title: "Copia de seguridad y restauración en Azure Database for PostgreSQL"
-description: "Obtenga información acerca de cómo realizar copias de seguridad y restaurar automáticamente su servidor de Azure Database for PostgreSQL."
+title: Copia de seguridad y restauración en Azure Database for PostgreSQL
+description: Obtenga información acerca de cómo realizar copias de seguridad y restaurar automáticamente su servidor de Azure Database for PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693053"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL
 
@@ -75,7 +76,7 @@ Cuando efectúe la restauración con cualquiera de los mecanismos de recuperaci�
 - No se olvide de emplear los permisos de nivel de base de datos y los inicios de sesión apropiados.
 - Configure las alertas según corresponda.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para más información acerca de la continuidad del negocio, consulte la  [introducción a la continuidad de negocio](concepts-business-continuity.md).
 - Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).

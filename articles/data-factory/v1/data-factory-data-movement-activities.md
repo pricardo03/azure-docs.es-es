@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09b35483b5ace1523c88576cfe37dfc313b93036
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299867"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-data-movement-activities.md)
-> * [Versión 2: versión preliminar](../copy-activity-overview.md)
+> * [Versión 1](data-factory-data-movement-activities.md)
+> * [Versión 2 (versión actual)](../copy-activity-overview.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Copy Activity in V2](../copy-activity-overview.md) (Actividad de copia en V2).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Actividad de copia en V2](../copy-activity-overview.md).
 
 ## <a name="overview"></a>Información general
 En Azure Data Factory, puede usar la actividad de copia para copiar datos entre los almacenes de datos locales y en la nube. Una vez copiados los datos, se pueden analizar y transformar con más profundidad. La actividad de copia también puede utilizarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
@@ -97,22 +98,22 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 |:--- |:--- |:--- |
 | Estados Unidos | Este de EE. UU | Este de EE. UU |
 | &nbsp; | Este de EE. UU. 2 | Este de EE. UU. 2 |
-| &nbsp; | Central EE. UU: | Central EE. UU: |
+| &nbsp; | Centro de EE. UU. | Centro de EE. UU. |
 | &nbsp; | Centro-Norte de EE. UU | Centro-Norte de EE. UU |
 | &nbsp; | Centro-Sur de EE. UU | Centro-Sur de EE. UU |
 | &nbsp; | Centro occidental de EE.UU. | Centro occidental de EE.UU. |
-| &nbsp; | Oeste de EE. UU | Oeste de EE. UU |
+| &nbsp; | Oeste de EE. UU. | Oeste de EE. UU. |
 | &nbsp; | Oeste de EE. UU. 2 | Oeste de EE. UU. 2 |
 | Canadá | Este de Canadá | Centro de Canadá |
 | &nbsp; | Centro de Canadá | Centro de Canadá |
 | Brasil | Sur de Brasil | Sur de Brasil |
 | Europa | Europa del Norte | Europa del Norte |
 | &nbsp; | Europa occidental | Europa occidental |
-| Reino Unido | Oeste de Reino Unido | Sur del Reino Unido 2 |
-| &nbsp; | Sur del Reino Unido 2 | Sur del Reino Unido 2 |
+| Reino Unido | Oeste de Reino Unido | Sur de Reino Unido 2 |
+| &nbsp; | Sur de Reino Unido 2 | Sur de Reino Unido 2 |
 | Asia Pacífico | Sudeste asiático | Sudeste asiático |
 | &nbsp; | Asia oriental | Sudeste asiático |
-| Australia | Australia Oriental | Australia Oriental |
+| Australia | Este de Australia | Este de Australia |
 | &nbsp; | Sudeste de Australia | Sudeste de Australia |
 | India | India Central | India Central |
 | &nbsp; | Oeste de la India | India Central |

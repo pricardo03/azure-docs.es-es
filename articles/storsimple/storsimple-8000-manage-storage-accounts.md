@@ -1,12 +1,12 @@
 ---
-title: "Administración de credenciales de la cuenta de almacenamiento de StorSimple para dispositivos de la serie Microsoft Azure StorSimple 8000 | Microsoft Docs"
-description: "Explica cómo usar la página Configurar de StorSimple Device Manager para agregar, editar, eliminar o girar las claves de seguridad de una cuenta de almacenamiento."
+title: Administración de credenciales de la cuenta de almacenamiento de StorSimple para dispositivos de la serie Microsoft Azure StorSimple 8000 | Microsoft Docs
+description: Explica cómo usar la página Configurar de StorSimple Device Manager para agregar, editar, eliminar o girar las claves de seguridad de una cuenta de almacenamiento.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688735"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Uso del servicio StorSimple Device Manager para administrar las credenciales de la cuenta de almacenamiento
 
@@ -54,8 +55,8 @@ Las tareas más comunes relacionadas con las cuentas de almacenamiento que se pu
 Hay tres tipos de cuentas de almacenamiento que se pueden usar con el dispositivo StorSimple.
 
 * **Cuentas de almacenamiento generadas automáticamente** : como sugiere su nombre, este tipo de cuenta de almacenamiento se genera automáticamente cuando se crea el servicio. Para obtener más información sobre cómo se crea esta cuenta de almacenamiento, consulte el [Paso 1: Crear un nuevo servicio](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service), en [Implementar el dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Cuentas de almacenamiento en la suscripción al servicio** : se trata de cuentas de almacenamiento de Azure que están asociadas a la misma suscripción que la del servicio. Para obtener más información sobre cómo se crean estas cuentas de almacenamiento, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). 
-* **Cuentas de almacenamiento fuera de la suscripción al servicio** : son las cuentas de almacenamiento de Azure no asociadas al servicio que probablemente existían antes de que se crease el servicio.
+* **Cuentas de almacenamiento en la suscripción al servicio**: se trata de cuentas de Azure Storage que están asociadas a la misma suscripción que la del servicio. Para obtener más información sobre cómo se crean estas cuentas de almacenamiento, vea [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md). 
+* **Cuentas de almacenamiento fuera de la suscripción al servicio**: son las cuentas de Azure Storage no asociadas al servicio que probablemente existían antes de que se crease el servicio.
 
 ## <a name="add-a-storage-account"></a>Agregar una cuenta de almacenamiento
 
@@ -83,7 +84,7 @@ Utilice los procedimientos siguientes para agregar las credenciales de la cuenta
    
     2. Proporcione el nombre de la credencial de la cuenta de almacenamiento de Azure.
    
-    3. En el cuadro de texto **Clave de acceso de la cuenta de almacenamiento**, proporcione la clave de acceso principal para la credencial de la cuenta de almacenamiento de Azure. Para obtener esta clave, vaya al servicio Azure Storage, seleccione la credencial de la cuenta de almacenamiento y haga clic en **Administrar claves de cuenta**. Ahora puede copiar la clave de acceso principal.
+    3. En el cuadro de texto **Clave de acceso de la cuenta de almacenamiento**, proporcione la clave de acceso principal para la credencial de la cuenta de Azure Storage. Para obtener esta clave, vaya al servicio Azure Storage, seleccione la credencial de la cuenta de almacenamiento y haga clic en **Administrar claves de cuenta**. Ahora puede copiar la clave de acceso principal.
    
     4. Para habilitar SSL, haga clic en el botón **Habilitar** para crear un canal seguro para la comunicación de red entre StorSimple Device Manager y la nube. Haga clic en el botón **Deshabilitar** solo si está trabajando en una nube privada.
    
@@ -142,11 +143,11 @@ Cuando se crea una cuenta de almacenamiento, Microsoft Azure genera dos claves d
 
 Normalmente, las aplicaciones usan solo una de las claves para acceder a los datos. Después de un período de tiempo, puede hacer que sus aplicaciones pasen a usar la clave secundaria. Después de hacer que sus aplicaciones cambien a la clave secundaria, puede retirar la primera clave y, a continuación, generar una nueva clave. Al usar las dos claves de esta forma permite que las aplicaciones accedan a los datos sin incurrir en tiempo de inactividad.
 
-Las claves de la cuenta de almacenamiento siempre se almacenan en el servicio en un formato cifrado. Sin embargo, pueden restablecerse mediante el servicio StorSimple Device Manager. El servicio puede obtener la clave principal y secundaria de todas las cuentas de almacenamiento de la misma suscripción, incluidas las cuentas creadas en el servicio de almacenamiento, así como las cuentas de almacenamiento predeterminadas que se generaron cuando se creó el servicio StorSimple Device Manager. El servicio StorSimple Device Manager siempre obtendrá estas claves del Portal de Azure clásico y, a continuación, las almacenará de forma cifrada.
+Las claves de la cuenta de almacenamiento siempre se almacenan en el servicio en un formato cifrado. Sin embargo, pueden restablecerse mediante el servicio StorSimple Device Manager. El servicio puede obtener la clave principal y secundaria de todas las cuentas de almacenamiento de la misma suscripción, incluidas las cuentas creadas en el servicio Storage, así como las cuentas de almacenamiento predeterminadas que se generaron cuando se creó el servicio StorSimple Device Manager. El servicio StorSimple Device Manager siempre obtendrá estas claves del Portal de Azure clásico y, a continuación, las almacenará de forma cifrada.
 
 ## <a name="rotation-workflow"></a>Flujo de trabajo de rotación
 
-Un administrador de Microsoft Azure puede volver a generar o cambiar la clave principal o secundaria accediendo directamente a la cuenta de almacenamiento (mediante el servicio de almacenamiento de Microsoft Azure). El servicio StorSimple Device Manager no verá este cambio automáticamente.
+Un administrador de Microsoft Azure puede volver a generar o cambiar la clave principal o secundaria accediendo directamente a la cuenta de almacenamiento (mediante el servicio Microsoft Azure Storage). El servicio StorSimple Device Manager no verá este cambio automáticamente.
 
 Para informar al servicio StorSimple Device Manager del cambio, tendrá que acceder a este servicio, acceder a la cuenta de almacenamiento y sincronizar la clave principal o secundaria (en función de cuál se haya cambiado). A continuación, el servicio obtiene la clave más reciente, cifra las claves y envía la clave cifrada al dispositivo.
 
@@ -177,5 +178,5 @@ Recibirá una notificación cuando la clave se sincronice correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-8000-security.md).
-* Más información sobre el [uso del servicio StorSimple Device Manager para administrar su dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

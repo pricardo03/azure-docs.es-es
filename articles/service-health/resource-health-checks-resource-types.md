@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 35eedb170e1c79f4d282f71608b456a271c4d59b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018230"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Está el servidor en funcionamiento?</li><li>¿El servidor se ha quedado sin memoria?</li><li>¿Se está iniciando el servidor?</li><li>¿Se está recuperando el servidor?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |Comprobaciones ejecutadas|
@@ -56,13 +62,13 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Pueden los usuarios enviar trabajos a Data Lake Analytics en la región?</li><li>¿Se ejecutan y completan correctamente los trabajos básicos en la región?</li><li>¿Pueden los usuarios enumerar elementos del catálogo en la región?</li>|
+|<ul><li>¿Los usuarios tienen problemas para enviar o mostrar sus trabajos de Data Lake Analytics?</li><li>¿Los trabajos de Data Lake Analytics no se puede completar y producen errores del sistema?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Pueden los usuarios cargar datos en Data Lake Store en la región?</li><li>¿Pueden los usuarios descargar datos de Data Lake Store en la región?</li></ul>|
+|<ul><li>¿Los usuarios tienen problemas para cargar datos a Data Lake Store?</li><li>¿Los usuarios tienen problemas para descargar datos de Data Lake Store?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
@@ -74,6 +80,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Ha habido solicitudes de bases de datos o recopilaciones que no se han atendido debido a una falta de disponibilidad del servicio Azure Cosmos DB?</li><li>¿Ha habido solicitudes de documentos que no se han atendido debido a una falta de disponibilidad del servicio Azure Cosmos DB?</li></ul>|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Las solicitudes al almacén de claves producen errores debido a problemas de la plataforma de Azure KeyVault?</li><li>¿Se están limitando las solicitudes al almacén de claves porque el cliente está realizando demasiadas solicitudes?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Comprobaciones ejecutadas|
@@ -104,6 +115,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li> ¿Se han producido inicios de sesión en la base de datos?</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Las solicitudes para leer datos de la cuenta de almacenamiento producen errores debido a problemas de la plataforma de Azure Storage?</li><li>¿Las solicitudes para escribir datos en la cuenta de almacenamiento producen errores debido a problemas de la plataforma de Azure Storage?</li><li>¿No está disponible el clúster de Storage en el que reside la cuenta de Storage?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Comprobaciones ejecutadas|

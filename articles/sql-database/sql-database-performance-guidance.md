@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 02/12/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195454"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309222"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajuste del rendimiento en Azure SQL Database
 
@@ -25,7 +25,7 @@ Si no dispone de recomendaciones aplicables y sigue experimentando problemas de 
 - Ajuste la aplicación y aplique algunas prácticas recomendadas que puedan mejorar el rendimiento. 
 - Ajuste la base de datos cambiando los índices y consultas para que funcionen de manera más eficiente con los datos.
 
-Se trata de métodos manuales porque debe decidir qué [límites de recursos del modelo basado en DTU](sql-database-dtu-resource-limits.md) y qué [límites del modelo basado en núcleos virtuales (versión preliminar)](sql-database-vcore-resource-limits.md) satisfacen sus necesidades. En caso contrario, se debe volver a escribir la aplicación o el código de base de datos e implementar los cambios.
+Estos métodos son manuales porque debe decidir la cantidad de recursos que satisface sus necesidades. En caso contrario, se debe volver a escribir la aplicación o el código de base de datos e implementar los cambios.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumento del nivel de rendimiento de su base de datos
 
@@ -271,8 +271,8 @@ Algunas aplicaciones requieren operaciones de escritura intensivas. En ocasiones
 Algunas aplicaciones de base de datos tienen cargas de trabajo con operaciones de lectura intensivas. El almacenamiento en caché de las capas podría reducir la carga en la base de datos y también, posiblemente, el nivel de rendimiento necesario para admitir una base de datos con Azure SQL Database. Con [Azure Redis Cache](https://azure.microsoft.com/services/cache/), si tiene una carga de trabajo con muchas operaciones de lectura, puede leer los datos una vez (o quizás una vez por máquina de nivel de aplicación, según cómo esté configurada) y luego almacenar esos datos fuera de la base de datos SQL. Se trata de una forma de reducir la carga de la base de datos (CPU y E/S de lectura), pero tiene efectos sobre la coherencia transaccional porque los datos que se leen de la caché podrían estar desincronizados con respectos a los datos de la base de datos. Aunque en muchas aplicaciones algún nivel de incoherencia es aceptable, esto no se aplica a todas las cargas de trabajo. Debería comprender totalmente los requisitos de una aplicación antes de emplear una estrategia de almacenamiento en caché de la capa de aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre los niveles de servicio basados en DTU, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y los [límites de recursos del modelo basado en DTU](sql-database-dtu-resource-limits.md).
-* Para más información sobre los niveles de servicio basados en núcleos virtuales, consulte el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md) y los [límites de recursos basados en núcleos virtuales (versión preliminar)](sql-database-vcore-resource-limits.md).
+* Para más información sobre los niveles de servicio basados en DTU, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md).
+* Para más información sobre los niveles de servicio basados en núcleos virtuales, consulte [Modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
 * Para obtener más información sobre los grupos elásticos, consulte [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
 * Para información sobre el rendimiento y los grupos elásticos, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)
 

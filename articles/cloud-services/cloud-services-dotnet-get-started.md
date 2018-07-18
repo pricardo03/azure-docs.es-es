@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860027"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -177,7 +178,7 @@ En una aplicación real, normalmente crearía cuentas independientes para los da
 
     Cuando la cuenta de almacenamiento y el servicio en la nube se encuentren en centros de datos diferentes (distintas regiones), la latencia aumentará y se le cobrará el ancho de banda no perteneciente al centro de datos. El ancho de banda del centro de datos es gratuito.
 
-    Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Creación de un grupo de afinidad en Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+    Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Creación de un grupo de afinidad en Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
 7. Haga clic en **Create**(Crear).
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -290,7 +291,7 @@ La opción `<Instances>` especifica el número de máquinas virtuales en las que
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    La configuración predeterminada de la pestaña **Avanzada** es correcta para este tutorial. Para obtener más información sobre la pestaña de opciones avanzadas, consulte [Asistente para publicar aplicación de Azure](http://msdn.microsoft.com/library/hh535756.aspx).
+    La configuración predeterminada de la pestaña **Avanzada** es correcta para este tutorial. Para obtener más información sobre la pestaña de opciones avanzadas, consulte [Asistente para publicar aplicación de Azure](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
 4. En el paso **Resumen**, haga clic en **Publicar**.
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)

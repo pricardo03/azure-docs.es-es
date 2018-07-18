@@ -1,27 +1,31 @@
 ---
-title: "Unión de una máquina virtual con Windows Server a Azure Active Directory Domain Services | Microsoft Docs"
-description: "Unión de una máquina virtual con Windows Server a un dominio administrado mediante plantillas de Azure Resource Manager."
+title: Unión de una máquina virtual con Windows Server a Azure Active Directory Domain Services | Microsoft Docs
+description: Unión de una máquina virtual con Windows Server a un dominio administrado mediante plantillas de Azure Resource Manager.
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: b90198696b7bdb9277fd2f2b8e8e727af42c5cfa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85dd7e73afe4558e58084cc133e3cfdc93e4088d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333564"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Unión de una máquina virtual con Windows Server a un dominio administrado mediante una plantilla de Resource Manager
 En este artículo se muestra cómo unir una máquina virtual con Windows Server a un dominio administrado con Azure AD Domain Services mediante plantillas de Resource Manager.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:

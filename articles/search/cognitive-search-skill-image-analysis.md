@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 271f3231078b8842b040509ccf0406ed2415e5ec
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd26dbe34cd04d1ad3184e2cd62afae5166ac914
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363951"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640513"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
@@ -38,7 +38,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | details   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*Celebridades*: identifica celebridades si se detectan en la imagen.</li><li>*Puntos de referencia*: identifica puntos de referencia si se detectan en la imagen.</li></ul>
  |
 
-## <a name="skill-inputs"></a>Entradas de aptitudes
+## <a name="skill-inputs"></a>Entradas de la aptitud
 
 | Nombre de entrada      | DESCRIPCIÓN                                          |
 |---------------|------------------------------------------------------|
@@ -248,5 +248,5 @@ En los siguientes casos de error, no se extrae ningún elemento.
 ## <a name="see-also"></a>Otras referencias
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
-+ [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](ref-create-indexer.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

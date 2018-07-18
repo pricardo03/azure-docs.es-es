@@ -1,6 +1,6 @@
 ---
 title: Migración de las métricas de Azure Storage | Microsoft Docs
-description: Obtenga información sobre cómo migrar las métricas heredadas a las métricas nuevas que Azure Monitor administra.
+description: Más información sobre cómo migrar las métricas antiguas a las métricas nuevas que Azure Monitor administra.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: da8eb0b9e2e5aba60b61a36d83f525c7ce4a7958
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9586d0c2b61fe97106378ec684c28be9143b5194
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776268"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969391"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migración de las métricas de Azure Storage
 
-Alineado con la estrategia de unificar la experiencia de Monitor en Azure, Azure Storage incorporar métricas en la plataforma de Azure Monitor. En el futuro, finalizará el servicio de las métricas heredadas con un aviso por adelantado en función de la directiva de Azure. Si usa las métricas de almacenamiento heredadas, debe migrarlas antes de la fecha de finalización del servicio para mantener su información de métricas.
+Alineado con la estrategia de unificar la experiencia de monitor en Azure, Azure Storage integra métricas en la plataforma de Azure Monitor. En el futuro, finalizará el servicio de las métricas antiguas con un aviso por adelantado en función de la directiva de Azure. Si usa las métricas de almacenamiento antiguas, debe migrarlas antes de la fecha de finalización del servicio para mantener su información de métricas.
 
-Este artículo lo guía en la migración de métricas heredadas a las métricas nuevas.
+En este artículo se muestra cómo migrar desde las métricas antiguas hasta a las métricas nuevas.
 
-## <a name="understand-legacy-metrics-managed-by-azure-storage"></a>Descripción de las métricas heredadas que administra Azure Storage
+## <a name="understand-old-metrics-that-are-managed-by-azure-storage"></a>Descripción de las métricas antiguas que administra Azure Storage
 
-Azure Storage recopila valores de métricas heredadas, las agrega y almacena en tablas $Metric dentro de la misma cuenta de almacenamiento. Puede usar Azure Portal para configurar el gráfico de supervisión y también puede usar Azure Storage SDK para leer los datos de las tablas $Metric según el esquema. Para más detalles, puede consultar [Storage Analytics](./storage-analytics.md).
+Azure Storage recopila valores de métricas antiguas, y los agrega y almacena en tablas $Metric dentro de la misma cuenta de almacenamiento. Puede usar Azure Portal para configurar un gráfico de supervisión. También puede utilizar los SDK de Azure Storage para leer los datos de las tablas $Metric que se basan en el esquema. Para más información, consulte [Storage Analytics](./storage-analytics.md).
 
-Las métricas heredadas proporcionan métricas de capacidad solo en Blob y métricas de transacción en Blob, Table, File y Queue.
+Las métricas antiguas proporcionan métricas de capacidad solo sobre Azure Blob Storage. Las métricas antiguas proporcionan métricas de transacciones sobre Blob Storage, Table Storage, Azure Files y Queue Storage. 
 
-Las métricas heredadas están diseñadas en un esquema sin formato. El diseño genera un valor de métrica de cero cuando los patrones de tráfico no desencadenan la métrica. Por ejemplo, **ServerTimeoutError** se establece en 0 en las tablas $Metric incluso cuando no se recibe ningún error de tiempo de expiración del servidor a partir del tráfico en vivo a la cuenta de almacenamiento.
+Las métricas antiguas están diseñadas en un esquema sin formato. El diseño genera un valor de métrica de cero cuando los patrones de tráfico no desencadenan la métrica. Por ejemplo, el valor de **ServerTimeoutError** se establece en 0 en las tablas $Metric incluso cuando no se recibe ningún error de tiempo de expiración del servidor a partir del tráfico real a una cuenta de almacenamiento.
 
 ## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Descripción de las métricas nuevas que administra Azure Monitor
 
@@ -41,86 +41,86 @@ En el caso de las métricas de almacenamiento nuevas, Azure Storage emite los da
 
 Las métricas nuevas proporcionan métricas de capacidad y métricas de transacción en Blob, Table, File, Queue y Premium Storage.
 
-La multidimensionalidad es una de las características que Azure Monitor proporciona. Azure Storage adopta el diseño en la definición del nuevo esquema de métricas. Para las dimensiones compatibles con las métricas, puede encontrar detalles en [Métricas de Azure Storage en Azure Monitor](./storage-metrics-in-azure-monitor.md). El diseño multidimensional brinda rentabilidad tanto en el ancho de banda de la ingesta y la capacidad de almacenamiento de métricas. Por lo tanto, si el tráfico no ha desencadenado métricas relacionadas, no se generarán los datos de métricas relacionados. Por ejemplo, si el tráfico no desencadenó ningún error de tiempo de expiración de servidor, Azure Monitor no devuelve datos cuando se consulta el valor de la métrica **Transactions** con la dimensión **ResponseType** equivalente a **ServerTimeoutError**.
+La multidimensionalidad es una de las características que Azure Monitor proporciona. Azure Storage adopta el diseño en la definición del nuevo esquema de métricas. Para las dimensiones compatibles con las métricas, puede encontrar detalles en [Métricas de Azure Storage en Azure Monitor](./storage-metrics-in-azure-monitor.md). El diseño multidimensional brinda rentabilidad tanto en el ancho de banda de la ingesta y la capacidad de almacenamiento de métricas. Por lo tanto, si el tráfico no ha desencadenado métricas relacionadas, no se generarán los datos de métricas relacionados. Por ejemplo, si el tráfico no desencadenó ningún error de tiempo de expiración de servidor, Azure Monitor no devuelve ningún dato cuando se consulta el valor de la métrica **Transactions** con la dimensión **ResponseType** equivalente a **ServerTimeoutError**.
 
-## <a name="metrics-mapping-between-legacy-metrics-and-new-metrics"></a>Asignación de métricas entre métricas heredadas y métricas nuevas
+## <a name="metrics-mapping-between-old-metrics-and-new-metrics"></a>Asignación de métricas entre métricas antiguas y métricas nuevas
 
 Si lee los datos de métricas mediante programación, debe adoptar el esquema de métricas nuevo en sus programas. Para entender mejor los cambios, puede consultar la asignación que aparece en la tabla siguiente:
 
 **Métricas de capacidad**
 
-| Métrica heredada | Métrica nueva |
+| Métrica antigua | Métrica nueva |
 | ------------------- | ----------------- |
-| Capacity            | BlobCapacity con dimensión BlobType equivalente a BlockBlob o PageBlob |
-| ObjectCount         | BlobCount con dimensión BlobType equivalente a BlockBlob o PageBlob |
-| ContainerCount      | ContainerCount |
+| **Capacity**            | **BlobCapacity** con la dimensión **BlobType** equivalente a **BlockBlob** o **PageBlob** |
+| **ObjectCount**        | **BlobCount** con la dimensión **BlobType** equivalente a **BlockBlob** o **PageBlob** |
+| **ContainerCount**      | **ContainerCount** |
 
-Las métricas siguientes son ofertas nuevas no compatibles con las métricas heredadas:
-* TableCapacity
-* TableCount
-* TableEntityCount
-* QueueCapacity
-* QueueCount
-* QueueMessageCount
-* FileCapacity
-* FileCount
-* FileShareCount
-* UsedCapacity
+Las métricas siguientes son ofertas nuevas no compatibles con las métricas antiguas:
+* **TableCapacity**
+* **TableCount**
+* **TableEntityCount**
+* **QueueCapacity**
+* **QueueCount**
+* **QueueMessageCount**
+* **FileCapacity**
+* **FileCount**
+* **FileShareCount**
+* **UsedCapacity**
 
 **Métricas de transacción**
 
-| Métrica heredada | Métrica nueva |
+| Métrica antigua | Métrica nueva |
 | ------------------- | ----------------- |
-| AnonymousAuthorizationError | Transacciones con dimensión ResponseType equivalente a AuthorizationError |
-| AnonymousClientOtherError | Transacciones con dimensión ResponseType equivalente a ClientOtherError |
-| AnonymousClientTimeoutError | Transacciones con dimensión ResponseType equivalente a ClientTimeoutError |
-| AnonymousNetworkError | Transacciones con dimensión ResponseType equivalente a NetworkError |
-| AnonymousServerOtherError | Transacciones con dimensión ResponseType equivalente a ServerOtherError |
-| AnonymousServerTimeoutError | Transacciones con dimensión ResponseType equivalente a ServerTimeoutError |
-| AnonymousSuccess | Transacciones con dimensión ResponseType equivalente a Success |
-| AnonymousThrottlingError | Transacciones con dimensión ResponseType equivalente a ClientThrottlingError o ServerBusyError |
-| AuthorizationError | Transacciones con dimensión ResponseType equivalente a AuthorizationError |
-| Disponibilidad | Disponibilidad |
-| AverageE2ELatency | SuccessE2ELatency |
-| AverageServerLatency | SuccessServerLatency |
-| ClientOtherError | Transacciones con dimensión ResponseType equivalente a ClientOtherError |
-| ClientTimeoutError | Transacciones con dimensión ResponseType equivalente a ClientTimeoutError |
-| NetworkError | Transacciones con dimensión ResponseType equivalente a NetworkError |
-| PercentAuthorizationError | Transacciones con dimensión ResponseType equivalente a AuthorizationError |
-| PercentClientOtherError | Transacciones con dimensión ResponseType equivalente a ClientOtherError |
-| PercentNetworkError | Transacciones con dimensión ResponseType equivalente a NetworkError |
-| PercentServerOtherError | Transacciones con dimensión ResponseType equivalente a ServerOtherError |
-| PercentSuccess | Transacciones con dimensión ResponseType equivalente a Success |
-| PercentThrottlingError | Transacciones con dimensión ResponseType equivalente a ClientThrottlingError o ServerBusyError |
-| PercentTimeoutError | Transacciones con dimensión ResponseType equivalente a ServerTimeoutError o ResponseType equivalente a ClientTimeoutError|
-| SASAuthorizationError | Transacciones con dimensión ResponseType equivalente a AuthorizationError |
-| SASClientOtherError | Transacciones con dimensión ResponseType equivalente a ClientOtherError |
-| SASClientTimeoutError | Transacciones con dimensión ResponseType equivalente a ClientTimeoutError |
-| SASNetworkError | Transacciones con dimensión ResponseType equivalente a NetworkError |
-| SASServerOtherError | Transacciones con dimensión ResponseType equivalente a ServerOtherError |
-| SASServerTimeoutError | Transacciones con dimensión ResponseType equivalente a ServerTimeoutError |
-| SASSuccess | Transacciones con dimensión ResponseType equivalente a Success |
-| SASThrottlingError | Transacciones con dimensión ResponseType equivalente a ClientThrottlingError o ServerBusyError |
-| ServerOtherError | Transacciones con dimensión ResponseType equivalente a ServerOtherError |
-| ServerTimeoutError | Transacciones con dimensión ResponseType equivalente a ServerTimeoutError |
-| Correcto | Transacciones con dimensión ResponseType equivalente a Success |
-| ThrottlingError | Transacciones con dimensión ResponseType equivalente a ClientThrottlingError o ServerBusyError |
-| TotalBillableRequests | Transacciones |
-| TotalEgress | Salida |
-| TotalIngress | Entrada |
-| TotalRequests | Transacciones |
+| **AnonymousAuthorizationError** | Transacciones con la dimensión **ResponseType** equivalente a **AuthorizationError** |
+| **AnonymousClientOtherError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientOtherError** |
+| **AnonymousClientTimeoutError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientTimeoutError** |
+| **AnonymousNetworkError** | Transacciones con la dimensión **ResponseType** equivalente a **NetworkError** |
+| **AnonymousServerOtherError** | Transacciones con la dimensión **ResponseType** equivalente a **ServerOtherError** |
+| **AnonymousServerTimeoutError** | Transacciones con la dimensión **ResponseType** equivalente a **ServerTimeoutError** |
+| **AnonymousSuccess** | Transacciones con la dimensión **ResponseType** equivalente a **Success** |
+| **AnonymousThrottlingError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientThrottlingError** o **ServerBusyError** |
+| **AuthorizationError** | Transacciones con la dimensión **ResponseType** equivalente a **AuthorizationError** |
+| **Disponibilidad** | **Disponibilidad** |
+| **AverageE2ELatency** | **SuccessE2ELatency** |
+| **AverageServerLatency** | **SuccessServerLatency** |
+| **ClientOtherError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientOtherError** |
+| **ClientTimeoutError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientTimeoutError** |
+| **NetworkError** | Transacciones con la dimensión **ResponseType** equivalente a **NetworkError** |
+| **PercentAuthorizationError** | Transacciones con la dimensión **ResponseType** equivalente a **AuthorizationError** |
+| **PercentClientOtherError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientOtherError** |
+| **PercentNetworkError** | Transacciones con la dimensión **ResponseType** equivalente a **NetworkError** |
+| **PercentServerOtherError** | Transacciones con la dimensión **ResponseType** equivalente a **ServerOtherError** |
+| **PercentSuccess** | Transacciones con la dimensión **ResponseType** equivalente a **Success** |
+| **PercentThrottlingError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientThrottlingError** o **ServerBusyError** |
+| **PercentTimeoutError** | Transacciones con la dimensión **ResponseType** equivalente a **ServerTimeoutError** o **ResponseType** equivalente a **ClientTimeoutError** |
+| **SASAuthorizationError** | Transacciones con la dimensión **ResponseType** equivalente a **AuthorizationError** |
+| **SASClientOtherError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientOtherError** |
+| **SASClientTimeoutError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientTimeoutError** |
+| **SASNetworkError** | Transacciones con la dimensión **ResponseType** equivalente a **NetworkError** |
+| **SASServerOtherError** | Transacciones con la dimensión **ResponseType** equivalente a **ServerOtherError** |
+| **SASServerTimeoutError** | Transacciones con la dimensión **ResponseType** equivalente a **ServerTimeoutError** |
+| **SASSuccess** | Transacciones con la dimensión **ResponseType** equivalente a **Success** |
+| **SASThrottlingError** | Transacciones con la dimensión **ResponseType** equivalente a **ClientThrottlingError** o **ServerBusyError** |
+| **ServerOtherError** | Transacciones con la dimensión **ResponseType** equivalente a **ServerOtherError** |
+| **ServerTimeoutError** | Transacciones con la dimensión **ResponseType** equivalente a **ServerTimeoutError** |
+| **Success** | Transacciones con la dimensión **ResponseType** equivalente a **Success** |
+| **ThrottlingError** | **Transacciones** con la dimensión **ResponseType** equivalente a **ClientThrottlingError** o **ServerBusyError**|
+| **TotalBillableRequests** | **Transactions** |
+| **TotalEgress** | **Salida** |
+| **TotalIngress** | **Entrada** |
+| **TotalRequests** | **Transactions** |
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-* ¿Cómo se deben migrar las reglas de alertas existentes?
+### <a name="how-should-i-migrate-existing-alert-rules"></a>¿Cómo se deben migrar las reglas de alertas existentes?
 
-R: Si creó reglas de alertas clásicas en función de métricas de almacenamiento heredadas, debe crear reglas de alertas nuevas según el esquema de métricas nuevo.
+Si creó reglas de alertas clásicas en función de métricas de almacenamiento antiguas, debe crear reglas de alertas nuevas según el esquema de métricas nuevo.
 
-* ¿Los datos de métricas nuevas se almacenarán en la misma cuenta de almacenamiento de manera predeterminada?
+### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>¿Los datos de métricas nuevas se almacenan en la misma cuenta de almacenamiento de manera predeterminada?
 
-R.: No. Si tiene que archivar los datos de métricas en la cuenta de almacenamiento, puede usar la [API de configuración de diagnóstico de Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)
+No. Para archivar los datos de métricas en una cuenta de almacenamiento, use la [API de configuración de diagnóstico de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Métricas de almacenamiento en Azure Monitor](./storage-metrics-in-azure-monitor.md)
+* [Métricas de Azure Storage en Azure Monitor](./storage-metrics-in-azure-monitor.md)

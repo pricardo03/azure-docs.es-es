@@ -2,12 +2,13 @@
 title: Glosario de Azure Active Directory Identity Protection | Microsoft Docs
 description: Glosario de Azure Active Directory Identity Protection
 services: active-directory
-keywords: "azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad, glosario"
-documentationcenter: 
+keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad, glosario
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713398"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glosario de Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>En riesgo (usuario)
@@ -32,7 +34,7 @@ Inicio de sesión desde una ubicación geográfica que no es la usual para un us
 Módulo de seguridad de Azure Active Directory que proporciona una vista consolidada de los eventos de riesgo y posibles puntos vulnerables que afectan a las identidades de una organización.
 
 ### <a name="conditional-access"></a>Acceso condicional
-Directiva para proteger el acceso a los recursos. Las reglas de acceso condicional se almacenan en Azure Active Directory, que las evalúa antes de conceder acceso al recurso.  Reglas de ejemplo son la restricción de acceso según la ubicación del usuario, el estado del dispositivo o el método de autenticación de usuario.
+Directiva para proteger el acceso a los recursos. Las reglas de acceso condicional se almacenan en Azure Active Directory, que las evalúa antes de conceder acceso al recurso.  Algunas reglas de ejemplo son la restricción de acceso según la ubicación del usuario, el estado del dispositivo o el método de autenticación de usuario.
 
 ### <a name="credentials"></a>Credenciales
 Información que incluye la identificación y prueba de identificación que se usa para obtener acceso a recursos locales y de red. Ejemplos de credenciales son nombres de usuario, contraseñas, tarjetas inteligentes y certificados.
@@ -131,7 +133,7 @@ Proceso o acción de autenticar una identidad en Azure Active Directory y evento
 Evento de riesgo que se desencadena después de un inicio de sesión correcto desde una dirección IP identificada como una dirección IP de proxy anónima.
 
 ### <a name="sign-in-from-infected-device"></a>Inicio de sesión desde dispositivo infectado
-Evento de riesgo que se desencadena cuando un inicio de sesión se origina desde una dirección IP que se sabe que utilizan uno o más dispositivos en peligro que están intentando comunicarse de forma activa con un servidor bot.
+Evento de riesgo que se desencadena cuando un inicio de sesión se origina desde una dirección IP que se sabe que usan uno o más dispositivos en peligro que están intentando comunicarse de forma activa con un servidor bot.
 
 ### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Inicio de sesión desde dirección IP con actividad sospechosa
 Evento de riesgo que se desencadena después de un inicio de sesión correcto desde una dirección IP con un gran número de intentos de inicios de sesión erróneos entre varias cuentas de usuario durante un corto período de tiempo.
@@ -155,7 +157,7 @@ Ver Nivel de riesgo (compromiso de usuario).
 Directiva de acceso condicional que tiene en cuenta el inicio de sesión y aplica mitigaciones de acuerdo con las reglas y condiciones predefinidas.
 
 ### <a name="users-flagged-for-risk"></a>Usuarios marcados con riesgo
-Usuarios con eventos de riesgo activos o corregidos.
+Usuarios con eventos de riesgo activos o corregidos
 
 ### <a name="vulnerability"></a>Punto vulnerable
 Configuración o condición en Azure Active Directory, que hace que el directorio sea susceptible de recibir ataques o amenazas.

@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
 ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721562"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 
@@ -82,7 +83,7 @@ En la tabla siguiente se muestra un ejemplo de cómo se definen los sitios local
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
 |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU | RMVNetLocal (192.168.0.0/16) |
+| ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Este de EE. UU |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>Sección 1: Configuración de la red virtual clásica
@@ -137,7 +138,7 @@ Una vez que se haya creado la puerta de enlace de la red virtual, puede ver la d
 
 En esta sección se crea la puerta de enlace de red virtual y la puerta de enlace de red local para la red de Resource Manager. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
 
-### <a name="1-create-a-virtual-network"></a>1. Crear una red virtual
+### <a name="1-create-a-virtual-network"></a>1. Creación de una red virtual
 
 **Valores de ejemplo:**
 
@@ -181,7 +182,7 @@ Antes de crear una puerta de enlace de red virtual, primero deberá crear una su
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |Dirección IP pública de puerta de enlace|
 |:--- |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU | RMVNetLocal (192.168.0.0/16) |La dirección IP pública que se asigna a la puerta de enlace ClassicVNet|
+| ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |La dirección IP pública que se asigna a la puerta de enlace ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Este de EE. UU |ClassicVNetLocal (10.0.0.0/24) |La dirección IP pública que se asigna a la puerta de enlace RMVNet.|
 
 La puerta de enlace de red local especifica el intervalo de direcciones y la dirección IP pública asociados a la red virtual clásica y su puerta de enlace de red virtual. Si lleva a cabo estos pasos como un ejercicio, consulte los valores de ejemplo.

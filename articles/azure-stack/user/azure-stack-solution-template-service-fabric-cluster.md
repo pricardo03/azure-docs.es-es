@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: a88d8dd2af94ac796a3b2e3c667fd40a308f02a1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: acf850bdc56e55d13b13a40ef343f2f20c4a77ca
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33877163"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969119"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementación de un clúster de Service Fabric en Azure Stack
 
@@ -192,7 +192,7 @@ Puede acceder al clúster de Service Fabric mediante el uso de Service Fabric Ex
 
 ## <a name="use-service-fabric-powershell"></a>Use Service Fabric PowerShell
 
-1. Instale el *SDK de Microsoft Azure Service Fabric* desde [Preparación del entorno de desarrollo en Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) en la documentación de Azure Service Fabric.  
+1. Instale el *SDK de Microsoft Azure Service Fabric* desde [Preparación del entorno de desarrollo en Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) en la documentación de Azure Service Fabric.  
 
 2. Una vez completada la instalación, configure las variables de entorno del sistema para asegurarse de que se puede acceder a los cmdlets de Service Fabric desde PowerShell.  
     

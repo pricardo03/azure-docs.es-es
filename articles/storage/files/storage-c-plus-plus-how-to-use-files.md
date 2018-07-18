@@ -5,7 +5,7 @@ services: storage
 documentationcenter: .net
 author: renashahmsft
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737578"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desarrollo con C++ para Azure Files
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,26 +27,24 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca de este tutorial
-
 En este tutorial, aprenderá a realizar operaciones básicas en Azure Files. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si es la primera vez que usa Azure Files, le resultará útil repasar los conceptos de las secciones siguientes para comprender los ejemplos.
 
-
-* Crear y eliminar recursos compartidos de Azure File
+* Crear y eliminar recursos compartidos de archivos de Azure
 * Crear y eliminar directorios
-* Enumerar los archivos y directorios de un recurso compartido de Azure File
+* Enumerar los archivos y directorios de un recurso compartido de archivos de Azure
 * Cargar, descargar y eliminar un archivo
-* Establecer la cuota (tamaño máximo) de un recurso compartido de Azure File
+* Establecer la cuota (tamaño máximo) de un recurso compartido de archivos de Azure
 * Crear una firma de acceso compartido (clave SAS) para un archivo que utiliza una directiva de acceso compartido definida en el recurso compartido.
 
 > [!Note]  
-> Dado que se puede tener acceso a Azure Files a través de SMB, es posible escribir aplicaciones sencillas que tengan acceso al recurso compartido de Azure Files mediante las clases y funciones estándar de E/S de C++. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de C++ de Azure Storage, que usa la [API de REST de archivos](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure Files.
+> Dado que se puede acceder a Azure Files a través de SMB, es posible escribir aplicaciones sencillas que accedan al recurso compartido de archivos de Azure mediante las clases y funciones estándar de E/S de C++. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de C++ de Azure Storage, que usa la [API de REST de archivos](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure Files.
 
 ## <a name="create-a-c-application"></a>Creación de una aplicación de C++
 Para compilar los ejemplos, debe instalar la biblioteca de cliente de Azure Storage 2.4.0 para C++. También deberá haber creado una cuenta de almacenamiento de Azure.
 
 Para instalar el cliente de Azure Storage 2.4.0 para C++, puede usar uno de los métodos siguientes:
 
-* **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
+* **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
 * **Windows:**: en Visual Studio, haga clic en **Herramientas&gt;Administrador de paquetes de NuGet&gt;Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione **ENTRAR**.
   
 ```
@@ -78,8 +77,8 @@ azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de Azure File
-Todos los archivos y directorios de un recurso compartido de Azure Files denominado **Share**. La cuenta de almacenamiento puede tener tantos recursos compartidos como los que permita la capacidad de su cuenta. Para acceder a un recurso compartido y su contenido, es preciso usar un cliente de Azure Files.
+## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
+Todos los archivos y directorios de un recurso compartido de archivos de Azure residen en un contenedor llamado un **Recurso compartido**. La cuenta de almacenamiento puede tener tantos recursos compartidos como los que permita la capacidad de su cuenta. Para acceder a un recurso compartido y su contenido, es preciso usar un cliente de Azure Files.
 
 ```cpp
 // Create the Azure Files client.
@@ -105,7 +104,7 @@ if (share.create_if_not_exists()) {
 
 En este punto, **share** contiene una referencia a un recurso compartido denominado **my-sample-share**.
 
-## <a name="delete-an-azure-file-share"></a>Eliminación de un recurso compartido de Azure File
+## <a name="delete-an-azure-file-share"></a>Eliminación de un recurso compartido de archivos de Azure
 Para eliminar un recurso compartido, realice una llamada al método **delete_if_exists** en un objeto cloud_file_share. A continuación se facilita código de ejemplo que lo hace.
 
 ```cpp
@@ -155,7 +154,7 @@ sub_directory.delete_directory_if_exists();
 directory.delete_directory_if_exists();
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de Azure File
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de archivos de Azure
 Es fácil obtener una lista de archivos y directorios dentro de un recurso compartido mediante la llamada a **list_files_and_directories** en una referencia de **cloud_file_directory**. Para acceder al conjunto completo de propiedades y métodos de un elemento **list_file_and_directory_item** devuelto, debe llamar al método **list_file_and_directory_item.as_file** para obtener un objeto **cloud_file**, o al método **list_file_and_directory_item.as_directory** para obtener un objeto **cloud_file_directory**.
 
 El código siguiente muestra cómo recuperar y generar el URI de cada elemento en el directorio raíz del recurso compartido.
@@ -182,7 +181,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Cargar un archivo
-Un recurso compartido de Azure File contiene como mínimo un directorio raíz donde pueden residir los archivos. En esta sección, aprenderá cómo cargar un archivo del almacenamiento local en el directorio raíz de un recurso compartido.
+Un recurso compartido de archivos de Azure contiene, como mínimo, un directorio raíz en el que pueden residir los archivos. En esta sección, aprenderá cómo cargar un archivo del almacenamiento local en el directorio raíz de un recurso compartido.
 
 El primer paso para cargar un archivo es obtener una referencia al directorio donde debe residir. Para ello, llame al método **get_root_directory_reference** del objeto de recurso compartido.
 
@@ -255,7 +254,7 @@ azure::storage::cloud_file file =
 file.delete_file_if_exists();
 ```
 
-## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Establecer la cuota (tamaño máximo) de un recurso compartido de Azure File
+## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Establecer la cuota (tamaño máximo) de un recurso compartido de archivos de Azure
 Puede establecer la cuota (o el tamaño máximo) para un recurso compartido de archivos, en gigabytes. También puede comprobar cuántos datos se almacenan actualmente en el recurso compartido.
 
 Al establecer la cuota para un recurso compartido, puede limitar el tamaño total de los archivos almacenados en el recurso compartido. Si el tamaño total de archivos del recurso compartido supera la cuota establecida en el recurso compartido, los clientes no podrán aumentar el tamaño de los archivos existentes ni crear nuevos archivos, a menos que estén vacíos.
@@ -354,9 +353,9 @@ if (share.exists())
 }
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre Almacenamiento de Azure, consulte los siguientes recursos:
+Para obtener más información sobre Azure Storage, consulte los siguientes recursos:
 
 * [Biblioteca de cliente de almacenamiento para C++](https://github.com/Azure/azure-storage-cpp)
-* [Ejemplos del servicio Azure Storage File en C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Explorador de almacenamiento de Azure](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Ejemplos de servicio de archivo de Azure Storage en C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Explorador de Azure Storage](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Documentación de Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

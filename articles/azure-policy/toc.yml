@@ -20,9 +20,158 @@
     - name: Exploración de Azure Policy (laboratorios prácticos)
       href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Ejemplos
+  href: json-samples.md
   items:
-    - name: Ejemplos de Azure Policy
-      href: json-samples.md
+    - name: General
+      items:
+        - name: Nomenclatura
+          items:
+            - name: Permitir varios patrones de nombre
+              href: scripts/allow-multiple-name-patterns.md
+            - name: Requerir patrón Like
+              href: scripts/enforce-like-pattern.md
+            - name: Requerir patrón de coincidencia
+              href: scripts/enforce-match-pattern.md
+            - name: Requerir patrón de coincidencia de etiqueta
+              href: scripts/enforce-tag-match-pattern.md
+        - name: Etiquetas
+          items:
+            - name: Aplicar etiqueta y su valor predeterminado
+              href: scripts/apply-tag-def-val.md
+            - name: Iniciativa de directiva de etiquetas de facturación
+              href: scripts/billing-tags-policy-init.md
+            - name: Enforce tag and its value (Forzar una etiqueta y su valor)
+              href: scripts/enforce-tag-val.md
+            - name: Aplicar etiqueta y su valor en grupos de recursos
+              href: scripts/enforce-tag-rg.md
+        - name: Ubicaciones
+          items:
+            - name: Ubicaciones permitidas
+              href: scripts/allowed-locs.md
+        - name: Tipos de recursos
+          items:
+            - name: Tipos de recursos permitidos
+              href: scripts/allowed-res-types.md
+            - name: Tipos de recursos no permitidos
+              href: scripts/not-allowed-res-type.md
+    - name: Compute
+      items:
+        - name: Máquinas virtuales
+          items:
+            - name: Permitir una imagen de máquina virtual personalizada desde un grupo de recursos
+              href: scripts/allow-custom-vm-image.md
+            - name: SKU permitidas para cuentas de almacenamiento y máquinas virtuales
+              href: scripts/allowed-skus-storage.md
+            - name: Imágenes de máquina virtual aprobadas
+              href: scripts/allowed-custom-images.md
+            - name: Auditar si la extensión no existe
+              href: scripts/audit-ext-not-exist.md
+            - name: Extensiones de máquina virtual no permitidas
+              href: scripts/not-allowed-vm-ext.md
+        - name: Conjuntos de escalado de máquinas virtuales
+          items:
+            - name: Auditoría cuando la máquina virtual no utiliza un disco administrado
+              href: scripts/create-vm-managed-disk.md
+            - name: Crear una máquina virtual con un disco administrado
+              href: scripts/use-managed-disk-vm.md
+            - name: Denegar la ventaja para uso híbrido
+              href: scripts/deny-hybrid-use.md
+            - name: Permitir solo cierta imagen de plataforma de máquina virtual
+              href: scripts/allow-certain-vm-image.md
+    - name: Data Lake
+      items:
+        - name: Aplicar cifrado de Data Lake Store
+          href: scripts/enforce-datalakestore-encryption.md
+    - name: Supervisión
+      items:
+        - name: Auditar la configuración de diagnóstico
+          href: scripts/audit-diag-setting.md
+    - name: Red
+      items:
+        - name: Interfaces de red
+          items:
+            - name: NSG X en cada NIC
+              href: scripts/nsg-on-nic.md
+            - name: Usar subred aprobada para las interfaces de red de máquinas virtuales
+              href: scripts/use-approved-subnet-vm-nics.md
+            - name: Usar red virtual aprobada para las interfaces de red de máquinas virtuales
+              href: scripts/use-approved-vnet-vm-nics.md
+        - name: Redes virtuales
+          items:
+            - name: SKU permitidas de Application Gateway
+              href: scripts/allowed-app-gate-sku.md
+            - name: Sin emparejamiento de red con la red de ER
+              href: scripts/no-peering-er-net.md
+            - name: Sin tabla de rutas definida por el usuario
+              href: scripts/no-user-def-route-table.md
+            - name: NSG X en cada subred
+              href: scripts/nsg-on-subnet.md
+            - name: Usar subred aprobada para las interfaces de red de máquinas virtuales
+              href: scripts/use-approved-subnet-vm-nics.md
+            - name: Usar red virtual aprobada para las interfaces de red de máquinas virtuales
+              href: scripts/use-approved-vnet-vm-nics.md
+        - name: Grupos de seguridad de red
+          items:
+            - name: NSG X en cada NIC
+              href: scripts/nsg-on-nic.md
+            - name: NSG X en cada subred
+              href: scripts/nsg-on-subnet.md
+        - name: ExpressRoute
+          items:
+            - name: Ancho de banda permitido de ExpressRoute
+              href: scripts/allowed-er-band.md
+            - name: SKU permitidas de ExpressRoute
+              href: scripts/allowed-er-skus.md
+            - name: Ubicación de emparejamiento permitida para ExpressRoute
+              href: scripts/allowed-peering-er.md
+        - name: Instancias de Network Watcher
+          items:
+            - name: Auditar si Network Watcher no está habilitado para la región
+              href: scripts/net-watch-not-enabled.md
+        - name: Puertas de enlace de aplicaciones
+          items:
+            - name: SKU permitidas de Application Gateway
+              href: scripts/allowed-app-gate-sku.md
+    - name: SQL
+      items:
+        - name: Servidores SQL Server
+          items:
+            - name: Auditar cuándo no hay administrador de Azure Active Directory
+              href: scripts/audit-no-aad-admin.md
+            - name: Auditar la configuración de detección de amenazas en el nivel de servidor
+              href: scripts/audit-sql-ser-threat-det-setting.md
+            - name: Auditar la configuración de auditoría de SQL Server
+              href: scripts/sql-server-audit.md
+            - name: Auditar la configuración de auditoría en el nivel de SQL Server
+              href: scripts/audit-sql-ser-leve-audit-setting.md
+            - name: Requisito de la versión 12.0 de SQL Server
+              href: scripts/req-sql-12.md
+        - name: Instancias de SQL Database
+          items:
+            - name: SKU permitidas de SQL DB
+              href: scripts/allowed-sql-db-skus.md
+            - name: Auditar la configuración de detección de amenazas en el nivel de SQL DB
+              href: scripts/audit-db-threat-det-setting.md
+            - name: Auditar cifrado de SQL DB
+              href: scripts/sql-database-encryption-audit.md
+            - name: Auditar la configuración de auditoría en el nivel de SQL DB
+              href: scripts/audit-sql-db-audit-setting.md
+            - name: Auditar el estado del cifrado de datos transparente
+              href: scripts/audit-trans-data-enc-status.md
+    - name: Storage
+      items:
+        - name: SKU permitidas para la cuenta de almacenamiento y las máquinas virtuales
+          href: scripts/allowed-skus-storage.md
+        - name: SKU de cuenta de almacenamiento permitida
+          href: scripts/allowed-stor-acct-skus.md
+        - name: Denegar el nivel de almacenamiento de acceso esporádico para las cuentas de almacenamiento
+          href: scripts/deny-cool-access-tiering.md
+        - name: Asegurar el tráfico HTTPS solo para una cuenta de almacenamiento
+          href: scripts/ensure-https-stor-acct.md
+        - name: Asegurar el cifrado de archivos de almacenamiento
+          href: scripts/ensure-store-file-enc.md
+        - name: Requisito de cifrado de la cuenta de almacenamiento
+          href: scripts/req-store-acct-enc.md
 - name: Conceptos
   items:
     - name: Estructura de definición de Azure Policy

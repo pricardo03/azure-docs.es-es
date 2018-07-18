@@ -1,6 +1,6 @@
 ---
-title: Protección de las comunicaciones remotas de servicios en Azure Service Fabric | Microsoft Docs
-description: Aprenda a proteger las comunicaciones remotas basadas en servicios para servicios de confianza que se ejecutan en un clúster de Azure Service Fabric.
+title: Protección de las comunicaciones remotas de los servicios escritos en C# en Azure Service Fabric | Microsoft Docs
+description: Aprenda a proteger las comunicaciones remotas de los servicios de Reliable Services escritos en C# que se ejecutan en un clúster de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: cd7211ecda61ab2cca0f97e292d9ce2c47ed6933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: be5dab7b9714f13a4bd30e6ab33a5a0e2016212d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020026"
 ---
-# <a name="secure-service-remoting-communications-for-a-service"></a>Proteger las comunicaciones remotas para un servicio
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Protección de las comunicaciones remotas de un servicio escrito en C#
 > [!div class="op_single_selector"]
 > * [C# en Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java en Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-La seguridad es uno de los aspectos más importantes de la comunicación. El marco de trabajo de la aplicación de Reliable Services proporciona una serie de pilas de comunicación creadas previamente y herramientas que puede utilizar para mejorar la seguridad. Este artículo trata sobre cómo mejorar la seguridad cuando se utiliza la comunicación remota de servicios.
+La seguridad es uno de los aspectos más importantes de la comunicación. El marco de trabajo de la aplicación de Reliable Services proporciona una serie de pilas de comunicación creadas previamente y herramientas que puede utilizar para mejorar la seguridad. En este artículo se describe cómo mejorar la seguridad cuando se utiliza la comunicación remota en un servicio escrito en C#. Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remoting.md) existente que explica cómo configurar la comunicación remota para servicios de Reliable Services escritos en C#. 
 
-Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remoting.md) existente que explica cómo configurar la comunicación remota para Reliable Services. Para ayudar a garantizar un servicio cuando usa la comunicación remota para los servicios, siga estos pasos:
+Para ayudar a proteger un servicio cuando se usa la comunicación remota con servicios escritos en C#, siga estos pasos:
 
 1. Cree una interfaz, `IHelloWorldStateful`, que defina los métodos que estarán disponibles para la llamada a procedimiento remoto en su servicio. El servicio usará `FabricTransportServiceRemotingListener`, que se declara en el espacio de nombres `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Se trata de una implementación de `ICommunicationListener` que ofrece capacidades de comunicación remota.
 
@@ -56,7 +57,12 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
     ```
 2. Agregue la configuración de escucha y las credenciales de seguridad.
 
-    Asegúrese de que el certificado que desea utilizar para ayudar a proteger la comunicación de servicio esté instalado en todos los nodos del clúster. Hay dos formas de proporcionar la configuración de escucha y las credenciales de seguridad:
+    Asegúrese de que el certificado que desea utilizar para ayudar a proteger la comunicación de servicio esté instalado en todos los nodos del clúster. 
+    
+    > [!NOTE]
+    > En los nodos Linux, el certificado debe estar presente como un archivo con formato PEM en el directorio */var/lib/sfcerts*. Para más información, consulte [Ubicación y formato de los certificados X.509 en nodos Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+
+    Hay dos formas de proporcionar la configuración de escucha y las credenciales de seguridad:
 
    1. Proporcionarlas directamente en el código de servicio:
 
@@ -93,7 +99,7 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
        ```
    2. Proporcionarlas utilizando un [paquete de configuración](service-fabric-application-and-service-manifests.md):
 
-       Agregue una sección `TransportSettings` en el archivo settings.xml.
+       Agregue una sección llamada `TransportSettings` al archivo settings.xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -201,5 +207,6 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
     string message = await client.GetHelloWorld();
 
     ```
+
 
 A continuación, lea [Web API con OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md).

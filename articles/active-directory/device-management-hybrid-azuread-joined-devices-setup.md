@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258319"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261192"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
 Con la administración de dispositivos en Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. Para más información, vea [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md).
 
-Si tiene un entorno local de Active Directory y quiere unir sus dispositivos unidos a un dominio a Azure AD, puede hacerlo configurando dispositivos híbridos unidos a Azure AD. El tema le indica los pasos relacionados. 
+Si tiene un entorno local de Active Directory y quiere unir sus dispositivos unidos a un dominio a Azure AD, puede hacerlo configurando dispositivos híbridos unidos a Azure AD. En este artículo, se indican los pasos relacionados. 
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -37,7 +38,7 @@ Si está confiando en la [Herramienta de preparación del sistema (Sysprep)](htt
 
 Todos los dispositivos unidos a un dominio en que se ejecuten la Actualización de aniversario de Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD cuando el dispositivo se reinicie o el usuario inicie sesión una vez finalizados los pasos de configuración mencionados a continuación. **Si no se prefiere este comportamiento de registro automático o si se desea un lanzamiento controlado**, siga primero las instrucciones de la sección "Paso 4: Control de implementación y lanzamiento" a continuación para habilitar o deshabilitar de forma selectiva el lanzamiento automático antes de seguir los otros pasos de configuración.  
 
-Para mejorar la legibilidad de las descripciones, en este tema se utiliza el término siguiente: 
+Para mejorar la legibilidad de las descripciones, en este artículo se utiliza el término siguiente: 
 
 - **Dispositivos de Windows actuales**: este término indica los dispositivos unidos a un dominio en los que se ejecutan Windows 10 o Windows Server 2016.
 - **Dispositivos de Windows de nivel inferior**: este término indica todos los dispositivos de Windows unidos a un dominio **compatibles** en los que no se ejecutan Windows 10 ni Windows Server 2016.  
@@ -56,7 +57,8 @@ Para mejorar la legibilidad de las descripciones, en este tema se utiliza el té
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- El registro de dispositivos de Windows de nivel inferior **se** admite en entornos no federados a través del inicio de sesión único de conexión directa [Inicio de sesión único de conexión directa de Azure Active Directory](https://aka.ms/hybrid/sso).
+- El registro de dispositivos de Windows de nivel inferior **se** admite en entornos no federados a través del inicio de sesión único de conexión directa [Inicio de sesión único de conexión directa de Azure Active Directory](https://aka.ms/hybrid/sso). 
+- El registro de dispositivos de Windows de nivel inferior **no** se admite al usar la autenticación de paso a través de Azure AD.
 - El registro de dispositivos de Windows de nivel inferior **no se** admite en dispositivos que usan perfiles móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
 
 
@@ -80,8 +82,7 @@ Asegúrese de que las direcciones URL siguientes son accesibles desde equipos de
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com (permitir)
 - https://device.login.microsoftonline.com
 
 - STS de su organización (dominios federados)
@@ -94,7 +95,7 @@ Si su organización tiene previsto usar SSO sin problemas, las siguientes direcc
 
 - https://aadg.windows.net.nsatc.net
 
-- Además, se debe habilitar la siguiente configuración en la zona de la intranet del usuario: "Permitir actualizaciones en la barra de estado a través de script".
+- Además, se debe habilitar la siguiente configuración en la zona de la intranet del usuario: "Permitir actualizaciones de barra de estado a través de scripts".
 
 Si su organización usa una configuración administrada (no federada) con AD local y no utiliza ADFS para federar con Azure AD, la combinación de Azure AD híbrido de Windows 10 usa los objetos de equipo de AD para sincronizarse con Azure AD. Asegúrese de que todas las unidades organizativas que contengan los objetos de equipo que deban unirse a Azure AD híbrido estén habilitados para sincronizarse en la configuración de sincronización de Azure AD Connect.
 

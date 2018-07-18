@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +16,12 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: aff37c4b440fe545ba69a409b9dcd83deabf7660
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e666d23cec4ec6d987084bf5dc33bdb7c3db0f66
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231206"
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Configuración de SharePoint Online y Exchange Online para el acceso condicional de Azure Active Directory 
 
@@ -180,7 +182,7 @@ Mediante la aplicación de las tres reglas siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+Para más información, consulte [¿Qué es el acceso condicional en Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
 
 Para instrucciones sobre cómo configurar las reglas de notificación, consulte [Configurar reglas de notificación](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-claim-rules). 
 

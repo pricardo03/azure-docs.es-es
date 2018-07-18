@@ -3,25 +3,22 @@ title: Administración de Azure Cosmos DB en el Explorador de Azure Storage
 description: Aprenda a administrar Azure Cosmos DB en el Explorador de Azure Storage.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang
-manager: omafnan
+manager: kfile
 editor: ''
 tags: Azure Cosmos DB
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345114"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Administración de Azure Cosmos DB en el Explorador de Azure Storage
 
@@ -222,7 +219,7 @@ Antes de continuar, pruebe a reiniciar la aplicación para ver si se pueden corr
 
 Existen varias razones por las que puede ver este error, las dos más comunes son:
 
-+ Se encuentra detrás de un "proxy transparente", lo que significa que alguien (por ejemplo el departamento de TI) intercepta el tráfico HTTPS, lo descifra y después lo cifra mediante un certificado autofirmado.
++ Se encuentra detrás de un *proxy transparente*, lo que significa que alguien (por ejemplo el departamento de TI) intercepta el tráfico HTTPS, lo descifra y después lo cifra mediante un certificado autofirmado.
 
 + Está ejecutando un software, como un software antivirus, que inserta un certificado SSL autofirmado en los mensajes HTTPS que recibe.
 

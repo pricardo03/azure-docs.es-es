@@ -16,19 +16,22 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: c9ebfcba59e3f46fb30f4cd2402ec4ebb606f6d0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, lenalepa
+ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316966"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
+
 En Azure AD existen dos conceptos de aplicación: 
-* [Objetos de aplicación](active-directory-application-objects.md#application-object): aunque hay [excepciones](#notes-and-exceptions), se pueden considerar como la definición de una aplicación.
+* [Objetos de aplicación](active-directory-application-objects.md#application-object): aunque hay [excepciones](#notes-and-exceptions), los objetos de aplicación pueden considerarse como la definición de una aplicación.
 * [Entidades de servicio](active-directory-application-objects.md#service-principal-object): pueden considerarse como una instancia de una aplicación. Las entidades de servicio suelen hacer referencia a un objeto de aplicación. Asimismo, varias entidades de servicio de diversos directorios pueden hacer referencia a un mismo objeto de aplicación.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>¿Qué son los objetos de aplicación y de dónde provienen?
-Los [objetos de aplicación](active-directory-application-objects.md#application-object) (que se pueden administrar en Azure Portal mediante la experiencia de [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)) describen la aplicación para Azure AD y pueden considerarse como la definición de la aplicación, que permite al servicio saber cómo emitir tokens para la aplicación en función de su configuración. El objeto de aplicación solo está presente en su directorio principal, incluso si se trata de una aplicación multiinquilino que admite entidades de servicio en otros directorios. El objeto de aplicación puede incluir cualquiera de los siguientes datos (así como información adicional que no se indica aquí):
+Puede administrar los [objetos de aplicación](active-directory-application-objects.md#application-object) en Azure Portal a través de la experiencia de [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade). Los objetos de aplicación describen la aplicación para Azure AD y pueden considerarse como su definición, que permite al servicio saber cómo emitir tokens para la aplicación en función de su configuración. El objeto de aplicación solo está presente en su directorio principal, incluso si se trata de una aplicación multiinquilino que admite entidades de servicio en otros directorios. El objeto de aplicación puede incluir cualquiera de los siguientes datos (así como información adicional que no se indica aquí):
 * Nombre, logotipo y editor
 * URL de respuesta
 * Secretos (claves simétricas o asimétricas utilizadas para autenticar la aplicación)
@@ -47,7 +50,7 @@ Los objetos de aplicación se pueden crear de varias maneras, incluidas las sigu
 * Muchas más, incluidas varias experiencias de desarrollador en Azure y experiencias del explorador de API en centros de desarrollador.
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>¿Qué son las entidades de servicio y de dónde provienen?
-Las [entidades de servicio](active-directory-application-objects.md#service-principal-object) (que se pueden administrar a través de la experiencia de [Aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)) son lo que realmente rigen una aplicación que se conecta a Azure AD y pueden considerarse la instancia de la aplicación en el directorio. Cualquier aplicación determinada puede tener como máximo un objeto de aplicación (registrado en un directorio principal) y uno o varios objetos de entidad de servicio que representan instancias de la aplicación en cada directorio en donde actúa. 
+Puede administrar las [entidades de servicio](active-directory-application-objects.md#service-principal-object) en Azure Portal a través de la experiencia de [Aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Las entidades de servicio son las que realmente rigen una aplicación que se conecta a Azure AD y pueden considerarse la instancia de la aplicación en el directorio. Cualquier aplicación determinada puede tener como máximo un objeto de aplicación (registrado en un directorio principal) y uno o varios objetos de entidad de servicio que representan instancias de la aplicación en cada directorio en donde actúa. 
 
 La entidad de servicio puede incluir:
 
@@ -72,7 +75,7 @@ Al igual que los objetos de aplicación, las entidades de servicio se pueden cre
 * Cuando un administrador añade una aplicación desde la galería de aplicaciones (esto también creará un objeto de aplicación subyacente).
 * Al añadir una aplicación para usar el [Azure Active Directory Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx).
 * Al conectar una aplicación para inicio de sesión único utilizando SAML o inicio de sesión único (SSO) de contraseña.
-* Mediante programación con Graph API de Azure AD o PowerShell.
+* Mediante programación con Graph API de Azure AD o PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>¿Qué relación tienen los objetos de aplicación y las entidades de servicio?
 Una aplicación tiene un objeto de aplicación en su directorio principal al que una o varias entidades de servicio hacen referencia en cada uno de los directorios donde opera (incluido el directorio principal de la aplicación).
@@ -129,7 +132,8 @@ Si aún desea impedir que los usuarios del directorio registren aplicaciones e i
 * Para impedir que los usuarios autoricen aplicaciones en su propio nombre:
   1. En Azure Portal, vaya a la sección [Configuración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) en Aplicaciones empresariales.
   2. Cambie **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** a **No**. 
-     *Tenga en cuenta que si decide desactivar el consentimiento del usuario, se necesitará que un administrador dé su consentimiento a cualquier nueva aplicación que un usuario necesite usar.*
+      > [!NOTE]
+      > Si decide desactivar el consentimiento del usuario, se necesitará que un administrador dé su consentimiento a cualquier nueva aplicación que un usuario necesite usar.    
 * Para impedir que los usuarios registren sus propias aplicaciones:
   1. En Azure Portal, vaya a la sección [Configuración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) en Azure Active Directory.
   2. Cambie **Los usuarios pueden registrar aplicaciones** a **No**.

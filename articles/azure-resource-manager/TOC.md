@@ -2,21 +2,25 @@
 
 # Información general
 ## [¿Qué es Resource Manager?](resource-group-overview.md)
-## [Tipos y proveedores de recursos](resource-manager-supported-services.md)
 ## [Implementación de Resource Manager y clásica](resource-manager-deployment-model.md)
-## [Gobierno de suscripción](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [Organización de recursos con grupos de administración](management-groups-overview.md)
 
 # Introducción
 ## [Creación e implementación de una plantilla](resource-manager-create-first-template.md)
 ## [Extensión de VS Code para plantillas](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Conceptos
+## [Tipos y proveedores de recursos](resource-manager-supported-services.md)
+## [Grupos de administración](management-groups-overview.md)
+## [Gobierno de suscripción](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Plantillas para mantener la coherencia en la nube](templates-cloud-consistency.md)
+
 # Procedimientos
 ## Crear plantillas
 ### [Secciones de plantilla](resource-group-authoring-templates.md)
 #### [Parámetros](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
+#### [Funciones](resource-group-authoring-templates.md#functions)
 #### [Recursos](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [Plantillas vinculadas y anidadas](resource-group-linked-templates.md)
@@ -47,7 +51,8 @@
 ### [Azure Portal](resource-group-portal.md)
 ### [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md)
 ### [Traslado de recursos a una suscripción o grupo nuevo](resource-group-move-resources.md)
-### [Creación mediante programación de suscripciones de EA](programmatically-create-subscription.md)
+### [Creación de suscripciones de EA](programmatically-create-subscription.md)
+### [Concesión de acceso para crear suscripciones de EA](grant-access-to-create-subscription.md)
 ### [Creación de grupos de administración](management-groups-create.md)
 ### [Administración de grupos de administración](management-groups-manage.md)
 

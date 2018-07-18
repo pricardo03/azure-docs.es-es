@@ -14,7 +14,7 @@
       href: concepts-collector.md
     - name: Cálculos de evaluación
       href: concepts-assessment-calculation.md
-    - name: Visualización de dependencia
+    - name: Acerca de la visualización de dependencia
       href: concepts-dependency-visualization.md
 - name: Guías de procedimientos
   items:
@@ -22,7 +22,7 @@
       items:
         - name: '1. Contoso: Introducción a la migración'
           href: contoso-migration-overview.md
-        - name: '2. Contoso: Configuración de una infraestructura de Azure'
+        - name: '2. Contoso: Implementación de una infraestructura de Azure'
           href: contoso-migration-infrastructure.md
         - name: '3. Contoso: Evaluación de los recursos locales para la migración a Azure'
           href: contoso-migration-assessment.md
@@ -30,6 +30,22 @@
           href: contoso-migration-rehost-vm-sql-managed-instance.md
         - name: '5. Contoso: Rehospedaje de una aplicación en máquinas virtuales de Azure'
           href: contoso-migration-rehost-vm.md
+        - name: '6. Contoso: Rehospedaje de una aplicación en máquinas virtuales de Azure y en los Grupos de disponibilidad Always On de Azure SQL Server'
+          href: contoso-migration-rehost-vm-sql-ag.md
+        - name: '7. Contoso: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure'
+          href: contoso-migration-rehost-linux-vm.md
+        - name: '8. Contoso: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure y en Azure MySQL'
+          href: contoso-migration-rehost-linux-vm-mysql.md
+        - name: 9. Contoso-Refactor una aplicación de Azure Web Apps y Azure SQL Database
+          href: contoso-migration-refactor-web-app-sql.md
+        - name: 10. Contoso-Refactor una aplicación Linux en Azure Web Apps y Azure MySQL
+          href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: '11. Contoso: migración de TFS a VSTS'
+          href: contoso-migration-tfs-vsts.md
+        - name: '12. Contoso: Rediseño de una aplicación en Azure Containers y Azure SQL Database'
+          href: contoso-migration-rearchitect-container-sql.md
+        - name: '13. Contoso: Recompilación de una aplicación en Azure'
+          href: contoso-migration-rebuild.md
     - name: Detección y evaluación de un entorno grande
       href: how-to-scale-assessment.md
     - name: Agrupación de máquinas

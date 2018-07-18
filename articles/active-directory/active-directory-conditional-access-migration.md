@@ -1,28 +1,30 @@
 ---
-title: "Migración de directivas clásicas en Azure Portal | Microsoft Docs"
-description: "Aprenda todo lo necesario sobre cómo migrar las directivas clásicas en Azure Portal."
+title: ¿Qué es una migración de directivas en el acceso condicional de Azure Active Directory? | Microsoft Docs
+description: Aprenda todo lo necesario sobre cómo migrar las directivas clásicas en Azure Portal.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4a9b3df66567c4170ba861d3e597261e37271bf1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232101"
 ---
-# <a name="migrate-classic-policies-in-the-azure-portal"></a>Migración de directivas clásicas en Azure Portal 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>¿Qué es una migración de directivas en el acceso condicional de Azure Active Directory? 
 
 
 El [acceso condicional](active-directory-conditional-access-azure-portal.md) es una funcionalidad de Azure Active Directory (Azure AD) que le permite controlar cómo acceden los usuarios autorizados a las aplicaciones en la nube. Aunque el propósito sigue siendo el mismo, la nueva versión de Azure Portal presenta mejoras importantes acerca de cómo funciona el acceso condicional.
@@ -83,11 +85,11 @@ Puede administrar todas las directivas en una ubicación central mediante el acc
 
 Consulte:
 
-- [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md) para conocer la terminología y los conceptos básicos.
+- [Qué es el acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md) para información sobre la terminología y los conceptos básicos.
 
 - [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md) para obtener información sobre la implementación de acceso condicional en su organización.
 
-- [Introducción al acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) para familiarizarse con la interfaz de usuario de Azure Portal.
+- [Requerir MGA para aplicaciones específicas con acceso condicional a Azure Active Directory](active-directory-conditional-access-app-based-mfa.md) para familiarizarse con la interfaz de usuario de Azure Portal.
 
 
  
@@ -168,6 +170,6 @@ En una directiva nueva, debe seleccionar las [plataformas de dispositivo](active
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
+- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md). 

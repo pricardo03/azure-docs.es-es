@@ -1,11 +1,11 @@
 ---
-title: "Diseño de identidades híbridas: estrategia de protección de datos en Azure | Microsoft Docs"
-description: "Puede definir la estrategia de protección de datos para que su solución de identidad híbrida cumpla los requisitos empresariales que se indiquen."
-documentationcenter: 
+title: 'Diseño de identidades híbridas: estrategia de protección de datos en Azure | Microsoft Docs'
+description: Puede definir la estrategia de protección de datos para que su solución de identidad híbrida cumpla los requisitos empresariales que se indiquen.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f0def105997213ae5d356de89e6189b6441facbd
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291920"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
 En esta tarea, se definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen en:
@@ -55,7 +57,7 @@ En función de cómo responda a las preguntas del apartado [Determinar los requi
 >
 
 ## <a name="define-content-management-options"></a>Definición de las opciones de administración de contenido
-Una ventaja de usar Azure AD para administrar una infraestructura de identidad híbrida es que el proceso es completamente transparente desde la perspectiva del usuario final. El usuario intenta acceder a un recurso compartido, pero el recurso requiere autenticación, por lo que el usuario tendrá que enviar una solicitud de autenticación a Azure AD para obtener el token y el acceso al recurso. Todo este proceso se produce en segundo plano, sin interacción del usuario. También se puede conceder permiso a un [grupo](active-directory-manage-groups.md#getting-started-with-access-management) de usuarios para que puedan realizar determinadas acciones comunes.
+Una ventaja de usar Azure AD para administrar una infraestructura de identidad híbrida es que el proceso es completamente transparente desde la perspectiva del usuario final. El usuario intenta acceder a un recurso compartido, pero el recurso requiere autenticación, por lo que el usuario tendrá que enviar una solicitud de autenticación a Azure AD para obtener el token y el acceso al recurso. Todo este proceso se produce en segundo plano, sin interacción del usuario. También se puede conceder permiso a un [grupo](fundamentals/active-directory-manage-groups.md#getting-started-with-access-management) de usuarios para que puedan realizar determinadas acciones comunes.
 
 Las organizaciones a las que preocupa la privacidad de los datos requieren la clasificación de datos para su solución. Si su infraestructura local actual ya usa la clasificación de datos, es posible usar Azure AD como repositorio principal de la identidad del usuario. Una herramienta común que se usa localmente para la clasificación de datos se denomina [Data Classification Toolkit](https://msdn.microsoft.com/library/Hh204743.aspx) para Windows Server 2012 R2. Esta herramienta puede ayudar a identificar, clasificar y proteger los datos de los servidores de archivos de su nube privada. También es posible usar la [clasificación de archivos automática](https://technet.microsoft.com/library/hh831672.aspx) en Windows Server 2012 para lograrlo.
 
@@ -115,27 +117,26 @@ Una vez que el usuario se autentica mediante Azure AD, es importante evaluar el 
 
 Cada una de las interacciones del diagrama que se muestra en la Ilustración X representa un escenario de control de acceso que se pueden cubrir con Azure AD. A continuación encontrará una descripción de cada escenario:
 
-1. Acceso condicional a las aplicaciones hospedadas localmente: puede usar dispositivos registrados con directivas de acceso en aplicaciones configuradas para usar AD FS con Windows Server 2012 R2. Para obtener más información sobre cómo configurar el acceso condicional localmente, consulte [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+  1. Acceso condicional a las aplicaciones hospedadas localmente: puede usar dispositivos registrados con directivas de acceso en aplicaciones configuradas para usar AD FS con Windows Server 2012 R2. Para obtener más información sobre cómo configurar el acceso condicional localmente, consulte [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-2. Control de acceso al portal de Azure: Azure también le permite controlar el acceso al portal mediante el control de acceso basado en roles (RBAC). Este método permite a la empresa restringir la cantidad de operaciones que una persona puede hacer en Azure Portal. Si se usa RBAC para controlar el acceso al portal, los administradores de TI pueden delegar el acceso con los siguientes enfoques de administración de acceso:
+  2. Control de acceso al portal de Azure: Azure también le permite controlar el acceso al portal mediante el control de acceso basado en roles (RBAC). Este método permite a la empresa restringir la cantidad de operaciones que una persona puede hacer en Azure Portal. Si se usa RBAC para controlar el acceso al portal, los administradores de TI pueden delegar el acceso con los siguientes enfoques de administración de acceso:
 
-    * Asignación de roles basada en grupo: se puede asignar acceso a los grupos de Azure AD que se puedan sincronizar desde Active Directory local. Esto le permite aprovechar las inversiones que su organización realizó en herramientas y procesos para administrar grupos. También puede usar la característica de administración de grupos delegados de Azure AD Premium.
-    * Usar los roles integrados en Azure: puede usar tres roles (Propietario, Colaborador y Lector) para asegurarse de que los usuarios y los grupos tienen permiso para realizar únicamente las tareas necesarias para sus respectivos trabajos.
-    * Acceso granular a los recursos: puede asignar roles a los usuarios y grupos para una suscripción concreta, un grupo de recursos o un recurso individual de Azure como un sitio web o una base de datos. De esta forma, puede asegurarse de que los usuarios tengan acceso a todos los recursos que necesitan y ningún acceso a los que no necesitan administrar.
+   - Asignación de roles basada en grupo: se puede asignar acceso a los grupos de Azure AD que se puedan sincronizar desde Active Directory local. Esto le permite aprovechar las inversiones que su organización realizó en herramientas y procesos para administrar grupos. También puede usar la característica de administración de grupos delegados de Azure AD Premium.
+   - Usar los roles integrados en Azure: puede usar tres roles (Propietario, Colaborador y Lector) para asegurarse de que los usuarios y los grupos tienen permiso para realizar únicamente las tareas necesarias para sus respectivos trabajos.
+   -  Acceso granular a los recursos: puede asignar roles a los usuarios y grupos para una suscripción concreta, un grupo de recursos o un recurso individual de Azure como un sitio web o una base de datos. De esta forma, puede asegurarse de que los usuarios tengan acceso a todos los recursos que necesitan y ningún acceso a los que no necesitan administrar.
 
-> [!NOTE]
-> Si va a crear aplicaciones y desea personalizar el control de acceso a ellas, también pueden usar los roles de aplicación de Azure AD para la autorización. Para usar esta capacidad, revise el [ejemplo WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) de creación de una aplicación.
->
->
+   > [!NOTE]
+   > Si va a crear aplicaciones y desea personalizar el control de acceso a ellas, también pueden usar los roles de aplicación de Azure AD para la autorización. Para usar esta capacidad, revise el [ejemplo WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) de creación de una aplicación.
 
-3. Acceso condicional para aplicaciones de Office 365 con Microsoft Intune: los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios. Para obtener más información, vea [Directivas de dispositivos de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md).
 
-4. Acceso condicional para aplicaciones SaaS: [esta característica](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) permite configurar reglas de acceso a la autenticación multifactor por aplicación y la posibilidad de bloquear el acceso a los usuarios que no estén en una red de confianza. La regla de autenticación multifactor puede aplicarse a todos los usuarios que están asignados a la aplicación o solo a los que pertenecen a grupos de seguridad especificados. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización.
+  3. Acceso condicional para aplicaciones de Office 365 con Microsoft Intune: los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios. Para obtener más información, vea [Directivas de dispositivos de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md).
+
+  4. Acceso condicional para aplicaciones SaaS: [esta característica](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite configurar reglas de acceso a la autenticación multifactor por aplicación y la posibilidad de bloquear el acceso a los usuarios que no estén en una red de confianza. La regla de autenticación multifactor puede aplicarse a todos los usuarios que están asignados a la aplicación o solo a los que pertenecen a grupos de seguridad especificados. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización.
 
 Dado que las opciones de control de acceso usan un enfoque multicapa, la comparación entre ellas no se puede aplicar a esta tarea. Asegúrese de que saque provecho a todas las opciones disponibles para cada escenario que requiera que controle el acceso a sus recursos.
 
 ## <a name="define-incident-response-options"></a>Definición de las opciones de respuesta ante incidentes
-Azure AD puede ayudar al departamento de TI a identificar posibles riesgos de seguridad en el entorno mediante la supervisión de las actividades del usuario. Asimismo, el departamento de TI puede usar los informes de acceso y uso de Azure AD para proporcionar visibilidad sobre la integridad y la seguridad del directorio de la organización. Con esta información, un administrador de TI puede determinar mejor dónde puede haber posibles riesgos de seguridad, con el fin de que puedan planear adecuadamente la mitigación de dichos riesgos.  [suscripción a Azure AD Premium](active-directory-get-started-premium.md) tiene un conjunto de informes de seguridad que pueden permitir al departamento de TI obtener esta información. Los [informes de Azure AD](active-directory-view-access-usage-reports.md) se clasifican tal como se muestra a continuación:
+Azure AD puede ayudar al departamento de TI a identificar posibles riesgos de seguridad en el entorno mediante la supervisión de las actividades del usuario. Asimismo, el departamento de TI puede usar los informes de acceso y uso de Azure AD para proporcionar visibilidad sobre la integridad y la seguridad del directorio de la organización. Con esta información, un administrador de TI puede determinar mejor dónde puede haber posibles riesgos de seguridad, con el fin de que puedan planear adecuadamente la mitigación de dichos riesgos.  [suscripción a Azure AD Premium](fundamentals/active-directory-get-started-premium.md) tiene un conjunto de informes de seguridad que pueden permitir al departamento de TI obtener esta información. Los [informes de Azure AD](active-directory-view-access-usage-reports.md) se clasifican tal como se muestra a continuación:
 
 * **Informes de anomalías**: contienen eventos de inicio de sesión que se consideran anómalos. El objetivo aquí es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso.
 * **Informe de aplicaciones integradas**: proporciona información sobre cómo se usan en la organización las aplicaciones en la nube. Azure Active Directory ofrece integración con miles de aplicaciones en la nube.
@@ -144,9 +145,9 @@ Azure AD puede ayudar al departamento de TI a identificar posibles riesgos de se
 * **Registros de actividad**: contienen un registro de todos los eventos auditados en las últimas 24 horas, los últimos 7 días o los últimos 30 días, así como los cambios en la actividad del grupo y la actividad de registro y de restablecimiento de contraseña.
 
 > [!TIP]
-> Otro informe que también puede ayudar al equipo de respuesta ante incidentes que trabaja en un caso es el informe de [usuarios con credenciales perdidas](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) . Este informe muestra las coincidencias entre la lista de credenciales perdidas y el inquilino.
+> Otro informe que también puede ayudar al equipo de respuesta ante incidentes que trabaja en un caso es el informe de [usuarios con credenciales perdidas](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) . Este informe muestra las coincidencias entre la lista de credenciales perdidas y el inquilino.
 >
->
+
 
 Otros informes importantes integrados en Azure AD que pueden usarse durante la investigación de la respuesta ante un incidente son:
 

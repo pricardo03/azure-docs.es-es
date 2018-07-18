@@ -1,6 +1,6 @@
 ---
 title: Cómo leer o escribir datos con particiones en Azure Data Factory | Microsoft Docs
-description: Aprenda cómo leer o escribir datos con particiones en Azure Data Factory versión 2.
+description: Aprenda a leer o escribir datos con particiones en Azure Data Factory versión 2.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: e3b6ccd1e7066ed86b3d6d2d85228688b06931c4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053717"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Cómo leer o escribir datos con particiones en Azure Data Factory versión 2
-En la versión 1, Azure Data Factory admitía la lectura y la escritura de datos con particiones por medio de las variables del sistema SliceStart, SliceEnd, WindowStart y WindowEnd. En la versión 2, puede lograr este comportamiento mediante un parámetro de canalización y la hora de inicio o programada del desencadenador como un valor del parámetro. 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Lectura o escritura de datos con particiones en Azure Data Factory versión 2
+En la versión 1, Azure Data Factory admitía la lectura y la escritura de datos con particiones por medio de las variables del sistema SliceStart, SliceEnd, WindowStart y WindowEnd. En la versión actual de Data Factory, este comportamiento se logra mediante un parámetro de canalización y la hora de inicio o la hora programada del desencadenador como valor del parámetro. 
 
 ## <a name="use-a-pipeline-parameter"></a>Usar un parámetro de canalización 
 En la versión 1, podía usar la propiedad partitionedBy y la variable del sistema SliceStart tal como se muestra en el ejemplo siguiente: 
 
 ```json
-"folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/yearno={Year}/monthno={Month}/dayno={Day}/",
+"folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
 "partitionedBy": [
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "%M" } },
@@ -36,27 +37,33 @@ En la versión 1, podía usar la propiedad partitionedBy y la variable del siste
 
 Para obtener más información acerca de la propiedad partitonedBy, consulte el artículo sobre la [versión 1 del conector de Azure Blob Storage](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-En la versión 2, una forma de lograr este comportamiento es realizar las siguientes acciones: 
+En la versión actual de Data Factory, una forma de lograr este comportamiento es realizar las siguientes acciones: 
 
-1. Definir un **parámetro de canalización** de tipo cadena. En el ejemplo siguiente, el nombre del parámetro de canalización es **scheduledRunTime**. 
-2. Establecer la propiedad **folderPath** de la definición del conjunto de datos en el valor del parámetro de canalización. 
-3. Pasar un valor codificado de forma rígida para el parámetro antes de ejecutar la canalización. O bien, pasar una hora de inicio o programada del desencadenador de forma dinámica en tiempo de ejecución. 
+1. Definir un **parámetro de canalización** de tipo cadena. En el ejemplo siguiente, el nombre del parámetro de canalización es **windowStartTime**. 
+2. Establecer la propiedad **folderPath** de la definición del conjunto de datos para que haga referencia al valor del parámetro de canalización. 
+3. Pasar el valor real del parámetro al invocar la canalización a petición, o pasar una hora de inicio del desencadenador o una hora programada de forma dinámica en el runtime. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
+      "value": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/@{formatDateTime(pipeline().parameters.windowStartTime, 'yyyy/MM/dd')}/",
       "type": "Expression"
 },
 ```
 
 ## <a name="pass-in-value-from-a-trigger"></a>Pasar el valor desde un desencadenador
-En la siguiente definición del desencadenador, la hora programada del desencadenador se pasa como un valor del parámetro de canalización **scheduledRunTime**: 
+En la siguiente definición del desencadenador de la ventana de saltos de tamaño constante, la hora de inicio del desencadenador se pasa como un valor del parámetro de canalización **windowStartTime**: 
 
 ```json
 {
     "name": "MyTrigger",
     "properties": {
-       ...
+        "type": "TumblingWindowTrigger",
+        "typeProperties": {
+            "frequency": "Hour",
+            "interval": "1",
+            "startTime": "2018-05-15T00:00:00Z",
+            "delay": "00:10:00",
+            "maxConcurrency": 10
         },
         "pipeline": {
             "pipelineReference": {
@@ -64,7 +71,7 @@ En la siguiente definición del desencadenador, la hora programada del desencade
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "scheduledRunTime": "@trigger().scheduledTime"
+                "windowStartTime": "@trigger().outputs.windowStartTime"
             }
         }
     }
@@ -73,14 +80,15 @@ En la siguiente definición del desencadenador, la hora programada del desencade
 
 ## <a name="example"></a>Ejemplo
 
-A continuación se incluye una definición de conjunto de datos de ejemplo (que usa un parámetro denominado `date`):
+Aquí puede ver una definición de datos de ejemplo:
 
 ```json
 {
+  "name": "SampleBlobDataset",
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
+      "value": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/@{formatDateTime(pipeline().parameters.windowStartTime, 'yyyy/MM/dd')}/",
       "type": "Expression"
     },
     "format": {
@@ -129,20 +137,16 @@ Definición de la canalización:
                         "value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/', pipeline().parameters.inputRawLogsFolder, '/')",
                         "type": "Expression"
                     },
-                    "PARTITIONEDOUTPUT": {
-                        "value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/partitionedgameevents/')",
-                        "type": "Expression"
-                    },
                     "Year": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'yyyy')",
                         "type": "Expression"
                     },
                     "Month": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'MM')",
                         "type": "Expression"
                     },
                     "Day": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'dd')",
                         "type": "Expression"
                     }
                 }
@@ -154,7 +158,7 @@ Definición de la canalización:
             "name": "HivePartitionGameLogs"
         }],
         "parameters": {
-            "scheduledRunTime": {
+            "windowStartTime": {
                 "type": "String"
             },
             "blobStorageAccount": {
@@ -164,9 +168,6 @@ Definición de la canalización:
                 "type": "String"
             },
             "inputRawLogsFolder": {
-                "type": "String"
-            },
-            "partitionHiveScriptFile": {
                 "type": "String"
             }
         }

@@ -1,8 +1,8 @@
 ---
-title: "Aprovisionamiento de aplicaciones con filtros de ámbito | Microsoft Docs"
-description: "Obtenga información sobre cómo usar los filtros de ámbito para evitar el aprovisionamiento de los objetos de las aplicaciones que admiten el aprovisionamiento automático de usuarios, en caso de que un objeto no satisfaga los requisitos empresariales."
+title: Aprovisionamiento de aplicaciones con filtros de ámbito | Microsoft Docs
+description: Obtenga información sobre cómo usar los filtros de ámbito para evitar el aprovisionamiento de los objetos de las aplicaciones que admiten el aprovisionamiento automático de usuarios, en caso de que un objeto no satisfaga los requisitos empresariales.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293082"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -29,7 +30,7 @@ Un filtro de ámbito permite que el servicio de aprovisionamiento de Azure Activ
 
 Puede usar los filtros de ámbito de diversas maneras, según el tipo de conector de aprovisionamiento:
 
-* **Aprovisionamiento de salida desde Azure AD a aplicaciones SaaS**. Cuando Azure AD es el sistema de origen, las [asignaciones de usuarios y grupos](active-directory-coreapps-assign-user-azure-portal.md) son el método más común para determinar qué usuarios deben incluirse en el ámbito de aprovisionamiento. Estas asignaciones también se usan para habilitar el inicio de sesión único y proporcionan un único método para administrar el acceso y el aprovisionamiento. Igualmente, puede usar los filtros de ámbito de forma opcional como complemento a las asignaciones, o simplemente puede filtrar los usuarios según los valores de los atributos.
+* **Aprovisionamiento de salida desde Azure AD a aplicaciones SaaS**. Cuando Azure AD es el sistema de origen, las [asignaciones de usuarios y grupos](manage-apps/assign-user-or-group-access-portal.md) son el método más común para determinar qué usuarios deben incluirse en el ámbito de aprovisionamiento. Estas asignaciones también se usan para habilitar el inicio de sesión único y proporcionan un único método para administrar el acceso y el aprovisionamiento. Igualmente, puede usar los filtros de ámbito de forma opcional como complemento a las asignaciones, o simplemente puede filtrar los usuarios según los valores de los atributos.
 
     >[!TIP]
     > Puede deshabilitar la opción de aprovisionamiento basada en asignaciones para una aplicación empresarial estableciendo la opción del menú [Ámbito](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) que se encuentra en la configuración de aprovisionamiento en **Sincronizar todos los usuarios y grupos**. Gracias a esta opción y a los filtros de ámbito basados en los atributos, obtendrá un rendimiento más rápido que si usa asignaciones basadas en grupos.  
@@ -115,6 +116,6 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
 * [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](active-directory-saas-customizing-attribute-mappings.md)
 * [Escritura de expresiones para la asignación de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
-* [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md)
+* [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 

@@ -3,22 +3,23 @@ title: Administración de alertas de seguridad para los recursos de Azure median
 description: Se describen las alertas de seguridad de PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a773d5ae8ba07dc73cd2587039e2029ce50152d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149192"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445007"
 ---
 # <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Administración de alertas de seguridad para los recursos de Azure mediante Privileged Identity Management
 Privileged Identity Management (PIM) para los recursos de Azure genera alertas cuando existen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en la página de alertas. 
@@ -31,14 +32,14 @@ Seleccione una alerta para ver un informe que enumera los usuarios o roles que d
 ![Informe de alertas](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertas
-| Alerta | Severity | Desencadenador | Recomendación |
+| Alerta | Gravedad | Desencadenador | Recomendación |
 | --- | --- | --- | --- |
 | **Hay demasiados propietarios asignados a un recurso** |Mediano |Demasiados usuarios tienen el rol de propietario. |Revise los usuarios de la lista y vuelva a asignar algunos a roles con menos privilegios. |
 | **Hay demasiados propietarios permanentes asignados a un recurso** |Mediano |Demasiados usuarios están asignados permanentemente a un rol. |Revise los usuarios de la lista y vuelva a asignar algunos para que tengan que solicitar la activación para usar el rol. |
 | **Se ha creado un rol duplicado** |Mediano |Varios roles tienen los mismos criterios. |Use solo uno de estos roles. |
 
 
-### <a name="severity"></a>Severity
+### <a name="severity"></a>Gravedad
 * **Alta**: requiere acción inmediata debido a la infracción de una directiva. 
 * **Media**: no requiere acción inmediata, pero indica una posible infracción de una directiva.
 * **Baja**: no requiere acción inmediata pero sugiere un cambio de directiva preferida.

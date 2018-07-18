@@ -1,6 +1,6 @@
 | Recurso | Destino |
 |----------|---------------|
-| Tamaño máximo de contenedor de un blob | 500 TiB |
+| Tamaño máximo de contenedor de un blob | La misma que la capacidad máxima de la cuenta de almacenamiento |
 | Número máximo de bloques en un blob en bloques o blob de anexión | 50 000 bloques |
 | Tamaño máximo un bloque en un blob en bloques | 100 MiB |
 | Tamaño máximo de un blob en bloques | 50 000 X 100 MiB (4,75 TiB aproximadamente) |

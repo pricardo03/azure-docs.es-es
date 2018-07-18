@@ -10,24 +10,25 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054299"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](data-factory-copy-activity-performance.md)
-> * [Versión 2: versión preliminar](../copy-activity-performance.md)
+> * [Versión 1](data-factory-copy-activity-performance.md)
+> * [Versión 2 (versión actual)](../copy-activity-performance.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre la [Guía de optimización y rendimiento de la actividad de copia para Data Factory versión 2](../copy-activity-performance.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte el artículo [Copy activity performance and tuning guide for Data Factory](../copy-activity-performance.md) (Guía de optimización y rendimiento de la actividad de copia para Data Factory).
 
 Copiar actividad de Azure Data Factory ofrece una solución de carga de datos de alto rendimiento fiable y segura de primera clase. Le permite copiar decenas de terabytes de datos al día en una amplia variedad de almacenes de datos locales y en la nube. Un rendimiento acelerado de la carga de datos es clave para garantizar que puede centrarse en el problema principal de los "macrodatos": crear soluciones de análisis avanzadas y profundizar en todos esos datos.
 
@@ -102,8 +103,8 @@ Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa
 
 | Escenario de copia | DMU predeterminadas que determina el servicio |
 |:--- |:--- |
-| Copia de datos entre almacenes basados en archivos | Entre 2 y 16 según el número y el tamaño de los archivos. |
-| Todos los demás escenarios de copia | 2 |
+| Copia de datos entre almacenes basados en archivos | Entre 4 y 16 según el número y el tamaño de los archivos. |
+| Todos los demás escenarios de copia | 4 |
 
 Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 2, 4, 8, 16, 32. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
 
@@ -353,7 +354,7 @@ Cuando el conjunto de datos de entrada o salida es un archivo, puede configurar 
 
 **Códec**: la actividad de copia admite los tipos de compresión gzip, bzip2 y Deflate. HDInsight de Azure puede consumir los tres tipos de procesamiento. Cada códec de compresión tiene sus ventajas. Por ejemplo, bzip2 tiene el rendimiento de copia más bajo, pero obtiene el mejor rendimiento de consulta de Hive porque puede dividirlo para el procesamiento. Gzip es la opción más equilibrada y es la que se usa con mayor frecuencia. Elija el códec que mejor se adapte a su escenario de principio a fin.
 
-**Nivel:**para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
+**Nivel:** para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
 
 **Una consideración**: para copiar una gran cantidad de datos entre un almacén local y la nube, considere el uso de Almacenamiento de blobs provisional con compresión. El uso de almacenamiento provisional resulta de utilidad cuando el ancho de banda de la red corporativa y los servicios de Azure son el factor limitador, y si quiere que el conjunto de datos de entrada y el conjunto de datos de salida estén ambos en formato sin comprimir. En concreto, puede dividir una única actividad de copia en dos. La primera copia del origen en un blob de almacenamiento provisional en formato comprimido. La segunda copia los datos comprimidos del almacenamiento provisional y los descomprime mientras se escriben en el receptor.
 
@@ -384,11 +385,11 @@ Como puede ver, los datos se procesan y se mueven en streaming de forma secuenci
 
 Puede que uno o varios de los siguientes factores provoquen el cuello de botella en el rendimiento:
 
-* **Origen:**el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
+* **Origen:** el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
 * **Data Management Gateway**
   * **LAN**: la puerta de enlace se encuentra lejos de la máquina de SQL Server y tiene una conexión de ancho de banda bajo.
   * **Puerta de enlace**: la puerta de enlace ha alcanzado sus limitaciones de carga para llevar a cabo las siguientes operaciones:
-    * **Serialización:**la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
+    * **Serialización:** la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
     * **Compresión**: ha elegido un códec de compresión lenta (por ejemplo, bzip2, a 2,8 MBps con Core i7).
   * **WAN**: el ancho de banda entre la red corporativa y los servicios de Azure es bajo (por ejemplo, T1 = 1544 kbps. T2 = 6312 kbps).
 * **Receptor**: el Almacenamiento de blobs tiene un rendimiento bajo. (Esta situación es improbable porque su SLA garantiza un mínimo de 60 MBps).

@@ -3,16 +3,17 @@ title: 'Lección 13 del tutorial de Analysis Services: Implementación | Microso
 description: Se describe cómo implementar el proyecto del tutorial en Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 889cc4224e2ffe31e15590c04c3dbf4b656bc386
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 84cdae1694608814167641417781cd22c12656a4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443935"
 ---
 # <a name="deploy"></a>Implementación
 

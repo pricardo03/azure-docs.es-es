@@ -17,10 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 14b9a4ed66995a73f00234f4b25f52fccbcbe556
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38562611"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Windows Phone concretos mediante Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -35,7 +36,7 @@ En este tutorial puede crear una aplicación de Windows Phone 8 vacía que recib
 En este tutorial, aprenderá a: 
 
 > [!div class="checklist"]
-> * Crear un Centro de notificaciones
+> * Creación de un centro de notificaciones
 > * Crear una aplicación Windows Phone
 > * Realizar un envío de prueba de una notificación 
 
@@ -137,8 +138,7 @@ En esta sección se creará una aplicación de Windows Phone que se registra aut
 3. En la ventana **Envío de prueba**, siga estos pasos:
 
     1. En **Plataformas**, seleccione **Windows Phone**. 
-    2. En **Tipo de notificación**, seleccione ** 
-Notificación del sistema**. 
+    2. En **Tipo de notificación**, seleccione **Notificación del sistema**. 
     3. Seleccione **Enviar**.
     4. Vea el **resultado** en la lista en la parte inferior de la ventana. 
 

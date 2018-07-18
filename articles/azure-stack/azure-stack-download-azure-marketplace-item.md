@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 69148a0ac9a5761eeee0ab47d83862724583619a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d403f7c1d0fff466f6c0fb9942ec777ab820eab
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258800"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604539"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Descarga de elementos de Marketplace desde Azure a Azure Stack
 
@@ -39,7 +39,7 @@ En [Elementos de Azure Marketplace disponibles para Azure Stack](azure-stack-mar
 ## <a name="connected-scenario"></a>Escenario conectado
 Si Azure Stack se conecta a internet, se puede usar el Portal de administración para descargar los elementos de Marketplace.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 La implementación de Azure Stack debe tener conectividad a Internet y estar [registrada en Azure](azure-stack-register.md).
 
 ### <a name="use-the-portal-to-download-marketplace-items"></a>Uso del portal para descargar elementos de Marketplace  
@@ -79,14 +79,14 @@ Este escenario tiene dos partes:
 - **Parte 2:** carga y publicación en Azure Stack Marketplace. Mueva los archivos que ha descargado a su entorno de Azure Stack, impórtelos en Azure Stack y, después, publíquelos en Azure Stack Marketplace.  
 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 - La implementación de Azure Stack se debe [registrar en Azure](azure-stack-register.md).  
 
 - El equipo que tenga conectividad a Internet debe tener la **versión 1.2.11 del paquete Azure Stack PowerShell Module**, o cualquier versión superior. Si no están, [instale los módulos de PowerShell específicos de Azure Stack](azure-stack-powershell-install.md).  
 
 - Para habilitar la importación de un elemento de Marketplace descargado, debe estar configurado el [entorno de PowerShell para el operador de Azure Stack](azure-stack-powershell-configure-admin.md).  
 
-- Debe tener una cuenta de almacenamiento en Azure Stack que tenga un contenedor al que se pueda acceder de forma pública (que es un blob de almacenamiento). Utilice el contenedor como almacenamiento temporal para los archivos de la galería de elementos de Marketplace. Si no está familiarizado con las cuentas de almacenamiento y los contenedores, consulte [Carga, descarga y enumeración de blobs mediante Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) en la documentación de Azure.
+- Debe tener una [cuenta de almacenamiento](azure-stack-manage-storage-accounts.md) en Azure Stack que tenga un contenedor al que se pueda acceder de forma pública (que es un blob de almacenamiento). Utilice el contenedor como almacenamiento temporal para los archivos de la galería de elementos de Marketplace. Si no está familiarizado con las cuentas de almacenamiento y los contenedores, consulte [Carga, descarga y enumeración de blobs mediante Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) en la documentación de Azure.
 
 - La herramienta de redifusión de Marketplace se descarga en el primer procedimiento. 
 

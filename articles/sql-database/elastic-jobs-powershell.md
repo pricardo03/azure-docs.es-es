@@ -1,0 +1,308 @@
+---
+title: Creación de un agente de trabajos elásticos de Azure SQL Database mediante PowerShell | Microsoft Docs
+description: Aprenda a crear un agente de trabajos elásticos mediante PowerShell.
+services: sql-database
+author: johnpaulkee
+manager: craigg
+ms.service: sql-database
+ms.topic: tutorial
+ms.date: 06/14/2018
+ms.author: joke
+ms.openlocfilehash: dc2776e0f3b14d5fd2375f735c18345c32ca743a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033983"
+---
+# <a name="create-an-elastic-job-agent-using-powershell"></a>Creación de un agente de trabajos elásticos mediante PowerShell
+
+Los [trabajos elásticos](elastic-jobs-overview.md) habilitan la ejecución de uno o más scripts de Transact-SQL (T-SQL) en paralelo en varias bases de datos.
+
+En este tutorial aprenderá los pasos necesarios para ejecutar una consulta en varias bases de datos:
+
+> [!div class="checklist"]
+> * Creación de un agente de trabajos elásticos
+> * Creación de credenciales de trabajo para que los trabajos puedan ejecutar scripts en sus destinos
+> * Definición de los destinos (servidores, grupos elásticos, bases de datos, mapas de particiones) en los que desea ejecutar el trabajo
+> * Creación de credenciales de ámbito de base de datos en las bases de datos de destino para que el agente pueda conectar y ejecutar trabajos
+> * Creación de un trabajo
+> * Incorporación de pasos de trabajo a un trabajo
+> * Inicio de la ejecución de un trabajo
+> * Supervisión de un trabajo
+
+## <a name="prerequisites"></a>requisitos previos
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+Instale el módulo **AzureRM.Sql** de la versión preliminar más reciente para obtener los cmdlets de trabajos elásticos. Ejecute los siguientes comandos desde un símbolo del sistema con privilegios elevados (ejecute como administrador).
+
+```powershell
+# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
+
+# You may need to restart the powershell session
+# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+
+# Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
+Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
+```
+
+## <a name="create-required-resources"></a>Creación de los recursos necesarios
+
+La creación de un agente de trabajos elásticos requiere una base de datos (S0 o superior) para usarla como [base de datos de trabajos](elastic-jobs-overview.md#job-database). 
+
+*El script siguiente crea un nuevo grupo de recursos, servidor y base de datos para usarla como la base de datos de trabajos. El siguiente script también crea un segundo servidor con 2 bases de datos en blanco para ejecutar trabajos.*
+
+Los trabajos elásticos no tienen ningún requisito de nomenclatura específico, por lo que puede usar las convenciones de nomenclatura que desee, siempre y cuando cumplan con los [requisitos de Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
+```powershell
+# Sign in to your Azure account
+Connect-AzureRmAccount
+
+# Create a resource group
+Write-Output "Creating a resource group..."
+$ResourceGroupName = Read-Host "Please enter a resource group name"
+$Location = Read-Host "Please enter an Azure Region"
+$Rg = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+$Rg
+
+# Create a server
+Write-Output "Creating a server..."
+$AgentServerName = Read-Host "Please enter an agent server name"
+$AgentServerName = $AgentServerName + "-" + [guid]::NewGuid()
+$AdminLogin = Read-Host "Please enter the server admin name"
+$AdminPassword = Read-Host "Please enter the server admin password"
+$AdminPasswordSecure = ConvertTo-SecureString -String $AdminPassword -AsPlainText -Force
+$AdminCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AdminLogin, $AdminPasswordSecure
+$AgentServer = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $AgentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+
+# Set server firewall rules to allow all Azure IPs
+Write-Output "Creating a server firewall rule..."
+$AgentServer | New-AzureRmSqlServerFirewallRule -AllowAllAzureIPs
+$AgentServer
+
+# Create the job database
+Write-Output "Creating a blank SQL database to be used as the Job Database..."
+$JobDatabaseName = "JobDatabase"
+$JobDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $JobDatabaseName -RequestedServiceObjectiveName "S0"
+$JobDatabase
+```
+
+```powershell
+# Create a target server and some sample databases - uses the same admin credential as the agent server just for simplicity
+Write-Output "Creating target server..."
+$TargetServerName = Read-Host "Please enter a target server name"
+$TargetServerName = $TargetServerName + "-" + [guid]::NewGuid()
+$TargetServer = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $TargetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+
+# Set target server firewall rules to allow all Azure IPs
+$TargetServer | New-AzureRmSqlServerFirewallRule -AllowAllAzureIPs
+$TargetServer | New-AzureRmSqlServerFirewallRule -StartIpAddress 0.0.0.0 -EndIpAddress 255.255.255.255 -FirewallRuleName AllowAll
+$TargetServer
+
+# Create some sample databases to execute jobs against...
+$Db1 = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb1"
+$Db1
+$Db2 = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb2"
+$Db2
+```
+
+## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Habilitación de la versión preliminar de trabajos elásticos para la suscripción
+
+Para usar los trabajos elásticos, registre la característica en la suscripción de Azure ejecutando el siguiente comando (solo hay que ejecutarlo una vez en cada suscripción en la que desee usar trabajos elásticos):
+
+```powershell
+Register-AzureRmProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
+```
+
+## <a name="create-the-elastic-job-agent"></a>Creación del agente de trabajos elásticos
+
+Un agente de trabajos elásticos es un recurso de Azure para crear, ejecutar y administrar trabajos. El agente ejecuta los trabajos según una programación o como un trabajo único.
+
+El cmdlet **New-AzureRmSqlElasticJobAgent** requiere que exista ya una base de datos SQL de Azure, por lo que los parámetros *ResourceGroupName*, *ServerName*, y *DatabaseName* deben todos apuntar a recursos ya existentes.
+
+```powershell
+Write-Output "Creating job agent..."
+$AgentName = Read-Host "Please enter a name for your new Elastic Job agent"
+$JobAgent = $JobDatabase | New-AzureRmSqlElasticJobAgent -Name $AgentName
+$JobAgent
+```
+
+## <a name="create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets"></a>Creación de credenciales de trabajo para que los trabajos puedan ejecutar scripts en sus destinos
+
+Los trabajos usan credenciales de ámbito de base de datos para conectarse a las bases de datos de destino que especifica el grupo de destino después de la ejecución. Estas credenciales de ámbito de base de datos también se usan para conectarse a la base de datos maestra para enumerar todas las bases de datos de un servidor o un grupo elástico, cuando cualquiera de estos se utiliza como el tipo de miembro del grupo de destino.
+
+Las credenciales de ámbito de base de datos se deben crear en la base de datos del trabajo.  
+Todas las bases de datos de destino deben tener un inicio de sesión con permisos suficientes para que el trabajo se complete correctamente.
+
+![Credenciales de trabajos elásticos](media/elastic-jobs-overview/job-credentials.png)
+
+Además de las credenciales de la imagen, observe la adición de los comandos *GRANT* en el siguiente script. Estos permisos son necesarios para el script que hemos elegido para este trabajo de ejemplo. Dado que en el ejemplo se crea una nueva tabla en las bases de datos de destino, cada base de datos de destino necesita los permisos adecuados para ejecutarse correctamente.
+
+Para crear las credenciales de trabajos necesarias (en la base de datos de trabajo), ejecute el script siguiente:
+
+```powershell
+# In the master database (target server)
+# - Create the master user login
+# - Create the master user from master user login
+# - Create the job user login
+$Params = @{
+  'Database' = 'master'
+  'ServerInstance' =  $TargetServer.ServerName + '.database.windows.net'
+  'Username' = $AdminLogin
+  'Password' = $AdminPassword
+  'OutputSqlErrors' = $true
+  'Query' = "CREATE LOGIN masteruser WITH PASSWORD='password!123'"
+}
+Invoke-SqlCmd @Params
+$Params.Query = "CREATE USER masteruser FROM LOGIN masteruser"
+Invoke-SqlCmd @Params
+$Params.Query = "CREATE LOGIN jobuser WITH PASSWORD='password!123'"
+Invoke-SqlCmd @Params
+
+# For each of the target databases
+# - Create the jobuser from jobuser login
+# - Make sure they have the right permissions for successful script execution
+$TargetDatabases = @( $Db1.DatabaseName, $Db2.DatabaseName )
+$CreateJobUserScript =  "CREATE USER jobuser FROM LOGIN jobuser"
+$GrantAlterSchemaScript = "GRANT ALTER ON SCHEMA::dbo TO jobuser"
+$GrantCreateScript = "GRANT CREATE TABLE TO jobuser"
+
+$TargetDatabases | % {
+  $Params.Database = $_
+
+  $Params.Query = $CreateJobUserScript
+  Invoke-SqlCmd @Params
+
+  $Params.Query = $GrantAlterSchemaScript
+  Invoke-SqlCmd @Params
+
+  $Params.Query = $GrantCreateScript
+  Invoke-SqlCmd @Params
+}
+
+# Create job credential in Job database for master user
+Write-Output "Creating job credentials..."
+$LoginPasswordSecure = (ConvertTo-SecureString -String "password!123" -AsPlainText -Force)
+
+$MasterCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "masteruser", $LoginPasswordSecure
+$MasterCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "masteruser" -Credential $MasterCred
+
+$JobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "jobuser", $LoginPasswordSecure
+$JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Credential $JobCred
+```
+
+## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>Definición de las bases de datos de destino en las que desea ejecutar los trabajos
+
+Un [grupo de destino](elastic-jobs-overview.md#target-group) define el conjunto de una o varias bases de datos en las que se ejecutará un paso de un trabajo. 
+
+El siguiente fragmento de código crea dos grupos de destino: *ServerGroup* y *ServerGroupExcludingDb2*. *ServerGroup* tiene como destino todas las bases de datos que existen en el servidor en el momento de la ejecución y *ServerGroupExcludingDb2* tiene como destino todas las bases de datos del servidor, excepto *TargetDb2*:
+
+```powershell
+Write-Output "Creating test target groups..."
+# Create ServerGroup target group
+$ServerGroup = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'ServerGroup'
+$ServerGroup | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
+
+# Create ServerGroup with an exclusion of Db2
+$ServerGroupExcludingDb2 = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'ServerGroupExcludingDb2'
+$ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
+$ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
+```
+
+## <a name="create-a-job"></a>Creación de un trabajo
+
+```powershell
+Write-Output "Creating a new job"
+$JobName = "Job1"
+$Job = $JobAgent | New-AzureRmSqlElasticJob -Name $JobName -RunOnce
+$Job
+```
+
+## <a name="create-a-job-step"></a>Creación de un paso de trabajo
+
+Este ejemplo define dos pasos de trabajo para el trabajo que se va a ejecutar. El primer paso de trabajo (*step1*) crea una nueva tabla (*Step1Table*) en cada base de datos del grupo de destino *ServerGroup*. El segundo paso de trabajo (*step2*) crea una nueva tabla (*Step2Table*) en cada base de datos excepto en *TargetDb2*, ya que el grupo de destino [definido anteriormente](#define-the-target-databases-you-want-to-run-the-job-against) especificó que se excluyera.
+
+```powershell
+Write-Output "Creating job steps"
+$SqlText1 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step1Table')) CREATE TABLE [dbo].[Step1Table]([TestId] [int] NOT NULL);"
+$SqlText2 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step2Table')) CREATE TABLE [dbo].[Step2Table]([TestId] [int] NOT NULL);"
+
+$Job | Add-AzureRmSqlElasticJobStep -Name "step1" -TargetGroupName $ServerGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText1
+$Job | Add-AzureRmSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupExcludingDb2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
+```
+
+
+## <a name="run-the-job"></a>Ejecución del trabajo
+
+Para iniciar el trabajo inmediatamente, ejecute el comando siguiente:
+
+```powershell
+Write-Output "Start a new execution of the job..."
+$JobExecution = $Job | Start-AzureRmSqlElasticJob
+$JobExecution
+```
+
+Después de una correcta finalización debería ver dos nuevas tablas en TargetDb1 y solo una en TargetDb2:
+
+
+   ![comprobación de las tablas nuevas en SSMS](media/elastic-jobs-overview/job-execution-verification.png)
+
+
+
+
+## <a name="monitor-status-of-job-executions"></a>Supervisión del estado de las ejecuciones de trabajos
+
+Los siguientes fragmentos de código permiten obtener la información sobre las ejecuciones:
+
+```powershell
+# Get the latest 10 executions run
+$JobAgent | Get-AzureRmSqlElasticJobExecution -Count 10
+
+# Get the job step execution details
+$JobExecution | Get-AzureRmSqlElasticJobStepExecution
+
+# Get the job target execution details
+$JobExecution | Get-AzureRmSqlElasticJobTargetExecution -Count 2
+```
+
+## <a name="schedule-the-job-to-run-later"></a>Programación de un trabajo para que se ejecute más tarde
+
+Para programar un trabajo para que se ejecute en un momento determinado, ejecute el siguiente comando:
+
+```powershell
+# Run every hour starting from now
+$Job | Set-AzureRmSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (Get-Date) -Enable
+```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Elimine los recursos de Azure que ha creado en este tutorial eliminando el grupo de recursos.
+
+> [!TIP]
+> Si piensa seguir trabajando con estos trabajos, no limpie los recursos creados en este artículo. Si no va a continuar, use los siguientes pasos para eliminar todos los recursos creados en este artículo.
+>
+
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
+```
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial, ejecutó un script de Transact-SQL en un conjunto de bases de datos.  Ha aprendido a realizar las siguientes tareas:
+
+> [!div class="checklist"]
+> * Creación de un agente de trabajos elásticos
+> * Creación de credenciales de trabajo para que los trabajos puedan ejecutar scripts en sus destinos
+> * Definición de los destinos (servidores, grupos elásticos, bases de datos, mapas de particiones) en los que desea ejecutar el trabajo
+> * Creación de credenciales de ámbito de base de datos en las bases de datos de destino para que el agente pueda conectar y ejecutar trabajos
+> * Creación de un trabajo
+> * Adición de un paso de trabajo al trabajo
+> * Inicio de la ejecución del trabajo
+> * Supervisión del trabajo
+
+> [!div class="nextstepaction"]
+>[Administración de trabajos elásticos mediante Transact-SQL](elastic-jobs-tsql.md)

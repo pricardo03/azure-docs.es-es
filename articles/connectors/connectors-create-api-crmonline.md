@@ -1,25 +1,22 @@
 ---
-title: "Conexión a Dynamics 365 (en línea) desde Azure Logic Apps | Microsoft Docs"
-description: "Creación de flujos de trabajo de aplicación lógica para administrar entidades de Dynamics 365 (en línea) a través de la API proporcionada por el conector de Dynamics 365"
-services: logic-apps
-cloud: Azure Stack
+title: Conectarse a Dynamics 365 - desde Azure Logic Apps | Microsoft Docs
+description: Crear y administrar registros con las API REST de Dynamics 365 (en línea) y Azure Logic Apps
 author: Mattp123
-manager: anneta
-documentationcenter: 
-tags: connectors
-ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+manager: jeconnoc
+ms.author: matp
 ms.date: 02/10/2017
-ms.author: matp; LADocs
-ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 6ac45d45ed1df0e89eb27657a064a8c95ad4be79
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294850"
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Conexión a Dynamics 365 desde flujos de trabajo de aplicación lógica
 

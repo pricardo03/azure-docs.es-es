@@ -1,21 +1,21 @@
 ---
-title: 'Realización de una llamada a una API web (ASP.NET) segura: Azure Active Directory B2C | Microsoft Docs'
+title: Llamada a una API web de ASP.NET protegida en Azure Active Directory B2C | Microsoft Docs
 description: Creación de una aplic. web de .NET y llamada a una API web con Azure Active Directory B2C y tokens de acceso de OAuth 2.0.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 75ae88898d3d6b275ec462e865347056305fd666
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 0fd00672e53d0b0148b70b364df5959ced1e554a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442465"
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: llamada a una API web de .NET desde una aplic. web de .NET
 

@@ -8,41 +8,33 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757423"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitaciones en Azure Database for PostgreSQL
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos.
 
-## <a name="pricing-tier-maximums"></a>Máximos de planes de tarifa
-Azure Database for PostgreSQL tiene varios planes de tarifa entre los que puede elegir al crear un servidor. Para más información, consulte el artículo de [planes de tarifa de Azure Database for PostgreSQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Número máximo de conexiones
+El número máximo de conexiones por plan de tarifa y núcleos virtuales es el siguiente: 
 
-Hay un número máximo de conexiones, unidades de proceso y almacenamiento en cada plan de tarifa, y son los siguientes: 
-
-|Nivel de precios| Generación de procesos| Núcleos virtuales| Conexiones máximas |
-|---|---|---|---|
-|Básica| Gen 4| 1| 50 |
-|Básica| Gen 4| 2| 100 |
-|Básica| Gen 5| 1| 50 |
-|Básica| Gen 5| 2| 100 |
-|Uso general| Gen 4| 2| 150|
-|Uso general| Gen 4| 4| 250|
-|Uso general| Gen 4| 8| 480|
-|Uso general| Gen 4| 16| 950|
-|Uso general| Gen 4| 32| 1.500|
-|Uso general| Gen 5| 2| 150|
-|Uso general| Gen 5| 4| 250|
-|Uso general| Gen 5| 8| 480|
-|Uso general| Gen 5| 16| 950|
-|Uso general| Gen 5| 32| 1.500|
-|Memoria optimizada| Gen 5| 2| 150|
-|Memoria optimizada| Gen 5| 4| 250|
-|Memoria optimizada| Gen 5| 8| 480|
-|Memoria optimizada| Gen 5| 16| 950|
+|**Plan de tarifa**| **Núcleos virtuales**| **Conexiones máximas** |
+|---|---|---|
+|Básica| 1| 50 |
+|Básica| 2| 100 |
+|Uso general| 2| 150|
+|Uso general| 4| 250|
+|Uso general| 8| 480|
+|Uso general| 16| 950|
+|Uso general| 32| 1.500|
+|Memoria optimizada| 2| 150|
+|Memoria optimizada| 4| 250|
+|Memoria optimizada| 8| 480|
+|Memoria optimizada| 16| 950|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > FATAL:  sorry, too many clients already

@@ -2,7 +2,7 @@
 title: 'Consulta de mensajes B2B en Log Analytics: Azure Logic Apps | Microsoft Docs'
 description: Creación de consultas para realizar el seguimiento de los mensajes AS2, X12 y EDIFACT en Log Analytics
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -12,13 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 345857801035fb7f149a57a4f0d58e7668f35b81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294316"
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Consulta de mensajes AS2, X12 y EDIFACT en Log Analytics
 
@@ -52,41 +53,33 @@ En este ejemplo se muestra cómo puede buscar mensajes según su número de cont
 
    ![Selección del área de trabajo de Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. En **Administración**, elija **Portal de OMS**.
+3. En **Administración**, elija **Búsqueda de registros**.
 
-   ![Selección de Portal de OMS](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+   ![Elija Búsqueda de registros](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. En la página principal, elija **Búsqueda de registros**.
-
-   ![Selección de "Búsqueda de registros" en la página principal](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
-
-   O bien
-
-   ![Seleccione "Búsqueda de registros" en el menú.](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
-
-5. En el cuadro de búsqueda, especifique un campo que quiera buscar y pulse **Entrar**. Cuando empiece a escribir, Log Analytics le mostrará posibles coincidencias y operaciones que puede usar. Más información sobre [cómo buscar datos en Log Analytics](../log-analytics/log-analytics-log-searches.md).
+4. En el cuadro de búsqueda, especifique un campo que quiera buscar y pulse **Entrar**. Cuando empiece a escribir, Log Analytics le mostrará posibles coincidencias y operaciones que puede usar. Más información sobre [cómo buscar datos en Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
    En este ejemplo se buscan eventos con **Type=AzureDiagnostics**.
 
    ![Empezar a escribir la cadena de consulta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. En la barra de la izquierda, elija el período de tiempo que desea consultar. Para agregar un filtro a la consulta, elija **+Agregar**.
+5. En la barra de la izquierda, elija el período de tiempo que desea consultar. Para agregar un filtro a la consulta, elija **+Agregar**.
 
    ![Agregar filtro a consulta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. En **Agregar filtros**, escriba el nombre del filtro para poder encontrar el que quiere. Seleccione el filtro y elija **+Agregar**.
+6. En **Agregar filtros**, escriba el nombre del filtro para poder encontrar el que quiere. Seleccione el filtro y elija **+Agregar**.
 
    Para buscar el número de control de intercambio, este ejemplo busca la palabra "intercambio" y selecciona **event_record_messageProperties_interchangeControlNumber_s** como filtro.
 
    ![Selección de filtro](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. En la barra de la izquierda, seleccione el valor de filtro que quiere usar y elija **Aplicar**.
+7. En la barra de la izquierda, seleccione el valor de filtro que quiere usar y elija **Aplicar**.
 
    En este ejemplo se selecciona el número de control de intercambio para los mensajes que deseamos.
 
    ![Selección de valor de filtro](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. Ahora vuelva a la consulta que está creando. La consulta se actualizó con el valor y el evento de filtro seleccionados. Los resultados anteriores también se filtraron.
+8. Ahora vuelva a la consulta que está creando. La consulta se actualizó con el valor y el evento de filtro seleccionados. Los resultados anteriores también se filtraron.
 
     ![Consulta con los resultados filtrados](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 

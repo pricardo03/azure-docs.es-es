@@ -1,10 +1,10 @@
 ---
-title: "Sincronización de datos sin conexión en Azure Mobile Apps | Microsoft Docs"
-description: "Referencia e información general conceptual de la característica de sincronización de datos sin conexión para Azure Mobile Apps"
+title: Sincronización de datos sin conexión en Azure Mobile Apps | Microsoft Docs
+description: Referencia e información general conceptual de la característica de sincronización de datos sin conexión para Azure Mobile Apps
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597984"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronización de datos sin conexión en Azure Mobile Apps
 ## <a name="what-is-offline-data-sync"></a>¿Qué es la sincronización de datos sin conexión?
@@ -42,7 +43,7 @@ Los siguientes tutoriales muestran cómo incorporar la sincronización sin conex
 * [Xamarin iOS: habilitar la sincronización sin conexión]
 * [Xamarin Android: habilitar la sincronización sin conexión]
 * [Xamarin.Forms: habilitar la sincronización sin conexión](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Plataforma universal de Windows: habilitación de la sincronización sin conexión]
+* [Plataforma universal de Windows: habilitar la sincronización sin conexión]
 
 ## <a name="what-is-a-sync-table"></a>¿Qué es una tabla de sincronización?
 Para tener acceso al extremo de "/tables", los SDK de cliente móvil de Azure proporcionan interfaces como `IMobileServiceTable` (SDK de cliente de .NET) o `MSTable` (cliente de iOS). Estas API se conectan directamente al back-end de la aplicación móvil de Azure y generan errores si el dispositivo cliente no tiene una conexión de red.
@@ -52,7 +53,7 @@ Para admitir el uso sin conexión, la aplicación debe usar las API de la *tabla
 ## <a name="what-is-a-local-store"></a>¿Qué es un almacén local?
 Un almacén local es la capa de persistencia de datos del dispositivo cliente. Los SDK de cliente de Azure Mobile Apps proporcionan una implementación de almacén local predeterminada. En Windows, Xamarin y Android, se basa en SQLite. En iOS, se basa en Core Data.
 
-Para usar la implementación basada en SQLite en Windows Phone o Windows Store 8.1, debe instalar una extensión de SQLite. Para más información, consulte [Plataforma universal de Windows: habilitación de la sincronización sin conexión]. Android y iOS se distribuyen con una versión de SQLite en el sistema operativo del dispositivo, por lo que no es necesario hacer referencia a su propia versión de SQLite.
+Para usar la implementación basada en SQLite en Windows Phone o Microsoft Store, debe instalar una extensión de SQLite. Para más información, consulte [Plataforma universal de Windows: habilitar la sincronización sin conexión]. Android y iOS se distribuyen con una versión de SQLite en el sistema operativo del dispositivo, por lo que no es necesario hacer referencia a su propia versión de SQLite.
 
 Los desarrolladores también pueden implementar su propio almacén local. Por ejemplo, si desea almacenar los datos en un formato cifrado en el cliente móvil, puede definir un almacén local que use SQLCipher para el cifrado.
 
@@ -92,7 +93,7 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 * [iOS: habilitar la sincronización sin conexión]
 * [Xamarin iOS: habilitar la sincronización sin conexión]
 * [Xamarin Android: habilitar la sincronización sin conexión]
-* [Plataforma universal de Windows: habilitación de la sincronización sin conexión]
+* [Plataforma universal de Windows: habilitar la sincronización sin conexión]
 
 <!-- Links -->
 [SDK de cliente de .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
@@ -100,4 +101,4 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 [iOS: habilitar la sincronización sin conexión]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[Plataforma universal de Windows: habilitación de la sincronización sin conexión]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Plataforma universal de Windows: habilitar la sincronización sin conexión]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

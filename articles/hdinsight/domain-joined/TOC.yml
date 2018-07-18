@@ -20,6 +20,8 @@
       href: ../spark/apache-spark-intellij-tool-plugin.md
     - name: Uso de Eclipse para vincular a un clúster unido a un dominio
       href: ../spark/apache-spark-eclipse-tool-plugin.md
+    - name: Uso de Oozie en clústeres unidos a un dominio
+      href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Protección de datos
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true
@@ -37,13 +39,10 @@
     - name: Replicación de clústeres de HBase en redes virtuales de Azure
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: Supervisión con OMS
+- name: Supervisión del uso de Log Analytics
   items:
     - name: Uso de Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Paneles específicos de clúster
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Uso de consultas con Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -72,6 +71,10 @@
     - name: Notas de la versión
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Archivado de notas de la versión
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtención de ayuda en el foro

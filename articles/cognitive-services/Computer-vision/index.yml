@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación sobre Computer Vision
+metadata:
+  title: 'Documentación de Computer Vision: Guías de inicio rápido, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
+  description: Aprenda a utilizar Computer Vision para procesar imágenes y devolver información. Los tutoriales muestra cómo crear aplicaciones que usan la API.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  ms.service: cognitive-services
+  ms.component: computer-vision
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/22/2018
+  ms.author: nolachar
+  ms.openlocfilehash: 7a68ff1e0cc80c99ec94cfe6f0480408afa92431
+  ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/02/2018
+  ms.locfileid: "37340719"
+abstract:
+  description: Computer Vision API, basada en la nube, provee a los desarrolladores de acceso a algoritmos avanzados para procesar imágenes y devolver información. Al cargar una imagen o al especificar una URL de imagen, los algoritmos del servicio Computer Vision pueden analizar el contenido visual de diferentes maneras basándose en las entradas y las opciones del usuario. Aprenda a analizar el contenido visual de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Analice las imágenes, genere miniaturas y extraiga el texto de una imagen mediante:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_Csharp.svg
+      text: C&#35;
+      href: quickstarts-sdk/csharp-analyze-sdk
+    - image:
+        src: media/index/logo_java.svg
+      text: Java
+      href: QuickStarts/java-analyze
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: QuickStarts/node-analyze
+    - image:
+        src: media/index/logo_python.svg
+      text: Python
+      href: QuickStarts/python-analyze
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: QuickStarts/go-analyze
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API existentes
+      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Computer Vision API v2.0</a></p> <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Computer Vision API v1.0</a></p>
+    - title: SDK
+      html: <p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules">Python</a></p> <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p> <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>

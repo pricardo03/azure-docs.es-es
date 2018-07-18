@@ -11,25 +11,31 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131417"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtros de las vistas de Log Analytics
 Un **filtro** de una [vista de Log Analytics](log-analytics-view-designer.md) permite a los usuarios filtrar los datos de la vista por el valor de una propiedad determinada sin modificar la vista propiamente dicha.  Por ejemplo, podría permitir que los usuarios de la vista la filtraran por los datos de solo un determinado equipo o conjunto de equipos.  Puede crear varios filtros en una sola vista para permitir que los usuarios filtren por varias propiedades.  En este artículo se describe cómo usar un filtro y agregar uno a una vista personalizada.
 
 ## <a name="using-a-filter"></a>Uso de un filtro
-Haga clic en **Filtro** para abrir el panel de filtro de una vista.  Aquí puede seleccionar un intervalo de tiempo y valores para los filtros que estén disponibles para la vista.  Al seleccionar un filtro, se muestra una lista de valores disponibles.  Puede seleccionar o escribir uno o varios valores. La vista se actualiza automáticamente para filtrar por los valores especificados. 
+Haga clic en el intervalo de tiempo de los datos en la parte superior de una vista para abrir el menú desplegable donde se puede cambiar el intervalo de tiempo de los datos para la vista.
 
-Si no se selecciona ningún valor para un filtro, ese filtro no se aplica a la vista.  Si quita todos los valores de un filtro, ese filtro dejará de aplicarse.
+![Ejemplo de filtro](media/log-analytics-view-designer/filters-example-time.png)
+
+Haga clic en **+** para agregar un filtro mediante filtros personalizados definidos para la vista. Seleccione un valor para el filtro de la lista desplegable o escriba un valor. Para seguir agregando filtros, haga clic en **+**. 
 
 
-![Ejemplo de filtro](media/log-analytics-view-designer/filters-example.png)
+![Ejemplo de filtro](media/log-analytics-view-designer/filters-example-custom.png)
+
+Si quita todos los valores de un filtro, ese filtro dejará de aplicarse.
 
 
 ## <a name="creating-a-filter"></a>Creación de un filtro
@@ -53,8 +59,8 @@ En la tabla siguiente se incluyen algunos ejemplos de filtros comunes.
 | Nombre del campo | Consultar valores | Etiqueta |
 |:--|:--|:--|
 | Equipo   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Equipos |
-| EventLevelName | Event &#124; distinct EventLevelName | Severity |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
+| EventLevelName | Event &#124; distinct EventLevelName | Gravedad |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Gravedad |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

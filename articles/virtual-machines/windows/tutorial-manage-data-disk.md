@@ -3,7 +3,7 @@ title: 'Tutorial: Administración de discos de Azure con Azure PowerShell | Micr
 description: En este tutorial, aprenderá a usar Azure PowerShell para crear y administrar discos de Azure para máquinas virtuales
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ea9d89b7dd94c38b326b83ff1fbf51595d67599a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67e95ea4b816e1c21b5a43233360c7fa89f43a7a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929311"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial: Administración de discos de Azure con Azure PowerShell
 
@@ -35,7 +36,7 @@ Las máquinas virtuales de Azure usan discos para almacenar el sistema operativo
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 5.7.0 del módulo de Azure PowerShell, u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 5.7.0 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
 
@@ -47,7 +48,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| Escriba | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
+| type | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A, B y D | 1600 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 576 |
@@ -62,7 +63,7 @@ Se pueden agregar discos de datos adicionales para instalar aplicaciones y almac
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
 
-| Escriba | Tamaños comunes | Discos de datos máximos por máquina virtual |
+| type | Tamaños comunes | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A, B y D | 64 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 64 |

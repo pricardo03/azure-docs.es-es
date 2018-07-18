@@ -43,6 +43,18 @@
 ### Storage
 #### [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md)
 
+### Event Hubs
+#### [Recuperación ante desastres geográfica de Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### Azure Service Bus
+#### [Recuperación ante desastres geográfica de Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### VPN Gateway
+#### [Crear una puerta de enlace de red virtual con redundancia de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [Crear una puerta de enlace de red virtual con redundancia de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
 # Recuperación ante desastres
 ## [Uso de Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 

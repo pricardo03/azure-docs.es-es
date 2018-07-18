@@ -11,17 +11,18 @@ ms.date: 04/24/2018
 ms.author: brenduns
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 2ea07f04d4c566c0add39d75cad3d3a4ed81c6c8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c364a9ba5a9606967fa86262417ccd1ac3aeffc3
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866277"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Guía de inicio rápido: Creación de una máquina virtual de servidor Linux con el portal de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante el portal de Azure Stack. Siga los pasos descritos en este artículo para crear y usar una máquina virtual. Este artículo también proporciona los pasos para:
+Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante el portal de Azure Stack. Siga los pasos descritos en este artículo para crear y usar una máquina virtual. En este artículo también se proporcionan los pasos para:
 
 * Conectarse a la máquina virtual con un cliente remoto.
 * Instalar a un servidor web NGINX.
@@ -31,7 +32,7 @@ Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante el portal de A
 
 * **Una imagen de Linux en el marketplace de Azure Stack**
 
-   El marketplace de Azure Stack no contiene la imagen de Linux de forma predeterminada. Para poder crear una máquina virtual de servidor Linux, asegúrese de que el operador de Azure Stack proporciona la imagen de **Ubuntu Server 16.04 LTS** que necesita. El operador puede usar los pasos descritos en el artículo [Descarga de elementos de Marketplace desde Azure a Azure Stack](../azure-stack-download-azure-marketplace-item.md).
+   El marketplace de Azure Stack no contiene la imagen de Linux de forma predeterminada. Para poder crear una máquina virtual de servidor Linux, asegúrese de que el operador de Azure Stack proporciona la imagen de **Ubuntu Server 16.04 LTS** que necesita. El operador puede usar los pasos descritos en el artículo [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) (Descarga de productos de Marketplace de Azure a Azure Stack).
 
 * **Acceso a un cliente SSH**
 
@@ -139,7 +140,7 @@ Abra un explorador web y vaya a ```http://<public IP address>```.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Realice a limpieza de los recursos que ya no necesita. Para eliminar la máquina virtual y sus recursos, seleccione el grupo de recursos en la página de la máquina virtual y, a continuación, haga clic en **Eliminar**.
+Borre los recursos que ya no necesite. Para eliminar la máquina virtual y sus recursos, seleccione el grupo de recursos en la página de la máquina virtual y, a continuación, haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

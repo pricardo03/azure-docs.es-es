@@ -51,8 +51,6 @@
       href: tutorial-mean-stack.md
     - name: 16 - Seguridad de servidores web con SSL
       href: tutorial-secure-web-server.md
-    - name: Implementación de una imagen y de aplicaciones de Packer en un conjunto de escalado
-      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Ejemplos
   items:
     - name: CLI de Azure
@@ -201,7 +199,13 @@
         - name: Uso de Escritorio Remoto
           href: use-remote-desktop.md
         - name: Unión de una máquina virtual a Azure Active Directory
-          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+          items:
+            - name: Red Hat Enteprise Linux
+              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+            - name: CentOS
+              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+            - name: Ubuntu
+              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
         - name: Inicio de sesión con las credenciales de Azure Active Directory
           href: login-using-aad.md
         - name: Actualizaciones y revisiones
@@ -222,6 +226,8 @@
           href: scheduled-events.md
         - name: Supervisión de metadatos
           href: instance-metadata-service.md
+        - name: Obtención de métricas de uso con REST
+          href: metrics-vm-usage-rest.md
     - name: Uso de imágenes
       items:
         - name: Búsqueda y uso de imágenes

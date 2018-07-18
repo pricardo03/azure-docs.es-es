@@ -8,23 +8,24 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8c9f772c9d3908e450961239797f6ce2bd4982e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885883"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060524"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
-Azure Batch permite ejecutar y escalar un gran número de trabajos de computación por lotes en Azure. Hasta ahora, las tareas por lotes se ejecutaban directamente en máquinas virtuales en un grupo de Batch, pero ahora puede configurar un grupo de Batch para ejecutar tareas en contenedores de Docker. En este artículo se muestra cómo utilizar el SDK de .NET de Batch para crear un grupo de nodos de proceso que admiten tareas de contenedor en ejecución y cómo ejecutar dichas tareas en el grupo.
+Azure Batch permite ejecutar y escalar un gran número de trabajos de computación por lotes en Azure. Las tareas por lotes se pueden ejecutar directamente en las máquinas virtuales (nodos) de un grupo de Batch, pero también se puede configurar un grupo de Batch para ejecutar tareas en contenedores compatibles con Docker en los nodos. En este artículo se muestra cómo crear un grupo de nodos de ejecución que admita la ejecución de tareas de contenedor y luego ejecutar las tareas de contenedor en el grupo. 
 
-El uso de contenedores proporciona una manera sencilla de ejecutar tareas de Batch sin tener que administrar un entorno ni dependencias para ejecutar las aplicaciones. Los contenedores implementan aplicaciones como unidades ligeras, portátiles y autosuficientes que se pueden ejecutar en una variedad de entornos. Por ejemplo, puede crear y probar localmente un contenedor y, después cargar la imagen de contenedor en un registro en Azure o en otro lugar. El modelo de implementación de contenedor garantiza que el entorno en tiempo de ejecución de la aplicación siempre esté correctamente instalado y configurado, con independencia de donde se hospede la aplicación. Las tareas basadas en contenedor en Batch también pueden aprovechar las características de tareas no en contenedor, incluidos los paquetes de aplicación y la administración de archivos de recursos y archivos de salida. 
+Debe estar familiarizado con los conceptos de contenedor y cómo crear un trabajo y un grupo de Batch. Los ejemplos de código usan los SDK de Python, .NET y Batch. También puede usar otras herramientas y SDK de Batch, incluido Azure Portal, para crear grupos de Batch habilitados para contenedor y para ejecutar tareas de contenedor.
 
-En este artículo se da por supuesto que está familiarizado con los conceptos de contenedor de Docker y cómo crear un grupo y un trabajo de Batch mediante el SDK de .NET. Los fragmentos de código están pensados para usarse en una aplicación cliente similar a la del [ejemplo DotNetTutorial](batch-dotnet-get-started.md) y son ejemplos de código que se necesitan para admitir aplicaciones de contenedor en Batch.
+## <a name="why-use-containers"></a>¿Por qué usar contenedores?
 
+El uso de contenedores proporciona una manera sencilla de ejecutar tareas de Batch sin tener que administrar un entorno ni dependencias para ejecutar las aplicaciones. Los contenedores implementan aplicaciones como unidades ligeras, portátiles y autosuficientes que se pueden ejecutar en varios entornos distintos. Por ejemplo, puede crear y probar localmente un contenedor y, después cargar la imagen de contenedor en un registro en Azure o en otro lugar. El modelo de implementación de contenedor garantiza que el entorno en tiempo de ejecución de la aplicación siempre esté correctamente instalado y configurado donde sea que se hospede la aplicación. Las tareas basadas en contenedor en Batch también pueden aprovechar las características de tareas no en contenedor, incluidos los paquetes de aplicación y la administración de archivos de recursos y archivos de salida. 
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -37,107 +38,133 @@ En este artículo se da por supuesto que está familiarizado con los conceptos d
 
 * **Cuentas**: en la suscripción de Azure, debe crear una cuenta de Batch y, opcionalmente, una cuenta de Azure Storage.
 
-* **Una imagen de VM admitidas**: los contenedores solo se admiten en grupos creados con la configuración de máquinas virtuales a partir de imágenes que se detallan en la siguiente sección, "Imágenes de máquinas virtuales admitidas". Si se proporciona una imagen personalizada, la aplicación debe utilizar la [autenticación de Azure Active Directory](batch-aad-auth.md) (Azure AD) para ejecutar cargas de trabajo basadas en contenedores. 
+* **Una imagen de VM admitidas**: los contenedores solo se admiten en grupos creados con la configuración de máquinas virtuales a partir de imágenes que se detallan en la siguiente sección, "Imágenes de máquinas virtuales admitidas". Si proporciona una imagen personalizada, consulte las consideraciones en la siguiente sección y los requisitos en [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md). 
 
-
-## <a name="supported-virtual-machine-images"></a>Imágenes de máquinas virtuales admitidas
-
-Debe usar una imagen Windows o Linux admitida para crear un grupo de nodos de proceso de máquinas virtuales para cargas de trabajo de contenedor.
-
-### <a name="windows-images"></a>Imágenes de Windows
-
-Para cargas de trabajo de contenedor Windows, el servicio Batch actualmente admite imágenes personalizadas que se crean desde máquinas virtuales que ejecutan Docker en Windows, o bien puede usar Windows Server 2016 Datacenter con imágenes de contenedores desde Azure Marketplace. Esta imagen es compatible con el identificador de SKU del agente del nodo `batch.node.windows amd64`. El tipo de contenedor admitido está limitado actualmente a Docker.
-
-### <a name="linux-images"></a>Imágenes de Linux
-
-Para cargas de trabajo de contenedor Linux, el servicio Batch actualmente admite solo imágenes personalizadas creadas a partir de máquinas virtuales que ejecutan Docker en las siguientes distribuciones Linux: Ubuntu 16.04 LTS o CentOS 7.3. Si elige proporcionar su propia imagen personalizada de Linux, consulte las instrucciones de [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
-
-Para la compatibilidad con Docker, instale [Docker Community Edition (CE)](https://www.docker.com/community-edition) o [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
-
-Si desea aprovechar el rendimiento de la GPU de los tamaños de máquina virtual NC o NV de Azure, debe instalar controladores NVIDIA en la imagen. Además, debe instalar y ejecutar la utilidad de motor de Docker para GPU NVIDIA, [Docker NVIDIA](https://github.com/NVIDIA/nvidia-docker).
-
-Para acceder a la red RDMA de Azure, utilice tamaños de máquina virtual compatibles con RDMA, por ejemplo: A8, A9, H16r, H16mr o NC24r. Los controladores RDMA necesarios se instalan en las imágenes de CentOS 7.3 HPC y Ubuntu 16.04 LTS de Azure Marketplace. Puede ser necesaria una configuración adicional para ejecutar cargas de trabajo MPI. Consulte [Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch](batch-pool-compute-intensive-sizes.md).
-
-
-## <a name="limitations"></a>Limitaciones
+### <a name="limitations"></a>Limitaciones
 
 * El servicio Batch proporciona compatibilidad con RDMA solo para contenedores que se ejecutan en grupos Linux.
 
+## <a name="supported-virtual-machine-images"></a>Imágenes de máquinas virtuales admitidas
 
-## <a name="authenticate-using-azure-active-directory"></a>Autenticación mediante Azure Active Directory
+Use una de las siguientes imágenes Windows o Linux compatibles para crear un grupo de nodos de ejecución de máquinas virtuales para cargas de trabajo de contenedor. Para más información sobre las imágenes de Marketplace compatibles con Batch, consulte la [lista de imágenes de máquinas virtuales](batch-linux-nodes.md#list-of-virtual-machine-images). 
 
-Si utiliza una imagen de máquina virtual personalizada para crear el grupo de Batch, la aplicación cliente debe autenticarse mediante la autenticación integrada de Azure AD (la autenticación de clave compartida no funciona). Antes de ejecutar la aplicación, asegúrese de registrarla en Azure AD para establecer su identidad y especificar sus permisos para otras aplicaciones.
+### <a name="windows-images"></a>Imágenes de Windows
 
-Además, cuando se usa una imagen de máquina virtual personalizada, deberá conceder control de acceso IAM a la aplicación para acceder a la imagen de máquina virtual. En Azure Portal, haga clic en **Todos los recursos**, seleccione la imagen de contenedor y, desde la sección **Control de acceso (IAM)** de la página de imagen, haga clic en **Agregar**. En la página **Agregar permisos**, especifique un **rol**, en **Asignar acceso a**, seleccione **Usuario, grupo o aplicación de Azure AD**; a continuación, en **Seleccionar**, escriba el nombre de la aplicación.
+Para las cargas de trabajo de contenedor de Windows, Batch actualmente admite la imagen **Windows Server 2016 Datacenter con Containers** en Azure Marketplace. Solo las imágenes de contenedor de Docker son compatibles con Windows.
 
-En la aplicación, pase un token de autenticación de Azure AD cuando cree el cliente de Batch. Si está desarrollando con el SDK de .NET de Batch, utilice [BatchClient.Open](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_), tal y como se describe en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md).
+También puede crear imágenes personalizadas desde máquinas virtuales que ejecutan Docker en Windows.
 
+### <a name="linux-images"></a>Imágenes de Linux
 
-## <a name="reference-a-vm-image-for-pool-creation"></a>Referencia a una imagen de máquina virtual para la creación de grupo
+En el caso de las cargas de trabajo de contenedor Linux, Batch actualmente admite estas imágenes de Linux que Microsoft Azure Batch publica en Azure Marketplace:
 
-En el código de la aplicación, proporcione una referencia a la imagen de máquina virtual que se usará al crear los nodos de proceso del grupo. Para ello, cree un objeto [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference). Puede especificar la imagen que se usará en una de las maneras siguientes:
+* **CentOS para grupos de contenedores de Azure Batch**
 
-* Si está utilizando una imagen personalizada, proporcione un identificador de recursos de Azure Resource Manager para la imagen de máquina virtual. El identificador de la imagen tiene un formato de ruta de acceso, como se muestra en el ejemplo siguiente:
+* **CentOS (con controladores RDMA) para grupos de contenedores de Azure Batch**
 
-  ```csharp
-  // Provide a reference to a custom image using an image ID
-  ImageReference imageReference = new ImageReference("/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.Compute/images/<imageName>");
-  ```
+* **Ubuntu Server para grupos de contenedores de Azure Batch**
 
-    Para obtener el identificador de imagen desde Azure Portal, abra **Todos los recursos**, seleccione la imagen personalizada y, en la sección **Introducción** de la página de imagen, copie la ruta de acceso en **Id. de recurso**.
+* **Ubuntu Server (con controladores RDMA) para grupos de contenedores de Azure Batch**
 
-* Si usa una imagen de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based), proporcione un grupo de parámetros que describan la imagen: el editor, el tipo de oferta, la SKU y la versión de la imagen, como se muestra en la [Lista de imágenes de máquina virtual](batch-linux-nodes.md#list-of-virtual-machine-images):
+Estas imágenes solo se admiten para usarlas en los grupos de Azure Batch. Cuentan con:
 
-  ```csharp
-  // Provide a reference to an Azure Marketplace image for
-  // "Windows Server 2016 Datacenter with Containers"
-  ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2016-Datacenter-with-Containers",
-    version: "latest");
-  ```
+* Un tiempo de ejecución de contenedor [Moby](https://github.com/moby/moby) instalado previamente 
+
+* Controladores de GPU NVIDIA instalados previamente para optimizar la implementación en máquinas virtuales de la serie N de Azure
+
+* Imágenes con o sin controladores RDMA instalados previamente. Estos controladores permiten que los nodos de grupo accedan a la red RDMA de Azure cuando se implementan en tamaños de VM compatibles con RDMA  
+
+También puede crear imágenes personalizadas a partir de máquinas virtuales que ejecutan Docker en una de las distribuciones Linux compatibles con Batch. Si elige proporcionar su propia imagen personalizada de Linux, consulte las instrucciones de [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
+
+Para la compatibilidad de una imagen personalizada con Docker, instale [Docker Community Edition (CE)](https://www.docker.com/community-edition) o [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
+
+Consideraciones adicionales para usar una imagen Linux personalizada:
+
+* Para aprovechar el rendimiento de GPU de los tamaños de la serie N de Azure al usar una imagen personalizada, instale previamente los controladores NVIDIA. Además, debe instalar la utilidad de motor de Docker para GPU NVIDIA, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
+
+* Use un tamaño de máquina virtual compatible con RDAM para acceder a la red RDMA de Azure. Los controladores RDMA necesarios están instalados en HPC de CentOS e imágenes de Ubuntu compatibles con Batch. Puede ser necesaria una configuración adicional para ejecutar cargas de trabajo MPI. Consulte [Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch](batch-pool-compute-intensive-sizes.md).
 
 
 ## <a name="container-configuration-for-batch-pool"></a>Configuración del contenedor de grupo de Batch
 
-Para habilitar un grupo de Batch para ejecutar cargas de trabajo de contenedor, se debe especificar la opción [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) en el objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del grupo.
+Para habilitar un grupo de Batch para ejecutar cargas de trabajo de contenedor, se debe especificar la opción [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) en el objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del grupo. (Este artículo incluye vínculos a la referencia de la API de .NET de Batch. Puede encontrar la configuración correspondiente en la API [Batch Python](/python/api/azure.batch)).
 
-Puede crear un grupo habilitado para contenedores con o sin imágenes de contenedor capturadas previamente, tal como se muestra en los ejemplos siguientes. El proceso de extracción (o captura previa) le permite precargar imágenes de contenedor desde Docker Hub u otro registro de contenedor en Internet. La ventaja de capturar previamente las imágenes de contenedor es que, cuando las tareas comienzan a ejecutarse por primera vez, no tienen que esperar a que la imagen del contenedor se descargue. La configuración de contenedor extrae las imágenes de contenedor de las máquinas virtuales cuando se crea el grupo. Las tareas que se ejecutan en el grupo pueden entonces hacer referencia a la lista de las imágenes de contenedor y opciones de ejecución de contenedor.
+Puede crear un grupo habilitado para contenedores con o sin imágenes de contenedor capturadas previamente, tal como se muestra en los ejemplos siguientes. El proceso de extracción (o captura previa) permite cargar previamente imágenes de contenedor desde Docker Hub u otro registro de contenedor en Internet. Para obtener el mejor rendimiento, use un [registro de contenedor de Azure](../container-registry/container-registry-intro.md) en la misma región que la cuenta de Batch.
 
+La ventaja de capturar previamente las imágenes de contenedor es que, cuando las tareas comienzan a ejecutarse por primera vez, no tienen que esperar a que la imagen del contenedor se descargue. La configuración de contenedor extrae las imágenes de contenedor de las máquinas virtuales cuando se crea el grupo. Las tareas que se ejecutan en el grupo pueden entonces hacer referencia a la lista de las imágenes de contenedor y opciones de ejecución de contenedor.
 
 
 ### <a name="pool-without-prefetched-container-images"></a>Grupo sin imágenes de contenedor previamente capturadas
 
-Para configurar el grupo habilitado para contenedores sin imágenes de contenedor previamente capturadas, defina los objetos `ContainerConfiguration` y `VirtualMachineConfiguration` como se muestra en el ejemplo siguiente. Este ejemplo y los siguientes asumen que se está utilizando una imagen personalizada de Ubuntu 16.04 LTS con motor de Docker instalado.
+Para configurar el grupo habilitado para contenedores sin imágenes de contenedor previamente capturadas, defina los objetos `ContainerConfiguration` y `VirtualMachineConfiguration` como se muestra en el ejemplo de Python siguiente. En este ejemplo se usa la imagen de Ubuntu Server para grupos de contenedores de Azure Batch de Marketplace.
 
-```csharp
-// Specify container configuration. This is required even though there are no prefetched images.
-ContainerConfiguration containerConfig = new ContainerConfiguration();
 
-// VM configuration
-VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
-    imageReference: imageReference,
-    containerConfiguration: containerConfig,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+```python
+image_ref_to_use = batch.models.ImageReference(
+        publisher='microsoft-azure-batch',
+        offer='ubuntu-server-container',
+        sku='16-04-lts',
+        version='latest')
 
-// Create pool
-CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId,
-    targetDedicatedComputeNodes: 4,
-    virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration);
+"""
+Specify container configuration. This is required even though there are no prefetched images.
+"""
 
-// Commit pool creation
-pool.Commit();
+container_conf = batch.models.ContainerConfiguration()
+
+new_pool = batch.models.PoolAddParameter(
+        id=pool_id,
+        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            container_configuration=container_conf,
+            node_agent_sku_id='batch.node.ubuntu 16.04'),
+        vm_size='STANDARD_D1_V2',
+        target_dedicated_nodes=1)
+...
 ```
 
 
 ### <a name="prefetch-images-for-container-configuration"></a>Captura previa de imágenes para la configuración de contenedor
 
-Para la captura previa de las imágenes de contenedor en el grupo, agregue la lista de imágenes de contenedor (`containerImageNames`) a la `ContainerConfiguration` y asigne un nombre a la imagen de la lista. En el siguiente ejemplo, se presupone que está utilizando una imagen personalizada de Ubuntu 16.04 LTS y que ha capturado previamente una imagen de TensorFlow desde [Docker Hub](https://hub.docker.com). Este ejemplo contiene una tarea de inicio que se ejecuta en el host de máquina virtual de los nodos de grupo. Podría ejecutar una tarea de inicio en el host, por ejemplo, para montar un servidor de archivos al que pueda accederse desde los contenedores.
+Para la captura previa de imágenes de contenedor en el grupo, agregue la lista de imágenes de contenedor (`container_image_names`, en Python) a `ContainerConfiguration`. 
+
+En el siguiente ejemplo básico de Python se muestra cómo capturar previamente una imagen de contenedor Ubuntu estándar desde [Docker Hub](https://hub.docker.com).
+
+```python
+image_ref_to_use = batch.models.ImageReference(
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
+
+"""
+Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
+"""
+
+container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+
+new_pool = batch.models.PoolAddParameter(
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
+...
+```
+
+
+En el siguiente ejemplo de C# se da por sentado que quiere capturar previamente una imagen de TensorFlow desde [Docker Hub](https://hub.docker.com). Este ejemplo contiene una tarea de inicio que se ejecuta en el host de máquina virtual de los nodos de grupo. Podría ejecutar una tarea de inicio en el host, por ejemplo, para montar un servidor de archivos al que pueda accederse desde los contenedores.
 
 ```csharp
+
+ImageReference imageReference = new ImageReference(
+    publisher: "microsoft-azure-batch",
+    offer: "ubuntu-server-container",
+    sku: "16-04-lts",
+    version: "latest");
+
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
@@ -157,15 +184,13 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
-
-// Commit pool creation
-pool.Commit();
+...
 ```
 
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Captura previa de imágenes desde un registro de contenedor privado
 
-También puede capturar previamente imágenes de contenedor mediante la autenticación a un servidor de registro de contenedor privado. En el siguiente ejemplo los objetos `ContainerConfiguration` y `VirtualMachineConfiguration` utilizan una imagen personalizada de Ubuntu 16.04 LTS y realizan una captura previa de una imagen de TensorFlow privada desde un registro de contenedor de Azure privado.
+También puede capturar previamente imágenes de contenedor mediante la autenticación a un servidor de registro de contenedor privado. En el ejemplo siguiente, los objetos `ContainerConfiguration` y `VirtualMachineConfiguration` capturan previamente una imagen privada de TensorFlow de un registro de contenedor de Azure privado. La referencia de imagen es la misma que en el ejemplo anterior.
 
 ```csharp
 // Specify a container registry
@@ -192,9 +217,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration);
-
-// Commit pool creation
-pool.Commit();
+...
 ```
 
 
@@ -206,14 +229,35 @@ Use la propiedad `ContainerSettings` de las clases de tarea para configurar opci
 
 Si ejecuta tareas en imágenes de contenedor, la [tarea en la nube](/dotnet/api/microsoft.azure.batch.cloudtask) y la [tarea del administrador de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) requieren la configuración del contenedor. Sin embargo, la [tarea de inicio](/dotnet/api/microsoft.azure.batch.starttask), la [tarea de preparación de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) y la [tarea de liberación de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) no requieren configuración del contenedor (es decir, pueden ejecutarse en un contexto de contenedor o directamente en el nodo).
 
-Al configurar las opciones de contenedor, todos los directorios recursivamente debajo de `AZ_BATCH_NODE_ROOT_DIR` (la raíz de los directorios de Azure Batch en el nodo) se asignan al contenedor, todas las variables de entorno de la tarea se asignan al contenedor y la línea de comandos de tarea se ejecuta en el contenedor.
+La línea de comandos de una tarea de contenedor de Azure Batch se ejecuta en un directorio de trabajo del contenedor muy similar al entorno que Batch configura para una tarea normal (que no es de tipo contenedor):
 
-El ejemplo de código de [Captura previa de imágenes para la configuración de contenedor](#prefetch-images-for-container-configuration) muestra cómo especificar una configuración de contenedor para una tarea de inicio. En el ejemplo de código siguiente se muestra cómo especificar la configuración del contenedor para una tarea en la nube:
+* Todos los directorios incluidos de forma recursiva debajo de `AZ_BATCH_NODE_ROOT_DIR` (la raíz de los directorios de Azure Batch en el nodo) se asignan al contenedor.
+* Todas las variables de entorno de tareas se asignan al contenedor.
+* El directorio de trabajo de la aplicación establecido es el mismo que en el caso de una tarea normal, por lo que puede usar características como paquetes de aplicación y archivos de recursos.
+
+Dado que Batch cambia el directorio de trabajo predeterminado del contenedor, la tarea se ejecuta en una ubicación diferente al típico punto de entrada del contenedor (por ejemplo, `c:\` de manera predeterminada en un contenedor de Windows o `/` en Linux). Asegúrese de que el punto de entrada de línea de comandos o de contenedor de la tarea especifica una ruta de acceso absoluta, si aún no se ha configurado de este modo.
+
+En el siguiente fragmento de código de Python se muestra una línea de comandos básica que se ejecuta en un contenedor de Ubuntu extraído de Docker Hub. Las opciones de ejecución del contenedor son argumentos adicionales al comando `docker create` que la tarea ejecuta. En este caso, la opción `--rm` quita el contenedor después de que finaliza la tarea.
+
+```python
+task_id = 'sampletask'
+task_container_settings = batch.models.TaskContainerSettings(
+    image_name='ubuntu', 
+    container_run_options='--rm')
+task = batch.models.TaskAddParameter(
+    id=task_id,
+    command_line='/bin/echo hello',
+    container_settings=task_container_settings
+)
+
+```
+
+En el siguiente ejemplo de C# muestra la configuración de contenedor básica para una tarea en la nube:
 
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",
@@ -234,3 +278,5 @@ CloudTask containerTask = new CloudTask (
 * Para más información sobre cómo instalar y usar Docker CE en Linux, consulte la documentación de [Docker](https://docs.docker.com/engine/installation/).
 
 * Para más información sobre imágenes personalizadas, consulte [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
+
+* Más información sobre el [proyecto Moby](https://mobyproject.org/), un marco para crear sistemas basados en contenedor.

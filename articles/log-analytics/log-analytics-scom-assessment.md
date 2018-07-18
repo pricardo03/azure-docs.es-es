@@ -1,25 +1,26 @@
 ---
-title: "Optimización del entorno de System Center Operations Manager con Azure Log Analytics | Microsoft Docs"
-description: "Puede usar la solución System Center Operations Manager Health Check para evaluar el riesgo y el estado de los entornos periódicamente."
+title: Optimización del entorno de System Center Operations Manager con Azure Log Analytics | Microsoft Docs
+description: Puede usar la solución System Center Operations Manager Health Check para evaluar el riesgo y el estado de los entornos periódicamente.
 services: log-analytics
-documentationcenter: 
-author: MGoedtel
+documentationcenter: ''
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.component: na
+ms.openlocfilehash: bdf56a85c43513f573c02e3b28cd93f28217814b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128969"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimización del entorno con la solución System Center Operations Manager Health Check (versión preliminar)
 
@@ -211,14 +212,14 @@ Cada recomendación incluye pautas que indican por qué es importante. Use estas
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Uso de las recomendaciones del área centradas en la comprobación de estado
 
-Para poder usar una solución de comprobación de estado en Log Analytics, debe tenerla instalada. Para más información sobre cómo instalar las soluciones, consulte [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md). Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono de System Center Operations Manager Health Check en el panel Información general en OMS.
+Para poder usar una solución de comprobación de estado en Log Analytics, debe tenerla instalada. Para obtener más información sobre cómo instalar soluciones, consulte [Install a management solution](log-analytics-add-solutions.md) (Instalar una solución de administración). Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono de System Center Operations Manager Health Check en la página **Información general** del área de trabajo en Azure Portal.
 
 Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundice las recomendaciones.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
-1. Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com).
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
-3. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y, a continuación, haga clic en el icono de **Portal de OMS**.  
+3. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y haga clic en el elemento de menú **Resumen del área de trabajo**.  
 4. En la página **Información general**, haga clic en el icono de **System Center Operations Manager Health Check**.
 5. En la página **System Center Operations Manager Health Check**, revise la información resumida de una de las hojas de las áreas de interés y, a continuación, haga clic en una de ellas para ver las recomendaciones para dicha área.
 6. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.<br><br> ![área de enfoque](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -231,7 +232,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar las recomendaciones que desea omitir
-1. En Azure Portal, en la página del área de trabajo de Log Analytics correspondiente al área de trabajo seleccionado, haga clic en el icono de **Búsqueda de registros**.
+1. En Azure Portal, en la página del área de trabajo de Log Analytics correspondiente al área de trabajo seleccionada, haga clic en el elemento de menú **Búsqueda de registros**.
 2. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
 
     ```

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36964542"
 ---
 ## <a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
 
@@ -109,7 +110,7 @@ ping -S 10.0.0.5 hotmail.com
 
     Debería ver la dirección IP que agregó en la lista.
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS y otros)
+### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS y otros)
 
 1. Abra una ventana del terminal.
 2. Asegúrese de ser el usuario raíz. Si no lo es, escriba el siguiente comando:

@@ -12,19 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f65e84bff63bbdb781991ff6648b0fb98ca5208f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193770"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592320"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de objetos con Azure AD Connect Sync
-En este documento se proporcionan los pasos para solucionar problemas relacionados con la sincronización de objetos mediante la tarea de solución de problemas.
+En este artículo se proporcionan los pasos para solucionar problemas relacionados con la sincronización de objetos mediante la tarea de solución de problemas. Para ver cómo se solucionan problemas en Azure Active Directory (Azure AD) Connect, vea [este breve vídeo](https://aka.ms/AADCTSVideo).
 
 ## <a name="troubleshooting-task"></a>Tarea de solución de problemas
-Para la implementación de Azure Active Directory (AAD) Connect con la versión 1.1.749.0 o superior, use la tarea de solución de problemas del asistente para solucionar problemas de sincronización de objetos. En versiones anteriores, solucione los problemas manualmente como se describe [aquí](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Para la implementación de Azure AD Connect con la versión 1.1.749.0 o superior, use la tarea de solución de problemas del asistente para solucionar problemas de sincronización de objetos. En versiones anteriores, solucione los problemas manualmente como se describe [aquí](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Ejecución de la tarea de solución de problemas en el asistente
 Para ejecutar la tarea de solución de problemas en el asistente, realice los pasos siguientes:

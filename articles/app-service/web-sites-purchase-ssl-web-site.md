@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807465"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -196,13 +197,24 @@ Haga clic en el botón **Regenerar clave** para iniciar el proceso. Este proceso
 
 La regeneración de claves del certificado renovará el certificado con un nuevo certificado emitido desde la entidad de certificación.
 
+## <a name="renew-the-certificate"></a>Renovación del certificado
+
+Para activar la renovación automática del certificado en cualquier momento, haga clic en **Configuración de renovación automática** en la página de administración de certificados. Seleccione **Activar** y luego haga clic en **Guardar**.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Para renovar manualmente el certificado, haga clic en **Renovación manual**.
+
+> [!NOTE]
+> El certificado renovado no se enlaza automáticamente a la aplicación, con independencia de que lo renueve de manera manual o automática. Para enlazarlo a la aplicación, consulte [Renovar certificados](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>¿Por qué mi certificado SSL no se renueva automáticamente?
+## <a name="why-is-my-certificate-not-auto-renewed"></a>¿Por qué mi certificado no se renueva automáticamente?
 
-Si el certificado SSL está configurado para la renovación automática, pero no se renueva automáticamente, puede tener una comprobación del dominio pendiente. Tenga en cuenta lo siguiente: 
+Si el certificado SSL está configurado para la renovación automática, pero no se renueva automáticamente, puede tener una comprobación del dominio pendiente. Observe lo siguiente: 
 
-- GoDaddy, que genera certificados de App Service, requiere la comprobación del dominio una vez cada tres años. El administrador del dominio recibe un correo electrónico una vez cada tres años para comprobar el dominio. Un error al comprobar el correo electrónico o comprobar el dominio impide que el certificado de App Service se renueve automáticamente. 
-- Todos los certificados de App Service emitidos antes del 31 de marzo de 2017 requieren la comprobación de nuevo del dominio en el momento de la renovación siguiente (incluso si la renovación automática está habilitada para el certificado). Esto es resultado del cambio en la directiva de GoDaddy. Compruebe su correo electrónico y complete esta comprobación de dominio de un solo uso para continuar con la renovación automática del certificado de App Service. 
+- GoDaddy, que genera certificados de App Service, requiere la comprobación del dominio una vez cada dos años. El administrador del dominio recibe un correo electrónico una vez cada tres años para comprobar el dominio. Un error al comprobar el correo electrónico o comprobar el dominio impide que el certificado de App Service se renueve automáticamente. 
+- Debido a un cambio en la directiva de GoDaddy, todos los certificados de App Service emitidos antes del 1 de marzo de 2018 requieren la comprobación de nuevo del dominio en el momento de la renovación siguiente (incluso si la renovación automática está habilitada para el certificado). Compruebe su correo electrónico y complete esta comprobación de dominio de un solo uso para continuar con la renovación automática del certificado de App Service. 
 
 ## <a name="more-resources"></a>Más recursos
 

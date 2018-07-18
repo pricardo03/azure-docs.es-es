@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: df7cc8c978dfa215a79d087d2aa1f0dea258d6b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591650"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selección del tipo de instalación que se usará para Azure AD Connect
 Azure AD Connect tiene dos tipos de instalación para la nueva instalación: rápida y personalizada. Este tema le ayudará a decidir qué opción utilizar durante la instalación.
@@ -41,7 +43,7 @@ Obtendrá:
 
 Opciones en las que puede continuar utilizando la instalación rápida:
 
-- Si no desea sincronizar todas las unidades organizativas, puede usar la opción Rápido y, en la última página, anule la selección de **Inicie el proceso de sincronización...***. Después, vuelva a ejecutar el Asistente para instalación y cambie las unidades organizativas en [Opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) y habilite la sincronización programada.
+- Si no desea sincronizar todas las unidades organizativas, puede usar la opción Rápido y, en la última página, anule la selección de **Inicie el proceso de sincronización...**\*. Después, vuelva a ejecutar el Asistente para instalación y cambie las unidades organizativas en [Opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) y habilite la sincronización programada.
 - Desea habilitar una de las características de Azure AD Premium, como la Escritura diferida de contraseñas. Utilice primero la instalación rápida para completar la instalación inicial. Después, vuelva a ejecutar el Asistente para instalación y cambie las [opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizado

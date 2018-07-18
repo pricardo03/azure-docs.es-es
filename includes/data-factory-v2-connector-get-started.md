@@ -5,7 +5,7 @@ Puede crear una canalización con la actividad de copia mediante una de las sigu
 
 - [Herramienta Copiar datos](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
-- [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
+- [SDK de .NET](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [SDK de Python](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
 - [API de REST](../articles/data-factory/quickstart-create-data-factory-rest-api.md)

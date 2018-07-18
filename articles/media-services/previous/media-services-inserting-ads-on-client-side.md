@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 57cb06fcee029f72dd1cf81ef086985fdda3f45f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903054"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserción de anuncios en el lado cliente
 Este tema contiene información sobre cómo insertar varios tipos de anuncios en el lado cliente.
@@ -275,7 +276,7 @@ En el ejemplo siguiente se muestra un archivo VMAP que especifica eventos de seg
     </vmap:VMAP>
 ```
 
-Para información sobre el elemento <**TrackingEvents**> y sus elementos secundarios, consulte http://iab.org/VMAP.pdf
+Para información sobre el elemento <**TrackingEvents**> y sus elementos secundarios, consulte http://iab.net/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Uso de un archivo Media Abstract Sequencing Template (MAST)
 Un archivo MAST permite especificar desencadenadores que definen cuándo se muestra un anuncio. El siguiente es un archivo MAST de ejemplo que contiene desencadenadores para un anuncio de cuña previa, de cuña intermedia y de cuña posterior.

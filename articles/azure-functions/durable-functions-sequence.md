@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970061"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadenamiento de funciones en Durable Functions: Hello Sequence de ejemplo
 
@@ -70,7 +71,7 @@ El siguiente es el código fuente:
 
 Todas las funciones de orquestación de JavaScript tienen que incluir el módulo `durable-functions`. Se trata de una biblioteca de JavaScript que traduce las acciones de la función de orquestación al protocolo de ejecución de Durable Functions para lenguajes fuera de proceso. Hay tres diferencias importantes entre una función de orquestación y otras funciones de JavaScript:
 
-1. La función es una [función de generador.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. La función es una [función de generador.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. La función se ajusta en una llamada al módulo `durable-functions` (aquí `df`).
 3. La función finaliza llamando a `return`, no a `context.done`.
 

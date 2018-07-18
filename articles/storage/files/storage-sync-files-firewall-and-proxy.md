@@ -4,7 +4,7 @@ description: Configuración de la red local de Azure File Sync
 services: storage
 documentationcenter: ''
 author: fauhse
-manager: klaasl
+manager: aungoo
 editor: tamram
 ms.assetid: ''
 ms.service: storage
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072273"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738537"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -48,7 +48,7 @@ Como resultado, se cifra todo el tráfico.
 ## <a name="networks-and-special-connections-to-azure"></a>Redes y conexiones especiales a Azure
 El agente de Azure File Sync no tiene ningún requisito en lo que respecta a canales especiales como [ExpressRoute](../../expressroute/expressroute-introduction.md), etc., en Azure.
 
-Azure File Sync funciona con cualquier medio disponible que permita conectarse con Azure, de modo que se adapta automáticamente a diversas características de red, como el ancho de banda, la latencia y la posibilidad de usar el control de administración para realizar ajustes. * No todas las características están disponibles en este momento. Si desea configurar un comportamiento específico, comuníquelo en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage?category_id=180670).
+Azure File Sync funciona con cualquier medio disponible que permita conectarse con Azure, de modo que se adapta automáticamente a diversas características de red, como el ancho de banda, la latencia y la posibilidad de usar el control de administración para realizar ajustes. No todas las características están disponibles en este momento. Si desea configurar un comportamiento específico, comuníquelo en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## <a name="proxy"></a>Proxy
 Azure File Sync admite actualmente la configuración del proxy en el nivel de máquinas. Esta configuración de proxy es transparente para el agente de Azure File Sync, ya que todo el tráfico del servidor se enruta a través de este proxy.
@@ -65,7 +65,7 @@ En la tabla siguiente se describen los dominios necesarios para la comunicación
 | **Azure Resource Manager** | https://management.azure.com | Todas las llamadas de usuario (como PowerShell) van a esta URL, incluida la llamada de registro inicial del servidor. |
 | **Azure Active Directory** | https://login.windows.net | Las llamadas de Azure Resource Manager deben realizarlas usuarios autenticados. Para que el proceso se complete correcta, esta URL se utiliza para la autenticación de usuarios. |
 | **Azure Active Directory** | https://graph.windows.net/ | Como parte de la implementación de Azure File Sync, se crea una entidad de servicio en la instancia de Azure Active Directory de la suscripción. Esta URL se utiliza con ese fin. Esta entidad de seguridad se usa para delegar un conjunto mínimo de derechos en el servicio Azure File Sync. El usuario que realiza la configuración inicial de Azure File Sync debe ser un usuario autenticado con privilegios de propietario en la suscripción. |
-| **Azure Storage** | &ast;.core.windows.net | Cuando el servidor descarga un archivo, realiza ese movimiento de datos de forma más eficaz al conectarse directamente al recurso compartido de archivos de Azure en la cuenta de almacenamiento. El servidor tiene una clave SAS que solo se permite el acceso al recurso compartido de archivos de destino. |
+| **Azure Storage** | &ast;.core.windows.net | Cuando el servidor descarga un archivo, realiza el movimiento de datos de forma más eficaz al comunicarse directamente con el recurso compartido de archivos de Azure en la cuenta de almacenamiento. El servidor tiene una clave SAS que solo se permite el acceso al recurso compartido de archivos de destino. |
 | **Azure File Sync** | &ast;.one.microsoft.com | Después del registro inicial del servidor, el servidor recibe una URL regional para la instancia de servicio de Azure File Sync en dicha región. El servidor puede utilizar la URL para comunicarse de forma directa y eficaz con la instancia que controla la sincronización. |
 
 > [!Important]

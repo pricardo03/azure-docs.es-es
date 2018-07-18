@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2c7ea043d2da41442829321ac663325f30ff066
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297335"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectarse a una cuenta de Amazon Web Services
 
@@ -91,7 +92,7 @@ En las siguientes secciones se le ayudará a crear un usuario de solo lectura pa
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>Configuración del acceso basado en usuarios de AWS IAM en Cost Management
 
-1. Abra el portal de Cloudyn desde Azure Portal o navegue a https://azure.cloudyn.com/ e inicie sesión.
+1. Abra el portal de Cloudyn desde Azure Portal o vaya a https://azure.cloudyn.com/ e inicie sesión.
 2. Haga clic en el símbolo de engranaje y, después, seleccione **Cuentas de Cloud**.
 3. En Administración de cuentas, seleccione la pestaña **Cuentas de AWS** y, después, haga clic en **Agregar nuevo +**.
 4. Para **Nombre de cuenta**, escriba un nombre de cuenta.
@@ -107,7 +108,7 @@ Cost Management comienza a recopilar datos y a rellenar informes. A continuació
 
 Siga los pasos siguientes para obtener su ARN de rol de AWS. El ARN de rol se usa para conceder permisos de lectura a un cubo de facturación.
 
-1. Inicie sesión en la consola de AWS en https://console.aws.amazon.com y seleccione **Services** (Servicios).
+1. Inicie sesión en la consola de AWS en https://console.aws.amazon.com, y seleccione **Services** (Servicios).
 2. En el cuadro de búsqueda del servicio, escriba *IAM* y seleccione esa opción.
 3. Seleccione **Roles** en el menú izquierdo.
 4. En la lista de roles, seleccione el rol que ha creado para el acceso de Cloudyn.
@@ -117,7 +118,7 @@ Siga los pasos siguientes para obtener su ARN de rol de AWS. El ARN de rol se us
 
 Un cubo de S3 se crea para almacenar información de facturación detallada.
 
-1. Inicie sesión en la consola de AWS en https://console.aws.amazon.com y seleccione **Services** (Servicios).
+1. Inicie sesión en la consola de AWS en https://console.aws.amazon.com, y seleccione **Services** (Servicios).
 2. En el cuadro de búsqueda del servicio, escriba *S3* y seleccione **S3**.
 3. En la página de Amazon S3, haga clic en **Create bucket** (Crear cubo).
 4. En el asistente de creación de cubos, elija un nombre y una región para el cubo y, a continuación, haga clic en **Next** (Siguiente).  

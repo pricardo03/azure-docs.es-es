@@ -1,23 +1,19 @@
 ---
-title: Flujo de datos de supervisión de Azure a Event Hubs | Microsoft Docs
+title: Flujo de datos de supervisión de Azure a Event Hubs
 description: Aprenda sobre el flujo de todos los datos de supervisión de Azure a un centro de eventos para que una herramienta de un asociado de Administración de eventos e información de seguridad o de análisis puedan disponer de ellos.
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/05/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 7/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902996"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -97,7 +93,7 @@ Los datos de supervisión de aplicaciones requieren la instrumentación del cód
 
 1. [Configure la exportación continua](../application-insights/app-insights-export-telemetry.md) de los datos de Application Insights a una cuenta de almacenamiento.
 
-2. Configure una aplicación lógica desencadenada por temporizador que [extraiga los datos de Blob Storage](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) y [los inserte como mensaje en el centro de eventos](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Configure una aplicación lógica desencadenada por temporizador que [extraiga los datos de Blob Storage](../connectors/connectors-create-api-azureblobstorage.md#add-action) y [los inserte como mensaje en el centro de eventos](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>¿Qué puedo hacer con los datos de supervisión que se envían a mi centro de eventos?
 
@@ -106,7 +102,7 @@ El enrutamiento de los datos de supervisión a un centro de eventos con Azure Mo
 * **IBM QRadar**: el módulo específico del dispositivo y el protocolo del centro de eventos de Microsoft Azure están disponibles para descarga en [el sitio web de soporte técnico de IBM](http://www.ibm.com/support). [Más información sobre la integración con Azure aquí](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk**: dependiendo de su configuración de Splunk, existen dos enfoques:
     1. [El complemento Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/) está disponible en Splunkbase y es un proyecto de código abierto. [La documentación se encuentra aquí](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
-    2. Si no puede instalar un complemento en su instancia de Splunk (p. ej., si usa un proxy o se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk mediante [esta función desencadenada por nuevos mensajes en el centro de eventos](https://github.com/sebastus/AzureFunctionForSplunkVS).
+    2. Si no puede instalar un complemento en su instancia de Splunk (p. ej., si usa un proxy o se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk mediante [esta función desencadenada por nuevos mensajes en el centro de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic**: las instrucciones sobre cómo configurar SumoLogic para consumir datos de un centro de eventos se encuentran [disponibles aquí](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub).
 
 ## <a name="next-steps"></a>Pasos siguientes

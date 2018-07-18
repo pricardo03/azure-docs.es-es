@@ -1,0 +1,147 @@
+---
+title: Eventos de Blob Storage para Azure Event Grid con Azure Portal | Microsoft Docs
+description: Use Azure Event Grid y Azure Portal para crear una cuenta de Blob Storage y suscribirse a sus eventos.
+services: event-grid
+keywords: ''
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 07/05/2018
+ms.topic: quickstart
+ms.service: event-grid
+ms.openlocfilehash: 4e547a97cde896acc4b6c8b19bc6c6cebf512adb
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867637"
+---
+# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Creación y enrutamiento de eventos de Blob Storage con Azure Portal y Event Grid
+
+Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usará Azure Portal para crear una cuenta de Blob Storage, suscribirse a eventos de Blob Storage y desencadenar un evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
+
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+Cuando haya terminado, verá que los datos del evento se han enviado a la aplicación web.
+
+![Visualización de los resultados](./media/blob-event-quickstart-portal/view-results.png)
+
+## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
+
+Para utilizar eventos de Blob Storage, necesita una [cuenta de Blob Storage](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o una [cuenta de almacenamiento de uso general v2](../storage/common/storage-account-options.md#general-purpose-v2). Las cuentas de **uso general v2 (GPv2)**  son cuentas de almacenamiento que admiten todas las características de todos los servicios de almacenamiento, como Blob, Files, Queue y Table. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs. 
+
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
+
+1. Para crear una instancia de Blob Storage, seleccione **Crear un recurso**. 
+
+   ![Creación de un recurso](./media/blob-event-quickstart-portal/create-resource.png)
+
+1. Seleccione **Storage** para filtrar las opciones disponibles y seleccione **Storage account - blob, file, table, queue** (Cuenta de almacenamiento: blob, archivo, tabla, cola).
+
+   ![Selección de Storage](./media/blob-event-quickstart-portal/create-storage.png)
+
+1. Proporcione valores para Blob Storage, incluido un nombre único para la cuenta. Como tipo de cuenta, seleccione **Blob Storage**. Como ubicación, seleccione una de las [ubicaciones](overview.md) que admite Event Grid. Cuando haya terminado de proporcionar valores, seleccione **Crear**.
+
+   ![Pasos iniciales](./media/blob-event-quickstart-portal/provide-blob-values.png)
+
+## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
+
+Antes de suscribirse a los eventos de Blob Storage, vamos a crear el punto de conexión para el mensaje del evento. Normalmente, el punto de conexión realiza acciones en función de los datos del evento. Para simplificar esta guía de inicio rápido, se implementa una [aplicación web pregenerada](https://github.com/dbarkol/azure-event-grid-viewer) que muestra los mensajes de los eventos. La solución implementada incluye un plan de App Service, una aplicación web de App Service y el código fuente desde GitHub.
+
+1. Seleccione **Deploy to Azure** (Implementar en Azure) para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
+
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+
+1. La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
+
+1. Verá el sitio, pero aún no se ha publicado en él ningún evento.
+
+   ![Visualización del nuevo sitio](./media/blob-event-quickstart-portal/view-site.png)
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+
+## <a name="subscribe-to-the-blob-storage"></a>Suscripción a Blob Storage
+
+Suscríbase a un tema que indique a Event Grid los eventos cuyo seguimiento desea realizar y el lugar al que deben enviarse los eventos.
+
+1. En el portal, seleccione su instancia de Blob Storage y seleccione **Eventos**.
+
+   ![Selección de Eventos](./media/blob-event-quickstart-portal/select-events.png)
+
+1. Para enviar eventos a la aplicación de visor, use un webhook como punto de conexión. Seleccione **Más opciones** y **Webhook**.
+
+   ![Selección de webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
+
+1. La suscripción de eventos se rellena previamente con valores para Blob Storage. Para el punto de conexión de webhook, proporcione la dirección URL de la aplicación web y agregue `api/updates` a la dirección URL de la página principal. Asigne un nombre a su suscripción. Cuando haya terminado, seleccione **Crear**.
+
+   ![Seleccionar Registros](./media/blob-event-quickstart-portal/create-subscription.png)
+
+1. Vuelva a la aplicación web y observe que se ha enviado un evento de validación de suscripción. Seleccione el icono del ojo para expandir los datos del evento. Event Grid envía el evento de validación para que el punto de conexión pueda verificar que desea recibir datos de eventos. La aplicación web incluye código para validar la suscripción.
+
+   ![Visualización del evento de suscripción](./media/blob-event-quickstart-portal/view-subscription-event.png)
+
+Ahora, vamos a desencadenar un evento para ver cómo Event Grid distribuye el mensaje al punto de conexión.
+
+## <a name="send-an-event-to-your-endpoint"></a>Envío de un evento al punto de conexión
+
+Desencadenará un evento para Blob Storage mediante la carga de un archivo. El archivo no necesita ningún contenido específico. En los artículos se da por hecho que tiene un archivo llamado testfile.txt, pero puede usar cualquier archivo.
+
+1. Para su instancia de Blob Storage, seleccione **Blobs**.
+
+   ![Selección de blobs](./media/blob-event-quickstart-portal/select-blobs.png)
+
+1. Seleccione **+ Contenedor**. Asigne un nombre de contenedor y use cualquier nivel de acceso.
+
+   ![Agregar contenedor](./media/blob-event-quickstart-portal/add-container.png)
+
+1. Seleccione el nuevo contenedor.
+
+   ![Seleccionar el contenedor](./media/blob-event-quickstart-portal/select-container.png)
+
+1. Para cargar un archivo, seleccione **Cargar**.
+
+   ![Selección de carga](./media/blob-event-quickstart-portal/upload-file.png)
+
+1. Busque el archivo de prueba y cárguelo.
+
+1. Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexión que configuró al realizar la suscripción. Vea la aplicación web y observe que se ha recibido un evento de blob creado. 
+
+  ```json
+  {
+    "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
+    "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "eventTime": "2018-06-25T22:50:41.1823131Z",
+    "id": "89a2f9da-c01e-00bb-13d6-0c599506e4e3",
+    "data": {
+      "api": "PutBlockList",
+      "clientRequestId": "41341a9b-e977-4a91-9000-c64125039047",
+      "requestId": "89a2f9da-c01e-00bb-13d6-0c5995000000",
+      "eTag": "0x8D5DAEE13C8F9ED",
+      "contentType": "text/plain",
+      "contentLength": 4,
+      "blobType": "BlockBlob",
+      "url": "https://demoblob0625.blob.core.windows.net/eventcontainer/testfile.txt",
+      "sequencer": "00000000000000000000000000001C24000000000004712b",
+      "storageDiagnostics": {
+        "batchId": "ef633252-32fd-464b-8f5a-0d10d68885e6"
+      }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
+  }
+  ```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si piensa seguir trabajando con este evento, no limpie los recursos creados en este artículo. De lo contrario, elimine los recursos que ha creado en este artículo.
+
+Seleccione el grupo de recursos y seleccione **Eliminar grupo de recursos**.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Ahora que sabe cómo crear suscripciones a temas personalizados y eventos, aprenda más acerca de cómo puede ayudarle Event Grid:
+
+- [Una introducción a Azure Event Grid](overview.md)
+- [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md)

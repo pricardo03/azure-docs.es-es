@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 440b07b494b34db7ff3fcdf5d5ac830b165c339d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6079784a21b5dea8929fcfa3d8f296477b3b9520
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083335"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 En este tutorial se muestra cómo puede **copiar varias tablas de Azure SQL Database a Azure SQL Data Warehouse**. Además, puede aplicar el mismo patrón en otros escenarios de copia. Por ejemplo, para copiar tablas de SQL Server u Oracle a Azure SQL Database, Data Warehouse o el blob de Azure, o bien para copiar diferentes rutas de acceso de blob a tablas de Azure SQL Database.
 
 > [!NOTE]
 > - Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
-> - Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 A grandes rasgos, este tutorial incluye los pasos siguientes:
 
@@ -48,7 +48,7 @@ En este escenario, tenemos varias tablas en Azure SQL Database que queremos copi
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **Cuenta de Azure Storage**. La cuenta de Azure Storage se usa como almacenamiento de blobs de almacenamiento provisional en la operación de copia masiva. 
 * **Azure SQL Database**. Esta base de datos contiene los datos de origen. 
 * **Azure SQL Data Warehouse**. Este almacén de datos contiene los datos que se copian de SQL Database. 
@@ -82,7 +82,7 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
       
      ![Página New data factory (Nueva factoría de datos)](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
-   El nombre de Azure Data Factory debe ser **único de forma global**. Si ve el siguiente error en el campo del nombre, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialBulkCopyDF). Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si ve el siguiente error en el campo del nombre, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialBulkCopyDF). Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
 3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
@@ -92,8 +92,8 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
       - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
       Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Seleccione **V2 (versión preliminar)** como **versión**.
-5. Seleccione la **ubicación** de Data Factory. Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+4. Seleccione **V2** para la **versión**.
+5. Seleccione la **ubicación** de Data Factory. Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 6. Seleccione **Anclar al panel**.     
 7. Haga clic en **Create**(Crear).
 8. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
@@ -162,9 +162,9 @@ En este tutorial, debe usar Azure Blob Storage como un área de almacenamiento p
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 En este tutorial creará los conjuntos de datos de origen y recepción, que especifican la ubicación de almacenamiento de los datos. 
 
-El conjunto de datos de entrada AzureSqlDatabaseDataset hace referencia a AzureSqlDatabaseLinkedService. El servicio vinculado especifica la cadena de conexión para conectarse a la base de datos. El conjunto de datos especifica el nombre de la base de datos y la tabla que contienen los datos de origen. 
+El conjunto de datos de entrada **AzureSqlDatabaseDataset** hace referencia a **AzureSqlDatabaseLinkedService**. El servicio vinculado especifica la cadena de conexión para conectarse a la base de datos. El conjunto de datos especifica el nombre de la base de datos y la tabla que contienen los datos de origen. 
 
-El conjunto de datos de salida AzureSqlDWDataset hace referencia a AzureSqlDWLinkedService. El servicio vinculado especifica la cadena de conexión para conectarse al almacenamiento de datos. El conjunto de datos especifica la base de datos y la tabla donde se copian los datos. 
+El conjunto de datos de salida **AzureSqlDWDataset** hace referencia a **AzureSqlDWLinkedService**. El servicio vinculado especifica la cadena de conexión para conectarse al almacenamiento de datos. El conjunto de datos especifica la base de datos y la tabla donde se copian los datos. 
 
 En este tutorial, las tablas de origen y destino SQL no están codificadas en las definiciones de los conjuntos de datos. En su lugar, la actividad ForEach (Para cada uno) pasa el nombre de la tabla en tiempo de ejecución a la actividad de copia. 
 
@@ -178,7 +178,6 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
     ![Seleccionar Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 3. En la ventana de propiedades de la parte inferior, escriba **AzureSqlDatabaseDataset** en **Name** (Nombre).
 
-    ![Nombre del conjunto de datos de origen](./media/tutorial-bulk-copy-portal/source-dataset-general.png)
 4. Cambie a la pestaña **Connection** (Conexión) y realice los pasos siguientes: 
 
     1. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado).
@@ -192,14 +191,21 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
 1. Haga clic en el **signo + (más)** en el panel izquierdo y en **Dataset** (Conjunto de datos). 
 2. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Data Warehouse** y haga clic en **Finish** (Finalizar). Debería ver una nueva pestaña titulada **AzureSqlDWTable1**. 
 3. En la ventana de propiedades de la parte inferior, escriba **AzureSqlDWDataset** en **Name** (Nombre).
-4. Cambie a la pestaña **Connection** (Conexión) y seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado).
-5. Cambie a la pestaña **Parameters** (Parámetros) y haga clic en **+ New** (+ Nuevo).
+5. Vaya a la pestaña **Parameters** (Parámetros), haga clic en **+ New** (+ Nuevo) y escriba **DWTableName** como nombre del parámetro. Si copia y pega este nombre de la página, asegúrese de que no hay ningún **carácter de espacio final** al final de **DWTableName**. 
 
-    ![Página de conexión del conjunto de datos de origen](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Escriba **DWTableName** como nombre del parámetro. Si copia y pega este nombre de la página, asegúrese de que no hay ningún **carácter de espacio final** al final de **DWTableName**. 
-7. En la sección **Parametrerized properties** (Propiedades parametrizadas), escriba `@{dataset().DWTableName}` como propiedad **tableName**. La propiedad **tableName** del conjunto de datos se establece en el valor que se pasa como argumento del parámetro **DWTableName**. La actividad ForEach (Para cada uno) recorre en iteración una lista de tablas y las pasa una a una a la actividad de copia. 
-   
-    ![Nombre de parámetro](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
+    ![Página de conexión del conjunto de datos de origen](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
+
+6. Cambie a la pestaña **Connection** (Conexión), 
+
+    a. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado).
+
+    b. En **Table** (Tabla), active la opción **Edit** (Editar), haga clic en el cuadro de entrada del nombre de la tabla y, después, haga clic en el vínculo **Agregar contenido dinámico** que aparece a continuación. 
+    
+    ![Nombre de parámetro](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
+
+    c. En la página **Agregar contenido dinámico**, haga clic en **DWTAbleName** en **Parameters** (Parámetros) y se rellenará automáticamente el cuadro de texto de expresiones de la parte superior `@dataset().DWTableName`, finalmente, haga clic en **Finalizar**. La propiedad **tableName** del conjunto de datos se establece en el valor que se pasa como argumento del parámetro **DWTableName**. La actividad ForEach (Para cada uno) recorre en iteración una lista de tablas y las pasa una a una a la actividad de copia. 
+
+    ![Generador de parámetros del conjunto de datos](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>Creación de canalizaciones
 En este tutorial creará dos canalizaciones: **IterateAndCopySQLTables** y **GetTableListAndTriggerCopyData**. 
@@ -216,63 +222,65 @@ La canalización **GetTableListAndTriggerCopyData** lleva a cabo dos pasos:
 1. En el panel izquierdo, haga clic en el **signo + (más)** y en **Pipeline** (Canalización).
 
     ![Menú New pipeline (Nueva canalización)](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. En la ventana de propiedades, cambie el nombre de la canalización a **IterateAndCopySQLTables**. 
+2. En la pestaña **General**, especifique **IterateAndCopySQLTables** como nombre. 
 
-    ![Nombre de la canalización](./media/tutorial-bulk-copy-portal/first-pipeline-name.png)
 3. Cambie a la pestaña **Parameters** (Parámetros) y realice las siguientes acciones: 
 
     1. Haga clic en **+ Nuevo**. 
     2. Escriba **tableList** en el parámetro **name**.
-    3. Seleccione **Object** para **Type**.
+    3. Seleccione **Matriz** como **tipo**.
 
         ![Parámetro Pipeline](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. En el cuadro de herramientas **Activities** (Actividades), expanda **Iteration & Conditions** (Iteraciones y condiciones), arrastre la actividad **ForEach** (Para cada uno) y colóquela en la superficie del diseñador de canalizaciones. También puede buscar actividades en el cuadro de herramientas **Activities** (Actividades). En la ventana **Properties** (Propiedades) de la parte inferior, escriba **IterateSQLTables** en **Name** (Nombre). 
+4. En el cuadro de herramientas **Activities** (Actividades), expanda **Iteration & Conditions** (Iteraciones y condiciones), arrastre la actividad **ForEach** (Para cada uno) y colóquela en la superficie del diseñador de canalizaciones. También puede buscar actividades en el cuadro de herramientas **Activities** (Actividades). 
 
-    ![Nombre de la actividad ForEach (Para cada uno)](./media/tutorial-bulk-copy-portal/for-each-activity-name.png)
-5. Cambie a la pestaña **Settings** (Configuración) y escriba `@pipeline().parameters.tableList` en **Items** (Elementos).
+    a. En la pestaña **General** de la parte inferior escriba **IterateSQLTables** como **Nombre**. 
+
+    b. Cambie a la pestaña **Configuración**, haga clic en el cuadro de entrada **Elementos** y, finalmente, haga clic en el vínculo **Agregar contenido dinámico** que aparece a continuación. 
 
     ![Configuración de la actividad ForEach (Para cada uno)](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
-6. Para agregar una actividad secundaria a la actividad **ForEach** (Para cada uno), **haga doble clic** en la actividad ForEach (Para cada uno) (o) en el icono **Editar (lápiz)**. Los vínculos de acción de una actividad solo se ven al seleccionarla. 
 
-    ![Nombre de la actividad ForEach (Para cada uno)](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. En el cuadro de herramientas **Activities** (Actividades), expanda **DataFlow** (Flujo de datos), arrastre la actividad **Copy** (Copia) y colóquela en la superficie del diseñador de canalizaciones; finalmente, cámbiele el nombre en la ventana de propiedades a  **CopyData**. Tenga en cuenta el menú de la ruta de navegación de la parte superior. IterateAndCopySQLTable es el nombre de la canalización; IterateSQLTables, el de la actividad ForEach (Para cada uno). El diseñador está en el ámbito de la actividad. Para volver al editor de canalización desde el editor de la actividad ForEach (Para cada uno), haga clic en el vínculo del menú de la ruta de navegación. 
+    c. En la página **Agregar contenido dinámico**, contraiga la sección de variables del sistema y funciones, haga clic en **tableList** en **Parameters** (Parámetros) y se rellenará automáticamente el cuadro de texto de expresiones de la parte superior `@pipeline().parameter.tableList`, finalmente, haga clic en **Finalizar**. 
+
+    ![Generador de parámetros de ForEach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    
+    d. Cambie a la pestaña **Actividades**, haga clic en **Agregar actividad** para agregar una actividad secundaria a la actividad **ForEach**.
+
+5. En el cuadro de herramientas **Actividades**, expanda **DataFlow**, arrastre la actividad de **copia** y colóquela en la superficie del diseñador de canalizaciones. Tenga en cuenta el menú de la ruta de navegación de la parte superior. IterateAndCopySQLTable es el nombre de la canalización; IterateSQLTables, el de la actividad ForEach (Para cada uno). El diseñador está en el ámbito de la actividad. Para volver al editor de canalización desde el editor de la actividad ForEach (Para cada uno), haga clic en el vínculo del menú de la ruta de navegación. 
 
     ![Copiar en la actividad ForEach (Para cada uno)](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-8. Cambie a la pestaña **Source** (Origen) y realice los pasos siguientes:
+6. Cambie a la pestaña **Source** (Origen) y realice los pasos siguientes:
 
     1. Seleccione **AzureSqlDatabaseDataset** en **Source Dataset** (Conjunto de datos de origen). 
     2. Seleccione la opción **Query** (Consulta) en **User Query** (Consulta del usuario). 
-    3. Escriba la siguiente consulta SQL en el campo **Query** (Consulta).
+    3. Haga clic en el cuadro de entrada **Query** (Consulta) -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba la siguiente expresión para **Query** (Consulta) -> seleccione **Finalizar**.
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
         ![Copia de la configuración de origen](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
-9. Cambie a la pestaña **Sink** (Receptor) y realice los pasos siguientes: 
+7. Cambie a la pestaña **Sink** (Receptor) y realice los pasos siguientes: 
 
     1. Seleccione **AzureSqlDWDataset** en **Sink Dataset** (Conjunto de datos receptor).
+    2. Haga clic en el cuadro de entrada VALOR del parámetro DWTableName -> seleccione **Agregar contenido dinámico** que aparece a continuación, escriba la expresión `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` como script, -> seleccione **Finalizar**.
     2. Expanda **Polybase Settings** (Configuración de Polybase) y seleccione **Allow polybase** (Permitir polybase). 
     3. Desactive la opción **Use Type default** (Usar tipo predeterminado). 
-    4. Escriba el siguiente script SQL en **Cleanup Script** (Script de limpieza). 
+    4. Haga clic en el cuadro de entrada **Script de limpieza** -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba la siguiente expresión como script -> seleccione **Finalizar**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Copia de la configuración del receptor](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-10. Cambie a la pestaña **Parameters** (Parámetros) y desplácese hacia abajo (si es necesario) para ver la sección **Sink Dataset** (Conjunto de datos receptor) con el parámetro **DWTableName**. Establezca el valor de este parámetro en `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]`.
 
-    ![Copia de los parámetros del receptor](./media/tutorial-bulk-copy-portal/copy-sink-parameters.png)
-11. Cambie a la pestaña **Settings** (Configuración) y realice los pasos siguientes: 
+8. Cambie a la pestaña **Settings** (Configuración) y realice los pasos siguientes: 
 
     1. Seleccione **True** para **Enable Staging** (Permitir almacenamiento provisional).
     2. Seleccione **AzureStorageLinkedService** como **Store Account Linked Service** (Servicio vinculado a la cuenta de almacenamiento).
 
         ![Enable staging (Permitir almacenamiento provisional)](./media/tutorial-bulk-copy-portal/copy-sink-staging-settings.png)
-12. Para comprobar la configuración de canalización, haga clic en **Validate** (Comprobar). Confirme que no haya errores de comprobación. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
 
-    ![Informe de comprobación de la canalización](./media/tutorial-bulk-copy-portal/first-pipeline-validation-report.png)
+9. Para comprobar la configuración de la canalización, haga clic en **Validar** en la barra de herramientas de la canalización. Confirme que no haya errores de comprobación. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Creación de la canalización GetTableListAndTriggerCopyData
 
@@ -286,7 +294,6 @@ Esta canalización lleva a cabo dos pasos:
     ![Menú New pipeline (Nueva canalización)](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
 2. En la ventana de propiedades, cambie el nombre de la canalización a **GetTableListAndTriggerCopyData**. 
 
-    ![Nombre de la canalización](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
 3. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones y realice los pasos siguientes:
 
     1. Escriba **LookupTableList** en **Name** (Nombre). 
@@ -314,7 +321,7 @@ Esta canalización lleva a cabo dos pasos:
     2. Expanda la sección **Advanced** (Avanzado). 
     3. Haga clic en **+ New** (+ Nuevo) en la sección **Parameters** (Parámetros). 
     4. Escriba **tableList** en el parámetro **name**.
-    5. Escriba `@activity('LookupTableList').output.value` para el parámetro **value**. Estamos configurando la lista de resultados de la actividad de búsqueda como entrada de la segunda canalización. La lista de resultados contiene la lista de tablas cuyos datos deben copiarse en el destino. 
+    5. Haga clic en el cuadro de entrada VALOR -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba `@activity('LookupTableList').output.value` como valor del nombre de tabla -> seleccione **Finalizar**. Estamos configurando la lista de resultados de la actividad de búsqueda como entrada de la segunda canalización. La lista de resultados contiene la lista de tablas cuyos datos deben copiarse en el destino. 
 
         ![Actividad de ejecución de canalización: página de configuración](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. **Conecte** la actividad **Lookup** (Búsqueda) a la actividad **Execute Pipeline** (Ejecutar canalización); para ello, arrastre el **cuadro verde** vinculado a la actividad de búsqueda a la izquierda de la actividad de ejecución de canalización.
@@ -322,17 +329,13 @@ Esta canalización lleva a cabo dos pasos:
     ![Conexión de las actividades de búsqueda y de ejecución de canalización](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 8. Para comprobar la canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
 
-    ![Segunda canalización: informe de comprobación](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Para publicar entidades (conjuntos de datos, canalizaciones, etc.) en el servicio Data Factory, haga clic en **Publish All** (Publicar todo). Espere hasta que la publicación se realice correctamente. 
-
-    ![Botón Publicar](./media/tutorial-bulk-copy-portal/publish.png)
+9. Para publicar entidades (conjuntos de datos, canalizaciones, etc.) en el servicio Data Factory, haga clic en **Publicar todo** en la parte superior de la ventana. Espere hasta que la publicación se realice correctamente. 
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
 
-1. Confirme que la pestaña **GetTableListAndTriggerCopyData** esté activa. 
-2. Haga clic en **Trigger** (Desencadenar) y en **Trigger Now** (Desencadenar ahora). 
+Vaya a la canalización **GetTableListAndTriggerCopyData**, haga clic en **Desencadenar** y haga clic en **Trigger Now** (Desencadenar ahora). 
 
-    ![Trigger now (Desencadenar ahora)](./media/tutorial-bulk-copy-portal/trigger-now.png)
+![Trigger now (Desencadenar ahora)](./media/tutorial-bulk-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 

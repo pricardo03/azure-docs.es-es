@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674859"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guía de inicio rápido: Creación de un salón de chat con SignalR Service
 
@@ -86,18 +87,18 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
 
 1. Para agregar una referencia al paquete de NuGet `Microsoft.Azure.SignalR`, ejecute el comando siguiente:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto.
 
         dotnet restore
 
-3. Agregue un secreto llamado *Azure:SignalR:ConnectionString* a Secret Manager. Este secreto contendrá la cadena de conexión para tener acceso al recurso de SignalR Service. *Azure: SignalR:ConnectionString* es la clave de configuración predeterminada que busca SignalR con el fin de establecer una conexión. Sustituya el valor en el comando siguiente por la cadena de conexión para el recurso de SignalR Service.
+3. Agregue un secreto llamado *Azure__SignalR__ConnectionString* en el administrador de secretos. Este secreto es un valor de configuración jerárquico, y es posible que los dos puntos (:) no funcionen en todas las plataformas. El carácter de subrayado doble (__), como ya usa este secreto, lo admiten todas las plataformas.  Este secreto contendrá la cadena de conexión para tener acceso al recurso de SignalR Service. *Azure__SignalR__ConnectionString* es la clave de configuración predeterminada que busca SignalR con el fin de establecer una conexión. Sustituya el valor en el comando siguiente por la cadena de conexión para el recurso de SignalR Service.
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager solo se usará para probar la aplicación web mientras se hospeda localmente. En un tutorial posterior, se implementará la aplicación web de chat en Azure. Una vez que la aplicación web se haya implementado en Azure, usará una configuración de la aplicación en lugar de almacenar la cadena de conexión con Secret Manager.
@@ -112,7 +113,7 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
     }
     ```
 
-    Al no pasar un parámetro a `AddAzureSignalR()`, este código usa la clave de configuración predeterminada, *Azure:SignalR:ConnectionString*, para la cadena de conexión del recurso de SignalR Service.
+    Al no pasar un parámetro a `AddAzureSignalR()`, este código usa la clave de configuración predeterminada, *Azure__SignalR__ConnectionString*, para la cadena de conexión del recurso de SignalR Service.
 
 5. También en *Startup.cs*, actualice el método `Configure` sustituyendo la llamada a `app.UseStaticFiles()` con el código siguiente y guarde el archivo.
 
@@ -250,7 +251,7 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 > 
 > 
 
-Inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Grupos de recursos**.
+Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
 Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...**. Las instrucciones de esta guía de inicio rápido usan un grupo de recursos llamado *SignalRTestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 

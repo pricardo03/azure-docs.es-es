@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903037"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -145,7 +147,7 @@ Etiquetas del concurso sobre la previsión de relaciones con los clientes de KDD
 <tr>
   <td>Conjunto de datos CRM compartido</td>
   <td>
-Estos datos están relacionados con el concurso sobre la previsión de relaciones con los clientes de KDD Cup 2009 (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).
+Estos datos están relacionados con el concurso sobre la previsión de relaciones con los clientes de KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>).
 <p></p>
 El conjunto de datos contiene 50.000 clientes de la empresa de telecomunicaciones francesa Orange. Cada cliente tiene 230 características anónimas, 190 de las cuales son numéricas y 40, categóricas. Las características están muy dispersas.
   </td>
@@ -203,7 +205,7 @@ Contiene los datos meteorológicos, como los índices de temperatura y humedad y
 <p></p>
 <b>Investigación relacionada:</b> Cortez, P., &amp; Morais, A. (2008). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información 
 <p></p>
-[Cortez y Morais, 2007] P. Cortez y A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. En J. Neves, M. F. Santos and J. Machado Eds., Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible en: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez y Morais, 2007] P. Cortez y A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. En J. Neves, M. F. Santos and J. Machado Eds., Nuevas tendencias en inteligencia artificial, Procedimientos de la 13ª EPIA 2007 - Conferencia en portugués sobre inteligencia artificial, diciembre, Guimarães, Portugal, páginas 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible en: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -306,7 +308,7 @@ Los grados del acero siguen una norma establecida, definida por la SAE y otras o
 <p></p>
 <b>Investigación relacionada:</b> Sterling, D. &amp; Buntine, W., (NA). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información 
 <p></p>
-Aquí encontrará una guía útil para los grados del acero: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Aquí encontrará una guía útil para los grados del acero: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -401,7 +403,7 @@ Asignaciones de tema para artículos de prensa en el conjunto de datos de notici
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Estos datos se han extraído del concurso de evaluación del rendimiento de los estudiantes KDD Cup 2010 (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">evaluación del rendimiento de estudiantes</a>). Los datos utilizados se corresponden con el conjunto de formación de álgebra 2008 y 2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Álgebra I 2008-2009. Conjunto de datos obtenidos de la minería de datos educativos de KDD Cup 2010. Puede encontrarlos en <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> o <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Estos datos se han extraído del concurso de evaluación del rendimiento de los estudiantes KDD Cup 2010 (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">evaluación del rendimiento de estudiantes</a>). Los datos utilizados se corresponden con el conjunto de formación de álgebra 2008 y 2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Álgebra I 2008-2009. Conjunto de datos obtenidos de la minería de datos educativos de KDD Cup 2010. Lo encontrará en <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 El conjunto de datos se ha descargado y almacenado en Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) y contiene archivos de registro de un sistema de tutoría de estudiantes. Las características suministradas incluyen el identificador del problema y una breve descripción, el identificador del alumno, la marca de tiempo y cuántos intentos realizó el estudiante antes de solucionar el problema de la manera correcta. El conjunto de datos original contiene 8,9 millones de registros; este conjunto de datos se ha muestreado para las primeras 100.000 filas. El conjunto de datos tiene 23 columnas de varios tipos separadas por tabulaciones: numéricas, categóricas y con marcas de tiempo.
   </td>

@@ -1,8 +1,8 @@
 ---
-title: "Uso de Búsqueda en Azure Application Insights | Microsoft Docs"
-description: "Busque y filtre los datos de telemetría sin procesar que envía la aplicación web."
+title: Uso de Búsqueda en Azure Application Insights | Microsoft Docs
+description: Busque y filtre los datos de telemetría sin procesar que envía la aplicación web.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,21 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294391"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 Búsqueda es una característica de [Application Insights](app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
 
 (Para consultas más complejas sobre los datos, use [Analytics](app-insights-analytics-tour.md)).
 
-## <a name="where-do-you-see-search"></a>¿Dónde verá Búsqueda?
+## <a name="where-do-you-see-search"></a>¿Dónde verá Search?
 ### <a name="in-the-azure-portal"></a>En el Portal de Azure
 Puede abrir la búsqueda de diagnóstico explícitamente desde la hoja de información general de Application Insights de la aplicación:
 

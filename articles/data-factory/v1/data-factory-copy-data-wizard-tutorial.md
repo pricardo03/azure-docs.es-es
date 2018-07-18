@@ -14,11 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8407249ed56059f278f8e4f84a4466ab286a0c24
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582543"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -32,7 +33,7 @@ ms.lasthandoff: 03/23/2018
 > * [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea el [tutorial de la actividad de copia en la documentación de la versión 2](../quickstart-create-data-factory-dot-net.md). 
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el [tutorial de la actividad de copia](../quickstart-create-data-factory-dot-net.md). 
 
 
 Este tutorial muestra cómo utilizar el **Asistente para copia** para copiar datos desde un almacén de Azure Blob Storage a una base de datos SQL de Azure. 
@@ -54,7 +55,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 2. En la hoja **Nueva factoría de datos** :
    
    1. Escriba **ADFTutorialDataFactory** como **nombre**.
-       El nombre del generador de datos de Azure debe ser único global. Si recibe el error: `Data factory name “ADFTutorialDataFactory” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryYYYYMMDD) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
+       El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el error: `Data factory name “ADFTutorialDataFactory” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryYYYYMMDD) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
       
        ![Nombre de Factoría de datos no disponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Selección la **suscripción**de Azure.
@@ -74,7 +75,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    ![Página principal Factoría de datos](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>Inicio del Asistente para copia
-1. En la hoja Factoría de datos, haga clic en **Copiar datos [vista previa]** para iniciar el **Asistente para copia**. 
+1. En la hoja Factoría de datos, haga clic en **Copiar datos** para iniciar el **Asistente para copia**. 
    
    > [!NOTE]
    > Si ve que el explorador web se queda bloqueado en "Autorizando...", deshabilite o desactive la opción **Bloquear cookies y datos de sitios de terceros** en la configuración del explorador, o déjela habilitada y cree una excepción para **login.microsoftonline.com** e intente iniciar de nuevo el asistente.

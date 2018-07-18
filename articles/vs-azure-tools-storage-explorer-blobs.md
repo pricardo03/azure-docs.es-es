@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528535"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Administración de recursos de Azure Blob Storage con el Explorador de Azure Storage
 ## <a name="overview"></a>Información general

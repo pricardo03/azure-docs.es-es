@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2255c8fd7cd873ae9b6511e1a7b9e2ac13f9fb66
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936775"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montaje de Azure File Storage en máquinas virtuales Linux con SMB
 
-En este artículo se muestra cómo usar el servicio Azure File Storage en una máquina virtual Linux mediante un montaje de SMB con la CLI de Azure 2.0. El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md). Los requisitos son:
+En este artículo se muestra cómo usar el servicio Azure File Storage en una máquina virtual Linux mediante un montaje de SMB con la CLI de Azure 2.0. El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. Los requisitos son:
 
 - [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/);
 - [archivos de clave SSH pública y privada](mac-create-ssh-keys.md).

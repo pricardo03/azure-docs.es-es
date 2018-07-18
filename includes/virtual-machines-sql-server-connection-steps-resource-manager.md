@@ -23,7 +23,7 @@ Para crear una etiqueta DNS, seleccione primero **Máquinas virtuales** en el po
 
 1. En otro equipo que esté conectado a Internet, abra SQL Server Management Studio (SSMS). Si no tiene SQL Server Management Studio, puede descargarla [aquí](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, edite el valor de **Nombre del servidor**. Escriba la dirección IP o el nombre DNS completo de la máquina virtual (que se determinó en la tarea anterior). También puede agregar una coma y proporcionar el puerto TCP de SQL Server. Por ejemplo: `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
+1. En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, edite el valor de **Nombre del servidor**. Escriba la dirección IP o el nombre DNS completo de la máquina virtual (que se determinó en la tarea anterior). También puede agregar una coma y proporcionar el puerto TCP de SQL Server. Por ejemplo, `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 
 1. En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
 

@@ -4,8 +4,8 @@ description: Conozca los aspectos que debe tener en cuenta al planear una implem
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077681"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335846"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -145,6 +145,12 @@ Para que Azure File Sync y DFS-R trabajen en paralelo:
 
 Para más información, consulte [Introducción a Espacios de nombres DFS y Replicación DFS](https://technet.microsoft.com/library/jj127250).
 
+### <a name="sysprep"></a>Sysprep
+No se admite el uso de sysprep en un servidor que tenga instalado el agente de Azure File Sync y puede provocar resultados inesperados. La instalación del agente y el registro del servidor se deben realizar después de implementar la imagen del servidor y completar la instalación mínima de sysprep.
+
+### <a name="windows-search"></a>Windows Search
+Si en un punto de conexión de un servidor están habilitados los niveles en la nube, Windows Search omite y no indexa los archivos que están en capas. Los archivos que no están en capas se indexan correctamente.
+
 ### <a name="antivirus-solutions"></a>Soluciones antivirus
 Dado que un antivirus funciona examinando los archivos en busca de código malintencionado conocido, puede provocar la recuperación de archivos con niveles. Puesto que los archivos con niveles tienen establecido el atributo "sin conexión", se recomienda consultar con el proveedor de software respecto a cómo configurar su solución para omitir la lectura de archivos sin conexión. 
 
@@ -158,6 +164,11 @@ Las siguientes soluciones se sabe que admiten la omisión de archivos sin conexi
 
 ### <a name="backup-solutions"></a>Soluciones de copia de seguridad
 Al igual que sucede con las soluciones antivirus, las soluciones de backup pueden provocar la recuperación de archivos con niveles. Se recomienda usar una solución de backup en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure en lugar de usar un producto de backup local.
+
+Si está utilizando una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga los niveles en la nube deshabilitados. Al restaurar los archivos dentro de la ubicación del punto de conexión del servidor, utilice la opción de restauración en el nivel de archivo. Los archivos restaurados se sincronizarán en todos los puntos de conexión del grupo de sincronización y los archivos existentes se sustituirán por la versión restaurada de la copia de seguridad.
+
+> [!Note]  
+> Las opciones de restauración con reconocimiento de aplicaciones, de nivel de volumen y completas (BMR) pueden provocar resultados inesperados y actualmente no se admiten. Estas opciones de restauración se admitirán en una versión futura.
 
 ### <a name="encryption-solutions"></a>Soluciones de cifrado
 La compatibilidad con soluciones de cifrado depende de cómo se implementen. Está comprobado que Azure File Sync funciona con:
@@ -180,6 +191,7 @@ Azure File Sync solo está disponible en las siguientes regiones en versión pre
 | Region | Ubicación de centro de datos |
 |--------|---------------------|
 | Australia Oriental | Nueva Gales del Sur |
+| Sudeste de Australia | Victoria |
 | Centro de Canadá | Toronto |
 | Este de Canadá | Ciudad de Quebec |
 | Central EE. UU: | Iowa |
@@ -189,6 +201,7 @@ Azure File Sync solo está disponible en las siguientes regiones en versión pre
 | Europa del Norte | Irlanda |
 | Sudeste asiático | Singapur |
 | Sur del Reino Unido 2 | Londres |
+| Oeste de Reino Unido | Cardiff |
 | Europa occidental | Países Bajos |
 | Oeste de EE. UU | California |
 

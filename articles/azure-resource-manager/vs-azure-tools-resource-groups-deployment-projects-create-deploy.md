@@ -6,37 +6,32 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af8b91ee20ccb4d16e7666c317ea7d08a265e6d6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360111"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435551"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
-Con Visual Studio y [Azure SDK](https://azure.microsoft.com/downloads/), puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede definir el host de web, el sitio web y la base de datos para una aplicación, e implementar esa infraestructura junto con el código. O bien, puede definir una máquina virtual, una red virtual y una cuenta de almacenamiento e implementar esa infraestructura junto con un script que se ejecuta en la máquina virtual. El proyecto de implementación del **grupo de recursos de Azure** permite implementar todos los recursos necesarios en una sola operación que se puede repetir. Para más información sobre la implementación y administración de recursos, consulte [Información general de Azure Resource Manager](resource-group-overview.md).
+Con Visual Studio, puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede definir el host de web, el sitio web y la base de datos para una aplicación, e implementar esa infraestructura junto con el código. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes. En este artículo se implementa una aplicación web y SQL Database.  
 
-Los proyectos del grupo de recursos de Azure contienen plantillas JSON de Azure Resource Manager que definen los recursos que implementa en Azure. Para más información sobre los elementos de la plantilla del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md). Visual Studio permite modificar estas plantillas y proporciona herramientas que simplifican el trabajo con plantillas.
-
-En este artículo se implementa una aplicación web y SQL Database. Sin embargo, los pasos son prácticamente los mismos para cualquier tipo de recurso. Puede implementar fácilmente una máquina virtual y sus recursos relacionados. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes.
-
-Este artículo muestra Visual Studio 2017. Si usa Visual Studio 2015 Update 2 y Microsoft Azure SDK para .NET 2.9 o Visual Studio 2013 con Azure SDK 2.9, los procedimientos son prácticamente los mismos. Puede usar Azure SDK 2.6 o versiones posteriores; sin embargo, es posible que vea que la interfaz de usuario no coincida con la que se describe en este artículo. Le recomendamos encarecidamente que instale la versión más reciente de [Azure SDK](https://azure.microsoft.com/downloads/) antes de iniciar el procedimiento. 
+En este artículo se muestra cómo usar [Visual Studio 2017 con el desarrollo de Azure y las cargas de trabajo de ASP.NET instalados](/dotnet/azure/dotnet-tools). Si usa Visual Studio 2015 Update 2 y Microsoft Azure SDK para .NET 2.9 o Visual Studio 2013 con Azure SDK 2.9, los procedimientos son prácticamente los mismos.
 
 ## <a name="create-azure-resource-group-project"></a>Creación de un proyecto de grupo de recursos de Azure
-En este procedimiento, va a crear un proyecto de grupo de recursos de Azure con la plantilla **Aplicación web + SQL** .
+En esta sección, va a crear un proyecto de grupo de recursos de Azure con la plantilla **Aplicación web + SQL**.
 
-1. En Visual Studio, elija **Archivo**, **Nuevo proyecto** y **C#** o **Visual Basic** (el idioma que elija no tiene ningún efecto en las fases posteriores ya que estos proyectos incluyen solo contenido JSON y PowerShell). Luego, elija **Nube** y el proyecto **Grupo de recursos de Azure**.
+1. En Visual Studio, elija **Archivo**, **Nuevo proyecto** y **C#** o **Visual Basic** (el idioma que elija no tiene ningún efecto en las fases posteriores ya que estos proyectos tienen solo contenido JSON y PowerShell). Luego, elija **Nube** y el proyecto **Grupo de recursos de Azure**.
    
     ![Proyecto de implementación de la nube](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Elija la plantilla que desea implementar en el Administrador de recursos de Azure. Observe que hay muchas opciones diferentes basados en el tipo de proyecto que desee implementar. Para este artículo, elija la plantilla **Aplicación web + SQL**.
+2. Elija la plantilla que desea implementar en Azure Resource Manager. Observe que hay muchas opciones diferentes basadas en el tipo de proyecto que desee implementar. Para este artículo, elija la plantilla **Aplicación web + SQL**.
    
     ![Seleccionar una plantilla](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
@@ -52,18 +47,18 @@ En este procedimiento, va a crear un proyecto de grupo de recursos de Azure con 
    
     ![mostrar nodos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
-    Dado que elegimos la plantilla de aplicación web + SQL para este ejemplo, verá los archivos a continuación: 
+    Dado que eligió la plantilla de aplicación web + SQL para este ejemplo, verá los archivos a continuación: 
    
-   | Nombre de archivo | DESCRIPCIÓN |
+   | Nombre de archivo | Descripción |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Un script de PowerShell que invoca los comandos de PowerShell que se implementarán en Azure Resource Manager.<br />**Nota** Visual Studio utiliza este script de PowerShell para implementar su plantilla. Los cambios que realice a este script también afectan a la implementación en Visual Studio; por tanto, tenga cuidado. |
-   | WebSiteSQLDatabase.json |La plantilla de Resource Manager que define la infraestructura que desea implementar en Azure, y los parámetros que puede proporcionar durante la implementación. También define las dependencias entre los recursos, de modo que Resource Manager implemente los recursos en el orden correcto. |
-   | WebSiteSQLDatabase.parameters.json |Un archivo de parámetros que contiene valores necesarios para la plantilla. Transferirá los valores de los parámetros para personalizar cada implementación. |
+   | Deploy-AzureResourceGroup.ps1 |Un script de PowerShell que ejecuta los comandos de PowerShell que se implementarán en Azure Resource Manager.<br />**Nota** Visual Studio usa este script de PowerShell para implementar su plantilla. Los cambios que realice a este script también afectan a la implementación en Visual Studio; por tanto, tenga cuidado. |
+   | WebSiteSQLDatabase.json |La plantilla de Resource Manager que define la infraestructura que desea implementar en Azure y los parámetros que puede proporcionar durante la implementación. También define las dependencias entre los recursos, de modo que Resource Manager implemente los recursos en el orden correcto. |
+   | WebSiteSQLDatabase.parameters.json |Un archivo de parámetros que tiene valores necesarios para la plantilla. Transferirá los valores de los parámetros para personalizar cada implementación. |
    
-    Todos los proyectos de implementación del grupo de recursos contienen estos archivos básicos. Otros proyectos pueden contener archivos adicionales para admitir otras funcionalidades.
+    Todos los proyectos de implementación del grupo de recursos tienen estos archivos básicos. Otros proyectos pueden tener archivos adicionales para admitir otras funcionalidades.
 
-## <a name="customize-the-resource-manager-template"></a>Personalización de la plantilla del Administrador de recursos
-Puede personalizar un proyecto de implementación mediante la modificación de las plantillas JSON que describen los recursos que desea implementar. JSON significa JavaScript Object Notation y es un formato de datos serializados con el que resulta sencillo trabajar. Los archivos JSON usan un esquema al que se hace referencia en la parte superior de cada archivo. Si quiere comprender el esquema, puede descargarlo y analizarlo. El esquema define qué elementos son válidos, los tipos y los formatos de los campos, los valores posibles de los valores enumerados, etc. Para más información sobre los elementos de la plantilla del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+## <a name="customize-the-resource-manager-template"></a>Personalización de la plantilla de Resource Manager
+Puede personalizar un proyecto de implementación mediante la modificación de las plantillas JSON que describen los recursos que desea implementar. JSON significa Notación de objetos JavaScript y es un formato de datos serializados con el que resulta sencillo trabajar. Los archivos JSON usan un esquema al que se hace referencia en la parte superior de cada archivo. Si quiere comprender el esquema, puede descargarlo y analizarlo. El esquema define qué elementos son válidos, los tipos y los formatos de los campos, y los valores posibles para una propiedad. Para más información sobre los elementos de la plantilla de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 
 Para trabajar en la plantilla, abra **WebSiteSQLDatabase.json**.
 
@@ -87,7 +82,7 @@ Tenga en cuenta que no solo se agregó el recurso, sino que también se agregó 
 
 ![mostrar el esquema](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-El parámetro **storageType** está predefinido con los tipos permitidos y un tipo predeterminado. Puede dejar estos valores o modificarlos para su escenario específico. Si no desea que cualquiera pueda implementar una cuenta de almacenamiento **Premium_LRS** a través de esta plantilla, quítela de los tipos permitidos. 
+El parámetro **storageType** está predefinido con los tipos permitidos y un tipo predeterminado. Puede dejar estos valores o modificarlos para su escenario específico. Si no quiere que nadie pueda implementar una cuenta de almacenamiento **Premium_LRS** a través de esta plantilla, quítela de los tipos permitidos. 
 
 ```json
 "storageType": {
@@ -125,11 +120,11 @@ Ahora está preparado para implementar el proyecto. Cuando implementa un proyect
     Aparece el cuadro de diálogo **Implementar en grupo de recursos**.
    
     ![Cuadro de diálogo Implementar en grupo de recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
-2. En el cuadro de lista desplegable **Grupo de recursos** , elija un grupo de recursos existente o cree uno nuevo. Para crear un grupo de recursos, abra el cuadro desplegable **Grupo de recursos** y elija **Crear nuevo**.
+2. En el cuadro de lista desplegable **Grupo de recursos**, elija un grupo de recursos existente o cree uno nuevo. Para crear un grupo de recursos, abra el cuadro desplegable **Grupo de recursos** y elija **Crear nuevo**.
    
     ![Cuadro de diálogo Implementar en grupo de recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
    
-    Aparece el cuadro de diálogo **Crear grupo de recursos** . Asigne al grupo un nombre y una ubicación y seleccione el botón **Crear**.
+    Aparece el cuadro de diálogo **Crear grupo de recursos**. Asigne al grupo un nombre y una ubicación y seleccione el botón **Crear**.
    
     ![Cuadro de diálogo Crear grupo de recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
 3. Edite los parámetros para la implementación seleccionando el botón **Editar parámetros**.
@@ -139,7 +134,7 @@ Ahora está preparado para implementar el proyecto. Cuando implementa un proyect
    
     **hostingPlanName** especifica el nombre del [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que se creará. 
    
-    **administratorLogin** especifica el nombre de usuario del administrador de SQL Server. No utilice nombres de administrador comunes como **sa** o **admin**. 
+    **administratorLogin** especifica el nombre de usuario del administrador de SQL Server. No use nombres de administrador comunes como **sa** o **admin**. 
    
     **administratorLoginPassword** especifica una contraseña para el administrador de SQL Server. La opción **Guardar contraseñas como texto sin formato en el archivo de parámetros** no es segura, por lo que no es aconsejable que la seleccione. Dado que la contraseña no se guardará como texto sin formato, deberá proporcionar esta contraseña nuevamente durante la implementación. 
    
@@ -149,7 +144,7 @@ Ahora está preparado para implementar el proyecto. Cuando implementa un proyect
 5. Elija el botón **Implementar** para implementar el proyecto en Azure. Se abre una consola de PowerShell fuera de la instancia de Visual Studio. Cuando se lo pidan, escriba la contraseña del administrador de SQL Server en la consola de PowerShell. **Puede que la consola de PowerShell esté oculta detrás de otros elementos o minimizada en la barra de tareas.** Busque esta consola y selecciónela para proporcionar la contraseña.
    
    > [!NOTE]
-   > Visual Studio puede pedirle que instale los cmdlets de Azure PowerShell. Necesita los cmdlets de Azure PowerShell para implementar correctamente los grupos de recursos. Si se le solicita, instálelos. Para obtener más información, vea [Install and Configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+   > Visual Studio puede pedirle que instale los cmdlets de Azure PowerShell. Necesita los cmdlets de Azure PowerShell para implementar correctamente los grupos de recursos. Si se le solicita, instálelos. Para más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
    > 
    > 
 6. La implementación puede tardar unos minutos. En la ventana **Salida** puede ver el estado de la implementación. Cuando se termina la implementación, el último mensaje indica una implementación satisfactoria de una forma parecida a esta:
@@ -217,12 +212,12 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
     
      ![mostrar la aplicación implementada](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-## <a name="add-an-operations-dashboard-to-your-deployment"></a>Adición de un panel de operaciones a la implementación
-Ahora que hemos creado una solución es el momento de hacer que sea operativa. No está limitado únicamente a los recursos que están disponibles a través de la interfaz de Visual Studio. Se puede aprovechar el uso de los paneles compartidos, que se definen como recursos en JSON. Para ello, edite la plantilla y agregue un recurso personalizado. 
+## <a name="add-an-operations-dashboard-to-your-deployment"></a>Incorporación de un panel de operaciones a la implementación
+No está limitado únicamente a los recursos que están disponibles a través de la interfaz de Visual Studio. Puede personalizar la implementación si agrega un recurso personalizado a la plantilla. Para mostrar la incorporación de un recurso, agregue un panel de operaciones para administrar el recurso que implementó.
 
-1. Abra el archivo WebsiteSqlDeploy.json y agregue el siguiente bloque de código json después de los recursos de la cuenta de almacenamiento y antes del símbolo ] de cierre de la sección de recursos.
+1. Abra el archivo WebsiteSqlDeploy.json y agregue el JSON siguiente después del recurso de la cuenta de almacenamiento y antes del símbolo `]` de cierre de la sección de recursos.
 
-```json
+  ```json
     ,{
       "properties": {
         "lenses": {
@@ -297,23 +292,19 @@ Ahora que hemos creado una solución es el momento de hacer que sea operativa. N
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-}
-```
+  }
+  ```
 
-2. Vuelva a implementar el grupo de recursos y, cuando examine el panel en Azure Portal, verá que el panel compartido se ha agregado a la lista de opciones. 
+2. Vuelva a implementar el grupo de recursos. Examine el panel en Azure Portal y observe que el panel compartido se agregó a su lista de opciones.
 
-    ![Panel personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+   ![Panel personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
+3. Seleccione el panel.
 
+   ![Panel personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-   > [!NOTE] 
-   > El acceso al panel se puede administrar mediante grupos RBAC y las personalizaciones se pueden publicar en el recurso después de su implementación. Tenga en cuenta que al volver a implementar el grupo de recursos se restablecerá el valor predeterminado de la plantilla. Considere la posibilidad de actualizar la plantilla con las personalizaciones. Para obtener ayuda acerca de cómo hacerlo, consulte la [creación de paneles de Azure mediante programación](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+Puede administrar el acceso al panel con los grupos de RBAC. También puede personalizar la apariencia del panel después de implementarlo. Sin embargo, si vuelve a implementar el grupo de recursos, el panel se restablece a su estado predeterminado en la plantilla. Para más información sobre cómo crear paneles, consulte [Creación mediante programación de paneles de Azure](../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-
-    ![Panel personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
-    
-    
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre la administración de recursos en el portal, consulte [Administración de los recursos de Azure a través del portal](resource-group-portal.md).
 * Para más información sobre las plantillas, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 

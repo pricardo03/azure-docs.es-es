@@ -1,7 +1,7 @@
 ---
-title: "Realización de una llamada telefónica desde Twilio (Java) | Microsoft Docs"
-description: "Obtenga información acerca de cómo realizar una llamada de teléfono desde una página web mediante Twilio en una aplicación Java en Azure."
-services: 
+title: Realización de una llamada telefónica desde Twilio (Java) | Microsoft Docs
+description: Obtenga información acerca de cómo realizar una llamada de teléfono desde una página web mediante Twilio en una aplicación Java en Azure.
+services: ''
 documentationcenter: java
 author: devinrader
 manager: twilio
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039630"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Realización de una llamada telefónica con Twilio en una aplicación Java en Azure
 El siguiente ejemplo muestra cómo se puede usar Twilio para realizar una llamada desde una página web hospedada en Azure. La aplicación resultante le pedirá al usuario los valores de una llamada telefónica, como se muestra en la siguiente captura de pantalla.
@@ -27,7 +28,7 @@ El siguiente ejemplo muestra cómo se puede usar Twilio para realizar una llamad
 
 Tendrá que hacer lo siguiente para utilizar el código de este tema:
 
-1. Adquiera una cuenta de Twilio y un token de autenticación. Para empezar con Twilio, evalúe los precios en [http://www.twilio.com/pricing][twilio_pricing]. Puede registrarse en [https://www.twilio.com/try-twilio][try_twiliotry_twilio]. Para más información sobre la API proporcionada por Twilio, vea [http://www.twilio.com/api][twilio_api].
+1. Adquiera una cuenta de Twilio y un token de autenticación. Para empezar con Twilio, evalúe los precios en [http://www.twilio.com/pricing][twilio_pricing]. Puede registrarse en [https://www.twilio.com/try-twilio][try_twilio]. Para más información sobre la API proporcionada por Twilio, vea [http://www.twilio.com/api][twilio_api].
 2. Obtenga el JAR de Twilio. En [https://github.com/twilio/twilio-java][twilio_java_github] puede descargar el código fuente de GitHub y crear su propio archivo JAR, o bien puede descargar un archivo JAR previamente generado (con o sin dependencias).
    El código de este tema se escribió usando JAR TwilioJava 3.3.8 con dependencias previamente compilado.
 3. Agregue el JAR a su ruta de acceso de compilación Java.

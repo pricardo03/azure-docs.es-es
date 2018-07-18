@@ -1,5 +1,5 @@
 ---
-title: 'Creación de un equilibrador de carga interno básico: CLI de Azure 2.0 | Microsoft Docs'
+title: 'Creación de una instancia de Load Balancer básico interno: CLI de Azure 2.0 | Microsoft Docs'
 description: Aprenda a crear un equilibrador de carga interno mediante la CLI de Azure 2.0
 services: load-balancer
 documentationcenter: na
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38676093"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure 2.0
 
@@ -29,7 +30,7 @@ Este artículo muestra cómo crear un equilibrador de carga interno para equilib
 
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.28 o versiones posteriores. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+## <a name="create-a-resource-group"></a>Creación de un grupo de recursos
 
 Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
@@ -40,13 +41,13 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
     --name myResourceGroupILB \
     --location eastus
 ```
-## <a name="create-a-virtual-network"></a>Crear una red virtual
+## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
 Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myResourceGroup* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -107,36 +108,9 @@ Una regla de equilibrador de carga define la configuración de la dirección IP 
 
 Antes de implementar algunas máquinas virtuales y poder probar el equilibrador de carga, cree los recursos de red virtual auxiliares.
 
-###  <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
-Cree un grupo de seguridad de red para definir las conexiones entrantes a la red virtual.
+### <a name="create-nics"></a>Creación de tarjetas NIC
 
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### <a name="create-a-network-security-group-rule"></a>Creación de una regla de grupo de seguridad de red
-
-Cree una regla de grupo de seguridad de red para permitir las conexiones entrantes a través del puerto 80.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 300
-```
-### <a name="create-nics"></a>Cree tarjetas NIC
-
-Cree dos interfaces de red con [az network nic create](/cli/azure/network/nic#az_network_nic_create) y asócielas con la dirección IP privada y el grupo de seguridad de red. 
+Cree dos interfaces de red con [az network nic create](/cli/azure/network/nic#az_network_nic_create) y asócielas con la dirección IP privada. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -145,7 +119,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done
@@ -248,7 +221,7 @@ Para obtener la dirección IP privada del equilibrador de carga, use [az network
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![Prueba del equilibrador de carga](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
@@ -263,4 +236,4 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha creado un equilibrador de carga interno básico, le ha asociado las máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga, ha sondeado el estado y después ha probado el equilibrador de carga. Para más información acerca de los equilibradores de carga y sus recursos asociados, vaya a los artículos de procedimientos.
+En este artículo, ha creado un instancia de Load Balancer básico interno, le ha asociado las máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga, ha sondeado el estado y después ha probado el equilibrador de carga. Para más información acerca de los equilibradores de carga y sus recursos asociados, vaya a los artículos de procedimientos.

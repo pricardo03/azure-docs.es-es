@@ -1,22 +1,19 @@
 ---
 title: Visualización de datos de supervisión remota con Power BI (Azure) | Microsoft Docs
 description: En este tutorial se usa Power BI Desktop y Cosmos DB para integrar datos de una solución de supervisión remota en una visualización personalizada. De esta forma, los usuarios pueden compilar sus propios paneles personalizados y compartirlos con los usuarios, pero no en la solución.
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 55feb56008a54676bd0af332e251da94a9653aaf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970412"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualización de datos de supervisión remota con Power BI
 
@@ -97,15 +94,15 @@ Una vez conectado el flujo, ya puede crear paneles personalizados. El panel sigu
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publicación en el panel y actualización de los datos
 
-Una vez creados correctamente los paneles, se recomienda que [publique los paneles de Power BI](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files) para compartirlos con otros.
+Una vez creados correctamente los paneles, se recomienda que [publique los paneles de Power BI](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) para compartirlos con otros.
 
-También conviene [actualizar los datos](https://docs.microsoft.com/en-us/power-bi/refresh-data) en el panel publicado para asegurarse de que dispone del último conjunto de datos.
+También conviene [actualizar los datos](https://docs.microsoft.com/power-bi/refresh-data) en el panel publicado para asegurarse de que dispone del último conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo visualizar datos de supervisión remota con Power BI.
 
-Para más información sobre cómo personalizar la solución de supervisión remota, consulte:
+Para obtener más información sobre cómo personalizar la solución Supervisión remota, consulte:
 
 * [Personalización de la interfaz de usuario de la solución de supervisión remota](iot-accelerators-remote-monitoring-customize.md)
 * [Guía de referencia para desarrolladores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)

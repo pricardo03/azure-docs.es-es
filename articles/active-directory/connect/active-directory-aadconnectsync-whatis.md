@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
-ms.author: markvi
-ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: 247b7bb5b5dbce94c8f8339a6f06c8ae5dab75d9
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919377"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronización de Azure AD Connect: comprender y personalizar la sincronización
 Los servicios de sincronización de Azure Active Directory Connect (sincronización de Azure AD Connect) es un componente principal de Azure AD Connect. Se encargan de todas las operaciones relacionadas con la sincronización de datos de identidad entre el entorno local y Azure AD. Sincronización de Azure AD Connect es el sucesor de DirSync, Sincronización de Azure AD y Forefront Identity Manager con Conector Azure Active Directory configurado.
@@ -28,7 +30,7 @@ Este tema es la principal referencia sobre la **sincronización de Azure AD Conn
 El servicio de sincronización consta de dos componentes, el componente de **sincronización de Azure AD Connect** local y el lado del servicio en Azure AD llamado **servicio de sincronización de Azure AD Connect**.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Temas de sincronización de Azure AD Connect
-| Tema. | ¿Qué aspectos cubre y cuándo debe leerlo? |
+| Tema | ¿Qué aspectos cubre y cuándo debe leerlo? |
 | --- | --- |
 | **Fundamentos de la sincronización de Azure AD Connect** | |
 | [Comprensión de la arquitectura](active-directory-aadconnectsync-understanding-architecture.md) |Para quienes no estén familiarizados con el motor de sincronización y quieran obtener información sobre la arquitectura y los términos empleados. |

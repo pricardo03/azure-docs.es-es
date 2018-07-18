@@ -1,23 +1,24 @@
 ---
-title: 'Azure Active Directory B2C: Página de aterrizaje de directivas personalizadas | Microsoft Docs'
-description: Desarrollo de aplicaciones orientadas al consumidor con Azure Active Directory B2C mediante directivas personalizadas
+title: Directivas personalizadas de Azure Active Directory B2C | Microsoft Docs
+description: Desarrollo de aplicaciones orientadas al consumidor con Azure Active Directory B2C mediante directivas personalizadas.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/06/2017
 ms.author: davidmu
-ms.openlocfilehash: f3db8c80d6faef3af0909efb7306dd7aa0336ab0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 26469d735d7165e8b21665df6c169bc4668d8a5a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440525"
 ---
-# <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: Registro e inicio de sesión de los consumidores en sus aplicaciones mediante directivas personalizadas
+# <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Registro e inicio de sesión de los consumidores en sus aplicaciones mediante directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
+
 Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure AD B2C. Un desarrollador de identidades puede editarlas completamente para completar un número casi ilimitado de tareas.
 
 ## <a name="how-to-articles"></a>Artículos de procedimientos

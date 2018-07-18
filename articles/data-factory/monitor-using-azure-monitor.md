@@ -10,22 +10,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046554"
 ---
-# <a name="monitor-data-factories-using-azure-monitor"></a>Supervisión de factorías de datos mediante Azure Monitor | Microsoft Docs  
+# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
 
-Azure Monitor ofrece registros y métricas de infraestructuras a nivel básico para la mayoría de los servicios de Microsoft Azure. Para más información, consulte la [introducción a la supervisión](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Los registros de diagnóstico de Azure son registros emitidos por un recurso que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. Data Factory da como resultado registros de diagnóstico en Azure Monitor. 
+Azure Monitor ofrece registros y métricas de infraestructuras a nivel básico para la mayoría de los servicios de Microsoft Azure. Para más información, consulte la [introducción a la supervisión](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Los registros de diagnóstico de Azure son registros emitidos por un recurso que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. Data Factory da como resultado registros de diagnóstico en Azure Monitor.
 
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Supervisión y administración de canalizaciones en Data Factory, versión 1](v1/data-factory-monitor-manage-pipelines.md).
+## <a name="persist-data-factory-data"></a>Conservación de los datos de Data Factory
+Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Si desea conservar los datos de ejecución de canalización durante más de 45 días, con Azure Monitor puede, además de enrutar los registros de diagnóstico para su análisis, conservarlos en una cuenta de almacenamiento para tener información de Data Factory durante el tiempo que elija.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
@@ -100,15 +101,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
             ]
     },
     "location": ""
-} 
+}
 ```
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | storageAccountId |string | El identificador de recurso de la cuenta de almacenamiento en la que le gustaría enviar los registros de diagnóstico |
-| serviceBusRuleId |string | El identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen las instancias de Event Hub creadas por los registros de diagnóstico de streaming. El identificador de regla tiene el formato: "{Id. de recurso de Service Bus}/authorizationrules/{nombre de clave}".|
+| serviceBusRuleId |string | El identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen las instancias de Event Hub creadas por los registros de diagnóstico de streaming. El identificador de regla tiene el formato: "{Identificador de recurso de Service Bus}/authorizationrules/{nombre de clave}".|
 | workspaceId | Tipo complejo | Matriz de intervalos de agregación de métricas y sus directivas de retención. Actualmente, esta propiedad está vacía. |
-|Métricas| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Un objeto JSON que asigna nombres de parámetro a los valores de argumento | 
+|Métricas| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Un objeto JSON que asigna nombres de parámetro a los valores de argumento |
 | logs| Tipo complejo| Nombre de una categoría de registro de diagnóstico para un tipo de recurso. Para obtener la lista de categorías de registro de diagnóstico para un recurso, realice primero una operación de configuración de diagnóstico GET. |
 | categoría| string| Matriz de las categorías de registro y sus directivas de retención |
 | timeGrain | string | La granularidad de las métricas que se capturan en formato de duración ISO 8601. Debe ser PT1M (un minuto).|
@@ -230,14 +231,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Consulte más información aquí](https://msdn.microsoft.com/library/azure/dn931932.aspx)
+[Consulte más información aquí](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>Esquema de registros y eventos
 
 ### <a name="activity-run-logs-attributes"></a>Atributos de registros de ejecución de actividad
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -251,7 +252,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:" 
+   "properties:"
        {
           "Input": "{
               "source": {
@@ -293,7 +294,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="pipeline-run-logs-attributes"></a>Atributos de registros de ejecución de canalización
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -306,7 +307,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "start":"",
    "end":"",
    "status":"",
-   "properties": 
+   "properties":
     {
       "Parameters": {
         "<parameter1Name>": "<parameter1Value>"
@@ -339,7 +340,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="trigger-run-logs-attributes"></a>Atributos de registros de ejecución de desencadenador
 
 ```json
-{ 
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -361,7 +362,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
       },
       "SystemParameters": {}
     }
-} 
+}
 
 ```
 
@@ -396,7 +397,7 @@ ADFV2 emite las siguientes métricas:
 | TriggerSucceededRuns | Métricas de ejecuciones de desencadenador realizadas correctamente  | Recuento    | Total                | Total de ejecuciones de desencadenador realizadas correctamente dentro de una ventana de minutos   |
 | TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Recuento    | Total                | Total de ejecuciones de desencadenador erróneas dentro de una ventana de minutos      |
 
-Para obtener acceso a las métricas, siga las instrucciones del artículo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Para obtener acceso a las métricas, siga las instrucciones del artículo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
 ## <a name="alerts"></a>Alertas
 
@@ -444,4 +445,4 @@ También puede iniciar sesión en Azure Portal y hacer clic en **Supervisar -&gt
     ![Grupo de acciones, pantalla 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el artículo [Supervisión y administración de canalizaciones](monitor-programmatically.md) para obtener información sobre la supervisión y administración de canalizaciones mediante programación. 
+Consulte el artículo [Supervisión y administración de canalizaciones](monitor-programmatically.md) para obtener información sobre la supervisión y administración de canalizaciones mediante programación.

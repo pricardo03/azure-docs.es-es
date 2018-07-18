@@ -1,24 +1,26 @@
 ---
-title: "Active Directory Domain Services: escenarios de implementación | Microsoft Docs"
-description: "Escenarios de implementación de Servicios de dominio de Azure AD"
+title: 'Active Directory Domain Services: escenarios de implementación | Microsoft Docs'
+description: Escenarios de implementación de Servicios de dominio de Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: 11844fb8fabada9d863fe4adf0839ae6fa2ed101
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be8d565ea16849302b743e5619afd3f21703bd1e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218695"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Escenarios y casos de uso de implementación
 En esta sección, echamos un vistazo a algunos escenarios y casos de uso que se benefician de Azure Active Directory (AD) Domain Services.
@@ -53,7 +55,7 @@ Tenga en cuenta los siguientes puntos importantes para este escenario de impleme
 * No se pueden cambiar las contraseñas directamente en el dominio administrado. Los usuarios finales pueden cambiar su contraseña bien mediante el mecanismo de autoservicio de cambio de contraseña de Azure AD o en el directorio local. Estos cambios se sincronizan y están disponibles automáticamente en el dominio administrado.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-read-to-access-the-directory-to-azure-infrastructure-services"></a>Subida y desplazamiento de una aplicación local que usa la lectura LDAP para acceder al directorio a los Servicios de infraestructura de Azure
-Contoso tiene una aplicación de línea de negocio (LOB) local que se desarrolló hace casi una década. Esta aplicación tiene en cuenta el directorio y se diseñó para funcionar con Windows Server AD. La aplicación usa LDAP (Lightweight Directory Access Protocol) para leer los atributos o información sobre los usuarios de Active Directory. La aplicación no modifica los atributos ni escribe en el directorio. A Contoso le gustaría migrar esta aplicación a los Servicios de infraestructura de Azure y retirar el hardware local antiguo que actualmente hospeda esta aplicación. La aplicación no se puede volver a escribir para que use las modernas API de directorio, como la API de Azure AD Graph basada en REST. Por lo tanto, se necesita una opción de subida y desplazamiento mediante la cual se pueda migrar la aplicación para ejecutarse en la nube, sin modificar el código o volver a escribirla.
+Contoso tiene una aplicación de línea de negocio (LOB) local que se desarrolló hace casi una década. Esta aplicación tiene en cuenta el directorio y se diseñó para funcionar con Windows Server AD. La aplicación usa LDAP (Lightweight Directory Access Protocol) para leer los atributos o información sobre los usuarios de Active Directory. La aplicación no modifica los atributos ni escribe en el directorio. A Contoso le gustaría migrar esta aplicación a los Servicios de infraestructura de Azure y retirar el hardware local antiguo que actualmente hospeda esta aplicación. La aplicación no se puede volver a escribir para que use las modernas API de directorio, como Graph API de Azure AD basada en REST. Por lo tanto, se necesita una opción de subida y desplazamiento mediante la cual se pueda migrar la aplicación para ejecutarse en la nube, sin modificar el código o volver a escribirla.
 
 **Notas de implementación**
 

@@ -16,10 +16,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c3bb170800508d5a546573850f445b2a8991ea8c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597751"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs
 
@@ -39,7 +40,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Enviar notificaciones de prueba
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 - **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - [Microsoft Visual Studio Community 2015 o posterior](https://www.visualstudio.com/products/visual-studio-community-vs).
 - [Herramientas de desarrollo de aplicaciones de la plataforma universal de Windows instaladas](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
@@ -152,8 +153,7 @@ Puede probar rápidamente la recepción de notificaciones en la aplicación si e
     ![Botón Envío de prueba](./media/notification-hubs-windows-store-dotnet-get-started/test-send-button.png)
 2. En la ventana **Envío de prueba**, lleve a cabo las siguientes acciones: 
     1. En **Plataformas**, seleccione **Windows**.
-    2. En **Tipo de notificación**, seleccione ** 
-Notificación del sistema**. 
+    2. En **Tipo de notificación**, seleccione **Notificación del sistema**. 
     3. Seleccione **Enviar**. 
     
         ![Panel Envío de prueba](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)

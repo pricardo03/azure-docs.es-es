@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas del control de acceso basado en rol (RBAC) de Azure | Microsoft Docs
-description: Obtenga ayuda para los problemas o dudas que le surjan relativos a los recursos del control de acceso basado en roles.
+title: Solución de problemas de RBAC en Azure | Microsoft Docs
+description: Solución de problemas con el control de acceso basado en rol (RBAC) de Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -10,26 +10,27 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e1f9fa8e3abd3eee9d85c241000a07794af9d36b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437373"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Solución de problemas del control de acceso basado en rol de Azure 
+# <a name="troubleshooting-rbac-in-azure"></a>Solución de problemas de RBAC en Azure
 
-En este artículo se responden preguntas comunes sobre los derechos de acceso específicos que se conceden con roles, para que sepa qué esperar cuando usa los roles de Azure Portal y pueda solucionar problemas de acceso. Estos tres roles abarcan todos los tipos de recursos:
+En este artículo se responden preguntas comunes acerca del control de acceso basado en rol (RBAC), con el fin de que sepa qué esperar cuando usa los roles de Azure Portal y de que pueda solucionar los problemas de acceso. Estos tres roles abarcan todos los tipos de recursos:
 
 * Propietario  
 * Colaborador  
 * Lector  
 
-Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más aspectos que comentar. Consulte el artículo de [introducción de Control de acceso basado en rol](role-assignments-portal.md) para obtener más información sobre cómo conceder acceso.
+Tanto los propietarios como los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede conceder acceso a otros usuarios o grupos. Nos centraremos en el rol de lector, ya que tiene más aspectos que comentar. Para obtener información acerca de cómo conceder acceso, consulte [Administración del acceso mediante RBAC y Azure Portal](role-assignments-portal.md).
 
 ## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Funcionalidades de acceso de escritura
@@ -96,9 +97,7 @@ Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo d
 
 Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador al grupo de recursos.
 
-## <a name="see-more"></a>Ver más
-* [Control de acceso basado en roles de Azure](role-assignments-portal.md): introducción a RBAC en Azure Portal.
-* [RBAC: Roles integrados](built-in-roles.md): obtenga información sobre los roles que se incluyen como estándar en RBAC.
-* [Roles personalizados en Azure RBAC](custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
-* [Creación de un informe de historial de cambios de acceso](change-history-report.md): realice un seguimiento del cambio de asignaciones de rol en el RBAC.
+## <a name="next-steps"></a>Pasos siguientes
+* [Administración del acceso mediante RBAC y Azure Portal](role-assignments-portal.md)
+* [Visualización de los registros de actividad de cambios de RBAC](change-history-report.md)
 

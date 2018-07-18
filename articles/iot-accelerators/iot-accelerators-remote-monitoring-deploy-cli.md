@@ -1,30 +1,27 @@
 ---
-title: Implementación de la solución de supervisión remota de Java en Azure | Microsoft Docs
-description: En este tutorial se muestra cómo aprovisionar el acelerador de la solución de supervisión remota mediante la CLI.
-services: iot-suite
-suite: iot-suite
+title: 'Implementación de la solución Supervisión remota de Java: Azure | Microsoft Docs'
+description: En este tutorial, se muestra cómo aprovisionar el acelerador de la solución Supervisión remota mediante la CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017516"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de la solución de supervisión remota mediante la CLI
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de la solución Supervisión remota mediante la CLI
 
-En este tutorial se muestra cómo aprovisionar el acelerador de la solución de supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web de azureiotsuite.com. Para más información sobre esta opción, consulte [Implementación del acelerador de la solución de supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
+En este tutorial, se muestra cómo aprovisionar el acelerador de la solución Supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web de azureiotsuite.com. Para obtener más información sobre esta opción, consulte [Implementación del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para implementar el acelerador de la solución de supervisión remota, necesita una suscripción de Azure activa.
+Para implementar el acelerador de la solución Supervisión remota, necesita una suscripción de Azure activa.
 
 En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -57,7 +54,7 @@ Al implementar el acelerador de la solución, hay varias opciones que permiten c
 | SKU    | `basic`, `standard`, `local` | Una implementación _básica_ está destinada a pruebas y demostraciones. En este tipo de implementación, todos los microservicios se implementan en una única máquina virtual. Una implementación _estándar_ está destinada a producción. En este tipo de implementación, los microservicios se implementan en varias máquinas virtuales. Una implementación _local_ configura un contenedor de Docker para que ejecute los microservicios en la máquina local y usa los servicios de Azure, como Storage y Cosmos DB, en la nube. |
 | Tiempo de ejecución | `dotnet`, `java` | Selecciona la implementación del lenguaje de los microservicios. |
 
-Para información sobre cómo usar la implementación local, consulte el artículo sobre la [ejecución local de la solución de supervisión remota](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+Para obtener información sobre cómo usar la implementación local, consulte el artículo sobre la [ejecución local de la solución Supervisión remota](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="basic-vs-standard-deployments"></a>Implementación básica frente a estándar
 
@@ -71,7 +68,7 @@ Al crear una solución básica, se aprovisionarán los servicios de Azure siguie
 | Recuento | Recurso                       | Escriba         | Se usa para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina virtual con Linux](https://azure.microsoft.com/services/virtual-machines/) | Estándar D1 v2  | Hospedaje de microservicios |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: nivel básico | Comunicación y administración de dispositivos |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: nivel Estándar | Comunicación y administración de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Estándar        | Almacenar datos de configuración y telemetría de dispositivos como reglas, alarmas y mensajes |  
 | 1     | [Cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Estándar        | Almacenar puntos de comprobación de máquina virtual y streaming |
 | 1     | [Aplicación web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedaje de aplicación web front-end |
@@ -85,7 +82,7 @@ Al crear una solución estándar, se aprovisionarán los servicios de Azure sigu
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Máquinas virtuales Linux](https://azure.microsoft.com/services/virtual-machines/)   | Estándar D2 V2  | 1 maestro y 3 agentes para hospedar microservicios con redundancia |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | Orquestador de [Kubernetes](https://kubernetes.io) |
-| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S1: nivel básico | Comando, control y administración de dispositivos |
+| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S2: nivel Estándar | Comando, control y administración de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Estándar        | Almacenar datos de configuración y telemetría de dispositivos como reglas, alarmas y mensajes |
 | 5     | [Cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Estándar        | 4 para el almacenamiento de máquina virtual y 1 para los puntos de comprobación de streaming |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Estándar     | Application Gateway frente a SSL |
@@ -96,7 +93,7 @@ Al crear una solución estándar, se aprovisionarán los servicios de Azure sigu
 
 ### <a name="example-deploy-net-version"></a>Ejemplo: Implementación de la versión de .NET
 
-En el ejemplo siguiente se muestra cómo implementar la versión de .NET básica del acelerador de la solución de supervisión remota:
+En el ejemplo siguiente, se muestra cómo implementar la versión de .NET básica del acelerador de la solución Supervisión remota:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -104,7 +101,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Ejemplo: Implementación de la versión de Java
 
-En el ejemplo siguiente se muestra cómo implementar la versión de Java estándar del acelerador de la solución de supervisión remota:
+En el ejemplo siguiente, se muestra cómo implementar la versión de Java estándar del acelerador de la solución Supervisión remota:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java
@@ -138,6 +135,6 @@ En este tutorial aprendió lo siguiente:
 > * Implementación del acelerador de solución
 > * Inicio de sesión en el acelerador de la solución
 
-Ahora que ha implementado la solución de supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](./iot-accelerators-remote-monitoring-deploy.md).
+Ahora que ha implementado la solución Supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](./iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

@@ -1,5 +1,5 @@
 ---
-title: Incorporación de un punto de conexión HTTPS a una aplicación de Azure Service Fabric | Microsoft Docs
+title: Incorporación de un punto de conexión HTTPS a una aplicación de Service Fabric en Azure | Microsoft Docs
 description: En este tutorial, aprenderá a agregar un punto de conexión HTTPS a un servicio web de front-end de ASP.NET Core y a implementar la aplicación en un clúster.
 services: service-fabric
 documentationcenter: .net
@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a07e3ed3363ad968156aab2233073406d05b7dba
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364614"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130057"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core
+
 Este tutorial es la tercera parte de una serie.  Aprenderá a habilitar HTTPS en un servicio de ASP.NET Core que se ejecuta en Service Fabric. Una vez que haya terminado, tendrá una aplicación de votación con un front-end web de ASP.NET Core habilitado para HTTPS que escucha en el puerto 443. Si no desea crear manualmente la aplicación de votación descrita en [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-deploy-app-to-party-cluster.md), puede [descargar el código fuente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) de la aplicación terminada.
 
 En la tercera parte de la serie, se aprende a:
@@ -44,20 +45,25 @@ En esta serie de tutoriales, se aprende a:
 > * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>requisitos previos
+
 Antes de empezar este tutorial:
-- Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Instale Visual Studio 2017](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **Desarrollo de Azure** y de **Desarrollo de ASP.NET y web**.
-- [Instale el SDK de Service Fabric](service-fabric-get-started.md).
+
+* Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Instale Visual Studio 2017](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **Desarrollo de Azure** y de **Desarrollo de ASP.NET y web**.
+* [Instale el SDK de Service Fabric](service-fabric-get-started.md).
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obtención de un certificado o creación de un certificado de desarrollo autofirmado
+
 Para aplicaciones de producción, use un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority). Con fines de desarrollo y pruebas, puede crear y usar un certificado autofirmado. El SDK de Service Fabric proporciona el script *CertSetup.ps1*, que crea un certificado autofirmado y lo importa en el almacén de certificados `Cert:\LocalMachine\My`. Abra un símbolo del sistema como administrador y ejecute el siguiente comando para crear un certificado con el asunto "CN=localhost":
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
 ```
 
-Si ya tiene un archivo PFX de certificado, ejecute lo siguiente para importar el certificado en el almacén de certificados `Cert:\LocalMachine\My`: 
+Si ya tiene un archivo PFX de certificado, ejecute lo siguiente para importar el certificado en el almacén de certificados `Cert:\LocalMachine\My`:
+
 ```powershell
+
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysslcertificate.pfx -CertStoreLocation Cert:\LocalMachine\My -Password (ConvertTo-SecureString "!Passw0rd321" -AsPlainText -Force)
 
 
@@ -69,6 +75,7 @@ Thumbprint                                Subject
 ```
 
 ## <a name="define-an-https-endpoint-in-the-service-manifest"></a>Definición de un punto de conexión HTTPS en el manifiesto de servicio
+
 Inicie Visual Studio como **administrador** y abra la solución de votación. En el Explorador de soluciones, abra *VotingWeb/PackageRoot/ServiceManifest.xml*. El manifiesto del servicio define los puntos de conexión del servicio.  Busque la sección **Puntos de conexión** y edite el punto de conexión "ServiceEndpoint" existente.  Cambie el nombre a "EndpointHttps", establezca el protocolo en *https*, el tipo en *Entrada*y el puerto en *443*.  Guarde los cambios.
 
 ```xml
@@ -101,16 +108,17 @@ Inicie Visual Studio como **administrador** y abra la solución de votación. En
 </ServiceManifest>
 ```
 
-
 ## <a name="configure-kestrel-to-use-https"></a>Configurar Kestrel para que use HTTPS
-En el Explorador de soluciones, abra el archivo *VotingWeb/VotingWeb.cs*.  Configure Kestrel para que use HTTPS y busque el certificado en el almacén `Cert:\LocalMachine\My`. Agregue las siguientes instrucciones using: 
+
+En el Explorador de soluciones, abra el archivo *VotingWeb/VotingWeb.cs*.  Configure Kestrel para que use HTTPS y busque el certificado en el almacén `Cert:\LocalMachine\My`. Agregue las siguientes instrucciones using:
+
 ```csharp
 using System.Net;
 using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-Actualice `ServiceInstanceListener` para que use el nuevo punto de conexión *EndpointHttps* y escuche en el puerto 443. 
+Actualice `ServiceInstanceListener` para que use el nuevo punto de conexión *EndpointHttps* y escuche en el puerto 443.
 
 ```csharp
 new ServiceInstanceListener(
@@ -171,10 +179,13 @@ private X509Certificate2 GetCertificateFromStore()
 ```
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Conceder a NETWORK SERVICE acceso a la clave privada del certificado
-En un paso anterior, se importa el certificado del almacén `Cert:\LocalMachine\My` en el equipo de desarrollo.  Debe proporcionar también explícitamente a la cuenta que ejecuta el servicio (NETWORK SERVICE de forma predeterminada) acceso a la clave privada del certificado. Puede hacerlo manualmente (mediante la herramienta certlm.msc), pero es mejor ejecutar automáticamente un script de PowerShell realizando la [configuración de un script de inicio](service-fabric-run-script-at-service-startup.md) en el punto **SetupEntryPoint** del manifiesto de servicio.   
+
+En un paso anterior, se importa el certificado del almacén `Cert:\LocalMachine\My` en el equipo de desarrollo.  Debe proporcionar también explícitamente a la cuenta que ejecuta el servicio (NETWORK SERVICE de forma predeterminada) acceso a la clave privada del certificado. Puede hacerlo manualmente (mediante la herramienta certlm.msc), pero es mejor ejecutar automáticamente un script de PowerShell realizando la [configuración de un script de inicio](service-fabric-run-script-at-service-startup.md) en el punto **SetupEntryPoint** del manifiesto de servicio.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configuración del punto de entrada de instalación del servicio
+
 En el Explorador de soluciones, abra *VotingWeb/PackageRoot/ServiceManifest.xml*.  En la sección **CodePackage**, agregue el nodo **SetupEntryPoint** y, a continuación, un nodo **ExeHost**.  En **ExeHost**, establezca **Program** en "Setup.bat" y **WorkingFolder** en "CodePackage".  Cuando se inicia el servicio VotingWeb, el script Setup.bat se ejecuta en la carpeta CodePackage antes de que se inicie VotingWeb.exe.
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="VotingWebPkg"
@@ -190,7 +201,7 @@ En el Explorador de soluciones, abra *VotingWeb/PackageRoot/ServiceManifest.xml*
     <SetupEntryPoint>
       <ExeHost>
         <Program>Setup.bat</Program>
-        <WorkingFolder>CodePackage</WorkingFolder>        
+        <WorkingFolder>CodePackage</WorkingFolder>
       </ExeHost>
     </SetupEntryPoint>
 
@@ -213,6 +224,7 @@ En el Explorador de soluciones, abra *VotingWeb/PackageRoot/ServiceManifest.xml*
 ```
 
 ### <a name="add-the-batch-and-powershell-setup-scripts"></a>Incorporación del lote y de los scripts de configuración de PowerShell
+
 Para ejecutar PowerShell desde el punto **SetupEntryPoint**, puede ejecutar PowerShell.exe en un archivo por lotes que apunte al archivo de PowerShell. En primer lugar, agregue el archivo por lotes al proyecto de servicio.  En el Explorador de soluciones, haga clic con el botón derecho en **VotingWeb** y seleccione **Agregar**->**Nuevo elemento** y agregue un nuevo archivo denominado "Setup.bat".  Edite el archivo *Setup.bat* y agregue el siguiente comando:
 
 ```bat
@@ -229,7 +241,7 @@ $subject="localhost"
 $userGroup="NETWORK SERVICE"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
- 
+
 $cert = (gci Cert:\LocalMachine\My\ | where { $_.Subject.Contains($subject) })[-1]
 
 if ($cert -eq $null)
@@ -244,27 +256,27 @@ if ($cert -eq $null)
 }else
 {
     $keyName=$cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
-    
+
     $keyPath = "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\"
     $fullPath=$keyPath+$keyName
     $acl=(Get-Item $fullPath).GetAccessControl('Access')
 
- 
+
     $hasPermissionsAlready = ($acl.Access | where {$_.IdentityReference.Value.Contains($userGroup.ToUpperInvariant()) -and $_.FileSystemRights -eq [System.Security.AccessControl.FileSystemRights]::FullControl}).Count -eq 1
- 
+
     if ($hasPermissionsAlready){
         Write-Host "Account $userGroupCertificate already has permissions to certificate '$subject'." -ForegroundColor Green
         return $false;
     } else {
         Write-Host "Need add permissions to '$subject' certificate..." -ForegroundColor DarkYellow
-        
+
         $permission=$userGroup,"Full","Allow"
         $accessRule=new-object System.Security.AccessControl.FileSystemAccessRule $permission
         $acl.AddAccessRule($accessRule)
         Set-Acl $fullPath $acl
- 
+
         Write-Output "Permissions were added"
- 
+
         return $true;
     }
 }
@@ -273,10 +285,11 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 ```
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Ejecución del script de instalación como administrador local
-De forma predeterminada, el ejecutable de punto de entrada del programa de instalación del servicio se ejecuta con las mismas credenciales que Service Fabric (normalmente la cuenta NetworkService). El archivo *SetCertAccess.ps1* requiere privilegios de administrador. En el manifiesto de aplicación, puede cambiar los permisos de seguridad para ejecutar el script de inicio con una cuenta de administrador local.  
+
+De forma predeterminada, el ejecutable de punto de entrada del programa de instalación del servicio se ejecuta con las mismas credenciales que Service Fabric (normalmente la cuenta NetworkService). El archivo *SetCertAccess.ps1* requiere privilegios de administrador. En el manifiesto de aplicación, puede cambiar los permisos de seguridad para ejecutar el script de inicio con una cuenta de administrador local.
 
 En el Explorador de soluciones, abra *Voting/ApplicationPackageRoot/ApplicationManifest.xml*. En primer lugar, cree una sección **Principals** y agregue un nuevo usuario (por ejemplo, "SetupAdminUser"). Agregue la cuenta de usuario SetupAdminUser al grupo de administradores del sistema.
-A continuación, en la sección **ServiceManifestImport** de VotingWebPkg, configure una directiva **RunAsPolicy** para aplicar la entidad de seguridad SetupAdminUser al punto de entrada de la instalación. Esta directiva indica a Service Fabric que el archivo Setup.bat se debe ejecutar como SetupAdminUser (con privilegios de administrador). 
+A continuación, en la sección **ServiceManifestImport** de VotingWebPkg, configure una directiva **RunAsPolicy** para aplicar la entidad de seguridad SetupAdminUser al punto de entrada de la instalación. Esta directiva indica a Service Fabric que el archivo Setup.bat se debe ejecutar como SetupAdminUser (con privilegios de administrador).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -323,16 +336,18 @@ A continuación, en la sección **ServiceManifestImport** de VotingWebPkg, confi
 ```
 
 ## <a name="run-the-application-locally"></a>Ejecución de la aplicación de forma local
+
 En el Explorador de soluciones, seleccione la aplicación **Voting** y establezca la propiedad **Application URL** en "https://localhost:443".
 
 Guarde todos los archivos y presione la tecla F5 para ejecutar la aplicación localmente.  Después de que se implementa la aplicación, se abre un explorador web en [https://localhost:443](https://localhost:443). Si va a usar un certificado autofirmado, aparecerá una advertencia que le indica que el PC no confía en la seguridad de este sitio web.  Continúe en la página web.
 
-![Aplicación de votación][image2] 
+![Aplicación de votación][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Instalación del certificado en los nodos de clúster
+
 Antes de implementar la aplicación en Azure, instale el certificado en el almacén `Cert:\LocalMachine\My` de los nodos de clúster remotos.  Cuando se inicia el servicio web de front-end en un nodo de clúster, el script de inicio busca el certificado y configura los permisos de acceso.
 
-Primero, exporte el certificado a un archivo PFX. Abra la aplicación certlm.msc y vaya a **Personal**>**Certificados**.  Haga clic con el botón derecho en el certificado *localhost* y seleccione **Todas las tareas**>**Exportar**.  
+Primero, exporte el certificado a un archivo PFX. Abra la aplicación certlm.msc y vaya a **Personal**>**Certificados**.  Haga clic con el botón derecho en el certificado *localhost* y seleccione **Todas las tareas**>**Exportar**.
 
 ![Exportación de certificado][image4]
 
@@ -353,7 +368,7 @@ $groupname="voting_RG"
 $clustername = "votinghttps"
 $ExistingPfxFilePath="C:\Users\sfuser\votingappcert.pfx"
 
-$appcertpwd = ConvertTo-SecureString –String $certpw –AsPlainText –Force  
+$appcertpwd = ConvertTo-SecureString -String $certpw -AsPlainText -Force
 
 Write-Host "Reading pfx file from $ExistingPfxFilePath"
 $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $ExistingPfxFilePath, $certpw
@@ -381,7 +396,8 @@ Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Na
 ```
 
 ## <a name="open-port-443-in-the-azure-load-balancer"></a>Abrir el puerto 443 en Azure Load Balancer
-Abra el puerto 443 en el equilibrador de carga si aún no está abierto.  
+
+Abra el puerto 443 en el equilibrador de carga si aún no está abierto.
 
 ```powershell
 $probename = "AppPortProbe6"
@@ -390,7 +406,7 @@ $RGname="voting_RG"
 $port=443
 
 # Get the load balancer resource
-$resource = Get-AzureRmResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"} 
+$resource = Get-AzureRmResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
 $slb = Get-AzureRmLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
 
 # Add a new probe configuration to the load balancer
@@ -405,6 +421,7 @@ $slb | Set-AzureRmLoadBalancer
 ```
 
 ## <a name="deploy-the-application-to-azure"></a>Implementación de la aplicación en Azure
+
 Guarde todos los archivos, cambie de depurar a liberar y presione F6 para recompilar.  En el Explorador de soluciones, haga clic con el botón derecho en **Voting** y seleccione **Publicar**. Seleccione el punto de conexión del clúster creado en [Implementar una aplicación en un clúster.](service-fabric-tutorial-deploy-app-to-party-cluster.md), o seleccione otro clúster.  Haga clic en **Publicar** para publicar la aplicación en el clúster remoto.
 
 Cuando se implemente la aplicación, abra un explorador web y vaya a [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (actualice la dirección URL con el punto de conexión del clúster). Si va a usar un certificado autofirmado, aparecerá una advertencia que le indica que el PC no confía en la seguridad de este sitio web.  Continúe en la página web.
@@ -412,6 +429,7 @@ Cuando se implemente la aplicación, abra un explorador web y vaya a [https://my
 ![Aplicación de votación][image3]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En esta parte del tutorial, ha aprendido a:
 
 > [!div class="checklist"]
@@ -420,7 +438,7 @@ En esta parte del tutorial, ha aprendido a:
 > * Instalar el certificado SSL en los nodos del clúster remoto
 > * Conceder a NETWORK SERVICE acceso a la clave privada del certificado
 > * Abrir el puerto 443 en Azure Load Balancer
-> * Implementar la aplicación en un clúster remoto 
+> * Implementar la aplicación en un clúster remoto
 
 Avance hasta el siguiente tutorial:
 > [!div class="nextstepaction"]

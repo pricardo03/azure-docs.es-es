@@ -249,15 +249,10 @@
           href: apache-hbase-replication.md
         - name: Configuración de la copia de seguridad y la replicación para HBase y Phoenix
           href: apache-hbase-backup-replication.md
-    - name: Supervisión con OMS
+    - name: Supervisión del uso de Log Analytics
       items:
         - name: Uso de Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Supervisión de HBase con OMS
-          href: apache-hbase-monitor-with-oms.md
-        - name: Paneles específicos de clúster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Uso de consultas con Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -343,6 +338,10 @@
     - name: Notas de la versión
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Archivado de notas de la versión
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtención de ayuda en el foro

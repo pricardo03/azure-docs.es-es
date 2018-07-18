@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de Vertica con Azure Data Factory (beta) | Microsoft Docs
+title: Copia de datos de Vertica con Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos de Vertica en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,24 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/26/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: a308de5dea3f97c5b285c1be715969f5ca373e5d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d4399fd26c4c536f89bb15e16bfc67fb1d0940fa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055495"
 ---
-# <a name="copy-data-from-vertica-using-azure-data-factory-beta"></a>Copia de datos de Vertica con Azure Data Factory (beta)
+# <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copia de datos de Vertica con Azure Data Factory 
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Vertica. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de copia en V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Este conector está actualmente en versión beta. Puede probarlo y enviarnos sus comentarios. No debe usarse en entornos de producción.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 

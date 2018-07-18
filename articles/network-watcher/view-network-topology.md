@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6ef165ddc481bf84c6189635e36b97eb9518261e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077810"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35777326"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualización de la topología de una red virtual de Azure
 
@@ -37,10 +37,12 @@ Puede usar [Azure Portal](#azure-portal), la [CLI de Azure](#azure-cli) o [Power
 
     ![Visualización de la topología](./media/view-network-topology/view-topology.png)
 
-    Como puede ver en la figura anterior, la red virtual contiene tres subredes. Una subred tiene una máquina virtual implementada. La máquina virtual tiene una interfaz de red asociada a él y una dirección IP pública asociadas también. Las otras dos subredes tienen una tabla de rutas asociada a ellas. Cada tabla de rutas contiene dos rutas. Una subred dispone de un grupo de seguridad de red asociado a ella. Solo se muestra información de topología de los recursos que se encuentran: - Dentro del mismo grupo de recursos y región que la red virtual *myVnet*. Por ejemplo, no se muestra un grupo de seguridad de red que existe en un grupo de recursos distinto de *MyResourceGroup*, incluso si el grupo de seguridad de red está asociado a una subred en la red virtual *MyVnet*.
-        - Dentro o asociados a recursos dentro de la red virtual *myVnet*. Por ejemplo, un grupo de seguridad de red que no esté asociado a una subred o interfaz de red en la red virtual *myVnet* no se muestra, incluso si el grupo de seguridad de red está en el grupo de recursos *MyResourceGroup*.
+    Como puede ver en la figura anterior, la red virtual contiene tres subredes. Una subred tiene una máquina virtual implementada. La máquina virtual tiene una interfaz de red asociada a él y una dirección IP pública asociadas también. Las otras dos subredes tienen una tabla de rutas asociada a ellas. Cada tabla de rutas contiene dos rutas. Una subred dispone de un grupo de seguridad de red asociado a ella. Solo se muestra la información de topología para recursos que se encuentran:
+    
+    - Dentro del mismo grupo de recursos y región que la red virtual *myVnet*. Por ejemplo, no se muestra un grupo de seguridad de red que existe en un grupo de recursos distinto de *MyResourceGroup*, incluso si el grupo de seguridad de red está asociado a una subred en la red virtual *MyVnet*.
+    - Dentro, o asociados a recursos que se encuentran dentro, de la red virtual *myVnet*. Por ejemplo, un grupo de seguridad de red que no esté asociado a una subred o interfaz de red en la red virtual *myVnet* no se muestra, incluso si el grupo de seguridad de red está en el grupo de recursos *MyResourceGroup*.
 
-    La topología mostrada en la imagen es para la red virtual creada después de implementar el **ejemplo de script para el enrutamiento del tráfico mediante una aplicación virtual de red**, que puede implementar con la [CLI de Azure](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) o [PowerShell ](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+  La topología mostrada en la imagen es para la red virtual creada después de implementar el **ejemplo de script para el enrutamiento del tráfico mediante una aplicación virtual de red**, que puede implementar con la [CLI de Azure](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) o [PowerShell ](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 6. Seleccione **Descargar topología** para descargar la imagen como archivo editable, en formato svg.
 

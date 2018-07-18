@@ -3,7 +3,7 @@ title: 'CLI de Azure Service Fabric: sfctl node | Microsoft Docs'
 description: Describe los comandos de sfctl node de la CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: Christina-Kang
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 02/22/2018
-ms.author: ryanwi
-ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/23/2018
+ms.author: bikang
+ms.openlocfilehash: fb8a310a131938e95f3d21b3962dbbd1944a57ed
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763432"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Administre los nodos que forman un clúster.
@@ -27,63 +28,62 @@ Administre los nodos que forman un clúster.
 
 |Get-Help|DESCRIPCIÓN|
 | --- | --- |
-|    disable       | Desactive un nodo de clúster de Service Fabric con la intención de desactivación especificada.|
-|    enable        | Active un nodo de clúster de Service Fabric, que está actualmente desactivado.|
-|    health        | Obtiene el estado de un nodo de Service Fabric.|
-|    info          | Obtiene la información sobre un nodo específico en el clúster de Service Fabric.|
-|    list          | Obtiene la lista de nodos del clúster de Service Fabric.|
-|    load          | Obtiene la información de carga de un nodo de Service Fabric.|
-|    remove-state  | Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente.|
-|    report-health | Envía un informe de estado sobre el nodo de Service Fabric.|
-|    restart       | Reinicia un nodo de clúster de Service Fabric.|
-|    transition    | Inicia o detiene un nodo de clúster.|
-|    transition-status| Obtiene el progreso de una operación iniciada mediante StartNodeTransition.|
-
+| disable | Desactive un nodo de clúster de Service Fabric con la intención de desactivación especificada. |
+| enable | Active un nodo de clúster de Service Fabric, que está actualmente desactivado. |
+| health | Obtiene el estado de un nodo de Service Fabric. |
+| info | Obtiene la información sobre un nodo específico en el clúster de Service Fabric. |
+| list | Obtiene la lista de nodos del clúster de Service Fabric. |
+| load | Obtiene la información de carga de un nodo de Service Fabric. |
+| remove-state | Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente. |
+| report-health | Envía un informe de estado sobre el nodo de Service Fabric. |
+| restart | Reinicia un nodo de clúster de Service Fabric. |
+| transition | Inicia o detiene un nodo de clúster. |
+| transition-status | Obtiene el progreso de una operación iniciada mediante StartNodeTransition. |
 
 ## <a name="sfctl-node-disable"></a>sfctl node disable
 Desactive un nodo de clúster de Service Fabric con la intención de desactivación especificada.
 
-Desactive un nodo de clúster de Service Fabric con la intención de desactivación especificada. Una vez que la desactivación está en curso, la intención de desactivación puede aumentar, pero no disminuir (por ejemplo, un nodo que está desactivado con la intención Pause puede desactivarse aún más con Restart, pero no al revés). Los nodos deben reactivarse mediante la operación Activate a node en cualquier momento después de la desactivación. Si la desactivación no se completa, esto cancela la desactivación. Un nodo que deja de funcionar y vuelve a activarse mientras está desactivado todavía debe reactivarse antes de que puedan colocarse servicios en ese nodo.
+Desactive un nodo de clúster de Service Fabric con la intención de desactivación especificada. Una vez que la desactivación está en curso, la intención de desactivación puede aumentar, pero no disminuir (por ejemplo, un nodo que está desactivado con la intención Pause puede desactivarse aún más con Restart, pero no al revés). Los nodos deben reactivarse mediante la operación Activate a node en cualquier momento después de la desactivación. Si la desactivación no se completa, esto cancelará la desactivación. Un nodo que deja de funcionar y vuelve a activarse mientras está desactivado todavía deberá reactivarse antes de que puedan colocarse servicios en ese nodo.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --node-name [Obligatorio]| El nombre del nodo.|
-| --deactivation-intent | Describe la intención o el motivo para desactivar el nodo. |
-| --timeout -t       | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --deactivation-intent | Describe la intención o el motivo para desactivar el nodo. Los valores posibles son los siguientes. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --debug            | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
-| --help -h          | Muestra este mensaje de ayuda y sale.|
-| --output -o        | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query            | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
-| --verbose          | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-node-enable"></a>sfctl node enable
 Active un nodo de clúster de Service Fabric, que está actualmente desactivado.
 
-Active un nodo de clúster de Service Fabric, que está actualmente desactivado. Una vez activado, el nodo vuelve a convertirse en un destino viable para colocar las nuevas réplicas, y se vuelvan a activar las réplicas desactivadas restantes en el nodo.
+Active un nodo de clúster de Service Fabric, que está actualmente desactivado. Una vez activado, el nodo volverá a convertirse en un destino viable para colocar las nuevas réplicas, y se volverán a activar las réplicas desactivadas restantes en el nodo.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --node-name [Obligatorio]| El nombre del nodo.|
-| --timeout -t       | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --debug            | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
-| --help -h          | Muestra este mensaje de ayuda y sale.|
-| --output -o        | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query            | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
-| --verbose          | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-node-health"></a>sfctl node health
 Obtiene el estado de un nodo de Service Fabric.
@@ -94,64 +94,64 @@ Obtiene el estado de un nodo de Service Fabric. Use EventsHealthStateFilter para
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --node-name [Obligatorio]| El nombre del nodo.|
-| --events-health-state-filter| Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
-| --timeout -t             | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --debug                  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
-| --help -h                | Muestra este mensaje de ayuda y sale.|
-| --output -o              | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query                  | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
-| --verbose                | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-node-info"></a>sfctl node info
 Obtiene la información sobre un nodo específico en el clúster de Service Fabric.
 
-Obtiene información sobre un nodo específico en el clúster de Service Fabric. La respuesta incluye el nombre, el estado, el identificador, el estado, el tiempo de actividad y otros detalles acerca del nodo.
+Obtiene la información sobre un nodo específico en el clúster de Service Fabric. La respuesta incluye el nombre, el estado, el id., el mantenimiento, el tiempo de actividad y otros detalles acerca del nodo.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --node-name [Obligatorio]| El nombre del nodo.|
-| --timeout -t       | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --debug            | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
-| --help -h          | Muestra este mensaje de ayuda y sale.|
-| --output -o        | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query            | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
-| --verbose          | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-node-list"></a>sfctl node list
 Obtiene la lista de nodos del clúster de Service Fabric.
 
-Obtiene la lista de nodos del clúster de Service Fabric. La respuesta incluye el nombre, el estado, el identificador, el estado, el tiempo de actividad y otros detalles acerca del nodo.
+Obtiene la lista de nodos del clúster de Service Fabric. La respuesta incluye el nombre, el estado, el id., el mantenimiento, el tiempo de actividad y otros detalles acerca del nodo.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --continuation-token| El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un continuation token con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta.      Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el continuation token no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
-| --node-status-filter| Permite filtrar los nodos según NodeStatus. Se devuelven únicamente los nodos que coinciden con el valor de filtro especificado. El valor de filtro puede ser uno de los siguientes. Valor predeterminado: default.|
-| --timeout -t     | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
+| --node-status-filter | Permite filtrar los nodos según NodeStatus. Se devolverán únicamente los nodos que coinciden con el valor de filtro especificado. El valor de filtro puede ser uno de los siguientes.  Valor predeterminado\: predeterminado. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --debug          | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
-| --help -h        | Muestra este mensaje de ayuda y sale.|
-| --output -o      | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query          | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
-| --verbose        | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-node-load"></a>sfctl node load
 Obtiene la información de carga de un nodo de Service Fabric.
@@ -162,18 +162,70 @@ Recupera la información de carga de un nodo de Service Fabric para todas las m�
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --node-name [Obligatorio]| El nombre del nodo.|
-| --timeout -t       | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --debug            | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
-| --help -h          | Muestra este mensaje de ayuda y sale.|
-| --output -o        | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query            | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
-| --verbose          | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
+## <a name="sfctl-node-remove-state"></a>sfctl node remove-state
+Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente.
+
+Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente.  Esto implica que no es posible recuperar el estado persistente de ese nodo. Por lo general, esto ocurre si se borró un disco duro, o si se bloquea un disco duro. El nodo debe estar inactivo para que esta operación se realice correctamente. Esta operación permite a Service Fabric saber que las réplicas en ese nodo ya no existen, y que Service Fabric debe dejar de esperar a que esas réplicas vuelvan a activarse. No ejecute este cmdlet si no se ha quitado el estado en el nodo y el nodo puede recuperarse con su estado intacto.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globales
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
+## <a name="sfctl-node-report-health"></a>sfctl node report-health
+Envía un informe de estado sobre el nodo de Service Fabric.
+
+Informa del estado de mantenimiento del nodo de Service Fabric especificado. El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. El informe se envía a un nodo de puerta de enlace de Service Fabric, que lo reenvía al almacén de estado. La puerta de enlace puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, compruebe que aparece en la sección HealthEvents.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --health-property [obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento independientes del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
+| --health-state    [obligatorio] | Los valores posibles incluyen\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
+| --node-name [Obligatorio] | Nombre del nodo sobre el que informar. |
+| --source-id       [obligatorio] | El nombre de origen que identifica el componente de cliente/guardián/sistema que genera la información de estado. |
+| --description | La descripción de la información de mantenimiento. <br><br> Representa el texto libre utilizado para agregar información legible por el ser humano sobre el informe. La longitud máxima de la cadena de la descripción es de 4096 caracteres. Si la cadena proporcionada es más larga, se truncará automáticamente. Cuando está truncado, los últimos caracteres de la descripción contienen un marcador "[Truncado]" y el tamaño total de la cadena es de 4096 caracteres. La presencia del marcador indica a los usuarios que el truncamiento se ha producido. Tenga en cuenta que, cuando se trunca, la descripción tiene menos de 4096 caracteres de la cadena original. |
+| --immediate | Una marca que indica si el informe se debe enviar inmediatamente. <br><br> Se envía un informe de mantenimiento a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. Si Immediate se establece en true, el informe se envía inmediatamente de la puerta de enlace HTTP al almacén de estado, independientemente de la configuración de cliente de Fabric que esté usando la aplicación de la puerta de enlace HTTP. Esto es útil para los informes críticos que deben enviarse tan pronto como sea posible. En función del tiempo y otras condiciones, el envío del informe puede aún generar un error, por ejemplo, si se cierra la puerta de enlace HTTP o el mensaje no llega a la puerta de enlace. Si Immediate se establece en false, el informe se envía en función de la configuración de cliente de mantenimiento de la puerta de enlace HTTP. Por lo tanto, se procesará por lotes de acuerdo con la configuración de HealthReportSendInterval. Esta es la configuración recomendada porque permite que el cliente de mantenimiento optimice los mensajes de notificación de estado destinados al almacén de estado, así como el procesamiento de informes de mantenimiento. De forma predeterminada, los informes no se envían inmediatamente. |
+| --remove-when-expired | Valor que indica si el informe se quita del almacén de estado cuando expire. <br><br> Si se establece en true, el informe se quita del almacén de estado una vez que expire. Si se establece en false, el informe se trata como un error cuando expire. El valor de esta propiedad es false de forma predeterminada. Cuando los clientes notifican periódicamente, deben establecer RemoveWhenExpired en false (valor predeterminado). De esta manera, si el notificador tiene problemas (por ejemplo, un interbloqueo) y no puede informar, la entidad se evalúa al llegar el error cuando expira el informe de mantenimiento. De este modo, se marca que la entidad está en estado de mantenimiento Error. |
+| --sequence-number | El número de secuencia para este informe de estado como una cadena numérica. <br><br> El número de secuencia del informe se usa por el almacén de estado para detectar informes obsoletos. Si no se especifica, se genera automáticamente un número de secuencia por el cliente de estado cuando se agrega un informe. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --ttl | La duración durante la cual este informe de mantenimiento es válido. Este campo usa el formato ISO8601 para especificar la duración. <br><br> Cuando los clientes notifican periódicamente, deben enviar informes con una frecuencia mayor que el período de vida. Si los clientes notifican en transición, pueden establecer el período de vida en Infinito. Cuando expira el período de vida, el evento de estado que contiene la información de estado se quita del almacén de estado, si RemoveWhenExpired es true, o se evalúa en el error, si RemoveWhenExpired es false. Si no se especifica, el período de vida se establece de forma predeterminada en un valor infinito. |
+
+### <a name="global-arguments"></a>Argumentos globales
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-node-restart"></a>sfctl node restart
 Reinicia un nodo de clúster de Service Fabric.
@@ -184,47 +236,69 @@ Reinicia un nodo de clúster de Service Fabric que ya se inició.
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --node-name [Obligatorio]| El nombre del nodo.|
-| --create-fabric-dump  | Especifique en True para crear un volcado de memoria del proceso de nodo de tejido. Distingue mayúsculas de minúsculas.  Valor predeterminado: False.|
-| --node-instance-id | El identificador de instancia del nodo de destino. Si se especificó el identificador de instancia, se reinicia el nodo solo si coincide con la instancia actual del nodo. Un valor predeterminado de "0" coincidiría con cualquier identificador de instancia. El identificador de instancia puede obtenerse mediante la consulta get node.  Valor predeterminado: 0.|
-| --timeout -t       | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --create-fabric-dump | Especifique en True para crear un volcado de memoria del proceso de nodo de tejido. Distingue mayúsculas de minúsculas.  Valor predeterminado\: false. |
+| --node-instance-id | El identificador de instancia del nodo de destino. Si se especificó el identificador de instancia, se reinicia el nodo solo si coincide con la instancia actual del nodo. Un valor predeterminado de "0" coincidiría con cualquier identificador de instancia. El identificador de instancia puede obtenerse mediante la consulta get node.  Valor predeterminado\: 0. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --debug            | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
-| --help -h          | Muestra este mensaje de ayuda y sale.|
-| --output -o        | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query            | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
-| --verbose          | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-node-transition"></a>sfctl node transition
 Inicia o detiene un nodo de clúster.
 
-Inicia o detiene un nodo de clúster.  Un nodo de clúster es un proceso, no la propia instancia del sistema operativo.
-Para iniciar un nodo, pase "Start" para el parámetro NodeTransitionType. Para detener un nodo, pase "Stop" para el parámetro NodeTransitionType. Esta API inicia la operación: cuando la API devuelve el nodo, puede no haya terminado de realizar la transición aún. Llame a GetNodeTransitionProgress con el mismo OperationId para obtener el progreso de la operación. 
+Inicia o detiene un nodo de clúster.  Un nodo de clúster es un proceso, no la propia instancia del sistema operativo.  Para iniciar un nodo, pase "Start" para el parámetro NodeTransitionType. Para detener un nodo, pase "Stop" para el parámetro NodeTransitionType. Esta API inicia la operación: cuando la API devuelve el nodo, puede no haya terminado de realizar la transición aún. Llame a GetNodeTransitionProgress con el mismo OperationId para obtener el progreso de la operación.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --node-instance-id [Obligatorio]| El identificador de instancia del nodo de destino. Puede determinarse a través de la API GetNodeInfo.|
-| --node-name [Obligatorio]| El nombre del nodo.|
-| --node-transition-type [Obligatorio]| Indica el tipo de transición que se va a realizar.                       NodeTransitionType.Start inicia un nodo detenido.                       NodeTransitionType. Stop detiene un nodo que está en funcionamiento. |
-| --operation-id [Obligatorio]| Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente.|
-| --stop-duration-in-seconds [Obligatorio]| La duración, en segundos, para conservar el nodo detenido.  El valor mínimo es 600; y el máximo, 14400. Después de que expire este tiempo, el nodo automáticamente vuelve a estar en funcionamiento.|
-| --timeout -t                      | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --node-instance-id [Obligatorio] | El identificador de instancia del nodo de destino. Puede determinarse a través de la API GetNodeInfo. |
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --node-transition-type [Obligatorio] | Indica el tipo de transición que se va a realizar.  NodeTransitionType.Start iniciará un nodo detenido. NodeTransitionType.Stop detendrá un nodo que está en funcionamiento. |
+| --operation-id [Obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
+| --stop-duration-in-seconds [Obligatorio] | La duración, en segundos, para conservar el nodo detenido.  El valor mínimo es 600; y el máximo, 14400.  Después de que expire este tiempo, el nodo automáticamente volverá a estar en funcionamiento. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --debug                           | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
-| --help -h                         | Muestra este mensaje de ayuda y sale.|
-| --output -o                       | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.                       Valor predeterminado: json.|
-| --query                           | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
-| --verbose                         | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
+## <a name="sfctl-node-transition-status"></a>sfctl node transition-status
+Obtiene el progreso de una operación iniciada mediante StartNodeTransition.
+
+Obtiene el progreso de una operación iniciada mediante StartNodeTransition, con el OperationId proporcionado.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --node-name [Obligatorio] | El nombre del nodo. |
+| --operation-id [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globales
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

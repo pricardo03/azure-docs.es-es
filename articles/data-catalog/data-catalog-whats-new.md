@@ -1,25 +1,24 @@
 ---
 title: Novedades de Azure Data Catalog | Microsoft Docs
-description: "En este artículo se proporciona una introducción a las nuevas funciones agregadas a Azure Data Catalog."
+description: En este artículo se proporciona una introducción a las nuevas funciones agregadas a Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860010"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novedades en Azure Data Catalog
 De forma periódica se publican actualizaciones de **Azure Data Catalog**. No todas las versiones incluyen nuevas características de cara al usuario, ya que algunas se centran en las funcionalidades del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio Azure Data Catalog.
@@ -94,19 +93,19 @@ A partir de febrero de 2017 se han agregado las siguientes funcionalidades a Azu
 
 ## <a name="whats-new-for-january-2017"></a>Novedades de enero de 2017 
 A partir de enero de 2017 se han agregado las siguientes funcionalidades a Azure Data Catalog:
-*   Azure Data Catalog ahora es compatible con [CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification).
+*   Azure Data Catalog ahora es compatible con [CSA STAR](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification).
 *   Integración con [Obtener y transformar en Excel 2016 y Power Query para Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605). Los usuarios de Excel pueden compartir y detectar consultas mediante Azure Data Catalog desde Excel. Esta funcionalidad está disponible para los usuarios que disponen de licencias de Power BI Pro.
 
 ## <a name="whats-new-for-december-2016"></a>Novedades de diciembre de 2016
 A partir de diciembre de 2016 se han agregado las siguientes funcionalidades a Azure Data Catalog:
-*   Azure Data Catalog ahora es compatible con [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) y con las [cláusulas según el modelo de la UE](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses).
+*   Azure Data Catalog ahora es compatible con [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) y con las [cláusulas según el modelo de la UE](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses).
 *   Compatibilidad con la edición de la información de conexión de los orígenes de datos. Los propietarios de recursos de datos y los administradores de Data Catalog ahora pueden editar la información de conexión de los orígenes de datos registrados sin tener que volver a registrar los orígenes de datos.
 *   Compatibilidad con los orígenes de datos de Salesforce.com. Los usuarios ahora pueden registrar y detectar objetos de Salesforce.
 
 
 ## <a name="whats-new-for-november-2016"></a>Novedades de noviembre de 2016
 A partir de noviembre de 2016 se han agregado las siguientes funcionalidades a Azure Data Catalog:
-*   Azure Data Catalog ahora es compatible con [ISO/IEC 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001) y con [ISO/IEC 27018](https://www.microsoft.com/TrustCenter/Compliance/iso-iec-27018).
+*   Azure Data Catalog ahora es compatible con [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) y con [ISO/IEC 27018](https://www.microsoft.com/en-us/TrustCenter/Compliance/iso-iec-27018).
 *   Compatibilidad con el registro manual de los orígenes de datos ODBC mediante el portal de Data Catalog y la API de REST.
 
 ## <a name="whats-new-for-september-2016"></a>Novedades de septiembre de 2016
@@ -246,7 +245,7 @@ A partir de septiembre de 2015 se han agregado las siguientes funcionalidades a 
 * Una nueva experiencia de detección de orígenes de datos "introductoria" en el portal de Azure Data Catalog. Cuando los usuarios entran en la página "detectar" del portal de Azure Data Catalog sin escribir un término de búsqueda, se muestra información general del contenido del catálogo, incluidas las etiquetas que se usan con más frecuencia y los expertos, los tipos de orígenes de datos y los tipos de objeto.
 * Compatibilidad para el registro y la detección de objetos y bases de datos de Azure SQL Data Warehouse. Para obtener información adicional sobre Azure SQL Data Warehouse, consulte [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Compatibilidad para el registro y la detección de modelos de SQL Server Analysis Services y servidores de SQL Server Reporting Services como contenedores. Al registrar objetos SSAS y SSRS, Azure Data Catalog crea una entrada para el modelo SSAS y el servidor SSRS, y para los informes y otros objetos. Los contenedores se pueden detectar y anotar mediante el portal de Azure Data Catalog. Los usuarios también pueden buscar y filtrar el contenido de un modelo o servidor además de buscar y filtrar el contenido del catálogo.
-* Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como https://servername/olap/msmdpump.dll) en lugar de un nombre de servidor y pueden usar la autenticación básica y las conexiones anónimas además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS) 8.0](https://msdn.microsoft.com/library/gg492140.aspx).
+* Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora, los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como https://servername/olap/msmdpump.dll)), en lugar de un nombre de servidor, y pueden usar la autenticación básica y las conexiones anónimas, además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS) 8.0](https://msdn.microsoft.com/library/gg492140.aspx).
 * Compatibilidad con orígenes de datos de Hive en HDInsight. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive de Hadoop en orígenes de datos de HDInsight. Para obtener más información sobre Hive en HDInsight, consulte el [centro de documentación de HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Compatibilidad para el registro y la detección de bases de datos de SQL Server y clústeres de HDFS como contenedores. Al registrar tablas y vistas de Oracle o HDFS, Azure Data Catalog crea una entrada para la base de datos, las tablas y las vistas. La base de datos se puede detectar y anotar mediante el portal de Azure Data Catalog. Los usuarios también pueden buscar y filtrar el contenido de una base de datos o clúster además de buscar y filtrar el contenido del catálogo.
 * Compatibilidad para el registro manual de tipos de orígenes de datos desconocidos. Los usuarios pueden escribir manualmente la información del origen de datos mediante el portal de Azure Data Catalog para que los orígenes de datos no admitidos explícitamente por la herramienta de registro del origen de datos se puedan anotar y detectar.

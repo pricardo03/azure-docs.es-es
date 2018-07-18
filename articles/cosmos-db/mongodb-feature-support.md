@@ -4,20 +4,18 @@ description: Obtenga información acerca de la compatibilidad de la característ
 services: cosmos-db
 author: alekseys
 manager: kfile
-documentationcenter: ''
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928699"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Compatibilidad de la API de MongoDB con la sintaxis y las características de MongoDB
 
@@ -25,14 +23,19 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 Con la API de Azure Cosmos DB MongoDB, puede disfrutar de las ventajas de las API de MongoDB a las que está acostumbrado, con todas las funcionalidades empresariales que ofrece Azure Cosmos DB: [distribución global](distribute-data-globally.md), [particionamiento automático](partition-data.md), garantías de disponibilidad y latencia, indexación automática de cada campo, cifrado en reposo, copias de seguridad y mucho más.
 
+## <a name="mongodb-protocol-support"></a>Compatibilidad de protocolo para MongoDB
+
+La API de MongoDB de Azure Cosmos DB es compatible de forma predeterminada con la versión del servidor de MongoDB **3.2**. A continuación se enumeran los operadores admitidos y las limitaciones o excepciones. Las características o los operadores de consulta que se han agregado en la versión **3.4** de MongoDB están actualmente disponibles como una característica de versión preliminar. Cualquier controlador cliente que entiende estos protocolos debe poder conectarse a Cosmos DB mediante la API de MongoDB.
+
+La [canalización de agregación de MongoDB](#aggregation-pipeline) también está disponible actualmente como una característica de versión preliminar independiente.
+
 ## <a name="mongodb-query-language-support"></a>Compatibilidad con lenguajes de consulta de MongoDB
 
 La API de Azure Cosmos DB MongoDB proporciona una compatibilidad completa con las construcciones del lenguaje de consulta de MongoDB. A continuación, encontrará una lista detallada de las opciones, comandos, fases, operadores y operaciones compatibles actualmente.
 
-
 ## <a name="database-commands"></a>Comandos de base de datos
 
-Azure Cosmos DB admite los siguientes comandos de base de datos en todas las cuentas de la API de MongoDB. 
+Azure Cosmos DB admite los siguientes comandos de base de datos en todas las cuentas de la API de MongoDB.
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operación de consulta y escritura
 - delete
@@ -289,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | No compatible. Utilice $regex en su lugar. 
+$text |  | No compatible. Utilice $regex en su lugar.
+
+## <a name="unsupported-operators"></a>Operadores no compatibles
+
+Los operadores ```$where``` y ```$eval``` no son compatibles con Azure Cosmos DB.
 
 ### <a name="methods"></a>Métodos
 
@@ -318,6 +325,10 @@ Azure Cosmos DB no admite aún usuarios y roles. Azure Cosmos DB admite el contr
 ## <a name="replication"></a>Replicación
 
 Azure Cosmos DB admite la replicación automática y nativa en las capas más inferiores. Esta lógica se amplía para lograr también una replicación global de baja latencia. Azure Cosmos DB no es compatible con comandos de replicación manuales.
+
+## <a name="write-concern"></a>Write Concern
+
+Ciertas API de MongoDB admiten la especificación de un nivel de [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) que especifica el número de respuestas requeridas durante una operación de escritura. Debido a la forma en la que Cosmos DB controla la replicación en un segundo plano todas las escrituras se establecen automáticamente como cuórum de forma predeterminada. Cualquier nivel de Write Concern especificado por el código de cliente se ignora. Más información en el artículo sobre el [Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento](consistency-levels.md).
 
 ## <a name="sharding"></a>Particionamiento
 

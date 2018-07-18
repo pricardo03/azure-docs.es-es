@@ -1,22 +1,21 @@
 ---
-title: Usar el acceso según la edad en Azure AD B2C | Documentos de Microsoft
+title: Usar el acceso según la edad en Azure Active Directory B2C | Microsoft Docs
 description: Obtenga información acerca de cómo identificar a los menores mediante la aplicación.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.component: B2C
+ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261289"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446731"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Usar el acceso según la edad en Azure AD B2C
 

@@ -14,11 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1b51638754287d3359eaea7bd5da3f71bf15cc89
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461544"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Tutorial: Protección de la conexión con Azure SQL Database mediante una identidad de servicio administrada
 
@@ -31,6 +32,9 @@ Aprenderá a:
 > * Conceder a SQL Database acceso a la identidad de servicio
 > * Configurar el código de la aplicación para autenticarse con SQL Database mediante la autenticación de Azure Active Directory
 > * Conceder los privilegios mínimos a la identidad de servicio en SQL Database
+
+> [!NOTE]
+> La autenticación de Azure Active Directory es _diferente_ de la [autenticación integrada de Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) en Active Directory (AD DS) local. AD DS y Azure Active Directory utilizan protocolos de autenticación completamente diferentes. Para más información, consulte [la diferencia entre Windows Server AD DS y Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +68,7 @@ Este es un ejemplo de la salida después de crear la identidad en Azure Active D
 Usará el valor de `principalId` en el paso siguiente. Si desea ver los detalles de la nueva identidad en Azure Active Directory, ejecute el siguiente comando opcional con el valor de `principalId`:
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## <a name="grant-database-access-to-identity"></a>Concesión del acceso de la base de datos a la identidad
@@ -156,7 +160,7 @@ En Cloud Shell, agregue la identidad de servicio administrada de la aplicación 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 

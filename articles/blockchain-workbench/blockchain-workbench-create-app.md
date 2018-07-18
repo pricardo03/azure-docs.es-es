@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a4b704f433f02afcff7b94f98c19a478caaa02b2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302160"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808067"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench
 
@@ -375,7 +375,7 @@ Antes de salir de la función, llame a la función `ContractUpdated()`. La funci
 Para agregar una aplicación de cadena de bloques a Blockchain Workbench, cargue los archivos de configuración y del contrato inteligente para definir la aplicación.
 
 1. En un explorador web, vaya a la dirección web de Blockchain Workbench. Por ejemplo, `https://{workbench URL}.azurewebsites.net/`. La aplicación web se crea al implementar Blockchain Workbench. Para más información sobre cómo buscar la dirección web de Blockchain Workbench, consulte [Dirección URL web de Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. Inicie sesión como administrador de Blockchain Workbench. Para más información acerca de cómo administrar usuarios, consulte [Administración de usuarios en Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+2. Inicie sesión como [administrador de Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 3. Seleccione **Aplicaciones** > **Nuevo**. Aparece el panel **Nueva aplicación**.
 4. Seleccione **Cargar configuración del contrato** > **Examinar** para encontrar el archivo de configuración **HelloBlockchain.json** que creó. El archivo de configuración se valida automáticamente. Seleccione el vínculo **Mostrar** para mostrar los errores de validación. Corrija los errores de validación antes de implementar la aplicación.
 5. Seleccione **Cargar código de contrato** > **Examinar** para buscar el archivo de código de contrato inteligente **HelloBlockchain.sol**. El archivo de código se valida automáticamente. Seleccione el vínculo **Mostrar** para mostrar los errores de validación. Corrija los errores de validación antes de implementar la aplicación.

@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227247"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de inicio rápido en la programación en lenguaje R para Azure Machine Learning
 
@@ -39,7 +41,7 @@ Los datos de series temporales son datos en los que los valores tienen un índic
 
 En esta guía de inicio rápido, trabajaremos con los productos lácteos de California y los datos de precios. Estos datos incluyen información mensual acerca de la producción de varios de los productos lácteos, así como sobre el precio de la grasa láctea, materia prima de referencia.
 
-Los datos usados en este artículo, junto con scripts R, se pueden [descargar aquí][download]. Estos datos se han resumido a partir de la información disponible de la universidad de Wisconsin en http://future.aae.wisc.edu/tab/production.html.
+Los datos usados en este artículo, junto con scripts R, se pueden [descargar aquí](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Estos datos se han resumido a partir de la información disponible de la universidad de Wisconsin en https://dairymarkets.com.
 
 ### <a name="organization"></a>Organización
 En esta sección abordaremos distintos pasos a medida que aprenda a crear, probar y ejecutar código R de análisis y manipulación de datos en entornos de Azure Machine Learning.  
@@ -121,9 +123,9 @@ Azure Machine Learning incluye más de 350 paquetes del lenguaje R preinstalados
 Siga leyendo si no comprende la última línea de este código. En el resto del documento se describe con detalle el uso de R en el entorno Azure Machine Learning.
 
 ### <a name="introduction-to-rstudio"></a>Introducción a RStudio
-RStudio es un IDE ampliamente usado para R. Utilizaremos RStudio para editar, probar y depurar el código R utilizado en esta guía de inicio rápido. Una vez que el código R se pruebe y esté listo, simplemente deberá cortar y pegar desde el editor de RStudio en un módulo [Ejecutar script R][execute-r-script] de Machine Learning Studio.  
+RStudio es un IDE ampliamente usado para R, que se emplea para editar, probar y depurar el código R utilizado en esta guía de inicio rápido. Una vez que el código R se pruebe y esté listo, simplemente deberá cortarlo y pegarlo desde el editor de RStudio en un módulo de [ejecución de script R][execute-r-script] de Machine Learning Studio.  
 
-Si no tiene instalado el lenguaje de programación R en su equipo de sobremesa, es recomendable que lo instale ahora. Encontrará descargas gratuitas del lenguaje R de código abierto en la red completa de archivos de R o CRAN en [http://www.r-project.org/](http://www.r-project.org/). Hay descargas disponibles para Windows, Mac OS y Linux/UNIX. Elija el espejo más cercano a su ubicación y siga las instrucciones de descarga. Además, CRAN contiene una gran cantidad de paquetes de manipulación de datos y análisis de utilidad.
+Si no tiene instalado el lenguaje de programación R en su equipo de sobremesa, es recomendable que lo instale ahora. Encontrará descargas gratuitas del lenguaje R de código abierto en la red completa de archivos de R (CRAN) en [http://www.r-project.org/](http://www.r-project.org/). Hay descargas disponibles para Windows, Mac OS y Linux/UNIX. Elija el espejo más cercano a su ubicación y siga las instrucciones de descarga. Además, CRAN contiene una gran cantidad de paquetes de manipulación de datos y análisis de utilidad.
 
 Si no está familiarizado con RStudio, descargue e instale la versión de escritorio. Encontrará descargas de RStudio para Windows, Mac OS y Linux/UNIX en http://www.rstudio.com/products/RStudio/. Siga las instrucciones proporcionadas para instalar RStudio en su equipo.  
 
@@ -835,7 +837,7 @@ La ejecución de este código genera el registro mostrado en la ilustración 18.
 
 *Ilustración 18. Lista de objetos ccf del análisis de correlación en pares.*
 
-Hay un valor de correlación para cada intervalo. Ninguno de estos valores de correlación es lo suficientemente grande como para ser significativo. Por lo tanto, podemos concluir que podemos modelar cada variable de forma independiente.
+Hay un valor de correlación para cada intervalo. Ninguno de estos valores de correlación es lo suficientemente grande como para que tenga algún interés. Por lo tanto, podemos concluir que podemos modelar cada variable de forma independiente.
 
 ### <a name="output-a-dataframe"></a>Generación de tramas de datos
 Hemos calculado las correlaciones en pares como una lista de objetos ccf de R. Esto supone un problema, ya que el puerto de salida del conjunto de resultados resultante requiere una trama de datos. Además, el objeto ccf es en sí mismo una lista y solo necesitamos los valores del primer elemento de esta lista, es decir, las correlaciones de los distintos intervalos.
@@ -1239,7 +1241,7 @@ Existen muchas obras sobre el código R que pueden servirle como punto de partid
 * R Inferno (Infierno de R), de Patrick Burns, es un libro sorprendentemente divertido que le ayudará a abordar numerosos temas complejos con los que puede encontrarse a la hora de programar en R. Esta obra está disponible gratis en http://www.burns-stat.com/documents/books/the-r-inferno/.
 * Si desea obtener información más detallada sobre temas avanzados de R, recomendamos el título Advanced R de Hadley Wickham. La versión en línea de este libro está disponible de forma gratuita en http://adv-r.had.co.nz/.
 
-Podrá encontrar un catálogo de series temporales de R en la vista de tareas CRAN para el análisis de series temporales: http://cran.r-project.org/web/views/TimeSeries.html. Para obtener información sobre paquetes de objetos de series temporales, debe hacer referencia a la documentación de ese paquete.
+Podrá encontrar un catálogo de series temporales de R en la vista de tareas de CRAN para el análisis de series temporales: http://cran.r-project.org/web/views/TimeSeries.html. Para obtener información sobre paquetes de objetos de series temporales, debe hacer referencia a la documentación de ese paquete.
 
 El libro Introductory Time Series with R de Paul Cowpertwait y Andrew Metcalfe ofrece una introducción al uso de R para el análisis de series temporales. No obstante, existen muchos más textos teóricos que proporcionan ejemplos de R.
 

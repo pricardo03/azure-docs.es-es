@@ -64,7 +64,7 @@ Encontrará direcciones URL de clúster comunes en Azure Portal, el Explorador d
 
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>¿Cómo se puede saber qué versión de orquestador se está ejecutando en mi clúster?
 
-* DC/OS: Consulte la [documentación de Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* DC/OS: Consulte la [documentación de Mesosphere](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
 * Docker Swarm: ejecute `docker version`
 * Kubernetes: ejecute `kubectl version`
 
@@ -92,7 +92,7 @@ ssh userName@masterFQDN –A –p 22
 
 Para más información, consulte [Conexión a un clúster de Azure Container Service](../articles/container-service/kubernetes/container-service-connect.md).
 
-### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>La resolución de nombres DNS no funciona en Windows. ¿Qué debo hacer?
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>La resolución de nombres DNS no funciona en Windows. ¿Cuál debo hacer?
 
 Hay algunos problemas conocidos de DNS en Windows cuyas correcciones siguen eliminándolos gradualmente. Asegúrese de que usa el motor de ACS y la versión de Windows más actualizados (con [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) y [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que su entorno se puede beneficiar de esto. Si no es así, consulte en la tabla siguiente los pasos necesarios para la mitigación:
 

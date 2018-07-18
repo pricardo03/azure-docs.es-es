@@ -1,8 +1,8 @@
 ---
 title: Establecimiento de alertas en Azure Application Insights | Microsoft Docs
-description: "Reciba notificaciones acerca de tiempos de respuesta lentos, excepciones y otros cambios de rendimiento o uso de la aplicación web."
+description: Reciba notificaciones acerca de tiempos de respuesta lentos, excepciones y otros cambios de rendimiento o uso de la aplicación web.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: b0e4828b2cb6bbcb4329381e77db3b187d659706
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87be1a48a6c3320187243e549a8fb8e5ecc9e006
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293610"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definición de alertas en Application Insights
 [Azure Application Insights][start] puede avisarle sobre los cambios en las métricas de rendimiento o de uso de la aplicación web. 
@@ -90,7 +91,7 @@ Las alertas más populares son:
 
 No olvide que los [diagnósticos proactivos de frecuencia de errores](app-insights-proactive-failure-diagnostics.md) permiten supervisar automáticamente la velocidad a la que la aplicación responde a solicitudes con códigos de error. 
 
-## <a name="automation"></a>Automatización
+## <a name="automation"></a>Automation
 * [Uso de PowerShell para automatizar la configuración de alertas](app-insights-powershell-alerts.md)
 * [Uso de Webhook para automatizar la respuesta a alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 

@@ -4,7 +4,7 @@ description: En este artículo se describe el funcionamiento de la característi
 services: active-directory
 keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918261"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada
 
@@ -50,7 +52,7 @@ Una vez que se completa la instalación, SSO de conexión directa funcionan del 
 
 El flujo de inicio de sesión en un explorador web es el siguiente:
 
-1. El usuario intenta acceder a una aplicación web (por ejemplo, Outlook Web App en https://outlook.office365.com/owa/) desde un dispositivo corporativo unido a un dominio dentro de la red corporativa.
+1. El usuario intenta acceder a una aplicación web (por ejemplo, la aplicación web Outlook - https://outlook.office365.com/owa/)) desde un dispositivo corporativo unido a un dominio dentro de la red corporativa.
 2. Si el usuario todavía no inicia sesión, se le redirige a la página de inicio de sesión de Azure AD.
 3. El usuario escribe su nombre de usuario en la página de inicio de sesión de Azure AD.
 

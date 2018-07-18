@@ -1,18 +1,19 @@
 ---
 title: Uso del Control de mapa de Azure Maps | Microsoft Docs
 description: Aprenda a usar la biblioteca Javascript del lado cliente del Control de mapa de Azure Maps.
-services: azure-maps
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
+services: azure-maps
 manager: timlt
-ms.openlocfilehash: bbd06aad9052d2a775c35dd08f80462f8ea505a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b0549e7a7ea6389597e483f239a75743a96fef1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317971"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Cómo usar el Control de mapa de Azure Maps
 La biblioteca de Javascript del lado cliente del Control de mapa le permite representar mapas y la funcionalidad insertada de Azure Maps en su aplicación web o móvil. 
@@ -47,7 +48,7 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
             var MapsAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
                 "subscription-key": MapsAccountKey,
-                center: [47.59093,-122.33263],
+                center: [-122.33263,47.59093],
                 zoom: 12
             });
         </script>

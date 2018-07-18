@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010982"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054388"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versiones de API del proveedor de recursos compatibles con perfiles en Azure Stack
 
@@ -144,11 +144,14 @@ Las API de Azure Compute proporcionan acceso mediante programación a las máqui
 
 | Tipos de recursos | Versiones de API |
 |--------------------|--------------------|
-| Reglas de alertas | 2016-03-01 |
-| Categorías de eventos | 2017-03-01-preview |
-| Tipos de eventos | 2017-03-01-preview |
-| Definiciones de métricas | 2016-03-01 |
 | Operaciones | 2015-04-01 |
+| Tipos de eventos | 2015-04-01 |
+| Categorías de eventos | 2015-04-01 |
+| Definiciones de métricas | 2018-01-01 |
+| Métricas | 2018-01-01 |
+| Configuración de diagnóstico | 2017-05-01-versión preliminar |
+| Categorías de configuración de diagnóstico | 2017-05-01-versión preliminar |
+
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 

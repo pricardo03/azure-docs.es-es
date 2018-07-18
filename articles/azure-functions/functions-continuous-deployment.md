@@ -1,12 +1,12 @@
 ---
-title: "Implementación continua para Azure Functions | Microsoft Docs"
-description: "Utilice las funciones de implementación continua de Azure App Service para publicar Azure Functions."
+title: Implementación continua para Azure Functions | Microsoft Docs
+description: Utilice las funciones de implementación continua de Azure App Service para publicar Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735710"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
 Azure Functions facilita la implementación de Function App mediante la integración continua de App Service. Functions se integra con BitBucket, Dropbox, GitHub y Visual Studio Team Services (VSTS). Esto permite un flujo de trabajo en el que las actualizaciones del código de la función realizadas mediante uno de estos servicios integrados desencadenan la implementación en Azure. Si no está familiarizado con Azure Functions, consulte primero [Información general sobre Azure Functions](functions-overview.md).
@@ -41,6 +42,8 @@ Las implementaciones se configuran por Function App. Después de habilitada la i
 Para configurar la implementación continua debe tener configurados el origen de implementación y el código de las funciones del origen de implementación. En una implementación determinada de una aplicación de función, cada función se encuentra en un subdirectorio con nombre, donde el nombre del directorio es el nombre de la función.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+Para poder realizar una implementación desde VSTS, primero debe vincular su cuenta de VSTS con su suscripción de Azure. Para más información, consulte [Configuración de la facturación para una cuenta de VSTS](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Configurar la implementación continua
 Use este procedimiento para configurar la implementación continua para una Function App existente. Estos pasos muestran la integración con un repositorio de GitHub, aunque se aplican pasos similares para Visual Studio Team Services u otros servicios de implementación.

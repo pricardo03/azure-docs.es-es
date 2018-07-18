@@ -4,10 +4,10 @@
 ## [P+F](faq-classic.md)
 
 # Introducción
-## [Creación de una máquina virtual Linux mediante Azure Portal](createportal-classic.md)
+## [Creación de una máquina virtual Linux](createportal-classic.md)
 
 # Procedimientos
-## Proceso
+## Compute
 ### [Creación de una máquina virtual personalizada](create-custom-classic.md)
 ### [Captura de una máquina virtual](capture-image-classic.md)
 ### [Uso de Escritorio remoto con una máquina virtual Linux](remote-desktop-classic.md)

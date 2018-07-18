@@ -1,18 +1,19 @@
 ---
-title: "Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V locales (sin VMM) en Azure con Azure Site Recovery | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales (sin VMM) en Azure con el servicio Azure Site Recovery."
+title: Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V locales (sin VMM) en Azure con Azure Site Recovery | Microsoft Docs
+description: Obtenga información sobre cómo configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales (sin VMM) en Azure con el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f09d66e069ac22e5b8203d9871d2e5645570086a
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917955"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure
 
@@ -40,19 +41,31 @@ Antes de empezar, es útil [revisar la arquitectura](concepts-hyper-v-to-azure-a
 2. En **Introducción**, haga clic en **Site Recovery**. Luego, haga clic en **Preparar infraestructura**.
 3. En **Objetivo de protección** > **¿Dónde están ubicadas las máquinas?**, seleccione **Local**.
 4. En **¿A dónde quiere replicar las máquinas?**, seleccione **En Azure**.
-5. En **¿Las máquinas están virtualizadas?**, seleccione **No**. A continuación, haga clic en **Aceptar**.
+5. En **Utiliza System Center VMM para administrar los hosts de Hyper-V**, seleccione **No**. A continuación, haga clic en **Aceptar**.
 
     ![Objetivo de replicación](./media/hyper-v-azure-tutorial/replication-goal.png)
 
+## <a name="confirm-deployment-planning"></a>Confirmación del planeamiento de la implementación
+
+Al planear una implementación de gran tamaño, debe asegurarse de realizar el [plan de implementación para la replicación de Hyper-V](hyper-v-deployment-planner-overview.md). Para los fines de este tutorial, en **¿Ha realizado el plan de implementación?**, seleccione **Lo haré más tarde** en la lista desplegable.
+
+![Plan de la implementación](./media/hyper-v-azure-tutorial/deployment-planning.png)
+
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
 
-Para configurar el entorno de origen, agregue los hosts de Hyper-V a un sitio Hyper-V, descargue e instale el proveedor de Azure Site Recovery y el agente de Azure Recovery Services, y registre el sitio Hyper-V en el almacén. 
+Para configurar el entorno de origen, cree un sitio de Hyper-V y agregue hosts de Hyper-V al sitio. A continuación, descargue e instale el proveedor de Azure Site Recovery y el agente de Azure Recovery Services en cada host y registre el sitio de Hyper-V en el almacén. 
 
 1. En **Preparar infraestructura**, haga clic en **Origen**.
 2. Haga clic en **+ Sitio Hyper-V** y especifique el nombre del sitio creado en el tutorial anterior, **ContosoHyperVSite**.
-3. Haga clic en **+ Hyper-V Server**.
+
+    ![Sitio de Hyper-V](./media/hyper-v-azure-tutorial/hyperv-site.png)
+
+3. Una vez creado el sitio, haga clic en **+Servidor de Hyper-V**.
+
+    ![Servidor de Hyper-V](./media/hyper-v-azure-tutorial/hyperv-server.png)
+
 4. Descargue el archivo de instalación del proveedor.
-5. Descargue la clave de registro del almacén. Es necesaria para ejecutar el programa de instalación del proveedor. La clave será válida durante cinco días a partir del momento en que se genera.
+6. Descargue la clave de registro del almacén. Es necesaria para ejecutar el programa de instalación del proveedor. La clave será válida durante cinco días a partir del momento en que se genera.
 
     ![Descarga del proveedor](./media/hyper-v-azure-tutorial/download.png)
     

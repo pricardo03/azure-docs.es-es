@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362318"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261940"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Introducción a Azure Load Balancer Estándar
 
@@ -33,7 +33,7 @@ Load Balancer Estándar es un nuevo producto de equilibrador de carga para todas
 
 Puede usar Load Balancer Estándar como un equilibrador de carga público o interno. Una máquina virtual se puede conectar a recurso de Load Balancer interno o público.
 
-Las funciones de un recurso de Load Balancer se expresan siempre como un front-end, una regla, un sondeo de estado y una definición de grupo de back-end.  Un recurso puede contener varias reglas. Las máquinas virtuales se pueden colocar en el grupo de back-end; para ello, se especifica el grupo de back-end desde el recurso NIC de la máquina virtual.  En el caso de los conjuntos de escalado de máquinas virtuales, este parámetro se pasa en el perfil de red y se expande.
+Las funciones de un recurso de Load Balancer se expresan siempre como un front-end, una regla, un sondeo de estado y una definición de grupo de back-end.  Un recurso puede contener varias reglas. Las máquinas virtuales se pueden colocar en el grupo de back-end; para ello, se especifica el grupo de back-end desde el recurso NIC de la máquina virtual.  Este parámetro se pasa a través del perfil de la red y se amplia al usar conjuntos de escalado de máquina virtual.
 
 Un aspecto clave es el ámbito de la red virtual del recurso.  Load Balancer Básico existe dentro del ámbito de un conjunto de disponibilidad, mientras que Load Balancer Estándar está totalmente integrado en el ámbito de una red virtual y se aplican todos los conceptos de red virtual.
 
@@ -72,7 +72,7 @@ Consulte los [límites de servicio de Load Balancer](https://aka.ms/lblimits), l
 
 Los grupos de back-end de Load Balancer Estándar se expanden a cualquier recurso de máquina virtual en una red virtual.  Puede contener hasta 1000 instancias de back-end.  Una instancia de back-end es una configuración de IP, que es una propiedad de un recurso de NIC.
 
-El grupo de back-end puede contener máquinas virtuales independientes, conjuntos de disponibilidad o conjuntos de escalado de máquinas virtuales.  Puede combinar recursos en el grupo de back-end, que puede contener cualquier combinación de estos recursos hasta un total de 150.
+El grupo de back-end puede contener máquinas virtuales independientes, conjuntos de disponibilidad o conjuntos de escalado de máquinas virtuales.  También puede combinar recursos en el grupo back-end. Puede combinar hasta 150 recursos en el grupo back-end por recurso de Load Balancer.
 
 A la hora de considerar cómo diseñar el grupo de back-end, puede diseñar el menor número de recursos individuales del grupo de back-end para optimizar aún más la duración de las operaciones de administración.  No hay ninguna diferencia en el rendimiento o la escala en el plano de los datos.
 
@@ -90,7 +90,7 @@ Consulte la [explicación detallada de las funcionalidades relativas a las zonas
 
 ### <a name="diagnostics"></a>Diagnóstico
 
-Load Balancer Estándar proporciona métricas multidimensionales mediante Azure Monitor.  Estas métricas se pueden filtrar o agrupar, y proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio.  También se admite Resource Health.  A continuación se muestra una breve descripción de los diagnósticos admitidos:
+Load Balancer Estándar proporciona métricas multidimensionales mediante Azure Monitor.  Estas métricas se pueden filtrar, agrupar y desglosar para una dimensión determinada.  Proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio.  También se admite Resource Health.  A continuación se muestra una breve descripción de los diagnósticos admitidos:
 
 | Métrica | DESCRIPCIÓN |
 | --- | --- |
@@ -118,7 +118,7 @@ Consulte la [explicación detallada sobre los puertos HA](load-balancer-ha-ports
 
 ### <a name="securebydefault"></a>Seguro de forma predeterminada
 
-Load Balancer Estándar está totalmente incorporado a la red virtual.  La red virtual es una red privada, cerrada.  Como las equilibradores de carga estándar y las direcciones IP públicas estándar están diseñadas para permitir el acceso a la red virtual desde fuera de ella, ahora, estos recursos están cerrados a menos que se abran. Esto significa que ahora se usan grupos de seguridad de red (NSG) para dar permisos explícitos al tráfico e incluirlo en una lista de permitidos.  Puede crear su propio centro de datos virtual completo y decidir mediante grupos de seguridad de red cómo y cuándo debe estar disponible.  Si no tiene un grupo de seguridad de red en una subred o NIC de su recurso de máquina virtual, no se permitirá que el tráfico llegue a este recurso.
+Load Balancer Estándar está totalmente incorporado a la red virtual.  La red virtual es una red privada, cerrada.  Como las equilibradores de carga estándar y las direcciones IP públicas estándar están diseñadas para permitir el acceso a la red virtual desde fuera de ella, ahora, estos recursos están cerrados a menos que se abran. Esto significa que ahora se usan grupos de seguridad de red (NSG) para dar permisos explícitos al tráfico e incluirlo en una lista de permitidos.  Puede crear su propio centro de datos virtual completo y decidir mediante grupos de seguridad de red cómo y cuándo debe estar disponible.  Si no tiene ningún grupo de seguridad de red en una subred o NIC del recurso de máquina virtual, no se permitirá que el tráfico llegue a este recurso.
 
 Para aprender más sobre los NSG y cómo aplicarlos en su caso, vea [Grupos de seguridad de red](../virtual-network/security-overview.md).
 

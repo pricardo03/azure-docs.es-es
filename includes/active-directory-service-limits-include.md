@@ -1,8 +1,26 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: active-directory
+author: curtand
+ms.service: active-directory
+ms.topic: include
+ms.date: 06/20/2018
+ms.author: curtand
+ms.custom: include file
+ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296539"
+---
 Estas son las restricciones de uso y otros límites de servicio para el servicio Azure Active Directory.
 
 | Categoría | Límites |
 | --- | --- |
-| Directorios |Un usuario único solo puede asociarse con un máximo de 20 directorios de Azure Active Directory.<br />Ejemplos de combinaciones posibles: <ul> <li>Un solo usuario crea 20 directorios.</li><li>Un solo usuario se agrega a 20 directorios como miembro.</li><li>Un solo usuario crea 10 directorios y posteriormente un tercero lo agrega a otros 10 directorios.</li></ul> |
+| Directorios |Un usuario individual puede asociarse con un máximo de 20 directorios de Azure Active Directory.<br />Ejemplos de combinaciones posibles: <ul> <li>Un solo usuario crea 20 directorios.</li><li>Un solo usuario se agrega a 20 directorios como miembro.</li><li>Un solo usuario crea 10 directorios y posteriormente un tercero lo agrega a otros 10 directorios.</li></ul> |
+| Dominios | No puede agregar más de 900 nombres de dominio administrados. Si va a configurar todos los dominios para la federación con un entorno local de Active Directory, no puede agregar más de 450 nombres de dominio en cada directorio. |
 | Objetos |<ul><li>Se puede crear un máximo de 500 000 objetos en un solo directorio por los usuarios de la edición gratuita de Azure Active Directory.</li><li>Un usuario que no es administrador puede crear hasta 250 objetos.</li></ul> |
 | Extensiones de esquema |<ul><li>Las extensiones de tipo cadena pueden tener 256 caracteres como máximo. </li><li>Las extensiones de tipo Binary están limitadas a 256 bytes.</li><li>Los valores de extensión 100 (en todos los tipos y todas las aplicaciones) se pueden escribir en cualquier objeto único.</li><li>Solo las entidades "User", "Group", "TenantDetail", "Device", "Application" y "ServicePrincipal" se pueden extender con atributos de valor único de tipo "String" o tipo "Binary".</li><li>Las extensiones de esquema solo están disponibles en la vista previa de la versión 1.21 de Graph API. La aplicación debe tener acceso de escritura para registrar una extensión.</li></ul> |
 | APLICACIONES |Un máximo de 100 usuarios pueden ser propietarios de una sola aplicación. |

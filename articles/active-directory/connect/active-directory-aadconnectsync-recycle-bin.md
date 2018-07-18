@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect Sync: Habilitación de la papelera de reciclaje de AD | Microsoft Docs"
-description: "En este tema, se recomienda el uso de la característica Papelera de reciclaje de AD con Azure AD Connect."
+title: 'Azure AD Connect Sync: Habilitación de la papelera de reciclaje de AD | Microsoft Docs'
+description: En este tema, se recomienda el uso de la característica Papelera de reciclaje de AD con Azure AD Connect.
 services: active-directory
-keywords: "Papelera de reciclaje de AD, eliminación accidental, sourceAnchor"
-documentationcenter: 
+keywords: Papelera de reciclaje de AD, eliminación accidental, sourceAnchor
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 45bff0585eb6f1990a7300ae3d16632eab78a83c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f80d16c36714a971e3878ad7dedffaac55103d92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593081"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect Sync: Habilitación de la papelera de reciclaje de AD
 Se recomienda que habilite la característica Papelera de reciclaje de AD en sus instancias locales de Active Directory, que se sincronizan con Azure AD. 

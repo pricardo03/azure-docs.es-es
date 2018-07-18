@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b369cdeb3a58db0336d4f6e343599aaa46643b32
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354459"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316791"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -34,20 +35,19 @@ Azure Active Directory (Azure AD) es un servicio de identidad basado en la nube.
 
 *  Los clientes pueden disfrutar de la mejor experiencia posible de inicio de sesión único.
 
-*  La configuración de la aplicación resulta sencilla y apenas requiere esfuerzo. 
+*  La configuración de la aplicación resulta sencilla y apenas requiere esfuerzo.
 
 *  Basta realizar una búsqueda rápida para encontrar la aplicación en la galería.
 
-*  Todos los clientes de Azure AD de los niveles Gratis, Básico y Premium pueden disfrutar de esta integración. 
+*  Todos los clientes de Azure AD de los niveles Gratis, Básico y Premium pueden disfrutar de esta integración.
 
-*  Los clientes mutuos pueden utilizar un tutorial de configuración paso a paso. 
+*  Los clientes mutuos pueden utilizar un tutorial de configuración paso a paso.
 
 *  Los clientes que usen SCIM pueden utilizar el aprovisionamiento de la misma aplicación.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>Requisitos previos: implementación del protocolo de federación
 
-Para agregar una aplicación a la galería de Azure AD, debe implementar uno de los siguientes protocolos de federación compatibles con Azure AD. Lea los términos y condiciones de la galería de aplicaciones de Azure AD aquí. 
+Para agregar una aplicación a la galería de Azure AD, debe implementar uno de los siguientes protocolos de federación compatibles con Azure AD y aceptar los términos y condiciones de la galería de aplicaciones de Azure AD. Lea los términos y condiciones de la galería de aplicaciones de Azure AD [aquí](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
 *   **OpenID Connect**: cree la aplicación multiinquilino en Azure AD e implemente el [marco de consentimiento de Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) de la aplicación. Envíe la solicitud de inicio de sesión a un punto de conexión común para que cualquier cliente pueda proporcionar su consentimiento a la aplicación. Puede controlar el acceso de usuario en función del identificador del inquilino y el UPN del usuario que se recibieron en el token. Para integrar la aplicación con Azure AD, siga las [instrucciones para desarrolladores](active-directory-authentication-scenarios.md).
 

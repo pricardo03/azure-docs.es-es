@@ -10,11 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635075"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante la CLI de Azure
 
@@ -31,32 +32,6 @@ Para completar esta guía, necesita:
 
 > [!IMPORTANT]
 > Esta guía de procedimientos requiere el uso de la CLI de Azure versión 2.0 o posterior. Para confirmar la versión, en el símbolo del sistema de la CLI de Azure, escriba `az --version`. Para la instalación o la actualización, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Adición de la extensión
-Agregue la extensión de administración actualizada de Azure Database for PostgreSQL con el comando siguiente:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Compruebe que tiene instalada la versión de la extensión correcta. 
-```azurecli-interactive
-az extension list
-```
-
-El JSON que se devuelva debe incluir lo siguiente: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Si no se devuelve la versión 0.0.5, ejecute el siguiente procedimiento para actualizar la extensión: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Configuración de copia de seguridad
 

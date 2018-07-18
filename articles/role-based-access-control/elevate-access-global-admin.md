@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: rqureshi
+editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2018
 ms.author: rolyon
-ms.openlocfilehash: b671ff6b473093e59bce18c7bf98b32e9849bbb0
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: bagovind
+ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077214"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266514"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar los privilegios de acceso de un administrador global en Azure Active Directory
 
@@ -33,6 +34,8 @@ Si es un [administrador global](../active-directory/active-directory-assign-admi
 De forma predeterminada, los roles del administrador de Azure AD y el control de acceso basado en roles (RBAC) de Azure (RBAC) no abarcan Azure AD y Azure. Sin embargo, si es un administrador Global de Azure AD, puede elevar el acceso para administrar las suscripciones a Azure y los grupos de administración. Cuando eleve los privilegios de acceso, se le concederá el rol de [administrador de accesos de usuario](built-in-roles.md#user-access-administrator) (un rol RBAC) en todas las suscripciones para un inquilino determinado. El rol de administrador de accesos de usuario permite conceder a otros usuarios acceso a recursos de Azure en el ámbito raíz (`/`).
 
 Esta elevación debe ser temporal y solo debe realizarse cuando sea necesario.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Elevar los privilegios de acceso de un administrador global mediante el Azure Portal
 
@@ -76,9 +79,9 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="delete-a-role-assignment-at-the-root-scope--using-powershell"></a>Eliminar la asignación de un rol en el ámbito raíz (/) mediante PowerShell
+## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Quitar la asignación de un rol en el ámbito raíz (/) mediante PowerShell
 
-Para eliminar la asignación del rol de administrador de accesos de usuario de un usuario en el ámbito raíz (`/`), use el comando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+Para quitar la asignación de roles de administrador de acceso de usuario de un usuario en el ámbito raíz (`/`), use el comando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
@@ -110,14 +113,23 @@ Utilice los siguientes pasos básicos para elevar los privilegios de acceso de u
    }
    ```
 
-1. Mientras sea administrador de accesos de usuario, también podrá eliminar asignaciones de roles en el ámbito raíz (`/`).
+1. Mientras sea administrador de acceso de usuario, también podrá quitar asignaciones de roles en el ámbito raíz (`/`).
 
-1. Revoque sus privilegios de administrador de accesos de usuario hasta que los vuelva a necesitar.
+1. Quite los privilegios de administrador de acceso de usuario hasta que los vuelva a necesitar.
 
+## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Mostrar las asignaciones de roles en el ámbito raíz (/) mediante la API REST
 
-## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Deshacer la acción elevateAccess con la API de REST
+Puede enumerar todas las asignaciones de roles para un usuario en el ámbito raíz (`/`).
 
-Cuando se llama a `elevateAccess`, se crea una asignación de rol para si mismo, por lo que, para revocar esos privilegios, debe eliminar la asignación.
+- Llamar a [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) donde `{objectIdOfUser}` es el id. de objeto del usuario cuyas asignaciones de roles quiere recuperar.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   ```
+
+## <a name="remove-elevated-access-using-the-rest-api"></a>Quitar el acceso con privilegios elevados mediante la API REST
+
+Cuando llama a `elevateAccess`, crea una asignación de roles para sí mismo, por lo que, para revocar esos privilegios, debe quitar la asignación.
 
 1. Llame al comando [GET-roleDefinitions](/rest/api/authorization/roledefinitions/get), donde `roleName` es el administrador de accesos de usuario, para determinar el id. del nombre del rol de administrador de accesos de usuario.
 
@@ -171,7 +183,7 @@ Cuando se llama a `elevateAccess`, se crea una asignación de rol para si mismo,
     >[!NOTE] 
     >Un administrador de inquilinos no debe tener muchas asignaciones; si la consulta anterior devuelve demasiadas asignaciones, puede consultar también todas las asignaciones en el nivel de ámbito de inquilino y, después, filtrar los resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Las llamadas anteriores devuelven una lista de asignaciones de roles. Busque la asignación de roles en que el ámbito sea "/" y `roleDefinitionId` termine con el id. del nombre de rol que se encuentra en el paso 1, y `principalId` coincida con el valor de ObjectId del administrador de inquilinos. 
+    2. Las llamadas anteriores devuelven una lista de asignaciones de roles. Busque la asignación de roles en la que el ámbito sea `"/"`, `roleDefinitionId`termine con el id. del nombre de rol que se encuentra en el paso 1, y `principalId` coincida con el valor de ObjectId del administrador de inquilinos. 
     
     Ejemplo de asignación de rol:
 
@@ -199,7 +211,7 @@ Cuando se llama a `elevateAccess`, se crea una asignación de rol para si mismo,
         
     Una vez más, guarde el id. del parámetro `name`; en este caso: e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-    3. Por último, utilice el id. de asignación de roles para eliminar la asignación agregada por `elevateAccess`:
+    3. Por último, utilice el id. de asignación de roles para quitar la asignación agregada por `elevateAccess`:
 
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01

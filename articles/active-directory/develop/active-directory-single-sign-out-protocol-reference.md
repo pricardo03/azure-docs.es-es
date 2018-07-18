@@ -3,7 +3,7 @@ title: Protocolo SAML de cierre de sesión único | Microsoft Docs
 description: Este artículo describe el protocolo SAML de cierre de sesión único en Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
@@ -14,20 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: c8373df67adbb93e25ab5a31a254efe70581d32d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317684"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de cierre de sesión único
+
 Azure Active Directory (Azure AD) es compatible con el perfil de cierre de sesión único del explorador web de SAML 2.0. Para un correcto funcionamiento del inicio de sesión único, debe registrarse explícitamente **LogoutURL** con Azure AD en la aplicación durante el proceso de registro. Azure AD usa LogoutURL para redirigir a los usuarios después de que cierren sesión.
 
-Este diagrama muestra el flujo de trabajo del proceso de cierre de sesión único de Azure AD.
+En el diagrama siguiente se muestra el flujo de trabajo del proceso de cierre de sesión único de Azure AD.
 
-![Flujo de trabajo de cierre de sesión único](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+![Flujo de trabajo de cierre de sesión único de Azure AD](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## <a name="logoutrequest"></a>LogoutRequest
 El servicio en la nube envía un mensaje `LogoutRequest` a Azure AD para indicar que ha finalizado una sesión. El extracto siguiente muestra un ejemplo de elemento `LogoutRequest` .
@@ -42,9 +45,9 @@ El servicio en la nube envía un mensaje `LogoutRequest` a Azure AD para indicar
 ### <a name="logoutrequest"></a>LogoutRequest
 El elemento `LogoutRequest` enviado a Azure AD requiere los atributos siguientes:
 
-* `ID` : identifica la solicitud de cierre de sesión. El valor de `ID` no debe empezar con un número. La práctica habitual es anexar **id** a la representación de cadena de un GUID.
-* `Version` : establece el valor de este elemento en **2.0**. Este valor es necesario.
-* `IssueInstant` : es una cadena `DateTime` con un valor en hora universal coordinada (UTC) y un [formato de ida y vuelta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera un valor de este tipo, pero no lo fuerza.
+* `ID`: identifica la solicitud de cierre de sesión. El valor de `ID` no debe empezar con un número. La práctica habitual es anexar **id** a la representación de cadena de un GUID.
+* `Version`: establece el valor de este elemento en **2.0**. Este valor es necesario.
+* `IssueInstant`: es una cadena `DateTime` con un valor en hora universal coordinada (UTC) y un [formato de ida y vuelta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera un valor de este tipo, pero no lo fuerza.
 
 ### <a name="issuer"></a>Emisor
 El elemento `Issuer` de `LogoutRequest` debe coincidir exactamente con uno de los valores de **ServicePrincipalNames** del servicio en la nube de Azure AD. Normalmente, se establece en el identificador **URI de id. de aplicación** , que se especifica durante el registro de la aplicación.

@@ -14,11 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098824"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple
 
@@ -145,7 +146,7 @@ Los canales proporcionan un extremo de vista previa (dirección URL de vista pre
 
 Puede obtener la dirección URL de vista previa al crear el canal. Para ello, el estado del canal no puede ser **En ejecución**. Cuando el canal haya empezado a ingerir datos, puede obtener una vista previa de la transmisión.
 
-Actualmente, la transmisión de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en Azure Portal para ver la transmisión.
+Actualmente, la transmisión de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en Azure Portal para ver la transmisión.
 
 #### <a name="allowed-ip-addresses"></a>Direcciones IP permitidas
 Puede definir las direcciones IP permitidas para conectarse al extremo de vista previa. Si no se especifica ninguna dirección IP, se permitirá cualquier dirección IP. Puede especificarse una dirección IP permitida como:

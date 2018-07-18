@@ -3,9 +3,17 @@ Una máquina virtual de Azure admite la conexión de varios discos de datos. En 
 > [!IMPORTANT]
 > Para obtener un rendimiento óptimo, limite el número de discos muy usados que se conectan a la máquina virtual para evitar una posible limitación. Si todos los discos conectados no se usan mucho al mismo tiempo, la máquina virtual puede admitir un mayor número de discos.
 
-* **Para Azure Managed Disks:** el límite de disco de los discos administrados es por región y por tipo de disco. El límite máximo (y también el límite predeterminado) es de 10 000 discos administrados por región y por tipo de disco para una suscripción. Por ejemplo, puede crear hasta 10 000 discos administrados estándar, así como 10 000 discos administrados premium en una región y por suscripción.
+* **Para Azure Managed Disks:** 
 
-    Las instantáneas administradas y las imágenes se tienen en cuenta para el límite de discos administrados.
+> | Recurso | Límite predeterminado | Límite máximo |
+> | --- | --- | --- |
+> | Discos administrados estándar | 10.000 | 50.000 |
+> | Managed Disks SSD Estándar | 10.000 | 50.000 |
+> | Managed Disks Premium | 10.000 | 50.000 |
+> | Instantáneas Standard_LRS | 10.000 | 50.000 |
+> | Instantáneas Standard_ZRS | 10.000 | 50.000 |
+> | Instantáneas Premium_LRS | 10.000 | 50.000 |
+> | Imagen administrada | 10.000 | 50.000 |
 
 * **En el caso de cuentas de almacenamiento estándar:** una cuenta de almacenamiento estándar tiene una tasa total máxima de solicitudes de 20 000 E/S por segundo. El número total de E/S por segundo en todos los discos de máquina virtual de una cuenta de almacenamiento estándar no debe superar este límite.
   

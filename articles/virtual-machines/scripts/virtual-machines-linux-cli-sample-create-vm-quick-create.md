@@ -1,26 +1,27 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: creación rápida de una máquina virtual Linux | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: creación rápida de una máquina virtual Linux"
+title: 'Ejemplo de script de la CLI de Azure: creación rápida de una máquina virtual Linux | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: creación rápida de una máquina virtual Linux'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7aec40fe3ad65fea18dcc0b243f0b203f9f70765
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ec60bf2a67aebed4650edde337a40b2346eac20f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932296"
 ---
 # <a name="create-a-virtual-machine"></a>de una máquina virtual
 
@@ -34,11 +35,11 @@ Este script crea una máquina virtual de Azure con un sistema operativo Ubuntu y
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-vm-quick.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Limpieza de la implementación 
+## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

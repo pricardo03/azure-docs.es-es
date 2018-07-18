@@ -56,7 +56,7 @@ Una vez resueltos los errores, desmonte y desasocie el disco duro virtual existe
 
 Para crear una máquina virtual a partir del disco duro virtual original, use [Azure Portal](https://portal.azure.com).
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 2. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Proceso** > **Máquina virtual** > **De la galería**.
 3. En la sección **Elija una imagen**, seleccione **Mis discos** y seleccione el disco duro virtual original. Compruebe la información de ubicación. Esta es la región donde se debe implementar la máquina virtual. Seleccione el botón Siguiente.
 4. En la sección **Configuración de la máquina virtual**, escriba el nombre de la máquina virtual y seleccione un tamaño.

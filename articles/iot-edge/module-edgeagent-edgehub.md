@@ -1,25 +1,25 @@
 ---
 title: Referencia de Azure IoT EdgeAgent y EdgeHub | Microsoft Docs
 description: Revisión de las propiedades específicas y sus valores de los módulos gemelos edgeAgent y edgeHub
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+services: iot-edge
+ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030570"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propiedades de los módulos gemelos EdgeAgent y EdgeHub
 
 EdgeAgent y EdgeHub son dos módulos que constituyen el entorno de tiempo de ejecución de IoT Edge. Para más información acerca de las tareas que realiza cada módulo, consulte [Información sobre el entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md). 
 
-En este artículo se proporcionan las propiedades deseadas y notificadas de los módulos gemelos de tiempo de ejecución. Consulte el artículo sobre [implementación y supervisión][lnk-deploy] para obtener más información sobre cómo implementar módulos en dispositivos IoT Edge.
+En este artículo se proporcionan las propiedades deseadas y notificadas de los módulos gemelos de tiempo de ejecución. Para más información sobre cómo implementar módulos en dispositivos IoT Edge, consulte el artículo sobre [implementación y supervisión][lnk-deploy].
 
 ## <a name="edgeagent-desired-properties"></a>Propiedades deseadas de EdgeAgent
 
@@ -31,15 +31,18 @@ El módulo gemelo del agente de Edge se denomina `$edgeAgent` y coordina las com
 | runtime.type | Debe ser "docker". | Sí |
 | runtime.settings.minDockerVersion | Establece la propiedad en la versión de Docker mínima que requiere este manifiesto de implementación. | Sí |
 | runtime.settings.loggingOptions | Cadenas JSON que contienen las opciones de registro del contenedor del agente de Edge. [Opciones de registro de Docker][lnk-docker-logging-options] | Sin  |
+| runtime.settings.registryCredentials<br>.{registryId}.username | El nombre de usuario del registro de contenedor. Para Azure Container Registry, el nombre de usuario suele ser el nombre del registro.<br><br> Las credenciales del registro son necesarias para las imágenes de módulo que no son públicas. | Sin  |
+| runtime.settings.registryCredentials<br>.{registryId}.password | La contraseña del registro de contenedor. | Sin  |
+| runtime.settings.registryCredentials<br>.{registryId}.address | La dirección del registro de contenedor. Para Azure Container Registry, la dirección suele ser *{registryname}.azurecr.io*. | Sin  |  
 | systemModules.edgeAgent.type | Debe ser "docker". | Sí |
 | systemModules.edgeAgent.settings.image | El URI de la imagen del agente de Edge. Actualmente, el agente de Edge no puede actualizarse automáticamente. | Sí |
-| systemModules.edgeAgent.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
+| systemModules.edgeAgent.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
 | systemModules.edgeAgent.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica este manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 | systemModules.edgeHub.type | Debe ser "docker". | Sí |
 | systemModules.edgeHub.status | Debe ser "running". | Sí |
 | systemModules.edgeHub.restartPolicy | Debe ser "always". | Sí |
 | systemModules.edgeHub.settings.image | El URI de la imagen del centro de Edge. | Sí |
-| systemModules.edgeHub.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
+| systemModules.edgeHub.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
 | systemModules.edgeHub.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica este manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 | modules.{moduleId}.version | Una cadena definida por el usuario que representa la versión de este módulo. | Sí |
 | modules.{moduleId}.type | Debe ser "docker". | Sí |
@@ -59,7 +62,7 @@ Las propiedades notificadas del agente de Edge incluyen tres fragmentos principa
 Este último fragmento de información es útil en caso de que las propiedades deseadas más recientes no las aplicara correctamente la instancia en tiempo de ejecución, y de que el dispositivo aún esté ejecutando un manifiesto de implementación anterior.
 
 > [!NOTE]
-> Las propiedades notificadas del agente de Edge son útiles porque pueden consultarse con el [lenguaje de consultas de IoT Hub][lnk-iothub-query] para investigar a escala el estado de las implementaciones. Consulte el artículo sobre [implementaciones][lnk-deploy] para obtener más información sobre cómo usar esta característica.
+> Las propiedades notificadas del agente de Edge son útiles porque pueden consultarse con el [lenguaje de consultas de IoT Hub][lnk-iothub-query] para investigar a escala el estado de las implementaciones. Para más información acerca de cómo usar las propiedades del agente de Edge para ver el estado, consulte [Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala][lnk-deploy].
 
 La tabla siguiente no incluye la información que se copia de las propiedades deseadas.
 

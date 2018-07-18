@@ -1,6 +1,6 @@
 ---
-title: "Introducción a la seguridad de Azure | Microsoft Docs"
-description: "El sitio de información de seguridad de Microsoft Azure en Azure.com es el lugar para las respuestas técnicas a las preguntas de seguridad de Azure."
+title: Introducción a la seguridad de Azure | Microsoft Docs
+description: El sitio de información de seguridad de Microsoft Azure en Azure.com es el lugar para las respuestas técnicas a las preguntas de seguridad de Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,22 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 6a2ece3fc908963a6c8ea68f9746788278407fdc
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752187"
 ---
 # <a name="azure-security-overview"></a>Información general de seguridad de Azure
-El sitio de información de seguridad de Microsoft Azure en Azure.com es el lugar para las respuestas técnicas a las preguntas de seguridad de Azure. Si está interesado en el cumplimiento de Azure y en cómo Azure protege su propia infraestructura, visite el [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
+
+El sitio de información de seguridad de Microsoft Azure en Azure.com es el lugar para las respuestas técnicas a las preguntas de seguridad de Azure. Si está interesado en el cumplimiento de Azure y en cómo Azure protege su propia infraestructura, visite el [Centro de confianza de Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 Sabemos que la seguridad tiene la máxima prioridad en la nube y conocemos la importancia que tiene que buscar información exacta y a tiempo sobre la seguridad de Azure. Una de las principales razones para usar Azure en sus aplicaciones y servicios es aprovechar la amplia gama de herramientas de seguridad y funcionalidades disponibles. Estas herramientas y funcionalidades permiten crear soluciones seguras en la plataforma Azure segura.
 
 Esta página y este sitio evolucionarán a medida que se pongan en línea nuevos servicios de Azure y se actualicen los servicios actuales. Nuestras ofertas de seguridad mejoran continuamente y compartiremos los detalles técnicos de esas mejoras aquí. Le recomendamos que visite este sitio con frecuencia y consulte las novedades.
 
 ## <a name="using-the-azure-security-information-site"></a>Uso del sitio de información de seguridad de Azure
+
 Cuando mire al lado izquierdo de la página, verá una colección de categorías de temas de seguridad. Haga clic en el tema o tóquelo para ver los artículos que tenemos para esa categoría.
 
 Cada categoría tendrá un artículo de información general. El objetivo del artículo de información general es proporcionar un resumen de lo que Azure ofrece en términos de seguridad para esa categoría. Los artículos de información general lo ayudarán a entender los productos, servicios y características disponibles en Azure que puede usar para mejorar la seguridad de las implementaciones. Estos artículos de información general contienen numerosos vínculos al contenido técnico, por lo que puede obtener más información sobre los temas y cómo implementarlos.
@@ -43,7 +46,7 @@ Actualmente, el sitio de información de seguridad de Azure cubre las siguientes
 * Administración de identidades
 * Servicios de PaaS
 * Específico del sector
-* Arquitectura
+* Architecture
 
 > [!NOTE]
 > Todos los artículos que tenemos en el sitio de información de seguridad de Azure aparecen en la navegación en el lado izquierdo de la página. Si quiere ver todos los artículos, simplemente haga clic o pulse en **Ver más** en la parte inferior de la lista de categorías.

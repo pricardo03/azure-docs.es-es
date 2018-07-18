@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Blob Storage y Servicios conectados de Visual Studio (ASP.NET Core) | Microsoft Docs"
-description: "Cómo empezar a usar Azure Blob Storage en un proyecto de ASP.NET Core en Visual Studio después de conectarse a una cuenta de almacenamiento mediante Servicios conectados de Visual Studio"
+title: Introducción a Azure Blob Storage y Servicios conectados de Visual Studio (ASP.NET Core) | Microsoft Docs
+description: Cómo empezar a usar Azure Blob Storage en un proyecto de ASP.NET Core en Visual Studio después de conectarse a una cuenta de almacenamiento mediante Servicios conectados de Visual Studio
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720236"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET Core) (ASP.NET Core)
 
@@ -31,7 +32,7 @@ En este tutorial se muestra cómo escribir código de ASP.NET Core para algunos 
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -85,7 +86,7 @@ En esta sección se explica cómo configurar el entorno de desarrollo. Se incluy
 
     ![Captura de pantalla del cuadro de diálogo Agregar scaffold](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller.png)
 
-1. En el cuadro de diálogo **Add Empty MVC Controller** (Agregar controlador de MVC vacío)**, denomine *BlobsController* al controlador y seleccione **Agregar**.
+1. En el cuadro de diálogo **Add Empty MVC Controller** (Agregar controlador de MVC vacío), denomine *BlobsController* al controlador y seleccione **Agregar**.
 
     ![Captura de pantalla del cuadro de diálogo Agregar controlador de MVC vacío](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-name.png)
 
@@ -231,7 +232,7 @@ Después de [crear el contenedor de blobs](#create-a-blob-container), cargue los
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Como se explicó anteriormente, el almacenamiento de Azure es compatible con diferentes tipos de blob. En este tutorial se usan blobs en bloques. Para recuperar una referencia a un blob en bloques, llame al método `CloudBlobContainer.GetBlockBlobReference`.
+1. Como se explicó anteriormente, Azure Storage es compatible con diferentes tipos de blob. En este tutorial se usan blobs en bloques. Para recuperar una referencia a un blob en bloques, llame al método `CloudBlobContainer.GetBlockBlobReference`.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");

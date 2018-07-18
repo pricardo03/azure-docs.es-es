@@ -1,11 +1,11 @@
 ---
-title: "Guía de inicio rápido de Azure Security Center: incorporación de su suscripción de Azure al nivel Estándar de Security Center | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo actualizarse al plan de tarifa Estándar de Security Center para incrementar la seguridad."
+title: 'Guía de inicio rápido de Azure Security Center: incorporación de su suscripción de Azure al nivel Estándar de Security Center | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo actualizarse al plan de tarifa Estándar de Security Center para incrementar la seguridad.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059861"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guía de inicio rápido: incorporación de su suscripción de Azure al nivel Estándar de Security Center
 Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. El nivel Estándar de Security Center se puede probar de forma gratuita los primeros 60 días.
@@ -45,7 +46,7 @@ Puede ver y filtrar la lista de suscripciones haciendo clic en el elemento de me
 A los pocos minutos de iniciar Security Center la primera vez, puede ver:
 
 - **Recomendaciones** para formas de mejorar la seguridad de las suscripciones de Azure. Al hacer clic en el icono **Recomendaciones** se iniciará una lista de prioridades.
-- Un inventario de los recursos **Compute**, **Redes**, **Almacenamiento y datos** y **Aplicaciones** a los que ahora accede Security Center junto con la posición de seguridad de cada uno de ellos.
+- Un inventario de los recursos **Proceso y aplicaciones**, **Redes**, **Seguridad de los datos** e **Identidad y acceso** a los que ahora accede Security Center junto con la posición de seguridad de cada uno de ellos.
 
 Para aprovechar al máximo Security Center, debe completar los pasos siguientes para actualizar al nivel Estándar e instalar Microsoft Monitoring Agent.
 

@@ -1,12 +1,12 @@
 ---
-title: "Conexión a sistemas de archivos locales: Azure Logic Apps | Microsoft Docs"
-description: "Conexión a sistemas de archivos locales desde flujos de trabajo de aplicaciones lógicas a través de la puerta de enlace de datos local y el conector del sistema de archivos"
+title: 'Conexión a sistemas de archivos locales: Azure Logic Apps | Microsoft Docs'
+description: Conexión a sistemas de archivos locales desde flujos de trabajo de aplicaciones lógicas a través de la puerta de enlace de datos local y el conector del sistema de archivos
 keywords: sistemas de archivos, locales
 services: logic-apps
 author: derek1ee
-manager: anneta
-documentationcenter: 
-ms.assetid: 
+manager: jeconnoc
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 019b5fcd218ddd471c5f02d0332b8f5b5bf0edb3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300827"
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Conexión a sistemas de archivos locales desde las aplicaciones lógicas con el conector de sistema de archivos
 

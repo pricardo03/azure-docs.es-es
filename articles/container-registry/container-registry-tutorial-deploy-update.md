@@ -6,14 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2e9a46f2a99bc9b530ac5859068bde58bf5b5098
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634094"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Tutorial: Inserción de una imagen actualizada en implementaciones regionales
 
@@ -70,7 +71,7 @@ El `Index.cshtml` modificado debería tener el mismo aspecto para:
 
 ## <a name="rebuild-the-image"></a>Recompilación de la imagen
 
-Ahora que ha actualizado la aplicación web, recompile la imagen de contenedor. Al igual que antes, use el nombre de imagen completo, incluida la URL del servidor de inicio de sesión, para la etiqueta:
+Ahora que ha actualizado la aplicación web, recompile la imagen de contenedor. Igual que se hizo antes, use el nombre de imagen completo, incluyendo el nombre de dominio completo (FQDN) del servidor de inicio de sesión, para la etiqueta:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -78,15 +79,16 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Inserción de imágenes en Azure Container Registry
 
-Ahora, inserte la imagen del contenedor *acr helloworld* actualizada en el registro con replicación geográfica. Aquí está ejecutando un comando `docker push` único para implementar la imagen actualizada en las réplicas del registro en las regiones *Oeste de EE. UU.* y *Este de EE. UU.*
+A continuación, inserte la imagen del contenedor actualizada *acr-helloworld* en el registro con replicación geográfica. Aquí está ejecutando un comando `docker push` único para implementar la imagen actualizada en las réplicas del registro en las regiones *Oeste de EE. UU.* y *Este de EE. UU.*
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-La salida debe ser similar a la siguiente:
+La salida `docker push` debe ser similar a la siguiente:
 
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
@@ -126,19 +128,17 @@ Compruebe que la imagen de contenedor actualizada también se implementó en la 
 
 ![Vista del explorador de la aplicación web modificada que se ejecuta en la región del Este de EE. UU.][deployed-app-eastus-modified]
 
-Con un solo `docker push`, ha actualizado ambas implementaciones de aplicaciones web regionales y Azure Container Registry ofreció las imágenes de contenedor desde repositorios de cierre de la red.
+Con una sola `docker push`, actualizará automáticamente la aplicación web que se ejecuta en ambas implementaciones regionales de Web App. Asimismo, Azure Container Registry proporciona las imágenes de contenedor de los repositorios que estén más cerca de cada implementación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se actualiza y se inserta una nueva versión del contenedor de aplicación web en el registro con replicación geográfica. Los webhooks en Azure Container Registry notificaron a Web App for Containers la actualización, que activó una extracción local de replicas del registro.
+En este tutorial, se actualiza y se inserta una nueva versión del contenedor de aplicación web en el registro con replicación geográfica. Los webhooks en Azure Container Registry notifican a Web App for Containers la actualización, lo que activó una extracción local de las replicas del registro más cercanas.
 
-En este tutorial, parte final de la serie, se realizan las siguientes operaciones:
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: compilación automatizada de imágenes y parches
 
-> [!div class="checklist"]
-> * Actualización del HTML de la aplicación web
-> * Generación y etiquetado de la imagen de Docker
-> * Inserción del cambio en Azure Container Registry
-> * Visualización de la aplicación actualizada en dos regiones diferentes
+Además de la replicación geográfica, ACR Build es otra característica de Azure Container Registry que puede ayudarle a optimizar la canalización de la implementación de contenedores. Comience con la información general de ACR Build para hacerse una idea de sus capacidades:
+
+[Automatizar la aplicación de revisiones de sistema operativo y marco con ACR Build](container-registry-build-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

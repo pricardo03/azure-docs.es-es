@@ -8,15 +8,16 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/19/2017
-ms.openlocfilehash: 511658fc0e2b480987455007dac5f55cd7850feb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 05/22/2018
+ms.openlocfilehash: 94ed603990859d12f709e4a6121e3736221cf10a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651185"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Instalación de las herramientas de Azure Stream Analytics para Visual Studio
-Las herramientas de Azure Stream Analytics ahora son compatibles con Visual Studio 2017, 2015 y 2013. En este documento se describe cómo instalar y desinstalar las herramientas.
+Las herramientas de Azure Stream Analytics son compatibles con Visual Studio 2017, 2015 y 2013. En este artículo se describe cómo instalar y desinstalar las herramientas.
 
 Para más información sobre el uso de las herramientas, consulte [Uso de herramientas de Azure Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
@@ -27,11 +28,11 @@ Para más información sobre el uso de las herramientas, consulte [Uso de herram
 
 Habilite la carga de trabajo de **procesamiento y almacenamiento de datos** como se muestra:
 
-![Carga de trabajo de procesamiento y almacenamiento de datos](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-2017-install-01.png)
+![Se ha seleccionado la carga de trabajo de procesamiento y el almacenamiento de datos](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-01.png)
 
 Habilite la carga de trabajo de **desarrollo de Azure** como se muestra:
 
-![Carga de trabajo de desarrollo de Azure](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-2017-install-02.png)
+![Se ha seleccionado la carga de trabajo de desarrollo de Azure](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
 
 
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
@@ -39,14 +40,12 @@ Habilite la carga de trabajo de **desarrollo de Azure** como se muestra:
 * Instale Microsoft Azure SDK para .NET versión 2.7.1 o superior con el [instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
 * Instale [Herramientas de Azure Stream Analytics para Visual Studio](http://aka.ms/asatoolsvs).
 
-
-
 ## <a name="update"></a>Actualizar
 
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 El recordatorio de la versión nueva aparece en la notificación de Visual Studio. 
 
-### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
+### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 y Visual Studio 2015
 Las herramientas instaladas de Stream Analytics para Visual Studio buscan automáticamente nuevas versiones. Siga las instrucciones en la ventana emergente para instalar la última versión. 
 
 
@@ -55,7 +54,7 @@ Las herramientas instaladas de Stream Analytics para Visual Studio buscan autom�
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 Haga doble clic en el instalador de Visual Studio y seleccione **Modificar**. Desactive la casilla **Herramientas de Azure Data Lake y Stream Analytics** en la carga de trabajo de **procesamiento y almacenamiento de datos** o de **desarrollo de Azure**.
 
-### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
+### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 y Visual Studio 2015
 Vaya al Panel de control y desinstale **Herramientas de Microsoft Azure Data Lake y Stream Analytics**.
 
 

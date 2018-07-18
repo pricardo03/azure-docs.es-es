@@ -3,7 +3,7 @@ title: Copia incremental de varias tablas mediante Azure Data Factory | Microsof
 description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos SQL de Azure.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052851"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
@@ -36,9 +37,6 @@ En este tutorial, realizará los siguientes pasos:
 > * Adición o actualización de datos en tablas de origen
 > * Nueva ejecución y supervisión de la canalización
 > * Revisión de los resultados finales
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Azure Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Información general
 Estos son los pasos importantes para crear esta solución: 
@@ -369,16 +367,25 @@ En este paso, creará conjuntos de datos para representar el origen de datos, el
 3. Verá que se abre una nueva pestaña en el explorador web para configurar el conjunto de datos. También verá un conjunto de datos en la vista de árbol. En la pestaña **General** de la ventana de propiedades de la parte inferior, escriba **SinkDataset** en **Name** (Nombre).
 
    ![Conjunto de datos receptor: general](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Cambie a la pestaña **Connection** (Conexión) de la ventana de propiedades y seleccione **AzureSqlLinkedService** en **Linked service** (Servicio vinculado). 
-
-   ![Conjunto de datos receptor: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Cambie a la pestaña **Parameters** (Parámetros) de la ventana de propiedades y realice los pasos siguientes: 
+4. Cambie a la pestaña **Parameters** (Parámetros) de la ventana de propiedades y realice los pasos siguientes: 
 
     1. Haga clic en **+ New** (+ Nuevo) en la sección **Create/update parameters** (Crear o actualizar parámetros). 
     2. Escriba **SinkTableName** en **Name** (Nombre) and **String** en **Type** (Tipo). Este conjunto de datos toma **SinkTableName** como parámetro. El parámetro SinkTableName lo establece la canalización dinámicamente en el runtime. La actividad ForEach de la canalización recorre en iteración una lista de nombres de tabla y pasa el nombre de tabla a este conjunto de datos en cada iteración.
-    3. Escriba `@{dataset().SinkTableName}` en la propiedad **tableName** en la sección **Parameterizable properties** (Propiedades parametrizables). Utilice el valor que ha pasado al parámetro **SinkTableName** parámetro para inicializar la propiedad **tableName** del conjunto de datos. 
-
+   
        ![Conjunto de datos receptor: propiedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Cambie a la pestaña **Connection** (Conexión) de la ventana de propiedades y seleccione **AzureSqlLinkedService** en **Linked service** (Servicio vinculado). En la propiedad **Table**, haga clic en **Agregar contenido dinámico**. 
+
+   ![Conjunto de datos receptor: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. Seleccione **SinkTableName** en la sección **Parameters** (Parámetros)
+   
+   ![Conjunto de datos receptor: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. Después de hacer clic en **Finish** (Finalizar), aparecerá **@dataset().SinkTableName** como nombre de la tabla.
+   
+   ![Conjunto de datos receptor: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Creación de un conjunto de datos para una marca de agua
 En este paso, creará un conjunto de datos para almacenar un valor de límite máximo. 
@@ -392,7 +399,7 @@ En este paso, creará un conjunto de datos para almacenar un valor de límite m�
 3. En la pestaña **General** de la ventana de propiedades de la parte inferior, escriba **WatermarkDataset** en **Name** (Nombre).
 4. Cambie a la pestaña **Connection** (Conexión) y realice los pasos siguientes: 
 
-    1. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado).
+    1. Seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado).
     2. Seleccione **[dbo].[watermarktable]** para **Table** (Tabla).
 
        ![Conjunto de datos de marca de agua: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
@@ -463,7 +470,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 11. Arrastre y coloque la actividad **Copy** (Copia) del cuadro de herramientas **Activities** (Actividades) y escriba **IncrementalCopyActivity** en **Name** (Nombre). 
 
     ![Actividad de copia: nombre](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
-12. Conecte las dos actividades **Lookup**(Búsqueda) con la actividad**Copy** (Copia) una a una. Para conectarse, empiece a arrastrar en el cuadro **verde** adjunto a la actividad **Lookup** (Búsqueda) y colóquela en la actividad **Copy** (Copia). Suelte el botón del mouse cuando el color del borde de la actividad de copia cambie a **azul**.
+12. Conecte las dos actividades **Lookup **(Búsqueda) con la actividad**Copy** (Copia) una a una. Para conectarse, empiece a arrastrar en el cuadro **verde** adjunto a la actividad **Lookup** (Búsqueda) y colóquela en la actividad **Copy** (Copia). Suelte el botón del mouse cuando el color del borde de la actividad de copia cambie a **azul**.
 
     ![Conexión de las actividades de búsqueda a la actividad de copia](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 13. Seleccione la actividad **Copy** (Copia) de la canalización. Cambie a la pestaña **Source** (Origen) en la ventana de **propiedades**. 
@@ -644,7 +651,7 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>Supervisar la canalización
+## <a name="monitor-the-pipeline-again"></a>Nueva supervisión de la canalización
 
 1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual**. Haga clic en el botón **Refresh** (Actualizar) para actualizar la lista. Los vínculos de la columna **Action** (Acción) permiten ver las ejecuciones de actividad asociadas a la ejecución de la canalización y volver a ejecutar la canalización. 
 

@@ -12,13 +12,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2018
+ms.date: 05/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8baafd69e45210b74db8b0bf41b765067b1251a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626297"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Kafka en HDInsight
 
@@ -59,7 +60,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK 
     * Directorio en el que esté instalado Maven.
 
 > [!IMPORTANT]
-> Los pasos que se describen en este documento requieren un grupo de recursos de Azure que contiene un clúster Storm en HDInsight y un clúster Kafka en HDInsight. Estos dos clústeres se encuentran en una instancia de Azure Virtual Network, lo que permite al clúster Spark comunicarse directamente con el clúster Kafka.
+> Los pasos que se describen en este documento requieren un grupo de recursos de Azure que contiene un clúster Storm en HDInsight y un clúster Kafka en HDInsight. Estos dos clústeres se encuentran en una instancia de Azure Virtual Network, lo que permite al clúster Storm comunicarse directamente con el clúster Kafka.
 > 
 > Para su comodidad, este documento está vinculado con una plantilla que puede crear todos los recursos de Azure necesarios. 
 >
@@ -413,7 +414,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
     | Configuración | Valor |
     | --- | --- |
-    | La suscripción | Su suscripción de Azure |
+    | Subscription | Su suscripción de Azure |
     | Grupos de recursos | El grupo de recursos que contiene los recursos. |
     | Ubicación | La región de Azure en que se crean los recursos. |
     | Kafka Cluster Name (Nombre de clúster de Kafka) | El nombre del clúster de Kafka. |

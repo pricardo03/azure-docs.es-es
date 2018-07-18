@@ -3,16 +3,17 @@ title: Registro de diagnóstico de Azure Analysis Services | Microsoft Docs
 description: Obtenga información acerca de cómo configurar el registro de diagnóstico de Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 396ee2fc132abb5fbfd29bf5fffe9b1388b9a964
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d19e45710aca3e1e18be6c4529da6474a97bc59f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449336"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
 
@@ -56,7 +57,6 @@ Al seleccionar **Motor**, se registran todos los [xEvents](https://docs.microsof
 
 |Nombre de la operación  |Ocurre cuando  |
 |---------|---------|
-|CreateGateway     |   El usuario configura una puerta de enlace en el servidor      |
 |ResumeServer     |    Se reanuda un servidor     |
 |SuspendServer    |   Se pausa un servidor      |
 |DeleteServer     |    Eliminación de un servidor     |

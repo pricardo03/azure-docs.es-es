@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b813ba564e6451f973972f08f297399c3af1747b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195495"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437882"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 
@@ -289,6 +289,9 @@ La actividad Get Run As Connection (es decir, Get-AutomationConnection) se confi
 La siguiente actividad, Connect-AzureRmAccount, agrega la cuenta de ejecución autenticada para su uso en el runbook.
 
 ![Conjunto de parámetros de Connect-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** es ahora un alias de **Connect-AzureRMAccount**. Al buscar elementos de biblioteca, si no ve **Connect-AzureRMAccount**, puede usar **Add-AzureRmAccount** o actualizar los módulos en su cuenta de Automation.
 
 Para los parámetros **APPLICATIONID**, **CERTIFICATETHUMBPRINT** y **TENANTID**, es preciso especificar el nombre de la propiedad de la ruta de acceso de Field, ya que la actividad genera un objeto con varias propiedades. De lo contrario, al ejecutar el runbook, el intento de autenticación no se realiza correctamente. Estos son los requisitos mínimos para autenticar el runbook con la cuenta de ejecución.
 

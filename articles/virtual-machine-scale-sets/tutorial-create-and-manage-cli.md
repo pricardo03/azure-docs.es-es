@@ -3,7 +3,7 @@ title: 'Tutorial: Creación y administración de un conjunto de escalado de máq
 description: Aprenda a usar la CLI de Azure 2.0 para crear un conjunto de escalado de máquinas virtuales, junto con algunas tareas de administración comunes, por ejemplo, cómo iniciar y detener una instancia o cambiar la capacidad del conjunto de escalado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc8c58efcaeb5491eb23257e470f42a8d7cfd5c1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a076603519cdce5a16881e0f0703d8187001e058
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452556"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
@@ -152,7 +153,7 @@ WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServe
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 ```
 
-Para ver una lista completa, agregue el argumento `--all`. También puede filtrar la lista de imágenes por `--publisher` u `–-offer`. En el ejemplo siguiente, la lista se ha filtrado por todas las imágenes con una oferta que coincida con *CentOS*:
+Para ver una lista completa, agregue el argumento `--all`. También puede filtrar la lista de imágenes por `--publisher` u `–-offer`. En el ejemplo siguiente, la lista se ha filtrado por todas las imágenes con una oferta que coincide con *CentOS*:
 
 ```azurecli-interactive
 az vm image list --offer CentOS --all --output table
@@ -263,7 +264,7 @@ az vmss show \
 
 
 ## <a name="common-management-tasks"></a>Tareas comunes de administración
-Ahora puede crear un conjunto de escalado, mostrar información de conexión y conectarse a instancias de máquina virtual. Ha aprendido cómo podría usar una imagen de sistema operativo diferente para sus instancias de máquina virtual, a seleccionar un tamaño de máquina virtual diferente o a escalar manualmente el número de instancias. Como parte de la administración diaria, puede que deba detener, iniciar o reiniciar las instancias de máquina virtual del conjunto de escalado.
+Ahora puede crear un conjunto de escalado, mostrar información de conexión y conectarse a instancias de máquina virtual. Ha aprendido cómo podría usar otra imagen de sistema operativo para sus instancias de máquina virtual, cómo seleccionar otro tamaño de máquina virtual o cómo escalar manualmente el número de instancias. Como parte de la administración diaria, puede que deba detener, iniciar o reiniciar las instancias de máquina virtual del conjunto de escalado.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Detención y desasignación de instancias de máquina virtual de un conjunto de escalado
 Para detener una o más instancias de máquina virtual de un conjunto de escalado, use [az vmss stop](/cli/azure/vmss#az_vmss_stop). El parámetro `--instance-ids` le permite especificar que se detengan una o varias máquinas virtuales. Si no especifica un identificador de instancia, se detienen todas las instancias de máquina virtual del conjunto de escalado. En el ejemplo siguiente se detiene la instancia *1*:

@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8966c70fba1cbb17d377223ed5348075ebb7adc
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f953e1dc15e12c37c30a86ebd7536b1126bf18f7
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062007"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.DropDown
 Control de selección con una lista desplegable.
@@ -30,8 +31,8 @@ Control de selección con una lista desplegable.
 {
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
-  "label": "Some drop down",
-  "defaultValue": "my value",
+  "label": "Example drop down",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -43,21 +44,23 @@ Control de selección con una lista desplegable.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
 ```
 
 ## <a name="remarks"></a>Comentarios
+
 - La etiqueta de `constraints.allowedValues` es el texto para mostrar de un elemento, y su valor es el valor de salida del elemento cuando se selecciona.
 - Si se especifica, el valor predeterminado debe ser una etiqueta presente en `constraints.allowedValues`. Si no se especifica, se selecciona el primer elemento de `constraints.allowedValues`. El valor predeterminado es **null**.
-- `constraints.allowedValues` debe contener al menos un dígito.
-- Este elemento no admite la propiedad `constraints.required`. Para emular este comportamiento, agregue un elemento con una etiqueta y el valor `""` (cadena vacía) a `constraints.allowedValues`.
+- `constraints.allowedValues` debe tener al menos un elemento.
+- Para emular un valor que no es obligatorio, agregue un elemento con una etiqueta y el valor `""` (cadena vacía) a `constraints.allowedValues`.
 
 ## <a name="sample-output"></a>Salida de ejemplo
 ```json
-"Bar"
+"two"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

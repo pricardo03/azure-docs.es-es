@@ -15,16 +15,18 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3368a8a14a3d1314e4c7ecae9256071f1fe646f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: dee6a77fb85b2ac882103ba58a19ac4fce59c188
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257876"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301451"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparación de las características de los productos de Azure CDN
 
 Azure Content Delivery Network (CDN) incluye cuatro productos: **Azure CDN de Microsoft estándar** (en versión preliminar), **Azure CDN de Akamai estándar**, **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium**. 
+
+Para obtener información sobre cómo migrar un perfil de **Azure CDN Estándar de Verizon** a **Azure CDN Premium de Verizon**, consulte [Migración de un perfil de Azure CDN Estándar de Verizon a Premium de Verizon](cdn-migrate.md).
 
 En la tabla siguiente se comparan las características disponibles con cada producto.
 
@@ -41,7 +43,6 @@ En la tabla siguiente se comparan las características disponibles con cada prod
 | Configuración de la memoria caché o del encabezado (mediante [reglas de almacenamiento en caché](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
 | Configuración de la memoria caché o del encabezado (mediante un [motor de reglas](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | [Almacenamiento en caché de cadena de consulta](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Almacenamiento en caché regional  |**&#x2713;** |  |  |  |
 | Pila dual IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compatibilidad con HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||

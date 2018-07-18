@@ -1,5 +1,5 @@
 ---
-title: Actualización del runtime de Azure Service Fabric | Microsoft Docs
+title: Actualización del runtime de Service Fabric en Azure | Microsoft Docs
 description: En este tutorial, aprenderá a utilizar PowerShell para actualizar el runtime de un clúster de Service Fabric hospedado en Azure.
 services: service-fabric
 documentationcenter: .net
@@ -15,13 +15,14 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7e7304b259931c5196a4865383cf0b4ace4c4398
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109773"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric en Azure
 
 Este tutorial es la tercera parte de una serie, y muestra cómo actualizar el entorno en tiempo de ejecución de Service Fabric en un clúster de Azure Service Fabric. Esta parte del tutorial se escribe para los clústeres de Service Fabric que se ejecutan en Azure y no se aplica a los clústeres de Service Fabric independientes.
 
@@ -43,15 +44,18 @@ En esta serie de tutoriales, se aprende a:
 > * Actualización del entorno en tiempo de ejecución de un clúster
 > * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
+
 Antes de empezar este tutorial:
-- Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Instale la [versión 4.1 o superior del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
-- Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure
-- Si implementa un clúster de Windows, configure un entorno de desarrollo de Windows. Instale [Visual Studio 2017](http://www.visualstudio.com) y las cargas de trabajo de **desarrollo Azure**, **desarrollo web y ASP.NET**, y **desarrollo a través de plataformas .NET Core**.  Después, configure un [entorno de desarrollo .NET](service-fabric-get-started.md).
-- Si implementa un clúster Linux, configure un entorno de desarrollo Java en [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Instale la [CLI de Service Fabric](service-fabric-cli.md). 
+
+* Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Instale la [versión 4.1 o superior del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
+* Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure
+* Si implementa un clúster de Windows, configure un entorno de desarrollo de Windows. Instale [Visual Studio 2017](http://www.visualstudio.com) y las cargas de trabajo de **desarrollo Azure**, **desarrollo web y ASP.NET**, y **desarrollo a través de plataformas .NET Core**.  Después, configure un [entorno de desarrollo .NET](service-fabric-get-started.md).
+* Si implementa un clúster Linux, configure un entorno de desarrollo Java en [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Instale la [CLI de Service Fabric](service-fabric-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
 Inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.
 
 ```powershell
@@ -97,7 +101,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > La actualización del runtime del clúster puede tardar mucho tiempo en completarse. PowerShell se bloquea mientras se ejecuta la actualización. Puede usar otra sesión de PowerShell para comprobar el estado de la actualización.
 
-El estado de la actualización se puede supervisar con PowerShell o la CLI `sfctl`.
+El estado de la actualización se puede supervisar con PowerShell o la CLI de Azure Service Fabric (sfctl).
 
 En primer lugar, conéctese al clúster con el certificado SSL creado en la primera parte del tutorial. Utilice el cmdlet `Connect-ServiceFabricCluster` o `sfctl cluster upgrade-status`.
 
@@ -191,7 +195,8 @@ sfctl cluster upgrade-status
 }
 ```
 
-## <a name="conclusion"></a>Conclusión
+## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]

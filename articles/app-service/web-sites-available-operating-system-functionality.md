@@ -1,8 +1,8 @@
 ---
 title: Funcionalidad del sistema operativo en Azure App Service
-description: "Conozca la funcionalidad del sistema operativo disponible para las aplicaciones web, back-ends de aplicaciones móviles y aplicaciones de API en Azure App Service"
+description: Conozca la funcionalidad del sistema operativo disponible para las aplicaciones web, back-ends de aplicaciones móviles y aplicaciones de API en Azure App Service
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850161"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
 En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones que se ejecutan en el [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
@@ -49,7 +50,13 @@ Existen varias unidades en App Service, incluidas las unidades locales y las uni
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unidades locales
-Principalmente, App Service es un servicio que se ejecuta en la parte superior de la infraestructura PaaS (plataforma como servicio) de Azure. Como resultado, las unidades locales "conectadas" a una máquina virtual son los mismos tipos de unidades disponibles para cualquier rol de trabajo que se ejecute en Azure. Esto incluye una unidad de sistema operativo (la unidad D:\), una unidad de aplicación que contiene archivos cspkg del paquete de Azure que usa exclusivamente App Service (y a los que los clientes no pueden obtener acceso) y una unidad de "usuario" (la unidad C:\), cuyo tamaño varía según el tamaño de la máquina virtual. Es importante supervisar el uso del disco a medida que la aplicación crece. Si se alcanza la cuota de disco, puede tener efectos negativos para la aplicación.
+Principalmente, App Service es un servicio que se ejecuta en la parte superior de la infraestructura PaaS (plataforma como servicio) de Azure. Como resultado, las unidades locales "conectadas" a una máquina virtual son los mismos tipos de unidades disponibles para cualquier rol de trabajo que se ejecute en Azure. Esto incluye:
+
+- Una unidad del sistema operativo (la unidad D:\)
+- Una unidad de aplicación que contiene archivos cspkg del paquete de Azure que App Service usa de forma exclusiva (y que no son accesibles para los clientes)
+- Una unidad de "usuario" (la unidad C:\), cuyo tamaño varía según el tamaño de la máquina virtual. 
+
+Es importante supervisar el uso del disco a medida que la aplicación crece. Si se alcanza la cuota de disco, puede tener efectos negativos para la aplicación.
 
 <a id="NetworkDrives"></a>
 
@@ -58,7 +65,7 @@ Uno de los aspectos exclusivos de App Service que hace que el mantenimiento y la
 
 En App Service existen varios recursos compartidos UNC creados en cada centro de datos. Un porcentaje del contenido de usuario para todos los clientes en cada centro de datos se asigna a cada recurso compartido UNC. Además, todo el contenido del archivo para una suscripción de cliente única se coloca siempre en el mismo recurso compartido UNC. 
 
-Tenga en cuenta que según la forma en la que funcionen los servicios en la nube, la máquina virtual específica responsable del hospedaje de un recurso UNC cambiará con el tiempo. Se garantiza que distintas máquinas virtuales realizarán el montaje de los recursos compartidos UNC, ya que estos aumentan y disminuyen durante el curso normal de operaciones en la nube. Por este motivo, las aplicaciones nunca realizan suposiciones de forma rígida sobre que la información de la máquina en una ruta de acceso del UNC permanezca estable con el tiempo. En su lugar, deben usar la ruta de acceso absoluta *faux* adecuada **D:\home\site** que proporciona App Service. Esta ruta de acceso absoluta faux proporciona un método portátil independiente del usuario y la aplicación para hacer referencia a la propia aplicación de alguien. Si usa **D:\home\site**, puede transferir archivos compartidos de una aplicación a otra sin tener que configurar una nueva ruta de acceso absoluta para cada transferencia.
+Debido al funcionamiento de los servicios de Azure, la máquina virtual específica responsable del hospedaje de un recurso compartido UNC cambiará con el tiempo. Se garantiza que distintas máquinas virtuales realizarán el montaje de los recursos compartidos UNC, ya que estos aumentan y disminuyen durante el curso normal de operaciones de Azure. Por este motivo, las aplicaciones nunca realizan suposiciones de forma rígida sobre que la información de la máquina en una ruta de acceso del UNC permanezca estable con el tiempo. En su lugar, deben usar la ruta de acceso absoluta *faux* adecuada **D:\home\site** que proporciona App Service. Esta ruta de acceso absoluta faux proporciona un método portátil independiente del usuario y la aplicación para hacer referencia a la propia aplicación de alguien. Si usa **D:\home\site**, puede transferir archivos compartidos de una aplicación a otra sin tener que configurar una nueva ruta de acceso absoluta para cada transferencia.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -81,7 +88,7 @@ El directorio particular incluye el contenido de una aplicación y el código de
 ## <a name="network-access"></a>Acceso de red
 El código de aplicación puede usar protocolos basados en TCP/IPyd UDP para convertir las conexiones de red salientes en extremos accesibles a Internet que expongan servicios externos. Las aplicaciones pueden usar los mismos protocolos para conectarse a los servicios en Azure, por ejemplo, mediante el establecimiento de conexiones HTTPS a SQL Database.
 
-Existe también una funcionalidad limitada para las aplicaciones a la hora de establecer una conexión de bucle invertido local y disponer de una escucha de la aplicación en ese socket de bucle invertido local. Esta característica existe principalmente para habilitar aplicaciones que escuchan en sockets de bucle invertido local como parte de su funcionalidad. Tenga en cuenta que cada aplicación ve una conexión de bucle invertido "privada"; la aplicación "A" no puede escuchar en un socket de bucle invertido establecido por la aplicación "B".
+Existe también una funcionalidad limitada para las aplicaciones a la hora de establecer una conexión de bucle invertido local y disponer de una escucha de la aplicación en ese socket de bucle invertido local. Esta característica existe principalmente para habilitar aplicaciones que escuchan en sockets de bucle invertido local como parte de su funcionalidad. Cada aplicación ve una conexión de bucle invertido "privada". La aplicación "A" no puede escuchar en un socket de bucle invertido local establecido por la aplicación "B".
 
 Las canalizaciones con nombre también son compatibles como un mecanismo de comunicación entre procesos (IPC) entre los distintos procesos que ejecutan conjuntamente una aplicación. Por ejemplo, el módulo FastCGI de IIS se basa en conductos con nombre para coordinar los procesos individuales que ejecutan páginas PHP.
 

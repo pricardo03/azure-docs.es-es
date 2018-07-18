@@ -2,49 +2,41 @@
 title: Limitaciones en Azure Database for MySQL
 description: En este artículo se describen las limitaciones de Azure Database for MySQL como el número de conexiones o las opciones de motor de almacenamiento.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311199"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
 
-## <a name="service-tier-maximums"></a>Máximos de nivel de servicio
-Azure Database for MySQL tiene varios niveles de servicio entre los que puede elegir al crear un servidor. Para más información, consulte el artículo de [planes de tarifa de Azure Database for MySQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Número máximo de conexiones
+El número máximo de conexiones por plan de tarifa y núcleos virtuales es el siguiente: 
 
-Hay un número máximo de conexiones, unidades de proceso y almacenamiento en cada nivel de servicio, y son los siguientes: 
+|**Plan de tarifa**|**Núcleos virtuales**| **Conexiones máximas**|
+|---|---|---|
+|Básica| 1| 50|
+|Básica| 2| 100|
+|Uso general| 2| 300|
+|Uso general| 4| 625|
+|Uso general| 8| 1250|
+|Uso general| 16| 2.500|
+|Uso general| 32| 5000|
+|Memoria optimizada| 2| 600|
+|Memoria optimizada| 4| 1250|
+|Memoria optimizada| 8| 2.500|
+|Memoria optimizada| 16| 5000|
 
-|**Plan de tarifa**| **Generación de procesos**|**Núcleos virtuales**| **Conexiones máximas**|
-|---|---|---|---|
-|Básica| Gen 4| 1| 50|
-|Básica| Gen 4| 2| 100|
-|Básica| Gen 5| 1| 50|
-|Básica| Gen 5| 2| 100|
-|Uso general| Gen 4| 2| 300|
-|Uso general| Gen 4| 4| 625|
-|Uso general| Gen 4| 8| 1250|
-|Uso general| Gen 4| 16| 2.500|
-|Uso general| Gen 4| 32| 5000|
-|Uso general| Gen 5| 2| 300|
-|Uso general| Gen 5| 4| 625|
-|Uso general| Gen 5| 8| 1250|
-|Uso general| Gen 5| 16| 2.500|
-|Uso general| Gen 5| 32| 5000|
-|Memoria optimizada| Gen 5| 2| 600|
-|Memoria optimizada| Gen 5| 4| 1250|
-|Memoria optimizada| Gen 5| 8| 2.500|
-|Memoria optimizada| Gen 5| 16| 5000|
-
-Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
+Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Too many connections
 
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
@@ -68,31 +60,29 @@ Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 ## <a name="data-manipulation-statement-support"></a>Compatibilidad de las instrucciones de manipulación de datos
 
 ### <a name="supported"></a>Compatible
-- LOAD DATA INFILE: compatible, pero debe especificar el parámetro [LOCAL] que se dirige a una ruta de acceso UNC (Azure Storage montado mediante XSMB).
+- `LOAD DATA INFILE` es compatible, pero el parámetro `[LOCAL]` debe especificarse y dirigirse a una ruta de acceso UNC (Azure Storage montado a través de SMB).
 
 ### <a name="unsupported"></a>No compatible
-- SELECT ... INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 
 ### <a name="scale-operations"></a>Operaciones de escalado
-- El escalado dinámico de servidores entre planes de tarifa no se admite en este momento. Es decir, no se admite el cambio entre los planes Básico, Uso general y Memoria optimizada.
+- El escalado dinámico a y desde niveles de precios Básico no se admite en este momento.
 - La reducción del tamaño de almacenamiento del servidor no se admite.
 
 ### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
 - La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento.
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
-- La restauración a un nivel de servicio o unidades de proceso y tamaño de almacenamiento diferente no se admite.
+- Al usar la característica PITR, el nuevo servidor se crea con la misma configuración que el servidor en el que se basa.
 - La restauración a un servidor que se ha eliminado no se admite en este momento.
-
-## <a name="functional-limitations"></a>Limitaciones funcionales
 
 ### <a name="subscription-management"></a>Administración de suscripciones
 - El movimiento dinámico de servidores creados previamente entre grupo de suscripciones y recursos no se admite en este momento.
 
 ## <a name="current-known-issues"></a>Problemas conocidos actualmente
-- Instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener las versiones de la instancia de servidor correctas, utilice comando select version(); del símbolo del sistema de MySQL.
+- Instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Qué está disponible en cada nivel de servicio](concepts-pricing-tiers.md)

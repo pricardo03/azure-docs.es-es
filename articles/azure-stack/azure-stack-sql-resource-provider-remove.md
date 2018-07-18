@@ -1,6 +1,6 @@
 ---
-title: Uso de bases de datos SQL en Azure Stack | Microsoft Docs
-description: Aprenda a implementar las bases de datos SQL como un servicio en Azure Stack y los pasos para implementar de forma rápida el adaptador del proveedor de recursos de SQL Server.
+title: Eliminación del proveedor de recursos de SQL en Azure Stack | Microsoft Docs
+description: Obtenga información sobre cómo quitar el proveedor de recursos de SQL de la implementación de Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,33 +11,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c2686a2d5241af46e70263d1827028aa7e9b2138
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 150d1c40463aa04527bdd6e356a4c24ef68b02ef
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206185"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301905"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Eliminación del proveedor de recursos de SQL
 
-Para eliminar el proveedor de recursos de SQL, es esencial eliminar antes todas las dependencias:
+Antes de quitar el proveedor de recursos de SQL, debe quitar todas las dependencias del proveedor. También necesitará una copia del paquete de implementación que se utilizó para instalar el proveedor de recursos.
 
-1. Asegúrese de tener el paquete de implementación original que descargó para esta versión del adaptador del proveedor de recursos de SQL.
+## <a name="to-remove-the-sql-resource-provider"></a>Proceso para quitar el proveedor de recursos de SQL
 
-2. Todas las bases de datos de usuario deben eliminarse del proveedor de recursos. (Eliminar las bases de datos de usuario no elimina los datos). Los propios usuarios deben hacer esta tarea.
+1. Compruebe que ha quitado todas las dependencias del proveedor de recursos de SQL existentes.
 
-3. El administrador debe eliminar los servidores de hospedaje del adaptador del proveedor de recursos de SQL.
+   > [!NOTE]
+   > La desinstalación del proveedor de recursos de SQL continuará incluso si los recursos dependientes utilizan el proveedor de recursos.
+  
+2. Obtenga una copia del binario del proveedor de recursos de SQL y ejecute el extractor automático para extraer el contenido en un directorio temporal.
 
-4. El administrador debe eliminar los planes que hagan referencia al adaptador del proveedor de recursos de SQL.
+3. Abra una nueva ventana de consola de PowerShell con privilegios elevados y cambie al directorio en el que extrajo los archivos binarios del proveedor de recursos de SQL.
 
-5. El administrador debe eliminar cualquier SKU y cuota asociadas con el adaptador del proveedor de recursos de SQL.
+4. Ejecute el script DeploySqlProvider.ps1 con los siguientes parámetros:
 
-6. Vuelva a ejecutar el script de implementación con los siguientes elementos:
-    - Parámetro -Uninstall
-    - Puntos de conexión de Azure Resource Manager
-    - DirectoryTenantID
-    - Credenciales para la cuenta de administrador del servicio
+    - **Desinstalación**. Quita el proveedor de recursos y todos los recursos asociados.
+    - **PrivilegedEndpoint**. Dirección IP o nombre DNS del punto de conexión con privilegios.
+    - **CloudAdminCredential**. Credencial del administrador de la nube, necesaria para el acceso al punto de conexión con privilegios.
+    - **AzCredential**. Credencial de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+[Oferta de App Services como PaaS](azure-stack-app-service-overview.md)

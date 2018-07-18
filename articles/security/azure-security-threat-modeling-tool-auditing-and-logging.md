@@ -1,5 +1,5 @@
 ---
-title: "Auditoría y registro: Microsoft Threat Modeling Tool: Azure | Microsoft Docs"
+title: 'Auditoría y registro: Microsoft Threat Modeling Tool: Azure | Microsoft Docs'
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8837dfaf156e5a4d07598f2c58694663a9ff5580
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029988"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Marco de seguridad: Auditoría y registro | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -118,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType: Azure |
 | **Referencias**              | N/D  |
-| **Pasos** | <p>Azure integra diagnósticos para ayudar a depurar Aplicaciones web de App Service. También se aplica a aplicaciones móviles y aplicaciones de API. Aplicaciones web del Servicio de aplicaciones ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web.</p><p>De forma lógica, estos diagnósticos se dividen en diagnósticos del servidor web y diagnósticos de aplicaciones.</p>|
+| **Pasos** | <p>Azure integra diagnósticos para ayudar a depurar Aplicaciones web de App Service. También se aplica a aplicaciones móviles y aplicaciones de API. Aplicaciones web de App Service ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web.</p><p>De forma lógica, estos diagnósticos se dividen en diagnósticos del servidor web y diagnósticos de aplicaciones.</p>|
 
 ## <a id="identify-sensitive-entities"></a>Comprobación de que está habilitada la auditoría de inicio de sesión en SQL Server
 
@@ -151,7 +152,7 @@ ms.lasthandoff: 10/11/2017
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D |
 | **Referencias**              | [Uso de Análisis de Storage para supervisar el tipo de autorización](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
-| **Pasos** | <p>Para cada cuenta de almacenamiento, se puede habilitar el Análisis de Azure Storage para realizar el registro y almacenar datos de métricas. Los registros de análisis de almacenamiento proporcionan información importante como, por ejemplo, el método de autenticación utilizado por un usuario al acceder al almacenamiento.</p><p>Esto puede resultar muy útil si se está esforzando por proteger el acceso al almacenamiento. Por ejemplo, en el Almacenamiento de blobs puede configurar todos los contenedores para que sean privados e implementar el uso de un servicio de Firma de acceso compartido en sus aplicaciones. Luego puede comprobar los registros periódicamente para ver si se ha accedido a los blobs mediante las claves de la cuenta de almacenamiento, lo que podría indicar una infracción de seguridad, o si los blobs son públicos pero no deberían serlo.</p>|
+| **Pasos** | <p>Para cada cuenta de almacenamiento, se puede habilitar el Análisis de Azure Storage para realizar el registro y almacenar datos de métricas. Los registros de análisis de almacenamiento proporcionan información importante como, por ejemplo, el método de autenticación utilizado por un usuario al acceder al almacenamiento.</p><p>Esto puede resultar muy útil si se está esforzando por proteger el acceso al almacenamiento. Por ejemplo, en Blob Storage puede configurar todos los contenedores para que sean privados e implementar el uso de un servicio de Firma de acceso compartido en sus aplicaciones. Luego puede comprobar los registros periódicamente para ver si se ha accedido a los blobs mediante las claves de la cuenta de almacenamiento, lo que podría indicar una infracción de seguridad, o si los blobs son públicos pero no deberían serlo.</p>|
 
 ## <a id="sufficient-logging"></a>Implementación de suficientes registros
 
@@ -161,7 +162,7 @@ ms.lasthandoff: 10/11/2017
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | .NET Framework |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Pasos** | <p>La falta de una traza de auditoría después de un incidente de seguridad, puede dificultar los esfuerzos de investigación. Windows Communication Foundation (WCF) ofrece la capacidad de registrar los intentos de autenticación correctos e incorrectos.</p><p>Si registra los intentos de autenticación incorrectos puede advertir a los administradores de posibles ataques de fuerza bruta. Del mismo modo, el registro de eventos de autenticación correctos puede proporcionar una traza de auditoría útil cuando está en peligro una cuenta legítima. Habilite la característica de auditoría de seguridad del servicio de WCF. |
 
 ### <a name="example"></a>Ejemplo
@@ -190,7 +191,7 @@ El siguiente es un ejemplo de configuración con la auditoría habilitada
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | .NET Framework |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Pasos** | <p>La solución desarrollada se ha configurado para que no genere una excepción cuando se produce un error al escribir en un registro de auditoría. Si WCF está configurado para que no genere una excepción cuando no puede escribir en un registro de auditoría, el programa no recibirá la notificación del error y puede que no se produzca la auditoría de eventos de seguridad críticos.</p>|
 
 ### <a name="example"></a>Ejemplo

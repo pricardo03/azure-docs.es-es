@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configuración de Weibo | Microsoft Docs'
+title: Configuración de Weibo en Azure Active Directory B2C | Microsoft Docs
 description: Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de Weibo en las aplicaciones protegidas por Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: bfd7dde290bd040f8457e6d095fdf896e802764b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444796"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los usuarios con cuentas de Weibo
 
@@ -31,24 +31,24 @@ Para usar Weibo como proveedor de identidades en Azure Active Directory (Azure A
 
 1. Vaya al [portal para desarrolladores de Weibo](http://open.weibo.com/) e inicie sesión con sus credenciales de cuenta de Weibo.
 2. Después de iniciar sesión, haga clic en el nombre para mostrar en la esquina superior derecha.
-3. En la lista desplegable, seleccione **编辑开发者信息** (editar la información para desarrolladores).
-4. Escriba la información necesaria en el formulario y haga clic en **提交** (enviar).
+3. En el menú desplegable, seleccione **编辑开发者信息** (Editar información de desarrollador).
+4. Escriba la información pertinente en el formulario y haga clic en **提交** (Enviar).
 5. Complete el proceso de comprobación de correo electrónico.
 6. Vaya a la [página de comprobación de identidad](http://open.weibo.com/developers/identity/edit).
-7. Escriba la información necesaria en el formulario y haga clic en **提交** (enviar).
+7. Escriba la información pertinente en el formulario y haga clic en **提交** (Enviar).
 
 ### <a name="register-a-weibo-application"></a>Registro de una aplicación de Weibo
 
 1. Vaya a la [página de registro de la aplicación de Weibo](http://open.weibo.com/apps/new).
 2. Escriba la información de aplicación necesaria.
-3. Haga clic en **创建** (crear).
+3. Haga clic en **创建** (Crear).
 4. Copie los valores de **Clave de la aplicación** y **Secreto de la aplicación**. Lo necesitará más adelante.
 5. Cargue las fotos y escriba la información necesarias.
-6. Haga clic en **保存以上信息** (guardar).
-7. Haga clic en **高级信息** (información avanzada).
-8. Haga clic en **编辑** (editar) junto al campo de OAuth2.0 **授权设置** (dirección URL de redireccionamiento).
-9. Escriba `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` para OAuth2.0 **授权设置** (dirección URL de redireccionamiento). Por ejemplo, si `tenant_name` es contoso.onmicrosoft.com, establezca la dirección URL para que sea `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-10. Haga clic en **提交** (enviar).  
+6. Haga clic en **保存以上信息** (Guardar).
+7. Haga clic en **高级信息** (Información avanzada).
+8. Haga clic en **编辑** (Editar) junto al campo de OAuth2.0 **授权设置** (Dirección URL de redireccionamiento).
+9. Escriba `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` en OAuth2.0 **授权设置** (Dirección URL de redireccionamiento). Por ejemplo, si `tenant_name` es contoso.onmicrosoft.com, establezca la dirección URL para que sea `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+10. Haga clic en **提交** (Enviar).  
 
 ## <a name="configure-weibo-as-an-identity-provider-in-your-tenant"></a>Configuración de Weibo como proveedor de identidades del inquilino
 1. Siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) de Azure Portal.

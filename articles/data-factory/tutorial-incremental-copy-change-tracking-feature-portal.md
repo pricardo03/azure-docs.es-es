@@ -3,7 +3,7 @@ title: Copia incremental de datos con control de cambios y Azure Data Factory | 
 description: 'En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos SQL de Azure. '
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
-ms.author: jingwang
-ms.openlocfilehash: 891dad1a481c966e6ea1771f3e7c7850fa429352
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: 4d2339ace047a5aacda74f6b1ccb9f1eb77aab0c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054050"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos SQL de Azure hasta un almacenamiento de blobs de Azure.  
@@ -33,11 +34,8 @@ En este tutorial, realizará los siguientes pasos:
 > * Adición o actualización de datos en la tabla de origen
 > * Creación, ejecución y supervisión de la canalización de copia incremental
 
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 ## <a name="overview"></a>Información general
-En una solución de integración de datos, la carga incremental de los datos después de cargas completas iniciales es un método ampliamente usado. En algunos casos, los datos modificados en un período en el almacén de datos de origen pueden ser fácilmente segmentados (por ejemplo, LastModifyTime o CreationTime). En algunos casos, no hay ninguna manera explícita de identificar las diferencias de datos desde la última vez que se procesaron. Para identificar los datos diferenciales, puede usarse la tecnología de control de cambios, admitida por almacenes de datos como Azure SQL Database y SQL Server.  Este tutorial describe cómo usar Azure Data Factory versión 2 para trabajar con la tecnología de control de cambios de SQL Server para cargar incrementalmente los datos diferenciales desde Azure SQL Database a Azure Blob Storage.  Para obtener información más concreta sobre la tecnología de control de cambios de SQL, consulte [Acerca del control de cambios (SQL Server)](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+En una solución de integración de datos, la carga incremental de los datos después de cargas completas iniciales es un método ampliamente usado. En algunos casos, los datos modificados en un período en el almacén de datos de origen pueden ser fácilmente segmentados (por ejemplo, LastModifyTime o CreationTime). En algunos casos, no hay ninguna manera explícita de identificar las diferencias de datos desde la última vez que se procesaron. Para identificar los datos diferenciales, puede usarse la tecnología de control de cambios, admitida por almacenes de datos como Azure SQL Database y SQL Server.  Este tutorial describe cómo usar Azure Data Factory con la tecnología de control de cambios de SQL Server para cargar incrementalmente los datos diferenciales desde Azure SQL Database a Azure Blob Storage.  Para obtener información más concreta sobre la tecnología de control de cambios de SQL, consulte [Acerca del control de cambios (SQL Server)](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Flujo de trabajo de un extremo a otro
 Estos son los pasos del flujo de trabajo completo típico para cargar incrementalmente los datos mediante la tecnología de control de cambios.
@@ -199,7 +197,7 @@ En este paso, vincula su cuenta de Azure Storage a la factoría de datos.
 3. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
 
     1. Escriba **AzureStorageLinkedService** en **Name** (Nombre). 
-    2. Seleccione la cuenta de Azure Storage de **Storage account name** (Nombre de la cuenta de Storage). 
+    2. Seleccione la cuenta de Azure Storage en **Storage account name** (Nombre de la cuenta de Storage). 
     3. Haga clic en **Save**(Guardar). 
     
    ![Configuración de la cuenta de Azure Storage](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
@@ -228,7 +226,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos, el
 ### <a name="create-a-dataset-to-represent-source-data"></a>Creación de un conjunto de datos que represente datos de origen 
 En este paso, creará conjuntos de datos para representar el origen de datos. 
 
-1. En la vista de árbol, haga clic en el **sino + (más)** y en **Dataset** (Conjunto de datos). 
+1. En la vista de árbol, haga clic en el **signo + (más)** y en **Dataset** (Conjunto de datos). 
 
    ![Menú New Dataset (Nuevo conjunto de datos)](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. Seleccione **Azure SQL Database** y haga clic en **Finish** (Finalizar). 
@@ -239,7 +237,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos.
    ![Nombre del conjunto de datos de origen](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
 4. Cambie a la pestaña **Connection** (Conexión) y realice los pasos siguientes: 
     
-    1. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado). 
+    1. Seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). 
     2. Seleccione **[dbo].[data_source_table]** en **Table** (Tabla). 
 
    ![Conexión de origen](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
@@ -247,7 +245,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos.
 ### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>Creación de un conjunto de datos que represente los datos copiados en el almacén de datos receptor 
 En este paso, creará un conjunto de datos para representar los datos que se copian desde el almacén de datos de origen. Ha creado el contenedor adftutorial en la instancia de Azure Blob Storage como parte de los requisitos previos. Cree el contenedor si no existe (o) asígnele el nombre de uno existente. En este tutorial, el nombre de archivo de salida se genera dinámicamente mediante la expresión `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
-1. En la vista de árbol, haga clic en el **sino + (más)** y en **Dataset** (Conjunto de datos). 
+1. En la vista de árbol, haga clic en el **signo + (más)** y en **Dataset** (Conjunto de datos). 
 
    ![Menú New Dataset (Nuevo conjunto de datos)](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. Seleccione **Azure Blob Storage** y haga clic en **Finish** (Finalizar). 
@@ -258,7 +256,7 @@ En este paso, creará un conjunto de datos para representar los datos que se cop
    ![Conjunto de datos receptor: nombre](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
 4. Cambie a la pestaña **Connection** (Conexión) de la ventana Properties (Propiedades) y realice los pasos siguientes:
 
-    1. Seleccione **AzureStorageLinkedService** como **Linked service** (Servicio vinculado).
+    1. Seleccione **AzureStorageLinkedService** en **Linked service** (Servicio vinculado).
     2. Escriba **adftutorial/incchgtracking** en la parte de **carpeta** de la **ruta de acceso de archivo**.
     3. Escriba **@CONCAT('Incremental-', pipeline().RunId, '.txt')** en la parte de **archivo** de la **ruta de acceso de archivo**.  
 
@@ -267,13 +265,13 @@ En este paso, creará un conjunto de datos para representar los datos que se cop
 ### <a name="create-a-dataset-to-represent-change-tracking-data"></a>Creación de un conjunto de datos que represente datos de seguimiento de cambios 
 En este paso, creará un conjunto de datos para almacenar la versión de control de cambios.  Ha creado la tabla table_store_ChangeTracking_version como parte de los requisitos previos.
 
-1. En la vista de árbol, haga clic en el **sino + (más)** y en **Dataset** (Conjunto de datos). 
+1. En la vista de árbol, haga clic en el **signo + (más)** y en **Dataset** (Conjunto de datos). 
 2. Seleccione **Azure SQL Database** y haga clic en **Finish** (Finalizar). 
 3. Verá una nueva pestaña para configurar el conjunto de datos. También verá el conjunto de datos en la vista de árbol. En la ventana **Properties** (Propiedades), cambie el nombre del conjunto de datos a **ChangeTrackingDataset**.
 4. Cambie a la pestaña **Connection** (Conexión) y realice los pasos siguientes: 
     
-    1. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado). 
-    2. Seleccione **[dbo].[table_store_ChangeTracking_version]** como **Table** (Table). 
+    1. Seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). 
+    2. Seleccione **[dbo].[table_store_ChangeTracking_version]** en **Table** (Table). 
 
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Creación de una canalización para la copia completa
 En este paso, va a crear una canalización con la actividad de copia que copia todos los datos desde el almacén de datos de origen (Azure SQL Database) al almacén de datos de destino (Azure Blob Storage).
@@ -302,7 +300,7 @@ En este paso, va a crear una canalización con la actividad de copia que copia t
 8. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). 
 
     ![Publicación correcta](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
-9. Otra manera de ver las notificaciones es al hacer clic en el botón **Show Notifications** (Mostrar notificaciones) de la izquierda. Haga clic en la **X** para cerrar la ventana de notificaciones.
+9. Otra manera de ver las notificaciones es hacer clic en el botón **Show Notifications** (Mostrar notificaciones) de la izquierda. Haga clic en la **X** para cerrar la ventana de notificaciones.
 
     ![Show Notifications (Mostrar notificaciones)](./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png)
 
@@ -404,7 +402,7 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
 11. Arrastre la actividad **Stored Procedure** (procedimiento almacenado) del cuadro de herramientas **Activities** (Actividades) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **StoredProceduretoUpdateChangeTrackingActivity**. Esta actividad actualiza la versión de seguimiento de cambios en la tabla **table_store_ChangeTracking_version**.
 
     ![Actividad de procedimiento almacenado: nombre](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png)
-12. Cambie a la pestaña *SQL Account** (Cuenta de SQL) y seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado). 
+12. Cambie a la pestaña *SQL Account** (Cuenta de SQL) y seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). 
 
     ![Actividad de procedimiento almacenado: cuenta SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) y realice los pasos siguientes: 
@@ -466,7 +464,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Pase al tutorial siguiente para obtener información acerca de la transformación de datos mediante el uso de un clúster de Spark en Azure:
 
 > [!div class="nextstepaction"]

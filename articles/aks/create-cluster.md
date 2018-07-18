@@ -2,18 +2,19 @@
 title: Creación de un clúster de Azure Kubernetes Service (AKS)
 description: Creación de un clúster de AKS con la CLI o Azure Portal.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2018
-ms.author: nepeters
+ms.date: 06/26/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 00672b6272ce9c775621e519c327c0b8368bc220
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 304f3807a70179e4aab2ede80dc08a1aa85a2e51
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098913"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Creación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -27,24 +28,41 @@ Use el comando [az aks create][az-aks-create] para crear el clúster de AKS.
 az aks create --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Las siguientes opciones están disponibles con el comando `az aks create`.
+Las siguientes opciones están disponibles con el comando `az aks create`. Para más información sobre cada uno de estos argumentos, consulte la [referencia de la CLI de Azure][az-aks-create] para AKS.
 
 | Argumento | DESCRIPCIÓN | Obligatorio |
 |---|---|:---:|
 | `--name``-n` | Nombre de recurso para el clúster administrado. | Sí |
 | `--resource-group``-g` | Nombre del grupo de recursos de Azure Kubernetes Service. | Sí |
 | `--admin-username``-u` | Nombre de usuario para Linux Virtual Machines.  Valor predeterminado: azureuser. | no |
+| `--aad-client-app-id` | (VERSIÓN PRELIMINAR) Identificador de una aplicación cliente de Azure Active Directory de tipo "nativo". | no |
+| `--aad-server-app-id` | (VERSIÓN PRELIMINAR) Identificador de una aplicación cliente de Azure Active Directory de tipo "aplicación web/API". | no |
+| `--aad-server-app-secret` | (VERSIÓN PRELIMINAR) Secreto de una aplicación de servidor de Azure Active Directory. | no |
+| `--aad-tenant-id` | (VERSIÓN PRELIMINAR) Identificador de un inquilino de Azure Active Directory. | no |
+| `--admin-username``-u` | Cuenta de usuario que se va a crear en las máquinas virtuales de un nodo para el acceso de SSH.  Valor predeterminado: azureuser. | no |
 | ` --client-secret` | Secreto asociado a la entidad de servicio. | no |
 | `--dns-name-prefix``-p` | Prefijo DNS para la dirección ip pública de clústeres. | no |
+| `--dns-service-ip` | Dirección IP asignada al servicio DNS de Kubernetes. | no |
+| `--docker-bridge-address` | Dirección IP y máscara de red asignadas al puente de Docker. | no |
+| `--enable-addons``-a` | Habilita los complementos de Kubernetes de una lista separada por comas. | no |
+| `--enable-rbac``-r` | Habilita el control de acceso basado en rol de Kubernetes. | no |
 | `--generate-ssh-keys` | Generar archivos de clave pública y privada SSH si faltan. | no |
-| `--kubernetes-version``-k` | La versión de Kubernetes que se va a usar para crear el clúster, como “1.7.9” o “1.8.2”.  Valor predeterminado: 1.7.7. | no |
+| `--kubernetes-version``-k` | Versión de Kubernetes que se va a usar para crear el clúster; por ejemplo, "1.7.9" o "1.9.6". | no |
+| `--locaton``-l` | Ubicación del grupo de recursos creado automáticamente. | no |
+| `--max-pods``-m` | Número máximo de pods que se pueden implementar en un nodo. | no |
+| `--network-plugin` | Complemento de red de Kubernetes que se va a utilizar. | no |
+| `--no-ssh-key``-x` | No se utilizan ni crean claves de SSH locales. | no |
 | `--no-wait` | No espere hasta que finalice la operación de ejecución prolongada. | no |
 | `--node-count``-c` | Número predeterminado de nodos para los grupos de nodos.  Valor predeterminado: 3. | no |
 | `--node-osdisk-size` | Tamaño de osDisk en GB de la máquina virtual del grupo de nodos. | no |
 | `--node-vm-size``-s` | Tamaño de la máquina virtual.  Valor predeterminado: Standard_D1_v2. | no |
+| `--pod-cidr` | Intervalo IP en notación CIDR desde el que se van a asignar las direcciones IP de los pods cuando se utilice kubenet. | no |
+| `--service-cidr` | Intervalo IP en notación CIDR desde el que se van a asignar las direcciones IP del clúster de servicio. | no |
 | `--service-principal` | Entidad de servicio utilizada para la autenticación de clúster. | no |
 | `--ssh-key-value` | Valor de archivo de clave o ruta de acceso al archivo de clave SSH.  Valor predeterminado: ~/.ssh/id_rsa.pub. | no |
 | `--tags` | Etiquetas separadas por espacios con el formato “clave [= valor]”. Use “” para borrar las etiquetas existentes. | no |
+| `--vnet-subnet-id` | Identificador de la subred de una red virtual existente en la que se va a implementar el clúster. | no |
+| `--workspace-resource-id` | Identificador de recurso de un área de trabajo de Log Analytics para almacenar los datos relacionados con la supervisión. | no |
 
 ## <a name="azure-portal"></a>Azure Portal
 

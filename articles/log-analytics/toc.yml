@@ -27,20 +27,22 @@
       href: powershell-samples.md
 - name: Conceptos
   items:
-    - name: Actualización del área de trabajo
+    - name: Transición al portal de OMS
       items:
-        - name: Información general sobre la actualización
-          href: log-analytics-log-search-upgrade.md
-        - name: Resumen de cambios
-          href: log-analytics-log-search-upgrade-changes.md
-        - name: Preguntas más frecuentes sobre la actualización
-          href: log-analytics-log-search-faq.md
+        - name: Información general
+          href: log-analytics-oms-portal-transition.md
+        - name: Preguntas frecuentes
+          href: log-analytics-oms-portal-faq.md
     - name: Preguntas frecuentes sobre Log Analytics
       href: log-analytics-faq.md
+    - name: Tiempo de ingesta de datos
+      href: log-analytics-data-ingestion-time.md
     - name: Seguridad de los datos
       href: log-analytics-data-security.md
     - name: Administración del acceso
       href: log-analytics-manage-access.md
+    - name: Información general de los agentes
+      href: ../monitoring/monitoring-overview-azure-agents.md
     - name: Supervisión de entornos híbridos
       href: log-analytics-concept-hybrid.md
     - name: Características de proveedores de servicios
@@ -169,94 +171,104 @@
           href: log-analytics-agent-linux-support.md
     - name: Uso de soluciones
       items:
-        - name: Introducción a soluciones
-          href: log-analytics-add-solutions.md
+        - name: Instalación de soluciones
+          href: ../monitoring/monitoring-solutions.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Inventario de soluciones
+          href: ../monitoring/monitoring-solutions-inventory.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Soluciones de destino
           href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Registros de actividad de Azure
+        - name: Guías de soluciones
           items:
-            - name: Análisis
-              href: log-analytics-activity.md
-            - name: Recopilación entre suscripciones
-              href: log-analytics-activity-logs-subscriptions.md
-        - name: Evaluación de AD
-          href: log-analytics-ad-assessment.md
-        - name: Estado de replicación de AD
-          href: log-analytics-ad-replication-status.md
-        - name: Estado de mantenimiento de los agentes
-          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Administración de alertas
-          href: log-analytics-solution-alert-management.md
-        - name: Application Insights Connector
-          href: log-analytics-app-insights-connector.md
-        - name: Azure SQL Analytics
-          href: log-analytics-azure-sql.md
-        - name: Azure Web Apps Analytics
-          href: log-analytics-azure-web-apps-analytics.md
-        - name: Capacidad y rendimiento
-          href: log-analytics-capacity.md
-        - name: Seguimiento de cambios
-          href: log-analytics-change-tracking.md
-        - name: Contenedores
-          href: log-analytics-containers.md
-        - name: DNS Analytics
-          href: log-analytics-dns.md
-        - name: IT Service Management Connector
-          href: log-analytics-itsmc-overview.md
-          items:
-            - name: Conexiones de IT Service Management
-              href: log-analytics-itsmc-connections.md
-        - name: Key Vault
-          href: log-analytics-azure-key-vault.md
-        - name: Mensajes de Logic Apps B2B
-          items:
-            - name: Solución de mensajes de Logic Apps B2B
-              href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: Esquema de seguimiento personalizado de Logic Apps B2B
-              href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Análisis de redes
-          href: log-analytics-azure-networking-analytics.md
-        - name: Monitor de rendimiento de red
-          items:
-            - name: Información general de la solución
-              href: log-analytics-network-performance-monitor.md
-            - name: Supervisión del rendimiento
-              href: log-analytics-network-performance-monitor-performance-monitor.md
-            - name: Punto de conexión de servicio
-              href: log-analytics-network-performance-monitor-service-endpoint.md
-            - name: ExpressRoute
-              href: log-analytics-network-performance-monitor-expressroute.md
-            - name: Precios
-              href: log-analytics-network-performance-monitor-pricing-faq.md
-        - name: Office 365
-          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Comprobación de estado de SCOM
-          href: log-analytics-scom-assessment.md
-        - name: Auditoría de seguridad
-          href: ../security-center/security-center-intro.md
-        - name: Service Fabric con Azure PowerShell
-          href: log-analytics-service-fabric.md
-          items:
-            - name: Service Fabric con Azure Resource Manager
-              href: log-analytics-service-fabric-azure-resource-manager.md
-        - name: Mapa de servicio
-          href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Comprobación de estado de SQL
-          href: log-analytics-sql-assessment.md
-        - name: Surface Hub
-          href: log-analytics-surface-hubs.md
-        - name: Administración de actualizaciones
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: VMware
-          href: log-analytics-vmware.md
-        - name: Análisis de Windows
-          items:
-            - name: Update Compliance
-              href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
-            - name: Upgrade Readiness
-              href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
-        - name: Wire Data
-          href: log-analytics-wire-data.md
+            - name: Registros de actividad de Azure
+              items:
+                - name: Análisis
+                  href: log-analytics-activity.md
+                - name: Recopilación entre suscripciones
+                  href: log-analytics-activity-logs-subscriptions.md
+            - name: Evaluación de AD
+              href: log-analytics-ad-assessment.md
+            - name: Estado de replicación de AD
+              href: log-analytics-ad-replication-status.md
+            - name: Estado de mantenimiento de los agentes
+              href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Administración de alertas
+              href: log-analytics-solution-alert-management.md
+            - name: Application Insights Connector
+              href: log-analytics-app-insights-connector.md
+            - name: Azure SQL Analytics
+              href: log-analytics-azure-sql.md
+            - name: Azure Web Apps Analytics
+              href: log-analytics-azure-web-apps-analytics.md
+            - name: Capacidad y rendimiento
+              href: log-analytics-capacity.md
+            - name: Seguimiento de cambios
+              href: log-analytics-change-tracking.md
+            - name: Contenedores
+              href: log-analytics-containers.md
+            - name: DNS Analytics
+              href: log-analytics-dns.md
+            - name: IT Service Management Connector
+              href: log-analytics-itsmc-overview.md
+              items:
+                - name: Conexiones de IT Service Management
+                  href: log-analytics-itsmc-connections.md
+            - name: Key Vault
+              href: log-analytics-azure-key-vault.md
+            - name: Mensajes de Logic Apps B2B
+              items:
+                - name: Solución de mensajes de Logic Apps B2B
+                  href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Esquema de seguimiento personalizado de Logic Apps B2B
+                  href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Análisis de redes
+              href: log-analytics-azure-networking-analytics.md
+            - name: Monitor de rendimiento de red
+              items:
+                - name: Información general de la solución
+                  href: log-analytics-network-performance-monitor.md
+                - name: Supervisión del rendimiento
+                  href: log-analytics-network-performance-monitor-performance-monitor.md
+                - name: Punto de conexión de servicio
+                  href: log-analytics-network-performance-monitor-service-endpoint.md
+                - name: ExpressRoute
+                  href: log-analytics-network-performance-monitor-expressroute.md
+                - name: Precios
+                  href: log-analytics-network-performance-monitor-pricing-faq.md
+            - name: Office 365
+              href: ../monitoring/monitoring-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Comprobación de estado de SCOM
+              href: log-analytics-scom-assessment.md
+            - name: Auditoría de seguridad
+              href: ../security-center/security-center-intro.md
+            - name: Service Fabric con Azure PowerShell
+              href: log-analytics-service-fabric.md
+              items:
+                - name: Service Fabric con Azure Resource Manager
+                  href: log-analytics-service-fabric-azure-resource-manager.md
+            - name: Mapa de servicio
+              items:
+                - name: Uso
+                  href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Configuración
+                  href: ../monitoring/monitoring-service-map-configure.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Integración con Operations Manager
+                  href: ../monitoring/monitoring-service-map-scom.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Comprobación de estado de SQL
+              href: log-analytics-sql-assessment.md
+            - name: Surface Hub
+              href: log-analytics-surface-hubs.md
+            - name: Administración de actualizaciones
+              href: ../automation/automation-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: VMware
+              href: log-analytics-vmware.md
+            - name: Análisis de Windows
+              items:
+                - name: Update Compliance
+                  href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
+                - name: Upgrade Readiness
+                  href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
+            - name: Wire Data
+              href: log-analytics-wire-data.md
     - name: Desarrollo
       items:
         - name: Cmdlets de PowerShell

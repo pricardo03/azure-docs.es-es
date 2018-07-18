@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configuración de la cuenta Microsoft | Microsoft Docs'
+title: Configuración de la cuenta Microsoft en Azure Active Directory B2C | Microsoft Docs
 description: Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas Microsoft en las aplicaciones protegidas por Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: e167c8737bc600f52759f33456fec3bc6e0a3678
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: c788b14a99125a208390cd4f8ead338efed06933
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444174"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión para los consumidores con cuentas Microsoft
 ## <a name="create-a-microsoft-account-application"></a>Creación de una aplicación de cuenta Microsoft

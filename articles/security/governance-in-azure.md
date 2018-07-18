@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: a5f323b98fa30d2c4c89fa8fe8e75c1d89089b6e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061503"
 ---
 # <a name="governance-in-azure"></a>Sistema de gobierno en Azure
 
@@ -412,7 +413,7 @@ Azure Security Center supervisa los siguientes recursos de Azure:
 
 ### <a name="log-analytics"></a>Log Analytics
 
-El [programa de gobierno](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) y seguridad de la información del equipo de servicio y desarrollo del software de Log Analytics respalda sus requisitos empresariales y cumple las leyes y los reglamentos, tal y como se describe en el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/) y en [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). En estas páginas también se describe cómo Log Analytics establece los requisitos de seguridad, identifica los controles de seguridad, y administra y supervisa los riesgos. Cada año, revisamos las directivas, los estándares, los procedimientos y las instrucciones.
+El [programa de gobierno](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) y seguridad de la información del equipo de servicio y desarrollo del software de Log Analytics respalda sus requisitos empresariales y cumple las leyes y los reglamentos, tal y como se describe en el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/) y en [Microsoft Trust Center Compliance](https://microsoft.com/en-us/trustcenter/compliance). En estas páginas también se describe cómo Log Analytics establece los requisitos de seguridad, identifica los controles de seguridad, y administra y supervisa los riesgos. Cada año, revisamos las directivas, los estándares, los procedimientos y las instrucciones.
 
 Cada miembro del equipo de desarrollo de Log Analytics recibe aprendizaje formal sobre seguridad de aplicaciones. Internamente, utilizamos un sistema de control de versiones para el desarrollo de software. Cada proyecto de software se protege mediante el sistema de control de versiones.
 

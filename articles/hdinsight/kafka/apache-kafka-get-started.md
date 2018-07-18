@@ -3,9 +3,8 @@ title: 'Guía de inicio rápido: Introducción a Apache Kafka en Azure HDInsight
 description: En esta guía de inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure HDInsight con Azure Portal. También aprenderá sobre los temas, los suscriptores y los consumidores de Kafka.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: dhgoelmsft
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: mvc,hdinsightactive
@@ -13,13 +12,14 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/16/2018
+ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: c405d95c53baa07ff21a7d919177bd720202ac14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342160"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guía de inicio rápido: Creación de un clúster de Kafka en HDInsight
 
@@ -32,22 +32,22 @@ En esta guía de inicio rápido, aprenderá a crear un clúster de [Apache Kafka
 > [!IMPORTANT]
 > Solo los recursos dentro de la misma red virtual pueden tener acceso a la API de Kafka. En esta guía de inicio rápido, tendrá acceso al clúster directamente mediante SSH. Para conectar otros servicios, redes o máquinas virtuales con Kafka, primero debe crear una red virtual y, a continuación, crear los recursos dentro de la red.
 >
-> Para obtener más información, consulte el documento [Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md).
+> Para obtener más información, consulte el documento [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) (Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* Un cliente SSH. Los pasos descritos en este documento utilizan SSH para conectarse al clúster.
+* Un cliente SSH. Los pasos descritos en este documento usan SSH para conectarse al clúster.
 
-    El comando `ssh` se proporciona de forma predeterminada en los sistemas Linux, Unix y macOS. En Windows 10, utilice uno de los métodos siguientes para instalar el comando `ssh`:
+    El comando `ssh` se proporciona de forma predeterminada en los sistemas Linux, Unix y macOS. En Windows 10, use uno de los métodos siguientes para instalar el comando `ssh`:
 
-    * Use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). El shell de nube proporciona el comando `ssh` y puede configurarse para usar Bash o PowerShell como entorno de shell.
+    * Use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Cloud Shell proporciona el comando `ssh` y puede configurarse para usar Bash o PowerShell como entorno de shell.
 
-    * [Instale el subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10). Las distribuciones de Linux disponibles a través de Microsoft Store proporcionan el comando `ssh`.
+    * [Instale el subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10). Las distribuciones de Linux disponibles en Microsoft Store proporcionan el comando `ssh`.
 
     > [!IMPORTANT]
-    > Los pasos descritos en este documento suponen que usa uno de los clientes SSH mencionados anteriormente. Si utiliza un cliente SSH diferente y tiene problemas, consulte la documentación para el cliente SSH.
+    > Los pasos descritos en este documento suponen que usa uno de los clientes SSH mencionados anteriormente. Si usa un cliente SSH diferente y tiene problemas, consulte la documentación para el cliente SSH.
     >
     > Para más información, vea el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -64,7 +64,7 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
     | Configuración | Valor |
     | --- | --- |
     | Cluster Name | Un nombre exclusivo para el clúster de HDInsight. |
-    | La suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     
     Seleccione __Tipo de clúster__ para mostrar **Configuración del clúster**.
 
@@ -75,7 +75,7 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
     | Configuración | Valor |
     | --- | --- |
     | Tipo de clúster | Kafka |
-    | Versión | Kafka 0.10.0 (HDI 3.6) |
+    | Versión | Kafka 1.0.0 (HDI 3.6) |
 
     Use el botón **Seleccionar** para guardar la configuración del tipo de clúster y vuelva a __Básico__.
 
@@ -100,7 +100,7 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
 
     Use el botón __Siguiente__ para finalizar la configuración básica.
 
-5. Desde **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento.
+5. Desde **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento. Para más información sobre el uso de Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Configuración de la cuenta de almacenamiento de HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 
@@ -112,7 +112,7 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
     > Para garantizar la disponibilidad de Kafka en HDInsight, la entrada del __número de nodos de trabajo__ debe establecerse en 3 o superior. El valor predeterminado es 4.
     
     > [!TIP]
-    > Los **discos por entrada de nodo de trabajo** configuran la escalabilidad de Kafka en HDInsight. Kafka en HDInsight utiliza el disco local de las máquinas virtuales del clúster para almacenar los datos. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se utiliza para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo. El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). El tipo de disco depende del tamaño VM que utilizan los nodos de trabajo (agentes de Kafka). Los discos Premium se utilizan automáticamente con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
+    > Los **discos por entrada de nodo de trabajo** configuran la escalabilidad de Kafka en HDInsight. Kafka en HDInsight usa el disco local de las máquinas virtuales del clúster para almacenar datos. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se usa para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo. El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). El tipo de disco depende del tamaño de máquina virtual que usan los nodos de trabajo (agentes de Kafka). Los discos Premium se usan automáticamente con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
 
     ![Establecer al tamaño de clúster de Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
@@ -133,7 +133,7 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
     ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
-2. Cuando se conecte por primera vez al clúster, el cliente SSH puede mostrar una advertencia de que no se puede establecer la autenticidad del host. Cuando se le pida, escriba __sí__ y presione __ENTRAR__ para agregar el host a la lista de servidores de confianza de su cliente SSH.
+2. Cuando se conecte por primera vez al clúster, es posible que el cliente SSH muestre una advertencia de que no se puede establecer la autenticidad del host. Cuando se le solicite, escriba __yes__ (sí) y presione __Entrar__ para agregar el host a la lista de servidores de confianza de su cliente SSH.
 
 3. Cuando se le solicite, escriba la contraseña del usuario de SSH.
 
@@ -163,11 +163,11 @@ ssuhuser@hn0-mykafk:~$
 
 ## <a id="getkafkainfo"></a>Obtención de la información del host de Zookeeper y del agente
 
-Cuando se trabaja con Kafka, debe conocer los hosts de *Zookeeper* y de *Broker*. Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
+Cuando se trabaja con Kafka, debe conocer los hosts de *Zookeeper* y del *agente*. Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
 
 En esta sección, obtendrá la información de host de la API de REST de Ambari en el clúster.
 
-1. Desde la conexión SSH al clúster, use el siguiente comando para instalar la utilidad `jq`. Esta utilidad se emplea para analizar documentos JSON y es útil para recuperar la información de host:
+1. Desde la conexión SSH al clúster, use el siguiente comando para instalar la utilidad `jq`. Esta utilidad se usa para analizar documentos JSON y es útil para recuperar la información de host:
    
     ```bash
     sudo apt -y install jq
@@ -182,15 +182,18 @@ En esta sección, obtendrá la información de host de la API de REST de Ambari 
     Cuando se le solicite, escriba el nombre del clúster de Kafka.
 
 3. Para establecer una variable de entorno con la información de host de Zookeeper, use el comando siguiente:
-
+    
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
+
+    > [!TIP]
+    > Este comando realiza una consulta directamente al servicio Ambari en el nodo principal del clúster. También puede acceder a Ambari utilizando la dirección pública `https://$CLUSTERNAME.azurehdinsight.net:80/`. Algunas configuraciones de red pueden impedir el acceso a la dirección pública. Por ejemplo, mediante grupos de seguridad de red (NSG) para restringir el acceso a HDInsight en una red virtual.
 
     Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (no la cuenta de SSH).
 
     > [!NOTE]
-    > Este comando recupera todos los hosts de Zookeeper y, a continuación, devuelve solo las primeras dos entradas. Esto se debe a que desea cierta redundancia en caso de que un host sea inaccesible.
+    > Este comando recupera todos los hosts de Zookeeper y, a continuación, devuelve solo las dos primeras entradas. Esto se debe a que quiere cierta redundancia en caso de que un host sea inaccesible.
 
 4. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 
@@ -205,7 +208,7 @@ En esta sección, obtendrá la información de host de la API de REST de Ambari 
 5. Para establecer una variable de entorno con la información de host del agente de Kafka, use el comando siguiente:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
     Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (no la cuenta de SSH).
@@ -220,9 +223,9 @@ En esta sección, obtendrá la información de host de la API de REST de Ambari 
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>Administración de los temas de Kafka
+## <a name="manage-kafka-topics"></a>Administración de temas de Kafka
 
-Kafka almacena los flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.sh` para administrar los temas.
+Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.sh` para administrar temas.
 
 * **Para crear un tema**, use el comando siguiente en la conexión SSH:
 

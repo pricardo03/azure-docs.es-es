@@ -1,24 +1,19 @@
 ---
 title: Cómo programar trabajos con IoT Hub de Azure (.NET/.NET) | Microsoft Docs
 description: Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. El SDK de dispositivo IoT de Azure para .NET se usa para implementar las aplicaciones de dispositivo simulado y una aplicación de servicio para ejecutar el trabajo.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 012/16/2018
-ms.author: v-masebo;dobett
-ms.openlocfilehash: 76c8d3739b2af3c010cd80585c93c097fc9eb466
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-hub
+ms.topic: conceptual
+ms.date: 03/06/2018
+ms.author: dobett
+ms.openlocfilehash: beb1e1e166325cb41a5d4e4fa07565b1f3d4b3bb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666923"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Programación y difusión de trabajos (.NET/.NET)
 
@@ -87,8 +82,9 @@ En esta sección, creará una aplicación de consola de .NET que responderá a u
     ```csharp
     static string DeviceConnectionString = "<yourDeviceConnectionString>";
     static DeviceClient Client = null;
+    ```
 
-1. Add the following to implement the direct method on the device:
+1. Agregue lo siguiente para implementar el método directo en el dispositivo:
 
     ```csharp
     static Task<MethodResponse> LockDoor(MethodRequest methodRequest, object userContext)
@@ -100,8 +96,9 @@ En esta sección, creará una aplicación de consola de .NET que responderá a u
         string result = "'Door was locked.'";
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
+    ```
 
-1. Add the following to implement the device twins listener on the device:
+1. Agregue lo siguiente para implementar el agente de escucha de dispositivos gemelos en el dispositivo:
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
@@ -175,6 +172,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que u
 1. Agregue los campos siguientes a la clase **Program** . Sustituya los marcadores de posición por la cadena de conexión de IoT Hub que creó en la sección anterior y el nombre del dispositivo.
 
     ```csharp
+    static JobClient jobClient;
     static string connString = "<yourIotHubConnectionString>";
     static string deviceId = "<yourDeviceId>";
     ```

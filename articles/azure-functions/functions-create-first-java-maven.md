@@ -11,14 +11,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/02/2018
+ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: df3c64938cfc5835fd9eb2f0bbed0135b611347f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341528"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Creación de la primera función con Java y Maven (versión preliminar)
 
@@ -43,23 +44,9 @@ Para desarrollar una aplicación de funciones con Java, debe tener instalado lo 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalación de Azure Functions Core Tools
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) proporciona un entorno de desarrollo local para escribir, ejecutar y depurar Azure Functions. 
+Azure Functions Core Tools proporciona un entorno de desarrollo local para escribir, ejecutar y depurar Azure Functions desde el terminal o el símbolo del sistema. 
 
-Para instalarlo, visite la sección [Installing](https://github.com/azure/azure-functions-core-tools#installing) (Instalación) del proyecto Azure Functions Core Tools para encontrar las instrucciones concretas de su sistema operativo.
-
-También puede instalarlo manualmente con [npm](https://www.npmjs.com/), que se incluye con [Node.js](https://nodejs.org/), después de instalar lo siguiente:
-
--  La versión más reciente de [.NET Core](https://www.microsoft.com/net/core).
--  [Node.js](https://nodejs.org/download/), versión 8.6 o posterior.
-
-Para continuar con una instalación basada en npm, ejecute:
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> Si tiene problemas para instalar la versión 2.0 de Azure Functions Core Tools, consulte [Entorno en tiempo de ejecución versión 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
+Instale la [versión 2 de Core Tools](functions-run-local.md#v2) en el equipo local antes de continuar.
 
 ## <a name="generate-a-new-functions-project"></a>Generación de un nuevo proyecto de Functions
 
@@ -127,7 +114,7 @@ public class Function {
 Cambie de directorio a la carpeta de proyecto que acaba de crear y compile y ejecute la función con Maven:
 
 ```
-cd fabrikam-function
+cd fabrikam-functions
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -185,7 +172,7 @@ Cuando se complete la implementación, verá la dirección URL que puede usar pa
 Pruebe la aplicación de función que se ejecuta en Azure mediante `cURL`. Es preciso que cambie dirección URL del ejemplo siguiente para coincida con la implementada para su propia aplicación de función en el paso anterior.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
@@ -194,7 +181,7 @@ Hello AzureFunctions!
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Creó una aplicación de función de Java con un desencadenador HTTP simple y la implementó en Azure Functions.
+Ha creado una aplicación de función de Java con un desencadenador HTTP simple y la ha implementado en Azure Functions.
 
 - Revise la [guía para desarrolladores de Java Functions](functions-reference-java.md) para más información sobre cómo desarrollar funciones de Java.
 - Agregue funciones adicionales con desencadenadores distintos en el proyecto con el destino de Maven `azure-functions:add`.

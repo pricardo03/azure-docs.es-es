@@ -13,14 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159007"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824275"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:
@@ -186,9 +187,9 @@ A la cuenta también se le conceden permisos para archivos, claves del Registro 
 ### <a name="azure-ad-service-account"></a>Cuenta de servicio de Azure AD
 Se crea una cuenta de Azure AD para el uso del servicio de sincronización. Esta cuenta se puede identificar por su nombre para mostrar.
 
-![Cuenta de AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![Cuenta de AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-El nombre del servidor en el que se usa la cuenta se puede identificar en la segunda parte del nombre de usuario. En la imagen el nombre del servidor es FABRIKAMCON. Si tiene servidores de ensayo, cada servidor tiene su propia cuenta.
+El nombre del servidor en el que se usa la cuenta se puede identificar en la segunda parte del nombre de usuario. En la imagen, el nombre del servidor es DC1. Si tiene servidores de ensayo, cada servidor tiene su propia cuenta.
 
 La cuenta de servicio se crea con una contraseña larga compleja que no expira. Se le concede el rol especial **Cuentas de sincronización de directorio** que solo tiene permisos para realizar tareas de sincronización de directorios. No se puede conceder este rol integrado especial fuera del asistente de Azure AD Connect. En Azure Portal se muestra esta cuenta con el rol **Usuario**.
 

@@ -1,13 +1,13 @@
 ---
-title: "Conexión de la red local a una red virtual de Azure: VPN de sitio a sitio (clásico): Portal | Microsoft Docs"
-description: "Cree una conexión de IPsec desde la red local a una red virtual clásica de Azure a través de la red pública de Internet."
+title: 'Conexión de la red local a una red virtual de Azure: VPN de sitio a sitio (clásico): Portal | Microsoft Docs'
+description: Cree una conexión de IPsec desde la red local a una red virtual clásica de Azure a través de la red pública de Internet.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9fa8455e3be6dced5717e2a7399d0eae0e26a09b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477903"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creación de una conexión de sitio a sitio mediante Azure Portal (clásico)
 
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/21/2018
 Este artículo muestra cómo usar Azure Portal para crear una conexión de puerta de enlace VPN de sitio a sitio desde la red local a la red virtual. Los pasos descritos en este artículo se aplican al modelo de implementación clásica. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [portal de Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal de Azure clásico](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -67,7 +68,7 @@ Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos
 * **Nombre del sitio local:** Site2
 * **Espacio de direcciones del cliente:** es el espacio de direcciones que se encuentra en el sitio local.
 
-## <a name="CreatVNet"></a>1. Crear una red virtual
+## <a name="CreatVNet"></a>1. Creación de una red virtual
 
 Cuando se crea una red virtual que se usará para una conexión S2S, debe asegurarse de que los espacios de direcciones que especifique no se superponen con ninguno de los espacios de direcciones de cliente de los sitios locales a los que desea conectarse. Si tiene subredes superpuestas, la conexión no funcionará correctamente.
 
@@ -190,7 +191,7 @@ En este paso, se establece la clave compartida y se crea la conexión. La clave 
   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
   ```
 
-### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Paso 2: Establecimiento de la clave compartida y creación de la conexión
+### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Paso 2. Establecimiento de la clave compartida y creación de la conexión
 
 Al trabajar con PowerShell y el modelo de implementación clásico, a veces los nombres de recursos en el portal no son los nombres que Azure espera ver cuando se usa PowerShell. Los pasos siguientes ayudan a exportar el archivo de configuración de red para obtener los valores exactos de los nombres.
 

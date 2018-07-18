@@ -10,14 +10,14 @@ ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 964ba0eb9c619fa226b0704a6c83c05186a95261
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 19657030c69d9d62fbbe0a8058e50238b2afa67f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197161"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750123"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copia de datos de los blobs de Azure Storage en Data Lake Store
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintaxis de la herramienta AdlCopy
 Use la siguiente sintaxis para trabajar con la herramienta AdlCopy.
 
-    AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Unit <Number of Analytics units> /Pattern
+    AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Units <Number of Analytics units> /Pattern
 
 A continuación, se describen los parámetros de la sintaxis:
 
@@ -137,7 +137,7 @@ Para usar la cuenta de Data Lake Analytics con AdlCopy para copiar desde un blob
 
 Ejecute el siguiente comando para copiar de un blob de Azure Storage a una cuenta de Data Lake Store mediante la cuenta de Data Lake Analytics:
 
-    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
+    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
 Por ejemplo: 
 

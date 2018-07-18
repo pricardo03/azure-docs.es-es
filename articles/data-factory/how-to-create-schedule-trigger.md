@@ -10,22 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054361"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
 
 Al crear un desencadenador de programación, especifique una programación (fecha de inicio, periodicidad, fecha de finalización, etc.) para el desencadenador y asócielo con una canalización. Las canalizaciones y los desencadenadores tienen una relación de varios a varios. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones.
-
-> [!NOTE]
-> Este artículo se aplica a Azure Data Factory versión 2, que actualmente se encuentra en versión preliminar. Si usa Azure Data Factory versión 1, que está disponible con carácter general, consulte [Get started with Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Comenzar a usar Azure Data Factory versión 1).
 
 En las secciones siguientes se proporcionan los pasos necesarios para crear un desencadenador de programación de diferentes maneras. 
 
@@ -248,7 +246,7 @@ Para supervisar las ejecuciones del desencadenador y de la canalización en Azur
 Puede usar una plantilla de Azure Resource Manager para crear un desencadenador. Para obtener instrucciones detalladas, consulte [Creación de una instancia de Azure Data Factory mediante una plantilla de Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Transmisión de la hora de inicio del desencadenador a una canalización
-La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión 2 de Azure Data Factory, puede lograr este comportamiento con un parámetro de la canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
+La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión actual de Azure Data Factory, puede lograr este comportamiento con un parámetro de la canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
 
 ```json
 "parameters": {
@@ -325,7 +323,7 @@ En la tabla siguiente se muestra una descripción general de los elementos del e
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valores predeterminados del esquema, límites y ejemplos
 
-| Propiedad JSON | type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
+| Propiedad JSON | Escriba | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Sí | None | Fechas-horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

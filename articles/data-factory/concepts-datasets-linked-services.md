@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38581273"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de datos y servicios vinculados en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-create-datasets.md)
-> * [Versión 2: versión preliminar](concepts-datasets-linked-services.md)
+> * [Versión 1](v1/data-factory-create-datasets.md)
+> * [Versión actual](concepts-datasets-linked-services.md)
 
-En este artículo se describe qué son los conjuntos de datos, cómo se definen en formato JSON y cómo se usan en canalizaciones de Azure Data Factory V2. 
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), vea la [Datasets in Data Factory V1](v1/data-factory-create-datasets.md) (Conjuntos de datos en Data Factory V1).
+En este artículo se describe qué son los conjuntos de datos, cómo se definen en formato JSON y cómo se usan en canalizaciones de Azure Data Factory. 
 
 Si no está familiarizado con Data Factory, consulte [Introducción a Azure Data Factory](introduction.md) para obtener información general. 
 
@@ -219,13 +217,13 @@ Las siguientes instrucciones le ayudan a determinar cuándo incluir información
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 Puede crear conjuntos de datos mediante una de estas herramientas o SDK: [API de .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API de REST](quickstart-create-data-factory-rest-api.md), plantilla de Azure Resource Manager y Azure Portal
 
-## <a name="v1-vs-v2-datasets"></a>Conjuntos de datos V1 frente a V2
+## <a name="current-version-vs-version-1-datasets"></a>Conjuntos de datos de la versión actual frente a los de la versión 1
 
-A continuación se indican algunas diferencias entre los conjuntos de datos de Data Factory v1 y v2: 
+A continuación se indican algunas diferencias entre los conjuntos de datos de Data Factory frente a los de Data Factory versión 1: 
 
-- La propiedad externa no se admite en v2. Se sustituye por un [desencadenador](concepts-pipeline-execution-triggers.md).
-- Las propiedades de directiva y disponibilidad no se admiten en V2. La hora de inicio de una canalización depende de [desencadenadores](concepts-pipeline-execution-triggers.md).
-- Los conjuntos de datos con ámbito (conjuntos de datos definidos en una canalización) no se admiten en V2. 
+- La propiedad externa no se admite en la versión actual. Se sustituye por un [desencadenador](concepts-pipeline-execution-triggers.md).
+- Las propiedades de directiva y disponibilidad no se admiten en la versión actual. La hora de inicio de una canalización depende de [desencadenadores](concepts-pipeline-execution-triggers.md).
+- Los conjuntos de datos con ámbito (conjuntos de datos definidos en una canalización) no se admiten en la versión actual. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el siguiente tutorial para obtener instrucciones paso a paso sobre cómo crear canalizaciones y conjuntos de datos con una de estas herramientas o SDK. 

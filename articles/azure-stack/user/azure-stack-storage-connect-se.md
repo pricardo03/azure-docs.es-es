@@ -10,24 +10,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: mattbriggs
+ms.date: 05/21/2018
+ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a3a69f3cf91c0d202d54d0da5dc5fe0531ef9db1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196384"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714908"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Conexión del Explorador de Storage a una suscripción de Azure Stack o una cuenta de almacenamiento
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-En este artículo, aprenderá a conectarse a sus suscripciones y cuentas de almacenamiento de Azure Stack mediante el Explorador de Storage. El Explorador de Azure Storage es una aplicación independiente que permite trabajar fácilmente con datos de almacenamiento de Azure Stack en Windows, macOS y Linux.
+En este artículo, aprenderá a conectarse a sus suscripciones y cuentas de almacenamiento de Azure Stack mediante el explorador de almacenamiento. El Explorador de Azure Storage es una aplicación independiente que permite trabajar fácilmente con datos de almacenamiento de Azure Stack en Windows, macOS y Linux.
 
->[!NOTE]
->Hay varias herramientas disponibles para mover datos hacia el almacenamiento de Azure Stack Storage y desde este. Para más información, consulte [Herramientas de transferencia de datos de Azure Stack Storage](azure-stack-storage-transfer.md).
+> [!NOTE]  
+> Hay varias herramientas disponibles para mover datos hacia el almacenamiento de Azure Stack y desde este. Para más información, consulte [Herramientas de transferencia de datos de Azure Stack Storage](azure-stack-storage-transfer.md).
 
 Si no lo ha instalado todavía, [descargue el Explorador de Storage](http://www.storageexplorer.com/) e instálelo.
 
@@ -76,7 +76,7 @@ Utilice los pasos siguientes para conectar el Explorador de Storage a una suscri
 
     ![Adición de una cuenta de Azure Stack](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. En el cuadro de diálogo Conectar a Azure Storage, en **Entorno de Azure**, seleccione **Azure** o **Azure China**, en función de la cuenta de Azure Stack que esté utilizando. Seleccione  **Iniciar sesión** para iniciar sesión con la cuenta de Azure Stack que está asociada a una suscripción de Azure Stack activa por lo menos.
+3. En el cuadro de diálogo Conectar a Azure Storage, en el **entorno de Azure**, seleccione **Azure** o **Azure China**, que depende de la cuenta de Azure Stack utilizada y, a continuación, seleccione **Iniciar sesión** para iniciar sesión con la cuenta de Azure Stack asociada con al menos una suscripción activa de Azure Stack.
 
     ![Conectar a Azure Storage](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

@@ -1,24 +1,20 @@
 ---
-title: "Información general de los elementos fundamentales de Azure Service Bus | Microsoft Docs"
-description: "Una introducción a la utilización de Service Bus para conectar aplicaciones de Azure a otro software."
+title: Información general de los elementos fundamentales de Azure Service Bus | Microsoft Docs
+description: Una introducción a la utilización de Service Bus para conectar aplicaciones de Azure a otro software.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2018
+ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641329"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -37,14 +33,14 @@ Service Bus es un servicio en la nube multiinquilino, lo que significa que vario
 Dentro de un espacio de nombres puede usar uno o más ejemplos de los tres mecanismos de comunicación diferentes, que se conectan a las aplicaciones de forma distinta. Las opciones son las siguientes:
 
 * *Colas*, que permiten una comunicación unidireccional. Cada cola funciona como un intermediario (al que se le llama a veces *agente*) que almacena los mensajes enviados hasta que se reciben. Cada mensaje lo recibe un único destinatario.
-* *Temas*, que proporcionan una comunicación unidireccional mediante *suscripciones* (un solo tema puede tener varias suscripciones). Al igual que las colas, los temas funcionan como agentes, pero cada suscripción puede usar opcionalmente un filtro para recibir solo los mensajes que cumplan criterios concretos.
+* *Temas*, que proporcionan comunicación unidireccional mediante *suscripciones*. Un solo tema puede tener varias suscripciones. Al igual que las colas, los temas funcionan como agentes, pero cada suscripción puede usar opcionalmente un filtro para recibir solo los mensajes que cumplan criterios concretos.
 * *Retransmisiones*, que permiten una comunicación bidireccional. A diferencia de las colas y los temas, las retransmisiones no almacenan mensajes que se encuentran en proceso; no son agentes. Simplemente los transmiten a la aplicación de destino.
 
 Cuando cree una cola, un tema o una retransmisión, asígneles un nombre. Cuando se combina con el nombre del espacio de nombres, se crea un identificador exclusivo para el objeto. Las aplicaciones pueden proporcionar este nombre a Service Bus y, a continuación, usar esa cola, tema o retransmisión para comunicarse entre sí. 
 
 Para usar cualquiera de estos objetos en el escenario de retransmisión, las aplicaciones de Windows pueden usar Windows Communication Foundation (WCF). Este servicio se conoce como [WCF Relay](../service-bus-relay/relay-what-is-it.md). En el caso de las colas y los temas, las aplicaciones de Windows pueden usar las API de mensajería definidas por Service Bus. Para facilitar el uso de estos objetos desde aplicaciones que no sean de Windows, Microsoft proporciona SDK para Java, Node.js y otros lenguajes. También se puede acceder a las colas y a los temas mediante las [API de REST](/rest/api/servicebus/) sobre HTTP(s). 
 
-Es importante comprender que aunque Service Bus se ejecute en la nube (es decir, en los centros de datos de Microsoft Azure), las aplicaciones que usa pueden ejecutarse desde cualquier lugar. Puede usar Service Bus para conectarse a aplicaciones que se ejecutan, por ejemplo, en Azure o aplicaciones que se ejecutan dentro de su propio centro de datos. También puede usarlo para conectarse a una aplicación que se ejecuta en Azure o a otra plataforma en la nube con una aplicación local o con tabletas y teléfonos. Es posible incluso conectar aparatos domésticos, sensores y otros dispositivos a una aplicación central, o conectar estos dispositivos entre sí. Service Bus es un mecanismo de comunicación en la nube al que se puede acceder desde prácticamente cualquier lugar. La forma en la que lo use depende de las tareas que tengan que realizar sus aplicaciones.
+Es importante comprender que aunque Service Bus se ejecute en la nube (es decir, en los centros de datos de Microsoft Azure), las aplicaciones que usa pueden ejecutarse desde cualquier lugar. Puede usar Service Bus para conectarse a aplicaciones que se ejecutan, por ejemplo, en Azure o aplicaciones que se ejecutan dentro de su propio centro de datos. También puede usarlo para conectar una aplicación que se ejecuta en Azure o en otra plataforma en la nube con una aplicación local o con tabletas y teléfonos. Service Bus es un mecanismo de comunicación en la nube al que se puede acceder desde prácticamente cualquier lugar. La forma en la que lo use depende de las tareas que tengan que realizar sus aplicaciones.
 
 ## <a name="queues"></a>Colas
 
@@ -54,9 +50,9 @@ Supongamos que decide conectar dos aplicaciones con una cola de Service Bus. La 
 
 **Figura 2: las colas de Service Bus proporcionan una cola asincrónica unidireccional.**
 
-Un usuario envía un mensaje a la cola de Service Bus y un receptor lo recoge más tarde. Una cola puede tener solo un único receptor, como muestra la Figura 2, o bien varias aplicaciones pueden leer de la misma cola. En el segundo caso, cada mensaje lo lee un solo receptor. Para un servicio de multidifusión, es preciso utilizar un tema.
+Un usuario envía un mensaje a la cola de Service Bus y un receptor lo consume más tarde. Una cola puede tener solo un único receptor, como muestra la Figura 2, o bien varias aplicaciones pueden leer de la misma cola. En el segundo caso, cada mensaje lo lee un solo receptor. Para un servicio de multidifusión, es preciso utilizar un tema.
 
-Cada mensaje tiene dos partes: un conjunto de propiedades, cada una de ellas, un par clave/valor, y una carga de mensaje. La carga de mensaje puede ser binaria, texto o incluso XML. El modo en que se usan depende de lo que una aplicación esté tratando de hacer. Por ejemplo, una aplicación que envía un mensaje sobre una venta reciente podría incluir las propiedades **Seller="Ava"** y **Amount=10000**. El cuerpo del mensaje puede contener una imagen escaneada del contrato firmado de la venta o, si no la hubiera, puede aparecer vacío.
+Cada mensaje tiene dos partes: un conjunto de propiedades, un par clave y valor y una carga de mensaje. La carga de mensaje puede ser binaria, texto o incluso XML. El modo en que se usan depende de lo que una aplicación esté tratando de hacer. Por ejemplo, una aplicación que envía un mensaje sobre una venta reciente podría incluir las propiedades **Seller="Ava"** y **Amount=10000**. El cuerpo del mensaje puede contener una imagen escaneada del contrato firmado de la venta o, si no la hubiera, puede aparecer vacío.
 
 El receptor puede leer los mensajes de la cola de Service Bus de dos formas distintas. La primera opción, denominada *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, recibe un mensaje de la cola y lo elimina de inmediato. Esta opción es sencilla, pero si se produce un error por parte del receptor antes de que finalice el procesamiento del mensaje, este se perderá. Puesto que se quita de la cola, ningún otro receptor podrá obtener acceso a él. 
 
@@ -68,7 +64,7 @@ La segunda opción, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemo
 
 Observe lo que puede ocurrir aquí: el mismo mensaje puede enviarse dos veces, quizás a dos receptores distintos. Las aplicaciones que usan colas de Service Bus deben estar preparadas para este evento. Para facilitar la detección de duplicados, cada mensaje dispone de una propiedad [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) única que no se modifica de forma predeterminada, independientemente del número de veces que se lea un mensaje en una cola. 
 
-Las colas son útiles en determinadas situaciones. Permiten a las aplicaciones comunicarse incluso si ambos no se están ejecutando a la vez. Esto es especialmente útil con aplicaciones móviles y por lotes. Una cola con varios receptores también proporciona un equilibrio de carga automático, ya que los mensajes enviados se difunden a través de esos receptores.
+Las colas son útiles en determinadas situaciones. Permiten a las aplicaciones comunicarse incluso si ambas no se están ejecutando a la vez. Esto es especialmente útil con aplicaciones móviles y por lotes. Una cola con varios receptores también proporciona un equilibrio de carga automático, ya que los mensajes enviados se difunden a través de esos receptores.
 
 ## <a name="topics"></a>Temas
 
@@ -78,11 +74,11 @@ Aunque son útiles, las colas no siempre son la solución adecuada. En ocasiones
 
 **Figura 3: En función del filtro que especifique la aplicación de suscripción, puede recibir algunos de los mensajes enviados a un tema de Service Bus, o todos ellos.**
 
-Un *tema* se parece en muchos aspectos a una cola. Los remitentes envían mensajes a un tema de la misma forma en la que envían mensajes a una cola, y esos mensajes tienen la misma apariencia que las colas. La diferencia es que los temas permiten a cada aplicación receptora crear su propia *suscripción* mediante la definición opcional de un *filtro*. Un suscriptor ve, por lo tanto, solo los mensajes que coincidan con ese filtro. Por ejemplo, la Figura 3 muestra un remitente y un tema con tres suscriptores, cada uno con su propio filtro:
+Un *tema* se parece en muchos aspectos a una cola. Los remitentes envían mensajes a un tema de la misma forma en la que envían mensajes a una cola, y esos mensajes tienen la misma apariencia que las colas. La diferencia es que los temas permiten a cada aplicación receptora crear su propia *suscripción* mediante la definición opcional de un *filtro*. Un suscriptor recibe una copia de cada mensaje del tema, pero utilizando un filtro puede recibir solo los mensajes que coinciden con ese filtro. Por ejemplo, la Figura 3 muestra un remitente y un tema con tres suscriptores, cada uno con su propio filtro:
 
-* El suscriptor 1 recibe solo mensajes que contienen la propiedad *Seller="Ava"*.
-* El suscriptor 2 recibe mensajes que contienen la propiedad *Seller="Ruby"* o la propiedad *Amount* cuyo valor es superior a 100.000. Quizás Ruby es la directora de ventas, y por eso quiere ver sus propias ventas y todas las ventas importantes con independencia de quién las haga.
-* El suscriptor 3 ha establecido su filtro en *True*, lo que significa que recibe todos los mensajes. Por ejemplo, esta aplicación puede ser responsable de mantener una traza de auditoría y, por tanto, necesita ver todos los mensajes.
+* El suscriptor 1 recibe solo mensajes que contienen la propiedad **Seller="Ava"**.
+* El suscriptor 2 recibe mensajes que contienen la propiedad **Seller="Ruby"** o la propiedad **Amount** cuyo valor es superior a 100.000. Quizás Ruby es la directora de ventas, y por eso quiere ver sus propias ventas y todas las ventas importantes con independencia de quién las haga.
+* El suscriptor 3 ha establecido su filtro en **True**, lo que significa que recibe todos los mensajes. Por ejemplo, esta aplicación puede ser responsable de mantener una traza de auditoría y, por tanto, necesita ver todos los mensajes.
 
 Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes utilizando [ReceiveAndDelete o PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). Sin embargo, a diferencia de las colas, varias suscripciones pueden recibir un mensaje individual enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir* (o *pub/sub*), es útil cuando hay varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
 

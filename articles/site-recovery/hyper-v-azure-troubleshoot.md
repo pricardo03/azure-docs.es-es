@@ -7,13 +7,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 95a33c80b1aeef7fbf8bea0ab760bbd66babdac8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 97006f2dfecc8d3ade680f97cbb7776dfda98dd5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921032"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -115,7 +116,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
         - Contador: "Bytes de escritura/seg"</br>
         - Esta tasa de modificación de datos aumentará o permanecer en un nivel alto, dependiendo de cómo de estén de ocupadas la máquina virtual o sus aplicaciones.
         - El promedio de modificación de datos del disco de origen es 2 MB/s de almacenamiento estándar para Site Recovery. [Más información](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Además, puede [comprobar los objetivos de escalabilidad de Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets.md#scalability-targets-for-a-storage-account).
+    - Además, puede [comprobar los objetivos de escalabilidad de Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
 8. Ejecute [Deployment Planner](hyper-v-deployment-planner-run.md).
 9. Revise las recomendaciones para [red](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) y [almacenamiento](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
@@ -136,7 +137,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 **Código de error** | **Mensaje** | **Detalles**
 --- | --- | ---
-**0x800700EA** | "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress. Replication operation for virtual machine failed: More data is available". (Hyper-V no pudo generar el conjunto de instantáneas VSS para la máquina virtual: hay más datos disponibles. (0x800700EA). La generación de un conjunto de instantáneas VSS puede producir un error si la operación de copia de seguridad está en curso.<br/><br/> Se ha producido un error en la operación de replicación para máquina virtual: hay más datos disponibles). | Compruebe si la máquina virtual tiene habilitado un disco dinámico. No es una opción admitida.
+**0x800700EA** | "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. (Hyper-V no pudo generar el conjunto de instantáneas VSS para la máquina virtual: hay más datos disponibles). (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress. Replication operation for virtual machine failed: More data is available" (La generación de un conjunto de instantáneas VSS puede producir un error si la operación de copia de seguridad está en curso).<br/><br/> Replication operation for virtual machine failed: More data is available (Se ha producido un error en la operación de replicación para máquina virtual: hay más datos disponibles). | Compruebe si la máquina virtual tiene habilitado un disco dinámico. No es una opción admitida.
 **0x80070032** | "Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V" (El solicitante de instantáneas de volumen de Hyper-V no ha podido conectar con la máquina virtual <./VMname> porque la versión no coincide con la versión esperada por Hyper-V) | Compruebe que las actualizaciones más recientes de Windows están instaladas.<br/><br/> [Actualice](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md#keep-integration-services-up-to-date) a la versión más reciente de Integration Services.
 
 

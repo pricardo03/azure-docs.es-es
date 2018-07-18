@@ -1,24 +1,25 @@
 ---
-title: "Corrección de configuraciones de seguridad en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center \"Corregir las configuraciones de seguridad\"."
+title: Corrección de configuraciones de seguridad en Azure Security Center | Microsoft Docs
+description: En este documento se muestra cómo implementar la recomendación de Azure Security Center "Corregir las configuraciones de seguridad".
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285923"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corregir las configuraciones de seguridad en Azure Security Center
 Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Security Center recomienda resolver las vulnerabilidades cuando la configuración del sistema operativo no coincida con las reglas de configuración de seguridad recomendadas y realizar cambios en la configuración para hacer frente a estas vulnerabilidades.
@@ -50,7 +51,7 @@ En este ejemplo, se examinará la recomendación "Corregir las configuraciones d
 
   - **CCEID**: identificador único de CCE para la regla. Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos a las reglas de configuración.
   - **Nombre**: nombre de la regla con error.
-  - **Tipo de regla**: tipo de regla de la *clave del Registro*, *directiva de seguridad* o *directiva de auditoría*.
+  - **Tipo de regla**: tipo de regla de la *clave del Registro*, *directiva de seguridad*, *directiva de auditoría* o *IIS*.
   - **Número de máquinas virtuales y equipos**: número total de máquinas virtuales y equipos en los que se aplica esa regla con errores.
   - **Gravedad de la regla**: valor de CCE, que puede ser *Crítico*, *Importante* o *Advertencia*.
   - **Estado**: el estado actual de la recomendación:
@@ -99,10 +100,10 @@ Consulte la [lista de reglas de configuración recomendadas](https://gallery.tec
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* Para obtener una lista de máquinas virtuales de Windows y Linux compatibles, consulte [Plataformas compatibles con Azure Security Center](security-center-os-coverage.md). 
-* Para aprender a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md). 
-* Para saber qué recomendaciones pueden ayudarle a proteger los recursos de Azure, consulte [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md). 
-* Para saber cómo supervisar el mantenimiento de los recursos de Azure, consulte [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md). 
+* Para obtener una lista de máquinas virtuales de Windows y Linux compatibles, consulte [Plataformas compatibles con Azure Security Center](security-center-os-coverage.md).
+* Para aprender a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md).
+* Para saber qué recomendaciones pueden ayudarle a proteger los recursos de Azure, consulte [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
+* Para saber cómo supervisar el mantenimiento de los recursos de Azure, consulte [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md).
 * Para aprender a administrar y responder a alertas de seguridad, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
 * Para aprender a supervisar el estado de mantenimiento de las soluciones de asociados, consulte [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md).
 * Para obtener respuestas a las preguntas más frecuentes sobre cómo usar el servicio, consulte [Preguntas frecuentes acerca de Azure Security Center](security-center-faq.md).

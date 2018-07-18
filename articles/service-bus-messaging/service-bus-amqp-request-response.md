@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cda313085d197558e969309eaed928421b0b1924
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194711"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752911"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 
@@ -709,4 +709,4 @@ Para obtener más información sobre AMQP y Service Bus, visite los siguientes v
 
 [Información general sobre AMQP para Service Bus]: service-bus-amqp-overview.md
 [Guía del protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
+[AMQP de Service Bus para Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

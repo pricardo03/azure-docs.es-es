@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 170836fb4ef617e7bcbf2e15ebb644855a427b9b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061565"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -26,6 +27,10 @@ En cualquier implementación de producción, la planeación de capacidad es un p
 * Número de tipos de nodos con los que el clúster tiene que empezar
 * Propiedades de cada tipo de nodo (tamaño, principal, accesible desde Internet, número de máquinas virtuales, etc.)
 * Características de confiabilidad y durabilidad del clúster
+
+> [!NOTE]
+> Como mínimo, debe revisar todos los valores **no permitidos** de la directiva de actualización durante la planeación. Esto es para asegurarse de que se establezcan correctamente los valores y para mitigar el consumo del clúster más adelante debido a un conjunto de configuración del sistema que no se puede cambiar. 
+> 
 
 Repasemos brevemente cada uno de estos elementos.
 
@@ -37,60 +42,60 @@ Establezca el número de tipos de nodos con los que el clúster tiene que empeza
 * ¿Tiene la aplicación varios servicios y alguno de ellos ha de ser público o accesible desde Internet? Las aplicaciones típicas contienen un servicio front-end de puerta de enlace que recibe entradas de un cliente, así como uno o varios servicios back-end que se comunican con los servicios front-end. Por lo que en este caso, acaba teniendo al menos dos tipos de nodo.
 * ¿Tienen los servicios (que componen la aplicación) distintos requisitos de infraestructura, como, por ejemplo, una RAM mayor o un número más alto de ciclos de CPU? Por ejemplo, supongamos que la aplicación que desea implementar contiene un servicio front-end y un servicio back-end. El servicio front-end se puede ejecutar en máquinas virtuales más pequeñas (tamaños de VM como D2) que tienen puertos abiertos a Internet.  Pero el servicio back-end es de cálculo intensivo y tiene que ejecutarse en máquinas virtuales más grandes (con tamaños de VM como D4, D6 o D15) que no son accesibles desde Internet.
   
-  En este ejemplo, aunque puede optar por colocar todos los servicios en un tipo de nodo, se recomienda colocarlos en un clúster con dos tipos de nodos.  Esto permite que cada tipo de nodo pueda tener distintas propiedades, como por ejemplo, conectividad a Internet o tamaño de la máquina virtual. El número de máquinas virtuales también se puede escalar de forma independiente.  
-* Puesto que no puede predecir el futuro, parta de hechos que conozca y decida el número de tipos de nodo que con el que deben empezar las aplicaciones. Siempre puede agregar o quitar tipos de nodos más adelante. Un clúster de Service Fabric debe tener como mínimo un tipo de nodo.
+  En este ejemplo, aunque puede optar por colocar todos los servicios en un tipo de nodo, se recomienda colocarlos en un clúster con dos tipos de nodos.  Esto permite que cada tipo de nodo pueda tener distintas propiedades, por ejemplo, conectividad a Internet o tamaño de máquina virtual. El número de máquinas virtuales también se puede escalar de forma independiente.  
+* Como no puede predecir el futuro, parta de hechos que conozca y elija el número de tipos de nodo que con el que deben empezar las aplicaciones. Siempre puede agregar o quitar tipos de nodos más adelante. Un clúster de Service Fabric debe tener como mínimo un tipo de nodo.
 
 ## <a name="the-properties-of-each-node-type"></a>Las propiedades de cada tipo de nodo.
-El **tipo de nodo** puede considerarse similar a los roles de Cloud Services. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuales independiente. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se usa para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo es un conjunto de escalado diferente que se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y distintas métricas de capacidad.
+El **tipo de nodo** puede considerarse similar a los roles de Cloud Services. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. Cada tipo de nodo que se define en un clúster de Service Fabric se asigna a con un [conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).  
+Cada tipo de nodo es un conjunto de escalado diferente que se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y distintas métricas de capacidad. Para más información acerca de las relaciones entre los tipos de nodos y los conjuntos de escalado de máquinas virtuales, cómo conectarse con RDP a una de las instancias, cómo abrir nuevos puertos, etc., consulte [Tipos de nodos de clúster de Service Fabric](service-fabric-cluster-nodetypes.md).
 
-Lea [este documento](service-fabric-cluster-nodetypes.md) para más información sobre la relación de los tipos de nodos y el conjunto de escalado de máquinas virtuales, cómo se usa el protocolo RDP en una de las instancias, cómo se abren nuevos puertos, etc.
+Un clúster de Service Fabric puede constar de más de un tipo de nodo. En ese caso, el clúster consta de un tipo de nodo principal y uno o más tipos de nodo no principales.
 
-El clúster puede tener más de un tipo de nodo, pero el tipo de nodo principal (el primero que se define en el portal) debe tener al menos cinco máquinas virtuales para los clústeres que se usan en cargas de trabajo de producción (o al menos tres máquinas virtuales en clústeres de prueba). Si va a crear el clúster mediante una plantilla de Resource Manager, busque el atributo **Es principal** en la definición del tipo de nodo. El tipo de nodo principal es el tipo de nodo en que se colocan los servicios del sistema de Service Fabric.  
+Un tipo de nodo único simplemente no puede superar los 100 nodos por conjunto de escalado de máquinas virtuales. Es posible que tenga que agregar conjuntos de escalado de máquinas virtuales para lograr la escala de destino y el escalado automático no puede agregar automáticamente conjuntos de escalado de máquinas virtuales. La adición de conjuntos de escalado de máquinas virtuales locales en un clúster en vivo es una tarea difícil y, normalmente, provoca que los usuarios aprovisionen nuevos clústeres con los tipos de nodo adecuados en el momento de la creación. 
 
 ### <a name="primary-node-type"></a>Tipo de nodo principal
-En el caso de un clúster con varios tipos de nodo, tendrá elegir uno de ellos como principal. Estas son las características de un tipo de nodo principal:
 
-* El **tamaño mínimo de las máquinas virtuales** del tipo de nodo principal se determina mediante el **nivel de durabilidad** que se elija. El valor predeterminado del nivel de durabilidad es Bronze. Desplácese hacia abajo para más información sobre el nivel de durabilidad y los valores que puede adoptar.  
-* El **número mínimo de máquinas virtuales** del tipo de nodo principal se determina mediante el **nivel de confiabilidad** que se elija. El valor predeterminado del nivel de confiabilidad es Silver. Desplácese hacia abajo para más información sobre el nivel de confiabilidad y los valores que puede adoptar. 
+Los servicios de sistema de Service Fabric (por ejemplo, Administrador de clústeres o Almacén de imágenes) se colocan en el tipo de nodo principal. 
 
+![Captura de pantalla de un clúster que tiene dos tipos de nodos][SystemServices]
 
-* Los servicios del sistema de Service Fabric (por ejemplo, el servicio Administrador de clústeres o el servicio de almacén de imágenes) se colocan en el tipo de nodo principal y así la confiabilidad y la durabilidad del clúster se determinan mediante el valor de nivel de confiabilidad y el valor de nivel de durabilidad que se seleccionen para el tipo de nodo principal.
+* El **tamaño mínimo de las máquinas virtuales** del tipo de nodo principal se determina mediante el **nivel de durabilidad** que se elija. El nivel de durabilidad predeterminado es Bronze. Consulte [Características de durabilidad del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) para más información.  
+* El **número mínimo de máquinas virtuales** del tipo de nodo principal se determina mediante el **nivel de confiabilidad** que se elija. El nivel de confiabilidad predeterminado es Silver. Consulte [Características de confiabilidad del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para más información.  
 
-![Captura de pantalla de un clúster que tiene dos tipos de nodos ][SystemServices]
+En la plantilla de Azure Resource Manager, el tipo de nodo principal se configura con el atributo `isPrimary` en la [definición de tipo de nodo](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### <a name="non-primary-node-type"></a>Tipo de nodo no principal
-Para un clúster con varios tipos de nodos, hay un tipo de nodo principal y los demás son de tipo no principal. Estas son las características de un tipo de nodo no principal:
 
-* El tamaño mínimo de las máquinas virtuales para este tipo de nodo se determina mediante el nivel de durabilidad que se elija. El valor predeterminado del nivel de durabilidad es Bronze. Desplácese hacia abajo para más información sobre el nivel de durabilidad y los valores que puede adoptar.  
-* El número mínimo de máquinas virtuales para este tipo de nodo puede ser uno. Pero este número se debe elegir en función del número de réplicas de la aplicación o de servicios que desea ejecutar en este tipo de nodo. Después de implementar el clúster, se puede aumentar el número de máquinas virtuales de un tipo de nodo.
+En un clúster con varios tipos de nodos, hay un tipo de nodo principal y los demás son de tipo no principal.
+
+* El **tamaño mínimo de las máquinas virtuales** de los tipos de nodo no principales se determina mediante el **nivel de durabilidad** que se elija. El nivel de durabilidad predeterminado es Bronze. Consulte [Características de durabilidad del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) para más información.  
+* El **número mínimo de máquinas virtuales** para los tipos de nodo no principales es uno. Sin embargo, este número se debe elegir en función del número de réplicas de la aplicación o los servicios que desee ejecutar en este tipo de nodo. Después de implementar el clúster, se puede aumentar el número de máquinas virtuales de un tipo de nodo.
 
 ## <a name="the-durability-characteristics-of-the-cluster"></a>Características de durabilidad del clúster
 El nivel de durabilidad se usa para indicar al sistema los privilegios que tienen las máquinas virtuales con la infraestructura subyacente de Azure. En el tipo de nodo principal, este privilegio permite que Service Fabric pause cualquier solicitud de la infraestructura de nivel de máquina virtual (por ejemplo, reinicio de máquina virtual, restablecimiento de la imagen inicial de máquina virtual o migración de máquina virtual) que afecte a los requisitos de quórum de los servicios del sistema y los servicios con estado. En los tipos de nodo distintos del principal, este privilegio permite que Service Fabric pause cualquier solicitud de la infraestructura de nivel de máquina virtual (por ejemplo, el reinicio de máquina virtual, el restablecimiento de la imagen inicial de máquina virtual o la migración de máquinas virtuales) que afecte a los requisitos de cuórum de los servicios con estado.
 
-Este privilegio se expresa con los siguientes valores:
-
-* Gold: los trabajos de infraestructura se pueden pausar dos horas por cada UD. La durabilidad de Gold solo puede habilitarse en las SKU de la máquina virtual del nodo completo, como L32s, GS5, G5, DS15_v2 o D15_v2. En general, todos los tamaños de máquina virtual que aparecen en http://aka.ms/vmspecs y están marcados como instancia aislada en el hardware de un solo cliente en la nota, son máquinas virtuales de nodo completo.
-* Silver: los trabajos de infraestructura se pueden pausar 10 minutos por cada UD y están disponibles en todas las máquinas virtuales estándares de un solo núcleo y superiores.
-* Bronze: sin privilegios. Este es el valor predeterminado. Utilice solo este nivel de durabilidad en los tipos de nodos que ejecutan _exclusivamente_ cargas de trabajo sin estado. 
+| Nivel de durabilidad  | Número mínimo de máquinas virtuales | SKU de VM admitidas                                                                  | Actualizaciones que realizan al conjunto de escalado de máquinas virtuales                               | Actualizaciones y mantenimiento iniciados por Azure                                                              | 
+| ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Gold             | 5                              | SKU de nodo completo dedicadas a un solo cliente (por ejemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Se puede retrasar hasta que lo apruebe el clúster de Service Fabric | Puede poner en pausa durante 2 horas por UD para dar más tiempo a las réplicas para que se recuperen de errores anteriores |
+| Silver           | 5                              | Máquinas virtuales de un núcleo o superiores                                                        | Se puede retrasar hasta que lo apruebe el clúster de Service Fabric | No se puede retrasar una cantidad de tiempo significativa                                                    |
+| Bronze           | 1                              | Todo                                                                                | El clúster de Service Fabric no lo retrasará           | No se puede retrasar una cantidad de tiempo significativa                                                    |
 
 > [!WARNING]
-> Los tipos de nodos que se ejecutan con la durabilidad Bronze no obtienen _privilegios_. Es decir, los trabajos de infraestructura que afectan a las cargas de trabajo sin estado no se detendrán ni retrasarán. Es posible que estos trabajos todavía pueden afectar a las cargas de trabajo, de forma que generen tiempos de inactividad u otros problemas. Se recomienda la durabilidad Silver para cualquier tipo de carga de trabajo de producción. Debe mantener un número mínimo de cinco nodos de cualquier tipo cuya durabilidad sea Gold o Silver. 
-> 
-
-Puede elegir el nivel de durabilidad de todos los tipos de nodos. Puede elegir que un tipo de nodo tenga un nivel de durabilidad Gold o Silver, mientras que el otro tiene un nivel Bronze en el mismo clúster. **Debe mantener un número mínimo de cinco nodos de cualquier tipo cuya durabilidad sea Gold o Silver**. 
+> Los tipos de nodos que se ejecutan con la durabilidad Bronze _no obtienen privilegios_. Es decir, los trabajos de infraestructura que afectan a las cargas de trabajo sin estado no se detendrán ni retrasarán, lo que podría afectar a las cargas de trabajo. Utilice el nivel Bronze en los tipos de nodos que ejecutan únicamente cargas de trabajo sin estado. Para las cargas de trabajo de producción, se recomienda utilizar el nivel Silver o superiores. 
+>
 
 **Ventajas del uso de los niveles de durabilidad Silver o Gold**
  
-- Reduce el número de pasos necesarios en una operación de reducción horizontal (es decir, se llama automáticamente a la desactivación del nodo y a Remove-ServiceFabricNodeState)
+- Reduce el número de pasos necesarios en una operación de reducción horizontal (es decir, se llama automáticamente a la desactivación del nodo y a Remove-ServiceFabricNodeState).
 - Reduce el riesgo de pérdida de datos debido a una operación de cambio de SKU en máquinas virtuales locales iniciada por el cliente o a operaciones en la infraestructura de Azure.
-     
+
 **Desventajas del uso de los niveles de durabilidad Silver o Gold**
  
-- Las implementaciones tanto en el conjunto de escalado de máquinas virtuales como en otros recursos de Azure relacionados se pueden retrasar, pueden agotar el tiempo de espera o se pueden bloquear completamente por problemas en el clúster o en el nivel de infraestructura. 
+- Las implementaciones tanto en el conjunto de escalado de máquinas virtuales como en otros recursos de Azure relacionados se pueden retrasar, pueden agotar el tiempo de espera o se pueden bloquear completamente por problemas en el clúster o en la infraestructura. 
 - Aumenta el número de [eventos de los ciclos de vida de las réplicas](service-fabric-reliable-services-lifecycle.md) (p. ej. intercambios principales) debidos a las desactivaciones automáticas de nodos durante las operaciones en la infraestructura de Azure.
 - Deja los nodos fuera de servicio durante los períodos de tiempo en los que tienen lugar las actualizaciones de software de la plataforma de Azure o las actividades de mantenimiento de hardware. Durante estas actividades, puede ver los nodos con un estado que indica que se están deshabilitando o que están deshabilitados. Esto reduce la capacidad del clúster temporalmente, pero no debería afectar a la disponibilidad de dicho clúster o de las aplicaciones.
 
-### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendaciones acerca de cuándo usar los niveles de durabilidad Silver o Gold
+### <a name="recommendations-for-when-to-use-silver-or-gold-durability-levels"></a>Recomendaciones acerca de cuándo usar los niveles de durabilidad Silver o Gold
 
 Utilice las durabilidades Silver o Gold para todos los tipos de nodo que hospedan servicios con estado que espera reducir horizontalmente (reducir el número de instancias de máquina virtual) con frecuencia, y preferiría que las operaciones de implementación se retrasasen y la capacidad se redujera en favor de la simplificación de estas operaciones de reducción horizontal. Los escenarios de escalabilidad horizontal (adición de instancias de máquinas virtuales) no se tienen en cuenta al elegir el nivel de durabilidad, solo se tiene en cuenta la reducción horizontal.
 
@@ -110,10 +115,11 @@ Utilice las durabilidades Silver o Gold para todos los tipos de nodo que hospeda
     > No se recomienda cambiar el tamaño de la SKU de máquina virtual en los conjuntos de escalado de máquinas virtuales que no ejecutan, como mínimo, la durabilidad Silver. Modificar el tamaño de la SKU de VM constituye una operación de infraestructura local de destrucción de datos. Sin la posibilidad de retrasar o supervisar este cambio, es posible que la operación pueda provocar una pérdida de datos en los servicios con estado, o bien causar otros problemas de funcionamiento imprevistos, incluso en las cargas de trabajo sin estado. 
     > 
     
-- Mantenga un mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales con niveles de durabilidad Gold o Silver habilitados
+- Mantenga un mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales que tengan habilitados los niveles de durabilidad Gold o Silver.
+- Todos los conjuntos de escalado de máquinas virtuales que tengan el nivel de durabilidad Silver o Gold deben asignarse a su propio tipo de nodo en el clúster de Service Fabric. La asignación de varios conjuntos de escalado de máquinas virtuales a un único tipo de nodo impedirá que la coordinación entre el clúster de Service Fabric y la infraestructura de Azure funcione correctamente.
 - No elimine instancias de máquina virtual aleatorias, use siempre la característica de reducción vertical del conjunto de escalado de máquinas virtuales. La eliminación de instancias de máquina virtual aleatorias tiene el potencial de crear desequilibrios en la instancia de máquina virtual repartidos entre UD y FD. Este desequilibrio puede afectar negativamente a la capacidad de los sistemas para realizar un correcto equilibrio de la carga entre las instancias del servicio o réplicas del servicio.
 - Si se usa el escalado automático, establezca las reglas de forma que la reducción horizontal (eliminación de instancias de máquina virtual) no se realiza en varios nodos simultáneamente. No es seguro reducir verticalmente más de una instancia a la vez.
-- Si reduce verticalmente un tipo de nodo principal, no deberá hacerlo más de lo que permite el nivel de confiabilidad.
+- Si va a eliminar o cancelar la asignación de máquinas virtuales en el tipo de nodo principal, no reduzca nunca el número de máquinas virtuales asignadas por debajo de lo que requiere el nivel de confiabilidad. Estas operaciones se bloquearán indefinidamente en un conjunto de escalado con un nivel de durabilidad Silver o Gold.
 
 ## <a name="the-reliability-characteristics-of-the-cluster"></a>Características de confiabilidad del clúster
 El nivel de confiabilidad se usa para establecer el número de réplicas de los servicios del sistema que se desea ejecutar en el tipo de nodo principal de este clúster. Cuanto mayor sea el número de réplicas, más confiables son los servicios del sistema en el clúster.  
@@ -188,7 +194,7 @@ Esta guía se aplica a las cargas de trabajo sin estado en ejecución en el tipo
 
 **Número de instancias de máquina virtual:** en el caso de las cargas de trabajo de producción sin estado, el tamaño mínimo admitido del tipo de nodo no principal es 2. Esto le permite ejecutar dos instancias sin estado de la aplicación y permite que el servicio para sobreviva a la pérdida de una instancia de máquina virtual. 
 
-**SKU de máquina virtual**: es el tipo de nodo donde se ejecutan los servicios de aplicación, de modo que la SKU de máquina virtual que elija para él debe tener en cuenta la carga máxima que planea colocar en cada nodo. Las necesidades de capacidad del tipo de nodo vienen determinadas por la carga de trabajo que planea ejecutar en el clúster, por lo que no es posible proporcionar una guía cualitativa de su carga de trabajo específica, aunque sí una amplia información para ayudarle a comenzar
+**SKU de máquina virtual**: es el tipo de nodo donde se ejecutan los servicios de aplicación, de modo que la SKU de máquina virtual que elija para él debe tener en cuenta la carga máxima que planea colocar en cada nodo. Las necesidades de capacidad del tipo de nodo vienen determinadas por la carga de trabajo que planea ejecutar en el clúster, por lo que no es posible proporcionar una guía cualitativa de su carga de trabajo específica, aunque sí una amplia información para ayudarle a comenzar.
 
 Para cargas de trabajo de producción 
 

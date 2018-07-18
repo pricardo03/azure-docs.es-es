@@ -3,23 +3,24 @@ title: Preguntas más frecuentes sobre informes de Azure Active Directory | Micr
 description: Preguntas más frecuentes sobre informes de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: markvi
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067017"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335064"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Preguntas más frecuentes sobre informes de Azure Active Directory
 
@@ -71,7 +72,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Cuántos registros puedo descargar de Azure Portal?**
 
-**R:** Puede descargar hasta 120 000 registros de Azure Portal. Los registros se ordenan a partir de los *más recientes* y, de forma predeterminada, se obtienen los últimos 120 000 registros. 
+**R:** Puede descargar hasta 5000 registros de Azure Portal. Los registros se ordenan a partir de los *más recientes* y, de forma predeterminada, se obtienen los últimos 5000 registros.
 
 ---
 
@@ -83,7 +84,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Cómo puedo obtener una licencia Premium?**
 
-**R:** Vea [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md) para obtener una respuesta a esta pregunta.
+**R:** Vea [Introducción a Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) para obtener una respuesta a esta pregunta.
 
 ---
 

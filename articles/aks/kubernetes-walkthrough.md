@@ -1,19 +1,20 @@
 ---
-title: 'Guía de inicio rápido: clúster de Azure Kubernetes para Linux'
+title: 'Guía de inicio rápido: Clúster de Azure Kubernetes para Linux'
 description: Averigüe rápidamente cómo puede crear un clúster de Kubernetes para contenedores de Linux en AKS con la CLI de Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/14/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 3bcdd4ba935b0fe9fe891503999c907aa1667abd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5b5ae6ba945b1428ffc2877711ebdc73937ea0a3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915949"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -27,23 +28,11 @@ En esta guía de inicio rápido se supone que tiene unos conocimientos básicos 
 
 Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.27 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
-## <a name="enabling-aks-preview"></a>Habilitar la versión preliminar de AKS
-
-Asegúrese de que los proveedores de servicios de Azure necesarios se habilitan con el comando `az provider register`.
-
-```azurecli-interactive
-az provider register -n Microsoft.Network
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Compute
-az provider register -n Microsoft.ContainerService
-```
-
-Después del registro, ya está listo para crear un clúster de Kubernetes con AKS.
-
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Cree un grupo de recursos con el comando [az group create][az-group-create]. Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure.
-Al crear un grupo de recursos, se le pide que especifique una ubicación, el lugar donde residirán los recursos en Azure. Mientras AKS esté en versión preliminar, solo hay disponibles algunas opciones de ubicación. Estas son `eastus, westeurope, centralus, canadacentral, canadaeast`.
+
+Al crear un grupo de recursos, se le pide que especifique una ubicación, el lugar donde residirán los recursos en Azure.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -68,7 +57,7 @@ Salida:
 
 ## <a name="create-aks-cluster"></a>Creación de un clúster de AKS
 
-Use el comando [az aks create][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo.
+Use el comando [az aks create][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo. Cuando implemente un clúster de AKS, también se podrá habilitar la solución de seguimiento de estado del contenedor. Para más información sobre cómo habilitar la solución de seguimiento de estado del contenedor, consulte [Monitor Azure Kubernetes Service health][aks-monitor] (Supervisión del estado de Azure Kubernetes Service).
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -248,6 +237,8 @@ Para obtener más información sobre AKS y un ejemplo completo desde el código 
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
@@ -255,5 +246,4 @@ Para obtener más información sobre AKS y un ejemplo completo desde el código 
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 

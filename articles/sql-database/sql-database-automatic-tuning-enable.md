@@ -6,15 +6,15 @@ author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4d3b7f54c7393b57339ea149e8a79f97891dc20
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364478"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646038"
 ---
 # <a name="enable-automatic-tuning"></a>Habilitación del ajuste automático
 
@@ -24,36 +24,40 @@ Azure SQL Database es un servicio de datos completamente administrado que superv
 En el nivel de servidor, puede optar por heredar la configuración de ajuste automático de "Valores predeterminados de Azure" o no heredarla. Los valores predeterminados de Azure son FORCE_LAST_GOOD_PLAN (habilitado), CREATE_INDEX (habilitado) y DROP_INDEX (deshabilitado).
 
 ### <a name="azure-portal"></a>Azure Portal
-Para habilitar el ajuste automático en el **servidor** de Azure SQL Database, vaya al servidor en Azure Portal y seleccione **Ajuste automático** en el menú. Seleccione las opciones de ajuste automático que quiere habilitar y haga clic en **Aplicar**.
+Para habilitar el ajuste automático en el **servidor** lógico de Azure SQL Database, vaya al servidor en Azure Portal y seleccione **Ajuste automático** en el menú.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Tenga en cuenta que, ahora mismo, la opción **DROP_INDEX** no es compatible con las aplicaciones que usan las sugerencias de índice y el cambio de partición, y no debe estar activa en estos casos.
+> Tenga en cuenta que, en este momento, la opción **DROP_INDEX** no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones, y no debe estar habilitada en estos casos.
 >
 
-Las opciones de ajuste automático del servidor se aplican a todas las bases de datos que contiene. De forma predeterminada, todas las bases de datos heredan la configuración de su servidor principal; sin embargo, puede invalidar esta opción y especificarla individualmente para cada base de datos.
+Seleccione las opciones de ajuste automático que quiere habilitar y haga clic en **Aplicar**.
+
+Las opciones de ajuste automático de un servidor se aplican a todas las bases de datos que contiene. De forma predeterminada, todas las bases de datos heredan la configuración de su servidor primario; sin embargo, puede invalidar esta opción y configurar cada base de datos individualmente.
 
 ### <a name="rest-api"></a>API DE REST
 [Haga clic aquí para obtener más información sobre cómo habilitar el ajuste automático en el nivel de servidor a través de la API de REST.](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Habilitar el ajuste automático en una base de datos individual
 
-Azure SQL Database le permite especificar individualmente la configuración de ajuste automático en cada base de datos. En el nivel de base de datos, puede optar por heredar la configuración de ajuste automático del servidor primario o de "Valores predeterminados de Azure", o no heredarla. Los valores predeterminados de Azure son FORCE_LAST_GOOD_PLAN habilitado, CREATE_INDEX habilitado y DROP_INDEX deshabilitado.
+Azure SQL Database le permite especificar individualmente la configuración de ajuste automático en cada base de datos. En el nivel de base de datos, puede decidir si desea heredar la configuración de ajuste automático del servidor primario, si desea heredarla de los valores predeterminados de Azure o si prefiere no heredarla. Los valores predeterminados de Azure son FORCE_LAST_GOOD_PLAN (habilitado), CREATE_INDEX (habilitado) y DROP_INDEX (deshabilitado).
 
 > [!NOTE]
-> La recomendación general es administrar la configuración de ajuste automático en el nivel de servidor de forma que se pueda aplicar la misma configuración en todas las bases de datos automáticamente. Configure el ajuste automático en una base de datos individual si la base de datos es diferente a otras del mismo servidor.
+> La recomendación general es administrar la configuración de ajuste automático en el **nivel de servidor**, de forma que se pueda aplicar la misma configuración en todas las bases de datos automáticamente. Solo debe configurar el ajuste automático en una base de datos específica si necesita que esa base de datos tenga una configuración distinta a la configuración heredada del mismo servidor.
 >
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Para habilitar el ajuste automático en una única **base de datos**, vaya a la base de datos en Azure Portal y luego seleccione **Ajuste automático**. Puede configurar una única base de datos para que herede la configuración del servidor con solo seleccionar la opción; o puede especificar la configuración de una base de datos de forma individual.
+Para habilitar el ajuste automático en una **única base de datos**, vaya a la base de datos en Azure Portal y seleccione **Ajuste automático**.
+
+El ajuste automático se puede configurar por separado en cada base de datos. Puede configurar manualmente la opción de ajuste automático o especificar una opción que herede la configuración del servidor.
 
 ![Base de datos](./media/sql-database-automatic-tuning-enable/database.png)
 
-Cuando haya seleccionado la configuración adecuada, haga clic en **Aplicar**.
+Tenga en cuenta que, en este momento, la opción DROP_INDEX no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones, y no debe estar habilitada en estos casos.
 
-Tenga en cuenta que, ahora mismo, la opción DROP_INDEX no es compatible con las aplicaciones que usan las sugerencias de índice y el cambio de partición, y no debe estar activa en estos casos.
+Cuando haya seleccionado la configuración que desee, haga clic en **Aplicar**.
 
 ### <a name="rest-api"></a>API de REST
 [Haga clic aquí para obtener más información sobre cómo habilitar el ajuste automático en una sola base de datos a través de la API de REST.](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)

@@ -9,16 +9,16 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 6d107b9264a80c7b280ffed9a50b7bb0ffe354be
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365532"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294116"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory 
 
-Este artículo es el primero de una serie de artículos destinados a ayudar a las organizaciones a implementar una solución de identidad híbrida de Azure Active Directory (Azure AD) completa. Esta solución se puede considerar como el marco de transformación digital de la identidad híbrida. Asimismo, cubre los resultados comerciales y objetivos en los que las organizaciones pueden centrarse para implementar una solución de identidad híbrida sólida y segura. 
+Este artículo es el primero de una serie de artículos destinados a ayudar a las organizaciones a implementar una solución de identidad híbrida de Azure Active Directory (Azure AD) completa. Esta solución se puede considerar como el [marco de transformación digital de la identidad híbrida](https://aka.ms/aadframework). Asimismo, cubre los resultados comerciales y objetivos en los que las organizaciones pueden centrarse para implementar una solución de identidad híbrida sólida y segura. 
 
 Los primeros resultados empresariales del marco señalan los requisitos de las organizaciones de proteger el proceso de autenticación cuando los usuarios acceden a las aplicaciones en la nube. El primer objetivo empresarial del resultado empresarial de autenticación segura es la posibilidad de que los usuarios inicien sesión en las aplicaciones en la nube mediante sus nombres de usuario y contraseñas locales. Gracias a este proceso de inicio de sesión y a la manera de autenticarse de los usuarios, se abre todo un mundo de posibilidades en la nube.
 
@@ -41,6 +41,8 @@ Las organizaciones que no tienen una superficie de directorio local existente no
 Cuando la solución de identidad híbrida de Azure AD sea el nuevo plano de control, la autenticación será la base del acceso a la nube. La elección del método de autenticación correcto es una primera decisión fundamental en la configuración de una solución de identidad híbrida de Azure AD. Implemente el método de autenticación que se configura mediante Azure AD Connect, y que también aprovisionará a los usuarios en la nube.
 
 Para elegir un método de autenticación, es necesario tener en cuenta el tiempo, la infraestructura existente, la complejidad y el costo de implementar cada opción. Estos factores varían con cada organización y pueden cambiar con el tiempo. 
+
+>[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD admite los siguientes métodos de autenticación en soluciones de identidad híbrida.
 
@@ -167,7 +169,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 |¿Cuáles son las opciones de autenticación multifactor?|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Servidor de Azure MFA](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA de terceros](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |¿Qué estados de cuenta de usuario se admiten?|Cuentas deshabilitadas<br>(retraso de hasta 30 minutos)|Cuentas deshabilitadas<br><br>Cuenta bloqueada<br><br>Contraseña expirada<br><br>Horas de inicio de sesión|Cuentas deshabilitadas<br><br>Cuenta bloqueada<br><br>Contraseña expirada<br><br>Horas de inicio de sesión|
 |¿Cuáles son las opciones de acceso condicional?|[Acceso condicional de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acceso condicional de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acceso condicional de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Reglas de notificaciones de AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|¿Se admite el bloqueo de protocolos heredados?|Sin |Sin |[Sí](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|¿Se admite el bloqueo de protocolos heredados?|[Sí](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Sí](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Sí](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |¿Se puede personalizar el logotipo, la imagen y la descripción en las páginas de inicio de sesión?|[Sí, con Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Sí, con Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Sí](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |¿Qué escenarios avanzados se admiten?|[Smart Password Lockout](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords) (Bloqueo inteligente de contraseñas)<br><br>[Informes de credenciales filtradas](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Smart Password Lockout](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout) (Bloqueo inteligente de contraseñas)|Sistema de autenticación multisitio de baja latencia<br><br>[Bloqueo de extranet de AD FS](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integración con sistemas de identidad de terceros](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

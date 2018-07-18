@@ -3,7 +3,7 @@ title: 'Tutorial: Creación y administración de un conjunto de escalado de máq
 description: Aprenda a usar Azure PowerShell para crear un conjunto de escalado de máquinas virtuales, junto con algunas tareas de administración comunes, por ejemplo, cómo iniciar y detener una instancia o cambiar la capacidad del conjunto de escalado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 91174f14cb6a49e560504e01ba47e7121f869080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6e3262ffbf31c18611a82c8293c63e13e572e30c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366263"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531569"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
@@ -146,7 +146,7 @@ Una vez que inicia sesión en la instancia de máquina virtual, puede realizar a
 
 
 ## <a name="understand-vm-instance-images"></a>Imágenes de instancia de máquina virtual
-Cuando se define la configuración de un conjunto de escalado con el comando [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) en un paso anterior, se utiliza una imagen de Windows Server 2016 Datacenter. Azure Marketplace incluye muchas imágenes que pueden usarse para crear instancias de máquina virtual. Para ver una lista de publicadores disponibles, use el comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
+Azure Marketplace incluye muchas imágenes que pueden usarse para crear instancias de máquina virtual. Para ver una lista de publicadores disponibles, use el comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"
@@ -201,7 +201,7 @@ El tamaño de instancia de la máquina virtual, o *SKU*, determina la cantidad d
 ### <a name="vm-instance-sizes"></a>Tamaños de instancia de máquina virtual
 En la tabla siguiente se clasifican los tamaños de máquina virtual comunes en casos de uso.
 
-| Escriba                     | Tamaños comunes           |    DESCRIPCIÓN       |
+| type                     | Tamaños comunes           |    DESCRIPCIÓN       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Uso general](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
 | [Proceso optimizado](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
@@ -283,7 +283,7 @@ Sku        :
 
 
 ## <a name="common-management-tasks"></a>Tareas comunes de administración
-Ahora puede crear un conjunto de escalado, mostrar información de conexión y conectarse a instancias de máquina virtual. Ha aprendido cómo podría usar una imagen de sistema operativo diferente para sus instancias de máquina virtual, a seleccionar un tamaño de máquina virtual diferente o a escalar manualmente el número de instancias. Como parte de la administración diaria, puede que deba detener, iniciar o reiniciar las instancias de máquina virtual del conjunto de escalado.
+Ahora puede crear un conjunto de escalado, mostrar información de conexión y conectarse a instancias de máquina virtual. Ha aprendido cómo podría usar otra imagen de sistema operativo para sus instancias de máquina virtual, cómo seleccionar otro tamaño de máquina virtual o cómo escalar manualmente el número de instancias. Como parte de la administración diaria, puede que deba detener, iniciar o reiniciar las instancias de máquina virtual del conjunto de escalado.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Detención y desasignación de instancias de máquina virtual de un conjunto de escalado
 Para detener una o más máquinas virtuales en un conjunto de escalado, use [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se detengan. Si no especifica un identificador de instancia, se detienen todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente se detiene la instancia *1*:

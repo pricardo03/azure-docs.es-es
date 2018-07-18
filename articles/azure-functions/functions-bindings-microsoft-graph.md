@@ -11,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 2de80760484ae1869b340898ea1e5f740fbc2883
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: af748f234a27ed9b37ac50438d7497fd680bc193
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085579"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -39,7 +40,7 @@ La extensión de Microsoft Graph proporciona los siguientes enlaces:
 
 El enlace de entrada del token de autenticación se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/). El resto de los enlaces de Microsoft Graph se proporcionan en el paquete [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/). El código fuente para los paquetes está en el repositorio de GitHub [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/).
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Configuración de las extensiones
 
@@ -975,9 +976,9 @@ Los webhooks le permiten reaccionar antes los eventos de Microsoft Graph. Para a
 - Un [enlace de entrada de la suscripción de webhook de Microsoft Graph](#webhook-input) le permite mostrar las suscripciones existentes y, opcionalmente, actualizarlas.
 - Un [enlace de salida de la suscripción de webhook de Microsoft Graph](#webhook-output) le permite crear o eliminar suscripciones de webhook.
 
-Los enlaces en sí mismos no requieren ningún permiso de Azure AD, pero es necesario solicitar permisos relevantes para el tipo de recurso ante el que va a reaccionar. Para obtener una lista de los permisos necesarios para cada tipo de recurso, consulte [permisos de suscripción](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+Los enlaces en sí mismos no requieren ningún permiso de Azure AD, pero es necesario solicitar permisos relevantes para el tipo de recurso ante el que va a reaccionar. Para obtener una lista de los permisos necesarios para cada tipo de recurso, consulte [permisos de suscripción](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
 
-Para más información sobre los webhooks, consulte [Trabajar con webhooks en Microsoft Graph].
+Para más información sobre los webhooks, consulte [Trabajar con Intune en Microsoft Graph].
 
 
 
@@ -1381,7 +1382,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**userId**|**UserId**  |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
 |**action**|**Acción**|(Requerido): especifica la acción que debe realizar el enlace. Puede ser uno de los siguientes valores:<ul><li><code>create</code>: registra una suscripción nueva.</li><li><code>delete</code>: elimina una determinada suscripción.</li><li><code>refresh</code>: actualiza una determinada suscripción para impedir que expire.</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|Necesario si y solo si _action_ está establecido en `create`. Especifica el recurso de Microsoft Graph que se va a supervisar para los cambios. Consulte [Trabajar con webhooks en Microsoft Graph]. |
+|**subscriptionResource**|**SubscriptionResource**|Necesario si y solo si _action_ está establecido en `create`. Especifica el recurso de Microsoft Graph que se va a supervisar para los cambios. Consulte [Trabajar con Intune en Microsoft Graph]. |
 |**changeType**|**ChangeType**|Necesario si y solo si _action_ está establecido en `create`. Indica el tipo de cambio en el recurso suscrito que generará una notificación. Los valores admitidos son: `created`, `updated` y `deleted`. Pueden combinarse varios valores mediante una lista separada por comas.|
 
 ### <a name="webhook-output---usage"></a>Salida de webhook: uso
@@ -1576,4 +1577,4 @@ public class UserSubscription {
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)
 
 [desencadenador HTTP]: functions-bindings-http-webhook.md
-[Trabajar con webhooks en Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+[Trabajar con Intune en Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

@@ -1,27 +1,25 @@
 ---
-title: Uso de Azure Table Storage o Azure Cosmos DB desde Node.js | Microsoft Docs
-description: Almacene datos estructurados en la nube mediante Azure Table Storage o Azure Cosmos DB.
+title: Uso de Azure Table Storage o Table API de Azure Cosmos DB desde Node.js | Microsoft Docs
+description: Almacene datos estructurados en la nube mediante Azure Table Storage o Table API de Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
-ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19e152b8cb8f18a616af647b31a4f35998f47858
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798226"
 ---
-# <a name="how-to-use-azure-table-storage-from-nodejs"></a>Uso del almacenamiento de tablas de Azure en Node.js
+# <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Uso de Azure Table Storage o Table API de Azure Cosmos DB desde Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Información general
 En este artículo se muestra cómo realizar algunas tareas comunes con el servicio Azure Storage Table o Azure Cosmos DB en una aplicación Node.js.
@@ -38,7 +36,7 @@ En este artículo se muestra cómo realizar algunas tareas comunes con el servic
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Configuración de la aplicación para obtener acceso a Azure Storage
+## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Configurar la aplicación para acceder a Azure Storage o a Table API de Azure Cosmos DB
 Para usar Azure Storage o Azure Cosmos DB necesitará Azure Storage SDK para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de Storage.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Uso del Administrador de paquetes para Node (NPM) para instalar el paquete

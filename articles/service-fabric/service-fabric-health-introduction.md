@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114323"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
 Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. El modelo permite la supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento, y corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.
@@ -116,7 +117,7 @@ El ejemplo siguiente es un extracto de un manifiesto de clúster. Para definir e
 La [directiva de mantenimiento de aplicación](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) describe cómo se realiza la evaluación de la agregación de eventos y estados secundarios en las aplicaciones y sus elementos secundarios. Se puede definir en el manifiesto de la aplicación, **ApplicationManifest.xml**, del paquete de aplicación. Si no se especifican directivas, Service Fabric asume que la entidad es incorrecta si tiene un informe de mantenimiento o un elemento secundario en los estados de mantenimiento Advertencia o Error.
 Las directivas configurables son:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Especifica si los informes de mantenimiento de advertencia se tratan como errores durante la evaluación del mantenimiento. Valor predeterminado: false.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica si los informes de mantenimiento de advertencia se tratan como errores durante la evaluación del mantenimiento. Valor predeterminado: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Especifica el porcentaje máximo tolerado de aplicaciones implementadas que pueden ser incorrectas antes de que la aplicación se considere errónea. Dicho porcentaje se calcula dividiendo el número de aplicaciones implementadas incorrectas entre el número de nodos en los que las aplicaciones están implementadas actualmente en el clúster. El cálculo se redondea hacia arriba para tolerar un error en números reducidos de nodos. Porcentaje de predeterminado: cero.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Especifica la directiva de mantenimiento del tipo de servicio predeterminada, que reemplaza a la directiva de mantenimiento predeterminada para todos los tipos de servicio de la aplicación.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Proporciona un mapa de las directivas de mantenimiento de servicios por tipo de servicio. Estas directivas reemplazan a las directivas de mantenimiento del tipo de servicio predeterminadas en todos los tipos de servicio especificados. Por ejemplo, si una aplicación tiene un tipo de servicio de puerta de enlace sin estado y un tipo de servicio de motor con estado, puede configurar las directivas de mantenimiento para su evaluación de una manera diferente. Si especifica una directiva por tipo de servicio, podrá obtener un control más pormenorizado del mantenimiento del servicio.

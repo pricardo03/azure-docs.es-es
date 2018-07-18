@@ -1,23 +1,25 @@
 ---
-title: "Configuración de una nueva aplicación multiinquilino | Microsoft Docs"
-description: "Aprenda a configurar una aplicación como multiinquilino y cómo funcionan este tipo de aplicaciones"
+title: Configuración de una nueva aplicación multiinquilino | Microsoft Docs
+description: Aprenda a configurar una aplicación como multiinquilino y cómo funcionan este tipo de aplicaciones
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 72cc4f0e5937787ec235d33e1f563bce8eebdf0d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 49304dd30b8bf2e4428fd676033f3372c2c69ba0
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332123"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Configuración de una nueva aplicación multiinquilino
 

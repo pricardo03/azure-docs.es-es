@@ -1,29 +1,30 @@
 ---
 title: Asistente para copia de Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre cómo utilizar el Asistente para copia de Azure Data Factory para copiar datos de orígenes de datos admitidos en receptores."
+description: Obtenga información sobre cómo utilizar el Asistente para copia de Azure Data Factory para copiar datos de orígenes de datos admitidos en receptores.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aeed2b2413f14b60d018ebd4f09293d6c41554d2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6330854f4ee9b2db1597d916c815bb6646da6a29
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052756"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Asistente para copia de Azure Data Factory
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. 
+> Este artículo se aplica a la versión 1 de Data Factory. 
 
 El Asistente para copia de Azure Data Factory simplifica el proceso de ingesta de datos, que normalmente es el primer paso en un escenario de integración de datos de un extremo a otro. Para aprender el uso del Asistente para copia de Azure Data Factory no es preciso conocer las definiciones de JSON de servicios vinculados, conjuntos de datos y canalizaciones. El asistente crea automáticamente una canalización para copiar datos del origen de datos seleccionado al destino seleccionado. Además, el Asistente para copia le ayuda a validar los datos que se ingieren en el momento de la creación. Esto le permite ahorrar tiempo, especialmente cuando ingiere datos por primera vez desde el origen de datos. Si quiere iniciar el Asistente para copia, haga clic en el icono **Copiar datos** de la página principal de Data Factory.
 

@@ -1,12 +1,12 @@
 ---
-title: "Adición de la autenticación a API personalizadas - Azure Logic Apps | Microsoft Docs"
-description: "Configure la autenticación para las llamadas a las API personalizadas desde las aplicaciones lógicas."
+title: Adición de la autenticación a API personalizadas - Azure Logic Apps | Microsoft Docs
+description: Configure la autenticación para las llamadas a las API personalizadas desde las aplicaciones lógicas.
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298556"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Protección de las llamadas a sus API personalizadas desde aplicaciones lógicas
 
@@ -53,7 +54,7 @@ La aplicación lógica usa esta identidad de aplicación de Azure AD para autent
 
 **Creación de la identidad de aplicación para la aplicación lógica en Azure Portal**
 
-1. En [Azure Portal](https://portal.azure.com "https://portal.azure.com"), elija **Azure Active Directory**. 
+1. En [Azure Portal](https://portal.azure.com "https://portal.azure.com"), seleccione **Azure Active Directory**. 
 
 2. Confirme que se encuentra en el mismo directorio que la aplicación web o de API.
 
@@ -190,16 +191,16 @@ Abra la definición de aplicación lógica en la vista de código, vaya a la sec
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Elemento | Obligatorio | Descripción | 
+| Elemento | Obligatorio | DESCRIPCIÓN | 
 | ------- | -------- | ----------- | 
 | tenant | Sí | El GUID para el inquilino de Azure AD | 
 | audience | Sí | El GUID para el recurso de destino al que desea acceder, que es el identificador de cliente de la identidad de aplicación para su aplicación web o de API | 
 | clientId | Sí | El GUID para el cliente que solicita acceso, que es el identificador de cliente de la identidad de aplicación para la aplicación lógica | 
 | secret | Sí | La clave o contraseña de la identidad de aplicación para el cliente que solicita el token de acceso | 
-| type | Sí | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. | 
+| Tipo | Sí | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. | 
 |||| 
 
-Por ejemplo:
+Por ejemplo: 
 
 ``` json
 {
@@ -236,10 +237,10 @@ En la sección **Authorization**, incluya esta línea:
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Elemento | Obligatorio | Descripción | 
+| Elemento | Obligatorio | DESCRIPCIÓN | 
 | ------- | -------- | ----------- | 
-| type | Sí | El tipo de autenticación. Para los certificados de cliente SSL, el valor debe ser `ClientCertificate`. | 
-| Contraseña | Sí | La contraseña para acceder al certificado de cliente (archivo PFX) | 
+| Tipo | Sí | El tipo de autenticación. Para los certificados de cliente SSL, el valor debe ser `ClientCertificate`. | 
+| contraseña | Sí | La contraseña para acceder al certificado de cliente (archivo PFX) | 
 | pfx | Sí | Contenido con codificación base64 del certificado del cliente (archivo PFX) | 
 |||| 
 
@@ -253,11 +254,11 @@ En la sección **Authorization**, incluya esta línea:
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Elemento | Obligatorio | Descripción | 
+| Elemento | Obligatorio | DESCRIPCIÓN | 
 | ------- | -------- | ----------- | 
-| type | Sí | El tipo de autenticación que desea utilizar. Para la autenticación básica, el valor debe ser `Basic`. | 
+| Tipo | Sí | El tipo de autenticación que desea utilizar. Para la autenticación básica, el valor debe ser `Basic`. | 
 | nombre de usuario | Sí | El nombre de usuario que quiere usar en la autenticación | 
-| Contraseña | Sí | La contraseña que quiere usar en la autenticación | 
+| contraseña | Sí | La contraseña que quiere usar en la autenticación | 
 |||| 
 
 <a name="azure-ad-code"></a>

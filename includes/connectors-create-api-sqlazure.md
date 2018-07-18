@@ -1,42 +1,113 @@
-### <a name="prerequisites"></a>Requisitos previos
-* Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free)
-* Una instancia de [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) con su información de conexión, como el nombre del servidor, el nombre de la base de datos y el nombre de usuario y la contraseña. Esta información se incluye en la cadena de conexión de Base de datos SQL:
-  
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  
-    Más información sobre [Azure SQL Database](https://azure.microsoft.com/services/sql-database).
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/15/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34678312"
+---
+* Si está usando Azure SQL Database, siga los pasos que se indican en [Conexión a una instancia de Azure SQL Database](#connect-azure-sql-db). 
 
-> [!NOTE]
-> Cuando se crea una Base de datos SQL de Azure, también puede crear las bases de datos de ejemplo incluidas con SQL. 
-> 
-> 
+* Si usa SQL Server, siga los pasos que se indican en [Conexión con SQL Server](#connect-sql-server).
 
-Antes de utilizar su instancia de Base de datos SQL de Azure en una aplicación lógica, conéctese a su base de datos SQL. Esto lo puede hacer fácilmente dentro de la aplicación lógica en el Portal de Azure.  
+<a name="connect-azure-sql-db"></a>
 
-Para conectarse a su instancia de Base de datos SQL de Azure, siga estos pasos:  
+### <a name="connect-to-azure-sql-database"></a>Conexión a una instancia de Azure SQL Database
 
-1. Cree una aplicación lógica. En el diseñador de Logic Apps, agregue un desencadenador y luego agregue una acción. Seleccione **Mostrar las API administradas por Microsoft** en la lista desplegable y, luego, escriba "sql" en el cuadro de búsqueda. Seleccione una de las acciones:  
-   
-    ![paso de creación de conexión de SQL Azure](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. Si no ha creado anteriormente ninguna conexión a Base de datos SQL, se le pedirán los detalles de conexión:  
-   
-    ![paso de creación de conexión de SQL Azure](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Escriba los detalles de la base de datos SQL. Aquellas propiedades con un asterisco son obligatorias.
-   
-   | Propiedad | Detalles |
-   | --- | --- |
-   | Connect via Gateway (Conectar a través de puerta de enlace) |Deje esta opción desactivada. Se utiliza al conectarse a un servidor SQL Server local. |
-   | Nombre de la conexión * |Escriba cualquier nombre para la conexión. |
-   | Nombre de SQL Server * |Escriba el nombre del servidor, que será similar a *servername.database.windows.net*. El nombre del servidor aparece en las propiedades de la base de datos SQL en el Portal de Azure y también se muestra en la cadena de conexión. |
-   | Nombre de la base de datos SQL * |Escriba el nombre que asignó a la base de datos SQL. Este nombre se muestra en las propiedades de SQL Database en la cadena de conexión: Initial Catalog=*nombreDeBaseDeDatosSQL*. |
-   | Nombre de usuario * |Escriba el nombre de usuario que creó al crear la base de datos SQL. Este nombre se muestra en las propiedades de la base de datos SQL en el Portal de Azure. |
-   | Contraseña * |Escriba la contraseña que creó al crear la base de datos SQL. |
-   
-    Estas credenciales se usan para autorizar a la aplicación lógica a conectarse y acceder a sus datos SQL. Una vez completado, los detalles de la conexión presentan un aspecto similar al siguiente:  
-   
-    ![paso de creación de conexión de SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Seleccione **Crear**. 
-5. Observe que la conexión se ha creado en el portal. Ahora, continúe con el resto de los pasos en la aplicación lógica: 
-   
-    ![paso de creación de conexión de SQL Azure](./media/connectors-create-api-sqlazure/table.png)
+1. Cuando el desencadenador o la acción de SQL le pidan la información de conexión, siga estos pasos:
 
+   1. Cree un nombre para la conexión.
+
+   2. Seleccione su servidor SQL Server y elija la base de datos. 
+
+      La lista de bases de datos aparece solo después de seleccionar el servidor SQL Server.
+ 
+   3. Proporcione el nombre de usuario y la contraseña del servidor.
+
+      Puede encontrar esta información en Azure Portal en las propiedades de SQL Database o en la cadena de conexión: 
+      
+      "User ID=<*suNombreDeUsuario*>"
+      <br>
+      "Password=<*suContraseña*>"
+
+   En este ejemplo se muestra la información de conexión para un desencadenador, pero estos pasos funcionan también para las acciones.
+
+   ![Creación de conexión de Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   <br>
+   Los asteriscos (*) indican los valores obligatorios.
+
+   | Propiedad | Valor | Detalles | 
+   |----------|-------|---------| 
+   | Nombre de la conexión | <*my-sql-connection*> | El nombre de la conexión | 
+   | Nombre del servidor SQL Server | <*my-sql-server*> | El nombre del servidor SQL server |
+   | Nombre de la instancia de SQL Database | <*my-sql-database*>  | El nombre de la instancia de SQL Database | 
+   | Nombre de usuario | <*my-sql-username*> | El nombre de usuario para acceder a la base de datos |
+   | Password | <*my-sql-password*> | La contraseña para acceder a la base de datos | 
+   |||| 
+
+2. Cuando termine, seleccione **Crear**.
+
+3. Después de crear la conexión, continúe con [Incorporación del desencadenador de SQL](#add-sql-trigger) o [Incorporación de acción de SQL](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-sql-server"></a>Conexión con SQL Server
+
+Para poder seleccionar la puerta de enlace, asegúrese de que ya ha [configurado la puerta de enlace de datos](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). De este modo, la puerta de enlace aparecerá en la lista correspondiente al crear la conexión.
+
+1. Cuando el desencadenador o la acción de SQL le pidan la información de conexión, siga estos pasos:
+
+   1. En el desencadenador o en la acción, seleccione **Conectar mediante puerta de enlace de datos local** para que aparezcan las opciones de SQL Server.
+
+   2. Cree un nombre para la conexión.
+
+   3. Proporcione la dirección de su servidor SQL Server y, a continuación, indique el nombre de la base de datos.
+   
+      Puede encontrar esta información en la cadena de conexión: 
+      
+      * "Server=<*direcciónDeSuServidor*>"
+      * "Database=<*nombreDeSuBasededatos*>"
+
+   4. Proporcione el nombre de usuario y la contraseña del servidor.
+
+      Puede encontrar esta información en la cadena de conexión: 
+      
+      * "User ID=<*suNombreDeUsuario*>"
+      * "Password=<*suContraseña*>"
+
+   5. Si el servidor SQL Server utiliza la autenticación básica o de Windows, seleccione el tipo de autenticación.
+
+   6. Seleccione el nombre de la puerta de enlace de datos local que creó anteriormente.
+   
+      Si la puerta de enlace no aparece en la lista, compruebe que la [configuró](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection) correctamente.
+
+   En este ejemplo se muestra la información de conexión para un desencadenador, pero estos pasos funcionan también para las acciones.
+
+   ![Creación de una conexión a SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   <br>
+   Los asteriscos (*) indican los valores obligatorios.
+
+   | Propiedad | Valor | Detalles | 
+   |----------|-------|---------| 
+   | Conectar mediante puerta de enlace local | Seleccione esta opción en primer lugar para la configuración de SQL Server. | | 
+   | Nombre de la conexión | <*my-sql-connection*> | El nombre de la conexión | 
+   | Nombre del servidor SQL Server | <*my-sql-server*> | El nombre del servidor SQL server |
+   | Nombre de la instancia de SQL Database | <*my-sql-database*>  | El nombre de la instancia de SQL Database |
+   | Nombre de usuario | <*my-sql-username*> | El nombre de usuario para acceder a la base de datos |
+   | Password | <*my-sql-password*> | La contraseña para acceder a la base de datos | 
+   | Tipo de autenticación | Windows o básica | Opcional: el tipo de autenticación utilizado por SQL Server | 
+   | Puertas de enlace | <*my-data-gateway*> | El nombre de la puerta de enlace de datos local | 
+   |||| 
+
+2. Cuando termine, seleccione **Crear**. 
+
+3. Después de crear la conexión, continúe con [Incorporación del desencadenador de SQL](#add-sql-trigger) o [Incorporación de acción de SQL](#add-sql-action).

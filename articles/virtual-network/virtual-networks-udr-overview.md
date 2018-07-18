@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726336"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -123,7 +124,7 @@ Una puerta de enlace de red local puede intercambiar rutas con una puerta de enl
 
 Al intercambiar rutas con Azure mediante BGP, se agrega una ruta independiente a la tabla de rutas de todas las subredes de una red virtual para cada prefijo anunciado. La ruta se agrega con *Puerta de enlace de red virtual* como origen y tipo de próximo salto. 
 
-La propagación del enrutamiento BGP se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de BGP deshabilitada. La conectividad con las conexiones VPN se logra mediante rutas personalizadas (#custom-routes) con un tipo de VPN de próximo salto. Para más información, consulte [Deshabilitar la propagación de rutas BGP](manage-route-table.md#create-a-route-table).
+La propagación del enrutamiento BGP se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de BGP deshabilitada. La conectividad con las conexiones VPN se logra mediante [rutas personalizadas](#custom-routes) con un tipo de VPN de próximo salto. Para más información, consulte [Deshabilitar la propagación de rutas BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Selección de rutas por parte de Azure
 
@@ -166,7 +167,9 @@ Si se reemplaza el prefijo de dirección 0.0.0.0/0, además del tráfico de sali
         - Poder traducir y reenviar direcciones de red, o desviar el tráfico a través de un servidor proxy al recurso de destino de la subred y devolver el tráfico a Internet. 
     - **Puerta de enlace de red virtual**: si la puerta de enlace es una puerta de enlace de red virtual ExpressRoute, un dispositivo local conectado a Internet puede traducir y reenviar direcciones de red, o bien desviar el tráfico a través de un servidor proxy al recurso de destino de la subred a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) de ExpressRoute. 
 
-  Para obtener información acerca de las puertas de enlace de redes virtuales y aplicaciones virtuales entre Internet y Azure, consulte [Red perimetral entre Azure y un centro de datos local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Red perimetral entre Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a la [subred de la puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente.
+
+Para obtener información acerca de las puertas de enlace de redes virtuales y aplicaciones virtuales entre Internet y Azure, consulte [Red perimetral entre Azure y un centro de datos local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Red perimetral entre Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="routing-example"></a>Ejemplo de enrutamiento
 
@@ -258,5 +261,5 @@ La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas 
 - [Creación de una ruta definida por el usuario - Azure Portal](tutorial-create-route-table-portal.md)
 - [Configuración de BGP para Azure VPN Gateway con PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Uso de BGP con ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Solución de problemas de rutas mediante Azure Portal](virtual-network-routes-troubleshoot-portal.md). Las tablas de rutas definidas por el usuario solo muestran las rutas definidas por el usuario, no las rutas predeterminada y de BGP de una subred. La visualización de todas las rutas muestra las rutas predeterminada, de BGP y definidas por el usuario de la subred en que se encuentra una interfaz de red.
+- [Solución de problemas de rutas mediante Azure Portal](diagnose-network-routing-problem.md). Las tablas de rutas definidas por el usuario solo muestran las rutas definidas por el usuario, no las rutas predeterminada y de BGP de una subred. La visualización de todas las rutas muestra las rutas predeterminada, de BGP y definidas por el usuario de la subred en que se encuentra una interfaz de red.
 - [Determine el tipo de próximo salto](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre una máquina virtual y una dirección IP de destino. La característica de próximo salto de Azure Network Watcher permite determinar si el tráfico sale de una subred y se enruta al lugar en que cree que debería estar.

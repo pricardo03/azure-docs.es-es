@@ -2,32 +2,31 @@
 title: 'Tutorial de Kubernetes en Azure: actualización de la aplicación'
 description: 'Tutorial de AKS: actualización de la aplicación'
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: df118a2b5bd8e31bd3fe6101d1d3f631092b6f24
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101037"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 
 Después de implementar una aplicación en Kubernetes, se puede actualizar especificando una nueva imagen de contenedor o la versión de la imagen. Si lo hace, la actualización se preconfigura para que solo una parte de la implementación se actualice simultáneamente. Esta actualización preconfigurada permite que la aplicación siga ejecutándose durante la actualización. También proporciona un mecanismo de reversión si se produce un error de implementación.
 
-En este tutorial, la sexta parte de ocho, se actualiza la aplicación de ejemplo Azure Vote. Las tareas que debe completar incluyen las siguientes:
+En este tutorial, la sección seis de siete, se actualiza la aplicación de ejemplo de Azure Vote. Las tareas que debe completar incluyen las siguientes:
 
 > [!div class="checklist"]
 > * Actualización del código de aplicación front-end
 > * Creación de una imagen de contenedor actualizado
 > * Inserción de una imagen de contenedor en Azure Container Registry
 > * Implementación de una imagen de contenedor actualizado
-
-En tutoriales posteriores, se va a configurar Log Analytics para supervisar el clúster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -164,10 +163,10 @@ En este tutorial, actualiza una aplicación y se implanta esta actualización en
 > * Insertó una imagen de contenedor en Azure Container Registry
 > * Implemento la aplicación actualizada
 
-Vaya al siguiente tutorial para obtener información sobre cómo supervisar Kubernetes con Log Analytics.
+Vaya al siguiente tutorial para aprender a actualizar Kubernetes a una nueva versión.
 
 > [!div class="nextstepaction"]
-> [Supervisar Kubernetes con Log Analytics][aks-tutorial-monitor]
+> [Actualización de Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +177,5 @@ Vaya al siguiente tutorial para obtener información sobre cómo supervisar Kube
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

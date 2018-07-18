@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108763"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Creación de una máquina virtual e instalación de un certificado recuperado de un almacén de claves de Azure Stack
 
@@ -42,10 +43,10 @@ Los pasos siguientes describen el proceso necesario para insertar un certificado
 2. Actualice el archivo azuredeploy.parameters.json.
 3. Implementación de la plantilla
 
->[!NOTE]
->Puede seguir estos pasos desde el Kit de desarrollo de Azure Stack o desde un cliente externo, si se conecta a través de VPN.
+> [!NOTE]
+> Puede seguir estos pasos desde el Kit de desarrollo de Azure Stack o desde un cliente externo, si se conecta a través de VPN.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Debe suscribirse a una oferta que incluya el servicio Key Vault.
 * [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)
@@ -55,8 +56,8 @@ Los pasos siguientes describen el proceso necesario para insertar un certificado
 
 El script siguiente crea un certificado con el formato .pfx, crea un almacén de claves y almacena el certificado en el almacén de claves como un secreto.
 
->[!IMPORTANT]
->Debe usar el parámetro `-EnabledForDeployment` al crear el almacén de claves. Este parámetro garantiza que se puede hacer referencia al almacén de claves desde las plantillas de Azure Resource Manager.
+> [!IMPORTANT]
+> Debe usar el parámetro `-EnabledForDeployment` cuando cree el almacén de datos. Este parámetro garantiza que se puede hacer referencia al almacén de claves desde las plantillas de Azure Resource Manager.
 
 ```powershell
 

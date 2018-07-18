@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: deb2a768d766f3fcfa5523b5b3e77b85c0b87b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823570"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configuración de conexiones coexistentes de ExpressRoute de sitio a sitio
 > [!div class="op_single_selector"]
@@ -28,7 +29,16 @@ ms.lasthandoff: 04/28/2018
 > 
 > 
 
-La configuración de las conexiones coexistentes VPN de sitio a sitio y ExpressRoute tiene varias ventajas. Puede configurar una VPN de sitio a sitio como una ruta de conmutación por error segura para ExpressRoute. Si lo desea, también puede usar redes VPN de sitio a sitio para conectarse a los sitios que no están conectados mediante ExpressRoute. En este artículo, se explican los pasos para configurar ambos escenarios. Este artículo se aplica al modelo de implementación de Resource Manager y utiliza PowerShell. Esta configuración no está disponible en el Portal de Azure.
+La configuración de las conexiones coexistentes de VPN de sitio a sitio y ExpressRoute tiene varias ventajas:
+
+* Puede configurar una VPN de sitio a sitio como una ruta de conmutación por error segura para ExpressRoute. 
+* Si lo desea, también puede usar redes VPN de sitio a sitio para conectarse a los sitios que no están conectados mediante ExpressRoute. 
+
+En este artículo, se explican los pasos para configurar ambos escenarios. Este artículo se aplica al modelo de implementación de Resource Manager y utiliza PowerShell. Esta configuración no está disponible en el Portal de Azure.
+
+>[!NOTE]
+>Si desea crear una VPN de sitio a sitio a través de un circuito de ExpressRoute, consulte [este artículo](site-to-site-vpn-over-microsoft-peering.md).
+>
 
 ## <a name="limits-and-limitations"></a>Límites y limitaciones
 * **No se admite el enrutamiento transitorio.** No se puede realizar un enrutamiento (a través de Azure) entre una red local conectada a través de una VPN sitio a sitio y una red local conectada a través de ExpressRoute.

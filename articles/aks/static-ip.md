@@ -2,18 +2,19 @@
 title: Use una dirección IP estática con el equilibrador de carga de Azure Kubernetes Service (AKS).
 description: Use una dirección IP estática con el equilibrador de carga de Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/12/2018
-ms.author: nepeters
+ms.date: 05/21/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c250ef3520079f58eea2362212d861fdb134e1af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100596"
 ---
 # <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Use una dirección IP estática con el equilibrador de carga de Azure Kubernetes Service (AKS).
 
@@ -21,12 +22,18 @@ En algunos casos, como cuando se vuelve a crear el equilibrador de carga de Azur
 
 ## <a name="create-static-ip-address"></a>Creación de una dirección IP estática
 
-Cree una dirección IP estática pública para el servicio de Kubernetes. La dirección IP debe crearse en el grupo de recursos que se creó automáticamente durante la implementación del clúster. Para obtener información acerca de los diferentes grupos de recursos de AKS y sobre cómo identificar el grupo de recursos creado de forma automática, consulte las [preguntas más frecuentes sobre AKS][aks-faq-resource-group].
+Cree una dirección IP estática pública para el servicio de Kubernetes. La dirección IP debe crearse en el grupo de recursos del **nodo** de AKS. Obtenga el nombre del grupo de recursos con el comando [az resource show][az-resource-show].
+
+```azurecli-interactive
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+
+MC_myResourceGroup_myAKSCluster_eastus
+```
 
 Use el comando [az network public ip create][az-network-public-ip-create] para crear una dirección IP.
 
 ```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
 Anote la dirección IP.
@@ -60,7 +67,7 @@ Anote la dirección IP.
  Si es necesario, se puede recuperar la dirección mediante el comando [az network public-ip list][az-network-public-ip-list].
 
 ```azurecli-interactive
-az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 ```
 
 ```console
@@ -122,3 +129,4 @@ Events:
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

@@ -3,7 +3,7 @@ title: Cómo usar PerfInsights en Microsoft Azure | Microsoft Docs
 description: Obtenga información sobre cómo usar PerfInsights para solucionar problemas de rendimiento de máquinas virtuales con Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946288"
 ---
-# <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights 
+# <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
 [PerfInsights](http://aka.ms/perfinsightsdownload) es una herramienta de diagnóstico de autoayuda que recopila y analiza los datos de diagnóstico y proporciona un informe para ayudar a solucionar los problemas de rendimiento de las máquinas virtuales Windows en Azure. Se puede ejecutar en máquinas virtuales como una herramienta independiente o directamente desde el portal mediante la instalación de la [extensión de máquina virtual de diagnóstico de rendimiento de Azure](performance-diagnostics-vm-extension.md).
 
@@ -30,7 +31,7 @@ Si experimenta problemas de rendimiento con las máquinas virtuales, ejecute est
 
 PerfInsights puede recopilar y analizar varios tipos de información. En las siguientes secciones se tratan escenarios comunes.
 
-### <a name="collect-basic-configuration"></a>Recopilación de la configuración básica 
+### <a name="quick-performance-analysis"></a>Análisis rápido del rendimiento
 
 En este escenario se recopila la configuración de disco y otra información importante, lo que incluye:
 
@@ -63,11 +64,11 @@ En este escenario se ejecuta el banco de pruebas [Diskspd](https://github.com/Mi
 > Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Un aumento de la carga de trabajo debido a una prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
 >
 
-### <a name="slow-vm-analysis"></a>Análisis de máquinas virtuales lentas 
+### <a name="slow-vm-analysis"></a>Análisis de máquinas virtuales lentas
 
 En este escenario se ejecuta un seguimiento de [contador de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) mediante los contadores que se especifican en el archivo RuleEngineConfig.json. Si la máquina virtual se identifica como un servidor en el que se ejecuta SQL Server, se ejecuta un seguimiento del contador de rendimiento. Para ello, se usan los contadores que se encuentran en el archivo RuleEngineConfig.json. Este escenario también incluye datos de diagnóstico de rendimiento.
 
-### <a name="azure-files-analysis"></a>Análisis de Azure Files 
+### <a name="azure-files-analysis"></a>Análisis de Azure Files
 
 En este escenario se ejecuta una captura especial del contador de rendimiento junto con un seguimiento de red. Dicha captura incluye todos los contadores de recursos compartidos de cliente de Bloque de mensajes del servidor (SMB). Los siguientes son algunos contadores de rendimiento de recursos compartidos de cliente de SMB clave que forman parte de la captura:
 
@@ -89,9 +90,9 @@ En este escenario se ejecuta una captura especial del contador de rendimiento ju
 |              | Prom. Longitud de la cola de escritura       |
 |              | Prom. Longitud de la cola de datos        |
 
-### <a name="custom-slow-vm-analysis"></a>Análisis personalizado de máquinas virtuales lentas 
+### <a name="advanced-slow-vm-analysis"></a>Análisis avanzado de máquinas virtuales lentas
 
-Cuando ejecute un análisis personalizado de máquinas virtuales lentas, seleccione seguimientos que se ejecuten en paralelo. Si lo desea, puede ejecutarlos todos (Contador de rendimiento, Xperf, Red y StorPort).  
+Cuando ejecute un análisis avanzado de máquinas virtuales lentas, seleccione seguimientos que se ejecuten en paralelo. Si lo desea, puede ejecutarlos todos (Contador de rendimiento, Xperf, Red y StorPort).  
 
 > [!Note]
 > Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Un aumento de la carga de trabajo debido a una prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
@@ -103,7 +104,7 @@ Se recopila información acerca de la máquina virtual Windows, la configuració
 
 |Datos recopilados                              |  |  | Escenarios de rendimiento |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Recopilación de la configuración básica | Pruebas comparativas | Análisis de máquinas virtuales lentas | Análisis de Azure Files | Análisis personalizado de máquinas virtuales lentas |
+|                               | Análisis rápido del rendimiento | Pruebas comparativas | Análisis de máquinas virtuales lentas | Análisis de Azure Files | Análisis avanzado de máquinas virtuales lentas |
 | Información de los registros de eventos       | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Información del sistema                | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Asignación de volúmenes                        | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
@@ -170,9 +171,9 @@ Pruebas de carga de trabajo de E/S de Diskspd [disco del sistema operativo (escr
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Posibles problemas al ejecutar la herramienta en máquinas virtuales de producción
 
--  Tanto en los escenarios de pruebas comparativas como en el de "Análisis personalizado de máquinas virtuales lentas" que está configurado para usar Xperf o Diskspd, la herramienta podría afectar de manera negativa al rendimiento de la máquina virtual. Estos escenarios no se deben ejecutar en un entorno de producción en vivo.
+-  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado de máquinas virtuales lentas" que está configurado para usar Xperf o Diskspd, la herramienta podría afectar de manera negativa al rendimiento de la máquina virtual. Estos escenarios no se deben ejecutar en un entorno de producción en vivo.
 
--  Tanto en los escenarios de pruebas comparativas como en el de "Análisis personalizado de máquinas virtuales lentas" que está configurado para usar Diskspd, asegúrese de que ninguna otra actividad en segundo plano interfiera con la carga de trabajo de E/S.
+-  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado de máquinas virtuales lentas" que está configurado para usar Diskspd, asegúrese de que ninguna otra actividad en segundo plano interfiera con la carga de trabajo de E/S.
 
 -  De forma predeterminada, la herramienta usa la unidad de almacenamiento temporal para recopilar los datos. Si el seguimiento permanece habilitado durante más tiempo, es posible que la cantidad de datos que se recopilan sea relevante. Esto puede reducir la disponibilidad de espacio en el disco temporal, lo que puede afectar a las aplicaciones que usen esta unidad.
 
@@ -217,10 +218,16 @@ Para ejecutar la herramienta PerfInsights, siga estos pasos:
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Puede usar el ejemplo siguiente para ejecutar el escenario personalizado con seguimientos de contador Xperf y de rendimiento durante 5 minutos:
+    Puede usar el ejemplo siguiente para ejecutar el escenario avanzado con seguimientos de contador Xperf y de rendimiento durante 5 minutos:
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    Puede usar el siguiente ejemplo para ejecutar el escenario de máquinas virtuales lentas durante 5 minutos y cargue el archivo zip en la cuenta de almacenamiento:
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     Puede buscar todos los escenarios y opciones disponibles mediante el comando **/list**:
@@ -236,7 +243,7 @@ Para ejecutar la herramienta PerfInsights, siga estos pasos:
     >
     >De forma predeterminada, PerfInsights intenta actualizarse a la versión más reciente, si está disponible. Use el parámetro **/SkipAutoUpdate** o **/sau** para omitir la actualización automática.  
     >
-    >Si no se especifica el modificador de duración **/d**, PerfInsights le pide que reproduzca el problema mientras se ejecutan los escenarios vmslow, azurefiles y custom. 
+    >Si no se especifica el modificador de duración **/d**, PerfInsights le pide que reproduzca el problema mientras se ejecutan los escenarios vmslow, azurefiles y advanced. 
 
 Cuando las operaciones o los seguimientos se completan, aparece un nuevo archivo en la misma carpeta que PerfInsights. El nombre del archivo es **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** Puede enviar este archivo al agente de soporte técnico para que lo analice o abrir el informe dentro del archivo ZIP para revisar las conclusiones y recomendaciones.
 
@@ -250,9 +257,9 @@ Haga clic en la pestaña **Conclusiones**.
 ![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> Las conclusiones clasificadas como críticas son problemas conocidos que pueden provocar problemas de rendimiento. Las conclusiones clasificadas como importantes representan configuraciones no óptimas que no provocan necesariamente problemas de rendimiento. Las conclusiones clasificadas como informativas son solo declaraciones informativas.
+> Las conclusiones clasificadas como altas son problemas conocidos que pueden provocar problemas de rendimiento. Las conclusiones clasificadas como medias representan configuraciones no óptimas que no provocan necesariamente problemas de rendimiento. Las conclusiones clasificadas como bajas son solo declaraciones informativas.
 
-Revise las recomendaciones y los vínculos de todas las conclusiones críticas e importantes. Aprenda cómo pueden afectar al rendimiento, así como los procedimientos recomendados para las configuraciones con optimización del rendimiento.
+Revise las recomendaciones y los vínculos de todas las conclusiones altas y medias. Aprenda cómo pueden afectar al rendimiento, así como los procedimientos recomendados para las configuraciones con optimización del rendimiento.
 
 ### <a name="storage-tab"></a>Pestaña Almacenamiento
 

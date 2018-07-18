@@ -1,31 +1,31 @@
 ---
-title: Empezar a trabajar con herramientas de desarrollo de Azure Stack Storage
-description: Guía para empezar a trabajar con herramientas de desarrollo de Azure Stack Storage
+title: Introducción a las herramientas de desarrollo de almacenamiento de Azure Stack | Microsoft Docs
+description: Guía de introducción a las herramientas de desarrollo de almacenamiento de Azure Stack
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 07/03/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 40f256b7a2be5a5a1d642983fa6ce018ee602ac2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198942"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441719"
 ---
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Empezar a trabajar con herramientas de desarrollo de Azure Stack Storage
+# <a name="get-started-with-azure-stack-storage-development-tools"></a>Introducción a las herramientas de desarrollo de almacenamiento de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Microsoft Azure Stack proporciona un conjunto de servicios de almacenamiento que incluye almacenamiento de blobs, tablas y colas.
 
-Utilice este artículo como una guía para empezar a trabajar con las herramientas de desarrollo de Azure Stack Storage. Puede encontrar información más detallada y código de ejemplo en los tutoriales correspondientes de Azure Storage.
+Utilice este artículo como guía de introducción a las herramientas de desarrollo de almacenamiento de Azure Stack. Puede encontrar información más detallada y código de ejemplo en los tutoriales correspondientes de Azure Storage.
 
->[!NOTE]
->Hay diferencias conocidas entre Azure Storage y Azure Stack Storage, incluidos los requisitos específicos de cada plataforma. Por ejemplo, hay requisitos de bibliotecas de cliente y de sufijos de puntos de conexión que son específicos de Azure Stack. Para más información, consulte [Azure Stack Storage: Diferencias y consideraciones](azure-stack-acs-differences.md).
+> [!NOTE]  
+> Hay diferencias conocidas entre Azure Storage y almacenamiento de Azure Stack, incluidos los requisitos específicos de cada plataforma. Por ejemplo, hay requisitos de bibliotecas de cliente y de sufijos de puntos de conexión que son específicos de Azure Stack. Para más información, consulte [Almacenamiento de Azure Stack: Diferencias y consideraciones](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliotecas de clientes de Azure
 

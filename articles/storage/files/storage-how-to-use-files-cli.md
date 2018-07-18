@@ -4,8 +4,8 @@ description: Aprenda a usar la CLI de Azure para administrar Azure Files.
 services: storage
 documentationcenter: na
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 85b69b7b27153139494539ba3eaa882a4ddcd4ef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00fd984a6bed8691712df0d4c335d2b9d4fd3ffa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701825"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Administración de recursos compartidos de archivos de Azure mediante la CLI de Azure
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows, Linux y macOS. En este artículo se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante la CLI de Azure. Obtenga información sobre cómo: 
@@ -184,7 +185,7 @@ Aunque el comando `az storage file copy start` es práctico para los movimientos
 Otra tarea útil que puede hacer con un recurso compartido de archivos de Azure consiste en crear instantáneas del recurso compartido. Una instantánea conserva una copia de un momento dado de un recurso compartido de archivos de Azure. Las instantáneas del recurso compartido son similares a algunas tecnologías de sistemas operativos con las que es posible que ya esté familiarizado:
 - Instantáneas del [Administrador de volúmenes lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantáneas de [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
-- [Servicio de instantáneas de volumen (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) para sistemas de archivos Windows como NTFS y ReFS
+- [Servicio de instantáneas de volumen (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de archivos Windows como NTFS y ReFS
 
 Puede crear una instantánea del recurso compartido con el comando [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
 

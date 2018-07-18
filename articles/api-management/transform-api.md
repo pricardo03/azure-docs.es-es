@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bebfabfa2c9012fa55bfc6964dc0b638cb7ab3f1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722956"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformación y protección de una API 
 
@@ -54,7 +55,7 @@ Esta sección muestra cómo ocultar los encabezados HTTP que no desea mostrar a 
 
 Para ver la respuesta original, siga estos pasos:
 
-1. Seleccione la pestaña **API**.
+1. En la instancia de servicio APIM, seleccione **API** (bajo **API MANAGEMENT**).
 2. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
 3. Seleccione la operación **GetSpeakers**.
 4. Haga clic en la casilla **Prueba** de la parte superior de la pantalla.
@@ -66,24 +67,24 @@ Para ver la respuesta original, siga estos pasos:
 
 ### <a name="set-the-transformation-policy"></a>Establecimiento de la directiva de transformación
 
-1. Vaya a la instancia de APIM.
-2. Seleccione la pestaña **API**.
-3. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-4. Seleccione **Todas las operaciones**.
-5. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
-6. En la ventana **Procesamiento de salida**, haga clic en el triángulo (al lado del lápiz).
-7. Seleccione **Editor de código**.
-    
+1. Seleccione **Demo Conference API** (API de conferencia de demostración).
+2. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
+3. Seleccione **Todas las operaciones**.
+4. En la ventana **Procesamiento de salida**, haga clic en el triángulo (al lado del lápiz) y seleccione **Editor de código**.
      ![Editar directiva](./media/set-edit-policies/set-edit-policies01.png)
-9. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
-10. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **Set HTTP header** (Establecer encabezado HTTP) dos veces (para insertar dos fragmentos de directiva).
+5. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
+6. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **Set HTTP header** (Establecer encabezado HTTP) dos veces (para insertar dos fragmentos de directiva).
 
     ![Directivas](./media/transform-api/transform-api.png)
-11. Modificar el código **<outbound>** para que se parezca a esto:
+7. Modificar el código **<outbound>** para que se parezca a esto:
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
-                
+
+    ![Directivas](./media/transform-api/set-policy.png)
+8. Haga clic en el botón **Save** (Guardar).
+
+
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Reemplazo de URL originales en el cuerpo de la respuesta de API con las URL de puerta de enlace de APIM
 
 En esta sección se explica cómo ocultar las URL originales que aparecen en el cuerpo de la respuesta HTTP de la API y, en su lugar, redirigirlas a la puerta de enlace de APIM.
@@ -92,11 +93,10 @@ En esta sección se explica cómo ocultar las URL originales que aparecen en el 
 
 Para ver la respuesta original, siga estos pasos:
 
-1. Seleccione la pestaña **API**.
-2. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-3. Seleccione la operación **GetSpeakers**.
-4. Haga clic en la casilla **Prueba** de la parte superior de la pantalla.
-5. Haga clic en el botón **Enviar** situado en la parte inferior de la pantalla. 
+1. Seleccione **Demo Conference API** (API de conferencia de demostración).
+2. Seleccione la operación **GetSpeakers**.
+3. Haga clic en la casilla **Prueba** de la parte superior de la pantalla.
+4. Haga clic en el botón **Enviar** situado en la parte inferior de la pantalla. 
 
     Como puede ver, la respuesta original tiene el siguiente aspecto:
 
@@ -104,16 +104,13 @@ Para ver la respuesta original, siga estos pasos:
 
 ### <a name="set-the-transformation-policy"></a>Establecimiento de la directiva de transformación
 
-1. Vaya a la instancia de APIM.
-2. Seleccione la pestaña **API**.
-3. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-4. Seleccione **Todas las operaciones**.
-5. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
-6. En la ventana **Procesamiento de salida**, haga clic en el triángulo (al lado del lápiz).
-7. Seleccione **Editor de código**.
-8. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
-9. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **+ Find and replace string in body** (+ Buscar y reemplazar cadena en el cuerpo).
-10. Modifique el código **<find-and-replace** (en el elemento **<outbound>**) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo: 
+1. Seleccione **Demo Conference API** (API de conferencia de demostración).
+2. Seleccione **Todas las operaciones**.
+3. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
+4. En la ventana **Procesamiento de salida**, haga clic en el triángulo (al lado del lápiz) y seleccione **Editor de código**.
+5. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
+6. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **+ Find and replace string in body** (+ Buscar y reemplazar cadena en el cuerpo).
+7. Modifique el código **find-and-replace** (en el elemento **\<outbound\>**) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo: 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -121,22 +118,19 @@ Para ver la respuesta original, siga estos pasos:
 
 En esta sección se explica cómo agregar protección para la API de back-end configurando límites de frecuencia. Por ejemplo, puede que quiera limitar un número de llamadas a la API para que los desarrolladores no la sobreutilicen. En este ejemplo, el límite se establece en 3 llamadas cada 15 segundos para cada identificador de suscripción. Después de 15 segundos, un desarrollador puede volver a tratar de llamar a la API.
 
-1. Vaya a la instancia de APIM.
-2. Seleccione la pestaña **API**.
-3. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-4. Seleccione **Todas las operaciones**.
-5. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
-6. En la ventana **Procesamiento de entrada**, haga clic en el triángulo (al lado del lápiz).
-7. Seleccione **Editor de código**.
-8. Coloque el cursor dentro del elemento**&lt;inbound&gt;**.
-9. En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
-10. Modifique el código **<rate-limit-by-key** (en el elemento **<inbound>**) en el código siguiente:
+1. Seleccione **Demo Conference API** (API de conferencia de demostración).
+2. Seleccione **Todas las operaciones**.
+3. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
+4. En la ventana **Procesamiento de entrada**, haga clic en el triángulo (al lado del lápiz) y seleccione **Editor de código**.
+5. Coloque el cursor dentro del elemento**&lt;inbound&gt;**.
+6. En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
+7. Modifique el código **rate-limit-by-key** (en el elemento **\<inbound\>**) por el código siguiente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>Prueba de las transformaciones
         
-En este punto, la directivas de código tienen este aspecto:
+En este punto, si observa el código en el editor de código, las directivas tienen este aspecto:
 
     <policies>
         <inbound>
@@ -161,12 +155,10 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 
 ### <a name="test-the-stripped-response-headers"></a>Prueba de los encabezados de respuesta eliminados
 
-1. Vaya a la instancia de APIM.
-2. Seleccione la pestaña **API**.
-3. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-4. Haga clic en la operación **GetSpeakers**.
-5. Seleccione la pestaña **Prueba**.
-6. Presione **Enviar**.
+1. Seleccione **Demo Conference API** (API de conferencia de demostración).
+2. Haga clic en la operación **GetSpeakers**.
+3. Seleccione la pestaña **Prueba**.
+4. Presione **Enviar**.
 
     Como puede ver, los encabezados se han eliminado:
 
@@ -174,12 +166,10 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 
 ### <a name="test-the-replaced-url"></a>Prueba de la URL reemplazada
 
-1. Vaya a la instancia de APIM.
-2. Seleccione la pestaña **API**.
-3. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-4. Haga clic en la operación **GetSpeakers**.
-5. Seleccione la pestaña **Prueba**.
-6. Presione **Enviar**.
+1. Seleccione **Demo Conference API** (API de conferencia de demostración).
+2. Haga clic en la operación **GetSpeakers**.
+3. Seleccione la pestaña **Prueba**.
+4. Presione **Enviar**.
 
     Como puede ver, la URL se ha reemplazado.
 
@@ -187,15 +177,13 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 
 ### <a name="test-the-rate-limit-throttling"></a>Prueba del límite de frecuencia (limitación)
 
-1. Vaya a la instancia de APIM.
-2. Seleccione la pestaña **API**.
-3. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-4. Haga clic en la operación **GetSpeakers**.
-5. Seleccione la pestaña **Prueba**.
-6. Presione **Enviar** tres veces en una fila.
+1. Seleccione **Demo Conference API** (API de conferencia de demostración).
+2. Haga clic en la operación **GetSpeakers**.
+3. Seleccione la pestaña **Prueba**.
+4. Presione **Enviar** tres veces en una fila.
 
     Después de enviar la solicitud 3 veces, obtendrá la respuesta **429 Demasiadas solicitudes**.
-7. Espere 15 segundos o menos y vuelva a pulsar **Enviar**. Esta vez debería obtener una respuesta **200 OK**.
+5. Espere 15 segundos o menos y vuelva a pulsar **Enviar**. Esta vez debería obtener una respuesta **200 OK**.
 
     ![Limitaciones](./media/transform-api/test-throttling.png)
 

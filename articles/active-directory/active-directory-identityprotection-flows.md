@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164210"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713415"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiencias de inicio de sesión con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection, puede:
@@ -30,7 +31,7 @@ Con Azure Active Directory Identity Protection, puede:
 
 La respuesta del sistema a estos problemas tiene un impacto en la experiencia de inicio de sesión del usuario, puesto que ya no se podrá iniciar sesión directamente introduciendo un nombre de usuario y una contraseña. Se requieren pasos adicionales para que los usuarios vuelvan a sus actividades con seguridad.
 
-En este tema se ofrece información general sobre la experiencia de inicio de sesión de usuario para todos los casos posibles.
+En este artículo se ofrece información general sobre la experiencia de inicio de sesión de usuario para todos los casos posibles.
 
 **Multi-Factor Authentication**
 
@@ -57,7 +58,7 @@ Los administradores pueden establecer una directiva que requiere que los usuario
 1. En el primer paso, el usuario recibe una notificación sobre la necesidad de configurar la cuenta para la autenticación multifactor. 
    
     ![Corrección](./media/active-directory-identityprotection-flows/140.png "Corrección")
-2. Para configurar la autenticación multifactor, debe indicar al sistema cómo desea que se pongan en contacto con usted.
+2. Para configurar la autenticación multifactor, debe indicar al sistema cómo quiere que se pongan en contacto con usted.
    
     ![Corrección](./media/active-directory-identityprotection-flows/141.png "Corrección")
 3. El sistema envía una comprobación que debe responder.
@@ -72,7 +73,7 @@ Cuando un administrador ha configurado una directiva de riesgo de inicio de sesi
 1. Se informa al usuario de que se ha detectado algún aspecto inusual en su inicio de sesión, como que se haya realizado desde una nueva ubicación, dispositivo o aplicación. 
    
     ![Corrección](./media/active-directory-identityprotection-flows/120.png "Corrección")
-2. Para demostrar su identidad, el usuario debe resolver un desafío de seguridad. Si el usuario está registrado para la autenticación multifactor necesitan devolver un código de seguridad enviado a su número de teléfono. Puesto que solo se trata de un inicio de sesión peligroso, y no de una cuenta en peligro, el usuario no tendrá que cambiar la contraseña en este flujo. 
+2. Para demostrar su identidad, el usuario debe resolver un desafío de seguridad. Si el usuario está registrado para la autenticación multifactor necesita devolver un código de seguridad enviado a su número de teléfono. Puesto que solo se trata de un inicio de sesión peligroso, y no de una cuenta en peligro, el usuario no tendrá que cambiar la contraseña en este flujo. 
    
     ![Corrección](./media/active-directory-identityprotection-flows/121.png "Corrección")
 
@@ -82,7 +83,7 @@ Los administradores también pueden elegir establecer una directiva de seguridad
 ![Corrección](./media/active-directory-identityprotection-flows/200.png "Corrección")
 
 ## <a name="compromised-account-recovery"></a>Recuperación de cuentas en peligro
-Cuando se ha configurado una directiva de seguridad de riesgo del usuario, los usuarios que cumplen el nivel especificado en dicha directiva (y, por tanto, se supone que está en peligro) deben pasar por el flujo de recuperación del peligro antes de poder iniciar sesión. 
+Cuando se ha configurado una directiva de seguridad de riesgo del usuario, los usuarios que cumplen el nivel especificado en dicha directiva (y, por tanto, se supone que están en peligro) deben pasar por el flujo de recuperación del peligro antes de poder iniciar sesión. 
 
 **El flujo de recuperación de usuarios puestos en peligro consta de tres pasos:**
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32164363"
 ---
 # <a name="create-container-images-to-be-used-with-azure-container-service"></a>Creación de imágenes de contenedor que se van a usar con Azure Container Service
 

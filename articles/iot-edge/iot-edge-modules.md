@@ -1,21 +1,21 @@
 ---
-title: "Información de los módulos de Azure IoT Edge | Microsoft Docs"
-description: "Información sobre los módulos de Azure IoT Edge y cómo se configuran"
-services: iot-edge
-keywords: 
+title: Información de los módulos de Azure IoT Edge | Microsoft Docs
+description: Información sobre los módulos de Azure IoT Edge y cómo se configuran
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+services: iot-edge
+ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029105"
 ---
-# <a name="understand-azure-iot-edge-modules---preview"></a>Información de los módulos de Azure IoT Edge (versión preliminar)
+# <a name="understand-azure-iot-edge-modules"></a>Información sobre los módulos de Azure IoT Edge
 
 Azure IoT Edge permite implementar y administrar lógica de negocios en el perímetro a través de *módulos*. Los módulos de Azure IoT Edge son la unidad más pequeña de cálculo que administra IoT Edge y pueden contener servicios de Azure (por ejemplo, Azure Stream Analytics) o su propio código específico de la solución. Para entender cómo se desarrolla, implementa y mantiene un módulo, imagínese que está compuesto de cuatro partes conceptuales:
 
@@ -60,6 +60,17 @@ await client.OpenAsync();
 // Get the model twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## <a name="offline-capabilities"></a>Funcionalidades sin conexión
+
+Azure IoT Edge permite realizar operaciones sin conexión en los dispositivos IoT Edge. Por el momento, estas funcionalidades están limitadas, pero se irán desarrollando nuevos escenarios. 
+
+Los módulos de IoT Edge pueden permanecer sin conexión durante largos períodos de tiempo siempre que se cumplan los requisitos siguientes: 
+
+* **Que no haya expirado el período de vida (TTL)**. El valor predeterminado para el TTL de un mensaje es de dos horas, pero puede aumentarse o reducirse en Microsoft Azure Store y reenviar la configuración del centro de IoT Edge. 
+* **Que los módulos no tengan que volver a autenticarse con el centro de IoT Edge cuando estén sin conexión**. Los módulos solo pueden autenticarse con centros de Edge que tengan una conexión activa con un centro de IoT. Los módulos tienen que volver a autenticarse si se reinician por algún motivo. Los módulos pueden seguir enviando mensajes al centro de Edge aunque el token de SAS haya expirado. Cuando se reanuda la conectividad, el centro de Edge solicita un nuevo token desde el módulo y lo valida con el centro de IoT. Si es correcto, el centro de Edge reenvía los mensajes del módulo que están guardados, incluso lo que se enviaron mientras el token del módulo estaba vencido. 
+* **Que el módulo que envía los mensajes mientras no hay conexión siga en funcionamiento cuando se reanude la conectividad**. Cuando se restablece la conexión con IoT Hub, el centro de Edge tiene que validar un nuevo token del módulo (si el anterior venció) para poder reenviar los mensajes del módulo. Si el módulo no es capaz de proporcionar un nuevo token, el centro de Edge no puede realizar ninguna operación con los mensajes almacenados del módulo. 
+* **Que el centro de Edge tenga espacio en disco para almacenar los mensajes**. De forma predeterminada, los mensajes se guardan en el sistema de archivos del contenedor del centro de Edge. No obstante, hay una opción de configuración que permite especificar un volumen montado para guardar los mensajes. En cualquier caso, debe haber espacio en disco suficiente para guardar los mensajes que se van a entregar en diferido a IoT Hub.  
 
 ## <a name="next-steps"></a>Pasos siguientes
  - [Información de la instancia de Azure IoT Edge en tiempo de ejecución y su arquitectura][lnk-runtime]

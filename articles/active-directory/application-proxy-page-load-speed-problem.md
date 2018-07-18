@@ -3,22 +3,24 @@ title: Tiempo excesivo de carga de una aplicación con el proxy de aplicación |
 description: Solución de problemas de rendimiento de carga de páginas con el Proxy de aplicación de Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 34422cb42768ddbc2997da3eec3d35c11e272855
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 26acc620184b51719a2ee55b75bd01966d225b8e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158513"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330934"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Tiempo excesivo de carga de una aplicación con el proxy de aplicación
 

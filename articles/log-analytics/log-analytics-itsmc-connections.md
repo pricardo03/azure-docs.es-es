@@ -2,7 +2,7 @@
 title: Conexiones compatibles con IT Service Management Connector en Azure Log Analytics | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo conectar los productos y servicios de ITSM al Conector de Administración de servicios de TI (ITSMC) en Log Analytics de OMS para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM.
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
@@ -10,14 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: na
+ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131759"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](log-analytics-itsmc-overview.md).
@@ -85,7 +87,7 @@ Use el siguiente procedimiento para conectar la instancia de System Center Servi
 - Puede crear incidentes a partir de alertas de Log Analytics, de entradas de registros o de alertas de Azure en esta instancia de Service Manager.
 
 
-Para obtener más información, consulte: [Creación de elementos de trabajo de ITSM para alertas de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Creación de elementos de trabajo de ITSM a partir de registros de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) y [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Más información [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Creación e implementación del servicio de aplicaciones web de Service Manager
 
@@ -190,7 +192,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 **Los administradores de ServiceNow deben realizar lo siguiente en la instancia de ServiceNow:**:
 - Generar el identificador y el secreto del cliente para el producto de ServiceNow. Para más información sobre cómo generar el identificador y el secreto de cliente, consulte la siguiente información según sea necesario:
 
-    - [Configuración de OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+    - [Configuración de OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Yakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Estambul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -238,7 +240,7 @@ Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
 
 - Puede crear incidentes a partir de alertas de Log Analytics, de entradas de registros o de alertas de Azure en esta instancia de ServiceNow.
 
-Para obtener más información, consulte: [Creación de elementos de trabajo de ITSM para alertas de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Creación de elementos de trabajo de ITSM a partir de registros de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) y [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Más información [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Creación de un rol de usuario de integración de aplicación de ServiceNow
 
@@ -329,7 +331,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 
 - Puede crear incidentes a partir de alertas de Log Analytics, de entradas de registros o de alertas de Azure en esta instancia de Provance.
 
-Para obtener más información, consulte: [Creación de elementos de trabajo de ITSM para alertas de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Creación de elementos de trabajo de ITSM a partir de registros de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) y [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Más información [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Conectar Cherwell con el Conector de Administración de servicios de TI en Azure
 
@@ -381,7 +383,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 
 - Puede crear incidentes a partir de alertas de Log Analytics, de entradas de registros o de alertas de Azure en esta instancia de Cherwell.
 
-Para obtener más información, consulte: [Creación de elementos de trabajo de ITSM para alertas de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Creación de elementos de trabajo de ITSM a partir de registros de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) y [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Más información [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generación del identificador de cliente para Cherwell
 
@@ -395,6 +397,4 @@ Para generar el identificador o clave de cliente para Cherwell, utilice el proce
 
 
 ## <a name="next-steps"></a>Pasos siguientes
- - [Creación de elementos de trabajo de ITSM para alertas de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [Creación de elementos de trabajo de ITSM a partir de los registros de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

@@ -1,30 +1,32 @@
 ---
-title: "Diseño de identidades híbridas: tareas de administración en Azure | Microsoft Docs"
-description: "Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación."
-documentationcenter: 
+title: 'Diseño de identidades híbridas: tareas de administración en Azure | Microsoft Docs'
+description: Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5fcb229690827c7bd508aa0d27dd68b169b4e25e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801333"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan para el ciclo de vida de identidad híbrida
 La identidad es una de las bases de la estrategia de acceso a las aplicaciones y movilidad de la empresa. Si va a iniciar sesión en su dispositivo móvil o aplicación SaaS, su identidad es la clave para obtener acceso a todo. En su nivel más alto, una solución de administración de identidades abarca la unificación y la sincronización entre los repositorios de identidad, lo que incluye la automatización y la centralización del proceso de aprovisionamiento de recursos. La solución de identidad debe ser una identidad centralizada entre el entorno local y la nube y también usar algún tipo de federación de identidades para mantener la autenticación centralizada y compartir y colaborar de forma segura con usuarios y empresas externos. Los recursos van desde sistemas operativos y aplicaciones hasta personas de una organización o afiliadas a ella. Se puede modificar la estructura organizativa para dar cabida a las directivas y procedimientos de aprovisionamiento.
 
-También es importante contar con una solución de identidad preparada para dar atribuciones a los usuarios de forma que les proporcione experiencias de autoservicio que les mantenga productivos. La solución de identidad es más eficaz si habilita el inicio de sesión único para los usuarios en todos los recursos a los que necesitan tener acceso. Los administradores de todos los niveles pueden usar procedimientos estandarizados para administrar las credenciales de usuario. Algunos niveles de administración se pueden reducir o eliminar, según la amplitud de la solución de administración de aprovisionamiento. Además, se pueden distribuir de manera segura funcionalidades de administración, manual o automáticamente, entre varias organizaciones. Por ejemplo, un administrador de dominio puede atender solo a las personas y los recursos de ese dominio. Este usuario puede realizar tareas administrativas y de aprovisionamiento, pero no está autorizado a realizar tareas de configuración, como la creación de flujos de trabajo.
+También es importante contar con una solución de identidad preparada para dar atribuciones a los usuarios de forma que les proporcione experiencias de autoservicio que les mantenga productivos. Su solución de identidad es más sólida si habilita el inicio de sesión único para los usuarios en todos los recursos a los que necesitan obtener acceso. Los administradores en todos los niveles pueden usar procedimientos estandarizados para administrar las credenciales de usuario. Algunos niveles de administración se pueden reducir o eliminar, según la amplitud de la solución de administración de aprovisionamiento. Además, se pueden distribuir de manera segura funcionalidades de administración, manual o automáticamente, entre varias organizaciones. Por ejemplo, un administrador de dominio puede atender solo a las personas y los recursos de ese dominio. Este usuario puede realizar tareas administrativas y de aprovisionamiento, pero no está autorizado a realizar tareas de configuración, como la creación de flujos de trabajo.
 
 ## <a name="determine-hybrid-identity-management-tasks"></a>Determinación de las tareas de administración de identidad híbrida
 La distribución de las tareas administrativas en una organización mejora la precisión y la efectividad de la administración y el equilibrio de la carga de trabajo. Los siguientes son los ejes que definen un sistema sólido de administración de identidades.

@@ -1,24 +1,19 @@
 ---
-title: "Información general sobre las métricas en Microsoft Azure | Microsoft Docs"
-description: "Obtenga información acerca de cómo personalizar los gráficos de supervisión en Azure."
+title: Información general sobre las métricas en Azure Monitor
+description: Obtenga información acerca de cómo personalizar los gráficos de supervisión en Azure.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c36031eb-4df5-4cd5-9479-311d493a40d2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: robb
-ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: metrics
+ms.openlocfilehash: 878ba004e7572ad78f574c15fd76c8868b281117
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262263"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 Todos los servicios de Azure realizan un seguimiento de las métricas clave que le permiten supervisar el estado, el rendimiento, la disponibilidad y el uso de los servicios. Puede ver estas métricas en Azure Portal y, además, puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o el [SDK de .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para tener acceso mediante programación a todo el conjunto de métricas.
@@ -28,7 +23,7 @@ Para algunos servicios, puede que necesite activar diagnósticos para ver las m�
 ## <a name="using-monitoring-charts"></a>Uso de gráficos de supervisión
 Puede representar en gráficos cualquier métrica durante cualquier período de tiempo que elija.
 
-1. En el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar**y luego en el recurso que le interese supervisar.
+1. En el [Azure Portal](https://portal.azure.com/), haga clic en **Examinar**y luego en el recurso que le interese supervisar.
 2. La sección **Supervisión** contiene las métricas más importantes para cada recurso de Azure. Por ejemplo, una aplicación web tiene **Solicitudes y errores** donde, como máquina virtual, tendría **Porcentaje de CPU** y **Lectura y escritura de disco**: ![modo Supervisión](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 3. Al hacer clic en cualquier gráfico aparecerá la hoja **Métrica** . En el cuadro, además del gráfico, hay una tabla que muestra las agregaciones de las métricas (como promedio, mínimo y máximo, durante el intervalo de tiempo que ha elegido). A continuación se muestran las reglas de alerta para el recurso.
     ![Hoja Métrica](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)

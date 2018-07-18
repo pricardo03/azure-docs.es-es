@@ -1,6 +1,6 @@
 ---
-title: "Conexión a una máquina virtual de SQL Server en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo conectarse a SQL Server en ejecución en una máquina virtual en Azure. En este tema se usa el modelo de implementación clásica. Los escenarios varían según la configuración de red y la ubicación del cliente."
+title: Conexión a una máquina virtual de SQL Server en Azure | Microsoft Docs
+description: Obtenga información sobre cómo conectarse a SQL Server en ejecución en una máquina virtual en Azure. En este tema se usa el modelo de implementación clásica. Los escenarios varían según la configuración de red y la ubicación del cliente.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38705969"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Conexión a una máquina virtual de SQL Server en Azure
 
@@ -138,7 +139,7 @@ En la tabla siguiente se enumeran los requisitos para conectarse a SQL Server qu
 | [Creación de un inicio de sesión de SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Si usa la autenticación de SQL, necesita un inicio de sesión de SQL con nombre de usuario y contraseña que también tenga permisos para la base de datos de destino. |
 | [Habilitación del protocolo TCP/IP](#manualTCP) | SQL Server debe permitir conexiones a través de TCP. |
 | [Habilitación de la regla de firewall para el puerto de SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | El firewall de la máquina virtual debe permitir el tráfico entrante en el puerto de SQL Server (predeterminado: 1433). |
-| [Creación de una regla del grupo de seguridad de red para el puerto 1433 de TCP](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | Se debe permitir que la máquina virtual reciba tráfico en el puerto de SQL Server (predeterminado: 1433) si desea conectarse a través de internet. Las conexiones locales y las exclusivas de la red virtual no lo necesitan. Este es el único paso necesario en Azure Portal. |
+| [Creación de una regla del grupo de seguridad de red para el puerto 1433 de TCP](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | Se debe permitir que la máquina virtual reciba tráfico en el puerto de SQL Server (predeterminado: 1433) si desea conectarse a través de internet. Las conexiones locales y las exclusivas de la red virtual no lo necesitan. Este es el único paso necesario en Azure Portal. |
 
 > [!TIP]
 > Los pasos descritos en la tabla anterior se realizan automáticamente al configurar la conectividad en el portal. Solo debe seguir estos pasos para confirmar la configuración o para configurar manualmente la conectividad de SQL Server.

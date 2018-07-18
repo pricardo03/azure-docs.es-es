@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752928"
 ---
 # <a name="management-solutions-in-azure"></a>Soluciones de administración en Azure
 Las soluciones de administración aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. Este artículo proporciona una breve descripción de las soluciones de administración en Azure y los detalles sobre su uso e instalación.
@@ -51,21 +52,17 @@ Haga clic en el nombre de una solución para abrir su página de resumen. Esta p
 ![Propiedades de la solución](media/monitoring-solutions/solution-properties.png)
 
 
-## <a name="find-management-solutions"></a>Búsqueda de soluciones de administración
-Puede examinar e instalar las soluciones de administración disponibles de Microsoft y asociados desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace). Realice una [búsqueda de *soluciones de administración*](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) para filtrarlas y haga clic en cualquier elemento para más detalles.
-
-![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## <a name="install-a-management-solution"></a>Instalación de una solución de administración
+Las soluciones de administración de Microsoft y asociados están disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com). Puede buscar las soluciones disponibles e instalarlas mediante el procedimiento siguiente.
 
-### <a name="install-a-management-solution-from-the-azure-marketplace"></a>Instalación de una solución de administración desde Azure Marketplace
-Puede utilizar cualquiera de los métodos siguientes para buscar e iniciar la instalación de una solución de administración.
+1. Desde la [lista de soluciones para la suscripción](#list-installed-management-solutions), haga clic en **Agregar**. 
+1. A la derecha de **Soluciones de administración de**, haga clic en **Más**. 
+1. Localice la solución de administración que quiere y lea su descripción.
+1. Haga clic en **Crear** para iniciar el proceso de instalación.
+1. Cuando se inicia el proceso de instalación, se le pedirá que proporcione la configuración necesaria, que varía para cada solución. Todas requieren que seleccione un área de trabajo de Log Analytics donde se instalará la solución y se recopilarán los datos. 
 
-- Haga clic en **Obtenerla ahora** en una solución de administración de [Azure Marketplace](#find-management-solutions).
-- Desde la [lista de soluciones para la suscripción](#list-installed-management-solutions), haga clic en **Agregar**. A la derecha de **Soluciones de administración de**, haga clic en **Más**. Busque la solución de administración que desee y haga clic en **Crear**.
-- En Azure Portal, seleccione **Crear un recurso** > **Supervisión y administración** > **Ver todos**. A la derecha de **Soluciones de administración de**, haga clic en **Más**. Busque la solución de administración que desee y haga clic en **Crear**.
-
-Cuando se inicia el proceso de instalación, se le pedirá que proporcione la configuración necesaria, que varía para cada solución. Todas requieren que seleccione un área de trabajo de Log Analytics donde se instalará la solución y se recopilarán los datos. Puede que también necesite [especificar una cuenta de Automation](#log-analytics-workspace-and-automation-account), si la solución lo requiere.
+![Instalar una solución](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Instalación de una solución desde la comunidad
 Los miembros de la comunidad pueden enviar soluciones de administración a las plantillas de inicio rápido de Azure. Puede instalar estas soluciones directamente o descargar plantillas para hacerlo más adelante.

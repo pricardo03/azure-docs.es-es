@@ -1,6 +1,6 @@
 ---
 title: Uso del emulador de Azure Storage para desarrollo y pruebas | Microsoft Docs
-description: El emulador de Azure Storage ofrece un entorno de desarrollo local gratuito para desarrollo y pruebas de las aplicaciones de Azure Storage. Aprenda cómo se autentican las solicitudes, cómo conectarse al emulador desde su aplicación y cómo usar la herramienta de la línea de comandos.
+description: El emulador de Azure Storage ofrece un entorno de desarrollo local gratuito para desarrollo y pruebas de las aplicaciones de Azure Storage. Aprenda cómo se autorizan las solicitudes, cómo conectarse al emulador desde su aplicación y cómo usar la herramienta de la línea de comandos.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291940"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -80,14 +81,14 @@ Para más información sobre estos comandos, consulte la sección [Referencia de
 > Puede usar [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para administrar las instancias de SQL Server, incluida la instalación de LocalDB. En el cuadro de diálogo **Conectar al servidor** de SMSS, especifique `(localdb)\MSSQLLocalDb` en el campo **Nombre del servidor:** para conectarse a la instancia de LocalDB.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Autenticar solicitudes frente al emulador de almacenamiento
-Cuando haya instalado e iniciado el emulador de almacenamiento, puede probar el código en él. De la misma manera que con Azure Storage en la nube, todas las solicitudes que realice en el emulador de almacenamiento se deben autenticar, a menos que sea una solicitud anónima. Puede autenticar solicitudes contra el emulador de almacenamiento mediante la autenticación de clave compartida o con una firma de acceso compartido (SAS).
+Cuando haya instalado e iniciado el emulador de almacenamiento, puede probar el código en él. De la misma manera que con Azure Storage en la nube, todas las solicitudes que realice en el emulador de almacenamiento se deben autorizar, a menos que sea una solicitud anónima. Puede autorizar solicitudes contra el emulador de almacenamiento mediante la autenticación de clave compartida o con una firma de acceso compartido (SAS).
 
-### <a name="authenticate-with-shared-key-credentials"></a>Autenticación con credenciales de clave compartida
+### <a name="authorize-with-shared-key-credentials"></a>Autorización con credenciales de clave compartida
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Para más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](../storage-configure-connection-string.md).
 
-### <a name="authenticate-with-a-shared-access-signature"></a>Autenticación con una firma de acceso compartido
+### <a name="authorize-with-a-shared-access-signature"></a>Autorización con una firma de acceso compartido
 Algunas bibliotecas de cliente de almacenamiento de Azure, como la biblioteca Xamarin, solo admiten la autenticación con un token de firma de acceso compartido (SAS). Puede crear el token de SAS mediante una herramienta como el [Explorador de Storage](http://storageexplorer.com/) u otra aplicación que admita la autenticación de clave compartida.
 
 También puede generar un token de SAS mediante Azure PowerShell. En el ejemplo siguiente se genera un token de SAS con permisos completos a un contenedor de blobs:
@@ -203,12 +204,23 @@ Las siguientes diferencias se aplican al almacenamiento de tablas en el emulador
 No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de la versión del emulador de almacenamiento
+
+### <a name="version-55"></a>Versión 5.5
+* El emulador de almacenamiento admite ahora la versión 2017-11-09 de los servicios de almacenamiento en los puntos de conexión de Blob service, Queue service y Table service.
+* Se ha agregado compatibilidad para la propiedad **Created** del blob, que devuelve la hora de creación de este.
+
+### <a name="version-54"></a>Versión 5.4
+Para mejorar la estabilidad de la instalación, el emulador ya no intenta reservar puertos en el momento de la instalación. Si desea realizar la reserva de puertos, use la opción *-reserveports* del comando **init** para especificarlos.
+
+### <a name="version-53"></a>Versión 5.3
+El emulador de almacenamiento admite ahora la versión 2017-07-29 de los servicios de almacenamiento en los puntos de conexión de Blob service, Queue service y Table service.
+
 ### <a name="version-52"></a>Versión 5.2
 * El emulador de almacenamiento admite ahora la versión 2017-04-17 de los servicios de almacenamiento en los puntos de conexión de Blob service, Queue service y Table service.
 * Se ha corregido un error por el que no se codificaban correctamente los valores de propiedad de tabla.
 
 ### <a name="version-51"></a>Versión 5.1
-* Se ha corregido un error en el que el emulador de almacenamiento devolvía el encabezado `DataServiceVersion` en algunas respuestas en las que el servicio no lo hacía.
+Se ha corregido un error en el que el emulador de almacenamiento devolvía el encabezado `DataServiceVersion` en algunas respuestas en las que el servicio no lo hacía.
 
 ### <a name="version-50"></a>Versión 5.0
 * El programa de instalación del emulador de almacenamiento ya no comprueba instalaciones existentes de MSSQL y .NET Framework.

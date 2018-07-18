@@ -1,12 +1,12 @@
 ---
-title: "Administración de los registros de control de acceso en StorSimple | Microsoft Docs"
-description: "Describe cómo utilizar los registros de control de acceso (ACR) para determinar qué hosts pueden conectarse a un volumen en el dispositivo StorSimple."
+title: Administración de los registros de control de acceso en StorSimple | Microsoft Docs
+description: Describe cómo utilizar los registros de control de acceso (ACR) para determinar qué hosts pueden conectarse a un volumen en el dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: 9173e34f889ce1c082b20bb382cb6ca9a03dd797
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597504"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Usar el servicio de Administrador de StorSimple para administrar registros de control de acceso
 
@@ -90,7 +91,7 @@ Realice los pasos siguientes para editar un ACR.
 
     ![Edición de registros de control de acceso](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Haga clic en **Guardar**. Cuando se le pida confirmación, haga clic en **Sí**. 
+4. Haga clic en **Save**(Guardar). Cuando se le pida confirmación, haga clic en **Sí**. 
 
     ![Edición de registros de control de acceso](./media/storsimple-8000-manage-acrs/editacr3.png)
 

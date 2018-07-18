@@ -4,7 +4,7 @@ description: Crear, vincular, mover y eliminar cuentas de integración para la i
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166253"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297995"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Crear y administrar cuentas de integración para soluciones de B2B con Logic Apps
 
@@ -55,10 +55,10 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
    | Propiedad | Obligatorio | Valor de ejemplo | DESCRIPCIÓN | 
    |----------|----------|---------------|-------------|
    | NOMBRE | Sí | test-integration-account | Nombre para la cuenta de integración. En este ejemplo, utilice el nombre especificado. | 
-   | La suscripción | Sí | <*Azure-subscription-name*> | Nombre de la suscripción a Azure que se va a usar | 
+   | Subscription | Sí | <*Azure-subscription-name*> | Nombre de la suscripción a Azure que se va a usar | 
    | Grupos de recursos | Sí | test-integration-account-rg | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados. Para este ejemplo, cree un nuevo grupo de recursos con el nombre especificado. | 
    | Nivel de precios | Sí | Gratuito | El plan de tarifa que quiere usar. En este ejemplo, seleccione **Gratuito**, pero, para obtener más información, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md) y [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Ubicación | Sí | Oeste de EE. UU | Región en la que quiere almacenar la información de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree una aplicación lógica en la misma ubicación que la cuenta de integración. En este ejemplo, | 
+   | Ubicación | Sí | Oeste de EE. UU | Región en la que quiere almacenar la información de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree una aplicación lógica en la misma ubicación que la cuenta de integración. | 
    | Log Analytics | Sin  | Off | Mantenga el valor **Off** para el registro de diagnóstico. | 
    ||||| 
 

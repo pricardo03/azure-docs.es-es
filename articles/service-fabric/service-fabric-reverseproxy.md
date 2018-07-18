@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301587"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso en Azure Service Fabric
 El servidor proxy inverso creado en Azure Service Fabric ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con estos servicios.
@@ -56,8 +57,13 @@ En lugar de configurar el puerto de un servicio individual de Load Balancer, pue
 ![Comunicación externa][0]
 
 > [!WARNING]
-> Al configurar el puerto del proxy inverso de Load Balancer, se podrá acceder de manera externa a todos los microservicios del clúster que exponen un punto de conexión HTTP.
+> Al configurar el puerto del proxy inverso de Load Balancer, se podrá acceder de manera externa a todos los microservicios del clúster que exponen un punto de conexión HTTP. Esto significa que un usuario malintencionado determinado podría detectar microservicios destinados a ser internos. Potencialmente, implica vulnerabilidades graves que podrían aprovecharse; por ejemplo:
 >
+> * Un usuario malintencionado puede iniciar un ataque de denegación de servicio mediante llamadas reiteradas a un servicio interno que no tenga una superficie expuesta a ataques suficientemente protegida.
+> * Un usuario malintencionado puede entregar paquetes con formato incorrecto a un servicio interno y provocar un comportamiento no deseado.
+> * Un servicio destinado a ser interno podría devolver información privada o confidencial que no se pretende exponer a servicios fuera del clúster, y ponerla así a disposición de un usuario malintencionado. 
+>
+> Asegúrese de entender completamente y de mitigar las posibles repercusiones para la seguridad del clúster y las aplicaciones que se ejecutan en este, antes de hacer público el puerto de proxy inverso. 
 >
 
 

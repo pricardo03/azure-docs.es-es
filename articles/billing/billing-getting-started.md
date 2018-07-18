@@ -1,5 +1,5 @@
 ---
-title: 'Evitar costos inesperados y administrar la facturación: Azure | Microsoft Docs'
+title: Evitar costos inesperados y administrar la facturación en Azure | Microsoft Docs
 description: Obtenga información acerca de cómo evitar cargos inesperados en la factura de Azure. Use características de administración y seguimiento del costo de las suscripciones a Microsoft Azure.
 services: ''
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 47a0f2e1cdb873dc907748ed2f3def29efccaa98
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e4db9911697a4d79032b7a6358db642112a5a54e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062179"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -149,7 +150,7 @@ Hable con el administrador de la cuenta o el asociado de Azure para conocer más
 | Proveedor de soluciones en la nube (CSP) | Hable con el proveedor |
 | Patrocinio de Azure | [Portal de patrocinio](https://www.microsoftazuresponsorships.com/) |
 
-Si es el administrador de una infraestructura de TI para una organización grande, es recomendable que vea las [plantillas scaffold empresariales de Azure](../azure-resource-manager/resource-manager-subscription-governance.md) y las [notas del producto TI empresarial](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (descarga en .pdf, solo en inglés).
+Si es el administrador de una infraestructura de TI para una organización grande, es recomendable que vea las [plantillas scaffold empresariales de Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) y las [notas del producto TI empresarial](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (descarga en .pdf, solo en inglés).
 
 #### <a name="EA"></a>Vistas de los costos del Contrato Enterprise de la versión preliminar dentro de Azure Portal 
 

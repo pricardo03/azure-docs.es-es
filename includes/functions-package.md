@@ -6,15 +6,20 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: e94b817e6e08fcf2aee6e3000842bc1b853d512e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 75be516dc3f23ee02638a6ca9981a6732b00e27a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38738937"
 ---
-Para el desarrollo local en la versión 2.x de Azure Functions, el paquete se usa para [registrar la extensión de enlace](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools). Para el desarrollo de la biblioteca de clases de C# en Functions 1.x y 2.x, se agrega compatibilidad con el enlace mediante la [instalación del paquete](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code).
+En la siguiente tabla se explica cómo agregar compatibilidad para este enlace en cada entorno de desarrollo.
 
-Tenga en cuenta que el código fuente sigue la numeración de versiones del SDK de WebJobs: la versión 2.x del SDK de WebJobs es equivalente a Azure Functions 1.x, así que el código de Functions 1.x se encuentra en la rama v2.x en el repositorio. Las ramas maestra y de desarrollo contienen el código de Web Jobs 3.x, que es el mismo que el de Functions 2.x.
+| Entorno de desarrollo               | Para agregar compatibilidad en <br>Functions 1.x  |
+|----------------------|----------------|---------------|
+|Desarrollo local: biblioteca de clases C#       | [Instalación del paquete](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
+|Desarrollo local: script de C#, JavaScript, F# |Automático         |
+|Desarrollo con Portal|  Automático    |

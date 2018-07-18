@@ -10,6 +10,8 @@
       href: stream-analytics-quick-create-portal.md
     - name: 'Creación de un trabajo: PowerShell'
       href: stream-analytics-quick-create-powershell.md
+    - name: 'Creación de un trabajo: Visual Studio'
+      href: stream-analytics-quick-create-vs.md
 - name: Tutoriales
   items:
     - name: 1 - Creación y administración de un trabajo
@@ -54,11 +56,11 @@
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurar alertas
           href: stream-analytics-set-up-alerts.md
-        - name: Comprobación del trabajo
+        - name: Probar un trabajo
           href: stream-analytics-test-query.md
         - name: Visualización de los resultados en un panel
           href: stream-analytics-power-bi-dashboard.md
-        - name: Limpieza del trabajo
+        - name: Limpieza de un trabajo
           href: stream-analytics-clean-up-your-job.md
         - name: Emparejamiento de trabajos por motivos de confiabilidad
           href: stream-analytics-job-reliability.md
@@ -125,8 +127,6 @@
           href: stream-analytics-job-diagram-with-metrics.md
         - name: Registros de diagnóstico
           href: stream-analytics-job-diagnostic-logs.md
-        - name: Comprobación del mantenimiento de los recursos
-          href: stream-analytics-resource-health.md
         - name: Instrucción SELECT INTO
           href: stream-analytics-select-into.md
         - name: Receptores del centro de eventos

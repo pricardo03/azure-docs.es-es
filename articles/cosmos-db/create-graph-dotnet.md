@@ -2,23 +2,21 @@
 title: Compilación de una aplicación .NET Framework o Core para Azure Cosmos DB mediante Graph API | Microsoft Docs
 description: En este tema se incluye un ejemplo de código .NET Framework o Core que puede usar para conectarse a Azure Cosmos DB y realizar consultas.
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: fdd8ee942667a57ccb7c9211e9aa00ee19a9e522
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453423"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilación de una aplicación .NET Framework o Core mediante Graph API
 
@@ -28,7 +26,7 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta de [Graph API]
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
+Si todavía no tiene instalado Visual Studio 2017, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
 Si ya tiene instalado Visual Studio 2017, asegúrese de tener aplicado [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
@@ -69,7 +67,7 @@ Ahora, vamos a clonar una aplicación de Graph API desde GitHub, establecer la c
 5. Restaure los paquetes de NuGet en el proyecto. Debe incluir el controlador Gremlin.Net, así como el paquete Newtonsoft.Json.
 
 
-6. También puede instalar manualmente el controlador Gremlin.Net mediante el administrador de paquetes NuGet o la [utilidad de línea de comandos de NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. También puede instalar manualmente el controlador Gremlin.Net mediante el administrador de paquetes NuGet o la [utilidad de línea de comandos de NuGet](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -88,7 +86,7 @@ Los fragmentos de código siguientes se han tomado del archivo Program.cs.
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * Se muestran los comandos de Gremlin que se van a ejecutar en un diccionario (línea 26):
@@ -177,7 +175,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     `private static string database = "your-database";`
 
-5. De forma similar, con la información de la colección que se ha creado anteriormente, pegue la colección (que también incluye el nombre del grafo) en la variable `collection` en la línea 23. 
+5. De forma similar, con la información del contenedor que se ha creado anteriormente, pegue la colección (que también incluye el nombre del grafo) en la variable `collection` de la línea 23. 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -195,7 +193,7 @@ Haga clic en CTRL + F5 para ejecutar la aplicación. La aplicación imprimirá l
 
 Ahora puede volver al Explorador de datos en Azure Portal para examinar y consultar los datos del nuevo grafo.
 
-1. En el Explorador de datos, la nueva base de datos aparece en el panel Grafos. Expanda los nodos de la colección y la base de datos y, a continuación, haga clic en **Grafo**.
+1. En el Explorador de datos, la nueva base de datos aparece en el panel Grafos. Expanda los nodos del contenedor y de la base de datos y, a continuación, haga clic en **Grafo**.
 
 2. Haga clic en el botón **Aplicar filtro** para usar la consulta predeterminada para visualizar todos los vértices del grafo. Los datos generados por la aplicación de ejemplo se muestran en el panel grafos.
 

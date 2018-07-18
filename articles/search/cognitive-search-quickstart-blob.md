@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640268"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Inicio rápido: crear una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
 
@@ -95,6 +96,8 @@ Una ventaja de usar el asistente de **importación de datos** es que también pu
 ### <a name="step-2-add-cognitive-skills"></a>Paso 2: agregar conocimientos cognitivos
 
 A continuación, agregue los pasos de enriquecimiento a la canalización de indexación. El portal le ofrece aptitudes cognitivas predefinidas para el análisis de imágenes y de texto. En el portal, un conjunto de aptitudes opera en un solo campo de origen. Esto puede parecer un objetivo pequeño, pero para los blobs de Azure, el campo `content` contiene la mayor parte del documento de blobs (por ejemplo, un documento de Word o unas diapositivas de PowerPoint). Por lo tanto, este campo es una entrada ideal, ya que todo el contenido de un blob está ahí.
+
+A veces, deseará extraer la representación textual de archivos compuestos en su mayoría por imágenes digitalizadas, como un archivo PDF que genera un escáner. Azure Search puede extraer automáticamente el contenido de las imágenes insertadas en el documento. Para ello, seleccione la opción **Habilitar OCR y combinar todo el texto en el campo merged_content**. Esto creará automáticamente un campo `merged_content` que contiene tanto el texto extraído del documento como la representación textual de las imágenes insertadas en el documento. Al seleccionar esta opción, `Source data field` se establecerá en `merged_content`.
 
 En la opción **Agregar aptitudes cognitivas**, elija las aptitudes que realizan el procesamiento de lenguaje natural. En esta guía de inicio rápido, elija el reconocimiento de entidades para los contactos, las organizaciones y las ubicaciones.
 

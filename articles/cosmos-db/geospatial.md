@@ -2,23 +2,20 @@
 title: Trabajo con datos geoespaciales en Azure Cosmos DB | Microsoft Docs
 description: Aprenda a crear, indexar y consultar objetos espaciales con Azure Cosmos DB y la API de SQL.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 858d6c2154a74a6e5fe16c9392827cc8a6354f9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 893b985514f4c812da673a90fc40148e8ac9ce81
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611374"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabajo con datos geoespaciales de ubicación y de GeoJSON en Azure Cosmos DB
 Este artículo es una introducción a la funcionalidad geoespacial en [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Después de leer este artículo, podrá responder a las preguntas siguientes:
@@ -98,7 +95,7 @@ Además de los puntos, GeoJSON también admite LineStrings y polígonos. **LineS
 Además de elementos Point, LineString y Polygon, GeoJSON también especifica la representación que indica cómo agrupar varias ubicaciones geoespaciales, así como la forma de asociar propiedades arbitrarias a la geolocalización como si fueran una **Característica**. Dado que estos objetos son JSON válidos, se pueden almacenar y procesar todos en Azure Cosmos DB. Sin embargo, Azure Cosmos DB solo admite la indexación automática de puntos.
 
 ### <a name="coordinate-reference-systems"></a>Sistemas de coordenadas de referencia
-Dado que la forma de la tierra es irregular, las coordenadas de los datos geoespaciales se representan en muchos sistemas de coordenadas de referencia (CRS), cada uno con sus propios marcos de referencia y unidades de medida. Por ejemplo, la "National Grid of Britain" es un sistema de referencia muy preciso para el Reino Unido, pero no fuera de él. 
+Dado que la forma de la tierra es irregular, las coordenadas de los datos geoespaciales se representan en muchos sistemas de coordenadas de referencia (CRS), cada uno con sus propios marcos de referencia y unidades de medida. Por ejemplo, la "National Grid of Britain" es un sistema de referencia preciso para el Reino Unido, pero no fuera de él. 
 
 El sistema de coordenadas de referencia más popular en uso hoy en día es el Sistema Geodésico Mundial [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). Los dispositivos GPS y muchos servicios de mapeado como Google Maps y API de Bing Maps, usan WGS 84. Azure Cosmos DB admite indexación y consulta de datos geoespaciales usando solo el sistema de coordenadas WGS 84. 
 
@@ -223,7 +220,7 @@ Los argumentos de Polygon en ST_WITHIN solo pueden contener un anillo individual
 > 
 > 
 
-Azure Cosmos DB también admite la realización de consultas inversas; es decir, puede indexar elementos Polygon o líneas en Azure Cosmos DB y, a continuación, consultar las áreas que contienen un punto especificado. Este patrón se utiliza habitualmente en logística para identificar, por ejemplo, el momento en que un camión entra o sale de un área designada. 
+Azure Cosmos DB también admite la realización de consultas inversas; es decir, puede indexar elementos polígonos o líneas en Azure Cosmos DB y, a continuación, consultar las áreas que contienen un punto especificado. Este patrón se utiliza habitualmente en logística para identificar, por ejemplo, el momento en que un camión entra o sale de un área designada. 
 
 **Consultar**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303358"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064468"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Costos de software de Windows no incluidos con las instancias reservadas de Azure
 
@@ -55,9 +55,9 @@ El costo de cada uno de estos medidores se puede consultar a través de la API R
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de las instancias reservadas de Azure, consulte los siguientes artículos:
 
-- [Ahorrar en máquinas virtuales con instancias reservadas de máquina virtual](billing-save-compute-costs-reservations.md)
-- [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
+- [¿Qué es Azure Reserved Virtual Machine Instances?](billing-save-compute-costs-reservations.md)
+- [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administración de instancias reservadas en Azure](billing-manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Interpretación del uso de instancias reservadas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)

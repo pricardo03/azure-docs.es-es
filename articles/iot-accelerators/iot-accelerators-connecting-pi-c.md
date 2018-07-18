@@ -1,31 +1,25 @@
 ---
 title: Aprovisionamiento de Raspberry Pi para la supervisión remota con C en Azure | Microsoft Docs
 description: Se describe cómo conectar un dispositivo Raspberry Pi al acelerador de la solución de supervisión remota mediante una aplicación creada en C.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 9de7616ec7174f6c55888a659e9a12bca1e07f94
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611448"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Conexión del dispositivo Raspberry Pi al acelerador de la solución de supervisión remota (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota. Como sucede con la mayoría de aplicaciones insertadas que se ejecutan en dispositivos restringidos, el código cliente para la aplicación del dispositivo Raspberry Pi se escribe en C. En este tutorial, compilará la aplicación en un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian.
+En este tutorial se muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota. Como sucede con la mayoría de aplicaciones insertadas que se ejecutan en dispositivos restringidos, el código cliente para la aplicación del dispositivo Raspberry Pi se escribe en C. En este tutorial, compilará la aplicación en un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian.
 
 ### <a name="required-hardware"></a>Requisitos de hardware
 
@@ -62,7 +56,6 @@ Los pasos siguientes muestran cómo preparar el dispositivo Raspberry Pi para co
 1. Use el siguiente comando para agregar las herramientas de desarrollo y bibliotecas necesarias a su dispositivo Raspberry Pi:
 
     ```sh
-    sudo apt-get purge libssl-dev
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
@@ -71,9 +64,9 @@ Los pasos siguientes muestran cómo preparar el dispositivo Raspberry Pi para co
     ```sh
     cd ~
     git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
-    cd azure-iot-sdk-c/build_all/linux
-    ./build.sh --no-make
-    cd ../../cmake/iotsdk_linux
+    mkdir cmake
+    cd cmake
+    cmake ..
     make
     sudo make install
     ```

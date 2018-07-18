@@ -1,0 +1,142 @@
+---
+title: Solucionar problemas relativos a errores con Update Management
+description: Obtenga información acerca de la solución de problemas relacionados con Update Management.
+services: automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 06/19/2018
+ms.topic: conceptual
+ms.service: automation
+manager: carmonm
+ms.openlocfilehash: b77d1210ff48a4bd30834fcbad64173bf77b1290
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064690"
+---
+# <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
+
+En este artículo se describen soluciones para resolver problemas que pueden surgir al usar Update Management.
+
+## <a name="windows"></a>Windows
+
+Si se producen problemas al intentar incorporar la solución en una máquina virtual, compruebe el registro de eventos de **Operations Manager** en **Registros de aplicaciones y servicios** en la máquina local en busca de eventos con el identificador de evento **4502** y el mensaje de evento que contenga **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
+
+En la sección siguiente se destacan los mensajes de error específicos y una posible solución para cada uno. Para otros problemas sobre la incorporación, consulte el artículo sobre la [solución de problemas de incorporación de la solución](onboarding.md).
+
+### <a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en una cuenta diferente
+
+#### <a name="issue"></a>Problema
+
+Aparece el siguiente mensaje de error:
+
+```error
+Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+```
+
+#### <a name="cause"></a>Causa
+
+La máquina ya está incorporada a otra área de trabajo para Update Management.
+
+#### <a name="resolution"></a>Resolución
+
+Realice una limpieza de los artefactos antiguos en la máquina mediante la [eliminación del grupo Hybrid Runbook](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) y vuelva a intentarlo.
+
+### <a name="machine-unable-to-communicate"></a>Escenario: La máquina no puede comunicarse con el servicio
+
+#### <a name="issue"></a>Problema
+
+Aparece uno de los siguientes mensajes de error:
+
+```
+Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server can't communicate, because they do not possess a common algorithm
+```
+
+```
+Unable to Register Machine for Patch Management, Registration Failed with Exception Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value.
+```
+
+```
+The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
+```
+
+#### <a name="cause"></a>Causa
+
+Puede haber un servidor proxy, una puerta de enlace o un firewall bloqueando la comunicación de red.
+
+#### <a name="resolution"></a>Resolución
+
+Revise la red y asegúrese de que se permiten las direcciones y los puertos correspondientes. Consulte los [requisitos de red](../automation-hybrid-runbook-worker.md#network-planning), para obtener una lista de puertos y direcciones que necesitan Update Management y las instancias de Hybrid Runbook Worker.
+
+### <a name="unable-to-create-selfsigned-cert"></a>Escenario: error al crear el certificado autofirmado.
+
+#### <a name="issue"></a>Problema
+
+Aparece uno de los siguientes mensajes de error:
+
+```
+Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
+```
+
+#### <a name="cause"></a>Causa
+
+Hybrid Runbook Worker no pudo generar un certificado autofirmado
+
+#### <a name="resolution"></a>Resolución
+
+Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\ProgramData\Microsoft\Crypto\RSA** e inténtelo de nuevo.
+
+## <a name="linux"></a>Linux
+
+### <a name="scenario-update-run-fails-to-start"></a>Escenario: No se puede iniciar la ejecución de la actualización
+
+#### <a name="issue"></a>Problema
+
+No se pudo iniciar una ejecución de actualización en una máquina Linux.
+
+#### <a name="cause"></a>Causa
+
+La instancia de Hybrid Worker de Linux no es correcta.
+
+#### <a name="resolution"></a>Resolución
+
+Realice una copia del archivo de registro siguiente y consérvelo para la solución de problemas:
+
+```
+/var/opt/microsoft/omsagent/run/automationworker/worker.log
+```
+
+### <a name="scenario-update-run-starts-but-encounters-errors"></a>Escenario: La ejecución de actualización se inicia, pero encuentra errores
+
+#### <a name="issue"></a>Problema
+
+Se inicia una ejecución de la actualización, pero encuentra errores durante la ejecución.
+
+#### <a name="cause"></a>Causa
+
+Las posibles causas pueden ser:
+
+* El estado del administrador de paquetes no es correcto
+* Paquetes específicos pueden interferir con la aplicación de revisiones basada en la nube
+* Otros motivos
+
+#### <a name="resolution"></a>Resolución
+
+Si se producen errores durante una ejecución de actualizaciones después de que se ha iniciado correctamente en Linux, compruebe el trabajo de salida desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes del Administrador de paquetes de su máquina que puede investigar e intentar solucionar. Update Management requiere que el administrador de paquetes tenga un estado correcto para que las implementaciones de actualizaciones se realicen con éxito.
+
+En algunos casos, las actualizaciones de paquetes pueden interferir con Update Management e impedir que finalice una implementación de actualizaciones. Si ese fuera el caso, deberá excluir estos paquetes de las futuras ejecuciones de actualizaciones o instalarlos manualmente por su cuenta.
+
+Si no puede resolver un problema de aplicación de revisiones, realice una copia del archivo de registro siguiente y consérvela **antes** de que se inicie la siguiente implementación de actualizaciones para solucionar los problemas:
+
+```
+/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
+
+* Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
+* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport): la cuenta de Microsoft Azure oficial para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
+* Si necesita más ayuda, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

@@ -2,18 +2,21 @@
 title: 'Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Golang y Azure Portal | Microsoft Docs'
 description: En este tema se incluye un ejemplo de código Golang que puede usar para conectarse a Azure Cosmos DB y realizar consultas
 services: cosmos-db
-author: Durgaprasad-Budhwani
+author: SnehaGunda
 manager: kfile
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d5ac2f683308385b2bd4ca422cf00abaa37735fd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1a45389e95dbd7f5f762b6dee0edc3897d0c3b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38612823"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Golang y Azure Portal
 
@@ -207,7 +210,7 @@ if err != nil {
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 
 1. En Goglang, asegúrese de que su GOPATH (disponible en **Archivo**, **Configuración**, **Go**, **GOPATH**) incluye la ubicación en la que se instaló el gopkg, que es USERPROFILE\go de forma predeterminada. 
-2. Convierta en comentario las líneas que eliminan el documento, de la 91 a la 96, para que pueda ver el documento después de ejecutar la aplicación.
+2. Convierta en comentario las líneas que eliminan el documento, de la 103 a la 107, para que pueda ver el documento después de ejecutar la aplicación.
 3. En Goglang, haga clic en **Ejecutar**y, a continuación, haga clic en **Ejecutar "Build main.go and run"**.
 
     La aplicación finaliza y muestra la descripción del documento creado en [Crear un documento](#create-document).

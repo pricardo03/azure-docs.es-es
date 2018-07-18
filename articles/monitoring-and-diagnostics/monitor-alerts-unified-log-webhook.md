@@ -1,24 +1,19 @@
 ---
-title: Acciones de webhook para alertas de registro en Alertas de Azure | Microsoft Docs
+title: Acciones de webhook para alertas de registro en alertas de Azure
 description: En este artículo se describe cómo una regla de alertas de registro puede insertar datos como webhook de HTTP mediante Log Analytics, así como los detalles de las diferentes personalizaciones posibles.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264262"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta en Azure](monitor-alerts-unified-usage.md), tiene la opción de [configurarla mediante grupos de acción](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
@@ -47,11 +42,11 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | Severity |#severity |Gravedad establecida en la alerta de registros activada. |
 | AlertThresholdOperator |ThresholdOperator |Operador de umbral para la regla de alerta.  *Mayor que* o *menor que*. |
 | AlertThresholdValue |#thresholdvalue |Valor de umbral para la regla de alerta. |
-| LinkToSearchResults |#linktosearchresults |Vincular a la búsqueda de registros de Log Analytics que devuelve los registros de la consulta que creó la alerta. |
+| LinkToSearchResults |#linktosearchresults |Vincular al portal de análisis que devuelve los registros de la consulta que creó la alerta. |
 | ResultCount |#searchresultcount |Número de registros en los resultados de la búsqueda. |
-| Search Interval End time |#searchintervalendtimeutc |Hora de finalización de la consulta en formato UTC. |
-| Search Interval |#searchinterval |Período de tiempo para la regla de alerta. |
-| Search Interval StartTime |#searchintervalstarttimeutc |Hora de inicio para la consulta en formato UTC. 
+| Search Interval End time |#searchintervalendtimeutc |Hora de finalización de la consulta en UTC, formato - mm/dd/aaaa HH:mm:ss AM/PM. |
+| Search Interval |#searchinterval |Período de tiempo para la regla de alertas, formato - HH:mm:ss. |
+| Search Interval StartTime |#searchintervalstarttimeutc |Hora de inicio de la consulta en UTC, formato - mm/dd/aaaa HH:mm:ss AM/PM. 
 | SearchQuery |#searchquery |Consulta de búsqueda de registros utilizada por la regla de alerta. |
 | SearchResults |"IncludeSearchResults": true|Son los registros que devuelve la consulta a modo de tabla de JSON y que están limitados a los primeros 1000 registros, si el elemento "IncludeSearchResults":true se agrega a una definición de webhook personalizada de JSON como propiedad de alto nivel. |
 | WorkspaceID |#workspaceid |Identificador del área de trabajo de Log Analytics. |
@@ -74,6 +69,7 @@ Esta carga de ejemplo se resolvería en algo similar a lo siguiente al enviarse 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+Como todas las variables de un webhook personalizado están especificadas dentro de un contenedor JSON como "#searchinterval", el webhook resultante también tendrá datos de variable dentro de un contenedor como "00:05:00".
 
 Para incluir resultados de búsqueda en una carga personalizada, asegúrese de que **IncudeSearchResults** se establece como una propiedad de nivel superior en la carga de JSON. 
 

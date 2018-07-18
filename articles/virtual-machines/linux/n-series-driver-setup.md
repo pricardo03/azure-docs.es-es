@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190686"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654290"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -31,7 +31,7 @@ Para conocer las especificaciones de máquina virtual de la serie N, las capacid
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Instalación de controladores CUDA para las máquinas virtuales de las series NC, NCv2, NCv3 y ND
+## <a name="install-cuda-drivers-on-n-series-vms"></a>Instalación de controladores CUDA en máquinas virtuales de la serie N
 
 Estos son los pasos para instalar controladores CUDA desde el kit de herramientas de NVIDIA CUDA en máquinas virtuales de la serie N. 
 
@@ -156,7 +156,7 @@ Si el controlador está instalado, verá una salida parecida a la siguiente. Ten
 
 ## <a name="rdma-network-connectivity"></a>Conectividad de red RDMA
 
-La conectividad de red RDMA puede habilitarse en las máquinas virtuales de la serie N que puedan usar RDMA, como la NC24r, implementadas en el mismo conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con Intel MPI 5.x o una versión posterior. Requisitos adicionales siguientes:
+La conectividad de red RDMA puede habilitarse en las máquinas virtuales de la serie N que puedan usar RDMA, como la NC24r, implementadas en el mismo conjunto de disponibilidad o en un único grupo de selección de red en un conjunto de escalado de máquinas virtuales. Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con Intel MPI 5.x o una versión posterior. Requisitos adicionales siguientes:
 
 ### <a name="distributions"></a>Distribuciones
 
@@ -168,7 +168,7 @@ Las máquinas virtuales de la serie N que puedan usar RDMA se implementan desde 
 
 * **HPC basada en CentOS 7.4**: los controladores RDMA e Intel MPI 5.1 están instalados en la máquina virtual.
 
-## <a name="install-grid-drivers-for-nv-series-vms"></a>Instalación de controladores GRID para máquinas virtuales de la serie NV
+## <a name="install-grid-drivers-on-nv-series-vms"></a>Instalación de controladores GRID en máquinas virtuales de la serie NV
 
 Para instalar los controladores NVIDIA GRID en máquinas virtuales de la serie NV, realice una conexión SSH a cada máquina virtual y siga los pasos para su distribución de Linux. 
 

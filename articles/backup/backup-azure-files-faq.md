@@ -7,13 +7,13 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434848"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -23,7 +23,7 @@ Para examinar rápidamente las secciones de este artículo, use los vínculos de
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Configuración del trabajo de copia de seguridad de archivos de Azure
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>¿Por qué no puedo ver algunas de las cuentas de almacenamiento que quiero proteger, que contienen recursos compartidos de archivos de Azure válidos? <br/>
-Durante la versión preliminar, la copia de seguridad de los recursos compartidos de archivos de Azure no admite todos los tipos de cuentas de almacenamiento. Consulte esta lista de [aquí](troubleshoot-azure-files.md#preview-boundaries) para ver las cuentas de almacenamiento admitidas. También es posible que la cuenta de almacenamiento que está buscando ya esté protegida o registrada con otro almacén. [Anule el registro](troubleshoot-azure-files.md#configuring-backup) desde el almacén para descubrir la cuenta de almacenamiento en otros almacenes para la protección.
+Durante la versión preliminar, la copia de seguridad de los recursos compartidos de archivos de Azure no admite todos los tipos de cuentas de almacenamiento. Consulte esta lista de [aquí](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview) para ver las cuentas de almacenamiento admitidas. También es posible que la cuenta de almacenamiento que está buscando ya esté protegida o registrada con otro almacén. [Anule el registro](troubleshoot-azure-files.md#configuring-backup) desde el almacén para descubrir la cuenta de almacenamiento en otros almacenes para la protección.
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>¿Por qué no veo algunos de mis recursos compartidos de archivos de Azure en la cuenta de almacenamiento cuando intento configurar la copia de seguridad? <br/>
 Compruebe si el recurso compartido de archivos de Azure ya está protegido en el mismo almacén de Recovery Services o si se ha eliminado recientemente.
@@ -39,41 +39,41 @@ Sí. Sin embargo, deberá [detener la protección](backup-azure-files.md#stop-pr
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>¿En qué zonas geográficas se puede realizar una copia de seguridad de los recursos compartidos de archivos de Azure? <br/>
 La copia de seguridad de recursos compartidos de archivos de Azure se encuentra actualmente en versión preliminar y solo está disponible en las siguientes zonas geográficas: 
--   Sudeste de Australia (ASE) 
+-   Este de Australia (AE) 
+- Sudeste de Australia (ASE) 
 - Sur de Brasil (BRS)
 - Centro de Canadá (CNC)
 -   Este de Canadá (CE)
 -   Centro de EE. UU. (CUS)
 -   Asia Oriental (EA)
--   Australia Oriental (AE) 
--   Este de EE. UU. (EUS)
--   Este de EE. UU. 2 (EUS2)
+-   Este de EE. UU. (EUS)
+-   Este de EE. UU. 2 (EUS2)
 - Este de Japón (JPE)
 - Oeste de Japón (JPE)
 -   India central (INC) 
 - India del Sur (INS)
 - Centro de Corea del Sur (KRC)
-- Corea del Sur (KRS)
--   Centro-norte de EE. UU. (NCUS) 
+- Sur de Corea del Sur (KRS)
+-   Centro-norte de EE. UU. (NCUS) 
 -   Europa del Norte (NE) 
 -   Centro-sur de EE. UU. (SCUS) 
 -   Asia Suroriental (SEA)
 -   Sur de Reino Unido (UKS) 
 -   Oeste de Reino Unido (UKW) 
 -   Europa Occidental (WE) 
--   Oeste de EE. UU. (WUS)
--   Centro-oeste de EE. UU. (WCUS)
--   Oeste de Estados Unidos 2 (WUS 2)
+-   Oeste de EE. UU. (WUS)
+-   Centro-oeste de EE. UU. (WCUS)
+-   Oeste de EE. UU. 2 (WUS 2)
 
 Escriba a [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) si tiene que usarla en una zona geográfica específica que no se haya indicado anteriormente.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>¿Cuántos recursos compartidos de archivos de Azure se pueden proteger en un almacén?<br/>
-Durante la versión preliminar, puede proteger los recursos compartidos de archivos de Azure de hasta 25 cuentas de almacenamiento por almacén. También puede proteger hasta 200 recursos compartidos de archivos de Azure en un único almacén.
+Durante la versión preliminar, puede proteger los recursos compartidos de archivos de Azure de hasta 50 cuentas de almacenamiento por almacén. También puede proteger hasta 200 recursos compartidos de archivos de Azure en un único almacén.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>¿Puedo proteger dos recursos compartidos de archivos diferentes desde la misma cuenta de almacenamiento en almacenes diferentes?
-Nº Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en el mismo almacén.
+No. Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en el mismo almacén.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Copia de seguridad
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>¿Cuántas copias de seguridad a petición se pueden realizar por recurso compartido de archivos? <br/>
 En cualquier momento dado, puede tener hasta 200 instantáneas de un recurso compartido de archivos. El límite incluye las instantáneas que toma Azure Backup como se define en la directiva. Si las copias de seguridad empiezan a generar errores después de alcanzar el límite, elimine los puntos de restauración a petición para que las próximas copias de seguridad sean correctas.
@@ -81,7 +81,7 @@ En cualquier momento dado, puede tener hasta 200 instantáneas de un recurso com
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Después de habilitar las redes virtuales en mi cuenta de almacenamiento, la copia de seguridad de los recursos compartidos de archivos de la cuenta comienzan a generar errores. ¿Por qué?
 La copia de seguridad de recursos compartidos de archivos de Azure no admite cuentas de almacenamiento que tengan habilitadas las redes virtuales. Deshabilite las redes virtuales en las cuentas de almacenamiento para poder realizar copias de seguridad correctas. 
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restauración
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share-br"></a>¿Se pueden recuperar los recursos compartidos de archivos de Azure eliminados? <br/>
 Cuando se elimina un recurso compartido de archivos de Azure, se muestra la lista de copias de seguridad que se eliminarán y se solicita una confirmación. No se puede restaurar un recurso compartido de archivos de Azure eliminado.

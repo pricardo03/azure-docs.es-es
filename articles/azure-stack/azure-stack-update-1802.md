@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af65ffc088c2beadf415b72ec284ef77f3e4f6d4
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196226"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757264"
 ---
 # <a name="azure-stack-1802-update"></a>Actualización 1802 de Azure Stack
 
@@ -37,7 +37,7 @@ El número de compilación de la actualización 1802 de Azure Stack es **2018030
 
 ## <a name="before-you-begin"></a>Antes de empezar    
 > [!IMPORTANT]    
-> No intente crear máquinas virtuales durante la instalación de esta actualización. Para más información sobre cómo administrar las actualizaciones, consulte [Introducción a la administración de actualizaciones en Azure Stack](/azure-stack-updates#plan-for-updates).
+> No intente crear máquinas virtuales durante la instalación de esta actualización. Para más información sobre cómo administrar las actualizaciones, consulte [Introducción a la administración de actualizaciones en Azure Stack](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="prerequisites"></a>requisitos previos
@@ -80,7 +80,7 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 
 - La **copia de seguridad de infraestructura** aparece ahora en el icono de proveedores de recursos y están habilitadas alertas de copia de seguridad. Para más información sobre el servicio Copia de seguridad de infraestructura, consulte [Copia de seguridad y recuperación de datos para Azure Stack con el servicio Copia de seguridad de infraestructura](azure-stack-backup-infrastructure-backup.md).
 
-- **Actualice al cmdlet *Test-AzureStack*** para mejorar el diagnóstico de almacenamiento. Para más información sobre este cmdlet, consulte [Validación de Azure Stack](azure-stack-diagnostic-test.md).
+- **Actualice al cmdlet *Test-AzureStack* para** mejorar el diagnóstico de almacenamiento. Para más información sobre este cmdlet, consulte [Validación de Azure Stack](azure-stack-diagnostic-test.md).
 
 - **Mejoras de control de acceso (RBAC) basado en roles**: ahora puede usar RBAC para delegar permisos en grupos de usuarios universales cuando se implementa Azure Stack con AD FS. Para más información sobre RBAC, consulte [Administración de RBAC](azure-stack-manage-permissions.md).
 
@@ -108,6 +108,9 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 Los siguientes son problemas conocidos posteriores a la instalación de la compilación **20180302.1**
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Solución alternativa: para resolver este problema después de instalar esta actualización, use el paso 3 del procedimiento [Automatización de desencadenador para configurar la relación de confianza de proveedor de notificaciones en Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) para restablecer el propietario de la suscripción de proveedor predeterminado.   
+
 - No está disponible la posibilidad de [abrir una nueva solicitud de soporte técnico desde la lista desplegable](azure-stack-manage-portals.md#quick-access-to-help-and-support) del portal de administración. En su lugar, use el siguiente vínculo:     
     - Para sistemas integrados de Azure Stack. use https://aka.ms/newsupportrequest.
 
@@ -138,7 +141,22 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 
 #### <a name="health-and-monitoring"></a>Estado y supervisión
-No hay ningún problema conocido después de actualizar a 1802.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Alerta 1:
+   - NOMBRE: rol de infraestructura incorrecto
+   - GRAVEDAD: advertencia
+   - COMPONENTE: controlador de mantenimiento
+   - DESCRIPCIÓN: el controlador de mantenimiento Heartbeat Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.  
+
+  Alerta 2:
+   - NOMBRE: rol de infraestructura incorrecto
+   - GRAVEDAD: advertencia
+   - COMPONENTE: controlador de mantenimiento
+   - Descripción: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
+
+  Ambas alertas pueden omitirse sin problemas. Se cerrarán automáticamente pasado un tiempo.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Los usuarios pueden examinar toda la plataforma Marketplace sin una suscripción y ver elementos administrativos, como planes y ofertas. Estos elementos no funcionan para los usuarios.
@@ -156,7 +174,7 @@ No hay ningún problema conocido después de actualizar a 1802.
 
 - Cuando crea un conjunto de disponibilidad en el portal en **Nuevo** > **Compute** > **Conjunto de disponibilidad**, solo puede crear uno con un dominio de error y un dominio de actualización de 1. Como alternativa, al crear una nueva máquina virtual, cree el conjunto de disponibilidad mediante PowerShell, la CLI o el portal.
 
-- Al crear máquinas virtuales en el portal de usuario de Azure Stack, el portal muestra un número incorrecto de discos de datos que se pueden asociar a una máquina virtual de la serie DS. Las máquinas virtuales de la serie DS pueden albergar tantos discos de datos como la configuración de Azure.
+- Al crear máquinas virtuales en el portal de usuario de Azure Stack, el portal muestra un número incorrecto de discos de datos que se pueden asociar a una máquina virtual de la serie D. Todas las máquinas virtuales de la serie D pueden albergar tantos discos de datos como la configuración de Azure.
 
 - Cuando no es posible crear una imagen de máquina virtual, los elementos con error que no se pueden eliminar se podrían agregar a la hoja de proceso de imágenes de máquina virtual.
 
@@ -278,6 +296,8 @@ No hay ningún problema conocido después de actualizar a 1802.
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Descarga de las herramientas de Azure Stack desde GitHub
 - Al usar el cmdlet *invoke-webrequest* de PowerShell para descargar las herramientas de Azure Stack de Github, recibirá un error:     

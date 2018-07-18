@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636613"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 Los usuarios pueden usar Azure Key Vault para almacenar y utilizar claves criptográficas en el entorno de Microsoft Azure. Key Vault admite varios tipos de claves y algoritmos y habilita el uso de módulos de seguridad de hardware (HSM) para claves de alto valor. Además, Key Vault permite a los usuarios almacenar secretos de forma segura. Los secretos son objetos de octeto de tamaño limitado sin ninguna semántica específica. Key Vault también admite certificados, que se basan en claves y secretos, y agrega una característica de renovación automática.
@@ -327,7 +328,7 @@ Los atributos del certificado se reflejan en los atributos de la clave y el secr
 
 Un certificado de Key Vault tiene los siguientes atributos:  
 
--   *enabled*: booleano, opcional, el valor predeterminado es **true**. Este atributo se puede especificar para indicar si se pueden recuperar los datos del certificado como secreto o es operativo como una clave. Se usa junto con *nbf* y *exp* y cuando se produce una operación entre *nbf* y exp, solo se permitirá si enabled se establece en true. Las operaciones fuera de la franja entre*nbf* y *exp* se deniegan automáticamente.  
+-   *enabled*: booleano, opcional, el valor predeterminado es **true**. Este atributo se puede especificar para indicar si se pueden recuperar los datos del certificado como secreto o es operativo como una clave. Se usa junto con *nbf* y *exp* cuando se produce una operación entre *nbf* y *exp*, solo se permitirá si enabled se establece en true. Las operaciones fuera de la franja entre *nbf* y *exp* se deniegan automáticamente.  
 
 Existen atributos de solo lectura adicionales que se incluyen en la respuesta:
 

@@ -3,20 +3,21 @@ title: Administración de usuarios y roles de base de datos en Azure Analysis Se
 description: Obtenga información sobre cómo administrar usuarios y roles de base de datos en un servidor de Analysis Services en Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8c777d5376614f7afe59342dc5a9fbfa37ca4556
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441063"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
-En el nivel de base de datos modelo, todos los usuarios deben pertenecer a un rol. Los roles definen a los usuarios con permisos concretos para la base de datos modelo. Cualquier usuario o grupo de seguridad que se agregue a un rol debe tener una cuenta en un inquilino de Azure AD en la misma suscripción que el servidor.
+En el nivel de base de datos modelo, todos los usuarios deben pertenecer a un rol. Los roles definen a los usuarios con permisos concretos para la base de datos modelo. Cualquier usuario o grupo de seguridad que se agregue a un rol debe tener una cuenta en un inquilino de Azure AD en la misma suscripción que el servidor. 
 
 La forma en que se definen los roles es distinta en función de la herramienta que se usa, pero el efecto es el mismo.
 
@@ -26,6 +27,9 @@ Los permisos de los roles incluyen:
 *  **Lectura**: usuarios que pueden usar una aplicación cliente para conectarse a los datos de una base de datos modelo y analizarlo.
 
 Cuando se crea un proyecto de modelo tabular, crea roles y agrega usuarios o grupos a esos roles mediante el Administrador de roles de SSDT. Cuando se implementa en un servidor, se usa SSMS, [cmdlets de PowerShell para Analysis Services](https://msdn.microsoft.com/library/hh758425.aspx) o [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) para agregar o quitar roles de miembros de usuario.
+
+> [!NOTE]
+> Los grupos de seguridad deben tener la propiedad `MailEnabled` establecida en `True`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Para agregar o administrar roles y usuarios en SSDT  
   

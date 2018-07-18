@@ -4,7 +4,7 @@ description: Patrones para el control de errores y excepciones en Logic Apps.
 services: logic-apps
 documentationcenter: ''
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300069"
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Control de errores y excepciones en Logic Apps
 
@@ -68,7 +69,7 @@ Si no define una directiva de reintentos en la sección **retryPolicy**, la apli
 
 Si establece **retryPolicy** en **ninguno**, esta directiva no reintenta las solicitudes con error.
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | Tipo | Sí | string | **Ninguna** | 
 ||||| 
@@ -77,7 +78,7 @@ Si establece **retryPolicy** en **ninguno**, esta directiva no reintenta las sol
 
 Si el valor de **retryPolicy** está establecido en **fijo**, la directiva vuelve a intentar una solicitud con error después de esperar durante el intervalo especificado, antes de enviar la solicitud siguiente.
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN |
 | ------------ | -------- | ---- | ----------- |
 | Tipo | Sí | string | **fijo** |
 | count | Sí | Entero | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
@@ -90,7 +91,7 @@ Si el valor de **retryPolicy** está establecido en **fijo**, la directiva vuelv
 
 Si el valor de **retryPolicy** está establecido en **exponencial**, la directiva vuelve a intentar una solicitud con error después de un intervalo de tiempo aleatorio a partir de un intervalo exponencialmente creciente. La directiva garantiza también que cada reintento se enviará a un intervalo aleatorio mayor que **minimumInterval** y menor que **maximumInterval**. Las directivas exponenciales requieren valores para **count** e **interval**, mientras que para **minimumInterval** y **maximumInterval** son opcionales. Si desea reemplazar los valores predeterminados de PT5S y PT1D respectivamente, puede agregar estos valores.
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN |
 | ------------ | -------- | ---- | ----------- |
 | Tipo | Sí | string | **exponencial** |
 | count | Sí | Entero | El número de reintentos, que debe estar comprendido entre 1 y 90  |

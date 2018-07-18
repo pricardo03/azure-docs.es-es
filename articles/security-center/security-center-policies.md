@@ -3,7 +3,7 @@ title: Establecimiento de directivas de seguridad en Azure Security Center | Mic
 description: Este documento le ayuda a configurar directivas de seguridad en Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/05/2018
+ms.author: terrylan
+ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364393"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756998"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Establecimiento de directivas de seguridad en Azure Security Center
 Este artículo le ayuda a configurar directivas de seguridad en Security Center.
@@ -28,7 +28,7 @@ Este artículo le ayuda a configurar directivas de seguridad en Security Center.
 Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. En Security Center, puede editar las directivas y supervisar su cumplimiento.
 
 > [!NOTE]
-> Ahora puede ampliar las directivas de Security Center con Azure Policy, que se encuentra en versión preliminar limitada. Para unirse a la versión preliminar, vaya a [Sign up for Azure Policy](https://aka.ms/getpolicy) (Suscripción a Azure Policy). Para más información, consulte [Integración de las directivas de seguridad de Security Center con Azure Policy](security-center-azure-policy.md).
+> Ahora puede ampliar las directivas de Security Center con [Azure Policy](../azure-policy/azure-policy-introduction.md). Para más información, consulte [Integración de las directivas de seguridad de Security Center con Azure Policy](security-center-azure-policy.md).
 
 Puede que los requisitos de seguridad de los recursos que se usan en desarrollo o pruebas varíen con respecto a los requisitos de los recursos que se usan en las aplicaciones de producción. Es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad. Las directivas de seguridad habilitadas en Azure Security Center controlan las recomendaciones de seguridad y la supervisión para ayudarle a identificar posibles vulnerabilidades y mitigar las amenazas. Consulte [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md) para más información sobre cómo determinar la opción más adecuada en su caso.
 
@@ -75,3 +75,5 @@ En este artículo, ha aprendido a configurar directivas de seguridad en Security
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Preguntas frecuentes acerca de Azure Security Center](security-center-faq.md): obtenga respuestas a las preguntas más frecuentes sobre cómo usar el servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+
+Para más información acerca de Azure Policy, consulte [¿Qué es Azure Policy?](../azure-policy/azure-policy-introduction.md)

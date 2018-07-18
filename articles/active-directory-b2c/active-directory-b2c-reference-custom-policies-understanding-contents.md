@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: descripción de directivas personalizadas del paquete de inicio | Microsoft Docs'
-description: Un tema acerca de las directivas personalizadas de Azure Active Directory B2C
+title: Descripción de directivas personalizadas del paquete de inicio en Azure Active Directory B2C | Microsoft Docs
+description: Un tema acerca de las directivas personalizadas de Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: ebcd7a677acde12558b0f566bce9172a0d00233b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442481"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Descripción de las directivas personalizadas del paquete del inicio de directivas personalizadas de Azure AD B2C
 
@@ -88,7 +88,7 @@ Para pasar parámetros especiales (incluidos algunos parámetros de cadena de co
 | *grant_type* | Parámetro especial pasado para la autenticación con la cuenta local en login.microsoftonline.com. |
 | *scope* | Parámetro especial pasado para la autenticación con la cuenta local en login.microsoftonline.com. |
 | *client_id* | Parámetro especial pasado para la autenticación con la cuenta local en login.microsoftonline.com. |
-| *objectIdFromSession* | Parámetro proporcionado por el proveedor de administración de sesiones predeterminado para indicar que el identificador de objeto se ha recuperado de una sesión SSO. |
+| *objectIdFromSession* | Parámetro proporcionado por el proveedor de administración de sesiones predeterminado para indicar que el identificador de objeto se ha recuperado de una sesión SSO |
 | *isActiveMFASession* | Parámetro proporcionado por la administración de sesiones MFA para indicar que el usuario tiene una sesión activa de MFA. |
 
 ### <a name="additional-optional-claims-that-can-be-collected"></a>Notificaciones (opcionales) adicionales que se pueden recopilar
@@ -193,7 +193,7 @@ En esta sección se describen los perfiles técnicos ya declarados por el provee
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Perfiles técnicos de Trustframework Policy Engine TechnicalProfiles
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>Perfiles técnicos del motor de directiva de marco de confianza
 
 Actualmente, no se ha definido ningún perfil técnico para el proveedor de notificaciones **Trustframework Policy Engine TechnicalProfiles**.
 

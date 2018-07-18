@@ -4,21 +4,23 @@ description: Con el uso del Diseñador de vistas en Log Analytics se pueden crea
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: d900a778aa003357fb85d3e8ec8e40dee64f0f9c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131861"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Creación de vistas personalizadas mediante el uso del Diseñador de vistas en Log Analytics
 Con el uso del Diseñador de vistas en [Azure Log Analytics](log-analytics-overview.md), puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
@@ -54,13 +56,14 @@ Las opciones se describen en la tabla siguiente:
 |:--|:--|
 | Actualizar   | Actualiza la vista con los datos más recientes. | 
 | Análisis | Abre el [portal de análisis avanzado](log-analytics-log-search-portals.md#advanced-analytics-portal) para analizar los datos con búsquedas de registros. |
-| Filtrar    | Establece un filtro de tiempo para los datos que se incluye en la vista. |
-| Edit      | Abre la vista en el Diseñador de vistas para editar su contenido y configuración.  |
-| Clon     | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
+| Edit       | Abre la vista en el Diseñador de vistas para editar su contenido y configuración.  |
+| Clon      | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
+| Intervalo de fechas | Establezca un filtro de tiempo y fechas para los datos que se incluye en la vista. |
+| +          | Defina un filtro personalizado definido para la vista. |
 
 
 ## <a name="create-a-new-view"></a>Creación de vistas
-Puede crear una vista nueva en el Diseñador de vistas seleccionando el icono del **Diseñador de vistas** en la página **Overview** (Introducción) del área de trabajo de Log Analytics.
+Puede crear una vista nueva en el Diseñador de vistas seleccionando **Diseñador de vistas** en el menú del área de trabajo de Log Analytics.
 
 ![Icono del Diseñador de vistas](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -103,7 +106,6 @@ Las opciones para trabajar con vistas en modo de edición se describen en la tab
 | Exportación      | Exporta la vista a una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) que puede importar en otra área de trabajo. El nombre del archivo es el nombre de la vista con la extensión *omsview*. |
 | Importar      | Importa el archivo *omsview* que haya exportado de otra área de trabajo. Esta acción sobrescribe la configuración de la vista existente. |
 | Clon       | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
-| Publicar     | Exporte la vista a un archivo JSON que se pueda insertar en una [solución de administración](../operations-management-suite/operations-management-suite-solutions-resources-views.md). El nombre de archivo es el mismo que el nombre de la vista, pero con una extensión *json*. Se crea un segundo archivo con la extensión *resjson* que incluye los valores para los recursos que están definidos en el archivo JSON.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Agregue [iconos](log-analytics-view-designer-tiles.md) a la vista personalizada.

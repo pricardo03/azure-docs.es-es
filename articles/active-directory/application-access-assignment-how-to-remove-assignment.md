@@ -1,23 +1,25 @@
 ---
-title: "Cómo quitar el acceso de un usuario a una aplicación | Microsoft Docs"
-description: "Cómo quitar el acceso de un usuario a una aplicación"
+title: Cómo quitar el acceso de un usuario a una aplicación | Microsoft Docs
+description: Cómo quitar el acceso de un usuario a una aplicación
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: aec49b108c21b97646e622c47bf69728a81d6d33
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.openlocfilehash: e227f46db05c108c27322e8dd76177cf9849c937
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330339"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Cómo quitar el acceso de un usuario a una aplicación
 
@@ -71,4 +73,4 @@ Para **deshabilitar todas las operaciones de consentimiento de usuario futuras e
 
 
 # <a name="next-steps"></a>Pasos siguientes
-[Administración del acceso a las aplicaciones](active-directory-managing-access-to-apps.md)
+[Administración del acceso a las aplicaciones](manage-apps/what-is-access-management.md)

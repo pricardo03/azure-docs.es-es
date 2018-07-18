@@ -1,24 +1,19 @@
 ---
-title: "Introducción al escalado automático en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo escalar los recursos en Azure."
+title: Introducción al escalado automático en Azure
+description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, Virtual Machines o Virtual Machine Scale Set del recurso en Azure.
 author: rajram
-manager: rboucher
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
-ms.openlocfilehash: 84ce3af2bef1e3204ad91567d155d7cbf90e9c7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263653"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -63,9 +58,9 @@ Se va a ofrecer ahora un tutorial paso a paso sencillo sobre cómo crear la prim
 
    Ahora debería tener una configuración de escalado que escale o reduzca horizontalmente en función del uso de CPU.
    ![Escala en función de la CPU][8]
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 
-¡Enhorabuena! Ya ha establecido correctamente la primera configuración del escalado para escalar automáticamente la aplicación web en función del uso de CPU.
+Felicidades. Ya ha establecido correctamente la primera configuración del escalado para escalar automáticamente la aplicación web en función del uso de CPU.
 
 > [!NOTE] 
 > Los mismos pasos son aplicables para empezar a trabajar con un rol de servicio en la nube o un conjunto de escalado de máquinas virtuales.

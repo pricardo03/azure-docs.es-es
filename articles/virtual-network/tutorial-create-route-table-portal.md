@@ -17,11 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7254e9336fca14daee2021d5bde4c5538509fe35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344907"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -53,7 +54,7 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
     |Configuración|Valor|
     |---|---|
     |NOMBRE|myRouteTablePublic|
-    |La suscripción| Seleccione su suscripción.|
+    |Subscription| Seleccione su suscripción.|
     |Grupos de recursos | Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
     |Ubicación|Este de EE. UU|
  
@@ -87,7 +88,7 @@ Antes de poder asociar una tabla de rutas a una subred, debe crear una red virtu
     |---|---|
     |NOMBRE|myVirtualNetwork|
     |Espacio de direcciones| 10.0.0.0/16|
-    |La suscripción | Seleccione su suscripción.|
+    |Subscription | Seleccione su suscripción.|
     |Grupos de recursos|Seleccione **Usar existente** y después seleccione **myResourceGroup**.|
     |Ubicación|Seleccione *Este de EE. UU*.|
     |Nombre de subred|Público|
@@ -194,20 +195,20 @@ Puede crear la máquina virtual *myVmPrivate* mientras Azure crea la máquina vi
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
     
-    Reinicie la máquina virtual *myVmNva*, que también desconecta la sesión de Escritorio remoto.
-8. Mientras sigue conectado a la máquina virtual *myVmPrivate*, cree una sesión de escritorio remoto en la máquina virtual *myVmPublic* después de que se reinicie la máquina virtual *myVmNva*:
+    Reinicie la máquina virtual *myVmNva*, lo que desconectará también la sesión de Escritorio remoto.
+8. Mientras sigue conectado a la máquina virtual *myVmPrivate* y una vez que se reinicie la máquina virtual *myVmNva*, cree una sesión de Escritorio remoto en la máquina virtual *myVmPublic*:
 
     ``` 
     mstsc /v:myVmPublic
     ```
     
-    Para habilitar que ICMP atraviese el Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
+    Para permitir el uso de ICMP a través del Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-9. Para probar el enrutamiento del tráfico de red a la máquina virtual *myVmPrivate* desde la máquina virtual *myVmPublic*, escriba el siguiente comando de PowerShell en la máquina virtual *myVmPublic*:
+9. Para probar el enrutamiento del tráfico de red desde *myVmPublic* hasta *myVmPrivate*, escriba el siguiente comando de PowerShell en la máquina virtual *myVmPublic*:
 
     ```
     tracert myVmPrivate
@@ -227,7 +228,7 @@ Puede crear la máquina virtual *myVmPrivate* mientras Azure crea la máquina vi
       
     Puede ver que el primer salto es 10.0.2.4, que es la dirección IP privada de la aplicación virtual de red. El segundo salto es 10.0.1.4, la dirección IP privada de la máquina virtual *myVmPrivate*. La ruta agregada a la tabla de rutas *myRouteTablePublic* y asociada a la subred *Pública* hizo que Azure enrutara el tráfico mediante la NVA, en lugar de a la subred *Privada* directamente.
 10.  Cierre la sesión de Escritorio remoto a la máquina virtual *myVmPublic*, que aún le deja conectado a la máquina virtual *myVmPrivate*.
-11. Para probar el enrutamiento del tráfico de red a la máquina virtual *myVmPublic* desde la máquina virtual *myVmPrivate*, escriba el siguiente comando desde un símbolo del sistema en la máquina virtual *myVmPrivate*:
+11. Para probar el enrutamiento del tráfico de red desde *myVmPrivate* hasta *myVmPublic*, escriba el siguiente comando en un símbolo del sistema de la máquina virtual *myVmPrivate*:
 
     ```
     tracert myVmPublic

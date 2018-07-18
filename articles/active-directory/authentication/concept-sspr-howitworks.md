@@ -2,26 +2,20 @@
 title: 'Funcionamiento del autoservicio de restablecimiento de contraseña: Azure Active Directory'
 description: Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 602f4c9b7108c0116e83e302bd73838e0902a7f0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157728"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869014"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -160,6 +154,8 @@ Las preguntas de seguridad personalizadas no se localizan para diferentes config
 
 La longitud máxima de una pregunta de seguridad personalizada es 200 caracteres.
 
+Para ver el portal de restablecimiento de contraseñas y preguntas en un idioma diferente, anexe "?mkt =<Locale>" al final de la dirección URL de restablecimiento de contraseñas con el ejemplo que sigue para localizar en español [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+
 ### <a name="security-question-requirements"></a>Requisitos de las preguntas de seguridad
 
 * El límite mínimo de caracteres de las respuestas es de tres.
@@ -239,7 +235,7 @@ Este control designa si los usuarios que visitan el portal de restablecimiento d
 El restablecimiento y el cambio de contraseña son totalmente compatibles con todas las configuraciones negocio a negocio (B2B). Se admiten los tres casos siguientes para el restablecimiento de contraseña de usuario B2B:
 
    * **Usuarios de una organización asociada con un inquilino de Azure AD existente**: si la organización con la que se asocia tiene un inquilino de Azure AD existente, *respetamos todas las directivas de restablecimiento de contraseña habilitadas en dicho inquilino*. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No hay ningún cargo adicional para los clientes de Office 365 y puede habilitarse siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-   * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que se asocia usó la característica de [registro de autoservicio](../active-directory-self-service-signup.md) para acceder a un inquilino, le permitimos el restablecimiento de contraseña con el correo electrónico que registró.
+   * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que se asocia usó la característica de [registro de autoservicio](../users-groups-roles/directory-self-service-signup.md) para acceder a un inquilino, le permitimos el restablecimiento de contraseña con el correo electrónico que registró.
    * **Usuarios B2B**: los nuevos usuarios B2B creados mediante las nuevas [funcionalidades B2B de Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
 
 Para probar este escenario, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Si tienen un correo electrónico alternativo o de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.

@@ -2,18 +2,19 @@
 title: Eliminación de un clúster de Azure Kubernetes Service (AKS)
 description: Eliminación de un clúster de Azure Container Service (AKS) con la CLI o Azure Portal.
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 2/05/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e006466d1450471900a8635c49d3bc6c3a73d476
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 66dcebb702695a6601f6ed17b85a04d5bb4e01f6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100050"
 ---
 # <a name="delete-an-azure-kubernetes-service-aks-cluster"></a>Eliminación de un clúster de Azure Kubernetes Service (AKS)
 

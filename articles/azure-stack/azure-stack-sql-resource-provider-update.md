@@ -1,6 +1,6 @@
 ---
-title: Uso de bases de datos SQL en Azure Stack | Microsoft Docs
-description: Aprenda a implementar las bases de datos SQL como un servicio en Azure Stack y los pasos para implementar de forma rápida el adaptador del proveedor de recursos de SQL Server.
+title: Actualización del proveedor de recursos de SQL de Azure Stack | Microsoft Docs
+description: Aprenda cómo actualizar el proveedor de recursos de SQL de Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,57 +11,73 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9154f509f9019c28515970869678aa6633d16163
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ac5073d1abc32b7598a869750f9c5a801559e9e6
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206187"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264084"
 ---
-# <a name="update-the-sql-resource-provider-adapter"></a>Actualización del adaptador del proveedor de recursos de SQL
-Cuando las compilaciones de Azure Stack se actualicen, podría lanzarse un nuevo adaptador del proveedor de recursos de Azure SQL. Aunque el adaptador existente continúa funcionando, se recomienda actualizar a la compilación más reciente lo antes posible. Las actualizaciones deben instalarse en orden: no se pueden omitir versiones (consulte la lista de versiones en los [requisitos previos para implementar el proveedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
+# <a name="update-the-sql-resource-provider"></a>Actualización del proveedor de recursos de SQL
 
-Para actualizar el proveedor de recursos, use el script *UpdateMySQLProvider.ps1*. El procedimiento es similar al usado para instalar un proveedor de recursos, como se describe en [Implementación del proveedor de recursos](.\azure-stack-sql-resource-provider-deploy.md) en este artículo. El script se incluye con la descarga del proveedor de recursos.
+*Se aplica a: sistemas integrados de Azure Stack*.
 
-El script *UpdateSQLProvider.ps1* crea una nueva máquina virtual con el código del proveedor de recursos más reciente y migra la configuración de la máquina virtual antigua a la nueva. La configuración que se migra incluye información de base de datos y del servidor de hospedaje, así como el registro DNS necesario.
+Es posible que cuando Azure Stack se actualice a una nueva compilación, se lance un nuevo proveedor de recursos de SQL. Aunque el adaptador existente continúa funcionando, se recomienda actualizar a la compilación más reciente lo antes posible.
 
-El script requiere el uso de los mismos argumentos que se describen para el script DeploySqlProvider.ps1. Proporcione aquí también el certificado. 
+>[!IMPORTANT]
+>Debe instalar las actualizaciones en el orden en que se lancen. No se puede saltar ninguna versión. Consulte la lista de versiones en [Requisitos previos para implementar el proveedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Se recomienda descargar la imagen de Windows Server 2016 Core más reciente de Marketplace Management (Administración de Marketplace). Si tiene que instalar una actualización, puede colocar un único paquete .MSU en la ruta de acceso local de la dependencia. Si se encuentra más de un archivo .MSU, se producirá un error en el script.
+## <a name="overview"></a>Información general
 
-Este es un ejemplo del script *UpdateSQLProvider.ps1* que puede ejecutar desde el símbolo del sistema de PowerShell. Asegúrese de cambiar la información de la cuenta y las contraseñas según sea necesario: 
+Para actualizar el proveedor de recursos, use el script *UpdateSQLProvider.ps1*. El script se incluye con la descarga del nuevo proveedor de recursos de SQL. El proceso de actualización es similar al proceso usado para [implementar el proveedor de recursos](.\azure-stack-sql-resource-provider-deploy.md). El script de actualización usa los mismos argumentos que el script DeploySqlProvider.ps1, y se deberá proporcionar información del certificado.
+
+### <a name="update-script-processes"></a>Procesos de script de actualización
+
+El script *UpdateSQLProvider.ps1* crea una nueva máquina virtual (VM) con el código del proveedor de recursos más reciente.
+
+>[!NOTE]
+>Se recomienda descargar la imagen de Windows Server 2016 Core más reciente de Marketplace Management (Administración de Marketplace). Si tiene que instalar una actualización, puede colocar un **único** paquete MSU en la ruta de acceso local de la dependencia. El script dará error si hay más de un archivo MSU en esta ubicación.
+
+Después de que el script *UpdateSQLProvider.ps1* crea una nueva máquina virtual, migra la siguiente configuración desde la máquina virtual del proveedor antiguo:
+
+* La información de base de datos
+* La información del servidor de hospedaje
+* El registro DNS necesario
+
+### <a name="update-script-powershell-example"></a>Ejemplo de actualización del script de PowerShell
+
+Puede editar y ejecutar el script siguiente desde PowerShell ISE con privilegios elevados. No olvide cambiar la información de la cuenta y las contraseñas para su entorno, según corresponda.
 
 > [!NOTE]
-> El proceso de actualización solo se aplica a sistemas integrados.
+> Este proceso de actualización solo se aplica a sistemas integrados de Azure Stack.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines
+# For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
 
-# The service admin account (can be Azure AD or AD FS).
+# The service administrator account (this can be Azure AD or AD FS).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new Resource Provider VM.
+# Set the credentials for the new resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-# And the cloudadmin credential required for privileged endpoint access.
+# Add the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
@@ -75,25 +91,26 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
   -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+  -DependencyFilesLocalPath $tempDir\cert `
+
  ```
 
 ## <a name="updatesqlproviderps1-parameters"></a>Parámetros de UpdateSQLProvider.ps1
-Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o se produce un error en la validación de algún parámetro, se le pedirá que proporcione los parámetros requeridos.
+
+Puede especificar los siguientes parámetros desde la línea de comandos al ejecutar el script. Si no lo hace, o se produce un error en la validación de algún parámetro, se le pedirá que proporcione los parámetros necesarios.
 
 | Nombre de parámetro | DESCRIPCIÓN | Comentario o valor predeterminado |
 | --- | --- | --- |
 | **CloudAdminCredential** | Credencial del administrador de la nube, necesaria para el acceso al punto de conexión con privilegios. | _Obligatorio_ |
-| **AzCredential** | Credenciales de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _Obligatorio_ |
+| **AzCredential** | Las credenciales de la cuenta de administrador del servicio Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _Obligatorio_ |
 | **VMLocalCredential** | Credenciales para la cuenta de administrador local de la VM del proveedor de recursos de SQL. | _Obligatorio_ |
 | **PrivilegedEndpoint** | Dirección IP o nombre DNS del punto de conexión con privilegios. |  _Obligatorio_ |
-| **DependencyFilesLocalPath** | El archivo .pfx de certificados se debe colocar también en este directorio. | _Opcional_ (_obligatorio_ para varios nodos) |
-| **DefaultSSLCertificatePassword** | Contraseña para el certificado .pfx. | _requerido_ |
-| **MaxRetryCount** | Número de veces que quiere volver a intentar cada operación si se produce un error.| 2 |
+| **DependencyFilesLocalPath** | También debe incluir el archivo .pfx del certificado en este directorio. | _Opcional para un único nodo, pero obligatorio para varios nodos_ |
+| **DefaultSSLCertificatePassword** | Contraseña para el certificado .pfx. | _Obligatorio_ |
+| **MaxRetryCount** | El número de veces que quiere volver a intentar cada operación si se produce un error.| 2 |
 | **RetryDuration** |Intervalo de tiempo de expiración entre reintentos, en segundos. | 120 |
-| **Desinstalación** | Se quita el proveedor de recursos y todos los recursos asociados (vea las notas siguientes). | Sin  |
+| **Desinstalación** | Quita el proveedor de recursos y todos los recursos asociados. | Sin  |
 | **DebugMode** | Impide la limpieza automática en caso de error. | Sin  |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

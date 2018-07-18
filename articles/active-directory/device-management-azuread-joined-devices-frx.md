@@ -1,13 +1,14 @@
 ---
 title: Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera vista de Windows| Microsoft Docs
-description: "Un tema en que se explica cómo los usuarios pueden configurar Azure AD Join durante la primera vista de Windows."
+description: Un tema en que se explica cómo los usuarios pueden configurar Azure AD Join durante la primera vista de Windows.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757399"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera vista de Windows
 
@@ -37,6 +39,8 @@ En la *configuración rápida* de Windows, no se puede unir a un dominio local d
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Para unir un dispositivo Windows 10, el servicio de registro de dispositivos debe configurarse para que pueda registrar dispositivos. Además de tener permiso para unir dispositivos en su inquilino de Azure AD, debe tener menos dispositivos registrados que el máximo configurado. Para obtener más información, vea [Configure device settings](device-management-azure-portal.md#configure-device-settings) (Configuración del dispositivo).
+
+Además, si el inquilino es federado, el proveedor de identidad DEBE admitir puntos de conexión de nombre de usuario y contraseña WS-Fed y WS-Trust. Puede ser la versión 1.3 o 2005. Esta compatibilidad con el protocolo se requiere tanto para conectar el dispositivo en Azure AD como para iniciar una sesión en el dispositivo con una contraseña.
 
 ## <a name="joining-a-device"></a>Unión de un dispositivo
 

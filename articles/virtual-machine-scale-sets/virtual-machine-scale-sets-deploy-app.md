@@ -3,7 +3,7 @@ title: Implementación de una aplicación en un conjunto de escalado de máquina
 description: Obtenga información sobre cómo implementar aplicaciones en las instancias de máquinas virtuales Linux y Windows de un conjunto de escalado
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
-ms.author: iainfou
-ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/29/2018
+ms.author: cynthn
+ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718988"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En este artículo se presentan distintas formas de crear una imagen de máquina virtual personalizada para las instancias de un conjunto de escalado o de ejecutar automáticamente la instalación de scripts en instancias de máquinas virtuales existentes. También puede obtener información sobre cómo administrar actualizaciones del sistema operativo de la aplicación en un conjunto de escalado.
@@ -39,6 +40,7 @@ La extensión de script personalizado descarga y ejecuta scripts en máquinas vi
 
 - [CLI de Azure 2.0](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
+- [Plantilla de Azure Resource Manager](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalación de una aplicación en una máquina virtual Windows con PowerShell DSC
@@ -89,7 +91,7 @@ Si la directiva de actualización del conjunto de escalado es *manual*, actualic
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Instalación de una aplicación en una máquina virtual Linux con cloud-init
-[cloud-init](https://cloudinit.readthedocs.io/latest/) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
+[cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
 
 cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. En su lugar, puede definir una lista de paquetes que se van a instalar. Cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
 
@@ -112,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Instalación de aplicaciones con actualizaciones del sistema operativo
 Si hay nuevas versiones del sistema operativo disponibles, puede usar o crear una nueva imagen personalizada e [implementar actualizaciones del sistema operativo](virtual-machine-scale-sets-upgrade-scale-set.md) en un conjunto de escalado. Cada instancia de máquinas virtuales se actualiza a la última imagen especificada. Puede usar una imagen personalizada con la aplicación preinstalada, la extensión de script personalizado o PowerShell DSC para que la aplicación esté automáticamente disponible a medida que realice la actualización. Es posible que sea necesaria la planeación del mantenimiento de la aplicación a medida que realice este proceso para garantizar que no haya problemas de compatibilidad de versión.
 
-Si usa una imagen de máquina virtual personalizada con la aplicación preinstalada, podría integrar las actualizaciones de la aplicación con una canalización de implementación para crear las nuevas imágenes e implementar actualizaciones del sistema operativo en el conjunto de escalado. Este enfoque permite a la canalización elegir las últimas compilaciones de aplicación, crear y validar una imagen de máquina virtual y, a continuación, actualizar las instancias de máquinas virtuales del conjunto de escalado. Para ejecutar una canalización de implementación que cree e implemente actualizaciones de la aplicación en imágenes de máquina virtual personalizadas, podría usar [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
+Si usa una imagen de máquina virtual personalizada con la aplicación preinstalada, podría integrar las actualizaciones de la aplicación con una canalización de implementación para crear las nuevas imágenes e implementar actualizaciones del sistema operativo en el conjunto de escalado. Este enfoque permite a la canalización elegir las últimas compilaciones de aplicación, crear y validar una imagen de máquina virtual y, a continuación, actualizar las instancias de máquinas virtuales del conjunto de escalado. Para ejecutar una canalización de implementación que cree e implemente actualizaciones de la aplicación en imágenes de máquina virtual personalizadas, podría [crear una imagen de Packer e implementarla con Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), o bien usar otra plataforma, como [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

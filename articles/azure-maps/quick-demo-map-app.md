@@ -1,22 +1,20 @@
 ---
 title: Búsqueda de mapa interactiva con Azure Maps | Microsoft Docs
 description: 'Guía de inicio rápido de Azure: iniciar una búsqueda de mapa interactiva de demostración con Azure Maps'
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8dedaf95289d9637f5f3d1e80a763b5fb400c617
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8765b634b81742acf9fb4d40be8864800025351d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599769"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Inicio de un mapa de búsqueda interactiva mediante Azure Maps
 
@@ -33,8 +31,8 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
 2. En el campo *Buscar en el Marketplace*, escriba **Maps**.
-3. De los *Resultados*, seleccione **Maps**. Haga clic en el botón **Crear** que aparece debajo del mapa. 
-4. En la página **Crear una cuenta de Azure Maps**, escriba los siguientes valores:
+3. En *Resultados*, seleccione **Maps**. Haga clic en el botón **Crear** que aparece debajo del mapa. 
+4. En la página **Create Maps Account** (Crear una cuenta de Azure Maps), escriba los siguientes valores:
     - El *nombre* de la nueva cuenta. 
     - La *suscripción* que quiere usar para esta cuenta.
     - El *Grupo de recursos* para esta cuenta. Puede elegir *Crear nuevo* o *Usar existente* para el grupo de recursos.
@@ -77,3 +75,11 @@ En esta guía de inicio rápido, creó una cuenta de Maps e inició una aplicaci
 
 > [!div class="nextstepaction"]
 > [Búsqueda de puntos de interés con Maps](./tutorial-search-location.md)
+
+Para ver más ejemplos de código y obtener una experiencia de codificación interactiva, consulte a continuación las guías de procedimientos.
+
+> [!div class="nextstepaction"]
+> [Procedimiento para buscar una dirección mediante las API REST de Azure Maps](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Cómo usar el Control de mapa de Azure Maps](./how-to-use-map-control.md)

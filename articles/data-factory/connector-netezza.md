@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de Netezza con Azure Data Factory (beta) | Microsoft Docs
+title: Copia de datos de Netezza con Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos de Netezza en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,25 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f8c10e2200f830ea6e568e7b3fba1f0a6085cef2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940144"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055751"
 ---
-# <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Copia de datos de Netezza con Azure Data Factory (beta)
+# <a name="copy-data-from-netezza-using-azure-data-factory"></a>Copia de datos de Netezza con Azure Data Factory 
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Netezza. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de copia en V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Este conector está actualmente en versión beta. Puede probarlo y enviarnos sus comentarios. No debe usarse en entornos de producción.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -57,7 +51,7 @@ Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<databa
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Por ejemplo, `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- Only Unsecured (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Preferred Unsecured (preferredUnSecured) (valor predeterminado)**: si el servidor proporciona una elección, el controlador no usa SSL. <br/>- **Preferred Secured (preferredSecured)**: si el servidor proporciona una elección, el controlador usa SSL. <br/>- **Only Secured (onlySecured)**: el controlador no se conectará a menos que haya una conexión SSL disponible | Sin  |
-| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Por ejemplo, `UseSystemTrustStore=<cert path>;`| Sí, si se ha habilitado SSL |
+| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Por ejemplo, `CaCertFile=<cert path>;`| Sí, si se ha habilitado SSL |
 
 **Ejemplo:**
 

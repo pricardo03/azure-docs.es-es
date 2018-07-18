@@ -1,25 +1,19 @@
 ---
-title: Actualización de un almacén de Backup a un almacén de Recovery Services de Azure Backup | Microsoft Docs
+title: Actualización de un almacén de Backup a un almacén de Recovery Services de Azure Backup
 description: Actualización del almacén de Backup al almacén de Recovery Services para obtener nuevas características, como copia de seguridad de máquinas virtuales de Resource Manager, seguridad mejorada, copia de seguridad de máquinas virtuales de VMware y copia de seguridad de estado del sistema para servidores Windows
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-keyword: backup vault; upgrade vault; recovery services vault
-ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2017
-ms.author: trinadhk, sogup
-ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: trinadhk
+ms.openlocfilehash: 358c7b0e61d1c85e236007c2495941a31502431a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606866"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Almacén de Backup actualizado al almacén de Recovery Services
 En este artículo se proporciona información general sobre Recovery Services, preguntas frecuentes sobre la actualización del almacén existente de Backup al almacén de Recovery Services y los pasos que se deben realizar con posterioridad a la actualización. Un almacén de Recovery Services es el equivalente de Azure Resource Manager de un almacén de Backup que aloja los datos de copia de seguridad. Normalmente, los datos son copias de datos o información de configuración de máquinas virtuales (VM), cargas de trabajo, servidores o estaciones de trabajo, tanto de Azure como locales.

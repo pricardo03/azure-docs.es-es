@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bc53d245dd814b6f9bb4edab89ddcbf841f16a8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38579184"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-introduction.md)
-> * [Versión 2: versión preliminar](introduction.md)
+> * [Versión 1](v1/data-factory-introduction.md)
+> * [Versión actual](introduction.md)
 
 En el mundo de los macrodatos, los datos sin procesar y desorganizados suelen almacenarse en sistemas de almacenamiento relacionales, no relacionales y de otros tipos. Sin embargo, en sí mismos, los datos sin procesar no tienen el contexto o el significado adecuados para proporcionar información significativa a los analistas, científicos de datos y responsables de decisiones empresariales. 
 
@@ -39,9 +40,6 @@ Azure Data Factory es la plataforma que resuelve estos escenarios de datos. Se t
 Además, puede publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse, para que los consuman aplicaciones de inteligencia empresarial (BI). En última instancia, mediante Azure Data Factory, los datos sin procesar se pueden organizar en almacenes de datos y Data Lakes significativos para tomar mejores decisiones empresariales.
 
 ![Vista de nivel superior de Data Factory](media/introduction/big-picture.png)
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Introduction to Data Factory version 1](v1/data-factory-introduction.md) (Introducción a Data Factory versión 1).
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 Las canalizaciones (flujos de trabajo orientados a datos) en Azure Data Factory realizan normalmente los cuatro pasos siguientes:
@@ -91,7 +89,7 @@ Los servicios vinculados se utilizan con dos fines en Data Factory:
 - Para representar un **recurso de proceso** que puede hospedar la ejecución de una actividad. Por ejemplo, la actividad HDInsightHive se ejecuta en un clúster de Hadoop para HDInsight. Consulte el artículo sobre [transformación de datos](transform-data.md) para ver una lista de los entornos de proceso y las actividades de transformación admitidos.
 
 ### <a name="triggers"></a>Desencadenadores
-Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Existen diferentes tipos de desencadenadores para diferentes tipos de eventos. En la versión preliminar, Data Factory admite el desencadenador del programador de reloj. 
+Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Existen diferentes tipos de desencadenadores para diferentes tipos de eventos.
 
 ### <a name="pipeline-runs"></a>Ejecuciones de la canalización
 Una ejecución de la canalización es una instancia de la ejecución de la canalización. Normalmente, las instancias de ejecuciones de canalización se crean al pasar argumentos a los parámetros definidos en las canalizaciones. Los argumentos se pueden pasar manualmente o dentro de la definición del desencadenador.
@@ -115,16 +113,20 @@ Para más información sobre los conceptos de Data Factory, consulte los siguien
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Actualmente, se pueden crear factorías de datos en las regiones del este de EE. UU., este de EE. UU. 2 y Europa Occidental. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso.
+Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso.
 
 Azure Data Factory no almacena ningún dato. Permite crear flujos de trabajo controlados por datos para orquestar el movimiento de los datos entre los almacenes de datos admitidos y organizar el procesamiento de los datos mediante servicios de proceso en otras regiones o en entornos locales. También permite supervisar y administrar flujos de trabajo mediante mecanismos de programación y de interfaz de usuario.
 
-Aunque Data Factory solamente está disponible en las regiones del este de EE. UU., este de EE. UU. 2 y Europa Occidental, el servicio que atiende el movimiento de datos en Data Factory está disponible mundialmente en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de Integration Runtime autohospedado instalada en el entorno local la que mueva los datos en su lugar.
+Aunque Data Factory solamente está disponible en ciertas regiones, el servicio que produce el movimiento de datos en Data Factory está disponible de forma general en diversas regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de Integration Runtime autohospedado instalada en el entorno local la que mueva los datos en su lugar.
 
 Por ejemplo, supongamos que sus entornos de proceso, tales como el clúster de Azure HDInsight y Azure Machine Learning, se ejecutan fuera de la región de Europa Occidental. Puede crear y usar una instancia de Azure Data Factory en Este de EE. UU. o Este de EE. UU. 2, y usarla para programar trabajos en los entornos de proceso en Europa Occidental. Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
 
-## <a name="compare-with-version-2"></a>Comparación con la versión 2
-Para obtener una lista de las diferencias entre las versiones 1 y 2 del servicio Data Factory, consulte [Compare with version 1](compare-versions.md) (Comparación de las versiones 1 y 2 de Azure Data Factory). 
+## <a name="accessibility"></a>Accesibilidad
+
+La experiencia del usuario de Data Factory en Azure Portal es accesible.
+
+## <a name="compare-with-version-1"></a>Comparación con la versión 1
+Para obtener una lista de las diferencias entre la versión 1 y la versión actual del servicio Data Factory, consulte [Comparación con la versión 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Empezar a trabajar con la creación de una canalización de Data Factory mediante uno de los SDK o herramientas siguientes: 

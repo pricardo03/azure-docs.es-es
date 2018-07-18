@@ -10,17 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180022"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024787"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Preguntas más frecuentes sobre Azure Machine Learning: facturación, funcionalidades, limitaciones y soporte técnico
 Estas son algunas de las preguntas más frecuentes (P+F) y las respuestas correspondientes sobre Azure Machine Learning, un servicio en la nube para el desarrollo de modelos predictivos y la aplicación de soluciones mediante servicios web. Estas preguntas más frecuentes incluyen cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -74,7 +75,7 @@ También puede usar el libro de Microsoft Excel de ejemplo que se crea automáti
 
 **¿Cuáles son las actualizaciones principales de Azure Machine Learning?**
 
-Puede consultar las actualizaciones más recientes en [Novedades de Azure Machine Learning](whats-new.md).
+Puede consultar las actualizaciones más recientes en [Novedades de Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## <a name="machine-learning-studio-questions"></a>Preguntas sobre Machine Learning Studio
 ### <a name="import-and-export-data-for-machine-learning"></a>Importación y exportación de datos en Machine Learning
@@ -174,7 +175,7 @@ No. Actualmente solo se admite el reentrenamiento mediante programación.
 
 **¿Puedo visualizar las capas de un modelo de red neuronal con el módulo integrado?**
 
-Nº
+No.
 
 **¿Puedo crear mis propios módulos en C# o algún otro lenguaje?**
 
@@ -211,7 +212,7 @@ Use las API de reentrenamiento. Para obtener más información, consulte [Volver
 ### <a name="create"></a>Crear
 **¿Puedo implementar el modelo de forma local o en una aplicación sin conexión a Internet?**
 
-Nº
+No.
 
 **¿Cabe esperar una latencia de línea de base para todos los servicios web?**
 
@@ -252,7 +253,7 @@ En la actualidad, el punto de conexión predeterminado se ha aprovisionado con 2
 
 **¿Los trabajos de R se reparten entre nodos?**
 
-Nº  
+No.  
 
 **¿Cuántos datos se pueden usar para el entrenamiento?**
 
@@ -281,7 +282,7 @@ Las filas y las columnas están limitadas a la limitación .NET de Máx. int.: 2
 
 **¿Se puede ajustar el tamaño de la máquina virtual que ejecuta el servicio web?**
 
-Nº  
+No.  
 
 ## <a name="security-and-availability"></a>Seguridad y disponibilidad
 **¿Quién puede acceder de forma predeterminada al punto de conexión http del servicio web? ¿Cómo se restringe el acceso al punto de conexión?**
@@ -459,11 +460,11 @@ Los servicios que tienen asignado un plan de tarifa de desarrollo/pruebas se det
 
 En el caso de las cargas de trabajo de RRS, se le facturan tanto las llamadas de las transacciones de API que realice como el tiempo de proceso asociado a esas solicitudes. El costo de las transacciones de API de producción de RRS se calcula como el número total de llamadas de API que se realizan multiplicado por el precio por 1000 transacciones (prorrateado por cada transacción individual). El costo por hora de proceso de API de producción de RRS se calcula como el tiempo necesario para que se ejecute cada llamada de API multiplicado por el total de transacciones de API y por el precio de la hora de proceso de API de producción.
 
-Por ejemplo, en el caso del uso por encima del límite del nivel Estándar S1, si hay 1 000 000 transacciones de API, cada una de las cuales tarda 0,72 segundos en ejecutarse, el resultado será de 500 USD por los costos de transacción de API de producción (1 000 000 * 0,50 USD/1000 transacciones de API) y de 400 USD por las horas de proceso de API de producción (1 000 000 * 0,72 seg * 2 USD/h), lo que haría un total de 900 USD.
+Por ejemplo, en el caso del uso por encima del límite del nivel Estándar S1, si hay 1 000 000 transacciones de API, cada una de las cuales tarda 0,72 segundos en ejecutarse, el resultado será de 500 USD por los costos de transacción de API de producción (1 000 000 0,50 USD/1000 transacciones de API) y de 400 USD por las horas de proceso de API de producción (1 000 000 0,72 seg * 2 USD/h), lo que haría un total de 900 USD.
 
 La carga de trabajo BES se le cobrará de la misma manera. Sin embargo, el costo de las transacciones de API representa el número de trabajos por lotes que se envían, mientras que el costo de proceso representa el tiempo de proceso asociado a dichos trabajos por lotes. El costo por transacciones de API de producción del servicio BES se calcula como el número total de trabajos enviados multiplicado por el precio por 1 000 transacciones (prorrateado por transacción individual). El costo por horas de proceso de API de producción del servicio BES se calcula como la cantidad de tiempo necesario para que se ejecute cada fila del trabajo multiplicado por el número total de filas del trabajo y multiplicado por el número total de trabajos y por el precio de la hora de proceso de API de producción. En la calculadora de Machine Learning, el medidor de transacciones representa el número de trabajos que planea enviar, mientras que el campo de tiempo por transacción representa el tiempo combinado necesario para que se ejecuten todas las filas de cada trabajo.
 
-Por ejemplo, suponga un uso por encima del límite del nivel Estándar S1. Envía 100 trabajos al día, cada uno de los cuales consta de 500 filas, cada una de las cuales tarda 0,72 segundos en ejecutarse. Los costos mensuales de uso por encima del límite serían (100 trabajos al día = 3100 trabajos/mes * 0,50 USD/1000 transacciones de API) 1,55 USD en costos de transacciones de API de producción y (500 filas * 0,72 seg. * 3100 trabajos * 2 USD/h) 620 USD en horas de proceso de API de producción, lo que haría un total de 621,55 USD.
+Por ejemplo, suponga un uso por encima del límite del nivel Estándar S1. Envía 100 trabajos al día, cada uno de los cuales consta de 500 filas, cada una de las cuales tarda 0,72 segundos en ejecutarse. Los costos mensuales de uso por encima del límite serían (100 trabajos al día = 3100 trabajos/mes 0,50 USD/1000 transacciones de API) 1,55 USD en costos de transacciones de API de producción y (500 filas 0,72 seg. 3100 trabajos 2 USD/h) 620 USD en horas de proceso de API de producción, lo que haría un total de 621,55 USD.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Servicios web clásicos de Azure Machine Learning
 **¿Sigue estando disponible el plan de pago por uso?**
@@ -473,7 +474,7 @@ Sí. Los servicios web clásicos siguen disponibles en Azure Machine Learning.
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Nivel Gratis y Estándar de Azure Machine Learning
 **¿Qué incluye el nivel Gratis de Azure Machine Learning?**
 
-El nivel Gratis de Azure Machine Learning Studio está pensado para proporcionar una introducción detallada de Azure Machine Learning Studio. Todo lo que necesita para suscribirse es una cuenta de Microsoft. El nivel Gratis incluye acceso gratuito a un área de trabajo de Azure Machine Learning Studio por cada [cuenta de Microsoft](https://www.microsoft.com/account/default.aspx). En este nivel, puede usar hasta 10 GB de almacenamiento y aplicar modelos como API de ensayo. No hay ningún Acuerdo de Nivel de Servicio que cubra las cargas de trabajo del nivel Gratis, ya que estas cargas de trabajo están destinadas exclusivamente a desarrollo y uso personal. 
+El nivel Gratis de Azure Machine Learning Studio está pensado para proporcionar una introducción detallada de Azure Machine Learning Studio. Todo lo que necesita para suscribirse es una cuenta de Microsoft. El nivel Gratis incluye acceso gratuito a un área de trabajo de Azure Machine Learning Studio por cada [cuenta de Microsoft](https://account.microsoft.com/account). En este nivel, puede usar hasta 10 GB de almacenamiento y aplicar modelos como API de ensayo. No hay ningún Acuerdo de Nivel de Servicio que cubra las cargas de trabajo del nivel Gratis, ya que estas cargas de trabajo están destinadas exclusivamente a desarrollo y uso personal. 
 
 Las áreas de trabajo de nivel Gratis tienen las limitaciones siguientes:
 

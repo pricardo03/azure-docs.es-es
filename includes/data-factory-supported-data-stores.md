@@ -2,11 +2,11 @@
 |:--- |:--- |:--- |:--- |
 | **Las tablas de Azure** |[Almacenamiento de blobs de Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Cosmos DB (API de SQL)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |
-| &nbsp; |[Azure Data Lake Store](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓ |✓ |
+| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
 | &nbsp; |[Índice de Azure Search](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
-| &nbsp; |[Azure Table Storage](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓  |
+| &nbsp; |[Azure Table Storage](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓ |
 | **Bases de datos** |[Amazon Redshift](../articles/data-factory/v1/data-factory-amazon-redshift-connector.md) |✓ | |
 | &nbsp; |[DB2](../articles/data-factory/v1/data-factory-onprem-db2-connector.md)* |✓ | |
 | &nbsp; |[MySQL](../articles/data-factory/v1/data-factory-onprem-mysql-connector.md)* |✓ | |

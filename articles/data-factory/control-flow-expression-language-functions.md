@@ -10,21 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859154"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: Disponibilidad general](v1/data-factory-functions-variables.md)
-> * [Versión 2: versión preliminar](control-flow-expression-language-functions.md)
+> * [Versión 1](v1/data-factory-functions-variables.md)
+> * [Versión actual](control-flow-expression-language-functions.md)
 
-En este artículo se proporciona información detallada sobre las expresiones y las funciones compatibles con Azure Data Factory (versión 2). 
+En este artículo se proporciona información detallada sobre las expresiones y las funciones compatibles con Azure Data Factory. 
 
 ## <a name="introduction"></a>Introducción
 Los valores JSON de la definición pueden ser literales o expresiones que se evalúan en tiempo de ejecución. Por ejemplo:   
@@ -39,20 +40,15 @@ Los valores JSON de la definición pueden ser literales o expresiones que se eva
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea [Funciones y variables en Data Factory V1](v1/data-factory-functions-variables.md).
-
-
 ## <a name="expressions"></a>Expresiones  
-Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Si un valor JSON es una expresión, se extrae el cuerpo de la expresión quitando el signo arroba (@). Si se necesita una cadena literal que empiece por @, debe convertirse con @@. Los ejemplos siguientes muestran cómo se evalúan las expresiones.  
+Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Si un valor JSON es una expresión, se extrae el cuerpo de la expresión quitando el signo arroba (\@). Si se necesita una cadena literal que empiece por @, debe convertirse con @@. Los ejemplos siguientes muestran cómo se evalúan las expresiones.  
   
 |Valor JSON|Resultado|  
 |----------------|------------|  
 |"parameters"|Se devuelven los caracteres de "parameters".|  
 |"parameters[1]"|Se devuelven los caracteres de "parameters[1]".|  
-|"@@"|Se devuelve una cadena de 1 carácter que contiene \"\@\".|  
-|\" \@\"|Se devuelve una cadena de 2 caracteres que contienen  \" \@\".|  
+|"\@@"|Se devuelve una cadena de 1 carácter que contiene \"\@\".|  
+|" \@"|Se devuelve una cadena de 2 caracteres que contienen  \" \@\".|  
   
  Las expresiones también pueden aparecer dentro de las cadenas mediante una característica llamada *interpolación de cadenas*, donde las expresiones se ajustan en `@{ ... }`. Por ejemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -60,13 +56,13 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
   
 |Valor JSON|Resultado|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| Devuelve `foo` como una cadena.|  
-|"@{pipeline().parameters.myString}"| Devuelve `foo` como una cadena.|  
-|"@pipeline().parameters.myNumber"| Devuelve `42` como un *número*.|  
-|"@{pipeline().parameters.myNumber}"| Devuelve `42` como una *cadena*.|  
+|"\@pipeline().parameters.myString"| Devuelve `foo` como una cadena.|  
+|"\@{pipeline().parameters.myString}"| Devuelve `foo` como una cadena.|  
+|"\@pipeline().parameters.myNumber"| Devuelve `42` como un *número*.|  
+|"\@{pipeline().parameters.myNumber}"| Devuelve `42` como una *cadena*.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: 42`.|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Devuelve la cadena `Answer is: 42`.|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Devuelve la cadena `Answer is: 42`.|  
+|"Answer is: \@@{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Ejemplos
 
@@ -161,8 +157,8 @@ En el ejemplo siguiente, la canalización toma los parámetros **inputPath** y *
 |toUpper|Convierte una cadena a mayúsculas. Por ejemplo, la siguiente expresión devuelve `TWO BY TWO IS FOUR`: `toUpper('Two by Two is Four')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que se va a convertir a mayúsculas. Si un carácter de la cadena no tiene un equivalente en mayúsculas, se incluye sin cambios en la cadena devuelta.|  
 |indexof|Busca el índice de un valor dentro de una cadena, con independencia de mayúsculas o minúsculas. Por ejemplo, la siguiente expresión devuelve `7`: `indexof('hello, world.', 'world')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que puede contener el valor.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. El valor para buscar el índice.|  
 |lastindexof|Busca el último índice de un valor dentro de una cadena, con independencia de mayúsculas o minúsculas. Por ejemplo, la siguiente expresión devuelve `3`: `lastindexof('foofoo', 'foo')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que puede contener el valor.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. El valor para buscar el índice.|  
-|startswith|Comprueba si la cadena comienza con valor, con independencia de mayúsculas o minúsculas. Por ejemplo, la siguiente expresión devuelve `true`: `lastindexof('hello, world', 'hello')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que puede contener el valor.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. El valor con el que comienza cadena.|  
-|endswith|Comprueba si la cadena finaliza con un valor, con independencia de mayúsculas o minúsculas. Por ejemplo, la siguiente expresión devuelve `true`: `lastindexof('hello, world', 'world')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que puede contener el valor.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. El valor con el que puede finalizar la cadena.|  
+|startswith|Comprueba si la cadena comienza con valor, con independencia de mayúsculas o minúsculas. Por ejemplo, la siguiente expresión devuelve `true`: `startswith('hello, world', 'hello')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que puede contener el valor.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. El valor con el que comienza cadena.|  
+|endswith|Comprueba si la cadena finaliza con un valor, con independencia de mayúsculas o minúsculas. Por ejemplo, la siguiente expresión devuelve `true`: `endswith('hello, world', 'world')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que puede contener el valor.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. El valor con el que puede finalizar la cadena.|  
 |split|Divide la cadena con un separador. Por ejemplo, la siguiente expresión devuelve `["a", "b", "c"]`: `split('a;b;c',';')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que se divide.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. El separador.|  
   
   
@@ -232,7 +228,7 @@ En el ejemplo siguiente, la canalización toma los parámetros **inputPath** y *
 |decodeDataUri|Devuelve una representación binaria de una cadena de identificador URI de datos de entrada. Por ejemplo, la siguiente expresión devuelve la representación binaria de `some string`: `decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. El dataURI para descodificar en una representación binaria.|  
 |uriComponent|Devuelve una representación codificada de un identificador URI de un valor. Por ejemplo, la siguiente expresión devuelve `You+Are%3ACool%2FAwesome: uriComponent('You Are:Cool/Awesome ')`<br /><br /> Detalles de los parámetros: Número: 1; Nombre: Cadena; Descripción: Necesario. La cadena que se va a codificar como URI.|  
 |uriComponentToBinary|Devuelve una representación binaria de una cadena codificada como URI. Por ejemplo, la siguiente expresión devuelve una representación binaria de `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br />**Descripción**: necesaria. Cadena codificada en URI.|  
-|uriComponentToString|Devuelve una representación de cadena de una cadena codificada como URI. Por ejemplo, la siguiente expresión devuelve `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Número de parámetro**: 1<br /><br />**Nombre**: cadena<br /><br />**Descripción**: necesaria. Cadena codificada en URI.|  
+|uriComponentToString|Devuelve una representación de cadena de una cadena codificada como URI. Por ejemplo, la siguiente expresión devuelve `You Are:Cool/Awesome`: `uriComponentToString('You+Are%3ACool%2FAwesome')`<br /><br /> **Número de parámetro**: 1<br /><br />**Nombre**: cadena<br /><br />**Descripción**: necesaria. Cadena codificada en URI.|  
 |xml|Devuelve una representación XML del valor. Por ejemplo, la siguiente expresión devuelve un contenido xml representado por `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`. La función xml también es compatible con la entrada de objeto JSON. Por ejemplo, el parámetro `{ "abc": "xyz" }` se convierte en contenido XML: `\<abc>xyz\</abc>`.<br /><br /> **Número de parámetro**: 1<br /><br />**Nombre**: valor<br /><br />**Descripción**: necesaria. El valor que se va a convertir en XML.|  
 |xpath|Devuelve una matriz de nodos XML que coinciden con la expresión xpath de un valor que se evalúa como la expresión xpath.<br /><br />  **Ejemplo 1**<br /><br /> Supone que el valor del parámetro "p1" es una representación de cadena del siguiente XML:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Este código: `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> devolvería<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> mientras que<br /><br /> 2. Este código: `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> devolvería<br /><br /> `13`<br /><br /> <br /><br /> **Ejemplo 2**<br /><br /> Dato el contenido XML siguiente:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Este código: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> o<br /><br /> 2. Este código: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> devuelve<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> y<br /><br /> 3. Este código: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> devuelve<br /><br /> ``bar``<br /><br /> **Número de parámetro**: 1<br /><br />**Nombre**: Xml<br /><br />**Descripción**: necesaria. El código XML en el que se va a evaluar la expresión XPath.<br /><br /> **Número de parámetro**: 2<br /><br />**Nombre**: XPath<br /><br />**Descripción**: necesaria. La expresión XPath que se va a evaluar.|  
 |array|Convierte el parámetro en una matriz.  Por ejemplo, la siguiente expresión devuelve `["abc"]`: `array('abc')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en una matriz.|

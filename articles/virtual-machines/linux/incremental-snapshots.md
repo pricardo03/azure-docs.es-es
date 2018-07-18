@@ -1,6 +1,6 @@
 ---
-title: "Uso de instantáneas incrementales para copia de seguridad y recuperación de discos no administrados de máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Creación de una solución personalizada para copia de seguridad y recuperación de discos de máquinas virtuales Linux en Azure mediante instantáneas incrementales."
+title: Uso de instantáneas incrementales para copia de seguridad y recuperación de discos no administrados de máquinas virtuales Linux en Azure | Microsoft Docs
+description: Creación de una solución personalizada para copia de seguridad y recuperación de discos de máquinas virtuales Linux en Azure mediante instantáneas incrementales.
 services: virtual-machines-linux
 documentationcenter: na
 author: aungoo-msft
@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
 ms.openlocfilehash: e73bd496f5909ddeaa5791628ac08a07ea8a7889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295628"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

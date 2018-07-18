@@ -1,31 +1,25 @@
 ---
 title: Aprovisionamiento de dispositivos Windows para la supervisión remota con C - Azure | Microsoft Docs
 description: Se describe cómo conectar un dispositivo al acelerador de la solución de supervisión remota mediante una aplicación creada en C y que se ejecuta en Windows.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 51ed87fb0f0c6d526249adaae95d87afaafd8812
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 139daea3e885636b352d4c9a1ba2651a24195b21
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309877"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Conectar el dispositivo al acelerador de la solución de supervisión remota (Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Conectar el dispositivo al acelerador de la solución Supervisión remota (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota.
+En este tutorial se muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota.
 
 ## <a name="create-a-c-client-solution-on-windows"></a>Creación de una solución cliente de C en Windows
 

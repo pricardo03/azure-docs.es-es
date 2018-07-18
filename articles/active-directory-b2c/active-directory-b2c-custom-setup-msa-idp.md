@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: adición de una cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas'
+title: Adición de una cuenta Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
 description: Ejemplo en el que se usa Microsoft como proveedor de identidades mediante el protocolo OpenID Connect (OIDC).
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449379"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: adición de una cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas
 
@@ -150,7 +150,7 @@ El proveedor de identidades ya se ha configurado, pero no está disponible en ni
 1.  Abra el archivo base de la directiva (por ejemplo, TrustFrameworkBase.xml).
 2.  Busque el elemento `<UserJourneys>` y copie el contenido entero del nodo `<UserJourneys>`.
 3.  Abra el archivo de extensión (por ejemplo, TrustFrameworkExtensions.xml) y busque el elemento `<UserJourneys>`. Si el elemento no existe, agréguelo.
-4.  Pegue el contenido entero del nodo `<UserJournesy>` que copió como secundario del elemento `<UserJourneys>`.
+4.  Pegue el contenido entero del nodo `<UserJourneys>` que copió como secundario del elemento `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Visualización del botón
 El elemento `<ClaimsProviderSelections>` define la lista de opciones de selección del proveedor de notificaciones y su orden.  El elemento `<ClaimsProviderSelection>` es análogo a un botón de proveedor de identidades de una página de registro o inicio de sesión. Si agrega un elemento `<ClaimsProviderSelection>` para la cuenta de Microsoft, se muestra un nuevo botón cuando un usuario llega a la página. Para agregar este elemento:
@@ -160,7 +160,7 @@ El elemento `<ClaimsProviderSelections>` define la lista de opciones de selecci�
 3.  Agregue el siguiente fragmento de código XML en el nodo `<ClaimsProviderSelections>`:
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
@@ -170,7 +170,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
 2.  Agregue el siguiente fragmento de código XML en el nodo `<ClaimsExchanges>`:
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193461"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293336"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Enlace de un certificado SSL personalizado existente con Azure Web Apps
 
@@ -32,9 +32,11 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Actualizar el plan de tarifa de la aplicación
-> * Enlazar el certificado SSL personalizado con App Service
-> * Implementar HTTPS en la aplicación
-> * Automatizar el enlace de certificado SSL con scripts
+> * Enlazar el certificado personalizado con App Service
+> * Renovar certificados
+> * Aplicación de HTTPS
+> * Aplicación de TLS 1.1 y 1.2
+> * Automatización de la administración de TLS con scripts
 
 > [!NOTE]
 > Si necesita un certificado SSL personalizado, puede obtener uno directamente en Azure Portal y enlazarlo a la aplicación web. Siga el tutorial [Incorporación de un certificado SSL a la aplicación App Service](web-sites-purchase-ssl-web-site.md).
@@ -84,17 +86,17 @@ En el panel de navegación izquierdo de la página de la aplicación web, despl�
 
 ![Menú Escalar verticalmente](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Asegúrese de que la aplicación web no está en el nivel **Gratis** ni **Compartido**. El nivel actual de la aplicación web aparece resaltado con un cuadro azul oscuro.
+Asegúrese de que la aplicación web no está en el nivel **F1** ni **D1**. El nivel actual de la aplicación web aparece resaltado con un cuadro azul oscuro.
 
 ![Comprobar plan de tarifa](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-El SSL personalizado no es compatible con los niveles **Gratis** y **Compartido**. Si tiene que escalar verticalmente, siga los pasos de la sección siguiente. Si no, cierre la página **Elija su plan de tarifa** y vaya directamente a las secciones sobre cómo [cargar y enlazar el certificado SSL](#upload).
+El SSL personalizado no es compatible con los niveles **F1** y **D1**. Si tiene que escalar verticalmente, siga los pasos de la sección siguiente. Si no, cierre la página **Escalar verticalmente** y vaya directamente a las secciones sobre cómo [cargar y enlazar el certificado SSL](#upload).
 
 ### <a name="scale-up-your-app-service-plan"></a>Escalar verticalmente el plan de App Service
 
-Seleccione uno de los niveles, **Básico**, **Estándar** o **Premium**.
+Seleccione cualquiera de los niveles no gratuitos (**B1**, **B2**, **B3**, o cualquier nivel de la categoría **Producción**). Para ver opciones adicionales, haga clic en **Ver opciones adicionales**.
 
-Haga clic en **Seleccionar**.
+Haga clic en **Aplicar**.
 
 ![Elegir plan de tarifa](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
@@ -213,6 +215,14 @@ Ahora todo lo que queda por hacer es asegurarse de que HTTPS funciona para el do
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>Renovar certificados
+
+Su dirección IP de entrada puede cambiar al eliminar un enlace, incluso si este se basa en IP. Esto es especialmente importante al renovar un certificado que ya está en un enlace basado en IP. Para evitar un cambio en la dirección IP de su aplicación, siga estos pasos en orden:
+
+1. Carga el nuevo certificado.
+2. Enlaza el nuevo certificado al dominio personalizado que desee sin eliminar el antiguo. Esta acción reemplaza el enlace en lugar de quitar el antiguo.
+3. Elimine el antiguo certificado. 
+
 ## <a name="enforce-https"></a>Aplicación de HTTPS
 
 De forma predeterminada, cualquier usuario puede acceder todavía a su aplicación web mediante HTTP. Puede redirigir todas las solicitudes HTTP al puerto HTTPS.
@@ -236,14 +246,6 @@ En la página de la aplicación web, en el panel de navegación izquierdo, selec
 ![Exigir aplicación de TLS 1.1 o 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Una vez completada la operación, la aplicación rechaza todas las conexiones con versiones inferiores de TLS.
-
-## <a name="renew-certificates"></a>Renovar certificados
-
-Su dirección IP de entrada puede cambiar al eliminar un enlace, incluso si este se basa en IP. Esto es especialmente importante al renovar un certificado que ya está en un enlace basado en IP. Para evitar un cambio en la dirección IP de su aplicación, siga estos pasos en orden:
-
-1. Carga el nuevo certificado.
-2. Enlaza el nuevo certificado al dominio personalizado que desee sin eliminar el antiguo. Esta acción reemplaza el enlace en lugar de quitar el antiguo.
-3. Elimine el antiguo certificado. 
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+El siguiente comando aplica la versión mínima de TLS: la 1.2.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 El comando siguiente carga un archivo PFX exportado y agrega un enlace SSL basado en SNI.
@@ -297,9 +308,11 @@ En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Actualizar el plan de tarifa de la aplicación
-> * Enlazar el certificado SSL personalizado con App Service
-> * Implementar HTTPS en la aplicación
-> * Automatizar el enlace de certificado SSL con scripts
+> * Enlazar el certificado personalizado con App Service
+> * Renovar certificados
+> * Aplicación de HTTPS
+> * Aplicación de TLS 1.1 y 1.2
+> * Automatización de la administración de TLS con scripts
 
 Para aprender a usar Azure Content Delivery Network, avance al siguiente tutorial.
 

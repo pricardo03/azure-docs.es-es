@@ -1,26 +1,23 @@
 ---
 title: 'Simulación de dispositivos en la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este tutorial se muestra cómo usar el simulador de dispositivos con el acelerador de la solución de supervisión remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628266"
 ---
 # <a name="create-a-new-simulated-device"></a>Creación de un nuevo dispositivo simulado
 
-En este tutorial se muestra cómo personalizar el microservicio del simulador de dispositivos en el acelerador de la solución de supervisión remota. Para mostrar las funcionalidades del simulador de dispositivos, en este tutorial se usan dos escenarios en la aplicación IoT de Contoso.
+En este tutorial, se muestra cómo personalizar el microservicio del simulador de dispositivos en el acelerador de la solución Supervisión remota. Para mostrar las funcionalidades del simulador de dispositivos, en este tutorial se usan dos escenarios en la aplicación IoT de Contoso.
 
 En el siguiente vídeo se presenta información general de las opciones para personalizar el microservicio del simulador de dispositivos:
 
@@ -72,7 +69,7 @@ La tabla siguiente muestra el estado inicial del dispositivo:
 
 En el segundo escenario, agrega un tipo de telemetría nuevo al dispositivo **Refrigerador** existente de Contoso.
 
-En este tutorial se muestra cómo usar el simulador de dispositivos con el acelerador de la solución de supervisión remota:
+En este tutorial, se muestra cómo usar el simulador de dispositivos con el acelerador de la solución Supervisión remota:
 
 En este tutorial, aprenderá a:
 
@@ -82,7 +79,7 @@ En este tutorial, aprenderá a:
 > * Agregar un tipo de dispositivo nuevo al panel
 > * Enviar telemetría personalizada desde un tipo de dispositivo existente
 
-En el vídeo siguiente se muestra un tutorial sobre cómo conectar dispositivos simulados y reales a la solución de supervisión remota:
+En el vídeo siguiente, se muestra un tutorial sobre cómo conectar dispositivos simulados y reales a la solución Supervisión remota:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
@@ -90,7 +87,7 @@ En el vídeo siguiente se muestra un tutorial sobre cómo conectar dispositivos 
 
 Para utilizar este tutorial, necesitará:
 
-* Una instancia implementada de la solución de supervisión remota en la suscripción de Azure. Si aún no ha implementado la solución de supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución de supervisión remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
+* Una instancia implementada de la solución Supervisión remota en la suscripción de Azure. Si aún no ha implementado la solución Supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución Supervisión remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Si aún no tiene Visual Studio 2017 instalado, puede descargar y usar la edición gratis de [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 
@@ -102,21 +99,21 @@ Para utilizar este tutorial, necesitará:
 
 ## <a name="prepare-your-development-environment"></a>Preparación del entorno de desarrollo
 
-Complete las siguientes tareas para preparar el entorno de desarrollo y así poder agregar un nuevo dispositivo simulado a la solución de supervisión remota:
+Complete las siguientes tareas para preparar el entorno de desarrollo y así poder agregar un nuevo dispositivo simulado a la solución Supervisión remota:
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Configurar el acceso SSH para la máquina virtual de la solución en Azure
 
-Cuando cree la solución de supervisión remota en [www.azureiotsuite.com](https://www.azureiotsuite.com), elija un nombre para la solución. El nombre de la solución se convierte en el nombre del grupo de recursos de Azure que contiene los distintos recursos implementados que utiliza la solución. Los siguientes comandos usan un grupo de recursos denominado **Contoso-01**, así que debe reemplazar **Contoso-01** con el nombre de su grupo de recursos.
+Cuando cree la solución Supervisión remota en [www.azureiotsolutions.com](https://www.azureiotsolutions.com), elija un nombre para la solución. El nombre de la solución se convierte en el nombre del grupo de recursos de Azure que contiene los distintos recursos implementados que utiliza la solución. Los siguientes comandos usan un grupo de recursos denominado **Contoso-01**, así que debe reemplazar **Contoso-01** con el nombre de su grupo de recursos.
 
 Los siguientes comandos usan el comando `az` de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Puede instalar la CLI de Azure 2.0 en la máquina de desarrollo, o usar [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) en [Azure Portal](http://portal.azure.com). La CLI de Azure 2.0 viene preinstalada en Cloud Shell.
 
-1. Para comprobar el nombre del grupo de recursos que contiene los recursos de supervisión remotos, ejecute el siguiente comando:
+1. Para comprobar el nombre del grupo de recursos que contiene los recursos de Supervisión remota, ejecute el siguiente comando:
 
     ```sh
     az group list | grep "name"
     ```
 
-    Gracias a este comando puede obtener una lista de todos los grupos de recursos de la suscripción. La lista debe incluir un grupo de recursos con el mismo nombre que la solución de supervisión remota.
+    Gracias a este comando puede obtener una lista de todos los grupos de recursos de la suscripción. La lista debe incluir un grupo de recursos con el mismo nombre que la solución Supervisión remota.
 
 1. Para que el grupo de recursos sea el grupo predeterminado de los comandos siguientes, ejecute el siguiente comando con el nombre del grupo de recursos en lugar de con **Contoso-01**:
 
@@ -161,7 +158,7 @@ Los siguientes comandos usan el comando `az` de la [CLI de Azure 2.0](https://do
     ssh azureuser@public-ip-address
     ```
 
-    Ahora tiene acceso al shell de la máquina virtual que ejecuta los contenedores de Docker en la solución de supervisión remota. Para ver los contenedores en ejecución, utilice el siguiente comando:
+    Ahora tiene acceso al shell de la máquina virtual que ejecuta los contenedores de Docker en la solución Supervisión remota. Para ver los contenedores en ejecución, utilice el siguiente comando:
 
     ```sh
     docker ps
@@ -220,7 +217,7 @@ En este tutorial, trabajará con los proyectos de Visual Studio **device-simulat
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    El servicio de simulación de dispositivos de la solución de supervisión remota le permite hacer cambios en los tipos integrados de dispositivos simulados y crear nuevos tipos de dispositivos simulados. Puede usar los tipos de dispositivos personalizados para probar el comportamiento de la solución de supervisión remota antes de conectar los dispositivos físicos.
+    El servicio de simulación de dispositivos de la solución Supervisión remota le permite hacer cambios en los tipos integrados de dispositivos simulados y crear tipos de dispositivos simulados. Puede usar los tipos de dispositivos personalizados para probar el comportamiento de la solución Supervisión remota antes de conectar los dispositivos físicos.
 
 1. Para clonar la versión de .NET del repositorio **storage-adapter**, ejecute el siguiente comando:
 
@@ -228,7 +225,7 @@ En este tutorial, trabajará con los proyectos de Visual Studio **device-simulat
     git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
-    El servicio de simulación de dispositivos usa el servicio del adaptador de almacenamiento para conectar con el servicio de Cosmos DB en Azure. La solución de supervisión remota almacena los datos de configuración del dispositivo simulado en una base de datos de Cosmos DB.
+    El servicio de simulación de dispositivos usa el servicio del adaptador de almacenamiento para conectar con el servicio de Cosmos DB en Azure. La solución Supervisión remota almacena los datos de configuración del dispositivo simulado en una base de datos de Cosmos DB.
 
 ### <a name="run-the-storage-adapter-service-locally"></a>Ejecutar el servicio del adaptador de almacenamiento de manera local
 
@@ -246,7 +243,7 @@ El servicio de simulación de dispositivos usa el servicio del adaptador de alma
 
 1. Deje que el servicio del adaptador de almacenamiento siga ejecutándose de forma local hasta que haya completado el tutorial.
 
-Ya tiene todo en su lugar y está listo para comenzar a agregar nuevos tipos de dispositivos simulados en la solución de supervisión remota.
+Ya tiene todo preparado y está listo para comenzar a agregar nuevos tipos de dispositivos simulados en la solución Supervisión remota.
 
 ## <a name="create-a-simulated-device-type"></a>Creación de un tipo de dispositivo simulado
 
@@ -478,23 +475,23 @@ Ya está listo para probar el nuevo tipo de bombilla simulada; para ello, ejecut
 
 1. Para comprobar que los dos dispositivos simulados están conectados a IoT Hub, abra Azure Portal en el explorador.
 
-1. Vaya a IoT Hub en el grupo de recursos que contiene la solución de supervisión remota.
+1. Vaya a IoT Hub en el grupo de recursos que contiene la solución Supervisión remota.
 
 1. Seleccione **Métricas** en la sección **Supervisión**. A continuación, compruebe que el número de **dispositivos conectados** sea dos:
 
     ![Número de dispositivos conectados](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
 
-1. En el explorador, navegue hasta el **panel** de la solución de supervisión remota. En el panel de telemetría del **Panel** principal, seleccione **Temperatura**. La temperatura de todos los dispositivos simulados se muestra en el gráfico:
+1. En el explorador, vaya hasta el **panel** de la solución Supervisión remota. En el panel de telemetría del **Panel** principal, seleccione **Temperatura**. La temperatura de todos los dispositivos simulados se muestra en el gráfico:
 
     ![Telemetría de temperatura](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-Ahora la simulación del dispositivo de bombilla se ejecuta de forma local. El siguiente paso es implementar el código del simulador actualizado en la máquina virtual que ejecuta los microservicios de supervisión remota en Azure.
+Ahora la simulación del dispositivo de bombilla se ejecuta de forma local. El siguiente paso es implementar el código del simulador actualizado en la máquina virtual que ejecuta los microservicios de Supervisión remota en Azure.
 
 Antes de continuar, puede detener la depuración de los proyectos de la simulación de dispositivos y del adaptador de almacenamiento en Visual Studio.
 
 ### <a name="deploy-the-updated-simulator-to-the-cloud"></a>Implementar el simulador actualizado en la nube
 
-Los microservicios de la solución de supervisión remota se ejecutan en contenedores de Docker. Los contenedores se hospedan en la máquina virtual de la solución en Azure. En esta sección:
+Los microservicios de la solución Supervisión remota se ejecutan en contenedores de Docker. Los contenedores se hospedan en la máquina virtual de la solución en Azure. En esta sección:
 
 * Puede crear una nueva imagen de Docker de la simulación del dispositivo.
 * Puede cargar la imagen en el repositorio de Docker Hub.
@@ -582,9 +579,9 @@ En los siguientes pasos se supone que tiene un repositorio denominado **Bombilla
     docker logs {container ID}
     ```
 
-Ya ha completado los pasos para implementar una versión actualizada del servicio de simulación de dispositivos en la solución de supervisión remota.
+Ya ha completado los pasos para implementar una versión actualizada del servicio de simulación de dispositivos en la solución Supervisión remota.
 
-En el explorador, navegue hasta el **panel** de la solución de supervisión remota. En el panel de telemetría del **Panel** principal, seleccione **Temperatura**. La temperatura de los dos dispositivos simulados se muestra en el gráfico:
+En el explorador, vaya hasta el **panel** de la solución Supervisión remota. En el panel de telemetría del **Panel** principal, seleccione **Temperatura**. La temperatura de los dos dispositivos simulados se muestra en el gráfico:
 
 ![Telemetría de temperatura](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
@@ -678,7 +675,7 @@ Los pasos siguientes muestran cómo agregar un tipo nuevo de **Temperatura inter
 
 Para probar el tipo de dispositivo **Refrigerador** actualizado, puede ejecutar primero una copia local del servicio **device-simulation** para comprobar que el tipo de dispositivo se comporta según lo esperado. Cuando haya probado y depurado localmente el tipo de dispositivo actualizado, puede recompilar el contenedor y volver a implementar el servicio **device-simulation** en Azure.
 
-Cuando ejecuta localmente el servicio **device-simulation**, este envía la telemetría a la solución de supervisión remota. En la página **Dispositivos**, puede aprovisionar instancias del tipo actualizado.
+Cuando ejecuta localmente el servicio **device-simulation**, este envía la telemetría a la solución Supervisión remota. En la página **Dispositivos**, puede aprovisionar instancias del tipo actualizado.
 
 Para probar y depurar localmente los cambios, consulte la sección anterior [Probar el tipo de dispositivo Bombilla de forma local](#test-the-lightbulb-device-type-locally).
 
@@ -701,7 +698,7 @@ Este tutorial le ha mostrado cómo:
 > * Agregar un tipo de dispositivo nuevo al panel
 > * Enviar telemetría personalizada desde un tipo de dispositivo existente
 
-Ya ha aprendido a personalizar el servicio de simulación de dispositivos. A continuación, el paso siguiente que se sugiere es aprender a [conectar un dispositivo físico a la solución de supervisión remota](iot-accelerators-connecting-devices-node.md).
+Ya ha aprendido a personalizar el servicio de simulación de dispositivos. El paso siguiente que se sugiere es aprender a [conectar un dispositivo físico a la solución Supervisión remota](iot-accelerators-connecting-devices-node.md).
 
 Para más información sobre la solución de supervisión remota para los desarrolladores, consulte:
 

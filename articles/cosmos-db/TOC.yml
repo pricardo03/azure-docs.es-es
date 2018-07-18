@@ -33,6 +33,8 @@ items:
             href: create-mongodb-golang.md
           - name: Python
             href: create-mongodb-flask.md
+          - name: Xamarin
+            href: create-mongodb-xamarin.md
       - name: Grafo
         items:
           - name: .NET
@@ -71,7 +73,7 @@ items:
     items:
       - name: Distribución global
         href: distribute-data-globally.md
-      - name: Configuración de varios maestros
+      - name: Varios maestros
         href: multi-region-writers.md
       - name: Creación de particiones
         href: partition-data.md
@@ -118,8 +120,6 @@ items:
                         href: sql-api-java-get-started.md
                       - name: Node.js
                         href: sql-api-nodejs-get-started.md
-                      - name: C++
-                        href: sql-api-cpp-get-started.md
                   - name: Compilación de una aplicación web
                     items:
                       - name: .NET
@@ -144,10 +144,6 @@ items:
                     href: local-emulator.md
                   - name: Exportación de certificados
                     href: local-emulator-export-ssl-certificates.md
-              - name: 6 - Integración con funciones
-                items:
-                  - name: Desencadenador HTTP
-                    href: tutorial-functions-http-trigger.md
           - name: Ejemplos
             items:
               - name: Azure CLI
@@ -162,6 +158,8 @@ items:
                 href: sql-api-python-samples.md
               - name: Ejemplos de Java
                 href: sql-api-java-samples.md
+              - name: Ejemplos de Async Java
+                href: sql-api-async-java-samples.md
           - name: Conceptos
             items:
               - name: Recursos
@@ -174,8 +172,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: 'BulkExecutor: Java'
                 href: bulk-executor-java.md
-              - name: Administración del uso de Explorador de Azure Storage
-                href: storage-explorer.md
               - name: Consultar
                 items:
                   - name: Realizar consultas SQL
@@ -186,8 +182,6 @@ items:
                 href: indexing-policies.md
               - name: Creación de particiones de datos de SQL
                 href: sql-api-partition-data.md
-              - name: 'procedimientos almacenados, desencadenadores y UDF'
-                href: programming.md
               - name: Fuente de cambios
                 href: change-feed.md
               - name: Tipos de datos
@@ -264,8 +258,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Recursos
             items:
-              - name: Administración del uso de Explorador de Azure Storage
-                href: storage-explorer.md
               - name: Extensión de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Área de juegos de SQL
@@ -328,12 +320,8 @@ items:
                 href: mongodb-indexing.md
               - name: Visualización de datos con Power BI
                 href: powerbi-visualize.md
-              - name: Administración del uso de Explorador de Azure Storage
-                href: storage-explorer.md
           - name: Recursos
             items:
-              - name: Administración del uso de Explorador de Azure Storage
-                href: storage-explorer.md
               - name: Extensión de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documentos de Graph API
@@ -346,30 +334,14 @@ items:
                 href: gremlin-support.md
           - name: Tutoriales
             items:
-              - name: 1 - Creación
-                href: tutorial-develop-graph-dotnet.md
-              - name: 2 - Consulta
+              - name: 1 - Consulta
                 href: tutorial-query-graph.md
-              - name: 3 - Distribución global
-                href: tutorial-global-distribution-graph.md
           - name: Guías de procedimientos
             items:
               - name: Creación de particiones de Graph
                 href: graph-partitioning.md
-              - name: Administración del uso de Explorador de Azure Storage
-                href: storage-explorer.md
-              - name: Integrate
-                items:
-                  - name: Conexión a Spark GraphX
-                    href: spark-connector-graph.md
-          - name: Referencia
-            items:
-              - name: .NET
-                href: graph-sdk-dotnet.md
           - name: Recursos
             items:
-              - name: Administración del uso de Explorador de Azure Storage
-                href: storage-explorer.md
               - name: Extensión de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documentos de Table API
@@ -390,8 +362,6 @@ items:
                 href: tutorial-query-table.md
               - name: 4 - Distribución global
                 href: tutorial-global-distribution-table.md
-              - name: '5 - Aplicación sin servidor: Node.js'
-                href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
           - name: Ejemplos
             items:
               - name: .NET
@@ -422,8 +392,6 @@ items:
                 href: table-sdk-python.md
           - name: Recursos
             items:
-              - name: Administración del uso de Explorador de Azure Storage
-                href: storage-explorer.md
               - name: Información general de Table Storage
                 href: table-storage-overview.md
               - name: Guía de diseño de almacenamiento en tablas
@@ -462,6 +430,8 @@ items:
         href: regional-failover.md
       - name: Registro de diagnósticos
         href: logging.md
+      - name: 'procedimientos almacenados, desencadenadores y UDF'
+        href: programming.md
       - name: Introducción a BulkExecutor
         href: bulk-executor-overview.md
       - name: Escrituras y lecturas rentables
@@ -472,10 +442,10 @@ items:
         href: manage-account-with-powershell.md
       - name: Administración del uso de Explorador de Azure Storage
         href: storage-explorer.md
+      - name: Configuración de varios maestros
+        href: multi-master-workaround.md
   - name: Recursos
     items:
-      - name: Administración del uso de Explorador de Azure Storage
-        href: storage-explorer.md
       - name: Hoja de referencia rápida de consultas
         href: query-cheat-sheet.md
       - name: 20 días de sugerencias

@@ -1,11 +1,11 @@
 ---
-title: "Código personalizado para Azure Logic Apps con Azure Functions | Microsoft Docs"
-description: "Cree y ejecute código personalizado para Azure Logic Apps con Azure Functions"
+title: Código personalizado para Azure Logic Apps con Azure Functions | Microsoft Docs
+description: Cree y ejecute código personalizado para Azure Logic Apps con Azure Functions
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 18442c87b049200fac5ed41cc7034ba7a848b8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331179"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Adición y ejecución de código personalizado para aplicaciones lógicas con Azure Functions
 
@@ -61,7 +62,7 @@ Una aplicación lógica se puede desencadenar desde dentro de una función. Cons
 
 ### <a name="create-a-function-from-logic-app-designer"></a>Creación de una función en el Diseñador de aplicaciones lógicas
 
-Una función de webhook de node.js también se puede crear desde el diseñador. En primer lugar, seleccione **Azure Functions in my region** (Funciones de Azure en mi región) y elija un contenedor para la función. Si todavía no dispone de ningún contenedor, tendrá que crearlo en el [portal de Funciones de Azure](https://functions.azure.com/signin). Seleccione **Crear nuevo**.  
+Una función de webhook de node.js también se puede crear desde el diseñador. En primer lugar, seleccione **Azure Functions in my region** (Funciones de Azure en mi región) y elija un contenedor para la función. Si todavía no dispone de ningún contenedor, tendrá que crearlo en el [portal de Azure Functions](https://functions.azure.com/). Seleccione **Crear nuevo**.  
 
 Para generar una plantilla basada en los datos que desea procesar, especifique el objeto de contexto que piensa pasar a una función, que debe ser un objeto JSON. Por ejemplo, si pasa el contenido del archivo de una acción de FTP, la carga del contexto será similar a la de este ejemplo:
 

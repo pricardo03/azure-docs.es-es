@@ -3,34 +3,28 @@ title: Búsqueda de informes de actividad de usuario de Azure Active Directory e
 description: Obtenga información sobre dónde están los informes de actividad de usuario de Azure Active Directory en Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 12/06/2017
-ms.author: curtand
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f22219a0e2ff342e25a2efdeb319f389250ecfef
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231328"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
 En este artículo, se describe cómo buscar informes de actividad de usuario de Azure Active Directory en Azure Portal.
 
-## <a name="whats-new"></a>Novedades
-
-Los informes del portal clásico de Azure estaban separados por categorías:
-* Informes de seguridad
-* Informes de actividad
-* Informes de aplicaciones integradas
-
-### <a name="activity-and-integrated-app-reports"></a>Informes de actividad y de aplicaciones integradas
+## <a name="activity-and-integrated-app-reports"></a>Informes de actividad y de aplicaciones integradas
 
 En el caso de los informes basados en contexto en Azure Portal, los informes existentes se combinan en una sola vista. Una API subyacente única proporciona los datos a la vista.
 
@@ -87,7 +81,7 @@ Para detalles sobre el uso de todas las aplicaciones o de una sola aplicación, 
 
 #### <a name="azure-ad-anomalous-activity-reports"></a>Informes de actividades anómalas de Azure AD
 
-Los informes de seguridad de actividad anómala en Azure AD del Portal de Azure clásico se consolidaron para brindarle una vista una y centralizada. Esta vista muestra todos los eventos de riesgo relacionados con la seguridad que Azure AD puede detectar e informar.
+Los informes de seguridad de actividad anómala en Azure AD se consolidaron para brindarle una vista una y centralizada. Esta vista muestra todos los eventos de riesgo relacionados con la seguridad que Azure AD puede detectar e informar.
 
 En la tabla siguiente aparecen los informes de seguridad de actividad anómala de Azure AD y los tipos de eventos de riesgo correspondientes en Azure Portal.
 
@@ -104,8 +98,6 @@ Los informes de seguridad de actividad anómala de Azure AD siguientes no se inc
 
 * Inicios de sesión tras varios errores
 * Inicios de sesión desde varias ubicaciones geográficas
-
-Estos informes siguen disponibles en el Portal de Azure clásico, pero quedarán en desuso en el futuro.
 
 Para más información, consulte [Eventos de riesgo de Azure Active Directory](active-directory-identity-protection-risk-events.md).  
 
@@ -125,29 +117,10 @@ Para más información sobre los informes de seguridad, consulte:
 - [Informe de inicios de sesión poco seguros del portal de Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Informes de actividad en el Portal de Azure clásico frente a Azure Portal
-
-La tabla de esta sección muestra los informes existentes en el Portal de Azure clásico. También describe cómo puede obtener la misma información en Azure Portal.
-
-Para ver todos los datos de auditoría, vaya a la hoja **Azure Active Directory** y, en **ACTIVIDAD**, vaya a **Registros de auditoría**.
-
-![Registros de auditoría](./media/active-directory-reporting-migration/61.png "Registros de auditoría")
-
-| Portal de Azure clásico                 | Para encontrar en Azure Portal                                                         |
-| ---                                  | ---                                                                        |
-| Registros de auditoría                           | Para **Categoría de actividad**, seleccione **Directorio principal**.                       |
-| Actividad de restablecimiento de contraseña              | Para **Categoría de actividad**, seleccione **Administración de contraseñas de autoservicio**. |
-| Actividad de registro de restablecimiento de contraseñas | Para **Categoría de actividad**, seleccione **Administración de contraseñas de autoservicio**.     |
-| Actividad de los grupos de autoservicio         | Para **Categoría de actividad**, seleccione **Administración de grupos de autoservicio**.        |
-| Actividad de aprovisionamiento de cuentas        | Para **Categoría de actividad**, seleccione **Aprovisionamiento de usuarios de la cuenta**.         |
-| Estado de la sustitución de contraseña             | En **Categoría de actividad**, seleccione **Sustitución automática de contraseñas de aplicación**.      |
-| Errores de aprovisionamiento de cuentas          | Para **Categoría de actividad**, seleccione **Aprovisionamiento de usuarios de la cuenta**.        |
-| Cambios de nombre de grupo de Office365         | Para **Categoría de actividad**, seleccione **Administración de contraseñas de autoservicio**. Para **Tipo de recurso de actividad**, seleccione **Grupo**. Para **Origen de la actividad**, seleccione **Grupos de O365**.|
-
 Para ver el informe **Uso de la aplicación**, vaya a la hoja **Azure Active Directory** y, en **ADMINISTRAR**, seleccione **Aplicaciones empresariales** y, luego, seleccione **Inicios de sesión**.
 
 
-![Informe Inicios de sesión de aplicaciones empresariales](./media/active-directory-reporting-migration/199.png "Informe Inicios de sesión de aplicaciones empresariales")
+![Informe de inicios de sesión de aplicaciones empresariales](./media/active-directory-reporting-migration/199.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

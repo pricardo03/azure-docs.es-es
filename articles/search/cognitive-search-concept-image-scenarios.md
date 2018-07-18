@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367280"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640207"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
 
@@ -45,7 +45,7 @@ Establezca el parámetro **parsingMode** en `json` (para indexar cada blob como 
 El valor predeterminado es de 2000 píxeles para el ancho máximo de las imágenes normalizadas, y la altura se basa en los tamaños máximos admitidos por la [habilidad de OCR](cognitive-search-skill-ocr.md) y la [habilidad de análisis de imágenes](cognitive-search-skill-image-analysis.md). Si aumenta los límites máximos, podría producirse un error de procesamiento en las imágenes más grandes.
 
 
-Especifique imageAction en su [definición de indexador](ref-create-indexer.md) como se indica a continuación:
+Especifique imageAction en su [definición de indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) como se indica a continuación:
 
 ```json
 {
@@ -218,7 +218,7 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
 ```
 
 ## <a name="see-also"></a>Otras referencias
-+ [Create indexer (REST)](ref-create-indexer.md)
++ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Habilidad Análisis de imágenes](cognitive-search-skill-image-analysis.md)
 + [Habilidad de OCR](cognitive-search-skill-ocr.md)
 + [Habilidad de Combinación de texto](cognitive-search-skill-textmerger.md)
