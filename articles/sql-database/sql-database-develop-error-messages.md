@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Códigos de error de SQL: error de conexión de base de datos | Microsoft Docs'
 description: 'Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de la SQL Database, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales. '
 keywords: código de error de SQL, acceder a SQL, error de conexión de base de datos, códigos de error de SQL
