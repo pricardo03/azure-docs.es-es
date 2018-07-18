@@ -5,12 +5,13 @@
     - name: ¿Qué es Azure DNS?
       href: dns-overview.md
 - name: Guías de inicio rápido
+  expanded: true
   items:
     - name: 'Resolución de nombres: Portal'
       href: dns-getstarted-portal.md
-    - name: 'Creación de una zona DNS y un registro: PowerShell'
+    - name: 'Resolución de nombres: PowerShell'
       href: dns-getstarted-powershell.md
-    - name: 'Creación de una zona DNS y un registro: CLI'
+    - name: 'Resolución de nombres: CLI'
       href: dns-getstarted-cli.md
 - name: Tutoriales
   items:

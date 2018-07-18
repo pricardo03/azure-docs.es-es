@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/29/2018
   ms.author: cgronlun
-  ms.openlocfilehash: 314e756981076468056dd691bce7d24073d6ff4b
-  ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+  ms.openlocfilehash: 5ac8d7ca6f607acd54ab40402bb83376fd8b5d63
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/06/2018
-  ms.locfileid: "37865028"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39089588"
 abstract:
   description: Aprenda a compilar algoritmos inteligentes en aplicaciones, sitios web y bots que permitan ver, oír, hablar y comprender las necesidades de los usuarios a través de formas de comunicación naturales. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo hacerlo.
 sections:
@@ -47,7 +47,7 @@ sections:
     rows:
     - title: 'Computer Vision: Análisis de una imagen'
       values:
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
+      - href: /azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
@@ -94,6 +94,7 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Detección y enmarcado de caras de una imagen</a>
     - html: <a href="/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Compilación de una página web de Custom Search </a>
     - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Uso de Language Understanding (LUIS) en un bot </a>
     - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Mejora de la exactitud de intención para comandos de automatización del hogar</a>

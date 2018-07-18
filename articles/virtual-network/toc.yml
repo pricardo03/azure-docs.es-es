@@ -35,7 +35,7 @@
       href: policy-samples.md
 - name: Conceptos
   items:
-    - name: Seguridad
+    - name: Grupos de seguridad
       href: security-overview.md
     - name: Enrutamiento
       href: virtual-networks-udr-overview.md
@@ -215,7 +215,7 @@
       items:
         - name: Creación y administración de una red virtual
           items:
-            - name: Crear una red virtual
+            - name: Creación de una red virtual
               href: create-virtual-network-classic.md
               items:
                 - name: Azure Portal
