@@ -9,14 +9,20 @@
       href: speech-scenarios.md
 - name: Guías de inicio rápido
   items:
-    - name: Pruebe Speech Service gratis
+    - name: Prueba gratuita del servicio Voz
       href: get-started.md
-    - name: 'Reconocer la voz en C#'
-      href: quickstart-csharp-windows.md
+    - name: 'Reconocimiento de voz en C# (.NET en Windows)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'Reconocimiento de voz en C# (.NET Core en Windows)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: Reconocimiento de voz en una aplicación de UWP
+      href: quickstart-csharp-uwp.md
     - name: Reconocer la voz en C++ para Windows
       href: quickstart-cpp-windows.md
     - name: Reconocer la voz en C++ para Linux
       href: quickstart-cpp-linux.md
+    - name: Reconocimiento de voz en Java para Android
+      href: quickstart-java-android.md
     - name: Introducción al SDK de dispositivos de voz
       href: speech-devices-sdk-qsg.md
 - name: Guías de procedimientos
@@ -61,11 +67,11 @@
       href: translation.md
 - name: Conceptos
   items:
-    - name: Conversión de voz en texto
+    - name: Speech to Text
       href: speech-to-text.md
     - name: Texto a voz
       href: text-to-speech.md
-    - name: Traducción de voz
+    - name: Speech Translation
       href: speech-translation.md
     - name: SDK de voz
       href: speech-sdk.md

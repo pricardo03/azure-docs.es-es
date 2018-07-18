@@ -8,12 +8,8 @@
 ### Publicación en Marketplace  
 #### [Determinación del tipo de publicación para la solución](./determine-your-listing-type.md)  
 #### [Empiece a publicar en Marketplace](./become-publisher.md)  
-#### [Requisitos por tipo de publicación](./listing-type-requirements.md) 
-#### Listas de comprobación de validación empresarial  
-##### [Directrices](./guidelines.md)  
-##### [Registrar en el centro de desarrollo](./register-dev-center.md)  
-##### [Adición de la información bancaria y fiscal](./add-bank-tax-info.md)  
-##### [Habilitar evaluación gratuita con Azure AD](./enable-trial-using-azure-ad.md)  
+##### [Creación de una cuenta Microsoft](./guidelines.md)
+##### [Registrar en el centro de desarrollo](./register-dev-center.md) 
 ##### [Opciones de facturación de Azure Marketplace](./billing-options-azure-marketplace.md)  
 
 ### Guía de publicación por tipo de oferta 
@@ -24,12 +20,21 @@
 #### [Contenedores](./marketplace-containers.md)
 #### [Servicio de consultoría](./consulting-services.md)  
 #### [AppSource Apps](./appsource-offer-publishing-guide.md)
+#### [Habilitar la experiencia de evaluación de Marketplace con Azure Active Directory](./enable-trial-using-azure-ad.md)
 
 ### [Desarrollo del negocio con Marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Soluciones preferidas](./preferred-solutions.md) 
 
 ### Soporte técnico  
 #### [Compatibilidad con Azure Marketplace y AppSource](./support-azure-marketplace.md)  
+
+### Guías de publicación  
+#### [Servicios de consultoría de Azure Marketplace](consulting-services.md)  
+#### [Guía de publicación técnica de aplicaciones de SaaS de Azure Marketplace](marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Habilitar la evaluación de Marketplace con Azure Active Directory](./enable-trial-using-azure-ad.md)  
+
+### [Desarrollo del negocio con Marketplace](./grow-your-business-with-azure-marketplace.md)  
+#### [Soluciones preferidas](./preferred-solutions.md) 
 
 ## [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

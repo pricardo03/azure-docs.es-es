@@ -402,6 +402,8 @@
           href: sql-database-cloud-migrate.md
         - name: Migración a Instancia administrada
           href: sql-database-managed-instance-migrate.md
+        - name: Migración de un certificado TDE a Instancia administrada
+          href: sql-database-managed-instance-migrate-tde-certificate.md
         - name: Administración de SQL Database después de una migración
           href: sql-database-manage-after-migration.md
     - name: Carga y movimiento de datos

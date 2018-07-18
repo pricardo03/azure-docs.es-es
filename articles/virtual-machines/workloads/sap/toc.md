@@ -1,5 +1,5 @@
 # Información general
-## [Introducción](get-started.md)
+## [Primeros pasos](get-started.md)
 ## [Certificaciones](sap-certifications.md)
 # SAP HANA en Azure (instancias grandes)
 ## [Introducción y arquitectura](hana-overview-architecture.md)
@@ -48,8 +48,19 @@
 ### Varios SID de SAP
 #### [Windows con disco compartido para instancias de (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows con uso compartido de archivos SOFS para instancias de (A)SCS](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [Guía de implementación](deployment-guide.md)
-## [Guía de implementación de DBMS](dbms-guide.md)
+## [Guía de implementación de SAP NetWeaver](deployment-guide.md)
+## Guías de implementación de DBMS para la carga de trabajo de SAP
+### [Implementación general de DBMS de Azure Virtual Machines para una carga de trabajo de SAP](dbms_guide_general.md)
+### [Implementación de DBMS de Azure Virtual Machines de SQL Server para una carga de trabajo de SAP](dbms_guide_sqlserver.md)
+### [Implementación de DBMS de Azure Virtual Machines de Oracle para una carga de trabajo de SAP](dbms_guide_oracle.md)
+### [Implementación de DBMS de Azure Virtual Machines de IBM DB2 para una carga de trabajo de SAP](dbms_guide_ibm.md)
+### [Implementación de DBMS de Azure Virtual Machines de SAP ASE para una carga de trabajo de SAP](dbms_guide_sapase.md)
+### [Implementación de SAP MaxDB, liveCache y del servidor de contenido en Azure](dbms_guide_maxdb.md)
+### [SAP HANA en la guía de operaciones de Azure](hana-vm-operations.md)
+#### Disponibilidad de SAP HANA en Azure Virtual Machines
+##### [Introducción a la disponibilidad de SAP HANA en Azure](sap-hana-availability-overview.md)
+##### [Disponibilidad de SAP HANA en Azure dentro de una región de Azure](sap-hana-availability-one-region.md)
+##### [Disponibilidad de SAP HANA en Azure entre regiones de Azure](sap-hana-availability-across-regions.md)
 ## [Azure Site Recovery para recuperación ante desastres SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # Integración de identidades de AAD SAP e inicio de sesión único
 ## [Integración con la nube de SAP](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

@@ -20,6 +20,8 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - Ejecutar un UDF de Javascript
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 - Implementación con CI/CD en VSTS
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código

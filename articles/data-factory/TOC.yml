@@ -319,6 +319,10 @@
           href: transform-data-using-data-lake-analytics.md
         - name: Actividad de cuaderno de Databricks
           href: transform-data-databricks-notebook.md
+        - name: Actividad de Jar en Databricks
+          href: transform-data-databricks-jar.md
+        - name: Actividad de Python en Databricks
+          href: transform-data-databricks-python.md
         - name: Actividad personalizada
           href: transform-data-using-dotnet-custom-activity.md
         - name: Servicios vinculados de proceso

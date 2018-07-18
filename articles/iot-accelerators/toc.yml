@@ -10,6 +10,8 @@
   items:
     - name: Implementación de una solución de supervisión remota
       href: quickstart-remote-monitoring-deploy.md
+    - name: Implementación de una solución de factoría conectada
+      href: quickstart-connected-factory-deploy.md
     - name: Implementación de una solución de mantenimiento predictivo
       href: quickstart-predictive-maintenance-deploy.md
     - name: Implementación de una solución de simulación de dispositivo
@@ -141,8 +143,8 @@
           href: iot-accelerators-predictive-overview.md
     - name: Fábrica conectada
       items:
-        - name: Implementación de acelerador de soluciones
-          href: iot-accelerators-connected-factory-overview.md
+        - name: Uso del panel
+          href: iot-accelerators-connected-factory-dashboard.md
         - name: Implementación de una puerta de enlace
           href: iot-accelerators-connected-factory-gateway-deployment.md
         - name: Uso de OPC Publisher
