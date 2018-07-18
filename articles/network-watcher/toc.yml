@@ -79,8 +79,6 @@
                   href: network-watcher-packet-capture-manage-powershell.md
                 - name: Azure CLI
                   href: network-watcher-packet-capture-manage-cli.md
-                - name: CLI de Azure 1.0
-                  href: network-watcher-packet-capture-manage-cli-nodejs.md
                 - name: REST
                   href: network-watcher-packet-capture-manage-rest.md
             - name: Análisis de una captura de paquetes
@@ -101,8 +99,6 @@
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
               href: network-watcher-nsg-flow-logging-cli.md
-            - name: CLI de Azure 1.0
-              href: network-watcher-nsg-flow-logging-cli-nodejs.md
             - name: REST
               href: network-watcher-nsg-flow-logging-rest.md
         - name: Análisis de registros de flujo de grupo de seguridad de red
@@ -128,8 +124,6 @@
               href: network-watcher-security-group-view-powershell.md
             - name: Azure CLI
               href: network-watcher-security-group-view-cli.md
-            - name: CLI de Azure 1.0
-              href: network-watcher-security-group-view-cli-nodejs.md
             - name: REST
               href: network-watcher-security-group-view-rest.md
         - name: Realización de auditoría y comprobación del cumplimiento en la red
@@ -142,8 +136,6 @@
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Azure CLI
               href: network-watcher-troubleshoot-manage-cli.md
-            - name: CLI de Azure 1.0
-              href: network-watcher-troubleshoot-manage-cli-nodejs.md
             - name: REST
               href: network-watcher-troubleshoot-manage-rest.md
         - name: Supervisión de VPN Gateway con Azure Automation

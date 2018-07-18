@@ -61,8 +61,6 @@
           maintainContext: true
         - name: Uso de Kafka con Azure Container Service
           href: apache-kafka-azure-container-services.md
-        - name: Kafka y Azure Functions
-          href: apache-kafka-azure-functions.md
     - name: Desarrollo
       items:
         - name: Uso de nodos perimetrales vacíos
