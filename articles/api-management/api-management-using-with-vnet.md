@@ -3,7 +3,7 @@ title: Usar Azure API Management con redes virtuales
 description: Obtenga información sobre cómo configurar una conexión a una red virtual en Azure API Management y acceder a servicios web con esta.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 223fa9bc4a19264cc1dcba9830726b30b0f7446c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 11af7a7a8acde263ad278239546e145245343581
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355090"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437202"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -50,22 +50,22 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
     ![Menú Red virtual de API Management][api-management-using-vnet-menu]
 4. Seleccione el tipo de acceso que prefiera:
-    
+
     * **Externo:** la puerta de enlace de API Management y el portal para desarrolladores son accesibles públicamente desde Internet con un equilibrador de carga externo. La puerta de enlace puede acceder a recursos dentro de la red virtual.
-    
+
     ![Emparejamiento público][api-management-vnet-public]
-    
+
     * **Interno:** la puerta de enlace de API Management y el portal para desarrolladores solo son accesibles desde la red virtual con un equilibrador de carga interno. La puerta de enlace puede acceder a recursos dentro de la red virtual.
-    
+
     ![Emparejamiento privado][api-management-vnet-private]`
 
     Ahora verá una lista de todas las regiones donde se aprovisiona el servicio Administración de API. Seleccione una VNET y la subred de cada región. La lista se rellena con redes virtuales de Resource Manager y clásicas disponibles en las suscripciones de Azure que se configuran en la región que va a configurar.
-    
+
     > [!NOTE]
     > El **punto de conexión de servicio** en el diagrama anterior incluye la puerta de enlace o proxy, Azure Portal, el portal para desarrolladores, el portal para editores, GIT y el punto de conexión de administración directa.
     > **Punto de conexión de administración** en el diagrama anterior es el punto de conexión hospedado en el servicio para administrar la configuración mediante Azure Portal y Powershell.
     > Además, tenga en cuenta que, aunque el diagrama muestra las direcciones IP para sus diversos puntos de conexión, el servicio API Management **solo** responde en sus nombres de host configurados.
-    
+
     > [!IMPORTANT]
     > Al implementar una instancia de Azure API Management en una VNET de Resource Manager, el servicio debe estar en una subred dedicada que no contiene ningún otro recurso excepto instancias de Azure API Management. Si se intenta implementar una instancia de Azure API Management en una subred de VNET de Resource Manager que contiene otros recursos, se producirá un error en la implementación.
     >
@@ -75,7 +75,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 5. Haga clic en **Guardar** en la parte superior de la pantalla.
 
 > [!NOTE]
-> Tenga en cuenta que la dirección VIP de la instancia de API Management cambiará cada vez que se habilita o deshabilita VNET.  
+> Tenga en cuenta que la dirección VIP de la instancia de API Management cambiará cada vez que se habilita o deshabilita VNET.
 > La dirección VIP también cambia cuando se mueve API Management de **externo** a **interno** o viceversa.
 >
 
@@ -110,7 +110,7 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET/VIRTUAL_NETWORK|Comunicación de cliente con Administración de API|Externo |
 | * / 3443 |Entrada |TCP |INTERNET/VIRTUAL_NETWORK|Punto de conexión de administración para Azure Portal y Powershell |Interno |
-| * / 80, 443 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|**Dependencia de Azure Storage**, Azure Service Bus y Azure Active Directory (cuando corresponda).|Externa e interna | 
+| * / 80, 443 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|**Dependencia de Azure Storage**, Azure Service Bus y Azure Active Directory (cuando corresponda).|Externa e interna |
 | * / 1433 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|**Acceso a los puntos de conexión de Azure SQL** |Externa e interna |
 | * / 5672 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|Dependencia de la directiva de registro en el centro de eventos y el agente de supervisión |Externa e interna |
 | * / 445 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|Dependencia del recurso compartido de archivos de Azure para Git |Externa e interna |
@@ -126,7 +126,13 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 
 * **Acceso de DNS**: se requiere acceso saliente en el puerto 53 para establecer la comunicación con los servidores DNS. Si existe un servidor DNS personalizado en el otro punto de conexión de una puerta de enlace de VPN, el servidor DNS debe estar accesible desde la subred que alberga la API Management.
 
-* **Métricas y supervisión de mantenimiento**: conexión de red saliente a puntos de conexión de supervisión de Azure, que se resuelven en los siguientes dominios: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com, prod3-black.prod3.metrics.nsatc.net and prod3-red.prod3.metrics.nsatc.net.
+* **Supervisión de métricas y estado**: conexión de red saliente a puntos de conexión de supervisión de Azure, que se resuelven en los siguientes dominios: 
+
+    | Entorno de Azure | Puntos de conexión |
+    | --- | --- |
+    | Azure Public | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
+    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
+    | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
 
 * **Configuración de ExpressRoute**: una configuración de cliente común es definir su propia ruta predeterminada (0.0.0.0/0) que fuerza a que el tráfico saliente de Internet fluya a nivel local. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución es definir una, o varias, rutas definidas por el usuario ([UDR][UDRs]) en la subred que contiene el servicio Azure API Management. Una ruta definida por el usuario define las rutas de subred específica que se respetarán en lugar de la ruta predeterminada.
   Si es posible, se recomienda usar la configuración siguiente:
@@ -136,12 +142,12 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 
 * **Enrutamiento mediante aplicaciones virtuales de red**: las configuraciones que usan un enrutamiento definido por el usuario (UDR) con una ruta predeterminada (0.0.0.0/0) para enrutar el tráfico destinado a Internet desde la subred de API Management hasta una aplicación virtual de red que se ejecuta en Azure bloquearán el tráfico de administración procedente de Internet dirigido a la instancia del servicio API Management implementada dentro de la subred de red virtual. Esta configuración no es compatible.
 
->[!WARNING]  
+>[!WARNING]
 >Azure API Management no es compatible con las configuraciones de ExpressRoute que **anuncian incorrectamente rutas entre la ruta de acceso entre pares públicos y la ruta de acceso entre pares privados**. Las configuraciones de ExpressRoute con el emparejamiento público configurado recibirán anuncios de ruta de Microsoft para un amplio conjunto de intervalos de direcciones IP de Microsoft Azure. Si estos intervalos de direcciones se anuncian incorrectamente en la ruta de acceso entre pares privados, el resultado final es que se forzará incorrectamente la tunelización de todos los paquetes de red salientes desde la subred de la instancia de Azure API Management a la infraestructura de red local del cliente. Este flujo de red interrumpe Azure API Management. La solución a este problema consiste en detener rutas anunciadas entre la ruta de acceso de interconexión pública y la ruta de acceso de interconexión privada.
 
 
 ## <a name="troubleshooting"> </a>Solución de problemas
-* **Programa de instalación inicial**: cuando la implementación inicial del servicio API Management en una subred no se realiza correctamente, se recomienda implementar una máquina virtual en la misma subred. Siga con el escritorio remoto en la máquina virtual y compruebe que hay conectividad al menos con cada recurso que abarca su suscripción de Azure 
+* **Programa de instalación inicial**: cuando la implementación inicial del servicio API Management en una subred no se realiza correctamente, se recomienda implementar una máquina virtual en la misma subred. Siga con el escritorio remoto en la máquina virtual y compruebe que hay conectividad al menos con cada recurso que abarca su suscripción de Azure
     * Azure Storage Blob
     * Azure SQL Database
 
@@ -150,7 +156,9 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 
 * **Actualizaciones incrementales**: al realizar cambios en la red, consulte [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), para comprobar que el servicio API Management no ha perdido el acceso a inguno de los recursos críticos de los que depende. El estado de conectividad debe actualizarse cada 15 minutos.
 
-* **Vínculos de navegación de recursos**: cuando se implementan en la subred de red virtual del estilo de Resource Manager, API Management reserva la subred creando un vínculo de navegación de recursos. Si la subred ya contiene un recurso de un proveedor distinto, la implementación **producirá un error**. De forma similar, al eliminar un servicio API Management o moverlo a una subred diferente, se quitará ese vínculo de navegación de recursos. 
+* **Vínculos de navegación de recursos**: cuando se implementan en la subred de red virtual del estilo de Resource Manager, API Management reserva la subred creando un vínculo de navegación de recursos. Si la subred ya contiene un recurso de un proveedor distinto, la implementación **producirá un error**. De forma similar, al eliminar un servicio API Management o moverlo a una subred diferente, se quitará ese vínculo de navegación de recursos.
+
+* **Pruebas de API desde Azure Portal**: cuando se prueba una API desde Azure Portal y la instancia de API Management está integrada con una red virtual interna, se usarán los servidores DNS configurados en la red virtual para la resolución de nombres. Si recibe un error 404 al realizar las pruebas desde Azure Portal, asegúrese de que los servidores DNS de la red virtual pueden resolver correctamente el nombre de host de la instancia de API Management. 
 
 ## <a name="subnet-size"> </a> Requisitos de tamaño de subred
 Azure reserva algunas direcciones IP dentro de cada subred y estas direcciones no se pueden usar. La primera y la última dirección IP de las subredes están reservadas para la conformidad con el protocolo, junto con otras tres direcciones usadas para los servicios de Azure. Para más información, consulte [¿Hay alguna restricción en el uso de direcciones IP dentro de estas subredes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

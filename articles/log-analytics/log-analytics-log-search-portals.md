@@ -1,23 +1,25 @@
 ---
-title: "Portales para la creación y edición de consultas de registros en Azure Log Analytics | Microsoft Docs"
-description: "En este artículo se describen los portales que puede utilizar en Azure Log Analytics para crear y editar búsquedas de registros."
+title: Portales para la creación y edición de consultas de registros en Azure Log Analytics | Microsoft Docs
+description: En este artículo se describen los portales que puede utilizar en Azure Log Analytics para crear y editar búsquedas de registros.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
-ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133493"
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portales para la creación y edición de consultas de registros en Azure Log Analytics
 
@@ -37,9 +39,16 @@ El portal de análisis avanzados es un portal dedicado que proporciona funcional
 ![Portal de análisis avanzado](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-Debido a sus características avanzadas, normalmente usará el portal de análisis avanzado como la herramienta principal para crear y editar consultas.  Una vez que haya determinado que la consulta funciona según lo previsto, cópiela y péguela en otra parte como, por ejemplo, la página de búsqueda de registros o el Diseñador de vistas.  Dado que el portal de análisis avanzado admite consultas de varias líneas, debe tener en cuenta lo siguiente cuando se copia una consulta de este portal.
+Debido a sus características avanzadas, normalmente usará el portal de análisis avanzado como la herramienta principal para crear y editar consultas.  Una vez que haya determinado que la consulta funciona según lo previsto, cópiela y péguela en otra parte como, por ejemplo, la página de búsqueda de registros o el Diseñador de vistas.  
 
-- Los comentarios deben quitarse de la consulta antes de copiarla y pegarla en otra ubicación.  Puede hacer un comentario a una línea mediante la inclusión de dos barras diagonales (//) delante.  Si pega una consulta de varias líneas en una sola línea, se quitan los saltos de línea.  Si se incluyen los comentarios, todos los caracteres después del primer comentario se consideran parte del comentario.
+### <a name="firewall-requirements"></a>Requisitos de firewall
+El explorador requiere acceso a las direcciones siguientes para obtener acceso al portal de Log Analytics.  Si el explorador tiene acceso a Azure Portal a través de un firewall, debe habilitar el acceso a estas direcciones.
+
+| Identificador URI | IP | Puertos |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinámica | 80 443 |
+| api.loganalytics.io    | Dinámica | 80 443 |
+| docs.loganalytics.io   | Dinámica | 80 443 |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -2,19 +2,19 @@
 title: Limitaciones en Azure Database for PostgreSQL
 description: En este artículo se describen las limitaciones de Azure Database for PostgreSQL como el número de conexiones o las opciones de motor de almacenamiento.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/30/2018
+ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757423"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343299"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitaciones en Azure Database for PostgreSQL
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos.
@@ -43,8 +43,8 @@ El sistema de Azure requiere cinco conexiones para supervisar el servidor de Azu
 
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 ### <a name="scale-operations"></a>Operaciones de escalado
-1.  El escalado dinámico de servidores entre planes de tarifa no se admite en este momento. Es decir, no se admite el cambio entre los planes Básico, Uso general y Memoria optimizada.
-2.  La reducción del tamaño de almacenamiento del servidor no se admite actualmente.
+- El escalado dinámico a y desde niveles de precios Básico no se admite en este momento.
+- La reducción del tamaño de almacenamiento del servidor no se admite actualmente.
 
 ### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
 - La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento.
@@ -52,9 +52,12 @@ El sistema de Azure requiere cinco conexiones para supervisar el servidor de Azu
 ### <a name="subscription-management"></a>Administración de suscripciones
 - El movimiento dinámico de servidores entre grupos de suscripciones y recursos no se admite en este momento.
 
+### <a name="vnet-service-endpoints"></a>Puntos de conexión de servicio de red virtual
+- La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
+
 ### <a name="point-in-time-restore-pitr"></a>Restauración a un momento dado (PITR)
-1.  Al usar la característica PITR, el nuevo servidor se crea con la misma configuración que el servidor en el que se basa.
-2.  La restauración a un servidor que se ha eliminado no se admite en este momento.
+- Al usar la característica PITR, el nuevo servidor se crea con la misma configuración que el servidor en el que se basa.
+- La restauración a un servidor que se ha eliminado no se admite en este momento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Comprenda lo que [hay disponible en cada plan de tarifa](concepts-pricing-tiers.md).

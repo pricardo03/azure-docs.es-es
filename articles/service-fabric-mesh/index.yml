@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2018
   ms.author: ryanwi
-  ms.openlocfilehash: e5fc62d84ace2acd46816a7116ea1cf2198be63f
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+  ms.openlocfilehash: fccd805f6d4abcf7005fca0cc6f4d368ac5764f1
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39073706"
+  ms.locfileid: "39090050"
 abstract:
   description: Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores compilar e implementar aplicaciones críticas sin tener que administrar ninguna infraestructura.  Use Service Fabric Mesh para compilar y ejecutar aplicaciones de microservicios seguras y distribuidas que se escalen a petición. Aprenda a usar Service Fabric Mesh con nuestras guías de inicio rápido y tutoriales.  Para más información, lea la <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">introducción a Service Fabric Mesh</a>.
 sections:
@@ -45,15 +45,3 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Implementación de una aplicación .NET Core</a>
-- title: Ejemplos
-  items:
-  - type: paragraph
-    text: 'Busque aplicaciones de ejemplo de .NET Core para Windows y Linux:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld">Hola mundo</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume">Volumen de Azure Files</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp">Lista de tareas pendientes</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects">Objetos visuales</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp">Votación</a>

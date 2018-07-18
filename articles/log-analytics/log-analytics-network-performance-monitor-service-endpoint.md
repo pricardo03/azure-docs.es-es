@@ -1,6 +1,6 @@
 ---
 title: Solución Monitor de rendimiento de red en Azure Log Analytics | Microsoft Docs
-description: Use la funcionalidad Administrador de puntos de conexión de servicio en Network Performance Monitor para supervisar la conectividad de red con cualquier punto de conexión que tiene un puerto TCP abierto.
+description: Use la funcionalidad del Monitor de conectividad de servicio en Network Performance Monitor para supervisar la conectividad de red con cualquier punto de conexión que tenga un puerto TCP abierto.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: na
+ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030716"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434926"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -78,7 +79,7 @@ Comience a crear las pruebas para supervisar la conectividad de red con los punt
 10. Elija las condiciones de supervisión. Puede establecer umbrales personalizados para la generación de eventos de estado escribiendo valores de umbral. Siempre que el valor de la condición supere el umbral seleccionado para el par de red/subred seleccionado, se generará un evento de estado. 
 11. Para guardar la configuración, seleccione **Guardar**. 
 
-    ![Configuraciones de prueba del Monitor de puntos de conexión de servicio](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Configuraciones de prueba del Monitor de conectividad de servicio](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
@@ -86,11 +87,11 @@ Comience a crear las pruebas para supervisar la conectividad de red con los punt
 
 Vaya a la vista del panel Network Performance Monitor. Para ver un resumen del estado de las distintas pruebas que ha creado, consulte la página **Monitor de conectividad de servicio**. 
 
-![Página del Monitor de puntos de conexión de servicio](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Página Monitor de conectividad de servicio](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
 Seleccione el icono para ver los detalles de las pruebas en la página **Pruebas**. En la tabla de la izquierda, puede ver el estado en un momento dado y el valor del tiempo de respuesta del servicio, la latencia de red y la pérdida de paquetes en todas las pruebas. Use el control Grabadora de estado de la red para ver una instantánea de la red en otro momento anterior. Seleccione la prueba de la tabla que desea investigar. En los gráficos del panel de la derecha, puede ver la tendencia histórica de los valores de pérdida, latencia y tiempo de respuesta. Seleccione el vínculo **Detalles de la prueba** para ver el rendimiento de cada nodo.
 
-![Pruebas del Monitor de puntos de conexión de servicio](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Pruebas del Monitor de conectividad de servicio](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
 En la vista **Nodos de prueba**, puede observar la conectividad de red desde cada nodo. Seleccione el nodo con degradación del rendimiento. Este es el nodo donde se observa que la aplicación se ejecuta lentamente.
 
@@ -98,15 +99,15 @@ Determine si el rendimiento de una aplicación es deficiente debido a la red o a
 
 * **Problema de aplicación:** un pico en el tiempo de respuesta, pero coherencia en la latencia de red sugiere que la red funciona correctamente y el problema se debe a un error en el extremo de la aplicación. 
 
-    ![Problema de aplicación del Monitor de puntos de conexión de servicio](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Problema de aplicación del Monitor de conectividad de servicio](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
 * **Problema de red:** un pico en el tiempo de respuesta junto con un pico correspondiente en la latencia de la red sugiere que el aumento en el tiempo de respuesta podría deberse a un aumento en la latencia de la red. 
 
-    ![Problema de red del Monitor de puntos de conexión de servicio](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Problema de red del Monitor de conectividad de servicio](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
 Una vez que determina que el problema se debe a la red, seleccione el vínculo de vista **Topología** para identificar el salto problemático en el mapa de topología. Un ejemplo se muestra en la imagen siguiente. De una latencia total de 105 ms entre el nodo y el punto de conexión de la aplicación, 96 ms se debe al salto marcado en rojo. Una vez que identifica el salto problemático, puede realizar alguna acción correctiva. 
 
-![Pruebas del Monitor de puntos de conexión de servicio](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Pruebas del Monitor de conectividad de servicio](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnóstico 
 

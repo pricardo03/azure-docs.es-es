@@ -3,36 +3,41 @@ title: Investigación de incidentes y alertas en Azure Security Center | Microso
 description: Este documento le ayuda a utilizar la característica de investigación de Azure Security Center para investigar alertas e incidentes de seguridad.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/29/2018
+ms.author: terrylan
+ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776489"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340797"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigación de incidentes y alertas en Azure Security Center (versión preliminar)
 Este documento le ayuda a utilizar la característica de investigación de Azure Security Center para investigar alertas e incidentes de seguridad.
 
 ## <a name="what-is-investigation-in-security-center"></a>¿Qué es la investigación en Security Center?
 La característica de investigación de Security Center le permite evaluar la causa principal de un posible [incidente de seguridad](https://docs.microsoft.com/azure/security-center/security-center-incident), comprender su ámbito y realizar su seguimiento.
- 
+
 Lo que se pretende es facilitar el proceso de investigación mediante la vinculación de todas las entidades ([alertas de seguridad](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), usuarios, equipos e incidentes) que están implicadas en los incidentes que se investigan.  Para lograr esto, Security Center correlaciona los datos de interés con las entidades implicadas y expone esta correlación mediante un gráfico dinámico que le ayuda a desplazarse por los objetos y visualizar la información de interés.
+
+> [!NOTE]
+> Las [alertas personalizadas](security-center-custom-alert.md) no son compatibles con la característica de investigación de Security Center.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>¿Cómo funciona la investigación?
 La investigación está compuesta por un gráfico que ocupa el área central del panel de investigación. El gráfico siempre se centra en una entidad específica y presenta las entidades que están relacionadas con él. Una entidad podría ser una alerta de seguridad, un usuario, un equipo o un incidente.
- 
+
 ![Map](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 El usuario puede desplazarse de una entidad a otra haciendo clic en ella en el gráfico. El gráfico se centraliza automáticamente en la entidad seleccionada y sus entidades relacionadas. Las entidades que ya no son de interés se pueden quitar del gráfico.
@@ -43,7 +48,7 @@ Mientras el usuario se desplaza a distintas entidades, la ruta de acceso de inve
 ![Ruta de acceso](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Información general
-Cuando una entidad se presenta en el gráfico, las pestañas muestran información adicional sobre ella. La pestaña **Información** presenta información general sobre la entidad de diversas fuentes disponibles. 
+Cuando una entidad se presenta en el gráfico, las pestañas muestran información adicional sobre ella. La pestaña **Información** presenta información general sobre la entidad de diversas fuentes disponibles.
 
 ![Información general](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -71,7 +76,7 @@ La pestaña **Exploración** permite al investigador examinar los datos relacion
 
 ### <a name="timeline"></a>Escala de tiempo
 
-La mayoría de los datos que se presentan en el gráfico y las distintas pestañas son de interés en un período de tiempo específico. Este ámbito de tiempo se establece mediante el selector de ámbitos de tiempo del lado superior izquierdo del gráfico. El investigador tiene varios métodos para seleccionar el ámbito de tiempo. 
+La mayoría de los datos que se presentan en el gráfico y las distintas pestañas son de interés en un período de tiempo específico. Este ámbito de tiempo se establece mediante el selector de ámbitos de tiempo del lado superior izquierdo del gráfico. El investigador tiene varios métodos para seleccionar el ámbito de tiempo.
 
 ![Escala de tiempo](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -103,7 +108,7 @@ Una investigación puede partir de un incidente de seguridad o de una alerta; la
 
     ![Panel Investigación](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-A partir de aquí, puede explorar las entidades que estuvieron implicadas en este incidente y explorar más detalles sobre cada una de ellas. 
+A partir de aquí, puede explorar las entidades que estuvieron implicadas en este incidente y explorar más detalles sobre cada una de ellas.
 
 ## <a name="see-also"></a>Otras referencias
 En este documento, ha aprendido a utilizar la característica de investigación de Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
@@ -111,7 +116,6 @@ En este documento, ha aprendido a utilizar la característica de investigación 
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Aprenda a administrar las alertas y responder a incidentes de seguridad en Security Center.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.
 * [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Obtenga información acerca de los distintos tipos de alertas de seguridad.
-* [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Obtenga información acerca de cómo solucionar problemas comunes en Security Center. 
+* [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Obtenga información acerca de cómo solucionar problemas comunes en Security Center.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
-

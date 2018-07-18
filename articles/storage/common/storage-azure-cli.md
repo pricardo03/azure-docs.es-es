@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737375"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131878"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso de la CLI de Azure 2.0 con Azure Storage
 
@@ -198,9 +198,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Establecimiento variables de entorno para una cuenta de almacenamiento de Azure predeterminada
+
 Puede tener varias cuentas de almacenamiento en su suscripción a Azure. Para seleccionar una con la que usar todos los comandos de almacenamiento subsiguientes, puede establecer estas variables de entorno:
+
+En primer lugar, muestre las claves de la cuenta de almacenamiento con el comando [az storage account keys list](/cli/azure/storage/account/keys#list):
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+Ahora que tiene la clave, puede definirla, así como el nombre de cuenta, como variables de entorno:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -223,7 +234,6 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 
 > [!NOTE]
 > Todos los ejemplos en las secciones siguientes de este artículo asumen que ha establecido las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY`.
->
 
 ## <a name="create-and-manage-blobs"></a>Creación y administración de blobs
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. En esta sección se supone que ya está familiarizado con los conceptos del almacenamiento de Azure Blob Storage. Para más información, consulte [Introducción a Azure Blob Storage mediante .NET](../blobs/storage-dotnet-how-to-use-blobs.md) y [Conceptos de Blob service](/rest/api/storageservices/blob-service-concepts).

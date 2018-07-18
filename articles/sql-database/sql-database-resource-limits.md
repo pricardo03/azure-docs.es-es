@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750958"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345729"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Información general de los límites de recursos de Azure SQL Database 
 
@@ -27,10 +27,11 @@ En este artículo se proporciona información general sobre los límites de recu
 | Bases de datos por servidor | 5000 |
 | Número predeterminado de servidores por suscripción en cualquier región | 20 |
 | Número máximo de servidores por suscripción en cualquier región | 200 |
+| Cuota de DTU o eDTU por servidor | 54 000 |
 |||
 
 > [!NOTE]
-> Para obtener más cuota de servidor que la cantidad predeterminada, se puede enviar una nueva solicitud de soporte técnico en Azure Portal para la suscripción con el tipo de problema "Cuota".
+> Para obtener más cuota de DTU o eDTU o más servidores que la cantidad predeterminada, se puede enviar una nueva solicitud de soporte técnico en Azure Portal para la suscripción con el tipo de problema "Cuota". La cuota de DTU o eDTU y el límite de base de datos por servidor restringe el número de grupos elásticos por servidor. 
 
 > [!IMPORTANT]
 > A medida que el número de bases de datos se aproxima al límite por servidor, puede ocurrir lo siguiente:

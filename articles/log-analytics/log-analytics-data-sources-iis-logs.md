@@ -1,24 +1,26 @@
 ---
 title: Registros de IIS en Azure Log Analytics | Microsoft Docs
-description: "Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Log Analytics puede recopilar.  En este artículo se describe cómo configurar la recopilación de registros de IIS y detalles de los registros que crean en el área de trabajo de Log Analytics."
+description: Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Log Analytics puede recopilar.  En este artículo se describe cómo configurar la recopilación de registros de IIS y detalles de los registros que crean en el área de trabajo de Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/07/2018
+ms.date: 06/12/2018
 ms.author: bwren
-ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.comopnent: na
+ms.openlocfilehash: 65320e7d3cc97a3d53fd1a00fbbeab5559c02fce
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133547"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Registros de IIS en Log Analytics
 Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Log Analytics puede recopilar.  
@@ -33,15 +35,15 @@ Log Analytics no recopila registros en formato nativo de IIS ni NCSA.
 
 Configure los registros de IIS en Log Analytics en el [menú Datos en Configuración de Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  No se requiere otra configuración que seleccionar **Collect W3C format IIS log files**(Recopilar archivos de registro de IIS en formato W3C).
 
-Es recomendable que, cuando se habilite la recopilación de registros de IIS, se configure el valor de sustitución de registros de IIS en cada servidor.
 
 ## <a name="data-collection"></a>Colección de datos
-Log Analytics recopila entradas de registro de IIS de cada origen conectado a intervalos de, aproximadamente, 15 minutos.  El agente registra su lugar en cada registro de eventos del que recopila entradas.  Si el agente se queda sin conexión, Log Analytics recopila eventos desde el punto en que se detuvo, incluso si dichos eventos se crearon mientras el agente estaba sin conexión.
+Log Analytics recopila las entradas de registro IIS de todos los agentes cada vez que se cierra el registro y se crea uno nuevo. Esta frecuencia se controla mediante la opción **Log File Rollover Schedule** (Programación de sustitución incremental de archivos de registro) para el sitio IIS, que es una vez al día de forma predeterminada. Por ejemplo, si la configuración es **Cada hora**, Log Analytics recopilará el registro cada hora.  Por ejemplo, si la configuración es **Cada día**, Log Analytics recopilará el registro cada 24 horas.
+
 
 ## <a name="iis-log-record-properties"></a>Propiedades de registro de IIS
 Los registros de IIS son del tipo **W3CIISLog** y tienen las propiedades que aparecen en la tabla siguiente:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | Equipo |Nombre del equipo desde el que se recopiló el evento. |
 | cIP |Dirección IP del cliente. |
@@ -68,7 +70,7 @@ Los registros de IIS son del tipo **W3CIISLog** y tienen las propiedades que apa
 ## <a name="log-searches-with-iis-logs"></a>Búsquedas de registros con registros de IIS
 La tabla siguiente proporciona ejemplos distintos de consultas de registro que recuperan registros de IIS.
 
-| Consultar | DESCRIPCIÓN |
+| Consultar | Descripción |
 |:--- |:--- |
 | W3CIISLog |Todos los registros de IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todas las entradas de registro IIS con un estado de retorno de 500. |

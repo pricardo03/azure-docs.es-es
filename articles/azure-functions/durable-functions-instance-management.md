@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287755"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341099"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Administración de instancias con Durable Functions (Azure Functions)
 
@@ -81,6 +81,7 @@ El método [GetStatusAsync](https://azure.github.io/azure-functions-durable-exte
 * **CustomStatus**: estado de orquestación personalizada en formato JSON. 
 * **Output**: la salida de la función como un valor JSON (si se ha completado la función). Si se produce un error en la función de orquestador, esta propiedad incluirá los detalles del error. Si se finaliza la función de orquestador, esta propiedad incluirá el motivo de la finalización indicado (si lo hubiera).
 * **RuntimeStatus**: uno de los siguientes valores:
+    * **Pending**: la instancia se ha programado, pero aún no ha empezado a ejecutarse.
     * **Running**: la instancia ha empezado a ejecutarse.
     * **Completed**: la instancia se ha completado con normalidad.
     * **ContinuedAsNew**: la instancia se ha reiniciado con un nuevo historial. Este es un estado transitorio.

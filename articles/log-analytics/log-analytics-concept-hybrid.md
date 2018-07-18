@@ -3,7 +3,7 @@ title: Recopilación de datos del entorno con Azure Log Analytics | Microsoft Do
 description: En este tema se le ayudará a comprender cómo recopilar datos y supervisar equipos hospedados localmente o en entornos de nube con Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: na
+ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235947"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133524"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recopilar datos de equipos en su entorno con Log Analytics
 
@@ -85,7 +86,7 @@ Con el agente de Linux, el servidor proxy se especifica durante o [después de l
 > [!NOTE]
 > Aunque el servidor proxy no requiera que se autentique, el agente de Linux sí que requerirá que proporcione un pseudousuario y contraseña. Puede ser cualquier nombre de usuario o contraseña.
 
-|Propiedad| DESCRIPCIÓN |
+|Propiedad| Descripción |
 |--------|-------------|
 |Protocolo | https |
 |user | Nombre de usuario opcional para la autenticación de proxy |
@@ -96,12 +97,12 @@ Con el agente de Linux, el servidor proxy se especifica durante o [después de l
 Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Si usa caracteres especiales como \"\@\" en la contraseña, recibirá un error de conexión de proxy porque el valor no se analiza correctamente.  Para solucionar este problema, codifique la contraseña en la dirección URL con una herramienta como [URLDecode](https://www.urldecoder.org/).  
+> Si usa caracteres especiales como "\@" en la contraseña, recibirá un error de conexión de proxy porque el valor no se analiza correctamente.  Para solucionar este problema, codifique la contraseña en la dirección URL con una herramienta como [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Instalación y configuración del agente 
 Conectar los equipos locales directamente con Log Analytics puede realizarse mediante métodos diferentes según sus requisitos. En la tabla siguiente se resalta cada método para determinar cuál funciona mejor en su organización.
 
-|Origen | Método | DESCRIPCIÓN|
+|Origen | Método | Descripción|
 |-------|-------------|-------------|
 | Equipo de Windows|- [Instalación manual](log-analytics-agent-windows.md)<br>- [DSC de Azure Automation](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Plantilla de Resource Manager con Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instale el agente de Microsoft Monitoring desde la línea de comandos o mediante un método automatizado, como DSC de Azure Automation, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), o con una plantilla de Azure Resource Manager si implementó Microsoft Azure Stack en su centro de datos.| 
 |Equipo con Linux| [Instalación manual](log-analytics-quick-collect-linux-computer.md)|Instale al agente para Linux llamando a un script contenedor hospedado en GitHub. | 

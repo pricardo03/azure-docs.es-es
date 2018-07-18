@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e047dffa86915b0cd6e8829ea27e0335e7f88cb2
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757163"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345726"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Inicio de un runbook de Azure Automation con un webhook
 
@@ -27,7 +27,7 @@ Puede comparar webhooks con otros métodos para iniciar un runbook [a partir un 
 
 En la tabla siguiente se describen las propiedades que debe configurar para un webhook.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | NOMBRE |Puede proporcionar cualquier nombre que desee para un webhook, ya que esto no se expone al cliente. Solo se utiliza para que identifique el runbook en Azure Automation. <br> Como práctica recomendada, debe proporcionar al webhook un nombre relacionado con el cliente que lo usa. |
 | URL |La dirección URL del webhook es la dirección única que llama a un cliente con una solicitud HTTP POST para iniciar el runbook vinculado al webhook. Se genera automáticamente al crear el webhook. No se puede especificar una dirección URL personalizada. <br> <br> La dirección URL contiene un token de seguridad que permite que el runbook se invoque por un sistema de terceros sin autenticación adicional. Por este motivo, debe tratarse como una contraseña. Por motivos de seguridad, solo puede ver la dirección URL en el Portal de Azure en el momento en que se crea el Webhook. Anote la dirección URL en una ubicación segura para su uso futuro. |
@@ -44,7 +44,7 @@ Cuando un cliente inicia un runbook mediante un webhook, no puede reemplazar los
 
 El objeto **$WebhookData** tiene las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | WebhookName |Nombre del webhook. |
 | RequestHeader |Tabla hash que contiene los encabezados de la solicitud POST entrante. |
@@ -86,11 +86,11 @@ Otra estrategia es hacer que el runbook realice alguna validación de una condic
 
 Use el procedimiento siguiente para crear un nuevo Webhook vinculado a un Runbook en el Portal de Azure.
 
-1. Desde la **página Runbooks** en Azure Portal, haga clic en el runbook que el webhook inicia para ver su página de detalles.
-1. Haga clic en **Webhook** en la parte superior de la página para abrir la página **Add Webhook** (Agregar webhook).
-1. Haga clic en **Create new webhook** (Create new webhook) para abrir la página **Create webhook** (Crear webhook).
-1. Especifique el **nombre** y la **fecha de expiración** del webhook y si debe habilitarse. Vea [Detalles de un webhook](#details-of-a-webhook) para más información sobre estas propiedades.
-1. Haga clic en el icono de copiar y presione Ctrl+C para copiar la dirección URL del webhook. A continuación, guárdela en un lugar seguro. **Una vez creado el webhook, la dirección URL no se podrá volver a recuperar.**
+1. Desde la **página Runbooks** en Azure Portal, haga clic en el runbook que el webhook inicia para ver su página de detalles. Asegúrese de que el **Estado** del runbook es **Publicado**.
+2. Haga clic en **Webhook** en la parte superior de la página para abrir la página **Add Webhook** (Agregar webhook).
+3. Haga clic en **Create new webhook** (Create new webhook) para abrir la página **Create webhook** (Crear webhook).
+4. Especifique el **nombre** y la **fecha de expiración** del webhook y si debe habilitarse. Vea [Detalles de un webhook](#details-of-a-webhook) para más información sobre estas propiedades.
+5. Haga clic en el icono de copiar y presione Ctrl+C para copiar la dirección URL del webhook. A continuación, guárdela en un lugar seguro. **Una vez creado el webhook, la dirección URL no se podrá volver a recuperar.**
 
    ![Dirección URL de Webhook](media/automation-webhooks/copy-webhook-url.png)
 
@@ -107,7 +107,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 El cliente recibe uno de los siguientes códigos de retorno de la solicitud POST.
 
-| Código | Texto | DESCRIPCIÓN |
+| Código | Texto | Descripción |
 |:--- |:--- |:--- |
 | 202 |Accepted |La solicitud se aceptó y el runbook se puso en cola correctamente. |
 | 400 |Bad Request |No se aceptó la solicitud por uno de los siguientes motivos: <ul> <li>El webhook ha expirado.</li> <li>El webhook está deshabilitado.</li> <li>El token de la dirección URL no es válido.</li>  </ul> |

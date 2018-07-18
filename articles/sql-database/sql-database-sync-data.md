@@ -7,19 +7,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017442"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342664"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
 SQL Data Sync es un servicio basado en Azure SQL Database que permite sincronizar los datos seleccionados de manera bidireccional entre varias bases de datos SQL e instancias de SQL Server.
+
+## <a name="architecture-of-sql-data-sync"></a>Arquitectura de SQL Data Sync
 
 Data Sync se basa en el concepto de un grupo de sincronización. Un grupo de sincronización es un grupo de bases de datos que desea sincronizar.
 
@@ -27,9 +29,9 @@ Un grupo de sincronización tiene las siguientes propiedades:
 
 -   En el **esquema de sincronización** se describen qué datos se están sincronizando.
 
--   La **dirección de sincronización** puede ser bidireccional o puede fluir solo en una dirección. Es decir, la dirección de sincronización puede ser de la *base de datos central al cliente* o del *cliente a la base de datos central*, o ambas opciones.
+-   La **dirección de sincronización** puede ser bidireccional o puede fluir solo en una dirección. Es decir, la dirección de sincronización puede ser de la *base de datos central al miembro* o del *miembro a la base de datos central*, o ambas.
 
--   El **intervalo de sincronización** se refiere a la frecuencia con que se produce la sincronización.
+-   El **intervalo de sincronización** describe la frecuencia con la que se produce la sincronización.
 
 -   El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente*.
 
@@ -39,7 +41,7 @@ Data Sync usa una topología de concentrador y radio para sincronizar los datos.
 -   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos Azure SQL Database ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
 
 > [!NOTE]
-> Si usa una base de datos local, debe [configurar un agente local](sql-database-get-started-sql-data-sync.md#add-on-prem).
+> Si usa una base de datos local como base de datos miembro, tendrá que [instalar y configurar un agente de sincronización local](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Sincronización de datos entre bases de datos](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -73,9 +75,27 @@ Data Sync no es la mejor solución para los siguientes escenarios:
     -   Si selecciona *Prevalece la base de datos central*, los cambios de la base de datos central siempre sobrescriben los cambios del cliente.
     -   Si selecciona *Prevalece el cliente*, los cambios del cliente sobrescriben los cambios de la base de datos central. Si hay más de un cliente, el valor final depende del cliente que primero se sincronice.
 
-## <a name="sync-req-lim"></a> Requisitos y limitaciones
+## <a name="get-started-with-sql-data-sync"></a>Introducción a SQL Data Sync
 
-### <a name="general-considerations"></a>Consideraciones generales
+### <a name="set-up-data-sync-in-the-azure-portal"></a>Configuración de Data Sync en Azure Portal
+
+-   [Configuración de Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+
+### <a name="set-up-data-sync-with-powershell"></a>Configuración de la sincronización de datos con PowerShell
+
+-   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
+
+-   [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+### <a name="review-the-best-practices-for-data-sync"></a>Revisión de los procedimientos recomendados para Data Sync
+
+-   [Procedimientos recomendados para SQL Data Sync de Azure](sql-database-best-practices-data-sync.md)
+
+### <a name="did-something-go-wrong"></a>¿Algo salió mal?
+
+-   [Solución de problemas de SQL Data Sync de Azure](sql-database-troubleshoot-data-sync.md)
+
+## <a name="consistency-and-performance"></a>Coherencia y rendimiento
 
 #### <a name="eventual-consistency"></a>Coherencia final
 Como Data Sync se basa en desencadenadores, la coherencia transaccional no está garantizada. Microsoft garantiza que todos los cambios se realicen finalmente y que Data Sync no ocasione pérdida de datos.
@@ -84,6 +104,8 @@ Como Data Sync se basa en desencadenadores, la coherencia transaccional no está
 Data Sync usa desencadenadores de inserción, actualización y eliminación para realizar un seguimiento de los cambios. Crea tablas laterales en la base de datos de usuario para hacer un seguimiento de los cambios. Estas actividades de seguimiento de cambios afectan a la carga de trabajo de la base de datos. Evalúe el nivel de servicio y realice la actualización si fuera necesario.
 
 El aprovisionamiento y desaprovisionamiento durante la creación, actualización y eliminación de grupos de sincronización pueden afectar también al rendimiento de la base de datos. 
+
+## <a name="sync-req-lim"></a> Requisitos y limitaciones
 
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -110,6 +132,14 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 -   XMLSchemaCollection (XML admitido)
 
 -   Cursor, Timestamp, Hierarchyid
+
+#### <a name="unsupported-column-types"></a>Tipos de columna no admitidos
+
+Data Sync no puede sincronizar las columnas de solo lectura o generadas por el sistema. Por ejemplo:
+
+-   Columnas calculadas.
+
+-   Columnas generadas por el sistema para tablas temporales.
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitaciones de las dimensiones de la base de datos y del servicio
 
@@ -147,7 +177,8 @@ Sí. Puede sincronizar instancias de SQL Database que pertenecen a grupos de rec
 -   Si las suscripciones pertenecen al mismo inquilino y tiene permiso en todas las suscripciones, puede configurar el grupo de sincronización en Azure Portal.
 -   De lo contrario, tendrá que usar PowerShell para agregar los miembros de sincronización que pertenecen a suscripciones diferentes.
    
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>¿Puedo usar Data Sync para propagar datos de mi base de datos de producción a una base de datos vacía y, después, mantenerlos sincronizados? 
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>¿Puedo usar Data Sync para propagar datos de mi base de datos de producción a una base de datos vacía y, después, sincronizarlos?
+
 Sí. Cree el esquema manualmente en la base de datos nueva mediante la generación de scripts del original. Después de crear el esquema, agregue las tablas a un grupo de sincronización para copiar los datos y mantenerlos sincronizados.
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>¿Se debe usar SQL Data Sync para realizar una copia de seguridad de las bases de datos y restaurarlas?
@@ -176,20 +207,30 @@ La base de datos raíz de federación puede utilizarse en el servicio SQL Data S
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre SQL Data Sync, consulte:
+### <a name="update-the-schema-of-a-synced-database"></a>Actualización del esquema de una base de datos sincronizada
 
--   [Configuración de Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
--   [Procedimientos recomendados para SQL Data Sync de Azure](sql-database-best-practices-data-sync.md)
+¿Es necesario actualizar el esquema de una base de datos en un grupo de sincronización? Los cambios de esquema no se replican automáticamente. Para algunas soluciones, consulte los artículos siguientes:
+
+-   [Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync](sql-database-update-sync-schema.md)
+
+-   [Usar PowerShell para actualizar el esquema de sincronización en un grupo de sincronización existente](scripts/sql-database-sync-update-schema.md)
+
+### <a name="monitor-and-troubleshoot"></a>Supervisión y solución de problemas
+
+¿Se ejecuta SQL Data Sync según lo previsto? Para supervisar la actividad y solucionar problemas, consulte los artículos siguientes:
+
 -   [Supervisión de Azure SQL Data Sync con Log Analytics](sql-database-sync-monitor-oms.md)
+
 -   [Solución de problemas de SQL Data Sync de Azure](sql-database-troubleshoot-data-sync.md)
 
--   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:
-    -   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+### <a name="learn-more-about-azure-sql-database"></a>Más información acerca de Azure SQL Database
 
--   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
-
-Para más información sobre SQL Database, consulte:
+Para obtener más información sobre SQL Database, vea los siguientes artículos:
 
 -   [Información general de SQL Database](sql-database-technical-overview.md)
+
 -   [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
+
+### <a name="developer-reference"></a>Referencia para desarrolladores
+
+-   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/16/2018
-ms.author: khdang
+ms.date: 06/29/2018
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62555d3ba3513ce7183e24506530edcf78368247
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798634"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344944"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
+* Se ha agregado soporte técnico para conmutar por error con streaming.
+* Se ha agregado compatibilidad con metadatos personalizados.
+* Se ha mejorado la lógica de control de sesión.
+* Se ha corregido un error en la memoria caché de intervalo de claves de partición.
+* Se ha corregido un error NPE en modo directo.
 
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * Se agregó compatibilidad para índices únicos.
@@ -150,7 +157,7 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 * Se ha dejado de utilizar el código de creación de particiones personalizado basado en IPartitionResolver. Utilice colecciones con particiones para conseguir un almacenamiento y un rendimiento más elevados.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
-* Se ha agregado compatibilidad con la directiva de reintentos de la limitación.  
+* Se ha agregado compatibilidad con la directiva de reintentos para la limitación de velocidad.  
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Se ha agregado compatibilidad con período de vida (TTL) para los documentos.
@@ -198,6 +205,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.16.2](#1.16.2) |29 de junio de 2018 |--- |
 | [1.16.1](#1.16.1) |16 de mayo de 2018 |--- |
 | [1.16.0](#1.16.0) |15 de marzo de 2018 |--- |
 | [1.15.0](#1.15.0) |14 de noviembre de 2017 |--- |

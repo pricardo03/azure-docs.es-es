@@ -3,7 +3,7 @@ title: Solución Azure SQL Analytics de Log Analytics | Microsoft Docs
 description: La solución Azure SQL Analytics le ayuda a administrar las instancias de Azure SQL Database.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -11,24 +11,26 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: f57a47677f752a644975a25fa746d78bced5d766
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133500"
 ---
-# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Supervisión de Azure SQL Database mediante Azure SQL Analytics (versión preliminar) en Log Analytics
+# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Supervisar instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
 ![Símbolo de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-La solución Azure SQL Analytics de Azure Log Analytics recopila y muestra métricas de rendimiento importantes de Azure SQL. Mediante el uso de las métricas que se recopilan con la solución, puede crear alertas y reglas de supervisión personalizadas. Y puede supervisar Azure SQL Database y las métricas de los grupos elásticos de varias suscripciones y grupos elásticos de Azure y visualizarlos. La solución también le ayuda a identificar los problemas de cada nivel de la pila de la aplicación.  Usa las [métricas de diagnóstico de Azure](log-analytics-azure-storage.md) junto con las vistas de Log Analytics para presentar datos sobre todas sus instancias de Azure SQL Database y sus grupos elásticos en una sola área de trabajo de Log Analytics.
+Azure SQL Analytics es una solución de supervisión en la nube para supervisar el rendimiento de las instancias de Azure SQL Database a escala entre varios grupos elásticos y suscripciones. Recopila y visualiza en la parte superior métricas importantes del rendimiento de Azure SQL Database con inteligencia integrada para solucionar problemas de rendimiento. 
+
+Con las métricas recopiladas con la solución, puede crear alertas y reglas de supervisión personalizadas. La solución también le ayuda a identificar los problemas de cada capa de la pila de la aplicación. Usa las métricas de diagnóstico de Azure junto con las vistas de Log Analytics para presentar datos sobre todas sus instancias de Azure SQL Database y sus grupos elásticos en una sola área de trabajo de Log Analytics. Log Analytics le ayuda a recopilar, correlacionar y visualizar datos estructurados y no estructurados.
 
 Actualmente, la versión preliminar de esta solución admite hasta 150 000 instancias de Azure SQL Database y 5000 grupos elásticos de SQL por área de trabajo.
-
-La solución Azure SQL Analytics, al igual que otras disponibles para Log Analytics, le ayuda a supervisar y recibir notificaciones sobre el estado de los recursos de Azure y, en este caso, de Azure SQL Database. Microsoft Azure SQL Database es un servicio de base de datos relacional escalable que proporciona funcionalidades conocidas de tipo SQL Server para aplicaciones que se ejecutan en la nube de Azure. Log Analytics le ayuda a recopilar, correlacionar y visualizar datos estructurados y no estructurados.
 
 Para obtener información general práctica acerca del uso de la solución Azure SQL Analytics y escenarios de uso habituales, vea el vídeo incrustado:
 
@@ -37,39 +39,34 @@ Para obtener información general práctica acerca del uso de la solución Azure
 
 ## <a name="connected-sources"></a>Orígenes conectados
 
-La solución Azure SQL Analytics no usa agentes para conectarse al servicio Log Analytics.
+Azure SQL Analytics es una solución de supervisión en la nube que admite el streaming de telemetría de diagnósticos para grupos elásticos e instancias de SQL Azure Database. Debido a que no utiliza agentes para conectarse al servicio Log Analytics, la solución no admite la conectividad con recursos de Windows, Linux o SCOM, consulte la siguiente tabla de compatibilidad.
 
-En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
-
-| Origen conectado | Soporte técnico | DESCRIPCIÓN |
+| Origen conectado | Soporte técnico | Descripción |
 | --- | --- | --- |
-| [Agentes de Windows](log-analytics-windows-agent.md) | Sin  | La solución no utiliza agentes directos de Windows. |
-| [Agentes de Linux](log-analytics-linux-agents.md) | Sin  | La solución no utiliza agentes directos de Linux. |
-| [Grupo de administración de SCOM](log-analytics-om-agents.md) | Sin  | La solución no utiliza una conexión directa entre el agente de SCOM y Log Analytics. |
-| [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | Sin  | Log Analytics no lee los datos de una cuenta de almacenamiento. |
-| [Diagnóstico de Azure](log-analytics-azure-storage.md) | Sí | Azure envía directamente los datos de métricas y registros de Azure a Log Analytics. |
-
-## <a name="prerequisites"></a>requisitos previos
-
-- Una suscripción de Azure. Si no tiene ninguna, puede crear una [gratis](https://azure.microsoft.com/free/).
-- Un área de trabajo de Log Analytics. Puede usar una existente, o bien puede [crear una nueva](log-analytics-quick-create-workspace.md) para empezar a usar esta solución.
-- Habilite Diagnósticos de Azure para sus instancias de Azure SQL Database y para los grupos elásticos y [configúrelo para que envíe sus datos a Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
+| **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Sí** | Azure envía directamente los datos de métricas y registros de Azure a Log Analytics. |
+| [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | No | Log Analytics no lee los datos de una cuenta de almacenamiento. |
+| [Agentes de Windows](log-analytics-windows-agent.md) | No | La solución no utiliza agentes directos de Windows. |
+| [Agentes de Linux](log-analytics-linux-agents.md) | No | La solución no utiliza agentes directos de Linux. |
+| [Grupo de administración de SCOM](log-analytics-om-agents.md) | No | La solución no utiliza una conexión directa entre el agente de SCOM y Log Analytics. |
 
 ## <a name="configuration"></a>Configuración
 
 Realice los pasos siguientes para agregar la solución Azure SQL Analytics al área de trabajo.
 
-1. Agregue la Azure SQL Analytics al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).
-2. En Azure Portal, haga clic en **Crear un recurso** > **Supervisión y administración**.  
+1. Agregue la solución Azure SQL Analytics al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
+2. En Azure Portal, haga clic en **+ Crear un recurso** y, a continuación, busque **Azure SQL Analytics**.  
     ![Supervisión + Administración](./media/log-analytics-azure-sql/monitoring-management.png)
-3. En la lista **Supervisión y administración**, haga clic en **Ver todo**.
-4. En la lista **Recomendado**, haga clic en **Más** y, luego, en la nueva lista, busque **Azure SQL Analytics (versión preliminar)** y selecciónelo.  
-    ![Solución Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. En el área **Azure SQL Analytics (versión preliminar)**, haga clic en **Crear**.  
+3. Seleccione **Azure SQL Analytics (versión preliminar)** en la lista.
+4. En el área **Azure SQL Analytics (versión preliminar)**, haga clic en **Crear**.  
     ![Creación](./media/log-analytics-azure-sql/portal-create.png)
-6. En el área **Crear nueva solución**, seleccione el área de trabajo a la que desea agregar la solución y luego haga clic en **Crear**.  
+5. En el área **Crear nueva solución**, cree una nueva área de trabajo o seleccione una existente, a la que quiera agregar la solución y luego haga clic en **Crear**.  
     ![Agregar a área de trabajo](./media/log-analytics-azure-sql/add-to-workspace.png)
 
+### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Configurar las instancias de Azure SQL Database y los grupos elásticos para la telemetría de diagnósticos de secuencia
+
+Una vez haya creado la solución Azure SQL Analytics en el área de trabajo, con el fin de supervisar el rendimiento de las instancias de Azure SQL Database o los grupos elásticos, deberá **configurar cada** instancia de Azure SQL Database y grupo elástico que quiera supervisar para transmitir su telemetría de diagnósticos a la solución.
+
+- Habilite Diagnósticos de Azure para sus instancias de Azure SQL Database y para los grupos elásticos y [configúrelo para que envíe sus datos a Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### <a name="to-configure-multiple-azure-subscriptions"></a>Configuración de varias suscripciones de Azure
 
@@ -103,7 +100,7 @@ Si selecciona cualquiera de los iconos, se abre un informe detallado de la persp
 
 Cada perspectiva proporciona resúmenes en el nivel de suscripción, servidor, grupo elástico y base de datos. Además, cada perspectiva muestra a la derecha una perspectiva específica del informe. Seleccione suscripción, servidor, grupo o base de datos en la lista para seguir obteniendo los detalles.
 
-| Perspectiva | DESCRIPCIÓN |
+| Perspectiva | Descripción |
 | --- | --- |
 | Recurso por tipo | Perspectiva que considera todos los recursos supervisados. El informe detallado proporciona el resumen de las métricas de GB y DTU. |
 | Información detallada | Ofrece un informe detallado jerárquico de Intelligent Insights. Más información sobre Intelligent Insights. |

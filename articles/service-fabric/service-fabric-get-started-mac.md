@@ -2,24 +2,24 @@
 title: Configuración del entorno de desarrollo en Mac OS X para trabajar con Azure Service Fabric | Microsoft Docs
 description: Instale las herramientas, el SDK y el motor en tiempo de ejecución y cree un clúster de desarrollo local. Después de completar esta instalación, estará listo para crear aplicaciones en Mac OS X.
 services: service-fabric
-documentationcenter: java
-author: sayantancs
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: java
+ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
-ms.author: saysa
-ms.openlocfilehash: 15df54d37ffe26b9e1e6228591716fef9ae12dc8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: suhuruli
+ms.openlocfilehash: 87721428e1cd8a5360dcecc5f29225f813705a4f
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641873"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344763"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "34641873"
 
 Puede crear aplicaciones de Azure Service Fabric para que se ejecuten en clústeres de Linux con Mac OS X. En este documento se describe cómo configurar su Mac para desarrollo.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Azure Service Fabric no se ejecuta de forma nativa en Mac OS X. Para ejecutar un clúster local de Service Fabric, se proporciona una imagen preconfigurada del contenedor de Docker. Antes de comenzar, necesita:
 
 * Al menos 4 GB de RAM.
@@ -130,6 +130,8 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
  
  * El servicio DNS no se ejecuta y no es compatible [Problema 132](https://github.com/Microsoft/service-fabric/issues/132)
 
+ * Las aplicaciones de contenedor no se pueden implementar actualmente en este clúster local
+
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configuración de la CLI de Service Fabric (sfctl) en un Mac
 
 Para instalar la CLI de Service Fabric (`sfctl`) en un Mac, siga las instrucciones que encontrará en [CLI de Service Fabric](service-fabric-cli.md#cli-mac).
@@ -197,7 +199,7 @@ Instale el [SDK de .NET Core 2.0 para Mac](https://www.microsoft.com/net/core#ma
 
 Azure Service Fabric proporciona un complemento de Eclipse Neon (o posterior) para el IDE de Java. El complemento simplifica el proceso de creación, compilación e implementación de servicios de Java. Para instalar la versión más reciente del complemento de Service Fabric para Eclipse o actualizar a dicha versión, siga [estos pasos](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Los otros pasos de la [documentación de Service Fabric para Eclipse](service-fabric-get-started-eclipse.md) también son aplicables: compilar una aplicación, agregar un servicio a una aplicación, desinstalar una aplicación, etcétera.
 
-El último paso es crear una instancia del contenedor con una ruta de acceso que se comparte con el host. El complemento requiere este tipo de creación de instancias para funcionar con el contenedor de Docker en el equipo Mac. Por ejemplo: 
+El último paso es crear una instancia del contenedor con una ruta de acceso que se comparte con el host. El complemento requiere este tipo de creación de instancias para funcionar con el contenedor de Docker en el equipo Mac. Por ejemplo:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox

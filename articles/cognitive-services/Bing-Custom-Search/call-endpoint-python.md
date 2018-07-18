@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
 ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "35382958"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Llamada a un punto de conexión de Bing Custom Search (Python)
 
 Esta guía de inicio rápido muestra cómo solicitar los resultados de la búsqueda a la instancia de búsqueda personalizada usando Python para llamar al punto de conexión de Bing Custom Search. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar este inicio rápido necesita instalar:
 
 - Una instancia de Custom Search. Consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).

@@ -2,19 +2,19 @@
 title: 'Niveles de servicio de Azure SQL Database: DTU | Microsoft Docs'
 description: Obtenga información acerca de los niveles de servicio para las bases de datos de grupo y únicas a fin de proporcionar niveles de rendimiento y tamaños de almacenamiento.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/28/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d6dc641123e2bf840940f6246245a89fdd792db5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750431"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131845"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Elección de un nivel de servicio basado en DTU, nivel de rendimiento y recursos de almacenamiento 
 
@@ -60,7 +60,7 @@ Los niveles de rendimiento se expresan como unidades de transmisión de datos (D
 ||||||
 
 > [!IMPORTANT]
-> Hay más de 1 TB de almacenamiento en el nivel Premium disponible actualmente en todas las regiones excepto en las siguientes: Norte de Reino Unido, Centro-oeste de EE. UU., Sur de Reino Unido 2, Este de China, US DoD (centro), Centro de Alemania, US DoD (este), US Gov (suroeste), US Gov (centro-sur), Nordeste de Alemania, Norte de China y US Gov (este). En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Hay más de 1 TB de almacenamiento en el nivel Premium disponible actualmente en todas las regiones, excepto en las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), Centro de Alemania, USDoD (este), US Gov (suroeste), USGov Iowa, Nordeste de Alemania, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

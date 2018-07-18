@@ -1,5 +1,5 @@
 ---
-title: Reglas de alerta personalizadas en Azure Security Center | Microsoft Docs
+title: Reglas de alerta personalizadas en Azure Security Center  | Microsoft Docs
 description: Este documento le ayuda a crear reglas de alerta personalizadas en Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 326b07a18b07f15850e0283ad51a05b42c1ef0ab
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284784"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341320"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Reglas de alerta personalizadas en Azure Security Center (versión preliminar)
 Este documento le ayuda a crear reglas de alerta personalizadas en Azure Security Center.
@@ -31,7 +31,7 @@ Security Center cuenta con un conjunto de [alertas de seguridad](https://docs.mi
 Las reglas de alerta personalizadas de Security Center le permiten definir nuevas alertas de seguridad basadas en los datos ya recopilados del entorno. Puede crear consultas y el resultado de estas consultas se puede usar como criterio para la regla personalizada, de forma que, cuando se cumplan los criterios, se ejecute la regla. Puede usar eventos de seguridad de equipos, registros de soluciones de seguridad del asociado o datos ingeridos mediante las API para crear consultas personalizadas.
 
 > [!NOTE]
-> Necesita un permiso de escritura en el área de trabajo que seleccione para almacenar la alerta personalizada.
+> Las alertas personalizadas no son compatibles con la [característica de investigación](security-center-investigation.md) de Security Center.
 >
 >
 
@@ -52,7 +52,14 @@ Abra el panel **Security Center** y siga estos pasos para crear una regla de ale
 5.  Escriba una breve descripción que refleje el propósito de esta regla en el campo **Descripción**.
 6.  Seleccione el nivel de gravedad (alta, media, baja) según sus necesidades en el campo **Gravedad**.
 7.  Seleccione la suscripción en la que esta regla es aplicable en el campo **Suscripción**.
-8.  Seleccione el área de trabajo que quiere supervisar con esta regla en el campo **Área de trabajo** y, en el campo **Consulta de búsqueda**, la consulta que desee usar para obtener los resultados. Necesita un permiso de escritura en el área de trabajo que seleccione para almacenar la alerta personalizada. El resultado de la consulta desencadena la alerta. Tenga en cuenta que cuando se escribe una consulta válida, aparece la marca de verificación verde en la esquina derecha de este campo:
+8.  Seleccione el área de trabajo que quiere supervisar con esta regla en el campo **Área de trabajo** y, en el campo **Consulta de búsqueda**, la consulta que desee usar para obtener los resultados.
+
+    > [!NOTE]
+    > Necesita un permiso de escritura en el área de trabajo que seleccione para almacenar la alerta personalizada.
+    >
+    >
+
+    El resultado de la consulta desencadena la alerta. Tenga en cuenta que cuando se escribe una consulta válida, aparece la marca de verificación verde en la esquina derecha de este campo:
 
     ![Consultar](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

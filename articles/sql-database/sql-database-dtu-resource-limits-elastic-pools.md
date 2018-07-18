@@ -2,19 +2,19 @@
 title: Límites de recursos basados en DTU de Azure SQL Database para grupos elásticos | Microsoft Docs
 description: En esta página se describen algunos límites de recursos basados en DTU comunes para grupos elásticos en Azure SQL Database.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 08dabf1ad66f69c5e0f55aedbc2a4d0bb265a0bd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ea912d2b2297cf64b51ea4c50b36b3847fcc1bf8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752238"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131895"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU 
 
@@ -105,7 +105,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 ||||||||
 
 > [!IMPORTANT]
-> Hay más de 1 TB de almacenamiento en el nivel Premium disponible actualmente en todas las regiones excepto en las siguientes: Norte de Reino Unido, Centro-oeste de EE. UU., Sur de Reino Unido 2, Este de China, US DoD (centro), Centro de Alemania, US DoD (este), US Gov (suroeste), US Gov (centro-sur), Nordeste de Alemania, Norte de China y US Gov (este). En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Hay más de 1 TB de almacenamiento en el nivel Premium disponible actualmente en todas las regiones, excepto en las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), Centro de Alemania, USDoD (este), US Gov (suroeste), Nordeste de Alemania, USGov Iowa, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases de datos del grupo recibe una misma cantidad de recursos para procesar consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de DTU por base de datos se establece en un valor distinto de cero.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267720"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341249"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs
 Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Azure Storage. A partir de marzo de 2016 (SDK 2.9), puede enviar diagnósticos a orígenes de datos personalizados y transferir datos de rutas de acceso activas en cuestión de segundos mediante [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -34,7 +34,7 @@ En este artículo se muestra cómo configurar Diagnósticos de Azure con Event H
 * Cómo ver los datos de secuencia de Event Hubs
 * Cómo solucionar los problemas de conexión  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 La recepción de Diagnósticos de Azure en Event Hubs se admite en Cloud Services, Virtual Machines, Conjuntos de escalado de máquinas virtuales y Service Fabric a partir de Azure SDK 2.9 y las correspondientes herramientas de Azure Tools para Visual Studio.
 
 * La extensión de Diagnósticos de Azure 1.6 ([Azure SDK para .NET 2.9 o posterior](https://azure.microsoft.com/downloads/) sirve a este fin de forma predeterminada).
@@ -390,8 +390,10 @@ El archivo *ServiceConfiguration.Cloud.cscfg* complementario para este ejemplo s
 ```
 
 La configuración JSON equivalente para máquinas virtuales es la siguiente:
+
+Configuración pública:
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -487,8 +489,11 @@ La configuración JSON equivalente para máquinas virtuales es la siguiente:
     "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
+Configuración protegida:
+```JSON
+{
     "storageAccountName": "{account name}",
     "storageAccountKey": "{account key}",
     "storageAccountEndPoint": "{storage endpoint}",

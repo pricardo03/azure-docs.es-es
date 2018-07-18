@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ae4edb82fa5e192a30d297dae82199bb7efca0c2
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182432"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344978"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -33,7 +33,7 @@ Aunque los registros de flujo tienen como destino los NSG, no se muestran como l
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Las mismas directivas de retención vistas en otros registros se aplican a los registros de flujo. Puede establecer la directiva de retención de registros de 1 a 365 días. Si no se establece una directiva de retención, los registros se mantendrán indefinidamente.
+Las mismas directivas de retención vistas en otros registros se aplican a los registros de flujo. Puede establecer la directiva de retención de registros de 1 a 2147483647 días. Si no se establece una directiva de retención, los registros se mantendrán indefinidamente.
 
 ## <a name="log-file"></a>Archivo de registro
 

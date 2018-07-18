@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/30/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 451fc42f573db2b60985912cfa63617e04f09e6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fd7b85d18aeb1674ad7a5e67dd9ac65345c56887
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28932722"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435038"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Registros de diagnósticos de Event Hubs
 
@@ -31,7 +31,7 @@ Puede ver dos tipos de registros para Event Hubs de Azure:
 
 ## <a name="enable-diagnostic-logs"></a>Habilitar registros de diagnóstico
 
-Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitar registros de diagnóstico:
+Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitarlos, siga estos pasos:
 
 1.  En [Azure Portal](https://portal.azure.com), en **Supervisión y administración**, haga clic en **Registros de diagnóstico**.
 
@@ -70,7 +70,7 @@ Todos los registros se almacenan en el formato de notación de objetos JavaScrip
 
 Las cadenas JSON de registros de archivo incluyen elementos enumerados en la tabla siguiente:
 
-NOMBRE | DESCRIPCIÓN
+NOMBRE | Descripción
 ------- | -------
 TaskName | La descripción de la tarea que generó el error.
 ActivityId | El identificador interno, usado con fines de seguimiento.
@@ -108,7 +108,7 @@ El código siguiente es un ejemplo de una cadena JSON de registro de archivo:
 
 Las cadenas JSON de registros operativos incluyen elementos enumerados en la tabla siguiente:
 
-NOMBRE | DESCRIPCIÓN
+NOMBRE | Descripción
 ------- | -------
 ActivityId | Identificador interno, usado con fines de seguimiento.
 EventName | Nombre de la operación.  
@@ -137,7 +137,7 @@ Example:
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Introducción a la API de Event Hubs](event-hubs-api-overview.md)
 * [Introducción a Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)

@@ -3,7 +3,7 @@ title: Visualización de datos de aplicación de Azure Application Insights | Mi
 description: Puede usar la solución Application Insights Connector para diagnosticar problemas de rendimiento y comprender lo que los usuarios hacen con su aplicación cuando se supervisa mediante Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,19 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186240"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131633"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solución de administración de Application Insights Connector (versión preliminar)
 
 ![Símbolo de Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> Con el soporte técnico de [consultas entre recursos](log-analytics-cross-workspace-search.md), la solución de administración Application Insights Connector ya no es necesaria y dejará de utilizarse. A partir de julio, no podrán vincularse los nuevos recursos de Application Insights a áreas de trabajo de Log Analytics. Los paneles de información y los vínculos existentes seguirán funcionando hasta noviembre de 2018. Para obtener más información, consulte [Traslado del portal de OMS a Azure](log-analytics-oms-portal-transition.md).
 
 La solución Applications Insights Connector le permite diagnosticar problemas de rendimiento y comprender lo que los usuarios hacen con su aplicación cuando se supervisa mediante [Application Insights](../application-insights/app-insights-overview.md). En Log Analytics, hay disponibles vistas de la misma telemetría de aplicación que los desarrolladores ven en Application Insights. Sin embargo, cuando se integran las aplicaciones de Application Insights con Log Analytics, la visibilidad de las aplicaciones aumenta debido a que los datos de operación y de aplicación están en el mismo lugar. Tener las mismas vistas le permite colaborar con los desarrolladores de aplicaciones. Las vistas comunes pueden ayudar a disminuir el tiempo para detectar y resolver problemas tanto de aplicaciones como de plataformas.
 
@@ -173,7 +177,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| type | ApplicationInsights |
+| Escriba | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Hora del registro |
 | ApplicationId | Clave de instrumentación de la aplicación de Application Insights |
@@ -222,7 +226,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="exception-specific-fields"></a>Campos específicos de excepción
 
-| type | ApplicationInsights |
+| Escriba | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Excepción |
 | ExceptionType | Tipo de la excepción |
@@ -241,7 +245,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| type | ApplicationInsights |
+| Escriba | ApplicationInsights |
 | TelemetryType | Solicitud |
 | ResponseCode | Respuesta HTTP enviada al cliente |
 | RequestSuccess | Indica una solicitud correcta o errónea. True o false. |

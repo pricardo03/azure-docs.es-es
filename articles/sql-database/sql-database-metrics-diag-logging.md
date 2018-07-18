@@ -3,19 +3,20 @@ title: Métricas y registros de diagnóstico de Azure SQL Database | Microsoft D
 description: Aprenda a configurar Azure SQL Database para almacenar estadísticas de uso de recursos, conectividad y ejecución de consultas.
 services: sql-database
 documentationcenter: ''
-author: veljko-msft
+author: Danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vvasic
-ms.openlocfilehash: c9126080db4d8091b672a9250c68a5c5590e10c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650186"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346032"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 Azure SQL Database puede emitir métricas y registros de diagnóstico para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
@@ -24,7 +25,7 @@ Azure SQL Database puede emitir métricas y registros de diagnóstico para facil
 * **Azure Event Hubs**: se utiliza para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
 * **Azure Log Analytics**: se utiliza para la solución de supervisión lista para usar con funcionalidades de generación de informes, alertas y mitigación. Esta es una característica de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
-    ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
+    ![Arquitectura](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
@@ -268,12 +269,12 @@ Aprenda a [descargar métricas y registros de diagnóstico desde Storage](../sto
 
 ### <a name="query-store-runtime-statistics"></a>Estadísticas de tiempo de ejecución del Almacén de consultas
 
-|Propiedad|DESCRIPCIÓN|
+|Propiedad|Descripción|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Escriba|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
 |nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
@@ -319,12 +320,12 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 
 ### <a name="query-store-wait-statistics"></a>Estadísticas de espera del Almacén de consultas
 
-|Propiedad|DESCRIPCIÓN|
+|Propiedad|Descripción|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Escriba|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: QueryStoreWaitStatistics|
 |nombreOperación|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent|
@@ -357,12 +358,12 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 
 ### <a name="errors-dataset"></a>Conjunto de datos de errores
 
-|Propiedad|DESCRIPCIÓN|
+|Propiedad|Descripción|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Escriba|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Errors|
 |nombreOperación|Nombre de la operación. Siempre: ErrorEvent|
@@ -377,7 +378,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |Message|Mensaje de error en texto sin formato.|
 |user_defined_b|Es el bit de error definido por el usuario.|
 |error_number_d|Código de error.|
-|Severity|Gravedad del error.|
+|Gravedad|Gravedad del error.|
 |state_d|Estado del error.|
 |query_hash_s|Hash de consulta de la consulta errónea, si está disponible.|
 |query_plan_hash_s|Hash de plan de consulta de la consulta errónea, si está disponible.|
@@ -386,12 +387,12 @@ Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.m
 
 ### <a name="database-wait-statistics-dataset"></a>Conjunto de datos de estadísticas de espera de base de datos
 
-|Propiedad|DESCRIPCIÓN|
+|Propiedad|Descripción|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Escriba|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: DatabaseWaitStatistics|
 |nombreOperación|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent|
@@ -415,12 +416,12 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 
 ### <a name="time-outs-dataset"></a>Conjunto de datos de los tiempos de espera
 
-|Propiedad|DESCRIPCIÓN|
+|Propiedad|Descripción|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Escriba|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Timeouts|
 |nombreOperación|Nombre de la operación. Siempre: TimeoutEvent|
@@ -438,12 +439,12 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 
 ### <a name="blockings-dataset"></a>Conjunto de datos de bloqueos
 
-|Propiedad|DESCRIPCIÓN|
+|Propiedad|Descripción|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Escriba|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Blocks|
 |nombreOperación|Nombre de la operación. Siempre: BlockEvent|

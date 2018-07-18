@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: bwren
-ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636739"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436386"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)
 Este artículo muestra cómo utilizar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde un cliente de la API de REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud se autorice por Log Analytics.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -60,7 +61,7 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | Autorización |Firma de la autorización. Más adelante en este artículo, encontrará información acerca de cómo crear un encabezado HMAC-SHA256. |
 | Log-Type |Especifica el tipo de registro de los datos que se envían. Actualmente, el tipo de registro solo admite caracteres alfabéticos. No admite valores numéricos ni caracteres especiales. El límite de tamaño para este parámetro es de 100 caracteres. |
 | x-ms-date |Fecha en que se procesó la solicitud, en formato RFC 1123. |
-| time-generated-field |Nombre de un campo en los datos que contiene la marca de tiempo del elemento de datos. Si especifica un campo, su contenido se usa para **TimeGenerated**. No puede ser null y debe contener una fecha y hora válida. Si no se especifica este campo, el valor predeterminado de **TimeGenerated** es el tiempo que el mensaje se ingiere. El contenido del campo de mensaje debe seguir el formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
+| time-generated-field |Nombre de un campo en los datos que contiene la marca de tiempo del elemento de datos. Si especifica un campo, su contenido se usa para **TimeGenerated**. Si no se especifica este campo, el valor predeterminado de **TimeGenerated** es el tiempo que el mensaje se ingiere. El contenido del campo de mensaje debe seguir el formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorización
 Cualquier solicitud a Log Analytics HTTP Data Collector API debe incluir un encabezado de autorización. Para autenticar una solicitud, debe firmar la solicitud con la clave principal o secundaria del área de trabajo que realiza la solicitud. Después, pase esa firma como parte de la solicitud.   
@@ -101,29 +102,33 @@ Los ejemplos de las secciones siguientes tienen código de ejemplo que le ayudar
 El cuerpo del mensaje debe estar en formato JSON. Debe incluir uno o varios registros con los pares de nombre y valor de propiedad en este formato:
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 Puede procesar por lotes varios registros en una sola solicitud con el formato siguiente. Todos los registros deben ser del mismo tipo de registro.
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-},
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    },
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 ## <a name="record-type-and-properties"></a>Propiedades y tipo de registro
@@ -274,7 +279,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -382,7 +386,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-sample"></a>Ejemplo de Python
+### <a name="python-2-sample"></a>Ejemplo de Python 2
 ```
 import json
 import requests

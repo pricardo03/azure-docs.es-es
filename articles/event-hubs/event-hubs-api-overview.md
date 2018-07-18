@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: abd44fd0c9cbfab2365b1552e3cd90e84a5348d7
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bcd570d5fd2bdcf6cd344f5c81902420163b87ae
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
-ms.locfileid: "25957534"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434548"
 ---
 # <a name="available-event-hubs-apis"></a>API disponibles de Event Hubs
 
@@ -27,9 +27,9 @@ En este artículo se describe el conjunto de clientes de API disponibles que pue
 
 ## <a name="runtime-apis"></a>API de tiempo de ejecución
 
-A continuación, se muestra una descripción de todos los clientes del tiempo de ejecución de Azure Event Hubs disponibles. Aunque algunas de estas bibliotecas también incluyen la funcionalidad de administración limitada, también hay [determinadas bibliotecas](#management-apis) dedicadas a las operaciones de administración. El enfoque central de estas bibliotecas es enviar y recibir mensajes de un centro de eventos.
+En la siguiente sección se describen todos los clientes del entorno de ejecución de Azure Event Hubs disponibles. Aunque algunas de estas bibliotecas también incluyen la funcionalidad de administración limitada, también hay [determinadas bibliotecas](#management-apis) dedicadas a las operaciones de administración. El enfoque central de estas bibliotecas es enviar y recibir mensajes de un centro de eventos.
 
-Consulte la [información adicional](#additional-information) para más detalles sobre el estado actual de cada biblioteca del entorno de ejecución.
+Para obtener más información sobre el estado actual de cada biblioteca del entorno de ejecución, consulte la [información adicional](#additional-information).
 
 | Lenguaje/plataforma | Paquete del cliente | Paquete EventProcessorHost | Repositorio |
 | --- | --- | --- | --- |
@@ -42,15 +42,16 @@ Consulte la [información adicional](#additional-information) para más detalles
 ### <a name="additional-information"></a>Información adicional
 
 #### <a name="net"></a>.NET
-El ecosistema de .NET tiene varios entornos de ejecución y, por tanto, hay varias bibliotecas de .NET para Event Hubs. La biblioteca de .NET Standard se puede ejecutar mediante .NET Core o .NET Framework, mientras que la biblioteca de .NET Framework solo puede ejecutarse en un entorno de .NET Framework. Para ampliar la información sobre las versiones de .NET Framework, consulte [Versiones de marcos de trabajo](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+
+El ecosistema de .NET tiene varios entornos de ejecución, por tanto, hay varias bibliotecas de .NET para Event Hubs. La biblioteca de .NET Standard se puede ejecutar mediante .NET Core o .NET Framework, mientras que la biblioteca de .NET Framework solo puede ejecutarse en un entorno de .NET Framework. Para ampliar la información sobre las versiones de .NET Framework, consulte [Versiones de marcos de trabajo](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### <a name="node"></a>Nodo
 
-La biblioteca de Node.js está en versión preliminar y los empleados de Microsoft y colaboradores externos la mantienen como un proyecto secundario. Todas las contribuciones, incluido código fuente, son bienvenidas y se revisarán.
+La biblioteca de [Node.js](https://github.com/Azure/azure-event-hubs-node) está en versión preliminar y los empleados de Microsoft y colaboradores externos la mantienen como un proyecto secundario. Todas las contribuciones, incluido código fuente, son bienvenidas y se revisarán.
 
 ## <a name="management-apis"></a>API de administración
 
-A continuación se proporciona una lista de todas las bibliotecas específicas de administración disponibles actualmente. Ninguna de estas bibliotecas contiene operaciones de entornos de ejecución y son exclusivamente para administrar las entidades de Event Hubs.
+En la tabla siguiente se listan todas las bibliotecas específicas de administración disponibles actualmente. Ninguna de estas bibliotecas contiene operaciones de entornos de ejecución y son exclusivamente para administrar las entidades de Event Hubs.
 
 | Lenguaje/plataforma | Paquete de administración | Repositorio |
 | --- | --- | --- | --- |
