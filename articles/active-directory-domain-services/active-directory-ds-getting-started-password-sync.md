@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 701fe17869d6e7744751d80330422ea47361b411
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff2659ed7dbdb21bccb8b5858d946b47951e40cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216147"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048940"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Habilitación de la sincronización de los valores hash de las contraseñas con Azure Active Directory Domain Services
 En las tareas anteriores, habilitó Azure Active Directory Domain Services para su inquilino de Azure Active Directory (Azure AD). La siguiente tarea consiste en habilitar la sincronización de los valores hash de las contraseñas necesarios para la autenticación NT LAN Manager (NTLM) y Kerberos en Azure AD Domain Services. Una vez configurada la sincronización de los valores hash de las contraseñas, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
@@ -78,7 +78,7 @@ Estas son las instrucciones que tiene que proporcionar a los usuarios finales pa
 Unos minutos después de haber cambiado su contraseña, la nueva contraseña se podrá usar en Azure Active Directory Domain Services. Después de unos veinte minutos, puede iniciar sesión en equipos unidos al dominio administrado con su contraseña recién cambiada.
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Actualización de la propia contraseña](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [Actualización de la propia contraseña](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Introducción a la administración de contraseñas en Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Habilitación de la sincronización de los valores hash de las contraseñas con Azure Active Directory Domain Services para un inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administración de un dominio administrado con Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)

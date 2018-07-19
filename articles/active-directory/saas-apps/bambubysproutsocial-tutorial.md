@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 12859384ce79a34dbdb437aa402189fbf039c44c
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: eba6f2a22de42ce65996dbe0f9b75533d2a4dacc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285346"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Tutorial: Integración de Azure Active Directory con Bambu by Sprout Social
 
@@ -33,7 +33,7 @@ La integración de Bambu by Sprout Social con Azure AD proporciona las siguiente
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Bambu by Sprout Social, necesita los siguientes elementos:
 
@@ -212,7 +212,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Bambu by Sprout Social en el Panel de acceso, iniciará sesión automáticamente en la aplicación Bambu by Sprout Social. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Bambu by Sprout Social en el Panel de acceso, iniciará sesión automáticamente en la aplicación Bambu by Sprout Social. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

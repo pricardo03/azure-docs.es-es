@@ -135,7 +135,7 @@
         - name: Copias de seguridad de bases de datos
           href: sql-database-automated-backups.md
         - name: Retención de copia de seguridad a largo plazo
-          itmes:
+          items:
             - name: Retención de copia de seguridad a largo plazo
               href: sql-database-long-term-retention.md
             - name: 'Configuración de la retención de copia de seguridad a largo plazo: Almacenamiento de SQL'

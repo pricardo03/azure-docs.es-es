@@ -11,25 +11,18 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: bef298ea8e5710b386822f071d0644c9ddad04a2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314428"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115568"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
-> [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
->
->
-
 Obtenga información acerca de los conceptos básicos de la creación de un cliente de Batch con Node.js en [Microsoft Azure SDK for Node.js - Batch Service](/javascript/api/overview/azure/batch) (SDK de Microsoft Azure SDK para Node.js: servicio Batch). Vamos a describir paso a paso un escenario de aplicación por lotes y, a continuación, su configuración mediante un cliente de Node.js.  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se da por hecho que tiene conocimientos prácticos de Node.js y está familiarizado con Linux. También necesitará una cuenta de Azure configurada con derechos de acceso para crear servicios de Batch y Storage.
 
 Es recomendable leer [Azure Batch Technical Overview](batch-technical-overview.md) (Información general técnica de Azure Batch) antes de seguir los pasos que se describen en este artículo.

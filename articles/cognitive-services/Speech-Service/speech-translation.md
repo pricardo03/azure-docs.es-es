@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 43fcde887c21794989aa43540a214ef34893a630
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a569c968d444c36ceb3bce4779d2eca39c21f9bc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382839"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069210"
 ---
 # <a name="about-the-speech-translation-api"></a>Introducción a Translator Speech API
 
@@ -43,4 +43,4 @@ Las diferencias entre los modelos son internas para el motor de traducción. Los
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-windows.md)
+* [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)

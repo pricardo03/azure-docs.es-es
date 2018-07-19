@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f07b3ce85641f34462c97d16bbed8cf9e2e50652
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128595"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114548"
 ---
 # <a name="get-started-with-batch-rendering"></a>Introducción a Batch Rendering 
 
@@ -47,7 +47,7 @@ En nodos de representación de Windows Server 2016:
 - Blender (2.79)
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para utilizar Batch Rendering, necesita:
 
@@ -123,7 +123,7 @@ Con 3ds Max, puede usar:
 
 Las plantillas de BatchLabs para 3ds Max permiten presentar escenas de VRay y Arnold con Azure Batch Rendering. Hay dos variaciones de la plantilla para VRay y Arnold, una para escenas estándar y otra para escenas más complejas que requieren un archivo de ruta de acceso a los recursos y las texturas de 3ds Max (archivo .mxp). Para más información sobre las plantillas de BatchLabs para 3ds Max, consulte el repositorio de [datos de BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) de GitHub.
 
-Además, puede usar el [SDK de Batch para Python](https://docs.microsoft.com/azure/batch/batch-python-tutorial) para integrar la representación con la canalización existente.
+Además, puede usar el [SDK de Batch para Python](/python/api/overview/azure/batch) para integrar la representación con la canalización existente.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Uso del complemento de Batch para Maya para enviar un trabajo de representación

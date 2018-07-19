@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: da6bb00d7538c1a26e1ed4be29d3c882aa378e9e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077418"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071392"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Administración de la capacidad de almacenamiento para Azure Stack
 
@@ -159,12 +159,13 @@ La migración consolida todos los blobs de contenedores en el nuevo recurso comp
 
     A continuación, examine $destinationshares:
 
-    ````PowerShell $destinationshares
+    ````PowerShell 
+    $destinationshares
     ````
 
-    ![Example: $destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+    ![Ejemplo: Recursos compartidos de $destination](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
-4. Start migration for a container. Migration is asynchronous. If you start migration of additional containers before the first migration completes, use the job id to track the status of each.
+4. Inicie la migración de un contenedor. La migración es asincrónica. Si comienza la migración de contenedores adicionales antes de que se complete la primera migración, utilice el identificador de trabajo para realizar el seguimiento del estado de cada uno.
 
   ````PowerShell
   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name

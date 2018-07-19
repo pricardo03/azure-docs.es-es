@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: beeb7801465d38743fdd654496c7b1b8e3ba1cc3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2050952eb924e1eee5e6d7d6312d9cd02f475d10
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267200"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092835"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Guía de concesión de licencias de colaboración B2B de Azure Active Directory
 
@@ -65,7 +65,7 @@ Un usuario invitado de B2B es aquel que se ha invitado desde una organización d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes artículos sobre la colaboración B2B de Azure AD:
+Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
 * [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](faq.md)

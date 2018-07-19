@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 42833323cbebf25ce2ca14e6ab7ec4fa5adbfd15
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206951"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044584"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Información general del ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
@@ -79,7 +79,10 @@ Los servicios con estado tienen un patrón similar al de los servicios sin estad
     - Si en la actualidad el servicio es un servicio principal, se llama al método `StatefulServiceBase.RunAsync()` del servicio.
 4. Una vez que se han completado todas las llamadas a `OpenAsync()` de los agentes de escucha de la réplica y se ha llamando a `RunAsync()`, se llama a `StatefulServiceBase.OnChangeRoleAsync()`. Por lo general, la llamada no se invalida en el servicio.
 
-Al igual que en los servicios sin estado, no existe relación entre el orden en el que se crean y se abren los agentes de escucha y el momento en que se llama a **RunAsync**. Si necesita que estas operaciones estén coordinadas, las soluciones serían prácticamente iguales. Hay un caso adicional para servicios con estado. Imaginemos que las llamadas que llegan a los agentes de escucha de comunicación requieren que la información se mantenga dentro de alguna instancia de [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Dado que es posible que los agentes de escucha de comunicación se abrieran antes de que se pudiera leer o escribir en las colecciones confiables, y antes de que se pudiera iniciar **RunAsync**, se necesita coordinación adicional. La solución más sencilla y habitual consiste en que los agentes de escucha de comunicación devuelvan un código de error que permita informar al cliente para que intente la solicitud de nuevo.
+Al igual que en los servicios sin estado, no existe relación entre el orden en el que se crean y se abren los agentes de escucha y el momento en que se llama a **RunAsync**. Si necesita que estas operaciones estén coordinadas, las soluciones serían prácticamente iguales. Hay un caso adicional para servicios con estado. Imaginemos que las llamadas que llegan a los agentes de escucha de comunicación requieren que la información se mantenga dentro de alguna instancia de [Reliable Collections](service-fabric-reliable-services-reliable-collections.md).
+
+   > [!NOTE]  
+   > Dado que es posible que los agentes de escucha de comunicación se abrieran antes de que se pudiera leer o escribir en las colecciones confiables, y antes de que se pudiera iniciar **RunAsync**, se necesita coordinación adicional. La solución más sencilla y habitual consiste en que los agentes de escucha de comunicación devuelvan un código de error que permita informar al cliente para que intente la solicitud de nuevo.
 
 ## <a name="stateful-service-shutdown"></a>Cierre de un servicio con estado
 De forma similar a los servicios sin estado, los eventos de ciclo de vida durante el cierre son los mismos que durante el inicio, pero a la inversa. Cuando un servicio con estado se está cerrando, se producen los siguientes eventos:

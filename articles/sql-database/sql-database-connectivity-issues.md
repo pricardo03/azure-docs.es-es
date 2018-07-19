@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: daleche
-ms.openlocfilehash: 37cd099e6efe44ee70dc1799ef4b2b4377c571d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 07/11/2018
+ms.author: ninarn
+ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647269"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113501"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en SQL Database
 En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Azure SQL Database. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.
@@ -308,8 +308,8 @@ La lógica de reintento para controlar los errores transitorios es un área en l
 
 > [!NOTE]
 > El código fuente de EntLib60 está disponible de forma pública para descargarlo desde el [Centro de descarga](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft no tiene previsto realizar más actualizaciones de mantenimiento o de característica en EntLib.
-> 
-> 
+>
+>
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
@@ -319,12 +319,12 @@ Las siguientes clases de EntLib60 son especialmente útiles para la lógica de r
 En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 
 * **RetryPolicy**
-  
+
   * **ExecuteAction**
 * **ExponentialBackoff**
 * **SqlDatabaseTransientErrorDetectionStrategy**
 * **ReliableSqlConnection**
-  
+
   * **ExecuteCommand**
 
 En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
@@ -342,7 +342,7 @@ Estos son algunos vínculos a información sobre EntLib60:
 
 ### <a name="entlib60-the-logging-block"></a>EntLib60: El bloque de registro
 * El bloque de registro es una solución muy flexible y configurable que puede usar para:
-  
+
   * Crear y almacenar los mensajes de registro en una amplia variedad de ubicaciones.
   * Clasificar y filtrar los mensajes.
   * Recopilar la información contextual es útil para la depuración y el seguimiento, así como para los requisitos de registro generales y de auditoría.
@@ -434,4 +434,3 @@ public bool IsTransient(Exception ex)
 [step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
-

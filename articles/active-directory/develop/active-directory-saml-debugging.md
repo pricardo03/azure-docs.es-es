@@ -15,19 +15,19 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0192b2d89b5e97c7f23b5394106853ddf83ddaf4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751401"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044016"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 
 Obtenga información acerca de cómo buscar y corregir problemas del [inicio de sesión único](../manage-apps/what-is-single-sign-on.md) en aplicaciones de Azure Active Directory (Azure AD) compatibles con el [Lenguaje de marcado de aserción de seguridad (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Se recomienda instalar la [Extensión de inicio de sesión seguro de mis aplicaciones](../active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Esta extensión de explorador facilita la reunión de la información de la solicitud SAML y de la respuesta SAML que necesita para resolver problemas con el inicio de sesión único. En caso de que no pueda instalar la extensión, este artículo muestra cómo resolver problemas con y sin la extensión instalada.
+Se recomienda instalar la [Extensión de inicio de sesión seguro de mis aplicaciones](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Esta extensión de explorador facilita la reunión de la información de la solicitud SAML y de la respuesta SAML que necesita para resolver problemas con el inicio de sesión único. En caso de que no pueda instalar la extensión, este artículo muestra cómo resolver problemas con y sin la extensión instalada.
 
 Para descargar e instalar la extensión de inicio de sesión seguro de mis aplicaciones, utilice uno de los siguientes vínculos.
 

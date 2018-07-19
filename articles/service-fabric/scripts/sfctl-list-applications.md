@@ -3,7 +3,7 @@ title: 'Ejemplo de script CLI de Service Fabric: enumerar las aplicaciones de un
 description: 'Ejemplo de script CLI de Service Fabric: enumerar las aplicaciones aprovisionadas en un clúster de Service Fabric.'
 services: service-fabric
 documentationcenter: ''
-author: Thraka
+author: TylerMSFT
 manager: timlt
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 04/13/2018
-ms.author: adegeo
+ms.author: twhitney
 ms.custom: ''
-ms.openlocfilehash: 2a58a9d534116dbdd486f1319f3d87e1d2ba24ef
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bea88460ecaa093a0719d627e3608fd1d530727b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642774"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070205"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Mostrar las aplicaciones que se ejecutan en un clúster de Service Fabric
 

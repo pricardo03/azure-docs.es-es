@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 866575a483e705e1c972a0b56d98f26e9cf0c631
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 872ca1dcd48c953180227580d805838c94ea232d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798128"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115551"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas
 
@@ -24,7 +24,7 @@ Al crear una aplicación web en Visual Studio, puede generar un script de Window
 
 Mediante estos scripts, puede aprovisionar versiones personalizadas (también conocidos como entornos de desarrollo y pruebas) de su sitio para uso temporal. Por ejemplo, podría configurar una versión concreta de su sitio web en una máquina virtual de Azure o en la ranura de ensayo de un sitio web para ejecutar un conjunto de pruebas, reproducir un error, probar una corrección de errores, realizar una versión de prueba de un cambio propuesto o configurar un entorno personalizado para una demo o presentación. Una vez creado un script que publique el proyecto, puede volver a crear entornos idénticos si vuelve a ejecutar el script según sea necesario, o ejecutar el script con su propia versión de la aplicación web para crear un entorno personalizado para pruebas.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * SDK de Azure 2.3 o posterior. Vea las [descargas de Visual Studio](http://go.microsoft.com/fwlink/?LinkID=624384). (No necesita Azure SDK para generar los scripts para proyectos web. Esta característica es para proyectos web, no para los roles web de Cloud Services).
 * Azure PowerShell 0.7.4 o posterior. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
@@ -36,7 +36,7 @@ Tiene a su disposición herramientas y recursos adicionales para trabajar con Po
 
 ## <a name="generating-the-publish-scripts"></a>Generación de los scripts de publicación
 
-Puede generar los scripts de publicación para una máquina virtual que hospeda el sitio web al crea un nuevo proyecto siguiendo [estas instrucciones](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). También puede [generar scripts de publicación para aplicaciones web en Azure App Service](app-service/app-service-web-get-started-dotnet.md).
+Puede generar los scripts de publicación para una máquina virtual que hospeda el sitio web al crea un nuevo proyecto siguiendo [estas instrucciones](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). También puede [generar scripts de publicación para aplicaciones web en Azure App Service](app-service/scripts/app-service-powershell-deploy-github.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Scripts que genera Visual Studio
 

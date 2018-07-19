@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: a8905f4f14b5f4f78e9f3113ec5a655b12599609
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d46ff5563df1423e3c01ba945b328b748b5979b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294106"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091578"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
@@ -54,7 +54,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
 
     Observe que los procesadores de telemetría forman una cadena de procesamiento. Al crear instancias de un procesador de telemetría, se pasa un vínculo al procesador siguiente en la cadena. Cuando un punto de datos de telemetría se pasa al método de proceso, realiza su trabajo y, a continuación, llama al procesador de telemetría siguiente de la cadena.
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -101,7 +101,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
     ```
 1. Inserte esto en ApplicationInsights.config:
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -141,7 +141,7 @@ Los TelemetryClients creados a partir de este punto usarán sus procesadores.
 #### <a name="synthetic-requests"></a>Solicitudes sintéticas
 Filtrar las pruebas web y robots. Aunque el Explorador de métricas proporciona la opción para filtrar y dejar fuera los orígenes sintéticos, esta opción reduce el tráfico filtrándolos en el SDK.
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -182,7 +182,7 @@ Si solo desea diagnosticar las llamadas que son lentas, descarte las rápidas.
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -255,6 +255,7 @@ Si se proporciona un inicializador de telemetría, se llama cada vez que se llam
 
 En ApplicationInsights.config:
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -262,6 +263,7 @@ En ApplicationInsights.config:
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 *Alternativamente,* se pueden crear instancias del inicializador en el código, por ejemplo en Global.aspx.cs:
 

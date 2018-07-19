@@ -9,18 +9,18 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod
-ms.openlocfilehash: c0842e53cbc297c1980a9d08733d838def073835
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380207"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112467"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación Video Search de página única
 
 Este es el código fuente completo que se describe en el [tutorial de la aplicación de página única](tutorial-bing-video-search-single-page-app.md) de Bing Video Search. Para ejecutar la aplicación, copie el código fuente en el Bloc de notas o en otro editor de texto y guárdelo como `bing.html`. A continuación, abra el archivo guardado en Microsoft Edge u otro explorador conocido.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -615,3 +615,4 @@ function doPrevSearchPage() {
 
 </body>
 </html>
+```

@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4444e83adecdc1afa170a184705b9be3be67c026
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 003335aad0452e7a2dbfff49ed29a6b99b5d54d2
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26774378"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089636"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuración de registros de flujo de grupos de seguridad de red mediante la API de REST
 
 > [!div class="op_single_selector"]
 > - [Portal de Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
-> - [API DE REST](network-watcher-nsg-flow-logging-rest.md)
+> - [CLI de Azure](network-watcher-nsg-flow-logging-cli.md)
+> - [API de REST](network-watcher-nsg-flow-logging-rest.md)
 
 Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
 
@@ -45,7 +44,7 @@ En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Cre
 
 El escenario descrito en este artículo muestra cómo habilitar, deshabilitar y realizar consultas de los registros de flujo con la API de REST. Para más información sobre registros de flujos de grupo de seguridad de red, consulte la [introducción al registro de flujos de grupo de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
 
-En este escenario va a:
+En este escenario:
 
 * Habilitar los registros de flujo
 * Deshabilitar los registros de flujo
