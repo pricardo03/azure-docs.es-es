@@ -1,4 +1,0 @@
-- name: Uso de una identidad MSI de máquina virtual para acceder a Azure Storage
-  items:
-    - name: Desde una máquina virtual Linux mediante clave de acceso
-      href: msi-tutorial-linux-vm-access-storage.md
