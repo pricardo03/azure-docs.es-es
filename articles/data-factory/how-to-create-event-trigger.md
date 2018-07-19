@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969585"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005839"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 
@@ -51,13 +51,21 @@ En cuanto el archivo llega a la ubicación de almacenamiento y se crea el blob c
 
 ![Seleccionar un tipo de desencadenador como evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>Asignación de propiedades del desencadenador a parámetros de canalización
+
+Cuando se activa un desencadenador de eventos para un blob concreto, el evento captura el nombre de archivo y la ruta de acceso de la carpeta del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline.parameters.parameterName` en toda la canalización.
+
+![Asignación de propiedades a los parámetros de la canalización](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Por ejemplo, en la captura de pantalla anterior, el desencadenador se configura para activarse cuando una ruta de acceso de blob que termine en `.csv` se crea en la cuenta de almacenamiento. Como resultado, cuando un blob con la extensión `.csv` se crea en algún lugar de la cuenta de almacenamiento, las propiedades `folderPath` y `fileName` capturan la ubicación del nuevo blob. Por ejemplo, `@triggerBody().folderPath` tiene un valor parecido a `/containername/foldername/nestedfoldername` y `@triggerBody().fileName` tiene un valor como `filename.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`. Puede usarlos en toda la canalización como `@pipeline.parameters.sourceFolder` y `@pipeline.parameters.sourceFile` respectivamente.
+
 ## <a name="json-schema"></a>Esquema JSON
 
 En la tabla siguiente se proporciona información general acerca de los elementos de esquema que están relacionados con los desencadenadores basados en eventos:
 
 | **Elemento de JSON** | **Descripción** | **Tipo** | **Valores permitidos** | **Obligatorio** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | El identificador de recursos de Azure Resource Manager de la cuenta de almacenamiento. | string | Identificador de Azure Resource Manager | Sí |
+| **scope** | El identificador de recursos de Azure Resource Manager de la cuenta de almacenamiento. | string | Identificador de Azure Resource Manager | SÍ |
 | **eventos** | El tipo de eventos que provocan la activación de este desencadenador. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sí, cualquier combinación. |
 | **blobPathBeginsWith** | La ruta de acceso del blob debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, "/records/blobs/december/" solo activará el desencadenador de los blobs de la carpeta december del contenedor records. | string   | | Se debe proporcionar al menos una de estas propiedades: blobPathBeginsWith, blobPathEndsWith. |
 | **blobPathEndsWith** | La ruta de acceso del blob debe finalizar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, "december/boxes.csv" solo activará el desencadenador de blobs llamado boxes de la carpeta december. | string   | | Se debe proporcionar al menos una de estas propiedades: blobPathBeginsWith, blobPathEndsWith. |
@@ -75,14 +83,6 @@ En esta sección encontrará ejemplos de configuración de desencadenadores basa
 
 > [!NOTE]
 > Debe incluir el segmento `/blobs/` de la ruta de acceso siempre que especifique el contenedor y la carpeta, el contenedor y el archivo, o el contenedor, la carpeta y el archivo.
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>Asignación de propiedades del desencadenador a parámetros de canalización
-
-Cuando se activa un desencadenador de eventos para un blob concreto, el evento captura el nombre de archivo y la ruta de acceso de la carpeta del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline.parameters.parameterName` en toda la canalización.
-
-![Asignación de propiedades a los parámetros de la canalización](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-Por ejemplo, en la captura de pantalla anterior, el desencadenador se configura para activarse cuando una ruta de acceso de blob que termine en `.csv` se crea en la cuenta de almacenamiento. Como resultado, cuando un blob con la extensión `.csv` se crea en algún lugar de la cuenta de almacenamiento, las propiedades `folderPath` y `fileName` capturan la ubicación del nuevo blob. Por ejemplo, `@triggerBody().folderPath` tiene un valor parecido a `/containername/foldername/nestedfoldername` y `@triggerBody().fileName` tiene un valor como `filename.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`. Puede usarlos en toda la canalización como `@pipeline.parameters.sourceFolder` y `@pipeline.parameters.sourceFile` respectivamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) (Ejecución de canalizaciones y desencadenadores).

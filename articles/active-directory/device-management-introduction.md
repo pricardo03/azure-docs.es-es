@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1a2b32e7e0e86608f879941485395ebe379a5c1e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970907"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048868"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introducción a la administración de dispositivos en Azure Active Directory
 
@@ -181,8 +181,8 @@ Como regla general, debe utilizar:
 - Para más información sobre el acceso condicional basado en dispositivo, consulte las [directivas de acceso condicional basado en dispositivos para Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 - Para configurar:
-    - Dispositivos Windows 10 registrados en Azure Active Directory, vea [How to configure Azure Active Directory registered Windows 10 devices (Configuración de dispositivos Windows 10 registrados en Azure Active Directory)](device-management-azuread-registered-devices-windows10-setup.md)
-    - Dispositivos unidos a Azure Active Directory, vea [How to configure Azure Active Directory joined devices (Configuración de dispositivos unidos a Azure Active Directory)](device-management-azuread-joined-devices-setup.md)
+    - Dispositivos Windows 10 registrados en Azure Active Directory, vea [How to configure Azure Active Directory registered Windows 10 devices (Configuración de dispositivos Windows 10 registrados en Azure Active Directory)](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+    - Dispositivos unidos a Azure Active Directory, vea [How to configure Azure Active Directory joined devices (Configuración de dispositivos unidos a Azure Active Directory)](user-help/device-management-azuread-joined-devices-setup.md)
     - Dispositivos híbridos unidos a Azure AD, vea [How to configure hybrid Azure Active Directory joined devices (Configuración de dispositivos híbridos unidos a Azure Active Directory)](device-management-hybrid-azuread-joined-devices-setup.md).
 
 

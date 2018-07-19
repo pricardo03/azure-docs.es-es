@@ -24,18 +24,18 @@
 
 <sup>2</sup> Este número incluye los trabajos en cola, terminados, activos y cancelados. No incluye los trabajos eliminados. Puede eliminar los trabajos antiguos con **IJob.Delete** o con la solicitud HTTP **DELETE**.
 
-A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe [aquí](../articles/media-services/media-services-dotnet-manage-entities.md).
+A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe [aquí](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
 <sup>3</sup> Al realizar una solicitud para obtener una lista de las entidades Job, se devuelve un máximo de 1000 por solicitud. Si necesita realizar un seguimiento de todos los trabajos enviados, puede usar top y skip, tal como se describe en [Opciones de consulta del sistema de OData](http://msdn.microsoft.com/library/gg309461.aspx).
 
-<sup>4</sup> Los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM). Para obtener más información, consulte [esta](../articles/media-services/media-services-content-protection-overview.md) sección.
+<sup>4</sup> Los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM). Para obtener más información, consulte [esta](../articles/media-services/previous/media-services-content-protection-overview.md) sección.
 
 <sup>5</sup> Las cuentas de almacenamiento deben proceder de la misma suscripción de Azure.
 
 <sup>6</sup> hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> Debe utilizar el mismo identificador de directiva si siempre usa los mismos días, permisos de acceso, etc. Para obtener información y un ejemplo, consulte [esta](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) sección.
+> Debe utilizar el mismo identificador de directiva si siempre usa los mismos días, permisos de acceso, etc. Para obtener información y un ejemplo, consulte [esta](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies) sección.
 
 <sup>7</sup>Si va a cargar contenido en un recurso de Azure Media Services con la intención de procesarlo con uno de los procesadores de multimedia del servicio (es decir, codificadores como Media Encoder Standard y Media Encoder Premium Workflow, o motores de análisis como Face Detector), debe tener en cuenta el límite de tamaño máximo de archivo permitido. 
 

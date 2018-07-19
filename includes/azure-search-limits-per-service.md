@@ -9,17 +9,17 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b4062aab5a453505ef4586f422a124d4bbf715cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30844090"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756288"
 ---
 El almacenamiento está limitado por el espacio en disco o el *número máximo* de índices, documentos u otros recursos de alto nivel, lo que ocurra primero. En la tabla siguiente se documentan los límites de almacenamiento. Para los límites máximos en índices, documentos y otros objetos, consulte los [límites por recurso](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Recurso | Gratuito | Básico&nbsp;<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>2</sup> |
 | -------- | --- | --- | --- | --- | --- | --- |
-| Acuerdo de Nivel de Servicio (SLA) <sup>3</sup>  |Sin  |Sí |Sí |Sí |Sí |Sí |
+| Acuerdo de Nivel de Servicio (SLA) <sup>3</sup>  |Sin  |SÍ |Sí |Sí |Sí |SÍ |
 | Almacenamiento por partición |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Particiones por servicio |N/D |1 |12 |12 |12 |3 |
 | Tamaño de la partición |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |

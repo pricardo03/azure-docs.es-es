@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 4e1f6cb8a383569b80386e090b15c59988510d0f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112850"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069217"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -42,7 +42,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
 |Comprobaciones ejecutadas|
 |---|
-|<ul> <li>¿Se ha detenido, eliminado o configurado mal alguno de los puntos de conexión?</li><li>¿Pueden acceder las operaciones de configuración de la red CDN al portal complementario?</li><li>¿Hay problemas de entrega en curso con los puntos de conexión de la red CDN?</li><li>¿Pueden los usuarios cambiar la configuración de sus recursos de la red CDN?</li><li>¿Se propagan los cambios en la configuración a la velocidad esperada?</li><li>¿Pueden los usuarios administrar la configuración de CDN mediante Azure Portal, Powershell o la API?</li> </ul>|
+|<ul> <li>¿Pueden acceder las operaciones de configuración de la red CDN al portal complementario?</li><li>¿Hay problemas de entrega en curso con los puntos de conexión de la red CDN?</li><li>¿Pueden los usuarios cambiar la configuración de sus recursos de la red CDN?</li><li>¿Se propagan los cambios en la configuración a la velocidad esperada?</li><li>¿Pueden los usuarios administrar la configuración de CDN mediante Azure Portal, Powershell o la API?</li> </ul>|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Comprobaciones ejecutadas|

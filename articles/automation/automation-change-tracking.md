@@ -10,18 +10,37 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867960"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069454"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
 Este artículo le ayuda a usar la solución Change Tracking para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux, en los archivos de Windows y Linux, en las claves del registro de Windows, en los servicios de Windows y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
 Los cambios en los demonios de Linux, en el registro y los archivos de Windows, en los servicios de Windows y en el software instalado en los servidores supervisados se envían al servicio de Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
+
+## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
+
+Las siguientes versiones del sistema operativo Windows son compatibles oficialmente con el agente de Windows:
+
+* Windows Server 2008 Service Pack 1 (SP1) o versiones posteriores
+* Windows 7 SP1 y versiones posteriores.
+
+## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
+
+Las distribuciones Linux siguientes son compatibles oficialmente. Aunque también se puede ejecutar el agente de Linux en otras distribuciones que no se enumeran. A menos que se indique lo contrario, todas las versiones secundarias son compatibles con cada versión principal de la lista.  
+
+* Amazon Linux 2012.09 a 2015.09 (x86/x64)
+* CentOS Linux 5, 6 y 7 (x86/x64)  
+* Oracle Linux 5, 6 y 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 y 7 (x86/x64)
+* Debian GNU/Linux 6, 7 y 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 y 12 (x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitación de Change Tracking e Inventario
 

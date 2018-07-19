@@ -9,15 +9,15 @@ ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: ab4c5b98ed9f6fcc8c271797db2d81dcc7ec4449
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "29717037"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756120"
 ---
 En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Límite | Scope | Notas | Valor |
+| Límite | Ámbito | Notas | Valor |
 | --- | --- | --- | --- | --- |
 | Número de centros de eventos por espacio de nombres |Espacio de nombres |Se rechazarán las solicitudes posteriores para la creación de un nuevo centro de eventos. |10 |
 | Número de particiones por centro de eventos |Entidad |- |32 |

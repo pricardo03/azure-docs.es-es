@@ -9,15 +9,15 @@ ms.date: 06/04/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 0ff1e31e52c7db5c41f92cb9e4cb1a17f28dea6f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806407"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756190"
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, consulte la información general sobre los [precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
-| Nombre de cuota | Scope | Notas | Valor |
+| Nombre de cuota | Ámbito | Notas | Valor |
 | --- | --- | --- | --- | --- |
 | Número máximo de espacios de nombres básicos o estándar por suscripción de Azure |Espacio de nombres |El portal rechaza las solicitudes posteriores de espacios de nombres básicos o estándar adicionales. |100|
 | Número máximo de espacios de nombres premium por suscripción de Azure |Espacio de nombres |El portal rechaza las solicitudes posteriores de espacios de nombres premium adicionales. |10 |
