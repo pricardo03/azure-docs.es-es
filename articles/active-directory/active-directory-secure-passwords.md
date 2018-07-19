@@ -3,31 +3,31 @@ title: Seguridad de contraseñas por niveles de Azure AD | Microsoft Docs
 description: Explica cómo Azure AD aplica contraseñas seguras y protege las contraseñas de los usuarios frente a los ciberdelincuentes.
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
-ms.author: barlan
-ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: lizross
+ms.openlocfilehash: e3e97a5a9b768b3b9d4a36627d28955be1f3d9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586381"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056926"
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Un enfoque de varios niveles para la seguridad de contraseñas de Azure AD
 
 En este artículo se describen los procedimientos recomendados que puede seguir como usuario o administrador para proteger su cuenta de Azure Active Directory (Azure AD) o Microsoft.
 
  > [!NOTE]
- > **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+ > **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](user-help/active-directory-passwords-update-your-own-password.md).
  >
- > Los administradores de Azure AD pueden restablecer las contraseñas de usuario mediante las instrucciones del artículo [Restablecimiento de la contraseña de un usuario en Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > Los administradores de Azure AD pueden restablecer las contraseñas de usuario mediante las instrucciones del artículo [Restablecimiento de la contraseña de un usuario en Azure Active Directory](fundamentals/active-directory-users-reset-password-azure-portal.md).
  >
 
 ## <a name="password-requirements"></a>Requisitos de contraseña
@@ -38,7 +38,7 @@ Azure AD incorpora los siguientes enfoques comunes para proteger las contraseña
 * Requisitos de complejidad de contraseña
 * Expiración de contraseña normal y periódica
 
-Para más información sobre el restablecimiento de contraseña en Azure Active Directory, consulte el tema [Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI](active-directory-passwords-update-your-own-password.md).
+Para más información sobre el restablecimiento de contraseña en Azure Active Directory, consulte el tema [Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI](user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Protección de contraseñas de Azure AD
 
@@ -75,7 +75,7 @@ Para otras cuentas de Microsoft, su pantalla tiene un aspecto similar al siguien
 
   ![Bloqueado en una cuenta de Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Para más información sobre el restablecimiento de contraseña en Azure Active Directory, consulte el tema [Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI](active-directory-passwords-update-your-own-password.md).
+Para más información sobre el restablecimiento de contraseña en Azure Active Directory, consulte el tema [Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI](user-help/active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Los administradores de Azure AD pueden usar [Windows Hello](https://www.microsoft.com/windows/windows-hello) para evitar que los usuarios creen contraseñas tradicionales.
@@ -83,6 +83,6 @@ Para más información sobre el restablecimiento de contraseña en Azure Active 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md)
+* [Actualización de la propia contraseña](user-help/active-directory-passwords-update-your-own-password.md)
 * [Aspectos básicos de la administración de identidades de Azure](fundamentals-identity.md)
 * [Informe sobre la actividad de restablecimiento de contraseña](authentication/howto-sspr-reporting.md)

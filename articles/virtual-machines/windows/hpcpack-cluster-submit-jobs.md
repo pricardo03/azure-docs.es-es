@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166376"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036496"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Envío de trabajos HPC desde un equipo local a un clúster de HPC Pack implementado en Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ Configure un equipo cliente local para enviar trabajos a un clúster de [Microso
 
 ![Enviar un trabajo a un clúster de Azure][jobsubmit]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Un **nodo principal de HPC Pack implementado en una máquina virtual de Azure**: se recomienda usar herramientas automáticas, como una [plantilla de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para implementar el nodo principal y el clúster. Para completar los pasos de este artículo se necesitan el nombre DNS del nodo principal y las credenciales de un administrador de clústeres.
 * **Equipo cliente**: se necesita un equipo cliente con Windows o Windows Server que pueda ejecutar utilidades de cliente de HPC Pack (consulte los [requisitos del sistema](https://technet.microsoft.com/library/dn535781.aspx)). Si solo desea usar el portal web de HPC Pack o la API de REST para enviar trabajos, puede usar el equipo cliente que prefiera.
 * **Soporte de instalación de HPC Pack**: para instalar las utilidades de cliente de HPC Pack, el paquete de instalación gratis de la versión más reciente de HPC Pack está disponible en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=56360). Asegúrese de descargar la misma versión de HPC Pack que está instalada en la VM del nodo principal.
@@ -90,7 +90,7 @@ Para usar las herramientas de cliente de HPC Pack para enviar trabajos a la máq
 
 1. En el nodo principal, agregue el complemento Certificados a Microsoft Management Console para la cuenta del equipo local. Para que conocer los pasos para agregar el complemento, consulte [Agregar el complemento Certificados a MMC](https://technet.microsoft.com/library/cc754431.aspx).
 2. En el árbol de consola, expanda **Certificados – Equipo local** > **Personal** y, a continuación, haga clic en **Certificados**.
-3. Busque el certificado que configuró para los componentes web de HPC Pack en [Paso 1: Instalar y configurar los componentes web en el nodo principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (por ejemplo, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+3. Busque el certificado que configuró para los componentes web de HPC Pack en [Paso 1: Instalar y configurar los componentes web en el nodo principal](#step-1-install-and-configure-the-web-components-on-the-head-node) (por ejemplo, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
 4. Haga clic con el botón derecho en el certificado y haga clic en **Todas las tareas** > **Exportar**.
 5. En el Asistente para exportar certificados, haga clic en **Siguiente** y asegúrese de que **No exportar la clave privada** está seleccionado.
 6. Siga los restantes pasos del asistente para exportar el certificado en formato DER binario codificado X.509 (.CER).

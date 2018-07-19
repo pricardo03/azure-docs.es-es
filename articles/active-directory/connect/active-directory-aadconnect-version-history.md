@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2a830fa873f7277440d1baa9049a9c8eafcbf55
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261787"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049524"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -30,7 +30,7 @@ Este artículo está diseñado para ayudarle a realizar un seguimiento de las ve
 
 Esta tabla es una lista de temas relacionados:
 
-Tema. |  Detalles
+Tema |  Detalles
 --------- | --------- |
 Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actualizar desde una versión anterior a la última](active-directory-aadconnect-upgrade-previous-version.md) versión de Azure AD Connect.
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
@@ -209,7 +209,7 @@ Bloquee el acceso a la cuenta de AD DS mediante la implementación de los siguie
 *   Quite todas las ACE del objeto específico, excepto las ACE específicas de SELF. Deseamos mantener intactos los permisos predeterminados cuando se trata de SELF.
 *   Asigne estos permisos específicos:
 
-Escriba     | NOMBRE                          | Access               | Se aplica a
+type     | NOMBRE                          | Access               | Se aplica a
 ---------|-------------------------------|----------------------|--------------|
 PERMITIR    | SYSTEM                        | Control total         | Este objeto  |
 PERMITIR    | Administradores de empresas             | Control total         | Este objeto  |
@@ -917,7 +917,7 @@ Fecha de publicación: noviembre de 2015
 **Nuevas características de la versión preliminar:**
 
 * [Azure AD Connect Health para sincronización](../connect-health/active-directory-aadconnect-health-sync.md)
-* Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](../active-directory-passwords-update-your-own-password.md) .
+* Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](../user-help/active-directory-passwords-update-your-own-password.md) .
 
 **Nuevo escenarios admitido:**
 

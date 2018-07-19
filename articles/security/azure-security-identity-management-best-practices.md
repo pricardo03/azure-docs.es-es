@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365787"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059207"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
 Muchos consideran que la identidad es la nueva capa límite de la seguridad, asumiendo ese papel desde la perspectiva tradicional centrada en la red. Esta evolución del eje principal de la atención y las inversiones en materia de seguridad procede del hecho de que los perímetros de red se han vuelto cada vez más porosos y que la defensa perimetral no puede ser tan eficaz como en su día lo fue, antes de la explosión de los dispositivos [BYOD](http://aka.ms/byodcg) y las aplicaciones de nube.
 
-En este artículo, se trata un conjunto de procedimientos recomendados para la seguridad del control de acceso y la administración de identidades en Azure. Estos procedimientos recomendados proceden de nuestra experiencia con [Azure AD](../active-directory/active-directory-whatis.md) y las experiencias de clientes como usted.
+En este artículo, se trata un conjunto de procedimientos recomendados para la seguridad del control de acceso y la administración de identidades en Azure. Estos procedimientos recomendados proceden de nuestra experiencia con [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) y las experiencias de clientes como usted.
 
 Para cada procedimiento recomendado, explicaremos:
 
@@ -65,7 +65,7 @@ Para más información sobre la sincronización de Azure AD, lea el artículo [I
 
 La necesidad de administrar varios directorios supone un problema administrativo no solo para TI, sino también para los usuarios finales que tendrán que recordar varias contraseñas. Con el inicio de sesión único ([SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)) proporcionará a los usuarios la posibilidad de usar el mismo conjunto de credenciales para iniciar sesión y acceder a los recursos que necesitan, con independencia de dónde se ubique este recurso, tanto si es en el entorno local como en la nube.
 
-Use SSO para permitir que los usuarios accedan a sus [aplicaciones para SaaS](../active-directory/manage-apps/what-is-single-sign-on.md) en función de su cuenta de la organización en Azure AD. Esto no solo es aplicable a las aplicaciones para SaaS de Microsoft, sino también a otras aplicaciones, como [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) y [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). La aplicación se puede configurar para usar Azure AD como un proveedor de [identidades basado en SAML](../active-directory/fundamentals-identity.md). Como control de seguridad, Azure AD no emitirá un token que les permita iniciar sesión en la aplicación, a menos que se les concediera acceso mediante Azure AD. Puede concederles acceso directamente o a través de un grupo del que sean miembros.
+Use SSO para permitir que los usuarios accedan a sus [aplicaciones para SaaS](../active-directory/manage-apps/what-is-single-sign-on.md) en función de su cuenta de la organización en Azure AD. Esto no solo es aplicable a las aplicaciones para SaaS de Microsoft, sino también a otras aplicaciones, como [Google Apps](../active-directory/saas-apps/google-apps-tutorial.md) y [Salesforce](../active-directory/saas-apps/salesforce-tutorial.md). La aplicación se puede configurar para usar Azure AD como un proveedor de [identidades basado en SAML](../active-directory/fundamentals-identity.md). Como control de seguridad, Azure AD no emitirá un token que les permita iniciar sesión en la aplicación, a menos que se les concediera acceso mediante Azure AD. Puede concederles acceso directamente o a través de un grupo del que sean miembros.
 
 > [!NOTE]
 > La decisión de utilizar SSO afectará al modo en que se integra el directorio local con el directorio en la nube. Si desea utilizar SSO, deberá usar la federación, ya que la sincronización de directorios solo proporciona la [misma experiencia de inicio de sesión](../active-directory/active-directory-aadconnect.md).
@@ -78,7 +78,7 @@ Puede aprender más sobre SSO de Azure AD en el artículo [Servicios de federaci
 
 ## <a name="deploy-password-management"></a>Implementación de la administración de contraseñas
 
-En escenarios donde tenga varios inquilinos o quiera permitir que los usuarios [restablezcan su propia contraseña](../active-directory/active-directory-passwords-update-your-own-password.md), es importante utilizar directivas de seguridad adecuadas para evitar un uso inadecuado. En Azure, puede aprovechar la funcionalidad de autoservicio de restablecimiento de contraseña y personalizar las opciones de seguridad para adaptarlas a sus requisitos empresariales.
+En escenarios donde tenga varios inquilinos o quiera permitir que los usuarios [restablezcan su propia contraseña](../active-directory/user-help/active-directory-passwords-update-your-own-password.md), es importante utilizar directivas de seguridad adecuadas para evitar un uso inadecuado. En Azure, puede aprovechar la funcionalidad de autoservicio de restablecimiento de contraseña y personalizar las opciones de seguridad para adaptarlas a sus requisitos empresariales.
 
 Es importante conocer las experiencias de estos usuarios cuando intentan realizar estos pasos y aprender de ellas. En función de estas experiencias, elabore un plan para mitigar los posibles problemas que pueden producirse durante la implementación en el caso de un grupo más grande. También se recomienda utilizar la [Visión operativa con los informes de la administración de contraseñas](../active-directory/active-directory-passwords-get-insights.md) para supervisar los usuarios que se registran.
 

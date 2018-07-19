@@ -3,12 +3,12 @@ La sección structure de JSON de los conjuntos de datos es una sección **opcion
 
 Cada columna contiene las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| name |Nombre de la columna. |Sí |
-| type |Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. |No |
-| culture |Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «en-us». |No |
-| formato |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. |No |
+| Nombre |Nombre de la columna. |SÍ |
+| Tipo |Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. |Sin  |
+| culture |Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «en-us». |Sin  |
+| formato |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. |Sin  |
 
 En el ejemplo siguiente se muestra el JSON de la sección structure de una tabla con tres columnas userid, name y lastlogindate.
 
@@ -41,7 +41,7 @@ Factoría de datos admite los siguientes valores de tipo basados en .NET compati
 * DECIMAL
 * Byte[]
 * Booleano
-* String 
+* string 
 * Guid
 * Datetime
 * Datetimeoffset

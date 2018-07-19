@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: b1bc18307227a728e2bc8fd95e30fdc1cbdb8c59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24994501"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036295"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell (clásico)
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Resource Manager: Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Clásico: PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
@@ -36,7 +36,7 @@ Este artículo le ayuda a eliminar una puerta de enlace de VPN en el modelo de i
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale los cmdlets más recientes de PowerShell.
 
-Descargue e instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management (SM). Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+Descargue e instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management (SM). Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Conéctese a su cuenta de Azure. 
 
@@ -195,3 +195,4 @@ Si lo hace correctamente, el resultado será similar a este ejemplo:
 OperationDescription        OperationId                      OperationStatus                                                
 --------------------        -----------                      ---------------                                           
 Set-AzureVNetConfig         e0ee6e66-9167-cfa7-a746-7casb9   Succeeded
+```

@@ -2,7 +2,7 @@
 
 
 ## <a name="viewing-your-tags-in-the-usage-details"></a>Visualización de etiquetas en los detalles de uso
-Las etiquetas colocadas en los recursos de proceso, red y almacenamiento en el modelo de implementación de Resource Manager se rellenarán en los detalles de uso del [portal de facturación](https://account.windowsazure.com/).
+Las etiquetas colocadas en los recursos de Compute, Network y Storage en el modelo de implementación de Resource Manager se rellenarán en los detalles de uso del [portal de facturación](https://account.windowsazure.com/).
 
 Haga clic en **Descargar detalles de uso** para ver los detalles de uso de la suscripción.
 

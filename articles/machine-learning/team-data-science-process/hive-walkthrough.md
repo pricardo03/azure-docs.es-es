@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: beb1c2f88eed8fc38bd32de113835122cfd4e9a4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 556a7d9d921e0f2307445f8f6738b9b845c83112
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837334"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006604"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
 En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
@@ -828,7 +828,7 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 ## <a name="references"></a>Referencias
 •   [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
 •   [FOILing NYC’s Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•   [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•   [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

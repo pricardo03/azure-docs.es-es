@@ -3,7 +3,7 @@ title: Actualización de un servicio en la nube | Microsoft Docs
 description: Aprenda a actualizar servicios en la nube en Azure. Obtenga información acerca de cómo se realiza una actualización en un servicio en la nube para garantizar la disponibilidad.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 36d4ee9dabd39f4103d17455e47521b378af6ebb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24860678"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008100"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Actualización de un servicio en la nube
 
@@ -54,18 +54,18 @@ La siguiente tabla muestra los cambios permitidos en un servicio durante una act
 
 | Cambios permitidos en el hospedaje, servicios y roles | Actualización local | Por etapas (intercambio de VIP) | Eliminar y volver a implementar |
 | --- | --- | --- | --- |
-| Versión del sistema operativo |Sí |Sí |Sí |
-| Nivel de confianza de .NET |Sí |Sí |Sí |
-| Tamaño de la máquina virtual<sup>1</sup> |Sí<sup>2</sup> |Sí |Sí |
-| Configuración de almacenamiento local |Solo aumentar<sup>2</sup> |Sí |Sí |
-| Agregar o quitar roles en un servicio |Sí |Sí |Sí |
-| Número de instancias de un rol concreto |Sí |Sí |Sí |
-| Número o tipo de puntos de conexión de un servicio |Sí<sup>2</sup> |No |Sí |
-| Nombres y valores de configuración |Sí |Sí |Sí |
-| Valores (pero no nombres) de configuración |Sí |Sí |Sí |
-| Incorporación de nuevos certificados |Sí |Sí |Sí |
-| Cambio de certificados existentes |Sí |Sí |Sí |
-| Implementación de nuevo código |Sí |Sí |Sí |
+| Versión del sistema operativo |SÍ |Sí |SÍ |
+| Nivel de confianza de .NET |SÍ |Sí |SÍ |
+| Tamaño de la máquina virtual<sup>1</sup> |Sí<sup>2</sup> |SÍ |SÍ |
+| Configuración de almacenamiento local |Solo aumentar<sup>2</sup> |SÍ |SÍ |
+| Agregar o quitar roles en un servicio |SÍ |Sí |SÍ |
+| Número de instancias de un rol concreto |SÍ |Sí |SÍ |
+| Número o tipo de puntos de conexión de un servicio |Sí<sup>2</sup> |Sin  |SÍ |
+| Nombres y valores de configuración |SÍ |Sí |SÍ |
+| Valores (pero no nombres) de configuración |SÍ |Sí |SÍ |
+| Incorporación de nuevos certificados |SÍ |Sí |SÍ |
+| Cambio de certificados existentes |SÍ |Sí |SÍ |
+| Implementación de nuevo código |SÍ |Sí |SÍ |
 
 <sup>1</sup> Cambio de tamaño limitado al subconjunto de tamaños disponibles para el servicio en la nube.
 

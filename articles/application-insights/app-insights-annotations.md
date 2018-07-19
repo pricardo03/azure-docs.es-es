@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: fb4bcd57062017c0d7ee802ba1f46660476f6af2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293442"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036404"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotaciones sobre gráficos de métricas en Application Insights
-En las anotaciones sobre gráficos del [Explorador de métricas](app-insights-metrics-explorer.md) se muestra donde ha implementado una nueva compilación u otros eventos importantes. Permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente con el [sistema de compilación de Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). También puede crear anotaciones para marcar los eventos que prefiera si los [crea desde PowerShell](#create-annotations-from-powershell).
+En las anotaciones sobre gráficos del [Explorador de métricas](app-insights-metrics-explorer.md) se muestra donde ha implementado una nueva compilación u otros eventos importantes. Permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente con el [sistema de compilación de Visual Studio Team Services](https://docs.microsoft.com/vsts/pipelines/tasks/). También puede crear anotaciones para marcar los eventos que prefiera si los [crea desde PowerShell](#create-annotations-from-powershell).
 
 ![Ejemplo de anotaciones con correlación visible con el tiempo de respuesta del servidor](./media/app-insights-annotations/00.png)
 

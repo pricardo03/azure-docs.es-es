@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 06abd7867a99c20597ed17faf6fa61b91f70baaa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904397"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007713"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: usar una identidad que asignó el usuario en una máquina virtual de Linux para obtener acceso a Azure Resource Manager
 
@@ -38,7 +38,7 @@ Aprenderá a:
 > * Conceder a la identidad asignada por el usuario acceso a un grupo de recursos en Azure Resource Manager 
 > * Obtener un token de acceso mediante la identidad asignada por el usuario y usarla para llamar a Azure Resource Manager 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con Managed Service Identity, consulte la sección de [introducción](overview.md). **No olvide revisar las [diferencias entre una identidad asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)**.
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -58,7 +58,7 @@ En este tutorial, creará primero una nueva máquina virtual Linux. También pue
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
 3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
 
-    ![Creación de máquinas virtuales Linux](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Creación de máquinas virtuales Linux](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Elija una **Suscripción** para la máquina virtual en la lista desplegable.
 5. Para seleccionar un nuevo **Grupo de recursos** en el que desearía crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.

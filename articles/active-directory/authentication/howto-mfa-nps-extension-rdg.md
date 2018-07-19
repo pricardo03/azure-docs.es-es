@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 74e56480c5bbf86ee6cbc059431d7d5a328dfcec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098012"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049072"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -54,7 +54,7 @@ Cuando la extensión NPS para Azure está integrada con el NPS y la puerta de en
 6. El servidor NPS donde está instalada la extensión envía un mensaje de aceptación de acceso de RADIUS para la directiva CAP de RD al servidor de puerta de enlace de Escritorio remoto.
 7. Se concede al usuario acceso al recurso de red solicitado a través de la puerta de enlace de Escritorio remoto.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En esta sección se detallan los requisitos previos necesarios antes de integrar Azure MFA con la puerta de enlace de Escritorio remoto. Antes de comenzar, debe cumplir los siguientes requisitos previos.  
 
 * Infraestructura de Servicios de Escritorio remoto (RDS)
@@ -95,7 +95,7 @@ Siga los pasos de [Introducción a Azure Multi-Factor Authentication en la nube]
 ### <a name="configure-accounts-for-two-step-verification"></a>Configuración de cuentas para la verificación en dos pasos
 Una vez que una cuenta se ha habilitado para MFA, no puede iniciar sesión en los recursos controlados por la directiva MFA hasta que se haya configurado correctamente un dispositivo de confianza que se usará para el segundo factor de autenticación y haya realizado la autenticación mediante la verificación en dos pasos.
 
-Siga los pasos de [¿Qué significa Azure Multi-Factor Authentication para mí?](end-user/current/multi-factor-authentication-end-user.md) para comprender y configurar correctamente los dispositivos para MFA con su cuenta de usuario.
+Siga los pasos de [¿Qué significa Azure Multi-Factor Authentication para mí?](../user-help/multi-factor-authentication-end-user.md) para comprender y configurar correctamente los dispositivos para MFA con su cuenta de usuario.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalación y configuración de la extensión NPS
 Esta sección proporciona instrucciones para configurar la infraestructura de RDS para usar Azure MFA para la autenticación de cliente con la puerta de enlace de Escritorio remoto.

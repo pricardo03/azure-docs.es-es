@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 690a58a939e6866bfcdf80d05e52d7bfc7fd3586
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635610"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004360"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticación de dispositivos mediante certificados de entidades de certificación X.509
 
@@ -42,7 +42,7 @@ También puede crear un certificado autofirmado de entidad de certificación X.5
 
 Independientemente de cómo obtenga el certificado de entidad de certificación X.509, asegúrese de que la clave privada correspondiente es secreta y está protegida en todo momento.  Esto es necesario para fomentar la confianza en la autenticación con la entidad de certificación X.509. 
 
-Obtenga información sobre cómo [crear un certificado autofirmado de entidad de certificación](iot-hub-security-x509-create-certificates.md#createcerts), que puede usar para experimentación a través de la descripción de esta característica.
+Obtenga información sobre cómo [crear un certificado autofirmado de entidad de certificación](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), que puede usar para experimentación a través de la descripción de esta característica.
 
 ## <a name="sign-devices-into-the-certificate-chain-of-trust"></a>Registro de dispositivos en la cadena de certificados de confianza
 
@@ -50,7 +50,7 @@ El propietario de un certificado de entidad de certificación X.509 puede firmar
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Obtenga información aquí sobre cómo [crear una cadena de certificados](iot-hub-security-x509-create-certificates.md#createcertchain) tal y como se hace cuando se firman los dispositivos.
+Obtenga información aquí sobre cómo [crear una cadena de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) tal y como se hace cuando se firman los dispositivos.
 
 ## <a name="how-to-register-the-x509-ca-certificate-to-iot-hub"></a>Cómo registrar el certificado de entidad de certificación X.509 en IoT Hub
 

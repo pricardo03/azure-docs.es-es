@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235753"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036809"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration en registros de Azure Diagnostics y reenvío de eventos de Windows
 
@@ -47,7 +47,7 @@ Un equipo físico se puede ejecutar de forma local (o en un sitio de hospedaje).
 
 El equipo físico o la máquina virtual en que se ejecuta el servicio de Azure Log Integration precisa de conectividad de red a la nube pública de Azure. Este artículo proporciona detalles sobre la configuración que se necesita.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Como mínimo, la instalación de Azure Log Integration requiere los elementos siguientes:
 
@@ -229,6 +229,7 @@ El registro de actividad de Azure es un registro de suscripción que proporciona
     ```Azlog.exe authorize subscriptionId``` Ejemplo:
 
 ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+
 4.  Compruebe las siguientes carpetas para confirmar que se han creado los archivos JSON de registro de auditoría de Azure Active Directory en las siguientes rutas:
     - C:\Users\azlog\AzureResourceManagerJson
     - C:\Users\azlog\AzureResourceManagerJsonLD

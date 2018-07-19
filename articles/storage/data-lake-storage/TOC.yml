@@ -44,12 +44,12 @@
       href: use-hdi-cluster.md
     - name: Uso de la CLI del sistema de archivos de Hadoop con Data Lake Storage Gen2
       href: use-hdfs-data-lake-storage.md
-    - name: Introducir datos
+    - name: Introducción de datos
       items:
         - name: Copia de datos en Data Lake Storage Gen2 con Distcp
           href: use-distcp.md
         - name: Copia de datos en Data Lake Storage Gen2 con Azure Data Factory
-          href: ../../data-factory/load-azure-data-lake-storage-gen2.md
+          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
     - name: Conexión a Azure Databricks
       href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
 - name: Referencia

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ff1f6fcae1d21d47b5ee0263b4e038287a588991
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048478"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008236"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Profundización: análisis avanzado
 
@@ -85,7 +85,7 @@ Como parte de HDInsight, puede crear un clúster de HDInsight con [ML Services](
 
 ### <a name="spark-and-deep-learning"></a>Spark y aprendizaje profundo
 
-El [aprendizaje profundo](https://www.microsoft.com/research/group/dltc/) es una rama del aprendizaje automático que utiliza *redes neurales profundas* (DNN), inspiradas por los procesos biológicos del cerebro humano. Muchos investigadores ven el aprendizaje profundo como un enfoque prometedor para la inteligencia artificial. Algunos ejemplos del aprendizaje profundo son los intérpretes automáticos de idiomas, los sistemas de reconocimiento de imágenes y el razonamiento automático. Con el fin de realizar avances en su trabajo de aprendizaje profundo, Microsoft ha desarrollado el kit de herramientas [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) de código abierto, gratuito y fácil de usar. Actualmente, una amplia variedad de productos de Microsoft, compañías de todo el mundo con necesidad de implementar el aprendizaje profundo a escala y estudiantes interesados en los algoritmos y las técnicas más recientes usan de forma exhaustiva el kit de herramientas. 
+El [aprendizaje profundo](https://www.microsoft.com/research/group/dltc/) es una rama del aprendizaje automático que utiliza *redes neurales profundas* (DNN), inspiradas por los procesos biológicos del cerebro humano. Muchos investigadores ven el aprendizaje profundo como un enfoque prometedor para la inteligencia artificial. Algunos ejemplos del aprendizaje profundo son los intérpretes automáticos de idiomas, los sistemas de reconocimiento de imágenes y el razonamiento automático. Con el fin de realizar avances en su trabajo de aprendizaje profundo, Microsoft ha desarrollado el kit de herramientas [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) de código abierto, gratuito y fácil de usar. Actualmente, una amplia variedad de productos de Microsoft, compañías de todo el mundo con necesidad de implementar el aprendizaje profundo a escala y estudiantes interesados en los algoritmos y las técnicas más recientes usan de forma exhaustiva el kit de herramientas. 
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>Escenario: puntuación de imágenes para identificar patrones de desarrollo urbano
 

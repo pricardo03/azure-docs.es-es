@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855531"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049091"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
 
@@ -58,8 +58,8 @@ Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. A
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
-* [Restablecimiento o modificación de la contraseña](../active-directory-passwords-update-your-own-password.md)
-* [Registro para el autoservicio de restablecimiento de contraseñas](../active-directory-passwords-reset-register.md)
+* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md)
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)

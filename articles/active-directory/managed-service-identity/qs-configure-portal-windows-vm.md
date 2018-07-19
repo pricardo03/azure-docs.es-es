@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901364"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035948"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configuración de Managed Service Identity (MSI) en una máquina virtual con Azure Portal
 
@@ -32,7 +32,7 @@ En este artículo, aprenderá a habilitar y deshabilitar la identidad asignada p
 > [!NOTE]
 > Actualmente, las operaciones de identidades asignadas por el usuario no se admiten mediante Azure Portal. Compruebe si hay actualizaciones. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md).
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -59,7 +59,7 @@ Para habilitar la identidad asignada por el sistema en una máquina virtual que 
     > [!NOTE]
     > La incorporación de una identidad asignada por el usuario a una máquina virtual no se admite a través de Azure Portal.
 
-   ![Captura de pantalla de la página de configuración](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Captura de pantalla de la página de configuración](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Eliminación de Managed Service Identity de una máquina virtual de Azure
 
@@ -74,7 +74,7 @@ Si tiene una máquina virtual que ya no necesita la identidad asignada por el si
     > [!NOTE]
     > La incorporación de una identidad asignada por el usuario a una máquina virtual no se admite a través de Azure Portal.
 
-   ![Captura de pantalla de la página de configuración](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Captura de pantalla de la página de configuración](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Contenido relacionado
 

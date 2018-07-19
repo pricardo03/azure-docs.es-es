@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313520"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38764729"
 ---
 Hay varios motivos que le pueden impedir iniciar o conectar con una aplicación que se ejecuta en una máquina virtual de Azure. Entre ellos se incluyen situaciones como que la aplicación no se esté ejecutando o no esté a la escucha en los puertos esperados, que el puerto de escucha esté bloqueado o que las reglas de redes no estén pasando el tráfico correctamente a la aplicación. En este artículo se describe un enfoque metódico para buscar y corregir el problema.
 

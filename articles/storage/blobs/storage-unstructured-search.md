@@ -2,19 +2,19 @@
 title: Búsqueda de datos no estructurados en almacenamiento en la nube de Azure
 description: Búsqueda de datos no estructurados mediante Azure Search.
 author: roygara
-manager: timlt
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/12/2017
-ms.author: rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 930b735eb03aea6ce701b694ca527049b4c3f24d
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e50ff3b3a53a13d1604fcb7872853d758259ff9f
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23451642"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136543"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Búsqueda de datos no estructurados en almacenamiento en la nube
 
@@ -36,7 +36,7 @@ Dispone de un conjunto de datos de ejemplo que se ha preparado para usted. **Des
 
 El ejemplo consta de los archivos de texto obtenidos de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Puede usarlos como archivos de texto de ejemplo para realizar búsquedas con Azure.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en [Azure Portal](http://portal.azure.com).
 
@@ -179,7 +179,7 @@ Los parámetros de su índice y los atributos que asigne a esos parámetros son 
 La columna **Nombre de campo** contiene los parámetros. En la tabla siguiente se proporciona una lista de los atributos disponibles y sus descripciones.
 
 ### <a name="field-attributes"></a>Atributos de campo
-| Atributo | Description |
+| Atributo | DESCRIPCIÓN |
 | --- | --- |
 | *Clave* |Una cadena que proporciona el identificador único de cada documento, que se usa para buscar los documentos. Todos los índices deben tener una clave. Solo un campo puede ser la clave y se debe establecer su tipo en Edm.String. |
 | *Retrievable* |Establece si el campo se puede devolver en un resultado de búsqueda. |

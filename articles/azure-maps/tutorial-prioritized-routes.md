@@ -1,20 +1,20 @@
 ---
 title: Rutas múltiples con Azure Maps | Microsoft Docs
 description: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ea68c70befde1922fc30d06386a2ae326460c722
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ca46ecb8f0cce2ff8c749016eb3ad1ac7df7cf
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601418"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988976"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -26,7 +26,7 @@ En este tutorial se muestra cómo usar la cuenta de Azure Maps y servicio de rut
 > * Crear consultas de ruta que declaran el modo de desplazamiento
 > * Mostrar varias rutas en el mapa
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de continuar, siga los pasos del primer tutorial para la [Creación de una cuenta de Azure Maps](./tutorial-search-location.md#createaccount) y la [Obtención de la clave de suscripción de la cuenta](./tutorial-search-location.md#getkey). 
 

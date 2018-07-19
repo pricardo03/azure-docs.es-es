@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 332bfba0664391b6126669c4c89e38d1af4cf4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b4358d1ccffd31d1f347f1872237620bee081251
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30265091"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989366"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Requisitos previos y lista de comprobación de ExpressRoute
 Para conectarse a Microsoft Cloud Services con ExpressRoute, debe comprobar que se han cumplido los requisitos enumerados en las secciones siguientes.
@@ -65,6 +65,6 @@ Si tiene pensado habilitar Dynamics 365 en ExpressRoute, revise los siguientes d
 * Encuentre un proveedor de conectividad ExpressRoute. Consulte [Asociados de ExpressRoute de Azure y ubicaciones de emparejamiento](expressroute-locations.md).
 * Consulte los requisitos de [enrutamiento](expressroute-routing.md), [NAT](expressroute-nat.md) y [QoS](expressroute-qos.md).
 * Configure su conexión ExpressRoute.
-  * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
-  * [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
-  * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
+  * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-arm.md)
+  * [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
+  * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md)

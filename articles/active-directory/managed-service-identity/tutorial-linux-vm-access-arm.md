@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 690775bb2ff0d5ee16ec5d7f1869c4f23b3745ad
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 60a15c69f1ec748e366697640707804565245cea
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900922"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001592"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Uso de una identidad de servicio administrada con una máquina virtual Linux para acceder a Azure Resource Manager
 
@@ -32,7 +32,7 @@ Este tutorial muestra cómo habilitar Managed Service Identity (MSI) para una m�
 > * Concesión a una máquina virtual de acceso a un grupo de recursos en Azure Resource Manager 
 > * Obtención de un token de acceso mediante la identidad de máquina virtual y su uso para llamar a Azure Resource Manager 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -50,7 +50,7 @@ En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
 3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
 
-    ![Texto alternativo de imagen](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Elija una **Suscripción** para la máquina virtual en la lista desplegable.
 5. Para seleccionar un nuevo **Grupo de recursos** en el que desearía crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
@@ -65,7 +65,7 @@ Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azu
 3. Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No.
 4. No olvide hacer clic en **Guardar** para guardar la configuración.
 
-    ![Texto alternativo de imagen](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Concesión a una máquina virtual de acceso a un grupo de recursos en Azure Resource Manager 
 
@@ -79,7 +79,7 @@ Con MSI, el código puede obtener tokens de acceso para autenticarse en los recu
 6. A continuación, asegúrese de que la suscripción adecuada aparece en la lista desplegable **Suscripción**. Y en **Grupo de recursos**, seleccione **Todos los grupos de recursos**.
 7. Por último, en **Seleccionar**, elija la máquina virtual Linux en la lista desplegable y haga clic en **Guardar**.
 
-    ![Texto alternativo de imagen](../media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
+    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Obtenga un token de acceso con la identidad de la máquina virtual y úselo para llamar a Resource Manager 
 

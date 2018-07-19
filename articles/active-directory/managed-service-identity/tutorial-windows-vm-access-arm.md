@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7466c3ca87ed47b6d7dfe3d725197d3a6027fdf9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901024"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006971"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Uso de una identidad de servicio administrada (MSI) en una máquina virtual Windows para acceder a Resource Manager
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo habilitar Managed Service Identity (MSI) para 
 > * Concesión a una máquina virtual de acceso a un grupo de recursos en Azure Resource Manager 
 > * Obtención de un token de acceso mediante la identidad de máquina virtual y su uso para llamar a Azure Resource Manager
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -52,7 +52,7 @@ En este tutorial, se crea una nueva máquina virtual Windows.  También puede ha
 5.  Para seleccionar un nuevo **grupo de recursos** en el que crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
 6.  Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). En la página de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
 
-    ![Texto alternativo de imagen](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitación de MSI en la máquina virtual 
 
@@ -62,7 +62,7 @@ Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azu
 2.  En la barra de navegación de la izquierda, haga clic en **Configuración**. 
 3.  Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No. 
 4.  No olvide hacer clic en **Guardar** para guardar la configuración.  
-    ![Texto alternativo de imagen](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Concesión de acceso a la máquina virtual a un grupo de recursos en Resource Manager
 Con MSI, el código puede obtener tokens de acceso para autenticarse en los recursos que admitan la autenticación de Azure AD.  Azure Resource Manager admite la autenticación de Azure AD.  En primer lugar, es necesario conceder acceso a la identidad de esta máquina virtual a un recurso de Resource Manager, en este caso, al grupo de recursos que contiene la máquina virtual.  
@@ -75,7 +75,7 @@ Con MSI, el código puede obtener tokens de acceso para autenticarse en los recu
 6.  A continuación, asegúrese de que la suscripción adecuada aparece en la lista desplegable **Suscripción**. Y en **Grupo de recursos**, seleccione **Todos los grupos de recursos**. 
 7.  Por último, en **Seleccionar**, elija la máquina virtual Windows en la lista desplegable y haga clic en **Guardar**.
 
-    ![Texto alternativo de imagen](../media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+    ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Obtención de un token de acceso mediante la identidad de máquina virtual y su uso para llamar a Azure Resource Manager 
 

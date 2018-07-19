@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e16f1ae28f2212d0cec61368a2fba946d48fd811
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643345"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006291"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Administración de consumo y carga de recursos en Service Fabric con métricas
 *Métricas* son los recursos por los que se interesan sus servicios y que proporcionan los nodos del clúster. Una métrica es cualquier cosa que debe administrar para mejorar o supervisar el rendimiento de los servicios. Por ejemplo, podría observar el consumo de memoria para saber si el servicio está sobrecargado. Otro uso es averiguar si el servicio se podría mover a cualquier otro lugar en el que la memoria esté menos restringida, para poder obtener un mejor rendimiento.
@@ -35,9 +35,9 @@ Supongamos que desea empezar a escribir e implementar un servicio. En este momen
 
 | Métrica | Carga de instancia sin estado | Carga secundaria con estado | Carga principal con estado | Peso |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |0 |
-| ReplicaCount |0 |1 |1 |0 |
-| Recuento |1 |1 |1 |0 |
+| PrimaryCount |0 |0 |1 |Alto |
+| ReplicaCount |0 |1 |1 |Mediano |
+| Recuento |1 |1 |1 |Bajo |
 
 
 Para cargas de trabajo básicas, las métricas predeterminadas proporcionan una distribución apropiada del trabajo en el clúster. En el siguiente ejemplo, vamos a ver lo que sucede cuando se crean dos servicios y se confía en las métricas predeterminadas para mantener el equilibrio. El primero es un servicio con estado con tres particiones y un conjunto de tres réplicas de destino. El segundo es un servicio sin estado con una partición y un recuento de instancias de tres.

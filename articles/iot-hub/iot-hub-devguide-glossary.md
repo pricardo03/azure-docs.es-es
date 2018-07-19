@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960498"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125934"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -121,7 +121,7 @@ La administración de dispositivos abarca el ciclo de vida completo asociado a l
 [IoT Hub](#iot-hub) permite patrones comunes de administración de dispositivos incluidos el reinicio, el restablecimiento de fábrica y las actualizaciones de firmware de los dispositivos.
 
 ## <a name="device-rest-api"></a>API REST de dispositivos
-Puede usar la [API REST de dispositivos](https://docs.microsoft.com/rest/api/iothub/device/device) desde un dispositivo para enviar mensajes del dispositivo a la nube a IoT Hub y recibir mensajes [de la nube al dispositivo](#cloud-to-device) desde una instancia de IoT Hub. Por lo general, debería usar uno de los [SDK de dispositivos](#azure-iot-device-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
+Puede usar la [API REST de dispositivos](https://docs.microsoft.com/rest/api/iothub/device) desde un dispositivo para enviar mensajes del dispositivo a la nube a IoT Hub y recibir mensajes [de la nube al dispositivo](#cloud-to-device) desde una instancia de IoT Hub. Por lo general, debería usar uno de los [SDK de dispositivos](#azure-iot-device-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
 
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
 El aprovisionamiento de dispositivos es el proceso de agregar los [datos del dispositivo](#device-data) iniciales a los almacenes de la solución. Para habilitar un nuevo dispositivo y que se conecte al centro, debe agregar un nuevo identificador de dispositivo y claves al [registro de identidades](#identity-registry) del centro de IoT. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución.
@@ -225,7 +225,7 @@ Configure [reglas de enrutamiento](iot-hub-devguide-messages-read-custom.md) en 
 SASL PLAIN es un protocolo que el protocolo [AMQP](#advanced-message-queue-protocol) utiliza para transferir tokens de seguridad.
 
 ## <a name="service-rest-api"></a>API de REST de servicio
-Puede usar la [API REST de servicio](https://docs.microsoft.com/rest/api/iothub/service/service) en el back-end de la solución para administrar sus dispositivos. La API le permite recuperar y actualizar las propiedades del [dispositivo gemelo](#device-twin), invocar [métodos directos](#direct-method) y programar [trabajos](#job). Por lo general, debería usar uno de los [SDK de servicios](#azure-iot-service-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
+Puede usar la [API REST de servicio](https://docs.microsoft.com/rest/api/iothub/service) en el back-end de la solución para administrar sus dispositivos. La API le permite recuperar y actualizar las propiedades del [dispositivo gemelo](#device-twin), invocar [métodos directos](#direct-method) y programar [trabajos](#job). Por lo general, debería usar uno de los [SDK de servicios](#azure-iot-service-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
 
 ## <a name="shared-access-signature"></a>Firma de acceso compartido
 Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado en valores hash seguros SHA-256 o en URI. La autenticación de SAS tiene dos componentes: una _directiva de acceso compartido_ y una _firma de acceso compartido_ (a menudo denominada token). Un dispositivo utiliza SAS para autenticarse con un centro de IoT. Las [aplicaciones de back-end](#back-end-app) también utilizan SAS para autenticarse con los puntos de conexión accesibles desde servicios en un centro de IoT. Normalmente, se incluye el token de SAS en la [cadena de conexión](#connection-string) que una aplicación usa para establecer una conexión con un centro de IoT.

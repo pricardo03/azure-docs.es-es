@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: fb67d1eea588d96129c4b58a8c1b2f569c9663bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904414"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049344"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de una identidad administrada en una máquina virtual Linux para acceder a Azure Storage 
 
@@ -38,7 +38,7 @@ Este tutorial muestra cómo crear y usar una identidad administrada en una máqu
 > [!NOTE]
 > La autenticación de Azure Active Directory para Azure Storage está en versión preliminar pública.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com) antes de continuar.
 
@@ -61,7 +61,7 @@ En esta sección, creará una máquina virtual Linux a la que más tarde se conc
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
 3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
 
-   ![Panel "Básico" para crear una máquina virtual](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Panel "Básico" para crear una máquina virtual](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. En la lista **Suscripción**, seleccione una suscripción para la máquina virtual.
 5. Para seleccionar un nuevo grupo de recursos en el que desea crear la máquina virtual, seleccione **Grupo de recursos** > **Crear nuevo**. Cuando termine, seleccione **Aceptar**.
@@ -87,7 +87,7 @@ En esta sección se creará una cuenta de almacenamiento.
 5. Asegúrese de que **Suscripción** y **Grupo de recursos** coinciden con los que especificó cuando creó la máquina virtual en el paso anterior.
 6. Haga clic en **Create**(Crear).
 
-    ![Creación de una nueva cuenta de almacenamiento](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Creación de una nueva cuenta de almacenamiento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Creación de un contenedor de blobs y carga de un archivo a la cuenta de almacenamiento
 
@@ -98,14 +98,14 @@ Los archivos requieren almacenamiento de blobs, por lo que es necesario crear un
 3. Haga clic en **+ Contenedor** en la parte superior de la página.
 4. En **Nuevo contenedor**, escriba un nombre para el contenedor, y mantenga el valor predeterminado en **Nivel de acceso público**.
 
-    ![Creación de contenedores de almacenamiento](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Creación de contenedores de almacenamiento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Elija un editor de su preferencia y cree un archivo denominado *hello world.txt* en la máquina local.  Abra el archivo y agregue el texto (sin comillas) "Hola mundo :)" y guárdelo. 
 
 6. Para cargar el archivo en el contenedor recién creado, haga clic en el nombre del contenedor y en **Cargar**.
 7. En el panel **Carga de blob**, en **Archivos**, haga clic en el icono de carpeta y vaya al archivo **hello_world.txt** en la máquina virtual, selecciónelo y haga clic en **Cargar**.
 
-    ![Carga de un archivo de texto](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Carga de un archivo de texto](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concesión de acceso a un contenedor de Azure Storage para la máquina virtual 
 

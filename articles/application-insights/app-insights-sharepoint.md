@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992544"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Supervisión de un sitio de SharePoint con Application Insights
 Azure Application Insights le permite supervisar la disponibilidad, el rendimiento y el uso de sus aplicaciones. Aquí aprenderá a configurarlo para un sitio de SharePoint.
@@ -33,7 +34,7 @@ En la ventana que se abre podrá ver los datos de uso y rendimiento acerca de la
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -83,18 +84,6 @@ Los primeros eventos aparecerán en la búsqueda.
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Si espera más datos, haga clic en Actualizar después de unos segundos.
-
-En la hoja de introducción, haga clic en **Análisis de uso** para ver a los gráficos de los usuarios, sesiones y vistas de páginas:
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Haga clic en cualquier gráfico para ver más detalles: por ejemplo, Vistas de página:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-O Usuarios:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>Captura del identificador de usuario
 El fragmento de código de una página web estándar no captura el identificador de usuario de SharePoint, pero una pequeña modificación le permitirá hacerlo.

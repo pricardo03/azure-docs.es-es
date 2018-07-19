@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1fd426a7d1adfa9a09a4b1f9c6580fcd35c9683c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7c792511616502a7ce83ac1a240d449efe547df5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226143"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integración de Azure Active Directory con itslearning
 
@@ -33,7 +33,7 @@ La integración de itslearning con Azure AD le proporciona las siguientes ventaj
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con itslearning, necesita los siguientes elementos:
 
@@ -207,7 +207,7 @@ Al hacer clic en el icono de itslearning del Panel de acceso, debería entrar en
 
   ![Inicio de sesión](./media/itslearning-tutorial/login.png)
 
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

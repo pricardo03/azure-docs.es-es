@@ -7,27 +7,27 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.component: translator-speech
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 29722b3fa7fe61aff0b2406002453020d999ea41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380551"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124834"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Guía de inicio rápido para Microsoft Translator Speech API con Python 
 <a name="HOLTop"></a>
 
 En este artículo se muestra cómo usar Microsoft Translator Speech API para traducir palabras habladas en un archivo .wav.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener [Python.js 3.x](https://www.python.org/downloads/) para ejecutar este código.
 
 Debe instalar el [paquete websocket-client](https://pypi.python.org/pypi/websocket-client) para Python.
 
-Necesitará un archivo .wav llamado "speak.wav" en la misma carpeta que el ejecutable que compile con el código siguiente. Este archivo .wav debe estar en PCM estándar, formato mono de 16 bits, a 16 kHz. Puede obtener un archivo .wav en [Translator Text Speak API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+Necesitará un archivo .wav llamado "speak.wav" en la misma carpeta que el ejecutable que compile con el código siguiente. Este archivo .wav debe estar en PCM estándar, formato mono de 16 bits, a 16 kHz.
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Microsoft Translator Speech API**. Se requiere una clave de suscripción de pago del [panel de Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

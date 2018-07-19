@@ -1,19 +1,19 @@
 ---
 title: Recepción de alertas de registro de actividad en las notificaciones del servicio de Azure
 description: Reciba notificaciones por SMS, correo electrónico o webhook cuando se produzcan eventos en el servicio de Azure.
-author: johnkemnetz
+author: shawntabrizi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
-ms.author: johnkem
+ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 1e79fee75b2361dd7da8c46c175a5a6532089ad6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1cd82f7ffa9360dbc35f9c9d790df34355d9dd1a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437246"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035720"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creación de alertas del registro de actividad en notificaciones del servicio
 ## <a name="overview"></a>Información general

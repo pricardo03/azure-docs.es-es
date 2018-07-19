@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: ed1aff411ae5446688fe717ddc4570ea756c4c1e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904278"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005652"
 ---
 # <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Tutorial: Uso de Managed Service Identity de máquina virtual Windows para acceder a Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Este tutorial le muestra cómo crear y utilizar una identidad de servicio admini
 > * Obtener un token de acceso mediante la identidad de servicio administrada de máquina virtual Windows y usarlo para llamar a Azure Resource Manager
 > * Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -56,7 +56,7 @@ En este tutorial, se crea una nueva máquina virtual Windows.  También puede ha
 5. Para seleccionar un nuevo **grupo de recursos** en el que crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
 6. Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). En la página de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
 
-   ![Texto alternativo de imagen](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitación de MSI en la máquina virtual 
 
@@ -66,7 +66,7 @@ Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azu
 2. En la barra de navegación de la izquierda, haga clic en **Configuración**. 
 3. Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No. 
 4. No olvide hacer clic en **Guardar** para guardar la configuración.  
-   ![Texto alternativo de imagen](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Creación de una cuenta de Cosmos DB 
 

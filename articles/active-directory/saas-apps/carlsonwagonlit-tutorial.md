@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jeedes
-ms.openlocfilehash: f8dff92f8ff8596d8f2293948585328b8ce2d578
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b1854b8e2c05fb2bcc5bd864c9ed8049250743b8
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225412"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutorial: Integración de Azure Active Directory con Carlson Wagonlit Travel
 
@@ -34,7 +34,7 @@ La integración de Carlson Wagonlit Travel con Azure AD proporciona las siguient
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Carlson Wagonlit Travel, necesita los siguientes elementos:
 
@@ -197,7 +197,7 @@ En esta sección, habilitará a Britta Simon para usar el inicio de sesión úni
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Carlson Wagonlit Travel del panel de acceso, debería iniciar sesión automáticamente en su aplicación Carlson Wagonlit Travel.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

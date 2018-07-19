@@ -8,20 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6e92eed5e4083c9b8063318b2a9139e20f53de1a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: fa1c42a7bb9a06b2ea790e883ec7da6caa41d6b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011963"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Operaciones de sistema de archivos en Azure Data Lake Store con Python
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
+> * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
 > * [API de REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 
 Con este artículo aprenderá a utilizar el SDK de Python para realizar operaciones de sistema de archivos en Azure Data Lake Store. Para instrucciones sobre cómo realizar operaciones de administración de cuentas en Data Lake Store con Python, consulte [Operaciones de administración de cuentas en Azure Data Lake Store con Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
@@ -131,6 +130,6 @@ El siguiente fragmento de código crea primero el cliente de la cuenta de Data L
 * [Operaciones de administración de cuentas en Azure Data Lake Store con Python](data-lake-store-get-started-python.md).
 
 ## <a name="see-also"></a>Otras referencias
-* [Referencia de Azure Data Lake Store con Python (administración de cuentas)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+
 * [Referencia de Azure Data Lake Store con Python (sistema de archivos)](http://azure-datalake-store.readthedocs.io/en/latest)
 * [Abrir aplicaciones Big Data de origen que funcionan con el Almacén de Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 7f54877f9218cbb0c2ac8cca86c580b7f1aa6c83
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869757"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054818"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -281,8 +281,8 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
-* [Restablecimiento o modificación de la contraseña](../active-directory-passwords-update-your-own-password.md)
-* [Registro para el autoservicio de restablecimiento de contraseñas](../active-directory-passwords-reset-register.md)
+* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md)
 * [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)

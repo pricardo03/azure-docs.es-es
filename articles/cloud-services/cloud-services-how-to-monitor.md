@@ -3,7 +3,7 @@ title: Supervisión de un servicio en la nube de Azure | Microsoft Docs
 description: Se describe qué conlleva la supervisión de un servicio en la nube de Azure y cuáles son algunas de las opciones.
 services: cloud-services
 documentationcenter: ''
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: adegeo
-ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: jeconnoc
+ms.openlocfilehash: 725a705f746bbf5e32fcc410ba4153ac29e3fc3d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29149913"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003860"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introducción a la supervisión de servicios en la nube
 
@@ -98,7 +98,7 @@ Si publica el servicio en la nube desde Visual Studio, se le ofrece la opción d
 Tenga en cuenta que, aunque puede usar Application Insights para mostrar los contadores de rendimiento (y otra configuración) especificados mediante la extensión de Microsoft Azure Diagnostics, solo podrá disfrutar de una experiencia mejorada con la integración del SDK de Application Insights en los roles web y de trabajo.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Información sobre Application Insights con Cloud Services](../application-insights/app-insights-cloudservices.md)
 - [Configuración de contadores de rendimiento](diagnostics-performance-counters.md)

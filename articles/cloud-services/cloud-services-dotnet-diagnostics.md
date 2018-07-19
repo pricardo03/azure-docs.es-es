@@ -3,7 +3,7 @@ title: Cómo usar Diagnósticos de Azure (.NET) con Cloud Services | Microsoft D
 description: Use Diagnósticos de Azure para recopilar datos de los Servicios en la nube de Azure para realizar tareas de depuración, medición de rendimiento, supervisión, análisis de tráfico y más.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: adegeo
-ms.openlocfilehash: a8d6b16fa363062e06d48bfc5af2ca37697d5cd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: jeconnoc
+ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29460906"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003068"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitación de diagnósticos de Azure en Azure Cloud Services
 Consulte [Introducción a Diagnósticos de Azure](../azure-diagnostics.md) para obtener información sobre Diagnósticos de Azure.
@@ -27,7 +27,7 @@ Consulte [Introducción a Diagnósticos de Azure](../azure-diagnostics.md) para 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Habilitación de Diagnósticos en un rol de trabajo
 En este tutorial se describe cómo implementar un rol de trabajo de Azure que emite datos de telemetría mediante la clase EventSource de .NET. Diagnósticos de Azure se usa para recopilar datos de telemetría y almacenarla en una cuenta de almacenamiento de Azure. Al crear un rol de trabajo, Visual Studio habilita automáticamente Diagnósticos 1.0 como parte de la solución en los SDK de Azure para .NET 2.4, y las versiones anteriores. En las instrucciones siguientes se describe el proceso para crear el rol de trabajo, deshabilitar Diagnósticos 1.0 de la solución e implementar Diagnósticos 1.2 o 1.3 en el rol de trabajo.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que tiene una suscripción a Azure y usa Visual Studio con Azure SDK. Si no tiene una suscripción de Azure, puede registrarse para obtener una [prueba gratuita][Free Trial]. Asegúrese de [instalar y configurar Azure PowerShell versión 0.8.7 o posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Paso 1: crear roles de trabajo

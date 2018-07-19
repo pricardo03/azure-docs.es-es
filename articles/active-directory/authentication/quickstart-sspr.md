@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870029"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057368"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementación rápida del autoservicio de restablecimiento de contraseña de Azure AD
 
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** En este caso, consulte la [ayuda para restablecer la contraseña de Azure AD](../active-directory-passwords-update-your-own-password.md).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** En este caso, consulte la [ayuda para restablecer la contraseña de Azure AD](../user-help/active-directory-passwords-update-your-own-password.md).
 
 El autoservicio de restablecimiento de contraseña (SSPR) ofrece un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan o desbloqueen sus cuentas o contraseñas. El sistema incluye informes detallados del seguimiento de acceso de los usuarios al sistema, además de notificaciones de alerta de posibles abusos o usos indebidos.
 
-En esta guía se da por hecho que ya dispone de un inquilino de Azure Active Directory (Azure AD) con licencia o una prueba operativa. Si necesita ayuda para configurar Azure AD, consulte el artículo de [introducción a Azure AD](../get-started-azure-ad.md).
+En esta guía se da por hecho que ya dispone de un inquilino de Azure Active Directory (Azure AD) con licencia o una prueba operativa. Si necesita ayuda para configurar Azure AD, consulte el artículo de [introducción a Azure AD](../fundamentals/get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Habilitación de SSPR para el inquilino de Azure AD
 
@@ -62,7 +62,7 @@ En esta guía se da por hecho que ya dispone de un inquilino de Azure Active Dir
    * Notificar a los usuarios el restablecimiento de contraseña.
    * Notificar a todos los administradores cuando otros administradores restablezcan su contraseña.
 
-Llegados a este punto, ya ha configurado SSPR para su inquilino de Azure AD. Los usuarios ahora pueden usar las instrucciones de los artículos [Registro para restablecer la contraseña de autoservicio](../active-directory-passwords-reset-register.md) y [Restablecimiento o cambio de la contraseña](../active-directory-passwords-update-your-own-password.md) para actualizar su contraseña sin intervención del administrador. Puede detenerse aquí si está solo en la nube. O bien, continuar con la sección siguiente para configurar la sincronización de contraseñas para un dominio de Active Directory local.
+Llegados a este punto, ya ha configurado SSPR para su inquilino de Azure AD. Los usuarios ahora pueden usar las instrucciones de los artículos [Registro para restablecer la contraseña de autoservicio](../user-help/active-directory-passwords-reset-register.md) y [Restablecimiento o cambio de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md) para actualizar su contraseña sin intervención del administrador. Puede detenerse aquí si está solo en la nube. O bien, continuar con la sección siguiente para configurar la sincronización de contraseñas para un dominio de Active Directory local.
 
 > [!TIP]
 > Pruebe SSPR con un usuario en lugar de con un administrador, ya que Microsoft impone requisitos de autenticación estrictos para las cuentas de administrador de Azure. Para más información acerca de la directiva de contraseñas de administrador, consulte nuestro artículo sobre la [directiva de contraseñas](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -95,8 +95,8 @@ Deshabilitar el autoservicio de restablecimiento de contraseña es fácil. Abra 
 En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
-* [Restablecimiento o modificación de la contraseña](../active-directory-passwords-update-your-own-password.md)
-* [Registro para el autoservicio de restablecimiento de contraseñas](../active-directory-passwords-reset-register.md)
+* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md)
 * [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)

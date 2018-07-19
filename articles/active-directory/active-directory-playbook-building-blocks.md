@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451706"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049476"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -157,7 +157,7 @@ Tiempo aproximado para completarlo: 60 minutos
 | Siga las instrucciones para configurar ServiceNow. |  |
 | En la hoja "Aprovisionamiento" de la aplicación ServiceNow, habilite el aprovisionamiento "Automático". | [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el nuevo Azure Portal](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Espere unos minutos mientras se completa el aprovisionamiento.  Mientras tanto, puede consultar los informes de aprovisionamiento. |  |
-| Inicie sesión en https://myapps.microsoft.com/ como un usuario de prueba que tiene acceso. | [¿Qué es el Panel de acceso?](active-directory-saas-access-panel-introduction.md) |
+| Inicie sesión en https://myapps.microsoft.com/ como un usuario de prueba que tiene acceso. | [¿Qué es el Panel de acceso?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Haga clic en el icono de la aplicación que acaba de crear. Confirme el acceso |  |
 | Si lo desea, puede consultar los informes de uso de la aplicación. Tenga en cuenta que hay cierta latencia, por lo que es necesario esperar un poco para ver el tráfico en los informes. | [Informes de actividad de inicio de sesión en el portal de Azure Active Directory: Uso de las aplicaciones administradas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Directivas de retención de informes de Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -188,8 +188,8 @@ Tiempo aproximado para completarlo: 15 minutos
 | Configure la contraseña de SSO. | [Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal: Inicio de sesión con contraseña](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Asigne la aplicación al grupo identificado en los requisitos previos. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Inicie sesión en https://myapps.microsoft.com/ como un usuario de prueba que tiene acceso. |  |
-| Haga clic en el icono de la aplicación que acaba de crear. | [¿Qué es el Panel de acceso?: SSO basado en contraseña sin aprovisionamiento de identidad](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Proporcione la credencial de la aplicación. | [¿Qué es el Panel de acceso?: SSO basado en contraseña sin aprovisionamiento de identidad](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Haga clic en el icono de la aplicación que acaba de crear. | [¿Qué es el Panel de acceso?: SSO basado en contraseña sin aprovisionamiento de identidad](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Proporcione la credencial de la aplicación. | [¿Qué es el Panel de acceso?: SSO basado en contraseña sin aprovisionamiento de identidad](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Cierre el explorador y repita el inicio de sesión. Esta vez, alrededor del usuario debería ver un acceso ininterrumpido a la aplicación. |  |
 | Si lo desea, puede consultar los informes de uso de la aplicación. Tenga en cuenta que hay cierta latencia, por lo que es necesario esperar un poco para ver el tráfico en los informes. | [Informes de actividad de inicio de sesión en el portal de Azure Active Directory: Uso de las aplicaciones administradas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Directivas de retención de informes de Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -308,7 +308,7 @@ Tiempo aproximado para completarlo: 10 minutos
 | Aplicación de SaaS (SSO federado o SSO de contraseña) ya configurado | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) |
 | El grupo en la nube al que se ha asignado acceso a la aplicación en el paso 1 está identificado. | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Las credenciales del propietario del grupo están disponibles. | [Administración del acceso a recursos con grupos de Azure Active Directory](fundamentals/active-directory-manage-groups.md) |
-| Las credenciales del trabajador de información que acceden a las aplicaciones estén identificadas. | [¿Qué es el Panel de acceso?](active-directory-saas-access-panel-introduction.md) |
+| Las credenciales del trabajador de información que acceden a las aplicaciones estén identificadas. | [¿Qué es el Panel de acceso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Pasos
@@ -318,7 +318,7 @@ Tiempo aproximado para completarlo: 10 minutos
 | Identifique el grupo al que se ha concedido acceso a la aplicación y configure el propietario de un determinado grupo.| [Administración de la configuración de un grupo en la versión preliminar de Azure Active Directory](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Inicie sesión como propietario del grupo, consulte la pertenencia al grupo en la pestaña de grupos del panel de acceso. | [Página de administración de grupos de Azure Active Directory](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Agregue el trabajador de información que desea probar. |  |
-| Inicie sesión como trabajador de información, confirme que el icono está disponible. | [¿Qué es el Panel de acceso?](active-directory-saas-access-panel-introduction.md) |
+| Inicie sesión como trabajador de información, confirme que el icono está disponible. | [¿Qué es el Panel de acceso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>Consideraciones
 
@@ -332,7 +332,7 @@ Si la aplicación tiene habilitado el aprovisionamiento, puede ser necesario esp
 | --- | --- |
 | Aplicación de SaaS (SSO federado o SSO de contraseña) ya configurado | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) |
 | El grupo en la nube al que se ha asignado acceso a la aplicación en el paso 1 está identificado. | Bloque de creación: [Configuración de SSO federado en SaaS](#saas-federated-sso-configuration) <br/>[Creación de un grupo y adición de miembros en Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Las credenciales del trabajador de información que acceden a las aplicaciones estén identificadas. | [¿Qué es el Panel de acceso?](active-directory-saas-access-panel-introduction.md) |
+| Las credenciales del trabajador de información que acceden a las aplicaciones estén identificadas. | [¿Qué es el Panel de acceso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Pasos
@@ -380,7 +380,7 @@ Tiempo aproximado para completarlo: 15 minutos
 
 | Requisito previo | Recursos |
 | --- | --- |
-| Habilitar la administración de contraseñas de autoservicio en el inquilino. | [Restablecimiento de contraseña de Azure Active Directory para administradores de TI](active-directory-passwords-update-your-own-password.md) |
+| Habilitar la administración de contraseñas de autoservicio en el inquilino. | [Restablecimiento de contraseña de Azure Active Directory para administradores de TI](user-help/active-directory-passwords-update-your-own-password.md) |
 | Habilitar la reescritura de contraseñas para administrar contraseñas localmente. Tenga en cuenta que esto requiere versiones específicas de Azure AD Connect | [Requisitos previos de escritura diferida de contraseñas](authentication/howto-sspr-writeback.md) |
 | Identificar a los usuarios de prueba de concepto que usarán esta funcionalidad y asegurarse de que son miembros de un grupo de seguridad. Los usuarios no deben ser administradores para mostrar completamente la funcionalidad. | [Personalización de la administración de contraseñas de Azure AD: Restringir acceso para restablecer la contraseña](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ Tiempo aproximado para completarlo: 15 minutos
 | Proporcione los datos de autoservicio de restablecimiento de contraseñas configurados en el paso 2. | https://aka.ms/ssprsetup |
 | Cierre el explorador. |  |
 | Empiece el proceso de inicio de sesión como el trabajador de información que utilizó en el paso 4. |  |
-| Restablezca la contraseña. | [Actualización de su propia contraseña: restablecimiento de mi contraseña](active-directory-passwords-update-your-own-password.md) |
+| Restablezca la contraseña. | [Actualización de su propia contraseña: restablecimiento de mi contraseña](user-help/active-directory-passwords-update-your-own-password.md) |
 | Intente iniciar sesión en Azure AD con la nueva contraseña, así como en los recursos locales. |  |
 
 ### <a name="considerations"></a>Consideraciones
@@ -428,7 +428,7 @@ Tiempo aproximado para completarlo: 10 minutos
 ### <a name="considerations"></a>Consideraciones
 
 1. Los pasos de la prueba de concepto de este bloque de creación se configuran explícitamente MFA para un usuario en todos los inicios de sesión. Hay otras herramientas como el acceso condicional y la protección de identidad que interactúan con MFA en otros escenarios. Se trata de algo que debe tener en cuenta al pasar de la prueba de concepto a producción.
-2. Los pasos de la prueba de concepto de este bloque de creación usan explícitamente las llamadas de teléfono como método de MFA para la experiencia. Al pasar de la prueba de concepto a la producción, se recomienda usar aplicaciones como [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) como segundo factor siempre que sea posible.
+2. Los pasos de la prueba de concepto de este bloque de creación usan explícitamente las llamadas de teléfono como método de MFA para la experiencia. Al pasar de la prueba de concepto a la producción, se recomienda usar aplicaciones como [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) como segundo factor siempre que sea posible.
 Más información: [Estándar DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Acceso condicional de MFA para aplicaciones SaaS
@@ -553,7 +553,7 @@ Tiempo aproximado para completarlo: 20 minutos
 | --- | --- |
 | Dispositivos con certificado de usuario aprovisionado (Windows, iOS o Android) de Enterprise PKI | [Implementar certificados de usuario](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Dominio de Azure AD federado con ADFS | [Azure AD Connect y la federación](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Información general de Servicios de certificados de Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Para dispositivos iOS, tener instalada la aplicación Microsoft Authenticator | [Introducción a la aplicación Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| Para dispositivos iOS, tener instalada la aplicación Microsoft Authenticator | [Introducción a la aplicación Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Pasos
 

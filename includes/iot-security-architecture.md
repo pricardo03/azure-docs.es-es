@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066091"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39030025"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitectura de seguridad de Internet de las cosas
 
@@ -176,7 +176,7 @@ En cada una de las categorías esbozadas en la arquitectura de IoT de Azure, en 
 
 | **Componente** | **Amenaza** | **Mitigación** | **Riesgo** | **Implementación** |
 | --- | --- | --- | --- | --- |
-| Dispositivo |S |Asignación de identidad para el dispositivo y autenticación del dispositivo |Reemplazo de dispositivo, o parte del dispositivo, por otro dispositivo. ¿Cómo se sabe que se habla al dispositivo correcto? |Autenticación del dispositivo mediante Seguridad de capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| Dispositivo |S |Asignación de identidad para el dispositivo y autenticación del dispositivo |Reemplazo de dispositivo, o parte del dispositivo, por otro dispositivo. ¿Cómo se sabe que se habla al dispositivo correcto? |Autenticación del dispositivo mediante Seguridad de capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Aplicar mecanismos a prueba de manipulaciones al dispositivo, por ejemplo, haciendo que sea casi imposible extraer claves y otro material criptográfico del dispositivo. |El riesgo es que alguien altere el dispositivo (interferencias físicas). ¿Cómo se tiene la certeza de que el dispositivo no se ha alterado? |La mitigación más eficaz es una funcionalidad de Módulo de plataforma segura (TPM) que permita almacenar claves en el conjunto de circuitos del procesador desde el que no se pueden leer las claves, solo se pueden usar para las operaciones criptográficas que utilizan la clave, pero nunca la revelan. Cifrado de la memoria del dispositivo. Administración de claves para el dispositivo. Firma del código. | |
 || E |Tener el control de acceso del dispositivo. Esquema de autorización. |Si el dispositivo permite que se realicen acciones individuales con los comandos de un origen externo o incluso sensores en peligro, permite que el ataque realice operaciones a las que no podría acceder de otra forma. |Tener el esquema de autorización del dispositivo | |
 | Puerta de enlace de campo |S |Autenticación de la puerta de enlace de campo en la puerta de enlace en la nube (como basada en certificado, PSK o basada en notificación). |Si alguien puede suplantar la identidad de la puerta de enlace de campo, puede presentarse como cualquier dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Los mismos problemas de almacenamiento de claves y atestación de los dispositivos en general (lo mejor es usar TPM). Extensión de 6LowPAN para IPSec para admitir redes de sensores inalámbricas (WSN). |

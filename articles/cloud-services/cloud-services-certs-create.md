@@ -3,7 +3,7 @@ title: Cloud Services y certificados de administración | Microsoft Docs
 description: Aprenda a crear y a usar certificados con Microsoft Azure
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: jeconnoc
+ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969209"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001446"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para Azure Cloud Services
 Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates)). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.

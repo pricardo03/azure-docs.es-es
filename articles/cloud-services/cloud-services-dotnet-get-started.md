@@ -3,7 +3,7 @@ title: Introducción a Azure Cloud Services y ASP.NET | Microsoft Docs
 description: Aprenda a crear una aplicación de varios niveles utilizando ASP.NET MVC y Azure. La aplicación se ejecuta en un servicio en la nube, con un rol web y un rol de trabajo. Utiliza Entity Framework, SQL Database y blobs y colas de Azure Storage.
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
-ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: jeconnoc
+ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860027"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003120"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -46,7 +46,7 @@ En este tutorial se muestra cómo ejecutar un front-end y un back-end en un serv
 * Carga de archivos y almacenamiento de los mismos en Azure Blob service.
 * Uso del servicio Cola de Azure para comunicación entre niveles.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se da por supuesto que comprende los [conceptos básicos sobre Azure Cloud Services](cloud-services-choose-me.md) como, por ejemplo, la terminología *rol web* y *rol de trabajo*.  También se supone que sabe trabajar con proyectos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms.
 
 Puede ejecutar la aplicación localmente sin una suscripción de Azure, pero necesitará una para implementar la aplicación en la nube. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) o [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).

@@ -3,7 +3,7 @@ title: Seguimiento del flujo en una aplicación de Cloud Services con Diagnósti
 description: Agregar mensajes de seguimiento a una aplicación de Azure para facilitar la depuración, medición del rendimiento, supervisión, análisis del tráfico y mucho más.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 09934772-cc07-4fd2-ba88-b224ca192f8e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: adegeo
-ms.openlocfilehash: 7551ae2e3a7c5f3ff6010bf34e7600da1028d67f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: jeconnoc
+ms.openlocfilehash: 2ba97e43616386a0ff8459316bfc4d3ddfe241a0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29461254"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000902"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Seguimiento del flujo en una aplicación de Cloud Services con Diagnósticos de Azure
 El seguimiento es una manera de supervisar la ejecución de la aplicación mientras se está ejecutando. Puede usar las clases [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx) y [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) para registrar información sobre errores y ejecución de la aplicaciones en registros, archivos de texto u otros dispositivos para su análisis posterior. Para obtener más información acerca del seguimiento, consulte [Seguimiento e instrumentación de aplicaciones](https://msdn.microsoft.com/library/zs6s4h68.aspx).

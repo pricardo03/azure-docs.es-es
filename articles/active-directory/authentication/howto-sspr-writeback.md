@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: fce92845591f20f7f2e9cff1a856e0904629255b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296892"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054801"
 ---
 # <a name="password-writeback-overview"></a>Información general sobre la escritura diferida de contraseñas
 
@@ -216,8 +216,8 @@ El tamaño de cada uno de los mensajes que se ha descrito anteriormente suele se
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
-* [Restablecimiento o modificación de la contraseña](../active-directory-passwords-update-your-own-password.md).
-* [Registro para el autoservicio de restablecimiento de contraseñas](../active-directory-passwords-reset-register.md).
+* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md).
 * [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)

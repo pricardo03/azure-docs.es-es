@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 380b7e8fc48b88449cf43fda92af7f9503771777
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: bd84224f4c3a8a498a296ff50190713111895472
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287231"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integración de Azure Active Directory con Procore SSO
 
@@ -33,7 +33,7 @@ La integración de Procore SSO con Azure AD le proporciona las siguientes ventaj
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Procore SSO, necesita lo siguiente:
 
@@ -254,7 +254,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). Al hacer clic en el icono de Procore SSO del panel de acceso, debería iniciar sesión automáticamente en su aplicación Procore SSO.
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). Al hacer clic en el icono de Procore SSO del panel de acceso, debería iniciar sesión automáticamente en su aplicación Procore SSO.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

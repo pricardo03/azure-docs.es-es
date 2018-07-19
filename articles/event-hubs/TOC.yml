@@ -26,6 +26,10 @@
   items:
     - name: Introducción al host del procesador de eventos
       href: event-hubs-event-processor-host.md
+    - name: Filtros de conexión de IP
+      href: event-hubs-ip-filtering.md
+    - name: Puntos de conexión del servicio Virtual Network
+      href: event-hubs-service-endpoints.md
     - name: Guía de programación
       href: event-hubs-programming-guide.md
     - name: Integración con Event Grid
@@ -54,7 +58,7 @@
       maintainContext: true
 - name: Guías de procedimientos
   items:
-    - name: Creación de un centro de eventos
+    - name: Crear un centro de eventos
       href: event-hubs-create.md
     - name: Envío de eventos mediante .NET Framework
       href: event-hubs-dotnet-framework-getstarted-send.md
@@ -150,7 +154,7 @@
     - name: Preguntas más frecuentes
       href: event-hubs-faq.md
     - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Ruta de aprendizaje
       href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
     - name: Precios

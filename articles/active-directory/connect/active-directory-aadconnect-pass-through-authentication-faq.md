@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e62117ee98b1d47600141249dcd3b17ec58a9654
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918162"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048975"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -60,7 +60,7 @@ Para que esta característica funcione, necesita la versión 1.1.486.0 o posteri
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>¿Qué ocurre si mi contraseña de usuario ha expirado y se intenta iniciar sesión mediante la autenticación de paso a través?
 
-Si ha configurado la [escritura diferida de contraseñas](../active-directory-passwords-update-your-own-password.md) para un usuario concreto y, si el usuario inicia sesión mediante la autenticación de paso a través, puede cambiar o restablecer su contraseña. La contraseña se volverá a escribir en la instancia local de Active Directory, tal como cabría esperar.
+Si ha configurado la [escritura diferida de contraseñas](../user-help/active-directory-passwords-update-your-own-password.md) para un usuario concreto y, si el usuario inicia sesión mediante la autenticación de paso a través, puede cambiar o restablecer su contraseña. La contraseña se volverá a escribir en la instancia local de Active Directory, tal como cabría esperar.
 
 Si no ha configurado la escritura diferida de contraseñas para un usuario determinado o si este no tiene una licencia válida de Azure AD asignada, el usuario no podrá actualizar la contraseña en la nube. El usuario no puede actualizar la contraseña incluso aunque haya expirado. En su lugar, verá el siguiente mensaje: "La organización no le permite actualizar la contraseña en este sitio. Actualícela de acuerdo con el método que recomienda la organización o, si necesita ayuda, póngase en contacto con el administrador". El usuario o el administrador debe restablecer su contraseña en la instancia de Active Directory local.
 

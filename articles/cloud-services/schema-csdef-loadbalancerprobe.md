@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6cd56c9b04fc4657cedf845e7f111005a8dee183
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f7b0ba3b4797149798037dee0188850eff6baf1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360060"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003295"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services
 El sondeo del equilibrador de carga es un sondeo de mantenimiento definido por el cliente de los puntos de conexión UDP y los puntos de conexión de las instancias de rol. El elemento `LoadBalancerProbe` no es un elemento independiente; se combina con el rol web o el rol de trabajo en un archivo de definición de servicio. Un elemento `LoadBalancerProbe` se puede usar en más de un rol.
@@ -59,7 +59,7 @@ El elemento `LoadBalancerProbe` define el sondeo de mantenimiento de un modelo. 
 
 En la tabla siguiente se describen los atributos del elemento `LoadBalancerProbe`:
 
-|Atributo|Escriba|DESCRIPCIÓN|
+|Atributo|type|DESCRIPCIÓN|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Necesario. El nombre del sondeo del equilibrador de carga. El nombre debe ser único.|
 | `protocol`          | `string` | Necesario. Especifica el protocolo del punto de conexión. Los valores posibles son `http` o `tcp`. Si se especifica `tcp`, se es necesario recibir una confirmación para que el sondeo se realice correctamente. Si se especifica `http`, se necesita una respuesta 200 OK del URI especificado para que el sondeo se realice correctamente.|

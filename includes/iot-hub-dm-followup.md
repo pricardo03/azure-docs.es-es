@@ -18,6 +18,6 @@ Para información sobre cómo ampliar la solución de IoT y programar llamadas d
 
 Para continuar con la introducción a IoT Hub, consulte [Introducción IoT Edge][lnk-iot-edge].
 
-[lnk-fwupdate]: ../articles/iot-hub/iot-hub-node-node-firmware-update.md
+[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
 [lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
 [lnk-iot-edge]: ../articles/iot-edge/tutorial-simulate-device-linux.md

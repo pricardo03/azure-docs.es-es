@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: garye
 ms.reviewer: gibattag
-ms.openlocfilehash: 3697dd0628f0028cb486139e92c032f0d757c6ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ed5f19b23375ecb83e19274c7405e9a1208a7985
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380887"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036165"
 ---
 # <a name="create-a-cognitive-services-apis-account-in-the-azure-portal"></a>Creación de una cuenta de Cognitive Services APIs en Azure Portal
 
@@ -73,6 +73,6 @@ Para obtener más información sobre todos los servicios disponibles de Microsof
 
 Para ver las guías de inicio rápido y obtener algunos ejemplos de Cognitive Services APIs:
 
- - [Inicio rápido en Computer Vision en C#](/computer-vision/quickstarts/csharp.md)
- - [Text Analytics con Python](/text-analytics/quickstarts/python.md)
- - [Face API con JavaScript](/face/quickstarts/javascript.md)
+ - [Inicio rápido en Computer Vision en C#](computer-vision/quickstarts/csharp.md)
+ - [Text Analytics con Python](text-analytics/quickstarts/python.md)
+ - [Face API con JavaScript](face/quickstarts/javascript.md)

@@ -1,25 +1,25 @@
 ---
 title: Procedimiento para buscar una dirección mediante el servicio de búsqueda de Azure Maps | Microsoft Docs
 description: Aprenda cómo buscar una dirección mediante el servicio de búsqueda de Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1acb95af7b62641c371627d6250067f9c2eac99c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323640"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990020"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Procedimiento para buscar una dirección mediante el servicio de búsqueda de Azure Maps
 
 El servicio de búsqueda de Azure Maps es un conjunto de API RESTful diseñadas para que los desarrolladores busquen direcciones, lugares, puntos de interés, listados de empresas y otra información geográfica. El servicio de búsqueda asigna una latitud y longitud a una dirección específica, calle transversal, característica geográfica o punto de interés (POI). Los valores de latitud y longitud devueltos por la búsqueda se pueden usar como parámetros en otros servicios de Maps como las rutas y el flujo de tráfico.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una cuenta de Maps y una clave. Para más información sobre cómo crear una cuenta y recuperar una clave, consulte [Administración de la cuenta y las claves de Azure Maps](how-to-manage-account-keys.md).
 

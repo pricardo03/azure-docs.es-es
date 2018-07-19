@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
-ms.openlocfilehash: 906a5d511615c57b6ff807ac240a838c63917e66
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 752f9d82afafaf7324c0c63c0d7377b952fe0716
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788081"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003153"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Direcciones IP de entrada y salida en Azure App Service
 
@@ -67,4 +67,4 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 Aprenda a restringir el tráfico entrante por dirección IP de origen.
 
 > [!div class="nextstepaction"]
-> [Restricciones de IP estática](app-service-ip-addresses.md)
+> [Restricciones de IP estática](app-service-ip-restrictions.md)

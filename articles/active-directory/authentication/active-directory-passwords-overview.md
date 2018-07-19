@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e28918fe9e26221738fe234ad41923c58a6ac260
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866675"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049028"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI
 
@@ -65,5 +65,5 @@ Encontrará más información sobre licencias, precios y futuros planes en los s
 
 * ¿Está listo para empezar a trabajar con SSPR? [Configure el autoservicio de restablecimiento de contraseña de Azure AD](quickstart-sspr.md).
 * Planee una implementación correcta del autoservicio de restablecimiento de contraseña para los usuarios mediante las directrices que aparecen en nuestra [guía de implementación](howto-sspr-deployment.md).
-* [Restablecimiento o modificación de la contraseña](../active-directory-passwords-update-your-own-password.md).
-* [Registro para el autoservicio de restablecimiento de contraseñas](../active-directory-passwords-reset-register.md).
+* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md).

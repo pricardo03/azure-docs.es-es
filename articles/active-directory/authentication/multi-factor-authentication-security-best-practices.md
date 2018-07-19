@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 1e143c8c17d5cbc3403d90f7a354d5300265d679
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: f1df6544ea7ca5a0f84bfb164982d816633d7fbe
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100392"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054410"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Guía de seguridad para el uso de Azure Multi-Factor Authentication con cuentas de Azure AD
 
@@ -106,5 +106,5 @@ Use esta lista para conocer algunas consideraciones adicionales y orientaciones 
 Si bien este artículo resalta algunas prácticas recomendadas para Azure MFA, existen otros recursos que también puede usar al planear la implementación de MFA. La lista siguiente tiene algunos artículos clave que pueden ayudarle durante este proceso:
 
 * [Informes en Azure Multi-Factor Authentication](howto-mfa-reporting.md)
-* [La experiencia de registro de verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-first-time.md)
+* [La experiencia de registro de verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md)
 * [P+F sobre Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)

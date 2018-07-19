@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951655"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126024"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solución de problemas de replicación de máquinas virtuales de VMware y de servidores físicos
 
@@ -74,25 +74,7 @@ Si no puede conectarse, compruebe si el problema de acceso es debido al firewall
 
 * **Compruebe si el firewall basado en direcciones URL en el servidor de proceso no está bloqueando el acceso**: si está usando reglas de firewall basadas en direcciones URL en el servidor, asegúrese de que las direcciones URL siguientes se agregan a la configuración del firewall.
 
-  `*.accesscontrol.windows.net:` Se usa para el control de acceso y la administración de identidades
-
-  `*.backup.windowsazure.com:` Se usa para la transferencia y orquestación de los datos de replicación
-
-  `*.blob.core.windows.net:` Se usa para tener acceso a la cuenta de almacenamiento que almacena los datos replicados
-
-  `*.hypervrecoverymanager.windowsazure.com:` Se usa para las operaciones de administración de replicación y la orquestación
-
-  `time.nist.gov` y `time.windows.com`: se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
-
-Direcciones URL para **Azure Government Cloud**:
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Compruebe si la configuración del Proxy del servidor de proceso no está bloqueando el acceso**.  Si está utilizando un servidor Proxy, asegúrese de que el servidor DNS está resolviendo el nombre del servidor proxy.
 Para comprobar lo proporcionado en el momento de la instalación del servidor de configuración. Vaya a la clave del registro

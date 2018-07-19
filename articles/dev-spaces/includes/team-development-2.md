@@ -10,17 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 2f2177b289ba9d13ba635bddcd61748e1e8ab0d1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936404"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39063011"
 ---
 ### <a name="run-the-service"></a>Ejecución del servicio
 
 1. Presione la tecla F5 (o escriba `azds up` en la ventana de terminal) para ejecutar el servicio. El servicio se ejecutará automáticamente en el espacio recién seleccionado `default/scott`. 
-1. Puede confirmar que el servicio se ejecuta en su propio espacio mediante la ejecución de `azds list` de nuevo. En primer lugar, observará que se ejecuta una instancia de `mywebapi` en el espacio `default/scott` (la versión que se ejecuta en `default` sigue ejecutándose, pero no aparece). En segundo lugar, la dirección URL del punto de acceso para `webfrontend` tiene como prefijo el texto "scott.s.". Esta dirección URL es única para el espacio `default/scott`. La dirección URL especial significa que las solicitudes enviadas a la "dirección URL de scott" intentarán, en primer lugar, enrutar a los servicios del espacio `default/scott`, pero si se produce un error, realizarán la conmutación por recuperación en los servicios del espacio `default`.
+1. Puede confirmar que el servicio se ejecuta en su propio espacio mediante la ejecución de `azds list-up` de nuevo. En primer lugar, observará que se ejecuta una instancia de `mywebapi` en el espacio `default/scott` (la versión que se ejecuta en `default` sigue ejecutándose, pero no aparece). En segundo lugar, la dirección URL del punto de acceso para `webfrontend` tiene como prefijo el texto "scott.s.". Esta dirección URL es única para el espacio `default/scott`. La dirección URL especial significa que las solicitudes enviadas a la "dirección URL de scott" intentarán, en primer lugar, enrutar a los servicios del espacio `default/scott`, pero si se produce un error, realizarán la conmutación por recuperación en los servicios del espacio `default`.
 
 ```
 Name         Space          Chart              Ports   Updated     Access Points

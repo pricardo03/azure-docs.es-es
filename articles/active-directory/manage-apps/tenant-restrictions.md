@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: dd86ad6b9a60c8a44dd73b31d908838d9c213fd1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303018"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126667"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de Restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -60,7 +60,7 @@ Para usar Restricciones de inquilino, los clientes deben ser capaces de conectar
 
 Se necesita la configuración siguiente para habilitar Restricciones de inquilino a través de la infraestructura del proxy. Esta guía es genérica, por lo que debe remitirse a la documentación del proveedor del proxy para conocer los pasos de implementación específicos.
 
-#### <a name="prerequisites"></a>requisitos previos
+#### <a name="prerequisites"></a>Requisitos previos
 
 - El proxy debe ser capaz de realizar la intercepción de SSL y la inserción de encabezados HTTP, así como filtrar destinos mediante direcciones URL o FQDN. 
 
@@ -116,7 +116,7 @@ Actualmente, las aplicaciones de Office 365 basadas en explorador (portal de Off
 
 Es posible que los clientes de Outlook y Skype Empresarial que admiten autenticación moderna puedan seguir usando protocolos heredados en inquilinos donde la autenticación moderna no está habilitada, evitando eficazmente Restricciones de inquilino. Es posible que las aplicaciones que usan protocolos heredados estén bloqueadas por Restricciones del inquilino si entran en contacto con login.microsoftonline.com, login.microsoft.com o login.windows.net durante la autenticación.
 
-Para Outlook en Windows, los clientes pueden optar por implementar restricciones que impidan a los usuarios finales agregar cuentas de correo no aprobadas a sus perfiles. Por ejemplo, vea el establecimiento de directiva de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir la incorporación de cuentas de Exchange no predeterminadas). Para Outlook en plataformas distintas de Windows y para Skype Empresarial en todas las plataformas, actualmente no está disponible la compatibilidad total para restricciones de inquilino.
+Para Outlook en Windows, los clientes pueden optar por implementar restricciones que impidan a los usuarios finales agregar cuentas de correo no aprobadas a sus perfiles. Por ejemplo, vea el establecimiento de directiva de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir la incorporación de cuentas de Exchange no predeterminadas).
 
 ## <a name="testing"></a>Prueba
 

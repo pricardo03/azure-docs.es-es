@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 547c3785fa307838e9a86d38280b90fb31b040b3
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 5b1ea8f79865816b7f1602d497b920f90a8b211b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082628"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutorial: Integración de Azure Active Directory con Sedgwick CMS
 
@@ -34,7 +34,7 @@ La integración de Sedgwick CMS con Azure AD proporciona las siguientes ventajas
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Sedgwick CMS, necesita los siguientes elementos:
 
@@ -210,7 +210,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Sedgwick CMS en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Sedgwick CMS.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

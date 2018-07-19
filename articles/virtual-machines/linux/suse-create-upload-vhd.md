@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 99838a7038672998d4940bfb437bd31311d3600f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3bdd3f4d67fcaae37736022c3c59af19eb04bec7
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653440"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036656"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparación de una máquina virtual SLES u openSUSE para Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE u openSUSE en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="sles--opensuse-installation-notes"></a>Notas sobre la instalación de SLES/openSUSE
@@ -38,7 +38,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 ## <a name="use-suse-studio"></a>Uso de SUSE Studio
 [SUSE Studio](http://www.susestudio.com) puede crear y administrar fácilmente sus imágenes de SLES y openSUSE para Hyper-V y Azure. Este es el enfoque recomendado para personalizar sus propias imágenes SLES y openSUSE.
 
-Como alternativa a la creación de su propio VHD, SUSE también publica imágenes de BYOS ("traiga su propia suscripción") para SLES en [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
+Como alternativa a la creación de su propio VHD, SUSE también publica imágenes de BYOS ("traiga su propia suscripción") para SLES en [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
 ## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Preparación de SUSE Linux Enterprise Server 11 SP4
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.

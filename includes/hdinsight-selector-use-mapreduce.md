@@ -3,7 +3,7 @@
 > * [SSH](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh.md)
 > * [Curl](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-curl.md)
 > * [PowerShell](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell.md)
-> * [.NET SDK](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md)
+> * [SDK de .NET](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md)
 > * [Escritorio remoto](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md)
 > 
 > 

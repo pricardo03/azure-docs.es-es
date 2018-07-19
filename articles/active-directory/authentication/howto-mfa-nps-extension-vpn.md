@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd59e7956855de52750614c800a46e6bf817cd14
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098879"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054784"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -79,7 +79,7 @@ Cuando la extensión NPS para Azure está integrada con NPS, el flujo de una aut
 
 8. Se concede acceso al usuario al puerto virtual en el servidor VPN y se establece un túnel VPN cifrado.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En esta sección se detallan los requisitos previos que hay que cumplir antes de integrar MFA con la puerta de enlace de Escritorio remoto. Antes de comenzar, debe cumplir los siguientes requisitos previos:
 
 * Infraestructura de VPN
@@ -305,7 +305,7 @@ Para solucionar estos problemas, un lugar ideal para comenzar es examinar los re
  
 ## <a name="configure-multi-factor-authentication"></a>Configuración de Multi-Factor Authentication
 
-Para ayuda en la configuración de los usuarios para Multi-Factor Authentication, consulte los artículos [Exigencia de verificación en dos pasos para un usuario o grupo](howto-mfa-userstates.md) y [Configuración de mi cuenta para la verificación en dos pasos](end-user/current/multi-factor-authentication-end-user-first-time.md)
+Para ayuda en la configuración de los usuarios para Multi-Factor Authentication, consulte los artículos [Exigencia de verificación en dos pasos para un usuario o grupo](howto-mfa-userstates.md) y [Configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Instalación y configuración de la extensión NPS
 
