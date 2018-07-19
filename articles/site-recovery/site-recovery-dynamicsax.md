@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876963"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919570"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicación de una implementación de Dynamics AX en varios niveles múltiples mediante Azure Site Recovery
 
@@ -114,7 +114,7 @@ En Site Recovery se puede crear un plan de recuperación para automatizar el pro
 
     ![Crear plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
-4. Seleccione las máquinas virtuales cliente y de Application Object Server para el plan de recuperación y seleccione el ✓.
+4. Seleccione la instancia de Application Object Server y las máquinas virtuales cliente para el plan de recuperación y haga clic en ✓.
 
     ![Selección de elementos](./media/site-recovery-dynamics-ax/selectvms.png)
 
@@ -182,7 +182,7 @@ Para ver consideraciones específicas acerca de Active Directory durante la conm
 
 5. Seleccione las opciones adecuadas: sincronización de datos y creación de máquinas virtuales.
 
-6. Seleccione **✓** para iniciar el proceso de conmutación por recuperación.
+6. Haga clic en **✓** para iniciar el proceso de conmutación por recuperación.
 
 
 Para más información acerca de cómo realizar una conmutación por recuperación, consulte [Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local](site-recovery-failback-azure-to-vmware.md).

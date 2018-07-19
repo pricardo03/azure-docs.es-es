@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420791"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718920"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Uso del almacenamiento de blobs desde iOS
 
@@ -87,7 +87,7 @@ Si usa Swift, deberá crear un encabezado puente e importar <AZSClient/AZSClient
 1. Cree un archivo de encabezado `Bridging-Header.h` y agregue la instrucción "import" anterior.
 2. Vaya a la pestaña *Configuración de compilación* y busque *Objective-C Bridging Header*.
 3. Haga doble clic en el campo de *Objective-C Bridging Header* y agregue la ruta de acceso al archivo de encabezado: `ProjectName/Bridging-Header.h`
-4. Compile el proyecto (⌘ + B) para comprobar que Xcode seleccionó el encabezado puente.
+4. Compile el proyecto (⌘+B) para comprobar que Xcode selecciona el encabezado puente.
 5. Comience a usar la biblioteca directamente en cualquier archivo Swift, no es necesario para las instrucciones "import".
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]

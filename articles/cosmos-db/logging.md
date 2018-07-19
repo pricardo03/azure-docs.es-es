@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612221"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857106"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registro de diagnóstico de Azure Cosmos DB
 
@@ -42,7 +42,7 @@ En este artículo, nos centramos en el registro de actividad de Azure, registros
 
 El registro de actividad de Azure es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. El registro de actividad notifica los eventos de plano de control de las suscripciones en la categoría administrativa. Puede utilizar el registro de actividad para determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. 
 
-El registro de actividad es distinto de los registros de diagnóstico. El registro de actividad proporciona datos sobre las operaciones en un recurso desde el exterior (el _plano de control_). En el contexto de Azure Cosmos DB, las operaciones del plano de control incluyen la creación de colecciones, enumeración de claves, eliminación de claves o enumeración de bases de datos, entre otras. Los registros de diagnóstico son emitidos por un recurso y proporcionan información sobre el funcionamiento de dicho recurso (el _plano de datos_). Algunos ejemplos de las operaciones del plano de datos en el registro de diagnóstico son Delete, Insert y ReadFeed.
+El registro de actividad es distinto de los registros de diagnóstico. El registro de actividad proporciona datos sobre las operaciones en un recurso desde el exterior (el _plano de control_). En el contexto de Azure Cosmos DB, las operaciones del plano de control incluyen la creación de contenedores, enumeración de claves, eliminación de claves o enumeración de bases de datos, entre otras. Los registros de diagnóstico son emitidos por un recurso y proporcionan información sobre el funcionamiento de dicho recurso (el _plano de datos_). Algunos ejemplos de las operaciones del plano de datos en el registro de diagnóstico son Delete, Insert y ReadFeed.
 
 Los registros de actividad (operaciones del plano de control) pueden ser mejores por naturaleza, pueden incluir la lista completa de direcciones de correo electrónico del autor de la llamada, la dirección IP de este, el nombre del recurso, el nombre de la operación y el identificador del inquilino, entre otros. El registro de actividad contiene varias [categorías](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de datos. Para obtener todos los detalles sobre los esquemas de estas categorías, consulte [Esquema de eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Sin embargo, los registros de diagnóstico pueden ser restrictivos por naturaleza ya que los datos de información personal a menudo se eliminan de esos registros. Puede tener la dirección IP del autor de la llamada, pero se quitará el último octeto.
 
@@ -354,7 +354,7 @@ Los registros de diagnóstico se ponen a disposición de la cuenta a las dos hor
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Visualización de los registros de Log Analytics
 
-Si ha seleccionado la opción **Enviar a Log Analytics** al activar el registro de diagnóstico, los datos correspondientes de la colección se reenviarán a Log Analytics en dos horas. Cuando se observa Log Analytics inmediatamente después de activar el registro, no verá ningún dato. Espere dos horas y vuelva a intentarlo. 
+Si ha seleccionado la opción **Enviar a Log Analytics** al activar el registro de diagnóstico, los datos correspondientes del contenedor se reenvían a Log Analytics en dos horas. Cuando se observa Log Analytics inmediatamente después de activar el registro, no verá ningún dato. Espere dos horas y vuelva a intentarlo. 
 
 Antes de ver los registros, compruebe si el área de trabajo de Log Analytics para utilizar su nuevo lenguaje de consulta. Para comprobarlo, abra [Azure Portal](https://portal.azure.com), seleccione **Log Analytics** en el extremo izquierdo y, después, seleccione el nombre del área de trabajo como se muestra en la siguiente imagen. Se muestra la página **Área de trabajo de OMS**:
 
@@ -446,7 +446,7 @@ En la tabla siguiente se describe el contenido de cada entrada del registro.
 | **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |
 | **userAgent** | **userAgent_s** | Una cadena que especifica el agente de usuario de cliente que realiza la solicitud. El formato es {nombre de agente de usuario}/{versión}.|
-| **resourceType** | **ResourceType** | Tipo de recurso al que se accede. Este valor puede ser cualquiera de los siguientes tipos de recursos: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction u Offer. |
+| **resourceType** | **ResourceType** | Tipo de recurso al que se accede. Este valor puede ser cualquiera de los tipos de recursos siguientes: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction u Offer. |
 | **statusCode** | **statusCode_s** | Estado de respuesta de la operación. |
 | **requestResourceId** | **ResourceId** | El valor resourceId que pertenece a la solicitud. El valor puede apuntar a databaseRid, collectionRid o documentRid, según la operación realizada.|
 | **clientIpAddress** | **clientIpAddress_s** | Dirección IP del cliente. |

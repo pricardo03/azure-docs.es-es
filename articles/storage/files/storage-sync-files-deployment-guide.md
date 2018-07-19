@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: wgries
-ms.openlocfilehash: f1230cbc4d654bfb59bb328ed7d75c6fa76ff10c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 808bc3908790c8d6dedf1d9f00a4c70b42c7c490
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268047"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867076"
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Implementar Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -89,7 +89,7 @@ Se recomienda hacer lo siguiente:
 - Dejar la ruta de instalación predeterminada (C:\Archivos de programa\Azure\StorageSyncAgent), para simplificar las operaciones de solución de problemas y mantenimiento del servidor.
 - Habilitar Microsoft Update para mantener actualizado Azure File Sync. Todas las actualizaciones del agente de Azure File Sync, incluidas las actualizaciones y revisiones de características, se realizan desde Microsoft Update. Se recomienda instalar la actualización más reciente de Azure File Sync. Para obtener más información, consulte [Directiva de actualización del agente de Azure File Sync](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
 
-Al término de la instalación del agente de Azure File Sync, la interfaz de usuario Registro del servidor se abre automáticamente. Debe tener un servicio de sincronización de almacenamiento antes del registro; consulte la sección siguiente sobre cómo crear un servicio de sincronización de almacenamiento.
+Al término de la instalación del agente de Azure File Sync, la interfaz de usuario Registro del servidor se abre automáticamente. Debe tener un servicio de sincronización de almacenamiento antes del registro; vea la sección siguiente sobre cómo crear un servicio de sincronización de almacenamiento.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Ejecute el siguiente código de PowerShell para descargar la versión adecuada del agente de Azure File Sync para su sistema operativo e instálelo en el sistema.

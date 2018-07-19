@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1bcd7f9e0a134173a8942b71259428a720a3d076
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222508"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868565"
 ---
 # <a name="azure-active-directory-reporting"></a>Informes de Azure Active Directory
 
@@ -113,7 +113,7 @@ Si desea obtener más información sobre los distintos tipos de informes en Azur
 - [Informe de registros de auditoría](active-directory-reporting-activity-audit-logs.md)
 - [Informe de registros de inicios de sesión](active-directory-reporting-activity-sign-ins.md)
 
-Si desea obtener más información acerca del acceso a los datos de los informes mediante la API de generación de informes, consulte: 
+Si quiere obtener más información sobre el acceso a los datos de los informes mediante la API de generación de informes, vea: 
 
 - [Introducción a la API de generación de informes de Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
 

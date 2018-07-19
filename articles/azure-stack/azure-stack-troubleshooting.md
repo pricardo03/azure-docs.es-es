@@ -12,23 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 07/09/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b63fdd630647cc970a2d935619b4d3f16b8c0375
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 53bb89daee47d5f380786246070cf5cddb69b731
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229897"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929570"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Solución de problemas de Microsoft Azure Stack
 
-*Se aplica a: Kit de desarrollo de Azure Stack*
-
 Este documento proporciona información para solucionar problemas comunes de Azure Stack. 
 
-Dado que Azure Stack Technical Development Kit se ofrece como un entorno de evaluación, no hay soporte técnico oficial de los Servicios de soporte al cliente (CSS) de Microsoft. Si experimenta un problema no documentado, asegúrese de revisar el [foro MSDN de Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obtener más ayuda e información.  
+> [!NOTE]
+> Como Azure Stack Technical Development Kit (ASDK) se ofrece como un entorno de evaluación, no hay soporte técnico oficial de los Servicios de soporte al cliente de Microsoft. Si experimenta un problema, asegúrese de revisar el [foro MSDN de Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obtener más ayuda e información.  
 
 Las recomendaciones para solucionar los problemas que se describen en esta sección se derivan de varios orígenes y pueden resolver o no el problema en particular. Los ejemplos de código se proporcionan tal cual y no se pueden garantizar los resultados esperados. Esta sección está sujeta a modificaciones y actualizaciones frecuentes cuando se implementan mejoras del producto.
 
@@ -36,16 +35,15 @@ Las recomendaciones para solucionar los problemas que se describen en esta secci
 ### <a name="deployment-failure"></a>Error de implementación
 Si experimenta un error durante la instalación, puede reiniciar la implementación en el paso con errores con la opción -rerun del script de implementación.  
 
-
-### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Al final de la implementación, la sesión de PowerShell todavía está abierta y no muestra ninguna salida.
-Este comportamiento probablemente sea solo el resultado del comportamiento predeterminado de una ventana de comandos de PowerShell, cuando se ha seleccionado. La implementación del kit de desarrollo realmente se ha realizado correctamente, pero se pausó el script al seleccionar la ventana. Puede comprobar que se completó la configuración buscando la palabra "select" en la barra de título de la ventana de comandos.  Presione la tecla ESC para cancelar la selección; después debería mostrarse el mensaje de finalización.
+### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Al final de la implementación de ASDK, la sesión de PowerShell todavía está abierta y no muestra ninguna salida.
+Este comportamiento probablemente sea solo el resultado del comportamiento predeterminado de una ventana de comandos de PowerShell, cuando se ha seleccionado. La implementación del kit de desarrollo se ha realizado correctamente, pero el script se ha puesto en pausa al seleccionar la ventana. Puede comprobar que se completó la configuración buscando la palabra "select" en la barra de título de la ventana de comandos.  Presione la tecla ESC para cancelar la selección; después debería mostrarse el mensaje de finalización.
 
 ## <a name="virtual-machines"></a>Máquinas virtuales
 ### <a name="default-image-and-gallery-item"></a>Elemento de la galería e imagen predeterminada
 Se debe agregar un elemento de la galería y una imagen de Windows Server antes de implementar máquinas virtuales en Azure Stack.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Después de reiniciar el host de Azure Stack, algunas máquinas virtuales podrían no iniciarse automáticamente.
-Después de reiniciar el host, puede observar que los servicios de Azure Stack no están disponibles de inmediato.  Esto se debe a que las [máquinas virtuales de infraestructura](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) de Azure Stack y los RP tardan un poco en comprobar la coherencia, pero finalmente se iniciarán automáticamente.
+Después de reiniciar el host, puede observar que los servicios de Azure Stack no están disponibles de inmediato.  Esto se debe a que las [máquinas virtuales de infraestructura](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) de Azure Stack y los proveedores de recursos tardan un tiempo en comprobar la coherencia, pero finalmente se iniciarán de forma automática.
 
 También puede observar que las máquinas virtuales de ese inquilino no se inician de forma automática después de reiniciar el host del Kit de desarrollo de Azure Stack. Es un problema conocido y solo requiere algunos pasos manuales para ponerlas en línea:
 
@@ -55,7 +53,7 @@ También puede observar que las máquinas virtuales de ese inquilino no se inici
 4.  Las máquinas virtuales del inquilino aparecen con estado *guardado*. Una vez que se ejecutan todas las máquinas virtuales de la infraestructura, haga clic en las del inquilino y seleccione **Iniciar** para reanudar la máquina virtual.
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>He eliminado algunas máquinas virtuales, pero sigo viendo los archivos del disco duro virtual en el disco. ¿Es normal este comportamiento?
-Sí, es normal. Se diseñó así porque:
+Sí, este es el comportamiento esperado. Se diseñó así porque:
 
 * Al eliminar una máquina virtual, no se eliminan los discos duros virtuales. Los discos son recursos independientes en el grupo de recursos.
 * Cuando se elimina una cuenta de almacenamiento, la eliminación es visible de inmediato a través de Azure Resource Manager, pero los discos que puede contener todavía se conservan en el almacenamiento hasta que se ejecuta la recolección de elementos no utilizados.
@@ -66,14 +64,5 @@ Puede leer más acerca de cómo configurar el umbral de conservación y las recu
 
 ## <a name="storage"></a>Storage
 ### <a name="storage-reclamation"></a>Recuperación de almacenamiento
-La recuperación de la capacidad puede tardar hasta catorce horas en mostrarse en el portal. La recuperación de espacio depende de diversos factores, como el porcentaje de uso de archivos de contenedor internos en el almacén de blobs de bloque. Por lo tanto, en función de cuántos datos se eliminen, no hay ninguna garantía de la cantidad de espacio que se podría recuperar cuando se ejecute el recolector de elementos no utilizados.
-
-## <a name="windows-azure-pack-connector"></a>Conector de Windows Azure Pack
-* Si cambia la contraseña de la cuenta azurestackadmin después de implementar el Kit de desarrollo de Azure Stack, ya no se puede configurar el modo de varias nubes. Por lo tanto, no será posible conectar con el entorno de Windows Azure Pack de destino.
-* Después de configurar el modo de varias nubes:
-    * Un usuario puede ver el panel solo después de que restablezca la configuración del portal. (En el portal de usuarios, haga clic en el icono de configuración del portal, el icono de engranaje en la esquina superior derecha. En **Restaurar la configuración predeterminada**, haga clic en **Aplicar**).
-    * Los títulos del panel pueden no aparecer. Si se produce este problema, debe volver a agregarlos manualmente.
-    * Puede que algunos iconos no se muestren correctamente cuando los agrega por primera vez al panel. Para corregir este problema, actualice el explorador.
-
-
+La funcionalidad reclamada capacidad puede tardar hasta 14 horas en mostrarse en el portal. La recuperación de espacio depende de diversos factores, como el porcentaje de uso de archivos de contenedor internos en el almacén de blobs de bloque. Por lo tanto, en función de cuántos datos se eliminen, no hay ninguna garantía de la cantidad de espacio que se podría recuperar cuando se ejecute el recolector de elementos no utilizados.
 

@@ -15,29 +15,31 @@ ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31391140"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930297"
 ---
 # <a name="start-and-stop-azure-stack"></a>Inicio y detención de Azure Stack
-Siga los procedimientos que se describen en este artículo para detener y reiniciar los servicios de Azure Stack correctamente. 
+Siga los procedimientos que se describen en este artículo para detener y reiniciar los servicios de Azure Stack correctamente. El apagado apagará físicamente la totalidad del entorno de Azure Stack. El inicio activa todos los roles de infraestructura y devuelve los recursos del inquilino al estado de energía en el que se encontraban antes del apagado.
 
 ## <a name="stop-azure-stack"></a>Detención de Azure Stack 
 
 Realice los pasos siguientes para apagar Azure Stack:
 
-1. Abra una sesión de punto de conexión con privilegios (PEP) desde un equipo con acceso de red a las máquinas virtuales de Azure Stack ERCS. Para obtener instrucciones, consulte [Uso del punto de conexión con privilegios en Azure Stack](azure-stack-privileged-endpoint.md).
+1. Prepare todas las cargas de trabajo que se ejecutan en los recursos de inquilino del entorno de Azure Stack para el próximo apagado. 
 
-2. Desde el PEP, ejecute lo siguiente:
+2. Abra una sesión de punto de conexión con privilegios (PEP) desde un equipo con acceso de red a las máquinas virtuales de Azure Stack ERCS. Para obtener instrucciones, consulte [Uso del punto de conexión con privilegios en Azure Stack](azure-stack-privileged-endpoint.md).
+
+3. Desde el PEP, ejecute lo siguiente:
 
     ```powershell
       Stop-AzureStack
     ```
 
-3. Espere a que todos los nodos físicos de Azure Stack se apaguen.
+4. Espere a que todos los nodos físicos de Azure Stack se apaguen.
 
 > [!Note]  
 > Para comprobar el estado de encendido de un nodo físico siga las instrucciones del fabricante de equipos originales (OEM) que le proporcionó el hardware de Azure Stack. 
@@ -50,6 +52,7 @@ Realice los pasos siguientes para iniciar Azure Stack. Siga los pasos que se ind
 
 2. Espere hasta que se inicien los servicios de infraestructura de Azure Stack. El proceso de inicio de los servicios de infraestructura de Azure Stack puede tardar hasta dos horas en completarse. Puede comprobar el estado de inicio de Azure Stack con el cmdlet [**Get-ActionStatus**](#get-the-startup-status-for-azure-stack).
 
+3. Asegúrese de que todos los recursos de inquilino han vuelto al estado en el que se encontraban antes del apagado. Es posible que el administrador de las cargas de trabajo tenga que volver a configurar las que se ejecutan en los recursos del inquilino después del inicio.
 
 ## <a name="get-the-startup-status-for-azure-stack"></a>Consulta del estado de inicio de Azure Stack
 

@@ -14,16 +14,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 557f071e2cd8d4f639c881274e6e74a8fb745859
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2be04c7037dd26755300cf8b7794678a6a958278
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
-ms.locfileid: "26290236"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488467"
 ---
-# <a name="azure-functions-runtime-overview"></a>Introducción al Sistema en ejecución de Azure Functions
+# <a name="azure-functions-runtime-overview-preview"></a>Introducción a Azure Functions Runtime (versión preliminar)
 
-El Sistema en ejecución de Azure Functions proporciona una nueva forma de aprovechar la simplicidad y flexibilidad del modelo de programación de Azure Functions de forma local. Basado en las mismas raíces de código abierto que Azure Functions, el Sistema en ejecución de Azure Functions se implementa de forma local para proporcionar una experiencia de desarrollo prácticamente idéntica al servicio en la nube.
+Azure Functions Runtime (versión preliminar) proporciona una forma nueva de aprovechar la simplicidad y flexibilidad del modelo de programación de Azure Functions de forma local. Basado en las mismas raíces de código abierto que Azure Functions, el Sistema en ejecución de Azure Functions se implementa de forma local para proporcionar una experiencia de desarrollo prácticamente idéntica al servicio en la nube.
 
 ![Portal del Sistema en ejecución de Azure Functions (versión preliminar)][1]
 

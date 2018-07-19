@@ -12,14 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 27dfdec4e833a2f30963157ba2f4d95232e21270
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267339"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922743"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Protección de la implementación de una aplicación SAP NetWeaver de niveles múltiples mediante Site Recovery
 
@@ -83,7 +83,7 @@ Para implementar una solución de alta disponibilidad, se puede utilizar un clú
 
 Para admitir el entorno del clúster de conmutación por error, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) realiza la función de volumen compartido de clústeres mediante la replicación de discos independientes que pertenecen a los nodos del clúster. Azure no admite de forma nativa discos compartidos y, por consiguiente, requiere las soluciones que proporciona SIOS. 
 
-Otra forma de controlar la agrupación en clústeres es implementar un clúster de recurso compartido de archivos. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha modificado recientemente el modelo de implementación de Central Services para acceder a los directorios globales de /sapmnt a través de una ruta de acceso UNC. Este cambio elimina la necesidad de SIOS u otras soluciones de disco compartido en las máquinas virtuales de Central Services. Sigue siendo recomendable asegurarse de que el recurso compartido UNC /sapmnt tiene alta disponibilidad. Esto se puede realizar en la instancia de Central Services mediante Windows Server Failover Cluster con las características Servidor de archivos de escalabilidad horizontal (SOFS) y Espacios de almacenamiento directo (S2D) en Windows Server 2016. 
+Otra forma de controlar la agrupación en clústeres es implementar un clúster de recurso compartido de archivos. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha modificado recientemente el modelo de implementación de Central Services para acceder a los directorios globales de /sapmnt a través de una ruta de acceso UNC. Pero sigue siendo recomendable asegurarse de que el recurso compartido UNC /sapmnt tiene alta disponibilidad. Esto se puede realizar en la instancia de Central Services mediante Windows Server Failover Cluster con las características Servidor de archivos de escalabilidad horizontal (SOFS) y Espacios de almacenamiento directo (S2D) en Windows Server 2016. 
  > [!NOTE]
  > Actualmente, Azure Site Recovery solo admite la replicación de puntos de restauración coherentes con los bloqueos de las máquinas virtuales mediante espacios de almacenamiento directos. 
 

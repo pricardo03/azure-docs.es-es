@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: b02460435edca336325e472ea910b73e7895c948
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4519681d9b91383d27c00a992f85b0cb5d74f235
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26598835"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859469"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD y aplicaciones: procedimiento para requerir la asignación de usuarios
 ## <a name="requiring-user-assignment"></a>Necesidad de asignación de usuario
 1. Inicie sesión en el portal de Azure con una cuenta de administrador.
-2. Haga clic en el elemento **Todos los elementos** del menú principal.
+2. Haga clic en el elemento **Todos los servicios** del menú principal.
 3. Elija el directorio que está usando para la aplicación.
-4. Haga clic en la pestaña **APLICACIONES** .
+4. Haga clic en la pestaña **Aplicaciones empresariales**.
 5. Seleccione la aplicación en la lista de aplicaciones asociada a este directorio.
-6. Haga clic en la pestaña **Configurar** .
-7. Cambie la opción **Asignación de usuario necesaria para acceder a la aplicación** a Sí.
-8. Haga clic en el botón **Guardar** de la parte inferior de la pantalla.
+6. Haga clic en la pestaña **Propiedades**.
+7. Cambie la opción **¿Asignación de usuarios?** a Sí.
+8. Haga clic en el botón **Guardar** de la parte superior de la pantalla.
 
 Ahora tendrá que asignar usuarios o grupos a la aplicación. Vea [Asignación de usuarios a una aplicación](active-directory-applications-guiding-developers-assigning-users.md) y [Asignación de grupos a una aplicación](active-directory-applications-guiding-developers-assigning-groups.md).
 

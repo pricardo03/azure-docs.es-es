@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ce20ae800887d8c9e865ecec46d0cf9a49fb7c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631632"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928756"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Conexión de IoT DevKit AZ3166 a Azure IoT Hub en la nube
 
@@ -274,7 +274,7 @@ El DevKit se reinicia y comienza a ejecutar el código.
 
 ## <a name="test-the-project"></a>Prueba del proyecto
 
-En VS Code, siga estos pasos para abrir y configurar Serial Monitor (Monitor de serie):
+En VS Code, siga estos pasos para abrir y configurar el monitor serie:
 
 1. Haga clic en la palabra `COM[X]` de la barra de estado para establecer el puerto COM correcto con `STMicroelectronics`: ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png).
 
@@ -285,7 +285,7 @@ En VS Code, siga estos pasos para abrir y configurar Serial Monitor (Monitor de 
 La aplicación de ejemplo se ejecuta correctamente si ve los siguientes resultados:
 
 * El monitor de serie muestra la misma información de la captura de pantalla siguiente.
-* El LED del MXChip IoT DevKit parpadea.
+* El LED RGB de MXChip IoT DevKit parpadea.
 
 ![Salida final en VS Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

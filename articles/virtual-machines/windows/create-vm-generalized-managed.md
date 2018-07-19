@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: cynthn
-ms.openlocfilehash: 1d543bd9590664e74cff70cf55e8f7bd42f2c6f0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6baf784068b1fba0c35d2848b8d2dda4f1064a2d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239062"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867987"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creación de una máquina virtual a partir de una imagen administrada
 
@@ -29,11 +29,11 @@ Debe tener ya [creada una imagen de VM administrada](capture-image-resource.md) 
 
 ## <a name="use-the-portal"></a>Uso del portal
 
-1. Abra el [Azure Portal](https://portal.azure.com).
+1. Abra [Azure Portal](https://portal.azure.com).
 2. En el menú izquierdo, seleccione **Todos los recursos**. Puede ordenar los recursos por **Tipo** para localizar fácilmente sus imágenes.
 3. Seleccione la imagen que desea usar en la lista. Se abre la página **Información general** de la imagen.
 4. Haga clic en **+ Crear VM** en el menú.
-5. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña que especifique aquí se usarán para iniciar sesión en la máquina virtual. Cuando haya terminado, haga clic en **Aceptar**. Puede crear la nueva máquina virtual en un grupo de recursos existente, o bien elegir **Crear nuevo** para crear un nuevo grupo de recursos para almacenar la máquina virtual.
+5. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña que especifique aquí se usarán para iniciar sesión en la máquina virtual. Cuando haya terminado, haga clic en **Aceptar**. Puede crear la máquina virtual en un grupo de recursos existente, o bien hacer clic en **Crear nuevo** para crear un grupo de recursos para almacenar la máquina virtual.
 6. Seleccione un tamaño para la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). 
 7. En **Configuración**, realice cambios según sea necesario y haga clic en **Aceptar**. 
 8. En la página de resumen, debería ver el nombre de la imagen incluido en **Imagen privada**. Haga clic en **Aceptar** para iniciar la implementación de la máquina virtual.

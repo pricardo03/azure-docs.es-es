@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fd4e1a67b6aa4cc66e62822c34606e2769890f8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653270"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866498"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Características y extensiones de las máquinas virtuales de Azure
 Las extensiones de máquina virtual (VM) de Azure son pequeñas aplicaciones que proporcionan tareas de configuración y automatización tras la implementación en máquinas virtuales de Azure. Puede usar imágenes existentes y, después, personalizarlas como parte de las implementaciones, lo que le ahorra el trabajo de compilar imágenes personalizadas.
@@ -43,7 +43,7 @@ Puede ver las extensiones disponibles en la hoja Máquina virtual del portal, en
 ## <a name="how-can-i-install-an-extension"></a>¿Cómo puedo instalar una extensión?
 Las extensiones de máquina virtual de Azure se pueden administrar con la CLI 2.0 de Azure, Azure PowerShell, plantillas de Azure Resource Manager y Azure Portal. Para probar una extensión, vaya a Azure Portal, seleccione la extensión de script personalizado, pase un comando o script y ejecute las extensiones.
 
-Si quiere la misma extensión que ha agregado en el portal mediante la CLI o la plantilla de Resource Manager, debe consultar documentación diferente sobre extensiones, como [Windows Custom Script Extension](custom-script-windows.md) (Extensión de script personalizado de Windows) y [Linux Custom Script Extension](custom-script-linux.md) (Extensión de script personalizado de Linux).
+Si quiere la misma extensión que agregó en el portal mediante la CLI o la plantilla de Resource Manager, vea otra documentación sobre extensiones, como [Extensión de script personalizado para Windows](custom-script-windows.md) y [Extensión de script personalizado para Linux](custom-script-linux.md).
 
 ## <a name="how-do-i-manage-extension-application-lifecycle"></a>¿Cómo administro el ciclo de vida de las aplicaciones de extensión?
 No es necesario conectarse directamente a una máquina virtual para instalar o eliminar la extensión. Como el ciclo de vida de las aplicaciones de extensión de Azure se administra fuera de la máquina virtual y se integra en la plataforma de Azure, también obtiene el estado integrado de la extensión.

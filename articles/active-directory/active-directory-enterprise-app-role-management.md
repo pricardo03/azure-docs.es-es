@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5aa716f91a3155e81ef8dc7c436b4a9a5811238b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c9a1d605f6cf2ef9dae3a5549e3848931d508394
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34723259"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082750"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales en Azure Active Directory
 
 Mediante Azure Active Directory (Azure AD) se puede personalizar el tipo de notificación de la notificación de rol en el token de respuesta que se recibe después de autorizar una aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 - Una suscripción a Azure AD con configuración de directorios.
 - Una suscripción que tenga inicio de sesión único (SSO). El inicio de sesión único se debe configurar con la aplicación.
 
@@ -56,7 +56,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
     ![Página de propiedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Abra [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) en otra ventana y siga estos pasos:
+6. Abra el [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana y siga estos pasos:
 
     a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador global del inquilino.
 

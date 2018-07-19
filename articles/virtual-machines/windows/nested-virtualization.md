@@ -11,18 +11,18 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 0648a7555cb94543dadf5d73e0187927a90f5b5a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526525"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857951"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
 La virtualización anidada es compatible con las series Dv3 y Ev3 de Azure Virtual Machines. Esta funcionalidad proporciona gran flexibilidad para admitir escenarios como entornos de desarrollo, pruebas, aprendizaje y demostración. 
 
-En este artículo se analiza la habilitación de la virtualización anidada en una máquina virtual de Azure y la configuración de la conectividad de Internet a esa máquina virtual invitada.
+Todas las máquinas virtuales de la serie Dv3 y Ev3 admiten la virtualización anidada sin configuración adicional.  En este artículo se analiza la habilitación de Hyper-V en una máquina virtual de Azure y la configuración de la conectividad de Internet a esa máquina virtual invitada.
 
 ## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Creación de una máquina virtual de Azure de la serie Dv3 o Ev3
 

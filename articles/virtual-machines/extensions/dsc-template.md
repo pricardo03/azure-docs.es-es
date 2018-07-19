@@ -16,19 +16,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 8d1e8b4d529936a2401c734b2eff1f0c02dae352
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d007869bb8bad1a2f0775a1ab2c1bf5d27c1cb8f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307873"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866232"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
 En este artículo se describe la plantilla de Azure Resource Manager para el [controlador de la extensión Desired State Configuration (DSC)](dsc-overview.md).
 
 > [!NOTE]
-> Podría encontrar ejemplos de esquema levemente distintos. El cambio en el esquema ocurrió en la versión de octubre de 2016. Para detalles, consulte [Actualización desde el formato anterior](#update-from-the-previous-format).
+> Podría encontrar ejemplos de esquema levemente distintos. El cambio en el esquema ocurrió en la versión de octubre de 2016. Para obtener detalles, vea [Actualización desde un formato anterior](#update-from-a-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Ejemplo de plantilla para una máquina virtual de Windows
 
@@ -176,7 +176,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 
 ## <a name="details"></a>Detalles
 
-| Nombre de propiedad | Escriba | DESCRIPCIÓN |
+| Nombre de propiedad | type | DESCRIPCIÓN |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica la versión de Windows Management Framework (WMF) que debe instalarse en la máquina virtual. Si se establece esta propiedad en **latest**, se instala la versión más reciente de WMF. Actualmente, los únicos valores posibles para esta propiedad son **4.0**, **5.0**, **5.0PP** y **latest**. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es **latest**. |
 | settings.configuration.url |string |Especifica la ubicación de la dirección URL desde la que descargar el archivo .zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationUrlSasToken** en el valor de su token de SAS. Esta propiedad es necesaria si se definen **settings.configuration.script** o **settings.configuration.function**. Si no se especifica ningún valor para estas propiedades, la extensión llamará al script de configuración predeterminada para establecer los metadatos del administrador de configuración de ubicación (LCM) y se deben proporcionar los argumentos. |
@@ -195,7 +195,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](/powershell/dsc/metaconfig#basic-settings).
 Puede usar el script de configuración predeterminada de la extensión DSC para configurar solo las propiedades de LCM que aparecen en la tabla siguiente.
 
-| Nombre de propiedad | Escriba | DESCRIPCIÓN |
+| Nombre de propiedad | type | DESCRIPCIÓN |
 | --- | --- | --- |
 | settings.configurationArguments.RegistrationKey |securestring |Propiedad obligatoria. Especifica la clave que se usa para que un nodo se registre en el servicio de Azure Automation, como la contraseña de un objeto de credencial de PowerShell. Este valor se puede detectar automáticamente a través del método **listkeys** con la cuenta de Automation. El valor se debe proteger como una configuración protegida. |
 | settings.configurationArguments.RegistrationUrl |string |Propiedad obligatoria. Especifique la dirección URL del punto de conexión de Automation donde el nodo intenta registrarse. Este valor se puede detectar automáticamente a través del método **reference** con la cuenta de Automation. |

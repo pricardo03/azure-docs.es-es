@@ -8,30 +8,24 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: fa933000ee08f16774c821e40d9a3c6fe5dbf353
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34701690"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "35640137"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
-
-## <a name="overview"></a>Información general
-
 Azure Storage ofrece la posibilidad de eliminar temporalmente objetos de blob, con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
-
 Cuando está activada, la eliminación temporal para guardar y recuperar los datos cuando se eliminan los blobs o las instantáneas de blob. Esta protección se extiende a los datos de blob que se borran como resultado de una sobrescritura.
 
-Cuando se eliminan los datos, pasan a un estado de eliminación temporal, en lugar de borrarse de forma permanente. Cuando la eliminación temporal está activada y se sobrescriben los datos, se genera una instantánea de eliminación temporal para guardar el estado de los datos sobrescritos. Los objetos que se han eliminado temporalmente no se ven, salvo que se enumeren de forma explícita.
-Se puede configurar el tiempo durante el que los datos eliminados se pueden recuperar antes de que expiren permanentemente.
+Cuando se eliminan los datos, pasan a un estado de eliminación temporal, en lugar de borrarse de forma permanente. Cuando la eliminación temporal está activada y se sobrescriben los datos, se genera una instantánea de eliminación temporal para guardar el estado de los datos sobrescritos. Los objetos que se han eliminado temporalmente no se ven, salvo que se enumeren de forma explícita. Se puede configurar el tiempo durante el que los datos eliminados se pueden recuperar antes de que expiren permanentemente.
 
 La eliminación temporal es compatible con las versiones anteriores; no es preciso realizar ningún cambio en las aplicaciones para aprovechar las ventajas de los mecanismos de protección que se obtienen con esta característica. Sin embargo, la [recuperación de datos](#recovery) incorpora la nueva **Undelete Blob** API.
 
 ### <a name="configuration-settings"></a>Valores de configuración
-
 Cuando se crea una cuenta, la eliminación temporal está desactivada de forma predeterminada. La eliminación temporal también está desactivada de forma predeterminada en las cuentas de almacenamiento existentes. Esta característica se puede activar o desactivar en cualquier momento de la vida de una cuenta de almacenamiento.
 
 Aunque la función esté desactivada será posible acceder y recuperar los datos eliminados temporalmente, suponiendo que los datos eliminados temporalmente se guardaran cuando la característica estaba activada. Si se activa la eliminación temporal, también hay que configurar el periodo de retención.
@@ -41,7 +35,6 @@ El período de retención indica la cantidad de tiempo durante el que los datos 
 El período de retención de la eliminación temporal se puede cambiar en cualquier momento. El periodo de retención actualizado solo se aplicará a los datos recién eliminados. Los datos eliminados con anterioridad expirarán en función del periodo de retención que se configuró en el momento en que se eliminaron. Si intenta eliminar un objeto eliminado temporalmente, su hora de expiración no resultará afectará.
 
 ### <a name="saving-deleted-data"></a>Guardado de los datos eliminados
-
 La eliminación temporal conserva los datos en muchos casos en los que los blobs o las instantáneas de blob se eliminan o se sobrescriben.
 
 Si se usan **Put Blob**, **Put Block**, **Put Block List** o **Copy Blob** cuando se sobrescribe un blob, se genera automáticamente una instantánea del estado del blob antes de la operación de escritura. Esta es una instantánea de eliminación temporal; es invisible, a menos que se enumeren explícitamente los objetos que se han eliminado temporalmente. Para aprender a enumerar objetos que se han eliminado temporalmente, consulte la sección [Recuperación](#recovery).
@@ -50,10 +43,10 @@ Si se usan **Put Blob**, **Put Block**, **Put Block List** o **Copy Blob** cuand
 
 *Los datos eliminados temporalmente son de color gris, mientras que los datos activos están son de color azul. Los últimos datos escritos aparecen debajo de los datos más antiguos. Cuando B0 se sobrescribe con B1, se genera una instantánea de eliminación temporal de B0. Cuando B1 se sobrescribe con B2, se genera una instantánea de eliminación temporal de B1.*
 
-> [!NOTE]
-> La eliminación temporal solo ofrece protección contra escritura en las operaciones de copia cuando está activada en la cuenta del blob de destino.
+> [!NOTE]  
+> La eliminación temporal solo ofrece protección contra las sobrescritura en las operaciones de copia cuando está activada en la cuenta del blob de destino.
 
-> [!NOTE]
+> [!NOTE]  
 > La eliminación temporal no permite la protección contra escritura de blobs en el nivel de archivo. Si un blob archivado se sobrescribe con blob nuevo en cualquier nivel, el primero expira de forma permanente.
 
 Si se llama a **Delete Blob** en una instantánea, esta se marca como eliminada temporalmente. No se una nueva instantánea.
@@ -68,31 +61,30 @@ Cuando se llama a **Delete Blob** en un blob base (cualquier blob que sea en sí
 
 *Los datos eliminados temporalmente son de color gris, mientras que los datos activos están son de color azul. Los últimos datos escritos aparecen debajo de los datos más antiguos. En este caso, se realiza una llamada a **Delete Blob** para eliminar B2 y todas las instantáneas asociadas. El blob activo, B2, y todas las instantáneas asociadas se marcan como eliminados temporalmente.*
 
-> [!NOTE]
-> Cuando se sobrescribe un blob eliminado temporalmente, se genera automáticamente una instantánea de eliminación temporal del estado del blob antes de la operación de escritura. El nuevo blob hereda el nivel del blob sobrescrito.
+> [!NOTE]  
+> Cuando se sobrescribe un blob eliminado temporalmente, se genera de forma automática una instantánea de eliminación temporal del estado del blob antes de la operación de escritura. El nuevo blob hereda el nivel del blob sobrescrito.
 
 La eliminación temporal no guarda los datos si se eliminan el contenedor o la cuenta, ni tampoco cuando se sobrescriben los metadatos y las propiedades del blob. Para proteger una cuenta de almacenamiento contra cualquier eliminación por error, se puede configurar un bloqueo mediante Azure Resource Manager. Para más información, consulte el artículo de Azure Resource Manager [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/resource-group-lock-resources.md).
 
 En la tabla siguiente se detalla el comportamiento esperado cuando se activa la eliminación temporal:
 
-| Operación de API REST                                                                                                | Tipo de recurso                 | DESCRIPCIÓN                                                                                                 | Cambio en el comportamiento                                                                                                                                                                                                                                                                                                                                                   |
-|-------------------------------------------------------------------------------------------------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Eliminar](/rest/api/storagerp/StorageAccounts/Delete)              | Cuenta                       | Elimina la cuenta de almacenamiento, incluidos todos los contenedores y blobs que contiene.                           | Sin cambios. Los contenedores y blobs de la cuenta eliminada no se pueden recuperar.                                                                                                                                                                                                                                                                                          |
-| [Delete Container](/rest/api/storageservices/fileservices/delete-container)       | Contenedor                     | Elimina el contenedor, incluidos todos los blobs que contiene.                                                | Sin cambios. Los blobs del contenedor eliminado no se pueden recuperar.                                                                                                                                                                                                                                                                                                       |
-| [Put Blob](/rest/api/storageservices/fileservices/put-blob)                       | Blobs en bloques, de anexión y de página | Crea un nuevo blob o reemplaza uno en un contenedor                                          | Si se utiliza para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se ha eliminado antes temporalmente si, y solo si, se reemplaza por un blob del mismo tipo (en bloques, de anexión o de página). Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
-| [Delete Blob](/rest/api/storageservices/fileservices/delete-blob)                 | Blobs en bloques, de anexión y de página | Marca un blob o una instantánea de blob para su eliminación. El blob o la instantánea se eliminan posteriormente, durante la recolección de elementos no utilizados | Si se usa para eliminar una instantánea de blob, esta se marca como eliminada temporalmente. Si se usa para eliminar un blob, este se marca como eliminado temporalmente.                                                                                                                                                                                                                           |
-| [Copy Blob](/rest/api/storageservices/fileservices/copy-blob)                     | Blobs en bloques, de anexión y de página | Copia un blob de origen en un blob de destino de la misma cuenta de almacenamiento o de otra.       | Si se utiliza para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se ha eliminado antes temporalmente si, y solo si, se reemplaza por un blob del mismo tipo (en bloques, de anexión o de página). Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
-| [Put Block](/rest/api/storageservices/put-block)                                  | Blobs en bloques                   | Crea un nuevo bloque que se confirmará como parte de un blob en bloques.                                                | Si se utiliza para confirmar un bloque en un blob que esté activo, no habrá cambio alguno. Si utiliza para confirmar un bloque en un blob que se ha eliminado temporalmente, se crea un nuevo blob y se genera automáticamente una instantánea para capturar el estado del blob eliminado temporalmente.                                                                                                                      |
-| [Put Block List](/rest/api/storageservices/fileservices/put-block-list)           | Blobs en bloques                   | Confirma un blob mediante la especificación del conjunto de identificadores de bloque que componen el blob en bloques.                             | Si se utiliza para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se eliminó temporalmente si, y solo si, es un blob en bloques. Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente.                                                |
-| [Put Page](/rest/api/storageservices/fileservices/put-page)                       | Blobs en páginas                    | Escribe un rango de páginas en un blob en páginas.                                                                     | Sin cambios. Los datos del blob en páginas que se sobrescriben o se borrar con esta operación no se guardan ni se pueden recuperar.                                                                                                                                                                                                                                                   |
-| [Append Block](/rest/api/storageservices/fileservices/append-block)               | Blobs de anexión                  | Escribe un bloque de datos al final de un blob de anexión.                                                         | Sin cambios.                                                                                                                                                                                                                                                                                                                                                           |
-| [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties) | Blobs en bloques, de anexión y de página | Establece los valores de las propiedades del sistema definidas para un blob.                                                       | Sin cambios. Las propiedades del blob sobrescribe no se pueden recuperar.                                                                                                                                                                                                                                                                                                          |
-| [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata)     | Blobs en bloques, de anexión y de página | Establece los metadatos definidos por el usuario para el blob especificado como uno o varios pares de nombre y valor.                          | Sin cambios. Los metadatos del blob sobrescrito no se pueden recuperar.                                                                                                                                                                                                                                                                                                             |
+| Operación de API REST | Tipo de recurso | DESCRIPCIÓN | Cambio en el comportamiento |
+|--------------------|---------------|-------------|--------------------|
+| [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Cuenta | Elimina la cuenta de almacenamiento, incluidos todos los contenedores y blobs que contiene.                           | Sin cambios. Los contenedores y blobs de la cuenta eliminada no se pueden recuperar. |
+| [Delete Container](/rest/api/storageservices/delete-container) | Contenedor | Elimina el contenedor, incluidos todos los blobs que contiene. | Sin cambios. Los blobs del contenedor eliminado no se pueden recuperar. |
+| [Put Blob](/rest/api/storageservices/put-blob) | Blobs en bloques, de anexión y de página | Crea un nuevo blob o reemplaza uno en un contenedor | Si se usa para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se ha eliminado antes temporalmente si, y solo si, se reemplaza por un blob del mismo tipo (en bloques, de anexión o de página). Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
+| [Delete Blob](/rest/api/storageservices/delete-blob) | Blobs en bloques, de anexión y de página | Marca un blob o una instantánea de blob para su eliminación. El blob o la instantánea se eliminan posteriormente, durante la recolección de elementos no utilizados | Si se usa para eliminar una instantánea de blob, esta se marca como eliminada temporalmente. Si se usa para eliminar un blob, este se marca como eliminado temporalmente. |
+| [Copy Blob](/rest/api/storageservices/copy-blob) | Blobs en bloques, de anexión y de página | Copia un blob de origen en un blob de destino de la misma cuenta de almacenamiento o de otra. | Si se usa para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se ha eliminado antes temporalmente si, y solo si, se reemplaza por un blob del mismo tipo (en bloques, de anexión o de página). Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
+| [Put Block](/rest/api/storageservices/put-block) | Blobs en bloques | Crea un nuevo bloque que se confirmará como parte de un blob en bloques. | Si se utiliza para confirmar un bloque en un blob que esté activo, no habrá cambio alguno. Si utiliza para confirmar un bloque en un blob que se ha eliminado temporalmente, se crea un nuevo blob y se genera automáticamente una instantánea para capturar el estado del blob eliminado temporalmente. |
+| [Put Block List](/rest/api/storageservices/put-block-list) | Blobs en bloques | Confirma un blob mediante la especificación del conjunto de identificadores de bloque que componen el blob en bloques. | Si se usa para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se eliminó temporalmente si, y solo si, es un blob en bloques. Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
+| [Put Page](/rest/api/storageservices/put-page) | Blobs en páginas | Escribe un rango de páginas en un blob en páginas. | Sin cambios. Los datos del blob en páginas que se sobrescriben o se borrar con esta operación no se guardan ni se pueden recuperar. |
+| [Append Block](/rest/api/storageservices/append-block) | Blobs de anexión | Escribe un bloque de datos al final de un blob de anexión. | Sin cambios. |
+| [Set Blob Properties](/rest/api/storageservices/set-blob-properties) | Blobs en bloques, de anexión y de página | Establece los valores de las propiedades del sistema definidas para un blob. | Sin cambios. Las propiedades del blob sobrescribe no se pueden recuperar. |
+| [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | Blobs en bloques, de anexión y de página | Establece los metadatos definidos por el usuario para el blob especificado como uno o varios pares de nombre y valor. | Sin cambios. Los metadatos del blob sobrescrito no se pueden recuperar. |
 
-Es importante tener en cuenta que si se llama a "Put Page" para sobrescribir o borrar los rangos de un blob en páginas no se generarán instantáneas automáticamente. Los discos de máquina virtual tienen el respaldo de los blobs en páginas y usan **Put Page** para escribir los datos.
+Es importante tener en cuenta que si se llama a "Put Page" para sobrescribir o borrar los rangos de un blob en páginas no se generarán instantáneas de forma automática. Los discos de máquina virtual tienen el respaldo de los blobs en páginas y usan **Put Page** para escribir los datos.
 
 ### <a name="recovery"></a>Recuperación
-
 Para facilitar la recuperación de datos eliminados, hemos introducido la nueva API "Undelete Blob". Si se llama a la API Undelete en un blob base eliminado temporalmente, se restauran tanto el blob como todas las instantáneas eliminadas temporalmente y se activan. Si se llama a la API Undelete en un blob base activo, todas las instantáneas eliminadas temporalmente se restauran como activas. Cuando las instantáneas se restauran como activas, parecen generadas por el usuario; no sobrescriben el blob base.
 
 Para restaurar un blob en una instantánea eliminada temporalmente puede llamar a **Undelete Blob** en el blob base. Luego puede copiar la instantánea sobre el blob activo. También puede copiar la instantánea en un blob nuevo.
@@ -104,8 +96,7 @@ Para restaurar un blob en una instantánea eliminada temporalmente puede llamar 
 Para ver los blobs y las instantáneas de blob eliminados temporalmente, puede elegir incluir datos eliminados en **List Blobs**. Puede elegir ver solo los blobs base eliminados temporalmente o incluir también las instantáneas de blob eliminadas temporalmente. En todos los datos eliminados temporalmente se puede ver la hora en que se eliminaron, así como el número de días que faltan para que expiren de forma permanente.
 
 ### <a name="example"></a>Ejemplo
-
-A continuación se ve la salida de la consola de un script de .NET que carga, sobrescribe, crea instantáneas, elimina y restaura un blob denominado "HelloWorld" cuando la eliminación temporal está activada:
+A continuación se muestra la salida de la consola de un script de .NET que carga, sobrescribe, crea instantáneas, elimina y restaura un blob denominado "HelloWorld" cuando la eliminación temporal está activada:
 
 ```bash
 Upload:
@@ -140,7 +131,6 @@ Copy a snapshot over the base blob:
 En la sección [Pasos siguientes](#next-steps) puede encontrar un puntero a la aplicación que generó esta salida.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
-
 Todos los datos eliminados temporalmente se factura con la misma tasa que los datos activos. Sin embargo, los datos que se eliminen permanentemente después del periodo de retención configurado no se cobrarán. Para ver un análisis más profundo de las instantáneas y cómo generan cargos, consulte [Creación de una instantánea de un blob](storage-blob-snapshots.md).
 
 No se le cobrarán las transacciones relacionadas con la generación automática de instantáneas. Las transacciones de **Undelete Blob** se le cobrarán con la tarifa de "Operaciones de escritura".
@@ -150,7 +140,6 @@ Para más información acerca de los precios de Azure Blob Storage en general, c
 Cuando activa inicialmente la eliminación temporal, se recomienda usar un período de retención pequeño para comprender mejor cómo afecta la característica a la facturación.
 
 ## <a name="quickstart"></a>Guía de inicio rápido
-
 ### <a name="azure-portal"></a>Azure Portal
 Para habilitar la eliminación temporal, vaya a la opción **Eliminación temporal** de **Blob Service**. Luego, haga clic en **Habilitado** y escriba el número de días que desea conservar los datos que se han eliminado temporalmente.
 
@@ -215,7 +204,6 @@ az storage blob service-properties delete-policy show --account-name mystorageac
 ```
 
 ### <a name="python-client-library"></a>Biblioteca de cliente de Python
-
 Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
 
 ```python
@@ -230,24 +218,22 @@ block_blob_service = BlockBlobService(account_name='<enter your storage account 
 block_blob_service.set_blob_service_properties(delete_retention_policy = DeleteRetentionPolicy(enabled = True, days = 7))
 ```
 
-### <a name="net-client-library"></a>Biblioteca de cliente de .Net
-
+### <a name="net-client-library"></a>Biblioteca de cliente de .NET
 Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
 
 ```csharp
-// Get the blob client’s service property settings
+// Get the blob client's service property settings
 ServiceProperties serviceProperties = blobClient.GetServiceProperties();
 
 // Configure soft delete
 serviceProperties.DeleteRetentionPolicy.Enabled = true;
 serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 
-// Set the blob client’s service property settings
+// Set the blob client's service property settings
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-Para recuperar los blobs que se eliminaron accidentalmente, llame a Undelete en ellos.
-Recuerde que al llamar a **Undelete Blob**, tanto en los blobs activos como en los eliminados temporalmente, restaurará todas las instantáneas asociadas eliminadas temporalmente como activas. En el ejemplo siguiente se llama a Undelete en todos los blobs activos y eliminados temporalmente de un contenedor:
+Para recuperar los blobs que se eliminaron accidentalmente, llame a Undelete en ellos. Recuerde que al llamar a **Undelete Blob**, tanto en los blobs activos como en los eliminados temporalmente, restaurará todas las instantáneas asociadas eliminadas temporalmente como activas. En el ejemplo siguiente se llama a Undelete en todos los blobs activos y eliminados temporalmente de un contenedor:
 
 ```csharp
 // Recover all blobs in a container
@@ -274,72 +260,51 @@ blockBlob.StartCopy(copySource);
 ```
 
 ## <a name="should-i-use-soft-delete"></a>¿Debo usar la eliminación temporal?
-
-Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos, es aconsejable activar la eliminación temporal.
-La eliminación temporal forma parte de una estrategia de protección de datos y puede ayudarle a evitar la pérdida accidental de datos.
+Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos, es aconsejable activar la eliminación temporal. La eliminación temporal forma parte de una estrategia de protección de datos y puede ayudarle a evitar la pérdida accidental de datos.
 
 ## <a name="faq"></a>Preguntas más frecuentes
+**¿Para qué tipos de almacenamiento se puede usar la eliminación temporal?**  
+Actualmente, la eliminación temporal sólo está disponible para el almacenamiento de blobs (objeto).
 
-**¿Para qué tipos de almacenamiento se puede usar la eliminación temporal?**
-
-Actualmente, la eliminación temporal solo está disponible para el almacenamiento de blobs (objeto).
-
-**¿Está disponible la eliminación temporal para todos los tipos de cuentas de almacenamiento?**
-
+**¿Está disponible la eliminación temporal para todos los tipos de cuentas de almacenamiento?**  
 Sí, la eliminación temporal no solo está disponible para las cuentas de almacenamiento de blobs, sino también para los blobs de las cuentas de uso general (tanto GPV1 como GPv2). Esto se aplica tanto a las cuentas estándar como a las premium. La eliminación temporal no está disponible para los discos administrados.
 
-**¿Está disponible la eliminación temporal para todas las capas de almacenamiento?**
-
+**¿Está disponible la eliminación temporal para todas las capas de almacenamiento?**  
 Sí, la eliminación temporal está disponible para todas las capas de almacenamiento, es decir, la de acceso frecuente, la de acceso esporádico y la de archivo. Sin embargo, la eliminación temporal no permite la protección contra la sobrescritura en los blobs de la capa de archivo.
 
-**¿Se puede usar la API de Set Blob Tier para almacenar los blobs por niveles con instantáneas eliminadas temporalmente?**
-
+**¿Se puede usar la API de Set Blob Tier para almacenar los blobs por niveles con instantáneas eliminadas temporalmente?**  
 Sí. Las instantáneas eliminadas temporalmente permanecerán en el nivel original, pero el blob base se moverá al nivel nuevo. 
 
-**Las cuentas de almacenamiento Premium tienen un límite de instantáneas de blob de 100. ¿Cuentan las instantáneas eliminadas temporalmente para este límite?**
-
+**Las cuentas de almacenamiento Premium tienen un límite de instantáneas de blob de 100. ¿Cuentan las instantáneas eliminadas temporalmente para este límite?**  
 No, no cuentan.
 
-**¿Se puede activar la eliminación temporal en cuentas de almacenamiento existentes?**
-
+**¿Se puede activar la eliminación temporal en cuentas de almacenamiento existentes?**  
 Sí, la eliminación temporal se puede configurar tanto para las cuentas de almacenamiento nuevas como las existentes.
 
-**Si elimino toda una cuenta o un contenedor con la eliminación temporal activada, ¿se guardarán todos los blobs asociados?**
-
+**Si elimino toda una cuenta o un contenedor con la eliminación temporal activada, ¿se guardarán todos los blobs asociados?**  
 No, si elimina toda una cuenta o un contenedor, todos los blobs asociados se eliminarán permanentemente. Para aprender a proteger una cuenta de almacenamiento contra eliminaciones accidentales, consulte el artículo de Azure Resource Manager [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/resource-group-lock-resources.md).
 
-**¿Puedo ver las métricas de capacidad de los datos eliminados?**
-
+**¿Puedo ver las métricas de capacidad de los datos eliminados?**  
 Los datos eliminados temporalmente se incluyen como parte de la capacidad total de la cuenta de almacenamiento. Para más información acerca del seguimiento y la supervisión de la capacidad de almacenamiento, consulte el artículo [Storage Analytics](../common/storage-analytics.md).
 
-**¿Se puede acceder a los datos eliminados temporalmente aunque se desactive la eliminación temporal?**
-
+**¿Se puede acceder a los datos eliminados temporalmente aunque se desactive la eliminación temporal?**  
 Sí, aunque la eliminación temporal esté desactivada podrá acceder a los datos eliminados temporalmente que no hayan expirado y recuperarlos.
 
-**¿Puedo leer y copiar instantáneas eliminadas temporalmente de mi blob?**
-
+**¿Puedo leer y copiar instantáneas eliminadas temporalmente de mi blob?**  
 Sí, pero antes debe llamar a Undelete en el blob.
 
-**¿Está disponible la eliminación temporal para todos los tipos de blob?**
-
+**¿Está disponible la eliminación temporal para todos los tipos de blob?**  
 Sí, la eliminación temporal está disponible para los blobs en bloques, blobs de anexación y blobs en páginas.
 
-**¿Está la eliminación temporal disponible para los discos de máquina virtual?**
-
+**¿Está la eliminación temporal disponible para los discos de máquina virtual?**  
 La eliminación temporal está disponible tanto para los discos no administrados Estándar como para los Premium. La eliminación temporal sólo le ayudará a recuperar los datos eliminados por **Delete Blob**, **Put Blob**, **Put Block List**, **Put Block** y **Copy Blob**. Los datos que se sobrescriben con una llamada a **Put Page** no se pueden recuperar.
 
-**¿Es preciso cambiar las aplicaciones existentes para usar la eliminación temporal?**
-
+**¿Es preciso cambiar las aplicaciones existentes para usar la eliminación temporal?**  
 Se puede sacar provecho de la eliminación temporal independientemente de la versión de API que se use. Sin embargo, para enumerar y recuperar blobs e instantáneas de blob eliminados temporalmente, será preciso usar la versión del 29-07-2017 de [API REST de Storage Services](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services), o cualquier versión superior. En general, siempre se recomienda utilizar la versión más reciente, independientemente de que se use esta característica.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 * [Código de ejemplo de .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
-
-* [Blob Service REST API](/rest/api/storageservices/fileservices/blob-service-rest-api) (API de REST de Blob service)
-
-* [Replicación de Azure Storage](../common/storage-redundancy.md)
-
-* [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md)
-
-* [Qué hacer si se produce una interrupción del servicio Azure Storage](../common/storage-disaster-recovery-guidance.md)
+* [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API de REST de Blob service)
+* [Replicación de Azure Storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Qué hacer si se produce una interrupción del servicio Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "35630082"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creación y publicación de un producto en Marketplace
 
@@ -35,6 +36,10 @@ ms.lasthandoff: 05/12/2018
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
 3. [Cree una plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) o elija una de GitHub. El elemento de Marketplace usa esta plantilla para crear un recurso.
+
+    > [!Note]  
+    > Nunca codifique los secretos, como las claves de producto, contraseñas o cualquier información de identificación del cliente, en la plantilla de Azure Resource Manager. Los archivos de plantilla de JSON son accesibles sin necesidad de autenticación una vez publicados en la galería.  Almacene todos los secretos en [Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-keyvault-parameter) y llámelos desde dentro de la plantilla.
+
 4. Pruebe la plantilla con las API de Microsoft Azure Stack para asegurarse de que el recurso puede implementarse correctamente.
 5. Si la plantilla se basa en una imagen de máquina virtual, siga las instrucciones para [agregar una imagen de máquina virtual a Azure Stack](azure-stack-add-vm-image.md).
 6. Guarde la plantilla de Azure Resource Manager en la carpeta **/Contoso.TodoList/DeploymentTemplates/**.
@@ -72,9 +77,9 @@ ms.lasthandoff: 05/12/2018
 ## <a name="publish-a-marketplace-item"></a>Publicación de un elemento de Marketplace
 1. Use PowerShell o el Explorador de Azure Storage para cargar el elemento de Marketplace (.azpkg) a Azure Blob Storage. Puede cargar en el almacenamiento de Azure Stack local o cargar en Azure Storage. (Se trata de una ubicación temporal para el paquete.) Asegúrese de que el blob es accesible públicamente.
 2. En la máquina virtual de cliente del entorno de Microsoft Azure Stack, asegúrese de que la sesión de PowerShell está configurada con sus credenciales de administrador de servicios. Puede encontrar instrucciones para la autenticación de PowerShell en Azure Stack en [Deploy a template with PowerShell](user/azure-stack-deploy-template-powershell.md) (Implementar una plantilla con PowerShell).
-3. Utilice el cmdlet **Add-AzureRMGalleryItem** de PowerShell para publicar el elemento de Marketplace en Azure Stack. Por ejemplo: 
+3. Al usar [PowerShell 1.3.0]( azure-stack-powershell-install.md) o una versión posterior, se puede usar el cmdlet **Add-AzsGalleryItem** de PowerShell para publicar el elemento de Marketplace en Azure Stack. Antes de usar PowerShell 1.3.0, use el cmdlet **Add-AzureRMGalleryitem** en lugar de **Add-AzsGalleryItem**.  Por ejemplo, cuando usa PowerShell 1.3.0 o una versión posterior:
    
-       Add-AzureRMGalleryItem -GalleryItemUri `
+       Add-AzsGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
    | . | DESCRIPCIÓN |
@@ -89,6 +94,12 @@ ms.lasthandoff: 05/12/2018
    > 
    > 
 5. El elemento de Marketplace ahora se ha guardado en la plataforma Marketplace de Azure Stack. Puede elegir eliminarlo de la ubicación de almacenamiento de blobs.
+    > [!Caution]  
+    > Ahora se puede acceder a todos los artefactos de la galería predeterminados y personalizados sin autenticación mediante las direcciones URL siguientes:  
+`https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
+
 6. Puede quitar un elemento de Marketplace mediante el cmdlet **Remove-AzureRMGalleryItem**. Ejemplo:
    
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
@@ -100,14 +111,14 @@ ms.lasthandoff: 05/12/2018
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Referencia: manifest.json del elemento de Marketplace
 ### <a name="identity-information"></a>Información de identidad
-| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | NOMBRE |X |string |[A-Za-z0-9]+ | |
 | Publicador |X |string |[A-Za-z0-9]+ | |
 | Versión |X |string |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadatos
-| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Se recomiendan 80 caracteres |Es posible que el portal no muestre el nombre del elemento correctamente si tiene más de 80 caracteres. |
 | PublisherDisplayName |X |string |Se recomiendan 30 caracteres |Es posible que el portal no muestre el nombre del editor correctamente si tiene más de 30 caracteres. |
@@ -133,7 +144,7 @@ Todos los elementos de Marketplace deben etiquetarse con una categoría que iden
 ### <a name="links"></a>Vínculos
 Cada elemento de Marketplace puede incluir varios vínculos a contenido adicional. Los vínculos se especifican en forma de lista de nombres e identificadores URI.
 
-| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |64 caracteres como máximo | |
 | Identificador URI |X |URI | | |
@@ -141,7 +152,7 @@ Cada elemento de Marketplace puede incluir varios vínculos a contenido adiciona
 ### <a name="additional-properties"></a>Propiedades adicionales
 Además de los metadatos anteriores, los creadores de Marketplace pueden proporcionar datos con el par clave-valor personalizado de la forma siguiente:
 
-| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |25 caracteres como máximo | |
 | Valor |X |string |30 caracteres como máximo | |

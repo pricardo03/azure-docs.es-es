@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bb340b8439927f191bc4a22f385d85d4e21b1cdb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064529"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929356"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -204,6 +204,20 @@ Un runbook se puede suspender por varios motivos. Las suspensiones se producen p
 #### <a name="resolution"></a>Resolución
 
 La solución documentada para evitar este problema consiste en usar puntos de control en un flujo de trabajo. Para más información, consulte el artículo con [información sobre los flujos de trabajo de PowerShell](../automation-powershell-workflow.md#checkpoints). Encontrará una explicación más completa del "reparto equitativo" y los puntos de control en este artículo de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)(Uso de puntos de control en los runbooks).
+
+### <a name="long-running-runbook"></a>Escenario: un runbook de larga ejecución no se puede completar
+
+#### <a name="issue"></a>Problema
+
+Por naturaleza, este comportamiento en espacios aislados de Azure se debe a la supervisión de "distribución equilibrada" de los procesos de Azure Automation, que suspende automáticamente un runbook si se ejecuta durante más de tres horas.
+
+#### <a name="cause"></a>Causa
+
+El runbook se ejecutó por encima del límite de tres horas permitido por la distribución equilibrada en un espacio aislado de Azure
+
+#### <a name="resolution"></a>Resolución
+
+La solución recomendada consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los Hybrid Worker no están limitados por el límite de runbook de tres horas de [distribución equilibrada](../automation-runbook-execution.md#fair-share) como los espacios aislados de Azure.
 
 ## <a name="common-errors-when-importing-modules"></a>Errores comunes al importar módulos
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ec729c6f82cec503cae2fa057f5842849004ac7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 5f469269d88320a41551fc86168debcd8fe43f7f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318252"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865461"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutorial: Integración de Azure Active Directory con The Cloud Security Fabric
 
@@ -166,7 +166,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Crear un usuario de prueba de The Cloud Security Fabric
 
-En esta sección, creará el usuario Britta Simon en The Cloud Security Fabric. Póngase en contacto con el [equipo de soporte técnico de The Cloud Security Fabric](mailto:support@cloudlock.com) para agregar usuario a la plataforma de The Cloud Security Fabric. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará el usuario Britta Simon en The Cloud Security Fabric. Póngase en contacto con el [equipo de soporte técnico de The Cloud Security Fabric](mailto:support@cloudlock.com) para agregar a los usuarios de la plataforma de The Cloud Security Fabric. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -202,7 +202,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de The Cloud Security Fabric en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación The Cloud Security Fabric.
+Al hacer clic en el icono de The Cloud Security Fabric en el panel de acceso, debería iniciar sesión automáticamente en la aplicación The Cloud Security Fabric.
 Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales

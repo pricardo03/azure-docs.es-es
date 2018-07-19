@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29844112"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856467"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure.
@@ -49,7 +49,7 @@ Los usuarios de Linux pueden usar Bash en Cloud Shell, mientras que los usuarios
 ### <a name="authenticated-and-configured-azure-workstation"></a>Estación de trabajo de Azure autenticada y configurada
 Microsoft administra Cloud Shell, por lo que incluye herramientas de línea de comandos populares y compatibilidad para distintos lenguajes. Cloud Shell también se autentica de forma segura y automática para obtener acceso inmediato a los recursos mediante la CLI de Azure 2.0 o de los cmdlets de Azure PowerShell.
 
-Vea la lista completa de herramientas para la [experiencia de Bash](features.md#tools) y la [experiencia de PowerShell (versión preliminar).](features-powershell.md#tools)
+Vea la [lista de herramientas](features.md#tools) completa.
 
 ### <a name="multiple-access-points"></a>Varios puntos de acceso
 Cloud Shell es una herramienta flexible que puede utilizarse desde:
@@ -94,7 +94,7 @@ En el mensaje del programa de instalación, haga clic en "Mostrar configuración
 * Cloud Shell requiere montar un recurso compartido de archivos de Azure.
 * Cloud Shell usa el mismo recurso compartido de archivos de Azure para Bash y para PowerShell.
 * Se asigna a Cloud Shell una máquina por cuenta de usuario.
-* Bash conserva $Home con una imagen de 5 GB en el recurso compartido de archivos
+* Cloud Shell conserva $Home con una imagen de 5 GB en el recurso compartido de archivos
 * Los permisos se establecen como usuario de Linux normal en Bash.
 
 Obtenga más información sobre las características en [Bash en Cloud Shell](features.md) y [PowerShell en Cloud Shell (versión preliminar)](features-powershell.md).

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613972"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858813"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions
 
@@ -27,8 +27,8 @@ Con la integración nativa entre [Azure Cosmos DB](https://azure.microsoft.com/s
 Azure Cosmos DB y Azure Functions permite integrar las aplicaciones sin servidor y bases de datos de las maneras siguientes:
 
 * Cree un **desencadenador de Azure Cosmos DB** basado en eventos en una instancia de Azure Function. Este desencadenador se basa en secuencias de [fuente de cambios](change-feed.md) para supervisar los cambios en el contenedor de Azure Cosmos DB. Cuando se hace algún cambio en un contenedor, la secuencia de fuente de cambios se envía al desencadenador, que invoca la instancia de Azure Function.
-* También puede enlazar una instancia de Azure Function a una colección de Azure Cosmos DB mediante un **enlace de entrada**. Los enlaces de entrada leen los datos de un contenedor cuando se ejecuta una función.
-* Enlace una función a una colección de Azure Cosmos DB mediante un **enlace de salida**. Los enlaces de salida escriben datos en un contenedor cuando se completa una función.
+* Como alternativa, enlace una instancia de Azure Function a un contenedor de Azure Cosmos DB mediante un **enlace de entrada**. Los enlaces de entrada leen los datos de un contenedor cuando se ejecuta una función.
+* Enlace una función a un contenedor de Azure Cosmos DB mediante un **enlace de salida**. Los enlaces de salida escriben datos en un contenedor cuando se completa una función.
 
 > [!NOTE]
 > En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API y Graph API.
@@ -58,7 +58,7 @@ En las implementaciones de IoT, puede invocar una función cuando la luz de comp
 4. El desencadenador se invoca en cada cambio de datos de la recopilación de datos del sensor, del mismo modo que todos los datos se transmiten a través de la fuente de cambios.
 5. Una condición de umbral se usa en la función para enviar los datos del sensor al departamento de garantías.
 6. Si la temperatura también supera cierto valor, también se envía una alerta al propietario.
-7. El **enlace de salida** en la función actualiza el registro del automóvil en otra colección de Azure Cosmos DB para almacenar información sobre el evento de comprobación del motor.
+7. El **enlace de salida** en la función actualiza el registro del automóvil en otro contenedor de Azure Cosmos DB para almacenar información sobre el evento de comprobación del motor.
 
 La imagen siguiente muestra el código escrito en Azure Portal para este desencadenador.
 
@@ -95,7 +95,7 @@ En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros
 
 En implementaciones de venta minorista, cuando un usuario agrega un elemento a su cesta, ahora se tiene la flexibilidad de crear e invocar funciones para componentes opcionales de la canalización comercial.
 
-**Implementación:** varios desencadenadores de Azure Cosmos DB que escuchan una colección
+**Implementación:** varios desencadenadores de Azure Cosmos DB que escuchan un contenedor
 
 1. Puede crear varias instancias de Azure Functions si agrega desencadenadores de Azure Cosmos DB a cada una de ellas, todas las cuales escuchan la misma fuente de cambios de los datos del carro de la compra. Tenga en cuenta que cuando varias funciones escuchan en la misma fuente de cambios, es necesario una colección de concesiones para cada función. Para más información sobre las colecciones de concesiones, consulte [Biblioteca del procesador de fuente de cambios](change-feed.md#understand-cf).
 2. Cada vez que un elemento nuevo se agrega al carro de la compra de los usuarios, la fuente de cambios invoca cada función de manera independiente desde el contenedor de carros de la compra.
@@ -130,7 +130,7 @@ Azure Cosmos DB es la base de datos recomendada para la arquitectura de informá
 
 * **Sin esquema**. Azure Cosmos DB no tiene esquemas, por lo que es capaz de forma exclusiva de controlar cualquier salida de datos de una instancia de Azure Function. Este enfoque de "controlar todo" permite que el proceso de crear una variedad de instancias de Functions que tengan salida a Azure Cosmos DB sea sencillo.
 
-* **Rendimiento escalable**. En Azure Cosmos DB, el rendimiento se puede escalar y reducir verticalmente de manera instantánea. Si tiene cientos o miles de instancias de Functions consultando y escribiendo en la misma colección, puede escalar verticalmente las [RU/s](request-units.md) para controlar la carga. Todas las funciones pueden trabajar en paralelo con las RU/s asignadas y se garantiza que los datos serán [coherentes](consistency-levels.md).
+* **Rendimiento escalable**. En Azure Cosmos DB, el rendimiento se puede escalar y reducir verticalmente de manera instantánea. Si tiene cientos o miles de instancias de Functions que consultan y escriben en el mismo contenedor, puede escalar verticalmente las [RU/s](request-units.md) para controlar la carga. Todas las funciones pueden trabajar en paralelo con las RU/s asignadas y se garantiza que los datos serán [coherentes](consistency-levels.md).
 
 * **Replicación global**. Puede replicar los datos de Azure Cosmos DB [en todo el mundo](distribute-data-globally.md) para reducir la latencia y localizar geográficamente los datos más cercanos al lugar en que se encuentran los usuarios. Del mismo modo que ocurre con todas las consultas de Azure Cosmos DB, los datos de los desencadenadores basados en eventos son datos de lectura de la instancia de Azure Cosmos DB más cercana al usuario.
 

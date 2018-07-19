@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: f2fe02a6e7e696fa2c0ab301e7469060d6bd4ab6
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292040"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920518"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -121,17 +121,15 @@ Existe un límite para la cantidad de reglas por grupo de seguridad de red que s
     
     |Configuración  |Valor  |Detalles  |
     |---------|---------|---------|
-    |Origen     | Seleccione **Cualquiera**, **Direcciones IP** o **Etiqueta de servicio**.        | Si selecciona **Direcciones IP**, debe especificar **Intervalos de direcciones IP de origen y CIDR**. Puede especificar un valor único o una lista de varios valores separados por comas. Un ejemplo de varios valores es 10.0.0.0/16, 192.188.1.1. Se aplican límites al número de valores que puede especificar. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Si selecciona **Etiqueta de servicio**, debe seleccionar una etiqueta de servicio. Una etiqueta de servicio es un identificador predefinido para una categoría de direcciones IP. Para más información sobre las etiquetas de servicio disponibles y qué representa cada etiqueta, consulte [Etiquetas de servicio](security-overview.md#service-tags). Si la dirección IP que va a especificar está asignada a una máquina virtual de Azure, asegúrese de que especifica la dirección IP privada, no la dirección IP pública, si ya hay una dirección IP pública asignada a la máquina virtual. Las reglas de seguridad se procesan después de que Azure traduce la dirección IP pública a una dirección IP privada para las reglas de seguridad de entrada, y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para las reglas de salida. Para más información sobre las direcciones IP públicas y privadas de Azure, consulte [Tipos de direcciones IP](virtual-network-ip-addresses-overview-arm.md).        |
+    |Origen     | Seleccione **Cualquiera**, **Grupo de seguridad de aplicaciones**, **Direcciones IP** o **Etiqueta de servicio** para las reglas de seguridad de entrada. Si va a crear una regla de seguridad de salida, las opciones son las mismas que las indicadas para **Destino**.       | Si selecciona **Grupo de seguridad de aplicaciones**, seleccione después uno o varios grupos de seguridad de aplicaciones existentes en la misma región que la interfaz de red. Obtenga información sobre cómo [crear un grupo de seguridad de aplicaciones](#create-an-application-security-group). Si selecciona **Grupo de seguridad de aplicaciones** para **Origen** y **Destino**, las interfaces de red de ambos grupos de seguridad de aplicaciones deben estar en la misma red virtual. Si selecciona **Direcciones IP**, especifique después **Intervalos de direcciones IP de origen y CIDR**. Puede especificar un valor único o una lista de varios valores separados por comas. Un ejemplo de varios valores es 10.0.0.0/16, 192.188.1.1. Se aplican límites al número de valores que puede especificar. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Si selecciona **Etiqueta de servicio**, seleccione después una etiqueta de servicio. Una etiqueta de servicio es un identificador predefinido para una categoría de direcciones IP. Para más información sobre las etiquetas de servicio disponibles y qué representa cada etiqueta, consulte [Etiquetas de servicio](security-overview.md#service-tags). Si la dirección IP que especifica está asignada a una máquina virtual de Azure, asegúrese de que especifica la dirección IP privada, no la dirección IP pública asignada a la máquina virtual. Las reglas de seguridad se procesan después de que Azure traduce la dirección IP pública a una dirección IP privada para las reglas de seguridad de entrada, y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para las reglas de salida. Para más información sobre las direcciones IP públicas y privadas de Azure, consulte [Tipos de direcciones IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalos de puertos de origen     | Especifique un único puerto (por ejemplo, 80), un intervalo de puertos (como 1024-65535) o una lista de puertos únicos y/o intervalos de puertos separados por comas (como 80, 1024-65535). Escriba un asterisco para permitir el tráfico en cualquier puerto. | Los puertos e intervalos especifican qué tráfico de puertos permitirá o denegará la regla. Se aplican límites al número de puertos que puede especificar. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).  |
-    |Destino     | Seleccione **Cualquiera**, **Direcciones IP** o **Red virtual**.        | Si selecciona **Direcciones IP**, debe especificar **Intervalos de direcciones IP de destino y CIDR**. De manera similar a **Origen** e **Intervalos de direcciones IP de origen y CIDR**, puede especificar uno o varios intervalos o direcciones y se aplican límites a la cantidad que puede especificar. Si se selecciona **Red virtual**, que es una etiqueta de servicio, significa que se permite el tráfico a todas las direcciones IP dentro del espacio de direcciones de la red virtual. Si la dirección IP que va a especificar está asignada a una máquina virtual de Azure, asegúrese de que especifica la dirección IP privada, no la dirección IP pública, si ya hay una dirección IP pública asignada a la máquina virtual. Las reglas de seguridad se procesan después de que Azure traduce la dirección IP pública a una dirección IP privada para las reglas de seguridad de entrada, y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para las reglas de salida. Para más información sobre las direcciones IP públicas y privadas de Azure, consulte [Tipos de direcciones IP](virtual-network-ip-addresses-overview-arm.md).        |
+    |Destino     | Seleccione **Cualquiera**, **Grupo de seguridad de aplicaciones**, **Direcciones IP** o **Red virtual** para las reglas de seguridad de entrada. Si va a crear una regla de seguridad de salida, las opciones son las mismas que las indicadas para **Origen**.        | Si selecciona **Grupo de seguridad de aplicaciones**, debe seleccionar después uno o varios grupos de seguridad de aplicaciones existentes en la misma región que la interfaz de red. Obtenga información sobre cómo [crear un grupo de seguridad de aplicaciones](#create-an-application-security-group). Si selecciona **Grupo de seguridad de aplicaciones**, seleccione después un grupo de seguridad de aplicaciones que exista en la misma región que la interfaz de red. Si selecciona **Direcciones IP**, especifique después **Intervalos de direcciones IP de destino y CIDR**. De manera similar a **Origen** e **Intervalos de direcciones IP de origen y CIDR**, puede especificar uno o varios intervalos o direcciones y se aplican límites a la cantidad que puede especificar. Si se selecciona **Red virtual**, que es una etiqueta de servicio, significa que se permite el tráfico a todas las direcciones IP dentro del espacio de direcciones de la red virtual. Si la dirección IP que especifica está asignada a una máquina virtual de Azure, asegúrese de que especifica la dirección IP privada, no la dirección IP pública asignada a la máquina virtual. Las reglas de seguridad se procesan después de que Azure traduce la dirección IP pública a una dirección IP privada para las reglas de seguridad de entrada, y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para las reglas de salida. Para más información sobre las direcciones IP públicas y privadas de Azure, consulte [Tipos de direcciones IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalos de puertos de destino     | Especifique un valor único o una lista de varios valores separados por comas. | De manera similar a **Intervalos de puertos de origen**, puede especificar uno o varios intervalos o puertos y se aplican límites a la cantidad que puede especificar. |
     |Protocolo     | Seleccione **Cualquiera**, **TCP** o **UDP**.        |         |
     |.     | Seleccione **Permitir** o **Denegar**.        |         |
     |Prioridad     | Escriba un valor de 100-4096 que sea único para todas las reglas de seguridad del grupo de seguridad de red. |Las reglas se procesan en el orden de prioridad. Cuanto menor sea el número, mayor será la prioridad. Se recomienda dejar un espacio entre los números de prioridad al crear reglas, como 100, 200, 300. Dejar espacios facilita la adición de reglas en el futuro que pueda necesitar por encima o debajo de las reglas existentes.         |
     |NOMBRE     | Nombre único para la regla en el grupo de seguridad de red.        |  Puede tener hasta 80 caracteres. Debe empezar con una letra o un número y acabar con una letra, un número o un guion bajo, y solo debe contener letras, números, guiones bajos, puntos o guiones.       |
     |DESCRIPCIÓN     | Descripción opcional.        |         |
-
-    No se puede especificar un [grupo de seguridad de aplicaciones](#work-with-application-security-groups) para las opciones de configuración **Origen** o **Destino** mediante el portal. Obstante, puede hacerlo mediante la CLI de Azure o PowerShell. Las opciones de configuración de **Reglas de seguridad de salida** son similares, por lo que no se explican por separado.
 
 **Comandos**
 
@@ -185,29 +183,54 @@ La lista contiene todas las reglas que ha creado y las [reglas de seguridad pred
 - CLI de Azure: [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
 - PowerShell: [Remove-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
 
-
 ## <a name="work-with-application-security-groups"></a>Trabajar con grupos de seguridad de aplicaciones
 
-Un grupo de seguridad de aplicaciones contiene una interfaz de red, varias o ninguna. Para más información, consulte [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups). No se puede trabajar con grupos de seguridad de aplicaciones en el portal, pero puede usar PowerShell o la CLI de Azure. Todas las interfaces de red de un grupo de seguridad de aplicaciones deben existir en la misma red virtual. La primera interfaz de red agregada a un grupo de seguridad de aplicaciones determina en qué red virtual deben estar todas las interfaces de red posteriores. Para obtener información sobre cómo agregar una interfaz de red a un grupo de seguridad de aplicaciones, consulte el tema sobre cómo [agregar una interfaz de red a un grupo de seguridad de aplicaciones](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
+Un grupo de seguridad de aplicaciones contiene una interfaz de red, varias o ninguna. Para más información, consulte [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups). Todas las interfaces de red de un grupo de seguridad de aplicaciones deben existir en la misma red virtual. Para obtener información sobre cómo agregar una interfaz de red a un grupo de seguridad de aplicaciones, consulte el tema sobre cómo [agregar una interfaz de red a un grupo de seguridad de aplicaciones](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
 
 ### <a name="create-an-application-security-group"></a>Crear un grupo de seguridad de aplicaciones
+
+1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
+2. En el cuadro **Buscar en Marketplace**, escriba *Grupo de seguridad de aplicaciones*. Cuando **Grupo de seguridad de aplicaciones** aparezca en los resultados de la búsqueda, selecciónelo, vuelva a seleccionar **Grupo de seguridad de aplicaciones** en **Todo** y, después, haga clic en **Crear**.
+3. Especifique o seleccione los siguientes datos y haga clic en **Crear**:
+
+    | Configuración        | Valor                                                   |
+    | ---            | ---                                                     |
+    | NOMBRE           | El nombre debe ser único dentro de un grupo de recursos.        |
+    | Subscription   | Seleccione su suscripción.                               |
+    | Grupos de recursos | Seleccione un grupo de recursos existente, o bien cree uno. |
+    | Ubicación       | Seleccionar una ubicación                                       |
+
+**Comandos**
 
 - CLI de Azure: [az network asg create](/cli/azure/network/asg#az-network-asg-create)
 - PowerShell: [New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
 
 ### <a name="view-all-application-security-groups"></a>Ver todos los grupos de seguridad de aplicaciones
 
+1. En la esquina superior izquierda de Azure Portal, seleccione **Todos los servicios**.
+2. Escriba *grupos de seguridad de aplicaciones* en el cuadro **de filtro Todos los servicios** y, después, seleccione **Grupos de seguridad de aplicaciones** cuando aparezca en los resultados de la búsqueda.
+
+**Comandos**
+
 - CLI de Azure: [az network asg list](/cli/azure/network/asg#az-network-asg-list)
 - PowerShell: [Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>Ver detalles de un grupo de seguridad de aplicaciones específico
+
+1. En la esquina superior izquierda de Azure Portal, seleccione **Todos los servicios**.
+2. Escriba *grupos de seguridad de aplicaciones* en el cuadro **de filtro Todos los servicios** y, después, seleccione **Grupos de seguridad de aplicaciones** cuando aparezca en los resultados de la búsqueda.
+3. Seleccione el grupo de seguridad de aplicaciones del que quiera ver los detalles.
+
+**Comandos**
 
 - CLI de Azure: [az network asg show](/cli/azure/network/asg#az-network-asg-show)
 - PowerShell: [Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
 
 ### <a name="change-an-application-security-group"></a>Cambiar un grupo de seguridad de aplicaciones
 
-Aunque es posible cambiar algunos valores de configuración, como las etiquetas y los permisos, de un grupo de seguridad de aplicaciones existente, no se le pueden cambiar el nombre ni la ubicación.
+1. En la esquina superior izquierda de Azure Portal, seleccione **Todos los servicios**.
+2. Escriba *grupos de seguridad de aplicaciones* en el cuadro **de filtro Todos los servicios** y, después, seleccione **Grupos de seguridad de aplicaciones** cuando aparezca en los resultados de la búsqueda.
+3. Seleccione el grupo de seguridad de aplicaciones para el que quiera cambiar la configuración. Puede agregar o quitar etiquetas, o bien asignar o quitar permisos para el grupo de seguridad de aplicaciones.
 
 - CLI de Azure: [az network asg update](/cli/azure/network/asg#az-network-asg-update)
 - PowerShell: ningún cmdlet de PowerShell.
@@ -215,6 +238,11 @@ Aunque es posible cambiar algunos valores de configuración, como las etiquetas 
 ### <a name="delete-an-application-security-group"></a>Eliminar un grupo de seguridad de aplicaciones
 
 No se puede eliminar un grupo de seguridad de aplicaciones si tiene alguna interfaz de red. Quite todas las interfaces de red del grupo de seguridad de aplicaciones. Para ello, cambie la configuración de la interfaz de red o elimine las interfaces de red. Para obtener más información, consulte los temas sobre cómo [agregar a o quitar una interfaz de red de grupos de seguridad de aplicaciones](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) o [eliminar una interfaz de red](virtual-network-network-interface.md#delete-a-network-interface).
+
+1. En la esquina superior izquierda de Azure Portal, seleccione **Todos los servicios**.
+2. Escriba *grupos de seguridad de aplicaciones* en el cuadro **de filtro Todos los servicios** y, después, seleccione **Grupos de seguridad de aplicaciones** cuando aparezca en los resultados de la búsqueda.
+3. Seleccione el grupo de seguridad de aplicaciones que quiera eliminar.
+4. Haga clic en **Eliminar** y después en **Sí** para eliminar el grupo de seguridad de aplicaciones.
 
 **Comandos**
 
@@ -225,21 +253,25 @@ No se puede eliminar un grupo de seguridad de aplicaciones si tiene alguna inter
 
 Para realizar tareas en grupos de seguridad de red, reglas de seguridad y grupos de seguridad de aplicaciones, la cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignados los permisos adecuados que se muestran en las tablas siguientes:
 
-### <a name="network-security-groups"></a>Grupos de seguridad de red
+### <a name="network-security-group"></a>Grupo de seguridad de red
 
 | .                                                        |   NOMBRE                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/ruleTables/read                             |   Obtener grupo de seguridad de red                                          |
-| Microsoft.Network/ruleTables/write                            |   Crear o actualizar grupo de seguridad de red                             |
-| Microsoft.Network/ruleTables/delete                           |   Eliminar grupo de seguridad de red                                       |
-| Microsoft.Network/ruleTables/join/action                      |   Asociar un grupo de seguridad de red a una subred o a una interfaz de red |
-| Microsoft.Network/ruleTables/rules/read                       |   Obtener regla                                                            |
-| Microsoft.Network/ruleTables/rules/write                      |   Crear o actualizar regla                                               |
-| Microsoft.Network/ruleTables/rules/delete                     |   Eliminar regla                                                         |
-| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Obtener grupo de seguridad de red eficaz de la interfaz de red              |
-| Microsoft.Network/networkWatchers/nextHop/action              |   Obtención del próximo salto de una VM                                         |
+| Microsoft.Network/networkSecurityGroups/read                  |   Obtener grupo de seguridad de red                                          |
+| Microsoft.Network/networkSecurityGroups/write                 |   Crear o actualizar grupo de seguridad de red                             |
+| Microsoft.Network/networkSecurityGroups/delete                |   Eliminar grupo de seguridad de red                                       |
+| Microsoft.Network/networkSecurityGroups/join/action           |   Asociar un grupo de seguridad de red a una subred o a una interfaz de red 
 
-### <a name="application-security-groups"></a>Grupos de seguridad de aplicaciones
+
+### <a name="network-security-group-rule"></a>Regla de grupo de seguridad de red
+
+| .                                                        |   NOMBRE                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/networkSecurityGroups/rules/read            |   Obtener regla                                                            |
+| Microsoft.Network/networkSecurityGroups/rules/write           |   Crear o actualizar regla                                               |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Eliminar regla                                                         |
+
+### <a name="application-security-group"></a>Grupo de seguridad de aplicaciones
 
 | .                                                                     | NOMBRE                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |

@@ -1,6 +1,6 @@
 ---
-title: Carga de datos en Azure Data Lake Store mediante Azure Data Factory | Microsoft Docs
-description: Uso de Azure Data Factory para copiar datos en Azure Data Lake Store
+title: Carga de datos en Azure Data Lake Storage Gen1 mediante Azure Data Factory | Microsoft Docs
+description: Uso de Azure Data Factory para copiar datos en Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055516"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857208"
 ---
-# <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Carga de datos en Azure Data Lake Store mediante Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen1 mediante Azure Data Factory
 
-[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. Azure Data Lake permite capturar datos de cualquier tamaño, tipo y velocidad de ingesta. Los datos se capturan en un único lugar para análisis operativos y exploratorios.
+[Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (anteriormente conocido como Azure Data Lake Store) es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. Azure Data Lake permite capturar datos de cualquier tamaño, tipo y velocidad de ingesta. Los datos se capturan en un único lugar para análisis operativos y exploratorios.
 
 Azure Data Factory es un servicio de integración de datos en la nube totalmente administrado. Puede utilizar el servicio para rellenar la instancia de Data Lake Store con datos del sistema actual y ahorrar tiempo al compilar las soluciones de análisis.
 

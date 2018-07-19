@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046173"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857385"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Actividad de la condición IF en Azure Data Factory
 La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Evalúa un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false`. 
@@ -69,9 +69,9 @@ Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 Nombre | Nombre de la actividad de la condición IF. | string | Sí
 Tipo | Debe establecerse en **IfCondition** | string | Sí
-expresión | Expresión que debe evaluarse como "true" o "false" | Sí
-ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Sí
-ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Sí
+expresión | Expresión que debe evaluarse como "true" o "false" | Expresión con resultado de tipo booleano | Sí
+ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Matriz | Sí
+ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Matriz | Sí
 
 ## <a name="example"></a>Ejemplo
 La canalización de este ejemplo copia los datos de una carpeta de entrada a una carpeta de salida. La carpeta de salida viene determinada por el valor del parámetro de canalización routeSelection. Si el valor de routeSelection es true, los datos se copian en outputPath1. Y si el valor de routeSelection es false, los datos se copian en outputPath2. 

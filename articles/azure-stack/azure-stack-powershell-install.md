@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/18/2018
+ms.date: 07/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: b3c09582f5135655640768bcbcbef91750827bfa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e2785b0beeab042d4b1ad9a9eb5f545dbb58b8b9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358897"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38487508"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalación de PowerShell para Azure Stack
 
@@ -29,7 +29,7 @@ Los módulos de Azure PowerShell compatibles con Azure Stack se requieren para t
 
 Este artículo contiene instrucciones detalladas para instalar PowerShell para Azure Stack.
 
-> [!Note]
+> [!Note]  
 > En los siguientes pasos se necesita PowerShell 5.0. Para comprobar la versión, ejecute $PSVersionTable.PSVersion y compare la versión **principal**.
 
 Los comandos de PowerShell para Azure Stack se instalan a través de la Galería de PowerShell. Puede utilizar el siguiente procedimiento para validar si PSGallery se ha registrado como un repositorio, abrir una sesión de PowerShell con privilegios elevados y ejecutar el siguiente comando:
@@ -46,11 +46,11 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 > [!Note]  
 > Este paso requiere acceso a Internet. 
 
-## <a name="uninstall-existing-versions-of-powershell"></a>Desinstalación de las versiones existentes de PowerShell
+## <a name="uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>Desinstalar las versiones existentes de los módulos de PowerShell de Azure Stack
 
-Antes de instalar la versión requerida, asegúrese de desinstalar los módulos de PowerShell de Azure Stack instalados previamente. Puede desinstalarlos mediante uno de los dos métodos siguientes:
+Antes de instalar la versión requerida, asegúrese de desinstalar los módulos de PowerShell de Azure Stack AzureRM instalados previamente. Puede desinstalarlos mediante uno de los dos métodos siguientes:
 
- - Para desinstalar los módulos de PowerShell existentes, cierre todas las sesiones de PowerShell activas y ejecute el siguiente comando:
+ - Para desinstalar los módulos de PowerShell de AzureRM existentes, cierre todas las sesiones de PowerShell activas y ejecute el comando siguiente:
 
   ```PowerShell
     Uninstall-Module AzureRM.AzureStackAdmin -Force
@@ -62,7 +62,7 @@ Antes de instalar la versión requerida, asegúrese de desinstalar los módulos 
 
 En las secciones siguientes se describen los pasos necesarios para instalar PowerShell para Azure Stack. PowerShell puede instalarse en Azure Stack que opere en un escenario conectado, parcialmente conectado o sin conexión.
 
-## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Instalación de PowerShell en un escenario conectado (con conectividad a Internet)
+## <a name="install-the-azure-stack-powershell-modules-in-a-connected-scenario-with-internet-connectivity"></a>Instalación de los módulos PowerShell de Azure Stack en un escenario conectado (con conectividad a Internet)
 
 Los módulos AzureRM compatibles con Azure Stack se instalan a través de perfiles de la versión de API. Azure Stack requiere el perfil de la versión de API **2017-03-09-profile**, que está disponible al instalar el módulo AzureRM.Bootstrapper. Para obtener información acerca de los perfiles de la versión de API y los cmdlets proporcionados por ellos, consulte el artículo sobre [administración de perfiles de la versión de API](user/azure-stack-version-profiles.md). Además de los módulos AzureRM, también debe instalar los módulos de PowerShell específicos de Azure Stack. Ejecute el siguiente script de PowerShell para instalar estos módulos en la estación de trabajo de desarrollo:
 
@@ -88,7 +88,7 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 
 Si la instalación es correcta, los módulos AzureRM y AzureStack se muestran en la salida.
 
-## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Instalación de PowerShell en un escenario desconectado o parcialmente conectado (con conectividad a Internet limitada)
+## <a name="install-the-azure-stack-powershell-modules-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Instalación de los módulos de PowerShell de Azure Stack en un escenario desconectado o parcialmente conectado (con conectividad a Internet limitada)
 
 En un escenario desconectado, primero debe descargar los módulos de PowerShell en un equipo que tenga conectividad a Internet y luego transferirlos al Kit de desarrollo de Azure Stack para la instalación.
 

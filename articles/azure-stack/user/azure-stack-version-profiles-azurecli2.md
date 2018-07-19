@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939663"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866865"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Uso de los perfiles de la versión de la API con la CLI de Azure 2.0 en Azure Stack
 
-Puede seguir los pasos de este artículo para configurar la interfaz de la línea de comandos (CLI) de Azure para administrar los recursos del Kit de desarrollo de Azure Stack de las plataformas de cliente de Linux, Mac, Windows.
+Puede seguir los pasos de este artículo para configurar la interfaz de la línea de comandos (CLI) de Azure para administrar los recursos del Kit de desarrollo de Azure Stack de las plataformas de cliente de Linux, Mac y Windows.
 
 ## <a name="install-cli"></a>Instalar la CLI
 

@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209838"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922753"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility Service en Azure para la replicación de Azure
 
@@ -29,6 +29,11 @@ Una vez que permite que Site Recovery administre las actualizaciones, se impleme
 
 > [!NOTE]
 > Habilitar las actualizaciones automáticas no requiere un reinicio de las máquinas virtuales de Azure y no afecta a la replicación en curso.
+
+> [!NOTE]
+> La facturación de trabajos usados por cuenta de Automation se basa en el número de minutos de tiempo de ejecución de trabajo que se usan al mes y, de forma predeterminada, se incluyen 500 minutos como unidades gratuitas para una cuenta de Automation. La ejecución del trabajo oscila diariamente de **unos segundos a aproximadamente un minuto** y se **cubrirá en los créditos gratuitos**.
+
+UNIDADES GRATUITAS INCLUIDAS (AL MES)**   PRECIO Tiempo de ejecución de trabajo    500 minutos 0,14/minuto
 
 ## <a name="enable-automatic-updates"></a>Habilitar las actualizaciones automáticas
 
@@ -64,7 +69,7 @@ Si hay un problema con las actualizaciones automáticas, se le enviará una noti
 En caso de que haya intentado habilitar las actualizaciones automáticas y no le haya sido posible, consulte a continuación la solución de problemas.
 
 **Error**: no tiene permisos para crear una cuenta de ejecución de Azure (entidad de servicio) y conceder el rol Colaborador a la entidad de servicio. 
-- Acción recomendada: asegúrese de que la cuenta en la que ha iniciado sesión está asignada al rol "Colaborador" y vuelva a intentar la operación.
+- Acción recomendada: asegúrese de que la cuenta en la que ha iniciado sesión está asignada al rol "Colaborador" y vuelva a intentar la operación. Consulte [este](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento para obtener más información sobre cómo asignar los permisos adecuados.
  
 Una vez que las actualizaciones automáticas están activadas, el servicio Site Recovery puede solucionar la mayoría de problemas; para ello, debe hacer clic en el botón "**Reparar**".
 

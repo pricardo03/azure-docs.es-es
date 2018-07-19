@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe1ca45b0f79781b2fa17bfb605df03d334cc8d1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 10535e75a32a9f95e759340cf14d693f43639473
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046720"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856848"
 ---
-# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copia de datos con una instancia local Oracle como origen o destino mediante Azure Data Factory
+# <a name="copy-data-to-or-from-on-premises-oracle-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](data-factory-onprem-oracle-connector.md)
 > * [Versión 2 (versión actual)](../connector-oracle.md)
@@ -103,6 +103,10 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | gatewayName | Nombre de la puerta de enlace que se usa para conectarse al servidor local de Oracle |Sí |
 
 **Ejemplo: Uso del controlador de Microsoft**
+
+>[!TIP]
+>Si aparece un error que dice "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión y vuelva a intentarlo.
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",

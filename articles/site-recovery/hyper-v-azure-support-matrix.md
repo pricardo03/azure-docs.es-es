@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266968"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923473"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de compatibilidad para la replicación de Hyper-V en Azure
 
@@ -33,7 +33,7 @@ Hyper-V sin Virtual Machine Manager | Ahora puede realizar la recuperación ante
 
 **Servidor** | **Requisitos** | **Detalles**
 --- | --- | ---
-Hyper-V en ejecución sin Virtual Machine Manager | Windows Server 2016 y Windows Server 2012 R2 con las últimas actualizaciones | Cuando se configura un sitio de Hyper-V en Site Recovery, no se admite la combinación de hosts que se ejecutan en Windows Server 2016 y 2012 R2.<br/><br/> En el caso de las máquinas virtuales en un host que ejecuta Windows Server 2016, no se admite la recuperación en una ubicación alternativa.
+Hyper-V en ejecución sin Virtual Machine Manager | Windows Server 2016 (incluida la instalación de Server Core), Windows Server 2012 R2 con las actualizaciones más recientes | Cuando se configura un sitio de Hyper-V en Site Recovery, no se admite la combinación de hosts que se ejecutan en Windows Server 2016 y 2012 R2.<br/><br/> En el caso de las máquinas virtuales en un host que ejecuta Windows Server 2016, no se admite la recuperación en una ubicación alternativa.
 Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si se usa Virtual Machine Manager, los hosts de Windows Server 2016 deben administrarse en Virtual Machine Manager 2016.<br/><br/> No se admite actualmente una nube de Virtual Machine Manager que combine hosts de Hyper-V en ejecución en Windows Server 2016 y 2012 R2.<br/><br/> No se admiten los entornos que incluyan una actualización de un servidor existente de Virtual Machine Manager 2012 R2 a 2016.
 
 

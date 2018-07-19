@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: b4502dfc8f856516989326c8d748a5d13fdba02b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b4b193751606883548e25e731dcece4ae72ba7b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634597"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666898"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introducción a la identidad de módulo y los módulos gemelos de IoT Hub con el portal y un dispositivo .NET
 
@@ -26,12 +26,12 @@ En este tutorial, aprenderá a:
 2. Usar el SDK del dispositivo .NET para actualizar el módulo gemelo desde el dispositivo.
 
 > [!NOTE]
-> Para más información acerca de los diversos SDK que puede usar para compilar las aplicaciones para que se ejecuten en los dispositivos y en el back-end de la solución, consulte [SDK de Azure IoT Hub][lnk-hub-sdks].
+> Para más información acerca de los diversos SDK que puede usar para crear ambas aplicaciones para que se ejecuten en dispositivos y en el back-end de la solución, consulte [Azure IoT SDKs][lnk-hub-sdks] (SDK de IoT de Azure).
 
 Para completar este tutorial, necesitará lo siguiente:
 
 * Visual Studio 2015 o Visual Studio 2017.
-* Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos).
+* Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -39,7 +39,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 Ahora dispone de una instancia de IoT Hub. Inicie sesión en el [portal](https://portal.azure.com) y vaya a IoT Hub. Haga clic Dispositivos IoT y en Agregar para crear la identidad del dispositivo. Asígnele el nombre **MyFirstDevice**. 
 
-![Creación de la identidad del dispositivo][8]
+![Crear la identidad del dispositivo][8]
 
 Después de guardar, en la lista de identidades de dispositivo, verá que la identidad MyFirstDevice creó correctamente.
 
@@ -143,18 +143,17 @@ Ha creado correctamente la identidad del módulo en la instancia de IoT Hub. Pro
     ```
 
     Este ejemplo de código muestra cómo recuperar el módulo gemelo y actualizar las propiedades notificadas con el protocolo AMQP. En la versión preliminar pública solo se admite AMQP para las operaciones de módulos gemelos.
-    ```
 
-## Run the apps
+## <a name="run-the-apps"></a>Ejecución de las aplicaciones
 
-You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start both apps running. 
+Ya está preparado para ejecutar las aplicaciones. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. Seleccione **Proyectos de inicio múltiples** e **Iniciar** como acción para la aplicación de consola. Y después presione F5 para iniciar la ejecución de ambas aplicaciones. 
 
-## Next steps
+## <a name="next-steps"></a>Pasos siguientes
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
 
-* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-csharp-csharp-getstarted]
-* [Getting started with IoT Edge][lnk-iot-edge]
+* [Introducción a la identidad de módulo y los módulos gemelos de IoT Hub con un dispositivo .NET y la copia de seguridad de .NET][lnk-csharp-csharp-getstarted]
+* [Introducción a IoT Edge][lnk-iot-edge]
 
 
 <!-- Images. -->

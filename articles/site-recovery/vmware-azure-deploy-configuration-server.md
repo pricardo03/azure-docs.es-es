@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 841176d8c5f215d18edf25b1f191792b37555fa9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318126"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718964"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -99,8 +99,10 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 1. En el asistente para la administración del servidor de configuración, seleccione **Configurar conectividad** y, a continuación, seleccione la NIC que el servidor de procesos usará para recibir el tráfico de replicación de las VM. Después, seleccione **Guardar**. Una vez configurada, esta opción no se puede cambiar.
 2. En **Seleccionar almacén de Recovery Services**, inicie sesión en Microsoft Azure, seleccione la suscripción de Azure y el grupo de recursos y almacén correspondientes.
-    >[!NOTE]
+
+    > [!NOTE]
     > Una vez registrado, no hay ninguna flexibilidad para cambiar el almacén de Recovery Services.
+    
 3. En **Instalar software de terceros**,
 
     |Escenario   |Pasos a seguir  |
@@ -117,11 +119,27 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-1. ¿Puedo usar la máquina virtual donde está instalado el servidor de configuración para propósitos diferentes? **No**, el servidor de configuración debe ser un servidor de propósito único y no está permitido usarlo como servidor compartido.
-2. ¿Puedo cambiar el almacén ya registrado en el servidor de configuración por un almacén recién creado? **No**, una vez que un almacén está registrado con el servidor de configuración, no se puede cambiar.
-3. ¿Puedo usar el mismo servidor de configuración para proteger las máquinas físicas y virtuales? **Sí**, puede usarse el mismo servidor de configuración para la replicación de máquinas físicas y virtuales. Sin embargo, no se admite la conmutación por recuperación a una máquina física.
-4. ¿Dónde se usará el servidor de configuración? Consulte la arquitectura de Azure Site Recovery [aquí](vmware-azure-architecture.md) para obtener más información acerca del servidor de configuración y sus funcionalidades.
-5. ¿Dónde puedo encontrar la versión más reciente del servidor de configuración? Puede descargarla directamente del [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver). Consulte el artículo que incluye los pasos para actualizar el servidor de configuración [aquí](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+1. ¿Puedo usar la máquina virtual, donde está instalado el servidor de configuración, para otros fines?
+
+    **No**, se recomienda usar la máquina únicamente para el servidor de configuración. Asegúrese de seguir todas las especificaciones mencionadas en la [sección anterior](vmware-azure-deploy-configuration-server.md#Prerequisites) para una administración eficaz de la recuperación ante desastres.
+2. ¿Puedo cambiar el almacén ya registrado en el servidor de configuración por un almacén recién creado?
+
+    **No**, una vez que un almacén está registrado con el servidor de configuración, no se puede cambiar.
+3. ¿Puedo usar el mismo servidor de configuración para proteger las máquinas físicas y virtuales?
+
+    **Sí**, puede usarse el mismo servidor de configuración para la replicación de máquinas físicas y virtuales. Pero solo se puede realizar la conmutación por recuperación de una máquina física a una máquina virtual de VMware.
+4. ¿Cuál es el propósito de un servidor de configuración y dónde se usa?
+
+    Consulte la arquitectura de Azure Site Recovery [aquí](vmware-azure-architecture.md) para obtener más información acerca del servidor de configuración y sus funcionalidades.
+5. ¿Dónde puedo encontrar la versión más reciente del servidor de configuración?
+
+    Consulte el artículo que incluye los pasos para actualizar el servidor de configuración [a través del portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). También puede descargarlo directamente del [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
+6. ¿Dónde puedo descargar la frase de contraseña para el servidor de configuración?
+
+    Consulte [este artículo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para descargar la frase de contraseña.
+7. ¿Dónde puedo descargar las claves de registro del almacén?
+
+    En **Almacén de Recovery Services**,**Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**. En Servidores, seleccione **Descargar clave de registro** para descargar el archivo de credenciales de almacén.
 
 ## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
 

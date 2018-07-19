@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 00a776131321500386b507f45ea84817b08147f7
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36962428"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867868"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola serie de máquina virtual (versión preliminar) 
 
@@ -158,5 +158,5 @@ A. Se trata de un problema conocido; para solucionarlo, basta con abrir [Azure C
 A. Esta característica de versión preliminar viene recogida en los términos de las versiones preliminares de Azure. La mejor manera de obtener soporte técnico es recurrir a los canales mencionados anteriormente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* La consola de serie también está disponible para máquinas virtuales con [Windows](../windows/serial-console.md).
-* Obtenga más información sobre los [diagnósticos de arranque](boot-diagnostics.md).
+* La consola serie también está disponible para máquinas virtuales [Windows](../windows/serial-console.md).
+* Más información acerca de los [diagnósticos de arranque](boot-diagnostics.md)

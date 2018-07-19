@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413235"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923493"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparación de servidores de Hyper-V locales para la recuperación ante desastres en Azure
 
@@ -66,7 +66,7 @@ Para preparar VMM para la asignación de red, siga estos pasos:
     
 3. Si controla el acceso por la dirección IP, asegúrese de que:
     - Las reglas de firewall basadas en la dirección IP se puedan conectar a [intervalos IP de centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y al puerto HTTPS (443).
-    - Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
+    - Permite los intervalos de direcciones IP correspondientes a la región de Azure de la suscripción.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
