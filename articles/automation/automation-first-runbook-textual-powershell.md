@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fe9d98b694b8c42f3342e615d92fae9824dca26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2f5d2f3634545001dc6dc1419530223b5a1a85a3
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195155"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435798"
 ---
 # <a name="my-first-powershell-runbook"></a>Mi primer runbook de PowerShell
 
@@ -88,13 +88,16 @@ Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere q
 1. Haga clic en **Editar** en la página MyFirstRunbook-PowerShell para abrir el editor de texto.
 2. Ya no necesita la línea **Write-Output**, así que elimínela.
 3. Escriba o copie y pegue el siguiente código que controla la autenticación con la cuenta de ejecución de Automation:
-   
-   ```
+
+   ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
-   <br>
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** y **Login-AzureRmAccount** ahora son alias de **Connect-AzureRMAccount**. Si el cmdlet **Connect-AzureRMAccount** no existe, puede usar **Add-AzureRmAccount** o **Login-AzureRmAccount**, o bien puede actualizar los módulos de su cuenta de Automation a las versiones más recientes.
+
 4. Haga clic en el **panel de prueba** para poder probar el runbook.
 5. Haga clic en **Iniciar** para iniciar la prueba. Cuando termine, recibirá unos resultados similares a los siguientes, que muestran información básica de su cuenta. Esto confirma que la credencial es válida.<br><br> ![Autenticar](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 

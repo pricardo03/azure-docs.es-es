@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738537"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342733"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -48,12 +48,20 @@ Como resultado, se cifra todo el tráfico.
 ## <a name="networks-and-special-connections-to-azure"></a>Redes y conexiones especiales a Azure
 El agente de Azure File Sync no tiene ningún requisito en lo que respecta a canales especiales como [ExpressRoute](../../expressroute/expressroute-introduction.md), etc., en Azure.
 
-Azure File Sync funciona con cualquier medio disponible que permita conectarse con Azure, de modo que se adapta automáticamente a diversas características de red, como el ancho de banda, la latencia y la posibilidad de usar el control de administración para realizar ajustes. No todas las características están disponibles en este momento. Si desea configurar un comportamiento específico, comuníquelo en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage?category_id=180670).
+Azure File Sync funciona con cualquier medio disponible que permita conectarse con Azure, de modo que se adapta automáticamente a diversas características de red, como el ancho de banda, la latencia y la posibilidad de usar el control de administración para realizar ajustes. * No todas las características están disponibles en este momento. Si desea configurar un comportamiento específico, comuníquelo en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## <a name="proxy"></a>Proxy
-Azure File Sync admite actualmente la configuración del proxy en el nivel de máquinas. Esta configuración de proxy es transparente para el agente de Azure File Sync, ya que todo el tráfico del servidor se enruta a través de este proxy.
+Azure File Sync admite la configuración del proxy específico de aplicación en el nivel de máquina.
 
-La configuración de proxy específico de las aplicaciones está actualmente en desarrollo y se admitirá en futuras versiones del agente de Azure File Sync. De este modo, se permite la configuración de un proxy específicamente para el tráfico de Azure File Sync.
+Esta configuración de proxy en el nivel de máquina es transparente para el agente de Azure File Sync, ya que todo el tráfico del servidor se enruta a través de este proxy.
+
+De este modo, se permite la configuración de un proxy específico de la aplicación, específicamente para el tráfico de Azure File Sync. La configuración de un proxy específico de la aplicación es compatible con la versión 3.0.12.0 o posteriores y se puede configurar durante la instalación del agente o mediante el cmdlet Set-StorageSyncProxyConfiguration de PowerShell.
+
+Comandos de PowerShell para configurar el proxy específico de la aplicación:
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
 
 ## <a name="firewall"></a>Firewall
 Como se mencionó en una sección anterior, el puerto 443 tiene que abrirse al tráfico saliente. En función de las directivas del centro de datos, la rama o la región, puede ser recomendable u obligatorio restringir aún más el tráfico a través de este puerto a dominios concretos.

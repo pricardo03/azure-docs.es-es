@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258267"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867960"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -57,6 +57,7 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos L
 |Recursividad     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
 |Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el contenido devuelto.     |
+|Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: **True** o **False**.|
 
 > [!NOTE]
 > La opción de administración de vínculos no se recomienda. No se admite la recuperación de contenido de los archivos.
@@ -75,6 +76,13 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
 |Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"       |
+|Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: **True** o **False**.|
+
+## <a name="configure-file-content-tracking"></a>Configuración del seguimiento del contenido de los archivos
+
+Puede visualizar el contenido antes y después de un cambio de un archivo con File Content Change Tracking. Está disponible para archivos de Windows y Linux, por cada cambio en el archivo, el contenido del archivo se almacena en una cuenta de almacenamiento, y muestra el archivo de antes y después del cambio, alineado o en paralelo. Para más información, consulte [Visualización del contenido de un archivo del que se está realizando un seguimiento](change-tracking-file-contents.md).
+
+![visualización de los cambios en un archivo](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configuración de las claves del Registro de Windows para realizar un seguimiento
 
@@ -125,11 +133,22 @@ En la tabla siguiente se muestra la frecuencia de recopilación de datos para lo
 | Registro de Windows | 50 minutos |
 | Archivo de Windows | 30 minutos |
 | Archivo de Linux | 15 minutos |
-| Servicios de Windows | 30 minutos |
+| Servicios de Windows | 10 segundos hasta 30 minutos</br> Valor predeterminado: 30 minutos |
 | Demonios de Linux | 5 minutos |
 | Software de Windows | 30 minutos |
 | Software Linux | 5 minutos |
 
+### <a name="windows-service-tracking"></a>Seguimiento del servicio de Windows
+
+La frecuencia de recopilación predeterminado para los servicios de Windows es de 30 minutos. Para configurar la frecuencia, vaya a **Change Tracking**. En **Editar configuración** en la pestaña **Servicios de Windows**, hay un control deslizante que le permite cambiar la frecuencia de recopilación para los servicios de Windows desde el valor menor de 10 segundos al mayor de 30 minutos. Mueva el control deslizante hasta la frecuencia que desee y el valor se guardará automáticamente.
+
+![Control deslizante de servicios de Windows](./media/automation-change-tracking/windowservices.png)
+
+El agente solo realiza un seguimiento de los cambios, esto optimiza su rendimiento. Si se establece un umbral demasiado alto, los cambios podrían no aparecer si el servicio se revierte a su estado original. Si la frecuencia se establece en un valor menor, es posible detectar los cambios que de otra forma podrían pasar desapercibidos.
+
+> [!NOTE]
+> Aunque el agente puede seguir los cambios hasta en intervalos de 10 segundos, los datos todavía tardan unos minutos en mostrarse en el portal. Durante el tiempo que lleva la visualización en el portal, se continúa realizando el seguimiento y registro de los cambios.
+  
 ### <a name="registry-key-change-tracking"></a>Seguimiento de cambios en las claves del Registro
 
 El objetivo de supervisar los cambios en las claves del Registro identificar los puntos de extensibilidad en los que se puede activar código de terceros y malware. En la lista siguiente se muestra la lista de claves del registro configuradas previamente. Estas claves están configuradas pero no habilitadas. Para realizar el seguimiento de estas claves del registro, debe habilitar cada una de ellas.

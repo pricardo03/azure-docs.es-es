@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292844"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088506"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guía de introducción a la integración de Azure Active Directory con las aplicaciones
 ## <a name="overview"></a>Información general
@@ -57,12 +57,12 @@ Antes de pasar a la integración de aplicaciones con Azure AD, es importante sab
 
 Quizás no tenga respuestas a todas estas preguntas por adelantado, pero no importa.  Esta guía puede ayudarle a responder a algunas de esas preguntas y a tomar algunas decisiones informadas.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure y un directorio de Azure Active Directory.  Si todavía no dispone de una suscripción a Azure, puede probar Azure de forma gratuita durante 30 días. [pruébelo.](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Integración de aplicaciones con Azure AD
-### <a name="finding-unsanctioned-cloud-applications-with-cloud-app-discovery"></a>Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery
-Como se mencionó anteriormente, puede haber aplicaciones que no han sido administradas por su organización hasta ahora.  Como parte del proceso de inventario, es posible encontrar aplicaciones de nube no sancionadas. Consulte [Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery](cloud-app-discovery.md).
+### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Búsqueda de aplicaciones en la nube no autorizadas con Cloud Discovery
+Como se mencionó anteriormente, puede haber aplicaciones que no han sido administradas por su organización hasta ahora.  Como parte del proceso de inventario, es posible encontrar aplicaciones de nube no sancionadas. Consulte [Configuración de Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md).
 
 ### <a name="authentication-types"></a>Tipos de autenticación
 Cada una de las aplicaciones puede tener requisitos de autenticación diferentes. Con Azure AD, pueden usar certificados de firma con aplicaciones que usan SAML 2.0, WS-Federation o protocolos de conexión OpenID, así como inicio de sesión único con contraseña. Para más información sobre los tipos de autenticación de aplicaciones para su uso con Azure AD, consulte [Administración de certificados para federada el inicio de sesión único federado en Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) e [Inicio de sesión único basado en contraseña](what-is-single-sign-on.md).
@@ -73,9 +73,9 @@ Con el proxy de la aplicación de Microsoft Azure Active Directory, puede propor
 ### <a name="integrating-applications-with-azure-ad"></a>Integración de aplicaciones con Azure AD
 Los siguientes artículos describen las distintas formas en que las aplicaciones se integran con Azure AD, y ofrecen alguna orientación.
 
-* [Determinación de qué Active Directory usar](../active-directory-administer.md)
+* [Determinación de qué Active Directory usar](../fundamentals/active-directory-administer.md)
 * [Uso de aplicaciones de la Galería de aplicaciones de Azure](what-is-single-sign-on.md)
-* [Lista de tutoriales sobre integración de aplicaciones SaaS](../active-directory-saas-tutorial-list.md)
+* [Lista de tutoriales sobre integración de aplicaciones SaaS](../saas-apps/tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>Administración del acceso a las aplicaciones
 En los artículos siguientes se describen formas de administrar el acceso a las aplicaciones después de que se han integrado con Azure AD mediante conectores de Azure AD y Azure AD.

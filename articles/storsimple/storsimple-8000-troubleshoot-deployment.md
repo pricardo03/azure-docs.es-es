@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d6642231bf9d012b0015902c82d2bfde3b86285c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112263"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342443"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Solución de problemas de implementación de dispositivos de StorSimple
 ## <a name="overview"></a>Información general
@@ -69,7 +69,7 @@ En las tablas siguientes se enumeran los errores comunes que pueden aparecer en 
 * Al registrar el dispositivo.
 
 ## <a name="errors-during-the-required-network-settings"></a>Errores durante la configuración de red necesaria
-| Nº | Mensaje de error | Causas posibles | Acción recomendada |
+| No. | Mensaje de error | Causas posibles | Acción recomendada |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard: Este comando solo se puede ejecutar en el controlador activo. |La configuración se estaba realizando en el controlador pasivo. |Ejecute este comando desde el controlador activo. Para obtener más información, consulte [Identificación de un controlador activo en el dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | 2 |Invoke-HcsSetupWizard: El dispositivo no está listo. |Hay problemas con la conectividad de red en DATA 0. |Compruebe la conectividad de red física en DATA 0. |
@@ -103,7 +103,7 @@ Para más información sobre la contraseña del administrador de dispositivos, v
 
 Puede encontrar uno o varios de los siguientes errores al configurar las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager.
 
-| Nº | Mensaje de error | Acción recomendada |
+| No. | Mensaje de error | Acción recomendada |
 | --- | --- | --- |
 | 1 |La contraseña supera la longitud máxima. |La contraseña de administrador del dispositivo debe tener entre 8 y 15 caracteres. |
 | 2 |La contraseña no cumple la longitud necesaria. |La contraseña de administrador del dispositivo debe tener entre 8 y 15 caracteres.|
@@ -126,7 +126,7 @@ La contraseña se puede restablecer en Azure Portal mediante el servicio StorSim
 ## <a name="errors-during-device-registration"></a>Errores durante el registro de dispositivos
 Para registrar el dispositivo se usa el servicio StorSimple Device Manager que se ejecuta en Microsoft Azure. Pueden surgir uno o varios de los siguientes problemas durante el registro del dispositivo.
 
-| Nº | Mensaje de error | Causas posibles | Acción recomendada |
+| No. | Mensaje de error | Causas posibles | Acción recomendada |
 | --- | --- | --- | --- |
 | 1 |Error 350027: No se pudo registrar el dispositivo en StorSimple Device Manager. | |Espere unos minutos y vuelva a intentar la operación. Si el problema persiste, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md). |
 | 2 |Error 350013: Se ha producido un error al registrar el dispositivo. Esto puede deberse a que la clave de registro del servicio no es correcta. | |Vuelva a registrar el dispositivo con la clave de registro del servicio correcta. Para obtener más información, consulte [Obtención de la clave de registro de servicio](storsimple-8000-manage-service.md#get-the-service-registration-key) |
@@ -139,7 +139,7 @@ Para registrar el dispositivo se usa el servicio StorSimple Device Manager que s
 | 9 |Advertencia: no se pudo activar el dispositivo. Las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager no han cambiado. |Si se produce un error en el registro, las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager no cambian. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Herramientas para solucionar problemas en implementaciones de StorSimple
-StorSimple incluye varias herramientas que puede utilizar para solucionar problemas de la solución StorSimple. Entre ellos se incluyen los siguientes:
+StorSimple incluye varias herramientas que puede utilizar para solucionar problemas de la solución StorSimple. Entre ellas se incluyen las siguientes:
 
 * Paquetes de soporte técnico y registros de dispositivo
 * Cmdlets diseñados específicamente para la solución de problemas
@@ -189,7 +189,7 @@ Al configurar las interfaces de red para una implementación de dispositivo por 
    * Si el mantenimiento es correcto pero la interfaz no está habilitada, el estado de **ifIndex** se muestra como **NotPresent**.
    * Si la interfaz no existe, no aparece en la lista. La interfaz de usuario del servicio StorSimple Device Manager seguirá mostrando esta interfaz con un estado de error.
 
-Para obtener más información sobre cómo usar este cmdlet, vaya a [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx) en la referencia de cmdlets de Windows PowerShell.
+Para más información sobre cómo usar este cmdlet, vaya a [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) en la referencia de cmdlets de Windows PowerShell.
 
 En las secciones siguientes se muestran ejemplos de salida del cmdlet `Get-NetAdapter` .
 
@@ -296,7 +296,7 @@ Use el cmdlet `Test-HcsmConnection` con un dispositivo que ya esté conectado al
    * ErrorCode.CiSApplianceACSError: indica que el servicio ha devuelto un error de autenticación, aunque existe conectividad.
      
      Si no se produce una excepción web, compruebe el elemento ErrorCode.CiSApplianceSaasServiceError. Esto indica un problema con el servicio StorSimple Device Manager.
-6. Compruebe la conectividad del Bus de servicio de Azure. ErrorCode.CiSApplianceServiceBusError: indica que el dispositivo no se puede conectar al Bus de servicio.
+6. Compruebe la conectividad de Azure Service Bus. ErrorCode.CiSApplianceServiceBusError: indica que el dispositivo no se puede conectar a Service Bus.
 
 En los archivos de registro CiSCommandletLog0Curr.errlog y CiSAgentsvc0Curr.errlog encontrará más información como, por ejemplo, los detalles de la excepción.
 

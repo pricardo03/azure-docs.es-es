@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937424"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113724"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -36,44 +36,15 @@ ms.locfileid: "36937424"
 |---|---|
 |**Descarga del SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentación de la API**|[Documentación de referencia de la API de biblioteca de procesadores de fuente de cambios](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Introducción**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
+|**Primeros pasos**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
 |**Plataforma admitida actualmente**| [Microsoft .NET 4.5 Framework](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="stable-builds"></a>Compilaciones estables
+### <a name="v2-builds"></a>compilaciones v2
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* Se han agregado más registros.
-* Se ha corregido la pérdida DocumentClient al llamar varias veces a la estimación de trabajo pendiente.
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Correcciones de la estimación de trabajo pendiente.
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Mejoras de estabilidad.
-  * Corrección para administrar el problema de las tareas canceladas que puede detener a los observadores en algunas particiones.
-* Compatibilidad con puntos de control manuales.
-* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21 y posteriores.
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Agrega compatibilidad con .NET Standard 2.0. El paquete admite ahora los monikers de plataforma `netstandard2.0` y `net451`.
-* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.17.0 y posteriores.
-* Compatible con el [SDK de .NET Core para SQL](sql-api-sdk-dotnet-core.md), versiones 1.5.1 y posteriores.
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Corrige un problema con el cálculo de la estimación de trabajo restante cuando la fuente de cambios estaba vacía o no había trabajo pendiente.
-* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.13.2 y posteriores.
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Agregue un método para obtener una estimación de trabajo restante que se va a procesar en la fuente de cambio.
-* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.13.2 y posteriores.
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * SDK de GA
-* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.14.1 y anteriores.
-
-### <a name="pre-release-builds"></a>Compilaciones de versión preliminar
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>Versión preliminar 2.0.3
 * Se han corregido los siguientes problemas:
@@ -108,6 +79,39 @@ ms.locfileid: "36937424"
 * Compatible 100 % con la API v1.
 * Base de código nueva.
 * Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21.1 y superior.
+
+### <a name="v1-builds"></a>compilaciones v1
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Se han agregado más registros.
+* Se ha corregido la pérdida DocumentClient al llamar varias veces a la estimación de trabajo pendiente.
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Correcciones de la estimación de trabajo pendiente.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* Mejoras de estabilidad.
+  * Corrección para administrar el problema de las tareas canceladas que puede detener a los observadores en algunas particiones.
+* Compatibilidad con puntos de control manuales.
+* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21 y posteriores.
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* Agrega compatibilidad con .NET Standard 2.0. El paquete admite ahora los monikers de plataforma `netstandard2.0` y `net451`.
+* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.17.0 y posteriores.
+* Compatible con el [SDK de .NET Core para SQL](sql-api-sdk-dotnet-core.md), versiones 1.5.1 y posteriores.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Corrige un problema con el cálculo de la estimación de trabajo restante cuando la fuente de cambios estaba vacía o no había trabajo pendiente.
+* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.13.2 y posteriores.
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Agregue un método para obtener una estimación de trabajo restante que se va a procesar en la fuente de cambio.
+* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.13.2 y posteriores.
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* SDK de GA
+* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.14.1 y anteriores.
+
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.

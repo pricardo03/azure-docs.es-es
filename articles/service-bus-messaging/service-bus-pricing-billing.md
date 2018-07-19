@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159793"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448414"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Precios y facturación de Service Bus
 
@@ -39,7 +39,10 @@ El nivel **Estándar** tiene precios escalonados para las operaciones realizadas
 
 El nivel **Premium** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2 o 4 unidades de mensajería para cada espacio de nombres Premium de Service Bus. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad, aunque la facturación se realiza con base en una tarificación diaria o de 24 horas. El resultado es un rendimiento predecible y repetible para su solución basada en Service Bus. Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sino que también es más rápido.
 
-Tenga en cuenta que el cargo base del nivel Estándar se realiza solo una vez al mes por suscripción de Azure. Esto significa que, después de crear un espacio de nombres de Service Bus del nivel Estándar, puede crear tantos espacios de nombres Estándar como desee con la misma suscripción de Azure sin incurrir en gastos base adicionales.
+> [!NOTE]
+> Los temas y suscripciones solo están disponibles en los planes de tarifa estándar o Premium. El plan básico solo admite colas.
+
+El gasto base del plan Estándar se realiza solo una vez al mes por suscripción de Azure. Esto significa que, después de crear un espacio de nombres de Service Bus del nivel Estándar, puede crear tantos espacios de nombres Estándar como desee con la misma suscripción de Azure sin incurrir en gastos base adicionales.
 
 En la tabla [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) se resumen las diferencias funcionales entre los niveles Estándar y Premium.
 
@@ -99,7 +102,7 @@ Por ejemplo:
 
 Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, independientemente del número de sistemas o dispositivos emisores. La recepción de eventos con HTTP con un tiempo de expiración superior a cero, que a menudo se conoce como "long polling", genera cargos por conexión asíncrona. Las conexiones AMQP generan cargos por conexiones asíncronas, sin importar si las conexiones se usan para enviar o para recibir. Las mil primeras conexiones asíncrónicas de todos los espacios de nombres Estándar de una suscripción de Azure se incluyen sin cargo adicional (más allá del cargo base). Dado que estos números son suficientes para cubrir una gran cantidad de escenarios de mensajería entre servicios, los cargos por conexión asíncrona normalmente solo son relevantes si planea usar AMQP o HTTP long-polling con un gran número de clientes; por ejemplo, para conseguir una mayor eficiencia en el streaming de eventos o para habilitar la comunicación bidireccional con muchos dispositivos o instancias de aplicación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para información completa sobre precios de Service Bus, consulte la [página de precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 * Vea las [preguntas más frecuentes sobre Service Bus](service-bus-faq.md#pricing) para ver algunas preguntas comunes sobre los precios y la facturación de Service Bus.

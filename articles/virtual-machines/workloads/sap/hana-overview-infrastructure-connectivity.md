@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4c0f5d0c5ed3814495a68d7fd49d41cec521bbd7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763772"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114565"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestructura y conectividad con SAP HANA en Azure (instancias grandes) 
 
@@ -131,7 +131,7 @@ En secciones anteriores ya se han presentado algunos de los intervalos de direcc
 
 - **Intervalo de direcciones para conectividad ER-P2P:** es el intervalo de direcciones IP para la conexión ExpressRoute (ER) P2P de SAP HANA (Instancias grandes). Este intervalo de direcciones IP debe ser un intervalo de direcciones IP CIDR /29. Este intervalo no se debe superponer con los intervalos de direcciones locales ni con otros intervalos de direcciones IP de Azure. Este intervalo de direcciones IP se usa para configurar la conectividad ER entre la puerta de enlace ExpressRoute de la red virtual de Azure y los servidores de SAP HANA (Instancias grandes). ¿Cómo obtener este intervalo de direcciones IP? El equipo de redes corporativas o el proveedor de servicios deben proporcionar un intervalo de direcciones IP no utilizado actualmente en la red. **Se debe enviar a Microsoft este intervalo de direcciones IP al solicitar una implementación inicial**
   
-- **Intervalo de direcciones del grupo de direcciones IP de servidor:** este intervalo de direcciones IP se usa para asignar direcciones IP individuales a los servidores de HANA Instancias grandes. El tamaño de subred recomendado es un bloque CIDR /24, aunque si es necesario, puede ser menor hasta un mínimo de 64 direcciones IP. De este intervalo, las primeras 30 direcciones IP están reservadas para uso de Microsoft. Asegúrese de tenerlo en cuenta al elegir el tamaño del intervalo. Este intervalo no se debe superponer con los intervalos de direcciones locales ni con otras direcciones IP de Azure. ¿Cómo obtener este intervalo de direcciones IP? El equipo de redes corporativas o el proveedor de servicios deben proporcionar un intervalo de direcciones IP no utilizado actualmente en la red. Un bloque CIDR /24 único (recomendado) que se usará para asignar las direcciones IP específicas necesarias para SAP HANA en Azure (Instancias grandes). **Se debe enviar a Microsoft este intervalo de direcciones IP al solicitar una implementación inicial**
+- **Intervalo de direcciones del grupo de direcciones IP de servidor:** este intervalo de direcciones IP se usa para asignar direcciones IP individuales a los servidores de HANA Instancias grandes. El tamaño de subred recomendado es un bloque CIDR /24, aunque si es necesario, puede ser menor hasta un mínimo de 64 direcciones IP. De este intervalo, las primeras 30 direcciones IP están reservadas para uso de Microsoft. Asegúrese de tenerlo en cuenta al elegir el tamaño del intervalo. Este intervalo no se debe superponer con las direcciones IP locales ni con otras direcciones IP de Azure. ¿Cómo obtener este intervalo de direcciones IP? El equipo de redes corporativas o el proveedor de servicios deben proporcionar un intervalo de direcciones IP no utilizado actualmente en la red. Un bloque CIDR /24 único (recomendado) que se usará para asignar las direcciones IP específicas necesarias para SAP HANA en Azure (Instancias grandes). **Se debe enviar a Microsoft este intervalo de direcciones IP al solicitar una implementación inicial**
  
 Aunque tiene que definir y planear los intervalos de direcciones IP anteriores, no es necesario transmitirlos todos a Microsoft. Para resumir lo anterior, los intervalos de direcciones IP que es necesario notificar a Microsoft son:
 

@@ -2,18 +2,18 @@
 title: Procedimientos recomendados para Azure SQL Data Sync | Microsoft Docs
 description: Conozca los procedimientos recomendados para configurar y ejecutar Azure SQL Data Sync.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 07/03/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025569"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445167"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedimientos recomendados para SQL Data Sync 
 
@@ -85,6 +85,7 @@ SQL Data Sync tiene las siguientes limitaciones de aprovisionamiento automático
 -   Las restricciones CHECK no se aprovisionan.  
 -   Los desencadenadores existentes en las tablas de origen no se aprovisionan.  
 -   No se crean vistas ni procedimientos almacenados en la base de datos de destino.
+-   Las acciones ON UPDATE CASCADE Y ON DELETE CASCADE en las restricciones clave externas no se vuelven a crear en las tablas de destino.
 
 #### <a name="recommendations"></a>Recomendaciones
 

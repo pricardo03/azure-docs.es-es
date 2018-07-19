@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/02/2018
 ms.reviewer: danha
 ms.author: mbullwin
-ms.openlocfilehash: 7f8f49cf88bda8e485d2365281c13680ef796196
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: aa86e2f3b1fb147ab167c948475a5207693143c2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295526"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341569"
 ---
 # <a name="using-analytics-in-application-insights"></a>Uso de Analytics en Application Insights
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Log Analytics.
@@ -151,7 +151,7 @@ El gráfico anclado al panel se actualiza automáticamente al volver a ejecutar 
 
 Determinadas simplificaciones se aplican a un gráfico cuando se ancla a un panel.
 
-**Restricción de tiempo:** las consultas se limitan de manera automática a los últimos 14 días. El efecto es el mismo que si la consulta incluye `where timestamp > ago(14d)`.
+**Restricción de tiempo:** las consultas se limitan de manera automática a los últimos 30 días. El efecto es el mismo que si la consulta incluye `where timestamp > ago(30d)`.
 
 **Restricción de recuento de intervalos:** si se muestra un gráfico que muestra muchos intervalos discretos (normalmente un gráfico de barras), los intervalos menos poblados se agrupan en un solo intervalo "otros". Por ejemplo, esta consulta:
 

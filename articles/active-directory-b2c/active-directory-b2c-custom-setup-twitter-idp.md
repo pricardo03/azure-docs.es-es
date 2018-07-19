@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b09bb295d889255dada0cebbb9ded2379d95d23
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34710243"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440966"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -38,7 +38,7 @@ Para usar Twitter como proveedor de identidades en Azure Active Directory B2C (A
 
     b. En el cuadro **Website** (Sitio web), pegue **https://login.microsoftonline.com**. 
 
-    c. En el cuadro **Callback URL** (Dirección URL de devolución de llamada), pegue **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Reemplace {*tenant*} por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). Asegúrese de que está utilizando el esquema HTTPS. 
+    c. 4. Para la **URL de devolución de llamada**, escriba `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Asegúrese de reemplazar **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com) y **{policyId}** por el id. de la directiva (por ejemplo, b2c_1_policy).  **La dirección URL de devolución de llamada debe estar en minúsculas.** Debe agregar una dirección URL de devolución de llamada para todas las directivas que usan el inicio de sesión de Twitter. Asegúrese de usar `b2clogin.com` en lugar de ` login.microsoftonline.com` si la usa en su aplicación.
 
     d. En la parte inferior de la página, lea y acepte los términos y, luego, haga clic en **Create your Twitter application** (Crear su aplicación de Twitter).
 

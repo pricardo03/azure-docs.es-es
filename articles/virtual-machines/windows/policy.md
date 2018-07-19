@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: fc95b57c244e855f6788b7f21fc9abc0eba3d44d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b6a42e1a0b0256a6b19220958f98940764273a2d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654715"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114391"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar directivas a máquinas virtuales con Windows con Azure Resource Manager
 Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización. En este artículo, describimos cómo puede usar las directivas de Azure Resource Manager para definir el comportamiento deseado para las máquinas virtuales de su organización.
@@ -228,7 +228,7 @@ Puede que desee prohibir el uso de ciertos tipos de extensiones. Por ejemplo, un
 
 ## <a name="azure-hybrid-use-benefit"></a>Ventaja de uso híbrido de Azure
 
-Cuando tenga una licencia local, puede guardar la cuota de licencia en sus máquinas virtuales. Si no dispone de la licencia, debe prohibir la opción. La siguiente directiva prohíbe el uso de la ventaja de uso híbrido de Azure (AHUB):
+Si tiene una licencia local, puede ahorrarse la tarifa de la licencia en sus máquinas virtuales. Si no dispone de la licencia, debe prohibir la opción. La siguiente directiva prohíbe el uso de la ventaja de uso híbrido de Azure (AHUB):
 
 ```json
 {

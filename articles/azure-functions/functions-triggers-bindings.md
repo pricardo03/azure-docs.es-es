@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061360"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887477"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -37,62 +37,6 @@ Los desencadenadores y los enlaces permiten evitar la codificación de los detal
 Al desarrollar funciones mediante Azure Portal, los desencadenadores y los enlaces se configuran en un archivo *function.json*. El portal proporciona una interfaz de usuario para esta configuración, pero puede editar el archivo directamente; para ello, cambie a **Editor avanzado**.
 
 Al desarrollar funciones con Visual Studio para crear una biblioteca de clases, configure los desencadenadores y los enlaces mediante la decoración de los parámetros y los métodos con atributos.
-
-## <a name="supported-bindings"></a>Enlaces admitidos
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-Para información sobre qué enlaces están en versión preliminar o aprobados para su uso en producción, consulte los [lenguajes admitidos](supported-languages.md).
-
-## <a name="register-binding-extensions"></a>Registro de extensiones de enlace
-
-En algunos entornos de desarrollo, debe *registrar* explícitamente el enlace que quiera utilizar. Las extensiones de enlace se proporcionan en paquetes NuGet y, para registrar una extensión, debe instalar un paquete. En la tabla siguiente se indica cuándo y cómo registrar las extensiones de enlace.
-
-|Entorno de desarrollo |Registro<br/> en Functions 1.x  |Registro<br/> en Functions 2.x  |
-|---------|---------|---------|
-|Azure Portal|Automático|[Automático con símbolo del sistema](#azure-portal-development)|
-|Local con Azure Functions Core Tools|Automático|[Uso de comandos de la CLI de Core Tools](#local-development-azure-functions-core-tools)|
-|Biblioteca de clases de C# con Visual Studio 2017|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2017)|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2017)|
-|Biblioteca de clases de C# con Visual Studio Code|N/D|[Uso de la CLI de .NET Core](#c-class-library-with-visual-studio-code)|
-
-Los siguientes tipos de enlace son excepciones que no requieren ningún registro explícito porque se registran automáticamente en todos los entornos y versiones: HTTP, el temporizador y Azure Storage (BLOB, colas y tablas). 
-
-### <a name="azure-portal-development"></a>Desarrollo con Azure Portal
-
-Al crear una función o agregar un enlace, se le avisa cuando hay que registrar la extensión para el desencadenador o el enlace que requieren el registro. Responda a la pregunta haciendo clic en **Instalar** para registrar la extensión. La instalación puede tardar hasta 10 minutos en un plan de consumo.
-
-Solo necesita instalar cada extensión una vez para una aplicación de función determinada. 
-
-### <a name="local-development-azure-functions-core-tools"></a>Desarrollo local con Azure Functions Core Tools
-
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
-
-<a name="local-csharp"></a>
-### <a name="c-class-library-with-visual-studio-2017"></a>Biblioteca de clases de C# con Visual Studio 2017
-
-En **Visual Studio 2017**, puede instalar paquetes desde la consola del Administrador de paquetes mediante el comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), tal como se muestra en el ejemplo siguiente:
-
-```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
-```
-
-El nombre del paquete que se usará para un enlace determinado se proporciona en el artículo de referencia de ese enlace. Para obtener un ejemplo, consulte la [sección de paquetes del artículo de referencia de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
-
-Reemplace `<target_version>` en el ejemplo con una versión específica del paquete, como `3.0.0-beta5`. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org). Las versiones principales que corresponden al tiempo de ejecución de Functions 1.x o 2.x se especifican en el artículo de referencia del enlace.
-
-### <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de clases de C# con Visual Studio Code
-
-En **Visual Studio Code**, puede instalar paquetes desde el símbolo de sistema mediante el comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) de la CLI de .NET Core, tal como se muestra en el ejemplo siguiente:
-
-```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
-
-La CLI de .NET Core solo puede utilizarse para el desarrollo de Azure Functions 2.x.
-
-El nombre del paquete que se usará para un enlace determinado se proporciona en el artículo de referencia de ese enlace. Para obtener un ejemplo, consulte la [sección de paquetes del artículo de referencia de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
-
-Reemplace `<target_version>` en el ejemplo con una versión específica del paquete, como `3.0.0-beta5`. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org). Las versiones principales que corresponden al tiempo de ejecución de Functions 1.x o 2.x se especifican en el artículo de referencia del enlace.
 
 ## <a name="example-trigger-and-binding"></a>Enlace y desencadenador de ejemplo
 
@@ -202,6 +146,66 @@ En una biblioteca de clases, los atributos proporcionan la misma información &m
      public string MobileNumber { get; set; }
  }
 ```
+
+## <a name="supported-bindings"></a>Enlaces admitidos
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Para información sobre qué enlaces están en versión preliminar o aprobados para su uso en producción, consulte los [lenguajes admitidos](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Registro de extensiones de enlace
+
+En algunos entornos de desarrollo, debe *registrar* explícitamente el enlace que quiera utilizar. Las extensiones de enlace se proporcionan en paquetes NuGet y, para registrar una extensión, debe instalar un paquete. En la tabla siguiente se indica cuándo y cómo registrar las extensiones de enlace.
+
+|Entorno de desarrollo |Registro<br/> en Functions 1.x  |Registro<br/> en Functions 2.x  |
+|---------|---------|---------|
+|Azure Portal|Automático|[Automático con símbolo del sistema](#azure-portal-development)|
+|Local con Azure Functions Core Tools|Automático|[Uso de comandos de la CLI de Core Tools](#local-development-azure-functions-core-tools)|
+|Biblioteca de clases de C# con Visual Studio 2017|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2017)|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2017)|
+|Biblioteca de clases de C# con Visual Studio Code|N/D|[Uso de la CLI de .NET Core](#c-class-library-with-visual-studio-code)|
+
+Los siguientes tipos de enlace son excepciones que no requieren ningún registro explícito porque se registran automáticamente en todos los entornos y versiones: HTTP, el temporizador y Azure Storage (BLOB, colas y tablas). 
+
+### <a name="azure-portal-development"></a>Desarrollo con Azure Portal
+
+Esta sección se aplica únicamente a Functions 2.x. Las extensiones de enlace no tienen que estar registradas explícitamente en Functions 1.x.
+
+Al crear una función o agregar un enlace, se le avisa cuando hay que registrar la extensión para el desencadenador o el enlace que requieren el registro. Responda a la pregunta haciendo clic en **Instalar** para registrar la extensión. La instalación puede tardar hasta 10 minutos en un plan de consumo.
+
+Solo necesita instalar cada extensión una vez para una aplicación de función determinada. 
+
+### <a name="local-development-azure-functions-core-tools"></a>Desarrollo local con Azure Functions Core Tools
+
+Esta sección se aplica únicamente a Functions 2.x. Las extensiones de enlace no tienen que estar registradas explícitamente en Functions 1.x.
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>Biblioteca de clases de C# con Visual Studio 2017
+
+En **Visual Studio 2017**, puede instalar paquetes desde la consola del Administrador de paquetes mediante el comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), tal como se muestra en el ejemplo siguiente:
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
+
+El nombre del paquete que se usará para un enlace determinado se proporciona en el artículo de referencia de ese enlace. Para obtener un ejemplo, consulte la [sección de paquetes del artículo de referencia de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+
+Reemplace `<target_version>` en el ejemplo con una versión específica del paquete, como `3.0.0-beta5`. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org). Las versiones principales que corresponden al tiempo de ejecución de Functions 1.x o 2.x se especifican en el artículo de referencia del enlace.
+
+### <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de clases de C# con Visual Studio Code
+
+En **Visual Studio Code**, puede instalar paquetes desde el símbolo de sistema mediante el comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) de la CLI de .NET Core, tal como se muestra en el ejemplo siguiente:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+La CLI de .NET Core solo puede utilizarse para el desarrollo de Azure Functions 2.x.
+
+El nombre del paquete que se usará para un enlace determinado se proporciona en el artículo de referencia de ese enlace. Para obtener un ejemplo, consulte la [sección de paquetes del artículo de referencia de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+
+Reemplace `<target_version>` en el ejemplo con una versión específica del paquete, como `3.0.0-beta5`. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org). Las versiones principales que corresponden al tiempo de ejecución de Functions 1.x o 2.x se especifican en el artículo de referencia del enlace.
 
 ## <a name="binding-direction"></a>Dirección de los enlaces
 
@@ -526,7 +530,7 @@ El siguiente ejemplo muestra el archivo *function.json* de una función de webho
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {

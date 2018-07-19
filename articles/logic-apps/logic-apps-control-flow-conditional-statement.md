@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298175"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096383"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crear instrucciones condicionales que controlen las acciones de los flujo de trabajo en Azure Logic Apps
 
@@ -26,7 +26,7 @@ Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados cor
 > [!TIP]
 > Para ejecutar pasos diferentes para distintos valores concretos, use una [*instrucción switch*](../logic-apps/logic-apps-control-flow-switch-statement.md) en su lugar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
@@ -46,36 +46,31 @@ Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados cor
 
    Si desea agregar una condición al final del flujo de trabajo actual, en la parte inferior de la aplicación lógica y elija **+ Nuevo paso** > **Agregar una condición**.
 
-3. En **Condición**, cree la condición. 
+3. En **Condición**, defina la condición. 
 
    1. En el cuadro izquierdo, especifique los datos o el campo que desee comparar.
 
-      En la lista **Agregar contenido dinámico**, puede seleccionar los campos existentes desde la aplicación lógica.
+      Al hacer clic en el cuadro izquierdo, aparece la lista de contenido dinámica para que pueda seleccionar las salidas de los pasos anteriores en su aplicación lógica. 
+      En este ejemplo, seleccione el resumen de la fuente RSS.
+
+      ![Defina la condición](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. En la lista central, seleccione la operación que desee que se realice. 
-   3. En el cuadro de la derecha, especifique el valor o campo que se va a usar como criterio.
+   En este ejemplo, seleccione "**contiene**". 
 
-   Por ejemplo: 
-
-   ![Edición de una condición en modo básico](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. En el cuadro de la derecha, especifique el valor o campo que se va a usar como criterio. 
+   En este ejemplo, especifique esta cadena: **Microsoft**
 
    Esta es la condición completa:
 
-   ![Condición completa](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Condición completa](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
+
+5. En **If true** e **If false**, agregue los pasos que se van a realizar en función de que la condición se cumpla o no. Por ejemplo: 
+
+   ![Condición con las rutas "If true" e "If false"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Para crear una condición más avanzada o usar expresiones, elija **Editar en el modo avanzado**. Puede usar expresiones definidas por el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
-   > 
-   > Por ejemplo: 
-   >
-   > ![Edición de la condición en el código](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. En **EN CASO AFIRMATIVO** y **EN CASO NEGATIVO**, agregue los pasos que se van a realizar en función de que la condición se cumpla. Por ejemplo: 
-
-   ![Condición con las trayectoria en caso de AFIRMATIVO y NEGATIVO](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
-
-   > [!TIP]
-   > Puede arrastrar acciones existentes a las trayectorias **EN CASO AFIRMATIVO** y **EN CASO NEGATIVO**.
+   > Puede arrastrar acciones existentes a las rutas **If true** e **If false**.
 
 6. Guarde la aplicación lógica.
 
@@ -87,14 +82,21 @@ Ahora que ha creado una aplicación lógica mediante una instrucción condiciona
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }

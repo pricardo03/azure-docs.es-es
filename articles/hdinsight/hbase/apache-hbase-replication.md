@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077333"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951131"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clúster de HBase en redes virtuales de Azure
 
@@ -62,7 +62,7 @@ Para ayudar a configurar los entornos, hemos creado algunas [plantillas de Azure
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configuración de dos redes virtuales en dos regiones distintas
 
-Seleccione la imagen siguiente para crear dos redes virtuales en dos regiones distintas y la conexión VPN entre ellas. La plantilla está almacenada en un almacenamiento de blobs público (https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)).
+Para usar una plantilla que crea dos redes virtuales en dos regiones distintas y la conexión VPN entre ellas, seleccione el botón **Implementar en Azure** siguiente. La definición de la plantilla se almacena en un [almacenamiento de blobs público](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -72,7 +72,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 
 | Propiedad | Valor |
 |----------|-------|
-| Ubicación | Oeste de EE. UU |
+| Ubicación | Oeste de EE. UU. |
 | Nombre de red virtual | &lt;ClusterNamePrevix>-vnet1 |
 | Prefijo del espacio de direcciones | 10.1.0.0/16 |
 | Nombre de subred | subred 1 |
@@ -108,7 +108,7 @@ En la última sección, la plantilla crea una máquina virtual de Ubuntu en cada
 
 Para instalar Bind, debe encontrar la dirección IP pública de las dos máquinas virtuales del DNS.
 
-1. Abra el [Azure Portal](https://portal.azure.com).
+1. Abra [Azure Portal](https://portal.azure.com).
 2. Abra la máquina virtual del DNS seleccionando **Grupos de recursos > [nombre del grupo de recursos] > [vnet1DNS]**.  El nombre del grupo de recursos es el que creó en el último procedimiento. Los nombres predeterminados de las máquinas virtuales del DNS son *vnet1DNS* y *vnet2NDS*.
 3. Seleccione **Propiedades** para abrir la página de propiedades de la red virtual.
 4. Anote la **dirección IP pública** y compruebe también la **dirección IP privada**.  La dirección IP privada debe ser **10.1.0.4** para vnet1DNS y **10.2.0.4** para vnet2DNS.  

@@ -88,5 +88,30 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
     b. Ejecute el script de PowerShell en uno de los nodos del clúster para establecer los parámetros del clúster.  
 
+Repita los pasos anteriores para establecer los parámetros del clúster para la dirección IP del clúster de WSFC.
+
+1. Obtenga el nombre de dirección IP de la dirección IP del clúster de WSFC. En **Administrador de clústeres de conmutación por error**, en **Recursos principales de clúster**, busque **Nombre del servidor**.
+
+1. Haga clic con el botón derecho en **Dirección IP** y seleccione **Propiedades**.
+
+1. Anote el **Nombre** de la dirección IP. Puede ser `Cluster IP Address`. 
+
+1. <a name="setwsfcparam"></a>Establezca los parámetros de clúster en PowerShell.
+    
+    a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. Ejecute el script de PowerShell en uno de los nodos del clúster para establecer los parámetros del clúster.  
+
     > [!NOTE]
     > Si las instancias de SQL Server se encuentran en distintas regiones, debe ejecutar el script de PowerShell dos veces. La primera vez, utilice `$ILBIP` y `$ProbePort` en la primera región. La segunda vez, `$ILBIP` y `$ProbePort` en la segunda región. El nombre de red del clúster y el nombre del recurso IP del clúster son iguales. 

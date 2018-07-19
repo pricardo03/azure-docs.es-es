@@ -4,14 +4,14 @@ description: Este artículo proporciona información general de la arquitectura 
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0319e4d1cdbd20c39772c659a3e5a1580d8b925b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894303"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919655"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Replicación de Hyper-V en un sitio secundario
 
@@ -37,8 +37,8 @@ En la siguiente tabla y gráfico se proporciona una visión general de los compo
 
 1. Cuando se desencadena la replicación inicial, se toma una [instantánea de la máquina virtual de Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
 2. Los discos duros virtuales de la máquina virtual se replican uno a uno en la ubicación secundaria.
-3. Si se producen cambios en los discos mientras la replicación inicial está en curso. 
-4. Cuando la replicación inicial finaliza, comienza la replicación diferencial. La herramienta de seguimiento de la replicación de Réplica de Hyper-V hace un seguimiento de los cambios como registros de replicación (.hrl) de Hyper-V. Estos archivos de registro se encuentran en la misma carpeta que los discos. Cada disco tiene un archivo .hrl asociado que se envía a la ubicación secundaria. Los archivos de instantáneas y de registro consumen recursos de disco mientras la replicación inicial está en curso.
+3. Si se producen cambios en el disco con la replicación inicial en curso, el seguimiento de replicaciones de Réplica de Hyper-V realiza un seguimiento de esos cambios en los registros de replicación de Hyper-V (.hrl). Estos archivos de registro se encuentran en la misma carpeta que los discos. Cada disco tiene un archivo .hrl asociado que se envía a la ubicación secundaria. Los archivos de instantáneas y de registro consumen recursos de disco mientras la replicación inicial está en curso.
+4. Cuando finaliza la replicación inicial, se elimina la instantánea de la máquina virtual y la replicación diferencial comienza.
 5. Los cambios diferenciales en el registro del disco se sincronizan y se combinan en el disco primario.
 
 

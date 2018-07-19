@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850015"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970907"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introducción a la administración de dispositivos en Azure Active Directory
 
@@ -75,8 +75,8 @@ El objetivo de los dispositivos unidos a Azure AD es simplificar:
 ![Dispositivos registrados en Azure AD](./media/device-management-introduction/02.png)
 
 La unión a Azure AD se puede implementar mediante cualquiera de los métodos siguientes: 
- - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [Implementación masiva](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Implementación masiva](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [Experiencia de autoservicio](device-management-azuread-joined-devices-frx.md) 
 
 La **unión a Azure AD** está diseñada para organizaciones que quieren priorizar la nube (es decir, que usan principalmente los servicios en la nube con el objetivo de reducir el uso de una infraestructura local) o usar solo la nube (sin ninguna infraestructura local). No hay ninguna restricción de tamaño o tipo de organización que puede implementar una unión a Azure AD. La unión a Azure AD funciona bien incluso en un entorno híbrido y puede habilitar el acceso a aplicaciones y recursos de nube y locales.
@@ -93,7 +93,7 @@ La implementación de dispositivos unidos a Azure AD ofrece las siguientes venta
 
 - **Restricción del acceso** a las aplicaciones únicamente desde aquellos dispositivos que satisfagan las directivas de cumplimiento.
 
-- **Acceso total a los recursos locales** cuando el dispositivo tiene línea de visión al controlador de dominio local. 
+- **Acceso ininterrumpido a los recursos locales** cuando el dispositivo tiene línea de visión al controlador de dominio local. 
 
 
 Aunque la unión a Azure AD esté pensada principalmente para aquellas organizaciones que no tengan una infraestructura de Windows Server Active Directory local, sin duda se puede utilizar en escenarios donde:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 4d475ec93bd8bfa5cc84848ed61afa6a9d6e319b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605395"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902187"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Consideraciones sobre el uso de máquinas virtuales en Azure Stack
 
@@ -47,11 +47,11 @@ Azure Stack impone límites de recursos para evitar el consumo excesivo de recur
 
 - Para la salida de redes de la máquina virtual, hay extremos de ancho de banda. Los extremos de Azure Stack son los mismos que en Azure.
 - En el caso de los recursos de almacenamiento, Azure Stack implementa límites de IOPS de almacenamiento para evitar el consumo excesivo básico de recursos por parte de los inquilinos para el acceso de almacenamiento.
-- En el caso de las VM con varios discos de datos adjuntos, el rendimiento máximo de cada disco de datos es de 500 IOPS para HHD y de 2300 IOPS para SSD.
+- En el caso de las máquinas virtuales con varios discos de datos asociados, el rendimiento máximo de cada disco de datos es de 500 IOPS para HHD y de 2300 IOPS para SSD.
 
 En la tabla siguiente se enumeran las máquinas virtuales que se admiten en Azure Stack junto con su configuración:
 
-| Escriba           | Tamaño          | Intervalo de tamaños admitidos |
+| type           | Tamaño          | Intervalo de tamaños admitidos |
 | ---------------| ------------- | ------------------------ |
 |Uso general |A básico        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |Uso general |Estándar A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |

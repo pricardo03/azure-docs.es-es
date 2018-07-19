@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263537"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481997"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluciones de supervisión de redes de Azure en Log Analytics
 
@@ -78,6 +79,7 @@ Para Application Gateway se admiten los siguientes registros:
 * ApplicationGatewayFirewallLog
 
 Las métricas siguientes son compatibles con Application Gateway:
+
 
 * Rendimiento de 5 minutos
 
@@ -140,6 +142,12 @@ En cualquiera de las páginas de búsqueda de registros, puede ver los resultado
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Solución Azure Network Security Group Analytics de Log Analytics
 
 ![Símbolo de Azure Network Security Group Analytics](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> La solución de análisis Grupo de seguridad de red se traslada a la compatibilidad con la comunidad ya que su funcionalidad se ha reemplazado por [Análisis de tráfico](../network-watcher/traffic-analytics.md).
+> - La solución ahora está disponible en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) y pronto ya no estarán disponibles en Azure Marketplace.
+> - Para los clientes existentes que ya agregaron la solución a su área de trabajo, seguirá funcionando sin cambios.
+> - Microsoft seguirá admitiendo el envío de registros de diagnóstico de grupos de seguridad de red al área de trabajo mediante Configuración de diagnóstico.
 
 Para los grupos de seguridad de red se admiten los siguientes registros:
 

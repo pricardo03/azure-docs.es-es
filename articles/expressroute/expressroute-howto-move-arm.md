@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/03/2017
+ms.date: 06/28/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 20914eec070452186295f6d87a85ea0675ebaf4c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060093"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100460"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager mediante PowerShell
 
@@ -97,9 +97,7 @@ Para mover el circuito, modifique y ejecute el siguiente fragmento de código:
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-> [!NOTE]
-> En el modo clásico, un circuito ExpressRoute no tiene el concepto de estar asociado a una región. En Resource Manager (ARM), todos los recursos deben asignarse a una región de Azure. La región especificada en el cmdlet Move-AzureRmExpressRouteCircuit puede ser cualquier región técnicamente. Por motivos organizativos, puede que quiera elegir una región que represente con precisión la ubicación de emparejamiento.
-> 
+En el modo clásico, un circuito ExpressRoute no tiene el concepto de estar asociado a una región. Sin embargo, en Resource Manager, todos los recursos deben asignarse a una región de Azure. La región especificada en el cmdlet Move-AzureRmExpressRouteCircuit puede ser cualquier región técnicamente. Por motivos organizativos, puede que quiera elegir una región que represente con precisión la ubicación de emparejamiento.
 
 > [!NOTE]
 > Una vez que se termine la transición, se usará el nombre nuevo que aparece en el cmdlet anterior para referirse al recurso. Básicamente, se cambiará el nombre del circuito.

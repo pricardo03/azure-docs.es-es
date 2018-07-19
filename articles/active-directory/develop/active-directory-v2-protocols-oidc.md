@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 747ba9c51181c62b45bb060810391ca54f4c044e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157724"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869109"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 y el protocolo OpenID Connect
 OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se puede usar para que un usuario inicie sesión de forma segura en una aplicación web. Cuando usa la implementación de OpenID Connect del punto de conexión v2.0, puede agregar inicio de sesión y acceso a API a las aplicaciones basadas en web. En este artículo se muestra cómo hacerlo, independientemente del lenguaje. Describiremos cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto de Microsoft.
@@ -85,7 +85,7 @@ Cuando su aplicación web deba autenticar al usuario, puede dirigirlo al punto d
 * La solicitud debe incluir el parámetro `nonce` .
 
 > [!IMPORTANT]
-> Para solicitar correctamente un token de ID, el registro de la aplicación del [portal de registro](https://apps.dev.microsoft.com) debe tener la opción **[Concesión implícita](active-directory-v2-protocols-implicit.md)** habilitada para el cliente web. Si no está habilitada, se devolverá el error `unsupported_response`: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"")
+> Para solicitar correctamente un token de identificador, el registro de la aplicación del [portal de registro](https://apps.dev.microsoft.com) tiene que tener la opción **[Concesión implícita](active-directory-v2-protocols-implicit.md)** habilitada para el cliente web. Si no está habilitada, se devolverá el error `unsupported_response`: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"")
 
 Por ejemplo: 
 

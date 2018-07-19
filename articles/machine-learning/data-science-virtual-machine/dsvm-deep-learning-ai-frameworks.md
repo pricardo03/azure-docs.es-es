@@ -1,7 +1,7 @@
 ---
 title: Marcos de aprendizaje profundo y de AI - Azure | Microsoft Docs
 description: Marcos de aprendizaje profundo y de AI
-keywords: herramientas de ciencia de datos, data science virtual machine, herramientas para la ciencia de datos, ciencia de datos de linux
+keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160757"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952831"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Marcos de aprendizaje profundo y de AI
 [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) y [Deep Learning VM](http://aka.ms/dsvm/deeplearning) admiten varios marcos de aprendizaje profundo para compilar aplicaciones de inteligencia artificial (AI) con capacidades de análisis predictivo y capacidades cognitivas, como la comprensión de imágenes y de lenguajes. 
@@ -66,7 +66,7 @@ A continuación se muestra la información de todos los marcos de aprendizaje pr
 
 |    |           |
 | ------------- | ------------- |
-| ¿Qué es?   | Marco de aprendizaje profundo      |
+| ¿Qué es?   | API de alto nivel de aprendizaje profundo      |
 | Ediciones compatibles de DSVM      | Windows, Linux     |
 | ¿Cómo se configura/instala en DSVM?  | TensorFlow se instala en Python 3.5 en [Linux y Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition), y en Python 3.6 en [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Vínculos a ejemplos      | https://github.com/fchollet/keras/tree/master/examples      |
@@ -145,7 +145,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 ```
 
 Para utilizar Deep Water:
-* En el terminal: active el entorno de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) y luego ejecute _python_. <br/>
+* * En el terminal: active el entorno de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) y luego ejecute _python_. <br/>
 * En JupyterHub: [conéctese a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y desplácese al directorio deep_water para buscar blocs de notas de ejemplo.
 
 ## <a name="mxnet"></a>MXNet
@@ -178,7 +178,7 @@ El servicio tarda cerca de un minuto en iniciarse. Abra un explorador web y vaya
 
 
 
-## <a name="nvdia-smi"></a>nvdia-smi
+## <a name="nvidia-smi"></a>nvidia-smi
 
 |    |           |
 | ------------- | ------------- |

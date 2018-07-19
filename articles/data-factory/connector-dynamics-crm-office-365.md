@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e2c7e7d5a8f359eb811f67a7502f5fc11c05baba
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3f45f9337a5522f490c268bbdae3ef1a41205175
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047333"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859381"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -210,6 +210,9 @@ Para copiar datos de Dynamics, establezca el tipo de origen de la actividad de c
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **DynamicsSource**. | Sí |
 | query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics (Online y local). Consulte el ejemplo siguiente. Para más información, consulte [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx) (Creación de consultas con FetchXML). | No (si se especifica "entityName" en el conjunto de datos) |
 
+>[!NOTE]
+>La columna PK siempre se copiará incluso si la proyección de columna que se configura en la consulta de FetchXML no la contiene.
+
 **Ejemplo:**
 
 ```json
@@ -330,7 +333,7 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 | AttributeType.Double | Doble | ✓ | ✓ |
 | AttributeType.EntityName | string | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ |
+| AttributeType.Lookup | Guid | ✓ | ✓ (con el tipo único asociado) |
 | AttributeType.ManagedProperty | boolean | ✓ | |
 | AttributeType.Memo | string | ✓ | ✓ |
 | AttributeType.Money | DECIMAL | ✓ | ✓ |

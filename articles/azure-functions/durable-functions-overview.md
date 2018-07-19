@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764407"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970496"
 ---
 # <a name="durable-functions-overview"></a>Introducción a Durable Functions
 
 *Durable Functions* es una extensión de [Azure Functions](functions-overview.md) y [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) que le permite escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre.
 
-La extensión le permite definir los flujos de trabajo con estado en un nuevo tipo de función que se llama una *función del orquestador*. Estas son algunas de las ventajas de las funciones del orquestador:
+La extensión le permite definir los flujos de trabajo con estado en un nuevo tipo de función que se llama una [*función del orquestador*](durable-functions-types-features-overview.md#orchestrator-functions). Estas son algunas de las ventajas de las funciones del orquestador:
 
 * Definen los flujos de trabajo en código. No se necesitan esquemas JSON ni diseñadores.
 * Pueden llamar a otras funciones de forma sincrónica y asincrónica. La salida de las funciones llamadas puede guardarse en variables locales.
@@ -340,7 +340,7 @@ La funciones del orquestador mantienen de forma confiable su estado de ejecució
 
 El uso de origen de eventos por esta extensión es transparente. En un segundo plano, el operador `await` en una función del orquestador devuelve el control del subproceso del orquestador al distribuidor de Durable Task Framework. El distribuidor, a continuación, confirma las nuevas acciones que la función de orquestador programó (como llamar a una o más funciones secundarias o programar un temporizador durable) al almacenamiento. Esta acción de confirmación transparente se anexa al *historial de ejecución* de la instancia de orquestación. El historial se guarda en una tabla de almacenamiento. La acción de confirmación, a continuación, agrega mensajes a una cola para programar el trabajo real. En este momento, la función del orquestador se puede descargar de la memoria. Su facturación se detiene si usa el Plan de consumo de Azure Functions.  Cuando hay más trabajo, la función se reinicia y se reconstruye su estado.
 
-Una vez que una función de orquestación recibe más trabajo para realizar (por ejemplo, se recibe un mensaje de respuesta o expira un temporizador durable), el orquestador se reactiva y vuelve a ejecutar toda la función desde el principio con el fin de recompliar el estado local. Si durante esta reproducción el código intenta llamar a una función (o realizar cualquier otro trabajo asincrónico), Durable Task Framework consulta con el *historial de ejecución* de la orquestación actual. Si encuentra que la función de actividad ya se ha ejecutado y ofrece un resultado, reproduce el resultado de esa función y el código del orquestador continúa ejecutándose. Esto sigue ocurriendo hasta que el código de función llega a un punto en donde finaliza o tiene programado nuevo trabajo asincrónico.
+Una vez que una función de orquestación recibe más trabajo para realizar (por ejemplo, se recibe un mensaje de respuesta o expira un temporizador durable), el orquestador se reactiva y vuelve a ejecutar toda la función desde el principio con el fin de recompliar el estado local. Si durante esta reproducción el código intenta llamar a una función (o realizar cualquier otro trabajo asincrónico), Durable Task Framework consulta con el *historial de ejecución* de la orquestación actual. Si encuentra que la [función de actividad](durable-functions-types-features-overview.md#activity-functions) ya se ha ejecutado y ofrece un resultado, reproduce el resultado de esa función y el código del orquestador continúa ejecutándose. Esto sigue ocurriendo hasta que el código de función llega a un punto en donde finaliza o tiene programado nuevo trabajo asincrónico.
 
 ### <a name="orchestrator-code-constraints"></a>Restricciones de código del orquestador
 
@@ -348,7 +348,7 @@ El comportamiento de reproducción crea restricciones sobre el tipo de código q
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
-Actualmente C# (Functions v1 y v2) y JavaScript (solo Functions v2) son los únicos lenguajes admitidos para Durable Functions. Esto incluye las funciones del orquestador y la funciones de actividad. En el futuro, se agregará compatibilidad para todos los lenguajes que Azure Functions admite. Vea la [lista de problemas en el repositorio de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) de Azure Functions para ver el estado más reciente del trabajo sobre compatibilidad con lenguajes adicionales.
+Actualmente C# (Functions v1 y v2), F# y JavaScript (solo Functions v2) son los únicos lenguajes admitidos para Durable Functions. Esto incluye las funciones del orquestador y la funciones de actividad. En el futuro, se agregará compatibilidad para todos los lenguajes que Azure Functions admite. Vea la [lista de problemas en el repositorio de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) de Azure Functions para ver el estado más reciente del trabajo sobre compatibilidad con lenguajes adicionales.
 
 ## <a name="monitoring-and-diagnostics"></a>Supervisión y diagnóstico
 
@@ -384,7 +384,7 @@ Todos los problemas conocidos deben encontrarse en la lista de [problemas en Git
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Seguir leyendo la documentación sobre Durable Functions](durable-functions-bindings.md)
+> [Seguir leyendo la documentación sobre Durable Functions](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Instalación de la extensión Durable Functions y ejemplos](durable-functions-install.md)

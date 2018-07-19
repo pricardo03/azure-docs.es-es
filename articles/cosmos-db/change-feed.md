@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 6b0aaa075b8b2881e269d79a67e75528d0d9a86a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129865"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902969"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Compatibilidad con la fuente de cambios en Azure Cosmos DB
 
@@ -383,89 +383,89 @@ Para implementar la biblioteca de procesadores de fuente de cambios, tiene que h
             await result.StartAsync();
             Console.Read();
             await result.StopAsync();    
-            ```
+    ```
 
-That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
+¡Ya está! Después de estos pasos, los documentos empezarán a mostrarse en el método **DocumentFeedObserver.ProcessChangesAsync**.
 
-Above code is for illustration purpose to show different kind of objects and their interaction. You have to define proper variables and initiate them with correct values. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
+El código anterior es para fines de ilustración para mostrar diferentes tipos de objetos y su interacción. Tendrá que definir las variables adecuadas e iniciarlas con los valores correctos. Puede obtener el código completo que se usa en este artículo desde el [repositorio de GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
 
 > [!NOTE]
-> You should never have a master key in your code or in config file as shown in above code. Please see [how to use Key-Vault to retrive the keys](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
+> Nunca debe tener una clave maestra en el código o en el archivo de configuración como se muestra en el código anterior. Consulte [cómo usar Key-Vault para recuperar las claves](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
 
 
-## FAQ
+## <a name="faq"></a>Preguntas más frecuentes
 
-### What are the different ways you can read Change Feed? and when to use each method?
+### <a name="what-are-the-different-ways-you-can-read-change-feed-and-when-to-use-each-method"></a>¿Cuáles son las distintas formas en que puede leer la fuente de cambios? ¿Cuándo debe usar cada método?
 
-There are three options for you to read change feed:
+Hay tres opciones para leer la fuente de cambios:
 
-* **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
+* **[Mediante el SDK de .NET de la API de SQL de Azure Cosmos DB](#sql-sdk)**
    
-   By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
+   Con este método, obtendrá un bajo nivel de control sobre la fuente de cambios. Puede administrar el punto de control, puede acceder a una clave de partición determinada, etc. Si tiene varios lectores, puede usar [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) para distribuir la carga de lectura en subprocesos o clientes distintos. .
 
-* **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
+* **[Mediante la biblioteca de procesadores de fuente de cambios de Azure Cosmos DB](#change-feed-processor)**
 
-   If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
+   Si quiere externalizar gran parte de la complejidad de la fuente de cambios, puede usar la biblioteca de procesadores de fuente de cambios. Esta biblioteca oculta gran parte de la complejidad, pero de todos modos le permite controlar completamente la fuente de cambios. Esta biblioteca sigue un [patrón de observador](https://en.wikipedia.org/wiki/Observer_pattern) en el que el SDK llama a la función de procesamiento. 
 
-   If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you are using “change feed processor library”, it will automatically divide the load among different clients. You do not have to do anything. All the complexity is handled by SDK. However, if you want to have your own load balancer, then you can implement IParitionLoadBalancingStrategy for custom partition strategy. Implement IPartitionProcessor – for custom processing changes on a partition. However, with SDK, you can process a partition range but if you want to process a particular partition key then you have to use SDK for SQL API.
+   Si tiene una fuente de cambios de alto rendimiento, puede crear instancias de varios clientes para leer la fuente de cambios. Como usa la "biblioteca de procesadores de fuente de cambios", dividirá automáticamente la carga en distintos clientes. No tiene que hacer nada. El SDK controla toda la complejidad. Sin embargo, si quiere tener su propio equilibrador de carga, puede implementar IParitionLoadBalancingStrategy para una estrategia de partición personalizada. Implemente IPartitionProcessor para procesar de manera personalizada los cambios de una partición. Sin embargo, con el SDK puede procesar un intervalo de partición, pero si quiere procesar una clave de partición determinada, tendrá que usar el SDK para la API de SQL.
 
-* **[Using Azure Functions](#azure-functions)** 
+* **[Mediante Azure Functions](#azure-functions)** 
    
-   The last option Azure Function is the simplest option. We recommend using this option. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to and the function is triggered whenever a change to the collection is made. watch a [screen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) of using Azure function and change feed
+   La última opción, Azure Functions, es la opción más simple. Se recomienda usar esta opción. Cuando cree un desencadenador de Azure Cosmos DB en una aplicación de Azure Functions, seleccione la colección de Azure Cosmos DB a la que conectarse, y la función se desencadenará siempre que se realice un cambio en la colección. Vea un [presentación en pantalla](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) sobre cómo usar Azure Functions y la fuente de cambios.
 
-   Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. Visual Studio and VS Code has great support to write Azure Function. You can write and debug the code on your desktop, and then deploy the function with one click. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md) article.
+   Los desencadenadores pueden crearse en el portal de Azure Functions, en el portal de Azure Cosmos DB o mediante programación. Visual Studio y VS Code cuentan con un elevado nivel de compatibilidad para escribir Azure Functions. Puede escribir y depurar el código en el escritorio y, luego, implementar la función con un solo clic. Para más información, consulte el artículo [Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md).
 
-### What is the sort order of documents in change feed?
+### <a name="what-is-the-sort-order-of-documents-in-change-feed"></a>¿Cuál es el criterio de ordenación de los documentos en la fuente de cambios?
 
-Change feed documents comes in order of their modification time. This sort order is guaranteed only per partition.
+Los documentos de la fuente de cambios están ordenados según su hora de modificación. Este criterio de ordenación solo se garantiza por partición.
 
-### For a multi-region account, what happens to the change feed when the write-region fails-over? Does the change feed also failover? Would the change feed still appear contiguous or would the fail-over cause change feed to reset?
+### <a name="for-a-multi-region-account-what-happens-to-the-change-feed-when-the-write-region-fails-over-does-the-change-feed-also-failover-would-the-change-feed-still-appear-contiguous-or-would-the-fail-over-cause-change-feed-to-reset"></a>En una cuenta de varias regiones, ¿qué sucede con la fuente de cambios cuando se realiza la conmutación por error de la región de escritura? ¿También se realiza la conmutación por error de la fuente de cambios? ¿La fuente de cambios seguiría apareciendo como contigua o la conmutación por error reiniciaría la fuente de cambios?
 
-Yes, change feed will work across the manual failover operation and it will be contiguous.
+Sí, la fuente de cambios funcionará entre la operación de conmutación por error manual y será contigua.
 
-### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1?
+### <a name="how-long-change-feed-persist-the-changed-data-if-i-set-the-ttl-time-to-live-property-for-the-document-to--1"></a>¿Durante cuánto tiempo la fuente de cambios conserva los datos modificados si la propiedad TTL (período de vida) se establece en -1 para el documento?
 
-Change feed will persist forever. If data is not deleted, it will remain in change feed.
+La fuente de cambios se conservará para siempre. Si los datos no se eliminan, se mantendrán en la fuente de cambios.
 
-### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default?
+### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region-as-change-feed-is-available-in-all-the-read-regions-by-default"></a>¿Cómo puedo configurar Azure Functions para leer de una región determinada si la fuente de cambios está disponible en todas las regiones de lectura de manera predeterminada?
 
-Currently it’s not possible to configure Azure Functions to read from a particular region. There is a GitHub issue in the Azure Functions repo to set the preferred regions of any Azure Cosmos DB binding and trigger.
+Actualmente no es posible configurar Azure Functions para leer desde una región determinada. Hay un problema de GitHub en el repositorio de Azure Functions para establecer las regiones de preferencia de cualquier desencadenador y enlace de Azure Cosmos DB.
 
-Azure Functions uses the default connection policy. You can configure connection mode in Azure Functions and by default, it reads from the write region, so it is best to co-locate Azure Functions on the same region.
+Azure Functions usa la directiva de conexión predeterminada. Puede configurar el modo de conexión en Azure Functions y, de manera predeterminada, lee desde la región de escritura, por lo que se recomienda reubicar Azure Functions en la misma región.
 
-### What is the default size of batches in Azure Functions?
+### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>¿Cuál es el tamaño predeterminado de lotes en Azure Functions?
 
-100 documents at every invocation of Azure Functions. However, this number is configurable within the function.json file. Here is complete [list of configuration options](../azure-functions/functions-run-local.md). If you are developing locally, update the application settings within the [local.settings.json](../azure-functions/functions-run-local.md) file.
+100 documentos en cada invocación de Azure Functions. Sin embargo, este número se puede configurar dentro del archivo function.json. Esta es una [lista completa de las opciones de configuración](../azure-functions/functions-run-local.md). Si está desarrollando de manera local, actualice la configuración de la aplicación dentro del archivo [local.settings.json](../azure-functions/functions-run-local.md).
 
-### I am monitoring a collection and reading its change feed, however I see I am not getting all the inserted document, some documents are missing. What is going on here?
+### <a name="i-am-monitoring-a-collection-and-reading-its-change-feed-however-i-see-i-am-not-getting-all-the-inserted-document-some-documents-are-missing-what-is-going-on-here"></a>Estoy configurando una colección y leyendo su fuente de cambios, pero veo que no recibo todos los documentos insertados y que faltan algunos documentos. ¿Qué está pasando?
 
-Please make sure that there is no other function reading the same collection with the same lease collection. It happened to me, and later I realized the missing documents are processed by my other Azure functions, which is also using the same lease.
+Asegúrese de que ninguna otra función lee la misma colección con la misma colección de concesión. Esto me pasó a mí y me di cuenta de que otra instancia de Azure Functions procesa los documentos faltantes, que también usa la misma concesión.
 
-Therefore, if you are creating multiple Azure Functions to read the same change feed then they must use different lease collection or use the “leasePrefix” configuration to share the same collection. However, when you use change feed processor library you can start multiple instances of your function and SDK will divide the documents between different instances automatically for you.
+Por lo tanto, si crea varias instancias de Azure Functions para leer la misma fuente de cambios, deben usar distintas colecciones de concesión o usar la configuración "leasePrefix" para compartir la misma colección. Sin embargo, cuando usa la biblioteca de procesadores de fuente de cambios, puede iniciar varias instancias de la función y el SDK dividirá los documentos en distintas instancias de manera automática.
 
-### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
+### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>El documento se actualiza a cada segundo y no recibo todos los cambios en Azure Functions donde se escucha la fuente de cambios.
 
-Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
+Azure Functions sondea la fuente de cambios cada 5 segundos, por lo que se pierde cualquier cambio hecho entre esos 5 segundos. Azure Cosmos DB almacena solo una versión cada 5 segundos, por lo que obtendrá el quinto cambio en el documento. Sin embargo, si quiere bajar de los 5 segundos y sondear la fuente de cambios cada segundo, puede configurar el tiempo de sondeo "feedPollTime". Para saber cómo hacerlo, consulte [Enlaces de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Se define en milisegundos con un valor predeterminado de 5000. Es posible bajar del segundo, pero no lo recomendamos, porque empezará a consumir más CPU.
 
-### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
+### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Inserté un documento en la colección de la API de Mongo, pero cuando veo el documento en la fuente de cambios, muestra un valor de identificador distinto. ¿Qué está pasando?
 
-Your collection is Mongo API collection. Remember, change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. You are seeing is the representation of a BSON document in JSON. If you use binary attributes in a Mongo accounts, they are converted to JSON.
+Su colección es la colección de la API de Mongo. Recuerde que la fuente de cambios se lee mediante el cliente de SQL y serializa los elementos en formato JSON. Debido al formato JSON, los clientes de MongoDB experimentarán una discrepancia entre los documentos con formato BSON y la fuente de cambios con formato JSON. Lo que ve es la representación de un documento BSON en JSON. Si usa atributos binarios en cuentas de Mongo, se convierten a JSON.
 
-### Is there a way to control change feed for updates only and not inserts?
+### <a name="is-there-a-way-to-control-change-feed-for-updates-only-and-not-inserts"></a>¿Hay alguna manera de controlar la fuente de cambios solo para actualizaciones y no inserciones?
 
-Not today, but this functionality is on roadmap. Today, you can add a soft marker on the document for updates.
+No en la actualidad, pero esta funcionalidad está pensada para el futuro. Hoy en día, puede agregar un marcador parcial en los documentos para las actualizaciones.
 
-### Is there a way to get deletes in change feed?
+### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>¿Hay alguna manera de obtener eliminaciones en la fuente de cambios?
 
-Currently change feed doesn’t log deletes. Change feed is continuously improving, and this functionality is on roadmap. Today, you can add a soft marker on the document for delete. Add an attribute on the document called “deleted” and set it to “true” and set a TTL on the document so that it can be automatically deleted.
+Actualmente, la fuente de cambios no registra las eliminaciones. La fuente de cambios mejora constantemente y esta funcionalidad está pensada para el futuro. Hoy en día, puede agregar un marcador parcial en los documentos para las eliminaciones. Agregue un atributo en el documento llamado "deleted" (eliminado), establézcalo en "true" y establezca un TTL en el documento para que se pueda eliminar automáticamente.
 
-### Can I read change feed for historic documents(for example, documents that were added 5 years back) ?
+### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>¿Puedo leer la fuente de cambios de documentos históricos (por ejemplo, documentos que se agregaron hace 5 años)?
 
-Yes, if the document is not deleted you can read the change feed as far as the origin of your collection.
+Sí, si no se eliminó el documento puede leer la fuente de cambios hasta el origen de la colección.
 
-### Can I read change feed using JavaScript?
+### <a name="can-i-read-change-feed-using-javascript"></a>¿Puedo leer la fuente de cambios con JavaScript?
 
-Yes, Node.js SDK initial support for change feed is recently added. It can be used as shown in the following example, please update documentdb module to current version before you run the code:
+Sí, recientemente se agregó la compatibilidad inicial del SDK de Node.js con la fuente de cambios. Se puede usar como se muestra en el ejemplo siguiente. Actualice el módulo documentdb a la versión actual antes de ejecutar el código:
 
 ```js
 

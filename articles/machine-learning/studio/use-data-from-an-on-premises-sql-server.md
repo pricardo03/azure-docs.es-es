@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: c3402c824b70d357b68e71ed7cb5783a7489b2b0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9d9bfc6f8571ab30804d76b9ab9490b0d2e43c7
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837385"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934197"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Análisis avanzados con Azure Machine Learning con datos de una base de datos de SQL Server local
-
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Azure Machine Learning admite la lectura de los datos de una base de datos de SQL Server local, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo **Importar datos** de Azure Machine Learning Studio ahora puede leer directamente la base de datos de SQL Server local para los trabajos de entrenamiento y puntuación.
@@ -39,44 +38,46 @@ En este artículo se proporciona información general sobre la entrada de datos 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="install-the-microsoft-data-management-gateway"></a>Instalación de Microsoft Data Management Gateway
-Para acceder a una base de datos de SQL Server local en Azure Machine Learning, debe descargar e instalar Microsoft Data Management Gateway. Al configurar la conexión de puerta de enlace en Machine Learning Studio, tiene la oportunidad de descargar e instalar la puerta de enlace con el cuadro de diálogo **Descarga y registro de la puerta de enlace de datos** que se describe a continuación.
+## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Instalación del entorno de ejecución de integración autohospedado de Data Factory
+Para acceder a una base de datos de SQL Server local en Azure Machine Learning, debe descargar e instalar el entorno de ejecución de integración autohospedado de Data Factory, conocido antes como Data Management Gateway. Al configurar la conexión en Machine Learning Studio, tiene la oportunidad de descargar e instalar el entorno de ejecución de integración (IR) con el cuadro de diálogo **Descarga y registro de la puerta de enlace de datos** que se describe a continuación.
 
-También puede instalar Data Management Gateway antes si descarga y ejecuta el paquete de instalación MSI desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
-Elija la versión más reciente, de 32 bits o 64 bits según corresponda a su equipo. El archivo MSI también puede usarse para actualizar una instancia de Data Management Gateway existente a la versión más reciente, sin que se pierda la configuración existente.
 
-La puerta de enlace cuenta con los siguientes requisitos previos:
+También puede instalar el entorno con antelación descargando y ejecutando el paquete de instalación MSI desde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). El archivo MSI también puede usarse para actualizar una instancia del entorno existente a una versión más reciente, conservando toda la configuración.
 
-* Las versiones de sistema operativo Windows compatibles son Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
-* La configuración recomendada para el equipo de la puerta de enlace es de al menos 2 GHz, 4 núcleos, 8 GB de RAM y un disco de 80 GB.
-* Si la máquina host está en hibernación, la puerta de enlace no responde a las solicitudes de datos. Por tanto, configure un plan de energía adecuado en el equipo antes de instalar la puerta de enlace. Si el equipo está configurado para hibernar, la instalación de la puerta de enlace muestra un mensaje.
+El entorno de ejecución de integración autohospedado de Data Factory tiene los siguientes requisitos previos:
+
+* Su integración requiere un sistema operativo de 64 bits con .NET Framework 4.6.1 o posterior.
+* Las versiones de sistema operativo Windows compatibles son Windows 10, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016. 
+* La configuración recomendada para la máquina del entorno de ejecución de integración es de al menos 2 GHz, CPU de 4 núcleos, 8 GB de RAM y un disco de 80 GB.
+* Si la máquina host está en hibernación, el entorno no responderá a las solicitudes de datos. Por tanto, configure un plan de energía adecuado en el equipo antes de instalar el entorno de ejecución de integración. Si la máquina está configurada para hibernar, en la instalación del entorno se muestra un mensaje.
 * Dado que la actividad de copia sucede con una frecuencia determinada, el uso de recursos (CPU, memoria) en el equipo también sigue el mismo patrón con horas pico y de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se mueven. Cuando haya varios trabajos de copia en curso, observará que el uso de los recursos aumenta durante las horas pico. Aunque la configuración mínima de arriba es técnicamente suficiente, se recomienda una con más recursos en función de la carga específica para el movimiento de datos.
 
-Considere lo siguiente cuando configure y use una instancia de Data Management Gateway:
+Tenga en cuenta lo siguiente al configurar y usar el entorno de ejecución de integración autohospedado de Data Factory:
 
-* Solo puede instalar una instancia de Data Management Gateway en un solo equipo.
-* Puede usar una sola puerta de enlace para varios orígenes de datos locales.
-* Puede conectar varias puertas de enlace en diferentes equipos al mismo origen de datos local.
-* Una puerta de enlace se configura para una única área de trabajo al mismo tiempo. Actualmente, las puertas de enlace no se pueden compartir entre áreas de trabajo.
-* Puede configurar varias puertas de enlace para una sola área de trabajo. Por ejemplo, podría usar una puerta de enlace que esté conectada a los orígenes de datos de prueba durante el desarrollo, y una de producción cuando esté listo para ponerla en operación.
-* La puerta de enlace no tiene que estar en la misma máquina que el origen de datos. Sin embargo, si está más cerca del origen de datos, se reduce el tiempo que necesita la puerta de enlace para conectarse a este. Se recomienda que instale la puerta de enlace en un equipo diferente del que hospeda el origen de datos local para que la puerta de enlace y el origen de datos no compitan por los recursos.
-* Si ya tiene una puerta de enlace instalada en el equipo que atiende los escenarios de Power BI o Data Factory de Azure, instale en otro equipo una independiente para Azure Machine Learning.
+* Solo puede instalar una instancia del entorno en un solo equipo.
+* Puede usar un solo entorno para varios orígenes de datos locales.
+* Puede conectar varios entornos en diferentes equipos al mismo origen de datos local.
+* Un entorno se configura para una única área de trabajo cada vez. Actualmente, los entornos de ejecución de integración no se pueden compartir entre áreas de trabajo.
+* Puede configurar varios para una sola área de trabajo. Por ejemplo, podría usar uno que esté conectado a los orígenes de datos de prueba durante el desarrollo y uno de producción cuando esté preparado para ponerlo en funcionamiento.
+* El entorno no tiene por qué estar en la misma máquina que el origen de datos. Sin embargo, si está más cerca del origen de datos, se reduce el tiempo que necesita la puerta de enlace para conectarse a este. Se recomienda que instale el entorno de ejecución de integración en una máquina diferente de la que hospeda el origen de datos local para que la puerta de enlace y el origen de datos no compitan por los recursos.
+* Si ya tiene un entorno instalado en el equipo que atiende los escenarios de Power BI o Azure Data Factory, instale en otro equipo un entorno independiente para Azure Machine Learning.
 
   > [!NOTE]
-  > No puede ejecutar Data Management Gateway y Power BI Gateway en el mismo equipo.
+  > No se puede ejecutar en el mismo equipo el entorno de ejecución de integración autohospedado de Data Factory y Power BI Gateway.
   >
   >
-* Debe usar la instancia de Data Management Gateway para Azure Machine Learning incluso si utiliza Azure ExpressRoute para otros datos. Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice ExpressRoute. Use Data Management Gateway para establecer la conectividad entre Machine Learning y el origen de datos.
+* Debe usar dicho entorno para Azure Machine Learning incluso si utiliza Azure ExpressRoute para otros datos. Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice ExpressRoute. Use el entorno de ejecución de integración autohospedado de Data Factory para establecer la conectividad entre Machine Learning y el origen de datos.
 
-Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en el artículo [Data Management Gateway](../../data-factory/v1/data-factory-data-management-gateway.md).
+Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en el artículo [Entorno de ejecución de integración en Data Factory](../../data-factory/concepts-integration-runtime.md).
 
 ## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Entrada de datos de la base de datos de SQL Server local en Azure Machine Learning
-En este tutorial, instalará una instancia de Data Management Gateway en un área de trabajo de Azure Machine Learning, la configurará y después leerá datos de una base de datos de SQL Server local.
+En este tutorial, instalará una instancia de Azure Data Factory Integration Runtime en un área de trabajo de Azure Machine Learning, la configurará y después leerá datos de una base de datos de SQL Server local.
 
 > [!TIP]
 > Antes de comenzar, deshabilite el bloqueador de elementos emergentes del explorador para `studio.azureml.net`. Si usa el explorador Google Chrome, descargue e instale uno de los complementos disponibles en Google Chrome WebStore de entre las [extensiones de la aplicación ClickOnce](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
 >
->
+> [!NOTE]
+> El entorno de ejecución de integración autohospedado de Azure Data Factory se conocía anteriormente como Data Management Gateway. El tutorial paso a paso seguirá para hacer referencia a ella como una puerta de enlace.  
 
 ### <a name="step-1-create-a-gateway"></a>Paso 1: Creación de una puerta de enlace
 El primer paso consiste en crear y configurar la puerta de enlace para acceder a la base de datos SQL local.
@@ -92,7 +93,7 @@ El primer paso consiste en crear y configurar la puerta de enlace para acceder a
 5. En el diálogo Download and register data gateway (Descargar y registrar puerta de enlace), copie el valor de GATEWAY REGISTRATION KEY (Clave de registro de la puerta de enlace) en el Portapapeles.
 
     ![Descarga y registro de la puerta de enlace de datos](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
-6. <span id="note-1" class="anchor"></span>Si aún no ha descargado ni instalado Microsoft Data Management Gateway, haga clic en **Download data management gateway**(Descargar Data Management Gateway). Esto lo lleva al Centro de descarga de Microsoft, donde puede seleccionar la versión de puerta de enlace que necesita, descargarla e instalarla. Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
+6. <span id="note-1" class="anchor"></span>Si aún no ha descargado ni instalado Microsoft Data Management Gateway, haga clic en **Download data management gateway**(Descargar Data Management Gateway). Esto lo lleva al Centro de descarga de Microsoft, donde puede seleccionar la versión de puerta de enlace que necesita, descargarla e instalarla. Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. Una vez instalada la puerta de enlace, se abre el Administrador de configuración de Data Management Gateway y se muestra el cuadro de diálogo **Registrar puerta de enlace** . Pegue la **clave de registro de puerta de enlace** que copió en el portapapeles y haga clic en **Registrar**.
 8. Si ya tiene una puerta de enlace instalada, ejecute el Administrador de configuración de Data Management Gateway. Haga clic en **Cambiar clave**, pegue la **clave de registro de puerta de enlace** que ha copiado en el Portapapeles en el paso anterior y haga clic en **Aceptar**.
 9. Cuando la instalación haya finalizado, se muestra el cuadro de diálogo **Registrar puerta de enlace** para el Administrador de configuración de Data Management Gateway. Pegue la CLAVE DE REGISTRO DE PUERTA DE ENLACE que copió en el Portapapeles en el paso anterior y haga clic en **Registrar**.
@@ -123,7 +124,7 @@ El primer paso consiste en crear y configurar la puerta de enlace para acceder a
 Con esto, se completa el proceso de configuración de la puerta de enlace en Azure Machine Learning.
 Ya está listo para usar los datos locales.
 
-Puede crear y configurar varias puertas de enlace en Estudio para cada área de trabajo. Por ejemplo, puede conectar una puerta de enlace a los orígenes de datos de prueba durante el desarrollo, y una puerta de enlace diferente para los orígenes de datos de producción. Azure Machine Learning ofrece la flexibilidad para configurar varias puertas de enlace en función de su entorno corporativo. Actualmente no se puede compartir una puerta de enlace entre áreas de trabajo y solamente se puede instalar una única puerta de enlace en un equipo. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
+Puede crear y configurar varias puertas de enlace en Estudio para cada área de trabajo. Por ejemplo, puede conectar una puerta de enlace a los orígenes de datos de prueba durante el desarrollo, y una puerta de enlace diferente para los orígenes de datos de producción. Azure Machine Learning ofrece la flexibilidad para configurar varias puertas de enlace en función de su entorno corporativo. Actualmente no se puede compartir una puerta de enlace entre áreas de trabajo y solamente se puede instalar una única puerta de enlace en un equipo. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Paso 2: Uso de la puerta de enlace para leer datos de un origen de datos local
 Después de configurar la puerta de enlace, puede agregar un módulo **Importar datos** a un experimento que introduce los datos de la base de datos de SQL Server local.

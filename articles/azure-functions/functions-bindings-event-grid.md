@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 06/08/2018
 ms.author: tdykstra
-ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6678109414eaa71ced369e87e1cd15544fee5ee5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724737"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723437"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -30,7 +30,7 @@ Event Grid es un servicio de Azure que envía solicitudes HTTP para notificarle 
 
 Los *controladores* de eventos reciben y procesan eventos. Azure Functions es uno de los [servicios de Azure con compatibilidad integrada para controlar eventos de Event Grid](../event-grid/overview.md#event-handlers). En este artículo, aprenderá a usar un desencadenador de Event Grid para invocar una función cuando se recibe un evento de Event Grid.
 
-Si lo prefiere, puede usar un desencadenador HTTP para controlar los eventos de Event Grid; consulte [Uso de un desencadenador HTTP como un desencadenador de Event Grid](#use-an-http-trigger-as-an-event-grid-trigger) más adelante en este artículo.
+Si lo prefiere, puede usar un desencadenador HTTP para controlar los eventos de Event Grid; consulte [Uso de un desencadenador HTTP como un desencadenador de Event Grid](#use-an-http-trigger-as-an-event-grid-trigger) más adelante en este artículo. Actualmente, no puede usar un desencadenador de Event Grid para una aplicación de Azure Functions cuando el evento se entrega en el esquema de[ CloudEvents](../event-grid/cloudevents-schema.md). En cambio, debe usar un desencadenador HTTP.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -331,45 +331,44 @@ Para más información, consulte [Claves de autorización](functions-bindings-ht
 
 También puede enviar un HTTP PUT para especificar el mismo valor de la clave.
 
-## <a name="local-testing-with-requestbin"></a>Pruebas locales con RequestBin
-
-> [!NOTE]
-> El sitio de RequestBin no está disponible actualmente, pero puede usar este enfoque con https://hookbin.com en su lugar. Si ese sitio está inactivo, puede usar [ngrok](#local-testing-with-ngrok).
+## <a name="local-testing-with-viewer-web-app"></a>Pruebas locales con la aplicación web de visor
 
 Para probar localmente un desencadenador de Event Grid, debe enviar las solicitudes HTTP de Event Grid desde su origen en la nube a la máquina local. Una manera de hacerlo es mediante la captura de solicitudes en línea y de reenviarlas manualmente a la máquina local:
 
-2. [Cree un punto de conexión de RequestBin](#create-a-RequestBin-endpoint).
-3. [Cree una suscripción a Event Grid](#create-an-event-grid-subscription) que envíe eventos al punto de conexión de RequestBin.
-4. [Genere una solicitud](#generate-a-request) y copie el cuerpo de la solicitud desde el sitio de RequestBin.
+2. [Cree una aplicación web de visor](#create-a-viewer-web-app) que capture los mensajes de eventos.
+3. [Cree una suscripción a Event Grid](#create-an-event-grid-subscription) que envíe eventos a la aplicación de visor.
+4. [Genere una solicitud](#generate-a-request) y copie el cuerpo de la solicitud desde la aplicación de visor.
 5. [Envíe manualmente la solicitud](#manually-post-the-request) a la dirección URL de localhost de la función del desencadenador de Event Grid.
 
 Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) de la CLI de Azure.
 
-### <a name="create-a-requestbin-endpoint"></a>Creación de un punto de conexión de RequestBin
+### <a name="create-a-viewer-web-app"></a>Creación de una aplicación web de visor
 
-RequestBin es una herramienta de código abierto que acepta solicitudes HTTP y muestra el cuerpo de la solicitud. La dirección URL http://requestb.in recibe un tratamiento especial en Azure Event Grid. Para facilitar las pruebas, Event Grid envía eventos a la dirección URL de RequestBin sin requerir una respuesta correcta a las solicitudes de validación de suscripción. Otra herramienta de pruebas recibe el mismo tratamiento: http://hookbin.com.
+Para simplificar la captura de mensajes de evento, puede implementar una [aplicación web de ejemplo](https://github.com/dbarkol/azure-event-grid-viewer) que muestre los mensajes de los eventos. La solución implementada incluye un plan de App Service, una aplicación web de App Service y el código fuente desde GitHub.
 
-RequestBin no está pensado para el uso de alto rendimiento. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
+Seleccione **Deploy to Azure** (Implementar en Azure) para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
 
-Cree un punto de conexión.
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-![Creación de un punto de conexión de RequestBin](media/functions-bindings-event-grid/create-requestbin.png)
+La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
 
-Copie la dirección URL del punto de conexión.
+Verá el sitio, pero aún no se ha publicado en él ningún evento.
 
-![Copia del punto de conexión de RequestBin](media/functions-bindings-event-grid/save-requestbin-url.png)
+![Visualización del nuevo sitio](media/functions-bindings-event-grid/view-site.png)
 
 ### <a name="create-an-event-grid-subscription"></a>Creación de una suscripción de Event Grid
 
-Cree una suscripción a Event Grid del tipo que desee probar y asígnele el punto de conexión de RequestBin. Para más información sobre cómo crear una suscripción, consulte [Creación de una suscripción](#create-a-subscription) anteriormente en este artículo.
+Cree una suscripción de Event Grid del tipo que desee probar y asígnele la dirección URL de su aplicación web como punto de conexión para la notificación de eventos. El punto de conexión de la aplicación web debe incluir el sufijo `/api/updates/`. Por lo tanto, dirección URL completa es `https://<your-site-name>.azurewebsites.net/api/updates`
+
+Para obtener información sobre cómo crear suscripciones mediante Azure Portal, consulte [Creación de eventos personalizados: Azure Portal](../event-grid/custom-event-quickstart-portal.md) en la documentación de Event Grid.
 
 ### <a name="generate-a-request"></a>Generación de una solicitud
 
-Desencadene un evento que generará tráfico HTTP a su punto de conexión de RequestBin.  Por ejemplo, si crea una suscripción de almacenamiento de blobs, cargue o elimine un blob. Cuando aparece una solicitud en la página de RequestBin, copie el cuerpo de la solicitud.
+Desencadene un evento que generará tráfico HTTP a su punto de conexión de aplicación web.  Por ejemplo, si crea una suscripción de almacenamiento de blobs, cargue o elimine un blob. Cuando aparezca una solicitud en la aplicación web, copie el cuerpo de la solicitud.
 
 La solicitud de validación de la suscripción se recibirá primero; ignore cualquier solicitud de validación y copie la solicitud del evento.
 
-![Copia del cuerpo de la solicitud de RequestBin](media/functions-bindings-event-grid/copy-request-body.png)
+![Copia del cuerpo de la solicitud de la aplicación web](media/functions-bindings-event-grid/view-results.png)
 
 ### <a name="manually-post-the-request"></a>Envío manual de la solicitud
 
@@ -467,14 +466,18 @@ La función de desencadenador de Event Grid ejecuta y muestra registros similare
 
 ## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Uso de un desencadenador HTTP como un desencadenador de Event Grid
 
-Los eventos de Event Grid se reciben como solicitudes HTTP, por lo que puede controlar los eventos mediante un desencadenador HTTP en lugar de un desencadenador de Event Grid. Una posible razón para hacerlo es tener más control sobre la dirección URL del punto de conexión que invoca la función. 
+Los eventos de Event Grid se reciben como solicitudes HTTP, por lo que puede controlar los eventos mediante un desencadenador HTTP en lugar de un desencadenador de Event Grid. Una posible razón para hacerlo es tener más control sobre la dirección URL del punto de conexión que invoca la función. Otro motivo es que necesite recibir eventos en el [esquema de CloudEvents](../event-grid/cloudevents-schema.md). Actualmente, el desencadenador de Event Grid no es compatible con el esquema de CloudEvents. Los ejemplos de esta sección muestran soluciones tanto para el esquema de Event Grid como para el de CloudEvents.
 
 Si se usa un desencadenador HTTP, tiene que escribir código sobre lo que el desencadenador de Event Grid hace automáticamente:
 
 * Envía una respuesta de validación a una [solicitud de validación de suscripción](../event-grid/security-authentication.md#webhook-event-delivery).
 * Invoca la función una vez por elemento de la matriz de eventos contenida en el cuerpo de la solicitud.
 
-El siguiente ejemplo de código C# para un desencadenador HTTP simula el comportamiento del desencadenador de Event Grid:
+Para más información acerca de la dirección URL que se debe utilizar para invocar la función localmente o cuando se ejecuta en Azure, consulte la [documentación de referencia de enlaces del desencadenador HTTP](functions-bindings-http-webhook.md).
+
+### <a name="event-grid-schema"></a>Esquema de Event Grid
+
+El siguiente ejemplo de código C# para un desencadenador HTTP simula el comportamiento del desencadenador de Event Grid. Use este ejemplo para los eventos entregados en el esquema de Event Grid.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -512,7 +515,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-El siguiente ejemplo de código JavaScript para un desencadenador HTTP simula el comportamiento del desencadenador de Event Grid:
+El siguiente ejemplo de código JavaScript para un desencadenador HTTP simula el comportamiento del desencadenador de Event Grid. Use este ejemplo para los eventos entregados en el esquema de Event Grid.
 
 ```javascript
 module.exports = function (context, req) {
@@ -522,10 +525,12 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: JSON.stringify({validationResponse: messages[0].data.validationCode}) }
+        var code = messages[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.
+        // Event Grid schema delivers events in an array.
         for (var i = 0; i < messages.length; i++) {
             // Handle one event.
             var message = messages[i];
@@ -540,7 +545,70 @@ module.exports = function (context, req) {
 
 El código de control de eventos pasa al bucle a través de la matriz `messages`.
 
-Para más información acerca de la dirección URL que se debe utilizar para invocar la función localmente o cuando se ejecuta en Azure, consulte la [documentación de referencia de enlaces del desencadenador HTTP](functions-bindings-http-webhook.md). 
+### <a name="cloudevents-schema"></a>Esquema de CloudEvents
+
+El siguiente ejemplo de código C# para un desencadenador HTTP simula el comportamiento del desencadenador de Event Grid.  Utilice este ejemplo para los eventos entregados en el esquema de CloudEvents.
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    var requestmessage = await req.Content.ReadAsStringAsync();
+    var message = JToken.Parse(requestmessage);
+
+    if (message.Type == JTokenType.Array)
+    {
+        // If the request is for subscription validation, send back the validation code.
+        if (string.Equals((string)message[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
+        System.StringComparison.OrdinalIgnoreCase))
+        {
+            log.Info("Validate request received");
+            return req.CreateResponse<object>(new
+            {
+                validationResponse = message[0]["data"]["validationCode"]
+            });
+        }
+    }
+    else
+    {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        log.Info($"Source: {message["source"]}");
+        log.Info($"Time: {message["eventTime"]}");
+        log.Info($"Event data: {message["data"].ToString()}");
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+El siguiente ejemplo de código JavaScript para un desencadenador HTTP simula el comportamiento del desencadenador de Event Grid. Utilice este ejemplo para los eventos entregados en el esquema de CloudEvents.
+
+```javascript
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    var message = req.body;
+    // If the request is for subscription validation, send back the validation code.
+    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+        context.log('Validate request received');
+        var code = message[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
+    }
+    else {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        var event = JSON.parse(message);
+        context.log('Source: ' + event.source);
+        context.log('Time: ' + event.eventTime);
+        context.log('Data: ' + JSON.stringify(event.data));
+    }
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: 2919ce1d7c57b7a92420ac11b61503caa1fdd3b0
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267564"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856423"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Azure AD Terms of Use.
@@ -30,13 +30,13 @@ Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizacio
 Azure AD Terms of Use le permite realizar lo siguiente:
 - Exigir que los empleados o invitados acepten los términos de uso antes de obtener acceso.
 - Presentar términos de uso generales para todos los usuarios de la organización.
-- Presentar términos de uso específicos basados en los atributos de un usuario (por ejemplo, médicos por un lado y enfermeras por otro, empleados nacionales por un lado e internacionales por otro, mediante [grupos dinámicos](active-directory-groups-dynamic-membership-azure-portal.md)).
+- Presentar términos de uso específicos basados en los atributos de un usuario (por ejemplo, médicos por un lado y enfermeras por otro, empleados nacionales por un lado e internacionales por otro, mediante [grupos dinámicos](users-groups-roles/groups-dynamic-membership.md)).
 - Presentar términos de uso específicos al acceder a aplicaciones con una alta repercusión en la empresa, como Salesforce.
 - Presentar términos de uso en diferentes idiomas.
 - Mostrar quién ha aceptado o no los términos de uso.
 - Mostrar un registro de auditoría de la actividad de términos de uso.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para usar y configurar Azure AD Terms of Use, debe cumplir los siguientes requisitos:
 
 - Suscripción a Azure AD Premium P1, P2, EMS E3 o EMS E5.
@@ -98,7 +98,7 @@ La hoja Términos de uso muestra un recuento de los usuarios que los han aceptad
     ![Evento de auditoría](media/active-directory-tou/accepted-tou.png)
 
 ## <a name="view-audit-logs"></a>Visualización de registros de auditoría
-Si quiere ver la actividad adicional, Azure AD Terms of Use incluye registros de auditoría. Cada consentimiento de usuario desencadena un evento en los registros de auditoría que se almacenan durante 30 días. Puede ver estos registros en el portal o descargarlos como un archivo .csv.
+Si quiere ver la actividad adicional, Azure AD Terms of Use incluye registros de auditoría. Cada consentimiento de usuario desencadena un evento en los registros de auditoría que se almacena durante 30 días. Puede ver estos registros en el portal o descargarlos como un archivo .csv.
 
 Para empezar a trabajar con registros de auditoría, use el procedimiento siguiente:
 
@@ -167,10 +167,10 @@ Las directivas de acceso condicional surten efecto de inmediato. Cuando esto suc
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 **P: ¿Cómo puedo ver si un usuario ha aceptado los términos de uso y cuándo lo ha hecho?**</br>
-R: Puede hacer clic en el número que hay debajo de Aceptado, junto a los términos de uso.  Para más información, consulte [Ver quién los ha aceptado y rechazado](#view-who-has-accepted-and-declined).  Además, la aceptación de los términos de uso por parte de un usuario se escribe en el registro de auditoría. Puede buscar el registro de auditoría de Azure AD para ver los resultados.  
+R: en la hoja Términos de uso, haga clic en el número situado bajo **Aceptado**. También puede ver o buscar la actividad de aceptación en los registros de auditoría. Para más información, consulte [Ver quién los ha aceptado y rechazado](#view-who-has-accepted-and-declined) y [Visualización de registros de auditoría](#view-audit-logs).
 
 **P: ¿Si cambian los términos de uso, es necesario que los usuarios los acepten de nuevo?**</br>
-R: Sí, un administrador puede cambiar los términos de uso, y será necesario volver a aceptar los nuevos términos.
+R: Sí, un administrador puede cambiar los términos de uso y será necesario que los usuarios vuelvan a aceptar los nuevos términos.
 
 **P: ¿Pueden los términos de uso admitir varios idiomas?**</br>
 R: Sí.  Actualmente, un administrador puede configurar hasta 18 idiomas diferentes para unos solos términos de uso. 
@@ -179,13 +179,16 @@ R: Sí.  Actualmente, un administrador puede configurar hasta 18 idiomas diferen
 R: Los términos de uso se desencadenan durante la experiencia de inicio de sesión.
 
 **P: ¿Qué aplicaciones puedo usar como destino de los términos de uso?**</br>
-R: Puede crear una directiva de acceso condicional en las aplicaciones empresariales que usan autenticación moderna.  Para más información, consulte [aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+R: Puede crear una directiva de acceso condicional en las aplicaciones empresariales que usan autenticación moderna.  Para más información, consulte [aplicaciones empresariales](./manage-apps/view-applications-portal.md).
 
 **P: ¿Puedo agregar varios términos de uso a un usuario o aplicación determinados?**</br>
 R: Sí, mediante la creación de varias directivas de acceso condicional cuyo destino sean dichos grupos o aplicaciones. Si un usuario se encuentra en el ámbito de varios términos de uso, aceptará primero unos y después otros.
  
 **P: ¿Qué ocurre si un usuario no acepta los términos de uso?**</br>
 R: El usuario será bloqueado y no podrá obtener acceso a la aplicación. El usuario tendría que iniciar sesión de nuevo y aceptar las condiciones con el fin de obtener acceso.
+ 
+**P: ¿Es posible rechazar los Términos de uso que se han aceptado previamente?**</br>
+R: Puede [revisar los Términos de uso aceptados previamente](#how-users-can-review-their-terms-of-use) pero actualmente no hay ninguna manera de poderlos rechazar.
  
 **P: ¿Cuánto tiempo se almacena la información?**</br>
 R: Los recuentos de usuarios y quién los ha aceptado o rechazado se almacenan mientras están vigentes los términos de uso. Los registros de auditoría se almacenan durante 30 días.

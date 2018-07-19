@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 842e4d8413544a303b656a8e4a05bdf58a7c8164
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223848"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442090"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introducción a la API de generación informes de Azure Active Directory
 
@@ -47,6 +47,13 @@ Para acceder a la API de generación de informes, incluso si planea el acceso a 
  
 Para obtener instrucciones detalladas, consulte [Requisitos previos para acceder a la API de generación de informes de Azure AD](active-directory-reporting-api-prerequisites-azure-portal.md).
 
+## <a name="apis-with-graph-explorer"></a>APIs con probador de Graph
+
+Puede usar el [probador de MSGraph](https://developer.microsoft.com/en-us/graph/graph-explorer) para comprobar los datos de inicio de sesión de la API de auditoría. Asegúrese de iniciar sesión en su cuenta con ambos botones de inicio de sesión en la interfaz de usuario del probador de Graph y establezca los permisos **Tasks.ReadWrite** y **Directory.ReadAll** para el inquilino tal como se muestra a continuación.   
+
+![Probador de Graph](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+
+![Modificar interfaz de usuario de permisos](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## <a name="recommendation"></a>Recomendación 
 

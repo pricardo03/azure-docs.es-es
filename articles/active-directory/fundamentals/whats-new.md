@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d86a2b702eac4fc976fd59ca24fd7122a76005b4
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061684"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920821"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
-> Para estar al día de las novedades de Azure Active Directory (Azure AD), suscríbase a esta [![fuente](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [RSS](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Recibir notificaciones sobre cuándo volver a visitar esta página para obtener actualizaciones mediante la suscripción a la [fuente](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 En Azure AD se realizan mejoras de forma continua. Para mantenerse al día con los avances más recientes, este artículo proporciona información acerca de los elementos siguientes:
 
--   Versiones más recientes
--   Problemas conocidos
--   Corrección de errores
--   Funciones obsoletas
--   Planes de cambios
+- Versiones más recientes
+- Problemas conocidos
+- Corrección de errores
+- Funciones obsoletas
+- Planes de cambios
 
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia.
 
@@ -40,8 +40,8 @@ Esta página se actualiza mensualmente, por lo que se recomienda visitarla con f
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de cambio: revisión de seguridad para el flujo de autorización delegado para aplicaciones que usan la API de registro de actividad de Azure AD
 
 **Tipo:** plan de cambio  
-**Categoría de servicio:** supervisión e informes  
-**Funcionalidad del producto:** informes
+**Categoría del servicio:** informes  
+**Funcionalidad del producto:** supervisión e informes
 
 Debido a nuestras medidas de seguridad más estrictas, hemos tenido que realizar un cambio en los permisos de las aplicaciones que usan un flujo de autorización delegado para acceder a la [API de registro de actividad de Azure AD](https://aka.ms/aadreportsapi). Este cambio se producirá el **26 de junio de 2018**.
 
@@ -64,7 +64,7 @@ Para obtener más información, consulte el área [Conceder permisos](https://do
 ### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Configuración de las opciones de TLS para conectarse a servicios de Azure AD para el cumplimiento de PCI DSS
 
 **Tipo:** nueva característica  
-**Categoría del servicio:** nueva característica  
+**Categoría del servicio:** N/D  
 **Funcionalidad del producto:** plataforma
 
 La Seguridad de la capa de transporte (TLS) es un protocolo que proporciona privacidad e integridad de datos para la comunicación entre dos aplicaciones, y es el protocolo de seguridad más implementado hoy en día.
@@ -161,7 +161,7 @@ Para obtener más información, consulte [Característica Azure Active Directory
 
 **Tipo:** nueva característica  
 **Categoría del servicio:** otros  
-**Funcionalidad del producto:** seguridad y protección de la identidad
+**Funcionalidad del producto:** protección y seguridad de la identidad
  
 Hemos lanzado la nueva guía paso a paso acerca de cómo implementar Azure Multi-Factor Authentication (MFA) en su organización.
 
@@ -172,7 +172,8 @@ Para ver la guía de implementación de MFA, vaya al repositorio [Guías de impl
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Los roles de administración de aplicaciones delegadas de Azure AD están en versión preliminar pública.
 
 **Tipo:** nueva característica  
-**Categoría del servicio:** aplicaciones empresariales **Funcionalidad del producto:** control de acceso
+**Categoría del servicio:** aplicaciones empresariales  
+**Funcionalidad del producto:** control de acceso
 
 Ahora los administradores pueden delegar tareas de administración de aplicaciones sin asignar el rol de administrador global. Los nuevos roles y funcionalidades son:
 

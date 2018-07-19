@@ -6,27 +6,23 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49361aef774e9eb5a0995bc106e73b236a71b0bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16620678c38dcdc1564d8cb18f3393352170cefe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441138"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598431"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup
 Este artículo trata sobre los pasos para realizar la copia de seguridad y restauración de máquinas virtuales (VM) mediante Azure Backup. También se proporcionan detalles sobre los escenarios admitidos, requisitos previos y pasos para solucionar problemas en los casos de error.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
- * La copia de seguridad y restauración de máquinas virtuales cifradas solo se admite para máquinas virtuales que usan el modelo de implementación de Azure Resource Manager. No se admite en las que usan el modelo de implementación clásica. <br>
- * La copia de seguridad y restauración de máquinas virtuales cifradas se admite en máquinas virtuales Windows y Linux que usen Azure Disk Encryption. Disk Encryption emplea BitLocker, la característica estándar del sector de Windows y la característica dm-crypt de Linux para proporcionar el cifrado de los discos. <br>
- 
- En la tabla siguiente se muestran los escenarios admitidos para máquinas virtuales cifradas solo con clave de cifrado de BitLocker (BEK) y las cifradas con clave de cifrado de claves (KEK).
- 
- 
+ La copia de seguridad y restauración de máquinas virtuales cifradas solo se admite para máquinas virtuales que usan el modelo de implementación de Azure Resource Manager. No se admite en las que usan el modelo de implementación clásica. La copia de seguridad y la restauración de máquinas virtuales cifradas se admite en máquinas virtuales Windows y Linux que usen Azure Disk Encryption. Disk Encryption emplea BitLocker, la característica estándar del sector de Windows y la característica dm-crypt de Linux para proporcionar el cifrado de los discos. En la tabla siguiente se muestra el tipo de cifrado y la compatibilidad con las máquinas virtuales.
+
    |  | BEK + máquinas virtuales con KEK | Máquinas virtuales solo con BEK |
    | --- | --- | --- |
    | **Máquinas virtuales no administradas**  | Sí | Sí  |
@@ -136,7 +132,7 @@ Para restaurar una máquina virtual cifrada, primero restaure los discos; para e
 ## <a name="troubleshooting-errors"></a>Solución de errores
 | Operación | Detalles del error | Resolución |
 | --- | --- | --- |
-|Backup | Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las máquinas virtuales cifradas. | Es necesario proporcionar estos permisos a Backup mediante los [pasos de la sección anterior](#provide-permissions-to-azure-backup). También puede seguir los pasos de PowerShell que se describen en la sección "Habilitar protección" de la documentación de PowerShell en [Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales](backup-azure-vms-automation.md#back-up-azure-vms). |  
-| Restore |No se puede restaurar esta máquina virtual cifrada porque no existe el almacén de claves asociado con esta máquina virtual. |Cree un almacén de claves mediante los pasos descritos en [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md). Consulte [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md) para restaurar la clave y el secreto si estos no existen. |
-| Restore |No se puede restaurar esta máquina virtual cifrada porque la clave y el secreto asociados con ella no existen. |Consulte [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md) para restaurar la clave y el secreto si estos no existen. |
-| Restore |El servicio Backup no tiene autorización para acceder a los recursos de su suscripción. |Como se ha mencionado anteriormente, restaure primero los discos según los pasos descritos en la sección "Restauración de discos de copia de seguridad" de [Elección de una configuración de restauración para una máquina virtual](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Después, use PowerShell para [crear una máquina virtual a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+|Copia de seguridad | Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las máquinas virtuales cifradas. | Es necesario proporcionar estos permisos a Backup mediante los [pasos de la sección anterior](#provide-permissions-to-azure-backup). También puede seguir los pasos de PowerShell que se describen en la sección "Habilitar protección" de la documentación de PowerShell en [Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales](backup-azure-vms-automation.md#back-up-azure-vms). |  
+| Restauración |No se puede restaurar esta máquina virtual cifrada porque no existe el almacén de claves asociado con esta máquina virtual. |Cree un almacén de claves mediante los pasos descritos en [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md). Consulte [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md) para restaurar la clave y el secreto si estos no existen. |
+| Restauración |No se puede restaurar esta máquina virtual cifrada porque la clave y el secreto asociados con ella no existen. |Consulte [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md) para restaurar la clave y el secreto si estos no existen. |
+| Restauración |El servicio Backup no tiene autorización para acceder a los recursos de su suscripción. |Como se ha mencionado anteriormente, restaure primero los discos según los pasos descritos en la sección "Restauración de discos de copia de seguridad" de [Elección de una configuración de restauración para una máquina virtual](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Después, use PowerShell para [crear una máquina virtual a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

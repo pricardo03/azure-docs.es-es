@@ -1,6 +1,6 @@
 ---
 title: Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa en Azure Cosmos DB | Microsoft Docs
-description: Use la biblioteca BulkExecutor en Java de Azure Cosmos DB para importar y actualizar documentos en masa en las colecciones de Azure Cosmos DB.
+description: Use la biblioteca de ejecutor en masa de Java de Azure Cosmos DB para importar y actualizar documentos en bloque a los contenedores de Azure Cosmos DB.
 keywords: Ejecutor en masa de Java
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300720"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859983"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 
-En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en Java de Azure Cosmos DB para importar y actualizar documentos de Azure Cosmos DB. Para información sobre la biblioteca BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca BulkExecutor](bulk-executor-overview.md). En este tutorial, se va a compilar una aplicación de Java que genera documentos aleatorios que se importan en masa en una colección de Azure Cosmos DB. Tras la importación, se actualizarán en masa algunas propiedades de un documento. 
+En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en Java de Azure Cosmos DB para importar y actualizar documentos de Azure Cosmos DB. Para información sobre la biblioteca BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca BulkExecutor](bulk-executor-overview.md). En este tutorial, se va a compilar una aplicación de Java que genera documentos aleatorios que se importan en bloque en un contenedor de Azure Cosmos DB. Tras la importación, se actualizarán en masa algunas propiedades de un documento. 
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -77,7 +77,7 @@ El repositorio clonado contiene dos ejemplos “bulkimport” y “bulkupdate”
      DATABASE_NAME,
      COLLECTION_NAME,
      collection.getPartitionKey(),
-     offerThroughput) // throughput you want to allocate for bulk import out of the collection's total throughput
+     offerThroughput) // throughput you want to allocate for bulk import out of the container's total throughput
 
    // Instantiate DocumentBulkExecutor
    DocumentBulkExecutor bulkExecutor = bulkExecutorBuilder.build()
@@ -87,7 +87,7 @@ El repositorio clonado contiene dos ejemplos “bulkimport” y “bulkupdate”
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
 ```
 
-4. Llame a la API importAll que genera documentos aleatorios para realizar importaciones en masa a una colección de Azure Cosmos DB. Puede configurar las configuraciones de la línea de comandos en el archivo CmdLineConfiguration.java.
+4. Llame a la API importAll que genera documentos aleatorios para realizar importaciones en bloque a un contenedor de Azure Cosmos DB. Puede configurar las configuraciones de la línea de comandos en el archivo CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -154,7 +154,7 @@ Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync.
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Llame a la API updateAll que genera documentos aleatorios para realizar importaciones en masa a una colección de Azure Cosmos DB. Puede configurar los valores de la línea de comandos para pasarlos al archivo CmdLineConfiguration.java.
+2. Llame a la API updateAll que genera documentos aleatorios para después importarlos en bloque a un contenedor de Azure Cosmos DB. Puede configurar los valores de la línea de comandos para pasarlos al archivo CmdLineConfiguration.java.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -205,9 +205,9 @@ Tenga en cuenta los siguientes puntos para mejorar el rendimiento al utilizar la
    * Establezca el tamaño del montón de JVM en un número lo suficientemente alto para evitar cualquier problema de memoria al controlar grandes volúmenes de documentos. Tamaño de montón sugerido: máx.([3 GB, 3 * tamaño de(todos los documentos pasados a la API de importación en bloque en un lote)].  
    * Hay un tiempo de procesamiento, por el que se obtendrá un mayor rendimiento al realizar operaciones en masa con un gran número de documentos. Por tanto, si va a importar 10 000 000 documentos, es preferible ejecutar la importación en bloque diez veces de diez documentos masivos, cada uno de un tamaño de 1 000 0000, en lugar de ejecutar cien veces la importación en bloque de cien documentos masivos, cada uno de ellos de una tamaño de 100 000 documentos.  
 
-* Se recomienda crear instancias de un único objeto DocumentBulkExecutor en toda la aplicación dentro de una sola máquina virtual que corresponde a una colección específica de Azure Cosmos DB.  
+* Se recomienda crear instancias de un único objeto DocumentBulkExecutor en toda la aplicación dentro de una sola máquina virtual que se corresponda a un contenedor específico de Azure Cosmos DB.  
 
-* Esto se debe a que una única ejecución de API de operaciones en masa consume un gran fragmento de E/S de red y de CPU del equipo cliente. Esto sucede al generar varias tareas internamente y al evitar la creación de varias tareas simultáneas dentro de su proceso de aplicación, donde cada una ejecuta llamadas API de operaciones en masa. Si una única llamada API de operaciones en masa en una única máquina virtual no puede consumir la capacidad de proceso de toda la colección (si la capacidad de proceso de la colección es superior a 1 millón RU/s), es preferible crear máquinas virtuales independientes para ejecutar llamadas API de operaciones en masa simultáneamente.
+* Esto se debe a que una única ejecución de API de operaciones en masa consume un gran fragmento de E/S de red y de CPU del equipo cliente. Esto sucede al generar varias tareas internamente y al evitar la creación de varias tareas simultáneas dentro de su proceso de aplicación, donde cada una ejecuta llamadas API de operaciones en masa. Si una única llamada API de operaciones en bloque en una única máquina virtual no puede consumir la capacidad de proceso de todo el contenedor (si la capacidad de proceso del contenedor es superior a 1 millón RU/s), es preferible crear máquinas virtuales independientes para ejecutar llamadas API de operaciones en bloque simultáneamente.
 
     
 ## <a name="next-steps"></a>Pasos siguientes

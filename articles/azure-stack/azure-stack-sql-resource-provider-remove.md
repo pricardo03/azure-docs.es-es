@@ -11,19 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 150d1c40463aa04527bdd6e356a4c24ef68b02ef
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301905"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083048"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Eliminación del proveedor de recursos de SQL
 
 Antes de quitar el proveedor de recursos de SQL, debe quitar todas las dependencias del proveedor. También necesitará una copia del paquete de implementación que se utilizó para instalar el proveedor de recursos.
+
+Hay varias tareas de limpieza que debe realizar antes de ejecutar el script _DeployMySqlProvider.ps1_ para quitar el proveedor de recursos.
+Los inquilinos son responsables de las siguientes tareas de limpieza:
+
+* Eliminar todas sus bases de datos del proveedor de recursos. (Eliminar las bases de datos de inquilino no elimina los datos).
+* Anular el registro desde el espacio de nombres del proveedor de recursos.
+
+El administrador es responsable de las siguientes tareas de limpieza:
+
+* Eliminar los servidores de hospedaje del proveedor de recursos SQL.
+* Eliminar los planes que hagan referencia al proveedor de recursos SQL.
+* Eliminar las cuotas asociadas al proveedor de recursos SQL.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Proceso para quitar el proveedor de recursos de SQL
 
@@ -38,10 +50,10 @@ Antes de quitar el proveedor de recursos de SQL, debe quitar todas las dependenc
 
 4. Ejecute el script DeploySqlProvider.ps1 con los siguientes parámetros:
 
-    - **Desinstalación**. Quita el proveedor de recursos y todos los recursos asociados.
-    - **PrivilegedEndpoint**. Dirección IP o nombre DNS del punto de conexión con privilegios.
-    - **CloudAdminCredential**. Credencial del administrador de la nube, necesaria para el acceso al punto de conexión con privilegios.
-    - **AzCredential**. Credencial de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack.
+    * **Desinstalación**. Quita el proveedor de recursos y todos los recursos asociados.
+    * **PrivilegedEndpoint**. Dirección IP o nombre DNS del punto de conexión con privilegios.
+    * **CloudAdminCredential**. Credencial del administrador de la nube, necesaria para el acceso al punto de conexión con privilegios.
+    * **AzCredential**. Credencial de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,15 +3,15 @@ title: Exclusión de discos de la protección con Azure Site Recovery | Microsof
 description: Describe por qué y cómo excluir discos de máquina virtual de la replicación de VMware a Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.workload: storage-backup-recovery
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 59c8d38d94604a9950693d6bb73b6263f9cdb23b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285097"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921287"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Exclusión de discos de replicación en el escenario de VMware a Azure
 
@@ -50,7 +50,7 @@ Siga el flujo de trabajo de [Habilitación de la replicación](vmware-azure-enab
 
 >[!NOTE]
 >
-> * Solo puede excluir discos que tengan instalado Mobility Service. Mobility Service se instala manualmente, ya que la instalación solo se puede hacer con el mecanismo de notificación push una vez habilitada la replicación.
+> * Solo puede excluir discos en máquinas virtuales que ya tengan instalado Mobility Service. Mobility Service se instala manualmente, ya que la instalación solo se puede hacer con el mecanismo de notificación push una vez habilitada la replicación.
 > * Solo se pueden excluir los discos básicos de la replicación. No se pueden excluir los discos dinámicos ni del sistema operativo.
 > * Una vez habilitada la replicación, no puede agregar ni quitar discos de la replicación. Si desea agregar o excluir un disco, deberá deshabilitar la protección de la máquina y volver a habilitarla.
 > * Si excluye un disco necesario para que una aplicación funcione, después de la conmutación por error a Azure, debe crearlo manualmente en Azure para poder ejecutar la aplicación replicada. También puede integrar Azure Automation en un plan de recuperación para crear el disco durante la conmutación por error de la máquina.

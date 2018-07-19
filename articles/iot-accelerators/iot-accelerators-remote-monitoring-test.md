@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628266"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088509"
 ---
 # <a name="create-a-new-simulated-device"></a>Creación de un nuevo dispositivo simulado
 
@@ -27,7 +27,7 @@ En el primer escenario, Contoso desea probar un nuevo dispositivo de bombilla in
 
 *Propiedades*
 
-| NOMBRE                     | Valores                      |
+| Nombre                     | Valores                      |
 | ------------------------ | --------------------------- |
 | Color                    | Blanco, rojo, azul            |
 | Brillo               | De 0 a 100                    |
@@ -37,7 +37,7 @@ En el primer escenario, Contoso desea probar un nuevo dispositivo de bombilla in
 
 En la tabla siguiente se muestran los datos de los que la bombilla informa a la nube como flujo de datos:
 
-| NOMBRE   | Valores      |
+| Nombre   | Valores      |
 | ------ | ----------- |
 | Status | "on", "off" |
 | Temperatura | Grados F |
@@ -50,7 +50,7 @@ En la tabla siguiente se muestran los datos de los que la bombilla informa a la 
 
 La tabla siguiente muestra las acciones que admite el dispositivo nuevo:
 
-| NOMBRE        |
+| Nombre        |
 | ----------- |
 | Encender   |
 | Apagar  |
@@ -59,11 +59,11 @@ La tabla siguiente muestra las acciones que admite el dispositivo nuevo:
 
 La tabla siguiente muestra el estado inicial del dispositivo:
 
-| NOMBRE                     | Valores |
+| Nombre                     | Valores |
 | ------------------------ | -------|
 | Color inicial            | Blanco  |
 | Brillo inicial       | 75     |
-| Vida restante inicial   | 10.000 |
+| Vida restante inicial   | 10 000 |
 | Estado de telemetría inicial | "on"   |
 | Temperatura de telemetría inicial | 200   |
 
@@ -83,7 +83,7 @@ En el vídeo siguiente, se muestra un tutorial sobre cómo conectar dispositivos
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para utilizar este tutorial, necesitará:
 
@@ -191,15 +191,15 @@ En el tutorial, trabajará con la solución de Visual Studio que se conecta a lo
 
 Cuando se modifica el servicio de simulación de dispositivos, puede ejecutarlo localmente para probar los cambios. Antes de ejecutar el servicio de simulación de dispositivos de forma local, debe detener la instancia que se esté ejecutando en la máquina virtual tal como se indica a continuación:
 
-1. Para buscar el **ID. DEL CONTENEDOR** del servicio **device-simulation**, ejecute el siguiente comando en la sesión SSH que está conectada a la máquina virtual:
+1. Para buscar el **ID. DEL CONTENEDOR** del servicio **device-simulation-dotnet**, ejecute el siguiente comando en la sesión SSH que está conectada a la máquina virtual:
 
     ```sh
     docker ps
     ```
 
-    Anote el id. del contenedor del servicio **device-simulation**.
+    Anote el id. del contenedor del servicio **device-simulation-dotnet**.
 
-1. Para detener el contenedor **device-simulation**, ejecute el siguiente comando:
+1. Para detener el contenedor **device-simulation-dotnet**, ejecute el siguiente comando:
 
     ```sh
     docker stop container-id-from-previous-step
@@ -248,12 +248,6 @@ Ya tiene todo preparado y está listo para comenzar a agregar nuevos tipos de di
 ## <a name="create-a-simulated-device-type"></a>Creación de un tipo de dispositivo simulado
 
 La forma más sencilla de crear un tipo de dispositivo nuevo en el servicio de simulación de dispositivos es copiar y modificar un tipo existente. Los pasos siguientes muestran cómo copiar el dispositivo **Refrigerador** integrado para crear un dispositivo **Bombilla** nuevo:
-
-1. En Visual Studio, abra el archivo **device-simulation.sln** de la solución en el clon local del repositorio **device-simulation**.
-
-1. En el Explorador de soluciones, haga clic en el proyecto **SimulationAgent**, elija **Propiedades** y, a continuación, **Depurar**.
-
-1. En la sección **Variables de entorno**, edite el valor de la variable **PCS\_IOTHUB\_CONNSTRING** para que sea la cadena de conexión de IoT Hub que anotó anteriormente. A continuación, guarde los cambios.
 
 1. En el Explorador de soluciones, haga clic en el proyecto **WebService**, elija **Propiedades** y, a continuación, **Depurar**.
 
@@ -385,18 +379,21 @@ El archivo **scripts/lightbulb-01-state.js** define el comportamiento de la simu
 1. Edite la función **main** para implementar el comportamiento, tal como se muestra en el fragmento de código siguiente:
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ En los siguientes pasos se supone que tiene un repositorio denominado **Bombilla
 
     Los scripts agregaron la etiqueta **Pruebas** a la imagen.
 
-1. Use SSH para conectarse a la máquina virtual de la solución en Azure. A continuación, navegue hasta la carpeta **Aplicación** y edite el archivo **docker-compose.yaml**:
+1. Use SSH para conectarse a la máquina virtual de la solución en Azure. A continuación, navegue hasta la carpeta **Aplicación** y edite el archivo **docker-compose.yml**:
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Edite la entrada del servicio de simulación de dispositivos para usar la imagen de Docker:
@@ -605,7 +602,7 @@ En esta sección se describe cómo modificar un tipo de dispositivo simulado exi
 
 En los pasos siguientes se muestra cómo encontrar los archivos que definen el dispositivo **Refrigerador** integrado:
 
-1. Si todavía no lo ha hecho, use el comando siguiente para clonar el repositorio **device-simulation** de GitHub en la máquina local:
+1. Si todavía no lo ha hecho, use el comando siguiente para clonar el repositorio **device-simulation-dotnet** de GitHub en la máquina local:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ Los pasos siguientes muestran cómo agregar un tipo nuevo de **Temperatura inter
 
 ### <a name="test-the-chiller-device-type"></a>Prueba del tipo de dispositivo Refrigerador
 
-Para probar el tipo de dispositivo **Refrigerador** actualizado, puede ejecutar primero una copia local del servicio **device-simulation** para comprobar que el tipo de dispositivo se comporta según lo esperado. Cuando haya probado y depurado localmente el tipo de dispositivo actualizado, puede recompilar el contenedor y volver a implementar el servicio **device-simulation** en Azure.
+Para probar el tipo de dispositivo **Refrigerador** actualizado, puede ejecutar primero una copia local del servicio **device-simulation-dotnet** para comprobar que el tipo de dispositivo se comporta según lo esperado. Cuando haya probado y depurado localmente el tipo de dispositivo actualizado, puede recompilar el contenedor y volver a implementar el servicio **device-simulation-dotnet** en Azure.
 
-Cuando ejecuta localmente el servicio **device-simulation**, este envía la telemetría a la solución Supervisión remota. En la página **Dispositivos**, puede aprovisionar instancias del tipo actualizado.
+Cuando ejecuta localmente el servicio **device-simulation-dotnet**, este envía la telemetría a la solución Supervisión remota. En la página **Dispositivos**, puede aprovisionar instancias del tipo actualizado.
 
 Para probar y depurar localmente los cambios, consulte la sección anterior [Probar el tipo de dispositivo Bombilla de forma local](#test-the-lightbulb-device-type-locally).
 

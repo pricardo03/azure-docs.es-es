@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5a78d6fb8ee52f0daba80a77cc8a5e75c2e5248d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035424"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346066"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creación de un dispositivo de IoT Edge con Linux que actúa como una puerta de enlace transparente
 
@@ -142,7 +142,11 @@ La instalación de este certificado en el almacén de certificados de sistema op
  
     Verá un mensaje que dice "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done." (Actualizando certificados en /etc/ssl/certs...1 agregado, 0 quitados, listo)
 
-* Windows: en [este](https://msdn.microsoft.com/en-us/library/cc750534.aspx) artículo se detalla cómo realizar esto en un dispositivo Windows mediante el Asistente para importar certificados. 
+* Windows: este es un ejemplo de cómo instalar un certificado de entidad de certificación en un host de Windows.
+  * En el menú de inicio, escriba "Administrar certificados de equipo". Esto debería iniciar una utilidad denominada `certlm`.
+  * Navegue hasta Certificados - Equipo Local --> Certificado raíz de confianza --> Certificados --> Haga clic con el botón derecho --> Todas las tareas --> Importar para iniciar el Asistente para importar certificados.
+  * Siga los pasos tal como se indica e importe el archivo de certificado $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  * Cuando haya completado, verá el mensaje "Importación correcta".
 
 ### <a name="application-level"></a>Nivel de aplicación
 En aplicaciones. NET, puede agregar el siguiente fragmento de código para confiar en un certificado en formato PEM. Inicialice la variable `certPath` con `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.

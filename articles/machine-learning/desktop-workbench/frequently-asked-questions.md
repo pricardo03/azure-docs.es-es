@@ -7,16 +7,16 @@ ms.author: serinak
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 8a0d26a1ba1ca5fa7a3bd5cfca078ee6c94b229d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831582"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674162"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Preguntas más frecuentes de Azure Machine Learning
 
@@ -113,11 +113,11 @@ Azure Machine Learning Workbench es una aplicación complementaria creada para c
 
 **¿Es Workbench un IDE?**
 
-Nº Machine Learning Workbench se ha diseñado como complemento de los IDE populares, como Jupyter Notebook, Visual Studio Code y PyCharm, pero no es un IDE totalmente funcional. Machine Learning Workbench ofrece algunas funcionalidades básicas de edición de texto, pero la depuración, IntelliSense y otras funcionalidades de IDE normalmente usadas no son compatibles. Se recomienda usar el IDE favorito para el desarrollo, la edición y la depuración de código. Puede que también quiera probar [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
+No. Machine Learning Workbench se ha diseñado como complemento de los IDE populares, como Jupyter Notebook, Visual Studio Code y PyCharm, pero no es un IDE totalmente funcional. Machine Learning Workbench ofrece algunas funcionalidades básicas de edición de texto, pero la depuración, IntelliSense y otras funcionalidades de IDE normalmente usadas no son compatibles. Se recomienda usar el IDE favorito para el desarrollo, la edición y la depuración de código. Puede que también quiera probar [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **¿Hay un cargo por usar Azure Machine Learning Workbench?**
 
-Nº Azure Machine Learning Workbench es una aplicación gratuita. Puede descargarla en tantas máquinas y para tantos usuarios como necesite. Para usar Azure Machine Learning Workbench, debe tener una cuenta de Experimentación. .  
+No. Azure Machine Learning Workbench es una aplicación gratuita. Puede descargarla en tantas máquinas y para tantos usuarios como necesite. Para usar Azure Machine Learning Workbench, debe tener una cuenta de Experimentación. .  
 
 **¿Se admiten las funcionalidades de línea de comandos?**
 
@@ -172,4 +172,4 @@ Nuestros productos y servicios en versión preliminar incluyen lo mejor de la co
 
 **¿Cómo se relaciona Azure Machine Learning con Microsoft Cognitive Toolkit?**
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) es uno de los muchos marcos compatibles con nuestras nuevas herramientas y servicios. Cognitive Toolkit es un kit de herramientas unificado de aprendizaje profundo que le permite consumir y combinar modelos populares de aprendizaje automático, incluidas redes neuronales profundas feedforward, redes convolucionales, de secuencia a secuencia y redes recurrentes. Para obtener más información sobre Microsoft Cognitive Toolkit, visite nuestra [documentación del producto](https://docs.microsoft.com/cognitive-toolkit/). 
+[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) es uno de los muchos marcos compatibles con nuestras nuevas herramientas y servicios. Cognitive Toolkit es un kit de herramientas unificado de aprendizaje profundo que le permite consumir y combinar modelos populares de aprendizaje automático, incluidas redes neuronales profundas feedforward, redes convolucionales, de secuencia a secuencia y redes recurrentes. Para obtener más información sobre Microsoft Cognitive Toolkit, visite nuestra [documentación del producto](https://docs.microsoft.com/cognitive-toolkit/). 

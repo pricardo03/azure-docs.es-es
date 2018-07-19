@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303996"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096184"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Información general sobre la biblioteca BulkExecutor de Azure Cosmos DB
  
@@ -33,7 +33,7 @@ La biblioteca BulkExecutor permite aprovechar esta capacidad de proceso y almace
  
 * Reduce significativamente los recursos de proceso del lado cliente necesarios para saturar la capacidad de proceso asignada a un contenedor. Una sola aplicación multiproceso que escribe datos mediante la API de importación masiva logra diez veces más capacidad de proceso de escritura en comparación con una aplicación multiproceso que escribe datos en paralelo mientras se satura la CPU del equipo cliente.  
 
-* Abstrae las tareas tediosas de escribir lógica de aplicación para controlar la limitación de solicitudes, los tiempo de expiración de las solicitudes y otras excepciones transitorias mediante un control eficaz de ellas en la biblioteca.  
+* Elimina las laboriosa tarea de escribir lógica de aplicación para controlar la limitación de solicitudes, los tiempos de espera de las solicitudes y otras excepciones transitorias mediante un control eficaz de ellas en la biblioteca.  
 
 * Proporciona un mecanismo simplificado para aplicaciones que realizan operaciones en masa para escalabilidad horizontal. Una única instancia de BulkExecutor en ejecución en una máquina virtual de Azure puede consumir más de 500 000 RU/s y puede conseguir mayor velocidad de la capacidad de proceso con la adición de instancias adicionales a las máquinas virtuales clientes individuales.  
  
@@ -47,7 +47,7 @@ Cuando se desencadena una operación en masa para importar o actualizar document
 
 ![Arquitectura del ejecutor en masa](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-La biblioteca de BulkExecutor se asegura de la máxima utilización de la capacidad de proceso asignada a una colección. Usa un  [mecanismo de control de congestión del estilo de AIMD](https://tools.ietf.org/html/rfc5681) para que cada rango con clave de particiones de Azure Cosmos DB controle con eficacia las limitaciones y los tiempos de expiración. 
+La biblioteca de BulkExecutor se asegura de la máxima utilización de la capacidad de proceso asignada a una colección. Usa un  [mecanismo de control de la congestión del estilo de AIMD](https://tools.ietf.org/html/rfc5681) para que cada rango con clave de particiones de Azure Cosmos DB controle con eficacia las limitaciones de velocidad y los tiempos de espera. 
 
 ## <a name="next-steps"></a>Pasos siguientes 
   

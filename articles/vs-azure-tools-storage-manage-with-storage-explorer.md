@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 2335872bcd7d3ea64e449d8b1a43f360d86bb4a0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304637"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435922"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
+
 ## <a name="overview"></a>Información general
+
 El Explorador de Azure Storage es una aplicación independiente que permite trabajar fácilmente con datos de Azure Storage en Windows, macOS y Linux. En este artículo aprenderá varias maneras de conectarse a cuentas de Azure Storage y de administrarlas.
 
 ![Explorador de Microsoft Azure Storage][0]
@@ -30,6 +32,7 @@ El Explorador de Azure Storage es una aplicación independiente que permite trab
 ## <a name="prerequisites"></a>requisitos previos
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
 El Explorador de Azure Storage es compatible con las siguientes versiones de Windows:
 
 * Windows 10 (recomendado)
@@ -41,6 +44,7 @@ Para todas las versiones de Windows, se requiere .NET Framework 4.6.2 o posterio
 [Descarga e instalación del Explorador de Storage](http://www.storageexplorer.com)
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
+
 El Explorador de Azure Storage es compatible con las siguientes versiones de macOS:
 
 * macOS 10.12 "Sierra" y versiones posteriores
@@ -48,15 +52,16 @@ El Explorador de Azure Storage es compatible con las siguientes versiones de mac
 [Descarga e instalación del Explorador de Storage](http://www.storageexplorer.com)
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
 El Explorador de Azure Storage es compatible con las siguientes distribuciones de Linux:
 
 * Ubuntu 16.04 x64 (recomendado)
 * Ubuntu 17.10 x64
 * Ubuntu 14.04 x64
 
-El Explorador de Azure Storage puede funcionar en otras distribuciones, pero solo son oficialmente compatibles las mencionadas anteriormente.
+El Explorador de Azure Storage puede funcionar en otras distribuciones, pero las mencionadas anteriormente son las únicas oficialmente compatibles.
 
-También debe tener las siguientes dependencias/bibliotecas instaladas para ejecutar el Explorador de Azure Storage en Linux:
+Para ejecutar el Explorador de Azure Storage en Linux también es preciso tener instaladas las siguientes dependencias/bibliotecas:
 
 * [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * libsecret (nota: libsecret-1.so.0 debe estar disponible en su equipo. Si tiene una versión diferente de libsecret instalada, puede intentar vincular temporalmente su archivo. so a libsecret-1.so.0).
@@ -70,10 +75,12 @@ Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=
 ---
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Conexión a una cuenta de almacenamiento o servicio
+
 El Explorador de Microsoft Azure Storage proporciona varias maneras de conectar con las cuentas de almacenamiento. Por ejemplo, puede:
+
 * Conectar con las cuentas de almacenamiento asociadas a las suscripciones de Azure.
 * Conectar con las cuentas de almacenamiento y los servicios que se comparten desde otras suscripciones de Azure.
-* Conectar con el almacenamiento local, y administrarlo, mediante el Emulador de Azure Storage. 
+* Conectar con el almacenamiento local, y administrarlo, mediante el Emulador de Azure Storage.
 
 Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales y nacionales:
 
@@ -85,6 +92,7 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 * [Conexión a una cuenta de Azure Cosmos DB mediante una cadena de conexión](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): administración de cuenta Cosmos DB mediante una cadena de conexión.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conexión a una suscripción de Azure
+
 > [!NOTE]
 > Si aún no tiene ninguna cuenta de Azure, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 >
@@ -100,7 +108,7 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 
     ![Opción de inicio de sesión][2]
 
-3. Después de iniciar sesión correctamente con una cuenta de Azure, la cuenta y las suscripciones de Azure asociadas con esa cuenta se agregan al panel izquierdo. Seleccione las suscripciones de Azure con las que quiere trabajar y, luego, seleccione **Apply** (Aplicar) (al seleccionar **All subscriptions:** (Todas las suscripciones:) se alterna entre seleccionar todas o ninguna de las suscripciones de Azure enumeradas).
+4. Después de iniciar sesión correctamente con una cuenta de Azure, la cuenta y las suscripciones de Azure asociadas con esa cuenta se agregan al panel izquierdo. Seleccione las suscripciones de Azure con las que quiere trabajar y, luego, seleccione **Apply** (Aplicar) (al seleccionar **All subscriptions:** (Todas las suscripciones:) se alterna entre seleccionar todas o ninguna de las suscripciones de Azure enumeradas).
 
     ![Selección de suscripciones de Azure][3]
 
@@ -109,34 +117,40 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
     ![Suscripciones de Azure seleccionadas][4]
 
 ## <a name="work-with-local-development-storage"></a>Trabajo con el almacenamiento de desarrollo local
-Con el Explorador de Storage, puede trabajar con el almacenamiento local mediante el Emulador de Azure Storage. Este enfoque le permite simular el trabajo con Azure Storage sin necesidad de tener una cuenta de almacenamiento implementada en Azure, ya que el Emulador de Azure Storage emula dicha cuenta.
+
+Con el Explorador de Azure Storage, puede trabajar con el almacenamiento local mediante un emulador. Este enfoque le permite simular el trabajo con Azure Storage sin necesidad de tener una cuenta de almacenamiento implementada en Azure.
+
+A partir de la versión 1.1.0, el emulador de almacenamiento local es compatible con todas las plataformas. El Explorador de Azure Storage puede conectarse a cualquier servicio emulado y escuchar sus puntos de conexión de almacenamiento local predeterminados.
 
 > [!NOTE]
-> El Emulador de Azure Storage actualmente solo se admite para Windows.
->
->
+> La compatibilidad de las características y los servicios de almacenamiento puede variar enormemente en función del emulador que se elija. Asegúrese de que el emulador es compatible con los servicios y características con los que va a trabajar.
+
+1. Configure el emulador que elija para que escuche los puntos de conexión predeterminados.
+
+   Servicio emulado | Punto de conexión predeterminado
+   -----------------|-------------------------
+   Blobs            | `http://127.0.0.1:10000`
+   Colas           | `http://127.0.0.1:10001`
+   Tablas           | `http://127.0.0.1:10002`
+
+2. Inicie el emulador.
+
+3. En el panel izquierdo del Explorador de Azure Storage, expanda el nodo **[Local and Attached (Local y asociados)]** > **Storage Accounts (Cuentas de almacenamiento)** > **[Development (Desarrollo)]**.
+
+   Este nodo se puede usar para crear tablas, colas y blobs locales, y trabajar con ellos. Para aprender a trabajar con cada tipo de cuenta de almacenamiento, consulte las siguientes guías:
+
+   * [Administración de recursos de Azure Blob Storage](vs-azure-tools-storage-explorer-blobs.md)
+   * [Administración de recursos de Azure File Storage](vs-azure-tools-storage-explorer-files.md)
 
 > [!NOTE]
-> No admite recursos compartidos de archivos.
->
->
-
-1. En el panel izquierdo del Explorador de Storage, expanda el nodo **(Local and Attached)** >  (Local y asociada) **Cuentas de almacenamiento** > **(Desarrollo)** > **Contenedores de blobs**.
-
-    ![Nodo de desarrollo local][5]
-
-2. Si aún no ha instalado el Emulador de Azure Storage, se le solicita que lo haga en una barra de información. Si se muestra la barra de información, seleccione **Descargar la última versión** e instale el emulador.
-
-    ![Mensaje para descargar el emulador de Azure Storage][6]
-
-3. Después de que el emulador se ha instalado, puede crear tablas, colas y blobs locales, y trabajar con ellos. Para aprender a trabajar con cada tipo de cuenta de almacenamiento, consulte las siguientes guías:
-
-    * [Administración de recursos de Azure Blob Storage](vs-azure-tools-storage-explorer-blobs.md)
+> El Explorador de Azure Storage solo admite la conexión a emuladores locales mediante los puntos de conexión predeterminados. Al iniciar el emulador, asegúrese de que solo están configurados los puntos de conexión predeterminados.
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Conexión a almacenamiento externo
+
 Con el Explorador de Storage, puede conectarse a cuentas de almacenamiento externas, lo que facilita el uso compartido de las cuentas de almacenamiento. En esta sección se explica cómo asociar (y desasociar) cuentas de almacenamiento externo.
 
 ### <a name="get-the-storage-account-credentials"></a>Obtención de las credenciales de la cuenta de almacenamiento
+
 Para compartir una cuenta de almacenamiento externa, su propietario debe obtener primero las credenciales (nombre y clave de cuenta) de esta, y compartir dicha información con la persona que desea asociar a dicha cuenta. Puede obtener las credenciales de la cuenta de almacenamiento mediante Azure Portal siguiendo estos pasos:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
@@ -156,6 +170,7 @@ Para compartir una cuenta de almacenamiento externa, su propietario debe obtener
     ![Claves de acceso][8]
 
 ### <a name="attach-to-an-external-storage-account"></a>Asociación de una cuenta de almacenamiento externo
+
 Para la asociación a una cuenta de almacenamiento externa, se necesitan el nombre y la clave de la misma. En la sección "Obtención de las credenciales de la cuenta de almacenamiento" se explica cómo obtener estos valores desde el portal de Azure. Sin embargo, en el portal, la clave de cuenta se denomina **key1**. Por tanto, cuando el Explorador de Storage solicite una clave de cuenta, escriba el valor **key1**.
 
 1. En el Explorador de Storage, abra el **cuadro de diálogo de conexión**.
@@ -171,11 +186,11 @@ Para la asociación a una cuenta de almacenamiento externa, se necesitan el nomb
     ![Página de nombre y clave][11]
 
     > [!NOTE]
-    > Para usar un nombre y una clave de una nube nacional, use la lista desplegable **Storage endpoints domain:** (Dominio de puntos de conexión de almacenamiento) para seleccionar el dominio de puntos de conexión adecuado: 
+    > Para usar un nombre y una clave de una nube nacional, use la lista desplegable **Storage endpoints domain:** (Dominio de puntos de conexión de almacenamiento) para seleccionar el dominio de puntos de conexión adecuado:
     >
     >
 
-4. En el cuadro de diálogo **Connection Summary** (Resumen de conexiones), compruebe la información. Si desea cambiar algo, seleccione **Atrás** y vuelva a escribir la configuración deseada. 
+4. En el cuadro de diálogo **Connection Summary** (Resumen de conexiones), compruebe la información. Si desea cambiar algo, seleccione **Atrás** y vuelva a escribir la configuración deseada.
 
 5. Seleccione **Conectar**.
 
@@ -184,6 +199,7 @@ Para la asociación a una cuenta de almacenamiento externa, se necesitan el nomb
     ![Resultado de la conexión a una cuenta de almacenamiento externo][12]
 
 ### <a name="detach-from-an-external-storage-account"></a>Desasociación de una cuenta de almacenamiento externo
+
 1. Haga clic con el botón derecho en la cuenta de almacenamiento externa que desea desconectar y luego seleccione **Desconectar**.
 
     ![Opción para desasociar del almacenamiento][13]
@@ -191,28 +207,31 @@ Para la asociación a una cuenta de almacenamiento externa, se necesitan el nomb
 2. En el mensaje de confirmación, seleccione **Sí** para confirmar la desasociación de la cuenta de almacenamiento externa.
 
 ## <a name="attach-a-storage-account-by-using-a-shared-access-signature-sas"></a>Asociación de una cuenta de almacenamiento mediante una firma de acceso compartido (SAS)
+
 Una firma de acceso compartido, o [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md), permite al administrador de una suscripción de Azure conceder temporalmente acceso a una cuenta de almacenamiento sin tener que proporcionar credenciales de suscripción de Azure.
 
 Para ilustrar este escenario, supongamos que el Usuario A es administrador de una suscripción de Azure y desea permitir que el Usuario B acceda a una cuenta de almacenamiento durante un tiempo limitado con determinados permisos:
 
 1. El Usuario A genera una cadena de conexión de SAS durante un período específico y con los permisos deseados.
 
-2. El Usuario A comparte esta cadena con la persona (Usuario B, en este ejemplo) que quiere acceder a la cuenta de almacenamiento.  
+2. El Usuario A comparte esta cadena con la persona (Usuario B, en este ejemplo) que quiere acceder a la cuenta de almacenamiento.
 
 3. El Usuario B usa el Explorador de Storage para conectarse a la cuenta que pertenece al Usuario A, con la SAS proporcionada.
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Generación de una cadena de conexión de SAS para la cuenta que quiere compartir
+
 1. En el Explorador de Storage, haga clic con el botón derecho en la cuenta de almacenamiento que quiere compartir y seleccione **Get Shared Access Signature**(Obtener firma de acceso compartido).
 
     ![Opción de menú contextual para obtener la SAS][14]
 
 2. En el cuadro de diálogo **Generate Shared Access Signature** (Generar firma de acceso compartido), especifique la franja de tiempo y los permisos que quiere para la cuenta y, luego, haga clic en el botón **Create** (Crear).
 
-    ![Cuadro de diálogo Get SAS (Obtener SAS)][15]  
+    ![Cuadro de diálogo Get SAS (Obtener SAS)][15]
 
 3. Junto al cuadro de texto **Connection String** (Cadena de conexión), seleccione **Copy** (Copiar) para copiarla en el portapapeles y, luego, haga clic en **Close** (Cerrar).
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Asociación de una cuenta de almacenamiento mediante una cadena de conexión de SAS
+
 1. En el Explorador de Storage, abra el **cuadro de diálogo de conexión**.
 
     ![Opción de conexión a Almacenamiento de Azure][9]
@@ -225,7 +244,7 @@ Para ilustrar este escenario, supongamos que el Usuario A es administrador de un
 
     ![Cuadro de diálogo Connect to Azure storage (Conectar con Azure Storage)][17]
 
-4. En el cuadro de diálogo **Connection Summary** (Resumen de conexiones), compruebe la información. Para realizar cambios, seleccione **Atrás** y luego escriba los valores de configuración deseados. 
+4. En el cuadro de diálogo **Connection Summary** (Resumen de conexiones), compruebe la información. Para realizar cambios, seleccione **Atrás** y luego escriba los valores de configuración deseados.
 
 5. Seleccione **Conectar**.
 
@@ -234,14 +253,17 @@ Para ilustrar este escenario, supongamos que el Usuario A es administrador de un
     ![Resultado de conectarse a una cuenta mediante SAS][18]
 
 ## <a name="attach-a-service-by-using-a-shared-access-signature-sas"></a>Asociación de un servicio mediante una firma de acceso compartido (SAS)
-En la sección "Asociación de una cuenta de almacenamiento mediante una SAS" se explica cómo el administrador de una suscripción de Azure puede conceder acceso temporal a una cuenta de almacenamiento mediante la generación y el uso compartido de una SAS para dicha cuenta. Igualmente, se puede generar una SAS para un servicio específico (contenedor de blobs, cola, tabla o recurso compartido de archivos) dentro de una cuenta de almacenamiento.  
+
+En la sección "Asociación de una cuenta de almacenamiento mediante una SAS" se explica cómo el administrador de una suscripción de Azure puede conceder acceso temporal a una cuenta de almacenamiento mediante la generación y el uso compartido de una SAS para dicha cuenta. Igualmente, se puede generar una SAS para un servicio específico (contenedor de blobs, cola, tabla o recurso compartido de archivos) dentro de una cuenta de almacenamiento.
 
 ### <a name="generate-an-sas-for-the-service-that-you-want-to-share"></a>Generación de una SAS para el servicio que se desea compartir
+
 En este contexto, un servicio puede ser un contenedor de blobs, una cola, una tabla o un recurso compartido de archivos. Para generar la SAS para un servicio enumerado, consulte:
 
 * [Get the SAS for a blob container (Obtención de la SAS para un contenedor de blobs)](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Asociación del servicio de cuenta compartida mediante un URI de SAS
+
 1. En el Explorador de Storage, abra el **cuadro de diálogo de conexión**.
 
     ![Opción de conexión a Almacenamiento de Azure][9]
@@ -254,15 +276,16 @@ En este contexto, un servicio puede ser un contenedor de blobs, una cola, una ta
 
     ![Cuadro de diálogo Connect to Azure storage (Conectar con Azure Storage)][19]
 
-3. En el cuadro de diálogo **Connection Summary** (Resumen de conexiones), compruebe la información. Para realizar cambios, seleccione **Atrás** y luego escriba los valores de configuración deseados. 
+4. En el cuadro de diálogo **Connection Summary** (Resumen de conexiones), compruebe la información. Para realizar cambios, seleccione **Atrás** y luego escriba los valores de configuración deseados.
 
-4. Seleccione **Conectar**.
+5. Seleccione **Conectar**.
 
-5. Después de que el servicio se ha asociado correctamente, se muestra en el nodo **(SAS-Attached Services)** (Servicios asociados mediante SAS).
+6. Después de que el servicio se ha asociado correctamente, se muestra en el nodo **(SAS-Attached Services)** (Servicios asociados mediante SAS).
 
     ![Resultado de la conexión a un servicio compartido mediante una SAS][20]
 
 ## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Conexión a una cuenta de Azure Cosmos DB mediante una cadena de conexión
+
 Además de administrar cuentas de Azure Cosmos DB a través de una suscripción de Azure, una manera alternativa de conectarse a Azure Cosmos DB es usar una cadena de conexión. Siga estos pasos para conectarse usando una cadena de conexión.
 
 1. Busque **Local and Attached** (Locales y adjuntas) en el árbol de la izquierda, haga clic con el botón derecho en **Cuentas de Azure Cosmos DB**, elija **Connect to Azure Cosmos DB...** (Conectar a Azure Cosmos DB).
@@ -273,8 +296,10 @@ Además de administrar cuentas de Azure Cosmos DB a través de una suscripción 
 
     ![connection-string][22]
 
- ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Conexión a Azure Data Lake Store mediante el URI
+## <a name="connect-to-azure-data-lake-store-by-uri"></a>Conexión a Azure Data Lake Store mediante el URI
+
 Si desea acceder a recursos que no existen en su suscripción, a cuyos URI le conceden acceso otros usuarios, se puede conectar a Data Lake Store con el URI una vez iniciada la sesión. Consulte los pasos siguientes.
+
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda **Local and Attached** (Local y asociada).
 3. Haga clic con el botón derecho en **Data Lake Store** y, en el menú contextual, seleccione **Connect to Data Lake Store...** (Conectar a Data Lake Store...).
@@ -288,6 +313,7 @@ Si desea acceder a recursos que no existen en su suscripción, a cuyos URI le co
     ![Resultado de Connect to Data Lake Store... (Conectar a Data Lake Store...)](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="search-for-storage-accounts"></a>Búsqueda de cuentas de almacenamiento
+
 Si necesita encontrar un recurso de almacenamiento y no sabe dónde está, puede usar el cuadro de búsqueda en la parte superior del panel izquierdo para buscar el recurso.
 
 A medida que escribe en el cuadro de búsqueda, en el panel izquierdo se muestran todos los recursos que coinciden con el valor de búsqueda especificado hasta ese punto. Por ejemplo, en la siguiente captura de pantalla se muestra una búsqueda de **puntos de conexión**:
@@ -300,6 +326,7 @@ A medida que escribe en el cuadro de búsqueda, en el panel izquierdo se muestra
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Administración de recursos de Azure Blob Storage con el Explorador de Storage](vs-azure-tools-storage-explorer-blobs.md)
 * [Administración de Azure Cosmos DB en el Explorador de Azure Storage (versión preliminar)](./cosmos-db/storage-explorer.md)
 * [Administración de recursos de Azure Data Lake Store en el Explorador de Storage](./data-lake-store/data-lake-store-in-storage-explorer.md)
@@ -309,8 +336,7 @@ A medida que escribe en el cuadro de búsqueda, en el panel izquierdo se muestra
 [2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-SignInSelected.png
 [3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AccountPanel.png
 [4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SubscriptionNode.png
-[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/DevelopmentNode.png
-[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/EmulatorNotInstalled.png
+[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog.png
 [7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/PortalAccessKeys.png
 [8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AccessKeys.png
 [9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog.png

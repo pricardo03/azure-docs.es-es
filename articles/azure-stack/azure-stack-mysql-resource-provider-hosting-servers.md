@@ -11,19 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5522eb1b8b0398aeb6f1b0dd8578b906880b4e89
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: bccc2dcad8e326cd29cfe031a95a7c2d0cf5ec7f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939664"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302320"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Incorporación de servidores de hospedaje para el proveedor de recursos MySQL
 
 Puede hospedar una instancia MySQL en una máquina virtual en [Azure Stack](azure-stack-poc.md), o en una máquina virtual fuera de su entorno de Azure Stack, siempre y cuando el proveedor de recursos MySQL pueda conectarse a la instancia.
+
+Para los servidores de hospedaje, se pueden usar las versiones de MySQL 5.6, 5.7 y 8.0. RP de MySQL no admite la autenticación caching_sha2_password, que se agregará en la próxima versión. Los servidores MySQL 8.0 deben configurarse para usar mysql_native_password. También se admite MariaDB.
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Conexión a un servidor de hospedaje MySQL
 
@@ -51,13 +53,21 @@ Asegúrese de que tiene las credenciales de una cuenta con privilegios de admini
 
    El valor de **Nombre** de la SKU debe reflejar sus propiedades para que los usuarios puedan implementar sus bases de datos en la SKU adecuada.
 
-   >[!IMPORTANT]
-   >Los caracteres especiales, entre los que se incluyen espacios y puntos, no se admiten en el **nombre** ni en el **nivel** al crear una SKU para el proveedor de recursos de MySQL.
-
 6. Seleccione **Aceptar** para crear la SKU.
+> [!NOTE]
+> Las SKU pueden tardar hasta una hora en estar visibles en el portal. No se puede crear una base de datos hasta que la SKU esté implementada y en ejecución.
+
 7. En **Add a MySQL Hosting Server** (Agregar un servidor de hospedaje MySQL), seleccione **Crear**.
 
 A medida que agregue servidores, asígnelos a una SKU nueva o existente para diferenciar las ofertas de servicio. Por ejemplo, puede tener una instancia empresarial de MySQL que proporcione copias de seguridad automáticas y bases de datos mayores. Puede reservar este servidor de alto rendimiento para diferentes departamentos de su organización.
+
+## <a name="security-considerations-for-mysql"></a>Consideraciones de seguridad para MySQL
+
+La siguiente información se aplica a los servidores de hospedaje de MySQL y RP:
+
+* Asegúrese de que todos los servidores de hospedaje están configurados para la comunicación con TLS 1.2. Consulte [Configuración de MySQL para usar conexiones cifradas](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Emplee [Cifrado de datos transparente](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
+* RP de MySQL no admite la autenticación caching_sha2_password.
 
 ## <a name="increase-backend-database-capacity"></a>Aumento de la capacidad de la base de datos back-end
 
@@ -65,9 +75,7 @@ Puede aumentar la capacidad de la base de datos back-end mediante la implementac
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Disposición de los servidores de base de datos MySQL para los usuarios
 
-Cree planes y ofertas para poner los servidores de bases de datos MySQL a disposición de los usuarios. Agregue el servicio Microsoft.MySqlAdapter al plan y, después, agregue la cuota predeterminada o cree una nueva.
-
-![Creación de planes y ofertas para incluir bases de datos](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
+Cree planes y ofertas para poner los servidores de bases de datos MySQL a disposición de los usuarios. Agregue el servicio Microsoft.MySqlAdapter al plan y cree una cuota nueva. MySQL no permite limitar el tamaño de las bases de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

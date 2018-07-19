@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d4e754192d15bce6f7803ba34500e7c018c4dc54
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5be27723e6dfea9ce0d720baab2b650cff9c0f64
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222777"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Tutorial: Integración de Azure Active Directory con Jostle
 
@@ -49,7 +49,8 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
+El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Jostle desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -59,21 +60,21 @@ Para configurar la integración de Jostle en Azure AD, deberá agregar Jostle de
 
 **Para agregar Jostle desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
     ![Active Directory][1]
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
-    
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![APLICACIONES][3]
+3. Haga clic en **Agregar** en la parte superior de la ventana.
 
-4. En el cuadro de búsqueda, escriba **Jostle**.
+    ![add_01](./media/jostle-tutorial/add_01.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/tutorial_jostle_search.png)
+4. En el cuadro de búsqueda en **Agregar una aplicación**, escriba **Jostle**.
+
+    ![add_02](./media/jostle-tutorial/add_02.png)
 
 5. En el panel de resultados, seleccione **Jostle** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
@@ -105,35 +106,36 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Configurar inicio de sesión único](./media/jostle-tutorial/tutorial_jostle_samlbase.png)
 
 3. En la sección **Dominio y direcciones URL de Jostle**, lleve a cabo los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/jostle-tutorial/tutorial_jostle_url.png)
+    ![url_01](./media/jostle-tutorial/url_01.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tanent name>.jostle.us/jostle-prod/`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba: `https://login-prod.jostle.us`.
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<tanent name>.jostle.us`
+    b. En el cuadro de texto **Identificador**, escriba: `https://jostle.us`
 
-    > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Jostle](mailto:support@jostle.me) para obtener estos valores. 
- 
+    c. Haga clic en el cuadro situado junto a **Mostrar configuración avanzada de URL**.
 
+    d. En el cuadro de texto **URL de respuesta**, escriba: `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+4. En la sección **Atributos de usuario**, para el campo **Identificador de usuario**, escriba: `user.userprincipalname`.
 
-    ![Configurar inicio de sesión único](./media/jostle-tutorial/tutorial_jostle_certificate.png) 
+    ![url_02](./media/jostle-tutorial/url_02.png)
 
-5. Haga clic en el botón **Guardar** .
+5. Haga clic en **Guardar** en la parte superior de la ventana.
 
-    ![Configurar inicio de sesión único](./media/jostle-tutorial/tutorial_general_400.png)
+6. Vaya a **Certificado de firma de SAML** y compruebe que está establecido en **Activo**. Después, haga clic en **XML de metadatos** para descargar el archivo de metadatos.
 
-7. Para configurar el inicio de sesión único en Jostle, necesita enviar el archivo XML de metadatos descargado al [equipo de soporte técnico de Jostle](mailto:support@jostle.me). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados. 
+    ![url_03](./media/jostle-tutorial/url_03.png)
+
+7. Para configurar el inicio de sesión único en Jostle, necesita enviar el archivo XML de metadatos descargado al [equipo de soporte técnico de Jostle](mailto:support@jostle.me). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+>
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -144,19 +146,19 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/create_aaduser_01.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/create_aaduser_01.png)
 
 2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/create_aaduser_02.png) 
+
+    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/create_aaduser_02.png)
 
 3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/create_aaduser_03.png) 
+
+    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/create_aaduser_03.png)
 
 4. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/create_aaduser_04.png) 
+
+    ![Creación de un usuario de prueba de Azure AD](./media/jostle-tutorial/create_aaduser_04.png)
 
     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
@@ -165,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
     d. Haga clic en **Create**(Crear).
- 
+
 ### <a name="creating-a-jostle-test-user"></a>Creación de un usuario de prueba de Jostle
 
 En esta sección, creará un usuario llamado Britta Simon en Jostle. Si no sabe cómo agregar a Britta Simon en Jostle, póngase en contacto con el [equipo de soporte técnico de Jostle](mailto:support@jostle.me) para agregar al usuario y habilitar el inicio de sesión único.
@@ -177,21 +179,21 @@ En esta sección, creará un usuario llamado Britta Simon en Jostle. Si no sabe 
 
 En esta sección, concederá acceso a Britta Simon a Jostle para que use el inicio de sesión único de Azure.
 
-![Asignar usuario][200] 
+![Asignar usuario][200]
 
 **Para asignar a Britta Simon a Jostle, realice los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
-    ![Asignar usuario][201] 
+    ![Asignar usuario][201]
 
 2. En la lista de aplicaciones, seleccione **Jostle**.
 
-    ![Configurar inicio de sesión único](./media/jostle-tutorial/tutorial_jostle_app.png) 
+    ![Configurar inicio de sesión único](./media/jostle-tutorial/tutorial_jostle_app.png)
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-    ![Asignar usuario][202] 
+    ![Asignar usuario][202]
 
 4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
@@ -202,7 +204,7 @@ En esta sección, concederá acceso a Britta Simon a Jostle para que use el inic
 6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
@@ -230,4 +232,3 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/jostle-tutorial/tutorial_general_201.png
 [202]: ./media/jostle-tutorial/tutorial_general_202.png
 [203]: ./media/jostle-tutorial/tutorial_general_203.png
-

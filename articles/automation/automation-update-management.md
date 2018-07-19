@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063517"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345389"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -35,9 +35,9 @@ El siguiente diagrama muestra una vista conceptual del comportamiento y un flujo
 
 ![Flujo del proceso de Update Management](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Después de que un equipo realiza un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a Azure Log Analytics. En un equipo Windows, el examen de cumplimiento se realiza cada 12 horas de forma predeterminada. 
+Después de que un equipo realiza un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a Azure Log Analytics. En un equipo Windows, el examen de cumplimiento se realiza cada 12 horas de forma predeterminada.
 
-Además del examen programado, el examen de cumplimiento de las actualizaciones se inicia a los 15 minutos si se reinicia MMA, antes y después de la instalación de actualizaciones. 
+Además del examen programado, el examen de cumplimiento de las actualizaciones se inicia a los 15 minutos si se reinicia MMA, antes y después de la instalación de actualizaciones.
 
 En un equipo Linux, el examen de cumplimiento se realiza cada 3 horas de forma predeterminada. Si se reinicia el agente MMA, se inicia un examen de cumplimiento al cabo de 15 minutos.
 
@@ -86,7 +86,7 @@ Los agentes de Windows deben estar configurados para comunicarse con un servidor
 
 #### <a name="linux"></a>Linux
 
-En Linux, la máquina debe tener acceso a un repositorio de actualización. El repositorio de actualización puede ser público o privado. No se admite con esta solución un agente de Operations Management Suite (OMS) para Linux que esté configurado para informar a varias áreas de trabajo de Log Analytics.
+En Linux, la máquina debe tener acceso a un repositorio de actualización. El repositorio de actualización puede ser público o privado. Se requiere TLS 1.1 o TLS 1.2 para interactuar con Update Management. No se admite con esta solución un agente de Operations Management Suite (OMS) para Linux que esté configurado para informar a varias áreas de trabajo de Log Analytics.
 
 Para más información sobre cómo instalar el agente de OMS para Linux y descargar la versión más reciente, consulte [Agente de Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux). Para más información sobre cómo instalar el agente de OMS para Windows, consulte [Agente de Operations Management Suite para Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -115,6 +115,9 @@ Si el grupo de administración de System Center Operations Manager está conecta
 * Módulo de administración de Update Deployment
 
 Para más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md).
+
+> [!NOTE]
+> Para los sistemas con Operations Manager Agent, se debe actualizar el agente a Microsoft Monitoring Agent para que Update Management pueda administrarlo por completo. Para aprender a actualizar el agente, consulte [Actualización de Operations Manager Agent](/system-center/scom/deploy-upgrade-agents.md).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirmación de que las máquinas que no son de Azure están incorporadas
 
@@ -260,6 +263,8 @@ Las direcciones siguientes se requieren específicamente para Update Management.
 |* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 Para más información sobre los puertos que necesita Hybrid Runbook Worker, consulte los [puertos de roles de Hybrid Worker](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+
+Se recomienda utilizar las direcciones mostradas al definir las excepciones. Puede descargar los [intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este archivo se actualiza semanalmente y refleja los intervalos implementados en ese momento y los próximos cambios en los intervalos de direcciones.
 
 ## <a name="search-logs"></a>Búsqueda de registros
 

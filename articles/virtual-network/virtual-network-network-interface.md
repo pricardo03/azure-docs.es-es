@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: a6e3bb31886f1b682ef20404b536bfc4a0c07151
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b584dfa49c42328a44fff0645dcdec2504abaa2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656890"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904227"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -62,7 +62,7 @@ Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red 
 
 El portal no proporciona la opción de asignar una dirección IP pública a la interfaz de red al crearla, aunque el portal crea una dirección IP pública y la asigna a una interfaz de red cuando se crea una máquina virtual mediante el portal. Para aprender a agregar una dirección IP pública a la interfaz de red después de crearla, consulte [Administración de direcciones IP](virtual-network-network-interface-addresses.md). Si desea crear una interfaz de red con una dirección IP pública, debe utilizar la CLI o PowerShell para crearla.
 
-El portal no proporciona la opción de asignar la interfaz de red a los grupos de seguridad de aplicaciones, pero la CLI de Azure y PowerShell sí. Para obtener más información sobre los grupos de seguridad de aplicaciones, consulte [Application security groups](security-overview.md#application-security-groups) (Grupos de seguridad de aplicaciones).
+El portal no proporciona la opción de asignar una interfaz de red a los grupos de seguridad de aplicaciones al crear una interfaz de red, pero la CLI de Azure y PowerShell sí. Sin embargo, puede asignar una interfaz de red existente a un grupo de seguridad de aplicaciones mediante el portal, siempre que la interfaz de red esté asociada a una máquina virtual. Para aprender a asignar una interfaz de red a un grupo de seguridad de aplicaciones, consulte [Adición o eliminación de grupos de seguridad de aplicaciones](#add-to-or-remove-from-application-security-groups).
 
 >[!Note]
 > Azure asigna una dirección MAC a la interfaz de red solo después de asociar la interfaz de red a una máquina virtual y que esta se inicie la primera vez. No se puede especificar la dirección MAC que Azure asigna a la interfaz de red. La dirección MAC permanece asignada a la interfaz de red hasta que esta se elimina o se cambia la dirección IP privada asignada a la configuración de IP principal de la interfaz de red principal. Para más información sobre las direcciones IP y las configuraciones IP, consulte [Administración de direcciones IP](virtual-network-network-interface-addresses.md).
@@ -161,7 +161,10 @@ Puede cambiar la subred, pero no la red virtual, a la que está asignada una int
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Adición o eliminación de grupos de seguridad de aplicaciones
 
-El portal no proporciona la opción de asignar una interfaz de red a los grupos de seguridad de aplicaciones ni de quitar una interfaz de red de dichos grupos, pero la CLI de Azure y PowerShell sí. Para obtener más información sobre los grupos de seguridad de aplicaciones, consulte [Application security groups](security-overview.md#application-security-groups) (Grupos de seguridad de aplicaciones) y [Create an application security group](#create-an-application-security-group) (Creación de un grupo de seguridad de aplicaciones).
+Solo puede agregar o quitar una interfaz de red de un grupo de seguridad de aplicaciones mediante el portal si la interfaz de red está asociada a una máquina virtual. Puede usar PowerShell o la CLI de Azure para agregar o quitar una interfaz de red de un grupo de seguridad de aplicaciones si la interfaz de red está asociada o no a una máquina virtual. Para más información sobre los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups), consulte el artículo sobre cómo [crear un grupo de seguridad de aplicaciones](manage-network-security-group.md#create-an-application-security-group).
+
+1. En el cuadro *Buscar recursos, servicios y documentos* en la parte superior del portal, comience a escribir el nombre de una máquina virtual que tenga una interfaz de red que desee agregar o quitar de un grupo de seguridad de aplicaciones. Cuando el nombre de la máquina virtual aparezca en los resultados de búsqueda, selecciónelo.
+2. En **CONFIGURACIÓN**, seleccione **Redes**.  Seleccione **Configure the application security groups** (Configurar los grupos de seguridad de la aplicación), seleccione los grupos de seguridad de la aplicación a los que desee agregar la interfaz de red o anule la selección de los grupos de seguridad de la aplicación de los que desee quitar la interfaz de red y, a continuación, seleccione **Guardar**. Solo las interfaces de red que existen en la misma red virtual se pueden agregar al mismo grupo de seguridad de aplicaciones. El grupo de seguridad de aplicaciones debe existir en la misma ubicación que la interfaz de red.
 
 **Comandos**
 
@@ -264,6 +267,6 @@ Para realizar tareas en interfaces virtuales, su cuenta debe estar asignada al r
 
 - Crear una máquina virtual con varias NIC mediante la [CLI de Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Crear una sola máquina virtual NIC con varias direcciones IPv4 mediante la [CLI de Azure](virtual-network-multiple-ip-addresses-cli.md) o [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-- Crear una sola máquina virtual NIC con una dirección IPv6 privada (detrás de una instancia de Azure Load Balancer) mediante la [CLI de Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o una [plantilla de Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-- Crear una interfaz de red con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md) o con [plantillas de Azure Resource Manager](template-samples.md)
+- Crear una sola máquina virtual NIC con una dirección IPv6 privada (detrás de una instancia de Azure Load Balancer) mediante la [CLI de Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o una [plantilla de Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Crear una interfaz de red con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md) o con una [plantilla de Azure Resource Manager](template-samples.md)
 - Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales

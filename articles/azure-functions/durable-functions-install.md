@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4dd4bbb9c382b772f8f60b259844e7e471ec73e3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762360"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343268"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalación de la extensión Durable Functions y ejemplos (Azure Functions)
 
@@ -49,7 +49,7 @@ Actualmente, Visual Studio proporciona la mejor experiencia para el desarrollo d
 Siga las mismas instrucciones que para empezar con el ejemplo, pero, en lugar de descargar el archivo *.zip*, realice estos pasos:
 
 1. Cree un proyecto de aplicación de función.
-2. Busque la siguiente referencia del paquete NuGet mediante *Administrar paquetes NuGet* y agréguela al proyecto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0 (marque *Incluir versión preliminar* para buscar este paquete).
+2. Busque la siguiente referencia del paquete NuGet mediante *Administrar paquetes NuGet* y agréguela al proyecto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0.
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -79,7 +79,7 @@ Visual Studio Code proporciona una experiencia de desarrollo local que abarca to
 3. Instale la extensión Durable Functions de Azure ejecutando lo siguiente en una ventana del terminal o del símbolo del sistema:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. Instale la extensión Twilio de Azure Functions. Para ello, ejecute lo siguiente en una ventana del terminal o del símbolo del sistema:
 
@@ -101,7 +101,7 @@ Visual Studio Code proporciona una experiencia de desarrollo local que abarca to
 3. Instale la extensión Durable Functions de Azure ejecutando lo siguiente en una ventana del terminal o del símbolo del sistema:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. Ejecute lo siguiente en una ventana del terminal o del símbolo del sistema para restaurar los paquetes npm:
     
@@ -122,7 +122,7 @@ Visual Studio Code proporciona una experiencia de desarrollo local que abarca to
 2. Instale la extensión Durable Functions de Azure ejecutando lo siguiente en una ventana del terminal o del símbolo del sistema:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 3. Para ir al proyecto de Function App, ejecute el siguiente comando:
 

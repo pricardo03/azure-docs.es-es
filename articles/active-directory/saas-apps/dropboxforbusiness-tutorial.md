@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: a0481b2eb688b70d5e56b2b6793b026d6b4c96a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3423f723b3f4857db44c609cd0e2143b6b04653e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220006"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: Integración de Azure Active Directory con Dropbox para Empresas
 
@@ -158,7 +158,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     a. Haga clic en **Required**(Obligatorio).
    
-    b. En el cuadro de texto **URL de inicio de sesión**, pegue el valor de **URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+    b. En el cuadro de texto **URL de inicio de sesión**, pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal.
 
     c. Haga clic en **Elegir certificado** y vaya a su **archivo de certificado codificado en Base 64**.
 

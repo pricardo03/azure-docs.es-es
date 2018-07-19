@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298797"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441539"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Solución de problemas y diagnóstico de errores en las aplicaciones lógicas
 
@@ -105,15 +105,15 @@ Cada desencadenador activado inicia una ejecución de flujo de trabajo. Puede re
 
 ## <a name="perform-runtime-debugging"></a>Ejecución de la depuración en tiempo de ejecución
 
-Para ayudar con la depuración, puede agregar pasos de diagnóstico a un flujo de trabajo, además de revisar el historial de desencadenadores y ejecuciones. Por ejemplo, puede agregar pasos que utilicen el servicio [RequestBin](http://requestb.in) para poder inspeccionar las solicitudes HTTP y determinar su tamaño, forma y formato exactos.
+Para ayudar con la depuración, puede agregar pasos de diagnóstico a un flujo de trabajo, además de revisar el historial de desencadenadores y ejecuciones. Por ejemplo, puede agregar pasos que utilicen el servicio [Webhook Tester](https://webhook.site/) para poder inspeccionar las solicitudes HTTP y determinar su tamaño, forma y formato exactos.
 
-1. Cree un servicio RequestBin, que puede convertir en privado y hacerlo visible solo en el explorador.
+1. Visite [Webhook Tester](https://webhook.site/) y copie la dirección URL única creada
 
 2. En la aplicación lógica, añada una acción HTTP POST junto con el contenido del cuerpo que desee probar, como una expresión, la salida de otro paso.
 
-3. Pegue la dirección URL para el servicio RequestBin en la acción HTTP POST.
+3. Pegue la dirección URL de Webhook Tester en la acción HTTP POST.
 
-4. Para revisar cómo se formó la solicitud cuando se generó desde el motor de Logic Apps, ejecute la aplicación lógica y actualice RequestBin.
+4. Para examinar cómo se forma una solicitud cuando se genera desde el motor de Logic Apps, ejecute la aplicación lógica y consulte Webhook Tester para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

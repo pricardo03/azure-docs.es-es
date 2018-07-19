@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637283"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903071"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Cómo actualizar IoT Hub
 
-A medida que crece la solución de IoT, Azure IoT Hub está listo para ayudarle a escalar verticalmente. Azure IoT Hub ofrece dos niveles, básico (B) y estándar (S) para adaptarse a los clientes que desean usar diferentes características. Dentro de cada nivel hay tres tamaños (1,2 y 3) que determinan el número de mensajes que se pueden enviar cada día. 
+A medida que crece la solución de IoT, Azure IoT Hub está listo para ayudarle a escalar verticalmente. Azure IoT Hub ofrece dos niveles, básico (B) y estándar (S) para adaptarse a los clientes que desean usar diferentes características. Dentro de cada nivel hay tres tamaños (1,2 y 3), que determinan el número de mensajes que se pueden enviar cada día. 
 
 Cuando tiene más dispositivos y necesita más funcionalidades, hay tres formas de ajustar IoT Hub para satisfacer sus necesidades:
 
@@ -27,7 +27,7 @@ Cuando tiene más dispositivos y necesita más funcionalidades, hay tres formas 
 
 Todos estos cambios pueden producirse sin interrumpir las operaciones existentes.
 
-Si desea cambiar IoT Hub a una versión anterior, puede quitar unidades y reducir el tamaño de IoT Hub. Sin embargo, no puede cambiar a un nivel inferior. Por ejemplo, puede cambiar del nivel S2 al nivel S1, pero no puede cambiar del nivel S2 al nivel B1. 
+Si desea cambiar IoT Hub a un nivel inferior, puede quitar unidades y reducir el tamaño de IoT Hub. Sin embargo, no puede cambiar a un nivel inferior. Por ejemplo, puede cambiar del nivel S2 al nivel S1, pero no puede cambiar del nivel S2 al nivel B1. 
 
 Estos ejemplos están diseñados para ayudarle a entender cómo ajustar IoT Hub a medida que cambia su solución. Para obtener información específica sobre las funcionalidades de cada nivel, debe consultar siempre [Precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
@@ -45,7 +45,7 @@ Estos ejemplos están diseñados para ayudarle a entender cómo ajustar IoT Hub 
 4. Para cambiar el número de unidades en su central, escriba un nuevo valor en **Unidades de IoT Hub**. 
 5. Haga clic en **Guardar** para guardar los cambios. 
 
-IoT Hub se ajusta ahora y sus configuraciones permanecen sin cambios. 
+IoT Hub se ajusta ahora y sus configuraciones permanecen sin cambios. Tenga en cuenta que el límite de partición para la instancia de IoT Hub de nivel básico es 8. Este límite permanecerá invariable cuando migre de un nivel básico a un nivel estándar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

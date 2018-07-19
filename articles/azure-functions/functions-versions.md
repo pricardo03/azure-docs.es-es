@@ -12,32 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: 9f916aaa8032ff519709d73a1c1f51195f811686
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919362"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602124"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
- Hay dos versiones principales de tiempo de ejecución de Azure Functions: 1.x y 2.x. En este artículo se explica cómo elegir la versión principal que se debe usar.
-
-> [!IMPORTANT] 
-> La versión 1.x del runtime es la única versión aprobada para su uso en producción.
+ Hay dos versiones principales del entorno de ejecución de Azure Functions: 1.x y 2.x. 1.x solo está aprobado para usarse en producción. En este artículo se explica cuáles son las novedades en la versión 2.x, que se encuentra en versión preliminar.
 
 | Tiempo de ejecución | Status |
 |---------|---------|
 |1.x|Disponible con carácter general|
 |2.x|Vista previa|
 
-Para más información sobre cómo configurar una aplicación de función o el entorno de desarrollo para una versión determinada, consulte [How to target Azure Functions runtime versions](set-runtime-version.md) (Cómo elegir el destino de las versiones de tiempo de ejecución de Azure Functions) y [Codificación y comprobación de las funciones de Azure Functions en un entorno local](functions-run-local.md).
+> [!NOTE] 
+> Este artículo se refiere al servicio en la nube de Azure Functions. Para obtener información acerca del producto que le permite ejecutar Azure Functions de forma local, consulte la [Introducción al entorno de ejecución de Azure Functions](functions-runtime-overview.md).
 
 ## <a name="cross-platform-development"></a>Desarrollo multiplataforma
 
 El tiempo de ejecución 1.x admite solo desarrollo y hospedaje en el portal o en Windows. El tiempo de ejecución 2.x funciona en .NET Core, lo que significa que se puede ejecutar en todas las plataformas admitidas por .NET Core, incluidos macOS y Linux. Esto hace posible escenarios de desarrollo y hospedaje multiplataforma que no son posibles con 1.x.
 
-## <a name="languages"></a>Idiomas
+## <a name="languages"></a>Lenguajes
 
 El tiempo de ejecución 2.x emplea un nuevo modelo de extensibilidad de lenguajes. Inicialmente, JavaScript y Java aprovechan las ventajas de este nuevo modelo. Los lenguajes experimentales de 1.x de Azure Functions no se han actualizado para usar el nuevo modelo, así que no se admiten en 2.x. En la tabla siguiente se indican qué lenguajes de programación se admiten en cada versión del runtime.
 
@@ -63,10 +61,10 @@ En la tabla siguiente se indica qué enlaces se admiten en cada versión de tiem
 
 Para información acerca de la compatibilidad con los enlaces y otros espacios funcionales en la versión 2.x, consulte los [problemas conocidos del Runtime 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Selección del destino de la versión 2.0 del runtime en el entorno de desarrollo local](functions-run-local.md)
+Para obtener más información, consulte los siguientes recursos:
 
-> [!div class="nextstepaction"]
-> [Vea las notas de versión para las versiones del runtime](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+* [Codificación y comprobación de Azure Functions en un entorno local](functions-run-local.md)
+* [Cómo elegir las versiones del entorno de ejecución de Azure Functions](set-runtime-version.md)
+* [Notas de la versión](https://github.com/Azure/azure-functions-host/releases)

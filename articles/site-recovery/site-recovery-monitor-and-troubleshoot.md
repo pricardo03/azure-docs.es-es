@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84b5bf3be09083a69216802fc7f557de1a7f0ee6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186298"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917540"
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Supervisión y solución de problemas de Azure Site Recovery
 
@@ -52,7 +52,7 @@ La sección de los elementos replicados del panel presenta información general 
     <td>La replicación está progresando normalmente para estos servidores y no se han detectado síntomas de error ni de advertencia.</td>
 </tr>
 <tr>
-    <td>Warning (Advertencia) </td>
+    <td>Advertencia </td>
     <td>Se han detectado uno o varios síntomas de advertencia que pueden afectar a la replicación o indicar que la replicación no está progresando normalmente para estos servidores.</td>
 </tr>
 <tr>
@@ -146,7 +146,7 @@ En la página de información general del elemento replicado se ofrece una vista
 **R.** La característica de vista de infraestructura solo está disponible para máquinas virtuales que se replican en Azure. Actualmente, la característica no está disponible para máquinas virtuales que se replican entre sitios locales.
 
 **P.** ¿Por qué el número de máquinas virtuales de la vista de la infraestructura de almacén se muestra diferente del recuento total del anillo de elementos replicados?</br>
-**R.** La vista de la infraestructura de almacén tiene un ámbito por escenarios de replicación. Solo las máquinas virtuales que participan en el escenario de replicación seleccionado actualmente se incluyen en el recuento de máquinas virtuales que se muestra en la vista de la infraestructura. Además, para el escenario seleccionado, solo las máquinas virtuales que están actualmente configuradas para replicarse en Azure se incluyen en el recuento de máquinas virtuales que se muestra en la vista de infraestructura (por ejemplo: las máquinas virtuales conmutadas por error o las máquinas virtuales que se vuelven a replicar en un sitio local no se incluyen en la vista de la infraestructura).
+**R.** La vista de la infraestructura de almacén tiene un ámbito por escenarios de replicación. Solo las máquinas virtuales que participan en el escenario de replicación seleccionado actualmente se incluyen en el recuento de máquinas virtuales que se muestra en la vista de la infraestructura. Además, para el escenario seleccionado, solo las máquinas virtuales que están actualmente configuradas para replicarse en Azure se incluyen en el recuento de máquinas virtuales que se muestra en la vista de infraestructura (por ejemplo: las máquinas virtuales conmutadas por error o las que se vuelven a replicar en un sitio local no se incluyen en la vista de la infraestructura).
 
 **P.** ¿Por qué el número de elementos replicados que se muestra en el espacio de información esencial en la página de información general es diferente al número total de elementos replicados que se muestra en el gráfico de anillos en el panel?</br>
 **R.** Solo las máquinas virtuales para las que se ha completado la replicación inicial se incluyen en el recuento que se muestra en el espacio de información esencial. El total del anillo de elementos replicados incluye todas las máquinas virtuales del almacén, incluidos los servidores para los que la replicación inicial está en curso.

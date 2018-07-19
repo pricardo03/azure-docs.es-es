@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 842746561b74860e674fbaa298c78bb0ac58bd68
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700713"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112140"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -278,7 +278,7 @@ Si usa grupos de seguridad de red o rutas definidas por el usuario, debe permiti
     | ---- | ---- | ---- | ---- | ----- |
     | Asia | Asia oriental | 23.102.235.122</br>52.175.38.134 | 443 | Entrada |
     | &nbsp; | Sudeste asiático | 13.76.245.160</br>13.76.136.249 | 443 | Entrada |
-    | Australia | Australia Oriental | 104.210.84.115</br>13.75.152.195 | 443 | Entrada |
+    | Australia | Este de Australia | 104.210.84.115</br>13.75.152.195 | 443 | Entrada |
     | &nbsp; | Sudeste de Australia | 13.77.2.56</br>13.77.2.94 | 443 | Entrada |
     | Brasil | Sur de Brasil | 191.235.84.104</br>191.235.87.113 | 443 | Entrada |
     | Canadá | Este de Canadá | 52.229.127.96</br>52.229.123.172 | 443 | Entrada |
@@ -295,12 +295,12 @@ Si usa grupos de seguridad de red o rutas definidas por el usuario, debe permiti
     | Corea | Corea Central | 52.231.39.142</br>52.231.36.209 | 433 | Entrada |
     | &nbsp; | Corea del Sur | 52.231.203.16</br>52.231.205.214 | 443 | Entrada
     | Reino Unido | Oeste de Reino Unido | 51.141.13.110</br>51.141.7.20 | 443 | Entrada |
-    | &nbsp; | Sur del Reino Unido 2 | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |
-    | Estados Unidos | Central EE. UU: | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
+    | &nbsp; | Sur de Reino Unido 2 | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |
+    | Estados Unidos | Centro de EE. UU. | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
     | &nbsp; | Este de EE. UU | 13.82.225.233</br>40.71.175.99 | 443 | Entrada |
     | &nbsp; | Centro-Norte de EE. UU | 157.56.8.38</br>157.55.213.99 | 443 | Entrada |
     | &nbsp; | Centro occidental de EE.UU. | 52.161.23.15</br>52.161.10.167 | 443 | Entrada |
-    | &nbsp; | Oeste de EE. UU | 13.64.254.98</br>23.101.196.19 | 443 | Entrada |
+    | &nbsp; | Oeste de EE. UU. | 13.64.254.98</br>23.101.196.19 | 443 | Entrada |
     | &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrada |
 
     Para más información sobre las direcciones IP que se van a usar para Azure Government, vea el documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Inteligencia y análisis de Azure Government).

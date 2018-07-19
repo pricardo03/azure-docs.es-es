@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: ba44a8988c4af68abf4d155a2b9cb490b6122d39
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656421"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923433"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -28,6 +28,8 @@ ms.locfileid: "34656421"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#memory-preserving-maintenance
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#memory-preserving-maintenance
 
 Existen dos opciones para configurar un clúster de Pacemaker en Azure. Se puede usar un agente de vallado, que se encarga de reiniciar un nodo con error a través de las API de Azure, o un dispositivo SBD.
 
@@ -277,10 +279,10 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Instale la extensión de alta disponibilidad
+1. **[A]** Instale agentes de barrera
    
    <pre><code>
-   sudo zypper install sle-ha-release fence-agents
+   sudo zypper install fence-agents
    </code></pre>
 
 1. **[A]** Configure la resolución nombres de host   
@@ -335,11 +337,11 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Agregue el siguiente contenido en negrita al archivo si los valores no están ahí o son diferentes.
+   Agregue el siguiente contenido en negrita al archivo si los valores no están ahí o son diferentes. No olvide cambiar el token a 30000 para permitir el mantenimiento con conservación de memoria. Vea [este artículo para Linux][virtual-machines-linux-maintenance] o [Windows][virtual-machines-windows-maintenance] para obtener más detalles.
    
    <pre><code> 
    [...]
-     <b>token:          5000
+     <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
      consensus:      6000

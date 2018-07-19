@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: ec30832e6863ad92eff8f5c2e613adc503c73af5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075755"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969476"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Procedimientos recomendados del servicio Infrastructure Backup
 
@@ -42,9 +42,7 @@ La cadena de convención de nomenclatura universal (UNC) para la ruta de acceso 
 
 ### <a name="encryption"></a>Cifrado
 
-La clave de cifrado se utiliza para cifrar los datos de copia de seguridad que se exportan a un almacenamiento externo. La clave se puede generar mediante AzureStack-Tools. 
-
-![AzureStack-Tools](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+La clave de cifrado se utiliza para cifrar los datos de copia de seguridad que se exportan a un almacenamiento externo. La clave se genera como parte de la [habilitación de la copia de seguridad de Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 La clave debe almacenarse en una ubicación segura (por ejemplo, un secreto de Azure Key Vault público). Esta clave se debe utilizar durante la reimplementación de Azure Stack. 
 

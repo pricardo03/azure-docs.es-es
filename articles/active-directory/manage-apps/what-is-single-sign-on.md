@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: a6f116842ce61585feda8f20e204e0751a360036
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 199aaf60a21e0362f27707de04f14854aa528297
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311169"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081513"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
 Inicio de sesión único significa poder tener acceso a todas las aplicaciones y los recursos que necesita para hacer negocios, iniciando iniciar sesión una sola vez usando una única cuenta de usuario. Una vez que ha iniciado sesión, puede tener acceso a todas las aplicaciones que necesite sin tener que autenticarse (por ejemplo, escribiendo una contraseña) una segunda vez.
@@ -45,7 +45,8 @@ Cuando un usuario inicia sesión en una aplicación, pasa por un proceso de aute
 Azure AD ofrece tres métodos diferentes para iniciar sesión en aplicaciones:
 
 * **Inicio de sesión único federado**, que permite a las aplicaciones redirigir a Azure AD las solicitudes de autenticación de usuario en lugar de solicitar su propia contraseña. El inicio de sesión único federado se admite para las aplicaciones compatibles con protocolos como SAML 2.0, WS-Federation u OpenID Connect, y es el modo más completo de inicio de sesión único.
-* **Inicio de sesión único con contraseña**, que permite el almacenamiento seguro de contraseñas de las aplicaciones y reproducirlo usando una extensión de explorador web o aplicación móvil. El inicio de sesión único basado en contraseña aprovecha el proceso de inicio de sesión existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas y no requiere que los usuarios las conozcan.
+* **Inicio de sesión único con contraseña**, que permite el almacenamiento seguro de contraseñas de las aplicaciones y reproducirlo usando una extensión de explorador web o aplicación móvil. El inicio de sesión único con contraseña usa el 
+*  proceso existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas y no requiere que el usuario conozca la contraseña.
 * **Inicio de sesión único existente**, que permite a Azure AD aprovechar cualquier inicio de sesión único existente que se haya configurado para la aplicación, pero también permite que estas aplicaciones se vinculen a los portales de panel de acceso a Office 365 o Azure AD, además de preparar informes en Azure AD cuando se lanzan desde allí las aplicaciones.
 
 Una vez que un usuario se ha autenticado en una aplicación, también debe tener aprovisionado un registro de cuenta en la aplicación que le diga dónde están los permisos y el nivel de acceso dentro de la aplicación. El aprovisionamiento de este registro de cuenta puede producirse automáticamente o bien lo puede realizar manualmente un administrador para que el usuario disponga de acceso de inicio de sesión único.
@@ -133,7 +134,8 @@ Tareas administrativas habituales para una aplicación de SaaS de terceros son:
 
 * Habilitar el inicio de sesión único con Azure AD, mediante SSO con contraseña o, si el SaaS de destino lo permite, el SSO federado
 * También tiene la opción de habilitar el aprovisionamiento de usuarios para el aprovisionamiento y el desaprovisionamiento de usuarios (administración del ciclo de vida de identidad)
-* Para las aplicaciones que tienen habilitado el aprovisionamiento de usuarios, seleccione los usuarios que tienen acceso a esa aplicación
+* Para las aplicaciones 
+* que tienen habilitado el aprovisionamiento de usuarios, seleccione los usuarios que tienen acceso a esa aplicación
 
 Para las aplicaciones de la Galería que admiten el inicio de sesión único federado, la configuración normalmente requiere que proporcione valores de configuración adicionales, como certificados y metadatos para crear una confianza federada entre la aplicación de terceros y Azure AD. El Asistente para configuración le guía por los detalles y proporciona fácil acceso a las instrucciones y los datos específicos de la aplicación de SaaS.
 
@@ -192,7 +194,7 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 ## <a name="related-articles"></a>Artículos relacionados
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery](cloud-app-discovery.md)
+* [Configuración de Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
 * [Introducción a la administración del acceso a las aplicaciones](what-is-access-management.md)
 * [Comparación de funcionalidades para administrar identidades externas con Azure Active Directory](../active-directory-b2b-compare-b2c.md)
 

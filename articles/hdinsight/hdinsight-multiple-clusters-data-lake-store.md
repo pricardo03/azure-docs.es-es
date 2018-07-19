@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d073732b5dd9b9867813d9ffcfad5caa1131d81
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404574"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101698"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Uso de varios clústeres de HDInsight con una cuenta de Azure Data Lake Store
 
 A partir de la HDInsight 3.5, puede crear clústeres de HDInsight con cuentas de Azure Data Lake Store como el sistema de archivos predeterminado.
-Data Lake Store admite almacenamiento ilimitado, lo cual es idóneo no solo para hospedar grandes cantidades de datos, sino también para hospedar varios clústeres de HDInsight que compartan una única cuenta de Data Lake Store. Para instrucciones sobre cómo crear un clúster de HDInsight con Data Lake Store como almacenamiento, consulte el artículo de [creación de un clúster de HDInsight con Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store admite almacenamiento ilimitado, lo cual es idóneo no solo para hospedar grandes cantidades de datos, sino también para hospedar varios clústeres de HDInsight que compartan una única cuenta de Data Lake Store. Para obtener instrucciones sobre cómo crear un clúster de HDInsight con Data Lake Store como almacenamiento, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 Este artículo se proporcionan recomendaciones para que el administrador de Data Lake Store configure una única cuenta compartida de Data Lake Store que pueda usarse en varios clústeres **activos** de HDInsight. Estas recomendaciones se aplican al hospedaje de varios clústeres de Hadoop seguros y no seguros en una cuenta compartida de Data Lake Store.
 
@@ -51,7 +51,7 @@ En la tabla,
 - **Entidad de servicio** es la entidad de servicio de Azure Active Directory (AAD) asociada a la cuenta.
 - **FINGRP** es un grupo de usuarios creado en AAD que contiene usuarios de la organización de Finanzas.
 
-Para obtener instrucciones sobre cómo crear una aplicación de AAD (que también crea una entidad de servicio), consulte [Creación de una aplicación de Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Para obtener instrucciones sobre cómo crear un grupo de usuarios en AAD, consulte [Administración de grupos en Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+Para obtener instrucciones sobre cómo crear una aplicación de AAD (que también crea una entidad de servicio), consulte [Creación de una aplicación de Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Para obtener instrucciones sobre cómo crear un grupo de usuarios en AAD, consulte [Administración de grupos en Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Algunos puntos que se deben tener en cuenta:
 
@@ -97,6 +97,6 @@ Configure los permisos de lectura y ejecución para **otros** mediante la jerarq
 
 ## <a name="see-also"></a>Otras referencias
 
-* [Creación de un clúster de HDInsight con Almacén de Data Lake como almacenamiento](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Guía de inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 

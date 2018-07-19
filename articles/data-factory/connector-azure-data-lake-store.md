@@ -1,5 +1,5 @@
 ---
-title: Copia de datos con Azure Data Lake Store como origen o destino mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde cualquier almacén de datos de origen compatible a Azure Data Lake Store o desde Data Lake Store a cualquier almacén de receptor compatible mediante Data Factory.
 services: data-factory
 author: linda33wj
@@ -12,19 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a3df91adf7c35343dc890dc734ec052f1aa97134
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049305"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860255"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Store como origen o destino mediante Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versión actual](connector-azure-data-lake-store.md)
 
-En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Data Lake Store como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Data Lake Storage Gen1 (anteriormente conocido como Azure Data Lake Store) como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 

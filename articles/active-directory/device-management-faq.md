@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311119"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901143"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -86,11 +86,18 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 3.  Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-** P: ¿Cómo se separa un dispositivo unido a Azure AD localmente en el dispositivo?
+**P: ¿Cómo se separa un dispositivo unido a Azure AD localmente en el dispositivo?**
+
 **R:** 
 - Para dispositivos unidos a Azure AD híbrido, asegúrese de desactivar el registro automático para que la tarea programada no registre el dispositivo nuevamente. A continuación, abra un símbolo del sistema como administrador y escriba `dsregcmd.exe /debug /leave`. O bien, se puede ejecutar este comando como un script en varios dispositivos para realizar la separación de forma masiva.
 
 - Para dispositivos unidos a Azure AD puros, asegúrese de tener una cuenta de administrador local sin conexión o cree una, ya que no podrá iniciar sesión con credenciales de usuario de Azure AD. A continuación, vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y haga clic en **Desconectar**. Siga las indicaciones y proporcione las credenciales de administrador local cuando se le solicite. Reinicie el dispositivo para completar el proceso de separación.
+
+---
+
+**P: Mis usuarios no pueden buscar impresoras desde dispositivos unidos a Azure AD. ¿Cómo se puede habilitar la impresión desde dispositivos unidos a Azure AD?**
+
+**R:** Para implementar impresoras para dispositivos unidos a Azure AD, consulte el artículo sobre [la impresión en nube híbrida](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Necesitará un servidor de Windows Server local para implementar la impresión en nube híbrida. Actualmente, el servicio de impresión basado en la nube no está disponible. 
 
 ---
 
@@ -124,6 +131,11 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 ---
 
+**P: ¿Por qué algunos de mis usuarios no reciben los mensajes de MFA en los dispositivos unidos a Azure AD?**
+
+**R:** Si el usuario se une o registra un dispositivo con Azure AD usando la autenticación multifactor, el dispositivo mismo se convertirá en un segundo factor de confianza para ese usuario en particular. Posteriormente, cada vez que el mismo usuario inicia sesión en el dispositivo y accede a una aplicación, Azure AD considera el dispositivo como un segundo factor y permite que el usuario acceda a sus aplicaciones sin problemas, sin necesidad de que MFA le pida que lo haga. Este comportamiento no es aplicable a ningún otro usuario que inicie sesión en ese dispositivo, por lo que a todos los demás usuarios que accedan a ese dispositivo se les solicitará un desafío de MFA antes de acceder a aplicaciones que requieran la autenticación multifactor.
+
+---
 
 **P: Puedo ver el registro del dispositivo en la información del USUARIO en Azure Portal y puedo ver el estado como registrado en el dispositivo. ¿He establecido la configuración correctamente para utilizar el acceso condicional?**
 
@@ -173,5 +185,6 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 - [Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD para clientes de nivel inferior de Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

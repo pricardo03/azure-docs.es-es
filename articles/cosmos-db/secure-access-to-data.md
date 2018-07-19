@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: sngun
-ms.openlocfilehash: 079cbff3a1669efb7ba7cd7a97da9256dbbfe9f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613224"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901126"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protección del acceso a los datos de Azure Cosmos DB
 En este artículo se proporciona información general sobre la protección del acceso a los datos almacenados en [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -24,7 +24,7 @@ Azure Cosmos DB usa dos tipos de claves para autenticar usuarios y proporcionar 
 |Tipo de clave|Recursos|
 |---|---|
 |[Claves maestras](#master-keys) |Se utilizan para los recursos administrativos: cuentas de base de datos, bases de datos, usuarios y permisos|
-|[Tokens de recursos](#resource-tokens)|Se usan para recursos de aplicaciones: colecciones, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF|
+|[Tokens de recursos](#resource-tokens)|Se usan para recursos de aplicaciones: contenedores, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF|
 
 <a id="master-keys"></a>
 
@@ -32,7 +32,7 @@ Azure Cosmos DB usa dos tipos de claves para autenticar usuarios y proporcionar 
 
 Las claves maestras proporcionan acceso a todos los recursos administrativos de la cuenta de base de datos. Claves maestras:  
 - Proporcionan acceso a cuentas, bases de datos, usuarios y permisos. 
-- No se pueden usar para proporcionar acceso granular a colecciones y documentos.
+- No se pueden usar para proporcionar acceso pormenorizado a contenedores y documentos.
 - Se crean durante la creación de una cuenta.
 - Se pueden regenerar en cualquier momento.
 
@@ -75,7 +75,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Tokens de recursos
 
 Los tokens de recursos proporcionan acceso a los recursos de la aplicación en una base de datos. Los tokens de recursos:
-- Proporcionan acceso a colecciones, claves de partición, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF concretos.
+- Proporcionan acceso a contenedores, claves de partición, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF concretos.
 - Se crean cuando a un [usuario](#users) se le conceden [permisos](#permissions) para un recurso concreto.
 - Se vuelven a crear cuando una llamada POST, GET o PUT aplica una acción a un recurso de permiso.
 - Usan un token de recurso de hash construido específicamente para el usuario, el recurso y el permiso.
@@ -134,7 +134,7 @@ Hay dos niveles de acceso disponibles que puede proporcionar un recurso de permi
 * Lectura: el usuario solo puede leer el contenido del recurso, pero no realizar operaciones de escritura, actualización o eliminación en este.
 
 > [!NOTE]
-> Para ejecutar procedimientos almacenados de Cosmos DB, el usuario debe tener el permiso Todo en la colección donde se va a ejecutar el procedimiento almacenado.
+> Para ejecutar procedimientos almacenados de Cosmos DB, el usuario debe tener el permiso Todo en el contenedor donde se va a ejecutar el procedimiento almacenado.
 > 
 > 
 
@@ -174,6 +174,11 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="delete-or-export-user-data"></a>Eliminación o exportación de datos de usuario
+Azure Cosmos DB le permite buscar, seleccionar, modificar y eliminar cualquier dato personal ubicado en la base de datos o en colecciones. Azure Cosmos DB proporciona API para buscar y eliminar datos personales; sin embargo, es su responsabilidad usar las API y definir la lógica requerida para borrar los datos personales. Cada API multimodelo (API de SQL, API de MongoDB, API de Gremlin, Cassandra API, Table API) proporcionan SDK de diferentes lenguajes que contienen métodos para buscar y eliminar datos personales. También puede habilitar la característica [período de vida (TTL)](time-to-live.md) para eliminar datos automáticamente después de un período especificado, sin incurrir en ningún costo adicional.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de la seguridad de las bases de datos de Cosmos DB, consulte [Cosmos DB: Database security](database-security.md) (Cosmos DB: seguridad de bases de datos).

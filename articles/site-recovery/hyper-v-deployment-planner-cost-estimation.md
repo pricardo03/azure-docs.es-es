@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 31461e70e81f0f48a8d67e31b98cfae2dd627a54
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466831"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917479"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos mediante Azure Site Recovery Deployment Planner 
 
@@ -89,7 +89,7 @@ Si es un asociado o un cliente de Azure y tiene derecho a un descuento sobre el 
 ### <a name="number-of-virtual-machines-type-and-compute-cost-per-year"></a>Number of virtual machines type and compute cost (per year) [Número de tipo de máquinas virtuales y el cálculo de costo (anual)]
 En esta tabla se muestra el número de máquinas virtuales Windows y no Windows, y los costos de proceso del simulacro de recuperación ante desastres en ellas.
 
-### <a name="settings"></a>Settings 
+### <a name="settings"></a>Configuración 
 **Using managed disk** (Uso de disco administrado): este valor especifica si se usa un disco administrado en el momento del simulacro de recuperación ante desastres. El valor predeterminado es **Sí**. Si ha establecido **-UseManagedDisks** en **No**, se usa el precio de los discos no administrados para el cálculo de los costos.
 
 **Currency** (Moneda): la moneda en la que se genera el informe.
@@ -172,11 +172,11 @@ Azure Site Recovery Deployment Planner puede generar el informe de costos en cua
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileño (R$)|
 |CAD|Dólar canadiense ($)||CHF|Franco suizo (CHF)||DKK|Corona danesa (kr)|
 |EUR|Euro (€)||GBP|Libra británica (£)||HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rupia indonesia (Rp)||INR|Rupia india (₹)||JPY|Yen japonés (¥)|
+|IDR|Rupia indonesia (Rp)||INR|Rupia india ()||JPY|Yen japonés (¥)|
 |KRW|Won coreano (₩)||MXN|Peso mexicano (MX$)||MYR|Ringgit malayo (RM$)|
 |NOK|Corona noruega (kr)||NZD|Dólar de Nueva Zelanda ($)||RUB|Rublo ruso (руб)|
 |SAR|Saudi Riyal (SR)||SEK|Corona sueca (kr)||TWD|Dólar taiwanés (NT$)|
 |TRY|Lira turca (TL)||USD| Dólar estadounidense (USD)||ZAR|Rand sudafricano (R)|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Más información sobre cómo proteger [máquinas virtuales de Hyper-V en Azure mediante Site Recovery](hyper-v-azure-tutorial.md).

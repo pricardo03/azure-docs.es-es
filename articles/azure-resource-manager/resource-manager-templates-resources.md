@@ -4,20 +4,20 @@ description: Describe la sección de recursos de plantillas de Azure Resource Ma
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 12dc5921cc1977b53f0457d89537193eadded188
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1619f3bfdf49820ec529947ea02d1602a7b2aa8c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723457"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sección de recursos de plantillas de Azure Resource Manager
 
@@ -98,19 +98,42 @@ Defina recursos con la siguiente estructura:
 | plan | Sin  | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. | 
 | resources |Sin  |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. El tipo completo del recurso secundario incluye el tipo del recurso principal, por ejemplo, **Microsoft.Web/sites/extensions**. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. |
 
+## <a name="condition"></a>Condición
+
+Si durante la implementación debe decidir si crear o no un recurso, use el elemento `condition`. El valor de este elemento se resuelve como true o false. Cuando el valor es true, el recurso se implementa. Cuando el valor es false, el recurso no se implementa. Por ejemplo, para especificar si se implementa una nueva cuenta de almacenamiento o se usa una cuenta de almacenamiento existente, use:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Para una plantilla de ejemplo completo que usa el elemento `condition`, consulte [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Máquina virtual con una red virtual nueva o existente, almacenamiento y dirección IP pública).
+
 ## <a name="resource-specific-values"></a>Valores específicos de los recursos
 
 Los elementos **apiVersion**, **type** y **properties** son diferentes para cada tipo de recurso. Los elementos **sku**, **kind** y **plan** están disponibles para algunos tipos de recursos, pero no para todos. Para determinar los valores de estas propiedades, consulte la [referencia de plantillas](/azure/templates/).
 
 ## <a name="resource-names"></a>Nombres de recurso
+
 Por lo general, trabaja con tres tipos de nombres de recursos en Resource Manager:
 
 * Nombres de recurso que deben ser únicos.
-* Nombres de recursos que no deben ser únicos, pero elige proporcionarles un nombre que pueda ayudarle a identificarlos.
+* Nombres de recurso que no tienen que ser únicos, pero decide proporcionarles un nombre que pueda ayudarle a identificarlos.
 * Nombres de recurso que pueden ser genéricos.
 
 ### <a name="unique-resource-names"></a>Nombres de recurso únicos
-Debe dar un nombre de recurso único para cualquier tipo de recurso que tenga un punto de conexión de acceso a datos. Entre los tipos de recursos comunes que requieren un nombre único se incluyen los siguientes:
+
+Asigne un nombre de recurso único para cualquier tipo de recurso que tenga un punto de conexión de acceso a datos. Entre los tipos de recursos comunes que requieren un nombre único se incluyen los siguientes:
 
 * Azure Storage<sup>1</sup> 
 * Característica Web Apps de Azure App Service
@@ -167,7 +190,7 @@ En el ejemplo siguiente se usa PowerShell para obtener las ubicaciones para el t
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-En el ejemplo siguiente se usa la CLI de Azure 2.0 para obtener las ubicaciones para el tipo de recurso `Microsoft.Web\sites`:
+En el ejemplo siguiente se usa la CLI de Azure para obtener las ubicaciones para el tipo de recurso `Microsoft.Web\sites`:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
@@ -239,7 +262,7 @@ Si tiene que codificar la ubicación en la plantilla, indique el nombre de una d
 
 ## <a name="child-resources"></a>Recursos secundarios
 
-En cada tipo recurso puede definir también una matriz de recursos secundarios. Los recursos secundarios son recursos que solo existen en el contexto de otro recurso. Por ejemplo, una base de datos SQL no puede existir sin un servidor SQL, por lo que la base de datos es un elemento secundario del servidor. Puede definir la base de datos dentro de la definición del servidor.
+En cada tipo recurso puede definir también una matriz de recursos secundarios. Los recursos secundarios son recursos que solo existen en el contexto de otro recurso. Por ejemplo, una base de datos SQL no puede existir sin un servidor SQL, por lo que se trata de un elemento secundario del servidor. Puede definir la base de datos dentro de la definición del servidor.
 
 ```json
 {
@@ -258,7 +281,7 @@ En cada tipo recurso puede definir también una matriz de recursos secundarios. 
 }
 ```
 
-Cuando está anidado, el tipo se establece en `databases`, pero el tipo de recurso completo es `Microsoft.Sql/servers/databases`. No proporciona `Microsoft.Sql/servers/`, porque lo adopta del tipo de recurso primario. El nombre del recurso secundario se establece en `exampledatabase`, pero el nombre completo incluye el primario. No proporciona `exampleserver`, porque lo adopta del recurso primario.
+Cuando está anidado, el tipo se establece en `databases`, pero el tipo de recurso completo es `Microsoft.Sql/servers/databases`. No se proporciona `Microsoft.Sql/servers/` porque se supone que viene del tipo de recurso primario. El nombre del recurso secundario se establece en `exampledatabase`, pero el nombre completo incluye el primario. No se proporciona `exampleserver` porque se supone que viene del recurso primario.
 
 El formato del tipo de recurso secundario es: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
@@ -283,7 +306,7 @@ Sin embargo, no es necesario definir la base de datos en el servidor. Puede defi
 }
 ```
 
-Al construir una referencia completa a un recurso, el orden para combinar los segmentos a partir del tipo y el nombre no es simplemente una concatenación de los dos.  En su lugar, después del espacio de nombres, use una secuencia de pares *tipo/nombre* de menos a más específico:
+Al construir una referencia completa a un recurso, el orden para combinar los segmentos a partir del tipo y el nombre no es simplemente una concatenación de los dos. En su lugar, después del espacio de nombres, use una secuencia de pares *tipo/nombre* de menos a más específico:
 
 ```json
 {resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
@@ -311,7 +334,7 @@ La información siguiente puede ser útil cuando se trabaja con recursos:
    ]
    ```
 
-* Si usa un *punto de conexión público* en la plantilla (como un punto de conexión público de Azure Blob Storage), *no codifique de forma rígida* el espacio de nombres. Use la función **reference** para recuperar dinámicamente el espacio de nombres. Puede usar este enfoque para implementar la plantilla en diversos entornos de espacios de nombres públicos sin cambiar manualmente el punto de conexión de la plantilla. Establezca la versión de API en la misma versión que usa para la cuenta de almacenamiento de la plantilla:
+* Si usa un *punto de conexión público* en la plantilla (como un punto de conexión público de Azure Blob Storage), *no codifique de forma rígida* el espacio de nombres. Use la función **reference** para recuperar dinámicamente el espacio de nombres. Puede usar este enfoque para implementar la plantilla en diversos entornos de espacios de nombres públicos sin cambiar manualmente el punto de conexión de la plantilla. Establezca la versión de API en la misma que usa para la cuenta de almacenamiento de la plantilla:
    
    ```json
    "osDisk": {
@@ -322,7 +345,7 @@ La información siguiente puede ser útil cuando se trabaja con recursos:
    }
    ```
    
-   Si la cuenta de almacenamiento se implementa en la misma plantilla que se está creando, no necesita especificar el espacio de nombres del proveedor cuando haga referencia al recurso. En el siguiente ejemplo se muestra la sintaxis simplificada:
+   Si la cuenta de almacenamiento se implementa en la misma plantilla que se está creando, no necesitará especificar el espacio de nombres del proveedor cuando haga referencia al recurso. En el siguiente ejemplo se muestra la sintaxis simplificada:
    
    ```json
    "osDisk": {
@@ -409,6 +432,6 @@ La información siguiente puede ser útil cuando se trabaja con recursos:
 ## <a name="next-steps"></a>Pasos siguientes
 * Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
-* Para combinar varias plantillas en la implementación, consulte [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
+* Para usar más de una plantilla en la implementación, consulte [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
 * Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Este escenario es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](resource-group-template-functions-resource.md#resourceid).
 * Para obtener información sobre las restricciones de los nombres de recurso, consulte [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md)(Convenciones de nomenclatura recomendadas para los recursos de Azure).

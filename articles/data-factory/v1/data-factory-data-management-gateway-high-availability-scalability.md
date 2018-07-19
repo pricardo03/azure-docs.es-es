@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053843"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37113347"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, que se encuentra, consulte el artículo sobre [IR autohospedado en](../create-self-hosted-integration-runtime.md). 
+> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory consulte el artículo sobre [IR autohospedado en](../create-self-hosted-integration-runtime.md). 
 
 
 Este artículo le ayuda a configurar una solución de alta disponibilidad y escalabilidad con Data Management Gateway/Integration.    
@@ -44,7 +44,7 @@ También puede configurar el número de **trabajos de movimiento de datos simult
 
 Mediante Azure Portal, puede supervisar el estado de estos nodos, lo que ayuda a decidir si agregar o quitar un nodo de la puerta de enlace lógica. 
 
-## <a name="architecture"></a>Architecture 
+## <a name="architecture"></a>Arquitectura 
 El diagrama siguiente proporciona información general de la arquitectura de la característica de escalabilidad y disponibilidad de Data Management Gateway: 
 
 ![Data Management Gateway - Alta disponibilidad y escalabilidad](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)

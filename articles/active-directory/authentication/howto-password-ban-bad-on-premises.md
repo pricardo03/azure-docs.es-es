@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6fda373f832d6e24d1252587a19c88b0f464dda6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5065399f161bcaee2f9518236a28f0f5faa0ea5b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232092"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902034"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Versión preliminar: Implementación de la protección con contraseña de Azure AD
 
@@ -103,7 +103,7 @@ Se necesitan dos instaladores de la protección con contraseña de Azure AD que 
          El ejemplo solo funciona si el usuario registrado actualmente también es un administrador global de dominios de Active Directory para el dominio raíz. Una alternativa consiste en proporcionar las credenciales de dominio necesarias con el parámetro -ForestCredential.
 
          > [!NOTE]
-         > Si hay varios servidores proxy instalados en su entorno, no importa en cuál de ellos exactamente se ejecute el procedimiento anterior.
+         > Si hay varios servidores proxy instalados en su entorno, no importa en qué servidor proxy está especificado en el procedimiento anterior.
 
          > [!TIP]
          > Puede haber un retraso considerable (muchos segundos) la primera vez que se ejecuta este cmdlet para un inquilino de Azure determinado antes de que finalice la ejecución del cmdlet. A menos que se notifique un error, este retraso no debería considerarse alarmante.

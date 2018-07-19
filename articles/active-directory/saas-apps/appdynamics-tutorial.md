@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/09/2018
 ms.author: jeedes
-ms.openlocfilehash: eb79001f6c74526ec2470612adaf290230d2a017
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227571"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548292"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integración de Azure Active Directory con AppDynamics
 
@@ -49,7 +48,8 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
+El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de AppDynamics desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -66,7 +66,7 @@ Para configurar la integración de AppDynamics en Azure AD, será preciso que ag
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
-    
+
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
@@ -105,7 +105,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Configurar inicio de sesión único](./media/appdynamics-tutorial/tutorial_appdynamics_samlbase.png)
 
 3. En la sección de **dominio y direcciones URL de AppDynamics**, lleve a cabo los pasos siguientes:
@@ -116,12 +116,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.saas.appdynamics.com/controller`
 
-    > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de AppDynamics](https://www.appdynamics.com/support/) para obtener estos valores. 
- 
+    > [!NOTE]
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de AppDynamics](https://www.appdynamics.com/support/) para obtener estos valores.
+
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-    ![Configurar inicio de sesión único](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png) 
+    ![Configurar inicio de sesión único](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png)
 
 5. Haga clic en el botón **Guardar** .
 
@@ -129,36 +129,31 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 6. En la sección **Configuración de AppDynamics**, haga clic en **Configurar AppDynamics** para abrir la ventana **Configurar inicio de sesión**. Copie los valores **Sign-Out URL y SAML Single Sign-On Service URL** (Dirección URL de cierre de sesión y Dirección URL del servicio de inicio de sesión único de SAML) de la **sección de referencia rápida**.
 
-    ![Configurar inicio de sesión único](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png) 
+    ![Configurar inicio de sesión único](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png)
 
 7. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de AppDynamics como administrador.
 
 8. En la barra de herramientas de la parte superior, haga clic en **Configuración** y luego en **Administración**.
-   
+
     ![Administración](./media/appdynamics-tutorial/ic790216.png "Administración")
 
 9. Haga clic en la pestaña **Authentication Provider** (Proveedor de autenticación).
-   
+
     ![Proveedor de autenticación](./media/appdynamics-tutorial/ic790224.png "Proveedor de autenticación")
 
 10. En la sección **Proveedor de autenticación** , realice estos pasos:
-   
-    ![Configuración de SAML](./media/appdynamics-tutorial/ic790225.png "Configuración de SAML")   
+
+    ![Configuración de SAML](./media/appdynamics-tutorial/ic790225.png "Configuración de SAML")
 
     a. En **Authentication Provider** (Proveedor de autenticación), seleccione **SAML**.
 
     b. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión único de SAML** que ha copiado de Azure Portal.
 
     c. En el cuadro de texto **Dirección URL de cierre de sesión**, pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
-       
+
     d. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado** .
 
     e. Haga clic en **Save**(Guardar).
-
-     ![Guardar](./media/appdynamics-tutorial/ic777673.png "Guardar")
-
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -169,19 +164,19 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/appdynamics-tutorial/create_aaduser_01.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/appdynamics-tutorial/create_aaduser_01.png)
 
 2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/appdynamics-tutorial/create_aaduser_02.png) 
+
+    ![Creación de un usuario de prueba de Azure AD](./media/appdynamics-tutorial/create_aaduser_02.png)
 
 3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
- 
+
     ![Creación de un usuario de prueba de Azure AD](./media/appdynamics-tutorial/create_aaduser_03.png) 
 
 4. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/appdynamics-tutorial/create_aaduser_04.png) 
+
+    ![Creación de un usuario de prueba de Azure AD](./media/appdynamics-tutorial/create_aaduser_04.png)
 
     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
@@ -190,49 +185,32 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
     d. Haga clic en **Create**(Crear).
- 
+
 ### <a name="creating-an-appdynamics-test-user"></a>Creación de un usuario de prueba de AppDynamics
 
-Para permitir que los usuarios de Azure AD inicien sesión en AppDynamics, tienen que aprovisionarse en AppDynamics. En el caso de AppDynamics, el aprovisionamiento es una tarea manual.
-
-**Siga estos pasos para configurar el aprovisionamiento de usuario:**
-
-1. Inicie sesión en su sitio de la compañía de AppDynamics como administrador.
-
-2. Vaya a **Users** (Usuarios) y, a continuación, haga clic en **+** para abrir el cuadro de diálogo **Create User** (Crear usuario).
-   
-    ![Usuarios](./media/appdynamics-tutorial/ic790229.png "Usuarios")
-
-3. En la sección **Crear usuario** , lleve a cabo estos pasos:
-   
-    ![Creación de usuarios](./media/appdynamics-tutorial/ic790230.png "Creación de usuarios")
-   
-    a. Escriba **Nombre de usuario**, **Nombre**, **Correo electrónico**, **Nueva contraseña**, **Repetir nueva contraseña** de una cuenta válida de AAD que desee aprovisionar en los cuadros de texto relacionados.
-
-    b. Haga clic en **Save**(Guardar).
-
-    >[!NOTE]
-    >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AppDynamics suministrada por AppDynamics para aprovisionar cuentas de usuario de Azure AD.
+El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon en CS AppDynamics. AppDynamics admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a AppDynamics se crea un nuevo usuario, en caso de que no exista.
+>[!Note]
+>Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de AppDynamics](https://www.appdynamics.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a AppDynamics.
 
-![Asignar usuario][200] 
+![Asignar usuario][200]
 
 **Para asignar Britta Simon a AppDynamics, siga estos pasos:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
-    ![Asignar usuario][201] 
+    ![Asignar usuario][201]
 
 2. En la lista de aplicaciones, seleccione **AppDynamics**.
 
-    ![Configurar inicio de sesión único](./media/appdynamics-tutorial/tutorial_appdynamics_app.png) 
+    ![Configurar inicio de sesión único](./media/appdynamics-tutorial/tutorial_appdynamics_app.png)
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-    ![Asignar usuario][202] 
+    ![Asignar usuario][202]
 
 4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
@@ -243,7 +221,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
@@ -254,8 +232,6 @@ Al hacer clic en el icono de AppDynamics en el Panel de acceso, debería iniciar
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -270,4 +246,3 @@ Al hacer clic en el icono de AppDynamics en el Panel de acceso, debería iniciar
 [201]: ./media/appdynamics-tutorial/tutorial_general_201.png
 [202]: ./media/appdynamics-tutorial/tutorial_general_202.png
 [203]: ./media/appdynamics-tutorial/tutorial_general_203.png
-

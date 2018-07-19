@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1501ca1c036a8db1d53b9b27170d9ae05d41f797
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0a2cddec1308b96b960cd0bbc5ccae9fd1a1a9a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724122"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449395"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Inicio rápido: requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory 
 
@@ -42,8 +42,18 @@ Para completar el escenario en este inicio rápido, necesita:
 
 - **Acceso a una edición de Azure AD Premium**: el acceso condicional a Azure AD es una funcionalidad de Azure AD Premium. 
 
-- **Una cuenta de prueba denominada Isabella Simonsen**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](add-users-azure-active-directory.md#add-cloud-based-users).
+- **Una cuenta de prueba denominada Isabella Simonsen**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
+
+## <a name="test-your-sign-in"></a>Prueba del inicio de sesión
+
+El objetivo de este paso es obtener una impresión del inicio de sesión sin una directiva de acceso condicional.
+
+**Para inicializar el entorno:**
+
+1. Inicie sesión en Azure Portal como Isabella Simonsen.
+
+2. Cierre la sesión.
 
 
 ## <a name="create-your-conditional-access-policy"></a>Creación de la directiva de acceso condicional 
@@ -69,7 +79,7 @@ En la directiva, establezca:
 
 **Para configurar la directiva de acceso condicional:**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de seguridad o administrador de acceso condicional.
 
 2. En Azure Portal, en la barra de navegación izquierda, haga clic en **Azure Active Directory**. 
 
@@ -179,7 +189,7 @@ Para inicializar la herramienta de evaluación de directivas What If, establezca
 
     c. Haga clic en **Seleccionar**.
 
-    d. En la página **Seleccionar**, seleccione Microsoft Azure Management** (Administración de Microsoft Azure**) y, luego, haga clic en **Seleccionar**.
+    d. En la página **Seleccionar**, seleccione **Microsoft Azure Management** (Administración de Microsoft Azure) y, luego, haga clic en **Seleccionar**.
 
     e. En la página Aplicaciones en la nube, haga clic en **Listo**.
 
@@ -199,7 +209,7 @@ Para probar la directiva, intente iniciar sesión en [Azure Portal](https://port
 
 Cuando ya no sea necesario, elimine el usuario de prueba y la directiva de acceso condicional:
 
-- Si no sabe cómo eliminar un usuario de Azure AD, consulte [Eliminación de usuarios desde Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Si no sabe cómo eliminar un usuario de Azure AD, consulte [Eliminación de usuarios desde Azure AD](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - Para eliminar la directiva, selecciónela y, a continuación, haga clic en **Eliminar** en la barra de herramientas de acceso rápido.
 
@@ -208,5 +218,6 @@ Cuando ya no sea necesario, elimine el usuario de prueba y la directiva de acces
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
+> [!div class="nextstepaction"]
+> [Solicitar la aceptación de las condiciones de uso](./active-directory-conditional-access-tou.md)
+> [Bloquear el acceso si se detecta un riesgo para la sesión](./active-directory-conditional-access-app-sign-in-risk.md)

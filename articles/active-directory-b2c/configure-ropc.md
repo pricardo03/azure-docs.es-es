@@ -6,73 +6,73 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f6f9b9c7ae71697efb6d722eff55d9ee3f8746d5
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5d68f8fe28b7f029d19a0ed0c03e5324c32f29c0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712307"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446816"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-ropc-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso (ROPC) en Azure AD B2C
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
-El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un flujo de autenticación estándar de OAUTH donde la aplicación, también conocida como usuario de confianza, intercambia credenciales válidas, como el identificador de usuario y la contraseña para un token de identificador, un token de acceso y un token de actualización. 
+El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un flujo de autenticación estándar de OAuth donde la aplicación, también conocida como usuario de confianza, intercambia credenciales válidas, como el identificador de usuario y la contraseña para un token de id., un token de acceso y un token de actualización. 
 
 > [!NOTE]
 > Esta característica se encuentra en su versión preliminar.
 
-En Azure AD B2C, se admiten las siguientes opciones:
+En Azure Active Directory (Azure AD) B2C, se admiten las siguientes opciones:
 
-- **Cliente nativo**: la interacción del usuario durante la autenticación se produce al usar código que se ejecuta en un dispositivo de usuario, que puede ser una aplicación móvil que se ejecute en el sistema operativo nativo, como Android, o en el explorador, como JavaScript.
-- **Public client flow (Flujo de cliente público)**: en la llamada de API, solo se envían credenciales de usuario recopiladas por una aplicación. No se envían las credenciales de la aplicación.
-- **Add new claims (Agregar nuevas notificaciones)**: se puede cambiar el contenido del token de identificador para agregar nuevas notificaciones. 
+- **Cliente nativo**: la interacción del usuario durante la autenticación se produce cuando se ejecuta el código en un dispositivo en el lado del usuario. El dispositivo puede ser una aplicación móvil que se ejecuta en un sistema operativo nativo, por ejemplo, Android, o en un explorador, como JavaScript.
+- **Public client flow** (Flujo de cliente público): en la llamada de API, solo se envían credenciales de usuario recopiladas por una aplicación. No se envían las credenciales de la aplicación.
+- **Add new claims** (Agregar nuevas notificaciones): se puede cambiar el contenido del token de id. para agregar nuevas notificaciones. 
 
-Los siguientes flujos no se admiten:
+No se admiten los siguientes flujos:
 
-- **De servidor a servidor**: el sistema de protección de identidades (IDPS) necesita una dirección IP de confianza que recopile el autor de la llamada (el cliente nativo) como parte de la interacción.  En una llamada API del lado del servidor, solo se usa la dirección IP del servidor, y el IDPS puede identificar una dirección IP repetida como un atacante si se supera un umbral dinámico de autenticaciones con errores.
-- **Confidential client flow (Flujo de cliente confidencial)**: se valida el identificador de cliente de la aplicación, pero no el secreto de la aplicación.
+- **De servidor a servidor**: el sistema de protección de identidades necesita una dirección IP de confianza que recopile el autor de la llamada (el cliente nativo) como parte de la interacción. En una llamada API del lado servidor, se utiliza sólo la dirección IP del servidor. Si se supera un umbral dinámico de errores de autenticación, el sistema de protección de identidad puede identificar una dirección IP repetida como un atacante.
+- **Confidential client flow (Flujo de cliente confidencial)**: se valida el id. de cliente de la aplicación, pero no el secreto de la aplicación.
 
 ##  <a name="create-a-resource-owner-policy"></a>Creación de una directiva del propietario del recurso
 
 1. Inicie sesión en Azure Portal como administrador global del inquilino de Azure AD B2C.
 2. Para cambiar al inquilino de Azure AD B2C, seleccione el directorio B2C en la esquina superior derecha del portal.
 3. En **Directivas**, seleccione **Directivas del propietario del recurso**.
-4. Proporcione un nombre para la directiva, como *ROPC_Auth*, y, a continuación, haga clic en **Notificaciones de la aplicación**.
+4. Proporcione un nombre para la directiva, como *ROPC_Auth* y luego haga clic en **Notificaciones de aplicación**.
 5. Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el *nombre para mostrar*, la *dirección de correo electrónico* y el *proveedor de identidades*.
-6. Haga clic en **Aceptar** y luego en **Crear**.
+6. Seleccione **Aceptar** y después **Crear**.
 
-A continuación, verá un punto de conexión como en este ejemplo:
+   A continuación, verá un punto de conexión como en este ejemplo:
 
-`https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
+   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>Registro de una aplicación
 
-1. En la configuración de B2C, haga clic en **Aplicaciones** y luego en **Agregar**.
-2. Proporcione un nombre para la aplicación, como *ROPC_Auth_app*.
-3. Haga clic en **No** para **API web o aplicación web** y haga clic en **Sí** para **Cliente nativo**.
-4. Deje los demás valores como están y haga clic en **Crear**.
-5. Seleccione la nueva aplicación y tome nota del identificador de la aplicación.
+1. En la configuración de B2C, seleccione **Aplicaciones** y luego seleccione **Agregar**.
+2. Escriba un nombre para la aplicación, como *ROPC_Auth_app*.
+3. Seleccione **No** para **API web o aplicación web** y seleccione **Sí** para **Cliente nativo**.
+4. Deje los demás valores como están y seleccione **Crear**.
+5. Seleccione la nueva aplicación y tome nota del id. de la aplicación para usarlo más tarde.
 
 ## <a name="test-the-policy"></a>Prueba de la directiva
 
 Use su aplicación favorita de desarrollo de API para generar una llamada de API y revise la respuesta para depurar la directiva. Cree una llamada similar a esta con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud POST:
-- Reemplace *yourtenant.onmicrosoft.com* con el nombre del inquilino B2C
-- Reemplace *B2C_1A_ROPC_Auth* con el nombre completo de la directiva ROPC
-- Reemplace *bef2222d56-552f-4a5b-b90a-1988a7d634c3* con el identificador de la aplicación desde el registro.
+- Reemplace *\<yourtenant.onmicrosoft.com>* con el nombre del inquilino B2C.
+- Reemplace  *\<B2C_1A_ROPC_Auth >* con el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
+- Reemplace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con el id. de la aplicación desde el registro.
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Clave | Valor |
 | --- | ----- |
 | nombre de usuario | leadiocl@outlook.com |
 | contraseña | Passxword1 |
 | grant_type | contraseña |
-| ámbito | openid bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
-| client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
+| ámbito | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | id_token del token |
 
 *Client_id* es el valor que anotó anteriormente como identificador de la aplicación. *Offline_access* es opcional si quiere recibir un token de actualización. 
@@ -81,14 +81,14 @@ La solicitud POST real tiene el siguiente aspecto:
 
 ```
 POST /yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
-Host: te.cpim.windows.net
+Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
 
-Una respuesta correcta con acceso sin conexión es similar a la siguiente:
+Una respuesta correcta con acceso sin conexión se parece al siguiente ejemplo:
 
 ```
 { 
@@ -102,26 +102,25 @@ Una respuesta correcta con acceso sin conexión es similar a la siguiente:
 
 ## <a name="redeem-a-refresh-token"></a>Canjear un token de actualización
 
-Cree una llamada POST similar a esta con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud POST:
+Cree una llamada POST similar a la que se muestra aquí, con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud:
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Clave | Valor |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | ID_token |
-| client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
-| resource | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* y *resource* son los valores que anotó anteriormente como identificadores de la aplicación. *Refresh_token* es el token que recibió en la llamada de autenticación que se ha mencionado anteriormente.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementación con su SDK nativo preferido o uso de la autenticación de la aplicación
 
+La implementación de Azure AD B2C cumple los estándares de OAuth 2.0 para las credenciales de contraseña de propietario de recursos del cliente público y debe ser compatible con la mayoría de SDK de cliente. Hemos probado este flujo (en producción) exhaustivamente con AppAuth para iOS y AppAuth para Android. Para obtener la información más reciente, consulte [Procedimientos recomendados de implementación modernos para el SDK de aplicaciones nativas para OAuth 2.0 y OpenID Connect](https://appauth.io/).
 
-La implementación de Azure AD B2C cumple los estándares de OAuth 2.0 o el ROPC de cliente público y debe ser compatible con la mayoría de SDK de cliente.  Hemos probado este flujo (en producción) exhaustivamente con AppAuth para iOS y AppAuth para Android.  Consulte https://appauth.io/ para obtener la información más reciente.
-
-Puede descargar ejemplos funcionales, que se han configurado para su uso con Azure AD B2C desde GitHub en https://aka.ms/aadb2cappauthropc para Android y https://aka.ms/aadb2ciosappauthropc.
+Descargue ejemplos funcionales que se han configurado para su uso con Azure AD B2C desde GitHub, [para Android](https://aka.ms/aadb2cappauthropc) y [para iOS](https://aka.ms/aadb2ciosappauthropc).
 
 
 

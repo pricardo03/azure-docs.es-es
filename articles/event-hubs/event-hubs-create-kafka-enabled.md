@@ -10,20 +10,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4f1d21be3c19dfbc764485fea47b6d4cb2171b3c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941233"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442134"
 ---
 # <a name="create-kafka-enabled-event-hubs"></a>Creación de instancias de Event Hubs habilitadas para Kafka
 
 Azure Event Hubs es una plataforma como servicio (PaaS) de streaming de macrodatos que ingiere millones de eventos por segundo, y proporciona baja latencia y alto rendimiento para análisis y visualización en tiempo real.
 
-Azure Event Hubs para ecosistemas de Kafka proporciona un punto de conexión. Este punto de conexión permite que el espacio de nombres de Event Hubs entienda el protocolo de mensajes y las API de [Apache Kafka](https://kafka.apache.org/intro). Con esta capacidad, puede comunicarse con las instancias de Event Hubs como lo haría con temas de Kafka sin cambiar los clientes de protocolo ni ejecutar sus propios clústeres. Event Hubs para ecosistemas de Kafka admite [Apache Kafka versión 1.0.](https://kafka.apache.org/10/documentation.html) y posterior.
+Azure Event Hubs para ecosistemas de Kafka proporciona un punto de conexión. Este punto de conexión permite que el espacio de nombres de Event Hubs entienda el protocolo de mensajes y las API de [Apache Kafka](https://kafka.apache.org/intro). Con esta funcionalidad, puede comunicarse con las instancias de Event Hubs como lo haría con temas de Kafka sin cambiar los clientes de protocolo ni ejecutar sus propios clústeres. Event Hubs para ecosistemas de Kafka admite [Apache Kafka versión 1.0.](https://kafka.apache.org/10/documentation.html) y posterior.
 
-En este artículo se describe cómo crear un espacio de nombres de Event Hubs y obtener la cadena de conexión necesaria para conectar las aplicaciones de Kafka con instancias de Event Hubs habilitados para Kafka.
+En este artículo se describe cómo crear un espacio de nombres de Event Hubs y cómo obtener la cadena de conexión necesaria para conectar las aplicaciones de Kafka con instancias de Event Hubs habilitadas para Kafka.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -37,11 +37,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     
     ![Búsqueda de Event Hubs en el portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. **Crear espacio de nombres** al proporcionar un nombre único y habilitar Kafka en el espacio de nombres. Haga clic en **Create**(Crear).
+3. Proporcione un nombre único y habilite a Kafka en el espacio de nombres. Haga clic en **Create**(Crear).
     
     ![Creación de un espacio de nombres](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
-4. Una vez que se ha crea el espacio de nombres, en la pestaña **Configuración**, haga clic en **Directivas de acceso compartido** para obtener la cadena de conexión.
+4. Una vez que se crea el espacio de nombres, en la pestaña **Configuración**, haga clic en **Directivas de acceso compartido** para obtener la cadena de conexión.
 
     ![Haga clic en Directivas de acceso compartido](./media/event-hubs-create/create-event-hub7.png)
 
@@ -57,7 +57,7 @@ Ahora puede transmitir eventos desde las aplicaciones que usan el protocolo de K
 
 Para aprender más acerca de Event Hubs, consulte estos vínculos:
 
-* [Transmitir en Event Hubs desde las aplicaciones de Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md) (Transmitir en Event Hubs desde sus aplicaciones de Kafka)
 * [Información sobre Event Hubs para el ecosistema de Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Más información sobre Events Hubs](event-hubs-what-is-event-hubs.md)
 

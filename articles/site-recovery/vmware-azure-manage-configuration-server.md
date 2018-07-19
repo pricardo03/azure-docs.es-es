@@ -3,15 +3,15 @@ title: Administración del servidor de configuración para realizar la recuperac
 description: En este artículo se describe cómo administrar un servidor de configuración existente para la recuperación ante desastres de VMware en Azure con Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 753e123c660b1aacea1157157f0e580e15c47536
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d7c2224e6529d1675cdad5b29de887f19135a2a6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287412"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916917"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Administración del servidor de configuración para máquinas virtuales de VMware
 
@@ -27,7 +27,7 @@ Puede acceder al servidor de configuración como se indica a continuación:
    
 ### <a name="modify-vmware-server-settings"></a>Modificación de la configuración del servidor de VMware
 
-1. Para asociar otro servidor de VMware con el servidor de configuración, después de iniciar sesión seleccione **Adición de servidor de vCenter Server o vSphere ESXi**.
+1. Para asociar otro servidor de VMware con el servidor de configuración, después de iniciar sesión seleccione **Add vCenter Server/vSphere ESXi server** (Agregar servidor vCenter/servidor vSphere ESXi).
 2. Escriba los detalles y seleccione **Aceptar**.
 
 
@@ -96,21 +96,18 @@ Actualice el servidor como se indica a continuación:
 
 1. En el almacén, vaya a **Manage** > **Site Recovery Infrastructure** > **Configuration Servers** (Administrar > Infraestructura de Site Recovery > Servidores de configuración).
 2. Si hay alguna actualización disponible, aparecerá un vínculo en la columna **Agent Version** (Versión del agente) >.
-
     ![Actualizar](./media/vmware-azure-manage-configuration-server/update2.png)
-
-1. Descargue el archivo del instalador de actualizaciones en el servidor de configuración.
+3. Descargue el archivo del instalador de actualizaciones en el servidor de configuración.
 
     ![Actualizar](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Haga doble clic para ejecutar el instalador.
-2. El instalador detecta la versión actual que se ejecuta en la máquina. Haga clic en **Sí** para iniciar la actualización. 
-3. Cuando la actualización finaliza se valida la configuración del servidor.
+5. El instalador detecta la versión actual que se ejecuta en la máquina. Haga clic en **Sí** para iniciar la actualización.
+6. Cuando la actualización finaliza se valida la configuración del servidor.
 
     ![Actualizar](./media/vmware-azure-manage-configuration-server/update3.png)
-
-4. Haga clic en **Finish** (Finalizar) para cerrar el instalador.
-
+    
+7. Haga clic en **Finish** (Finalizar) para cerrar el instalador.
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Eliminación o anulación del registro de un servidor de configuración
 
@@ -150,7 +147,12 @@ También puede eliminar el servidor de configuración con PowerShell.
 > [!NOTE]
 > Puede usar la opción **-Force** de Remove-AzureRmSiteRecoveryFabric para forzar la eliminación del servidor de configuración.
  
+## <a name="generate-configuration-server-passphrase"></a>Generación de frase de contraseña del servidor de configuración
 
+1. Inicie sesión en el servidor de configuración y, a continuación, abra una ventana del símbolo del sistema como administrador.
+2. Para cambiar el directorio a la carpeta bin, ejecute el comando **cd %ProgramData%\ASR\home\svsystems\bin**
+3. Para generar el archivo de frase de contraseña, ejecute **genpassphrase.exe -v > MobSvc.passphrase**.
+4. La frase de contraseña se almacenará en el archivo ubicado en **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
 ## <a name="renew-ssl-certificates"></a>Renovación de certificados SSL
 

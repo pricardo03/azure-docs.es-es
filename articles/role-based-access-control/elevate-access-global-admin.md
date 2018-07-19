@@ -1,6 +1,6 @@
 ---
-title: Elevar los privilegios de acceso de un administrador global en Azure Active Directory | Microsoft Docs
-description: Describe cómo elevar los privilegios de acceso de un administrador global de Azure Active Directory mediante Azure Portal o la API de REST.
+title: Elevación de los privilegios de acceso de un administrador global en Azure Active Directory | Microsoft Docs
+description: Describe cómo elevar los privilegios de acceso de un administrador global en Azure Active Directory mediante Azure Portal o la API de REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,35 +9,35 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266514"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445218"
 ---
-# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar los privilegios de acceso de un administrador global en Azure Active Directory
+# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevación de los privilegios de acceso de un administrador global en Azure Active Directory
 
-Si es un [administrador global](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) en Azure Active Directory (Azure AD), es posible que haya momentos en los que quiera hacer lo siguiente:
+Si es un [administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) en Azure Active Directory (Azure AD), es posible que haya momentos en los que quiera hacer lo siguiente:
 
 - Recuperar el acceso a una suscripción de Azure cuando un usuario ha perdido el acceso
 - Conceder acceso a otro usuario o usted mismo a una suscripción a Azure
 - Ver todas las suscripciones a Azure de una organización
 - Permitir que una aplicación de automatización (por ejemplo, una aplicación de facturación o auditoría) tenga acceso a todas las suscripciones de Azure
 
-De forma predeterminada, los roles del administrador de Azure AD y el control de acceso basado en roles (RBAC) de Azure (RBAC) no abarcan Azure AD y Azure. Sin embargo, si es un administrador Global de Azure AD, puede elevar el acceso para administrar las suscripciones a Azure y los grupos de administración. Cuando eleve los privilegios de acceso, se le concederá el rol de [administrador de accesos de usuario](built-in-roles.md#user-access-administrator) (un rol RBAC) en todas las suscripciones para un inquilino determinado. El rol de administrador de accesos de usuario permite conceder a otros usuarios acceso a recursos de Azure en el ámbito raíz (`/`).
+De forma predeterminada, los roles del administrador de Azure AD y el control de acceso basado en roles (RBAC) de Azure (RBAC) no abarcan Azure AD y Azure. Sin embargo, si es un administrador Global de Azure AD, puede elevar los privilegios de acceso para administrar las suscripciones a Azure y los grupos de administración. Cuando eleve los privilegios de acceso, se le concederá el rol de [administrador de accesos de usuario](built-in-roles.md#user-access-administrator) (un rol RBAC) en todas las suscripciones para un inquilino determinado. El rol de administrador de accesos de usuario permite conceder a otros usuarios acceso a recursos de Azure en el ámbito raíz (`/`).
 
 Esta elevación debe ser temporal y solo debe realizarse cuando sea necesario.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Elevar los privilegios de acceso de un administrador global mediante el Azure Portal
+## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Elevación de los privilegios de acceso de un administrador global mediante Azure Portal
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com).
 
@@ -51,7 +51,7 @@ Esta elevación debe ser temporal y solo debe realizarse cuando sea necesario.
 
    Si selecciona **Sí**, se agrega la cuenta de administrador global (usuario conectado actualmente) al rol de administrador de accesos de usuario en RBAC de Azure en el ámbito raíz (`/`), que le concede acceso para ver e informar sobre todas las suscripciones a Azure asociadas al inquilino de Azure AD.
 
-   Si selecciona **No**, se quita la cuenta de administrador global (usuario conectado actualmente) del rol de administrador de accesos de usuario en RBAC de Azure. No se pueden ver todas las suscripciones a Azure asociadas con el inquilino de Azure AD. Solo se pueden ver y administrar las suscripciones a Azure a las que se le ha concedido acceso.
+   Si selecciona **No**, se quita la cuenta de administrador global (usuario conectado actualmente) del rol de administrador de accesos de usuario en Azure RBAC. No se pueden ver todas las suscripciones a Azure asociadas con el inquilino de Azure AD. Solo se pueden ver y administrar las suscripciones a Azure a las que se le ha concedido acceso.
 
 1. Haga clic en **Guardar** para guardar la configuración.
 
@@ -88,7 +88,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Elevar los privilegios de acceso de un administrador global mediante la API de REST
+## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Elevación de los privilegios de acceso de un administrador global mediante la API de REST
 
 Utilice los siguientes pasos básicos para elevar los privilegios de acceso de un administrador global mediante la API de REST.
 
@@ -220,4 +220,5 @@ Cuando llama a `elevateAccess`, crea una asignación de roles para sí mismo, po
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Control de acceso basado en roles con REST](role-assignments-rest.md)
-- [Administrar asignaciones de acceso](role-assignments-users.md)
+- [Administración del acceso a recursos de Azure con Privileged Identity Management](pim-azure-resource.md)
+- [Administración el acceso a la administración de Azure con acceso condicional](conditional-access-azure-management.md)

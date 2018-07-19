@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643318"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704907"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -124,19 +124,25 @@ Configure el servidor de configuración, regístrelo en el almacén y detecte m�
 
 Antes de empezar, haga lo siguiente: 
 
-- En la máquina del servidor de configuración, asegúrese de que el reloj del sistema está sincronizado con un [servidor horario](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deben ser iguales. Si hay una diferencia de 15 minutos, antes o después, se podría producir un error en la instalación.
-- Asegúrese de que el equipo puede acceder a estas direcciones URL: [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### <a name="verify-time-accuracy"></a>Verificación de la precisión de tiempo
+En la máquina del servidor de configuración, asegúrese de que el reloj del sistema está sincronizado con un [servidor horario](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deben ser iguales. Si hay una diferencia de 15 minutos, antes o después, se podría producir un error en la instalación.
 
-- Las reglas de firewall basadas en direcciones IP deben permitir la comunicación con Azure.
-- Permita los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).
-- Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
+#### <a name="verify-connectivity"></a>Verificación de la conectividad
+Asegúrese de que la máquina puede acceder a estas direcciones URL según el entorno: 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+Las reglas de firewall basadas en direcciones IP deben permitir la comunicación a todas las direcciones URL de Azure que se indican a continuación a través del puerto HTTPS (443). Para simplificar y limitar los intervalos de direcciones IP, se recomienda que se realiza el filtrado de URL.
+
+- **Direcciones IP comerciales**: permita los [intervalos de direcciones IP de Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443). Permita los intervalos de direcciones IP para la región de Azure de su suscripción de modo que se admitan las direcciones URL de almacenamiento, AAD, copia de seguridad y replicación.  
+- **Las direcciones IP de administraciones públicas**: permita que los [intervalos de direcciones IP del centro de datos de Azure Government](https://www.microsoft.com/en-us/download/details.aspx?id=57063) y el puerto HTTPS (443) para todas las regiones de USGov (Virginia, Texas, Arizona e Iowa) admitan las direcciones URL de almacenamiento, copia de seguridad, replicación y AAD.  
+
+#### <a name="run-setup"></a>Ejecución de la configuración
 Ejecute la instalación unificada como administrador Local para instalar el servidor de configuración. El servidor de procesos y el servidor de destino maestro también se instalan de forma predeterminada en el servidor de configuración.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 Una vez terminado el registro, el servidor de configuración se muestra en la página **Configuración** > **Servidores** del almacén.
-
 
 ## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030444"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901048"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -31,7 +31,7 @@ Cada nivel del IoT Hub está disponible en tres tamaños, basados en la cantidad
 
 El nivel estándar de IoT Hub permite todas las características y es necesario para cualquier solución de IoT que desee hacer uso de las funcionalidades de comunicación bidireccional. El nivel Basic permite un subconjunto de las características y está pensado para las soluciones de IoT que solo necesitan comunicación unidireccional de los dispositivos a la nube. Ambos niveles ofrecen las mismas características de seguridad y autenticación.
 
-Una vez creado el centro de IoT, puede actualizarlo desde el nivel Basic al nivel Estándar sin interrumpir las operaciones existentes. Para más información, consulte [How to upgrade your IoT hub](iot-hub-upgrade.md) (Actualización de IoT Hub).
+Una vez creado el centro de IoT, puede actualizarlo desde el nivel Basic al nivel Estándar sin interrumpir las operaciones existentes. Para más información, consulte [How to upgrade your IoT hub](iot-hub-upgrade.md) (Actualización de IoT Hub). Tenga en cuenta que el límite de partición para la instancia de IoT Hub de nivel básico es 8. Este límite permanecerá invariable cuando migre de un nivel básico a un nivel estándar.
 
 | Capacidad | Nivel Basic | Nivel Standard |
 | ---------- | ---------- | ------------- |
@@ -43,7 +43,7 @@ Una vez creado el centro de IoT, puede actualizarlo desde el nivel Basic al nive
 | [Supervisión y diagnóstico](iot-hub-monitor-resource-health.md) | Sí | Sí |
 | [Mensajería de la nube a un dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sí |
 | [Dispositivos gemelos](iot-hub-devguide-device-twins.md), [Módulos gemelos](iot-hub-devguide-module-twins.md) y [Administración de dispositivos](iot-hub-device-management-overview.md) |   | Sí |
-| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sí |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Sí |
 
 IoT Hub también ofrece un nivel gratis que está diseñado para pruebas y evaluación. Tiene todas las capacidades del nivel estándar, pero las concesiones de mensajería son limitadas. No puede actualizar desde el nivel gratis al plan Básico o Estándar. 
 
@@ -59,9 +59,9 @@ La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar d
 | Obtener módulo | Sí | Sí |
 | [Obtener estadísticas del registro](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Sí | Sí |
 | [Obtener estadísticas de servicios](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Sí | Sí |
-| [Crear o actualizar el dispositivo](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Sí | Sí |
+| [Colocar dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sí | Sí |
 | Colocar módulo | Sí | Sí |
-| [Consultar IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Sí | Sí |
+| [Consultar dispositivos](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sí | Sí |
 | Consultar módulos | Sí | Sí |
 | [Crear el URI de SAS de carga de archivos](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Sí | Sí |
 | [Recibir notificación de dispositivo enlazado](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Sí | Sí |
@@ -94,7 +94,7 @@ El tráfico se mide por unidad, no por centro. Una instancia de IoT Hub de nivel
 
 Como ejemplo de las funcionalidades de tráfico de cada nivel, los mensajes del dispositivo a la nube siguen estas directrices de rendimiento sostenidas:
 
-| Nivel: | Capacidad de procesamiento sostenida | Velocidad de envío sostenida |
+| Nivel | Capacidad de procesamiento sostenida | Velocidad de envío sostenida |
 | --- | --- | --- |
 | B1, S1 |Hasta 1111 KB/minuto por unidad<br/>(1,5 GB/día/unidad) |Promedio de 278 mensajes/minuto por unidad<br/>(400 000 mensajes/día por unidad) |
 | B2, S2 |Hasta 16 MB/minuto por unidad<br/>(22,8 GB/día/unidad) |Promedio de 4167 mensajes/minuto por unidad<br/>(6 millones de mensajes/día por unidad) |

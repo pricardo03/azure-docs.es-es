@@ -1,11 +1,11 @@
 ---
 title: Preguntas más frecuentes sobre Azure App Service en Linux | Microsoft Docs
 description: Peguntas más frecuentes sobre Azure App Service en Linux.
-keywords: azure app service, web app, preguntas más frecuentes, linux, oss
+keywords: servicio de aplicación de azure, aplicación web, preguntas más frecuentes, linux, oss, aplicaciones web para contenedores, varios contenedores, multicontenedor
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 06/26/2018
+ms.author: yili
+ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222984"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916863"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -66,7 +66,7 @@ Sí, para configurar la integración e implementación continua de Azure Contain
 
 Sí.
 
-**¿Puedo usar *Web Deploy* para implementar mi aplicación web?**
+**¿Puedo usar *WebDeploy/MSDeploy* para implementar mi aplicación web?**
 
 Sí, es necesario establecer un valor de la aplicación llamado `WEBSITE_WEBDEPLOY_USE_SCM` en *false*.
 
@@ -144,6 +144,35 @@ Disponemos de detección automática de puerto. También puede especificar un va
 **¿Es necesario implementar HTTPS en mi contenedor personalizado?**
 
 No, la plataforma controla la terminación HTTPS en los front-end compartidos.
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Varios contenedores con Docker Compose y Kubernetes
+
+**¿Cómo puedo configurar Azure Container Registry (ACR) para usar con varios contenedores?**
+
+Para poder usar ACR con varios contenedores, **todas las imágenes de contenedor** deben estar hospedadas en el mismo servidor de registro ACR. Una vez que estén en el mismo servidor de registro, deberá crear la configuración de la aplicación y, a continuación, actualizar el archivo de configuración de Kubernetes o Docker Compose para incluir el nombre de imagen de ACR.
+
+Cree la siguiente configuración de la aplicación:
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (dirección URL completa, p. ej.: https://<nombre-servidor>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (habilitar el acceso de administrador en la configuración de ACR)
+
+En el archivo de configuración, haga referencia a la imagen ACR similar al ejemplo siguiente:
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**¿Cómo puedo saber qué contenedor es accesible desde Internet?**
+
+- Solo un contenedor puede estar abierto para el acceso
+- Solo el puerto 80 y 8080 es accesible (puertos expuestos)
+
+Estas son las reglas para determinar qué contenedor es accesible, en el orden de prioridad:
+
+- Configuración de la aplicación `WEBSITES_WEB_CONTAINER_NAME` establecida en el nombre del contenedor
+- El primer contenedor para definir el puerto 80 u 8080
+- Si ninguna de las opciones anteriores es true, el primer contenedor definido en el archivo será accesible (expuesto)
 
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 

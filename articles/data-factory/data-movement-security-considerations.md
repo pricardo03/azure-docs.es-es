@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053262"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342409"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a prote
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Cifrado de datos transparente para SQL Database y Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-#### <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
+#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store también ofrece el cifrado de los datos que se almacenan en la cuenta. Cuando se habilita, Data Lake Store cifrará automáticamente los datos antes de la persistencia y los descifrará antes de la recuperación, por lo que resulta un proceso completamente transparente para el cliente que accede a los datos. Para más información, consulte [Seguridad en Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage y Azure Table Storage
@@ -84,16 +84,16 @@ Amazon Redshift admite cifrado de clúster para datos en reposo. Para más infor
 Salesforce admite Shield Platform Encryption, que permite el cifrado de todos los archivos, datos adjuntos y campos personalizados. Para más información, consulte [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Descripción del flujo de autenticación OAuth de servidor web).  
 
 ## <a name="hybrid-scenarios"></a>Escenarios híbridos
-Los escenarios híbridos necesitan que Integration Runtime autohospedado se instale en una red local o en una virtual (Azure), o bien dentro de una nube privada virtual (Amazon). Integration Runtime autohospedado debe poder tener acceso a los almacenes de datos locales. Para obtener más información acerca de Integration Runtime autohospedado, vea [Creación y configuración de una instancia de Integration Runtime autohospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
+Los escenarios híbridos necesitan que el entorno de ejecución de integración autohospedado se instale en una red local o en una virtual (Azure), o bien dentro de una nube privada virtual (Amazon). El entorno de ejecución de integración autohospedado debe poder tener acceso a los almacenes de datos locales. Para más información acerca del entorno de ejecución de integración autohospedado, consulte [Creación y configuración de una instancia de Integration Runtime autohospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
 
-![canales de Integration Runtime autohospedado](media/data-movement-security-considerations/data-management-gateway-channels.png)
+![canales del entorno de ejecución de integración autohospedado](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
-El canal del comandos permite la comunicación entre los servicios de movimiento de datos de Data Factory e Integration Runtime autohospedado. La comunicación contiene información relacionada con la actividad. El canal de datos se usa para transferir datos entre los almacenes de datos locales y los almacenes de datos en la nube.    
+El canal del comandos permite la comunicación entre los servicios de movimiento de datos de Data Factory y el entorno de ejecución de integración autohospedado. La comunicación contiene información relacionada con la actividad. El canal de datos se usa para transferir datos entre los almacenes de datos locales y los almacenes de datos en la nube.    
 
 ### <a name="on-premises-data-store-credentials"></a>Credenciales de los almacenes de datos locales
-Las credenciales de los almacenes de datos locales se almacenan y se cifran siempre. Pueden almacenarse localmente en el equipo de Integration Runtime autohospedado o en el almacenamiento administrado de Azure Data Factory (al igual que las credenciales del almacén en la nube). 
+Las credenciales de los almacenes de datos locales se almacenan y se cifran siempre. Pueden almacenarse localmente en el equipo del entorno de ejecución de integración autohospedado o en el almacenamiento administrado de Azure Data Factory (al igual que las credenciales del almacén en la nube). 
 
-- **Almacenar credenciales localmente**. Si desea cifrar y almacenar las credenciales localmente en Integration Runtime autohospedado, siga los pasos descritos en [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos los conectores admiten esta opción. Integration Runtime autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales. 
+- **Almacenar credenciales localmente**. Si desea cifrar y almacenar las credenciales localmente en el entorno de ejecución de integración autohospedado, siga los pasos descritos en [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos los conectores admiten esta opción. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales. 
 
    Use el cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** para cifrar las credenciales del servicio vinculado y para cifrar información confidencial en el servicio vinculado. A continuación, puede usar el JSON devuelto (con el elemento **EncryptedCredential** en la cadena de conexión) para crear un servicio vinculado con el uso del cmdlet **Set-AzureRmDataFactoryV2LinkedService**.  
 
@@ -102,7 +102,7 @@ Las credenciales de los almacenes de datos locales se almacenan y se cifran siem
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Puertos utilizados durante el cifrado del servicio vinculado en Integration Runtime autohospedado
-De forma predeterminada, PowerShell usa el puerto 8050 en la máquina con Integration Runtime autohospedado para una comunicación segura. Si es necesario, se puede cambiar este puerto.  
+De forma predeterminada, PowerShell usa el puerto 8050 en la máquina con el entorno de ejecución de integración autohospedado para una comunicación segura. Si es necesario, se puede cambiar este puerto.  
 
 ![Puerto HTTPS para la puerta de enlace](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -116,15 +116,15 @@ También puede usar una [conexión VPN de IPSec](../vpn-gateway/vpn-gateway-abou
 
 Azure Virtual Network es una representación lógica de la red en la nube. Puede conectar una red local a la red virtual mediante la configuración de una conexión VPN de IPSec (de sitio a sitio) o ExpressRoute (Emparejamiento privado)    
 
-En la tabla siguiente, se resumen las recomendaciones de configuración de red e Integration Runtime autohospedado en función de diferentes combinaciones de ubicaciones de origen y de destino para el movimiento de datos híbridos.
+En la tabla siguiente, se resumen las recomendaciones de configuración de red y del entorno de ejecución de integración autohospedado en función de diferentes combinaciones de ubicaciones de origen y de destino para el movimiento de datos híbridos.
 
 | Origen      | Destino                              | Network configuration (Configuración de red)                    | Configuración de Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | VPN de IPSec (de punto a sitio o de sitio a sitio) | Integration Runtime autohospedado se puede instalar de forma local o en una máquina virtual de Azure en una red virtual. |
-| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | ExpressRoute (Emparejamiento privado)           | Integration Runtime autohospedado se puede instalar de forma local o en una máquina virtual de Azure en una red virtual. |
+| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | VPN de IPSec (de punto a sitio o de sitio a sitio) | El entorno de ejecución de integración autohospedado se puede instalar de forma local o en una máquina virtual de Azure en una red virtual. |
+| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | ExpressRoute (Emparejamiento privado)           | El entorno de ejecución de integración autohospedado se puede instalar de forma local o en una máquina virtual de Azure en una red virtual. |
 | Local | Servicios basados en Azure que tienen un punto de conexión público | ExpressRoute (Emparejamiento público)            | Integration Runtime autohospedado debe instalarse de forma local. |
 
-Las siguientes imágenes muestran el uso de Integration Runtime autohospedado para mover datos entre una base de datos local y servicios de Azure mediante ExpressRoute e IPSec VPN (con Azure Virtual Network):
+Las siguientes imágenes muestran el uso del entorno de ejecución de integración autohospedado para mover datos entre una base de datos local y servicios de Azure mediante ExpressRoute e IPSec VPN (con Azure Virtual Network):
 
 **ExpressRoute**
 
@@ -143,9 +143,10 @@ En la tabla siguiente se proporcionan el puerto de salida y los requisitos de do
 
 | Nombres de dominio                  | Puertos de salida | DESCRIPCIÓN                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443            | Lo necesita Integration Runtime autohospedado para conectarse a los servicios de movimiento de datos de Data Factory. |
-| `*.core.windows.net`          | 443            | Lo usa Integration Runtime autohospedado para conectarse a la cuenta de Azure Storage cuando se utiliza la característica [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). |
-| `*.frontend.clouddatahub.net` | 443            | Lo necesita Integration Runtime autohospedado para conectarse a los servicios de movimiento de Data Factory. |
+| `*.servicebus.windows.net`    | 443            | El entorno de ejecución de integración autohospedado lo necesita para conectarse a los servicios de movimiento de datos de Data Factory. |
+| `*.frontend.clouddatahub.net` | 443            | El entorno de ejecución de integración autohospedado lo necesita para conectarse al servicio Data Factory. |
+| `download.microsoft.com`    | 443            | Lo necesita el entorno de ejecución de integración autohospedado para descargar las actualizaciones. Si ha deshabilitado la actualización automática, puede omitir esto. |
+| `*.core.windows.net`          | 443            | Lo usa el entorno de ejecución de integración autohospedado para conectarse a la cuenta de Azure Storage cuando se utiliza la característica [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). |
 | `*.database.windows.net`      | 1433           | (Opcional) Necesario cuando copia desde o hacia Azure SQL Database o Azure SQL Data Warehouse. Usa la característica de copia almacenada provisionalmente para copiar datos en Azure SQL Database o Azure SQL Data Warehouse sin abrir el puerto 1433. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Opcional) Necesario cuando copia desde o hacia Azure Data Lake Store. |
 
@@ -156,7 +157,7 @@ En la tabla siguiente, se proporcionan los requisitos del puerto de entrada para
 
 | Puertos de entrada | DESCRIPCIÓN                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | Requerido por el cmdlet de cifrado de PowerShell como se describe en el [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) o en la aplicación de administrador de credenciales para establecer de forma segura credenciales para almacenes de datos locales en Integration Runtime autohospedado. |
+| 8050 (TCP)    | Requerido por el cmdlet de cifrado de PowerShell como se describe en el [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) o en la aplicación de administrador de credenciales para establecer de forma segura credenciales para almacenes de datos locales en el entorno de ejecución de integración. |
 
 ![Requisitos de puerto de la puerta de enlace](media\data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -173,11 +174,11 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-**¿Integration Runtime autohospedado puede compartirse entre diferentes factorías de datos?**
+**¿El entorno de ejecución de integración autohospedado puede compartirse entre diferentes factorías de datos?**
 
 Aún no se admite esta característica. Estamos trabajando en ello.
 
-**¿Cuáles son los requisitos de puerto para que Integration Runtime autohospedado funcione?**
+**¿Cuáles son los requisitos de puerto para que el entorno de ejecución de integración autohospedado funcione?**
 
 Integration Runtime autohospedado establece conexiones basadas en HTTP para acceder a Internet. Los puertos de salida 80 y 443 deben estar abiertos para que Integration Runtime autohospedado establezca la conexión. Abra el puerto de entrada 8050 solo en la máquina (no en el nivel del firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure SQL Data Warehouse como origen o destino, tendrá que abrir también el puerto 1433. Para más información, consulte la sección [Configuraciones de firewall y lista de direcciones IP permitidas](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
 

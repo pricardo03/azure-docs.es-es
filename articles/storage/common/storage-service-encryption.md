@@ -6,13 +6,14 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 06/12/2018
 ms.author: lakasa
-ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d469dfb5092f1269a6600ee8ee2f81778fd83b96
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449304"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)
 
@@ -40,7 +41,7 @@ Para ver la configuración de Cifrado del servicio Storage, inicie sesión en [A
 
 **P: Tengo una cuenta de almacenamiento clásica. ¿Puedo habilitar en ella el Cifrado del servicio Storage?**
 
-R: El Cifrado del servicio Storage está habilitado de forma predeterminada para todas las cuentas de almacenamiento (clásicas y de Resource Manager).
+R: Storage Service Encryption está habilitado para todas las cuentas de almacenamiento (clásicas y de Resource Manager).
 
 **P: ¿Cómo puedo cifrar datos en mi cuenta de almacenamiento clásico?**
 
@@ -52,7 +53,7 @@ R: El Cifrado del servicio Storage está habilitado de forma predeterminada en t
 
 **P: ¿Cómo cifro los datos de una cuenta de almacenamiento de Resource Manager?**
 
-R: el cifrado del servicio Storage está habilitado de manera predeterminada para todas las cuentas de almacenamiento (clásicas y de Resource Manager), y los archivos existentes en la cuenta de almacenamiento que creó antes de habilitar el cifrado se cifrarán con carácter retroactivo mediante un proceso de cifrado en segundo plano.
+R: Storage Service Encryption está habilitado para todas las cuentas de almacenamiento (clásicas y de Resource Manager), y los archivos existentes en la cuenta de almacenamiento que creó antes de habilitar el cifrado se cifrarán con carácter retroactivo mediante un proceso de cifrado en segundo plano.
 
 **P: ¿Puedo crear cuentas de almacenamiento con Cifrado del servicio Storage habilitado mediante Azure PowerShell y la CLI de Azure?**
 
@@ -72,7 +73,7 @@ R: Sí, si [utiliza sus propias claves de cifrado](storage-service-encryption-cu
 
 **P: ¿El Cifrado del servicio Storage se habilita de forma predeterminada al crear una cuenta de almacenamiento?**
 
-R: Sí, la característica Storage Service Encryption está habilitada de forma predeterminada para todas las cuentas de almacenamiento y para todos los servicios de Azure Storage.
+R: Sí, la característica Storage Service Encryption está habilitada para todas las cuentas de almacenamiento y para todos los servicios de Azure Storage.
 
 **P: ¿Qué diferencia tiene con Azure Disk Encryption?**
 
@@ -92,7 +93,11 @@ R: El cifrado está habilitado de forma predeterminada y no hay ninguna forma de
 
 **P: ¿El Cifrado del servicio Storage se permite únicamente en determinadas regiones?**
 
-R: El Cifrado del servicio Storage está disponible en todas las regiones para todos los servicios. 
+R: El Cifrado del servicio Storage está disponible en todas las regiones para todos los servicios.
+
+**P: ¿Es Storage Service Encryption compatible con FIPS 140-2?**
+
+R: Sí, Storage Service Encryption es compatible con FIPS 140-2.
 
 **P: ¿Con quién me puedo comunicar si tengo problemas o quiero proporcionar algunos comentarios?**
 

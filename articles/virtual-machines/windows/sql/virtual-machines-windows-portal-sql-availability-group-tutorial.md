@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287810"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531586"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -70,7 +70,7 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
    ![Crear clúster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. En el Asistente para crear clúster, cree un clúster de un solo nodo avanzando por las páginas con la configuración de la tabla siguiente:
 
-   | Page | Settings |
+   | Page | Configuración |
    | --- | --- |
    | Antes de empezar |Usar predeterminados |
    | Seleccionar servidores |Escriba el primer nombre de SQL Server en **Escriba un nombre de servidor** y haga clic en **Agregar**. |
@@ -86,7 +86,7 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
 
    ![Propiedades de clúster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Seleccione **Dirección IP estática** y especifique una dirección disponible en el rango de la dirección IP privada automática (APIPA): 169.254.0.1 a 169.254.255.254 en el cuadro de texto de dirección. Para este ejemplo puede usar cualquier dirección de ese rango. Por ejemplo: `169.254.0.1`. A continuación, haga clic en **Aceptar**.
+3. Seleccione **Dirección IP estática** y especifique una dirección disponible de la misma subred que las máquinas virtuales.
 
 4. En la sección **Recursos principales de clúster**, haga clic con el botón derecho en el nombre del clúster y haga clic en **Poner en línea**. Después espere hasta que ambos recursos estén en línea. Cuando el recurso de nombre de clúster está en línea, actualiza el servidor DC con una nueva cuenta de equipo de AD. Use esta cuenta de AD para ejecutar más tarde el servicio de clúster del grupo de disponibilidad.
 
@@ -341,7 +341,7 @@ En este punto, tiene un grupo de disponibilidad con réplicas en dos instancias 
 
 ## <a name="create-an-azure-load-balancer"></a>Creación de un equilibrador de carga de Azure
 
-En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. En esta sección se resume cómo crear el equilibrador de carga en Azure Portal.
+En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un equilibrador de carga. El equilibrador de carga almacena las direcciones IP de los agentes de escucha del grupo de disponibilidad y del Clúster de conmutación por error de Windows Server. En esta sección se resume cómo crear el equilibrador de carga en Azure Portal.
 
 1. En Azure Portal, vaya al grupo de recursos donde están los servidores SQL Server y haga clic en **+Agregar**.
 2. Busque **Load Balancer**. Elija el equilibrador de carga publicado por Microsoft.
@@ -370,7 +370,7 @@ En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un 
 
 Para configurar el equilibrador de carga, debe crear un grupo de back-end, un sondeo y establecer la reglas de equilibrio de carga. Esto se hace en Azure Portal.
 
-### <a name="add-backend-pool"></a>Agregar grupo de back-end
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Adición del grupo de back-end para el agente de escucha del grupo de disponibilidad
 
 1. En Azure Portal, vaya a su grupo de disponibilidad. Es posible que deba actualizar la vista para ver el equilibrador de carga recién creado.
 
@@ -416,6 +416,46 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
    | **Puerto** | Uso del puerto del agente de escucha de grupo de disponibilidad | 1435 |
    | **Puerto back-end** | Este campo no se utiliza cuando la IP flotante está establecida para Direct Server Return | 1435 |
    | **Sondeo** |Nombre especificado para el sondeo | SQLAlwaysOnEndPointProbe |
+   | **Persistencia de la sesión** | Lista desplegable | **None** |
+   | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |
+   | **IP flotante (Direct Server Return)** | |habilitado |
+
+   > [!WARNING]
+   > Direct Server Return se establece durante la creación. No se puede modificar.
+
+1. Haga clic en **Aceptar** para configurar las reglas de equilibrio de carga.
+
+### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Adición de la dirección IP de front-end para el WSFC
+
+La dirección IP de WSFC también debe estar en el equilibrador de carga. 
+
+1. En el portal, agregue una nueva configuración de dirección IP de front-end para el WSFC. Use la dirección IP configurada para el WSFC en los recursos principales de clúster. Establezca la dirección IP como estática. 
+
+1. Haga clic en el equilibrador de carga, en **Health probes** (Sondeos de estado) y en **+Agregar**.
+
+1. Configure el sondeo de estado del modo siguiente:
+
+   | Configuración | DESCRIPCIÓN | Ejemplo
+   | --- | --- |---
+   | **Name** | Texto | WSFCEndPointProbe |
+   | **Protocolo** | Elija TCP | TCP |
+   | **Puerto** | Cualquier puerto no utilizado | 58888 |
+   | **Intervalo**  | Cantidad de tiempo entre los intentos de sondeo, en segundos |5 |
+   | **Umbral incorrecto** | Número de errores de sondeo consecutivos que deben producirse para que una máquina virtual se considere en mal estado  | 2 |
+
+1. Haga clic en **Aceptar** para configurar el sondeo de estado.
+
+1. Configure las reglas de equilibrio de carga. Haga clic en **Reglas de equilibrio de carga** y luego haga clic en **+Agregar**.
+
+1. Configure las reglas de equilibrio de carga del modo siguiente.
+   | Configuración | DESCRIPCIÓN | Ejemplo
+   | --- | --- |---
+   | **Name** | Texto | WSFCPointListener |
+   | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al configurar la dirección IP de WSFC. |
+   | **Protocolo** | Elija TCP |TCP |
+   | **Puerto** | Uso del puerto del agente de escucha de grupo de disponibilidad | 58888 |
+   | **Puerto back-end** | Este campo no se utiliza cuando la IP flotante está establecida para Direct Server Return | 58888 |
+   | **Sondeo** |Nombre especificado para el sondeo | WSFCEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
    | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |
    | **IP flotante (Direct Server Return)** | |habilitado |

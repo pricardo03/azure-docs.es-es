@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337303"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446884"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database 
 
@@ -398,9 +398,12 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 Cada instancia administrada tiene hasta 35 TB de almacenamiento reservado para el espacio en disco premium de Azure, y cada archivo de base de datos se coloca en un disco físico independiente. Los posibles tamaños de disco son: 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. El espacio no utilizado en el disco no se cobra, pero la suma total de los tamaños de disco Premium de Azure no puede superar los 35 TB. En algunos casos, una instancia administrada que no necesita 8 TB en total puede superar los 35 TB de límite de Azure en tamaño de almacenamiento debido a la fragmentación interna. 
 
-Por ejemplo, una Instancia administrada podría tener un archivo con un tamaño de 1,2 TB que use un disco de 4 TB y 248 archivos con 1 GB cada uno que se coloquen en 248 discos con un tamaño de 128 GB. En este ejemplo, el tamaño de almacenamiento total del disco es 1 x 4 TB + 248 x 128 GB = 35 TB. Sin embargo, el tamaño total de instancias reservadas para las bases de datos es 1 x 1,2 TB + 248 x 1 GB = 1,4 TB. Esto ilustra que, en determinadas circunstancias, debido a una distribución muy específica de archivos, una instancia administrada podría alcanzar un límite de almacenamiento en disco premium de Azure donde no lo espere. 
+Por ejemplo, una instancia administrada podría tener un archivo de 1,2 TB de tamaño que se coloca en un disco de 4 TB y 248 archivos de 1 GB de tamaño cada uno y que se colocan en discos independientes de 128 GB. En este ejemplo, 
+* el tamaño de almacenamiento total del disco es de 1 x 4 TB + 248 x 128 GB = 35 TB. 
+* el espacio total reservado para las bases de datos en la instancia es de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
+Esto ilustra que, en determinadas circunstancias, debido a una distribución muy específica de archivos, una instancia administrada alcanza los 35 TB reservados para el disco adjunto de Azure Premium cuando no se lo espere. 
 
-No habría ningún error en las bases de datos existentes y pueden crecer sin ningún problema si no se agregan nuevos archivos, pero las bases de datos nuevas no se pueden crear ni restaurar porque no hay suficiente espacio para nuevas unidades de disco, incluso si el tamaño total de todas las bases de datos no alcanza el límite de tamaño de la instancia. El error que se devuelve en ese caso no está claro.
+En este ejemplo, las bases de datos existentes seguirán funcionando y pueden crecer sin ningún problema, siempre y cuando no se agreguen nuevos archivos. Sin embargo, no se podrían crear ni restaurar nuevas bases de datos porque no hay suficiente espacio para nuevas unidades de disco, incluso si el tamaño total de todas las bases de datos no alcanza el límite de tamaño de la instancia. El error que se devuelve en ese caso no está claro.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuración incorrecta de la clave SAS durante la restauración de una base de datos
 

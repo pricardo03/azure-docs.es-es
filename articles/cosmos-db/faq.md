@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261566"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37859707"
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceptos básicos de Azure Cosmos DB
@@ -116,6 +116,11 @@ Azure Cosmos DB se ofrece en todas las regiones de Azure, tal y como se especifi
 
 Al establecer una región, debe recordar que Cosmos DB respeta las nubes independientes y de administración pública. Es decir, si crea una cuenta en una [región independiente](https://azure.microsoft.com/global-infrastructure/), no puede replicarla fuera de dicha [región](https://azure.microsoft.com/global-infrastructure/). De manera similar, tampoco puede habilitar la replicación en otras ubicaciones independientes desde una cuenta externa. 
 
+### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>¿Es posible pasar del aprovisionamiento de rendimiento del nivel de contenedor al aprovisionamiento de rendimiento del nivel de base de datos? O viceversa
+
+El aprovisionamiento del rendimiento de nivel de base de datos y de contenedor son ofertas diferentes y cambiar entre cualquiera de estos requiera migrar datos de origen a destino. Lo que significa que deberá crear una nueva base de datos o una colección nueva y luego migrar datos mediante el uso de [biblioteca de ejecutor masiva](bulk-executor-overview.md) o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+
+
 ## <a name="develop-against-the-sql-api"></a>Desarrollo con SQL API
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>¿Cómo se empieza a desarrollar con SQL API?
@@ -131,12 +136,16 @@ En GitHub se encuentran disponibles ejemplos de los SDK de [.NET](sql-api-dotnet
 Sí, SQL API permite que las aplicaciones almacenen documentos JSON arbitrarios sin definiciones ni sugerencias de esquemas. Los datos están disponibles inmediatamente para consulta a través de la interfaz de consulta SQL de Azure Cosmos DB.  
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>¿SQL API admite transacciones ACID?
-Sí, SQL API admite transacciones entre documentos expresadas como procedimientos almacenados y desencadenadores JavaScript. Las transacciones se limitan a una única partición dentro de cada colección y se ejecutan con semántica ACID, como "todo o nada", aisladas de otras solicitudes de usuario y código que se ejecutan a la vez. Si se producen excepciones por la ejecución en el servidor de código de aplicación JavaScript, la transacción entera se revierte. Para obtener más información sobre las transacciones, consulte [Transacciones del programa de base de datos](programming.md#database-program-transactions).
+Sí, SQL API admite transacciones entre documentos expresadas como procedimientos almacenados y desencadenadores JavaScript. Las transacciones se limitan a una única partición dentro de cada contenedor y se ejecutan con semántica ACID, como "todo o nada", aisladas de otras solicitudes de usuario y código que se ejecutan a la vez. Si se producen excepciones por la ejecución en el servidor de código de aplicación JavaScript, la transacción entera se revierte. Para obtener más información sobre las transacciones, consulte [Transacciones del programa de base de datos](programming.md#database-program-transactions).
 
-### <a name="what-is-a-collection"></a>¿Qué es una colección?
-Una colección es un grupo de documentos y su lógica de aplicación de JavaScript asociada. Una colección es una entidad facturable, en la que el [costo](performance-levels.md) se determina en función del procesamiento y del almacenamiento utilizado. Las colecciones pueden abarcar una o varias particiones o uno o varios servidores y se pueden escalar para administrar volúmenes prácticamente ilimitados de almacenamiento o rendimiento.
+### <a name="what-is-a-container"></a>¿Qué es un contenedor?
+Un contenedor es un grupo de documentos y su lógica de aplicación de JavaScript asociada. Un contenedor es una entidad facturable, en la que el [costo](performance-levels.md) se determina en función del rendimiento y del almacenamiento utilizado. Los contenedores pueden abarcar una o varias particiones o uno o varios servidores y se pueden escalar para administrar volúmenes prácticamente ilimitados de almacenamiento o rendimiento. 
 
-Las colecciones también son las entidades de facturación de Azure Cosmos DB. Cada colección se factura por hora según el rendimiento aprovisionado y el espacio de almacenamiento usado. Para más información, vea los [precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+* Para las cuentas de SQL y de API de MongoDB, se asigna un contenedor a una colección. 
+* Para las cuentas de Cassandra y Table API, se asigna un contenedor a una tabla. 
+* Para las cuentas de API de Gremlin, se asigna un contenedor a un gráfico. 
+
+Los contenedores también son las entidades de facturación de Azure Cosmos DB. Cada contenedor se factura por hora según el rendimiento aprovisionado y el espacio de almacenamiento usado. Para más información, vea los [precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>¿Cómo se crea una base de datos?
 Puede crear bases de datos mediante [Azure Portal](https://portal.azure.com), tal y como se describe en [Agregar una colección](create-sql-api-dotnet.md#create-collection), uno de los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) o las [API de REST](/rest/api/cosmos-db/). 
@@ -165,7 +174,7 @@ Hay dos maneras de insertar documentos de forma masiva en Azure Cosmos DB:
 * La herramienta de migración de datos, como se describe en [Herramienta de migración de bases de datos de Azure Cosmos DB](import-data.md).
 * Procedimientos almacenados, como se describe en [Programación de JavaScript en el lado del servidor de Azure Cosmos DB](programming.md).
 
-### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Ha configurado mi colección para usar la indexación diferida y veo que mis consultas no devuelven los resultados esperados. 
+### <a name="i-have-setup-my-container-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>He configurado mi contenedor para usar la indexación diferida y veo que mis consultas no devuelven los resultados esperados. 
 Como se explica en la sección acerca de la indexación, la indexación diferida puede producir este comportamiento. Siempre debe utilizar la misma indexación en todas las aplicaciones. 
 
 
@@ -180,7 +189,7 @@ Se trata de una limitación de JavaScript. JavaScript usa números de formato de
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>¿Donde se permiten los permisos en la jerarquía de objetos?
 
-La creación de permisos mediante ResourceTokens se permite tanto en el nivel de colección como en sus descendientes (por ejemplo, documentos, datos adjuntos). Esto implica que, el intento de creación un permiso en el nivel de base de datos o de cuenta no está permitido.
+La creación de permisos mediante ResourceTokens se permite tanto en el nivel de contenedor como en sus descendientes (por ejemplo, documentos, datos adjuntos). Esto implica que, el intento de creación un permiso en el nivel de base de datos o de cuenta no está permitido.
 
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Desarrollo con la API de MongoDB
@@ -280,9 +289,6 @@ Puede usar Azure Portal para examinar los datos. También puede usar el código 
 Puede usar el [Explorador de Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 Las herramientas que tengan suficiente flexibilidad como para aceptar una cadena de conexión en el formato especificado antes son compatibles con la nueva Table API. En la página [Herramientas de cliente de Azure Storage](../storage/common/storage-explorers.md) se ofrece una lista de herramientas de tabla. 
-
-### <a name="do-powershell-or-azure-cli-work-with-the-table-api"></a>¿Funcionan PowerShell y la CLI de Azure con la nueva Table API?
-Es compatible con [PowerShell](table-powershell.md). La CLI de Azure no está disponible actualmente.
 
 ### <a name="is-the-concurrency-on-operations-controlled"></a>¿Se controla la simultaneidad en las operaciones?
 Sí, se ofrece simultaneidad optimista a través del mecanismo de ETag. 
@@ -410,7 +416,7 @@ Ninguno. No hay ningún cambio de precio para los clientes existentes de Azure T
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>¿Cómo se calcula el precio de Table API? 
 El precio depende del TableThroughput asignado. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>¿Cómo se tratan las limitaciones en las tablas de la oferta de Table API? 
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>¿Cómo se tratan las limitaciones de tasa en las tablas de la oferta de Table API? 
 Si la tasa de solicitudes supera la capacidad del rendimiento aprovisionado para el contenedor subyacente o un conjunto de contenedores, obtiene un error y el SDK vuelve a intentar la llamada aplicando la directiva de reintentos.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>¿Por qué hay que elegir un rendimiento además de PartitionKey y RowKey para aprovechar las ventajas de la oferta de Table API de Azure Cosmos DB?

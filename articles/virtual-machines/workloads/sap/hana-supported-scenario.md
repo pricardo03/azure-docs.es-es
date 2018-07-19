@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063636"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859959"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Escenarios admitidos para instancias grandes de HANA
 En este documento se describen los escenarios admitidos junto con sus detalles de arquitectura para instancias grandes de HANA (HLI).
@@ -54,10 +54,11 @@ En este documento se describen los detalles de los dos componentes de cada arqui
 
 ### <a name="ethernet"></a>Ethernet
 
-Cada servidor aprovisionado viene preconfigurado con los conjuntos de Ethernet. Estos son los detalles de la red Ethernet configurada en cada unidad HLI.
+Cada servidor aprovisionado viene preconfigurado con los conjuntos de interfaces Ethernet. Estos son los detalles de las interfaces Ethernet configuradas en cada unidad HLI.
 
-- **A**: se usa en el acceso del cliente.
-- **B**: se usa para la comunicación nodo a nodo. Esta configuración es común a todos los servidores (sin importar la topología solicitada), pero solo se usa en los escenarios de escalabilidad horizontal.
+- **A**: esta interfaz se usa en el acceso del cliente.
+- **B**: esta interfaz se usa para la comunicación nodo a nodo. Esta interfaz es común a todos los servidores (sin importar la topología solicitada), pero solo se usa en los 
+- escenarios de escalabilidad horizontal.
 - **C**: esta interfaz se usa para la conectividad del nodo con el almacenamiento.
 - **D**: esta interfaz se usa para la conexión del nodo con el dispositivo ISCSI para la configuración de STONITH. Esta interfaz solo se configura cuando se solicita la configuración de HSR.  
 
@@ -81,19 +82,19 @@ Si es necesario, puede definir tarjetas NIC adicionales por su cuenta. Sin embar
 
 La distribución para las unidades con dos direcciones IP asignadas debería ser como lo siguiente:
 
-La Ethernet "A" debe tener asignada una dirección IP que esté fuera del intervalo de direcciones del grupo de direcciones IP de servidor que envió a Microsoft. Esta dirección IP se usará para el mantenimiento en /etc/hosts del sistema operativo.
+- La Ethernet "A" debe tener asignada una dirección IP que esté fuera del intervalo de direcciones del grupo de direcciones IP de servidor que envió a Microsoft. Esta dirección IP se usará para el mantenimiento en /etc/hosts del sistema operativo.
 
-La Ethernet "B" debe tener asignada una dirección IP que se usa para la comunicación con NFS. Por lo tanto, estas direcciones **NO** necesitan permanecer en etc/hosts para permitir el tráfico de instancia a instancia dentro del inquilino.
+- La Ethernet "C" debe tener asignada una dirección IP que se usa para la comunicación con NFS. Por lo tanto, estas direcciones **NO** necesitan permanecer en etc/hosts para permitir el tráfico de instancia a instancia dentro del inquilino.
 
 Para los casos de implementación de la replicación del sistema de HANA o el escalado horizontal de HANA, una configuración de hoja con dos direcciones IP asignadas no es adecuada. Si solo tiene dos direcciones IP asignadas y quiere implementar este tipo de configuración, póngase en contacto con SAP HANA en Azure Service Management para obtener una tercera dirección IP en otra red VLAN asignada. Para las unidades de instancia grande de HANA con tres direcciones IP asignadas en tres puertos de NIC, se aplican las reglas de uso siguientes:
 
 - La Ethernet "A" debe tener asignada una dirección IP que esté fuera del intervalo de direcciones del grupo de direcciones IP de servidor que envió a Microsoft. Por lo tanto, esta dirección IP no se usará para el mantenimiento en /etc/hosts del sistema operativo.
 
-- La Ethernet "B" debe tener asignada una dirección IP que se usa para la comunicación con el almacenamiento NFS. Por lo tanto, este tipo de direcciones no debe permanecer en etc/hosts.
+- La Ethernet "B" debe usarse exclusivamente para el mantenimiento en etc/hosts, para la comunicación entre las distintas instancias. Estas direcciones también serían las direcciones IP que deben mantenerse en las configuraciones de escalado horizontal de HANA como las direcciones IP que HANA usa para la configuración entre nodos.
 
-- La Ethernet "C" debe usarse exclusivamente para el mantenimiento en etc/hosts, para la comunicación entre las distintas instancias. Estas direcciones también serían las direcciones IP que deben mantenerse en las configuraciones de escalado horizontal de HANA como las direcciones IP que HANA usa para la configuración entre nodos.
+- La Ethernet "C" debe tener asignada una dirección IP que se usa para la comunicación con el almacenamiento NFS. Por lo tanto, este tipo de direcciones no debe permanecer en etc/hosts.
 
-- La Ethernet "D" debe usarse exclusivamente para el acceso al dispositivo STONITH para Pacemaker. Esto es necesario cuando configura la replicación del sistema HANA (HSR) y quiere conseguir la conmutación por error automática en el sistema operativo con un dispositivo basado en SBD.
+- La Ethernet "D" debe usarse exclusivamente para el acceso al dispositivo STONITH para Pacemaker. Esta interfaz es necesaria cuando configura la replicación del sistema HANA (HSR) y quiere conseguir la conmutación por error automática en el sistema operativo con un dispositivo basado en SBD.
 
 
 ### <a name="storage"></a>Storage
@@ -236,7 +237,7 @@ Los puntos de montaje siguientes están preconfigurados:
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
 - En MCOS: la distribución de tamaño del volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
 - En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
-- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para más información, consulte [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
 
@@ -285,13 +286,13 @@ Los puntos de montaje siguientes están preconfigurados:
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
 - En MCOS: la distribución de tamaño del volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
 - En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
-- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para más información, consulte [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - En la recuperación ante desastres: los datos, las copias de seguridad de registros, los registros y los volúmenes compartidos para QA (marcados como "instalación de instancia de QA") se configuran para la instalación de la instancia de QA.
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR con STONITH
  
-Esta topología admite dos nodos para la configuración de replicación de sistema de HANA (HSR). 
+Esta topología admite dos nodos para la configuración de replicación de sistema de HANA (HSR). Esta configuración solo se admite para instancias únicas de HANA en un nodo. Esto quiere decir que los escenarios MCOS NO son compatibles.
 
 **A partir de ahora, esta arquitectura se admite solo para el sistema operativo SUSE.**
 
@@ -340,7 +341,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="6-hsr-with-dr"></a>6. HSR con recuperación ante desastres
  
-Esta topología admite dos nodos para la configuración de replicación de sistema de HANA (HSR). Se admite tanto la recuperación ante desastres normal como multipropósito. 
+Esta topología admite dos nodos para la configuración de replicación de sistema de HANA (HSR). Se admite tanto la recuperación ante desastres normal como multipropósito. Estas configuraciones solo se admite para instancias únicas de HANA en un nodo. Esto quiere decir que los escenarios MCOS NO son compatibles con estas configuraciones.
 
 En el diagrama, el escenario multipropósito se representa donde, en el sitio de recuperación ante desastres, la unidad HLI se usa para la instancia de QA mientras las operaciones de producción se ejecutan desde el sitio principal. En el momento de la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres. 
 
@@ -394,7 +395,7 @@ Los puntos de montaje siguientes están preconfigurados:
 - STONITH: se configura un SBD para la configuración de STONITH. Sin embargo, un uso de STONITH es opcional.
 - En la recuperación ante desastres: **se necesitan dos conjuntos de volúmenes de almacenamiento** para la replicación de nodo principal y secundaria.
 - En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
-- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para más información, consulte [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - En la recuperación ante desastres: los datos, las copias de seguridad de registros, los registros y los volúmenes compartidos para QA (marcados como "instalación de instancia de QA") se configuran para la instalación de la instancia de QA.
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
@@ -558,7 +559,7 @@ Los puntos de montaje siguientes están preconfigurados:
 ### <a name="key-considerations"></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
 -  En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
-- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para más información, consulte [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
 

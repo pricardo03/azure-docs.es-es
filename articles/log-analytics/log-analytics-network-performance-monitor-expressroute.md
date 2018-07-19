@@ -1,6 +1,6 @@
 ---
 title: Solución Monitor de rendimiento de red en Azure Log Analytics | Microsoft Docs
-description: Use la función de ExpressRoute Manager en Network Performance Monitor para supervisar la conectividad de extremo a extremo y el rendimiento entre sus sucursales y Azure, a través de ExpressRoute de Azure.
+description: Use la funcionalidad de Supervisión de ExpressRoute en Network Performance Monitor para supervisar la conectividad de un extremo a otro y el rendimiento entre sus sucursales y Azure, a través de Azure ExpressRoute.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 27169193a468d98be879164b80e63fffde419002
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131135"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633356"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute Manager
+# <a name="expressroute-monitor"></a>Supervisión de ExpressRoute
 
-Puede usar la función de ExpressRoute Manager de Azure en [Network Performance Monitor](log-analytics-network-performance-monitor.md) para supervisar la conectividad de extremo a extremo y el rendimiento entre sus sucursales y Azure, a través de ExpressRoute de Azure. Las principales ventajas son: 
+Puede usar la funcionalidad de Supervisión de Azure ExpressRoute en [Network Performance Monitor](log-analytics-network-performance-monitor.md) para supervisar la conectividad de un extremo a otro y el rendimiento entre sus sucursales y Azure, a través de Azure ExpressRoute. Las principales ventajas son: 
 
 - Detección automática de circuitos ExpressRoute asociados a una suscripción.
 - Seguimiento de uso, pérdida y latencia de ancho de banda en el nivel de circuito, emparejamiento y Azure Virtual Network para ExpressRoute.

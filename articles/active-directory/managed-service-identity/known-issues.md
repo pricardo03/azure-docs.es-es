@@ -10,17 +10,17 @@ ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
 ms.component: msi
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930993"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906221"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Preguntas más frecuentes y problemas conocidos de Managed Service Identity (MSI) para Azure Active Directory
 
@@ -60,7 +60,7 @@ Todas las distribuciones de Linux compatibles con IaaS de Azure se pueden utiliz
 Nota: La extensión de máquina virtual de MSI solamente admite las siguientes distribuciones de Linux:
 - CoreOS Stable
 - CentOS 7.1
-- RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
@@ -128,7 +128,8 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 - Se puede producir un error con el aprovisionamiento de la extensión de máquina virtual en una máquina virtual debido a errores de búsqueda DNS. Reinicie la máquina virtual y vuelva a intentarlo. 
 - Al agregar una identidad asignada por el usuario "no existente", se producirá un error en la máquina virtual. 
 - No se admite la creación de una identidad asignada por el usuario con caracteres especiales (por ejemplo, guion bajo) en el nombre.
-- Los nombres de identidades asignadas por el usuario se restringen a 24 caracteres para el escenario completo. Las identidades asignadas por el usuario con nombres que tengan más de 24 caracteres no se podrán asignar.  
+- Los nombres de identidades asignadas por el usuario se restringen a 24 caracteres para el escenario completo. Las identidades asignadas por el usuario con nombres que tengan más de 24 caracteres no se podrán asignar.
+- Si se utiliza la extensión de máquina virtual de identidades administradas, el límite admitido es de 32 identidades administradas asignadas por el usuario. Sin la extensión de máquina virtual de identidades administradas, el límite admitido es de 512.  
 - Al agregar una segunda identidad asignada por el usuario, el identificador de cliente puede no estar disponible para tokens de solicitudes para la extensión de máquina virtual. Como una mitigación, reinicie la extensión MSI para máquina virtual con los dos comandos de bash siguientes:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

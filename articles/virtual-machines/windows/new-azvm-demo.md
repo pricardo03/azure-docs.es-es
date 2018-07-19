@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31601644"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38678747"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Creación de una máquina virtual Windows con el cmdlet New-AzureRMVM simplificado en Cloud Shell 
 
@@ -46,11 +46,11 @@ New-AzureRMVm -Name myVM
 
 Deberá crear un nombre de usuario y una contraseña para la máquina virtual, que se usarán cuando se conecte a la máquina virtual más adelante en este tema. La contraseña debe tener entre 12 y 123 caracteres y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial.
 
-Se tarda un minuto en crear la máquina virtual y los recursos asociados. Cuando finalice, podrá ver todos los recursos que se crearon con el cmdlet [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource).
+Se tarda un minuto en crear la máquina virtual y los recursos asociados. Cuando finalice, podrá ver todos los recursos que se crearon con el cmdlet [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource).
 
 ```azurepowershell-interactive
-Find-AzureRmResource `
-    -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Get-AzureRmResource `
+    -ResourceGroupName myVMResourceGroup | Format-Table Name
 ```
 
 ## <a name="connect-to-the-vm"></a>Conexión a la máquina virtual

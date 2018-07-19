@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2018
+ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6af1a6612360c2433c05a7add79d2e7b3b9d754
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658267"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114599"
 ---
 # <a name="operating-system-upgrade"></a>Actualización del sistema operativo
 Este documento describe los detalles acerca de las actualizaciones del sistema operativo en las instancias grandes HANA.
@@ -29,33 +29,10 @@ Este documento describe los detalles acerca de las actualizaciones del sistema o
 
 En el momento del aprovisionamiento de la unidad HLI, el equipo de operaciones de Microsoft instala el sistema operativo. Con el tiempo, se le pide realizar mantenimiento al sistema operativo (por ejemplo: aplicación de revisiones, optimizaciones, actualizaciones, etc.) en la unidad HLI.
 
-Antes de realizar cambios principales en el sistema operativo (por ejemplo, actualizar un SO), se **debe** tener en cuenta la siguiente matriz de compatibilidad. Además, **debe** ponerse en contacto con el equipo de operaciones de Microsoft mediante un vale de soporte para consultar antes de iniciar las actividades principales del sistema operativo, como la actualización.
+Además, debe abrir una incidencia de soporte técnico para ponerse en contacto con el equipo de operaciones de Microsoft y consultar con ellos antes de realizar cambios importantes en el sistema operativo (por ejemplo, la actualización de SP1 a SP2).
+
 
 Para la matriz de compatibilidad de las distintas versiones de SAP HANA con las diferentes versiones de Linux, consulte la [Nota de SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
-Se ha probado la siguiente compatibilidad para las HLI. Si el servidor HLI está fuera de la matriz de compatibilidad, póngase en contacto con el soporte técnico de operaciones de Microsoft.
-
-## <a name="for-type-i-class-sku-category"></a>Para la categoría de clase SKU de tipo I
-
-| Configuración | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| Firmware del servidor | 3.1(2b) | 3.1(2b) | 3.1(2b) | 3.1(2b) |
-| Versión ENIC | 2.3.0.44 | 2.3.0.44 | 2.3.0.30 | 2.3.0.44 |
-| Versión FNIC | 1.6.0.34 | 1.6.0.34 | 1.6.0.27 | 1.6.0.36 |
-| EDAC | Disabled | Disabled | Disabled | Disabled |
-| Versión de kernel | 4.4.21-69-default | 3.12.49-11-default | 3.10.0-327.el7.x86_64 | 3.10.0-693.17.1 |
-
-
-## <a name="for-type-ii-class-sku-category"></a>Para la categoría de clase SKU de tipo II
-
-| Configuración | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| Versión de firmware RMC | 1.1.121  | 1.1.121  | 1.1.121  | 1.1.121 |
-| Versión de Firmware BMC | 1.0.43   | 1.0.43   | 1.0.43   | 1.0.43  |
-| Versión de Software Foundation Server (SFS) | 2.16    | 2.16    | 2.14/2.16   | 2.16   |
-| BIOS | 5.2.6    | 5.2.6    | 5.2.6    | 5.2.6   |
-| Versión i40e    | 2.0.19     | 2.0.19     | 1.5.10-k    | 1.5.10-k   |
-| Versión de kernel    | 3.12.49-11.1     | 4.4.21-69.1     | 3.10.0-327    | 3.10.0-693.17.1   |
 
 
 ## <a name="known-issues"></a>Problemas conocidos

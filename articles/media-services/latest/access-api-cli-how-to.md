@@ -1,5 +1,5 @@
 ---
-title: 'Acceso a la API de Azure Media Services: CLI 2.0 | Microsoft Docs'
+title: 'Acceso a la API de Azure Media Services: CLI de Azure | Microsoft Docs'
 description: Siga los pasos de esta guía para acceder a la API de Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639782"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723697"
 ---
-# <a name="access-azure-media-services-api-with-cli-20"></a>Acceso a la API de Azure Media Services con la CLI 2.0
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Acceso a la API de Azure Media Services con la CLI de Azure
  
 Debe usar la autenticación de la entidad de servicio de Azure AD para conectarse a la API de Azure Media Services. La aplicación debe solicitar un token de Azure AD que tenga los parámetros siguientes:
 
@@ -28,7 +28,7 @@ Debe usar la autenticación de la entidad de servicio de Azure AD para conectars
 * URI del recurso de Media Services de REST
 * Valores de aplicación de Azure AD: el identificador de cliente y el secreto de cliente
 
-En este artículo se muestra cómo usar la CLI 2.0 para crear una entidad de servicio y una aplicación de Azure AD y obtener los valores necesarios para acceder a los recursos de Azure Media Services.
+En este artículo se muestra cómo usar la CLI de Azure para crear una entidad de servicio y una aplicación de Azure AD y obtener los valores necesarios para acceder a los recursos de Azure Media Services.
 
 ## <a name="prerequisites"></a>requisitos previos 
 
@@ -40,7 +40,7 @@ Inicie sesión en [Azure Portal](http://portal.azure.com) e inicie **CloudShell*
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este tema es preciso la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -51,4 +51,4 @@ Si decide instalar y usar la CLI localmente, para este tema es preciso la CLI de
 
 ## <a name="see-also"></a>Otras referencias
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

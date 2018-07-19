@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a0f9e54b920ee2c16a141ee62d22784f75c0af6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 79b0aa9ae435defa980b4da0c8d376fdb69542f3
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224171"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integración de Azure Active Directory con Cisco Cloud
 
@@ -101,7 +101,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Cuadro de diálogo Inicio de sesión único](./media/ciscocloud-tutorial/tutorial_ciscocloud_samlbase.png)
 
 3. En la sección **Dominio y direcciones URL de Cisco Cloud**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
@@ -117,19 +117,45 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Información de dominio y direcciones URL de inicio de sesión único de Cisco Cloud](./media/ciscocloud-tutorial/tutorial_ciscocloud_url1.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://<subdomain>.cloudapps.cisco.com`
-     
-    > [!NOTE] 
+
+    > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Cisco Cloud](mailto:cpr-ops@cisco.com) para obtener estos valores.
 
-5. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+5. La aplicación Cisco Cloud espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones.
+ La siguiente captura de pantalla muestra un ejemplo al respecto.
+
+    ![Configurar inicio de sesión único](./media/ciscocloud-tutorial/attribute.png)
+
+6. En la sección **Atributos de usuario**, active la casilla **Ver y editar todos los demás atributos de usuario** para expandir los atributos. Realice los pasos siguientes en cada uno de los atributos mostrados:
+
+    | Nombre del atributo | Valor de atributo |
+    | ---------------| ----------------|
+    | country      |user.country |
+    | company      |user.companyname |
+
+    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+
+    ![Configurar inicio de sesión único](./media/ciscocloud-tutorial/tutorial_attribute_04.png)
+
+    ![Configurar inicio de sesión único](./media/ciscocloud-tutorial/tutorial_attribute_05.png)
+
+    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+
+    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
+
+    d. Deje el valor **Espacio de nombres** en blanco.
+
+    e. Haga clic en **Aceptar**.
+
+7. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
 
     ![Vínculo de descarga del certificado](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
-6. Haga clic en el botón **Guardar** .
+8. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/ciscocloud-tutorial/tutorial_general_400.png)
 
-7. Para configurar el inicio de sesión único en **Cisco Cloud**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Cisco Cloud](mailto:cpr-ops@cisco.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+9. Para configurar el inicio de sesión único en **Cisco Cloud**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Cisco Cloud](mailto:cpr-ops@cisco.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

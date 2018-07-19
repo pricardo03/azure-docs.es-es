@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 4f548e180ca315013d5ca91118041cac2e622520
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611456"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856647"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Cómo se distribuyen datos globalmente con Azure Cosmos DB
 Azure es ubicuo, se puede encontrar en más de cincuenta regiones geográficas y se halla en continua expansión. Dada su presencia en todo el mundo, una de las funcionalidades únicas que Azure ofrece a los desarrolladores es la capacidad de compilar, implementar y administrar fácilmente aplicaciones distribuidas globalmente. 
@@ -22,7 +22,7 @@ Azure es ubicuo, se puede encontrar en más de cincuenta regiones geográficas y
 [Azure Cosmos DB](../cosmos-db/introduction.md) es un servicio de base de datos con varios modelos y distribución global de Microsoft para aplicaciones críticas. Azure Cosmos DB ofrece una distribución global inmediata, [escalado elástico de rendimiento y almacenamiento](../cosmos-db/partition-data.md) en todo el mundo, latencias inferiores a 10 milisegundos en el percentil 99, [cinco modelos de coherencia bien definidos](consistency-levels.md) y alta disponibilidad garantizada, todo ello respaldado por [exhaustivos Acuerdos de Nivel de Servicio líderes del sector](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexa datos automáticamente todos sus datos](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sin que haya que ocuparse de la administración de esquemas ni de índices. Es un servicio multimodelo que admite modelos de datos de documentos, pares clave-valor, grafos y en columnas. Al ser un servicio surgido de forma nativa en la nube, Azure Cosmos DB se ha diseñado meticulosamente desde cero con servicios multiinquilino y distribución global.
 
 
-![Colección de Azure Cosmos DB particionada y distribuida en tres regiones](./media/distribute-data-globally/global-apps.png)
+![Contenedor de Azure Cosmos DB particionado y distribuido en tres regiones](./media/distribute-data-globally/global-apps.png)
 
 **Un solo contenedor de Azure Cosmos DB particionado y distribuido en varias regiones de Azure**
 
@@ -35,7 +35,7 @@ En este artículo se ofrece información general sobre las funcionalidades de di
 ## <a id="EnableGlobalDistribution"></a>Habilitación de una distribución global inmediata
 Azure Cosmos DB ofrece las siguientes funcionalidades, que permiten escribir fácilmente aplicaciones distribuidas a escala mundial. Estas funcionalidades están disponibles a través de las [API de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) basadas en el proveedor de recursos de Azure Cosmos DB, así como en Azure Portal.
 
-Vea el siguiente vídeo para ver en acción la característica de distribución global inmediata en Azure Cosmos DB.
+Consulte el siguiente vídeo para ver en acción la característica de distribución global inmediata en Azure Cosmos DB.
 
 > [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 >
@@ -52,7 +52,7 @@ Azure Cosmos DB permite asociar cualquier número de regiones de Azure con su cu
 
 
 ### <a id="PolicyBasedGeoFencing"></a>Geovallado basado en directivas
-Azure Cosmos DB está diseñado para admitir el geovallado basado en directivas. El geovallado es un componente importante para asegurar las restricciones de cumplimiento y regulación de datos, y puede evitar la asociación de una región específica a una cuenta. Entre los ejemplos de geovallado se incluyen los siguientes (aunque hay más): limitación del ámbito de distribución global a las regiones que estén dentro de una nube soberana (por ejemplo, China y Alemania) o dentro de un límite impositivo de gobierno (por ejemplo, Australia). Las directivas se controlan mediante los metadatos de la suscripción de Azure.
+Azure Cosmos DB está diseñado para admitir la geovalla basada en directivas. El geovallado es un componente importante para asegurar las restricciones de cumplimiento y regulación de datos, y puede evitar la asociación de una región específica a una cuenta. Entre los ejemplos de geovalla se incluyen los siguientes (aunque hay más): limitación del ámbito de distribución global a las regiones que estén dentro de una nube soberana (por ejemplo, China y Alemania) o dentro de un límite impositivo de gobierno (por ejemplo, Australia). Las directivas se controlan mediante los metadatos de la suscripción de Azure.
 
 ### <a id="DynamicallyAddRegions"></a>Incorporación y eliminación dinámicas de regiones
 Azure Cosmos DB permite agregar (asociar) o quitar (desasociar) regiones en una cuenta de base de datos en cualquier momento (vea la [ilustración anterior](#UnlimitedRegionsPerAccount)). Gracias a la replicación paralela de los datos entre particiones, Azure Cosmos DB garantiza que cuando se agregue una nueva región, esta estará disponible para las operaciones en un plazo de 30 minutos en cualquier lugar del mundo (suponiendo que los datos tengan 100 TB o menos). 
@@ -78,7 +78,7 @@ Azure Cosmos DB permite configurar las regiones (asociadas a la base de datos) c
 Para escalar elásticamente un contenedor de Azure Cosmos DB, es preciso aprovisionar el rendimiento mediante programación. El rendimiento se aplica a todas las regiones en que está distribuido el contenedor de Azure Cosmos DB.
 
 ### <a id="GeoLocalReadsAndWrites"></a>Escrituras y lecturas geolocalizadas
-La principal ventaja de una base de datos distribuida globalmente es que ofrece acceso con latencia baja a datos en cualquier lugar del mundo. Azure Cosmos DB ofrece lecturas de latencia baja y escribe en el percentil 99 en todo el mundo. Garantiza que todas las lecturas se atiendan desde la región de lectura más cercana (local). Para atender una solicitud de lectura, se usa el cuórum local de la región en la que se emite la lectura. Lo mismo se aplica a las escrituras. Las operaciones de escritura solo se reconocen después de que una mayoría de las réplicas hayan confirmado de manera duradera la escritura localmente, pero sin que sea preciso canalizarlas en réplicas remotas para confirmar las escrituras. Dicho de otro modo, el protocolo de replicación de Azure Cosmos DB opera con la asunción de que los cuórums de lectura y escritura son siempre locales en las región en la que se emitió la solicitud.
+La principal ventaja de una base de datos distribuida globalmente es que ofrece acceso con latencia baja a datos en cualquier lugar del mundo. Azure Cosmos DB ofrece lecturas de latencia baja y escribe en el percentil 99 en todo el mundo. Garantiza que todas las lecturas se atiendan desde la región de lectura más cercana (local). Para atender una solicitud de lectura, se usa el cuórum local de la región en la que se emite la lectura. Lo mismo se aplica a las escrituras. Las operaciones de escritura solo se reconocen después de que una mayoría de las réplicas hayan confirmado de manera duradera la escritura localmente, pero sin que sea preciso canalizarlas en réplicas remotas para confirmar las escrituras. Dicho de otro modo, el protocolo de replicación de Azure Cosmos DB opera con la asunción de que los cuórums de lectura y escritura son siempre locales en la región en la que se emitió la solicitud.
 
 ### <a id="ManualFailover"></a>Conmutación por error manual
 Azure Cosmos DB permite desencadenar la conmutación por error de la cuenta de base de datos para validar las propiedades de disponibilidad *de un extremo a otro* de toda la aplicación (más allá de la base de datos). Puesto que se garantizan las propiedades de seguridad y actividad de la detección de errores y la elección de líder, Azure Cosmos DB garantiza *que no habrá pérdida de datos* en las operaciones de conmutación por error manual iniciadas por un inquilino.
@@ -89,10 +89,10 @@ Azure Cosmos DB admite la conmutación por error automática en caso de una o va
 ### <a id="GranularFailover"></a>Diseñado para diferentes granularidades de conmutación por error
 En la actualidad, las funcionalidades de conmutación por error automática y manual se exponen en la granularidad de la cuenta de la base de datos. Tenga en cuenta que, internamente, el servicio Azure Cosmos DB está diseñado para ofrecer conmutación por error *automática* con la granularidad más precisa de una base de datos, contenedor o incluso partición (de un contenedor que posee un intervalo de claves). 
 
-### <a id="MultiHomingAPIs"></a>Hospedaje múltiple en Azure Cosmos DB
-Azure Cosmos DB le permite interactuar con una base de datos mediante puntos de conexión *lógicos* (independientes de la región) o *físicos* (específicos de la región). El uso de puntos de conexión lógicos garantiza que la aplicación puede alojarse de forma transparente en múltiples hosts en caso de conmutación por error. El último, un punto de conexión físico, proporciona un control específico de la aplicación para redirigir las lecturas y escrituras a regiones concretas.
+### <a id="MultiHomingAPIs"></a>Multiconexión en Azure Cosmos DB
+Azure Cosmos DB le permite interactuar con una base de datos mediante puntos de conexión *lógicos* (independientes de la región) o *físicos* (específicos de la región). El uso de puntos de conexión lógicos garantiza que la aplicación puede alojarse de forma transparente con multiconexión en caso de conmutación por error. El último, un punto de conexión físico, proporciona un control específico de la aplicación para redirigir las lecturas y escrituras a regiones concretas.
 
-Encontrará información sobre cómo configurar preferencias de lectura para la [API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [API Gremlin](../cosmos-db/tutorial-global-distribution-graph.md), [Table API](../cosmos-db/tutorial-global-distribution-table.md) y la [API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) en estos artículos.
+Encontrará información sobre cómo configurar preferencias de lectura para la [API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [Table API](../cosmos-db/tutorial-global-distribution-table.md) y [API de MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) en estos artículos.
 
 ### <a id="TransparentSchemaMigration"></a>Migración transparente y coherente del índice y esquema de la base de datos 
 Azure Cosmos DB es totalmente [independiente del esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). El diseño exclusivo de su motor de base de datos permite a Azure Cosmos DB indexar de forma automática y sincrónica todos los datos que ingiere sin necesidad de que el usuario aporte ningún esquema ni índices secundarios. Esto le permite recorrer en iteración la aplicación distribuida globalmente rápidamente, sin tener que preocuparse de la migración del índice y del esquema de la base de datos ni coordinar los lanzamientos de aplicaciones de varias fases de cambios de esquema. Azure Cosmos DB garantiza que los cambios en directivas de indexación que realiza explícitamente el usuario no generan una degradación del rendimiento ni de la disponibilidad.  
@@ -187,7 +187,7 @@ Dado que la implementación de un modelo de coherencia específico depende de la
 ## <a id="ThroughputGuarantees"></a>Garantías de rendimiento 
 Azure Cosmos DB permite escalar elásticamente el rendimiento (así como el almacenamiento) en diferentes regiones en función de las necesidades o la demanda. 
 
-![Colecciones particionadas y distribuidas de Azure Cosmos DB](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
+![Contenedores particionados y distribuidos de Azure Cosmos DB](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 **Un único contenedor de Azure Cosmos DB con particiones horizontales (en tres particiones de recursos dentro de una región) y luego distribución global en tres regiones de Azure**
 
@@ -209,7 +209,7 @@ Es lo mismo que se describió en [Relación de la coherencia con el rendimiento]
 Azure Cosmos DB sigue manteniendo su disponibilidad alta cuando se realizan cambios en el rendimiento aprovisionado. Azure Cosmos DB administra de forma transparente las particiones de recursos (y realiza operaciones de división, combinación y clonación) y se asegura de que las operaciones no degraden el rendimiento o la disponibilidad, mientras que la aplicación aumenta o disminuye elásticamente el rendimiento. 
 
 ## <a id="AvailabilityGuarantees"></a>Garantías de disponibilidad
-Azure Cosmos DB ofrece un Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % para todas las cuentas de base de datos de una sola región y todas las cuentas de varias regiones con coherencia moderada, y disponibilidad del 99,999 % para todas las cuentas de base de datos de varias regiones. Como ya se ha descrito, las garantías de disponibilidad de Azure Cosmos DB incluyen un límite superior absoluto de la latencia de todas las operaciones de datos y del plano de control. Las garantías de disponibilidad no cambian con el número de regiones ni con la distancia geográfica entre regiones. Las garantías de disponibilidad son aplicables tanto a la conmutación por error manual como a la automática. Azure Cosmos DB ofrece API de hospedaje múltiple transparentes que garantizan que la aplicación puede funcionar en puntos de conexión lógicos y puede enrutar de forma transparente las solicitudes a la nueva región en caso de conmutación por error. No es preciso volver a implementar la aplicación si se produce una conmutación por error regional y los Acuerdos de Nivel de Servicio se mantienen en todo momento.
+Azure Cosmos DB ofrece un Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % para todas las cuentas de base de datos de una sola región y todas las cuentas de varias regiones con coherencia moderada, y disponibilidad del 99,999 % para todas las cuentas de base de datos de varias regiones. Como ya se ha descrito, las garantías de disponibilidad de Azure Cosmos DB incluyen un límite superior absoluto de la latencia de todas las operaciones de datos y del plano de control. Las garantías de disponibilidad no cambian con el número de regiones ni con la distancia geográfica entre regiones. Las garantías de disponibilidad son aplicables tanto a la conmutación por error manual como a la automática. Azure Cosmos DB ofrece API de multiconexión transparentes que garantizan que la aplicación puede funcionar en puntos de conexión lógicos y puede enrutar de forma transparente las solicitudes a la nueva región en caso de conmutación por error. No es preciso volver a implementar la aplicación si se produce una conmutación por error regional y los Acuerdos de Nivel de Servicio se mantienen en todo momento.
 
 ### <a id="AvailabilityAndConsistency"></a>Relación de la disponibilidad con la coherencia, la latencia y el rendimiento
 La relación de la disponibilidad con la coherencia, la latencia y el rendimiento se describe en las secciones [Relación de la coherencia con la disponibilidad](#ConsistencyAndAvailability), [Relación de la latencia con la disponibilidad](#LatencyAndAvailability) y [Relación del rendimiento con la disponibilidad](#ThroughputAndAvailability). 

@@ -5,14 +5,14 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 07/06/2018
 ms.author: anoopkv
-ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598870"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951183"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico
 
@@ -37,7 +37,7 @@ En esta tabla se resumen los requisitos previos para implementar la máquina del
 | IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Habilitar la [Autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente<br>|
 | Tipo de NIC | VMXNET3 (cuando se implementa como una máquina virtual VMware) |
 | Tipo de dirección IP | estática |
-| Acceso a Internet | El servidor necesita acceder a estas direcciones URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (no se necesita para servidores de procesos de escalabilidad horizontal) <br> - time.nist.gov <br> - time.windows.com |
+| Acceso a Internet | El servidor necesita acceder a estas direcciones URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (no se necesita para servidores de procesos de escalado horizontal) <br> - time.nist.gov <br> - time.windows.com |
 | Puertos | 443 (orquestación del canal de control)<br>9443 (Transporte de datos)|
 
 ## <a name="download-the-latest-installation-file"></a>Descargue el archivo de instalación más reciente.
@@ -98,7 +98,7 @@ Ejecute el archivo de instalación del modo siguiente:
 
 ### <a name="sample-usage"></a>Ejemplo de uso
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```
@@ -106,7 +106,7 @@ Ejecute el archivo de instalación del modo siguiente:
 
 ### <a name="parameters"></a>Parámetros
 
-|Nombre de parámetro| Escriba | DESCRIPCIÓN| Valores|
+|Nombre de parámetro| type | DESCRIPCIÓN| Valores|
 |-|-|-|-|
 | /ServerMode|Obligatorio|Especifica si se deben instalar los servidores de configuración y de procesos, o solo el servidor de procesos|CS<br>PS|
 |/InstallLocation|Obligatorio|La carpeta donde se instalan los componentes| Cualquier carpeta del equipo|

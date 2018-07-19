@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261192"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868442"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -57,8 +57,8 @@ Para mejorar la legibilidad de las descripciones, en este artículo se utiliza e
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- El registro de dispositivos de Windows de nivel inferior **se** admite en entornos no federados a través del inicio de sesión único de conexión directa [Inicio de sesión único de conexión directa de Azure Active Directory](https://aka.ms/hybrid/sso). 
-- El registro de dispositivos de Windows de nivel inferior **no** se admite al usar la autenticación de paso a través de Azure AD.
+- El registro de dispositivos de Windows de nivel inferior **se** admite en entornos no federados a través del inicio de sesión único de conexión directa [Inicio de sesión único de conexión directa de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- El registro de dispositivos de Windows de nivel inferior **no** se admite al usar la autenticación de paso a través de Azure AD sin el inicio de sesión único de conexión directa.
 - El registro de dispositivos de Windows de nivel inferior **no se** admite en dispositivos que usan perfiles móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
 
 
@@ -92,8 +92,6 @@ Si no se ha hecho, el STS de su organización (para dominios federados) se debe 
 Si su organización tiene previsto usar SSO sin problemas, las siguientes direcciones URL deben ser accesibles desde los equipos que se encuentran dentro de su organización y también se deben agregar a la zona de la intranet local del usuario:
 
 - https://autologon.microsoftazuread-sso.com
-
-- https://aadg.windows.net.nsatc.net
 
 - Además, se debe habilitar la siguiente configuración en la zona de la intranet del usuario: "Permitir actualizaciones de barra de estado a través de scripts".
 
@@ -179,7 +177,6 @@ En una configuración con varios bosques, debe usar el script siguiente para cre
 
     $de = New-Object System.DirectoryServices.DirectoryEntry
     $de.Path = "LDAP://CN=Services," + $configNC
-
     $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
     $deDRC.CommitChanges()
 
@@ -272,7 +269,7 @@ La definición le ayuda a comprobar si los valores están presentes o si debe cr
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Emisión de objectSID de la cuenta local del equipo
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**: esta notificación debe contener el valor **objectSid** de la cuenta local del equipo. En AD FS, puede agregar una regla de transformación de emisión como esta:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**: esta notificación debe contener el valor **objectSid** de la cuenta de equipo local. En AD FS, puede agregar una regla de transformación de emisión como esta:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -504,7 +501,7 @@ El siguiente script le ayuda con la creación de las reglas de transformación d
 
 ## <a name="step-3-enable-windows-down-level-devices"></a>Paso 3: Habilitación de dispositivos de Windows de nivel inferior
 
-Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows de nivel inferior, necesitará:
+Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows de nivel inferior, tendrá que:
 
 - Establecer una directiva en Azure AD que permita a los usuarios registrar dispositivos.
  
@@ -572,7 +569,7 @@ Cuando se hayan completado los pasos necesarios, los dispositivos unidos a un do
 
 ### <a name="remarks"></a>Comentarios
 
-- Para controlar el lanzamiento del registro automático de los equipos con Windows 10 y Windows Server 2016 unidos a un dominio, se puede usar un objeto de directiva de grupo. **Si no desea que estos dispositivos se registren automáticamente con Azure AD o desea controlar el registro**, primero debe implementar una directiva de grupo que deshabilite el registro automático en todos estos dispositivos antes de empezar con los pasos de configuración. Una vez que configure todo y cuando esté listo para probar, debe implementar una directiva de grupo que deshabilite el registro automático solo en los dispositivos de prueba y, luego, en todos los dispositivos que usted elija.
+- Para controlar la implementación del registro automático de los equipos con Windows 10 y Windows Server 2016 unidos a un dominio, se puede usar un objeto de directiva de grupo o una configuración de cliente de System Center Configuration Manager. **Si no quiere que estos dispositivos se registren automáticamente con Azure AD o si quiere controlar el registro**, primero debe implementar la directiva de grupo que deshabilite el registro automático en todos estos dispositivos, o bien si usa Configuration Manager, debe establecer la configuración de cliente en Cloud Services -> Registrar automáticamente los nuevos dispositivos de Windows 10 unidos a un dominio con Azure Active Directory en "No", antes de empezar con cualquiera de los pasos de configuración. Una vez que configure todo y cuando esté listo para probar, debe implementar una directiva de grupo que deshabilite el registro automático solo en los dispositivos de prueba y, luego, en todos los dispositivos que usted elija.
 
 - Para el lanzamiento de equipos Windows de nivel inferior, se puede implementar un [paquete de Windows Installer](#windows-installer-packages-for-non-windows-10-computers) en los equipos que se seleccionen.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44d9aa988e8344f76ddb5430e2aacbd4c818c033
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725214"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969408"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: cuando ya hay un inquilino
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
@@ -48,6 +48,9 @@ Si Azure AD encuentra un objeto cuyos valores de atributo son los mismos que los
 Hay que tener en cuenta en la planeación la sección anterior y la advertencia. Si ha realizado muchos cambios en Azure AD que no se reflejan en AD DS local, debe planear cómo rellenar AD DS con los valores actualizados antes de sincronizar los objetos con Azure AD Connect.
 
 Si hay una coincidencia parcial de objetos, el atributo **sourceAnchor** se agrega al objeto en Azure AD para que más tarde se pueda usar una coincidencia exacta.
+
+>[!IMPORTANT]
+> Microsoft recomienda encarecidamente no sincronizar las cuentas locales con cuentas administrativas ya existentes en Azure Active Directory.
 
 ### <a name="hard-match-vs-soft-match"></a>Diferencias entre la coincidencia parcial y la exacta
 En una instalación nueva de Connect, apenas las hay. La diferencia reside en los escenarios de recuperación ante desastres. Si su servidor ha perdido la conexión con Azure AD Connect, puede volver a instalar una nueva instancia sin perder datos. Un objeto con un atributo sourceAnchor se envía a Connect durante la instalación inicial. Después, el cliente (Azure AD Connect) puede evaluar la coincidencia, con lo que el proceso es más mucho rápido que se si hace en Azure AD. Las coincidencias exactas las evalúan Connect y Azure AD, y las parciales, Azure AD.

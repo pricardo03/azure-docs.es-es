@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: dd8130ac12f9c7c2095f9329dc4ce8a34187cf62
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4d62c192b4e74980fc8cd8a671a702ba2ddfdbcb
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011226"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866600"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Uso de los perfiles de la versión de la API con Ruby en Azure Stack
 
@@ -200,7 +200,7 @@ end
 
 ## <a name="samples-using-api-profiles"></a>Ejemplos donde se usan perfiles de API
 
-Puede usar los siguientes ejemplos encontrados en repositorios de GitHub como referencia creando soluciones con perfiles de API de Azure Stack y Ruby:
+Se pueden usar los ejemplos siguientes encontrados en repositorios de GitHub como referencia al crear soluciones con perfiles de API de Azure Stack y Ruby:
 
  - [Administración de recursos y grupos de recursos de Azure con Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
  - [Administración de máquinas virtuales con Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)

@@ -7,28 +7,28 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285780"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444280"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Configuración y obtención del rendimiento para contenedores y la base de datos de Azure Cosmos DB
 
-Puede establecer el rendimiento de un contenedor, o de un conjunto de contenedores, de Azure Cosmos DB desde Azure Portal o mediante los SDK del cliente. Si se aprovisiona el rendimiento de un conjunto de contenedores, todos ellos comparten el rendimiento aprovisionado. El aprovisionamiento del rendimiento en los contenedores individuales garantizará la reserva de rendimiento para ese contenedor específico. Por otra parte, el aprovisionamiento de rendimiento en una base de datos permite compartir dicho rendimiento entre todos los contenedores que pertenecen a dicha base de datos. En una base de datos de Azure Cosmos DB, puede tener un conjunto de contenedores que compartan tanto el rendimiento como los contenedores, que tienen rendimiento dedicado. 
+Puede establecer el rendimiento de un contenedor, o de un conjunto de contenedores, de Azure Cosmos DB desde Azure Portal o mediante los SDK del cliente. 
 
-Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar el contenedor y divide y reequilibra los datos entre las particiones a medida que crece.
+**Rendimiento de aprovisionamiento para un contenedor individual:** Si se aprovisiona el rendimiento de un conjunto de contenedores, todos ellos comparten el rendimiento aprovisionado. El aprovisionamiento del rendimiento en los contenedores individuales garantizará la reserva de rendimiento para ese contenedor específico. Al asignar RU/s en el nivel de contenedor individual, los contenedores se pueden crear como *fijos* o *ilimitados*. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor ilimitado, debe especificar un rendimiento mínimo de 1000 RU/s y una [clave de partición](partition-data.md). Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar el contenedor, la tabla, el grafo y las solicitudes de manera uniforme. 
 
-Al asignar RU/s en el nivel de contenedor individual, los contenedores se pueden crear como *fijos* o *ilimitados*. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor ilimitado, debe especificar un rendimiento mínimo de 1000 RU/s y una [clave de partición](partition-data.md). Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar el contenedor, la tabla, el grafo y las solicitudes de manera uniforme. 
+**Rendimiento de, aprovisionamiento para un conjunto de contenedores o una base de datos:** el aprovisionamiento de rendimiento en una base de datos permite compartir dicho rendimiento entre todos los contenedores que pertenecen a dicha base de datos. En una base de datos de Azure Cosmos DB, puede tener un conjunto de contenedores que comparta tanto el rendimiento como los contenedores, que tienen rendimiento dedicado. Al asignar RU/s en un conjunto de contenedores, los contenedores que pertenecen a este conjunto se tratan como *ilimitados* y debe especificar una clave de partición.
 
-Al asignar RU/s en un conjunto de contenedores, los contenedores que pertenecen a este conjunto se tratan como *ilimitados* y debe especificar una clave de partición.
+Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar el contenedor y divide y reequilibra los datos entre las particiones a medida que crece. El aprovisionamiento del rendimiento de nivel de base de datos y de contenedor son ofertas diferentes y cambiar entre cualquiera de estos requiera migrar datos de origen a destino. Lo que significa que deberá crear una nueva base de datos o una colección nueva y luego migrar datos mediante el uso de [biblioteca de ejecutor masiva](bulk-executor-overview.md) o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). La siguiente imagen ilustra el rendimiento de aprovisionamiento en niveles diferentes:
 
 ![Unidades de solicitud de aprovisionamiento para contenedores individuales y conjuntos de contenedores](./media/request-units/provisioning_set_containers.png)
 
-Este artículo le guiará por los pasos necesarios para configurar el rendimiento a diferentes niveles en una cuenta de Azure Cosmos DB. 
+En las siguientes secciones, se le guiará por los pasos necesarios para configurar el rendimiento a diferentes niveles en una cuenta de Azure Cosmos DB. 
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Aprovisionamiento del rendimiento mediante Azure Portal
 
@@ -88,7 +88,9 @@ Este artículo le guiará por los pasos necesarios para configurar el rendimient
 
 A continuación encontrará algunas consideraciones que le ayudarán a decidir una estrategia de reserva de rendimiento.
 
-Considere la posibilidad de aprovisionar el rendimiento a nivel de base de datos (es decir, para el conjunto de contenedores) en los casos siguientes:
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Consideraciones que deben tenerse en cuenta al aprovisionar el rendimiento en el nivel de base de datos
+
+Considere la posibilidad de aprovisionar el rendimiento a nivel de base de datos (es decir, para un conjunto de contenedores) en los casos siguientes:
 
 * Si tiene doce, o más, contenedores que puedan compartir el rendimiento entre ellos.  
 
@@ -97,6 +99,8 @@ Considere la posibilidad de aprovisionar el rendimiento a nivel de base de datos
 * Si desea tener en cuenta picos no planeados en las cargas de trabajo mediante el uso de un rendimiento agrupado a nivel de base de datos.  
 
 * En lugar de establecer el rendimiento de un contenedor individual, le interesa obtener el rendimiento agregado en un conjunto de contenedores de la base de datos.
+
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Consideraciones que deben tenerse en cuenta al aprovisionar el rendimiento en el nivel de contenedor
 
 Considere la posibilidad de aprovisionar el rendimiento en un contenedor individual en los casos siguientes:
 
@@ -135,6 +139,7 @@ En la tabla siguiente se enumeran los rendimientos disponibles para los contened
 
 ## <a name="set-throughput-by-using-sql-api-for-net"></a>Configuración del rendimiento mediante SQL API para .NET
 
+### <a name="set-throughput-at-the-container-level"></a>Configuración del rendimiento en el nivel de contenedor
 Este es un fragmento de código para crear un contenedor con 3000 unidades de solicitud por segundo para un contenedor individual mediante el SDK de .NET de la API de SQL:
 
 ```csharp
@@ -147,6 +152,8 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 3000 });
 ```
+
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Configuración de rendimiento para un conjunto de contenedores o a nivel de base de datos
 
 Este es un fragmento de código para aprovisionar 100 000 unidades de solicitud por segundo en un conjunto de contenedores mediante el SDK de .NET de la API de SQL:
 

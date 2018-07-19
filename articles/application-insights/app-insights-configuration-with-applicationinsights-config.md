@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 07/05/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 664f31d64ac037acea2fb45a8d8b813da52b6da5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9e53fa896f1d958e505d26af430b262be9195605
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294707"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859690"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
@@ -126,14 +126,14 @@ Los inicializadores estándar están todos establecidos por los paquetes NuGet w
 * `OperationNameTelemetryInitializer` actualiza la propiedad `Name` de la propiedad `RequestTelemetry` y `Name` propiedad del contexto `Operation` de todos los elementos de telemetría según el método HTTP, así como los nombres del controlador MVC de ASP.NET y la acción que se invoca para procesar la solicitud.
 * `OperationIdTelemetryInitializer` o `OperationCorrelationTelemetryInitializer` actualizan la propiedad de contexto `Operation.Id` de todos los elementos de telemetría de los que se realiza un seguimiento mientras se controla una solicitud con el `RequestTelemetry.Id` que se genera.
 * `SessionTelemetryInitializer` actualiza la propiedad `Id` del contexto `Session` para todos los elementos de telemetría con valor extraído de la cookie `ai_session` que genera el código de instrumentación JavaScript de Application Insights que se ejecuta en el explorador del usuario.
-* `SyntheticTelemetryInitializer` o `SyntheticUserAgentTelemetryInitializer` actualizan las propiedades de los contextos `User`, `Session` y `Operation` de todos los elementos de telemetría de los que se realiza un seguimiento al tratar una solicitud de un origen sintético, como una prueba de disponibilidad o un bot de motor de búsqueda. De forma predeterminada, [Explorador de métricas](app-insights-metrics-explorer.md) no muestra telemetría sintética.
+* `SyntheticTelemetryInitializer` o `SyntheticUserAgentTelemetryInitializer` actualiza las propiedades de los contextos `User`, `Session` y `Operation` de todos los elementos de telemetría de los que se realiza el seguimiento al controlar una solicitud de un origen sintético, como una prueba de disponibilidad o un bot de motor de búsqueda. De forma predeterminada, [Explorador de métricas](app-insights-metrics-explorer.md) no muestra telemetría sintética.
 
     Conjunto de `<Filters>` que identifica las propiedades de las solicitudes.
 * `UserTelemetryInitializer` actualiza las propiedades `Id` y `AcquisitionDate` del contexto `User` para todos los elementos de telemetría con valores extraídos de la cookie `ai_user` que genera el código de instrumentación JavaScript de Application Insights que se ejecuta en el explorador del usuario.
 * `WebTestTelemetryInitializer` establece el identificador de usuario, el identificador de sesión y las propiedades de origen sintético de las solicitudes HTTP que proceden de [pruebas de disponibilidad](app-insights-monitor-web-app-availability.md).
   Conjunto de `<Filters>` que identifica las propiedades de las solicitudes.
 
-Para aplicaciones de .NET que se ejecutan en Service Fabric, puede incluir el paquete de NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Este paquete incluye `FabricTelemetryInitializer`, que agrega propiedades de Service Fabric a elementos de telemetría. Para obtener más información, consulte la [página de GitHub](https://go.microsoft.com/fwlink/?linkid=848457) sobre las propiedades que agrega este paquete de NuGet.
+Para aplicaciones de .NET que se ejecutan en Service Fabric, puede incluir el paquete de NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Este paquete incluye `FabricTelemetryInitializer`, que agrega propiedades de Service Fabric a elementos de telemetría. Para obtener más información, consulte la [página de GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) sobre las propiedades que agrega este paquete de NuGet.
 
 ## <a name="telemetry-processors-aspnet"></a>Procesadores de telemetría (ASP.NET)
 Los procesadores de telemetría pueden filtrar y modificar cada elemento de telemetría justo antes de que se envíe desde el SDK al portal.
@@ -271,7 +271,7 @@ Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application
 
 _Disponible a partir de la versión 2.6.0_
 
-El propósito de este proveedor es buscar un identificador de aplicación en función de una clave de instrumentación. El identificador de aplicación se incluye en RequestTelemetry y DependencyTelemetry, se y utiliza para determinar la correlación en el portal.
+El propósito de este proveedor es buscar un identificador de aplicación en función de una clave de instrumentación. El identificador de aplicación se incluye en RequestTelemetry y DependencyTelemetry, y se usa para determinar la correlación en el portal.
 
 Está disponible al establecer `TelemetryConfiguration.ApplicationIdProvider` en el código o en la configuración.
 
@@ -315,9 +315,9 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApp
 
 ### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
 
-Se trata de un proveedor estático que se basará en los pares clave de instrumentación/identificador de la aplicación configurados.
+Se trata de un proveedor estático, que se basará en los pares de clave de instrumentación/identificador de la aplicación configurados.
 
-Esta clase tiene una propiedad `Defined` que es un diccionario<string,string> de los pares clave de instrumentación e identificador de aplicación.
+Esta clase tiene una propiedad `Defined`, que es un Diccionario<string,string> de los pares de clave de instrumentación e identificador de aplicación.
 
 Esta clase tiene una propiedad `Next` opcional que puede utilizarse para configurar otro proveedor que se use al solicitar una clave de instrumentación que no exista en la configuración.
 

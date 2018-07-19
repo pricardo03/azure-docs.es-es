@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264558"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917234"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
-El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos.
+El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](./monitoring-diagnostic-logs-schema.md).
 
 ## <a name="administrative"></a>Administrativo
 Esta categoría contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas a través de Resource Manager. Los ejemplos de los tipos de eventos que aparecen en esta categoría incluyen "crear máquina virtual" y "eliminar grupo de seguridad de red". Cada acción realizada por un usuario o una aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es Write, Delete o Action, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. La categoría Administrativo también incluye los cambios realizados en el control de acceso basado en roles de una suscripción.
@@ -131,7 +131,7 @@ Esta categoría contiene el registro de todas las operaciones de creación, actu
 | subStatus |Por lo general, el código de estado HTTP de la llamada de REST correspondiente, pero también puede incluir otras cadenas que describen un subestado, como estos valores habituales: OK (código de estado HTTP: 200), Created (código de estado HTTP: 201), Accepted (código de estado HTTP: 202), No Content (código de estado HTTP: 204), Bad Request (código de estado HTTP: 400), Not Found (código de estado HTTP: 404), Conflict (código de estado HTTP: 409), Internal Server Error (código de estado HTTP: 500), Service Unavailable (código de estado HTTP: 503) y Gateway Timeout (código de estado HTTP: 504). |
 | eventTimestamp |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
-| subscriptionId |Identificador de la suscripción de Azure. |
+| subscriptionId |Identificador de suscripción de Azure |
 
 ## <a name="service-health"></a>Estado del servicio
 Esta categoría contiene el registro de los incidentes de estado del servicio que se han producido en Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "SQL Azure en el este de EE. UU. está experimentando un tiempo de inactividad". Los eventos de estado del servicio son de cinco variedades: Acción requerida, Recuperación asistida, Incidente, Mantenimiento, Información o Seguridad, y solo aparecen si tiene un recurso en la suscripción que se vaya a ver afectado por el evento.
@@ -277,7 +277,7 @@ Esta categoría contiene el registro de todas las activaciones de alertas de Azu
 | subStatus | Normalmente es null para las alertas. |
 | eventTimestamp |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
-| subscriptionId |Identificador de la suscripción de Azure. |
+| subscriptionId |Identificador de suscripción de Azure |
 
 ### <a name="properties-field-per-alert-type"></a>Campo Propiedades por tipo de alerta
 El campo Propiedades contendrá valores diferentes dependiendo del origen del evento de alerta. Dos proveedores de eventos de alerta comunes son las alertas de registro de actividad y las alertas de métrica.
@@ -391,7 +391,7 @@ Esta categoría contiene el registro de los eventos relacionados con el funciona
 | subStatus | Normalmente es null para el escalado automático. |
 | eventTimestamp |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
-| subscriptionId |Identificador de la suscripción de Azure. |
+| subscriptionId |Identificador de suscripción de Azure |
 
 ## <a name="security"></a>Seguridad
 Esta categoría contiene el registro de todas las alertas generado por Azure Security Center. Un ejemplo del tipo de evento que vería en esta categoría es "Se ejecutó un archivo de extensión doble sospechoso".
@@ -469,7 +469,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | resourceGroupName |Nombre del grupo de recursos del recurso. |
 | resourceProviderName |Nombre del proveedor de recursos de Azure Security Center. Siempre "Microsoft.Security". |
 | resourceType |Tipo de recurso que generó el evento de seguridad, por ejemplo, "Microsoft.Security/locations/alerts" |
-| ResourceId |Id. de recurso de la alerta de seguridad. |
+| ResourceId |Identificador de recurso de la alerta de seguridad. |
 | operationId |GUID compartido entre los eventos correspondientes a una sola operación. |
 | operationName |Nombre de la operación. |
 | propiedades |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describen los detalles del evento. Estas propiedades variarán según el tipo de alerta de seguridad. Vea [esta página](../security-center/security-center-alerts-type.md) para obtener una descripción de los tipos de alertas que proceden de Security Center. |
@@ -478,7 +478,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | subStatus | Normalmente es null para los eventos de seguridad. |
 | eventTimestamp |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
-| subscriptionId |Identificador de la suscripción de Azure. |
+| subscriptionId |Identificador de suscripción de Azure |
 
 ## <a name="recommendation"></a>Recomendación
 Esta categoría contiene el registro de cualquier recomendación nueva que se genere para los servicios. Un ejemplo de recomendación sería "Use conjuntos de disponibilidad para obtener una tolerancia a errores mejorada". Hay 4 tipos de eventos de recomendación que se pueden generar: Alta disponibilidad, Rendimiento, Seguridad y Optimización de costos. 
@@ -553,13 +553,37 @@ Esta categoría contiene el registro de cualquier recomendación nueva que se ge
 | ResourceId |Identificador de recurso del recurso al que se aplica la recomendación |
 | status | Siempre "Activo" |
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
-| subscriptionId |Identificador de la suscripción de Azure. |
+| subscriptionId |Identificador de suscripción de Azure |
 | propiedades |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles de la recomendación.|
 | properties.recommendationSchemaVersion| Versión de esquema de las propiedades de recomendación publicadas en la entrada Registro de actividad |
 | properties.recommendationCategory | Categoría de la recomendación. Los valores posibles son "High Availability", "Performance", "Security" y "Cost" |
 | properties.recommendationImpact| Impacto de la recomendación. Los valores posibles son "High", "Medium", "Low" |
 | properties.recommendationRisk| Riesgo de la recomendación. Los valores posibles son "Error", "Warning", "None" |
 
+## <a name="mapping-to-diagnostic-logs-schema"></a>Asignación a esquema de registros de diagnósticos
+
+Al realizar la transmisión del registro de actividad de Azure a una cuenta de almacenamiento o espacio de nombres de Event Hubs, los datos siguen el [esquema de registros de diagnóstico de Azure](./monitoring-diagnostic-logs-schema.md). Esta es la asignación de propiedades del esquema anterior para el esquema de registros de diagnóstico:
+
+| Propiedad del esquema de registros de diagnósticos | Propiedad del esquema de API REST de registro de actividad | Notas |
+| --- | --- | --- |
+| Twitter en tiempo | eventTimestamp |  |
+| ResourceId | ResourceId | subscriptionId, resourceType, resourceGroupName se deducen todos de resourceId. |
+| operationName | operationName.value |  |
+| categoría | Parte del nombre de la operación | Desglose del tipo de operación: "Write"/"Delete"/"Action" |
+| resultType | status.value | |
+| resultSignature | substatus.value | |
+| resultDescription | Descripción |  |
+| durationMs | N/D | Siempre 0 |
+| callerIpAddress | httpRequest.clientIpAddress |  |
+| correlationId | correlationId |  |
+| identidad | notificaciones y propiedades de autorización |  |
+| Nivel | Nivel |  |
+| location | N/D | Ubicación de donde se procesó el evento. *Esto no es la ubicación del recurso, sino el lugar donde se procesó el evento. Esta propiedad se quitará en una futura actualización.* |
+| Properties (Propiedades) | properties.eventProperties |  |
+| properties.eventCategory | categoría | Si properties.eventCategory no está presente, la categoría será "Administrative" |
+| properties.eventName | eventName |  |
+| properties.operationId | operationId |  |
+| properties.eventProperties | propiedades |  |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

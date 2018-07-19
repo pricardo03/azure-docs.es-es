@@ -12,36 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366280"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723777"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 
-Cuando empezó a pensar en mover cargas de trabajo a la infraestructura como servicio (IaaS) de Azure, es probable que se diera cuenta de que algunas de las consideraciones le eran familiares. Puede que ya tenga experiencia en la protección de entornos virtuales. El movimiento a IaaS de Azure le permite aplicar sus conocimientos de protección de entornos virtuales, además de usar un nuevo conjunto de opciones que le ayudan a proteger sus recursos.
-
-Es preciso destacar que no cabe esperar trasladar los recursos locales tal cual están a Azure. Los nuevos desafíos y las nuevas opciones permiten volver a evaluar los diseños, las herramientas y los procesos existentes.
+En la mayoría de los escenarios de IaaS (infraestructura como servicio), las [máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/) son la principal carga de trabajo de las organizaciones que usan la informática en la nube. Esto es especialmente evidente en los [escenarios híbridos](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx), en los que las organizaciones quieran migrar lentamente las cargas de trabajo a la nube. En estos escenarios, siga las [consideraciones generales de seguridad de IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) y aplique los procedimientos recomendados de seguridad a todas las máquinas virtuales.
 
 Su responsabilidad de la seguridad se basa en el tipo de servicio en la nube. En el siguiente gráfico se resume cómo se reparte la responsabilidad entre Microsoft y usted.
 
-
 ![Áreas de responsabilidad](./media/azure-security-iaas/sec-cloudstack-new.png)
 
+Los requisitos de seguridad varían en función de una serie de factores entre los que se encuentran los diferentes tipos de cargas de trabajo. Ninguno de estos procedimientos recomendados puede por sí solo proteger sus sistemas. Al igual que en otros aspectos de la seguridad, es preciso elegir las opciones adecuadas y ver si las soluciones se pueden complementar entre sí y suplir las deficiencias.
 
-Se analizarán algunas de las opciones disponibles en Azure que pueden ayudarle a cumplir los requisitos de seguridad de su organización. Tenga en cuenta que los requisitos de seguridad pueden variar para diferentes tipos de cargas de trabajo. Ninguno de estos procedimientos recomendados puede por sí solo proteger sus sistemas. Al igual que en otros aspectos de la seguridad, es preciso elegir las opciones adecuadas y ver si las soluciones se pueden complementar entre sí y suplir las deficiencias.
+En este artículo se describen varios procedimientos recomendados de seguridad para las máquinas virtuales, todos derivados de las propias experiencias directas de Microsoft y las de nuestros clientes con las máquinas virtuales.
+
+Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Puesto que las opiniones y las tecnologías pueden cambiar con el tiempo, este artículo se actualizará para reflejar dichos cambios.
 
 ## <a name="use-privileged-access-workstations"></a>Uso de estaciones de trabajo con privilegios de acceso
 
-A menudo, las organizaciones son víctima de ciberataques porque los administradores realizan ciertas acciones en las que usan cuentas con derechos elevados. Normalmente, no lo hacen de forma malintencionada, sino porque la configuración y los procesos existentes lo permiten. La mayoría de estos usuarios entiende el riesgo de estas acciones desde un punto de vista conceptual, pero no por eso dejan de hacerlo.
+A menudo, las organizaciones son víctima de ciberataques porque los administradores realizan ciertas acciones en las que usan cuentas con derechos elevados. Aunque esto puede no ser el resultado de actividad malintencionada, ocurre porque los procesos y la configuración existente lo permiten. La mayoría de estos usuarios entiende el riesgo de estas acciones desde un punto de vista conceptual, pero no por eso dejan de hacerlo.
 
 Cosas como comprobar el correo electrónico y explorar Internet parecen muy inofensivas. Pero pueden exponer las cuentas con privilegios elevados y ponerse en peligro por parte de actores malintencionados. Se puede examinar las actividades, usar mensajes de correo electrónico diseñados especialmente o poner en práctica otras técnicas para obtener acceso a su empresa. Se recomienda encarecidamente el uso de estaciones de trabajo de administración seguras (SAW) para realizar todas las tareas de administración de Azure. Constituye una manera de reducir la exposición a riesgos accidentales.
 
-Las estaciones de trabajo con privilegios de acceso (PAW) proporcionan un sistema operativo dedicado para tareas delicadas, que está protegido contra ataques de Internet y vectores de amenazas. La separación de estas tareas especiales y las cuentas de los dispositivos y las estaciones de trabajo de uso diario proporciona una protección segura. Esta separación limita el impacto de los ataques de suplantación de identidad, las vulnerabilidades del sistema operativo y de las aplicaciones, diversos ataques de suplantación y ataques de robo de credenciales. (registro de pulsaciones de teclas, Pass-the-Hash y Pass-the-Ticket)
+Las estaciones de trabajo con privilegios de acceso (PAW) proporcionan un sistema operativo dedicado para tareas delicadas, que está protegido contra ataques de Internet y vectores de amenazas. La separación de las tareas especiales y las cuentas de los dispositivos y las estaciones de trabajo de uso diario proporciona una protección segura. Esta separación limita el impacto de los ataques de suplantación de identidad, las vulnerabilidades del sistema operativo y de las aplicaciones, diversos ataques de suplantación y ataques de robo de credenciales. (registro de pulsaciones de teclas, Pass-the-Hash y Pass-the-Ticket)
 
 El enfoque PAW es una extensión de la práctica recomendada y establecida de usar una cuenta administrativa asignada individualmente. La cuenta administrativa es independiente de una cuenta de usuario estándar. Un PAW proporciona una estación de trabajo de confianza para esas cuentas confidenciales.
 
@@ -49,7 +49,7 @@ Para más información y para obtener una guía de implementación, consulte [Es
 
 ## <a name="use-multi-factor-authentication"></a>Uso de Multi-factor Authentication
 
-En el pasado, el perímetro de la red se usaba para controlar el acceso a los datos corporativos. En un mundo en el que la prioridad es los dispositivos móviles y la nube, la identidad es el plano de control: se usa para controlar el acceso a servicios IaaS desde cualquier dispositivo. También se usa para obtener visibilidad y comprender dónde y cómo se utilizan sus datos. La protección de la identidad digital de los usuarios de Azure es la piedra angular de la protección de las suscripciones contra el robo de identidad y otros tipos de delincuencia informática.
+Antes, el perímetro de la red se usaba para controlar el acceso a los datos corporativos. En un mundo en el que la prioridad es los dispositivos móviles y la nube, la identidad es el plano de control: se usa para controlar el acceso a servicios IaaS desde cualquier dispositivo. También se usa para obtener visibilidad y comprender dónde y cómo se utilizan sus datos. La protección de la identidad digital de los usuarios de Azure es la piedra angular de la protección de las suscripciones contra el robo de identidad y otros tipos de delincuencia informática.
 
 Uno de los pasos más útiles que se pueden dar para proteger una cuenta es habilitar la autenticación en dos fases. La autenticación en dos fases es una manera de autenticar mediante algo además de una contraseña. Esto ayuda a reducir el riesgo de acceso por parte de alguien que averigüe la contraseña de otra persona.
 
@@ -75,14 +75,13 @@ Evalúe los derechos administrativos de los individuos siguiendo criterios simil
 
 Documente los restantes enfoques alternativos conocidos a conceder el privilegio y la razón por la que no se puede aceptar cada uno de ellos.
 
-El uso de solo la administración Just-In-Time evita la existencia innecesaria de cuentas con derechos elevados en períodos en que dichos derechos no se necesitan. Las cuentas tienen derechos elevados durante un tiempo limitado para que los administradores puedan hacer su trabajo. Luego, esos derechos se quitan al final de un turno o cuando se termina una tarea.
+L administración Just-In-Time evita la existencia innecesaria de cuentas con derechos elevados en los períodos en que dichos derechos no se necesitan. Las cuentas tienen derechos elevados durante un tiempo limitado para que los administradores puedan hacer su trabajo. Luego, esos derechos se quitan al final de un turno o cuando se termina una tarea.
 
-Puede usar [Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md) para administrar, supervisar y controlar el acceso en su organización. Esta aplicación le ayuda a estar al tanto de las acciones que realizan los usuarios de su organización. También ofrece administración Just-In-Time a Azure AD al introducir el concepto de administradores aptos. Dichos usuarios tienen cuentas con el potencial de que se les otorgue derechos de administrador. Estos tipos de usuarios pueden pasar por un proceso de activación y se les puede otorgar derechos de administrador durante un tiempo limitado.
-
+Puede usar [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) para administrar, supervisar y controlar el acceso en su organización. Esta aplicación le ayuda a estar al tanto de las acciones que realizan los usuarios de su organización. También ofrece administración Just-In-Time a Azure AD al introducir el concepto de administradores aptos. Dichos usuarios tienen cuentas con el potencial de que se les otorgue derechos de administrador. Estos tipos de usuarios pueden pasar por un proceso de activación y se les puede otorgar derechos de administrador durante un tiempo limitado.
 
 ## <a name="use-devtest-labs"></a>Uso de DevTest Labs
 
-El uso de Azure en entornos de desarrollo y laboratorio permite a las organizaciones agilizar el desarrollo y las pruebas, ya que elimina los retrasos que introduce la adquisición de hardware. Por desgracia, existe el riesgo de que la falta de familiaridad con Azure o el deseo de ayudar a que se empiece a usar los antes posible puedan provocar que el administrador sea excesivamente permisivo con la asignación de derechos, Este riesgo puede exponer involuntariamente la organización a ataques internos. A algunos usuarios se les puede otorgar mucho más acceso del que deberían tener.
+Azure en entornos de desarrollo y laboratorio elimina los retrasos que introduce la adquisición de hardware. De este modo se permite a las organizaciones agilizar el desarrollo y pruebas. Por otro lado, existe el riesgo de que la falta de familiaridad con Azure o el deseo de ayudar a que se empiece a usar lo antes posible puedan hacer que el administrador sea excesivamente permisivo con la asignación de derechos. Este riesgo puede exponer involuntariamente la organización a ataques internos. A algunos usuarios se les puede otorgar mucho más acceso del que deberían tener.
 
 El servicio [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) usa el [control de acceso basado en rol de Azure](../role-based-access-control/overview.md) (RBAC). RBAC le permite segregar los deberes del equipo en roles que solo conceden el nivel de acceso necesario para que los usuarios realicen su trabajo. Incluye roles predefinidos (propietario, usuario de laboratorio y colaborador). Estos roles se pueden usar incluso para asignar derechos a asociados externos, lo que simplifica considerablemente la colaboración.
 
@@ -97,11 +96,9 @@ Algunas de las características clave de Azure DevTest Labs incluyen:
 - Autoservicio, que permite a los usuarios aprovisionar sus laboratorios mediante plantillas.
 - Administración y limitación del consumo.
 
-![Uso de DevTest Labs para crear un laboratorio](./media/azure-security-iaas/devtestlabs.png)
+![DevTest Labs](./media/azure-security-iaas/devtestlabs.png)
 
 No hay ningún costo adicional asociado con el uso de DevTest Labs. La creación de laboratorios, directivas, plantillas y artefactos es gratuita. Solo se paga por los recursos de Azure usados en los laboratorios, como máquinas virtuales, cuentas de almacenamiento y redes virtuales.
-
-
 
 ## <a name="control-and-limit-endpoint-access"></a>Control y límite de acceso a puntos de conexión
 
@@ -109,17 +106,24 @@ El hospedaje de laboratorios o sistemas de producción en Azure significa que de
 
 En Azure, existen tecnologías que pueden ayudarle a limitar el acceso a dichos puntos de conexión administrativos. Por ejemplo, puede usar grupos de seguridad de red ([NSG](../virtual-network/security-overview.md)). Si usa Azure Resource Manager para la implementación, los NSG limitan el acceso desde todas las redes a solo los puntos de conexión de administración (RDP o SSH). Cuando piense en los NSG, piense en las ACL del enrutador. Puede utilizarlas para controlar estrechamente la comunicación de red entre los distintos segmentos de las redes de Azure. Esto es similar a la creación de redes en redes perimetrales u otras redes aisladas. No inspeccionan el tráfico, sino que ayudan con la segmentación de la red.
 
+Una manera más dinámica de limitar el acceso a las máquinas virtuales es usar la [ administración Just-In-Time](../security-center/security-center-just-in-time.md) de Azure Security Center. Security Center puede bloquear las máquinas virtuales de Azure y proporciona acceso cuando sea necesario. El proceso permite el acceso a un usuario que lo solicita después de comprobar que, según su [control de acceso basado en roles](../role-based-access-control/role-assignments-portal.md) (RBAC), tiene los permisos necesarios. Azure Security Center se asegurará entonces de que los grupos de seguridad de red (NSG) necesarios permitan el tráfico entrante.
 
-En Azure, puede configurar una [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) desde la red local. Una VPN de sitio a sitio extiende la red local a la nube. Esto le proporciona otra oportunidad de usar los NSG, ya que también puede modificarlos para no permitir el acceso desde ningún sitio que no sea la red local. Luego, puede exigir que la administración se realice conectando primero con la red de Azure a través de VPN.
+### <a name="site-to-site-vpnvpn-gatewayvpn-gateway-howto-site-to-site-resource-manager-portalmd"></a>[VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+
+Una VPN de sitio a sitio extiende la red local a la nube. Esto le proporciona otra oportunidad de usar los NSG, ya que también puede modificarlos para no permitir el acceso desde ningún sitio que no sea la red local. Luego, puede exigir que la administración se realice conectando primero con la red de Azure a través de VPN.
 
 La opción de la VPN de sitio a sitio puede ser muy atractiva en aquellos casos en los que se hospedan sistemas de producción que están estrechamente integrados con sus recursos locales de Azure.
 
-Como alternativa, la opción de [punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) se puede usar en aquellos casos en los que se desea administrar sistemas que no necesitan acceso a los recursos locales. Esos sistemas pueden aislarse en su propia red virtual de Azure. Los administradores pueden conectarse a la VPN del entorno hospedado de Azure desde su estación de trabajo administrativa.
+### <a name="point-to-sitevpn-gatewayvpn-gateway-howto-point-to-site-rm-psmd"></a>[De punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+
+En aquellos casos en los que se desea administrar sistemas que no necesitan acceso a los recursos locales. Esos sistemas pueden aislarse en su propia red virtual de Azure. Los administradores pueden conectarse a la VPN del entorno hospedado de Azure desde su estación de trabajo administrativa.
 
 >[!NOTE]
 >Puede usar cualquiera de las opciones de VPN para volver a configurar las ACL en los NSG de forma que no permitan el acceso a los puntos de conexión de administración desde Internet.
 
-Otra opción que merece la pena considerar es la implementación de una [puerta de enlace de Escritorio remoto](../active-directory/authentication/howto-mfaserver-nps-rdg.md). Puede usar esta implementación para conectarse de forma segura a los servidores de Escritorio remoto a través de HTTPS y aplicar al mismo tiempo controles más detallados a esas conexiones.
+### <a name="remote-desktop-gatewayactive-directoryauthenticationhowto-mfaserver-nps-rdgmd"></a>[Puerta de enlace de Escritorio remoto](../active-directory/authentication/howto-mfaserver-nps-rdg.md)
+
+Puede usar esta implementación para conectarse de forma segura a la Puerta de enlace de Escritorio remoto a través de HTTPS y aplicar al mismo tiempo controles más detallados a esas conexiones.
 
 Algunas de las características a las que tendría acceso incluyen:
 
@@ -127,6 +131,12 @@ Algunas de las características a las que tendría acceso incluyen:
 - Autenticación mediante tarjeta inteligente o Azure Multi-Factor Authentication.
 - Control sobre los sistemas a los que alguien puede conectarse a través de la puerta de enlace.
 - Control sobre el redireccionamiento de dispositivos y discos.
+
+### <a name="vm-availability"></a>Disponibilidad de máquinas virtuales
+
+Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una alta disponibilidad, se recomienda encarecidamente que use varias máquinas virtuales. Para mejorar la disponibilidad, cree al menos dos máquinas virtuales en el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md).
+
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md) también requiere que las máquinas virtuales de carga equilibrada pertenezcan al mismo conjunto de disponibilidad. Si se debe acceder a estas máquinas virtuales desde Internet, debe configurar un [equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-internet-overview.md).
 
 ## <a name="use-a-key-management-solution"></a>Uso de una solución de administración de claves
 
@@ -136,14 +146,13 @@ Microsoft procesa las claves en los HSM validados de FIPS 140-2 nivel 2 (hardwar
 
 Cualquiera con una suscripción a Azure puede crear y usar instancias de Key Vault. Aunque Key Vault beneficia a los desarrolladores y a los administradores de seguridad, un administrador que sea responsable de los servicios de Azure en una organización lo puede implementar y administrar.
 
-
 ## <a name="encrypt-virtual-disks-and-disk-storage"></a>Cifrado de discos virtuales y almacenamiento en disco
 
 [Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) afronta la amenaza de robo de datos o la exposición de acceso no autorizado que se logra al mover un disco. El disco se puede conectar a otro sistema como forma de omitir otros controles de seguridad. Disk Encryption usa [BitLocker](https://technet.microsoft.com/library/hh831713) en Windows y DM-Crypt en Linux para cifrar tanto el sistema operativo como las unidades de datos. Azure Disk Encryption se integra con Key Vault para controlar y administrar las claves de cifrado. Está disponible para máquinas virtuales estándar y máquinas virtuales con Premium Storage.
 
 Para más información, consulte [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](azure-security-disk-encryption.md).
 
-El [cifrado del servicio Azure Storage](../storage/common/storage-service-encryption.md) ayuda a proteger los datos en reposo. Está habilitado en el nivel de la cuenta de almacenamiento. Cifra los datos tal y como se escriben en nuestros centros de datos y los descifra automáticamente cuando accede a ellos. Admite los siguientes escenarios:
+El [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) ayuda a proteger los datos en reposo. Está habilitado en el nivel de la cuenta de almacenamiento. Cifra los datos tal y como se escriben en nuestros centros de datos y los descifra automáticamente cuando accede a ellos. Admite los siguientes escenarios:
 
 - Cifrado de blobs en bloques, blobs en anexos y blobs en páginas
 - Cifrado de plantillas y VHD archivados migrados desde instalaciones locales a Azure
@@ -163,6 +172,7 @@ Es preciso supervisar la aplicación de revisiones, la configuración, los event
 En una implementación de IaaS, usted es responsable de la administración de los sistemas que implementa, tal como ocurre con los restantes servidores o estaciones de trabajo del entorno. La aplicación de revisiones, el sistema de protección, las asignaciones de derechos y cualquier otra actividad relacionada con el mantenimiento del sistema es responsabilidad suya. En sistemas que se integran estrechamente con los recursos locales, se pueden usar las mismas herramientas y procedimientos que se utilizan en local para los antivirus, el antimalware, la aplicación de revisiones y la copia de seguridad.
 
 ### <a name="harden-systems"></a>Sistemas de protección
+
 Todas las máquinas virtuales de IaaS de Azure deben protegerse, con el fin de que solo expongan los puntos de conexión de servicio que son necesarios para las aplicaciones que están instaladas. Para máquinas virtuales Windows, siga las recomendaciones que publica Microsoft como línea de base para la solución [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx).
 
 Security Compliance Manager es una herramienta gratuita. Puede usarla para configurar y administrar sus equipos de escritorio, centros de datos tradicionales y la nube privada y pública mediante la directiva de grupo y System Center Configuration Manager rápidamente.
@@ -178,12 +188,12 @@ Compare sus estándares con los procedimientos recomendados del sector, personal
 
 En entornos hospedados por separado del entorno de producción, puede usar una extensión de antimalware para ayudar a proteger las máquinas virtuales y los servicios en la nube. Dicha extensión se integra con [Azure Security Center](../security-center/security-center-intro.md).
 
-
 [Microsoft Antimalware](azure-security-antimalware.md) incluye características como la protección en tiempo real, los análisis programados, la corrección de malware, las actualizaciones de firmas, las actualizaciones del motor, los ejemplos de informes, la colección de eventos de exclusión y la [compatibilidad con PowerShell](https://msdn.microsoft.com/library/dn771715.aspx).
 
 ![Azure Antimalware](./media/azure-security-iaas/azantimalware.png)
 
-### <a name="install-the-latest-security-updates"></a>Instalación de las últimas actualizaciones de seguridad
+### <a name="install-the-latest-security-updates"></a>Instalación de las últimas actualizaciones de seguridad 
+
 Algunas de las primeras cargas de trabajo que los clientes mueven a Azure son laboratorios y sistemas orientados externamente. Si sus máquinas virtuales hospedadas en Azure hospedan aplicaciones o servicios que deben estar accesibles desde Internet, esté alerta a la aplicación de revisiones. Aplique revisiones no solo del sistema operativo. Las vulnerabilidades de aplicaciones de terceros a las que no se han aplicado revisiones también pueden provocar problemas que podrían haberse evitado si hubiera una buena administración de revisiones vigente.
 
 ### <a name="deploy-and-test-a-backup-solution"></a>Implementación y comprobación de una solución de copia de seguridad
@@ -192,10 +202,11 @@ Al igual que las actualizaciones de seguridad, una copia de seguridad se debe re
 
 Las cargas de trabajo de producción movidas a Azure deben integrarse con las soluciones de copia de seguridad existentes cuando sea posible. O bien, puede usar [Azure Backup](../backup/backup-azure-arm-vms.md) para ayudarle a enfrentar los requisitos de copia de seguridad.
 
-
 ## <a name="monitor"></a>Supervisión
 
-[Security Center](../security-center/security-center-intro.md) proporciona una evaluación continua del estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de la seguridad. Una lista de recomendaciones le guiará por el proceso de configuración de los controles necesarios.
+### <a name="security-centersecurity-centersecurity-center-intromd"></a>[Security Center](../security-center/security-center-intro.md)
+
+Security Center proporciona una evaluación continua del estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. Una lista de recomendaciones le guiará por el proceso de configuración de los controles necesarios.
 
 Algunos ejemplos son:
 
@@ -209,7 +220,9 @@ La imagen siguiente muestra algunas de las opciones que puede habilitar en Secur
 
 ![Directivas de Azure Security Center](./media/azure-security-iaas/security-center-policies.png)
 
-[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) es una solución de administración de TI basada en la nube de Microsoft que ayuda a administrar y proteger infraestructuras locales y en la nube. Dado que Operations Management Suite se implementa como un servicio basado en la nube, se puede implementar rápidamente y con una inversión mínima en recursos de infraestructura.
+### <a name="operations-management-suiteoperations-management-suiteoperations-management-suite-overviewmd"></a>[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) 
+
+Operations Management Suite es una solución de administración de TI basada en la nube de Microsoft que ayuda a administrar y proteger infraestructuras locales y en la nube. Dado que Operations Management Suite se implementa como un servicio basado en la nube, se puede implementar rápidamente y con una inversión mínima en recursos de infraestructura.
 
 Las características nuevas se ofrecen automáticamente, lo que supone un ahorro en costos de mantenimiento continuo y actualización. Operations Management Suite también se integra con System Center Operations Manager. OMS tiene distintos componentes que le ayudan a administrar mejor las cargas de trabajo de Azure, entre los que se incluye un módulo de [seguridad y cumplimiento](../operations-management-suite/oms-security-getting-started.md).
 
@@ -224,6 +237,16 @@ Puede usar las características de seguridad y cumplimiento de Operations Manage
 En la siguiente captura de pantalla se muestra un ejemplo de la información que se puede visualizar en Operations Management Suite.
 
 ![Líneas de base de seguridad de Operations Management Suite](./media/azure-security-iaas/oms-security-baseline.png)
+
+### <a name="monitor-vm-performance"></a>Supervisar el rendimiento de la máquina virtual
+
+El abuso de los recursos puede ser un problema cuando los procesos de las máquinas virtuales consumen más recursos de los que deberían. Los problemas de rendimiento con una máquina virtual pueden provocar la interrupción del servicio, lo que infringe el principio de seguridad de disponibilidad. Por esta razón, resulta imprescindible supervisar el acceso a las máquinas virtuales no solo de forma reactiva (aunque haya un problema), sino también de forma preventiva, usando como base de referencia un rendimiento medido durante el funcionamiento normal.
+
+Al analizar los [archivos de registro de diagnóstico de Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), puede supervisar los recursos de la máquina virtual e identificar posibles problemas que podrían poner en peligro la disponibilidad y rendimiento. La extensión Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en máquinas virtuales basadas en Windows. Para habilitar estas funcionalidades, incluya la extensión como parte de la [plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
+
+También puede usar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) para obtener una mayor visibilidad del estado de los recursos.
+
+Las organizaciones que no supervisan el rendimiento de la máquina virtual no pueden determinar si ciertos cambios en los patrones de rendimiento son normales o anómalos. Si la máquina virtual está consumiendo más recursos de lo habitual, una anomalía de este tipo podría indicar un posible ataque procedente de un recurso externo o un proceso en peligro que se está ejecutando en la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

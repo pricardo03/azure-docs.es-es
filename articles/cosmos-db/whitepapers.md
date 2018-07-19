@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: sngun
-ms.openlocfilehash: c392e51cdde1b66cad1fa00ea5a301d62f24846c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f39f3f73dd70808a40caea2b3a11aca22ae72d66
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616124"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109644"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>Notas del producto de Azure Cosmos DB 
 
@@ -22,7 +22,7 @@ Las notas del producto permiten explorar los conceptos de Azure Cosmos DB en un 
 
 | **Notas del producto** | **Descripción** |
 | --- | --- |
-| [Costo total de propiedad de un servicio en la nube de bases de datos NoSQL](https://aka.ms/cosmosdb-tco-paper) |En este documento se compara el costo financiero total de propiedad y funcionamiento del software en varias configuraciones de implementación, como una base de datos local o una base de datos que usa la infraestructura en la nube. En este documento también se proporcionan estimaciones del costo total de propiedad para tipos de uso alto, bajo y medio. |
+| [Costo total de propiedad de un servicio en la nube de bases de datos NoSQL](https://aka.ms/cosmosdb-tco-paper) |En este documento se compara el costo financiero total de la propiedad y el funcionamiento del software en varias configuraciones de implementación, como una base de datos local o una base de datos que usa la infraestructura en la nube. En este documento también se proporcionan estimaciones del costo total de propiedad para tipos de uso alto, bajo y medio. |
 |[Indexación independiente del esquema con Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) | En este documento se describe el subsistema de indexación de Azure Cosmos DB. En este documento se incluyen funcionalidades de Azure Cosmos DB, como la representación de documentos, el lenguaje de consulta, el enfoque de indexación de documentos, la compatibilidad de índices principales y las primeras experiencias de producción.|
 | [Azure Cosmos DB y los datos personales](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=87cc6456-4b23-473c-94d3-6c713b8b8956&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers)| En este documento se ofrece orientación para los clientes de Azure Cosmos DB que administran una base de datos basada en la nube, una base de datos local o ambas y que necesitan asegurarse de que los datos personales contenidos en sus sistemas de bases de datos se controlan y protegen de conformidad con la normativa en vigor. |
 

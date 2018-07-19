@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030386"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096975"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
@@ -40,12 +40,12 @@ El agente y el centro de Edge son módulos, como cualquier otro que se ejecuta e
 El centro de Edge es uno de los dos módulos que componen el entorno de ejecución de Azure IoT Edge. Actúa como un proxy local de IoT Hub exponiendo los mismos puntos de conexión de protocolo que IoT Hub. Esta coherencia significa que los clientes (dispositivos o módulos) pueden conectarse a la instancia de IoT Edge en tiempo de ejecución de la misma forma que lo harían a IoT Hub. 
 
 >[!NOTE]
-> Durante la versión preliminar pública, el centro de Edge solo es compatible con los clientes que se conectan mediante MQTT.
+>Edge Hub admite clientes que se conectan mediante MQTT o AMQP. No admite los clientes que usan HTTP. 
 
 No se trata de una versión completa de IoT Hub que se ejecuta localmente. Hay algunos procesos que el centro de Edge delega silenciosamente en IoT Hub. Por ejemplo, el centro de Edge reenvía las solicitudes de autenticación a IoT Hub la primera vez que un dispositivo trata de conectarse. Una vez establecida la primera conexión, el centro de Edge almacena la información de seguridad en caché localmente. Las conexiones posteriores desde dicho dispositivo se permiten sin tener que autenticarse en la nube. 
 
 >[!NOTE]
-> Durante la versión preliminar pública, la instancia en tiempo de ejecución debe estar conectada cada vez que trata de autenticar un dispositivo.
+>El entorno de tiempo de ejecución debe estar conectado cada vez que trata de autenticar un dispositivo.
 
 Para reducir el ancho de banda que usa la solución IoT Edge, el centro de Edge optimiza el número real de conexiones a la nube. El centro de Edge toma las conexiones lógicas de clientes, como módulos o dispositivos de hoja, y las combina para crear una sola conexión física a la nube. Los detalles de este proceso son transparentes para el resto de la solución. Los clientes creen que tienen su propia conexión a la nube, aunque todos los datos van a enviarse a través de la misma. 
 

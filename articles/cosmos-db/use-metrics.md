@@ -3,7 +3,7 @@ title: Supervisión y depuración con métricas de Azure Cosmos DB | Microsoft D
 description: Use las métricas de Azure Cosmos DB para depurar problemas comunes y supervisar la base de datos.
 keywords: Métricas
 services: cosmos-db
-author: gnot
+author: kanshiG
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 49a381efa0603889336f43e409698bbcef44f41f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615648"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858670"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 
@@ -33,13 +33,13 @@ Este artículo le guía a través de casos de uso comunes y cómo se pueden util
 
 Para empezar, vaya a [Azure Portal](https://portal.azure.com) y navegue hasta la hoja **Métricas**. En la hoja, busque el gráfico **Cantidad de solicitudes que superaron la capacidad durante 1 minuto**. Este gráfico muestra las solicitudes totales minuto a minuto segmentadas por el código de estado. Para más información sobre los códigos de estado HTTP, consulte [HTTP Status Codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) (Códigos de estado HTTP para Azure Cosmos DB).
 
-El código de estado de error más común es 429 (limitación), lo que significa que las solicitudes a Azure Cosmos DB superan el rendimiento aprovisionado. La solución más común para este problema consiste en [escalar verticalmente las RU](./set-throughput.md) para la colección dada.
+El código de estado de error más común es 429 (limitación de tasa/limitación), lo que significa que las solicitudes a Azure Cosmos DB superan el rendimiento aprovisionado. La solución más común para este problema consiste en [escalar verticalmente las RU](./set-throughput.md) para la colección dada.
 
 ![Número de solicitudes por minuto](media/use-metrics/metrics-12.png)
 
 ## <a name="determining-the-throughput-distribution-across-partitions"></a>Determinación de la distribución de rendimiento en las particiones
 
-Tener una buena cardinalidad de las claves de partición es esencial para cualquier aplicación escalable. Para determinar la distribución de rendimiento de cualquier colección particionada dividida en particiones, vaya a la **hoja Métricas** en [Azure Portal](https://portal.azure.com). En la pestaña **Rendimiento**, se muestra el desglose de almacenamiento en el gráfico **Máximo de RU/segundo consumidas por cada partición física**. En el siguiente gráfico se ilustra un ejemplo de una distribución deficiente de los datos como lo evidencia la partición sesgada en el extremo izquierdo. 
+Tener una buena cardinalidad de las claves de partición es esencial para cualquier aplicación escalable. Para determinar la distribución de rendimiento de cualquier contenedor particionado dividido en particiones, vaya a la **hoja Métricas** en [Azure Portal](https://portal.azure.com). En la pestaña **Rendimiento**, se muestra el desglose de almacenamiento en el gráfico **Máximo de RU/segundo consumidas por cada partición física**. En el siguiente gráfico se ilustra un ejemplo de una distribución deficiente de los datos como lo evidencia la partición sesgada en el extremo izquierdo. 
 
 ![Una sola partición ve un uso intensivo a las 3:05 p.m.](media/use-metrics/metrics-17.png)
 
@@ -47,7 +47,7 @@ Una distribución de rendimiento desigual puede provocar particiones *activas*, 
 
 ## <a name="determining-the-storage-distribution-across-partitions"></a>Determinación de la distribución de almacenamiento en las particiones
 
-Tener una buena cardinalidad de la partición es esencial para cualquier aplicación escalable. Para determinar la distribución de rendimiento de cualquier colección particionada dividida en particiones, vaya a la hoja Métricas en [Azure Portal](https://portal.azure.com). En la pestaña Rendimiento, se muestra el desglose de almacenamiento en el gráfico Máximo de RU/segundo consumidas por cada partición física. En el siguiente gráfico se ilustra una distribución deficiente de los datos como lo evidencia la partición sesgada en el extremo izquierdo. 
+Tener una buena cardinalidad de la partición es esencial para cualquier aplicación escalable. Para determinar la distribución de rendimiento de cualquier contenedor particionado dividido en particiones, vaya a la hoja Métricas en [Azure Portal](https://portal.azure.com). En la pestaña Rendimiento, se muestra el desglose de almacenamiento en el gráfico Máximo de RU/segundo consumidas por cada partición física. En el siguiente gráfico se ilustra una distribución deficiente de los datos como lo evidencia la partición sesgada en el extremo izquierdo. 
 
 ![Ejemplo de distribución de datos deficiente](media/use-metrics/metrics-07.png)
 
@@ -55,7 +55,7 @@ Puede determinar la causa raíz por la que la partición está sesgando la distr
 
 ![La clave de partición sesga la distribución](media/use-metrics/metrics-05.png)
 
-Después de identificar qué clave de partición está causando el sesgo en la distribución, puede que tenga que volver a crear particiones en la colección con una clave de partición más distribuida. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partition-data.md).
+Después de identificar qué clave de partición está causando el sesgo en la distribución, puede que tenga que volver a crear particiones en el contenedor con una clave de partición más distribuida. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partition-data.md).
 
 ## <a name="comparing-data-size-against-index-size"></a>Comparación del tamaño de los datos con el tamaño de índice
 
