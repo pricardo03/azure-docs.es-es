@@ -3,7 +3,7 @@ title: Implementación rápida de una aplicación existente en un clúster de Az
 description: Use un clúster de Azure Service Fabric para hospedar una aplicación existente de Node.js con Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
-author: thraka
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: adegeo
-ms.openlocfilehash: 3cb7fdf309c935c21f4e80c1d1ba529838935acc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: ryanwi
+ms.openlocfilehash: 2e7511f0efa36243a9e7e8e25f1697bdd3e60b63
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213017"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005301"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedaje de una aplicación de Node.js en Azure Service Fabric
 
 Esta guía de inicio rápido le ayudará a implementar una aplicación existente (Node.js en este ejemplo) en un clúster de Service Fabric que se ejecuta en Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de haber [configurado el entorno de desarrollo](service-fabric-get-started.md). Aquí se incluye la instalación del SDK de Service Fabric y Visual Studio 2017 o 2015.
 
@@ -46,7 +46,7 @@ Asigne el nombre **MyGuestApp** a la aplicación y presione **Aceptar**.
 >[!IMPORTANT]
 >Node.js puede superar fácilmente el límite de 260 caracteres en las rutas de acceso que tiene Windows. Use una ruta de acceso corta para el propio proyecto como **c:\code\svc1**. Si lo desea, puede seguir **[estas instrucciones](https://stackoverflow.com/a/41687101/1664231)** para habilitar las rutas de acceso de archivo largas en Windows 10.
    
-![Cuadro de diálogo de proyecto nuevo en Visual Studio.][new-project]
+![Cuadro de diálogo de proyecto nuevo en Visual Studio][new-project]
 
 Puede crear cualquier tipo de servicio de Service Fabric en el cuadro de diálogo siguiente. Para esta guía de inicio rápido, elija **Archivo ejecutable invitado**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 18ac9fcf5a8b0c66d3c9e3d3b4e3064099e201c4
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3b2da2680adbc92655030351cc9e1269a4cccccd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287616"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integración de Azure Active Directory con ScaleX Enterprise
 
@@ -33,7 +33,7 @@ La integración de ScaleX Enterprise con Azure AD proporciona las siguientes ven
 
 Si quiere conocer más detalles sobre la integración de aplicaciones SaaS con Azure AD, vea: ¿Qué es el acceso a aplicaciones y el inicio de sesión único con [Azure Active Directory](../manage-apps/what-is-single-sign-on.md)?
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con ScaleX Enterprise, necesita los siguientes elementos:
 
@@ -255,7 +255,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de ScaleX Enterprise del panel de acceso, iniciará sesión automáticamente en la aplicación ScaleX Enterprise. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
+Al hacer clic en el icono de ScaleX Enterprise del panel de acceso, iniciará sesión automáticamente en la aplicación ScaleX Enterprise. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Recursos adicionales

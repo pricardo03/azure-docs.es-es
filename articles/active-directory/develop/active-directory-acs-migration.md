@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319231"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115891"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar desde Azure Access Control Service
 
@@ -57,7 +57,7 @@ Para utilizar estos componentes, debe crear uno o varios espacios de nombres de 
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Toda comunicación con las operaciones de administración y STS se realiza en esta dirección URL. Use rutas de acceso diferentes para distintos fines. Para determinar si sus aplicaciones o servicios utilizan Access Control, supervise todo el tráfico a https://<namespace>.accesscontrol.windows.net. Access Control maneja todo el tráfico dirigido a esta dirección URL y debe interrumpirse. 
+Toda comunicación con las operaciones de administración y STS se realiza en esta dirección URL. Use rutas de acceso diferentes para distintos fines. Para determinar si sus aplicaciones o servicios utilizan Access Control, supervise todo el tráfico a https://&lt;espacio de nombres&gt;.accesscontrol.windows.net. Access Control maneja todo el tráfico dirigido a esta dirección URL y debe interrumpirse. 
 
 La excepción a esto es todo el tráfico a `https://accounts.accesscontrol.windows.net`. El tráfico a esta dirección URL ya se controla mediante un servicio diferente y **no** se ve afectado debido al desuso de Access Control. 
 

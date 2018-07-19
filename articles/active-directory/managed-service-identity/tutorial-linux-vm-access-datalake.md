@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904312"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004887"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Tutorial: Uso de Managed Service Identity en una máquina virtual Linux para acceder a Azure Data Lake Store
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > * Conceder a la máquina virtual acceso a Azure Data Lake Store.
 > * Obtener un token de acceso mediante la identidad de la máquina virtual y usarlo para acceder a Azure Data Lake Store.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -52,7 +52,7 @@ En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
 3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
 
-   ![Panel "Básico" para crear una máquina virtual](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Panel "Básico" para crear una máquina virtual](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. En la lista **Suscripción**, seleccione una suscripción para la máquina virtual.
 5. Para seleccionar un nuevo grupo de recursos en el que desea crear la máquina virtual, seleccione **Grupo de recursos** > **Crear nuevo**. Cuando termine, seleccione **Aceptar**.
@@ -65,7 +65,7 @@ Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azu
 1. En **Máquina virtual**, seleccione la máquina virtual en la que desea habilitar MSI.
 2. En el panel izquierdo, seleccione **Configuración**.
 3. Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**. Si desea deshabilitarlo, seleccione **No**.
-   ![Selección de "Registrar con Azure Active Directory"](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Selección de "Registrar con Azure Active Directory"](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Seleccione **Guardar**.
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concesión a una máquina virtual del acceso a Azure Data Lake Store

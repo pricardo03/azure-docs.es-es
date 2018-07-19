@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938016"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972390"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -415,7 +415,7 @@ En la parte final de esta guía se proporciona una lista de plantillas de soluci
 | # | Título | DESCRIPCIÓN |
 |--:|:------|-------------|
 | 1 | [Ejemplo de aprendizaje automático del mantenimiento predictivo de Azure](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Ejemplo de mantenimiento predictivo para predecir errores durante las próximas N unidades de tiempo. Este ejemplo se escribe como un proyecto de Azure Machine Learning Workbench, ideal para usuarios principiantes en el mantenimiento predictivo. [Documentación adicional](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) relacionada con este ejemplo.|
-| 2 | [Plantilla de soluciones de mantenimiento predictivo de Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un marco integral para mostrar varios escenarios de mantenimiento predictivo. En esta plantilla se presentan dos escenarios: el primero, un caso de uso nuevo de clasificación de condiciones de error en tiempo real. El segundo escenario es simplemente una integración de la solución [1] en esta plantilla de soluciones. Muestra cómo volver a usar la misma estructura implementada para agregar otros escenarios nuevos o existentes.|
+| 2 | [Plantilla de soluciones de mantenimiento predictivo de Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Una plantilla de solución de código abierto que demuestra el modelado de aprendizaje automático y una infraestructura completa de Azure que es capaz de admitir escenarios de mantenimiento predictivo en el contexto de supervisión remota de IoT. |
 | 3 | [Aprendizaje profundo para mantenimiento predictivo](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notebook de Azure con una solución de demostración sobre el uso de redes con memoria a corto y largo plazo (LSTM) (una clase de redes neuronales recurrentes) para el mantenimiento predictivo, con una [entrada de blog sobre este ejemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guía de modelado de mantenimiento predictivo en R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guía de modelado de mantenimiento predictivo con scripts en R.|
 | 5 | [Mantenimiento predictivo de Azure para el sector aeroespacial](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Una de las primeras plantillas de soluciones de mantenimiento predictivo basada en Azure ML v1.0 para el mantenimiento aeronáutico. Esta guía se originó a partir de este proyecto. |

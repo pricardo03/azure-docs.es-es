@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d63bd83f35f6659ce0da6db2468e8e1676133d8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 02e9bb3b23471bd0e2fc46dd438a407e5ba1173f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226177"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutorial: Integración de Azure Active Directory con Mercer BenefitsCentral (MBC)
 
@@ -34,7 +34,7 @@ La integración de Mercer BenefitsCentral (MBC) con Azure AD proporciona las sig
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Mercer BenefitsCentral (MBC), necesita los siguientes elementos:
 
@@ -205,7 +205,7 @@ En esta sección, concederá acceso a Britta Simon a Mercer BenefitsCentral (MBC
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Mercer BenefitsCentral (MBC) que se encuentra en el panel de acceso, iniciará sesión automáticamente en la aplicación Mercer BenefitsCentral (MBC).
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

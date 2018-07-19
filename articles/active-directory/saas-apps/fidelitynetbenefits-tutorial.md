@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: c3959e6e33ef603edb51d8f0b29ee140d6bd01c7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5eb64ec5d7b116699d9e081aedb35cb9e7a287cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223066"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integración de Azure Active Directory con Fidelity NetBenefits
 
@@ -34,7 +34,7 @@ La integración de Fidelity NetBenefits con Azure AD proporciona las siguientes 
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Fidelity NetBenefits se necesitan los siguientes elementos:
 
@@ -219,7 +219,7 @@ En esta sección, concederá acceso a Britta Simon a Fidelity NetBenefits para q
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Fidelity NetBenefits en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Fidelity NetBenefits.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

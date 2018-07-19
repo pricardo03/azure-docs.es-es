@@ -7,23 +7,24 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831996"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973177"
 ---
 # <a name="consuming-web-services"></a>Uso de servicios web
 Al implementar un modelo como un servicio web en tiempo real, puede enviarle datos y obtener predicciones de diversas plataformas y aplicaciones. El servicio web en tiempo real expone una API de REST para obtener predicciones. Puede enviar datos al servicio web en formato de una o varias filas para obtener una o varias predicciones al mismo tiempo.
 
 Con el [servicio web Azure Machine Learning](model-management-service-deploy.md), una aplicación externa se comunica de forma sincrónica con un modelo predictivo mediante la realización de una llamada HTTP POST a la dirección URL del servicio. Para realizar una llamada al servicio web, la aplicación cliente debe especificar la clave de API que se crea al implementar una predicción y poner los datos de solicitud en el cuerpo de la solicitud POST.
 
-Tenga en cuenta que las claves de API solo están disponibles en el modo de implementación de clúster. Los servicios web locales no tienen claves.
+> [!NOTE]
+> Tenga en cuenta que las claves de API solo están disponibles en el modo de implementación de clúster. Los servicios web locales no tienen claves.
 
 ## <a name="service-deployment-options"></a>Opciones de implementación del servicio
 Los servicios web de Azure Machine Learning se pueden implementar en los clústeres basados en la nube tanto para escenarios de prueba como de producción, y en estaciones de trabajo locales mediante Docker Engine. La funcionalidad del modelo predictivo en ambos casos será la misma. La implementación basada en clústeres proporciona una solución escalable y eficiente basada en Azure Container Service, mientras que la implementación local se puede utilizar para la depuración. 
@@ -72,11 +73,11 @@ Use la dirección URL del servicio para enviar una solicitud desde una aplicaci�
 1. En Visual Studio, cree una nueva aplicación de consola: 
     * En el menú, haga clic en Archivo -> Nuevo -> Proyecto.
     * En Visual Studio C#, haga clic en Escritorio clásico de Windows y seleccione Aplicación de consola.
-2. Escriba _MyFirstService_ como nombre del proyecto y, a continuación, haga clic en Aceptar.
-3. En Referencias del proyecto, establezca las referencias en _System.Net_ y _System.Net.Http_.
-4. Haga clic en Herramientas -> Administrador de paquetes NuGet -> Consola del Administrador de paquetes y, a continuación, instale el paquete Microsoft.AspNet.WebApi.Client.
-5. Abra el archivo Program.cs y sustituya el código por el siguiente:
-6. Actualice los parámetros _SERVICE_URL_ y _API_KEY_ con la información de su servicio web.
+2. Escriba `MyFirstService` como nombre del proyecto y haga clic en Aceptar.
+3. En Referencias de proyecto, establezca las referencias en `System.Net` y `System.Net.Http`.
+4. Haga clic en Herramientas -> Administrador de paquetes NuGet -> Consola del Administrador de paquetes y, a continuación, instale el paquete **Microsoft.AspNet.WebApi.Client**.
+5. Abra el archivo **Program.cs** y sustituya el código por el siguiente:
+6. Actualice los parámetros `SERVICE_URL` y `API_KEY` con la información de su servicio web.
 7. Ejecute el proyecto.
 
 ```csharp

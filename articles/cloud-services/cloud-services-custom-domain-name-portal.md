@@ -3,7 +3,7 @@ title: Configuración de un nombre de dominio personalizado en Cloud Services | 
 description: Aprenda a exponer su aplicación o sus datos de Azure en Internet en un dominio personalizado mediante la configuración de sus valores DNS.  Estos ejemplos usan el Portal de Azure.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: jeconnoc
+ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "25946781"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044822"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrán tener acceso a la aplicación en una dirección URL como http://contoso.cloudapp.net. Azure también asigna una dirección IP virtual.
@@ -66,7 +66,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
 1. Use uno de estos métodos para buscar el nombre de dominio **.cloudapp.net** asignado a su servicio en la nube.
    
-   * Inicie sesión en [Azure Portal], seleccione el servicio en la nube, busque la sección **Conceptos básicos** y, luego, busque la entrada **Dirección URL del sitio**.
+   * Inicie sesión en [Portal de Azure], seleccione el servicio en la nube, busque la sección **Conceptos básicos** y, luego, busque la entrada **Dirección URL del sitio**.
      
        ![sección de vista rápida que muestra la dirección URL del sitio][csurl]
      
@@ -101,7 +101,7 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
 
 1. Use uno de los siguientes métodos para obtener la dirección IP de su servicio en la nube.
    
-   * Inicie sesión en [Azure Portal], seleccione el servicio en la nube, busque la sección **Conceptos básicos** y, a continuación, busque la entrada **Direcciones IP públicas**.
+   * Inicie sesión en [Portal de Azure], seleccione el servicio en la nube, busque la sección **Conceptos básicos** y, a continuación, busque la entrada **Direcciones IP públicas**.
      
        ![sección de vista rápida que muestra la IP virtual][vip]
      
@@ -124,7 +124,7 @@ Por ejemplo, el siguiente registro D desvía todo el tráfico de **contoso.com**
 
 | Nombre de host/Subdominio | Dirección IP |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una entrada de comodín para incluir todos los subdominios, debe especificar '*****' como subdominio.
 
@@ -145,6 +145,6 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Portal]: https://portal.azure.com
+[Portal de Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png

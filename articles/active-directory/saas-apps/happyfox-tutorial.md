@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jeedes
-ms.openlocfilehash: f6d0710dd268796bef7f0a340f8eb2bfbee6b1f2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3dc516e24f140ad5ef7443a4cff5962e7d584065
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218020"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutorial: integración de Azure Active Directory con HappyFox
 
@@ -33,7 +33,7 @@ La integración de HappyFox con Azure AD proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con HappyFox, necesita los siguientes elementos:
 
@@ -230,7 +230,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 2. Haga clic en el botón **"SAML"** para iniciar sesión en HappyFox con su cuenta de Azure AD.
 
-Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

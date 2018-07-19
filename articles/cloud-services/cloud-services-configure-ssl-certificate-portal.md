@@ -3,7 +3,7 @@ title: Configuración de SSL para un servicio en la nube | Microsoft Docs
 description: Aprenda a especificar un punto de conexión HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación. Estos ejemplos usan el Portal de Azure.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: adegeo
-ms.openlocfilehash: 0e053ad7f1033317948b6ef0856984b21e56e425
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: e3e7d271375cd9c3f49d8fedd963b5234dab7902
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24859783"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001531"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configuración de SSL para una aplicación en Azure
 
@@ -82,7 +82,7 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
 
    Se pueden establecer permisos (atributo `permisionLevel`) en uno de los siguientes casos:
 
-   | Valor del permiso | Descripción |
+   | Valor del permiso | DESCRIPCIÓN |
    | --- | --- |
    | limitedOrElevated |**(Predeterminado)** todos los procesos de rol pueden tener acceso a la clave privada. |
    | elevated |Solo los procesos elevados pueden tener acceso a la clave privada. |

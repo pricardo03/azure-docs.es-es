@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9a1a1f1a1866e5221775d583a9bafe86eef17131
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d5cdc2ec0c6cfcf52f84629485d0dd879fbf6fa2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221230"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: integración de Azure Active Directory con Adobe Sign
 
@@ -33,7 +33,7 @@ La integración de Adobe Sign con Azure AD proporciona las siguientes ventajas:
 
 Para obtener más detalles sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Adobe Sign, se necesita:
 
@@ -252,7 +252,7 @@ En esta sección, habilita a Britta Simon para que use el inicio de sesión úni
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-Al seleccionar el icono de Adobe Sign en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Adobe Sign. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
+Al seleccionar el icono de Adobe Sign en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Adobe Sign. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

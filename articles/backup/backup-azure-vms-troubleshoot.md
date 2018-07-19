@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/2018
 ms.author: trinadhk
-ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5828b4e4f42c349246845bd003e874fb0352bae
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607266"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008083"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 Puede solucionar los errores detectados al usar Azure Backup con la información incluida en la tabla siguiente.
@@ -56,7 +56,7 @@ Puede solucionar los errores detectados al usar Azure Backup con la información
 | No se puede cancelar el trabajo porque no está en curso; solo se admite la cancelación de trabajos que están en curso. Intente cancelar un trabajo que esté en curso. |Esto sucede debido a un estado transitorio. Espere un momento y reintente la operación de cancelación. |
 | No se pudo cancelar el trabajo; espere hasta que finalice el trabajo. |None |
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restauración
 | Detalles del error | Solución alternativa |
 | --- | --- |
 | Error en la restauración con error interno de nube |<ol><li>El servicio de nube que está intentando restaurar está configurado con la configuración de DNS. Puede consultar  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si hay una dirección configurada, significa que se ha configurado DNS.<br> <li>El servicio en la nube al que está tratando restaurar está configurado con la IP reservada y las máquinas virtuales del servicio en la nube tienen un estado de detenido.<br>Puede comprobar que un servicio en la nube tiene una IP reservada utilizando los siguientes cmdlets de PowerShell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Está intentando restaurar una máquina virtual con las siguientes configuraciones de red especiales en el mismo servicio en la nube. <br>- Máquinas virtuales con la configuración del equilibrador de carga (interna y externa)<br>- Máquinas virtuales con varias direcciones IP reservadas<br>- Máquinas virtuales con varias NIC<br>Seleccione un nuevo servicio en la nube en la interfaz de usuario o consulte las [consideraciones de restauración](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) de las máquinas virtuales con las configuraciones de red especiales.</ol> |
@@ -139,7 +139,7 @@ Una vez que la resolución de nombres se haya realizado correctamente, también 
 
 1. Preparar una lista blanca con los intervalos IP del centro de datos de Azure.
    * Obtenga la lista de [IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) que van a formar parte de la lista de direcciones IP aprobadas.
-   * Desbloquee las direcciones IP usando el cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) . Ejecute este cmdlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
+   * Desbloquee las direcciones IP usando el cmdlet [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) . Ejecute este cmdlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
    * Agregar reglas al NSG (si dispone de uno implementado) para permitir el acceso a las direcciones IP.
 2. Crear una ruta de acceso para el flujo del tráfico HTTP
    * Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico. [Aquí](backup-azure-arm-vms-prepare.md#establish-network-connectivity) se pueden encontrar los pasos necesarios para implementar un servidor proxy HTTP.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 3acdfbc7665bec6cfb8821f33e642f29eec84be1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ef45bbb20ccb5db8c383717eb81bfe8fa18720c7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214923"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042850"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integración de Azure Active Directory con Infogix Data3Sixty Govern
 
@@ -34,7 +34,7 @@ La integración de Infogix Data3Sixty Govern con Azure AD proporciona las siguie
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Infogix Data3Sixty Govern, necesita los siguientes elementos:
 
@@ -236,7 +236,7 @@ En esta sección se habilita a Britta Simon para usar el inicio de sesión únic
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Infogix Data3Sixty Govern en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Infogix Data3Sixty Govern.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

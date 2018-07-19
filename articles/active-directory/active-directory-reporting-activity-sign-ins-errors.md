@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232132"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971081"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -75,9 +75,10 @@ En la siguiente sección se proporciona una información general completa de tod
 |50008|La aserción SAML falta o está mal configurada en el token. Póngase en contacto con el proveedor de federación.|
 |50010|Se ha producido un error en la validación del identificador URI de audiencia de la aplicación debido a que no se configuraron audiencias de token. Póngase en contacto con el propietario de la aplicación|
 |50011|La dirección de respuesta falta, está mal configurada o no coincide con las direcciones de respuesta configuradas para la aplicación. Pruebe la solución descrita en [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Si siguen los problemas, póngase en contacto con el propietario de la aplicación o el administrador de esta|
+|50012| Se trata de un mensaje de error genérico que indica que se produjo un error de autenticación. Esto puede ocurrir por razones como credenciales no válidas o ausentes, o por notificaciones en la solicitud. Asegúrese de que la solicitud se envía con las credenciales y notificaciones correctas. |
 |50013|La aserción no es válida debido a varias razones: el emisor del token no coincide con la versión de la API en su intervalo de tiempo válido, la aserción ha expirado o tiene un formato incorrecto, o el token de actualización de la aserción no es un token de actualización principal.|
 |50017|No se pudo realizar la validación de la certificación por alguno de los siguientes motivos:<ul><li>No se pudo encontrar el certificado de emisión en la lista de certificados de confianza</li><li>No se pudo encontrar el CrlSegment esperado</li><li>No se pudo encontrar el certificado de emisión en la lista de certificados de confianza</li><li>El punto de distribución de la diferencia CRL se ha configurado sin el punto de distribución de CRL correspondiente</li><li>No se pueden recuperar segmentos CRL válidos debido a un problema de tiempo de espera</li><li>No se puede descargar el CRL</li></ul>Póngase en contacto con el administrador del inquilino.|
-|50020|El usuario no tiene autorización: no se pueden emitir tokens debido a un problema con la versión, o no se ha especificado el nombre del emisor, o hay problemas con el nombre del emisor (NULL o longitud máxima). Póngase en contacto con el propietario de la aplicación|
+|50020|El usuario no está autorizado por uno de los motivos a continuación.<ul><li>El usuario está intentando iniciar sesión con una cuenta MSA con el punto de conexión v1</li><li>El usuario no existe en el inquilino.</li></ul> Póngase en contacto con el propietario de la aplicación.|
 |50027|Token JWT no válido debido a los siguientes motivos:<ul><li>no contiene la notificación nonce, sub notificación</li><li>no coincide el identificador de asunto</li><li>notificación duplicada en las notificaciones de idToken</li><li>emisor inesperado</li><li>audiencia inesperada</li><li>fuera de su intervalo de tiempo válido </li><li>el formato del token no es correcto</li><li>El token del identificador externo del emisor no pudo comprobar la firma.</li></ul>Póngase en contacto con el propietario de la aplicación|
 |50029|Identificador URI no válido: el nombre de dominio contiene caracteres no válidos. Póngase en contacto con el administrador del inquilino.|
 |50034|El usuario no existe en el directorio. Póngase en contacto con el administrador del inquilino.|
@@ -99,7 +100,7 @@ En la siguiente sección se proporciona una información general completa de tod
 |50089|El token de flujo ha expirado: error de autenticación. Haga que el usuario intente iniciar sesión de nuevo con el nombre de usuario y la contraseña|
 |50097|Se requiere autenticación de dispositivo: las notificaciones DeviceId y DeviceAltSecId son nulas O no existe ningún dispositivo que se corresponda con el identificador|
 |50099|La firma JWT no es válida. Póngase en contacto con el propietario de la aplicación.|
-|50105|El usuario con sesión iniciada no está asignado a un rol de la aplicación en la que inició sesión. Asigne el usuario a la aplicación. Para más información: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|El usuario con sesión iniciada no está asignado a un rol de la aplicación en la que inició sesión. Asigne el usuario a la aplicación. Para más información: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|El objeto solicitado del dominio Kerberos de federación no existe. Póngase en contacto con el administrador del inquilino.|
 |50120|Problema con el encabezado JWT. Póngase en contacto con el administrador del inquilino.|
 |50124|La transformación de notificaciones contiene parámetros de entrada no válidos. Póngase en contacto con el administrador del inquilino para actualizar la directiva.|
@@ -173,7 +174,10 @@ En la siguiente sección se proporciona una información general completa de tod
 |81001|El vale de Kerberos del usuario es demasiado grande. Esto puede ocurrir si el usuario pertenece a demasiados grupos y, por tanto, el vale de Kerberos contiene demasiadas pertenencias a grupos. Reduzca la pertenencia a grupos del usuario e inténtelo de nuevo.|
 |81005|No se admite este paquete de autenticación|
 |81007|El inquilino no está habilitado para un inicio de sesión único de conexión directa|
-
+|90010|La solicitud no se admite por diversos motivos. Por ejemplo, la solicitud se ha realizado utilizando un método de solicitud que no es compatible (se admite solo el método POST), o el algoritmo de firma de token que se solicitó no es compatible. Póngase en contacto con el desarrollador de aplicaciones.|
+|90014| Falta un campo obligatorio para un mensaje de protocolo, póngase en contacto con el propietario de la aplicación. Si es usted el propietario de la aplicación, asegúrese de que tiene todos los parámetros necesarios para la solicitud de inicio de sesión. |
+|90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|
+|90094| La concesión requiere permisos de administrador. Pida al administrador de inquilino que dé su consentimiento para esta aplicación.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
