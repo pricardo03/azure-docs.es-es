@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0a004ee6e5dbdd2ceb8546a4b7ce20b2b551fac9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292548"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084072"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -44,6 +44,8 @@ En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta d
 >Si no ha implementado nunca RDS o desea más información antes de empezar, obtenga información sobre cómo [implementar RDS sin problemas con Azure Resource Manager y Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Requisitos
+
+- Use un cliente que no sea el cliente web de Escritorio remoto, ya que el cliente web no es compatible con el proxy de aplicación.
 
 - Los puntos de conexión de Acceso web y Puerta de enlace de Escritorio remoto deben estar en la misma máquina y compartir una raíz. Acceso de Escritorio remoto y Puerta de enlace de Escritorio remoto se publican como una sola aplicación con el proxy de aplicación para que pueda tener experiencia de inicio de sesión único entre las dos aplicaciones.
 

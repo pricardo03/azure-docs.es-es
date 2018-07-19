@@ -12,26 +12,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 06/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 1884574bcb39a1cbbd95b481adabdd06ebd499a9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 42258a352b05d97341f20c13bf837e1398dd8979
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386085"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099969"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Introducción a App Service en Azure Stack
+
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Azure App Service en Azure Stack es una oferta de plataforma como servicio (PaaS) de Microsoft Azure disponible en Azure Stack. El servicio permite a los clientes, internos o externos, crear aplicaciones de Azure Functions, API y web para cualquier plataforma o dispositivo. Pueden integrar sus aplicaciones con aplicaciones locales y automatizar sus procesos empresariales. Los operadores en la nube de Azure Stack pueden ejecutar las aplicaciones en máquinas virtuales totalmente administradas, con la elección de los recursos de máquinas virtuales compartidas o máquinas virtuales dedicadas.
 
-Azure App Service incluye nuevas funcionalidades para automatizar procesos empresariales y hospedar las API en la nube. Como un servicio integrado único, Azure App Service le permite crear distintos componentes, como sitios web, API de RESTful y procesos empresariales, en una única solución.
+Azure App Service le permite automatizar procesos empresariales y las API de nube de hospedaje. Como un servicio integrado único, Azure App Service le permite combinar distintos componentes, como sitios web, API de RESTful y procesos empresariales, en una única solución.
 
 ## <a name="why-offer-azure-app-service-on-azure-stack"></a>¿Por qué ofrecer Azure App Service en Azure Stack?
 
 Estas son algunas de las características y funcionalidades principales de App Service:
+
 - **Varios lenguajes y plataformas**: App Service es compatible con ASP.NET, Node.js, Java, PHP y Python. También puede ejecutar Windows PowerShell y otros scripts o ejecutables en máquinas virtuales de App Service.
 - **Optimización de DevOps**: configure la integración y la implementación continuas con GitHub, Git local o BitBucket. Promueva actualizaciones a través de entornos de ensayo y de prueba. Administre las aplicaciones de App Service mediante Azure PowerShell o la interfaz de la línea de comandos (CLI) multiplataforma.
 - **Integración con visual Studio**: existen herramientas dedicadas en Visual Studio que permiten optimizar las tareas de creación e implementación de aplicaciones.
@@ -47,10 +49,11 @@ App Service ofrece varios tipos de aplicación, cada uno pensado para hospedar u
 La palabra app (aplicación) aquí hace referencia a los recursos de hospedaje dedicados a ejecutar una carga de trabajo. Si se toma "aplicación web" como ejemplo, probablemente piense en una aplicación web como aquellos recursos de proceso y código de aplicación que juntos ofrecen funcionalidad a un explorador. Pero en App Service, una aplicación web son los recursos de procesos que Azure Stack proporciona para hospedar su código de aplicación.
 
 La aplicación puede estar compuesta de varias aplicaciones de App Service de diferentes tipos. Por ejemplo, si la aplicación se compone de un front-end web y un back-end de la API de RESTful, se pueden realizar las operaciones siguientes:
+
 - Implementar los dos (front-end y API) en una sola aplicación web.
 - Implementar el código de front-end en una aplicación web y el código de back-end en una aplicación de API.
 
-   ![](media/azure-stack-app-service-overview/image01.png)
+   ![Introducción a App Service con datos de supervisión](media/azure-stack-app-service-overview/image01.png)
 
 ## <a name="what-is-an-app-service-plan"></a>¿Qué es un plan de App Service?
 
@@ -60,10 +63,9 @@ En Azure, hay trabajados compartidos y dedicados. Un trabajo compartido admite e
 
 ## <a name="portal-features"></a>Características del portal
 
-App Service en Azure Stack usa la misma interfaz de usuario que Azure App Service, como ocurre con el back-end. Algunas características están deshabilitadas y no funcionan en Azure Stack. Las expectativas o los servicios específicos de Azure que requieren esas características no están disponibles aún en Azure Stack.
+App Service en Azure Stack usa la misma interfaz de usuario que Azure App Service, como ocurre con el back-end. Sin embargo, algunas características están deshabilitadas y no funcionan en Azure Stack. Las expectativas o los servicios específicos de Azure que requieren esas características no están disponibles actualmente en Azure Stack.
 
-## <a name="next-steps"></a>pasos siguientes
-
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Antes de empezar a trabajar con App Service en Azure Stack](azure-stack-app-service-before-you-get-started.md)
 - [Instale el proveedor de recursos de App Service](azure-stack-app-service-deploy.md)

@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054660"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082512"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
@@ -210,7 +210,7 @@ Instancia administrada tiene la ventaja de estar siempre actualizada en la nube,
 - Instancia administrada no permite especificar las rutas de acceso físicas completas por lo que todos los escenarios correspondientes se admiten de manera diferente: RESTORE DB no admite WITH MOVE, CREATE DB no permite rutas de acceso físicas, BULK INSERT funciona solo con Blobs de Azure, etc. 
 - Instancia administrada admite la [autenticación de Azure AD](sql-database-aad-authentication.md) como alternativa en la nube a la autenticación de Windows. 
 - Instancia administrada administra automáticamente el grupo de archivos XTP y los archivos de bases de datos que contienen objetos de OLTP en memoria
-- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure en Azure Data Factory; consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure en Azure Data Factory; consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database e Instancia administrada, consulte [Comparación entre SQL Database e Instancia administrada (versión preliminar)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>Características de administración de Instancia administrada  
 

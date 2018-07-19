@@ -1,0 +1,62 @@
+---
+title: Supervisión de la infraestructura de Azure
+description: En este artículo se describe la supervisión de la red de producción de Azure.
+services: security
+documentationcenter: na
+author: TerryLanfear
+manager: MBaldwin
+editor: TomSh
+ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/28/2018
+ms.author: terrylan
+ms.openlocfilehash: 17e7183ff56725462dc43cba21db418a86d86b51
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101976"
+---
+# <a name="monitoring-of-azure-infrastructure"></a>Supervisión de la infraestructura de Azure   
+
+## <a name="configuration-and-change-management"></a>Configuración y administración de cambios
+Microsoft Azure revisa y actualiza anualmente los valores de configuración y las configuraciones básicas de los dispositivos de hardware, software y red. Los cambios se desarrollan, prueban y aprueban antes de pasar al entorno de producción desde un entorno de desarrollo o pruebas.
+
+El equipo de seguridad y cumplimiento de Azure se encarga de revisar las configuraciones de línea de base necesarias para los servicios basados en Azure, así como por los equipos de servicio. Una revisión a cargo del equipo de servicio es parte de las pruebas antes de la implementación del servicio de producción.
+
+## <a name="vulnerability-management"></a>Administración de vulnerabilidades
+La administración de actualizaciones de seguridad ayuda a proteger los sistemas frente a las vulnerabilidades conocidas. Azure utiliza sistemas de implementación integrados para administrar la distribución e instalación de actualizaciones de seguridad de software de Microsoft. Azure también es capaz de aprovechar los recursos de Microsoft Security Response Center (MSRC). MSRC identifica, supervisa, responde y resuelve los incidentes de seguridad y las vulnerabilidades de la nube a todas horas y todos los días del año.
+
+## <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
+El examen de vulnerabilidades se ejecuta en sistemas operativos de servidor, bases de datos y dispositivos de red. Los exámenes de vulnerabilidades se realizan de forma trimestral como mínimo. Microsoft Azure contrata asesores independientes para realizar pruebas de penetración del límite de Microsoft Azure. También se realizan ejercicios de simulacro de ataques regularmente y los resultados se usan para realizar mejoras de seguridad.
+
+## <a name="protective-monitoring"></a>Supervisión de protección
+El equipo de seguridad de Microsoft Azure ha definido los requisitos para una supervisión activa. Los equipos de servicio configuran herramientas de supervisión activas según estos requisitos. Las herramientas de supervisión activas incluyen Monitoring Agent (MA) y System Center Operations Manager. Estas herramientas están configuradas para proporcionar alertas en tiempo al personal de seguridad de Microsoft Azure en situaciones que requieren acción inmediata.
+
+## <a name="incident-management"></a>Administración de incidentes
+Microsoft implementa un proceso de administración de incidentes de seguridad para facilitar una respuesta coordinada frente a incidentes, en caso de que estos se produzcan.
+
+Si Microsoft detecta cualquier acceso no autorizado a los datos de un cliente almacenados en su equipo o en sus instalaciones, o un acceso no autorizado a dichos equipos o instalaciones que provocan la pérdida, revelación o alteración de los datos del cliente, Microsoft lleva a cabo las acciones siguientes:
+
+- Notifica inmediatamente al cliente del incidente de seguridad.
+- Investiga rápidamente el incidente de seguridad y proporcionará al cliente información detallada sobre dicho incidente.
+- Toma medidas razonables e inmediatas para mitigar los efectos y minimizar el daño producido como consecuencia del incidente de seguridad.
+
+Se ha establecido un marco de administración de incidentes con roles definidos y responsabilidades asignadas. El equipo de administración de incidentes de seguridad de Windows Azure (WASIM) es responsable de administrar los incidentes de seguridad, solicitando la implicación de equipos especialistas en los casos que sea necesario. Los responsables de operaciones están encargados de supervisar la investigación y resolución de los incidentes de seguridad y privacidad.
+
+## <a name="next-steps"></a>Pasos siguientes
+Para obtener más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
+
+- [Azure facilities, premises, and physical security](azure-physical-security.md) (Instalaciones de Azure, locales y seguridad física)
+- [Availability of Azure infrastructure](azure-infrastructure-availability.md) (Disponibilidad de la infraestructura de Azure)
+- [Componentes y límites del sistema de información de Azure](azure-infrastructure-components.md)
+- [Arquitectura de red de Azure](azure-infrastructure-network.md)
+- [Red de producción de Azure](azure-production-network.md)
+- [Características de seguridad de Microsoft Azure SQL Database](azure-infrastructure-sql.md)
+- [Operaciones de producción y administración de Azure](azure-infrastructure-operations.md)
+- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md) (Integridad de la infraestructura de Azure)
+- [Protección de datos del cliente en Azure](azure-protection-of-customer-data.md)

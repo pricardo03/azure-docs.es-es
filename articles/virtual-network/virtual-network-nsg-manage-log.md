@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: c3f4a64c9e11d17899987bbe818506f61c415e3f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757066"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114030"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registros de diagnóstico de un grupo de seguridad de red
 
@@ -35,7 +35,7 @@ El registro de diagnóstico se habilita por separado para *cada* grupo de seguri
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
-Para habilitar el registro de diagnóstico se pueden usar [Azure Portal](#azure-portal) o [PowerShell](#powershell).
+Para habilitar el registro de diagnóstico se pueden usar [Azure Portal](#azure-portal), [PowerShell](#powershell) o la [CLI de Azure](#azure-cli).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -57,7 +57,7 @@ Para habilitar el registro de diagnóstico se pueden usar [Azure Portal](#azure-
 
 ### <a name="powershell"></a>PowerShell
 
-Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.1.1 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions)].
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.1.1 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
 Para habilitar el registro de diagnóstico se necesita el identificador de un grupo de seguridad de red existente. Si no tiene ninguno, puede crearlo con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
 
@@ -69,12 +69,12 @@ $Nsg=Get-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Puede escribir registros de diagnóstico para tres tipos de destino. Para más información, consulte [Destinos del registro](#log-destinations). En este artículo, los registros se envían al destino *Log Analytics*, pero no es más que un ejemplo. Recupere un área de trabajo de Log Analytics existente con [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Por ejemplo, para recuperar un área de trabajo denominado *myLaWorkspace* en un grupo de recursos denominado *LaWorkspaces*, escriba el siguiente comando:
+Puede escribir registros de diagnóstico para tres tipos de destino. Para más información, consulte [Destinos del registro](#log-destinations). En este artículo, los registros se envían al destino *Log Analytics*, pero no es más que un ejemplo. Recupere un área de trabajo de Log Analytics existente con [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Por ejemplo, para recuperar un área de trabajo denominado *myWorkspace* en un grupo de recursos denominado *myWorkspaces*, escriba el siguiente comando:
 
 ```azurepowershell-interactive
 $Oms=Get-AzureRmOperationalInsightsWorkspace `
-  -ResourceGroupName LaWorkspaces `
-  -Name myLaWorkspace
+  -ResourceGroupName myWorkspaces `
+  -Name myWorkspace
 ```
 
 Si no tiene un área de trabajo, puede crearlo con [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
@@ -89,6 +89,41 @@ Set-AzureRmDiagnosticSetting `
 ```
 
 Si solo desea registrar los datos en una de las dos categorías, en lugar de en ambas, agregue la opción `-Categories` al comando anterior, seguida de *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+
+Vea y analice los registros. Para más información, consulte [Visualización y análisis de los registros](#view-and-analyze-logs).
+
+### <a name="azure-cli"></a>Azure CLI
+
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/bash), o mediante la ejecución de la CLI de Azure en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta la CLI desde el equipo, necesita la versión 2.0.38 o posterior. Ejecute `az --version` en el equipo para encontrar la versión instalada. Si debe actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Si ejecuta la CLI localmente, también debe ejecutar `az login` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
+
+Para habilitar el registro de diagnóstico se necesita el identificador de un grupo de seguridad de red existente. Si no tiene ninguno, puede crear uno con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
+
+Recupere el grupo de seguridad de red para el que desea habilitar el registro de diagnóstico con [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show). Por ejemplo, para recuperar un grupo de seguridad de red denominado *myNsg* que existe en un grupo de recursos denominado *myResourceGroup*, escriba el siguiente comando:
+
+```azurecli-interactive
+nsgId=$(az network nsg show \
+  --name myNsg \
+  --resource-group myResourceGroup \
+  --query id \
+  --output tsv)
+```
+
+Puede escribir registros de diagnóstico para tres tipos de destino. Para más información, consulte [Destinos del registro](#log-destinations). En este artículo, los registros se envían al destino *Log Analytics*, pero no es más que un ejemplo. Para más información, consulte [Categorías de registro](#log-categories). 
+
+Habilite el registro de diagnóstico para el grupo de seguridad de red con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). En el ejemplo siguiente se registran los datos de categoría de eventos y de contadores en un área de trabajo denominada *myWorkspace*, que se encuentra en un grupo de recursos denominado *myWorkspaces*, y el identificador del grupo de seguridad de red que recuperó anteriormente:
+
+```azurecli-interactive
+az monitor diagnostic-settings create \
+  --name myNsgDiagnostics \
+  --resource $nsgId \
+  --logs '[ { "category": "NetworkSecurityGroupEvent", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "NetworkSecurityGroupRuleCounter", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --workspace myWorkspace \
+  --resource-group myWorkspaces
+```
+
+Si no tiene ningún área de trabajo existente, puede crear una mediante [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Existen dos categorías de registro para las que se pueden habilitar registros. 
+
+Si solo desea registrar los datos de una categoría o la otra, quite la categoría para la que no desea registrar los datos en el comando anterior. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
 
 Vea y analice los registros. Para más información, consulte [Visualización y análisis de los registros](#view-and-analyze-logs).
 

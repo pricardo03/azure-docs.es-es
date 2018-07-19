@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 2f34233a68bec506d9f69426d779aee8e493d759
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402070"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115834"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -85,7 +85,7 @@ Para cargar los conjuntos de datos en el intervalo de terabytes, la latencia de 
 
 * Azure ExpressRoute, que permite crear conexiones privadas entre los centros de datos de Azure y su infraestructura local. Estas conexiones ofrecen una opción confiable para transferir grandes cantidades de datos. Para obtener más información, consulte la [documentación de Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-* Carga "sin conexión" de los datos. Puede usar el [servicio Azure Import/Export](../../storage/common/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero a Blobs de Azure Storage. Después, puede usar [Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) o la herramienta [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) para copiar datos desde Azure Storage Blob a Data Lake Store.
+* Carga "sin conexión" de los datos. Puede usar el [servicio Azure Import/Export](../../storage/common/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero a Blobs de Azure Storage. Después, puede usar [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) o la herramienta [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) para copiar datos desde Azure Storage Blob a Data Lake Store.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
@@ -93,7 +93,7 @@ Azure SQL DW es una excelente opción para almacenar resultados limpios y prepar
 
 Azure SQL Data Warehouse (SQL DW) es un almacén de bases de datos relacionales optimizado para cargas de trabajo de análisis.  Azure SQL DW se escala según las tablas con particiones.  La tablas se pueden dividir en particiones entre varios nodos.  Los nodos de Azure SQL DW se seleccionan en el momento de la creación.  Se pueden escalar a posteriori, pero es un proceso activo que puede requerir el movimiento de datos. Para obtener más información, consulte [SQL Data Warehouse: administración del proceso](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
-### <a name="hbase"></a>hbase
+### <a name="hbase"></a>HBase
 
 Apache HBase es un almacén de par clave-valor disponible en Azure HDInsight.  Apache HBase es una base de datos NoSQL de código abierto que se compila en Hadoop y se modela después de Google BigTable. HBase proporciona un acceso aleatorio y eficaz y una enorme coherencia para grandes cantidades de datos no estructurados y semiestructurados en una base de datos sin esquemas organizada por familias de columnas.
 

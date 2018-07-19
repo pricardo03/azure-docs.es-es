@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: bbd5e7d91e982a3dce320ea10a7fe8da435ff212
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 35860838d03d61e1145d35fd2516c1688c3bb64f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293781"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130587"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights
 Si la cantidad de datos de entrada supera la configuración del entorno, puede experimentar latencia o limitación en Azure Time Series Insights.
@@ -52,15 +52,15 @@ Desde allí, puede configurar alertas mediante las siguientes métricas:
 |**Mensajes de entrada recibidos**   | Número de mensajes leídos desde todos los orígenes de eventos de Event Hubs o IoT Hub.        |
 |**Bytes de entrada almacenados**     | Tamaño total de los eventos almacenados y disponibles para su consulta. Se calcula el tamaño solo sobre el valor de propiedad.        |
 |**Eventos de entrada almacenados**     |   Número de eventos planos almacenados y disponibles para su consulta.      |
-|**Ingress Recieved Message Time Lag** (Tiempo transcurrido hasta la recepción del mensaje de entrada)    |  Diferencia entre el momento en el que el mensaje se pone en la cola en el origen del evento y el momento del procesamiento en la entrada.      |
-|**Ingress Recieved Message Count Lag** (Recuento hasta la recepción del mensaje de entrada)    |  Diferencia entre el número de secuencia del último mensaje en cola en la partición del origen del evento y el del mensaje que se está procesando en la entrada.      |
+|**Tiempo de retardo de los mensajes de entrada recibidos**    |  Diferencia en segundos entre el momento en el que el mensaje se pone en la cola en el origen del evento y el momento en que se procesa en la entrada.      |
+|**Retardo de recuento de los mensajes de entrada recibidos**    |  Diferencia entre el número de secuencia del último mensaje en cola en la partición del origen del evento y el del mensaje que se está procesando en la entrada.      |
 
 
-![Latency](media/environment-mitigate-latency/latency.png)
+![Latencia](media/environment-mitigate-latency/latency.png)
 
-Si está experimentando alguna limitación, verá un valor en *Ingress Recieved Message Time Lag* (Tiempo transcurrido hasta la recepción del mensaje de entrada) que indica cuántos minutos de retraso tiene TSI respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  *Ingress Received Message Count Lag* (Recuento hasta la recepción del mensaje de entrada) también debe tener un valor para que pueda determinar los mensajes que tiene detrás.  La manera más fácil de mantenerse al día es aumentar la capacidad del entorno a un tamaño que le permita compensar la diferencia.  
+Si está experimentando alguna limitación, verá un valor en *Ingress Recieved Message Time Lag* (Tiempo de retardo de los mensajes de entrada recibidos) que indica cuántos segundos de retraso tiene TSI respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  *Ingress Received Message Count Lag* (Retardo de recuento de los mensajes de entrada recibidos) también debe tener un valor para que pueda determinar los mensajes que tiene detrás.  La manera más fácil de mantenerse al día es aumentar la capacidad del entorno a un tamaño que le permita compensar la diferencia.  
 
-Por ejemplo, si tiene un entorno único S1 de unidad y comprueba que hay un retraso de cinco millones de mensajes, puede aumentar el tamaño del entorno a seis unidades durante un día aproximadamente para la actualización.  Podría aumentarlo más para ponerse al día más rápidamente.  Esto suele pasar al aprovisionar inicialmente un entorno, en particular al conectarlo a un origen de eventos que no esté vacío o con la carga masiva de numerosos datos históricos.
+Por ejemplo, si tiene un entorno único S1 de unidad y comprueba que hay un retraso de cinco millones de mensajes, puede aumentar el tamaño del entorno a seis unidades durante un día aproximadamente para la actualización.  Podría aumentarlo más para ponerse al día más rápidamente.  Este período para ponerse al día es común al aprovisionar inicialmente un entorno, en particular al conectarlo a un origen de eventos que no esté vacío o con la carga masiva de numerosos datos históricos.
 
 Otra de estas técnicas consiste en establecer una alerta de **eventos de entrada almacenados** >= un umbral ligeramente por debajo de la capacidad total del entorno durante un período de 2 horas.  Esta alerta le ayudará a conocer si se encuentra continuamente en el límite de la capacidad, lo cual indica una alta probabilidad de latencia.  
 

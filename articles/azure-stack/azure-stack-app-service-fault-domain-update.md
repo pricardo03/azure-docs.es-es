@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 42adef66fb1b1141ab44aab3a1ccdaae022202b5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150981"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130377"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Redistribución de Azure App Service en Azure Stack entre dominios de error
 
@@ -27,14 +27,12 @@ ms.locfileid: "32150981"
 
 Con la actualización 1802, Azure Stack ahora admite la distribución de cargas de trabajo entre dominios de error, una característica que es crítica para la alta disponibilidad.
 
-> [!IMPORTANT]
-> Debe haber actualizado el sistema integrado en Azure Stack a la versión 1802 para poder beneficiarse de la compatibilidad con dominios de error.  Este documento solo se aplica a implementaciones de proveedor de recursos de App Service realizadas antes de la actualización 1802.  Si ha implementado App Service en Azure Stack después de aplicar la actualización 1802 a Azure Stack, el proveedor de recursos ya está distribuido entre dominios de error.
->
->
+>[!IMPORTANT]
+>Para poder beneficiarse de la compatibilidad con dominios de error, debe haber actualizado el sistema integrado en Azure Stack a la versión 1802. Este documento solo se aplica a implementaciones de proveedor de recursos de App Service finalizadas antes de la actualización 1802. Si ha implementado App Service en Azure Stack después de aplicar la actualización 1802 a Azure Stack, el proveedor de recursos ya estará distribuido entre dominios de error.
 
 ## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Reequilibrio de un proveedor de recursos de App Service entre dominios de error
 
-Para redistribuir los conjuntos de escalado implementados para el proveedor de recursos de App Service, debe realizar los pasos siguientes para cada conjunto de escalado.  De forma predeterminada, los nombres de los conjuntos de escalado son:
+Para redistribuir los conjuntos de escalado implementados para el proveedor de recursos de App Service, debe realizar los pasos de este artículo para cada conjunto de escalado. De forma predeterminada, los nombres de los conjuntos de escalado son:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -44,39 +42,40 @@ Para redistribuir los conjuntos de escalado implementados para el proveedor de r
 * MediumWorkerTierScaleSet
 * LargeWorkerTierScaleSet
 
-> [!NOTE]
-> Si no tiene ninguna instancia implementada en algunos de los conjuntos de escalado a nivel de trabajo, no necesita reequilibrarlos.  Los conjuntos de escalado se reequilibrarán correctamente al escalarlos horizontalmente en el futuro.
->
->
+>[!NOTE]
+> Si no ha implementado ninguna instancia en algunos de los conjuntos de escalado a nivel de trabajo, no necesita reequilibrarlos. Los conjuntos de escalado se reequilibrarán correctamente al escalarlos horizontalmente en el futuro.
 
-1. Vaya a Virtual Machine Scale Sets en el portal de administrador de Azure Stack.  Los conjuntos de escalado implementados como parte de la implementación de App Service se enumerarán con la información del recuento de instancias.
+Para escalar horizontalmente los conjuntos de escalado, siga estos pasos:
 
-    ![Azure App Service Scale Sets enumerados en la experiencia de usuario con Virtual Machine Scale Sets][1]
+1. Inicie sesión en el Portal de administración de Azure Stack.
+2. Seleccione **Más servicios**.
+3. En COMPUTE, seleccione **Conjuntos de escalado de máquinas virtuales**. Los conjuntos de escalado implementados como parte de la implementación de App Service se enumerarán con la información del recuento de instancias. La captura de pantalla siguiente muestra un ejemplo de conjunto de escalado.
 
-2. A continuación, escale cada conjunto horizontalmente.  Por ejemplo, si tiene tres instancias existentes en el conjunto de escalado, debe escalarlas horizontalmente a seis, para que las tres instancias nuevas se aprovisionen en los dominios de error.
-    a. [Configuración del entorno de administración de Azure Stack con PowerShell](azure-stack-powershell-configure-admin.md) b. Use este ejemplo para escalar horizontalmente el conjunto de escalado:
-        ```powershell
-                Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
+      ![Azure App Service Scale Sets enumerados en la experiencia de usuario con Virtual Machine Scale Sets][1]
 
-                # Get current scale set
-                $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"
+4. Escale cada conjunto horizontalmente. Por ejemplo, si tiene tres instancias existentes en el conjunto de escalado, debe escalarlas horizontalmente a seis, para que las tres instancias nuevas se implementen en los dominios de error. En el siguiente ejemplo de PowerShell se muestra el escalamiento horizontal del conjunto de escalado.
 
-                # Set and update the capacity of your scale set
-                $vmss.sku.capacity = 6
-                Update-AzureRmVmss -ResourceGroupName "AppService.local" -Name "SmallWorkerTierScaleSet" -VirtualMachineScaleSet $vmss
-        '''
-> [!NOTE]
-> Este paso puede tardar algunas horas en completarse en función del tipo de rol y del número de instancias.
->
->
+   ```powershell
+   Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
-3. Supervise el estado de las nuevas instancias de rol en la hoja Roles de administración de App Service.  Compruebe el estado de una instancia de rol individual; para ello, haga clic en el tipo de rol en la lista.
+   # Get current scale set
+   $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"
+
+   # Set and update the capacity of your scale set
+   $vmss.sku.capacity = 6
+   Update-AzureRmVmss -ResourceGroupName AppService.local" -Name "SmallWorkerTierScaleSet" -VirtualMachineScaleSet $vmss
+   ```
+
+   >[!NOTE]
+   >Este paso puede tardar algunas horas en finalizar, según el tipo de rol y del número de instancias.
+
+5. En **Roles de administración de App Service**, supervise el estado de las nuevas instancias de rol. Para comprobar el estado de una instancia de rol individual, seleccione el tipo de rol en la lista.
 
     ![Azure App Service en roles de Azure Stack][2]
 
-4. Una vez que las instancias nuevas están en un estado **Listo**, vuelva a la hoja del conjunto de escalado de máquinas virtuales y **elimine** las instancias anteriores.
+6. Cuando el estado de las nuevas instancias de rol sea **Listo**, vuelva a **Conjunto de escalado de máquinas virtuales** y **elimine** las instancias de rol antiguas.
 
-5. Repita estos pasos para **cada** conjunto de escalado de máquinas virtuales.
+7. Repita estos pasos para **cada** conjunto de escalado de máquinas virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

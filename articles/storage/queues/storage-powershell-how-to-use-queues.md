@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0765e2b36f9d32c43e9f0042d2be0fab53e07b04
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603020"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115827"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Operaciones en Azure Queue Storage con Azure PowerShell
 
-El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Para más información, consulte [Introducción a las colas de Azure](storage-queues-introduction.md). En este artículo de ayuda se describen operaciones de Queue Storage habituales. Aprenderá a:
+Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Para más información, consulte [Introducción a las colas de Azure](storage-queues-introduction.md). En este artículo de ayuda se describen operaciones de Queue Storage habituales. Aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de una cola
@@ -144,22 +144,22 @@ En el ejemplo siguiente, leerá los tres mensajes de la cola y, después, espera
 $invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 
 # Read the message from the queue, then show the contents of the message. Read the other two messages, too.
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
 
 # After 10 seconds, these messages reappear on the queue. 
 # Read them again, but delete each one after reading it.
 # Delete the message.
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Eliminación de una cola

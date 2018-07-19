@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9f2fd54a1ce3cf8900b04545a258a32f9aa3e31a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647194"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130267"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database mediante el almacén de Azure Recovery Services
 
@@ -265,6 +265,55 @@ $restoredDb
 
 > [!NOTE]
 > Desde aquí, puede conectarse a la base de datos restaurada mediante SQL Server Management Studio para realizar las tareas necesarias, como extraer un bit de datos de la base de datos restaurada para copiarlo en la base de datos existente o para eliminar la base de datos existente y cambiar el nombre de la base de datos restaurada por el nombre de la base de datos existente. Consulte la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
+
+## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Limpieza de copias de seguridad en un almacén de Recovery Services
+
+A partir del 1 de julio de 2018, la API LTR V1 ha caído en desuso, y todas las copias de seguridad existentes en los almacenes de Recovery Services se han migrado a los contenedores de almacenamiento de LTR administrados por SQL Database. Para asegurarse de que ya no se le cobren las copias de seguridad originales, se han eliminado de los almacenes después de la migración. Sin embargo, si bloquea el almacén, las copias de seguridad permanecerán allí. Para evitar gastos innecesarios, puede quitar manualmente las copias de seguridad anteriores desde el almacén de Recovery Services mediante el siguiente script. 
+
+```PowerShell
+<#
+.EXAMPLE
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+#>
+[CmdletBinding()]
+Param (
+    [Parameter(Mandatory = $true, HelpMessage="The vault subscription ID")]
+    $SubscriptionId,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault resource group name")]
+    $ResourceGroup,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault name")]
+    $VaultName
+)
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+$vaults = Get-AzureRmRecoveryServicesVault
+$vault = $vaults | where { $_.Name -eq $VaultName }
+
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+$containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
+
+ForEach ($container in $containers)
+{
+   $canDeleteContainer = $true  
+   $ItemCount = 0
+   Write-Host "Working on container" $container.Name
+   $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
+   ForEach ($item in $items)
+   {
+          write-host "Deleting item" $item.name
+          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+   }
+
+   Write-Host "Deleting container" $container.Name
+   Unregister-AzureRmRecoveryServicesBackupContainer -Container $container
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

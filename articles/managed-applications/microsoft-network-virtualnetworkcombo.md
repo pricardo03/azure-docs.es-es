@@ -11,23 +11,26 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260601"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110072"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de la interfaz de usuario Microsoft.Network.VirtualNetworkCombo
 Un grupo de controles para seleccionar una red virtual nueva o existente.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+Cuando el usuario selecciona una nueva red virtual, puede personalizar el nombre y el prefijo de dirección de cada subred. La configuración de subredes es opcional.
 
-- En la estructura de alambre superior, el usuario ha seleccionado una nueva red virtual, por lo que puede personalizar el nombre y el prefijo de dirección de cada subred. En este caso, la configuración de subredes es opcional.
-- En la estructura de alambre inferior, el usuario ha seleccionado una red virtual existente, por lo que debe asignar cada subred que requiere la plantilla de implementación a una subred existente. En este caso, la configuración de subredes es obligatoria.
+![Microsoft.Network.VirtualNetworkCombo nueva](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+Cuando el usuario selecciona una red virtual existente, debe asignar cada subred que requiere la plantilla de implementación a una subred existente. En este caso, la configuración de subredes es obligatoria.
+
+![Microsoft.Network.VirtualNetworkCombo existente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Esquema
 ```json
@@ -88,12 +91,12 @@ Un grupo de controles para seleccionar una red virtual nueva o existente.
 - `constraints.minAddressPrefixSize` debe especificarse. Las redes virtuales existentes con un espacio de direcciones menor que el valor especificado no se pueden seleccionar.
 - `subnets` debe especificarse y `constraints.minAddressPrefixSize` debe especificarse para cada subred.
 - Al crear una nueva red virtual, el prefijo de dirección de cada subred se calcula automáticamente basándose en el prefijo de dirección de la red virtual y en los respectivos `addressPrefixSize`.
-- Si se usa una red virtual existente, las subredes menores que la `constraints.minAddressPrefixSize` respectiva no están disponibles para la selección. Además, si se especifica, las subredes que no contienen al menos `minAddressCount` direcciones disponibles no se podrán seleccionar.
-El valor predeterminado es **0**. Para asegurarse de que las direcciones disponibles son contiguas, especifique **true** en `requireContiguousAddresses`. El valor predeterminado es **true**.
+- Si se usa una red virtual existente, las subredes menores que la `constraints.minAddressPrefixSize` respectiva no están disponibles para la selección. Además, si se especifica, las subredes que no tienen al menos `minAddressCount` direcciones disponibles no se podrán seleccionar. El valor predeterminado es **0**. Para asegurarse de que las direcciones disponibles son contiguas, especifique **true** en `requireContiguousAddresses`. El valor predeterminado es **true**.
 - No se admite la creación de subredes en una red virtual existente.
 - Si el valor de `options.hideExisting` es **true**, el usuario no puede elegir una red virtual existente. El valor predeterminado es **false**.
 
 ## <a name="sample-output"></a>Salida de ejemplo
+
 ```json
 {
   "name": "vnet01",

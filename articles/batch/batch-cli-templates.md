@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 565ceb179d8cf749842bb58ab25a8b3d946efa12
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608654"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130859"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)
 
@@ -258,7 +258,7 @@ Las plantillas de grupo y de trabajo permiten que se especifiquen los archivos a
 
 Actualmente, solo se ha agregado la compatibilidad de transferencia de plantillas y archivos a la CLI de Azure. El objetivo es expandir la audiencia que pueda usar Batch a los usuarios que no necesitan desarrollar código usando las API de Batch, como los investigadores, los usuarios de TI y muchos más. Sin programación, los usuarios con conocimientos de Azure, Batch y las aplicaciones que ejecuta Batch, pueden crear plantillas para la creación de grupos y trabajos. Con los parámetros de plantilla, los usuarios sin un conocimiento detallado de Batch ni de las aplicaciones pueden usar las plantillas.
 
-Pruebe la extensión Batch para la CLI de Azure y proporcione sus comentarios y sugerencias, ya sea en los comentarios de este artículo o a través del [foro de Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
+Pruebe la extensión Batch para la CLI de Azure y proporcione sus comentarios y sugerencias, ya sea en los comentarios de este artículo o a través del [repositorio para la comunidad de Batch](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

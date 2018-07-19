@@ -2,25 +2,22 @@
 title: 'Azure Active Directory Connect: solución de problemas de inicio de sesión único de conexión directa | Microsoft Docs'
 description: En este tema se describe cómo solucionar los problemas del inicio de sesión único de conexión directa de Azure Active Directory.
 services: active-directory
-keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
-documentationcenter: ''
-author: swkrish
+author: billmath
+ms.reviewer: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 205df47c36cb1d6925e232f06c0f1355c40ae973
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592235"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110896"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -84,6 +81,7 @@ Use la siguiente lista de comprobación para solucionar problemas de SSO de cone
 - Asegúrese de que la cuenta del usuario provenga de un bosque de Active Directory donde esté configurado SSO de conexión directa.
 - Asegúrese de que el dispositivo está conectado a la red corporativa.
 - Asegúrese de que la hora del dispositivo esté sincronizada con la de Active Directory y la de los controladores de dominio, y de que difieren entre sí un máximo de cinco minutos.
+- Asegúrese de que la cuenta de equipo `AZUREADSSOACCT` esté presente y habilitada en cada bosque de AD que desee habilitar SSO de conexión directa. 
 - Enumere los vales de Kerberos existentes en el dispositivo mediante el comando `klist` desde un símbolo del sistema. Asegúrese de que los vales emitidos para la cuenta de equipo `AZUREADSSOACCT` están presentes. Los vales de Kerberos de los usuarios suelen ser válidos durante diez horas. Puede que haya configuraciones distintas en Active Directory.
 - Si deshabilita y vuelve a habilitar Inicio de sesión único de conexión directa en el inquilino, los usuarios no podrán tener la experiencia de inicio de sesión único hasta que sus vales de Kerberos en caché hayan expirado.
 - Purgue los vales de Kerberos existentes desde el dispositivo mediante el comando `klist purge` e inténtelo de nuevo.

@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061750"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112327"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Exploración y administración de recursos de almacenamiento mediante el Explorador de servidores
 
@@ -219,7 +219,7 @@ Puede personalizar el conjunto de entidades que aparecen en una tabla si usa el 
 1. Cuando haya terminado de generar la consulta, cierre el cuadro de diálogo. El formato de texto de la consulta resultante aparece en un cuadro de texto como un filtro de WCF Data Services.
 1. Para ejecutar la consulta, seleccione el icono de triángulo verde.
 
-También puede filtrar los datos de la entidad que aparece en el Diseñador de tablas si escribe una cadena de filtro de WCF Data Services directamente en el cuadro de texto de filtro. Este tipo de cadena es similar a una cláusula WHERE de SQL, pero se envía al servidor como solicitud HTTP. Para obtener información acerca de cómo construir cadenas de filtro, consulte [Crear cadenas de filtro para el Diseñador de tablas](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+También puede filtrar los datos de la entidad que aparece en el Diseñador de tablas si escribe una cadena de filtro de WCF Data Services directamente en el cuadro de texto de filtro. Este tipo de cadena es similar a una cláusula WHERE de SQL, pero se envía al servidor como solicitud HTTP. Para obtener información acerca de cómo construir cadenas de filtro, consulte [Crear cadenas de filtro para el Diseñador de tablas](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 En la siguiente ilustración se muestra un ejemplo de una cadena de filtro válida:
 

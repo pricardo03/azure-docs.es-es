@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248989"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112993"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperación ante desastres mediante Azure DNS y Traffic Manager
 
@@ -59,7 +59,7 @@ DNS es uno de los mecanismos más eficaces para desviar el tráfico de red porqu
 
 Es importante entender algunos conceptos sobre DNS que se utilizan ampliamente para explicar las soluciones proporcionadas en este artículo:
 - **Registro D de DNS**: los registros D son punteros que apuntan un dominio a una dirección IPv4. 
-- **CNAME o nombre canónico**: este tipo de registro se utiliza para apuntar a otro registro DNS. CNAME no responde con una respuesta IP, sino con el puntero al registro que contiene la dirección IP. 
+- **CNAME o nombre canónico**: este tipo de registro se utiliza para apuntar a otro registro DNS. CNAME no responde con una dirección IP, sino con el puntero al registro que contiene la dirección IP. 
 - **Enrutamiento ponderado**: se puede elegir asociar un peso a los puntos de conexión de servicio y, a continuación, distribuir el tráfico en función de los pesos asignados. Este método de enrutamiento es uno de los cuatro mecanismos de enrutamiento de tráfico disponibles en Traffic Manager. Para más información, consulte [Método de enrutamiento ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Enrutamiento por prioridad**: el enrutamiento por prioridad se basa en las comprobaciones de mantenimiento de los puntos de conexión. De forma predeterminada, Azure Traffic Manager envía todo el tráfico al punto de conexión de prioridad más alta y, tras un error o un desastre, Traffic Manager enruta el tráfico al punto de conexión secundario. Para más información, consulte [Método de enrutamiento por prioridad](../traffic-manager/traffic-manager-routing-methods.md#priority).
 

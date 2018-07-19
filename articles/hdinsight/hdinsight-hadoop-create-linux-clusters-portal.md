@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 13f746697a7e694da79a6e376b45f95529049a44
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5a6fa3f2bb6ab76bf323fe3ca829797878f5e774
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401968"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100511"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Crear clústeres basados en Linux en HDInsight con el Portal de Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -74,14 +74,14 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
     * Haga clic en **Next**.
 
-4. En **Almacenamiento**, especifique si desea que Azure Storage (WASB) o Data Lake Store sea el servicio de almacenamiento predeterminado. Para más información, consulte la tabla siguiente.
+4. En **Almacenamiento**, especifique si desea que Azure Storage (WASB) o Data Lake Storage sea el servicio de almacenamiento predeterminado. Para más información, consulte la tabla siguiente.
 
     ![Creación de un nuevo clúster en el portal de Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creación de un nuevo clúster en el portal de Azure")
 
     | Storage                                      | DESCRIPCIÓN |
     |----------------------------------------------|-------------|
-    | **Blobs de Azure Storage como almacenamiento predeterminado**   | <ul><li>En **Tipo de almacenamiento principal**, seleccione **Azure Storage**. Después de eso, en **Método de selección**, puede elegir **Mis suscripciones** si desea especificar una cuenta de almacenamiento que forma parte de su suscripción de Azure y, a continuación, seleccione la cuenta de almacenamiento. En caso contrario, haga clic en **Clave de acceso** y proporcione la información de la cuenta de almacenamiento que desea elegir fuera de la suscripción de Azure.</li><li>En **Contenedor predeterminado**, puede optar por el nombre de contenedor predeterminado que se sugiere en el portal o especificar uno propio.</li><li>Si usa WASB como almacenamiento predeterminado, puede (opcionalmente) hacer clic en **Cuentas de almacenamiento adicionales** para especificar cuentas de almacenamiento adicionales que se van a asociar con el clúster. En **Claves de Azure Storage**, haga clic en **Agregar una clave de almacenamiento** y, a continuación, proporcione una cuenta de almacenamiento de las suscripciones de Azure o de otras suscripciones (para ello puede proporcionar la clave de acceso de la cuenta de almacenamiento).</li><li>Si usa WASB como almacenamiento predeterminado, puede (opcionalmente) hacer clic en **Acceso a Data Lake Store** para especificar Azure Data Lake Store como almacenamiento adicional. Para más información, consulte [Creación de un clúster de HDInsight con Data Lake Store mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
-    | **Azure Data Lake Store como almacenamiento predeterminado** | En **Tipo de almacenamiento principal**, seleccione **Data Lake Store** y, a continuación, consulte el artículo [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) para obtener instrucciones. |
+    | **Blobs de Azure Storage como almacenamiento predeterminado**   | <ul><li>En **Tipo de almacenamiento principal**, seleccione **Azure Storage**. Después de eso, en **Método de selección**, puede elegir **Mis suscripciones** si desea especificar una cuenta de almacenamiento que forma parte de su suscripción de Azure y, a continuación, seleccione la cuenta de almacenamiento. En caso contrario, haga clic en **Clave de acceso** y proporcione la información de la cuenta de almacenamiento que desea elegir fuera de la suscripción de Azure.</li><li>En **Contenedor predeterminado**, puede optar por el nombre de contenedor predeterminado que se sugiere en el portal o especificar uno propio.</li><li>Si usa WASB como almacenamiento predeterminado, puede (opcionalmente) hacer clic en **Cuentas de almacenamiento adicionales** para especificar cuentas de almacenamiento adicionales que se van a asociar con el clúster. En **Claves de Azure Storage**, haga clic en **Agregar una clave de almacenamiento** y, a continuación, proporcione una cuenta de almacenamiento de las suscripciones de Azure o de otras suscripciones (para ello puede proporcionar la clave de acceso de la cuenta de almacenamiento).</li><li>Si usa WASB como almacenamiento predeterminado, puede (opcionalmente) hacer clic en **Acceso a Data Lake Store** para especificar Azure Data Lake Storage como almacenamiento adicional. Para obtener más información, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+    | **Azure Data Lake Storage como almacenamiento predeterminado** | Para **Tipo de almacenamiento principal**, seleccione **Azure Data Lake Storage Gen1** o **Azure Data Lake Storage Gen2 (versión preliminar)** y, a continuación, consulte el artículo [Guía de inicio rápido : Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para obtener instrucciones. |
     | **Tiendas de metadatos externas**                      | De manera opcional, puede especificar una base de datos SQL para guardar los metadatos de Hive y Oozie asociados con el clúster. En **Seleccionar una base de datos SQL para Hive**, seleccione una base de datos SQL y luego escriba el nombre de usuario y la contraseña de la base de datos. Repita estos pasos para los metadatos de Oozie.<br><br>Algunas consideraciones al usar Azure SQL Database para las tiendas de metadatos. <ul><li>La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.</li><li>Al crear una tienda de metadatos, no debe usar un nombre de base de datos que contenga guiones, ya que esto puede producir un error en el proceso de creación del clúster.</li></ul> |
 
     Haga clic en **Next**. 
@@ -167,7 +167,7 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 
 ### <a name="spark-clusters"></a>Clústeres de Spark
 * [Crear una aplicación independiente con Scala](spark/apache-spark-create-standalone-application.md)
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](spark/apache-spark-livy-rest-interface.md)
+* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](spark/apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
 

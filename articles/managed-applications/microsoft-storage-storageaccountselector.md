@@ -11,22 +11,30 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4a18d629b959e4f1abf4ec2df28a31180efec89f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5de536a562d234a4c463c862aedffc7c7ca5228d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261044"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112293"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Elemento de interfaz de usuario Microsoft.Storage.StorageAccountSelector
 Un control para seleccionar una cuenta de almacenamiento nueva o existente.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
+
+El control muestra el valor predeterminado.
+
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
+El control permite al usuario crear una cuenta de almacenamiento o seleccionar una cuenta de almacenamiento existente.
+
+![Microsoft.Storage.StorageAccountSelector nueva](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+
 ## <a name="schema"></a>Esquema
+
 ```json
 {
   "name": "element1",
@@ -49,14 +57,13 @@ Un control para seleccionar una cuenta de almacenamiento nueva o existente.
 ```
 
 ## <a name="remarks"></a>Comentarios
-- Si se especifica, se valida automáticamente la unicidad de `defaultValue.name`. Si el nombre de cuenta de almacenamiento no es único, el usuario debe especificar otro nombre diferente o elegir una cuenta de almacenamiento existente.
+- Si se especifica, se valida automáticamente la unicidad de `defaultValue.name`. Si el nombre de la cuenta de almacenamiento no es único, el usuario debe especificar otro nombre o elegir una cuenta de almacenamiento existente.
 - El valor predeterminado de `defaultValue.type` es **Premium_LRS**.
-- Los tipos no especificados en `constraints.allowedTypes` está oculto, mientras que los tipos no especificado en `constraints.excludedTypes` se muestran.
-Tanto `constraints.allowedTypes` como `constraints.excludedTypes` son opcionales, pero no se pueden usar simultáneamente.
+- Los tipos no especificados en `constraints.allowedTypes` está oculto, mientras que los tipos no especificado en `constraints.excludedTypes` se muestran. Tanto `constraints.allowedTypes` como `constraints.excludedTypes` son opcionales, pero no se pueden usar simultáneamente.
 - Si el valor de `options.hideExisting` es **true**, el usuario no puede elegir una cuenta de almacenamiento existente. El valor predeterminado es **false**.
 
-
 ## <a name="sample-output"></a>Salida de ejemplo
+
 ```json
 {
   "name": "storageaccount01",

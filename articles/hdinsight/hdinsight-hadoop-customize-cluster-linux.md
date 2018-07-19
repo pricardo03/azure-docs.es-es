@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 500b6ef33bb70cd5138067d88303b7db9121e867
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778910"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102087"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalización de clústeres de HDInsight basados en Linux mediante acciones de script
 
@@ -58,7 +58,7 @@ Una acción de script es un script de Bash que se ejecuta en los nodos de un cl�
 
 * Deben almacenarse en un URI accesible desde el clúster de HDInsight. A continuación, se proponen varias ubicaciones de almacenamiento posibles:
 
-    * Una **cuenta de Azure Data Lake Store** accesible para el clúster de HDInsight. Para más información sobre el uso de Azure Data Lake Store con HDInsight, consulte [Creación de un clúster de HDInsight con Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * Una **cuenta de Azure Data Lake Store** accesible para el clúster de HDInsight. Para obtener información sobre el uso de Azure Data Lake Store con HDInsight, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         Cuando se usa un script almacenado en Data Lake Store, el formato del URI es `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
@@ -173,9 +173,7 @@ En esta sección se proporcionan ejemplos sobre las distintas maneras de usar ac
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Uso de una acción de script durante la creación de un clúster desde Azure Portal
 
-1. Comience a crear un clúster, tal y como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Deténgase al llegar a la sección de __resumen del clúster__.
-
-2. En la sección de __resumen del clúster__, seleccione el vínculo __Editar__ para ir a __Configuración avanzada__.
+1. Comience a crear un clúster, tal y como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Durante la creación del clúster, llegará a una página __Resumen del clúster__. En la página __Resumen del clúster__, seleccione el vínculo __editar__ de __Configuración avanzada__.
 
     ![Vínculo Configuración avanzada](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 

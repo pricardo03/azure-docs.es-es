@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: fa6f93231cba46e29206ec312fb82ad120ed45f6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c715ea3a3c4e113ec419919d240716517c28ffb8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517631"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099527"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Store
 
@@ -28,7 +28,7 @@ En este tutorial usará Jupyter Notebook, disponible con los clústeres de HDIns
 
 * Cuenta de Azure Data Lake Store. Siga las instrucciones de [Introducción al uso de Azure Portal por parte de Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Clúster de Azure HDInsight Spark con Data Lake Store como almacenamiento. Siga las instrucciones de [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Clúster de Azure HDInsight Spark con Data Lake Store como almacenamiento. Siga las instrucciones de [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
 ## <a name="prepare-the-data"></a>Preparación de los datos
@@ -119,7 +119,7 @@ Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento ad
             # Register the data fram as a table to run queries against
             hvacdf.registerTempTable("hvac")
 
-6. Al usar un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para obtener más información sobre la función mágica `%%sql` , así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Al usar un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para obtener más información sobre la función mágica `%%sql`, así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"

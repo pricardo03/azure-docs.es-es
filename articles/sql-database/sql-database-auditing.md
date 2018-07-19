@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751050"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081462"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 La auditoría de base de datos SQL de Azure realiza el seguimiento de eventos de base de datos y los registra en un registro de auditoría de la cuenta de Azure Storage. La auditoría también:
@@ -62,20 +62,18 @@ Puede definirse una directiva de auditoría para una base de datos específica o
 En la sección siguiente se describe la configuración de auditoría mediante Azure Portal.
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
-2. Vaya a la hoja **Configuración** de la base de datos SQL o el servidor SQL que quiere auditar. En la hoja **Configuración**, seleccione **Auditoría y detección de amenazas**.
+2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la base de datos/servidor SQL.
 
     <a id="auditing-screenshot"></a>![Panel de navegación][1]
 3. Si prefiere configurar una directiva de auditoría de servidor, puede seleccionar el vínculo **Ver configuración del servidor** en la hoja de auditoría de base de datos. Después, puede ver o modificar la configuración de auditoría del servidor. Las directivas de auditoría de servidor se aplican a todas las bases de datos existentes y recién creadas en este servidor.
 
     ![Panel de navegación][2]
-4. Si prefiere habilitar la auditoría de blobs en el nivel de la base de datos, para **Auditoría**, seleccione **Activado** y para **Tipo de auditoría**, seleccione **Blob**.
+4. Si prefiere habilitar la auditoría en el nivel de base de datos, cambie **Auditoría** a **Activado**.
 
-    Si está habilitada la auditoría de blobs del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría de blobs del servidor.
+    Si está habilitada la auditoría del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría del servidor.
 
     ![Panel de navegación][3]
 5. Para abrir la hoja **Almacenamiento de registros de auditoría**, seleccione **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. Se eliminarán los registros antiguos. A continuación, haga clic en **Aceptar**.
-    >[!TIP]
-    >Con el fin de obtener el máximo rendimiento de las plantillas de informes de auditorías, use la misma cuenta de almacenamiento para todas las bases de datos auditadas.
 
     <a id="storage-screenshot"></a>![Panel de navegación][4]
 6. Si quiere personalizar los eventos auditados, puede hacerlo a través de los [cmdlets de PowerShell](#subheading-7) o de la [API de REST](#subheading-9).
@@ -102,7 +100,8 @@ Existen varios métodos que puede usar para ver los registros de auditoría de b
     Se abre una hoja **Registros de auditoría**, desde la que podrá ver los registros.
 
     - Puede elegir ver fechas específicas si hace clic en **Filtrar** en la parte superior de la hoja **Registros de auditoría**.
-    - Puede cambiar entre los registros de auditoría que se crearon mediante la directiva de servidor o una directiva de base de datos de auditoría.
+    - Puede cambiar entre los registros de auditoría que se crearon con la *directiva de auditoría de servidor* y la *directiva de auditoría de base de datos* alternando **Origen de auditoría**.
+    - Para ver solo los registros de auditoría relacionados con la inyección de código SQL, puede activar la casilla **Mostrar solo los registros de auditoría de inyección de código SQL**.
 
        ![Panel de navegación][8]
 
@@ -147,8 +146,8 @@ Con bases de datos con replicación geográfica, cuando se habilita la auditorí
 * Nivel de servidor (**recomendado**): active la auditoría en el **servidor principal** así como en el **servidor secundario**. Las bases de datos principal y secundaria se auditarán de forma independiente en función de la directiva de nivel de servidor respectiva.
 
 * Nivel de base de datos: la auditoría en el nivel de base de datos para las bases de datos secundarias solo se puede configurar desde la configuración de auditoría de la base de datos principal.
-   * La auditoría de blobs debe estar habilitada en la *propia base de datos principal*, no en el servidor.
-   * Después de habilitar la auditoría de blobs en la base de datos principal, también se habilitará en la base de datos secundaria.
+   * La auditoría debe estar habilitada en la *propia base de datos principal*, no en el servidor.
+   * Después de habilitar la auditoría en la base de datos principal, también se habilitará en la base de datos secundaria.
 
     >[!IMPORTANT]
     >Con la auditoría en el nivel de base de datos, la configuración de almacenamiento de la base de datos secundaria será idéntica a la de la base de datos principal, lo que provocará tráfico interregional. Se recomienda habilitar solo la auditoría de nivel de servidor y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
@@ -204,7 +203,6 @@ Para ver un script de ejemplo, consulte [Configuración de la auditoría y detec
 * [Create or Update Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate) (Creación o actualización de la directiva de audioría de blobs del servidor)
 * [Get Database Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get) (Obtención de la directiva de auditoría de bobs de la base de datos)
 * [Get Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get) (Obtención de la directiva de auditoría de blobs del servidor)
-* [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx) (Obtención de resultados de funcionamiento de la auditoría de blobs del servidor)
 
 Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 * [Create or Update Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate) (Creación o actualización de la directiva extendida de auditoría de blobs de la base de datos)

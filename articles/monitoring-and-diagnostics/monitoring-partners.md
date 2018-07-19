@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5d5b2e78755d6800f61e3e4adb1769799d01dad2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265290"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111530"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 | Asociados |  |  |
@@ -82,7 +82,7 @@ Grafana es una aplicación de código abierto que permite visualizar datos de m�
 [Vaya a la documentación.][grafana-doc]
 
 ## <a name="logic-monitor"></a>Logic Monitor
-LogicMonitor® es la más importante plataforma de supervisión de rendimiento basada en SaaS para infraestructuras de TI complejas. Con la cobertura para miles de tecnologías, LogicMonitor proporciona una visión pormenorizada del rendimiento de infraestructuras y aplicaciones. La exhaustiva supervisión de Azure que realiza LM Cloud permite a los usuarios pone en correlación el rendimiento de los usuarios de la nube de Azure, locales y de la nube híbrida, y todo ello desde una sola plataforma. La combinación de detección de recursos automática, plantillas de supervisión integradas, umbrales de alerta preconfigurados y paneles proporciona a la TI la velocidad, flexibilidad y visibilidad necesarias.
+LogicMonitor® es la más importante plataforma de supervisión de rendimiento basada en SaaS para infraestructuras de TI complejas. Con la cobertura para miles de tecnologías, LogicMonitor proporciona una visión pormenorizada del rendimiento de infraestructuras y aplicaciones. La exhaustiva supervisión de Azure que realiza LM Cloud permite a los usuarios poner en correlación el rendimiento de los usuarios de la nube de Azure, locales y de la nube híbrida, y todo ello desde una sola plataforma. La combinación de detección de recursos automática, plantillas de supervisión integradas, umbrales de alerta preconfigurados y paneles proporciona a la TI la velocidad, flexibilidad y visibilidad necesarias.
 
 [Vaya a la documentación.][logicmonitor-doc]
 

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613989"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101827"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -49,7 +49,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
 3. **Optimización de ConnectionPolicy**
 
-    Las solicitudes de Azure Cosmos DB se realizan a través de HTTPS o REST cuando se usa el SDK de Async Java, y están condicionadas por el tamaño máximo predeterminado del grupo de conexiones (1000). Este valor predeterminado debe ser conveniente para la mayoría de los casos de uso. Sin embargo, en caso de que tenga una colección muy grande con muchas particiones, puede establecer el tamaño máximo del grupo de conexiones en un número mayor (pongamos, 1500) mediante setMaxPoolSize.
+    Las solicitudes de Azure Cosmos DB se realizan a través de HTTPS o REST cuando se usa el SDK de Async Java, y están condicionadas por el tamaño máximo predeterminado del grupo de conexiones (1000). Este valor predeterminado debe ser conveniente para la mayoría de los casos de uso. Sin embargo, en caso de que tenga una colección grande con muchas particiones, puede establecer el tamaño máximo del grupo de conexiones en un número mayor (pongamos, 1500) mediante setMaxPoolSize.
 
 4. **Ajuste de consultas paralelas en colecciones particionadas**
 
@@ -83,11 +83,11 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     También puede establecer el tamaño de página con el método setMaxItemCount.
     
-9. **Use el programador adecuado (evite el robo de subprocesos de E/S eventloop de Netty)**
+9. **Use el programador adecuado (evite el robo de subprocesos de E/S Eventloop de Netty)**
 
-    El SDK de Async Java usa [Netty](https://netty.io/) para la E/S sin bloqueo. El SDK usa un número fijo de subprocesos de E/S eventloop de Netty (tantos como núcleos de CPU tenga su máquina) para ejecutar operaciones de E/S. El observable que devuelve la API emite el resultado en uno de los subprocesos de E/S eventloop de Netty compartidos. Así que es importante no bloquear dichos subprocesos. Realizar trabajos que hacen un uso elevado de CPU o bloquear operaciones en el subproceso de E/S eventloop de Netty puede provocar un interbloqueo o reducir el rendimiento del SDK de manera considerable.
+    El SDK de Async Java usa [Netty](https://netty.io/) para la E/S sin bloqueo. El SDK usa un número fijo de subprocesos de E/S Eventloop de Netty (tantos como núcleos de CPU tenga su máquina) para ejecutar operaciones de E/S. El observable que devuelve la API emite el resultado en uno de los subprocesos de E/S Eventloop de Netty compartidos. Así que es importante no bloquear dichos subprocesos. Realizar trabajos que hacen un uso elevado de CPU o bloquear operaciones en el subproceso de E/S Eventloop de Netty puede provocar un interbloqueo o reducir el rendimiento del SDK de manera considerable.
 
-    Por ejemplo, el código siguiente ejecuta un trabajo que hace un uso elevado de CPU en el subproceso de E/S eventloop de Netty:
+    Por ejemplo, el código siguiente ejecuta un trabajo que hace un uso elevado de CPU en el subproceso de E/S Eventloop de Netty:
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -103,7 +103,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
       });
     ```
 
-    Tras recibir el resultado, si quiere realizar sobre él un trabajo que hace un uso elevado de CPU, debe evitar hacerlo sobre un subproceso de E/S eventloop de Netty. En su lugar, proporcione su propio programador para suministrar su propio subproceso para ejecutar su trabajo.
+    Tras recibir el resultado, si quiere realizar sobre él un trabajo que hace un uso elevado de CPU, debe evitar hacerlo sobre un subproceso de E/S Eventloop de Netty. En su lugar, proporcione su propio programador para suministrar su propio subproceso para ejecutar su trabajo.
 
     ```java
     import rx.schedulers;
@@ -126,13 +126,13 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     Para más información, busque el SDK de Async Java en la [página de Github](https://github.com/Azure/azure-cosmosdb-java).
 
-10. **Deshabilite el registro de Netty** El registro de la biblioteca Netty es muy activo y debe desactivarse (puede que no baste con suprimir el registro de la configuración) para evitar costos adicionales de CPU. Si no está en modo de depuración, deshabilite por completo el registro de Netty. De modo que, si va a usar log4j para eliminar los costos de CPU adicionales que se producen debido al uso de ``org.apache.log4j.Category.callAppenders()`` desde Netty, agregue la siguiente línea al código base:
+10. **Deshabilite el registro de Netty** El registro de la biblioteca Netty es muy activo y debe desactivarse (puede que no baste con suprimir el inicio de sesión de la configuración) para evitar costos adicionales de CPU. Si no está en modo de depuración, deshabilite por completo el registro de Netty. De modo que, si va a usar log4j para eliminar los costos de CPU adicionales que se producen debido al uso de ``org.apache.log4j.Category.callAppenders()`` desde Netty, agregue la siguiente línea al código base:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **Límite de recursos de archivos abiertos del SO** Algunos sistemas Linux (como Redhat) tienen un límite superior sobre el número de archivos abiertos y, por tanto, sobre el número total de conexiones. Ejecute el siguiente código para ver los límites actuales:
+11. **Límite de recursos de archivos abiertos del SO** Algunos sistemas Linux (como Red Hat) tienen un límite superior sobre el número de archivos abiertos y, por tanto, sobre el número total de conexiones. Ejecute el siguiente código para ver los límites actuales:
 
     ```bash
     ulimit -a
@@ -170,7 +170,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     </dependency>
     ```
 
-Para otras plataformas (Redhat, Windows, Mac, etc.), consulte estas instrucciones https://netty.io/wiki/forked-tomcat-native.html.
+Para otras plataformas (Red Hat, Windows, Mac, etc.), consulte estas instrucciones https://netty.io/wiki/forked-tomcat-native.html.
 
 ## <a name="indexing-policy"></a>Directiva de indexación
  
@@ -209,7 +209,7 @@ Para otras plataformas (Redhat, Windows, Mac, etc.), consulte estas instruccione
     response.getRequestCharge();
     ```             
 
-    El cargo de solicitud devuelto en este encabezado es una fracción de la capacidad de proceso aprovisionada. Por ejemplo, si tiene 2000 RU/segundo aprovisionadas, y si la consulta anterior devuelve 1000 documentos de 1 KB, el costo de la operación será 1000. Por lo tanto, al cabo de un segundo, el servidor respetará solo dos de estas solicitudes antes de limitar las que vengan a continuación. Para más información, consulte [Unidades de solicitud](request-units.md) y la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
+    El cargo de solicitud devuelto en este encabezado es una fracción de la capacidad de proceso aprovisionada. Por ejemplo, si tiene 2000 RU/segundo aprovisionadas, y si la consulta anterior devuelve 1000 documentos de 1 KB, el costo de la operación será 1000. Por lo tanto, al cabo de un segundo, el servidor respetará solo dos de estas solicitudes antes de limitar la velocidad de las solicitudes posteriores. Para más información, consulte [Unidades de solicitud](request-units.md) y la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Administración de la limitación de velocidad y la tasa de solicitudes demasiado grande**
 

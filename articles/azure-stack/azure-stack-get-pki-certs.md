@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cfac573bc9f1bdec3fd884f8090e11514f1e93b3
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: b5adc1bb5a5aae96f37cc312588aa71e57d8342e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604716"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083233"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Generación de solicitudes de firma de certificados de Azure Stack
 
@@ -30,8 +30,6 @@ La herramienta Azure Stack Readiness Checker (AzsReadinessChecker) realiza las s
 
  - **Solicitudes de certificados estándar**  
     Realice la solicitud según se indica en [Generación de certificados de infraestructura de clave pública para la implementación de Azure Stack](azure-stack-get-pki-certs.md).
- - **Tipo de solicitud**  
-    Especifica si la solicitud de firma de certificados será una única solicitud o serán varias.
  - **Plataforma como servicio**  
     Opcionalmente, solicite nombres de plataforma como servicio (PaaS) para los certificados como se especifica en [Requisitos de certificados de infraestructura de clave pública de Azure Stack: Certificados PaaS opcionales](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -98,22 +96,22 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
     > [!note]  
     > `<regionName>.<externalFQDN>` constituye la base en la que se crean todos los nombres DNS externos de Azure Stack. En este ejemplo, el portal sería `portal.east.azurestack.contoso.com`.  
 
-6. Para generar una única solicitud de certificado con varios nombres alternativos del firmante:
+6. Para generar solicitudes de firma de certificados para cada nombre DNS:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    Para incluir los servicios PaaS especifique el conmutador ```-IncludePaaS```
+
+7. Como alternativa, para entornos de desarrollo/pruebas. Para generar una única solicitud de certificado con varios nombres alternativos del firmante agregue el parámetro **-RequestType SingleCSR** y el valor (se recomienda **not** para entornos de producción):
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     Para incluir los servicios PaaS especifique el conmutador ```-IncludePaaS```
-
-7. Para generar solicitudes de firma de certificados individuales para cada nombre DNS:
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    Para incluir los servicios PaaS especifique el conmutador ```-IncludePaaS```
-
+    
 8. Revise la salida:
 
     ````PowerShell  
