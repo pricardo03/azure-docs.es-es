@@ -4,7 +4,7 @@
 ## [¿Qué es Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Introducción
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+## [Portal de Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -13,7 +13,7 @@
 # Procedimientos
 
 ## Administración con Data Lake Analytics
-### [Azure Portal](data-lake-analytics-manage-use-portal.md)
+### [Portal de Azure](data-lake-analytics-manage-use-portal.md)
 ### Línea de comandos
 #### [CLI de Azure](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
@@ -58,6 +58,9 @@
 #### [Creación](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Código personalizado](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Ejecución y depuración local](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+## Programación de trabajos de U-SQL
+### [Programación de trabajos con SSIS](data-lake-analytics-schedule-jobs-ssis.md)
 
 ## Integración continua e implementación continua
 ### [Información general](data-lake-analytics-cicd-overview.md)
