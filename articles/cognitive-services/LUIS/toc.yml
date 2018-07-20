@@ -230,9 +230,9 @@
     - name: Buscar región mediante programación
       items:
         - name: 'Con C#'
-          href: find-region-csharp.md
+          href: luis-find-region-csharp.md
         - name: Uso de Node.js
-          href: find-region-nodejs.md
+          href: luis-find-region-nodejs.md
 - name: Referencia
   items:
     - name: Privacidad del usuario
