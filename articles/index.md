@@ -6,12 +6,12 @@ description: Aprenda a compilar y administrar aplicaciones eficaces mediante Mic
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ea6241c98cd65af14242301be4681e613d867fbc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6f1378116ce41646a0d94f1b6f010e1010d9c507
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071188"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145526"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -275,6 +275,11 @@ Visual Studio Team Services </a>
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
 Obtenga información acerca de DevOps con Azure </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/devops-project/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Azure DevOps Project </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1189,6 +1194,12 @@ Obtenga información acerca de DevOps con Azure </a>
                                             <a href="https://support.hockeyapp.net/kb">
                                                 <img src="media/index/HockeyApp.svg" alt="" />
                                                 <p>HockeyApp</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/devops-project">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Azure DevOps Project</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4575,6 +4586,25 @@ Obtenga información acerca de DevOps con Azure </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/devops-project">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DevOps Project</h3>
+                                                    <p>Implementación rápida de cualquier lenguaje en cualquier plataforma de Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5865,7 +5895,7 @@ SDK y herramientas de Service Fabric </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    <img src="media/index/database-migration.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
