@@ -164,6 +164,8 @@
               href: app-insights-proactive-application-security-detection-pack.md
             - name: Azure Cloud Services
               href: app-insights-proactive-cloud-services.md
+            - name: Administración de reglas de detección inteligente
+              href: app-insights-proactive-arm-config.md
         - name: Creación de un recurso
           href: app-insights-create-new-resource.md
     - name: Análisis

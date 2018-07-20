@@ -49,6 +49,8 @@
           href: aad-integration.md
         - name: Uso de Virtual Kubelet
           href: virtual-kubelet.md
+        - name: Uso de escalador automático de clúster
+          href: autoscaler.md
         - name: Implementación de AKS con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
