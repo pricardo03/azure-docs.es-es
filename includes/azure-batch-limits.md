@@ -3,8 +3,8 @@
 | Cuentas de Batch por región y suscripción | 1 - 3 |50 |
 | Núcleos dedicados por cuenta de Batch | 10 - 100 | N/A<sup>1</sup> |
 | Núcleos de baja prioridad por cuenta de Batch | 10 - 100 | N/A<sup>2</sup> |
-| Trabajos activos y programaciones de trabajos<sup>3</sup> por cuenta de Batch | 20 - 100 | 5000<sup>4</sup> |
-| Grupos por cuenta de Batch | 20 - 100 | 2.500 |
+| Trabajos activos y programaciones de trabajos<sup>3</sup> por cuenta de Batch | 100 - 300 | 2500<sup>4</sup> |
+| Grupos por cuenta de Batch | 20 - 100 | 500 |
 
 > [!NOTE]
 > Los límites predeterminados varían según el tipo de suscripción que se use para crear una cuenta de Batch. Las cuotas de núcleos mostradas son para las cuentas de Batch del modo de servicio Batch. [Vea las cuotas de su cuenta de Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
