@@ -110,7 +110,8 @@
         - name: Configuración del entorno de desarrollo
           items:
             - name: Instalación de PowerShell de Azure Stack
-              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
+              href: ../azure-stack-powershell-install.md
+              maintainContext: true
             - name: Descarga de herramientas de Azure Stack
               href: azure-stack-powershell-download.md
             - name: 'Configuración de PowerShell: usuario'
