@@ -1,0 +1,405 @@
+- name: Aspectos básicos de Azure IoT
+  href: /azure/iot-fundamentals
+- name: Documentación de IoT Hub
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Azure IoT Hub?
+      href: about-iot-hub.md
+- name: Guías de inicio rápido
+  items:
+    - name: Envío de telemetría (Node.js)
+      href: quickstart-send-telemetry-node.md
+    - name: Envío de telemetría (.NET)
+      href: quickstart-send-telemetry-dotnet.md
+    - name: Envío de telemetría (Java)
+      href: quickstart-send-telemetry-java.md
+    - name: Envío de telemetría (Python)
+      href: quickstart-send-telemetry-python.md
+    - name: Envío de telemetría (iOS)
+      href: quickstart-send-telemetry-ios.md
+    - name: Control de un dispositivo (Node.js)
+      href: quickstart-control-device-node.md
+    - name: Control de un dispositivo (.NET)
+      href: quickstart-control-device-dotnet.md
+    - name: Control de un dispositivo (Java)
+      href: quickstart-control-device-java.md
+    - name: Control de un dispositivo (Python)
+      href: quickstart-control-device-python.md
+- name: Tutoriales
+  items:
+    - name: Enrutamiento de mensajes
+      href: tutorial-routing.md
+    - name: Configuración de los dispositivos
+      href: tutorial-device-twins.md
+    - name: Administración de las actualizaciones de firmware
+      href: tutorial-firmware-update.md
+    - name: Comprobación de la conectividad de dispositivos
+      href: tutorial-connectivity.md
+- name: Conceptos
+  items:
+    - name: Introducción a la administración de dispositivos
+      href: iot-hub-device-management-overview.md
+    - name: Comparación entre IoT Hub y Event Hubs
+      href: iot-hub-compare-event-hubs.md
+    - name: Elección del nivel correcto
+      href: iot-hub-scaling.md
+    - name: Alta disponibilidad y recuperación ante desastres
+      href: iot-hub-ha-dr.md
+    - name: Compatibilidad con otros protocolos
+      href: iot-hub-protocol-gateway.md
+    - name: Comparación entre el enrutamiento de mensajes y el de eventos
+      href: iot-hub-event-grid-routing-comparison.md
+    - name: Procedimientos recomendados de configuración de dispositivos
+      href: iot-hub-configuration-best-practices.md
+    - name: Guía del desarrollador
+      href: iot-hub-devguide.md
+      items:
+        - name: Guía de características del dispositivo a la nube
+          href: iot-hub-devguide-d2c-guidance.md
+        - name: Guía de características de la nube al dispositivo
+          href: iot-hub-devguide-c2d-guidance.md
+        - name: Envío y recepción de mensajes
+          href: iot-hub-devguide-messaging.md
+          items:
+            - name: Envío de mensajes de dispositivo a nube a IoT Hub
+              href: iot-hub-devguide-messages-d2c.md
+            - name: Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
+              href: iot-hub-devguide-messages-read-builtin.md
+            - name: Reacción a eventos de IoT Hub
+              href: iot-hub-event-grid.md
+            - name: Uso de puntos de conexión personalizados y reglas de enrutamiento para mensajes del dispositivo a la nube
+              href: iot-hub-devguide-messages-read-custom.md
+            - name: Envío de mensajes de nube a dispositivo desde IoT Hub
+              href: iot-hub-devguide-messages-c2d.md
+            - name: Creación y lectura de mensajes de IoT Hub
+              href: iot-hub-devguide-messages-construct.md
+            - name: Elección de un protocolo de comunicación
+              href: iot-hub-devguide-protocols.md
+        - name: Carga de archivos desde un dispositivo
+          href: iot-hub-devguide-file-upload.md
+        - name: Administración de identidades de dispositivo
+          href: iot-hub-devguide-identity-registry.md
+        - name: Control del acceso a IoT Hub
+          href: iot-hub-devguide-security.md
+        - name: Descripción de dispositivo gemelos
+          href: iot-hub-devguide-device-twins.md
+        - name: Descripción de módulos gemelos
+          href: iot-hub-devguide-module-twins.md
+        - name: Invocación de métodos directos en un dispositivo
+          href: iot-hub-devguide-direct-methods.md
+        - name: Programación de trabajos en varios dispositivos
+          href: iot-hub-devguide-jobs.md
+        - name: Puntos de conexión de IoT Hub
+          href: iot-hub-devguide-endpoints.md
+        - name: Lenguaje de consulta
+          href: iot-hub-devguide-query-language.md
+        - name: Cuotas y limitación
+          href: iot-hub-devguide-quotas-throttling.md
+        - name: Ejemplos de precios
+          href: iot-hub-devguide-pricing.md
+        - name: SDK de dispositivos y servicios
+          href: iot-hub-devguide-sdks.md
+        - name: Soporte para MQTT
+          href: iot-hub-mqtt-support.md
+        - name: Glosario
+          href: iot-hub-devguide-glossary.md
+    - name: Seguridad
+      items:
+        - name: Seguridad total
+          href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
+        - name: Prácticas recomendadas de seguridad
+          href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
+        - name: Arquitectura de seguridad
+          href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
+        - name: Proteger su implementación de IoT
+          href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+    - name: Protección mediante certificados de entidad de certificación X.509
+      items:
+        - name: Introducción a la seguridad mediante certificados de entidad de certificación X.509
+          href: iot-hub-x509ca-overview.md
+        - name: Conceptos sobre seguridad mediante certificados de entidad de certificación X.509
+          href: iot-hub-x509ca-concept.md
+- name: Guías de procedimientos
+  items:
+    - name: Desarrollo
+      items:
+        - name: Uso del SDK de dispositivo IoT para C
+          href: iot-hub-device-sdk-c-intro.md
+          items:
+            - name: Uso de IoTHubClient
+              href: iot-hub-device-sdk-c-iothubclient.md
+            - name: Uso del serializador
+              href: iot-hub-device-sdk-c-serializer.md
+        - name: Desarrollo para dispositivos restringidos
+          href: iot-hub-devguide-develop-for-constrained-devices.md
+        - name: Desarrollo para dispositivos móviles
+          href: iot-hub-how-to-develop-for-mobile-devices.md
+        - name: Administración de conectividad y mensajería de confianza
+          href: iot-hub-reliability-features-in-sdks.md
+        - name: Consulta de datos de Avro desde una ruta de concentrador
+          href: iot-hub-query-avro-data.md
+        - name: Envío de mensajes de nube a dispositivo
+          items:
+            - name: .NET
+              href: iot-hub-csharp-csharp-c2d.md
+            - name: Java
+              href: iot-hub-java-java-c2d.md
+            - name: Node.js
+              href: iot-hub-node-node-c2d.md
+            - name: Python
+              href: iot-hub-python-python-c2d.md
+            - name: iOS
+              href: iot-hub-ios-swift-c2d.md
+        - name: Carga de archivos desde dispositivos
+          items:
+            - name: .NET
+              href: iot-hub-csharp-csharp-file-upload.md
+            - name: Java
+              href: iot-hub-java-java-file-upload.md
+            - name: Node.js
+              href: iot-hub-node-node-file-upload.md
+            - name: Python
+              href: iot-hub-python-python-file-upload.md
+        - name: Introducción a los dispositivos gemelos
+          items:
+            - name: Node.js
+              href: iot-hub-node-node-twin-getstarted.md
+            - name: .NET
+              href: iot-hub-csharp-csharp-twin-getstarted.md
+            - name: Java
+              href: iot-hub-java-java-twin-getstarted.md
+            - name: Python
+              href: iot-hub-python-twin-getstarted.md
+        - name: Introducción a los módulos gemelos
+          items:
+            - name: Portal
+              href: iot-hub-portal-csharp-module-twin-getstarted.md
+            - name: .NET
+              href: iot-hub-csharp-csharp-module-twin-getstarted.md
+            - name: Python
+              href: iot-hub-python-python-module-twin-getstarted.md
+            - name: C
+              href: iot-hub-c-c-module-twin-getstarted.md
+            - name: Nodo
+              href: iot-hub-node-node-module-twin-getstarted.md
+        - name: Introducción a la administración de dispositivos
+          items:
+            - name: Node.js
+              href: iot-hub-node-node-device-management-get-started.md
+            - name: .NET
+              href: iot-hub-csharp-csharp-device-management-get-started.md
+            - name: Java
+              href: iot-hub-java-java-device-management-getstarted.md
+            - name: Python
+              href: iot-hub-python-python-device-management-get-started.md
+        - name: Programación y difusión de trabajos
+          items:
+            - name: Node.js
+              href: iot-hub-node-node-schedule-jobs.md
+            - name: .NET
+              href: iot-hub-csharp-csharp-schedule-jobs.md
+            - name: Java
+              href: iot-hub-java-java-schedule-jobs.md
+            - name: Python
+              href: iot-hub-python-python-schedule-jobs.md
+    - name: administración
+      items:
+        - name: Crear un centro de IoT
+          items:
+            - name: Usar Azure Portal
+              href: iot-hub-create-through-portal.md
+            - name: Uso de Azure PowerShell
+              href: iot-hub-create-using-powershell.md
+            - name: Uso de CLI de Azure
+              href: iot-hub-create-using-cli.md
+            - name: Uso de la CLI
+              href: iot-hub-create-using-cli-nodejs.md
+            - name: Uso de la API de REST
+              href: iot-hub-rm-rest.md
+            - name: Uso de una plantilla de Azure PowerShell
+              href: iot-hub-rm-template-powershell.md
+            - name: Uso de una plantilla de .NET
+              href: iot-hub-rm-template.md
+        - name: Configuración de la carga de archivos
+          items:
+            - name: Usar Azure Portal
+              href: iot-hub-configure-file-upload.md
+            - name: Uso de Azure PowerShell
+              href: iot-hub-configure-file-upload-powershell.md
+            - name: Uso de CLI de Azure
+              href: iot-hub-configure-file-upload-cli.md
+        - name: Supervisión con Diagnostics
+          href: iot-hub-monitor-resource-health.md
+          items:
+            - name: Migración a la configuración de Diagnostics
+              href: iot-hub-migrate-to-diagnostics-settings.md
+            - name: Supervisión de operaciones
+              href: iot-hub-operations-monitoring.md
+        - name: Protección del centro con un certificado X.509
+          href: iot-hub-security-x509-get-started.md
+        - name: Actualización de una instancia de IoT Hub
+          href: iot-hub-upgrade.md
+        - name: Métricas de uso
+          href: iot-hub-metrics.md
+        - name: Configuración del filtrado de IP
+          href: iot-hub-ip-filtering.md
+        - name: Configuración de dispositivos a escala
+          items:
+            - name: Usar Azure Portal
+              href: iot-hub-auto-device-config.md
+            - name: Uso de CLI de Azure
+              href: iot-hub-auto-device-config-cli.md
+        - name: Administración de identidades de dispositivos de Centro de IoT de forma masiva
+          href: iot-hub-bulk-identity-mgmt.md
+    - name: Uso de dispositivos reales
+      items:
+        - name: Uso de un simulador en línea
+          href: iot-hub-raspberry-pi-web-simulator-get-started.md
+        - name: Uso de un dispositivo físico
+          href: iot-hub-get-started-physical.md
+          items:
+            - name: Raspberry Pi con Python
+              href: iot-hub-raspberry-pi-kit-python-get-started.md
+            - name: Raspberry Pi con Node.js
+              href: iot-hub-raspberry-pi-kit-node-get-started.md
+            - name: Raspberry Pi con C
+              href: iot-hub-raspberry-pi-kit-c-get-started.md
+            - name: MXChip IoT DevKit con Arduino
+              href: iot-hub-arduino-iot-devkit-az3166-get-started.md
+            - name: Intel Edison con Node.js
+              href: iot-hub-intel-edison-kit-node-get-started.md
+            - name: Intel Edison con C
+              href: iot-hub-intel-edison-kit-c-get-started.md
+            - name: Adafruit Feather HUZZAH ESP8266 con Arduino
+              href: iot-hub-arduino-huzzah-esp8266-get-started.md
+            - name: Sparkfun ESP8266 Thing Dev con Arduino
+              href: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
+            - name: Adafruit Feather M0 con Arduino
+              href: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+        - name: Uso de MXChip IoT DevKit
+          items:
+            - name: Traducción de mensajes de voz con Azure Cognitive Services
+              href: iot-hub-arduino-iot-devkit-az3166-translator.md
+            - name: Recuperación de un mensaje de Twitter con Azure Functions
+              href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
+            - name: Envío de mensajes a un servidor MQTT mediante Eclipse Paho API
+              href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
+            - name: Supervisión del sensor magnético y envío de notificaciones mediante correo electrónico con Azure Functions
+              href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
+        - name: Escenarios de IoT ampliados
+          items:
+            - name: Administración de la mensajería de dispositivos en la nube con iothub-explorer
+              href: iot-hub-explorer-cloud-device-messaging.md
+            - name: Guardado de los mensajes de IoT Hub en Azure Blob Storage
+              href: iot-hub-store-data-in-azure-table-storage.md
+            - name: Visualización de datos en Power BI
+              href: iot-hub-live-data-visualization-in-power-bi.md
+            - name: Visualización de datos con Web Apps
+              href: iot-hub-live-data-visualization-in-web-apps.md
+            - name: Previsión meteorológica con Azure Machine Learning
+              href: iot-hub-weather-forecast-machine-learning.md
+            - name: Administración de dispositivos con iothub-explorer
+              href: iot-hub-device-management-iothub-explorer.md
+            - name: Administración de dispositivos con la extensión de IoT de la CLI de Azure 2.0
+              href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+            - name: Supervisión remota y notificaciones con Logic Apps
+              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/iot
+    - name: .NET (servicio)
+      href: /dotnet/api/microsoft.azure.devices
+    - name: .NET (dispostivos)
+      href: /dotnet/api/microsoft.azure.devices.client
+    - name: Java (servicio)
+      href: /java/api/com.microsoft.azure.sdk.iot.service
+    - name: Java (dispositivos)
+      href: /java/api/com.microsoft.azure.sdk.iot.device
+    - name: Node.js (Dispositivos)
+      href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
+    - name: Node.js (Servicio)
+      href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
+    - name: SDK para dispositivos C
+      href: 'https://azure.github.io/azure-iot-sdk-c/index.html'
+    - name: Azure IoT Edge
+      href: 'http://azure.github.io/iot-edge/'
+    - name: REST (dispositivo)
+      href: 'https://docs.microsoft.com/rest/api/iothub/device'
+    - name: REST (servicio)
+      href: 'https://docs.microsoft.com/rest/api/iothub/service'
+    - name: REST (recurso de IoT Hub)
+      href: 'https://docs.microsoft.com/rest/api/iothub/iothubresource'
+    - name: REST (certificados)
+      href: 'https://docs.microsoft.com/rest/api/iothub/certificates'
+- name: Temas relacionados
+  items:
+    - name: Soluciones
+      items:
+        - name: Aceleradores de soluciones de IoT
+          href: /azure/iot-accelerators
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Servicios de plataforma
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: SDK de servicio de IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Mapas
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: perimetral
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDK de dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Recursos
+  items:
+    - name: 'Ejemplos de Azure IoT para C# (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Ejemplos de Azure IoT para Node.js
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Ejemplos de Azure IoT para Java
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Ejemplos de Azure IoT para Python
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: Ejemplos de Azure IoT para la plataforma iOS
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Catálogo de dispositivos de Azure Certified for IoT
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Centro para desarrolladores de Azure
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Solicitudes de datos del cliente
+      href: iot-hub-customer-data-requests.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Azure IoT Toolkit
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit'
+    - name: Herramienta DeviceExplorer
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: herramienta iothub-diagnostics
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: herramienta iothub-explorer
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Ruta de aprendizaje
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: Foro de MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Casos prácticos técnicos
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

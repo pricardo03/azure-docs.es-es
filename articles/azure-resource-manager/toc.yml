@@ -15,6 +15,13 @@
       href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
     - name: 'Creación de plantillas: Visual Studio'
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: Creación de una cuenta de almacenamiento cifrada
+      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+    - name: Creación de varios recursos
+      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
 - name: Conceptos
   items:
     - name: Tipos y proveedores de recursos

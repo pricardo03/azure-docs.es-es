@@ -140,33 +140,13 @@
 #### [Ejemplos de inicio de sesión](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Uso de certificados](active-directory-reporting-api-with-certificates.md)
 
-## Administrar contraseñas
-### [Introducción a las contraseñas](authentication/active-directory-passwords-overview.md)
+## Administración de contraseñas (active-directory/authentication/concept-sspr-howitworks.md)
 ### Documentos de usuario
 #### [Restablecimiento o modificación de la contraseña](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Procedimientos recomendados sobre las contraseñas](active-directory-secure-passwords.md)
 #### [Registro para el autoservicio de restablecimiento de contraseñas](user-help/active-directory-passwords-reset-register.md)
-### [Vea cómo funciona SSPR](authentication/concept-sspr-howitworks.md)
-### [Guía de implementación de SSPR](authentication/howto-sspr-deployment.md)
-### [SSPR y Windows 10](authentication/tutorial-sspr-windows.md)
-### [Directivas de SSPR](authentication/concept-sspr-policy.md)
-### [Personalización de SSPR](authentication/concept-sspr-customization.md)
-### [Requisitos de datos de SSPR](authentication/howto-sspr-authenticationdata.md)
-### [Informes de SSPR](authentication/howto-sspr-reporting.md)
-### [Bloqueo inteligente](authentication/howto-password-smart-lockout.md)
-### [Eliminación de contraseñas no seguras](authentication/concept-password-ban-bad.md)
-### [Configuración de la lista de contraseñas prohibidas](authentication/howto-password-ban-bad.md)
-### [Integración local](authentication/concept-password-ban-bad-on-premises.md)
-### [Implementación de la protección de contraseñas de Azure AD](authentication/howto-password-ban-bad-on-premises.md)
-### [Configuración de la protección de contraseñas de Azure AD](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Supervisión de la protección de contraseñas de Azure AD](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### Administradores de TI: Restablecimiento de contraseñas
 #### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Licencia de SSPR](authentication/concept-sspr-licensing.md)
-### [Escritura diferida de contraseñas](authentication/howto-sspr-writeback.md)
-### [Solución de problemas](authentication/active-directory-passwords-troubleshoot.md)
-### [P+F](authentication/active-directory-passwords-faq.md)
-
 
 ## Administración de dispositivos
 ### [Introducción](device-management-introduction.md)

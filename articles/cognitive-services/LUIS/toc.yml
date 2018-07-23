@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: Con patrones
           href: luis-tutorial-pattern.md
+        - name: Con roles
+          href: luis-tutorial-pattern-roles.md
+        - name: Con la entidad Pattern.any
+          href: luis-tutorial-pattern-any.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
@@ -194,7 +198,7 @@
     - name: Prueba
       items:
         - name: Pruebas interactivas
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: Pruebas por lotes
           href: luis-how-to-batch-test.md
     - name: Publicación de aplicación
@@ -226,7 +230,7 @@
             - name: Propagar la cuota de puntos de conexión por claves con Traffic Manager
               href: luis-traffic-manager.md
     - name: Migrar a las API V2
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: Buscar región mediante programación
       items:
         - name: 'Con C#'
