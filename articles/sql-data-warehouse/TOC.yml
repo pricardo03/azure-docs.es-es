@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: Notas de la versión
   items:
+    - name: Julio de 2018
+      href: release-notes-july-2018.md
     - name: Junio de 2018
       href: release-notes-june-2018.md
     - name: Mayo de 2018
@@ -213,7 +215,7 @@
           href: load-data-from-azure-blob-storage-using-polybase.md
         - name: Datos públicos de Contoso
           href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-        - name: Almacén de Azure Data Lake
+        - name: Azure Data Lake Store
           href: sql-data-warehouse-load-from-azure-data-lake-store.md
         - name: Azure Databricks
           href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json

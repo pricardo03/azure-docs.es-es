@@ -41,6 +41,8 @@
           href: role-assignments-cli.md
         - name: API DE REST
           href: role-assignments-rest.md
+        - name: Plantilla
+          href: role-assignments-template.md
     - name: Roles personalizados
       href: custom-roles.md
       items:
