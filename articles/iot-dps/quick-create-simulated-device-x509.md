@@ -1,55 +1,71 @@
 ---
-title: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante C | Microsoft Docs
-description: 'Guía de inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos C para el servicio Azure IoT Hub Device Provisioning'
-author: dsk-2015
-ms.author: dkshir
-ms.date: 04/16/2018
+title: 'Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante C | Microsoft Docs'
+description: En este inicio rápido, creará y aprovisionará un dispositivo X.509 simulado mediante el SDK de dispositivos C para el servicio Azure IoT Hub Device Provisioning
+author: wesmc7777
+ms.author: wesmc
+ms.date: 07/16/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3cf91709b0c4a6b95d27159a842bf28779e0c13b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2f0d3c592cf8e265c215c49c291d3ef420112a15
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629745"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090867"
 ---
-# <a name="create-and-provision-an-x509-simulated-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos C para el servicio IoT Hub Device Provisioning
+# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado mediante el SDK para C de Azure IoT
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Estos pasos muestran cómo simular un dispositivo X.509 en la máquina de desarrollo en la que se ejecuta el sistema operativo Windows, y usar un ejemplo de código para conectar este dispositivo simulado con el servicio Device Provisioning y IoT Hub. 
+En este inicio rápido, aprenderá a crear y ejecutar un simulador de dispositivos X.509 en una máquina de desarrollo Windows. Configurará este dispositivo simulado para asignarlo a un centro de IoT mediante una inscripción en una instancia del servicio Device Provisioning. Se usará código de ejemplo del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para simular una secuencia de arranque para el dispositivo. El dispositivo se reconocerá en función de la inscripción en el servicio de aprovisionamiento y se asignará al centro de IoT.
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
+Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Además, asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar con este inicio rápido. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Visual Studio 2015 o [Visual Studio 2017](https://www.visualstudio.com/vs/) con la carga de trabajo de [desarrollo de escritorio con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+* Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
+
 
 <a id="setupdevbox"></a>
 
-## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo 
+## <a name="prepare-a-development-environment-for-the-azure-iot-c-sdk"></a>Preparación de un entorno de desarrollo para el SDK para C de Azure IoT
 
-1. Asegúrese de tener instalados Visual Studio 2015 o [Visual Studio 2017 ](https://www.visualstudio.com/vs/) en la máquina. Debe tener la carga de trabajo ["Desarrollo para el escritorio con C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada para la instalación de Visual Studio.
+En esta sección, preparará un entorno de desarrollo para compilar el [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) que incluye el código de ejemplo de la secuencia de arranque de X.509.
 
-2. Descargue e instale el [sistema de compilación CMake](https://cmake.org/download/). Es importante que el entorno de Visual Studio con la carga de trabajo "Desarrollo para el escritorio con C++" esté instalado en su máquina **antes de** la instalación de `cmake`. 
+1. Descargue la versión más reciente del [sistema de compilación de CMake](https://cmake.org/download/). Desde ese mismo sitio, busque el hash criptográfico para la versión de la distribución binaria elegida. Compruebe el archivo binario descargado mediante el valor de hash criptográfico correspondiente. En el ejemplo siguiente se usa Windows PowerShell para comprobar el hash criptográfico de la versión 3.11.4 de la distribución de MSI x64:
 
-3. Asegúrese de que `git` está instalado en su máquina y se agrega a las variables de entorno accesibles para la ventana de comandos. Consulte las [herramientas de cliente de Git de Software Freedom Conservancy](https://git-scm.com/download/) para instalar la versión más reciente de las herramientas `git`, lo que incluye **Git Bash**, la aplicación de línea de comandos que puede usar para interactuar con su repositorio de Git local. 
-
-4. Abra un símbolo del sistema o Git Bash. Clone el repositorio GitHub para el ejemplo de código de simulación de dispositivo:
-    
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    ```PowerShell
+    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    True
     ```
 
-5. Cree una carpeta en su copia local de este repositorio GitHub para el proceso de compilación de CMake. 
+    **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio (Visual Studio y la carga de trabajo de desarrollo de escritorio con C++) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
 
-    ```cmd
+2. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute el siguiente comando para clonar el repositorio de GitHub del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c):
+    
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    ```
+    Actualmente, el tamaño de este repositorio es de unos 220 MB. Esta operación puede tardar varios minutos en completarse.
+
+
+3. Cree un subdirectorio `cmake` en el directorio raíz del repositorio de Git y vaya a esa carpeta. 
+
+    ```cmd/sh
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-6. El código de ejemplo usa un certificado X.509 para proporcionar atestación mediante la autenticación de X.509. Ejecute el siguiente comando para compilar una versión del SDK específica para su plataforma de cliente de desarrollo y el [mecanismo de atestación](concepts-security.md#attestation-mechanism) (certificado X.509). También genera una solución de Visual Studio para el dispositivo simulado. 
+4. El código de ejemplo usa un certificado X.509 para proporcionar atestación mediante la autenticación de X.509. Ejecute el siguiente comando para compilar una versión del SDK específica para su plataforma de cliente de desarrollo. Se generará una solución de Visual Studio para el dispositivo simulado en el directorio `cmake`. 
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
@@ -57,33 +73,63 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
     
     Si `cmake` no encuentra el compilador de C++, es posible que obtenga errores de compilación durante la ejecución del comando anterior. Si sucede, intente ejecutar este comando en el [símbolo del sistema de Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
+    Una vez realizada la compilación, las últimas líneas de salida tendrán un aspecto similar al siguiente:
+
+    ```cmd/sh
+    $ cmake -Duse_prov_client:BOOL=ON ..
+    -- Building for: Visual Studio 15 2017
+    -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
+    -- The C compiler identification is MSVC 19.12.25835.0
+    -- The CXX compiler identification is MSVC 19.12.25835.0
+
+    ...
+
+    -- Configuring done
+    -- Generating done
+    -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
+    ```
+
+
 
 <a id="portalenroll"></a>
 
-## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Creación de un certificado de dispositivo X.509 autofirmado y una entrada de inscripción individual
+## <a name="create-a-self-signed-x509-device-certificate"></a>Creación de un certificado de dispositivo X.509 autofirmado
 
-1. Abra la solución generada en la carpeta *cmake* denominada `azure_iot_sdks.sln` y compílela en Visual Studio.
+En esta sección, usará un certificado X.509 autofirmado, así que es importante tener en cuenta lo siguiente:
 
-2. Haga clic con el botón derecho en el proyecto **dice\_device\_enrollment** en la carpeta **Provision\_Tools** y seleccione **Establecer como proyecto de inicio**. Ejecute la solución. En la ventana de salida, escriba **i** para la inscripción individual cuando se le solicite. La ventana de salida muestra un certificado X.509 generado localmente para el dispositivo simulado. Copie en el portapapeles la salida desde *---BEGIN CERTIFICATE---* hasta *-----END CERTIFICATE-----* y asegúrese de incluir ambas líneas. Tenga en cuenta que solo necesita el primer certificado de la ventana de salida.
+* Los certificados autofirmados son solo para la realización de pruebas, no se deben usar en producción.
+* La fecha de expiración predeterminada de un certificado autofirmado es de 1 año.
+
+Usará código de ejemplo del SDK para C de Azure IoT para crear el certificado que se usará con la entrada de inscripción individual en el dispositivo simulado.
+
+1. Inicie Visual Studio y abra el nuevo archivo de solución denominado `azure_iot_sdks.sln`. Este archivo de solución se encuentra en la carpeta `cmake` que creó anteriormente en la raíz del repositorio de Git azure-iot-sdk-c.
+
+2. En el menú de Visual Studio, seleccione **Compilar** > **Compilar solución** para compilar todos los proyectos de la solución.
+
+3. En el *Explorador de soluciones* de Visual Studio, vaya a la carpeta **Aprovisionar\_Herramientas**. Haga clic con el botón derecho en el proyecto **dice\_device\_enrollment** y seleccione **Establecer como proyecto de inicio**. 
+
+4. En el menú de Visual Studio, seleccione **Depurar** > **Iniciar sin depurar** para ejecutar la solución. En la ventana de salida, escriba **i** para la inscripción individual cuando se le solicite. 
+
+    La ventana de salida muestra un certificado X.509 autofirmado generado localmente para el dispositivo simulado. Copie la salida en el portapapeles desde **---BEGIN CERTIFICATE---** hasta **-----END CERTIFICATE-----** y asegúrese de incluir ambas líneas. Tenga en cuenta que solo necesita el primer certificado de la ventana de salida.
  
-3. Cree un archivo denominado **_X509testcert.pem_** en su máquina Windows, ábralo en el editor que desee y copie el contenido del portapapeles en este archivo. Guarde el archivo. 
+5. Con un editor de texto, guarde el certificado en un nuevo archivo denominado **_X509testcert.pem_**. 
 
-4. Inicie sesión en Azure Portal, haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio de aprovisionamiento.
 
-5. En la hoja de resumen del servicio Device Provisioning, seleccione **Manage enrollments** (Administrar inscripciones). Seleccione la pestaña **Individual Enrollments** (Inscripciones individuales) y haga clic en el botón **Add** (Agregar) de la parte superior. 
+## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Creación de una entrada de inscripción de dispositivo en el portal
 
-6. En el panel **Agregar inscripción**, escriba la siguiente información:
-    - Seleccione **X.509** como *Mecanismo* de atestación de identidad.
-    - En el *Archivo .pem o .cer de certificado principal*, haga clic en *Seleccionar un archivo* para seleccionar el archivo de certificado **X509testcert.pem** creado en los pasos anteriores.
-    - De forma opcional, puede proporcionar la siguiente información:
-      - Seleccione un centro de IoT vinculado con el servicio de aprovisionamiento.
-      - Escriba un identificador de dispositivo único. Asegúrese de evitar datos confidenciales al asignar nombre al dispositivo. 
-      - Actualice el **Estado inicial del dispositivo gemelo** con la configuración inicial deseada para el dispositivo.
-    - Una vez completado, haga clic en el botón **Guardar**. 
+1. Inicie sesión en Azure Portal, haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio Device Provisioning.
+
+2. Seleccione la pestaña **Administrar inscripciones** y luego haga clic en el botón **Add individual enrollment** (Agregar inscripción individual) de la parte superior. 
+
+3. En **Agregar inscripción**, escriba la información siguiente y haga clic en el botón **Guardar**.
+
+    - **Mecanismo:** seleccione **X.509** como *mecanismo* de atestación de identidad.
+    - **Archivo .pem o .cer de certificado principal:** haga clic en **Seleccionar un archivo** para seleccionar el archivo de certificado, X509testcert.pem, que creó anteriormente.
+    - **Id. de dispositivo de IoT Hub:** escriba **test-docs-cert-device** para dar al dispositivo un identificador.
 
     [![Agregar inscripción individual para la atestación X.509 en el portal](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
 
-   Al inscribir el dispositivo correctamente, el dispositivo X.509 aparece como **riot-device-cert** en la columna *Id. de registro* de la pestaña *Individual Enrollments* (Inscripciones individuales). 
+    Al inscribir el dispositivo correctamente, el dispositivo X.509 aparece como **riot-device-cert** en la columna *Id. de registro* de la pestaña *Individual Enrollments* (Inscripciones individuales). 
 
 
 
@@ -91,42 +137,53 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
 
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>Simulación de la primera secuencia de arranque para el dispositivo
 
-1. En Azure Portal, seleccione la hoja **Información general** para su servicio Device Provisioning y anote los valores del **_Ámbito de id_**.
+En esta sección, actualizará el código de ejemplo para enviar la secuencia de arranque del dispositivo a la instancia del servicio Device Provisioning. Esta secuencia de arranque hará que el dispositivo se reconozca y se asigne a un centro de IoT vinculado a la instancia del servicio Device Provisioning.
+
+
+
+1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
 
     ![Extracción de información del punto de conexión DPS de la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. En Visual Studio en su equipo, navegue hasta el proyecto de ejemplo denominado **prov\_dev\_client\_sample** en la carpeta **Provision\_Samples** y abra el archivo **prov\_dev\_client\_sample.c**.
+2. En la ventana del *Explorador de soluciones* de Visual Studio, desplácese hasta la carpeta **Aprovisionar\_Ejemplos**. Expanda el proyecto de ejemplo denominado **prov\_dev\_client\_sample**. Expanda **Archivos de código fuente** y abra **prov\_dev\_cliente\_sample.c**.
 
-3. Asigne el valor _Ámbito de id._ a la variable `id_scope`. 
+3. Busque la constante `id_scope` y reemplace el valor por el valor de **Ámbito de id.** que copió anteriormente. 
 
     ```c
-    static const char* id_scope = "[ID Scope]";
+    static const char* id_scope = "0ne00002193";
     ```
 
-4. En la función **main()** del mismo archivo, asegúrese de que **SECURE_DEVICE_TYPE** esté establecido en X.509.
+4. Busque la definición de la función `main()` en el mismo archivo. Asegúrese de que la variable `hsm_type` está establecida en `SECURE_DEVICE_TYPE_X509` y no en `SECURE_DEVICE_TYPE_TPM`, tal como se muestra a continuación.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
+    //hsm_type = SECURE_DEVICE_TYPE_TPM;
     hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-   Elimine o convierta en comentario la instrucción `hsm_type = SECURE_DEVICE_TYPE_TPM;`, si existe. 
+5. Haga clic con el botón derecho en el proyecto **prov\_dev\_client\_sample** y seleccione **Set as Startup Project** (Establecer como proyecto de inicio). 
 
-5. Haga clic con el botón derecho en el proyecto **prov\_dev\_client\_sample** y seleccione **Set as Startup Project** (Establecer como proyecto de inicio). Ejecute el ejemplo. Tenga en cuenta los mensajes que simulan el arranque del dispositivo y la conexión al servicio Device Provisioning para obtener la información del centro de IoT. Busque el mensaje que indica que el registro se efectuó correctamente con el hub: *Registration Information received from service: yourhuburl!* (Información del registro recibida desde el servicio: yourhuburl!). Cierre la ventana cuando se le solicite.
+6. En el menú de Visual Studio, seleccione **Depurar** > **Iniciar sin depurar** para ejecutar la solución. En la solicitud para volver a compilar el proyecto, haga clic en **Sí** para recompilar el proyecto antes de ejecutarlo.
 
-6. En el portal, navegue hasta el centro de IoT Hub vinculado a su servicio de aprovisionamiento y abra la hoja **IoT Devices** (Dispositivos IoT). Si el dispositivo X.509 simulado se aprovisiona correctamente con el centro, su identificador de dispositivo aparecerá en la hoja **IoT Devices** (Dispositivos IoT) con el *ESTADO* **habilitado**. Tenga en cuenta que debe hacer clic en el botón **Actualizar** situado en la parte superior si ya ha abierto la hoja antes de ejecutar la aplicación de ejemplo del dispositivo. 
+    La salida siguiente es un ejemplo de arranque correcto del cliente de dispositivo de aprovisionamiento de ejemplo y su conexión a la instancia del servicio de aprovisionamiento para obtener información de IoT Hub y registrarse:
+
+    ```cmd
+    Provisioning API Version: 1.2.7
+
+    Registering... Press enter key to interrupt.
+
+    Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
+    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
+    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
+
+    Registration Information received from service: 
+    test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device    
+    ```
+
+7. En el portal, vaya hasta el centro de IoT vinculado al servicio de aprovisionamiento y haga clic en la pestaña **Dispositivos IoT**. Si el dispositivo X.509 simulado se aprovisiona correctamente con el centro, su identificador de dispositivo aparecerá en la hoja **IoT Devices** (Dispositivos IoT) con el *ESTADO* **habilitado**. Observe que puede que tenga que hacer clic en el botón **Actualizar** en la parte superior. 
 
     ![El dispositivo se registra con el centro de IoT](./media/quick-create-simulated-device/hub-registration.png) 
 
-    Si ha cambiado el valor predeterminado de *Estado inicial del dispositivo gemelo* en la entrada de inscripción para el dispositivo, el dispositivo puede extraer el estado gemelo deseado desde el centro y actuar en consecuencia. Para más información, consulte [Información y uso de dispositivos gemelos en IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
-
-
-> [!IMPORTANT]
-> También puede hacer una *inscripción de grupo* de los dispositivos X.509. Para ello, realice las siguientes modificaciones en los pasos de esta guía de inicio rápido:
->    1. Para configurar la máquina Windows para que use la biblioteca **OpenSSL** en lugar del valor **SChannel** predeterminado, siga la sección de **WebSockets** en la guía [Set up a Windows development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#windows) (Configurar un entorno de desarrollo de Windows). Tenga en cuenta que las máquinas Linux usan OpenSSL de forma predeterminada. 
->    2. En el paso 2 de la sección [Creación de una entrada de inscripción de dispositivos en el servicio Device Provisioning](#portalenroll) anterior, escriba **g** en la inscripción del grupo.
->    3. En los pasos 4 y 5 de la [misma sección](#portalenroll), seleccione **Grupos de inscripción** y escriba la información necesaria para la entrada del grupo.  
->
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -134,7 +191,7 @@ Si piensa seguir trabajando con el ejemplo de cliente de dispositivo y explorán
 
 1. Cierre la ventana de salida de ejemplo del cliente del dispositivo en su máquina.
 1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione el servicio Device Provisioning. Abra la hoja **Administrar inscripciones** de su servicio y, a continuación, haga clic en la pestaña **Inscripciones individuales**. Seleccione el *ID. DE REGISTRO* del dispositivo que inscribió en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior. 
-1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. Abra la hoja **IoT Devices** (Dispositivos IoT) de su centro, seleccione el *ID. DE DISPOSITIVO* del dispositivo que registró en esta guía de inicio rápido y, a continuación, haga clic en el botón **Eliminar** situado en la parte superior.
+1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. Abra la hoja **Dispositivos IoT** de su centro, seleccione el *ID. DE DISPOSITIVO* del dispositivo que registró en este inicio rápido y, luego, haga clic en el botón **Eliminar** situado en la parte superior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
