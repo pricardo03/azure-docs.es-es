@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dcc384fad0479c66211fe31e547ad7076150b58e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 256c951b5bf193f5ee5bfe5f70c3549ef17a4d9b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611235"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071985"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Al igual que un servicio de base de datos de varios modelos y distribuido global
     * El motor de la base de datos de Azure Cosmos DB es totalmente independiente del esquema: indexa automáticamente todos los datos que se introducen sin necesidad de esquemas ni índices y las consultas son ultrarrápidas. 
 
 * **Costo de propiedad reducido**
-    * De cinco a diez veces [más rentable](https://aka.ms/cosmos-db-tco-paper) que una solución no administrada o una solución NoSQL local.
+    * De cinco a diez veces más rentable que una solución no administrada o una solución NoSQL local.
     * Tres veces más económico que AWS DynamoDB o Google Spanner.
 
 ## <a name="capability-comparison"></a>Comparación de funcionalidades
@@ -78,11 +78,11 @@ Azure Cosmos DB proporciona las mejores funcionalidades de las bases de datos re
 | Capacidades | Bases de datos relacionales   | Bases de datos no relacionales (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | Distribución global | Sin  | Sin  | Sí, distribución inmediata en más de 30 regiones, con las API de hospedaje múltiple|
-| Escalado horizontal | Sin  | Sí | Sí, puede escalar de manera independiente el almacenamiento y el rendimiento | 
-| Garantías de latencia | Sin  | Sí | Sí, 99 % de lecturas en <10 ms y escrituras de <15 ms. | 
-| Alta disponibilidad | Sin  | Sí | Sí, Azure Cosmos DB siempre está activo, ofrece compensaciones PACELC bien definidas y proporciona opciones de conmutación por error automática y manual.|
+| Escalado horizontal | Sin  | SÍ | Sí, puede escalar de manera independiente el almacenamiento y el rendimiento | 
+| Garantías de latencia | Sin  | SÍ | Sí, 99 % de lecturas en <10 ms y escrituras de <15 ms. | 
+| Alta disponibilidad | Sin  | SÍ | Sí, Azure Cosmos DB siempre está activo, ofrece compensaciones PACELC bien definidas y proporciona opciones de conmutación por error automática y manual.|
 | Modelo de datos + API | Relacional + SQL | Varios modelos + API de OSS | Varios modelos + SQL + API de OSS (más próximamente) |
-| SLA | Sí | Sin  | Sí, SLA integrales para la latencia, el rendimiento, la coherencia y la disponibilidad |
+| SLA | SÍ | Sin  | Sí, SLA integrales para la latencia, el rendimiento, la coherencia y la disponibilidad |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluciones que se benefician de Azure Cosmos DB
 

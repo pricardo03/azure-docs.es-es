@@ -1,25 +1,22 @@
 ---
-title: ¿Qué son HDInsight y la pila de tecnología de Hadoop y Spark? -Azure | Microsoft Docs
+title: ¿Qué son HDInsight y la pila de tecnología de Hadoop y Spark? - Azure
 description: Introducción a HDInsight y a la pila de tecnología y los componentes de Hadoop y Spark, incluidos Kafka, Hive, Storm y HBase para el análisis de macrodatos.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introducción, pila de tecnología de hadoop, intro de hadoop, introducción a hadoop, qué es un clúster de hadoop, qué es clúster hadoop, para qué se utiliza hadoop
 services: hdinsight
-documentationcenter: ''
 author: cjgronlund
+ms.author: cgronlun
 manager: jhubbard
-editor: cgronlun
 ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: cgronlun
-ms.openlocfilehash: b84389c1d52c0c43f1e71da3eed86f4057b85559
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7bed171a3b866f4b1f94d6a5348dd25d8820f2b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051389"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115348"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Qué son Azure HDInsight y la pila de tecnología de Hadoop
 
@@ -89,7 +86,7 @@ Puede usar HDInsight para ampliar la infraestructura local de macrodatos existen
 ## <a name="cluster-types-in-hdinsight"></a>Tipos de clúster de HDInsight
 HDInsight incluye tipos de clúster concretos y funcionalidades de personalización del clúster, tales como la de agregar componentes, utilidades y lenguajes. HDInsight ofrece los siguientes tipos de clúster:
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: una plataforma que utiliza [HDFS](#hdfs), administración de recursos [YARN](#yarn) y un modelo de programación de [MapReduce](#mapreduce) simple para procesar y analizar datos por lotes en paralelo.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: una plataforma que utiliza HDFS, administración de recursos YARN y un modelo de programación de MapReduce simple para procesar y analizar datos por lotes en paralelo.
 
 * **[Apache Spark](http://spark.apache.org/)**: plataforma de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de macrodatos. Consulte [¿qué es Apache Spark en HDInsight?](../spark/apache-spark-overview.md)
 

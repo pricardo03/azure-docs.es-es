@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386544"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991696"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Inicio de la supervisión de la aplicación web Node.js
 
@@ -23,14 +23,14 @@ Con Azure Application Insights puede supervisar fácilmente la disponibilidad, e
 
 Esta guía de inicio rápido le ayudará a agregar la versión 0.22 del SDK de Application Insights a una aplicación web Node.js existente.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido:
 
 - Necesitará una suscripción de Azure y una aplicación web Node.js existente.
 
 Si no tiene una aplicación web Node.js, puede crear una siguiendo la [guía de creación de una aplicación web Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs).
- 
+
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
@@ -47,7 +47,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    Aparece un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
 
-    | Settings        | Valor           | DESCRIPCIÓN  |
+    | Configuración        | Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
    | **Name**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Tipo de aplicación** | Aplicación Node.js | Tipo de aplicación que se está supervisando |
@@ -60,7 +60,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
 1. Seleccione **Introducción** > **Información esencial** > copie la **clave de instrumentación** de la aplicación.
 
-   ![Formulario de nuevo recurso de Application Insights](./media/app-insights-nodejs-quick-start/003-Black.png)
+   ![Formulario de nuevo recurso de Application Insights](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
 
 2. Agregue el SDK de Application Insights para Node.js a la aplicación. Desde la carpeta raíz de la aplicación, ejecute:
 
@@ -84,25 +84,25 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
 1. Ahora puede volver a abrir la página **Introducción** de Application Insights en Azure Portal; para ello, de donde recuperó la clave de instrumentación, para ver los detalles de la aplicación en ejecución.
 
-   ![Menú Introducción de Application Insights](./media/app-insights-nodejs-quick-start/004-Black.png)
+   ![Menú Introducción de Application Insights](./media/app-insights-nodejs-quick-start/overview-001.png)
 
 2. Haga clic en **Mapa de la aplicación** para un diseño visual de las relaciones de dependencia entre los componentes de la aplicación. Cada componente muestra KPI como la carga, el rendimiento, errores y alertas.
 
-   ![Mapa de aplicación](./media/app-insights-nodejs-quick-start/005-Black.png)
+   ![Mapa de aplicación](./media/app-insights-nodejs-quick-start/application-map.png)
 
 3. Haga clic en el icono **Análisis de aplicaciones** ![icono de Mapa de aplicación](./media/app-insights-nodejs-quick-start/006.png).  Se abrirá **Application Insights Analytics**, que proporciona un lenguaje de consulta completo para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
 
    ![Gráfico de Analytics con las solicitudes de usuario durante un período de tiempo](./media/app-insights-nodejs-quick-start/007-Black.png)
 
-4. Vuelva a la página **Introducción** y examine el **Escala de tiempo con información general de Estado**.  Este panel proporciona estadísticas sobre el estado de aplicación, incluido el número de solicitudes entrantes, la duración de las solicitudes y los errores que se producen. 
+4. Vuelva a la página **Información general** y examine los gráficos de indicadores clave de rendimiento.  Este panel proporciona estadísticas sobre el estado de aplicación, incluido el número de solicitudes entrantes, la duración de las solicitudes y los errores que se producen. 
 
-   ![Gráficos de Escala de tiempo con información general de Estado](./media/app-insights-nodejs-quick-start/008-Black.png)
+   ![Gráficos de Escala de tiempo con información general de Estado](./media/app-insights-nodejs-quick-start/overview-perf.png)
 
    Para habilitar el gráfico **Tiempo de carga de la vista de página** que se rellenará con los datos de **Telemetría del lado cliente**, agregue este script para cada página de las que desee realizar el seguimiento:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics tools about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 
@@ -133,7 +133,7 @@ Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido 
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en **myResourceGroup**.
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Búsqueda y diagnóstico de problemas de rendimiento](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

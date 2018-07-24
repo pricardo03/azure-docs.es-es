@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30dbe6590cc1d70dfc026330a09645c86be24288
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261277"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036894"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adición de un dominio personalizado a un punto de conexión de Azure CDN
 En este tutorial se muestra cómo agregar un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN). Si se usa un punto de conexión de CDN para entregar contenido, se necesita un dominio personalizado si se desea que el nombre de dominio propio esté visible en la dirección URL de la red CDN. El hecho de tener un nombre de dominio visible puede ser cómodo para sus clientes y útil con fines de personalización de marca. 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para poder completar los pasos de este tutorial, primero es preciso crear un perfil de CDN y al menos un punto de conexión de CDN. Para más información, consulte [Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
 
@@ -54,7 +54,7 @@ Un dominio personalizado y su subdominio no se pueden asociar con más de un sol
 
 Al asignar un dominio existente que esté en producción, existen consideraciones especiales. Mientras se registra un dominio personalizado en Azure Portal, se puede producir un breve período de inactividad en el dominio. Para evitar la interrupción del tráfico web, en primer lugar asigne su dominio personalizado al nombre de host de su punto de conexión de CDN con el subdominio cdnverify Azure para crear una asignación de CNAME temporal. Con este método, los usuarios pueden acceder a un dominio sin interrupción mientras se realiza la asignación de DNS. 
 
-Por el contrario, si es la primera vez que usa un dominio personalizado y no se ejecuta tráfico de producción en él, puede asignar directamente el dominio personalizado en su punto de conexión de CDN. Diríjase a [Asignación de un dominio personalizado permanente](#map-permanent-custom-domain).
+Por el contrario, si es la primera vez que usa un dominio personalizado y no se ejecuta tráfico de producción en él, puede asignar directamente el dominio personalizado en su punto de conexión de CDN. Diríjase a [Asignación del dominio personalizado permanente](#map-the-permanent-custom-domain).
 
 Para crear un registro CNAME con el subdominio cdnverify:
 
@@ -64,7 +64,7 @@ Para crear un registro CNAME con el subdominio cdnverify:
 
 3. Cree una entrada de registro CNAME para el dominio personalizado y rellene los campos como se muestra en la tabla siguiente (los nombres de campo pueden variar):
 
-    | Origen                    | Escriba  | Destino                     |
+    | Origen                    | type  | Destino                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
@@ -109,7 +109,7 @@ Por ejemplo, este es el procedimiento para el registrador de dominios GoDaddy:
 
 Una vez que haya registrado un dominio personalizado, puede agregarlo a su punto de conexión de CDN. 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y navegue al perfil de CDN que contenga el punto de conexión que desea asignar un dominio personalizado.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya al perfil de CDN que contenga el punto de conexión que desea asignar a un dominio personalizado.
     
 2. En la página **Perfil de CDN**, seleccione el punto de conexión de CDN que se va a asociar con el dominio personalizado.
 
@@ -158,7 +158,7 @@ Para crear un registro CNAME para un dominio personalizado:
 
 3. Cree una entrada de registro CNAME para el dominio personalizado y rellene los campos como se muestra en la tabla siguiente (los nombres de campo pueden variar):
 
-    | Origen          | Escriba  | Destino           |
+    | Origen          | type  | Destino           |
     |-----------------|-------|-----------------------|
     | www.contoso.com | CNAME | contoso.azureedge.net |
 

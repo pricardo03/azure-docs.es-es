@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919128"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070684"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -38,9 +38,12 @@ Este es el tercer tutorial de una serie. En este tutorial se da por hecho que ya
 Antes de empezar, le recomendamos que revise las arquitecturas del escenario de recuperación ante desastres de [VMware](vmware-azure-architecture.md) o [Hyper-V](hyper-v-azure-architecture.md).
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-No se admiten dispositivos que se hayan exportado con controladores paravirtualizados.
+- No se admiten dispositivos que se hayan exportado con controladores paravirtualizados.
+ 
+> [!WARNING]
+> Las máquinas virtuales se pueden migrar a otras plataformas de virtualización (distintas de VMware e Hyper-V) como XenServer; para este fin, se consideran servidores físicos. Sin embargo, este enfoque no ha sido probado ni validado por Microsoft y puede que no funcione. Por ejemplo, las máquinas virtuales que se ejecutan en la plataforma XenServer pueden no ejecutarse en Azure a menos que se desinstalen las herramientas de XenServer y los controladores de red y almacenamiento paravirtualizados de ellas antes de empezar la migración.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
@@ -109,7 +112,7 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 1. En **Configuración** > **Elementos replicados**, haga clic en la máquina > **Conmutación por error**.
 2. En **Conmutación por error**, seleccione un **punto de recuperación** en el que realizar la conmutación por error. Seleccione el punto de recuperación más reciente.
 3. La configuración de la clave de cifrado no es importante para este escenario.
-4. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. Site Recovery intentará apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
+4. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. Site Recovery intentará apagar las máquinas virtuales antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
 5. Compruebe que la máquina virtual de Azure aparece en Azure según lo previsto.
 6. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Completar migración**. Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual y la facturación de Site Recovery para la VM.
 
@@ -124,7 +127,7 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Ya puede configurar la opción de recuperación ante desastres para las máquinas virtuales de Azure.
-
-> [!div class="nextstepaction"]
-> [Configurar la recuperación ante desastres](azure-to-azure-replicate-after-migration.md) para máquinas virtuales de Azure después de realizar la migración de un sitio local.
+En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Ahora que ha migrado correctamente las máquinas virtuales:
+- [Configuración de la recuperación ante desastres](azure-to-azure-replicate-after-migration.md) en las máquinas virtuales migradas.
+- Aprovechamiento de las funcionalidades de [Nube segura y bien administrada](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) de Azure para administrar las máquinas virtuales en Azure.
+  

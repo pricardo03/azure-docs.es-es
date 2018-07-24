@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 07/11/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 463ac7ee3e640f8bc275adb9e6ac27cc3e6a037a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8e78528783d57d31e1eb9bcda82fa9acccf69dde
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127966"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005256"
 ---
 # <a name="what-is-azure-log-analytics"></a>¿Qué es Azure Log Analytics?
 Log Analytics desempeña un papel fundamental en la administración de Azure al recopilar datos de telemetría y otros desde diversos orígenes y proporcionar un motor de análisis y un lenguaje de consultas que ofrece información sobre el funcionamiento de las aplicaciones y los recursos.  También puede interactuar directamente con los datos de Log Analytics a través de vistas y búsquedas de registros, o puede usar herramientas de análisis en otros servicios de Azure que almacenen sus datos en Log Analytics como Application Insights o Azure Security Center.  
@@ -41,12 +41,12 @@ Log Analytics recopila datos de diversos orígenes.  Una vez recopilados, se org
 
 A continuación se indican algunos métodos para recopilar datos en Log Analytics:
 
-- Configurar Azure Monitor para copiar la métrica y los registros que recopila de los recursos de Azure.
-- Los agentes de las máquinas virtuales [Windows](log-analytics-windows-agent.md) y [Linux](log-analytics-linux-agents.md) envían datos de telemetría desde el sistema operativo invitado y las aplicaciones a Log Analytics de acuerdo con los [orígenes de datos](log-analytics-data-sources.md) que se configuran.  
-- Conectar un [grupo de administración de System Center Operations Manager](log-analytics-om-agents.md) a Log Analytics para recopilar datos de los agentes.
+- Configurar Azure Monitor para copiar la [métrica y los registros](../monitoring/monitoring-data-collection.md#types-of-monitoring-data) que recopila de los recursos de Azure.
+- Recopilar datos de telemetría que se escriben en [Azure Storage](log-analytics-azure-storage-iis-table.md).
+- Los agentes de las máquinas virtuales [Windows](log-analytics-windows-agent.md) y [Linux](log-analytics-linux-agents.md) envían datos de telemetría desde el sistema operativo invitado y las aplicaciones a Log Analytics de acuerdo con los [orígenes de datos](log-analytics-data-sources.md) que se configuran. Los agentes pueden conectarse directamente, conectarse mediante [OMS Gateway](log-analytics-oms-gateway.md) cuando no tienen acceso de firewall o conectarse a través de un [grupo de administración de System Center Operations Manager](log-analytics-om-agents.md).
 - Los servicios de Azure como [Application Insights](https://docs.microsoft.com/azure/application-insights/) y [Azure Security Center](https://docs.microsoft.com/azure/security-center/) almacenan sus datos directamente en Log Analytics sin necesidad de ninguna configuración.
 - Escribir los datos desde la línea de comandos de PowerShell o el [runbook de Azure Automation](../automation/automation-runbook-types.md) mediante cmdlets de Log Analytics.
-- Si tiene requisitos personalizados, puede usar la [API HTTP Data Collector](log-analytics-data-collector-api.md) para escribir datos en Log Analytics desde un cliente de la API REST.
+- Si tiene requisitos personalizados, puede usar [HTTP Data Collector API](log-analytics-data-collector-api.md) para escribir datos en Log Analytics desde un cliente de la API REST o una [aplicación lógica de Azure](https://docs.microsoft.com/azure/logic-apps/) para escribir datos desde un flujo de trabajo personalizado.
 
 
 ![Componentes de Log Analytics](media/log-analytics-overview/collecting-data.png)

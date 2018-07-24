@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 6d2940712f8a76173de47badd45d7c7f0f0be05c
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825483"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37967829"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creación de un clúster de Kubernetes habilitado para Azure Dev Spaces
 
@@ -25,10 +25,10 @@ ms.locfileid: "34825483"
    Complete los pasos siguientes en cada encabezado del formulario de creación del clúster de AKS.
 
     - **DETALLES DEL PROYECTO**: seleccione una suscripción de Azure y un grupo de recursos de Azure nuevo o existente.
-    - **Detalles del clúster**: escriba un nombre, una región (actualmente, debe elegir Este de EE. UU., Europa Occidental o Este de Canadá), la versión y el prefijo de nombre de DNS del clúster de AKS.
+    - **DETALLES DEL CLÚSTER**: escriba un nombre, una región (actualmente, debe elegir Eastus, Central US, WestEurope, WestUS2, CanadaCentral o CanadaEast), la versión y el prefijo de nombre de DNS del clúster de AKS.
     - **Escala**: seleccione un tamaño de máquina virtual para los nodos de agente de AKS y el número de nodos. Si está empezando a trabajar con Azure Dev Spaces, un nodo es suficiente para explorar todas las características. El número de nodos se puede ajustar fácilmente en cualquier momento después de implementar el clúster. Tenga en cuenta que el tamaño de máquina virtual no se puede cambiar después de crear un clúster de AKS. Sin embargo, una vez que se ha implementado un clúster de AKS, puede crear fácilmente un nuevo clúster de AKS con máquinas virtuales más grandes y usar Dev Spaces para implementar de nuevo en ese clúster más grande si necesita escalar verticalmente.
 
-   Asegúrese de elegir Kubernetes versión 1.9.6 o posterior.
+   Asegúrese de elegir Kubernetes versión 1.10.3 o posterior.
 
    ![Opciones de configuración de Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
@@ -40,5 +40,9 @@ ms.locfileid: "34825483"
 
     > [!IMPORTANT]
     > Asegúrese de habilitar el enrutamiento de aplicación HTTP cuando se crea el clúster de AKS. No es posible cambiar esta configuración más adelante.
+
+1. Elija la configuración deseada para el control de acceso basado en rol (RBAC). Azure Dev Spaces admite los clústeres con RBAC habilitados o deshabilitados.
+
+    ![Configuración de RBAC](../media/common/k8s-RBAC.PNG)
 
 1. Seleccione **Review + create** (Revisar y crear) y, a continuación, **Create** cuando haya terminado.

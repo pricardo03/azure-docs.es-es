@@ -3,16 +3,17 @@ title: 'Inicio rápido: crear una canalización de Cognitive Search en Azure Sea
 description: Ejemplo de aptitudes de extracción de datos, lenguaje natural y procesamiento de imágenes en Azure Portal utilizando datos de ejemplo.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640268"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003703"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Inicio rápido: crear una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
 
@@ -32,7 +33,7 @@ Puede probar Cognitive Search en el servicio Azure Search creado en las siguient
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ["What is cognitive search?"](cognitive-search-concept-intro.md) (¿Qué es Cognitive Search?) presenta la arquitectura de enriquecimiento y los componentes. 
 
@@ -72,7 +73,7 @@ La canalización de enriquecimiento extrae contenido de los orígenes de datos d
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. 
 
-1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, inicie sesión en el Explorador de Storage y cree un contenedor. Consulte [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) (Inicio rápido: Explorador de Azure Storage) para obtener instrucciones acerca de todos los pasos.
+1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, inicie sesión en el Explorador de Storage y cree un contenedor. Consulte en la [guía de inicio rápido del Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) las instrucciones de todos los pasos.
 
 1. Use el Explorador de Azure Storage en el contenedor que creó y haga clic en **Cargar** para cargar los archivos de ejemplo.
 
@@ -146,11 +147,11 @@ Haga clic en **Aceptar** para importar, enriquecer e indexar los datos.
 
 Los procesos de enriquecimiento e indexación pueden tardar cierto tiempo y, por ello, se recomienda usar conjuntos de datos más pequeños para poder realizar una exploración temprana. Puede supervisar la indexación en la página de notificaciones de Azure Portal. 
 
-## <a name="query-in-search-explorer"></a>Consulta en el Explorador de búsquedas
+## <a name="query-in-search-explorer"></a>Consulta en el Explorador de búsqueda
 
-Después de crear un índice, puede enviar consultas para devolver documentos desde el índice. En el portal, utilice el **Explorador de búsquedas** para ejecutar consultas y ver los resultados. 
+Después de crear un índice, puede enviar consultas para devolver documentos desde el índice. En el portal, utilice el **Explorador de búsqueda** para ejecutar consultas y ver los resultados. 
 
-1. En la página del panel del servicio de búsqueda, haga clic en **Explorador de búsquedas** en la barra de comandos.
+1. En la página del panel del servicio de búsqueda, haga clic en el **Explorador de búsqueda** en la barra de comandos.
 
 1. Seleccione **Cambiar índice** en la parte superior para seleccionar el índice que haya creado.
 

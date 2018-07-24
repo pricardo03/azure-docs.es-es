@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: f933788968ffdbd4a856a84476d8d82b32637d62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 4dbb8b7abf6da77115d0e1d12621ec20ec60d174
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100341"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035207"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Al implementar un clúster de AKS clúster con el comando `az aks create`, tiene
 
 En el siguiente ejemplo, se crea un clúster de AKS y, como no se ha especificado una entidad de servicio existente, se crea una para el clúster. Para completar esta operación, la cuenta debe tener los derechos apropiados para crear un servicio principal.
 
-```azurecli
+```azurecli-interactive
 az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
@@ -47,7 +47,7 @@ Con un clúster AKS se pueden usar las entidades de servicio de Azure AD existen
 
 Para crear la entidad de servicio con la CLI de Azure, utilice el comando [az ad sp create-for-rbac][az-ad-sp-create].
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -84,7 +84,12 @@ Cuando trabaje con entidades de servicio de AKS y Azure AD, tenga en cuenta lo s
 * Al especificar el valor de **Identificador de cliente** de la entidad de servicio, use el valor de `appId` (como se muestra en este artículo) o la entidad de servicio correspondiente `name` (por ejemplo, `https://www.contoso.org/example`).
 * En las máquinas virtuales principal y nodo del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`.
 * Cuando use el comando `az aks create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/aksServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
-* Al eliminar un clúster de AKS creado mediante `az aks create`, no se eliminará la entidad de servicio que se creó automáticamente. Use `az ad sp delete --id $clientID` para eliminarla.
+* Al eliminar un clúster de AKS creado mediante `az aks create`, no se elimina la entidad de servicio que se creó automáticamente. Para eliminar la entidad de servicio, primero hay que obtener el identificador para el servicio principal con [az ad app list][az-ad-app-list]. En el ejemplo siguiente se consulta el clúster denominado *myAKSCluster* y, a continuación, se elimina el identificador de aplicación con [az ad app delete][az-ad-app-delete]. Reemplace estos nombres con sus propios valores:
+
+    ```azurecli-interactive
+    az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
+    az ad app delete --id <appId>
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -101,3 +106,5 @@ Para más información acerca de las entidades de servicio de Azure Active Direc
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]: ../active-directory/develop/active-directory-application-objects.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
+[az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
+[az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete

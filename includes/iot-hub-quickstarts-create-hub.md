@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 63acf0297a694ff442d56e67d52fd9b4e49f812d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36288069"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008593"
 ---
 El primer paso es usar Azure Portal para crear una instancia de IoT Hub en su suscripción. IoT Hub le permite ingerir grandes volúmenes de datos de telemetría en la nube desde muchos dispositivos. Posteriormente, el concentrador permite que uno o varios servicios de back-end se ejecuten en la nube para leer y procesar esos datos de telemetría.
 
@@ -26,12 +26,9 @@ El primer paso es usar Azure Portal para crear una instancia de IoT Hub en su su
 1. En el panel **Centro de IoT**, escriba la información necesaria para su centro de IoT:
 
    * **Suscripción**: elija la suscripción que quiere usar para crear este IoT Hub.
-
-   * **Grupo de recursos**: cree un grupo de recursos para hospedar el centro de IoT o use uno existente. Al colocar todos los recursos relacionados en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que contiene. Para obtener más información, consulte [Uso de grupos de recursos para administrar recursos de Azure][lnk-resource-groups].
-
-   * **Región**: seleccione la ubicación más cercana a usted.
-
-   * **Nombre**: cree un nombre para su centro de IoT. Si el nombre que escribe está disponible, aparece una marca de verificación verde.
+   * **Grupo de recursos**: cree un grupo de recursos para hospedar el centro de IoT o use uno existente. Al colocar juntos todos los recursos relacionados en un grupo, como **TestResources**, puede administrarlos juntos también. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que contiene. Para obtener más información, consulte [Uso de grupos de recursos para administrar recursos de Azure][lnk-resource-groups].
+   * **Región**: seleccione la ubicación más cercana a sus dispositivos.
+   * **Nombre**: cree un nombre único para su centro de IoT. Si el nombre que escribe está disponible, aparece una marca de verificación verde.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 

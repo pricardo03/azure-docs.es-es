@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: a0772d1009021ca64b448710c5353407a5492fae
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809876"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112970"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registro de instancias de contenedor con Azure Log Analytics
 
@@ -43,9 +43,26 @@ Para obtener el identificador y la clave principal del área de trabajo de Log A
 
 ## <a name="create-container-group"></a>Creación de un grupo de contenedores
 
-Ahora que tiene el identificador del área de trabajo y la clave principal de Log Analytics, ya puede crear un grupo contenedor con el registro habilitado. En el siguiente ejemplo se crea un grupo de contenedores con un solo contenedor, [fluentd][fluentd]. El contenedor Fluentd genera varias líneas de salida en su configuración predeterminada. Dado que esta salida se envía a su área de trabajo de Log Analytics, sirve para mostrar la visualización y consulta de registros.
+Ahora que tiene el identificador del área de trabajo y la clave principal de Log Analytics, ya puede crear un grupo contenedor con el registro habilitado.
 
-En primer lugar, copie el siguiente YAML, que define un grupo de contenedores con un único contenedor, en un nuevo archivo. Reemplace `LOG_ANALYTICS_WORKSPACE_ID` y `LOG_ANALYTICS_WORKSPACE_KEY` por los valores que obtuvo en el paso anterior y guarde el archivo como **deploy-aci.yaml**.
+Los ejemplos siguientes muestran dos maneras de crear un grupo de contenedores con un solo contenedor [fluentd][fluentd]: CLI de Azure y CLI de Azure con una plantilla YAML. El contenedor Fluentd genera varias líneas de salida en su configuración predeterminada. Dado que esta salida se envía a su área de trabajo de Log Analytics, sirve para mostrar la visualización y consulta de registros.
+
+### <a name="deploy-with-azure-cli"></a>Implementación con la CLI de Azure
+
+Para implementar con la CLI de Azure, especifique los parámetros `--log-analytics-workspace` y `--log-analytics-workspace-key` en el comando [az container create][az-container-create]. Antes de ejecutar el siguiente comando, reemplace los dos valores de área de trabajo por los valores obtenidos en el paso anterior (y actualice el nombre del grupo de recursos).
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### <a name="deploy-with-yaml"></a>Implementación con YAML
+
+Utilice este método si prefiere implementar grupos de contenedores con YAML. El siguiente fragmento de código YAML define un grupo de contenedores con un solo contenedor. Copie el código YAML en un nuevo archivo y sustituya `LOG_ANALYTICS_WORKSPACE_ID` y `LOG_ANALYTICS_WORKSPACE_KEY` por los valores que obtuvo en el paso anterior. Guarde el archivo con el nombre **deploy-aci.yaml**.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -75,7 +92,7 @@ type: Microsoft.ContainerInstance/containerGroups
 A continuación, ejecute el siguiente comando para implementar el grupo de contenedores; reemplace `myResourceGroup` por un grupo de recursos de su suscripción (o bien cree antes un grupo de recursos denominado "myResourceGroup"):
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 Debería recibir una respuesta de Azure con detalles de implementación poco después de emitir el comando.
@@ -135,3 +152,4 @@ Para obtener información acerca de la supervisión de los recursos de CPU y de 
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

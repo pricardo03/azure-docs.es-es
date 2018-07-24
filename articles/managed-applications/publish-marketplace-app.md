@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 03/15/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304538"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989794"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicaciones administradas de Azure en Marketplace
 
@@ -42,9 +42,9 @@ Además, hay varios requisitos previos de tipo empresarial. Son las siguientes:
 Para convertirse en publicador en Azure Marketplace, debe:
 
 1. Crear un identificador de Microsoft: cree su cuenta Microsoft con una dirección de correo electrónico que corresponda al dominio de su empresa, no a un solo individuo. Esta dirección de correo electrónico se usa tanto para el Centro de desarrolladores de Microsoft como para Cloud Partner Portal. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
-1. Enviar el [formulario de nominación para Azure Marketplace](https://aka.ms/ampnomination): en **Solution that you intend to publish?** (Solución que intenta publicar), seleccione **Managed Application** (Aplicación administrada). Una vez que se envía el formulario, el equipo de incorporación de Marketplace revisa la aplicación y valida la solicitud. El proceso de aprobación puede tardar entre uno y tres días. Una vez que se aprueba la nominación, recibe un código promocional para eximirse de la tarifa de registro del centro para desarrolladores. Si **no** completa el formulario de nominación de Marketplace, se le pedirá pagar una tarifa de registro de 99 $.
-1. Registrarse en el [Centro de desarrolladores](http://dev.windows.com/registration?accountprogram=azure): Microsoft valida que la organización es una entidad legal válida con un número de identificación fiscal correspondiente al país en que está registrada. El proceso de aprobación puede tardar entre cinco y diez días. Para evitar la tarifa de registro, use el código promocional que recibió por correo electrónico del proceso de nominación. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
-1. Iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com): en el perfil del publicador, asocie la cuenta del Centro de desarrolladores con el perfil del publicador de Marketplace. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
+1. Enviar el [formulario de nominación para Azure Marketplace](https://aka.ms/ampnomination): en **Solution that you intend to publish?** (Solución que intenta publicar), seleccione **Managed Application** (Aplicación administrada). Una vez que se envía el formulario, el equipo de incorporación de Marketplace revisa la aplicación y valida la solicitud. El proceso de aprobación puede tardar entre uno y tres días. Una vez que se aprueba la nominación, recibe un código promocional para eximirse de la tarifa de registro del centro para desarrolladores. Si **no** completa el formulario de nominación de Marketplace, se le pedirá pagar un honorario de registro de 99 USD.
+1. Registrarse en el [Centro para desarrolladores](http://dev.windows.com/registration?accountprogram=azure): Microsoft valida que la organización es una entidad legal válida con un número de identificación fiscal correspondiente al país en que está registrada. El proceso de aprobación puede tardar entre cinco y diez días. Para evitar la tarifa de registro, use el código promocional que recibió por correo electrónico del proceso de nominación. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
+1. Iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com): en el perfil del publicador, asocie la cuenta del Centro para desarrolladores con el perfil del publicador de Marketplace. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Creación de una nueva oferta de aplicación de Azure
 
@@ -101,10 +101,11 @@ La SKU aparece debajo de la oferta principal en Marketplace. como una entidad de
 
    Rellene los siguientes campos:
 
-   * **Versión actual**: escriba una versión para el paquete que vaya a cargar. Debe tener este formato: `{number}.{number}.{number}{number}`.
-   * **Seleccionar un archivo de paquete**: este paquete contiene dos archivos necesarios comprimidos en un archivo .zip. Un archivo es una plantilla de Resource Manager que define los recursos que va a implementar en la aplicación administrada. El otro archivo define la [interfaz de usuario](create-uidefinition-overview.md) para que los consumidores implementen la aplicación administrada mediante el portal. En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
+   * **Versión**: escriba una versión para el paquete que vaya a cargar. Debe tener este formato: `{number}.{number}.{number}{number}`.
+   * **Archivo de paquete (.zip)**: este paquete contiene dos archivos necesarios comprimidos en un archivo .zip. Un archivo es una plantilla de Resource Manager que define los recursos que va a implementar en la aplicación administrada. El otro archivo define la [interfaz de usuario](create-uidefinition-overview.md) para que los consumidores implementen la aplicación administrada mediante el portal. En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
    * **PrincipalId**: esta propiedad es el identificador de Azure Active Directory de un usuario, de un grupo de usuarios o de una aplicación al que se han concedido acceso a los recursos de la suscripción de los clientes. La definición de rol describe los permisos.
    * **Role Definition**: esta propiedad es una lista de todos los roles de control de acceso basado en roles (RBAC) integrados que proporciona Azure AD. Puede seleccionar el rol que resulte más adecuado para administrar los recursos en nombre del cliente.
+   * **Configuración de directiva**: aplique una directiva de [Azure Policy](../azure-policy/azure-policy-introduction.md) a la aplicación administrada para especificar los requisitos de cumplimiento para las soluciones implementadas. Entre las opciones disponibles, seleccione las directivas que se van a aplicar. En **Parámetros de directiva**, proporcione una cadena JSON con los valores del parámetro. Para las definiciones de directiva y el formato de los valores de parámetro, consulte [ejemplos de Azure Policy](../azure-policy/json-samples.md).
 
 Puede agregar varias autorizaciones. Se recomienda que cree un grupo de usuarios de AD y especifique su identificador en **PrincipalId**. De esta manera, puede agregar más usuarios al grupo de usuarios sin necesidad de actualizar la SKU.
 

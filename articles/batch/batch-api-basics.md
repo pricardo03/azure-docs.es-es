@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129105"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114446"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -504,7 +504,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
-* Recorra paso a paso una aplicación de Batch de ejemplo en [Introducción a la biblioteca de Azure Batch para .NET](batch-dotnet-get-started.md). También existe una [versión para Python](batch-python-tutorial.md) del tutorial, en la que se ejecuta una carga de trabajo en nodos de proceso de Linux.
+* Para conocer los aspectos básicos del desarrollo de una aplicación habilitada para Batch, consulte la [biblioteca de cliente de Batch para .NET](quick-run-dotnet.md) o [Python](quick-run-python.md). Estas guías de inicio rápido le guían a través de una aplicación de ejemplo que usa el servicio de Batch para ejecutar una carga de trabajo en varios nodos de proceso e incluye el uso de Azure Storage para el almacenamiento provisional y la recuperación del archivo de la carga de trabajo.
 * Descargue e instale la herramienta [BatchLabs][batch_labs] para usarla durante el desarrollo de sus soluciones de Batch. Use BatchLabs para crear, depurar y supervisar aplicaciones de Azure Batch. 
 * Consulte los recursos de la comunidad entre los que se encuentran [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), el [repositorio de la Comunidad de Batch](https://github.com/Azure/Batch) y el [foro de Azure Batch] [ batch_forum] en MSDN. 
 

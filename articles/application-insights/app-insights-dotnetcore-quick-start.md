@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386391"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991689"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET Core
 
@@ -23,7 +23,7 @@ Con Azure Application Insights puede supervisar fácilmente la disponibilidad, e
 
 Esta guía de inicio rápido le ayudará a agregar el SDK de Application Insights a una aplicación web ASP.Net Core existente. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido:
 
@@ -33,7 +33,7 @@ Para completar esta guía de inicio rápido:
 - [Instalación del SDK de .NET Core 2.0](https://www.microsoft.com/net/core)
 - Necesitará una suscripción de Azure y una aplicación web .NET Core existente.
 
-Si no tiene una aplicación web ASP.NET Core, puede crear una siguiendo la [guía de creación de una aplicación web ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+Si no tiene una aplicación web ASP.NET Core, puede usar nuestra guía detallada para [crear una aplicación ASP.NET Core y agregar Application Insights.](app-insights-asp-net-core.md)
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -51,7 +51,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
     Aparece un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
 
-    | Settings        |  Valor           | DESCRIPCIÓN  |
+    | Configuración        |  Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
    | **Name**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Tipo de aplicación** | Aplicación web ASP.NET | Tipo de aplicación que se está supervisando |
@@ -77,25 +77,25 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
 1. Ahora puede volver a abrir la página **Introducción** de Application Insights en Azure Portal; para ello, seleccione **Proyecto** > **Application Insights** > **Abrir portal de Application Insights** para ver los detalles de la aplicación en ejecución.
 
-   ![Menú Introducción de Application Insights](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![Menú Introducción de Application Insights](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
-2. Haga clic en **Mapa de la aplicación** para un diseño visual de las relaciones de dependencia entre los componentes de la aplicación. Cada componente muestra KPI como la carga, el rendimiento, errores y alertas.
+2. Haga clic en **Mapa de la aplicación** para ver un diseño visual de las relaciones de dependencia entre los componentes de la aplicación. Cada componente muestra KPI como la carga, el rendimiento, errores y alertas.
 
-   ![Mapa de aplicación](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![Mapa de aplicación](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. Haga clic en el icono **Análisis de aplicaciones** ![icono de Mapa de aplicación](./media/app-insights-dotnetcore-quick-start/006.png).  Se abrirá **Application Insights Analytics**, que proporciona un lenguaje de consulta completo para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
 
    ![Gráfico de Analytics con las solicitudes de usuario durante un período de tiempo](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. Vuelva a la página **Introducción** y examine el **Escala de tiempo con información general de Estado**.  Este panel proporciona estadísticas sobre el estado de aplicación, incluido el número de solicitudes entrantes, la duración de las solicitudes y los errores que se producen. 
+4. Vuelva a la página **Información general** y examine los paneles de indicadores clave de rendimiento.  Este panel proporciona estadísticas sobre el estado de aplicación, incluido el número de solicitudes entrantes, la duración de las solicitudes y los errores que se producen. 
 
-   ![Gráficos de Escala de tiempo con información general de Estado](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![Gráficos de Escala de tiempo con información general de Estado](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    Para habilitar el gráfico **Tiempo de carga de la vista de página** que se rellenará con los datos de **Telemetría del lado cliente**, agregue este script para cada página de las que desee realizar el seguimiento:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 
@@ -124,7 +124,7 @@ Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido 
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en **myResourceGroup**.
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Búsqueda y diagnóstico de excepciones en tiempo de ejecución](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

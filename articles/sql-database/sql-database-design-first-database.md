@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 6/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311038"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091550"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutorial: Diseño de la primera instancia de Azure SQL Database mediante SSMS
 
@@ -31,9 +31,9 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
    >[!NOTE]
-   > Dada la finalidad de este tutorial, usamos el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), pero tiene la posibilidad de elegir la [modelo de compra basado en vCore (versión preliminar)](sql-database-service-tiers-vcore.md). 
+   > Dada la finalidad de este tutorial, usamos el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), pero tiene la posibilidad de elegir la [modelo de compra basado en vCore](sql-database-service-tiers-vcore.md). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 - La versión más reciente de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
@@ -70,14 +70,14 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
-   | **Password** | Cualquier contraseña válida | La contraseña debe tener un mínimo de ocho caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
+   | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de ocho caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
    | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Haga clic en **Seleccionar**.
 
-6. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU o de núcleos virtuales y la cantidad de almacenamiento. Explore las opciones del número de DTU o núcleos virtuales, y la cantidad de almacenamiento que están a su disposición para cada nivel de servicio. Dada la finalidad de este tutorial, usamos el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), pero tiene la posibilidad de elegir la [modelo de compra basado en vCore (versión preliminar)](sql-database-service-tiers-vcore.md). 
+6. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU o de núcleos virtuales y la cantidad de almacenamiento. Explore las opciones del número de DTU o núcleos virtuales, y la cantidad de almacenamiento que están a su disposición para cada nivel de servicio. Dada la finalidad de este tutorial, usamos el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), pero tiene la posibilidad de elegir la [modelo de compra basado en vCore](sql-database-service-tiers-vcore.md). 
 
 7. Para este tutorial, seleccione el nivel de servicio **Estándar** y, a continuación, utilice el control deslizante para seleccionar **100 DTU (S3)** y **400** GB de almacenamiento.
 
@@ -151,7 +151,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
    | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170824.database.windows.net**. |
    | Autenticación | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
-   | Password | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
+   | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
    ![conectar con el servidor](./media/sql-database-connect-query-ssms/connect.png)
 

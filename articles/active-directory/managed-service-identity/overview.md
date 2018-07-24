@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547980"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006937"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>¿Qué es Managed Service Identity para recursos de Azure?
 
@@ -40,7 +40,7 @@ Por consiguiente, el código puede usar una identidad asignada por el sistema o 
 
 Este es un ejemplo de cómo funcionan las identidades asignadas por el sistema con Azure Virtual Machines:
 
-![Ejemplo de identidad administrada de máquina virtual](overview/msi-vm-vmextension-imds-example.png)
+![Ejemplo de identidad administrada de máquina virtual](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager recibe una solicitud para habilitar la identidad asignada por el sistema en una máquina virtual.
 2. Entonces crea una entidad de servicio en Azure AD para representar la identidad de la máquina virtual. La entidad de servicio se crea en el inquilino de Azure AD que sea de confianza para esta suscripción.
@@ -101,6 +101,7 @@ Pruebe un tutorial de Managed Service Identity para obtener información sobre e
 | Azure Functions    | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Uso de identidades de servicio administradas con Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Uso de la identidad de servicio administrada con Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure API Management | [Uso de Managed Service Identity con Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>¿Qué servicios de Azure son compatibles con Managed Service Identity?
 

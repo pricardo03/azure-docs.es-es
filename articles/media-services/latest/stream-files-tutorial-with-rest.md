@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308620"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115213"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutorial: Carga, codificación y transmisión de vídeos con REST
 
@@ -40,7 +40,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Instale el cliente de REST de [Postman](https://www.getpostman.com/) para ejecutar las API de REST mostradas en algunos de los tutoriales de REST de AMS. 
 
@@ -77,22 +77,23 @@ En esta sección se configura Postman.
     > [!Note]
     > Actualice las variables de acceso con los valores que obtuvo de la sección **Acceso a la API de Media Services** anterior.
 
-7. Cierre el cuadro de diálogo.
-8. Seleccione el entorno **Azure Media Service v3 Environment** en la lista desplegable.
+7. Haga doble clic en el archivo seleccionado y escriba los valores que obtuvo al seguir los pasos descritos en [acceso a la API](#access-the-media-services-api).
+8. Cierre el cuadro de diálogo.
+9. Seleccione el entorno **Azure Media Service v3 Environment** en la lista desplegable.
 
     ![Selección del entorno](./media/develop-with-postman/choose-env.png)
    
 ### <a name="configure-the-collection"></a>Configuración de la colección
 
 1. Haga clic en **Import** (Importar) para importar el archivo de la colección.
-1. Vaya al archivo `Media Services v3 (2018-03-30-preview).postman_collection.json` que se descargó cuando clonó `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
-3. Elija el archivo **Media Services v3 (2018-03-30-preview).postman_collection.json**.
+1. Vaya al archivo `Media Services v3.postman_collection.json` que se descargó cuando clonó `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
+3. Elija el archivo **Media Services v3.postman_collection.json**.
 
     ![Importación de un archivo](./media/develop-with-postman/postman-import-collection.png)
 
 ## <a name="send-requests-using-postman"></a>Envío de solicitudes mediante Postman
 
-En esta sección se enviarán solicitudes que son significativas para codificar y crear direcciones URL, de modo que pueda transmitir el archivo. En concreto, se envían las solicitudes siguientes:
+En esta sección se enviarán solicitudes que son significativas para codificar y crear direcciones URL, de modo que pueda hacer streaming del archivo. En concreto, se envían las solicitudes siguientes:
 
 1. Obtención del token de Azure AD para la autenticación de la entidad de servicio
 2. Creación de un recurso de salida
@@ -128,11 +129,21 @@ El [recurso](https://docs.microsoft.com/rest/api/media/assets) de salida almacen
 2. A continuación, seleccione "Create or update an Asset" (Crear o actualizar un recurso).
 3. Presione **Enviar**.
 
-    Se envía la siguiente operación **PUT**.
+    * Se envía la siguiente operación **PUT**:
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * La operación tiene el siguiente cuerpo:
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### <a name="create-a-transform"></a>Creación de una transformación
 
@@ -149,11 +160,30 @@ Puede usar un valor de EncoderNamedPreset integrado o valores preestablecidos pe
 2. A continuación, seleccione "Create Transform" (Crear transformación).
 3. Presione **Enviar**.
 
-    Se envía la siguiente operación **PUT**.
+    * Se envía la siguiente operación **PUT**.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * La operación tiene el siguiente cuerpo:
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### <a name="create-a-job"></a>Creación de un trabajo
 
@@ -165,11 +195,32 @@ En este ejemplo, la entrada del trabajo se basa en una dirección URL HTTPS ("ht
 2. A continuación, seleccione "Create or Update Job" (Crear o actualizar trabajo).
 3. Presione **Enviar**.
 
-    Se envía la siguiente operación **PUT**.
+    * Se envía la siguiente operación **PUT**.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * La operación tiene el siguiente cuerpo:
+
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
 
 El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir una notificación. Para ver el progreso del trabajo, se recomienda usar Event Grid. Event Grid está diseñado para conseguir alta disponibilidad, rendimiento coherente y escalado dinámico. Con Event Grid, sus aplicaciones pueden escuchar y reaccionar a eventos de casi todos los servicios de Azure y de orígenes personalizados. El control de eventos sencillo y reactivo basado en HTTP le ayuda a crear soluciones eficaces con filtrado y enrutamiento de eventos inteligente.  Consulte [Enrutamiento de eventos a un punto de conexión web personalizado](job-state-events-cli-how-to.md).
 
@@ -189,14 +240,24 @@ Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/
 La cuenta de Media Service tiene una cuota para el número de entradas de StreamingPolicy. No debe crear un nuevo objeto StreamingPolicy para cada objeto StreamingLocator.
 
 1. En la ventana izquierda de Postman, seleccione "Streaming Policies" (Directivas de streaming).
-2. A continuación, seleccione "Create a Streaming Policy" (Crear una directiva de streaming).
+2. A continuación, seleccione "Create a Streaming Locator" (Crear un localizador de streaming).
 3. Presione **Enviar**.
 
-    Se envía la siguiente operación **PUT**.
+    * Se envía la siguiente operación **PUT**.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * La operación tiene el siguiente cuerpo:
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### <a name="list-paths-and-build-streaming-urls"></a>Enumeración de rutas de acceso y creación de direcciones URL de streaming
 
@@ -208,40 +269,40 @@ Ahora que se ha creado el elemento [StreamingLocator](https://docs.microsoft.com
 2. A continuación, seleccione "List Paths" (Enumerar rutas de acceso).
 3. Presione **Enviar**.
 
-    Se envía la siguiente operación **POST**.
+    * Se envía la siguiente operación **POST**.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * La operación no tiene cuerpo:
+        
 4. Anote una de las rutas de acceso que desea usar con el streaming, la utilizará en la sección siguiente. En este caso, se devolvieron las rutas de acceso siguientes:
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### <a name="build-the-streaming-urls"></a>Creación de las direcciones URL de streaming
@@ -253,16 +314,27 @@ En esta sección, crearemos una dirección URL de streaming de HLS. Las direccio
     > [!NOTE]
     > Si el reproductor está hospedado en un sitio https, asegúrese de actualizar la dirección URL a "https".
 
-2. Nombre de host de StreamingEndpoint. En este caso, el nombre es "amsaccount-usw22.streaming.media.azure.net"
-3. Una ruta de acceso que obtuvo en la sección anterior.  
+2. Nombre de host de StreamingEndpoint. En este caso, el nombre es "amsaccount-usw22.streaming.media.azure.net".
+
+    Para obtener el nombre de host puede utilizar la siguiente operación GET:
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. Una ruta de acceso que obtuvo en la sección anterior (rutas de lista).  
 
 Como resultado, se creó la siguiente dirección URL de HLS
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## <a name="test-the-streaming-url"></a>Prueba de la URL de streaming
+
+
+> [!NOTE]
+> Asegúrese de que el punto de conexión de streaming desde el que va a hacer streaming del contenido esté en ejecución.
 
 Para probar el streaming, este artículo usa Azure Media Player. 
 

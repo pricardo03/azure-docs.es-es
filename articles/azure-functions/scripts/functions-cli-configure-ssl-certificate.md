@@ -13,15 +13,15 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 04/10/2017
+ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: fd4c69036960364e12aeea5d9e5f65e7b36eff0d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9b6779ac7778b721ff566c8553433853dbadbf13
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843483"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988268"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Enlace de un certificado SSL personalizado a una aplicación de función
 
@@ -29,6 +29,7 @@ Este script de ejemplo crea una aplicación de función en App Service con sus r
 
 * Acceso a la página de configuración DNS de su registrador de dominios.
 * Un archivo PFX válido y su contraseña para el certificado SSL que desea cargar y enlazar.
+* Ha configurado un registro A en el dominio personalizado que señala al nombre de dominio predeterminado de la aplicación web. Para más información, consulte las instrucciones del artículo [Asignación de un dominio personalizado a Azure App Service](https://aka.ms/appservicecustomdns).
 
 Para enlazar un certificado SSL, la aplicación de función se debe crear en un plan de App Service y no en un plan de consumo.
 
@@ -50,15 +51,16 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Crea un plan de App Service necesario para enlazar certificados SSL. |
-| [az functionapp create]() | Crea una aplicación de función. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Asigna un dominio personalizado a la aplicación de función. |
-| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Carga un certificado SSL a una aplicación de función. |
-| [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Enlaza un certificado SSL cargado a una aplicación de función. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Crea una cuenta de almacenamiento necesaria para la aplicación de función. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Crea un plan de App Service necesario para enlazar certificados SSL. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función en el plan de App Service. |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | Asigna un dominio personalizado a una aplicación de función. |
+| [az functionapp config ssl upload](https://docs.microsoft.com/cli/azure/functionapp/config/ssl#az-functionapp-config-ssl-upload) | Carga un certificado SSL a una aplicación de función. |
+| [az functionapp config ssl bind](https://docs.microsoft.com/cli/azure/functionapp/config/ssl#az-functionapp-config-ssl-bind) | Enlaza un certificado SSL cargado a una aplicación de función. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
 
-Puede encontrar ejemplos de script adicionales de la CLI de App Service en la [documentación de Azure App Service]().
+Puede encontrar ejemplos de script adicionales de la CLI de App Service en la [documentación de Azure App Service](../functions-cli-samples.md).

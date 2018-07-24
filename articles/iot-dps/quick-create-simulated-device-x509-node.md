@@ -1,8 +1,8 @@
 ---
 title: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante Node.js | Microsoft Docs
 description: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Node.js para el servicio Azure IoT Hub Device Provisioning
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: fb40a85a11dd2a56cc128296f0816baa5fe4267e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ff567b02fb3371186dc02b97cafb8135ae7bbd2
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631452"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090952"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Node.js para el servicio IoT Hub Device Provisioning
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -41,6 +41,14 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
     >
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Creación de un certificado de dispositivo X.509 autofirmado y una entrada de inscripción individual
+
+En esta sección, usará un certificado X.509 autofirmado, así que es importante tener en cuenta lo siguiente:
+
+* Los certificados autofirmados son solo para la realización de pruebas, no se deben usar en producción.
+* La fecha de expiración predeterminada de un certificado autofirmado es de 1 año.
+
+Usará código de ejemplo del [SDK para Node.js de Azure IoT](https://github.com/Azure/azure-iot-sdk-node.git) para crear el certificado que se usará con la entrada de inscripción individual en el dispositivo simulado.
+
 
 1. Abra el símbolo del sistema. Clone el repositorio de GitHub para el código de ejemplo:
     

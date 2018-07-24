@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8bf8388829504b18e71ec597d21b844e29a82346
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6e5b9ce7a4625cccdfaa29492250a5e8255ec23d
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931142"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136526"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Creación y administración de redes virtuales de Azure para máquinas virtuales Windows con PowerShell
 
@@ -49,7 +49,7 @@ Al completar este tutorial, podrá ver que se crearon los siguientes recursos:
 - *myVNet*: red virtual que las máquinas virtuales usan para comunicarse entre sí y con Internet.
 - *myFrontendSubnet*: subred de *myVNet* que usan los recursos de front-end.
 - *myPublicIPAddress*: dirección IP pública que se usa para tener acceso a *myFrontendVM* desde Internet.
-- *myFrontentNic*: interfaz de red que usa *myFrontendVM* para comunicarse con *myBackendVM*.
+- *myFrontendNic*: interfaz de red que usa *myFrontendVM* para comunicarse con *myBackendVM*.
 - *myFrontendVM*: máquina virtual que se usa para la comunicación entre Internet y *myBackendVM*.
 - *myBackendNSG*: grupo de seguridad de red que controla la comunicación entre *myFrontendVM* y *myBackendVM*.
 - *myBackendSubnet*: subred asociada a *myBackendNSG* y que usan los recursos de back-end.

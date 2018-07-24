@@ -11,14 +11,14 @@ ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2245964cab3361e0f298cf35d26e8b0a1b8456f0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 81f39c2ecc014ee53dcff2fab88ff0f890e1a610
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30924126"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091901"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Ejemplos de Azure PowerShell para Azure SQL Database
 
@@ -32,7 +32,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell para A
 |**Configuración de la replicación geográfica y de la conmutación por error**||
 | [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura la replicación geográfica activa para una instancia de Azure SQL Database y la conmuta por error a la réplica secundaria. |
 | [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura la replicación geográfica activa para una instancia de Azure SQL Database en un grupo elástico de SQL y la conmuta por error a la réplica secundaria. |
-| [Configurar y conmutar por error un grupo de conmutación por error para una sola base de datos (versión preliminar)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell configura un grupo de conmutación por error para una instancia de servidor de Azure SQL Database, agrega una base de datos al grupo de conmutación por error y lo conmuta por error al servidor secundario |
+| [Configuración y conmutación por error de un grupo de conmutación por error para una sola base de datos](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell configura un grupo de conmutación por error para una instancia de servidor de Azure SQL Database, agrega una base de datos al grupo de conmutación por error y lo conmuta por error al servidor secundario |
 |**Escalado de una base de datos única y un grupo elástico**||
 | [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell supervisa las métricas de rendimiento de una instancia de Azure SQL Database, la escala a un nivel de rendimiento superior y crea una regla de alerta en una de las métricas de rendimiento. |
 | [Escalado de un grupo elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell supervisa las métricas de rendimiento de un grupo elástico de Azure SQL Database, lo escala a un nivel de rendimiento superior y crea una regla de alerta en una de las métricas de rendimiento.  |

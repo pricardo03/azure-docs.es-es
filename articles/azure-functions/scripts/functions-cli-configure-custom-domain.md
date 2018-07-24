@@ -13,19 +13,21 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/26/2018
+ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0650fffeb54ebc4390c82fb2711d7c89e0ac4572
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960345"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989425"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Asignación de un dominio personalizado a una aplicación de función
 
-Este script de ejemplo crea una aplicación de función con recursos relacionados y le asigna `www.<yourdomain>`. Si la aplicación de función se hospeda en un [plan de App Service](../functions-scale.md#app-service-plan), puede asignar un dominio personalizado mediante un registro CNAME o un registro D. Para las aplicaciones de función de un [plan de consumo](../functions-scale.md#consumption-plan), solo se admite la opción de CNAME.
+En este script de ejemplo se crea una aplicación de función en un plan de App Service y, después, se asigna al dominio personalizado que proporcione. Si la aplicación de función se hospeda en un [plan de App Service](../functions-scale.md#app-service-plan), puede asignar un dominio personalizado mediante un registro CNAME o un registro D. Para las aplicaciones de función de un [plan de consumo](../functions-scale.md#consumption-plan), solo se admite la opción de CNAME. En este ejemplo se crea un plan de App Service y requiere un registro A para asignar el dominio. 
+
+Para ejecutar este script de ejemplo, debe haber configurado un registro A en el dominio personalizado que señale al nombre de dominio predeterminado de la aplicación web. Para más información, consulte las instrucciones del artículo [Asignación de un dominio personalizado a Azure App Service](https://aka.ms/appservicecustomdns). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,14 +48,14 @@ Cada script utiliza los comandos siguientes: cada comando de la tabla crea un v�
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crea una cuenta de almacenamiento necesaria para la aplicación de función. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Crea un plan de App Service necesario para asignar un dominio personalizado. |
-| [az functionapp create]() | Crea una aplicación de función. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Asigna un dominio personalizado a una aplicación de función. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Crea una cuenta de almacenamiento necesaria para la aplicación de función. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Crea un plan de App Service necesario para asignar un dominio personalizado. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función en el plan de App Service. |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | Asigna un dominio personalizado a una aplicación de función. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
 
-Encontrará más ejemplos de scripts de CLI para Functions en la [documentación de Azure Functions]().
+Encontrará más ejemplos de scripts de CLI para Functions en la [documentación de Azure Functions](../functions-cli-samples.md).

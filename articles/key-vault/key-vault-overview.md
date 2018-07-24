@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068605"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115327"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
 
@@ -39,9 +39,9 @@ La centralización del almacenamiento de los secretos de aplicación le permite 
 
 Las aplicaciones pueden acceder de forma segura a la información que necesitan mediante identificadores URI que les permiten recuperar las versiones específicas de un secreto después de haber almacenado la clave o secreto de una aplicación en Azure Key Vault. Esto sucede sin tener que escribir código personalizado para proteger la información del secreto.
 
-### <a name="securely-store-secrets"></a>Almacenamiento seguro de secretos
+### <a name="securely-store-secrets-and-keys"></a>Almacenamiento seguro de secretos y claves
 
-Las claves se protegen mediante Azure, para lo que se usan algoritmos estándar del sector, longitudes de clave y módulos de seguridad de hardware (HSM). Los módulos de seguridad de hardware se validan mediante los Estándares federales de procesamiento de información (FIPS) 140-2 de nivel 2.
+Los secretos y las claves se protegen mediante Azure, para lo que se usan algoritmos estándar del sector, longitudes de clave y módulos de seguridad de hardware (HSM). Los módulos de seguridad de hardware se validan mediante los Estándares federales de procesamiento de información (FIPS) 140-2 de nivel 2.
 
 El acceso a un almacén de claves requiere una autorización y autenticación correctas antes de que un autor de llamada (usuario o aplicación) pueda obtener acceso. La autenticación establece la identidad del autor de la llamada, mientras que la autorización determina las operaciones que puede realizar.
 
@@ -49,7 +49,7 @@ La autenticación se realiza a través de Azure Active Directory. La autorizaci�
 
 Las instancias de Azure Key Vault se pueden proteger mediante software o con módulos de seguridad de hardware (HSM). En aquellos casos en los que necesita obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Microsoft utiliza los módulos de seguridad de hardware de Thales. Puede usar las herramientas de Thales para mover una clave desde el módulo de seguridad de hardware a Azure Key Vault.
 
-Además, Azure Key Vault está diseñado de modo que Microsoft no pueda ver ni extraer sus claves.
+Además, Azure Key Vault está diseñado de modo que Microsoft no pueda ver ni extraer sus datos.
 
 ### <a name="monitor-access-and-use"></a>Supervisión del acceso y uso
 

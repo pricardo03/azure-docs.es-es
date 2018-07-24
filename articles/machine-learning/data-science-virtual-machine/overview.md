@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 9ef6b216889416ea00786dcd3043d6e0f246b305
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 96105931bca8c0e75fb89552eb91af47bd860e3a
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595480"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136713"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a Data Science Virtual Machine de Azure para Linux y Windows
 
@@ -50,7 +50,7 @@ La exploración y el modelado de datos a gran escala o las competencias/hackatho
 La máquina virtual de ciencia de datos puede usarse para evaluar o aprender herramientas como Microsoft ML Server, SQL Server, herramientas de Visual Studio, Jupyter, aprendizaje profundo/kits de herramientas de ML y nuevas herramientas conocidas de la comunidad con el mínimo esfuerzo de instalación. Puesto que la VM de ciencia de datos se puede configurar rápidamente, se puede aplicar en otros escenarios de uso a corto plazo como la replicación de los experimentos publicados, la ejecución de demostraciones, el seguimiento de tutoriales en las sesiones en línea o los tutoriales de conferencia.
 
 ### <a name="deep-learning"></a>Aprendizaje profundo
-La VM de ciencia de datos puede usarse para el modelo de aprendizaje mediante algoritmos de aprendizaje profundo en hardware basado en GPU (unidades de procesamiento de gráficos). Al utilizar la funcionalidad de escalado de máquinas virtuales que ofrece la nube de Azure, la DSVM lo ayudará a usar hardware basado en GPU en la nube según las necesidades. Se puede cambiar a una máquina virtual basada en GPU cuando hay que entrenar modelos grandes o cuando se necesitan cálculos de alta velocidad conservando al mismo tiempo el mismo disco del SO.  La edición de Windows Server 2016 de la DSVM viene preinstalada con controladores de GPU, marcos y las versiones de GPU de las plataformas de aprendizaje profundo. En Linux, el aprendizaje profundo en GPU está habilitado en las DSVM de CentOS y Ubuntu. Puede implementar la edición de Ubuntu, CentOS o Windows Server 2016 de la máquina virtual de ciencia de datos (DSVM) en una máquina virtual de Azure no basada en GPU, en cuyo caso todas las plataformas de aprendizaje profundo se reservarán al modo CPU. 
+La VM de ciencia de datos puede usarse para el modelo de aprendizaje mediante algoritmos de aprendizaje profundo en hardware basado en GPU (unidades de procesamiento de gráficos). Al utilizar las funcionalidades de escalado de máquinas virtuales que ofrece la nube de Azure, la DSVM lo ayudará a usar hardware basado en GPU en la nube según las necesidades. Se puede cambiar a una máquina virtual basada en GPU cuando hay que entrenar modelos grandes o cuando se necesitan cálculos de alta velocidad conservando al mismo tiempo el mismo disco del SO.  La edición de Windows Server 2016 de la DSVM viene preinstalada con controladores de GPU, marcos y las versiones de GPU de las plataformas de aprendizaje profundo. En Linux, el aprendizaje profundo en GPU está habilitado en las DSVM de CentOS y Ubuntu. Puede implementar la edición de Ubuntu, CentOS o Windows Server 2016 de la máquina virtual de ciencia de datos (DSVM) en una máquina virtual de Azure no basada en GPU, en cuyo caso todas las plataformas de aprendizaje profundo se reservarán al modo CPU. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>¿Qué se incluye en la VM de ciencia de datos?
 La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de datos y aprendizaje profundo conocidas ya instaladas y configuradas. También incluye herramientas que facilitan trabajar con diversos productos y análisis de datos de Azure. Puede explorar y compilar modelos predictivos en conjuntos de datos a gran escala mediante Microsoft ML Server (R, Python) o con SQL Server 2017. También se incluye un host de otras herramientas de la comunidad de código abierto y desde Microsoft, así como código de ejemplo y bloc de notas. En la tabla siguiente se detalla y compara los componentes principales incluidos en las ediciones de Windows y Linux de la máquina virtual de ciencia de datos.

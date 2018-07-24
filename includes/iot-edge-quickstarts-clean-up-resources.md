@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 06/26/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: c0b9f9e9808de90df84edf2d3c409a921629baee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 657006360105ac26091c54fe2e0deb523d1e6dea
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38728312"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008508"
 ---
-Si va a seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar.
+Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar.
 
 En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
 
 > [!IMPORTANT]
-> La eliminación de los recursos de Azure y del grupo de recursos es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos que contiene se suprimirán permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
+> La eliminación de los recursos de Azure y de los grupos de recursos es un proceso irreversible. Cuando se eliminan estos elementos, el grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado el centro de IoT en un grupo de recursos ya existente que tiene recursos que desea conservar, elimine solo el recurso del centro de IoT en sí en lugar de eliminar todo el grupo de recursos.
 >
 
-Para eliminar solo la instancia de IoT Hub, ejecute el siguiente comando después de reemplazar `<YourIoTHub>` por el nombre el centro y `<TestResources>` por el nombre del grupo de recursos:
+Para eliminar solo el centro de IoT, ejecute el comando siguiente. Reemplace \<YourIoTHub > con el nombre del centro de IoT y \<TestResources > con el nombre del grupo de recursos:
 
 ```azurecli-interactive
 az iot hub delete --name <YourIoTHub> --resource-group <TestResources>
@@ -32,15 +32,15 @@ az iot hub delete --name <YourIoTHub> --resource-group <TestResources>
 
 Para eliminar un grupo de recursos entero por el nombre:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos**.
 
-2. Escriba el nombre del grupo de recursos que contiene la instancia de IoT Hub en el cuadro de texto **Filtrar por nombre...**. 
+2. En el cuadro de texto **Filtrar por nombre**, escriba el nombre del grupo de recursos que contiene el centro de IoT. 
 
-3. A la derecha del grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
+3. A la derecha del grupo de recursos, en la lista de resultados, seleccione los puntos suspensivos (**...**) y, después, **Eliminar grupo de recursos**.
 
-    ![Eliminar](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+    ![Eliminación de un grupo de recursos](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 
-4. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba otra vez el nombre del grupo de recursos para confirmar y haga clic en **Eliminar**. Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
+4. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba de nuevo el nombre del grupo de recursos para confirmar y seleccione **Eliminar**. Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 
 
 

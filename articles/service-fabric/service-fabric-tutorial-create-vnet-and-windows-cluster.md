@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 91bb57f49f8c92967275d340410e22381adad19e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114282"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068910"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster Windows de Service Fabric en una red virtual de Azure
 
@@ -97,7 +97,7 @@ Se implementa un clúster de Windows con las siguientes características:
 * se habilita el [proxy inverso](service-fabric-reverseproxy.md)
 * se habilita el [servicio DNS](service-fabric-dnsservice.md)
 * [Nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster): Bronze (configurable en los parámetros de plantilla)
-* [Nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster): Silver (configurable en los parámetros de plantilla)
+ * [Nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster): Silver (configurable en los parámetros de plantilla)
 * punto de conexión de la conexión de cliente: 19000 (configurable en los parámetros de la plantilla)
 * punto de conexión de la puerta de enlace HTTP: 19080 (configurable en los parámetros de la plantilla)
 
@@ -139,9 +139,9 @@ El archivo de parámetros [vnet-cluster.parameters.json][parameters] permite dec
 
 |Parámetro|Valor de ejemplo|Notas|
 |---|---||
-|adminUserName|vmadmin| Nombre de usuario del administrador de las máquinas virtuales del clúster. |
-|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster.|
-|clusterName|mysfcluster123| Nombre del clúster. |
+|adminUserName|vmadmin| Nombre de usuario administrador de las máquinas virtuales del clúster.[Requisitos de nombre de usuario para la máquina virtual](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster. [Requisitos de contraseña para la máquina virtual](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|clusterName|mysfcluster123| Nombre del clúster. Solo puede contener letras y números. Puede tener entre 3 y 23 caracteres.|
 |location|southcentralus| Ubicación del clúster. |
 |certificateThumbprint|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, rellene el valor de huella digital del certificado. Por ejemplo, "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
 |certificateUrlValue|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados. </p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique la dirección URL del certificado. Por ejemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|

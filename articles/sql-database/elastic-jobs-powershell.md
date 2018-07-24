@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: joke
-ms.openlocfilehash: dc2776e0f3b14d5fd2375f735c18345c32ca743a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 2cc8db0ce849e0f0d376824665aac7dbc2af29db
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033983"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035224"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creación de un agente de trabajos elásticos mediante PowerShell
 
@@ -31,22 +31,29 @@ En este tutorial aprenderá los pasos necesarios para ejecutar una consulta en v
 > * Inicio de la ejecución de un trabajo
 > * Supervisión de un trabajo
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción de Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Instale el módulo **AzureRM.Sql** de la versión preliminar más reciente para obtener los cmdlets de trabajos elásticos. Ejecute los siguientes comandos desde un símbolo del sistema con privilegios elevados (ejecute como administrador).
+Instale el módulo **AzureRM.Sql** 4.8.1-preview para obtener los cmdlets de trabajos elásticos más recientes. Ejecute los comandos siguientes en PowerShell con acceso administrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
 Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-# You may need to restart the powershell session
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
 Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
+# Restart your powershell session with administrative access
+
 # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
+Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+
+# Import the AzureRM.Sql 4.8.1 module
+Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+
+# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
+Get-Module AzureRM.Sql
 ```
 
 ## <a name="create-required-resources"></a>Creación de los recursos necesarios

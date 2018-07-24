@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Llamar a Cognitive Search API en Azure Search | Microsoft Docs'
-description: Ejemplo de procesamiento de IA de imágenes, extracción de datos y lenguaje natural en la indexación de Azure Search para la extracción y transformación de datos.
+title: Tutorial para llamar a Cognitive Search API en Azure Search | Microsoft Docs
+description: En este tutorial se analiza un ejemplo de procesamiento de IA de imágenes, extracción de datos y lenguaje natural en la indexación de Azure Search para la extracción y transformación de datos.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757577"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991980"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Procedimiento para llamar a Cognitive Search API (versión preliminar)
 
@@ -23,8 +23,8 @@ En este tutorial, aprenderá la mecánica para programar el enriquecimiento de d
 En este tutorial, se realizan llamadas a la API de REST para llevar a cabo las siguientes tareas:
 
 > [!div class="checklist"]
-> * Crear una canalización de indexación para enriquecer los datos de origen en la ruta a un índice.
-> * Usar las aptitudes integradas de los datos de ejemplo: reconocimiento de entidades, detección de idioma, manipulación de texto y extracción de frases clave.
+> * Crear una canalización de indexación para enriquecer los datos de ejemplo en la ruta a un índice.
+> * Aplicar las aptitudes integradas: reconocimiento de entidades, detección de idioma, manipulación de texto y extracción de frases clave.
 > * Aprender a encadenar aptitudes mediante la asignación de las entradas a las salidas en conjunto de aptitudes.
 > * Ejecutar solicitudes y revisar los resultados.
 > * Restablecer el índice y los indexadores para su posterior desarrollo.
@@ -33,7 +33,7 @@ La salida es un índice que permite realizar búsquedas de texto completo en Azu
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ¿Es nuevo en Cognitive Search? Lea ["What is cognitive search?"](cognitive-search-concept-intro.md) (¿Qué es Cognitive Search?) para familiarizarse, o bien pruebe el [inicio rápido del portal](cognitive-search-quickstart-blob.md) para obtener una introducción práctica a conceptos importantes.
 
@@ -76,7 +76,7 @@ La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los 
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Los datos de ejemplo están formados por un pequeño conjunto de archivos de tipos diferentes. 
 
-1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, inicie sesión en el Explorador de Storage y cree un contenedor denominado `basicdemo`. Consulte en la [guía de inicio rápido del Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) las instrucciones de todos los pasos.
+1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, inicie sesión en el Explorador de Storage y cree un contenedor llamado `basicdemo`. Consulte en la [guía de inicio rápido del Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) las instrucciones de todos los pasos.
 
 1. Use el Explorador de Azure Storage y, en el contenedor que creó, haga clic en `basicdemo`Cargar** para cargar los archivos de ejemplo.
 

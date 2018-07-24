@@ -1,6 +1,6 @@
 ---
-title: Introducción a Azure Network Security | Microsoft Docs
-description: Obtenga información acerca de las opciones de seguridad para controlar el flujo de tráfico de red entre los recursos de Azure.
+title: Introducción a los grupos de seguridad de Azure | Microsoft Docs
+description: Obtenga información sobre los grupos de seguridad de red y de aplicación. Los grupos de seguridad le ayudan a filtrar el tráfico de red entre los recursos de Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657594"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092678"
 ---
-# <a name="network-security"></a>Seguridad de las redes
+# <a name="network-and-application-security-groups"></a>Grupos de seguridad de red y de aplicación
 
-Puede limitar el tráfico de red a los recursos de una red virtual mediante un grupo de seguridad de red. Un grupo de seguridad de red contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red entrante o saliente en función de las direcciones IP de origen o destino, el puerto y el protocolo. 
+Puede limitar el tráfico de red a los recursos de una red virtual mediante grupos de seguridad de red y de aplicación. Un grupo de seguridad de red contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red entrante o saliente en función de las direcciones IP de origen o destino, el puerto y el protocolo. Un grupo de seguridad de aplicación le permite agrupar máquinas virtuales con funciones similares, como los servidores web. Puede especificar un grupo de seguridad de aplicación como origen o destino en una regla de grupo de seguridad de red.
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
 
-Todas las interfaces de red tienen un grupo de seguridad de red asociado o ninguno. Cada interfaz de red existe en una subred de la [red virtual](virtual-networks-overview.md). Una subred también puede tener un grupo de seguridad de red asociado o ninguno. 
+Todas las interfaces de red tienen un grupo de seguridad de red asociado o ninguno. Cada interfaz de red existe en una subred de la [red virtual](virtual-networks-overview.md). Una subred también puede tener un grupo de seguridad de red asociado o ninguno.
 
 Cuando se aplican a una subred, las reglas de seguridad se aplican a todos los recursos de la subred. Además de interfaces de red, puede que tenga instancias de otros servicios de Azure como HDInsight, conjuntos de escalado de máquinas virtuales y entornos del servicio de aplicaciones implementados en la subred.
 
@@ -167,10 +167,10 @@ Los grupos de seguridad de aplicaciones presentan las siguientes restricciones:
 
      - **Contrato Enterprise**: se permite la comunicación saliente a través del puerto 25. Puede enviar el correo electrónico saliente directamente desde las máquinas virtuales a los proveedores de correo electrónico externos, sin las restricciones de la plataforma Azure. 
      - **Pago por uso:** la comunicación saliente a través del puerto 25 está bloqueada en todos los recursos. Si necesita enviar correo electrónico desde una máquina virtual directamente a proveedores de correo electrónico externos (que no usan retransmisión SMTP autenticada), puede realizar una solicitud para quitar la restricción. Las solicitudes se revisan y aprueban a discreción de Microsoft y solo se conceden una vez que se han realizado las comprobaciones contra fraudes. Para realizar una solicitud, abra un caso de soporte técnico con el tipo de problema *Técnico*, *Conectividad de red virtual*, *No se puede enviar correo electrónico (SMTP/puerto 25)*. En su caso de soporte técnico, indique los motivos por los que su suscripción tiene que enviar correo electrónico directamente a los proveedores de correo electrónico, en lugar de pasar por una retransmisión SMTP autenticada. Si la suscripción está exenta, las únicas máquinas virtuales que pueden establecer comunicación saliente a través del puerto 25 son las creadas después de la fecha de exención.
-     - **Proveedor de servicios en la nube (CSP), MSDN, Pase para Azure, Azure bajo licencia Open, Education, BizSpark y evaluación gratuita**: la comunicación saliente a través del puerto 25 se bloquea en todos los recursos. No se pueden realizar solicitudes para quitar la restricción, ya que no se conceden solicitudes. Si debe enviar correo electrónico desde una máquina virtual, debe usar un servicio de retransmisión SMTP.
+     - **MSDN, Pase para Azure, Azure bajo licencia Open, Education, BizSpark y evaluación gratuita**: la comunicación saliente a través del puerto 25 se bloquea en todos los recursos. No se pueden realizar solicitudes para quitar la restricción, ya que no se conceden solicitudes. Si debe enviar correo electrónico desde una máquina virtual, debe usar un servicio de retransmisión SMTP.
+     - **Proveedor de servicios en la nube**: los clientes que están consumiendo recursos de Azure a través de un proveedor de servicios en la nube pueden crear una incidencia de soporte técnico con su proveedor de servicios en la nube y solicitar que el proveedor cree un caso de desbloqueo en su nombre si no se puede usar una retransmisión SMTP segura.
 
-  Si Azure le permite enviar correo electrónico a través del puerto 25, Microsoft no garantiza de proveedores de correo electrónico vayan a aceptar correo electrónico entrante procedente de la máquina virtual. Si un proveedor concreto rechaza el correo de la máquina virtual, tendrá que trabajar directamente con él para resolver los problemas de entrega de mensajes o de filtrado de correo no deseado, o bien utilizar un servicio de retransmisión de SMTP autenticado. 
-
+  Si Azure le permite enviar correo electrónico a través del puerto 25, Microsoft no garantiza de proveedores de correo electrónico vayan a aceptar correo electrónico entrante procedente de la máquina virtual. Si un proveedor concreto rechaza el correo de la máquina virtual, tendrá que trabajar directamente con él para resolver los problemas de entrega de mensajes o de filtrado de correo no deseado, o bien utilizar un servicio de retransmisión de SMTP autenticado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

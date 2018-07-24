@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 04/13/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639214"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990521"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -41,7 +41,7 @@ Puede publicar la aplicación administrada externa o internamente.
 
 ### <a name="service-catalog"></a>Catálogo de servicios
 
-El catálogo de servicios es un catálogo interno de soluciones aprobadas para los usuarios de una organización. Ellos pueden usar el catálogo para garantizar el cumplimiento de ciertos estándares de la organización al tiempo que ofrecen soluciones excelentes para la organización. Los empleados pueden usar el catálogo para detectar fácilmente el amplio conjunto de aplicaciones que el departamento de TI recomienda y aprueba. También pueden ver las aplicaciones administradas que otras personas de su organización comparten con ellos.
+El catálogo de servicios es un catálogo interno de soluciones aprobadas para los usuarios de una organización. Ellos pueden usar el catálogo para garantizar el cumplimiento de ciertos estándares de la organización al tiempo que ofrecen soluciones excelentes para la organización. Los empleados pueden usar el catálogo para detectar fácilmente las aplicaciones que el departamento de TI recomienda y aprueba. También pueden ver las aplicaciones administradas que otras personas de su organización comparten con ellos.
 
 Para más información sobre cómo publicar una aplicación administrada del catálogo de servicios, consulte [Creación de la aplicación de catálogo de servicios](publish-service-catalog-app.md).
 
@@ -70,6 +70,10 @@ El consumidor tiene acceso total al grupo de recursos y lo utiliza para administ
 Este grupo de recursos contiene todos los recursos que requiere la aplicación administrada. Por ejemplo, este grupo de recursos contiene las máquinas virtuales, cuentas de almacenamiento y redes virtuales para la solución. El consumidor tiene acceso limitado a este grupo de recursos ya que no puede administrar los recursos individuales de la aplicación administrada. El acceso del editor a este grupo de recursos se corresponde con el rol especificado en la definición de la aplicación administrada. Por ejemplo, el editor puede solicitar el rol de propietario o colaborador para este grupo de recursos.
 
 Cuando el consumidor elimina la aplicación administrada, también se elimina el grupo de recursos administrados.
+
+## <a name="azure-policy"></a>Azure Policy
+
+Puede aplicar una directiva de [Azure Policy](../azure-policy/azure-policy-introduction.md) a la aplicación administrada. Las directivas se aplican para garantizar que las instancias implementadas de la aplicación administrada cumplan con los requisitos de seguridad y datos. Si la aplicación interactúa con información confidencial, asegúrese de que se ha evaluado cómo debe protegerse. Por ejemplo, si la aplicación interactúa con datos de Office 365, aplique una directiva para asegurarse de que está habilitado el cifrado de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

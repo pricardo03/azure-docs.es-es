@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ee83446bb08e66c7f325bdd5585b8cc0484a74e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306480"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090935"
 ---
 # <a name="import-a-function-app-as-an-api"></a>Importación de una aplicación de función como una API
 
@@ -31,10 +31,11 @@ En este artículo, aprenderá a:
 > * Prueba de la API en Azure Portal
 > * Pruebe la API en el Portal para desarrolladores
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
-+ Asegúrese de que hay una aplicación de función en su suscripción. Para más información, consulte [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ Asegúrese de que haya una instancia de Azure Function App en su suscripción. Para más información, consulte [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ [Creación de una definición de OpenAPI](../azure-functions/functions-openapi-definition.md) de su instancia de Azure Function App
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -56,6 +57,24 @@ En este artículo, aprenderá a:
     * **Starter**
     * **Sin límite**   
 7. Seleccione **Crear**.
+
+## <a name="populate-azure-functions-keys-in-azure-api-management"></a>Relleno de las claves de Azure Functions en Azure API Management
+
+Si las funciones importadas de Azure están protegidas con claves, Azure API Management crea automáticamente **valores con nombre** para ellas, pero no rellena las entradas con secretos. Con cada entrada, debe realizar los pasos siguientes.  
+
+1. Vaya a la pestaña **Named values** (Valores con nombre) de la instancia de API Management.
+2. Haga clic en una entrada y presione **Show value** (Mostrar valor) en la barra lateral.
+
+    ![Valores con nombre](./media/import-function-app-as-api/apim-named-values.png)
+
+3. Si el contenido es similar a *código de {nombre de función de Azure}*, vaya a la aplicación de Azure Functions importada y desplácese a la función de Azure.
+4. Vaya a la sección **Manage** (Administrar) de la función de Azure deseada y copie la clave pertinente, según el método de autenticación de la función de Azure.
+
+    ![Aplicación de función](./media/import-function-app-as-api/azure-functions-app-keys.png)
+
+5. Pegue la clave en el cuadro de texto de **Named values** (Valores con nombre) y haga clic en **Save** (Guardar).
+
+    ![Aplicación de función](./media/import-function-app-as-api/apim-named-values-2.png)
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Prueba de la nueva API APIM en Azure Portal
 

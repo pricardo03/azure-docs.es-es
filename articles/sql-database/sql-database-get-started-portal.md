@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 07/16/2018
 ms.author: sachinp
-ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345430"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090537"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creación de una instancia de Azure SQL Database en Azure Portal
 
@@ -24,7 +24,7 @@ Esta guía de inicio rápido le guía por el proceso de creación de una base de
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
   >[!NOTE]
-  >Este tutorial usa el modelo de compra basado en DTU, pero también está disponible el [modelo de compra basado en vCore (versión preliminar)](sql-database-service-tiers-vcore.md).
+  >Este tutorial usa el modelo de compra basado en DTU, pero también está disponible el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
@@ -44,7 +44,7 @@ Siga estos pasos para crear una base de datos SQL que contenga los datos de ejem
 
 3. Rellene el formulario de SQL Database con la siguiente información, como se muestra en la imagen anterior:   
 
-   | Configuración       | Valor sugerido | Descripción |
+   | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nombre de la base de datos** | mySampleDatabase | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
    | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
@@ -57,7 +57,7 @@ Siga estos pasos para crear una base de datos SQL que contenga los datos de ejem
 
 4. En **Servidor**, haga clic en **Configurar los valores obligatorios** y rellene el formulario de SQL Server (servidor lógico) con la siguiente información, como se muestra en la imagen siguiente:   
 
-   | Configuración       | Valor sugerido | Descripción |
+   | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |

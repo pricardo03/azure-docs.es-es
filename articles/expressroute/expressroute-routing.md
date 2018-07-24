@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930535"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072153"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -221,13 +221,13 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>Compatibilidad con la comunidad de BGP en nubes nacionales (versión preliminar)
+### <a name="bgp-community-support-in-national-clouds"></a>Compatibilidad con la comunidad de BGP en nubes nacionales
 
 | **Nubes nacionales Región de Azure**| **Valor de comunidad de BGP** |
 | --- | --- |
 | **Gobierno de Estados Unidos** |  |
 | Gobierno de EE. UU.: Arizona | 12076:51106 |
-| Gobierno de EE. UU. - Iowa | 12076:51109 |
+| US Gov Iowa | 12076:51109 |
 | Gobierno de EE. UU. - Virginia | 12076:51105 |
 | Gobierno de EE. UU.: Texas | 12076:51108 |
 | Departamento de Defensa de EE. UU. Centro | 12076:51209 |
