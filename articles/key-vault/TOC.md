@@ -7,7 +7,7 @@
 ## [Creación de un almacén de claves: CLI](quick-create-cli.md)
 ## [Creación de un almacén de claves: PowerShell](quick-create-powershell.md)
 ## [Creación de un almacén de claves: Portal](quick-create-portal.md)
-
+## [Lectura desde una instancia de Key Vault: .NET](quick-create-net.md)
 # Tutoriales
 ## [Lectura de un secreto de Key Vault](tutorial-web-application-keyvault.md)
 ## [Introducción a Key Vault](key-vault-get-started.md)
