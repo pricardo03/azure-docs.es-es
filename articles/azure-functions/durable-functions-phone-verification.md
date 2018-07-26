@@ -2,7 +2,7 @@
 title: 'La interacción humana y los tiempos de espera en Durable Functions: Azure'
 description: Aprenda a controlar la interacción humana y los tiempos de espera en la extensión Durable Functions para Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: cfowler
 editor: ''
 tags: ''
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a62baf64e35dfad55f76138e2f1aaef65dd434be
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168408"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036312"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
@@ -27,7 +27,7 @@ Este ejemplo muestra cómo compilar una orquestación de [Durable Functions](dur
 
 En este ejemplo se implementa un sistema de comprobación telefónica por SMS. A menudo se usan estos tipos de flujos al comprobar el número de teléfono de un cliente o para la autenticación multifactor (MFA). Este es un ejemplo eficaz, porque toda la implementación se realiza con un par de pequeñas funciones. No se necesita almacén de datos externo, como una base de datos.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Instale Durable Functions](durable-functions-install.md).
 * Complete el tutorial de [Hello Sequence](durable-functions-sequence.md).
@@ -51,7 +51,7 @@ En este artículo se explican las funciones siguientes en la aplicación de ejem
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-En las siguientes secciones se explican la configuración y el código que se utilizan para el scripting C#. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
+En las siguientes secciones se explican la configuración y el código que se utilizan para el scripting C# y para JavaScript. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>La orquestación de verificación por SMS (código de ejemplo de Azure Portal y Visual Studio Code) 
 
@@ -61,7 +61,13 @@ La función **E4_SmsPhoneVerification** utiliza la norma *function.json* para la
 
 Este es el código que implementa la función:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 Una vez iniciada, la función de orquestador hace lo siguiente:
 
@@ -76,7 +82,7 @@ El usuario recibe un mensaje SMS con un código de cuatro dígitos. Tiene 90 seg
 > Puede no resultar obvio al principio, pero esta función de orquestador es totalmente determinista. Esto se debe a que la propiedad `CurrentUtcDateTime` se utiliza para calcular la fecha de expiración del temporizador y devuelve el mismo valor en cada reproducción en ese momento en el código del orquestador. Esto es importante para garantizar que `winner` es igual en todas las llamadas a `Task.WhenAny` repetidas.
 
 > [!WARNING]
-> Es importante [cancelar los temporizadores con CancellationTokenSource](durable-functions-timers.md) si ya no se necesita que expiren, como en el ejemplo anterior, cuando se acepta una respuesta de desafío.
+> Es importante [cancelar los temporizadores](durable-functions-timers.md) si ya no se necesita que expiren, como en el ejemplo anterior, cuando se acepta una respuesta de desafío.
 
 ## <a name="send-the-sms-message"></a>Envío del mensaje SMS
 
@@ -86,7 +92,13 @@ La función **E4_SendSmsChallenge** usa el enlace de Twilio para enviar el mensa
 
 Y este es el código que genera el código de desafío de 4 dígitos y envía el mensaje SMS:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
 A esta función **E4_SendSmsChallenge** solo se la llama una vez, aunque el proceso se bloquee o se reproduzca. Esto es práctico, porque no conviene que el usuario final obtenga varios mensajes SMS. El valor devuelto de `challengeCode` se almacena automáticamente, por lo que la función de orquestador siempre sabe cuál es el código correcto.
 
@@ -109,6 +121,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > Actualmente, las funciones de inicio de orquestación de JavaScript no pueden devolver los URI de administración de instancias. Esta funcionalidad se agregará en una versión posterior.
 
 La función de orquestador recibe el número de teléfono proporcionado e inmediatamente le envía un mensaje SMS con un código de verificación de 4 dígitos generado aleatoriamente, &mdash;por ejemplo, *2168*. A continuación, la función espera respuesta durante 90 segundos.
 

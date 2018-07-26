@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 657e4b212b79fec40299e639c3818fd97a339579
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213131"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126735"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "36213131"
 
 La ejecución de una aplicación existente en un contenedor de Linux en un clúster de Service Fabric no requiere que se realice ningún cambio en la aplicación. Este artículo le guiará por la creación de una imagen de Docker que contiene una aplicación web [Flask](http://flask.pocoo.org/) en Python y su implementación en un clúster de Service Fabric. También compartirá la aplicación en el contenedor mediante [Azure Container Registry](/azure/container-registry/). Este artículo supone que el usuario tiene un conocimiento básico de Docker. Para obtener información acerca de Docker, lea la [introducción a Docker](https://docs.docker.com/engine/understanding-docker/).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Un equipo de desarrollo en el que se ejecute:
   * [SDK y herramientas de Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE para Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -189,6 +189,39 @@ Especifique la asignación de puertos con el formato adecuado. En este artículo
     </Policies>
    </ServiceManifestImport>
 ``` 
+
+
+## <a name="configure-isolation-mode"></a>Configuración del modo de aislamiento
+Con la versión 6.3 de tiempo de ejecución, se admite el aislamiento de la máquina virtual para los contenedores de Linux, con lo que se admiten dos modos de aislamiento para contenedores: proceso e Hyper-V. Con el modo de aislamiento de Hyper-V, los kernels se aíslan entre cada contenedor y el host del contenedor. El aislamiento de Hyper-V se implementa mediante la opción [Borrar contenedores](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). El modo de aislamiento se especifica para los clústeres de Linux en el elemento `ServicePackageContainerPolicy` del archivo de manifiesto de aplicación. Los modos de aislamiento que se pueden especificar son `process`, `hyperv` y `default`. El valor predeterminado es el modo de aislamiento de proceso. El siguiente fragmento de código muestra cómo el modo de aislamiento se especifica en el archivo de manifiesto de aplicación.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0"/>
+      <Policies>
+        <ServicePackageContainerPolicy Hostname="votefront" Isolation="hyperv">
+          <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ServicePackageContainerPolicy>
+    </Policies>
+  </ServiceManifestImport>
+```
+
+
+## <a name="configure-resource-governance"></a>Configuración de la regulación de recursos
+La [regulación de recursos](service-fabric-resource-governance.md) restringe los recursos que el contenedor puede usar en el host. El elemento `ResourceGovernancePolicy`, especificado en el manifiesto de la aplicación, se utiliza para declarar los límites de recursos para un paquete de código de servicio. Se pueden establecer límites de recursos para los siguientes recursos: memoria, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). En este ejemplo, el paquete de servicio Guest1Pkg obtiene un núcleo en los nodos del clúster en los que es situado. Los límites de memoria son absolutos, por lo que el paquete de código está limitado a 1024 MB de memoria (con una reserva de garantía flexible de dicha capacidad). Los paquetes de código (contenedores o procesos) no pueden asignar más memoria de la que establece este límite; si se intenta, el resultado es una excepción de memoria insuficiente. Para que la aplicación del límite de recursos funcione, es necesario haber definido límites de memoria en todos los paquetes de código de un paquete de servicio.
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="MyServicePKg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
+
+
+
+
 ## <a name="configure-docker-healthcheck"></a>Configuración de la instrucción HEALTHCHECK de Docker 
 A partir de la versión 6.1, Service Fabric integra automáticamente eventos de la [instrucción HEALTHCHECK de Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) en su informe de mantenimiento del sistema. Esto significa que si el contenedor tiene habilitada la instrucción **HEALTHCHECK**, Service Fabric informará acerca del mantenimiento siempre que el estado de mantenimiento del contenedor cambie tal y como lo indique Docker. Aparecerá un informe de mantenimiento **correcto** en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) siempre que *health_status* sea *correcto* y aparecerá **ADVERTENCIA** si *health_status* es *incorrecto*. La instrucción **HEALTHCHECK** que apunta a la comprobación real que se lleva a cabo para supervisar el mantenimiento del contenedor debe estar presente en el archivo de Docker que se usa al generar la imagen de contenedor. 
 

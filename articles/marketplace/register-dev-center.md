@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 43fadadc92e9562e1e9abe6d971f85d37a9825c2
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437089"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070441"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
 Para ayudar a asegurarse de que no está registrado en una cuenta de explorador personal, abra una nueva sesión de exploración de incógnito de Chrome o de InPrivate en Internet Explorer.  
@@ -84,7 +84,7 @@ Para ayudar a asegurarse de que no está registrado en una cuenta de explorador 
 
 ---  
 
-## <a name="issue-dev-center-registration"></a>Problema: Registro en el Centro para desarrolladores  
+## <a name="get-help-with-dev-center-registration"></a>Obtener ayuda con el registro en el Centro de desarrollo  
 Si tiene problemas con el registro en el Centro para desarrolladores, siga estos pasos para enviar un vale de soporte.  
 1.  Vaya al soporte técnico del Centro para desarrolladores.  
     *   Para acceder a soporte técnico, visite la página Soporte técnico para desarrolladores de Windows en [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support).  
@@ -151,6 +151,41 @@ Si tiene problemas con el registro en el Centro para desarrolladores, siga estos
 *   **¿Dónde puedo ponerme en contacto con el soporte técnico para problemas relativos al registro en el Centro de desarrollo?**
 Para acceder a soporte técnico, visite la página Soporte técnico para desarrolladores de Windows en [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problema: agregar información bancaria y fiscal de pagos de editor  
+La información bancaria y fiscal es obligatoria para todas las ofertas comerciales con el tipo de listado de transacciones.  
+*   Si va a publicar ofertas comerciales de compra, debe agregar información de pago y fiscal y solicitar validación en el Centro de desarrollo.  
+    >[!IMPORTANT]
+    >Para las ofertas comerciales (transacción), Tiene que rellenar la información bancaria y fiscal para poder insertar sus ofertas en producción.  
+
+*   Si solo publica ofertas gratis o BYOL, no es necesario que agregue la información. Puede agregar la información más adelante, pero la validación de la información fiscal tarda algún tiempo. Si tiene previsto hacer ofertas comerciales de compra, debe agregar la información tan pronto como sea posible.  
+
+## <a name="add-bank-information"></a>Adición de la información bancaria  
+1.  Inicie sesión en el Centro de desarrollo con el identificador de Microsoft.  
+    *   Para iniciar sesión en el Centro de desarrollo, visite la página Centro de desarrollo de Windows en [dev.windows.com](https://dev.windows.com).  
+2.  Seleccione Cuenta de pago en el menú izquierdo.
+3.  En la página `Choose payment method`, seleccione `Bank account` o `PayPal`.  
+    >[!IMPORTANT]
+    >Si tiene ofertas comerciales que los clientes compran en Marketplace, la cuenta de pago es donde recibirá el pago de las compras.  
+
+4.  Escriba la información de pago. Después de comprobar que la información es correcta, haga clic en el botón Guardar.  
+    >[!IMPORTANT]
+    >Si tiene que actualizar o cambiar la cuenta de pago, debe seguir los mismos pasos, pero reemplace la información actual por la nueva. Los cambios en la cuenta de pago pueden retrasar los pagos hasta un ciclo de pago. Este retraso se a que Microsoft debe comprobar el cambio de cuenta, que es lo mismo que sucede cuando se configura por primera vez la cuenta de pago. Una vez comprobada la cuenta, se le pagará el importe completo. Los pagos pendientes del ciclo actual se agregarán al siguiente.  
+
+4.  Haga clic en el botón Siguiente. 
+
+---   
+
+## <a name="add-tax-information"></a>Adición de información fiscal  
+1.  Inicie sesión en el Centro de desarrollo con el identificador de Microsoft.  
+    *   Para iniciar sesión en el Centro de desarrollo, visite la página Centro de desarrollo de Windows en [dev.windows.com](https://dev.windows.com).  
+2.  Seleccione Perfil fiscal en el menú izquierdo. 
+3.  En la página `Set up your tax form`, seleccione el país o región donde tiene residencia permanente.  
+    
+    Seleccione el país o región donde tiene la ciudadanía principal.  
+    
+    Haga clic en el botón Siguiente. 
+4.  Escriba los datos fiscales.  
+5.  Haga clic en el botón Siguiente.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 *   Visite la página [Guía del anunciante de Azure Marketplace y AppSource](./marketplace-publishers-guide.md).  

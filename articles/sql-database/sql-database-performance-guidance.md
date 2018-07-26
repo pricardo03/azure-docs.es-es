@@ -7,21 +7,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 630ef13fbd64fac8c2a2a31e4174552e64aaa789
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309222"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092654"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajuste del rendimiento en Azure SQL Database
 
 Azure SQL Database proporciona las [recomendaciones](sql-database-advisor.md) que puede usar para mejorar el rendimiento de la base de datos o puede permitir que Azure SQL Database [se adapte automáticamente a la aplicación](sql-database-automatic-tuning.md) y aplicar los cambios que mejorarán el rendimiento de la carga de trabajo.
 
 Si no dispone de recomendaciones aplicables y sigue experimentando problemas de rendimiento, debe usar los siguientes métodos para mejorar los rendimientos:
-- Aumente los niveles de servicio de su [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o de su [modelo de compra (versión preliminar) basado en núcleos virtuales](sql-database-service-tiers-vcore.md) para proporcionar más recursos a la base de datos.
+- Aumente los niveles de servicio de su [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o de su [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) para proporcionar más recursos a la base de datos.
 - Ajuste la aplicación y aplique algunas prácticas recomendadas que puedan mejorar el rendimiento. 
 - Ajuste la base de datos cambiando los índices y consultas para que funcionen de manera más eficiente con los datos.
 
@@ -29,7 +29,7 @@ Estos métodos son manuales porque debe decidir la cantidad de recursos que sati
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumento del nivel de rendimiento de su base de datos
 
-Azure SQL Database ofrece dos modelos de compra entre los que elegir, un [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y un [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
+Azure SQL Database ofrece dos modelos de compra entre los que elegir, un [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y un [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
 
 > [!NOTE]
 > Este artículo se centra en la guía de rendimiento para bases de datos únicas de Azure SQL Database. Para obtener instrucciones sobre rendimiento relativas a los grupos elásticos, consulte las [consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool-guidance.md). Observe, sin embargo, que muchas de las recomendaciones de optimización de este artículo se pueden aplicar a bases de datos de un grupo elástico y obtener ventajas de rendimiento similares.
@@ -40,7 +40,7 @@ Azure SQL Database ofrece dos modelos de compra entre los que elegir, un [modelo
   * **Tiene una base de datos con un único usuario**. Las aplicaciones que asocian un único usuario a una base de datos normalmente no tienen grandes requisitos de simultaneidad y rendimiento. Estas aplicaciones son candidatas al nivel de servicio básico.
 * **Estándar**: el nivel de servicio Estándar ofrece una funcionalidad mejorada para predecir el rendimiento y ofrece un buen rendimiento para bases de datos con solicitudes simultáneas, tales como aplicaciones web y de grupo de trabajo. Cuando se usa una base de datos con un nivel de servicio Estándar, puede ajustar el tamaño de la aplicación de base de datos según un rendimiento predecible, minuto a minuto.
   * **La base de datos tiene varias solicitudes simultáneas**. Las aplicaciones que atienden a más de un usuario a la vez suelen necesitar niveles de rendimiento más altos. Por ejemplo, las aplicaciones web o de grupo de trabajo que tienen requisitos de tráfico de entrada/salida de bajos a medios que admiten varias consultas concurrentes son buenas candidatas para el nivel de servicio Estándar.
-* **Premium**: El nivel de servicio Premium proporciona un rendimiento predecible, segundo a segundo, para cada base de datos Premium o Crítico para la empresa (versión preliminar). Si elige el nivel de servicio Premium, puede cambiar el tamaño de la aplicación de base de datos según la carga máxima para dicha base de datos. El plan elimina los casos en los que variaciones en el rendimiento pueden ocasionar que consultas de pequeño tamaño tarden más de lo habitual en operaciones sensibles a la latencia. Este modelo puede simplificar en gran medida los ciclos de desarrollo y validación de productos en aplicaciones que necesitan hacer declaraciones firmes sobre las necesidades máximas de recursos, variación de rendimiento o latencia de las consultas. La mayoría de los casos de uso del nivel de servicio Premium tienen una o varias de estas características:
+* **Premium**: el nivel de servicio Premium proporciona un rendimiento predecible, segundo a segundo, para cada base de datos Premium o Crítico para la empresa. Si elige el nivel de servicio Premium, puede cambiar el tamaño de la aplicación de base de datos según la carga máxima para dicha base de datos. El plan elimina los casos en los que variaciones en el rendimiento pueden ocasionar que consultas de pequeño tamaño tarden más de lo habitual en operaciones sensibles a la latencia. Este modelo puede simplificar en gran medida los ciclos de desarrollo y validación de productos en aplicaciones que necesitan hacer declaraciones firmes sobre las necesidades máximas de recursos, variación de rendimiento o latencia de las consultas. La mayoría de los casos de uso del nivel de servicio Premium tienen una o varias de estas características:
   * **Carga máxima elevada**. Una aplicación que requiere mucha CPU, memoria o entrada/salida (E/S) para completar sus operaciones necesita un nivel de rendimiento alto dedicado. Por ejemplo, una operación de base de datos que se sabe que consume varios núcleos de CPU durante mucho tiempo es candidata al nivel de servicio Premium.
   * **Muchas solicitudes simultáneas**. Algunas aplicaciones de base de datos atienden muchas solicitudes simultáneas, por ejemplo, cuando dan servicio a un sitio web con un volumen elevado de tráfico. Los niveles de servicio Básico y Estándar limitan el número de solicitudes simultáneas por base de datos. Las aplicaciones que requieren más conexiones necesitarían elegir un tamaño de reserva adecuado para controlar el número máximo de solicitudes necesarias.
   * **Baja latencia**. Algunas aplicaciones necesitan garantizar una respuesta de la base de datos en un tiempo mínimo. Si se llama a un procedimiento almacenado determinado como parte de una operación de cliente más amplia, podría ser necesario volver de esa llamada en no más de 20 milisegundos el 99 % del tiempo. Este tipo de aplicación se beneficia del nivel de servicio Premium para asegurarse de que haya la capacidad de proceso necesaria.
@@ -272,7 +272,7 @@ Algunas aplicaciones de base de datos tienen cargas de trabajo con operaciones d
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre los niveles de servicio basados en DTU, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md).
-* Para más información sobre los niveles de servicio basados en núcleos virtuales, consulte [Modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
+* Para obtener más información sobre los niveles de servicio basados en núcleos virtuales, consulte [Modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 * Para obtener más información sobre los grupos elásticos, consulte [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
 * Para información sobre el rendimiento y los grupos elásticos, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)
 

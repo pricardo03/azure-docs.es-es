@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2018
+ms.date: 07/12/2018
 ms.author: shlo
-ms.openlocfilehash: e654cc23d6a558469ea238fc5ade82b44562f9a2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4b3828e1857d17a128de346449d5cf2041709e50
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050376"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041082"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Supervise visualmente las factorías de datos de Azure
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
@@ -76,6 +76,11 @@ Vista de lista muestra ejecuciones de actividad correspondiente a cada ejecució
 
 ## <a name="features"></a>Características
 
+#### <a name="select-a-data-factory-to-monitor"></a>Selección de una factoría de datos para supervisar
+Mantenga el mouse sobre el icono **Data Factory** en la parte superior izquierda. Haga clic en el icono de 'Flecha' para ver una lista de factorías de datos y suscripciones de Azure que puede supervisar.
+
+![Selección de la factoría de datos](media/monitor-visually/select-datafactory.png)
+
 #### <a name="rich-ordering-and-filtering"></a>Orden y filtrado enriquecidos
 
 Las ejecuciones de canalización con orden se ejecutan de forma ascendente o descendente con Inicio de ejecución y las ejecuciones de las canalizaciones con filtro, por las columnas siguientes:
@@ -88,7 +93,7 @@ Las ejecuciones de canalización con orden se ejecutan de forma ascendente o des
 
 ![Filtrar](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-to-list-view"></a>Agregar o quitar columnas a la vista de lista
+#### <a name="addremove-columns-in-list-view"></a>Agregar o quitar columnas en la vista de lista
 Haga clic con el botón derecho en el encabezado de la vista de lista y elija las columnas que desea que aparezca en la vista de lista
 
 ![Columnas](media/monitor-visually/columns.png)
@@ -96,10 +101,22 @@ Haga clic con el botón derecho en el encabezado de la vista de lista y elija la
 #### <a name="reorder-column-widths-in-list-view"></a>Reordenar los anchos de columna en la vista de lista
 Aumentar y disminuir los anchos de columna en la vista de lista simplemente manteniendo el puntero sobre el encabezado de columna
 
-#### <a name="select-data-factory"></a>Selección de la factoría de datos
-Mantenga el mouse sobre el icono 'Factoría de datos' en la parte superior izquierda. Haga clic en el icono de 'Flecha' para ver una lista de factorías de datos y suscripciones de Azure que puede supervisar.
+#### <a name="user-properties"></a>Propiedades de usuario
 
-![Selección de la factoría de datos](media/monitor-visually/select-datafactory.png)
+Cualquier propiedad de actividad de canalización se puede promover como propiedad de usuario para que se convierta en una entidad que pueda supervisar. Por ejemplo, puede promover las propiedades **Origen** y **Destino** de la actividad de copia de la canalización como propiedades de usuario. También puede seleccionar **Generar automáticamente** para generar las propiedades de usuario **Origen** y **Destino** de una actividad de copia.
+
+![Creación de propiedades de usuario](media/monitor-visually/monitor-user-properties-image1.png)
+
+> [!NOTE]
+> Solo puede promocionar hasta 5 propiedades de actividad de canalización como propiedades de usuario.
+
+Después de crear las propiedades de usuario, puede supervisarlas en las vistas de lista de supervisión. Si el origen de la actividad de copia es un nombre de tabla, puede supervisar el nombre de la tabla de origen como una columna de la vista de lista de ejecuciones de actividad.
+
+![Lista de ejecuciones de actividad sin propiedades de usuario](media/monitor-visually/monitor-user-properties-image2.png)
+
+![Agregar columnas para propiedades de usuario a la lista de ejecuciones de actividad](media/monitor-visually/monitor-user-properties-image3.png)
+
+![Lista de ejecuciones de actividad con columnas de propiedades de usuario](media/monitor-visually/monitor-user-properties-image4.png)
 
 #### <a name="guided-tours"></a>Visitas guiadas
 Haga clic en el 'Icono de información' en la parte inferior izquierda y haga clic en 'Visitas guiadas' para obtener instrucciones paso a paso sobre cómo supervisar las ejecuciones de actividad y canalización.

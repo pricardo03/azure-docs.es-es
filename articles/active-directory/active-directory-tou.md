@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856423"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136662"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Azure AD Terms of Use.
@@ -36,7 +36,7 @@ Azure AD Terms of Use le permite realizar lo siguiente:
 - Mostrar quién ha aceptado o no los términos de uso.
 - Mostrar un registro de auditoría de la actividad de términos de uso.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para usar y configurar Azure AD Terms of Use, debe cumplir los siguientes requisitos:
 
 - Suscripción a Azure AD Premium P1, P2, EMS E3 o EMS E5.
@@ -86,7 +86,7 @@ Una vez que haya finalizado el documento de términos de uso, use el procedimien
 
     ![Agregar condiciones de uso](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>Ver quién los ha aceptado y rechazado
+## <a name="view-report-of-who-has-accepted-and-declined"></a>Ver quién los ha aceptado y rechazado
 La hoja Términos de uso muestra un recuento de los usuarios que los han aceptado y rechazado. Estos recuentos, y quién aceptado o rechazado estos términos, se almacenan mientras están vigentes los términos de uso.
 
 1. Inicie sesión en Azure y vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
@@ -97,10 +97,10 @@ La hoja Términos de uso muestra un recuento de los usuarios que los han aceptad
 
     ![Evento de auditoría](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>Visualización de registros de auditoría
+## <a name="view-azure-ad-audit-logs"></a>Visualización de registros de auditoría de Azure AD
 Si quiere ver la actividad adicional, Azure AD Terms of Use incluye registros de auditoría. Cada consentimiento de usuario desencadena un evento en los registros de auditoría que se almacena durante 30 días. Puede ver estos registros en el portal o descargarlos como un archivo .csv.
 
-Para empezar a trabajar con registros de auditoría, use el procedimiento siguiente:
+Para empezar a trabajar con los registros de auditoría de Azure AD, use el procedimiento siguiente:
 
 1. Inicie sesión en Azure y vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
 
@@ -167,10 +167,19 @@ Las directivas de acceso condicional surten efecto de inmediato. Cuando esto suc
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 **P: ¿Cómo puedo ver si un usuario ha aceptado los términos de uso y cuándo lo ha hecho?**</br>
-R: en la hoja Términos de uso, haga clic en el número situado bajo **Aceptado**. También puede ver o buscar la actividad de aceptación en los registros de auditoría. Para más información, consulte [Ver quién los ha aceptado y rechazado](#view-who-has-accepted-and-declined) y [Visualización de registros de auditoría](#view-audit-logs).
+R: en la hoja Términos de uso, haga clic en el número situado bajo **Aceptado**. También puede ver o buscar la actividad de aceptación en los registros de auditoría de Azure AD. Para más información, consulte [Ver quién los ha aceptado y rechazado](#view-who-has-accepted-and-declined) y [Visualización de registros de auditoría de Azure AD](#view-azure-ad-audit-logs).
+ 
+**P: ¿Cuánto tiempo se almacena la información?**</br>
+R: Los recuentos de usuarios en el informe Términos de uso y quién los ha aceptado o rechazado se almacenan mientras están vigentes los términos de uso. Los registros de auditoría de Azure AD se almacenan durante 30 días.
 
-**P: ¿Si cambian los términos de uso, es necesario que los usuarios los acepten de nuevo?**</br>
+**P: ¿Por qué veo un número diferente de consentimientos en el informe Términos de uso en comparación con los registros de auditoría de Azure AD?**</br>
+R: El informe Términos de uso se almacena durante toda la vigencia de esos términos de uso, mientras que los registros de auditoría de Azure AD se almacenan durante 30 días. Además, el informe Términos de uso solo muestra el estado de consentimiento actual de los usuarios. Por ejemplo, si un usuario manifiesta su rechazo y luego su aceptación, el informe Términos de uso solo mostrará la aceptación de ese usuario. Si necesita ver el historial, puede usar los registros de auditoría de Azure AD.
+
+**P: ¿Si cambio los términos de uso, es necesario que los usuarios los acepten de nuevo?**</br>
 R: Sí, un administrador puede cambiar los términos de uso y será necesario que los usuarios vuelvan a aceptar los nuevos términos.
+
+**P: Si hay hipervínculos en el documento PDF de Términos de uso, ¿los usuarios finales podrán hacer clic en ellos?**</br>
+R: El archivo PDF se representa de manera predeterminada como un archivo JPEG, por lo que no se puede hacer clic en los hipervínculos. Los usuarios tiene la opción de seleccionar **¿Tiene problemas con la visualización? Haga clic aquí**, que muestra el PDF de manera nativa, donde sí se admiten los hipervínculos.
 
 **P: ¿Pueden los términos de uso admitir varios idiomas?**</br>
 R: Sí.  Actualmente, un administrador puede configurar hasta 18 idiomas diferentes para unos solos términos de uso. 
@@ -189,6 +198,7 @@ R: El usuario será bloqueado y no podrá obtener acceso a la aplicación. El us
  
 **P: ¿Es posible rechazar los Términos de uso que se han aceptado previamente?**</br>
 R: Puede [revisar los Términos de uso aceptados previamente](#how-users-can-review-their-terms-of-use) pero actualmente no hay ninguna manera de poderlos rechazar.
- 
-**P: ¿Cuánto tiempo se almacena la información?**</br>
-R: Los recuentos de usuarios y quién los ha aceptado o rechazado se almacenan mientras están vigentes los términos de uso. Los registros de auditoría se almacenan durante 30 días.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md)

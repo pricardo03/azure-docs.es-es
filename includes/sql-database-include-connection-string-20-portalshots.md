@@ -1,15 +1,24 @@
-
-<!--
-includes/sql-database-include-connection-string-20-portalshots.md
-
-Latest Freshness check:  2015-09-02 , GeneMi.
-
-## Connection string
--->
-
-
+---
+title: Obtenga la cadena de conexión del portal de Azure
+description: Obtenga la cadena de conexión del portal de Azure
+keywords: conexión sql, cadena de conexión
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+ms.date: 07/13/2018
+ms.author: ninarn
+ms.openlocfilehash: dab7623c86bea4e562313e618f238b9b33c0fdc5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117297"
+---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtenga la cadena de conexión del portal de Azure
-Utilice [Azure Portal](https://portal.azure.com/) para obtener la cadena de conexión necesaria para que su programa cliente interactúe con Azure SQL Database. 
+Utilice [Azure Portal](https://portal.azure.com/) para obtener la cadena de conexión necesaria para que su programa cliente interactúe con Azure SQL Database.
 
 1. Seleccione **Todos los servicios** > **Bases de datos SQL**.
 
@@ -17,14 +26,17 @@ Utilice [Azure Portal](https://portal.azure.com/) para obtener la cadena de cone
 
 3. Seleccione la fila correspondiente a la base de datos.
 
-4. Cuando aparezca la hoja de su base de datos, para una mayor comodidad visual puede seleccionar los botones **Minimizar** para contraer las hojas que utilizó para examinar y filtrar la base de datos. 
-   
+4. Cuando aparezca la hoja de su base de datos, para una mayor comodidad visual puede seleccionar los botones **Minimizar** para contraer las hojas que utilizó para examinar y filtrar la base de datos.
+
 5. En la hoja de la base de datos, seleccione **Mostrar cadenas de conexión de la base de datos**.
 
-6. Si piensa utilizar la biblioteca de conexiones de ADO.NET, copie la cadena etiquetada con **ADO**. 
-   
+6. Copie la cadena de conexión adecuada. Por ejemplo, si piensa usar la biblioteca de conexiones de ADO.NET, copie la cadena adecuada de la pestaña **ADO.NET**.
+
     ![Copie la cadena de conexión ADO correspondiente a la base de datos][20-CopyAdoConnectionString]
-7. En un formato u otro, pegue la información de la cadena de conexión en el código del programa cliente.
+
+7. Edite la cadena de conexión según sea necesario. Por ejemplo, inserte su contraseña en la cadena de conexión o quite "@&lt;nombre del servidor&gt;" del nombre de usuario si el nombre de servidor o el nombre de usuario es demasiado largo.
+
+8. En un formato u otro, pegue la información de la cadena de conexión en el código del programa cliente.
 
 Para obtener más información, consulte [Cadenas de conexión y archivos de configuración](http://msdn.microsoft.com/library/ms254494.aspx).
 

@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 19979240e13ac822921b7f43a158d171aeea0123
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 62cb906000999e6ed97be76c4fe9b15e9ec1cb91
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365243"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092477"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Conversión de almacenamiento de Azure Managed Disks de estándar a premium, y viceversa
 
-Managed Disks ofrece dos opciones de almacenamiento: [Premium](premium-storage.md) (basado en SSD) y [Estándar](standard-storage.md) (basado en HDD). Permite cambiar fácilmente entre las dos opciones en función de sus necesidades de rendimiento, con el mínimo tiempo de inactividad. Esta funcionalidad no está disponible con discos no administrados. Pero resulta muy sencillo realizar la [conversión a Managed Disks](convert-unmanaged-to-managed-disks.md) para cambiar fácilmente entre las dos opciones.
+Managed Disks ofrece tres opciones de almacenamiento: [SSD premium](../windows/premium-storage.md), SSD estándar (versión preliminar) y [HDD estándar](../windows/standard-storage.md). Permite cambiar fácilmente entre las opciones en función de sus necesidades de rendimiento, con el mínimo tiempo de inactividad. Esto no se admite para discos no administrados. Pero resulta muy sencillo realizar la [conversión a Managed Disks](convert-unmanaged-to-managed-disks.md) para cambiar fácilmente entre los tipos de discos.
 
 En este artículo se muestra cómo convertir Managed Disks de estándar a premium, y viceversa, mediante Azure PowerShell. Si necesita instalarlas o actualizarlas, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps.md) (Instalación y configuración de Azure PowerShell).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 * La conversión requiere reiniciar la máquina virtual, por lo que debe programar la migración del almacenamiento de discos durante una ventana de mantenimiento existente previamente. 
-* Si usa discos no administrados, debe primero realizar la [conversión a Managed Disks](convert-unmanaged-to-managed-disks.md) para usar este artículo para cambiar entre las dos opciones de almacenamiento. 
+* Si usa discos no administrados, debe primero realizar la [conversión a Managed Disks](convert-unmanaged-to-managed-disks.md) para usar este artículo para cambiar entre las opciones de almacenamiento. 
 * En este artículo se requiere la versión 6.0.0 del módulo de Azure PowerShell, u otra posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). También tiene que ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 
@@ -47,7 +47,7 @@ $rgName = 'yourResourceGroup'
 $vmName = 'yourVM'
 
 # Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 
 # Premium capable size
 # Required only if converting storage from standard to premium
@@ -89,13 +89,13 @@ $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
 # Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 
 $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
-# Get the ARM resource to get name and resource group of the VM
+# Get parent VM resource
 $vmResource = Get-AzureRmResource -ResourceId $disk.diskId
 
 # Stop and deallocate the VM before changing the storage type
@@ -107,6 +107,36 @@ $vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName
 # Skip this step if converting storage from premium to standard
 $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+
+# Update the storage type
+$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
+Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
+-DiskName $disk.Name
+
+Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
+```
+
+## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Conversión de un disco administrado de HDD estándar a SSD estándar, y viceversa
+
+En el ejemplo siguiente se muestra cómo cambiar un solo disco de una máquina virtual de HDD estándar a SSD estándar, y viceversa.
+
+```azurepowershell-interactive
+
+$diskName = 'yourDiskName'
+# resource group that contains the managed disk
+$rgName = 'yourResourceGroupName'
+# Choose between Standard_LRS and StandardSSD_LRS based on your scenario
+$storageType = 'StandardSSD_LRS'
+
+$disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
+
+# Get parent VM resource
+$vmResource = Get-AzureRmResource -ResourceId $disk.ManagedBy
+
+# Stop and deallocate the VM before changing the storage type
+Stop-AzureRmVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name -Force
+
+$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
 # Update the storage type
 $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB

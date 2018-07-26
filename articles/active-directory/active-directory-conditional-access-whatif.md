@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 34f6efaac00f4aa17ea6a53ab51da69b84591e35
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750089"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113036"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>¿Qué es la herramienta What If en el acceso condicional de Azure Active Directory?
 
@@ -52,6 +52,10 @@ Como próximo paso, puede iniciar una ejecución de la simulación que evalúe l
 Cuando la evaluación finaliza, la herramienta genera un informe de las directivas afectadas.
 
 
+> [!NOTE]
+> Actualmente, la herramienta What If no admite los grupos anidados. Si un usuario está en un grupo y ese grupo es miembro de otro grupo que se usa en una directiva de acceso condicional, entonces la herramienta What If no muestra correctamente el efecto que esa directiva tiene en el usuario. 
+
+
 ## <a name="running-the-tool"></a>Ejecución de la herramienta
 
 La herramienta **What if** se encuentra en la página **[Acceso condicional: Directivas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** de Azure Portal.
@@ -62,7 +66,7 @@ Para iniciar la herramienta, en la barra de herramientas que aparece en la parte
 
 Antes de ejecutar una evaluación, debe configurar los valores.
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configuración
 
 En esta sección se proporcionan detalles sobre los ajustes de la ejecución de simulación.
 

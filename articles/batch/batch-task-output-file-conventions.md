@@ -15,14 +15,14 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbfb40b3740f9ea43df327a01ba6f4cf52d80457
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30314153"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117165"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET 
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
@@ -216,7 +216,7 @@ Para ver los archivos de salidas y registros de las tareas en Azure Portal, nave
 
 El proyecto de ejemplo [PersistOutputs][github_persistoutputs] es uno de los ejemplos de código de [Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio muestra cómo utilizar la biblioteca de convenciones de archivos de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos:
 
-1. Abra el proyecto en **Visual Studio 2015 o una versión más reciente**.
+1. Abra el proyecto en **Visual Studio 2017**.
 2. Agregue las **credenciales de cuenta** de Batch y Storage a **AccountSettings.settings** al proyecto Microsoft.Azure.Batch.Samples.Common.
 3. **Compile** (pero no ejecute) la solución. Si se le solicita, restaure los paquetes NuGet.
 4. Use el Portal de Azure para cargar un [paquete de aplicación](batch-application-packages.md) para **PersistOutputsTask**. Incluya el archivo `PersistOutputsTask.exe` y los ensamblados dependientes en el paquete zip, establezca el identificador de la aplicación en "PersistOutputsTask" y la versión del paquete de aplicación en "1.0".

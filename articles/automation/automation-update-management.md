@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345389"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115680"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -162,9 +162,9 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
-| Agentes de Windows |Sí |La solución recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia a continuación la instalación de las actualizaciones necesarias. |
-| Agentes de Linux |Sí |La solución recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia a continuación la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
-| Grupo de administración de Operations Manager |Sí |La solución recopila información acerca de las actualizaciones del sistema de agentes en un grupo de administración conectado.<br/>No se requiere ninguna conexión directa entre el agente de Operations Manager y Log Analytics. Los datos se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
+| Agentes de Windows |SÍ |La solución recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia a continuación la instalación de las actualizaciones necesarias. |
+| Agentes de Linux |SÍ |La solución recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia a continuación la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
+| Grupo de administración de Operations Manager |SÍ |La solución recopila información acerca de las actualizaciones del sistema de agentes en un grupo de administración conectado.<br/>No se requiere ninguna conexión directa entre el agente de Operations Manager y Log Analytics. Los datos se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
 
@@ -209,9 +209,9 @@ Seleccione la pestaña **Implementaciones de actualizaciones** para ver la lista
 
 ## <a name="create-or-edit-an-update-deployment"></a>Creación o edición de una implementación de actualizaciones
 
-Para crear una nueva implementación de actualizaciones, seleccione **Programar implementación de actualizaciones**. Se abre el panel **Nueva implementación de actualización**. Escriba valores para las propiedades descritas en la tabla siguiente:
+Para crear una nueva implementación de actualizaciones, seleccione **Programar implementación de actualizaciones**. Se abre el panel **Nueva implementación de actualización**. Escriba valores para las propiedades descritas en la tabla siguiente y haga clic en **Crear**:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 |NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Seleccione **Linux** o **Windows**.|

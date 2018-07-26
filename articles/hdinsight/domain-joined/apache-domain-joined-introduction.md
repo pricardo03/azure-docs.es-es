@@ -1,6 +1,6 @@
 ---
-title: 'HDInsight: clústeres de HDInsight unidos a un dominio (Azure)'
-description: Aprenda a...
+title: Introducción a la seguridad de Hadoop con clústeres de Azure HDInsight unidos a un dominio
+description: Obtenga información sobre cómo los clústeres de Azure HDInsight unidos a un dominio son compatibles con los cuatro pilares de la seguridad empresarial.
 services: hdinsight
 author: omidm1
 manager: jhubbard
@@ -12,42 +12,57 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: omidm
-ms.openlocfilehash: 3fd3a4b8982fe2170726df03bdc884e658d0b0c2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 6f2c41aff8aaa389a8f2288cbb445e1ba2e7fd14
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019495"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112543"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Introducción a la seguridad de Hadoop con clústeres de HDInsight unidos a dominio
 
-Hasta hoy, Azure HDInsight solo admite un único usuario administrador local. Esto funcionaba muy bien para departamentos o equipos de aplicaciones menores. A medida que la popularidad de las cargas de trabajo basadas en Hadoop aumentaba en el sector empresarial, fue creciendo la necesidad de funcionalidades de tipo empresarial, tales como la autenticación basada en Active Directory, la compatibilidad con múltiples usuarios y el control de acceso basado en rol. Mediante los clústeres de HDInsight unidos a dominio, puede crear un clúster de HDInsight unido a un dominio de Active Directory y configurar una lista de empleados de la empresa que pueden autenticarse mediante Azure Active Directory para iniciar sesión en el clúster de HDInsight. Ninguna persona fuera de la empresa puede iniciar sesión o acceder al clúster de HDInsight. El administrador de organización puede configurar el control de acceso basado en roles para la seguridad de Hive con [Apache Ranger](http://hortonworks.com/apache/ranger/), que solo restringe el acceso a datos en la medida que sea necesario. Por último, el administrador puede auditar el acceso a los datos por parte de los empleados, y los cambios realizados en las directivas de control de acceso, con lo que se consigue un alto grado de control de los recursos corporativos.
+En el pasado, Azure HDInsight solo era compatible con un único usuario: el administrador local. Esto funcionaba muy bien para departamentos o equipos de aplicaciones menores. A medida que la popularidad de las cargas de trabajo basadas en Hadoop aumentaba en el sector empresarial, fue creciendo la necesidad de funcionalidades de tipo empresarial, tales como la autenticación basada en Active Directory, la compatibilidad con múltiples usuarios y el control de acceso basado en rol. 
+
+Puede crear un clúster de HDInsight que esté unido a un dominio de Active Directory. Luego puede configurar una lista de empleados de la empresa que pueden autenticarse a través de Azure Active Directory para iniciar sesión en el clúster de HDInsight. Ninguna persona fuera de la empresa puede iniciar sesión ni acceder al clúster de HDInsight. 
+
+El administrador de la empresa puede configurar el control de acceso basado en rol (RBAC) para la seguridad de Hive mediante el uso de [Apache Ranger](http://hortonworks.com/apache/ranger/). Configurar el RBAC restringe el acceso solo a los datos necesarios. Por último, el administrador puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso. El administrador puede lograr un alto grado de gobierno de sus recursos corporativos.
 
 > [!NOTE]
-> Las nuevas características que se describen en este artículo solo están disponibles en versión preliminar en los siguientes tipos de clúster: Hadoop, Spark e Interactive Query. Oozie ya está habilitado en clústeres unidos a un dominio. Para tener acceso a la interfaz de usuario web de Oozie, los usuarios deben habilitar la [tunelización](../hdinsight-linux-ambari-ssh-tunnel.md)
+> Las nuevas características que se describen en este artículo solo están disponibles en versión preliminar en los siguientes tipos de clúster: Hadoop, Spark e Interactive Query. Oozie ya está habilitado en clústeres unidos a un dominio. Para tener acceso a la interfaz de usuario web de Oozie, los usuarios deben habilitar la [tunelización](../hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="benefits"></a>Ventajas
-La seguridad de la empresa se basa en cuatro grandes pilares: seguridad del perímetro, autenticación, autorización y cifrado.
+La seguridad empresarial incluye cuatro pilares importantes: seguridad del perímetro, autenticación, autorización y cifrado.
 
-![Pilares de las ventajas de los clústeres de HDInsight de dominio unido](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
+![Ventajas de los clústeres de HDInsight unidos a un dominio en los cuatro pilares de la seguridad empresarial](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
-### <a name="perimeter-security"></a>Seguridad del perímetro
-La seguridad del perímetro en HDInsight se logra con redes virtuales y el servicio de puerta de enlace. En la actualidad, un administrador de empresa puede crear un clúster de HDInsight dentro de una red virtual y usar Grupos de seguridad de red (reglas de firewall) para restringir el acceso a la red virtual. Solo las direcciones IP definidas en las reglas de firewall de entrada podrán comunicarse con el clúster de HDInsight, lo que proporciona la seguridad del perímetro. Otro nivel de seguridad del perímetro se realiza mediante el servicio de puerta de enlace. La puerta de enlace es el servicio que actúa como primera línea de defensa para cualquier solicitud entrante al clúster de HDInsight. Acepta la solicitud, la valida y, solo entonces, permite que la solicitud pase a otros nodos del clúster, lo que proporciona la seguridad del perímetro para otros nodos de datos y de nombres del clúster.
+## <a name="perimeter-security"></a>Seguridad del perímetro
+La seguridad del perímetro en HDInsight se logra a través de redes virtuales y el servicio de Azure VPN Gateway. Un administrador de empresa puede crear un clúster de HDInsight dentro de una red virtual y usar los grupos de seguridad de red (reglas de firewall) para restringir el acceso a la red virtual. Solo las direcciones IP definidas en las reglas de firewall de entrada podrán comunicarse con el clúster de HDInsight. Esta configuración proporciona la seguridad del perímetro.
 
-### <a name="authentication"></a>Autenticación
-Un administrador de empresa puede crear un clúster de HDInsight unido a dominio en una [red virtual](https://azure.microsoft.com/services/virtual-network/). Los nodos del clúster de HDInsight se unirán al dominio administrado por la empresa. Esto se logra mediante el uso de [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). Todos los nodos del clúster se unen a un dominio que administra la empresa. Con esta configuración, los empleados de la empresa pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticarse con otros puntos de conexión aprobados tales como Ambari Views, ODBC, JDBC, PowerShell y las API REST para interactuar con el clúster. El administrador tiene control total sobre la limitación del número de usuarios que interactúan con el clúster mediante estos puntos de conexión.
+Otro nivel de seguridad del perímetro se logra mediante el servicio de VPN Gateway. La puerta de enlace actúa como primera línea de defensa para cualquier solicitud entrante al clúster de HDInsight. Acepta la solicitud, la valida y solo entonces permite que la solicitud pase a los otros nodos del clúster. De este modo, la puerta de enlace proporciona la seguridad del perímetro a otros nodos de nombre y datos en el clúster.
 
-### <a name="authorization"></a>Autorización
-Un procedimiento recomendado seguido por la mayoría de las empresas es que no todos los empleados tengan acceso a todos los recursos de empresa. Asimismo, con esta versión, el administrador puede definir directivas de control de acceso basado en roles para los recursos del clúster. Por ejemplo, puede configurar el administrador [Apache Ranger](http://hortonworks.com/apache/ranger/) para establecer las directivas de control de acceso para Hive. Esta capacidad garantiza que los empleados solo puedan acceder a los datos que necesitan para tener éxito en sus trabajos. El acceso SSH al clúster también está restringido a solo el administrador.
+## <a name="authentication"></a>Autenticación
+Un administrador de empresa puede crear un clúster de HDInsight unido a dominio en una [red virtual](https://azure.microsoft.com/services/virtual-network/). Todos los nodos del clúster de HDInsight se unen al dominio administrado por la empresa. Esto se logra mediante el uso de [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-### <a name="auditing"></a>Auditoría
-Junto con la protección de los recursos del clúster de HDInsight contra usuarios no autorizados y la protección de los datos, la auditoría de todos los accesos a los recursos del clúster y los datos es necesaria para realizar el seguimiento de los accesos no autorizados o accidentales a los recursos. El administrador puede ver y notificar todos los accesos a los recursos y los datos del clúster de HDInsight. El administrador también puede ver y notificar todos los cambios en las directivas de control de acceso en los puntos de conexión de Ranger Apache compatibles. Un clúster de HDInsight unido a dominio utiliza la familiar interfaz de usuario de Apache Ranger para buscar registros de auditoría. En el back-end, usa Ranger [Apache Solr](http://hortonworks.com/apache/solr/) para almacenar y buscar los registros.
+Con esta configuración, los empleados de la empresa pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticarse con otros puntos de conexión aprobados tales como Ambari Views, ODBC, JDBC, PowerShell y las API REST para interactuar con el clúster. El administrador tiene control total sobre la limitación del número de usuarios que interactúan con el clúster mediante estos puntos de conexión.
 
-### <a name="encryption"></a>Cifrado
-La protección de los datos es importante para cubrir los requisitos de cumplimiento y seguridad de la organización y, junto con la restricción del acceso a datos por parte de empleados no autorizados, también se deben proteger mediante su cifrado. Los almacenes de datos para clústeres de HDInsight, Azure Storage Blob y Azure Data Lake Storage admiten el [cifrado de datos](../../storage/common/storage-service-encryption.md) en reposo en el lado servidor transparente. Los clústeres de HDInsight seguros funcionarán perfectamente con esta funcionalidad de cifrado de los datos en reposo en el lado servidor.
+## <a name="authorization"></a>Autorización
+Un procedimiento recomendado que la mayoría de las empresas sigue es que no todos los empleados tengan acceso a todos los recursos de la empresa. Asimismo, el administrador puede definir directivas de control de acceso basado en rol para los recursos del clúster. 
+
+Por ejemplo, puede configurar el administrador [Apache Ranger](http://hortonworks.com/apache/ranger/) para establecer las directivas de control de acceso para Hive. Esta funcionalidad garantiza que los empleados solo pueden acceder a los datos que necesitan para realizar correctamente sus trabajos. El acceso SSH al clúster también está restringido solo al administrador.
+
+## <a name="auditing"></a>Auditoría
+Auditar todos los acceso a los recursos de clúster, y los datos, es necesario para hacer seguimiento del acceso no autorizado o accidental de los recursos. Es tan importante como proteger los recursos de clúster de HDInsight contra usuarios no autorizados y proteger los datos. 
+
+El administrador puede ver y notificar todos los accesos a los recursos y los datos del clúster de HDInsight. El administrador también puede ver y notificar todos los cambios en las directivas de control de acceso creados en los puntos de conexión de Apache Ranger compatibles. 
+
+Un clúster de HDInsight unido a dominio utiliza la familiar interfaz de usuario de Apache Ranger para buscar registros de auditoría. En el back-end, Ranger usa [Apache Solr](http://hortonworks.com/apache/solr/) para almacenar y buscar en los registros.
+
+## <a name="encryption"></a>Cifrado
+Proteger los datos es importante para cumplir con los requisitos de cumplimiento y de seguridad de la organización. Además de restringir el acceso de empleados no autorizados a los datos, es necesario cifrarlos. 
+
+Ambos almacenes de datos para clústeres de HDInsight (Azure Blob Storage y Azure Data Lake Storage Gen1) admiten el [cifrado de datos](../../storage/common/storage-service-encryption.md) en reposo en el lado servidor transparente. Los clústeres de HDInsight seguros funcionarán perfectamente con esta funcionalidad de cifrado de los datos en reposo en el lado servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Planeamiento de clústeres de HDInsight unidos a un dominio](apache-domain-joined-architecture.md).
+* [Planeamiento de clústeres de HDInsight unidos a un dominio](apache-domain-joined-architecture.md)
 * [Configuración de clústeres de HDInsight unidos a un dominio](apache-domain-joined-configure.md)
 * [Administración de clústeres de HDInsight unidos a dominio](apache-domain-joined-manage.md)
 * [Configuración de directivas de Hive en clústeres de HDInsight unidos a un dominio](apache-domain-joined-run-hive.md)

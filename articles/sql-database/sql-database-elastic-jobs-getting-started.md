@@ -7,21 +7,26 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 4f12c3353ca4949b3c1c031420ec5a0b8fdb2dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8b03d228464978995a7a97e2f245b629b52ed812
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649159"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092858"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introducción a trabajos de Elastic Database
+
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
 Trabajos de Elastic Database (versión preliminar) para Azure SQL Database permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para más información sobre la característica de trabajo de Elastic Database, vea [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
 
 Este artículo amplía el ejemplo que aparece en [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md). Cuando termine, habrá aprendido a crear y administrar trabajos que administran un grupo de bases de datos relacionadas. No es necesario usar las herramientas de escalado elástico para aprovechar las ventajas de los trabajos elásticos.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Descargue [Introducción al ejemplo de herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creación de un administrador de mapas de particiones con la aplicación de ejemplo
@@ -461,7 +466,7 @@ Todas las filas de la tabla **Clientes** , almacenadas en distintas particiones,
 Ahora puede usar las funciones de datos de Excel. Use la cadena de conexión con el nombre de servidor, el nombre de base de datos y las credenciales para conectar su BI y las herramientas de integración de datos a la base de datos de consulta elástica. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. Consulte la base de datos de consulta elástica y las tablas externas como cualquier otra base de datos SQL Server y las tablas de SQL Server que quiera conectar con la herramienta.
 
 ### <a name="cost"></a>Coste
-No hay ningún cargo adicional por usar la característica de consulta de Elastic Database. Sin embargo, en este momento la característica está solo disponible en bases de datos de nivel Premium o Crítico para la empresa (versión preliminar) y en grupos elásticos como punto de conexión, pero las particiones pueden pertenecer a cualquier nivel de servicio.
+No hay ningún cargo adicional por usar la característica de consulta de Elastic Database. En cambio, en este momento la característica solo está disponible en bases de datos de nivel Premium o Crítico para la empresa y en grupos elásticos como punto de conexión, pero las particiones pueden pertenecer a cualquier nivel de servicio.
 
 Para obtener información sobre los precios, consulte [Detalles de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 

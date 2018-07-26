@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798077"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116170"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science. Linux Data Science Virtual Machine (DSVM) es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de los datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md) . La imagen de máquina virtual permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Puede escalar la máquina virtual verticalmente de manera fácil, si es necesario, y detenerla cuando no la use. Así que este recurso es tanto elástico como rentable.
@@ -29,7 +29,7 @@ En las tareas de ciencias de los datos que se demuestran en este tutorial se sig
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Se trata de un conjunto de correos electrónicos macados como es correo no deseado o no es correo no deseado, y también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Las estadísticas incluidas se describen en la siguiente sección.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de poder usar una máquina virtual de Linux Data Science, debe tener lo siguiente:
 
 * Una **suscripción de Azure**. Si ya tiene una, consulte [Cree su cuenta gratuita de Azure hoy mismo](https://azure.microsoft.com/free/).
@@ -42,7 +42,7 @@ Antes de poder usar una máquina virtual de Linux Data Science, debe tener lo si
 El conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) es un conjunto de datos relativamente pequeño que contiene únicamente 4601 ejemplos. Este tamaño es adecuado para demostrar algunas de las características principales de la máquina virtual de Data Sciencie ya que mantiene los requisitos de recursos en un nivel modesto.
 
 > [!NOTE]
-> Este tutorial se creó en una máquina virtual Linux Data Science de tamaño D2 v2. Esta DSVM tiene la capacidad para controlar los procedimientos de este tutorial.
+> Este tutorial se creó en Data Science Virtual Machine de Linux de tamaño D2 v2 (CentOS Edition). Esta DSVM tiene la capacidad para controlar los procedimientos de este tutorial.
 >
 >
 
@@ -77,12 +77,8 @@ Para obtener copias de los ejemplos de código usados en este tutorial, clone el
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Abra una ventana de terminal e inicie una nueva sesión de R con la consola interactiva de R.
+Abra una ventana de terminal e inicie una nueva sesión de R con la consola interactiva de R o utilice RStudio preinstalado en la máquina.
 
-> [!NOTE]
-> También puede usar RStudio para los siguientes procedimientos. Para instalar RStudio, ejecute este comando en un terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 Para importar los datos y configurar el entorno, ejecute:
 
@@ -193,6 +189,7 @@ Seleccione **Authorization Tokens** (Tokens de autorización) en el menú princi
 
 Cargue el paquete de **AzureML** y luego establezca los valores de las variables con su token y su id. de área de trabajo en la sesión de R de la DSVM:
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -207,29 +204,28 @@ Vamos a simplificar el modelo para que esta demostración sea más fácil de imp
 
 Necesitamos una función de predicción que tome las características como una entrada y devuelva los valores previstos:
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 Publique la función predictSpam en AzureML mediante la función **publishWebService** :
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
+
 
 Esta función toma la función **predictSpam**, crea un servicio web llamado **spamWebService** con entradas y salidas definidas y devuelve información sobre el nuevo punto de conexión.
 
-Vea los detalles del servicio web publicado, junto con su punto de conexión de API y las claves de acceso con el comando:
+Vea los detalles del último servicio web publicado, junto con su punto de conexión de API y las claves de acceso con el comando:
 
-    spamWebService[[2]]
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 Para probarlo en las 10 primeras filas del conjunto de prueba:
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## <a name="use-other-tools-available"></a>Uso de otras herramientas disponibles
@@ -285,7 +281,7 @@ Para realizar predicciones:
 
 Para mostrar cómo publicar un punto de conexión de AzureML, vamos a crear un modelo más simple con tres variables como hicimos cuando publicamos el modelo de R anteriormente.
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)
@@ -427,7 +423,7 @@ Una de las características interesantes de Rattle es la posibilidad de ejecutar
 Cuando haya terminado de crear modelos, seleccione la pestaña **Log** (Registrar) para ver el código R ejecutado por Rattle durante la sesión. Puede seleccionar el botón **Export** (Exportar) para guardarlo.
 
 > [!NOTE]
-> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de \*Export this log ...\* (Exportar este registro) en el texto del registro.
+> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *Export this log ...* (Exportar este registro) en el texto del registro.
 >
 >
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 344ed971dd4a869cfbdc363222d772dcc3191199
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916047"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113861"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -177,6 +177,13 @@ Si el problema persiste, póngase en contacto con el soporte técnico.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>No se puede ver la máquina virtual de Azure para seleccionarla en "Habilitar la replicación"
 
+ **Causa 1: el grupo de recursos y la máquina virtual de origen están en ubicaciones distintas** <br>
+Actualmente Azure Site Recovery requiere que la región de origen de las máquinas virtuales y el grupo de recursos estén en la misma ubicación. Si no es así, no podrá encontrar la máquina virtual durante el momento de la protección.
+
+**Causa 2: el grupo de recursos no forma parte de la suscripción seleccionada** <br>
+Es posible que no pueda encontrar el grupo de recursos en el momento de la protección si no forma parte de la suscripción especificada. Asegúrese de que el grupo de recursos pertenece a la suscripción que se usa.
+
+ **Causa 3: configuración obsoleta** <br>
 Si no ve la VM que quiere habilitar para la replicación, podría deberse a que se dejó una configuración obsoleta de Site Recovery en la VM de Azure. Esta situación podría darse en los siguientes casos:
 
 - Habilitó la replicación para la máquina virtual de Azure mediante Site Recovery y luego eliminó el almacén de Site Recovery sin deshabilitar explícitamente la replicación en la máquina virtual.
@@ -185,6 +192,11 @@ Si no ve la VM que quiere habilitar para la replicación, podría deberse a que 
 ### <a name="fix-the-problem"></a>Corrección del problema
 
 Puede usar el artículo sobre cómo [quitar el script de configuración de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) y quitar la configuración de Site Recovery obsoleta en la máquina virtual de Azure. Debería poder ver la VM después de quitar la configuración obsoleta.
+
+## <a name="unable-to-select-virtual-machine-for-protection"></a>No se puede seleccionar la máquina virtual para la protección 
+ **Causa 1: la máquina virtual tiene alguna extensión instalada en estado Con errores o No responde** <br>
+ Vaya a Máquinas virtuales > Configuración > Extensiones y compruebe si hay alguna extensión en un estado con errores. Desinstale la extensión con errores y vuelva a intentar proteger la máquina virtual.<br>
+ **Causa 2:  [El estado de aprovisionamiento de la máquina virtual no es válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>El estado de aprovisionamiento de la máquina virtual no es válido (código de error 150019)
 
@@ -200,6 +212,7 @@ Para habilitar la replicación en la máquina virtual, el estado de aprovisionam
 
 - Si **provisioningState** es **Error**, póngase en contacto con soporte técnico con detalles para solucionar el problema.
 - Si **provisioningState** es **Actualizando**, puede que se esté implementando otra extensión. Compruebe si hay operaciones en curso en la máquina virtual, espere a que finalicen y reintente el trabajo **Habilitar replicación** para la recuperación del sitio que presenta el error.
+
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Error del servicio de instantáneas de volumen/COM+ (código de error 151025)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: c92a986d06deb9f7de10f0682fe46804e6ebb6e7
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802568"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069883"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integración de red virtual para los servicios de Azure
 
@@ -59,8 +59,9 @@ Cada servicio implementado directamente en la red virtual tiene requisitos espec
 - [Application Gateway (interna)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Motor de Azure Container Service](https://github.com/Azure/acs-engine) con el [complemento](https://github.com/Azure/acs-engine/tree/master/examples/vnet) de CNI de Azure Virtual Network.
-- [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): solo red virtual (clásica)
+- [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
+- [Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-vnet-configuration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Servicios en la nube](https://msdn.microsoft.com/library/azure/jj156091): solo red virtual (clásica)
 
 Puede implementar un [recurso interno de Azure Load Balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para equilibrar la carga de muchos de los recursos de la lista anterior. En algunos casos, el servicio crea e implementa automáticamente un equilibrador de carga cuando se crea un recurso.

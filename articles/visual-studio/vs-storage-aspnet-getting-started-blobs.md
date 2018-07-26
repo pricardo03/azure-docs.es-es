@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696572"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070562"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET)
 
@@ -30,7 +30,7 @@ En este tutorial se muestra cómo escribir código de ASP.NET para algunos escen
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -135,11 +135,11 @@ Los siguientes pasos muestran cómo crear un contenedor de blobs:
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Vistas**.
 
-2. En el menú contextual, seleccione **Agregar** > **Nueva carpeta**. Asigne a la nueva carpeta el nombre *Blobs*. 
+1. Si no hay una carpeta **Blobs**, cree una. En el menú contextual, seleccione **Agregar** > **Nueva carpeta**. Asigne a la nueva carpeta el nombre *Blobs*. 
  
 1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** y haga clic con el botón derecho en **Blobs**.
 
-4. En el menú contextual, seleccione **Agregar** > **Vista**.
+1. En el menú contextual, seleccione **Agregar** > **Vista**.
 
 1. En el cuadro de diálogo **Agregar vista**, escriba **CreateBlobContainer** para el nombre de la vista y seleccione **Agregar**.
 

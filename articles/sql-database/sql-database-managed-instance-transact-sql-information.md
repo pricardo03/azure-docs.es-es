@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446884"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092017"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database 
 
@@ -55,7 +55,7 @@ Para más información, consulte:
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql) 
 - [Auditoría](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)     
 
-### <a name="backup"></a>Backup 
+### <a name="backup"></a>Copia de seguridad 
 
 Instancia administrada realiza copias de seguridad automáticas y permite a los usuarios crear copias de seguridad `COPY_ONLY` de bases de datos completas. No se admiten copias de seguridad de instantáneas de archivos, de registro ni diferenciales.  
 - Instancia administrada puede realizar copias de seguridad de una base de datos solo en una cuenta de Azure Blob Storage: 
@@ -267,7 +267,7 @@ No se admiten tablas externas que hacen referencia a archivos en HDFS o Azure Bl
 
 ### <a name="replication"></a>Replicación 
  
-Aún no se admite la replicación. Para más información sobre la replicación, consulte [Replicación de SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+Se admite la replicación en la Instancia administrada. Para más información sobre la replicación, consulte [Replicación de SQL Server](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Instrucción RESTORE 
  
@@ -371,11 +371,11 @@ Para más información acerca del Agente SQL Server, consulte [Agente SQL Server
 No se admite lo siguiente: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 Para más información sobre cómo crear y modificar tablas, consulte [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) y [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Cambios de comportamiento 
  
 Las siguientes variables, funciones y vistas devuelven resultados diferentes:  

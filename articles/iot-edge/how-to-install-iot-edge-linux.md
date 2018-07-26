@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 0174aa2288bbb95cc5cfc796446893fde00a8964
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 477fa7e10fab0afadb28d7749009f87e82d9b6ba
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344358"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035401"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)
 
@@ -56,9 +56,7 @@ sudo apt-get upgrade
 
 ## <a name="install-the-container-runtime"></a>Instalación del entorno de ejecución del contenedor 
 
-Azure IoT Edge se basa en un entorno de ejecución de contenedor [compatible con OCI][lnk-oci] (por ejemplo, Docker). Si ya tiene Docker CE/EE instalado en su dispositivo Edge, puede seguir utilizándolo para el desarrollo y pruebas con Azure IoT Edge. 
-
-Para escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby][lnk-moby] que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de los contenedores Docker CE/EE son totalmente compatibles con el entorno de ejecución de Moby.
+Azure IoT Edge se basa en un entorno de ejecución de contenedor [compatible con OCI][lnk-oci]. Para escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby][lnk-moby] que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de contenedor de Docker CE/EE son totalmente compatibles con el entorno de ejecución de Moby.
 
 Actualice apt-get.
 

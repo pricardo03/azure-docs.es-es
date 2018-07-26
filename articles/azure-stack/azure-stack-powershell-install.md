@@ -14,33 +14,41 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e2785b0beeab042d4b1ad9a9eb5f545dbb58b8b9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 09d5842f349917be0e5d94d919b0e9630347284b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487508"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035486"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalación de PowerShell para Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Los módulos de Azure PowerShell compatibles con Azure Stack se requieren para trabajar con Azure Stack. En esta guía, se le explican los pasos necesarios para instalar PowerShell para Azure Stack.
+Los módulos de Azure PowerShell compatibles con Azure Stack se requieren para trabajar con Azure Stack. En esta guía, se le explican los pasos necesarios para instalar PowerShell para Azure Stack. Los pasos siguientes se aplican a entornos conectados a internet. Desplácese hasta el final de la página para obtener información para entornos desconectados.
 
 Este artículo contiene instrucciones detalladas para instalar PowerShell para Azure Stack.
 
 > [!Note]  
-> En los siguientes pasos se necesita PowerShell 5.0. Para comprobar la versión, ejecute $PSVersionTable.PSVersion y compare la versión **principal**.
+> En los siguientes pasos se necesita PowerShell 5.0 como mínimo. Para comprobar la versión, ejecute $PSVersionTable.PSVersion y compare la versión **principal**. Si no tiene PowerShell 5.0, siga el [vínculo](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) para actualizar a PowerShell 5.0.
 
 Los comandos de PowerShell para Azure Stack se instalan a través de la Galería de PowerShell. Puede utilizar el siguiente procedimiento para validar si PSGallery se ha registrado como un repositorio, abrir una sesión de PowerShell con privilegios elevados y ejecutar el siguiente comando:
 
-```PowerShell  
+```PowerShell
+#requires -Version 5
+#requires -RunAsAdministrator
+#requires -Module PowerShellGet
+
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop 
+
 Get-PSRepository -Name "PSGallery"
 ```
 
 Si el repositorio no está registrado, abra una sesión de PowerShell con privilegios elevados y ejecute el siguiente comando:
 
-```PowerShell  
+```PowerShell
+Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 > [!Note]  
@@ -97,24 +105,22 @@ En un escenario desconectado, primero debe descargar los módulos de PowerShell 
 
 1. Inicie sesión en un equipo que tenga conexión a Internet y use el script siguiente para descargar los paquetes AzureRM y AzureStack en el equipo local:
 
-   ```PowerShell  
+   ```PowerShell 
+  #requires -Version 5
+  #requires -RunAsAdministrator
+  #requires -Module PowerShellGet
+  #requires -Module PackageManagement
+  
+  Import-Module -Name PowerShellGet -ErrorAction Stop
+  Import-Module -Name PackageManagement -ErrorAction Stop
+
    $Path = "<Path that is used to save the packages>"
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.3.0 
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0 
    ```
 
   > [!Important]  
@@ -127,19 +133,19 @@ En un escenario desconectado, primero debe descargar los módulos de PowerShell 
 4. Ahora debe registrar esta ubicación como el repositorio predeterminado e instalar los módulos AzureRM y AzureStack desde este repositorio:
 
    ```PowerShell
+   #requires -Version 5
+   #requires -RunAsAdministrator
+   #requires -Module PowerShellGet
+   #requires -Module PackageManagement
+
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
+   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM `
-     -Repository $RepoName
+   Install-Module AzureRM -Repository $RepoName
 
-   Install-Module AzureStack `
-     -Repository $RepoName 
+   Install-Module AzureStack -Repository $RepoName 
    ```
 
 ## <a name="configure-powershell-to-use-a-proxy-server"></a>Configuración de PowerShell para usar un servidor proxy

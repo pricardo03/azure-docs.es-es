@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e1964b7f46259e54c65aeb46aa795713922c3504
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334805"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114619"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 En este artículo se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para obtener instrucciones detalladas sobre cómo crear una plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
@@ -41,12 +41,12 @@ En la estructura más simple, una plantilla tiene los siguientes elementos:
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| $schema |Sí |Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla. Use la dirección URL que se muestra en el ejemplo anterior. |
-| contentVersion |Sí |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
+| $schema |SÍ |Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla. Use la dirección URL que se muestra en el ejemplo anterior. |
+| contentVersion |SÍ |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
 | parameters |Sin  |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
 | variables |Sin  |Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla. |
 | functions |Sin  |Funciones definidas por el usuario que están disponibles dentro de la plantilla. |
-| resources |Sí |Tipos de servicios que se implementan o actualizan en un grupo de recursos. |
+| resources |SÍ |Tipos de servicios que se implementan o actualizan en un grupo de recursos. |
 | outputs |Sin  |Valores que se devuelven después de la implementación. |
 
 Cada elemento tiene propiedades que puede configurar. En el ejemplo siguiente se muestra la sintaxis completa de una plantilla:
@@ -214,6 +214,7 @@ Dentro de la plantilla, puede crear sus propias funciones. Estas funciones está
 Al definir una función de usuario, hay algunas restricciones:
 
 * La función no puede acceder a las variables.
+* La función no puede acceder a los parámetros de plantilla. Es decir, la [función de los parámetros](resource-group-template-functions-deployment.md#parameters) está restringida a los parámetros de función.
 * La función no puede llamar a otras funciones definidas por el usuario.
 * La función no puede usar la [función de referencia](resource-group-template-functions-resource.md#reference).
 * Los parámetros de la función no pueden tener valores predeterminados.
@@ -312,4 +313,4 @@ Puede superar algunos límites de plantilla utilizando una plantilla anidada. Pa
 * Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
 * Para combinar varias plantillas en la implementación, consulte [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
-* Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Este escenario es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](resource-group-template-functions-resource.md#resourceid).
+* Para recomendaciones sobre cómo crear plantillas de Resource Manager que puede usar en todo Azure, nubes soberanas de Azure y Azure Stack, consulte [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).

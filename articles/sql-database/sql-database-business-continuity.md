@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084967"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092297"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -38,7 +38,7 @@ En la tabla siguiente se comparan los valores de ERT y RPO de cada nivel de serv
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Uso de la restauración a un momento dado para recuperar una base de datos
 
-SQL Database realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 o 10 minutos con el fin de proteger su empresa contra la pérdida de datos. Si usa el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), estas copias de seguridad se almacenan en almacenamiento RA-GRS durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium y durante 7 días en el nivel Básico. Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-single-database-scale.md). Si usa el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md), la retención de las copias de seguridad es configurable en hasta 35 días en los niveles de uso general y crítico para la empresa. Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Para más información, consulte [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md).
+SQL Database realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 o 10 minutos con el fin de proteger su empresa contra la pérdida de datos. Si usa el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), estas copias de seguridad se almacenan en almacenamiento RA-GRS durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium y durante 7 días en el nivel Básico. Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-single-database-scale.md). Si usa el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md), la retención de las copias de seguridad es configurable en hasta 35 días en los niveles de uso general y crítico para la empresa. Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Para más información, consulte [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md).
 
 Si el período de retención de la restauración a un punto del tiempo (PITR) máximo admitido no es suficiente para su aplicación, puede ampliarlo mediante la configuración de una directiva de retención a largo plazo (LTR) para las bases de datos. Para más información, consulte [Copias de seguridad automatizadas](sql-database-automated-backups.md) y [Retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
 
@@ -57,19 +57,19 @@ Utilice las copias de seguridad automatizadas como mecanismo de recuperación y 
 
 Si necesita recuperaciones más rápidas, utilice la [replicación geográfica activa](sql-database-geo-replication-overview.md) (se describe a continuación). Si necesita recuperar datos de un período anterior a 35 días, use la [retención a largo plazo](sql-database-long-term-retention.md). 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Uso de grupos de conmutación automática por error (versión preliminar) y replicación geográfica activa para reducir el tiempo de recuperación y limitar la pérdida de datos asociada a una recuperación
+### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Uso de grupos de conmutación automática por error y replicación geográfica activa para reducir el tiempo de recuperación y limitar la pérdida de datos asociada a una recuperación
 
 Además de utilizar las copias de seguridad para recuperar bases de datos en caso de interrupciones en el negocio, puede usar la [replicación geográfica activa](sql-database-geo-replication-overview.md) para hacer que una base de datos tenga un máximo de cuatro bases de datos secundarias legibles en las regiones que prefiera. Estas bases de datos secundarias se mantienen sincronizadas con la principal a través de un mecanismo de replicación asincrónica. Esta característica se utiliza para proteger su negocio de interrupciones en el centro de datos o durante una actualización de la aplicación. La replicación geográfica activa también puede emplearse para que los usuarios repartidos por distintas ubicaciones del mundo puedan realizar consultas de solo lectura de manera más eficaz.
 
-Para habilitar la conmutación por error automática y transparente debe organizar las bases de datos de replicación geográfica en grupos mediante la característica [de grupos de conmutación automática por error](sql-database-geo-replication-overview.md) de SQL Database (versión preliminar).
+Para habilitar la conmutación por error automática y transparente debe organizar las bases de datos de replicación geográfica en grupos mediante la característica [auto-failover group](sql-database-geo-replication-overview.md) de grupos de conmutación automática por error de SQL Database.
 
-Si la base de datos principal se desconecta de forma inesperada o debido a actividades de mantenimiento, puede convertir rápidamente una base de datos secundaria en principal (a este proceso también se le denomina "conmutación por error") y configurar que las aplicaciones se conecten a esta principal. Si la aplicación se conecta a las bases de datos mediante el agente de escucha del grupo de conmutación por error, no es necesario cambiar la configuración de la cadena de conexión de SQL después de la conmutación por error. Con las conmutaciones por error planeadas no se pierden datos. Sin embargo, con las no planeadas, se puede perder una pequeña cantidad de información en las transacciones muy recientes debido a la naturaleza de la replicación asincrónica. Con el uso de grupos de conmutación automática por error (versión preliminar), puede personalizar la directiva de conmutación por error para minimizar la posible pérdida de datos. Tras una conmutación por error, puede realizar una conmutación por recuperación según un plan o cuando el centro de datos vuelva a estar en línea. En todos los casos, los usuarios experimentan un tiempo de inactividad reducido y tienen que volver a conectarse.
+Si la base de datos principal se desconecta de forma inesperada o debido a actividades de mantenimiento, puede convertir rápidamente una base de datos secundaria en principal (a este proceso también se le denomina "conmutación por error") y configurar que las aplicaciones se conecten a esta principal. Si la aplicación se conecta a las bases de datos mediante el agente de escucha del grupo de conmutación por error, no es necesario cambiar la configuración de la cadena de conexión de SQL después de la conmutación por error. Con las conmutaciones por error planeadas no se pierden datos. Sin embargo, con las no planeadas, se puede perder una pequeña cantidad de información en las transacciones muy recientes debido a la naturaleza de la replicación asincrónica. Con el uso de grupos de conmutación automática por error, puede personalizar la directiva de conmutación por error para minimizar la posible pérdida de datos. Tras una conmutación por error, puede realizar una conmutación por recuperación según un plan o cuando el centro de datos vuelva a estar en línea. En todos los casos, los usuarios experimentan un tiempo de inactividad reducido y tienen que volver a conectarse.
 
 > [!IMPORTANT]
-> Para usar grupos de conmutación automática por error (versión preliminar) y la replicación geográfica activa, debe ser el propietario de la suscripción o tener permisos administrativos en SQL Server. Puede realizar tareas de configuración y conmutación por error mediante Azure Portal, PowerShell o la API de REST con los permisos de la suscripción de Azure, o bien mediante Transact-SQL con los permisos de SQL Server.
+> Para usar grupos de conmutación automática por error y la replicación geográfica activa, debe ser el propietario de la suscripción o tener permisos administrativos en SQL Server. Puede realizar tareas de configuración y conmutación por error mediante Azure Portal, PowerShell o la API de REST con los permisos de la suscripción de Azure, o bien mediante Transact-SQL con los permisos de SQL Server.
 > 
 
-Use la replicación geográfica activa y los grupos de conmutación automática por error (versión preliminar) si su aplicación cumple alguno de estos criterios:
+Use la replicación geográfica activa y los grupos de conmutación automática por error si su aplicación cumple alguno de estos criterios:
 
 * Es crítica.
 * Tiene un SLA que no se permite que se produzcan tiempos de inactividad de más de 24 horas.
@@ -126,7 +126,7 @@ Con independencia de la característica de continuidad empresarial que use, debe
 Si no se prepara correctamente, el proceso de conectar las aplicaciones después de una conmutación por error o una recuperación de base de datos llevará más tiempo y, probablemente, también haya que solucionar problemas en momentos de estrés, por lo que no es nada recomendable.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Conmutación por error de la base de datos secundaria de replicación geográfica
-Si usa grupos de conmutación automática por error (versión preliminar) y la replicación geográfica activa como el mecanismo de recuperación, puede configurar una directiva de conmutación automática por error o usar la [conmutación por error manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Tras iniciar la conmutación por error, la base de datos secundaria pasa a ser la principal y está lista para registrar nuevas transacciones y responder a consultas, con una pérdida mínima de los datos que aún no se han replicado. Para obtener información sobre el diseño del proceso de conmutación por error, vea [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Si usa grupos de conmutación automática por error y la replicación geográfica activa como el mecanismo de recuperación, puede configurar una directiva de conmutación automática por error o usar la [conmutación por error manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Tras iniciar la conmutación por error, la base de datos secundaria pasa a ser la principal y está lista para registrar nuevas transacciones y responder a consultas, con una pérdida mínima de los datos que aún no se han replicado. Para obtener información sobre el diseño del proceso de conmutación por error, vea [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Cuando el centro de datos vuelve a estar en línea, las bases de datos principales anteriores se vuelven a conectar automáticamente con la nueva base de datos principal y se convierten en bases de datos secundarias. Si necesita reubicar la base de datos principal de nuevo en la región original, puede iniciar una conmutación por error manual planificada (conmutación por recuperación). 

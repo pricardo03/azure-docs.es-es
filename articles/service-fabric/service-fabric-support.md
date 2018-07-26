@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/14/2018
+ms.date: 7/13/2018
 ms.author: pkc
-ms.openlocfilehash: 7a00b72f0b8d52ae0ced5f44784c2a61d40c8ac2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 596e71be75453874492aac15d91cb6153c2076f5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208964"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112897"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
@@ -79,7 +79,8 @@ A continuación, aparece una lista con las versiones compatibles de Service Fabr
 | 5.7.* | 5.4.164.* |Versión 2.7 o anterior |15 de diciembre de 2017  |
 | 6.0.* | 5.6.205.* |Versión menor o igual que la 2.8 |30 de marzo de 2018     | 
 | 6.1.* | 5.7.221.* |Versión 3.0 o anterior |15 de julio de 2018      |
-| 6.2.* | 6.0.232.* |Versión 3.1 o anterior |Versión actual y, por lo tanto, sin fecha de finalización |
+| 6.2.* | 6.0.232.* |Versión 3.1 o anterior |15 de septiembre de 2018 |
+| 6.3.* | 6.1.480.* |Versión 3.2 o anterior |Versión actual y, por lo tanto, sin fecha de finalización |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versiones de vista previa de Service Fabric: no admitidas para su uso en producción.
 De vez en cuando, publicamos versiones que tienen características importantes sobre las que deseamos saber su opinión, que se publican como versiones preliminares. Estas versiones preliminares solo se deben usar con fines de prueba. El clúster de producción debe estar ejecutando siempre una versión de Service Fabric compatible y estable. Una versión preliminar siempre comienza con un número de versión principal y secundaria de 255. Por ejemplo, si ve una versión 255.255.5703.949 de Service Fabric, esa versión es solo para su uso en clústeres de prueba y se encuentra en versión preliminar. Estas versiones preliminares también se anuncian en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) y se detallan en las características incluidas.

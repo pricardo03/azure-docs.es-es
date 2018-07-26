@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344307"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036091"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creación de un dispositivo IoT Edge de Windows que actúa como una puerta de enlace transparente
 
@@ -22,7 +22,7 @@ En este artículo se proporcionan instrucciones detalladas para usar un disposit
 >[!NOTE]
 >Actualmente:
 > * Si la puerta de enlace se desconecta desde IoT Hub, los dispositivos de nivel inferior no se pueden autenticar con la puerta de enlace.
-> * Los dispositivos de IoT Edge no se pueden conectar a las puertas de enlace de IoT Edge.
+> * Los dispositivos habilitados para Edge no pueden conectarse a puertas de enlace de IoT Edge. 
 > * Los dispositivos de bajada no pueden usar la carga de archivos.
 
 La parte más difícil de crear una puerta de enlace transparente es conectar de forma segura la puerta de enlace a los dispositivos de bajada. Azure IoT Edge le permite usar la infraestructura de PKI para configurar conexiones TLS seguras entre estos dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente.  Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo de Edge, porque lo que quiere es que los dispositivos solo se conecten a sus puertas de enlace y no a una puerta de enlace posiblemente malintencionada.

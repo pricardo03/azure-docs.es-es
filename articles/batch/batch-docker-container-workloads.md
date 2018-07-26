@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060524"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090969"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -27,7 +27,7 @@ Debe estar familiarizado con los conceptos de contenedor y cómo crear un trabaj
 
 El uso de contenedores proporciona una manera sencilla de ejecutar tareas de Batch sin tener que administrar un entorno ni dependencias para ejecutar las aplicaciones. Los contenedores implementan aplicaciones como unidades ligeras, portátiles y autosuficientes que se pueden ejecutar en varios entornos distintos. Por ejemplo, puede crear y probar localmente un contenedor y, después cargar la imagen de contenedor en un registro en Azure o en otro lugar. El modelo de implementación de contenedor garantiza que el entorno en tiempo de ejecución de la aplicación siempre esté correctamente instalado y configurado donde sea que se hospede la aplicación. Las tareas basadas en contenedor en Batch también pueden aprovechar las características de tareas no en contenedor, incluidos los paquetes de aplicación y la administración de archivos de recursos y archivos de salida. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Versiones del SDK**: los SDK de Batch admiten las imágenes de contenedor en las siguientes versiones:
     * API de REST de Batch versión 2017-09-01.6.0
@@ -42,7 +42,9 @@ El uso de contenedores proporciona una manera sencilla de ejecutar tareas de Bat
 
 ### <a name="limitations"></a>Limitaciones
 
-* El servicio Batch proporciona compatibilidad con RDMA solo para contenedores que se ejecutan en grupos Linux.
+* El servicio Batch proporciona compatibilidad con RDMA solo para contenedores que se ejecutan en grupos Linux
+
+* Para las cargas de trabajo de contenedor de Windows, se recomienda elegir un tamaño de máquina virtual multinúcleo para el grupo
 
 ## <a name="supported-virtual-machine-images"></a>Imágenes de máquinas virtuales admitidas
 

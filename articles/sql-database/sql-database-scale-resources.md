@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 07/07/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: f55ce511f6ba90c27e149ac90bbd2c8aa0b3c742
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a6b987d9815cfabed6dd986a0d9842a97f5b5868
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923443"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092059"
 ---
 # <a name="scale-database-resources"></a>Escalar los recursos de base de datos
 
@@ -28,9 +28,9 @@ No es necesario preocuparse de comprar hardware ni cambiar la infraestructura su
 
 ![Escalar el rendimiento de la base de datos](media/sql-database-scalability/scale-performance.svg)
 
-Azure SQL Database ofrece un [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). 
+Azure SQL Database ofrece un [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). 
 -   El [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
--   El [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) (versión preliminar) permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento.
+-   El [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento.
 La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
 

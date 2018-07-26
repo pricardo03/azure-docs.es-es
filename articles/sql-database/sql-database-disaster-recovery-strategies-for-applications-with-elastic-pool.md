@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5de8aebb6ffc5763dd7f0b8852c31923914e4c55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645538"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092552"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estrategias de recuperación ante desastres para aplicaciones que usan grupos elásticos de SQL Database
 A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos ocurren. SQL Database proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. Los [grupos elásticos](sql-database-elastic-pool.md) y las bases de datos únicas admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de SQL Database.
@@ -27,12 +27,12 @@ En este artículo se usa el modelo de aplicaciones de ISV de SaaS canónico sigu
 En este artículo se describen las estrategias de recuperación ante desastres que abarcan una variedad de escenarios que va desde las aplicaciones de inicio sensibles al costo a aquellas con requisitos estrictos de disponibilidad.
 
 > [!NOTE]
-> Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa (versión preliminar), puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona (actualmente en versión preliminar). Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
+> Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa, puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona. Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Escenario 1. Inicio sensible al costo
 <i>Acabo de crear una empresa y me preocupan sobremanera los costos.  Quiero simplificar la implementación y administración de la aplicación y puedo tener un Acuerdo de Nivel de Servicio limitado para clientes individuales. Sin embargo, quiero garantizar que nunca se quede sin conexión toda la aplicación.</i>
 
-Para satisfacer el requisito de simplicidad, implemente todas las bases de datos de inquilino en un grupo elástico de la región de Azure de su elección e implemente las bases de datos de administración como bases de datos únicas de replicación geográfica. Para la recuperación ante desastres de los inquilinos, use la restauración geográfica, que se incluye sin costo adicional. Para garantizar la disponibilidad de las bases de datos de administración, replíquelas geográficamente en otra región con un grupo de conmutación por error automática (versión preliminar) (paso 1). El costo en curso de la configuración de recuperación ante desastres en este escenario es igual al costo total de las bases de datos secundarias. En el siguiente diagrama se ilustra esta configuración.
+Para satisfacer el requisito de simplicidad, implemente todas las bases de datos de inquilino en un grupo elástico de la región de Azure de su elección e implemente las bases de datos de administración como bases de datos únicas de replicación geográfica. Para la recuperación ante desastres de los inquilinos, use la restauración geográfica, que se incluye sin costo adicional. Para garantizar la disponibilidad de las bases de datos de administración, replíquelas geográficamente en otra región con un grupo de conmutación automática por error (paso 1). El costo en curso de la configuración de recuperación ante desastres en este escenario es igual al costo total de las bases de datos secundarias. En el siguiente diagrama se ilustra esta configuración.
 
 ![En la Ilustración 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 

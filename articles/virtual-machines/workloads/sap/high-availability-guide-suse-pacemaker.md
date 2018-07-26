@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9ce95bcf15d0186c1baea3df407d0fc0c4200f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923433"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115483"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -38,6 +38,11 @@ El dispositivo SBD requiere una máquina virtual adicional que actúe como servi
 Si no desea invertir en otra máquina virtual, también puede utilizar el agente de barrera de Azure. El inconveniente es que una conmutación por error puede tardar entre 10 y 15 minutos si se produce un error en una detención de recursos o se interrumpe la comunicación entre los nodos del clúster.
 
 ![Información general de Pacemaker en SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
+>[!IMPORTANT]
+> Cuando planifique e implemente nodos de clúster de Linux Pacemaker y dispositivos SBD, es esencial para la confiabilidad general de la configuración de clúster completa que el enrutamiento entre las máquinas virtuales involucradas y las máquinas virtuales que hospedan el dispositivo SBD no pasen a través de cualquier otro dispositivo como [NVA](https://azure.microsoft.com/solutions/network-appliances/). En caso contrario, los problemas y eventos de mantenimiento con el NVA pueden tener un impacto negativo en la estabilidad y confiabilidad de la configuración general del clúster. Para evitar estos obstáculos, no defina reglas de enrutamiento de NVA o [Reglas de enrutamiento definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) que enruten el tráfico entre nodos en clúster y los dispositivos SBD a través de NVA y dispositivos similares al planear e implementar nodos de clúster de Linux Pacemaker y dispositivos SBD. 
+>
+
 
 ## <a name="sbd-fencing"></a>Vallado de SBD
 

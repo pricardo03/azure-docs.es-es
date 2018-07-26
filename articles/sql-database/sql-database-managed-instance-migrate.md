@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050134"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069270"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -91,11 +91,11 @@ Para más información acerca de este escenario y los pasos de configuración pa
 
 La restauración de copias de seguridad nativas (archivos .bak) realizadas desde instancias locales de SQL Server o [SQL Server en Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), disponible en [Azure Storage](https://azure.microsoft.com/services/storage/), es una de las principales funcionalidades de Instancia administrada de SQL DB que permite una migración rápida y sencilla de la base de datos sin conexión. 
 
-En el diagrama siguiente se explica el proceso de forma general:
+El siguiente diagrama proporciona una introducción general del proceso:
 
 ![flujo de migración](./media/sql-database-managed-instance-migration/migration-flow.png)
 
-La tabla siguiente proporciona más información sobre el método que puede usar según la versión de SQL Server de origen que esté ejecutando:
+La siguiente tabla proporciona más información sobre los métodos que puede usar según la versión de SQL Server de origen que esté ejecutando:
 
 |Paso|Motor y versión de SQL|Método de copia de seguridad y restauración|
 |---|---|---|
@@ -105,7 +105,8 @@ La tabla siguiente proporciona más información sobre el método que puede usar
 |Restaurar desde Azure Storage en Instancia administrada|[RESTORE FROM URL WITH SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> No se permite restaurar bases de datos del sistema. Para migrar objetos de nivel de instancia (almacenados en bases de datos maestras o msdb), se recomienda generar scripts y ejecutar scripts de T-SQL en la instancia de destino.
+> - Al migrar una base de datos protegida mediante [Cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) a Instancia administrada de Azure SQL con la opción de restauración nativa, se debe migrar el certificado correspondiente de SQL Server local o IaaS antes de restaurar la base de datos. Para consultar los pasos detallados, vea [Migración de un certificado TDE a Instancia administrada](sql-database-managed-instance-migrate-tde-certificate.md)
+> - No se permite restaurar bases de datos del sistema. Para migrar objetos de nivel de instancia (almacenados en bases de datos maestras o msdb), se recomienda generar scripts y ejecutar scripts de T-SQL en la instancia de destino.
 
 Para un tutorial completo que incluye la restauración de una copia de seguridad de base de datos en una instancia administrada mediante credenciales SAS, consulte el artículo de [restauración en una instancia administrada de una copia de seguridad](sql-database-managed-instance-restore-from-backup-tutorial.md).
 

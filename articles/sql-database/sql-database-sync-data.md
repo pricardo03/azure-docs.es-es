@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342664"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069393"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -24,6 +24,16 @@ SQL Data Sync es un servicio basado en Azure SQL Database que permite sincroniza
 ## <a name="architecture-of-sql-data-sync"></a>Arquitectura de SQL Data Sync
 
 Data Sync se basa en el concepto de un grupo de sincronización. Un grupo de sincronización es un grupo de bases de datos que desea sincronizar.
+
+Data Sync usa una topología de concentrador y radio para sincronizar los datos. Defina una de las bases de datos del grupo de sincronización como base de datos central. El resto de las bases de datos son bases de datos miembro. La sincronización solo se produce entre la base de datos central y los clientes individuales.
+-   La **base de datos central** debe ser una instancia de Azure SQL Database.
+-   Las **bases de datos miembro** pueden ser instancias de SQL Database, bases de datos de SQL Server locales o instancias de SQL Server en Azure Virtual Machines.
+-   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos Azure SQL Database ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
+
+> [!NOTE]
+> Si usa una base de datos local como base de datos miembro, tendrá que [instalar y configurar un agente de sincronización local](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Sincronización de datos entre bases de datos](media/sql-database-sync-data/sync-data-overview.png)
 
 Un grupo de sincronización tiene las siguientes propiedades:
 
@@ -35,16 +45,6 @@ Un grupo de sincronización tiene las siguientes propiedades:
 
 -   El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente*.
 
-Data Sync usa una topología de concentrador y radio para sincronizar los datos. Defina una de las bases de datos del grupo como base de datos central. El resto de las bases de datos son bases de datos miembro. La sincronización solo se produce entre la base de datos central y los clientes individuales.
--   La **base de datos central** debe ser una instancia de Azure SQL Database.
--   Las **bases de datos miembro** pueden ser instancias de SQL Database, bases de datos de SQL Server locales o instancias de SQL Server en Azure Virtual Machines.
--   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos Azure SQL Database ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
-
-> [!NOTE]
-> Si usa una base de datos local como base de datos miembro, tendrá que [instalar y configurar un agente de sincronización local](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Sincronización de datos entre bases de datos](media/sql-database-sync-data/sync-data-overview.png)
-
 ## <a name="when-to-use-data-sync"></a>Cuándo usar Data Sync
 
 Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos de Azure SQL Database o de SQL Server. Estos son los casos de uso principales de Data Sync:
@@ -55,7 +55,7 @@ Data Sync es útil en los casos en que es necesario mantener los datos actualiza
 
 -   **Aplicaciones globalmente distribuidas:** muchas empresas abarcan varias regiones e incluso varios países. Para minimizar la latencia de red, es preferible disponer de los datos en una región más cercana. Con Data Sync, puede mantener sincronizadas con facilidad las bases de datos de regiones de todo el mundo.
 
-Data Sync no es la mejor solución para los siguientes escenarios:
+Data Sync no es la solución preferida para los siguientes escenarios:
 
 | Escenario | Algunas soluciones recomendadas |
 |----------|----------------------------|

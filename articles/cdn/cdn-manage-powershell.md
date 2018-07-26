@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2018
 ms.author: mazha
-ms.openlocfilehash: 5634ecdec04f023d9eb901c4ad0fb21b13bcfdc1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592442"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114079"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Administración de la red CDN de Azure con PowerShell
 PowerShell proporciona uno de los métodos más flexibles para administrar los perfiles y puntos de conexión de la red CDN de Azure.  Puede usar PowerShell interactivamente o mediante la escritura de scripts para automatizar tareas de administración.  Este tutorial muestra algunas de las tareas más comunes que puede realizar con PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para usar PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure debe tener instalado el módulo de Azure PowerShell.  Para obtener información sobre cómo instalar Azure PowerShell y conectarlo a Azure mediante el cmdlet `Connect-AzureRmAccount` consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
@@ -107,7 +107,7 @@ Esta salida se puede canalizar a cmdlets para la enumeración.
 Get-AzureRmCdnProfile | ForEach-Object { Write-Host $_.Name }
 
 # Return only **Azure CDN from Verizon** profiles.
-Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
+Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "Standard_Verizon" }
 ```
 
 También puede devolver un solo perfil especificando el grupo de recursos y el nombre del perfil.
@@ -139,17 +139,25 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## <a name="creating-cdn-profiles-and-endpoints"></a>Creación de perfiles y puntos de conexión de red CDN
-`New-AzureRmCdnProfile` y `New-AzureRmCdnEndpoint` se utilizan para crear perfiles y puntos de conexión de red CDN.
+`New-AzureRmCdnProfile` y `New-AzureRmCdnEndpoint` se utilizan para crear perfiles y puntos de conexión de red CDN. Se admiten las SKU siguientes:
+- Standard_Verizon
+- Premium_Verizon
+- Custom_Verizon
+- Standard_Akamai
+- Standard_ChinaCdn
+
+> [!NOTE]
+> No se admite la SKU Standard_Microsoft mientras está en versión preliminar.
 
 ```powershell
 # Create a new profile
-New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US"
+New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Standard_Akamai -Location "Central US"
 
 # Create a new endpoint
 New-AzureRmCdnEndpoint -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Location "Central US" -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
 
 # Create a new profile and endpoint (same as above) in one line
-New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
+New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Standard_Akamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
 
 ```
 

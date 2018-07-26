@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970727"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036945"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -57,7 +57,7 @@ La aplicación de orquestación de revisiones consta de los siguientes subcompon
 > [!NOTE]
 > La aplicación de orquestación de revisiones usa el servicio de sistema de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por la aplicación de orquestación de revisiones sigue el progreso de Windows Update en cada nodo.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Habilitar el servicio de administrador de reparaciones (si no se está ejecutando ya)
 
@@ -148,7 +148,7 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 |**Parámetro**        |**Tipo**                          | **Detalles**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | Número máximo de resultados de Windows Update que deben almacenarse en caché. <br>El valor predeterminado es 3000 suponiendo que: <br> - El número de nodos es 20. <br> - El número de actualizaciones en un nodo al mes es cinco. <br> - El número de resultados por cada operación es 10. <br> - Deben almacenarse los resultados de los últimos tres meses. |
-|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica la directiva que usará Coordinator Service para instalar las actualizaciones de Windows en todos los nodos del clúster de Service Fabric.<br>                         Los valores permitidos son: <br>                                                           <b>NodeWise</b>. Windows Update se instala en un nodo cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update se instala en un dominio de actualización cada vez. (Como máximo, todos los nodos que pertenecen a un dominio de actualización son aptos para Windows Update).
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica la directiva que usará Coordinator Service para instalar las actualizaciones de Windows en todos los nodos del clúster de Service Fabric.<br>                         Los valores permitidos son: <br>                                                           <b>NodeWise</b>. Windows Update se instala en un nodo cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update se instala en un dominio de actualización cada vez. (Como máximo, todos los nodos que pertenecen a un dominio de actualización son aptos para Windows Update).<br> Consulte en la sección de [preguntas más frecuentes](#frequently-asked-questions) cómo decidir cuál es la mejor directiva para su clúster.
 |LogsDiskQuotaInMB   |long  <br> (Valor predeterminado: 1024)               |Tamaño máximo de los registros de la aplicación de orquestación de revisiones en MB que se pueden almacenar de forma persistente y local en un nodo.
 | WUQuery               | string<br>(Valor predeterminado: "IsInstalled=0")                | Consulta para obtener las actualizaciones de Windows. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | boolean <br> (Valor predeterminado: True)                 | Esta marca permite instalar actualizaciones del sistema operativo Windows.            |
@@ -304,19 +304,36 @@ P: **¿Qué puedo hacer si el clúster está en mal estado y tengo que realizar 
 
 A. La aplicación de orquestación de revisiones no instala actualizaciones cuando el clúster está en mal estado. Intente devolver el clúster a un estado correcto para desbloquear el flujo de trabajo de la aplicación de orquestación de revisiones.
 
-P: **¿Por qué la aplicación de revisiones en el clúster tarda tanto tiempo en ejecutarse?**
+P: **¿Debo definir TaskApprovalPolicy como "NodeWise" o "UpgradeDomainWise" para el clúster?**
 
-A. El tiempo que necesita la aplicación de orquestación de revisiones depende principalmente de los factores siguientes:
+A. "UpgradeDomainWise" agiliza la aplicación general de revisiones al clúster, ya que aplica revisiones a todos los nodos que pertenecen a un dominio de actualización en paralelo. Esto significa que los nodos que pertenecen a un dominio de actualización completo no estarían disponibles (en estado [deshabilitado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)) durante el proceso de aplicación de revisiones.
 
-- La directiva del servicio Coordinator Service. 
-  - La directiva predeterminada, `NodeWise`, da como resultado que solo se apliquen las revisiones a un nodo a la vez. Especialmente en el caso de los clústeres más grandes, se recomienda usar la directiva `UpgradeDomainWise` para aplicar las revisiones en los clústeres más rápidamente.
-- El número de actualizaciones disponibles para su descarga e instalación. 
-- El tiempo promedio necesario para descargar e instalar una actualización, que no debe superar un par de horas.
-- El rendimiento de la máquina virtual y ancho de banda de la red.
+En cambio, "NodeWise" aplica las revisiones de una en una, lo que implica que la aplicación de revisiones de clúster general podría tardar más tiempo. Sin embargo, como máximo, solo habría un nodo no disponible (en estado [deshabilitado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)) durante el proceso de aplicación de revisiones.
+
+Si el clúster puede tolerar la ejecución en un número N-1 de dominios de actualización durante el ciclo de aplicación de revisiones (donde N es el número total de dominios de actualización del clúster), puede establecer la directiva como "UpgradeDomainWise". En caso contrario, establézcala en "NodeWise".
+
+P: **¿Cuánto se tarda en aplicar revisiones a un nodo?**
+
+A. La aplicación de revisiones a un nodo puede tardar minutos (por ejemplo: [actualizaciones de definiciones de Windows Defender](https://www.microsoft.com/wdsi/definitions)) u horas (por ejemplo: [actualizaciones acumulativas de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). El tiempo necesario para aplicar revisiones en un nodo depende, principalmente, de 
+ - El tamaño de las actualizaciones
+ - El número de actualizaciones, que deben aplicarse en un periodo de revisión
+ - El tiempo necesario para instalar las actualizaciones, reiniciar el nodo (si es necesario) y completar los pasos de instalación posteriores al reinicio
+ - El rendimiento de la máquina o VM y las condiciones de red
+
+P: **¿Cuánto se tarda en aplicar revisiones a todo un clúster?**
+
+A. El tiempo necesario para aplicar revisiones a todo un clúster depende de los siguientes factores:
+
+- Tiempo necesario para aplicar revisiones a un nodo.
+- La directiva del servicio Coordinator Service. La directiva predeterminada, `NodeWise`, provoca que se apliquen las revisiones en un nodo a la vez, lo que puede tardar más que `UpgradeDomainWise`. Por ejemplo: si la aplicación de revisiones a un nodo tarda, aproximadamente, una hora, para aplicar revisiones en un clúster de 20 nodos (mismo tipo de nodos) con 5 dominios de actualización que contienen, cada uno, cuatro nodos,
+    - se tardaría, aproximadamente, 20 horas en aplicar revisiones a todo el clúster, si la directiva es `NodeWise`
+    - Si la directiva es `UpgradeDomainWise`, se tardarían unas cinco horas
+- Carga de clúster: cada operación de revisión requiere cambiar la ubicación de la carga de trabajo del cliente a otros nodos disponibles en el clúster. El nodo al que se aplicaría la revisión tendría el estado [deshabilitado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante este tiempo. Si el clúster se ejecuta cerca de la carga máxima, el proceso de deshabilitación podría tardar más. Por lo tanto, el proceso general de aplicación de revisiones puede parecer lento en estas condiciones.
+- Errores de estado del clúster durante la aplicación de revisiones: cualquier [degradación](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) en el [estado del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) interrumpiría el proceso de revisión. Esto se agregaría al tiempo general necesario para aplicar revisiones a todo el clúster.
 
 P: **¿Por qué veo algunas actualizaciones en los resultados de Windows Update obtenidos a través de la API de REST, pero no en el historial de Windows Update en la máquina?**
 
-A. Algunas actualizaciones del producto solo aparecen en su historial de actualizaciones o revisiones respectivo. Por ejemplo, las actualizaciones de Windows Defender no se muestran en el historial de Windows Update en Windows Server 2016.
+A. Algunas actualizaciones del producto solo aparecen en su historial de actualizaciones o revisiones respectivo. Por ejemplo, puede que se muestren o que no se muestren las actualizaciones de Windows Defender en el historial de Windows Update en Windows Server 2016.
 
 P: **¿La aplicación Patch Orchestration se puede utilizar para aplicar revisiones al clúster de desarrollo (clúster con un solo nodo)?**
 

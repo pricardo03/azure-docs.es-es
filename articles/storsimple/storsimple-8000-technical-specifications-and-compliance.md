@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27785533"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056470"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
 
@@ -41,10 +41,10 @@ El revestimiento de EBOD usa un PCM de 580 W, y el revestimiento principal usa 
 | Corriente de entrada máxima |20 A |20 A |
 | Corrección del factor de potencia |>95% del voltaje de entrada nominal  |>95% del voltaje de entrada nominal  |
 | Armónicos |Cumple la norma EN 61000-3-2 |Cumple la norma EN 61000-3-2 |
-| Salida |Voltaje en espera de 5 V a 2,0 A |Voltaje en espera de 5 V a 2,7 A |
-| +5 V a 42 A |+5 V a 40 A | |
-| +12 V a 38 A |+12 V a 38 A | |
-| Conectable en funcionamiento |Sí |Sí |
+| Salida |Voltaje en espera de 5 V \@ 2,0 A |Voltaje en espera de 5 V \@ 2,7 A |
+| +5 V \@ 42 A |+5 V \@ 40 A | |
+| +12 V \@ 38 A |+12 V \@ 38 A | |
+| Conectable en funcionamiento |SÍ |SÍ |
 | Conmutadores y LED |Conmutador de encendido y apagado de CA y cuatro LED indicadores de estado |Conmutador de encendido y apagado de CA y seis LED indicadores de estado |
 | Refrigeración del revestimiento |Ventiladores axiales de refrigeración con control de velocidad del ventilador variable |Ventiladores axiales de refrigeración con control de velocidad del ventilador variable |
 
@@ -127,8 +127,8 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 | Flujo de aire |El flujo de aire del sistema va de delante atrás. El sistema debe funcionar con una instalación de baja presión y escape trasero. La contrapresión creada por puertas del revestimiento y los obstáculos no debe superar los 5 pascales (medidor de agua de 0,5 mm). |
 | Altitud (operativo) |De -30 metros a 3.045 metros (de -100 pies a 10.000 pies) con la temperatura máxima de funcionamiento reducida en 5 °C por encima de los 7.000 pies. |
 | Altitud (no operativo) |De -305 metros a 12.192 metros (de -1.000 pies a 40.000 pies) |
-| Golpes (operativo) |5 g 10 ms ½ seno |
-| Golpes (no operativo) |30 g 10 ms ½ seno |
+| Golpes (operativo) |5g 10 ms ½ seno |
+| Golpes (no operativo) |30g 10 ms ½ seno |
 | Vibraciones (operativo) |0,21 g RMS 5-500 Hz aleatorio |
 | Vibraciones (no operativo) |1,04 g RMS 2-200 Hz aleatorio |
 | Vibraciones (reubicación) |3 g 2-200 Hz seno |
@@ -194,7 +194,7 @@ El enchufe y el conjunto completo del cable de alimentación deben cumplir los e
 
 Para las interfaces de red de 10 GbE, DATA 2 y DATA 3, consulte la [lista de cables de red y módulos compatibles](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ya está listo para implementar un dispositivo StorSimple en su centro de datos. Para más información, vea [Implementar un dispositivo local](storsimple-8000-deployment-walkthrough-u2.md).
 

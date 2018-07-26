@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76b2b1983cc5a6cedfcff204871e0b0f985fef95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 897681cda31b2f187fca64e77621b7dc5ed4dfae
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900790"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072116"
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilación de configuraciones en DSC de Azure Automation
 
@@ -235,7 +235,7 @@ Las referencias de recursos son las mismas en las configuraciones de DSC de Azur
 
 ### <a name="credential-assets"></a>Recursos de credenciales
 
-Mientras las configuraciones DSC en Azure Automation pueden hacer referencia a los activos de credenciales a través de **Get-AutomationPSCredential**, los activos de credenciales también se pueden pasar, si se desea, a través de los parámetros. Si una configuración toma un parámetro del tipo **PSCredential**, tendrá que pasar el nombre de cadena de un activo de credencial de Azure Automation como el valor de ese parámetro en lugar de como un objeto PSCredential. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración.
+Las configuraciones de DSC en Azure Automation pueden hacer referencia a los activos de credenciales de Automation mediante el uso de `Get-AutomationPSCredential`. Si una configuración tiene un parámetro con el tipo **PSCredential**, puede usar el cmdlet `Get-AutomationPSCredential` pasando el nombre de cadena de un activo de credencial de Azure Automation al cmdlet para recuperar la credencial. Luego puede usar ese objeto para el parámetro que requiere el objeto **PSCredential**. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración. El ejemplo siguiente muestra esto en acción.
 
 Mantener las credenciales seguras en configuraciones de nodo (documentos de configuración MOF) exige el cifrado de las credenciales en el archivo MOF de configuración de nodo. Sin embargo, actualmente tiene que indicar a DSC de PowerShell que no importa que las credenciales tengan salida como texto sin formato durante la generación del MOF de configuración de nodo, porque PowerShell DSC desconoce que Azure Automation cifrará todo el archivo MOF después de su generación a través de un trabajo de compilación.
 

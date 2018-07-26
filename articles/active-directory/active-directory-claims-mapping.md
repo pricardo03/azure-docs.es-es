@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e6d2d8dfd6f7a40158b098983bd34bbd5d8271f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261215"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049320"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Asignación de notificaciones en Azure Active Directory (versión preliminar pública)
 
@@ -357,7 +357,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. Es
 |TransformationMethod|Entrada prevista|Salida prevista|DESCRIPCIÓN|
 |-----|-----|-----|-----|
 |Unión|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no hay ningún signo "\@\" presente, la cadena de entrada original se devuelve tal y como está.|
+|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
 
 **InputClaims:** Use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 
@@ -420,7 +420,7 @@ Las directivas de asignación de notificaciones solo se pueden asignar a objetos
 
 En Azure AD hay muchos escenarios posibles en los que se pueden personalizar las notificaciones emitidas en tokens para entidades de servicio concretas. En esta sección se abordan algunos escenarios comunes que pueden ayudarle a entender cómo usar el tipo de directiva de asignación de notificaciones.
 
-#### <a name="prerequisites"></a>requisitos previos
+#### <a name="prerequisites"></a>Requisitos previos
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de entidades de servicio. Si no está familiarizado con Azure AD, se recomienda que aprenda a obtener un inquilino de Azure AD antes de continuar con estos ejemplos. 
 
 Para comenzar, realice uno de los pasos siguientes:

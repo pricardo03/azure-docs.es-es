@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/8/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176795"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112729"
 ---
 # <a name="understand-load-balancer-probes"></a>Descripción de los sondeos de Load Balancer
 
-Azure Load Balancer usa sondeos de estado para determinar qué instancia del grupo de back-end debe recibir nuevos flujos. Cuando se produce un error en un sondeo de estado, Load Balancer deja de enviar nuevos flujos a la instancia incorrecta respectiva y los flujos existentes en esa instancia no se ven afectados.  Cuando finaliza el sondeo de todas las instancias del grupo de back-end, se agota el tiempo de espera de todos los flujos existentes en dichas instancias.
+Azure Load Balancer usa sondeos de estado para determinar qué instancia del grupo de back-end debe recibir nuevos flujos.   Puede usar los sondeos de mantenimiento para detectar algún error de una aplicación en una instancia de back-end.  También puede usar la respuesta del sondeo de mantenimiento de la aplicación para indicar a Load Balancer si debe continuar enviando flujos nuevos o detener el envío de flujos nuevos a una instancia de back-end para administrar la carga o el tiempo de inactividad planificado.
 
-Los roles del servicio en la nube (los roles de trabajo y los roles web) usan un agente invitado con supervisión del sondeo del agente invitado. Se deben configurar sondeos de estado personalizados TCP o HTTP al usar máquinas virtuales detrás de Load Balancer.
+Los sondeos de mantenimiento determinan si se establecen nuevos flujos a instancias de back-end correctas. Cuando se genera un error en el sondeo de mantenimiento, Load Balancer deja de enviar flujos nuevos a la instancia con estado incorrecto respectiva.  Las conexiones TCP establecidas siguen después de un error de sondeo de mantenimiento.  Los flujos de UDP existentes se moverán de la instancia con estado incorrecto a otra instancia en buen estado en el grupo de back-end.
+
+Si hay errores en todos los sondeos de un grupo de back-end, las instancias de Basic Load Balancer finalizarán todos los flujos TCP existente al grupo de back-end, mientras que la instancia de Standard Load Balancer permitirá que los flujos TCP establecidos continúen. No se enviará ningún flujo nuevo al grupo de back-end.  Todos los flujos UDP existentes finalizarán para las instancias de Basic Load Balancer y Standard Load Balancer cuando todos los sondeos de un grupo de back-end presenten errores.
+
+Los roles del servicio en la nube (los roles de trabajo y los roles web) usan un agente invitado con supervisión del sondeo del agente invitado. Se deben configurar sondeos de mantenimiento personalizados TCP o HTTP al usar Cloud Services con máquinas virtuales de IaaS detrás de Load Balancer.
 
 ## <a name="understand-probe-count-and-timeout"></a>Descripción del número y el tiempo de espera de los sondeos
 

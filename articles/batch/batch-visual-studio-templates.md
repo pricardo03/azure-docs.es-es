@@ -15,19 +15,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128867"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114103"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Uso de plantillas de proyecto de Visual Studio para empezar a crear soluciones de Batch
 
 Las **plantillas de Visual Studio para el administrador de trabajos**y el **procesador de tareas** para Batch proporcionan código para ayudar a implementar y ejecutar las cargas de trabajo de proceso intensivo en Batch con el mínimo esfuerzo. En este documento se describen estas plantillas y se proporcionan instrucciones para utilizarlas.
 
 > [!IMPORTANT]
-> En este artículo se describe solo información aplicable a estas dos plantillas, y se supone que está familiarizado con el servicio Batch y con los conceptos clave relacionados con él: grupos, nodos de proceso, trabajos y tareas, tareas del administrador de trabajos, variables de entorno y otra información pertinente. Puede encontrar más información en [Datos básicos de Azure Batch](batch-technical-overview.md), [Información general de las características de Batch para desarrolladores](batch-api-basics.md) e [Introducción a la biblioteca de Azure Batch para .NET](batch-dotnet-get-started.md).
+> En este artículo se describe solo información aplicable a estas dos plantillas, y se supone que está familiarizado con el servicio Batch y con los conceptos clave relacionados con él: grupos, nodos de proceso, trabajos y tareas, tareas del administrador de trabajos, variables de entorno y otra información pertinente. Puede encontrar más información en los artículos [Conceptos básicos de Azure Batch](batch-technical-overview.md) e [Información general de las características de Batch para desarrolladores](batch-api-basics.md).
 > 
 > 
 
@@ -52,7 +52,7 @@ Como se muestra en el diagrama siguiente, un trabajo de proceso que usa estas pl
 
 ![Diagrama que muestra cómo interactúa el código de cliente con el servicio Batch][diagram01]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para utilizar las plantillas de Batch, necesita lo siguiente:
 
 * Un equipo con Visual Studio 2015 instalado. Las plantillas de proceso por lotes solo se admiten actualmente para Visual Studio 2015.

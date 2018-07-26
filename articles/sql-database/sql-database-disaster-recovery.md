@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ba59d39fb07dfe9c9772fa4bea6922df052f0385
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dba78d3fb63ed6b2f867539fc471199ab72afe6a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645218"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092603"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una instancia de Azure SQL Database o una conmutación por error en una secundaria
 Azure SQL Database ofrece las siguientes capacidades para recuperarse de un corte en el suministro eléctrico:
@@ -27,7 +27,7 @@ Azure SQL Database ofrece las siguientes capacidades para recuperarse de un cort
 Para obtener información sobre los escenarios de continuidad empresarial y sus características, consulte el artículo sobre [continuidad empresarial](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Si usa bases de datos o grupos de nivel Premium o Crítico para la empresa (versión preliminar) con redundancia de zona, el proceso de recuperación se automatiza y el resto de este material no se aplica. 
+> Si usa bases de datos o grupos de nivel Premium o Crítico para la empresa con redundancia de zona, el proceso de recuperación se automatiza y el resto de este material no se aplica. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Preparación ante interrupciones
 Para que el proceso de recuperación pueda realizarse sin problemas en otra región de datos mediante los grupos de conmutación por error o las copias de seguridad con redundancia geográfica, debe preparar un servidor en otra interrupción de un centro de datos para convertirlo en el nuevo servidor principal si lo considera necesario. También hay que contar con pasos bien definidos que se hayan documentado y probado para garantizar que la recuperación se lleve a cabo correctamente. Estos son algunos de los pasos correspondientes a la fase de preparación:

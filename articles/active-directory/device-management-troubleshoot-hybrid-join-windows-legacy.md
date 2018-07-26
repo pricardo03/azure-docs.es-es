@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3b99a82b59cbba22d30a4325e246c308a2042ad5
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714119"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136314"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -56,6 +56,8 @@ En este artículo se proporcionan instrucciones sobre cómo resolver problemas p
 - El registro inicial o unión de dispositivos se ha configurado para realizar un intento de inicio de sesión o de bloqueo/desbloqueo. Podría haber un retraso de 5 minutos desencadenado por una tarea de programador de tareas. 
 
 - Si vuelve a instalar el sistema operativo o se vuelve a registrar de forma manual, se puede crear un registro en Azure AD; debido a ello, aparecerán varias entradas en la pestaña de información del USUARIO en Azure Portal. 
+
+- Asegúrese de que [KB4284842](https://support.microsoft.com/en-us/help/4284842) está instalado, en el caso de Windows 7 SP1 o Windows Server 2008 R2 SP1. Esta actualización evita errores de autenticación futuros debido a la pérdida de acceso del cliente en el caso de claves protegidas después de cambiar la contraseña.
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Paso 1: Recuperar el estado del registro 
 

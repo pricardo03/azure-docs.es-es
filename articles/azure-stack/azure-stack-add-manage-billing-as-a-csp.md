@@ -1,6 +1,6 @@
 ---
 title: Administración del uso y la facturación para Azure Stack como un proveedor de servicios en la nube | Microsoft Docs
-description: Tutorial sobre cómo registrar Azure Stack como proveedor en la nube y cómo agregar clientes.
+description: Tutorial sobre cómo registrar Azure Stack como proveedor en la nube (CSP) y cómo agregar clientes para la facturación.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.date: 07/12/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 21a52af4943004789b0a9bdbe4695ab1a603c046
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f119c2803148d68c9c08cbc6a61a3c8733bc1da4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796706"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090367"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Administración del uso y la facturación para Azure Stack como un proveedor de servicios en la nube 
 
@@ -27,9 +27,9 @@ ms.locfileid: "34796706"
 
 Este artículo le guía por el registro de Azure Stack como proveedor en la nube (CSP) y la adición de clientes.
 
-Como CSP, es probable que tenga muchos clientes diferentes que utilizan Azure Stack. Cada cliente tiene una suscripción CSP en Azure, y usted necesitará dirigir el uso de su instancia de Azure Stack a la suscripción de cada usuario.
+Como un CSP, trabaja con diversos clientes mediante su Azure Stack. Cada cliente tiene una suscripción de CSP en Azure. Tendrá que dirigir el uso de su Azure Stack a cada suscripción de usuario.
 
-El diagrama siguiente muestra los pasos que necesita para elegir su cuenta de servicios compartidos y registrar la cuenta de Azure con la cuenta. Cuando se haya realizado esto, se podrán incorporar los clientes finales.
+El siguiente diagrama muestra los pasos que necesita para elegir su cuenta de servicios compartidos y registrar la cuenta de Azure con la cuenta de Azure Stack. Cuando haya completado el registro, podrá incorporar los clientes finales.
 
 **Pasos para agregar seguimiento de uso como un CSP**
 
@@ -48,7 +48,7 @@ Tendrá que elegir el tipo de cuenta de servicios compartidos que utiliza para A
 
 Las suscripciones de los servicios compartidos de proveedor de servicio en la nube (CSPSS) son la opción preferida para el registro cuando un distribuidor de CSP o CSP directo opera en Azure Stack.
 
-Las suscripciones de CSPSS están asociadas a un inquilino de servicios compartidos. Cuando se registra Azure Stack, hay que proporcionar credenciales para una cuenta que es propietaria de la suscripción. La cuenta que utiliza para registrar Azure Stack puede ser diferente de la cuenta de administrador que utiliza para la implementación; las dos *no* tienen que pertenecer al mismo dominio. En otras palabras, puede realizar la implementación mediante el inquilino que ya usa. Por ejemplo puede usar ContosoCSP.onmicrosoft.com y, después, registrarse con un inquilino diferente, por ejemplo IURContosoCSP.onmicrosoft.com. Deberá recordar que debe iniciar sesión con ContosoCSP.onmicrosoft.com cuando realice la administración diaria de Azure Stack. Cuando inicia sesión en Azure usando IURContosoCSP.onmicrosoft.com cuando necesita hacer operaciones de registro.
+Las suscripciones de CSPSS están asociadas a un inquilino de servicios compartidos. Cuando se registra Azure Stack, hay que proporcionar credenciales para una cuenta que es propietaria de la suscripción. La cuenta que usa para registrar Azure Stack puede ser diferente de la cuenta de administrador que usa para la implementación. Además, las dos *no* tienen que pertenecer al mismo dominio. En otras palabras, puede realizar la implementación mediante el inquilino que ya usa. Por ejemplo puede usar ContosoCSP.onmicrosoft.com y, después, registrarse con un inquilino diferente, por ejemplo IURContosoCSP.onmicrosoft.com. Deberá recordar que debe iniciar sesión con ContosoCSP.onmicrosoft.com cuando realice la administración diaria de Azure Stack. Cuando inicia sesión en Azure usando IURContosoCSP.onmicrosoft.com cuando necesita hacer operaciones de registro.
 
 Consulte lo siguiente para obtener una descripción de las suscripciones de CSPSS, así como instrucciones sobre cómo crear una suscripción en [Adición de servicios compartidos para partners de Azure](https://msdn.microsoft.com/partner-center/shared-services).
 
@@ -66,21 +66,19 @@ Para configurar Azure Stack de modo que cuando un nuevo inquilino utilice recurs
 
 ## <a name="charge-the-right-subscriptions"></a>Carga de las suscripciones correctas
 
-Azure Stack utiliza una característica denominada registro. Un registro es un objeto, almacenado en Azure, que documenta qué suscripciones de Azure hay que usar para cobrar por una instancia determinada de Azure Stack. En esta sección se explica la importancia del registro.
+Azure Stack utiliza una característica denominada registro. Un registro es un objeto almacenado en Azure. El objeto de registro documenta qué suscripciones de Azure hay que usar para cobrar por una instancia determinada de Azure Stack. En esta sección se explica la importancia del registro.
 
 Con el uso del registro de Azure Stack, se puede:
  - Desviar los datos de uso de Azure Stack a Azure Commerce y facture una suscripción a Azure.
  - Notificar el uso de cada cliente en una suscripción diferente con una implementación multiinquilino de Azure Stack. La arquitectura multiinquilino permite que Azure Stack admita distintas organizaciones en la misma instancia de Azure Stack.
 
-Para cada instancia de Azure Stack, hay una suscripción predeterminada y tantas suscripciones de inquilinos como se necesite. La suscripción predeterminada es una suscripción de Azure que se cobra si no hay una suscripción específica de inquilino. Debe ser la primera en registrarse. Para que los informes de uso multiinquilinos funcionen, la suscripción debe ser un plan CSP o CSPSS.
+Para cada instancia de Azure Stack, hay una suscripción predeterminada y varias suscripciones de inquilinos. La suscripción predeterminada es una suscripción de Azure que se cobra si no hay una suscripción específica de inquilino. Debe ser la primera suscripción registrada. Para que los informes de uso multiinquilinos funcionen, la suscripción debe ser un plan CSP o CSPSS.
 
 Después, el registro se actualiza con una suscripción de Azure para cada inquilino que vaya a usar Azure Stack. Las suscripciones de inquilinos deben ser de tipo CSP y deben trasferirse al asociado que posee la suscripción predeterminada. En otras palabras, no puede registrar los clientes de otra persona.
 
 Cuando Azure Stack envía información de uso a Azure global, un servicio de Azure consulta el registro y asigna el uso de cada inquilino a la suscripción del inquilino correspondiente. Si no se ha registrado un inquilino, ese uso se transfiere a la suscripción predeterminada para la instancia Azure Stack de la que se originó.
 
 Dado que las suscripciones de inquilinos son suscripciones de CSP, se enviará la factura al asociado de CSP y la información de uso no será visible para el cliente final.
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,31 +1,33 @@
 ---
-title: Actualizar al modelo de implementación de Azure Resource Manager para la pila de copia de seguridad de Azure VM
+title: Actualización a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure
 description: Proceso de actualización y preguntas más frecuentes de la pila de copia de seguridad de VM, modelo de implementación de Resource Manager
-services: backup, virtual-machines
+services: backup
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: e822e0c354fd671ee2802506e0e268d4078b395e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606909"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136917"
 ---
-# <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Actualizar al modelo de implementación de Azure Resource Manager para la pila de copia de seguridad de Azure VM
+# <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Actualización a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure
+
 El modelo de implementación de Resource Manager para la actualización a la pila de copia de seguridad de máquina virtual (VM) proporciona las siguientes mejoras de características:
+
 * Posibilidad de ver instantáneas tomadas como parte de un trabajo de copia de seguridad que está disponible para la recuperación sin tener que esperar a que finalice la transferencia de datos. Reduce el tiempo de espera para la copia de instantáneas en el almacén antes de desencadenar la restauración. Además, esta posibilidad elimina el requisito de almacenamiento adicional para la copia de seguridad de máquinas virtuales Premium, a excepción de la primera copia de seguridad.  
 
-* Reducción de los tiempos de copia de seguridad y restauración al conservarse las instantáneas en local durante siete días.
+* Reduce los tiempos de copia de seguridad y restauración al conservarse las instantáneas en local durante siete días.
 
 * Compatibilidad con tamaños de disco de hasta 4 TB.
 
-* Posibilidad de usar cuentas de almacenamiento originales de una máquina virtual no administrada al restaurar. Esta posibilidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Las restauraciones son más rápidas en una amplia variedad de configuraciones de máquina virtual.
-    > [!NOTE] 
+* Capacidad de usar cuentas de almacenamiento originales de una máquina virtual no administrada al restaurar. Esta capacidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Acelera las operaciones de restauración para una amplia variedad de configuraciones de máquina virtual.
+    > [!NOTE]
     > Esta posibilidad no es lo mismo que reemplazar la máquina virtual original. 
     >
 
@@ -41,15 +43,16 @@ Un punto de recuperación se considera creado solo después de que se terminan l
 De forma predeterminada, las instantáneas se conservan durante siete días. Esta característica permite que la restauración finalice más rápido a partir de estas instantáneas. Reduce el tiempo necesario para volver a copiar los datos desde el almacén en la cuenta de almacenamiento del cliente. 
 
 ## <a name="considerations-before-upgrade"></a>Consideraciones antes de la actualización
-* La actualización de la pila de copia de seguridad de VM es unidireccional. Por eso, todas las copias de seguridad se encuadran en este flujo. Dado que se habilita en el nivel de suscripción, todas las máquinas virtuales se encuadran en este flujo. Todas las nuevas adiciones de características se basan en la misma pila. La posibilidad de controlar esta actualización en el nivel de directiva estará disponible en futuras versiones.
 
-* Las instantáneas se almacenan en local para acelerar la creación de puntos de recuperación y la propia restauración. Por lo tanto, se ven costos de almacenamiento correspondientes a las instantáneas durante el período de siete días.
+* La actualización de la pila de copia de seguridad de máquinas virtuales es unidireccional, todas las copias de seguridad siguen este flujo. Como el cambio se produce en el nivel de suscripción, todas las máquinas virtuales se encuadran en este flujo. Todas las nuevas adiciones de características se basan en la misma pila. Actualmente no puede controlar la pila en el nivel de directiva.
+
+* Las instantáneas se almacenan en local para acelerar la creación de puntos de recuperación y también las operaciones de restauración. Como resultado, verá los costos de almacenamiento que corresponden a las instantáneas tomadas durante el período de siete días.
 
 * Las instantáneas incrementales se almacenan como blobs en páginas. A todos los clientes que usan discos no administrados se les cobra por los siete días que las instantáneas están almacenadas en la cuenta de almacenamiento local del cliente. Según el modelo de precios actual, no hay ningún costo para los clientes con discos administrados.
 
-* Si realiza una restauración desde un punto de recuperación de instantáneas en una máquina virtual Premium, ve que se usa una ubicación de almacenamiento temporal mientras se crea la máquina virtual como parte de la restauración.
+* Si restaura una máquina virtual premium desde un punto de recuperación de instantánea, se usa una ubicación de almacenamiento temporal mientras se crea la máquina virtual.
 
-* En las cuentas de almacenamiento Premium, las instantáneas tomadas para una recuperación instantánea ocupan 10 TB de espacio asignado.
+* Para las cuentas de almacenamiento premium, las instantáneas tomadas para los puntos de recuperación de instantánea se consideran en el límite de 10 TB de espacio asignado.
 
 ## <a name="upgrade"></a>Actualizar
 ### <a name="the-azure-portal"></a>El Portal de Azure
@@ -89,3 +92,39 @@ Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNa
 ```
 
 Si indica "Registrado", la suscripción se ha actualizado a la pila de copia de seguridad de VM del modelo de implementación de Resource Manager.
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+Las siguientes preguntas y respuestas se han recopilado en foros y desde las preguntas de los clientes.
+
+### <a name="will-upgrading-to-v2-impact-current-backups"></a>¿Actualizar a la versión 2 afectará las copias de seguridad actuales?
+
+Si actualiza a la versión 2, no hay ningún impacto en las copias de seguridad actuales y no es necesario volver a configurar su entorno. Actualice y el entorno de copia de seguridad seguirá funcionando como lo ha hecho.
+
+### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>¿Cuánto cuesta actualizar a la versión 2 de la pila de Azure Backup?
+
+Actualizar a la versión 2 de la pila de Azure Backup no tiene costo. Las instantáneas se almacenan de manera local para acelerar la creación de puntos de recuperación y las operaciones de restauración. Como resultado, verá los costos de almacenamiento que corresponden a las instantáneas tomadas durante el período de siete días.
+
+### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>¿Actualizar a la versión 2 de la pila aumenta el límite de 10 TB para las instantáneas de la cuenta de almacenamiento?
+
+No.
+
+### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>En las cuentas de Premium Storage, ¿las instantáneas que se toman para el punto de recuperación instantáneo ocupan el límite de 10 TB para instantáneas?
+
+Si, en el caso de las cuentas de Premium Storage, las instantáneas que se toman para el punto de recuperación instantáneo ocupan los 10 TB de espacio asignado.
+
+### <a name="how-does-the-snapshot-work-during-the-seven-day-period"></a>¿Cómo funciona la instantánea durante el período de siete días? 
+
+Cada día se toma una instantánea nueva. Hay siete instantáneas individuales. **No** es que el servicio crea una copia el primer día y le agrega cambios durante los próximos seis días.
+
+### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>¿Qué ocurre si el grupo de recursos predeterminado se elimina por accidente?
+
+Si se elimina el grupo de recursos, se pierden los puntos de recuperación instantáneo para todas las máquinas virtuales protegidas en esa región. Cuando se realiza la siguiente copia de seguridad, el grupo de recursos se vuelve a crear y las copias de seguridad continúan según lo esperado. Esta funcionalidad no es exclusiva para los puntos de recuperación instantáneos.
+
+### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>¿Puedo eliminar el grupo de recursos predeterminado que se crea para los puntos de recuperación instantáneos?
+
+El servicio de Azure Backup crea el grupo de recursos administrado. Actualmente, no se puede cambiar ni modificar el grupo de recursos. Además, no debe bloquear el grupo de recursos. Esta guía no solo se aplica a la pila de la versión 2.
+ 
+### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>¿Una instantánea de la versión 2 es una instantánea incremental o una instantánea completa?
+
+Las instantáneas incrementales se usan para los discos no administrados. En el caso de los discos administrados, se trata de una instantánea completa.

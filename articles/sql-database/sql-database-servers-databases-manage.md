@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 918cfd0257c82e84451e07ef904dbda331f47b95
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1b431cdd49fb0ad32bfc8c06d731781afa38ac71
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311319"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091903"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores lógicos y bases de datos únicas de Azure SQL Database 
 
@@ -35,7 +35,7 @@ Para crear una base de datos de Azure SQL Database en [Azure Portal](https://por
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Para información sobre cómo seleccionar el plan de tarifa de la base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
+> Para obtener información sobre cómo seleccionar el plan de tarifa de la base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
 Para crear una instancia administrada, consulte [Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md).
 
@@ -48,7 +48,7 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
    ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Para configurar las propiedades de rendimiento de una base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
+> Para configurar las propiedades de rendimiento de una base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]

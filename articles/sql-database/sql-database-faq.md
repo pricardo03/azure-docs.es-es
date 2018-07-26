@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309136"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092076"
 ---
 # <a name="sql-database-faq"></a>Preguntas más frecuentes sobre la SQL Database
 
@@ -24,9 +24,9 @@ La versión actual de SQL Database es V12. Se ha retirado la versión V11.
 ## <a name="what-is-the-sla-for-sql-database"></a>¿Qué es el Acuerdo de Nivel de Servicio para SQL Database?
 Garantizamos la conectividad en el 99,99 % de las ocasiones, como mínimo, entre su instancia de Microsoft Azure SQL Database y nuestra puerta de enlace de Internet, con independencia del nivel de servicio. Para más información, consulte [Acuerdo de Nivel de Servicio](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>¿Qué es el nuevo modelo de compra basado en núcleos virtuales (versión preliminar) de Azure SQL Database?
+## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>¿Qué es el nuevo modelo de compra basado en núcleos virtuales de Azure SQL Database?
 
-El nuevo modelo de compra se suma al modelo basado en DTU ya existente. El modelo basado en núcleos virtuales está diseñado para proporcionar a los clientes flexibilidad, control, transparencia y una manera sencilla de trasladar los requisitos de las cargas de trabajo locales a la nube. También permite a los clientes escalar sus recursos de proceso y almacenamiento en función de las necesidades de la carga de trabajo. Es posible obtener un ahorro de hasta un 30 % en las opciones de bases de datos únicas y grupos elásticos que usan el modelo de núcleos virtuales mediante la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Para más información, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). 
+El nuevo modelo de compra se suma al modelo basado en DTU ya existente. El modelo basado en núcleos virtuales está diseñado para proporcionar a los clientes flexibilidad, control, transparencia y una manera sencilla de trasladar los requisitos de las cargas de trabajo locales a la nube. También permite a los clientes escalar sus recursos de proceso y almacenamiento en función de las necesidades de la carga de trabajo. Es posible obtener un ahorro de hasta un 30 % en las opciones de bases de datos únicas y grupos elásticos que usan el modelo de núcleos virtuales mediante la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Para obtener más información, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). 
 
 ## <a name="what-is-a-vcore"></a>¿Qué es un núcleo virtual? 
 Un núcleo virtual representa una CPU lógica que cuenta con una opción para elegir entre varias generaciones de hardware. Las CPU lógicas Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz y las CPU lógicas Gen 5 se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz.
@@ -38,11 +38,11 @@ En muchos casos, las aplicaciones pueden beneficiarse de la simplicidad de una a
 
 Los modelos basados en DTU y en núcleos virtuales seguirán coexistiendo. Lanzamos el modelo basado en núcleos virtuales como respuesta a las solicitudes de los clientes de una mayor transparencia en torno a sus recursos de base de datos y la posibilidad de escalar sus recursos de proceso y almacenamiento por separado. El modelo basado en núcleos virtuales también permite que los clientes con licencias activas de Software Assurance consigan un ahorro adicional gracias a la Ventaja híbrida de Azure para SQL Server.
 
-## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>¿Cómo debo elegir entre el modelo de compra basado en DTU y el modelo de compra basado en núcleos virtuales (versión preliminar)? 
+## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>¿Cómo debo elegir entre el modelo de compra basado en DTU y el modelo de compra basado en núcleos virtuales? 
 La unidad de transacción de base de datos (DTU) se basa en una medida combinada de CPU, memoria, lecturas y escrituras. Los niveles de rendimiento basados en DTU representan agrupaciones preconfiguradas de recursos que controlan distintos niveles de rendimiento de la aplicación. Los clientes que no desean preocuparse por los recursos subyacentes y prefieren la simplicidad de una agrupación preconfigurada y pagar una cantidad mensual fija, pueden encontrar que el modelo basado en DTU se ajusta mejor a sus necesidades. Sin embargo, para clientes que necesitan información detallada de los recursos subyacentes o escalarlos de manera independiente para lograr un rendimiento óptimo, el modelo basado en núcleos virtuales será el más adecuado.  Además, si el cliente tiene una licencia activa de Software Assurance (SA) para SQL Server, puede aprovechar su inversión actual y ahorrar hasta un 30 % con la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Las opciones dentro de cada modelo de compra ofrecen las ventajas de un servicio administrado, tales como copias de seguridad automatizadas, revisiones y actualizaciones de software. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>¿Qué es la Ventaja híbrida de Azure para SQL Server? 
-La [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ayuda a maximizar el valor de sus inversiones actuales en licencias y a acelerar el proceso de migración a la nube. Se trata de una ventaja basada en Azure que le permite usar las licencias de SQL Server con Software Assurance para pagar una tarifa reducida ("tasa base") en SQL Database. La Ventaja híbrida de Azure para SQL Server está disponible en la versión preliminar pública del modelo de compra basado en núcleos virtuales (versión preliminar) para bases de datos únicas y grupos elásticos de SQL Database. Puede solicitar esta ventaja aunque la SKU esté activa, pero tenga en cuenta que la tasa base se aplica desde el momento en que la seleccione en Azure Portal. No se emitirá ningún crédito con carácter retroactivo.
+La [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ayuda a maximizar el valor de sus inversiones actuales en licencias y a acelerar el proceso de migración a la nube. Se trata de una ventaja basada en Azure que le permite usar las licencias de SQL Server con Software Assurance para pagar una tarifa reducida ("tasa base") en SQL Database. La Ventaja híbrida de Azure para SQL Server está disponible en la versión preliminar pública del modelo de compra basado en núcleos virtuales para bases de datos únicas y grupos elásticos de SQL Database. Puede solicitar esta ventaja aunque la SKU esté activa, pero tenga en cuenta que la tasa base se aplica desde el momento en que la seleccione en Azure Portal. No se emitirá ningún crédito con carácter retroactivo.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>¿Hay derechos de doble uso con Ventaja híbrida de Azure para SQL Server?
 Dispone de 180 días de derechos de doble uso de la licencia para asegurarse de que las migraciones se ejecutan sin problemas. Transcurrido dicho período, la licencia de SQL Server solo puede usarse en la nube en SQL Database, y carece de derechos de doble uso en el entorno local y en la nube.
@@ -144,7 +144,7 @@ Los grupos elásticos se facturan según las características siguientes:
 * Si se cambia el tamaño de un grupo elástico, el grupo no se factura según la nueva cantidad de recursos hasta que la operación de cambio de tamaño se complete. Esto sigue el mismo patrón que el cambio de nivel de rendimiento de las bases de datos únicas.
 * El precio de un grupo elástico se basa en los recursos del grupo. El precio de un grupo elástico es independiente del número y el uso de las bases de datos elásticas de dentro de él.
 
-Para más información, consulte los artículos sobre los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
+Para obtener más información, consulte los artículos sobre los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
 ## <a name="how-does-the-vcore-based-usage-show-up-in-my-bill"></a>¿Cómo se muestra en mi factura el uso basado en núcleos virtuales? 
 En el modelo basado en núcleos virtuales, el servicio se factura conforme a una tarifa por hora predecible basada en el nivel de servicio, el proceso aprovisionado en núcleos virtuales, el almacenamiento aprovisionado en GB/mes y el almacenamiento de copia de seguridad consumido. Si el almacenamiento de copias de seguridad supera el tamaño total de la base de datos (es decir, 100 % del tamaño de base de datos), se aplican cargos adicionales. Las horas de los núcleos virtuales, el almacenamiento de base de datos configurado, la E/S consumida y el almacenamiento de copia de seguridad se detallan claramente en la factura, de forma que resulta sencillo ver la información de los recursos que ha usado. Se incluye el almacenamiento de copia de seguridad hasta el 100 % del tamaño máximo de la base de datos, por encima del cual se factura en GB/mes consumidos al mes.

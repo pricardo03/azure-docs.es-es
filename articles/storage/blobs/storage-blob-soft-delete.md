@@ -6,14 +6,14 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: fa933000ee08f16774c821e40d9a3c6fe5dbf353
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 408e2167e60cbdfa2b4eee136bf3ac4321ae8121
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35640137"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091738"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
 Azure Storage ofrece la posibilidad de eliminar temporalmente objetos de blob, con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
@@ -177,6 +177,11 @@ Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+Puede comprobar que la eliminación temporal se ha activado mediante el siguiente comando:
+
+```powershell
+$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+```
 
 Para recuperar los blobs que se eliminaron accidentalmente, llame a Undelete en ellos. Recuerde que al llamar a **Undelete Blob**, tanto en los blobs activos como en los eliminados temporalmente, restaurará todas las instantáneas asociadas eliminadas temporalmente como activas. En el ejemplo siguiente se llama a Undelete en todos los blobs activos y eliminados temporalmente de un contenedor:
 ```powershell
@@ -190,6 +195,13 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+Para buscar la directiva de retención de eliminación temporal actual, use el siguiente comando:
+
+```azurepowershell-interactive
+   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+```
+
 ### <a name="azure-cli"></a>Azure CLI 
 Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
 

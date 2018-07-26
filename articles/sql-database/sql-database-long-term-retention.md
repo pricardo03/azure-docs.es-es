@@ -7,23 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: b2f3c454ba84c7b892096cc42dcbe2706ab6159f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edf66d8ee61b2d0896ed8249ea286b0f3de7de5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648299"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092850"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
 
 Muchas aplicaciones tienen finalidades normativas, de conformidad u otras de carácter empresarial que requieren que se conserven copias de seguridad de las bases de datos más allá de entre los 7 y 35 días proporcionados por las [copias de seguridad automáticas](sql-database-automated-backups.md) de Azure SQL Database. Con la característica Retención a largo plazo, puede almacenar copias de seguridad completas de SQL Database en Blob Storage de [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) durante un máximo de 10 años. Así, podrá restaurar cualquier copia de seguridad como si fuera una base de datos nueva.
-
-> [!IMPORTANT]
-> La característica Retención a largo plazo se encuentra actualmente en su versión preliminar. Las copias de seguridad existentes almacenadas en el almacén de Azure Recovery Services como parte de la versión preliminar anterior de esta característica se migran al almacenamiento de SQL Azure.<!-- and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.-->
->
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funcionamiento de la retención a largo plazo de SQL Database
 
@@ -34,7 +30,6 @@ Ejemplos:
 -  W=0, M=0, Y=5, WeekOfYear=3
 
    La tercera copia de seguridad completa de cada año se conservará durante 5 años.
-
 - W=0, M=3, Y=0
 
    La primera copia de seguridad completa de cada mes se conservará durante 3 meses.
@@ -61,6 +56,14 @@ Si tuviera que modificar la directiva anterior y establece W=0 (sin copias de se
 1. Las copias de LTR se crean mediante el servicio de almacenamiento de Azure, por lo que el proceso de copia no tiene ningún impacto en el rendimiento en la base de datos existente.
 2. La directiva se aplica a las copias de seguridad futuras. Por ejemplo, Si el valor de WeekOfYear especificado pertenece al pasado al configurar la directiva, la primera copia de seguridad de LTR se creará el próximo año. 
 3. Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo.   La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. 
+> 
+
+## <a name="geo-replication-and-long-term-backup-retention"></a>Retención de copia de seguridad a largo plazo y replicación geográfica
+
+Si usa grupos de conmutación por error o de replicación geográfica activa como su solución de continuidad del negocio, debe prepararse para posibles conmutaciones por error y configurar la misma directiva LTR en la base de datos geográfica secundaria. Esto no aumentará el costo de almacenamiento LTR ya que las copias de seguridad no se generan desde las bases de datos secundarias. Solo cuando la base de datos secundaria se convierte en principal se crearán las copias de seguridad. De este modo, garantizará la generación de las copias de seguridad LTR ininterrumpida cuando se desencadene la conmutación por error y la base de datos principal se mueva a la región secundaria. 
+
+> [!NOTE]
+Cuando la base de datos principal original se recupere de la interrupción que provoque su conmutación por error, se convertirá en una nueva base de datos secundaria. Por lo tanto, no se reanudará la creación de copia de seguridad y la directiva LTR existente no surtirá efecto hasta que vuelva a ser la base de datos principal de nuevo. 
 > 
 
 ## <a name="configure-long-term-backup-retention"></a>Configuración de la retención de copia de seguridad a largo plazo

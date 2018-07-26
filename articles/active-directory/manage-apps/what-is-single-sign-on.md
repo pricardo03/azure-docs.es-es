@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 199aaf60a21e0362f27707de04f14854aa528297
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081513"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091840"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
 Inicio de sesión único significa poder tener acceso a todas las aplicaciones y los recursos que necesita para hacer negocios, iniciando iniciar sesión una sola vez usando una única cuenta de usuario. Una vez que ha iniciado sesión, puede tener acceso a todas las aplicaciones que necesite sin tener que autenticarse (por ejemplo, escribiendo una contraseña) una segunda vez.
@@ -45,8 +45,7 @@ Cuando un usuario inicia sesión en una aplicación, pasa por un proceso de aute
 Azure AD ofrece tres métodos diferentes para iniciar sesión en aplicaciones:
 
 * **Inicio de sesión único federado**, que permite a las aplicaciones redirigir a Azure AD las solicitudes de autenticación de usuario en lugar de solicitar su propia contraseña. El inicio de sesión único federado se admite para las aplicaciones compatibles con protocolos como SAML 2.0, WS-Federation u OpenID Connect, y es el modo más completo de inicio de sesión único.
-* **Inicio de sesión único con contraseña**, que permite el almacenamiento seguro de contraseñas de las aplicaciones y reproducirlo usando una extensión de explorador web o aplicación móvil. El inicio de sesión único con contraseña usa el 
-*  proceso existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas y no requiere que el usuario conozca la contraseña.
+* **Inicio de sesión único con contraseña**, que permite el almacenamiento seguro de contraseñas de las aplicaciones y reproducirlo usando una extensión de explorador web o aplicación móvil. El inicio de sesión único basado en contraseña aprovecha el proceso existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas y no requiere que los usuarios las conozcan.
 * **Inicio de sesión único existente**, que permite a Azure AD aprovechar cualquier inicio de sesión único existente que se haya configurado para la aplicación, pero también permite que estas aplicaciones se vinculen a los portales de panel de acceso a Office 365 o Azure AD, además de preparar informes en Azure AD cuando se lanzan desde allí las aplicaciones.
 
 Una vez que un usuario se ha autenticado en una aplicación, también debe tener aprovisionado un registro de cuenta en la aplicación que le diga dónde están los permisos y el nivel de acceso dentro de la aplicación. El aprovisionamiento de este registro de cuenta puede producirse automáticamente o bien lo puede realizar manualmente un administrador para que el usuario disponga de acceso de inicio de sesión único.
@@ -158,7 +157,7 @@ El Panel de acceso de https://myapps.microsoft.com es un portal basado en web qu
 
 El Panel de acceso es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure u Office 365.
 
-Para obtener más información sobre el Panel de acceso de Azure AD, consulte la [Introducción al panel de acceso](../active-directory-saas-access-panel-introduction.md).
+Para obtener más información sobre el Panel de acceso de Azure AD, consulte la [Introducción al panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Iniciador de aplicaciones de Office 365
 Para las organizaciones que han implementado Office 365, también aparecerán las aplicaciones asignadas a los usuarios mediante Azure AD en el Portal de Office 365 en https://portal.office.com/myapps. Esto hace que resulte fácil y cómodo para los usuarios de una organización iniciar sus aplicaciones sin tener que utilizar un segundo portal y es la solución de inicio de aplicaciones recomendada para las organizaciones que usan Office 365.
@@ -194,7 +193,7 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 ## <a name="related-articles"></a>Artículos relacionados
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configuración de Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
+* [Configuración de Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introducción a la administración del acceso a las aplicaciones](what-is-access-management.md)
 * [Comparación de funcionalidades para administrar identidades externas con Azure Active Directory](../active-directory-b2b-compare-b2c.md)
 

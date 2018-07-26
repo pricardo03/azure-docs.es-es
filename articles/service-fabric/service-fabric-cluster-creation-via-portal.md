@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: aljo
-ms.openlocfilehash: fbe3dde48fa1be79356ff1cb9e47c46832d8cdaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5d8f1d2634fd2efd624d1000f2fbc0400af4af11
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212762"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136815"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
 > * [Administrador de recursos de Azure](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Portal de Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -71,9 +71,7 @@ Se puede instalar un número cualquiera de certificados adicionales en un clúst
 * Cifrado y descifrado de los valores de configuración de aplicación
 * Cifrado de datos entre nodos durante la replicación 
 
-No se pueden configurar certificados de la aplicación al crear un clúster mediante el Portal de Azure. Para configurar certificados de aplicación en el momento de configuración del clúster, debe [crear un clúster mediante Azure Resource Manager][create-cluster-arm]. También puede agregar certificados de aplicación al clúster después de que se ha creado.
-
-</a "create-cluster-portal" ></a>
+No se pueden configurar certificados de la aplicación al [crear un clúster mediante Azure Portal](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). Para configurar certificados de aplicación en el momento de configuración del clúster, debe [crear un clúster mediante Azure Resource Manager][create-cluster-arm]. También puede agregar certificados de aplicación al clúster después de que se ha creado.
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Creación de un clúster en el Portal de Azure
 
@@ -121,7 +119,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 5. **Clúster de un solo nodo y clústeres de tres nodos**: están diseñados únicamente con fines de prueba. Estos clústeres no se admiten para la ejecución de cargas de trabajo de producción.
 6. Configure los puntos de conexión personalizados. Este campo le permite especificar una lista de puertos separados por coma que quiere exponer mediante Azure Load Balancer a la Internet pública para sus aplicaciones. Por ejemplo, si planea implementar una aplicación web en el clúster, escriba aquí "80" para permitir el paso del tráfico del puerto 80 al clúster. Para obtener más información sobre los puntos de conexión, consulte la [comunicación con las aplicaciones][service-fabric-connect-and-communicate-with-services].
 7. Configure los **diagnósticos**de clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos. Si ya creó el proyecto de Application Insights, proporcione su clave para que los rastros de la aplicación se enruten hacia ella.
-8. Seleccione el modo de actualización de Service Fabric que desea establecer en el clúster. Seleccione **Automático**si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual**si desea elegir una versión compatible. Para obtener más información sobre el modo de actualización de Service Fabric, consulte el [documento de actualización de un clúster de Service Fabric.][service-fabric-cluster-upgrade]
+8. Seleccione el modo de actualización de Service Fabric que desea establecer en el clúster. Seleccione **Automático**si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual**si desea elegir una versión compatible. Para más información sobre el modo de actualización de Fabric, vea el documento [service-fabric-cluster-upgrade document.][service-fabric-cluster-upgrade].
 
 > [!NOTE]
 > Se admiten solo los clústeres que ejecutan versiones compatibles de Service Fabric. Si selecciona el modo **Manual** , está aceptando la responsabilidad de actualizar el clúster a una versión compatible. > 
@@ -227,9 +225,7 @@ En este punto, tiene un clúster seguro mediante certificados para la autenticac
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node -->
-[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
-[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
+<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.mdd
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

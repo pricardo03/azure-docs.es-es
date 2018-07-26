@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb8b1ca3514e27221e95cb2def823c8f89d151e5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b578abfa6fc0a10edc5daab40f8a0eea5e6653d9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30312450"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115069"
 ---
 # <a name="persist-job-and-task-output"></a>Trabajo persistente y resultado de la tarea
 
@@ -84,7 +84,7 @@ Use la API del servicio Batch para almacenar la salida de tarea en los siguiente
 > 
 > 
 
-Para más información sobre el almacenamiento de salidas de tareas con la API del servicio Batch, consulte [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md) (Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch). Consulte también el proyecto de ejemplo [PersistOutputs][github_persistoutputs] en GitHub, que demuestra cómo usar la biblioteca de cliente de Batch para .NET con la finalidad de almacenar salidas de tareas en almacenamiento duradero.
+Para más información sobre el almacenamiento de salidas de tareas con la API del servicio Batch, consulte [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md) (Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch). Consulte también el proyecto de ejemplo [PersistOutputs][github_persistoutputs] en GitHub, que muestra cómo usar la biblioteca de cliente de Batch para .NET con la finalidad de almacenar salidas de tareas en almacenamiento duradero.
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>Usar la biblioteca Batch File Conventions para .NET
 
@@ -100,9 +100,9 @@ Use la biblioteca Batch File Conventions para .NET para almacenar la salida de t
 - Quiere crear puntos de comprobación o realizar la carga anticipada de los resultados iniciales.
 - Quiere ver la salida de tarea en Azure Portal.
 
-Para más información sobre el almacenamiento de salidas de tareas con la biblioteca File Conventions para .NET, consulte [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md) (Almacenamiento de datos de trabajos y tareas en Azure Storage con la biblioteca Batch File Conventions para .NET para conservarlos). Consulte también el proyecto de ejemplo [PersistOutputs][github_persistoutputs] en GitHub, que demuestra cómo usar la biblioteca File Conventions para .NET con la finalidad de almacenar salidas de tareas en almacenamiento duradero.
+Para más información sobre el almacenamiento de salidas de tareas con la biblioteca File Conventions para .NET, consulte [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md) (Almacenamiento de datos de trabajos y tareas en Azure Storage con la biblioteca Batch File Conventions para .NET para conservarlos). Consulte también el proyecto de ejemplo [PersistOutputs][github_persistoutputs] en GitHub, que muestra cómo usar la biblioteca de convenciones de archivo .NET con la finalidad de almacenar salidas de tareas en almacenamiento duradero.
 
-El proyecto de ejemplo [PersistOutputs][github_persistoutputs] de GitHub demuestra cómo usar la biblioteca de cliente de Batch para .NET con la finalidad de almacenar salidas de tareas en almacenamiento duradero.
+El proyecto de ejemplo [PersistOutputs][github_persistoutputs] de GitHub muestra cómo usar la biblioteca de cliente de Batch para .NET con la finalidad de almacenar salidas de tareas en almacenamiento duradero.
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Implementar el estándar Batch File Conventions
 
@@ -121,9 +121,10 @@ También puede implementar su propia solución completa de movimiento de archivo
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Examine el uso de las nuevas características de la API del servicio Batch para almacenar los datos de tareas en [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md) (Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch).
-- Aprenda sobre el uso de la biblioteca File Conventions para .NET en [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md) (Almacenamiento de datos de trabajos y tareas en Azure Storage con la biblioteca Batch File Conventions para .NET para conservarlos).
+- Obtenga información sobre cómo usar la biblioteca de convenciones de archivo de Batch para .NET en [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET](batch-task-output-file-conventions.md). (Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET).
 - Consulte el proyecto de ejemplo [PersistOutputs][github_persistoutputs] en GitHub, que demuestra cómo usar la biblioteca de cliente de Batch para .NET y la biblioteca File Conventions para .NET con la finalidad de almacenar salidas de tareas en almacenamiento duradero.
 
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
+[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 

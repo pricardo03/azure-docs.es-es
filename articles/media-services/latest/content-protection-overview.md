@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 2f0996482c599a664d02e172dcb20cda4e039af5
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341671"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115237"
 ---
 # <a name="content-protection-overview"></a>Introducción a la protección de contenido
 
@@ -45,8 +45,11 @@ Para completar correctamente el diseño del sistema o las aplicaciones de "prote
   > [!NOTE]
   > Puede cifrar cada recurso con varios tipos de cifrado (AES-128, PlayReady, Widevine, FairPlay). Consulte [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types) (Protocolos de streaming y tipos de cifrado) para ver lo que conviene combinar.
   
-  En el artículo siguiente se muestran los pasos para cifrar contenido con AES: [Protección con el cifrado AES](protect-with-aes128.md)
- 
+  En el artículo siguiente se muestran los pasos para cifrar contenido con AES o DRM: 
+  
+  * [Protección con el cifrado AES](protect-with-aes128.md)
+  * [Protección con DRM](protect-with-drm.md)
+
 2. Un reproductor con cliente de AES o DRM Un reproductor de vídeo basado en un SDK de reproductor (nativo o basado en un explorador) necesita reunir los siguientes requisitos:
   * El SDK del reproductor admite los clientes de DRM necesarios
   * El SDK del reproductor admite los protocolos necesarios de streaming: Smooth, DASH y HLS
@@ -54,9 +57,9 @@ Para completar correctamente el diseño del sistema o las aplicaciones de "prote
   
     Puede crear un reproductor mediante la [API de Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Utilice la [API ProtectionInfo de Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) para especificar la tecnología DRM que se usará en distintas plataformas DRM.
 
-    Para probar el contenido cifrado de AES o CENC (Widevine + PlayReady), puede usar [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). No olvide hacer clic en "Opciones avanzadas" y comprobar AES y proporcionar el token.
+    Para probar el contenido cifrado de AES o CENC (Widevine o PlayReady), puede usar [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). No olvide hacer clic en "Opciones avanzadas" y comprobar las opciones de cifrado.
 
-    Si desea probar el contenido cifrado de FairPlay, utilice [este reproductor de prueba](http://aka.ms/amtest). El reproductor admite los DRM de Widevine, PlayReady y FairPlay, así como el cifrado de claves sin cifrado AES-128. Debe elegir el explorador adecuado para probar diferentes DRM: Chrome/Opera/Firefox para Widevine, MS Edge/IE11 para PlayReady, Safari en maOS para FairPlay.
+    Si desea probar el contenido cifrado de FairPlay, utilice [este reproductor de prueba](http://aka.ms/amtest). El reproductor admite los DRM de Widevine, PlayReady y FairPlay, así como el cifrado de claves sin cifrado AES-128. Debe elegir el explorador adecuado para probar diferentes DRM: Chrome/Opera/Firefox para Widevine; MS Edge/IE11 para PlayReady; Safari en macOS para FairPlay.
 
 3. Servicio de token de seguridad (STS), que emite un token JSON Web Token (JWT) como token de acceso para acceder a un recurso de back-end. Puede usar los servicios de entrega de licencias de AMS como recurso de back-end. Un STS debe definir lo siguiente:
 
@@ -90,7 +93,7 @@ Puede usar Media Services para entregar el contenido cifrado de forma dinámica 
 
 En Media Services v3, se asocia una clave de contenido con StreamingLocator (consulte [este ejemplo](protect-with-aes128.md)). Si usa el servicio de entrega de claves de Media Services, debe generar automáticamente la clave de contenido. Deberá generar la clave de contenido usted mismo si usa su propio servicio de claves o si tiene que controlar un escenario de alta disponibilidad en el que necesita tener la misma clave de contenido en dos centros de datos.
 
-Cuando un reproductor solicita una transmisión, Media Services usa la clave especificada para cifrar de forma dinámica el contenido mediante la clave sin cifrado de AES o el cifrado DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves de Media Services o la del servicio que especifique. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
+Cuando un reproductor solicita una transmisión, Media Services usa la clave especificada para cifrar de forma dinámica el contenido mediante la clave sin cifrado de AES o el cifrado DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves de Media Services o la del servicio que especifique. Para determinar si el usuario tiene permiso para obtener la clave, el servicio evalúa la directiva de claves de contenido que especificó para la clave.
 
 ## <a name="aes-128-clear-key-vs-drm"></a>Clave sin cifrado AES-128 frente a DRM
 
@@ -122,22 +125,13 @@ Con una directiva de clave de contenido con restricción de token, la clave de c
 
 Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, el emisor y el público. La clave de comprobación principal contiene la clave con la que se firmó el token. El emisor es el servicio de token seguro que emite el token. El público, a veces denominado ámbito, describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
 
-## <a name="streaming-urls"></a>Direcciones URL de streaming
-
-Si el recurso se cifró con más de un DRM, use una etiqueta de cifrado en la dirección URL de streaming: (formato = 'm3u8-aapl', cifrado = 'xxx').
-
-Se aplican las siguientes consideraciones:
-
-* El tipo de cifrado no tiene que especificarse en la dirección URL si solo se aplicó un cifrado al recurso.
-* El tipo de cifrado distingue mayúsculas de minúsculas.
-* Se pueden especificar los siguientes tipos de cifrado:
-  * **cenc**: para PlayReady o Widevine (cifrado común)
-  * **cbcs-aapl**: para FairPlay (cifrado AES-CBC)
-  * **cbc**: para cifrado de sobre AES
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Protección con cifrado AES en Media Services v3](protect-with-aes128.md)
+Consulte los artículos siguientes:
+
+  * [Protección con el cifrado AES](protect-with-aes128.md)
+  * [Protección con DRM](protect-with-drm.md)
 
 Puede encontrar información adicional en [Diseño e implementación de referencia de DRM](../previous/media-services-cenc-with-multidrm-access-control.md)
 

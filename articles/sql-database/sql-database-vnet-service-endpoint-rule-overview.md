@@ -3,26 +3,29 @@ title: Reglas y puntos de conexión del servicio de Virtual Network para Azure S
 description: Marque una subred como punto de conexión del servicio de Virtual Network. A continuación, defina el punto de conexión como una regla de red virtual a la ACL de su instancia de Azure SQL Database. Su instancia de SQL Database aceptará la comunicación de todas las máquinas virtuales y otros nodos de la subred.
 services: sql-database
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 06/05/2018
-ms.reviewer: genemi
+ms.date: 07/18/2018
+ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: d708d55c64306636910a85b5b490e25ecc794bd6
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802602"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39127502"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure SQL Database y SQL Data Warehouse
 
-Las *reglas de red virtual* son una característica de firewall que controla si el servidor de Azure SQL Database acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de la regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con Azure SQL Database.
+Las *reglas de red virtual* son una característica de firewall que controla si el servidor de Azure [SQL Database](sql-database-technical-overview.md) o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de la regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con Azure SQL Database.
+
+> [!NOTE]
+> Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
 
 Para crear una regla de red virtual, primero debe existir un [punto de conexión de servicio de red virtual] [ vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia.
-
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Creación de una regla de red virtual
 
@@ -141,7 +144,6 @@ Para Azure SQL Database, la característica de las reglas de red virtual tiene l
 Al utilizar los puntos de conexión de servicio para Azure SQL Database, revise las consideraciones siguientes:
 
 - **Se requiere la salida a IP públicas de Azure SQL Database**: los grupos de seguridad de red (NSG) deben estar abiertos en las IP de Azure SQL Database para permitir la conectividad. Puede hacerlo mediante el uso de [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) de NSG para Azure SQL Database.
-- **Azure Database for PostgreSQL y MySQL no se admiten**: los puntos de conexión de servicio para Azure Database for PostgreSQL o MySQL no son compatibles. Al habilitar puntos de conexión de servicio en SQL Database se interrumpirá la conectividad a estos servicios. Hay una solución; póngase en contacto con *dmalik@microsoft.com* para obtener más información.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -242,7 +244,7 @@ Internamente, los cmdlets de PowerShell para acciones de red virtual SQL llaman 
 
 - [Reglas de red virtual: operaciones][rest-api-virtual-network-rules-operations-862r]
 
-#### <a name="prerequisites"></a>requisitos previos
+#### <a name="prerequisites"></a>Requisitos previos
 
 Ya debe tener una subred que esté etiquetada con el punto de conexión del servicio de Virtual Network *nombre de tipo* correspondiente a su instancia de Azure SQL Database.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: ed402f9730136fdb8a4d07dd291599c567637600
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838388"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112651"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Ejecutar tareas de ciencia de datos: exploración, modelado e implementación
 
@@ -79,7 +79,7 @@ Tras la creación de varios modelos, suele ser necesario tener un sistema para r
 
 1. [Azure Machine Learning: servicio Administración de modelos](../service/index.yml)
 2. [ModelDB de MIT](https://mitdbg.github.io/modeldb/) 
-3. [SQL-Server como sistema de administración de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
+3. [SQL Server como sistema de administración de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Implementación

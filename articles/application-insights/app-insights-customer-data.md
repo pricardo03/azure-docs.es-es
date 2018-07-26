@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.reviewer: Evgeny.Ternovsky
 ms.author: mbullwin
-ms.openlocfilehash: 95e421278b46015e761764792e11dec0351b9785
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a59b57c546f18a7d91160f2ae7282af82fc42160
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294428"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044720"
 ---
 # <a name="guidance-for-personal-data-stored-in-application-insights"></a>Guía sobre datos personales almacenados en Application Insights
 
@@ -77,12 +77,13 @@ La purga es una operación con muchos privilegios que ninguna aplicación ni usu
 Una vez que se ha asignado el rol de Azure Resource Manager, habrá disponibles dos nuevas rutas de acceso de API, la documentación para desarrolladores completa y la forma de la llamada vinculada:
 
 * [Purga POST](https://docs.microsoft.com/rest/api/application-insights/components/purge): toma un objeto que especifica los parámetros de datos que se van a eliminar y devuelve un GUID de referencia.
-* Estado de purga GET: la llamada de purga POST devolverá un encabezado "x-ms-status-location" que incluye una dirección URL a la que se puede llamar para determinar el estado de la API de purga. Por ejemplo: 
+* GET purge status: la llamada POST purge devolverá un encabezado "x-ms-status-location" que incluye una dirección URL a la que se puede llamar para determinar el estado de la API de purga. Por ejemplo: 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
-Aunque la mayoría de las operaciones de purga pueden completarse mucho más rápido que lo establecido en el Acuerdo de Nivel de Servicio (SLA), debido a su gran impacto en la plataforma de datos que utiliza Application Insights, el SLA formal para la realización de operaciones de purga es de 30 días.
+> [!IMPORTANT]
+>  Aunque la mayoría de las operaciones de purga pueden completarse mucho más rápido que lo establecido en el Acuerdo de Nivel de Servicio (SLA), debido a su gran impacto en la plataforma de datos que utiliza Application Insights, **el SLA formal para la realización de operaciones de purga es de 30 días**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo se recopilan, procesan y protegen los datos, vea [Seguridad de datos de Application Insights](app-insights-data-retention-privacy.md).

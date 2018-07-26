@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018653"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036853"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Uso de la API de autenticación de Resource Manager para acceder a suscripciones
 ## <a name="introduction"></a>Introducción
@@ -73,15 +73,21 @@ Dado que la aplicación tiene acceso a otra suscripción, debe configurarla como
 
 En el ejemplo siguiente se muestra cómo registrar la aplicación con Azure PowerShell. Debe tener la versión más reciente (agosto de 2016) de Azure PowerShell para que funcione este comando.
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
-Para iniciar sesión como la aplicación de AD, necesita el identificador y la contraseña de la aplicación. Para ver el identificador de aplicación que se devuelve desde el comando anterior, use:
+Para iniciar sesión con la aplicación de AD, necesita el identificador y la contraseña de la aplicación. Para ver el identificador de aplicación que se devuelve desde el comando anterior, use:
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 En el ejemplo siguiente se muestra cómo registrar la aplicación con la CLI de Azure.
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 Los resultados incluyen AppId, que necesita para autenticarse como la aplicación.
 

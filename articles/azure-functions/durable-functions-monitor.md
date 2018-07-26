@@ -12,20 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 02c068fc70748584583b2c71659b1a1abdc0a46d
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157482"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035778"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
 El patrón de supervisión hace referencia a un proceso *periódico* flexible de un flujo de trabajo; por ejemplo, realizar un sondeo hasta que se cumplan determinadas condiciones. En este artículo se explica un ejemplo que usa [Durable Functions](durable-functions-overview.md) para implementar la supervisión.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Instale Durable Functions](durable-functions-install.md).
 * Complete el tutorial de [Hello Sequence](durable-functions-sequence.md).
@@ -65,7 +65,7 @@ En este artículo se explican las funciones siguientes en la aplicación de ejem
 * `E3_GetIsClear`: una función de actividad que comprueba las condiciones meteorológicas actuales de una ubicación.
 * `E3_SendGoodWeatherAlert`: una función de la actividad que envía un mensaje SMS por Twilio.
 
-En las siguientes secciones se explican la configuración y el código que se utilizan para el scripting C#. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
+En las siguientes secciones se explican la configuración y el código que se utilizan para el scripting C# y para JavaScript. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>La orquestación de supervisión meteorológica (código de ejemplo de Azure Portal y Visual Studio Code)
 
@@ -75,7 +75,13 @@ La función **E3_Monitor** utiliza la norma *function.json* para las funciones d
 
 Este es el código que implementa la función:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
 Esta función de orquestador realiza las acciones siguientes:
 
@@ -88,11 +94,13 @@ Esta función de orquestador realiza las acciones siguientes:
 
 Para ejecutar simultáneamente varias instancias del orquestador, envíe varias funciones **MonitorRequests**. Se puede especificar la ubicación que se va a supervisar, así como el número de teléfono para enviar una alerta por SMS.
 
-## <a name="strongly-typed-data-transfer"></a>Transferencia de datos fuertemente tipados
+## <a name="strongly-typed-data-transfer-net-only"></a>Transferencia de datos fuertemente tipados (solo .NET)
 
-El orquestador requiere varios fragmentos de datos, por lo que se utilizan [objetos POCO compartidos](functions-reference-csharp.md#reusing-csx-code) para la transferencia de datos fuertemente tipados: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+El orquestador requiere varios fragmentos de datos, por lo que se usan [objetos POCO compartidos](functions-reference-csharp.md#reusing-csx-code) para la transferencia de datos fuertemente tipados en C# y scripts de C#: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
+
+En el ejemplo de JavaScript se usan objetos JSON normales como parámetros.
 
 ## <a name="helper-activity-functions"></a>Funciones auxiliares de actividad
 
@@ -100,9 +108,15 @@ Al igual que otros ejemplos, las funciones auxiliares de actividad son básicame
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
-Y esta es la implementación. Al igual que los objetos POCO utilizados para la transferencia de datos, la lógica para controlar la llamada a la API y analizar el JSON de respuesta se abstrae en una clase compartida. Puede encontrarlo como parte del [código de ejemplo de Visual Studio](#run-the-sample).
+Y esta es la implementación. Al igual que los objetos POCO usados para la transferencia de datos, la lógica para tratar la llamada API y analizar el JSON de respuesta se abstrae en una clase compartida en C#. Puede encontrarlo como parte del [código de ejemplo de Visual Studio](#run-the-sample).
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
 La función **E3_SendGoodWeatherAlert** usa el enlace de Twilio para enviar un mensaje SMS que notifica al usuario final que es un buen momento para dar un paseo. La *function.json* es simple:
 
@@ -110,7 +124,13 @@ La función **E3_SendGoodWeatherAlert** usa el enlace de Twilio para enviar un m
 
 Y este es el código que envía el mensaje SMS:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
@@ -131,6 +151,9 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > Actualmente, las funciones de inicio de orquestación de JavaScript no pueden devolver los URI de administración de instancias. Esta funcionalidad se agregará en una versión posterior.
 
 Se inicia la instancia de **E3_Monitor** y consulta las condiciones meteorológicas actuales para la ubicación solicitada. Si el tiempo está despejado, llama a una función de actividad para enviar una alerta; de lo contrario, establece un temporizador. Cuando expire el temporizador, se reanudará la orquestación.
 

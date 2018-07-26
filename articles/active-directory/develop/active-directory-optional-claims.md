@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2018
+ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ffd774477881be6b7f46dd38bbc88c8d019223aa
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317211"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036758"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Notificaciones opcionales en Azure AD (versión preliminar)
 
@@ -48,31 +48,35 @@ Uno de los objetivos del [punto de conexión de la versión 2.0 de Azure AD](act
 El conjunto de notificaciones opcionales disponibles de forma predeterminada para que las usen las aplicaciones se enumeran a continuación.  Para agregar notificaciones opcionales personalizadas para la aplicación, consulte las [extensiones de directorio](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) a continuación. 
 
 > [!Note]
->La mayoría de estas notificaciones puede incluirse en los JWT, pero no en los tokens SAML, excepto donde se indique en la columna Tipo de token.  Además, aunque actualmente solo se admiten las notificaciones opcionales para los usuarios de AAD, se va a agregar compatibilidad con MSA.  Cuando MSA sea compatible con las notificaciones opcionales en la versión 2.0 del punto de conexión, la columna Tipo de usuario indicará si hay una notificación disponible para los usuarios de AAD o de MSA.  
+>La mayoría de estas notificaciones puede incluirse en los JWT para los tokens v1.0 y v2.0, pero no en los tokens SAML, excepto donde se indique en la columna Tipo de token.  Además, aunque actualmente solo se admiten las notificaciones opcionales para los usuarios de AAD, se va a agregar compatibilidad con MSA.  Cuando MSA sea compatible con las notificaciones opcionales en la versión 2.0 del punto de conexión, la columna Tipo de usuario indicará si hay una notificación disponible para los usuarios de AAD o de MSA.  
 
 **Tabla 2. Conjunto de notificaciones opcionales estándar**
 
-| NOMBRE                     | DESCRIPCIÓN                                                                                                                                                                                     | Tipo de token | Tipo de usuario | Notas                                                                                                                                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `auth_time`                | Momento de la última autenticación del usuario.  Consulte las especificaciones de Open ID Connect                                                                                                                                | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_region_scope`      | Región del inquilino de los recursos                                                                                                                                                                   | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `signin_state`             | Notificación del estado de inicio de sesión                                                                                                                                                                             | JWT        |           | 6 valores devueltos, como marcas:<br> "dvc_mngd": dispositivo administrado<br> "dvc_cmp": dispositivo compatible<br> "dvc_dmjd": dispositivo unido a un dominio<br> "dvc_mngd_app": dispositivo administrado mediante administración de datos maestros<br> "inknownntwk": dispositivo en una red conocida<br> "kmsi": se usó Mantener la sesión iniciada <br> |
-| `controls`                 | Notificación de varios valores con los controles de sesión aplicados mediante directivas de acceso condicional                                                                                                       | JWT        |           | 3 valores:<br> "app_res": la aplicación exige más restricciones pormenorizadas <br> "ca_enf": la aplicación del acceso condicional se ha diferido y sigue siendo necesaria <br> "no_cookie": este token no es suficiente para intercambiarlo por una cookie en el explorador <br>                              |
-| `home_oid`                 | Para los usuarios invitados, identificador de objeto del usuario en el inquilino del usuario principal.                                                                                                                           | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `sid`                      | Identificador de sesión que se usa para el cierre de cada sesión de usuario.                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `platf`                    | Plataforma de dispositivo                                                                                                                                                                                 | JWT        |           | Restringido a los dispositivos administrados que pueden verificar el tipo de dispositivo                                                                                                                                                                                                                              |
-| `verified_primary_email`   | Procede del valor PrimaryAuthoritativeEmail del usuario                                                                                                                                               | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `verified_secondary_email` | Procede del valor SecondaryAuthoritativeEmail del usuario                                                                                                                                             | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `enfpolids`                | Identificadores de las directivas en vigor. Lista de los identificadores de las directivas que se evaluaron para el usuario actual                                                                                                         | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `vnet`                     | Información del especificador de la red virtual                                                                                                                                                                     | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `fwd`                      | Dirección IP.  Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `ctry`                     | País del usuario                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_ctry`              | País del inquilino de los recursos                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `acct`    | Estado de la cuenta de los usuarios de un inquilino.  Si el usuario es miembro del inquilino, el valor es `0`.  Si es un invitado, el valor es `1`.  | JWT, SAML | | |
-| `upn`                      | Notificación UserPrincipalName.  Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados | JWT, SAML  |           | Propiedades adicionales: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+| NOMBRE                        | DESCRIPCIÓN   | Tipo de token | Tipo de usuario | Notas  |
+|-----------------------------|----------------|------------|-----------|--------|
+| `auth_time`                | Momento de la última autenticación del usuario.  Consulte las especificaciones de Open ID Connect| JWT        |           |  |
+| `tenant_region_scope`      | Región del inquilino de los recursos | JWT        |           | |
+| `signin_state`             | Notificación del estado de inicio de sesión   | JWT        |           | 6 valores devueltos, como marcas:<br> "dvc_mngd": dispositivo administrado<br> "dvc_cmp": dispositivo compatible<br> "dvc_dmjd": dispositivo unido a un dominio<br> "dvc_mngd_app": dispositivo administrado mediante administración de datos maestros<br> "inknownntwk": dispositivo en una red conocida<br> "kmsi": se usó Mantener la sesión iniciada <br> |
+| `controls`                 | Notificación de varios valores con los controles de sesión aplicados mediante directivas de acceso condicional  | JWT        |           | 3 valores:<br> "app_res": la aplicación exige más restricciones pormenorizadas <br> "ca_enf": la aplicación del acceso condicional se ha diferido y sigue siendo necesaria <br> "no_cookie": este token no es suficiente para intercambiarlo por una cookie en el explorador <br>  |
+| `home_oid`                 | Para los usuarios invitados, identificador de objeto del usuario en el inquilino del usuario principal.| JWT        |           | |
+| `sid`                      | Identificador de sesión que se usa para el cierre de cada sesión de usuario. | JWT        |           |         |
+| `platf`                    | Plataforma de dispositivo    | JWT        |           | Restringido a los dispositivos administrados que pueden verificar el tipo de dispositivo|
+| `verified_primary_email`   | Procede del valor PrimaryAuthoritativeEmail del usuario      | JWT        |           |         |
+| `verified_secondary_email` | Procede del valor SecondaryAuthoritativeEmail del usuario   | JWT        |           |        |
+| `enfpolids`                | Identificadores de las directivas en vigor. Lista de los identificadores de las directivas que se evaluaron para el usuario actual  | JWT |  |  |
+| `vnet`                     | Información del especificador de la red virtual    | JWT        |           |      |
+| `fwd`                      | Dirección IP.| JWT    |   | Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual) |
+| `ctry`                     | País del usuario | JWT |           | Azure AD devuelve la notificación opcional `ctry` si existe y el valor de la notificación es un código de país estándar de dos letras, como FR, JP, SZ, etc. |
+| `tenant_ctry`              | País del inquilino de los recursos | JWT | | |
+| `xms_pdl`          | Ubicación de datos preferida   | JWT | | Para los inquilinos de varias regiones geográficas, este es el código de 3 letras que muestra la región geográfica en la que se encuentra el usuario.  Para más información, consulte la [documentación de Azure AD Connect acerca de la ubicación de datos preferida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Por ejemplo: `APC` para Asia Pacífico. |
+| `xms_pl`                   | Idioma preferido del usuario  | JWT ||El idioma preferido del usuario, si se establece.  Se origina desde su inquilino principal, en escenarios de acceso de invitado.  Con formato LL-CC ("en-us"). |
+| `xms_tpl`                  | Idioma preferido del inquilino| JWT | | El idioma preferido del inquilino de recursos, si se establece.  Con formato LL ("en"). |
+| `ztdid`                    | Identificador de implementación sin interacción | JWT | | La identidad del dispositivo usada en [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). |
+| `acct`             | Estado de la cuenta de los usuarios de un inquilino.   | JWT, SAML | | Si el usuario es miembro del inquilino, el valor es `0`.  Si es un invitado, el valor es `1`.  |
+| `upn`                      | Notificación UserPrincipalName.  | JWT, SAML  |           | Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados  <br> Propiedades adicionales: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### <a name="v20-optional-claims"></a>Notificaciones opcionales de la versión 2.0
-Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero se quitan de los tokens de la versión 2.0, a menos que se soliciten.  Estas notificaciones solo se aplican a los JWT (tokens de identificación y de acceso).  
+Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero no en los tokens de la versión 2.0, a menos que se solicite.  Estas notificaciones solo se aplican a los JWT (tokens de identificación y de acceso).  
 
 **Tabla 3. Notificaciones opcionales exclusivas de la versión 2.0**
 
@@ -95,7 +99,7 @@ Algunas notificaciones opcionales se pueden configurar para cambiar la manera de
 
 | Nombre de propiedad                                     | Nombre de la propiedad adicional                                                                                                             | DESCRIPCIÓN |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |  Puede usarse en respuestas SAML y JWT.            |
 | | `include_externally_authenticated_upn`              | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos.  Por ejemplo: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las almohadillas (`#`) se reemplazan por caracteres de subrayado (`_`), por ejemplo `foo_hometenant.com_EXT_@resourcetenant.com` |             
 
@@ -118,7 +122,7 @@ Algunas notificaciones opcionales se pueden configurar para cambiar la manera de
 }
 ```
 
-Este objeto OptionalClaims hace que el token de identificador devuelto al cliente incluya otro UPN con el inquilino de inicio adicional y la información de recursos de inquilino.  
+Este objeto OptionalClaims hace que el token de identificador devuelto al cliente incluya otro UPN con el inquilino de inicio adicional y la información de recursos de inquilino.  La notificación `upn` solo cambia en el token si el usuario es un invitado en el inquilino (que usa un IDP diferente para la autenticación). 
 
 ## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
 
@@ -131,14 +135,13 @@ Puede configurar notificaciones opcionales para la aplicación al modificar el m
    {
        "idToken": [
              { 
-                   "name": "upn", 
-                   "essential": false, 
-                   "additionalProperties": [ "include_externally_authenticated_upn"]  
+                   "name": "auth_time", 
+                   "essential": false
               }
         ],
  "accessToken": [ 
              {
-                    "name": "auth_time", 
+                    "name": "ipaddr", 
                     "essential": false
               }
         ],
@@ -162,7 +165,7 @@ Indica las notificaciones opcionales solicitadas por una aplicación. Una aplica
 
 **Tabla 5. Propiedades del tipo OptionalClaims**
 
-| NOMBRE        | Escriba                       | DESCRIPCIÓN                                           |
+| NOMBRE        | type                       | DESCRIPCIÓN                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de identificación de JWT.     |
 | `accessToken` | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de acceso de JWT. |
@@ -176,7 +179,7 @@ Si lo admite una notificación concreta, también puede modificar el comportamie
 
 **Tabla 6. Propiedades del tipo OptionalClaim**
 
-| NOMBRE                 | Escriba                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
+| NOMBRE                 | type                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nombre de la notificación opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origen (objeto de directorio) de la notificación. Hay unas notificaciones predefinidas y otras definidas por el usuario desde las propiedades de extensión. Si el valor de origen es null, es una notificación opcional predefinida. Si el valor de origen es user, el valor de la propiedad name es la propiedad de extensión del objeto de usuario. |

@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35640155"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136611"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Más información sobre copias de seguridad automáticas de SQL Database
 
@@ -26,7 +26,7 @@ SQL Database crea automáticamente copias de seguridad de la base de datos y usa
 
 ## <a name="what-is-a-sql-database-backup"></a>¿Qué es una copia de seguridad de SQL Database?
 
-SQL Database emplea tecnología de SQL Server para crear copias de seguridad [completas](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciales](http://msdn.microsoft.com/library/ms175526.aspx) y de [registro de transacciones](https://msdn.microsoft.com/library/ms191429.aspx) para la restauración a un momento dado. Por lo general, las copias de seguridad del registro de transacciones se producen cada 5-10 minutos, y la frecuencia depende del nivel de rendimiento y de la cantidad de actividad de la base de datos. Las copias del registro de transacciones, junto con las completas y diferenciales, permiten restaurar una base de datos a un momento específico en el mismo servidor que hospede la base de datos. Cuando se restaura una base de datos, el servicio calcula qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
+SQL Database emplea tecnología de SQL Server para crear copias de seguridad [completas](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciales](http://msdn.microsoft.com/library/ms175526.aspx) y de [registro de transacciones](https://msdn.microsoft.com/library/ms191429.aspx) para la restauración a un momento dado. Por lo general, las copias de seguridad del registro de transacciones se producen cada 5-10 minutos y las copias de seguridad diferenciales cada 12 horas, la frecuencia depende del nivel de rendimiento y de la cantidad de actividad de la base de datos. Las copias del registro de transacciones, junto con las completas y diferenciales, permiten restaurar una base de datos a un momento específico en el mismo servidor que hospede la base de datos. Cuando se restaura una base de datos, el servicio calcula qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
 
 
 Puede utilizar estas copias de seguridad para realizar lo siguiente:
@@ -42,7 +42,7 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 > 
 
 ## <a name="how-long-are-backups-kept"></a>¿Cuánto tiempo se conservan las copias de seguridad?
-Cada copia de seguridad de SQL Database tiene un período de retención predeterminado que se basa en el nivel de servicio de la base de datos y es diferente al [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y al [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). Puede actualizar el período de retención de copia de seguridad de una base de datos. Vea [Cambiar el período de retención de copia de seguridad](#how-to-change-backup-retention-period) para obtener más detalles.
+Cada copia de seguridad de SQL Database tiene un período de retención predeterminado que se basa en el nivel de servicio de la base de datos y es diferente al [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y al [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). Puede actualizar el período de retención de copia de seguridad de una base de datos. Vea [Cambiar el período de retención de copia de seguridad](#how-to-change-backup-retention-period) para obtener más detalles.
 
 Si elimina una base de datos, SQL Database mantendrá las copias de seguridad de la misma manera que para una base de datos en línea. Por ejemplo, si elimina una base de datos básica que tiene un período de retención de siete días, una copia de seguridad con cuatro días de antigüedad se guarda durante tres días más.
 
@@ -62,14 +62,9 @@ Si reduce el período de retención PITR actual, todas las copias de seguridad e
 
 Si aumenta el período de retención PITR actual, SQL Database mantendrá las copias de seguridad existentes hasta que se alcance el período de retención más largo.
 
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>Retención PITR para los niveles de servicio basados en núcleos virtuales (versión preliminar)
-
-Durante la versión preliminar, el período de retención PITR de las bases de datos creadas mediante el modelo de compra basado en núcleos virtuales se establece en siete días. El almacenamiento asociado se incluye de forma gratuita.    
-
-
 ## <a name="how-often-do-backups-happen"></a>¿Con qué frecuencia se producen las copias de seguridad?
 ### <a name="backups-for-point-in-time-restore"></a>Copias de seguridad para la restauración a un momento dado
-SQL Database admite el autoservicio de restauración a un momento dado (PITR) mediante la creación automática de copias de seguridad completas, copias de seguridad diferenciales y copias de seguridad de registro de transacciones. Las copias de seguridad de base de datos completas se crean con una frecuencia semanal, las diferenciales se crean en intervalos de pocas horas y las de registro de transacciones cada 5-10 minutos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente, se completa en 30 minutos pero puede tardar más si la base de datos tiene un tamaño considerable. Por ejemplo, la copia de seguridad inicial puede tardar más en una base de datos restaurada o una copia de la base de datos. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El servicio SQL Database determina el momento exacto en el que se producen todas las copias de seguridad de la base de datos a medida que equilibra la carga de trabajo global del sistema.
+SQL Database admite el autoservicio de restauración a un momento dado (PITR) mediante la creación automática de copias de seguridad completas, copias de seguridad diferenciales y copias de seguridad de registro de transacciones. Las copias de seguridad de la base de datos completas se crean semanalmente, las copias de seguridad de la base de datos diferenciales generalmente se crean cada 12 horas y las copias de seguridad del registro de transacciones generalmente se crean cada 5-10 minutos, la frecuencia se basa en el nivel de rendimiento y la cantidad de actividad de la base de datos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente, se completa en 30 minutos pero puede tardar más si la base de datos tiene un tamaño considerable. Por ejemplo, la copia de seguridad inicial puede tardar más en una base de datos restaurada o una copia de la base de datos. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El servicio SQL Database determina el momento exacto en el que se producen todas las copias de seguridad de la base de datos a medida que equilibra la carga de trabajo global del sistema.
 
 Las copias de seguridad PITR tienen redundancia geográfica y se protegen mediante la [replicación entre regiones de Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 

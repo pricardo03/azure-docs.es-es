@@ -8,12 +8,12 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: db062fc36478d6ba2cf0f00544793f635ccdbb06
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 68d722338562d21d59dd720250a62b8603c8af43
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650135"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075692"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reacción ante eventos de Blob Storage
 
@@ -26,7 +26,7 @@ La disponibilidad de los eventos de almacenamiento está asociada a la [disponib
 ![Modelo de Event Grid](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Cuentas de Almacenamiento de blobs
-Los eventos de Blob Storage están disponibles en las [cuentas de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) y en las [cuentas de almacenamiento de uso general v2](../common/storage-account-options.md#general-purpose-v2). Las cuentas de **uso general v2 (GPv2)**  son cuentas de almacenamiento que admiten todas las características de todos los servicios de almacenamiento, como Blob, Files, Queue y Table. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs. 
+Los eventos de Blob Storage están disponibles en las [cuentas de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) y en las [cuentas de almacenamiento de uso general v2](../common/storage-account-options.md#general-purpose-v2-accounts). Las cuentas de **uso general v2 (GPv2)**  son cuentas de almacenamiento que admiten todas las características de todos los servicios de almacenamiento, como Blob, Files, Queue y Table. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs. 
 
 ## <a name="available-blob-storage-events"></a>Eventos de Blob Storage disponibles
 Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores.  Las suscripciones a eventos de Blob Storage pueden incluir dos tipos de eventos:  
@@ -37,15 +37,14 @@ Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-
 > |`Microsoft.Storage.BlobDeleted`|Se activa cuando se elimina un blob mediante una operación `DeleteBlob`|
 
 ## <a name="event-schema"></a>Esquema de eventos
-Los eventos de Blob Storage contienen toda la información necesaria para responder a cualquier cambio que se produzca en los datos.  Puede identificar un evento de Blob Storage porque la propiedad eventType comienza por "Microsoft.Storage".  
-Puede encontrar información adicional acerca del uso de las propiedades de los eventos de Event Grid en [Esquema de eventos de Event Grid](../../event-grid/event-schema.md).  
+Los eventos de Blob Storage contienen toda la información necesaria para responder a cualquier cambio que se produzca en los datos.  Puede identificar un evento de Blob Storage porque la propiedad eventType comienza por "Microsoft.Storage". Puede encontrar información adicional acerca del uso de las propiedades de los eventos de Event Grid en [Esquema de eventos de Event Grid](../../event-grid/event-schema.md).  
 
 > |Propiedad|Escriba|DESCRIPCIÓN|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Identificador completo de Azure Resource Manager de la cuenta de almacenamiento que emite el evento.|
 > |subject|string|La ruta de acceso del recurso relativa al objeto que es el asunto del evento, con el mismo formato de Azure Resource Manager extendido que se usa para describir cuentas de almacenamiento, servicios y los contenedores de Azure RBAC.  Este formato incluye un nombre de blob que conservan las mayúsculas y minúsculas.|
 > |eventTime|string|Fecha y hora en que se generó el evento, en formato ISO 8601|
-> |eventType|string|“Microsoft.Storage.BlobCreated” o “Microsoft.Storage.BlobDeleted”|
+> |eventType|string|"Microsoft.Storage.BlobCreated" o "Microsoft.Storage.BlobDeleted"|
 > |Id|string|Identificador único de este evento|
 > |dataVersion|string|Versión del esquema del objeto de datos.|
 > |metadataVersion|string|Versión del esquema de propiedades de nivel superior.|
@@ -54,11 +53,11 @@ Puede encontrar información adicional acerca del uso de las propiedades de los 
 > |data.contentLength|número|El tamaño del blob es un número entero que representa un número de bytes, como se devolverían en el encabezado Content-Length del blob.  Se envía con el evento BlobCreated, pero no con BlobDeleted.|
 > |data.url|string|La dirección URL del objeto que es el asunto del evento|
 > |data.eTag|string|El valor etag del objeto cuando se activa este evento.  No está disponible para el evento BlobDeleted.|
-> |data.api|string|El nombre de la operación de API que desencadenó este evento.  En el caso de los eventos BlobCreated, este valor es "PutBlob", "PutBlockList" o "CopyBlob".  En el caso de los eventos BlobDeleted, este valor es "DeleteBlob".  Estos valores son los mismos nombres de API que se encuentran en los registros de diagnóstico de Azure Storage.  Consulte [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operaciones registradas y mensajes de estado).|
+> |data.api|string|El nombre de la operación de API que desencadenó este evento. En el caso de los eventos BlobCreated, este valor es "PutBlob", "PutBlockList" o "CopyBlob". En el caso de los eventos BlobDeleted, este valor es "DeleteBlob". Estos valores son los mismos nombres de API que se encuentran en los registros de diagnóstico de Azure Storage. Consulte [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operaciones registradas y mensajes de estado).|
 > |data.sequencer|string|Un valor de cadena opaco que representa la secuencia lógica de eventos para cualquier nombre de blob concreto.  Los usuarios pueden usar una comparación de cadenas estándar para conocer la secuencia relativa de dos eventos que estén en el mismo nombre de blob.|
-> |data.requestId|string|Identificador de solicitud generado por el servicio para la operación de la API de Storage.  Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "request-id-header" en los registros y se devuelve cuando se inicia la llamada de la API en el encabezado "x-ms-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics).|
-> |data.clientRequestId|string|Identificador de solicitud que proporciona el cliente para la operación de la API de Storage.  Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "client-request-id" en los registros y se puede proporcionar en las solicitudes de los clientes que usan el encabezado "x-ms-client-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics).|
-> |data.storageDiagnostics|objeto|Datos de diagnóstico que, en ocasiones, incluye el servicio Azure Storage.  Cuando están presentes, los consumidores de eventos deben ignorarlos.|
+> |data.requestId|string|Identificador de solicitud generado por el servicio para la operación de la API de Storage. Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "request-id-header" en los registros y se devuelve cuando se inicia la llamada API en el encabezado "x-ms-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics).|
+> |data.clientRequestId|string|Identificador de solicitud que proporciona el cliente para la operación de la API de Storage. Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "client-request-id" en los registros y se puede proporcionar en las solicitudes de los clientes que usan el encabezado "x-ms-client-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics). |
+> |data.storageDiagnostics|objeto|Datos de diagnóstico que, en ocasiones, incluye el servicio Azure Storage. Cuando están presentes, los consumidores de eventos deben ignorarlos.|
 |data.blobType|string|Tipo de blob. Los valores válidos son "BlockBlob" o "PageBlob".| 
 
 Este es un ejemplo de un evento BlobCreated:
@@ -117,9 +116,7 @@ Para que coincida con eventos de blobs creados en un contenedor concreto que com
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 
-Para que coincida con eventos de blobs creados en un contenedor concreto que comparten un sufijo de blob, utilice un filtro `subjectEndsWith` como ".log" o ".jpg"
-
-Para más información, vea [Conceptos de Event Grid](../../event-grid/concepts.md#event-subscriptions).
+Para que coincida con eventos de blobs creados en un contenedor concreto que comparten un sufijo de blob, utilice un filtro `subjectEndsWith` como ".log" o ".jpg". Para más información, vea [Conceptos de Event Grid](../../event-grid/concepts.md#event-subscriptions).
 
 ## <a name="practices-for-consuming-events"></a>Prácticas para consumir eventos
 Las aplicaciones que controlan los eventos de Blob Storage deben seguir algunas prácticas recomendadas:
@@ -129,12 +126,12 @@ Las aplicaciones que controlan los eventos de Blob Storage deben seguir algunas 
 > * Dado que los mensajes pueden llegar desordenados y con cierto retraso, utilice los campos de etag para saber si la información acerca de los objetos sigue estando actualizada.  Además, utilice los campos del secuenciador para conocer el orden de los eventos en cualquier objeto determinado.
 > * Utilice el campo blobType para saber qué tipo de operaciones se permiten en el blob y qué tipos de bibliotecas de cliente se deben usar para acceder al blob. Los valores válidos son `BlockBlob` o `PageBlob`. 
 > * Utilice el campo de dirección URL con los constructores `CloudBlockBlob` y `CloudAppendBlob` para acceder al blob.
-> * Ignore los campos que no comprenda.  Esta práctica le ayudará a mantenerse resistente a las nuevas características que puedan agregarse en el futuro.
+> * Ignore los campos que no comprenda. Esta práctica le ayudará a mantenerse resistente a las nuevas características que puedan agregarse en el futuro.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información acerca de Event Grid y pruebe los eventos de Blob Storage:
 
-- [About Event Grid](../../event-grid/overview.md) (Acerca de Event Grid)
+- [Una introducción a Azure Event Grid](../../event-grid/overview.md)
 - [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)](storage-blob-event-quickstart.md)

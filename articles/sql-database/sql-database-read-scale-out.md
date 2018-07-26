@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: sashan
-ms.openlocfilehash: 7b504306e32f97a0392239f9e6adc6c460848580
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 7ca033be8a27802db55aec827509b46fed8e471e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060015"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090071"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura (versión preliminar)
 
@@ -22,7 +22,7 @@ El **escalado horizontal de lectura** le permite equilibrar la carga de las carg
 
 ## <a name="overview-of-read-scale-out"></a>Introducción al escalado horizontal de lectura
 
-Cada base de datos del nivel Premium ([modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)) o del nivel Crítico para la empresa ([modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md)) se aprovisiona automáticamente con varias réplicas Always On para permitir el Acuerdo de Nivel de Servicio de disponibilidad. Estas réplicas se aprovisionan con el mismo nivel de rendimiento que la réplica de lectura-escritura que se usan en las conexiones normales de base de datos. La característica de **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de SQL Database gracias al uso de la capacidad de una de las réplicas de solo lectura en lugar de compartir réplicas de solo escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está destinada a las aplicaciones que incluyen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, esta capacidad adicional podría suponer ventajas para el rendimiento sin costo adicional.
+Cada base de datos del nivel Premium ([modelo de compra basado en la unidad de transmisión de datos (DTU)](sql-database-service-tiers-dtu.md)) o del nivel Crítico para la empresa ([modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md)) se aprovisiona automáticamente con varias réplicas AlwaysOn para permitir el Acuerdo de Nivel de Servicio de disponibilidad. Estas réplicas se aprovisionan con el mismo nivel de rendimiento que la réplica de lectura-escritura que se usan en las conexiones normales de base de datos. La característica de **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de SQL Database gracias al uso de la capacidad de una de las réplicas de solo lectura en lugar de compartir réplicas de solo escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está destinada a las aplicaciones que incluyen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, esta capacidad adicional podría suponer ventajas para el rendimiento sin costo adicional.
 
 Para usar la característica de escalado horizontal de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También puede habilitarla más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager. 
 

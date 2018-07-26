@@ -2,29 +2,36 @@
 title: Uso de Azure Import/Export para exportar datos de los blobs de Azure | Microsoft Docs
 description: Aprenda a crear trabajos de exportación en Azure Portal para transferir datos de los blobs de Azure.
 author: alkohli
-manager: jeconnoc
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969272"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113765"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
 Este artículo proporciona instrucciones paso a paso sobre cómo usar el servicio Azure Import/Export para exportar de forma segura grandes cantidades de datos desde Azure Blob Storage. El servicio requiere que envíe unidades de disco vacías al centro de datos de Azure. El servicio exporta datos de la cuenta de almacenamiento a las unidades de disco y luego envía de vuelta las unidades de disco.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de crear un trabajo de exportación para transferir datos fuera de Azure Blob Storage, revise con cuidado y complete la siguiente lista de requisitos previos para este servicio. Debe:
 
 - Tener una suscripción activa de Azure que pueda usarse para el servicio Import/Export.
 - Tener al menos una cuenta de Azure Storage. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md). Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks).
+- Tener una cuenta de FedEx o DHL.  
+    - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
+    - Generar un número de seguimiento del trabajo de exportación.
+    - Cada trabajo debe tener un número de seguimiento independiente. No se admiten varios trabajos con el mismo número de seguimiento. 
+    - Si no tiene una cuenta de transportista, vaya a:
+        - [Crear una cuenta de FedEX](https://www.fedex.com/en-us/create-account.html), o 
+        - [Crear una cuenta de DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Paso 1: Creación de un trabajo de exportación
 
@@ -52,7 +59,7 @@ Siga estos pasos para crear un trabajo de exportación en Azure Portal.
     
 3. En **Detalles del trabajo**:
 
-    - Seleccione la cuenta de almacenamiento en la que residen los datos que se van a exportar. 
+    - Seleccione la cuenta de almacenamiento en la que residen los datos que se van a exportar. Use una cuenta de almacenamiento cerca de donde se encuentra.
     - La ubicación de la entrega se rellena automáticamente según la región de la cuenta de almacenamiento seleccionada. 
     - Especifique los datos de blobs que desea exportar desde su cuenta de almacenamiento a una o varias unidades vacías. 
     - Elija **Exportar todos** los datos de blob de la cuenta de almacenamiento.
@@ -78,11 +85,18 @@ Siga estos pasos para crear un trabajo de exportación en Azure Portal.
     - Seleccione el transportista en la lista desplegable.
     - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. 
     - Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
+
+        > [!TIP] 
+        > En lugar de especificar una dirección de correo electrónico para un solo usuario, proporcione un correo electrónico de grupo. Esto garantiza que recibirá notificaciones incluso si sale un administrador.
    
 5. En **Resumen**:
 
     - Revise los detalles del trabajo.
     - Anote el nombre del trabajo y proporcione la dirección de envío del centro de datos de Azure para el envío de discos a Azure. 
+
+        > [!NOTE] 
+        > Envíe siempre los discos al centro de datos que se ha indicado en Azure Portal. Si los discos se envían al centro de datos incorrecto, no se procesará el trabajo.
+
     - Haga clic en **Aceptar** para completar la creación del trabajo de exportación.
 
 ## <a name="step-2-ship-the-drives"></a>Paso 2: Envío de las unidades de disco

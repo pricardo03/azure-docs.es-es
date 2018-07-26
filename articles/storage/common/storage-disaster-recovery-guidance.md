@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323158"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072042"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Qué hacer si se produce una interrupción del servicio Azure Storage
 En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre estén disponibles. A veces, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas en una o varias regiones. Para ayudarlo a gestionar estos raros imprevistos, ofrecemos la siguiente guía general para los servicios de Azure Storage.
@@ -65,9 +65,8 @@ Ahora hablaremos de dos aspectos relativos a la experiencia de conmutación por 
 Para hacer una copia de seguridad de los datos de almacenamiento de forma periódico, hay algunos enfoques que recomendamos.
 
 * Discos de máquina virtual: use el [servicio Azure Backup](https://azure.microsoft.com/services/backup/) para realizar una copia de seguridad de los discos de máquina virtual que emplean Azure Virtual Machines.
-* Blobs en bloques: cree una [instantánea](https://msdn.microsoft.com/library/azure/hh488361.aspx) de cada blob en bloques o copie los blobs en otra cuenta de almacenamiento de otra región mediante [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) o la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* Blobs en bloques: active la [eliminación temporal](../blobs/storage-blob-soft-delete.md) para proteger contra eliminaciones de nivel de objeto y sobrescrituras o copie los blobs en otra cuenta de almacenamiento de otra región mediante [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) o la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 * Tablas: use [AzCopy](storage-use-azcopy.md) para exportar los datos de tabla en otra cuenta de almacenamiento de otra región.
 * Archivos: use [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) para copiar los archivos en otra cuenta de almacenamiento de otra región.
 
 Para información sobre cómo crear aplicaciones que aprovechan totalmente la característica RA-GRS, consulte [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](../storage-designing-ha-apps-with-ragrs.md).
-

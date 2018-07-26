@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 80ed0d2353fc6ea3a515c0d05475c713920abe46
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293110"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091779"
 ---
 # <a name="azure-stack-1805-update"></a>Actualización de Azure Stack 1805
 
@@ -71,7 +71,7 @@ Esta actualización incluye las siguientes correcciones para Azure Stack.
 
 ## <a name="before-you-begin"></a>Antes de empezar    
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 - Antes de aplicar la actualización de Azure Stack 1805, instale la [actualización 1804](azure-stack-update-1804.md).    
 - Antes de iniciar la instalación de la actualización 1805, ejecute [Test-AzureStack](azure-stack-diagnostic-test.md) para validar el estado de Azure Stack y resolver todos los problemas operativos que se encuentren. Repase también las alertas activas y resuelva las que requieran alguna acción. 
 
@@ -83,7 +83,7 @@ Esta actualización incluye las siguientes correcciones para Azure Stack.
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
 Después de la instalación de 1805, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).  
- - [KB 4340474: Azure Stack, revisión 1.1805.4.53](https://support.microsoft.com/en-us/help/4340474).
+ - [KB 4344102: Azure Stack, revisión 1.1805.7.57](https://support.microsoft.com/help/4344102).
 
 
 ## <a name="known-issues-post-installation"></a>Problemas conocidos (posteriores a la instalación)
@@ -118,7 +118,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 ### <a name="health-and-monitoring"></a>Estado y supervisión
 - <!-- 1264761 - IS ASDK --> Es posible que vea alertas del componente *Controlador de mantenimiento* con los siguientes detalles:  
-
+- 
    Alerta 1:
    - NOMBRE: rol de infraestructura incorrecto
    - GRAVEDAD: advertencia
@@ -129,11 +129,23 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
    - NOMBRE: rol de infraestructura incorrecto
    - GRAVEDAD: advertencia
    - COMPONENTE: controlador de mantenimiento
-   - Descripción: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
+   - DESCRIPCIÓN: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
 
-  Se pueden omitir ambas alertas con seguridad y se cerrarán automáticamente con el tiempo.  
+  Se pueden omitir ambas alertas con seguridad y se cerrarán automáticamente con el tiempo. 
 
-- <!-- 2368581 - IS. ASDK --> Operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un *error de creación de máquina virtual de Fabric*, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo. 
+  También es posible que vea la siguiente alerta para *Capacidad*. Para esta alerta, el porcentaje de memoria disponible que se identifica en la descripción puede variar:  
+
+  Alerta 3:
+   - NOMBRE: baja capacidad de memoria
+   - GRAVEDAD: crítica
+   - COMPONENTE: capacidad
+   - DESCRIPCIÓN: la región ha consumido más del 80,00 % de la memoria disponible. La creación de máquinas virtuales con grandes cantidades de memoria puede producir un error.  
+
+  En esta versión de Azure Stack, esta alerta puede desencadenarse incorrectamente. Si las máquinas virtuales del inquilino siguen implementándose correctamente, puede ignorar esta alerta. 
+  
+  La Alerta 3 no se cierra automáticamente. Si cierra esta alerta, Azure Stack creará la misma alerta en 15 minutos.  
+
+- <!-- 2368581 - IS. ASDK --> Como operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un *error de creación de máquina virtual de Fabric*, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo. 
 
 
 ### <a name="compute"></a>Compute
@@ -153,7 +165,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
   - **PowerShell:** con PowerShell, puede usar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) con el parámetro que especifica el tamaño de la máquina virtual, de forma similar a `-VMSize "Standard_F32s_v2"`.
 
 
-- <!-- TBD - IS ASDK --> Los valores de escalado para conjuntos de escalas de máquina virtual no están disponibles en el portal. Como alternativa, puede usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Debido a diferencias en la versión de PowerShell, debe usar el parámetro `-Name` en lugar de `-VMScaleSetName`.
+- <!-- TBD - IS ASDK --> Los valores de escalado de los conjuntos de escalado de máquinas virtuales no están disponibles en el portal. Como alternativa, puede usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Debido a diferencias en la versión de PowerShell, debe usar el parámetro `-Name` en lugar de `-VMScaleSetName`.
 
 - <!-- TBD - IS --> Cuando crea un conjunto de disponibilidad en el portal en **Nuevo** > **Compute** > **Conjunto de disponibilidad**, solo puede crear uno con un dominio de error y un dominio de actualización de 1. Como alternativa, al crear una nueva máquina virtual, cree el conjunto de disponibilidad mediante PowerShell, la CLI o el portal.
 
@@ -188,7 +200,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - <!-- 2304134 IS ASDK --> No se puede eliminar una suscripción que disponga de recursos de zona DNS o recursos de tabla de rutas asociados a ella. Para eliminar correctamente la suscripción, primero debe eliminar los recursos de la zona DNS y de la tabla de rutas de la suscripción de inquilino.
 
 
-- <!-- 1902460 - IS ASDK --> Azure Stack admite una única *puerta de enlace de red local* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
+- <!-- 1902460 - IS ASDK -->Azure Stack admite una única *puerta de enlace de red local* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
 
 - <!-- 16309153 - IS ASDK --> En una red virtual que se creó con una configuración de servidor DNS de *Automática*, se produce un error al cambiar a un servidor DNS personalizado. La configuración actualizada no se inserta en las máquinas virtuales de esa red virtual.
 
@@ -262,7 +274,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 - <!-- TBD - IS --> Solo el proveedor de recursos puede crear elementos en servidores que hospedan SQL o MySQL. Los elementos creados en un servidor host que no se crean con el proveedor de recursos podrían dar lugar a un error de coincidencia de estado.  
 
-- <!-- IS, ASDK --> No se admiten caracteres especiales, espacios y puntos incluidos, en los nombres de **familia** o **capa** al crear una SKU para los proveedores de recursos SQL y MySQL.
+- <!-- IS, ASDK -->No se admiten caracteres especiales, lo que incluye espacios y puntos, en los nombres de **familia** o **capa** al crear una SKU para los proveedores de recursos SQL y MySQL.
 
 
 > [!NOTE]  

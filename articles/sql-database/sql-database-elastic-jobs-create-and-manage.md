@@ -7,21 +7,24 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 4a25543fd9cbcd0928f06419c6ddb9b5ed2e2488
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b367ddafc659db4dc4b8d658ac9dc007c4671b8c
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645290"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092851"
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Creación y administración de instancias de Azure SQL Database escaladas horizontalmente con trabajos elásticos (versión preliminar)
 
 
-Los **trabajos de Elastic Database** simplifican la administración de grupos de bases de datos al ejecutar operaciones administrativas, como cambios de esquemas, administración de credenciales, actualizaciones de datos de referencias, recopilación de datos de rendimiento o recopilación de telemetría del inquilino (cliente). Trabajos de Elastic Database está actualmente disponible a través de Azure Portal y los cmdlets de PowerShell. Sin embargo, la funcionalidad reducida de Azure Portal se limita a la ejecución transversal en todas las bases de datos de un [grupo elástico (versión preliminar)](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca de cliente de Elastic Database](sql-database-elastic-scale-introduction.md)), consulte [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre trabajos de Elastic Database](sql-database-elastic-jobs-overview.md). 
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+
+Los **trabajos de Elastic Database** simplifican la administración de grupos de bases de datos al ejecutar operaciones administrativas, como cambios de esquemas, administración de credenciales, actualizaciones de datos de referencias, recopilación de datos de rendimiento o recopilación de telemetría del inquilino (cliente). Trabajos de Elastic Database está actualmente disponible a través de Azure Portal y los cmdlets de PowerShell. En cambio, la funcionalidad reducida de Azure Portal se limita a la ejecución transversal en todas las bases de datos de un [grupo elástico](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca de cliente de Elastic Database](sql-database-elastic-scale-introduction.md)), consulte [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre trabajos de Elastic Database](sql-database-elastic-jobs-overview.md). 
+
+## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un grupo elástico. Consulte [Acerca de los grupos elásticos](sql-database-elastic-pool.md).
 * Instalación de componentes del servicio de trabajo de bases de datos elásticas. Vea [Instalación del servicio de trabajo de bases de datos elásticas](sql-database-elastic-jobs-service-installation.md).

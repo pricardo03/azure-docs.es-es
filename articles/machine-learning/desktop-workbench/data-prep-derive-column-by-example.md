@@ -7,17 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833770"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059227"
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformación Derivar columna por ejemplos
 
@@ -108,18 +108,18 @@ Número de ejemplos necesarios para este caso: 3
 
 |Entrada|Salida|
 |:-----|:-----|
-|REINDEER CT & DEAD END;  NEW HANOVER; Station 332; 2015-12-10 @ 17:10:52;|**New Hanover**|
-|BRIAR PATH & WHITEMARSH LN;  HATFIELD TOWNSHIP; Station 345; 2015-12-10 @ 17:29:21;|Hatfield Township|
-|HAWS AVE; NORRISTOWN; 2015-12-10 @ 14:39:21-Station:STA27;|**Norristown**|
-|AIRY ST & SWEDE ST;  NORRISTOWN; Station 308A; 2015-12-10 @ 16:47:36;|**Norristown**|
-|CHERRYWOOD CT & DEAD END;  LOWER POTTSGROVE; Station 329; 2015-12-10 @ 16:56:52;|Lower Pottsgrove|
-|CANNON AVE & W 9TH ST;  LANSDALE; Station 345; 2015-12-10 @ 15:39:04;|Lansdale|
-|LAUREL AVE & OAKDALE AVE;  HORSHAM; Station 352; 2015-12-10 @ 16:46:48;|Horsham|
-|COLLEGEVILLE RD & LYWISKI RD;  SKIPPACK; Station 336; 2015-12-10 @ 16:17:05;|Skippack|
-|MAIN ST & OLD SUMNEYTOWN PIKE;  LOWER SALFORD; Station 344; 2015-12-10 @ 16:51:42;|Lower Salford|
-|BLUEROUTE  & RAMP I476 NB TO CHEMICAL RD; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
-|RT202 PKWY & KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
-|BROOK RD & COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
+|REINDEER CT & DEAD END;  NEW HANOVER; Station 332; 2015-12-10 \@ 17:10:52;|**New Hanover**|
+|BRIAR PATH & WHITEMARSH LN;  HATFIELD TOWNSHIP; Station 345; 2015-12-10 \@ 17:29:21;|Hatfield Township|
+|HAWS AVE; NORRISTOWN; 2015-12-10 \@ 14:39:21-Station:STA27;|**Norristown**|
+|AIRY ST & SWEDE ST;  NORRISTOWN; Station 308A; 2015-12-10 \@ 16:47:36;|**Norristown**|
+|CHERRYWOOD CT & DEAD END;  LOWER POTTSGROVE; Station 329; 2015-12-10 \@ 16:56:52;|Lower Pottsgrove|
+|CANNON AVE & W 9TH ST;  LANSDALE; Station 345; 2015-12-10 \@ 15:39:04;|Lansdale|
+|LAUREL AVE & OAKDALE AVE;  HORSHAM; Station 352; 2015-12-10 \@ 16:46:48;|Horsham|
+|COLLEGEVILLE RD & LYWISKI RD;  SKIPPACK; Station 336; 2015-12-10 \@ 16:17:05;|Skippack|
+|MAIN ST & OLD SUMNEYTOWN PIKE;  LOWER SALFORD; Station 344; 2015-12-10 \@ 16:51:42;|Lower Salford|
+|BLUEROUTE  & RAMP I476 NB TO CHEMICAL RD; PLYMOUTH; 2015-12-10 \@ 17:35:41;|Plymouth|
+|RT202 PKWY & KNAPP RD; MONTGOMERY; 2015-12-10 \@ 17:33:50;|Montgomery|
+|BROOK RD & COLWELL LN; PLYMOUTH; 2015-12-10 \@ 16:32:10;|Plymouth|
 
 ### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. Manipulación del formato de fecha durante la extracción de cadena
 
@@ -127,14 +127,14 @@ Número de ejemplos necesarios para este caso: 1
 
 |Entrada|Salida|
 |:-----|:-----|
-|MONTGOMERY AVE & WOODSIDE RD;  LOWER MERION; Station 313; 2015-12-11 @ 04:11:35;|**12 nov 2015 4 a. m.**|
-|DREYCOTT LN & W LANCASTER AVE;  LOWER MERION; Station 313; 2015-12-11 @ 01:29:52;|12 nov 2015 1 a. m.|
-|E LEVERING MILL RD & CONSHOHOCKEN STATE RD; LOWER MERION; 2015-12-11 @ 07:29:58;|12 nov 2015 7 a. m.|
-|PENN VALLEY RD & MANOR RD;  LOWER MERION; Station 313; 2015-12-10 @ 20:53:30;|12 Oct 2015 8 p. m.|
-|BELMONT AVE & OVERHILL RD; LOWER MERION; 2015-12-10 @ 23:02:27;|12 oct 2015 11 p. m.|
-|W MONTGOMERY AVE & PENNSWOOD RD; LOWER MERION; 2015-12-10 @ 19:25:22;|12 oct 2015 7 p. m.|
-|ROSEMONT AVE & DEAD END;  LOWER MERION; Station 313; 2015-12-10 @ 18:43:07;|12 oct 2015 6 p. m.|
-|AVIGNON DR & DEAD END; LOWER MERION; 2015-12-10 @ 20:01:29-Station:STA24;|12 Oct 2015 8 p. m.|
+|MONTGOMERY AVE & WOODSIDE RD;  LOWER MERION; Station 313; 2015-12-11 \@ 04:11:35;|**12 nov 2015 4 a. m.**|
+|DREYCOTT LN & W LANCASTER AVE;  LOWER MERION; Station 313; 2015-12-11 \@ 01:29:52;|12 nov 2015 1 a. m.|
+|E LEVERING MILL RD & CONSHOHOCKEN STATE RD; LOWER MERION; 2015-12-11 \@ 07:29:58;|12 nov 2015 7 a. m.|
+|PENN VALLEY RD & MANOR RD;  LOWER MERION; Station 313; 2015-12-10 \@ 20:53:30;|12 Oct 2015 8 p. m.|
+|BELMONT AVE & OVERHILL RD; LOWER MERION; 2015-12-10 \@ 23:02:27;|12 oct 2015 11 p. m.|
+|W MONTGOMERY AVE & PENNSWOOD RD; LOWER MERION; 2015-12-10 \@ 19:25:22;|12 oct 2015 7 p. m.|
+|ROSEMONT AVE & DEAD END;  LOWER MERION; Station 313; 2015-12-10 \@ 18:43:07;|12 oct 2015 6 p. m.|
+|AVIGNON DR & DEAD END; LOWER MERION; 2015-12-10 \@ 20:01:29-Station:STA24;|12 Oct 2015 8 p. m.|
 
 ### <a name="s4-concatenating-strings"></a>S4. Concatenación de las cadenas
 

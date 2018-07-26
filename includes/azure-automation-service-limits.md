@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 6b6e4afa7c8b18c8ce9af8c6abd371b4321e3343
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b71e6d41dcdd7efb2d179486f9195c14dae97194
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34852048"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037709"
 ---
 | Recurso | Límite máximo |Notas|
 | --- | --- |---|
@@ -23,8 +23,9 @@ ms.locfileid: "34852048"
 | Tamaño máximo de un módulo |100 MB ||
 | Tiempo de ejecución de trabajos: nivel Gratis |500 minutos por suscripción por mes del calendario ||
 | Cantidad máxima de espacio en disco permitida por espacio aislado**<sup>1</sup>** |1 GB |Se aplica solo a los espacios aislados de Azure|
-| Cantidad máxima de memoria que se asigna a un espacio aislado**<sup>1</sup>** |400 MB |Se aplica solo a los espacios aislados de Azure|
-| Número máximo de sockets de red permitido por espacio aislado**<sup>1</sup>** |1000 |Se aplica solo a los espacios aislados de Azure|
+| Cantidad máxima de memoria que se asigna a un espacio aislado **<sup>1</sup>** |400 MB |Se aplica solo a los espacios aislados de Azure|
+| Número máximo de sockets de red permitido por espacio aislado **<sup>1</sup>** |1000 |Se aplica solo a los espacios aislados de Azure|
+| Tiempo de ejecución máximo permitido por runbook **<sup>1</sup>** |3 horas |Se aplica solo a los espacios aislados de Azure|
 | Número máximo de cuentas de automatización en una suscripción |Ilimitado ||
 |Número máximo de trabajos simultáneos que se puede ejecutar en un único Hybrid Runbook Worker|50 ||
 

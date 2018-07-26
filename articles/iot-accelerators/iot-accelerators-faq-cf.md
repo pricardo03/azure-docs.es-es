@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d1002fd5131ca97f7bc1b9d081ae1471191a6cf
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627508"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075762"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 
@@ -207,5 +207,5 @@ Para enviar datos de telemetría desde dispositivos que no son de OPC UA a la fa
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
 * [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
-* [Información general del acelerador de soluciones de factoría conectada](iot-accelerators-connected-factory-overview.md)
-* [Seguridad de Internet de las cosas desde el principio](securing-iot-ground-up.md)
+* [Implementación del acelerador de soluciones de Connected Factory](quickstart-connected-factory-deploy.md)
+* [Seguridad de Internet de las cosas desde el principio](/azure/iot-fundamentals/iot-security-ground-up)

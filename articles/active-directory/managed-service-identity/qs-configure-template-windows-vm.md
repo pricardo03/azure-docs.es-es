@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8490dcba35cfeabb3da589f3d079571d5e98d3b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969211"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114886"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configuración de Managed Service Identity (MSI) en una máquina virtual mediante una plantilla
 
@@ -29,7 +29,7 @@ Managed Service Identity proporciona a los servicios de Azure una identidad admi
 
 En este artículo, aprenderá a realizar las siguientes operaciones de Managed Service Identity en una máquina virtual de Azure mediante la plantilla de implementación de Azure Resource Manager:
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)**.
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -59,7 +59,7 @@ En esta sección, se habilita y deshabilita una identidad asignada por el sistem
    > En este ejemplo, se asumen que se han definido variables como `vmName`, `storageAccountName` y `nicName` en la plantilla.
    >
 
-   ![Captura de pantalla de la plantilla - localizar máquina virtual](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Captura de pantalla de la plantilla - localizar máquina virtual](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Para habilitar la identidad asignada por el sistema, agregue la propiedad `"identity"` en el mismo nivel que la propiedad `"type": "Microsoft.Compute/virtualMachines"`. Use la sintaxis siguiente:
 
@@ -99,7 +99,7 @@ En esta sección, se habilita y deshabilita una identidad asignada por el sistem
 
 5. Cuando haya terminado, la plantilla debería tener una apariencia similar a la siguiente:
 
-   ![Captura de pantalla de la plantilla después de la actualización](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![Captura de pantalla de la plantilla después de la actualización](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### <a name="assign-a-role-the-vms-system-assigned-identity"></a>Asignación de un rol a la identidad asignada por el sistema de la máquina virtual
 
@@ -174,6 +174,10 @@ En esta sección, asignará una identidad asignada por el usuario a una máquina
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Asignación de una identidad asignada por el usuario a una VM de Azure
 
 1. En el elemento `resources`, agregue la siguiente entrada para asignar una identidad asignada por el usuario a la VM.  No olvide reemplazar `<USERASSIGNEDIDENTITY>` con el nombre de la identidad asignada por el usuario que ha creado.
+   
+   > [!Important]
+   > El valor `<USERASSIGNEDIDENTITYNAME>` que se muestra en el ejemplo siguiente se debe almacenar en una variable.  Además, para la implementación actualmente compatible de la asignación de identidades asignadas del usuario a una máquina virtual en una plantilla de Resource Manager, la versión de API debe coincidir con la versión del ejemplo siguiente.
+    
     ```json
     {
         "apiVersion": "2017-12-01",

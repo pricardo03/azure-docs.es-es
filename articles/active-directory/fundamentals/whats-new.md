@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920821"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136764"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -34,6 +34,44 @@ En Azure AD se realizan mejoras de forma continua. Para mantenerse al día con l
 - Planes de cambios
 
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia.
+
+---
+
+## <a name="july-2018"></a>Julio de 2018
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Mejoras en las notificaciones de Azure Active Directory por correo electrónico
+
+**Tipo:** plan de cambio  
+**Categoría del servicio:** otros  
+**Funcionalidad del producto:** administración del ciclo de vida de las identidades
+ 
+A **fines de julio de 2018**, los correos electrónicos de Azure Active Directory (Azure AD) tendrán un diseño actualizado, además de cambios en el nombre para mostrar del remitente y la dirección de correo electrónico del destinatario cuando los mensajes se envían desde los servicios siguientes:
+ 
+- Revisiones de acceso de Azure AD
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
+- Administración de identidades con privilegios de Azure AD
+- Aplicación empresarial: expiración de las notificaciones de certificado
+- Aplicación empresarial: aprovisionamiento de las notificaciones de servicio
+ 
+Las notificaciones de correo electrónico se enviarán desde la siguiente dirección de correo electrónico y nombre para mostrar:
+
+- Dirección de correo electrónico: azure-noreply@microsoft.com
+- Nombre para mostrar: Microsoft Azure
+ 
+Para un ejemplo de algunos de los nuevos diseños de correo electrónico y más información, consulte [Email notifications in Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832) (Notificaciones por correo electrónico en Azure AD PIM).
+
+---
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Visualización de autenticaciones heredadas a través de los registros de actividad de inicios de sesión
+
+**Tipo:** nueva característica  
+**Categoría del servicio:** informes  
+**Funcionalidad del producto:** supervisión e informes
+ 
+Con la introducción del campo **Aplicación cliente** en los registros de actividad de inicio de sesión, los clientes ya pueden ver los usuarios que utilizan autenticaciones heredadas. Los clientes podrán acceder a esta información mediante los registros de inicio de sesión de MS Graph API o mediante los registros de actividad de inicio de sesión del portal de Azure AD, donde se puede usar el control **Aplicación cliente** para filtrar por autenticaciones heredadas. Para más información, consulte la documentación.
+
+---
 
 ## <a name="june-2018"></a>Junio de 2018
 
@@ -242,16 +280,6 @@ Con las directivas personalizadas, ahora puede agregar el punto de conexión com
 **Funcionalidad del producto:** SSO
  
 Los usuarios ya pueden acceder a las aplicaciones a través de direcciones URL internas, incluso desde fuera de la red corporativa, mediante My Apps Sign-in Extension para Azure AD. Esto funcionará con todas las aplicaciones que se ha publicado con Azure Active Directory Application Proxy, en cualquier explorador que también tenga instalada la extensión de explorador del Panel de acceso. La funcionalidad de redireccionamiento de direcciones URL se habilita automáticamente una vez que un usuario inicia sesión en la extensión. La extensión se puede descargar en [Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367) y [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Visualización de autenticaciones heredadas a través de los registros de actividad de inicios de sesión
-
-**Tipo:** nueva característica  
-**Categoría del servicio:** informes  
-**Funcionalidad del producto:** supervisión e informes
- 
-Con la introducción del campo **Aplicación cliente** en los registros de actividad de inicio de sesión, los clientes ya pueden ver los usuarios que utilizan autenticaciones heredadas. Los clientes podrán acceder a esta información mediante los registros de inicio de sesión de MS Graph API o mediante los registros de actividad de inicio de sesión del portal de Azure AD, donde se puede usar el control **Aplicación cliente** para filtrar por autenticaciones heredadas. Para más información, consulte la documentación.
 
 ---
  

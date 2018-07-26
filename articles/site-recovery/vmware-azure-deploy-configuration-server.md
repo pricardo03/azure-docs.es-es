@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718964"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056766"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -26,7 +26,7 @@ Puede obtener información acerca del papel del servidor de configuración como 
 
 El servidor de configuración debe configurarse como una máquina virtual de VMware de alta disponibilidad con ciertos requisitos mínimos de hardware y tamaño. Para una implementación cómoda y fácil, Site Recovery proporciona una plantilla de OVA (Open Virtualization Application) descargable para configurar el servidor de configuración que cumple con todos los requisitos obligatorios que se enumeran a continuación.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En la tabla siguiente se resumen los requisitos mínimos de hardware necesarios para el servidor de configuración.
 
@@ -38,9 +38,9 @@ Los requisitos de tamaño para el servidor de configuración dependen de la tasa
 
 | **CPU** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) |16 GB |< 300 GB |500 GB o menos |Replicar menos de 100 máquinas. |
-| 12 vCPUs (2 sockets * 6 núcleos @ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar 100-150 máquinas. |
-| 16 vCPUs (2 sockets * 8 núcleos @ 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Replicar 150-200 máquinas. |
+| 8 vCPU (2 sockets * 4 núcleos a 2,5 GHz) |16 GB |< 300 GB |500 GB o menos |Replicar menos de 100 máquinas. |
+| 12 vCPU (2 sockets * 6 núcleos a 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar 100-150 máquinas. |
+| 16 vCPU (2 sockets * 8 núcleos a 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Replicar 150-200 máquinas. |
 
 Si replica más de una máquina virtual de VMware, consulte las [consideraciones de planeación de capacidad](/site-recovery-plan-capacity-vmware.md). Ejecute la [herramienta Deployment Planner](site-recovery-deployment-planner.md) para la replicación de VMware.
 

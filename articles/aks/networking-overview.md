@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311099"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115802"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuración de red en Azure Kubernetes Service (AKS)
 
@@ -27,8 +27,7 @@ Los nodos de un clúster de AKS configurado para usar la red Básica utilizan el
 
 ## <a name="advanced-networking"></a>Redes avanzadas
 
-La configuración de redes **Avanzada** coloca sus pods en una red virtual de Azure (VNet) configurada por el usuario, proporcionando a los pods conectividad automática con los recursos de la red virtual e integración con el amplio conjunto de funcionalidades que ofrecen las redes virtuales.
-Las redes avanzadas están disponibles al implementar clústeres de AKS con [Azure Portal][portal], con la CLI de Azure o con una plantilla de Resource Manager.
+La configuración de redes **Avanzada** coloca sus pods en una red virtual de Azure (VNet) configurada por el usuario, proporcionando a los pods conectividad automática con los recursos de la red virtual e integración con el amplio conjunto de funcionalidades que ofrecen las redes virtuales. Las redes avanzadas están disponibles al implementar clústeres de AKS con [Azure Portal][portal], con la CLI de Azure o con una plantilla de Resource Manager.
 
 Los nodos de un clúster de AKS configurado para el uso de red Avanzada utilizan el complemento de Kubernetes [Azure Container Networking Interface (CNI)][cni-networking].
 
@@ -45,9 +44,6 @@ Las redes avanzadas proporcionan las siguientes ventajas:
 * Los pods de una subred que tienen puntos de conexión de servicio habilitados pueden conectarse de forma segura a los servicios de Azure, como Azure Storage o SQL Database.
 * Usar rutas definidas por el usuario (UDR) para redirigir el tráfico desde los pods a una aplicación virtual de red.
 * Los pods pueden acceder a recursos públicos de Internet. También es una característica de la red Básica.
-
-> [!IMPORTANT]
-> Cada nodo de un clúster de AKS configurado para redes avanzadas puede hospedar un máximo de **30 pods** si se configuró con Azure Portal.  Solo puede cambiar el valor máximo si modifica la propiedad maxPods al implementar un clúster con una plantilla de Resource Manager. Cada red virtual aprovisionada para su uso con el complemento Azure CNI está limitada a **4096 direcciones IP configuradas**.
 
 ## <a name="advanced-networking-prerequisites"></a>Requisitos previos de redes avanzadas
 
@@ -67,19 +63,36 @@ El plan de direcciones IP de un clúster AKS consta de una red virtual, al menos
 
 | Intervalo de direcciones / recurso de Azure | Límites y tamaño |
 | --------- | ------------- |
-| Red virtual | La red virtual de Azure puede ser tan grande como /8, pero solo puede tener 4096 direcciones IP configuradas. |
-| Subred | Debe ser lo suficientemente grande como para dar cabida a los nodos y pods. Para calcular el tamaño mínimo de la subred: (número de nodos) + (número de nodos * pods por nodo). Para un clúster de 50 nodos: (50) + (50 * 30) = 1550; la subred tendría que ser /21 o mayor. |
+| Red virtual | La red virtual de Azure puede ser tan grande como /8, pero solo puede tener 16 000 direcciones IP configuradas. |
+| Subred | Debe ser lo suficientemente grande como para dar cabida a los nodos, los pods y a todos los recursos de Kubernetes y de Azure que se pueden aprovisionar en el clúster. Por ejemplo, si implementa una instancia de Azure Load Balancer interna, sus direcciones IP de front-end se asignan desde la subred del clúster, no las direcciones IP públicas. <p/>Para calcular el tamaño *mínimo* de la subred: `(number of nodes) + (number of nodes * pods per node)` <p/>Ejemplo de un clúster de 50 nudos: `(50) + (50 * 30) = 1,550` (/21 o superior) |
 | Intervalo de direcciones del servicio de Kubernetes | Este intervalo no lo debe usar ningún elemento de red de esta red virtual o que esté conectado a ella. El CIDR de la dirección del servicio debe ser menor que /12. |
 | Dirección IP del servicio DNS de Kubernetes | Dirección IP del intervalo de direcciones del servicio de Kubernetes que se usará en la detección de servicios de clúster (kube-dns). |
 | Dirección de puente de Docker | Dirección IP (en notación CIDR) que se usa como la dirección IP del puente de Docker en los nodos. El valor predeterminado es 172.17.0.1/16. |
 
-Como se ha mencionado anteriormente, cada red virtual aprovisionada para su uso con el complemento Azure CNI está limitada a **4096 direcciones IP configuradas**. Cada nodo de un clúster configurado para redes avanzadas puede hospedar un máximo de **30 pods**.
+Cada red virtual aprovisionada para su uso con el complemento Azure CNI está limitada a **16 000 direcciones IP configuradas**.
+
+## <a name="maximum-pods-per-node"></a>Pods máximos por nodo
+
+El número máximo predeterminado de pods por nodo en un clúster de AKS varía entre las redes básicas y las redes avanzadas y el método de implementación del clúster.
+
+### <a name="default-maximum"></a>Valor máximo predeterminado
+
+* Redes básicas: **110 pods por nodo**
+* Redes avanzadas **30 pods por nodo**
+
+### <a name="configure-maximum"></a>Configuración del valor máximo
+
+Según el método de la implementación, es posible que pueda modificar el número máximo de pods por nodo en un clúster de AKS.
+
+* **CLI de Azure**: especifique el argumento `--max-pods` cuando implemente un clúster con el comando [az aks create][az-aks-create].
+* **Plantilla de Resource Manager**: especifique la propiedad `maxPods` del objeto [ManagedClusterAgentPoolProfile] cuando implemente un clúster con una plantilla de Resource Manager.
+* **Azure Portal**: no puede modificar el número máximo de pods por nodo cuando implemente un clúster con Azure Portal. Los clústeres de redes avanzadas están limitados a 30 pods por nodo cuando se implementan en Azure Portal.
 
 ## <a name="deployment-parameters"></a>Parámetros de implementación
 
-Al crear un clúster de AKS, los parámetros siguientes son configurables para redes avanzadas:
+Cuando crea un clúster de AKS, los parámetros siguientes son configurables para redes avanzadas:
 
-**Red virtual**: la red virtual en la que desea implementar el clúster de Kubernetes. Si desea crear una red virtual nueva para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de red virtual*.
+**Red virtual**: la red virtual en la que desea implementar el clúster de Kubernetes. Si desea crear una red virtual nueva para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de red virtual*. La red virtual está limitada a 16 000 direcciones IP configuradas.
 
 **Subred**: la subred dentro de la red virtual en la que desea implementar el clúster. Si desea crear una nueva subred en la red virtual para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de subred*.
 
@@ -125,10 +138,6 @@ La siguiente captura de pantalla de Azure Portal muestra un ejemplo de la config
 
 Las siguientes preguntas y respuestas se aplican a la configuración de red **Avanzada**.
 
-* *¿Puedo configurar redes avanzadas con la CLI de Azure?*
-
-  No. Las redes avanzadas están disponibles actualmente solo al implementar clústeres de AKS en Azure Portal o con una plantilla de Resource Manager.
-
 * *¿Puedo implementar máquinas virtuales en la subred del clúster?*
 
   No. No se admite la implementación de máquinas virtuales en la subred usada por el clúster Kubernetes. Las máquinas virtuales se pueden implementar en la misma red virtual, pero en una subred diferente.
@@ -139,7 +148,7 @@ Las siguientes preguntas y respuestas se aplican a la configuración de red **Av
 
 * *¿Es configurable el número máximo de pods que se puede implementar en un nodo ?*
 
-  De forma predeterminada, cada nodo puede hospedar un máximo de 30 pods. Solo puede cambiar el valor máximo si modifica la propiedad `maxPods` al implementar un clúster con una plantilla de Resource Manager.
+  Sí, al implementar un clúster con la CLI de Azure o una plantilla de Resource Manager. Consulte [Pods máximos por nodo](#maximum-pods-per-node).
 
 * *¿Cómo se pueden configurar propiedades adicionales para la subred que he creado durante la creación del clúster de AKS? Por ejemplo, los puntos de conexión de servicio.*
 
@@ -177,3 +186,4 @@ Los clústeres de Kubernetes creados con ACS Engine admiten los complementos [ku
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

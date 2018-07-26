@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 51b9f7bfd25da7dfd4ae9038f8dab70e9232b944
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2e6b63e3ff48d4234bceadfe0556a8af92d9f8cc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724588"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136594"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -50,14 +50,16 @@ Use el enlace de entrada de Azure Table Storage para leer una tabla de una cuent
 
 Vea el ejemplo específico del lenguaje:
 
-* [C#: leer una entidad](#input---c-example-1)
-* [C#: leer varias entidades](#input---c-example-2)
-* [Script de C#: leer una entidad](#input---c-script-example-1)
-* [Script de C#: leer varias entidades](#input---c-script-example-2)
-* [F#](#input---f-example-2)
+* [C#: leer una entidad](#input---c-example---one-entity)
+* [Enlace de C# a IQueryable](#input---c-example---iqueryable)
+* [Enlace de C# a CloudTable](#input---c-example---cloudtable)
+* [Script de C#: leer una entidad](#input---c-script-example---one-entity)
+* [Enlace de script de C# a IQueryable](#input---c-script-example---iqueryable)
+* [Enlace de script de C# a CloudTable](#input---c-script-example---cloudtable)
+* [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
-### <a name="input---c-example-1"></a>Entrada: ejemplo 1 de C#
+### <a name="input---c-example---one-entity"></a>Entrada - ejemplo de C# - una entidad
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que lee una única fila de la tabla. 
 
@@ -84,7 +86,7 @@ public class TableStorage
 }
 ```
 
-### <a name="input---c-example-2"></a>Entrada: ejemplo 2 de C#
+### <a name="input---c-example---iqueryable"></a>Entrada - ejemplo de C# - IQueryable
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que lee varias filas de la tabla. Tenga en cuenta que la clase `MyPoco` deriva de `TableEntity`.
 
@@ -110,10 +112,58 @@ public class TableStorage
 }
 ```
 
-  > [!NOTE]
-  > `IQueryable` no es compatible con el [entorno de tiempo de ejecución de Functions v2](functions-versions.md). Una alternativa consiste en [usar un parámetro del método CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para leer la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
+### <a name="input---c-example---cloudtable"></a>Entrada - ejemplo de C# - CloudTable
 
-### <a name="input---c-script-example-1"></a>Entrada: ejemplo 1 de script de C#
+`IQueryable` no es compatible con el [entorno de tiempo de ejecución de Functions v2](functions-versions.md). Una alternativa consiste en usar un parámetro del método `CloudTable` para leer la tabla mediante Azure Storage SDK. Este es un ejemplo de una función 2.x que consulta una tabla de registros de Azure Functions:
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+
+namespace FunctionAppCloudTable2
+{
+    public class LogEntity : TableEntity
+    {
+        public string OriginalName { get; set; }
+    }
+    public static class CloudTableDemo
+    {
+        [FunctionName("CloudTableDemo")]
+        public static async Task Run(
+            [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
+            [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
+            TraceWriter log)
+        {
+            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+
+            TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+                TableQuery.CombineFilters(
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+                        "FD2"),
+                    TableOperators.And,
+                    TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+                        "t")));
+
+            // Execute the query and loop through the results
+            foreach (LogEntity entity in 
+                await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+            {
+                log.Info(
+                    $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+            }
+        }
+    }
+}
+```
+
+Para más información sobre cómo usar CloudTable, Consulte [Introducción a Azure Table Storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+
+Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
+
+### <a name="input---c-script-example---one-entity"></a>Entrada - ejemplo de script de C# - una entidad
 
 En el ejemplo siguiente se muestra un enlace de entrada de la tabla en un archivo *function.json* y código de [script de C#](functions-reference-csharp.md) que usa el enlace. La función usa un desencadenador de cola para leer una fila de tabla única. 
 
@@ -162,7 +212,7 @@ public class Person
 }
 ```
 
-### <a name="input---c-script-example-2"></a>Entrada: ejemplo 2 de script de C#
+### <a name="input---c-script-example---iqueryable"></a>Entrada - ejemplo de script de C# - IQueryable
 
 En el ejemplo siguiente se muestra un enlace de entrada de la tabla en un archivo *function.json* y código de [script de C#](functions-reference-csharp.md) que usa el enlace. La función lee las entidades de una clave de partición que se especifica en un mensaje en la cola.
 
@@ -212,6 +262,68 @@ public class Person : TableEntity
     public string Name { get; set; }
 }
 ```
+
+### <a name="input---c-script-example---cloudtable"></a>Entrada - ejemplo de script de C# - CloudTable
+
+`IQueryable` no es compatible con el [entorno de tiempo de ejecución de Functions v2](functions-versions.md). Una alternativa consiste en usar un parámetro del método `CloudTable` para leer la tabla mediante Azure Storage SDK. Este es un ejemplo de una función 2.x que consulta una tabla de registros de Azure Functions:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "cloudTable",
+      "type": "table",
+      "connection": "AzureWebJobsStorage",
+      "tableName": "AzureWebJobsHostLogscommon",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+
+    TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+    TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+            "FD2"),
+        TableOperators.And,
+        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+            "a")));
+
+    // Execute the query and loop through the results
+    foreach (LogEntity entity in 
+    await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+    {
+        log.Info(
+            $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+    }
+}
+
+public class LogEntity : TableEntity
+{
+    public string OriginalName { get; set; }
+}
+```
+
+Para más información sobre cómo usar CloudTable, Consulte [Introducción a Azure Table Storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+
+Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
 ### <a name="input---f-example"></a>Entrada: ejemplo de F#
 
@@ -648,7 +760,7 @@ El enlace de salida de Table Storage admite los siguientes escenarios:
 
   En C# y script de C#, obtenga acceso a la entidad de tabla de salida con un parámetro `ICollector<T> paramName` o `IAsyncCollector<T> paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. `T` especifica el esquema de las entidades que quiere agregar. Normalmente, `T` deriva de `TableEntity` o implementa `ITableEntity`, pero no tiene por qué ser así. Los valores de las claves de partición y de fila de *function.json* o del constructor del atributo `Table` no se usan en este escenario.
 
-  Una alternativa consiste en usar un parámetro del método `CloudTable paramName` para escribir en la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
+  Una alternativa consiste en usar un parámetro del método `CloudTable` para escribir en la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x). Para un ejemplo de código que se enlaza a `CloudTable`, consulte los ejemplos de enlace de entrada para [C#](#input---c-example---cloudtable) o [script de C#](#input---c-script-example---cloudtable) que aparecieron anteriormente en este artículo.
 
 * **Escribir una o varias filas en JavaScript**
 

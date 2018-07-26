@@ -6,19 +6,19 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: f40fe3da6874d8656c9c0a0ddce9fed602cb25f9
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083998"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091922"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Modelos de compra y recursos de Azure SQL Database 
 
-Los servidores lógicos de [Azure SQL Database](sql-database-technical-overview.md) ofrecen dos modelos de compra para recursos de proceso, almacenamiento y E/S: uno basado en DTU y el otro en núcleos virtuales (que se encuentra en versión preliminar). 
+Los servidores lógicos de [Azure SQL Database](sql-database-technical-overview.md) ofrecen dos modelos de compra para recursos de proceso, almacenamiento y E/S: uno basado en DTU y el otro en núcleos virtuales. 
 
 > [!NOTE]
 > Las [Instancias administradas](sql-database-managed-instance.md) de Azure SQL Database solo ofrecen el modelo de compra basado en núcleos virtuales.
@@ -26,7 +26,7 @@ Los servidores lógicos de [Azure SQL Database](sql-database-technical-overview.
 En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos de compra.
 
 > [!IMPORTANT]
-> Consulte este artículo sobre el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md) si desea obtener más información al respecto.
+> Consulte este artículo sobre el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) si quiere obtener más información al respecto.
 
 |**Modelo de compra**|**Descripción**|**Más adecuado para**|
 |---|---|---|
@@ -36,13 +36,13 @@ En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos 
 
 ![Modelo de precios](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model--preview"></a>Modelo de compra basado en núcleos virtuales (versión preliminar)
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales 
 
-Un núcleo virtual representa una CPU lógica que cuenta con una opción para elegir entre varias generaciones de hardware. El modelo de compra basado en núcleos virtuales (versión preliminar) le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de carga de trabajo. En el modelo de compra basado en núcleos virtuales (versión preliminar), los clientes pueden elegir entre los niveles de servicio De uso general y Crítico para la empresa (versión preliminar) tanto para [bases de datos únicas](sql-database-single-database-scale.md) como para [grupos elásticos](sql-database-elastic-pool.md). 
+Un núcleo virtual representa una CPU lógica que cuenta con una opción para elegir entre varias generaciones de hardware. El modelo de compra basado en núcleos virtuales le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de carga de trabajo. En el modelo de compra basado en núcleos virtuales, los clientes pueden elegir entre los niveles de servicio De uso general y Crítico para la empresa tanto para [bases de datos únicas](sql-database-single-database-scale.md) como para [grupos elásticos](sql-database-elastic-pool.md). 
 
-El modelo de compra basado en núcleos virtuales (versión preliminar) permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. Si la base de datos o el grupo elástico consumen más de 300 DTU, la conversión a núcleos virtuales puede reducir los costos. Puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria. Si el modelo de compra de DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide pasar del modelo de DTU al modelo de núcleos virtuales, debe seleccionar el nivel de rendimiento mediante la siguiente regla general: cada 100 DTU del nivel Estándar requieren al menos 1 núcleo virtual en el nivel De uso general, y cada 125 DTU del nivel Premium requieren como mínimo 1 núcleo virtual en el nivel Crítico para la empresa.
+El modelo de compra basado en núcleos virtuales permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. Si la base de datos o el grupo elástico consumen más de 300 DTU, la conversión a núcleos virtuales puede reducir los costos. Puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria. Si el modelo de compra de DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide pasar del modelo de DTU al modelo de núcleos virtuales, debe seleccionar el nivel de rendimiento mediante la siguiente regla general: cada 100 DTU del nivel Estándar requieren al menos 1 núcleo virtual en el nivel De uso general, y cada 125 DTU del nivel Premium requieren como mínimo 1 núcleo virtual en el nivel Crítico para la empresa.
 
-En un modelo de compra basado en núcleos virtuales (versión preliminar), los clientes pagan por:
+En un modelo de compra basado en núcleos virtuales, los clientes pagan por:
 - Proceso (nivel de servicio + número de núcleos virtuales + generación de hardware)*
 - Tipo y cantidad de almacenamiento de datos y registros 
 - Número de E/S**
@@ -189,5 +189,5 @@ Las métricas clave de la prueba comparativa son rendimiento y tiempo de respues
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte este artículo sobre el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md) si desea obtener más información al respecto.
+- Consulte este artículo sobre el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) si quiere obtener más información al respecto.
 - Con respecto al modelo de compra basado en DTU, consulte [Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md).

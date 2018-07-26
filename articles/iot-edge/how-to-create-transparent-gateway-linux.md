@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2b4e2a19b5d5f6491ff3db24489b361040a52280
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346066"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035581"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creación de un dispositivo de IoT Edge con Linux que actúa como una puerta de enlace transparente
 
@@ -22,7 +22,7 @@ En este artículo se proporcionan instrucciones detalladas para usar un disposit
 >[!NOTE]
 >Actualmente:
 > * Si la puerta de enlace se desconecta desde IoT Hub, los dispositivos de nivel inferior no se pueden autenticar con la puerta de enlace.
-> * Los dispositivos de IoT Edge no se pueden conectar a las puertas de enlace de IoT Edge.
+> * Los dispositivos habilitados para Edge no pueden conectarse a puertas de enlace de IoT Edge. 
 > * Los dispositivos de bajada no pueden usar la carga de archivos.
 
 La parte más difícil de crear una puerta de enlace transparente es conectar de forma segura la puerta de enlace a los dispositivos de bajada. Azure IoT Edge le permite usar la infraestructura de PKI para configurar conexiones TLS seguras entre estos dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente.  Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo de Edge, porque lo que quiere es que los dispositivos solo se conecten a sus puertas de enlace y no a una puerta de enlace posiblemente malintencionada.
@@ -35,7 +35,7 @@ La puerta de enlace presenta su certificado de entidad de certificación de Edge
 
 Los pasos siguientes le guían por el proceso de crear los certificados e instalarlos en los lugares adecuados.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 1.  Instale el entorno de ejecución de Azure IoT Edge en el dispositivo Linux que vaya a usar como puerta de enlace transparente.
    * [Linux x64][lnk-install-linux-x64]
    * [Linux ARM32][lnk-install-linux-arm]
@@ -192,6 +192,7 @@ Para más información sobre el enrutamiento de mensajes, consulte el [artículo
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

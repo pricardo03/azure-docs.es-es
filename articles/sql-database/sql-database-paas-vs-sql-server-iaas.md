@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114408"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091871"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
 
@@ -76,7 +76,7 @@ Si se encuentra en una empresa incipiente con falta de medios o en un equipo de 
 
 #### <a name="billing-and-licensing-basics"></a>Conceptos básicos sobre facturación y licencias
 
-Actualmente, **SQL Database** se vende como un servicio y está disponible con varios niveles de servicio y distintos precios para los recursos, que se facturan por hora a una tarifa fija en función del nivel de servicio y el nivel de rendimiento que se elija. Con Instancia administrada de Azure SQL Database, puede usar su propia licencia. Para obtener más información sobre la incorporación de licencias propias, consulte [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). Además, se le facturará el tráfico saliente de Internet en las [tasas de transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/)habituales. Los niveles de servicio y de rendimiento se pueden ajustar de forma dinámica para satisfacer las necesidades variables de capacidad de proceso de la aplicación. Para acceder a la información más reciente sobre los niveles de servicio admitidos actualmente, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). También puede crear [grupos elásticos](sql-database-elastic-pool.md) para compartir recursos entre las instancias de la base de datos con la finalidad de reducir costos y admitir picos de uso.
+Actualmente, **SQL Database** se vende como un servicio y está disponible con varios niveles de servicio y distintos precios para los recursos, que se facturan por hora a una tarifa fija en función del nivel de servicio y el nivel de rendimiento que se elija. Con Instancia administrada de Azure SQL Database, puede usar su propia licencia. Para obtener más información sobre la incorporación de licencias propias, consulte [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). Además, se le facturará el tráfico saliente de Internet en las [tasas de transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/)habituales. Los niveles de servicio y de rendimiento se pueden ajustar de forma dinámica para satisfacer las necesidades variables de capacidad de proceso de la aplicación. Para acceder a la información más reciente sobre los niveles de servicio admitidos actualmente, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). También puede crear [grupos elásticos](sql-database-elastic-pool.md) para compartir recursos entre las instancias de la base de datos con la finalidad de reducir costos y admitir picos de uso.
 
 Con **SQL Database**, Microsoft configura, revisa y actualiza automáticamente el software de base de datos, lo que reduce los costos de administración. Además, sus capacidades de [copia de seguridad integrada](sql-database-automated-backups.md) ayudan a obtener un ahorro significativo, sobre todo, cuando se tiene gran cantidad de base de datos. 
 

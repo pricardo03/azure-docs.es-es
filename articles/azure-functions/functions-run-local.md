@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 5c582b080ec6f2cff801758fc4bff4f7d07fd7df
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083076"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126221"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -62,7 +62,7 @@ La versión 2.x de las herramientas usa el entorno en tiempo de ejecución 2.x d
 
 Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También puede usar [Chocolatey](https://chocolatey.org/). Para más información, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Instale [.NET Core 2.0 para Windows](https://www.microsoft.com/net/download/windows).
+1. Instale [.NET Core 2.1 para Windows](https://www.microsoft.com/net/download/windows).
 
 2. Instale [Node.js], que incluye npm. Para la versión 2.x de las herramientas, solo se admite Node.js 8.5 y versiones posteriores.
 
@@ -76,7 +76,7 @@ Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También 
 
 Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
 
-1. Instale [.NET Core 2.0 para macOS](https://www.microsoft.com/net/download/macos).
+1. Instale [.NET Core 2.1 para macOS](https://www.microsoft.com/net/download/macos).
 
 2. Instale [Homebrew](https://brew.sh/), si aún no está instalado.
 
@@ -91,7 +91,7 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
 
 Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core Tools en la distribución de Ubuntu/Debian Linux. Para otras distribuciones de Linux, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Instale [.NET Core 2.0 para Linux](https://www.microsoft.com/net/download/linux).
+1. Instale [.NET Core 2.1 para Linux](https://www.microsoft.com/net/download/linux).
 
 2. Registre la clave de producto de Microsoft como de confianza:
 
@@ -137,6 +137,7 @@ En la versión 2.x, cuando ejecute el comando, debe elegir un tiempo de ejecuci�
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 Use las flechas arriba/abajo para elegir un lenguaje, a continuación, presione ENTRAR. La salida tendrá un aspecto similar al siguiente ejemplo de un proyecto de JavaScript:
@@ -151,6 +152,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Para crear el proyecto sin un repositorio Git local, use la opción `--no-source-control [-n]`.
+
+> [!IMPORTANT]
+> De manera predeterminada, la versión 2.x de Core Tools crea proyectos de aplicación de función para el runtime de .NET como [proyectos de clase de C#](functions-dotnet-class-library.md) (.csproj). Estos proyectos de C#, que se pueden usar con Visual Studio 2017 o Visual Studio Code, se compilan durante las pruebas y al publicar en Azure. Si en su lugar desea crear y trabajar con los mismos archivos de script de C# (.csx) creados en la versión 1.x y en el portal, debe incluir el parámetro `--csx` cuando cree e implemente las funciones.
 
 ## <a name="register-extensions"></a>Registro de las extensiones
 
@@ -177,7 +181,7 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -189,7 +193,7 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
 | **Host** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. |
 | **LocalHttpPort** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |
 | **CORS** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (\*), lo que permite realizar solicitudes desde cualquier origen. |
-| **ConnectionStrings** | No utilice esta colección para las cadenas de conexión que utilizan los enlaces de función. Esta colección solo la usan marcos que deben obtener las cadenas de conexión desde la sección **ConnectionStrings** de de un archivo de configuración, como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Los elementos de esta colección no se publican en Azure con otra configuración de aplicación. Debe agregar explícitamente estos valores en la sección **Cadenas de conexión** de la **configuración de la aplicación** de su aplicación de función. |
+| **ConnectionStrings** | No utilice esta colección para las cadenas de conexión que utilizan los enlaces de función. Esta colección solo la usan marcos que habitualmente obtienen las cadenas de conexión desde la sección **ConnectionStrings** de un archivo de configuración, como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Los elementos de esta colección no se publican en Azure con otra configuración de aplicación. Debe agregar explícitamente estos valores a la colección **Cadenas de conexión** de la configuración de la aplicación de función. Si está creando un objeto [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) en el código de la función, debe almacenar el valor de la cadena de conexión en **Configuración de la aplicación** con las otras conexiones. |
 
 Esta configuración de la aplicación de función también se puede leer en el código como variables de entorno. Para más información, consulte la sección Variables de entorno de estos temas de referencia específicos del lenguaje:
 
@@ -209,7 +213,7 @@ Cuando no se establece ninguna cadena de conexión de almacenamiento válida par
 
 Incluso cuando se usa el emulador de almacenamiento para tareas de desarrollo, recomendamos probar con una conexión de almacenamiento real. Suponiendo que ya [creó una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md), puede obtener una cadena de conexión de almacenamiento válida de una de las maneras siguientes:
 
-+ Desde [Azure Portal]. Navegue a su cuenta de almacenamiento, seleccione **Claves de acceso** en **Configuración** y, a continuación, copie uno de los valores de **Cadena de conexión**.
++ Desde [Portal de Azure]. Navegue a su cuenta de almacenamiento, seleccione **Claves de acceso** en **Configuración** y, a continuación, copie uno de los valores de **Cadena de conexión**.
 
   ![Copia de una cadena de conexión desde Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
@@ -271,8 +275,9 @@ También puede especificar estas opciones en el comando con los argumentos sigui
 | Argumento     | DESCRIPCIÓN                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| Lenguaje de programación de la plantilla, como C#, F# o JavaScript. Esta opción es obligatoria en la versión 1.x. En la versión 2.x, no utilice esta opción o elija el lenguaje predeterminado del proyecto. |
-| **`--template -t`** | El nombre de plantilla, que puede ser uno de los valores:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | Use el comando `func templates list` para ver la lista completa de plantillas disponibles para cada lenguaje compatible.   |
 | **`--name -n`** | Nombre de la función. |
+| **`--csx`** | (Versión 2.x) Genera las mismas plantillas de script de C# (.csx) que se usan en la versión 1.x y en el portal. |
 
 Por ejemplo, para crear un desencadenador HTTP de JavaScript en un único comando, ejecute:
 
@@ -413,7 +418,7 @@ Puede usar las siguientes opciones:
 
 Este comando se publica en una aplicación de función existente en Azure. Se produce un error cuando `<FunctionAppName>` no existe en la suscripción. Para obtener información sobre cómo crear una aplicación de función desde el símbolo del sistema o la ventana de Terminal mediante la CLI de Azure, consulte [Creación de una instancia de Function App para la ejecución sin servidor](./scripts/functions-cli-create-serverless.md).
 
-El comando `publish` carga el contenido del directorio del proyecto de Functions. Si elimina archivos localmente, el comando `publish` no los eliminará de Azure. Puede eliminar archivos de Azure con la [herramienta Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) de [Azure Portal].  
+El comando `publish` carga el contenido del directorio del proyecto de Functions. Si elimina archivos localmente, el comando `publish` no los eliminará de Azure. Puede eliminar archivos de Azure con la [herramienta Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) de [Portal de Azure].  
 
 >[!IMPORTANT]  
 > Cuando se crea una aplicación de función en Azure, se usa la versión 1.x del entorno en tiempo de ejecución de Functions de forma predeterminada. Para hacer que la aplicación de función use la versión 2.x del entorno en tiempo de ejecución, agregue la opción de configuración de aplicación `FUNCTIONS_EXTENSION_VERSION=beta`.  
@@ -433,5 +438,5 @@ Para notificar un error o realizar una solicitud de característica, [abra un pr
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Portal de Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

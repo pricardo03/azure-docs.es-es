@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930314"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126514"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -160,9 +160,69 @@ Guarde el runbook *Export-RunAsCertificateToHybridWorker* en el equipo con una e
 
 Los trabajos se controlan de forma ligeramente diferente en Hybrid Runbook Workers que cuando se ejecutan en espacios aislados de Azure. Una diferencia clave es que no hay ningún límite en la duración del trabajo en Hybrid Runbook Workers. Los runbooks ejecutados en espacios aislados de Azure están limitados a 3 horas debido al [reparto equitativo](automation-runbook-execution.md#fair-share). Si tiene un runbook de larga ejecución, querrá asegurarse de que es resistente a posibles reinicios, por ejemplo, si se reinicia la máquina que hospeda Hybrid Worker. Si la máquina host de Hybrid Worker se reinicia, cualquier trabajo de runbook en ejecución se reinicia desde el principio o desde el último punto de comprobación para runbooks de flujo de trabajo de PowerShell. Si un trabajo de runbook se reinicia más de 3 veces, se suspende.
 
+## <a name="run-only-signed-runbooks"></a>Ejecución solo de Runbooks firmados
+
+Es posible configurar instancias de Hybrid Runbook Worker para que ejecuten solo runbooks firmados con cierta configuración. En la sección siguiente se describe cómo configurar las instancias de Hybrid Runbook Worker para ejecutar runbooks firmados y cómo firmar los runbooks.
+
+> [!NOTE]
+> Una vez que haya configurado una instancia de Hybrid Runbook Worker para que solo ejecute runbooks firmados, los runbooks que **no** estén firmados no se ejecutarán en el trabajo.
+
+### <a name="create-signing-certificate"></a>Creación de certificado de firma
+
+En el ejemplo siguiente se crea un certificado autofirmado que se puede usar para firmar runbooks. El ejemplo crea el certificado y lo exporta. El certificado se importa a las instancias de Hybrid Runbook Worker más adelante. La huella digital también se devuelve y más adelante se usa para hacer referencia al certificado.
+
+```powershell
+# Create a self signed runbook that can be used for code signing
+$SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
+                                        -Subject "CN=contoso.com" `
+                                        -KeyAlgorithm RSA `
+                                        -KeyLength 2048 `
+                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                                        -KeyExportPolicy Exportable `
+                                        -KeyUsage DigitalSignature `
+                                        -Type CodeSigningCert
+
+
+# Export the certificate so that it can be imported to the hybrid workers
+Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Retrieve the thumbprint for later use
+$SigningCert.Thumbprint
+```
+
+### <a name="configure-the-hybrid-runbook-workers"></a>Configuración de instancias de Hybrid Runbook Worker
+
+Copie el certificado que se creó en cada instancia de Hybrid Runbook Worker en un grupo. Ejecute el script siguiente para importar el certificado y configurar la instancia de Hybrid Worker para usar la validación de firma en los runbooks.
+
+```powershell
+# Install the certificate into a location that will be used for validation.
+New-Item -Path Cert:\LocalMachine\AutomationHybridStore
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Configure the hybrid worker to use signature validation on runbooks.
+Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
+```
+
+### <a name="sign-your-runbooks-using-the-certificate"></a>Firma de los runbooks con el certificado
+
+Con las instancias de Hybrid Runbook Worker configuradas para usar solo runbooks firmados. Debe iniciar sesión con los runbooks que se usarán en la instancia de Hybrid Runbook Worker. Use la instancia de PowerShell de ejemplo siguiente para firmar los runbooks.
+
+```powershell
+$SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
+Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
+```
+
+Una vez firmado el runbook, se debe importar a la cuenta de Automation y publicar con el bloque de firma. Para saber cómo importar runbooks, consulte [Importar un runbook de un archivo en Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Si los runbooks no están finalizando correctamente y el resumen del trabajo muestra el estado **suspendido**, consulte la guía de solución de problemas sobre los [errores de ejecución de runbooks](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+Si los runbooks no se completan correctamente, revise la guía de solución de problemas sobre los [errores de ejecución de un runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

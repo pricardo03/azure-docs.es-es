@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: cd3f947bfc44055bfec4198a1e7c6a9bb2fab5d4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04342be06430747ef64cb69c27ee93e6896775e5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642631"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070887"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
 La forma en que los desarrolladores de software nos planteamos la factorización de una aplicación en sus distintos componentes no es nueva en absoluto. Es el paradigma central de la orientación a objetos, las abstracciones de software y la componentización. En la actualidad, esta factorización suele adoptar la forma de clases e interfaces entre bibliotecas compartidas y niveles de tecnología. Normalmente, se emplea un enfoque con niveles con un almacén en el back-end, lógica de negocios en el nivel intermedio y una interfaz de usuario (IU) en el front-end. Lo que *ha* cambiado en los últimos años es que los desarrolladores ahora crean aplicaciones distribuidas para la nube impulsados por las empresas.
@@ -146,9 +146,9 @@ Service Fabric proporciona tres amplias áreas que le ayudan a crear aplicacione
 ***Service Fabric es independiente de la forma en que cree el servicio y permite usar cualquier tecnología. Sin embargo, proporciona API de programación integradas que facilitan la compilación de microservicios.***
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migración de aplicaciones existentes a Service Fabric
-Un enfoque clave en Service Fabric es reutilizar código existente, que luego puede modernizarse con nuevos microservicios. Hay cinco fases para la modernización de aplicaciones. Puede empezar y detenerse en cualquiera de ellas. Las fases son:
+Un enfoque clave en Service Fabric es reutilizar código existente, que luego puede modernizarse con nuevos microservicios. Hay cinco fases para la modernización de aplicaciones. Puede empezar y detenerse en cualquiera de ellas. Dichos componentes son:
 
-1) Adopción de una aplicación monolítica tradicional  
+1) Empiece con una aplicación monolítica tradicional.  
 2) Levantamiento y movimiento: use contenedores o ejecutables invitados para hospedar código existente en Service Fabric.  
 3) Modernización: se agregan nuevos microservicios con código existente en contenedores.  
 4) Innovación: divida la aplicación monolítica en microservicios únicamente en función de las necesidades.  
@@ -158,18 +158,18 @@ Un enfoque clave en Service Fabric es reutilizar código existente, que luego pu
 
 Es importante destacar de nuevo que se puede **comenzar y detenerse en cualquiera de estas fases**. No nos vemos obligados a avanzar a la siguiente fase. Veamos ahora ejemplos de cada una de las fases.
 
-**Levantamiento y movimiento**: gran cantidad de empresas están levantando y moviendo las aplicaciones monolíticas existentes a contenedores por dos motivos:
+**Migrar mediante lift-and-shift**: gran cantidad de empresas están migrando mediante lift-and-shift las aplicaciones monolíticas existentes a contenedores por dos motivos:
 
 - Reducción de costos debidos a la consolidación y eliminación de hardware existente o a la ejecución de aplicaciones de mayor densidad. 
 - Contrato de implementación coherente entre el desarrollo y las operaciones.
 
-La reducción de costos es comprensible. Además, en Microsoft, se están usando contenedores en una gran cantidad de aplicaciones existentes con el único fin de ahorrar millones de dólares. La implementación coherente es difícil de evaluar, pero también es muy importante. Se dice que los desarrolladores tienen libertad para elegir la tecnología que mejor se ajuste a sus necesidades, pero las operaciones solo aceptarán una única forma de implementar y administrar esas aplicaciones. Evita que las operaciones se vean afectadas por la complejidad de muchas tecnologías diferentes o que obliguen a los desarrolladores a elegir solo algunas. Básicamente, cada aplicación se convierte en un contenedor de imágenes de implementación independientes.
+La reducción de costos es comprensible. Además, en Microsoft, se están usando contenedores en una gran cantidad de aplicaciones existentes con el único fin de ahorrar millones de dólares. La implementación coherente es difícil de evaluar, pero también es muy importante. Esto significa que los desarrolladores tienen libertad para elegir la tecnología que mejor se ajuste a sus necesidades, pero las operaciones solo aceptarán una única forma de implementar y administrar esas aplicaciones. Evita que las operaciones se vean afectadas por la complejidad de muchas tecnologías diferentes o que obliguen a los desarrolladores a elegir solo algunas. Básicamente, cada aplicación se convierte en un contenedor de imágenes de implementación independientes.
 
 Muchas organizaciones se detienen aquí. Ya tienen las ventajas de los contenedores y Service Fabric ofrece la experiencia de administración completa de implementación, actualizaciones, control de versiones, reversiones, supervisión de estado, etc.
 
 **Modernización**: es la incorporación de nuevos servicios junto a código existente en contenedores. Si va a escribir otro código, lo mejor es optar por dar pequeños pasos en la ruta a los microservicios. Esto podría ser agregar un nuevo punto de conexión de la API de REST o una nueva lógica de negocios. De ese modo, inicia el camino de creación de microservicios y practica su desarrollo e implementación.
 
-**Innovación**: ¿recuerda las cambiantes necesidades empresariales originales al principio de este artículo que determinan el enfoque de los microservicios? En esta fase, lo que hay que preguntarse es si estas necesidades se producen en la aplicación actual y, de ser así, si es necesario empezar a dividir el enfoque monolítico o innovar. Un ejemplo sería una base de datos que se convierte en un cuello de botella de procesamiento porque se usa como cola de flujo de trabajo. A medida que las solicitudes de flujo de trabajo aumentan es necesario distribuir el trabajo a escala. Por lo que para esa parte concreta de la aplicación que no se escala o hay que actualizar con más frecuencia, divídala en un microservicio e innove. 
+**Innovación**: ¿recuerda las cambiantes necesidades empresariales originales al principio de este artículo que determinan el enfoque de los microservicios? En esta fase, lo que hay que preguntarse es si estas necesidades se producen en la aplicación actual y, de ser así, si es necesario empezar a dividir la aplicación monolítica en servicios o innovar. Un ejemplo sería una base de datos que se usa como cola de flujo de trabajo y que se convierte en un cuello de botella de procesamiento. A medida que las solicitudes de flujo de trabajo aumentan, es necesario distribuir el trabajo a escala. Por lo que para esa parte concreta de la aplicación que no se escala o hay que actualizar con más frecuencia, divídala en un microservicio e innove. 
 
 **Transformación en microservicios**: aquí es dónde la aplicación se compone de (o descompone en) microservicios. Para llegar aquí, ha hecho el camino de los microservicios. Puede empezar aquí, pero hacerlo sin una plataforma de microservicios que le ayude resulta una importante inversión. 
 

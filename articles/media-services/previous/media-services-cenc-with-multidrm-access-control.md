@@ -1,28 +1,29 @@
 ---
-title: 'CENC con varias DRM y control de acceso: diseño e implementación de referencia en Azure y Azure Media Services | Microsoft Docs'
+title: Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services | Microsoft Docs
 description: Más información sobre cómo obtener licencias de Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
 manager: cfowler
 editor: ''
-ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 8f072f13909190eee194565673ccfa1f381f7503
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075590"
 ---
-# <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC con varias DRM y control de acceso: diseño e implementación de referencia en Azure y Azure Media Services
- 
-## <a name="introduction"></a>Introducción
+# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services
+
+## <a name="overview"></a>Información general
+
 El diseño y la creación de un subsistema de administración de derechos digitales (DRM) para una solución OTT o de streaming en línea es una tarea compleja. Los operadores o proveedores de vídeo en línea suelen subcontratar esta tarea a proveedores de servicios DRM especializados. El objetivo de este documento es presentar un diseño de referencia y la implementación del subsistema DRM de un extremo a otro en una solución de streaming en línea o de OTT.
 
 Este documento va dirigido a ingenieros que trabajan en subsistemas DRM de soluciones OTT o soluciones de varias pantallas o streaming en línea, o a cualquier lector interesado en subsistemas DRM. Se supone que los lectores están familiarizados con al menos una de las tecnologías DRM del mercado, como PlayReady, Widevine, FairPlay o Adobe Access.
@@ -40,7 +41,8 @@ Microsoft es un promotor activo de DASH y CENC junto con algunos de los principa
 *  [Anuncio de los servicios de entrega de licencias de Google Widevine en Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 * [Azure Media Services agrega empaquetado de Google Widevine para entregar un proceso de streaming de varios DRM](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)  
 
-### <a name="overview-of-this-article"></a>Información general de este artículo
+### <a name="goals-of-the-article"></a>Objetivos del artículo
+
 Los objetivos de este artículo son los siguientes:
 
 * Proporcionar un diseño de referencia de un subsistema DRM que usa CENC con varias DRM.
@@ -61,7 +63,6 @@ En la tabla siguiente se resume la aplicación o plataforma nativa y los explora
 | **Dispositivos Windows 10 (Windows PC, tabletas de Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Plataforma universal de Windows |DASH (no se admite PlayReady para HLS)<br/><br/>DASH, Smooth Streaming (no se admite PlayReady para HLS) |
 | **Dispositivos Android (teléfono, tableta, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), clientes de OS X y Apple TV** |FairPlay |Safari 8+/EME |HLS |
-
 
 Teniendo en cuenta el estado actual de implementación para cada DRM, normalmente el servicio quiere implementar dos o tres DRM para asegurarse de que aborda todos los tipos de puntos de conexión de la mejor manera.
 
@@ -214,8 +215,9 @@ La implementación incluye los siguientes pasos:
     | **DRM** | **Browser** | **Resultado para el usuario autorizado** | **Resultado para el usuario no autorizado** |
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge o Internet Explorer 11 en Windows 10 |Correcto |Fail (no superado) |
-    | **Widevine** |Chrome en Windows 10 |Correcto |Fail (no superado) |
-    | **FairPlay** |TBD | | |
+    | **Widevine** |Chrome, Firefox, Opera |Correcto |Fail (no superado) |
+    | **FairPlay** |Safari en macOS      |Correcto |Fail (no superado) |
+    | **AES-128** |Exploradores más modernos  |Correcto |Fail (no superado) |
 
 Para más información sobre cómo configurar Azure AD para una aplicación de reproductor de ASP.NET MVC, consulte [Integración de la aplicación OWIN basada en MVC de Azure Media Services con Azure Active Directory y restricción de la entrega de claves de contenido basada en notificaciones de JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -224,7 +226,7 @@ Para más información, consulte [Autenticación de token JWD en Azure Media Ser
 Para más información sobre Azure AD:
 
 * Puede encontrar información para desarrolladores en la [Guía para desarrolladores de Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
-* Puede encontrar información para administradores en [Administración del directorio de Azure AD](../../active-directory/active-directory-administer.md).
+* Puede encontrar información para administradores en [Administración del directorio de Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Algunos problemas de implementación
 Utilice la siguiente información para solución de problemas para obtener ayuda con problemas de implementación.

@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802658"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035340"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicación de actualizaciones en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack*
 
-Para aplicar paquetes de actualización de Microsoft a Azure Stack los operadores de Azure Stack deben hacer clic en el icono Actualización del portal de administración. Debe descargar el paquete de actualización de Microsoft, importar los archivos del paquete en Azure Stack e instalar el paquete de actualización. 
+Para aplicar paquetes de actualización de OEM o Microsoft a Azure Stack, los operadores de Azure Stack deben hacer clic en el icono Actualización del portal de administración. Debe descargar el paquete de actualización, importar los archivos del paquete en Azure Stack e instalar el paquete de actualización. 
 
 ## <a name="download-the-update-package"></a>Descarga del paquete de actualización
 
-Cuando haya disponible un paquete de actualización de Microsoft para Azure Stack, descárguelo a una ubicación al que se pueda acceder desde Azure Stack y revise el contenido del paquete. Normalmente, un paquete de actualización consta de los siguientes archivos:
+Cuando haya disponible un paquete de actualización de OEM o Microsoft para Azure Stack, descárguelo a una ubicación a la que se pueda acceder desde Azure Stack y revise el contenido del paquete. Normalmente, un paquete de actualización consta de los siguientes archivos:
 
 - Un archivo *PackageName*.exe autoextraíble. Este archivo contiene la carga útil de la actualización, por ejemplo la actualización acumulativa más reciente de Windows Server.   
 - Los archivos *PackageName*.bin correspondientes. Estos archivos proporcionan compresión para la carga que está asociada el archivo *PackageName*.exe. 

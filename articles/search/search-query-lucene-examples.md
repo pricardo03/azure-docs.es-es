@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 24fa427ad67a953020370a16b4d156c82a0a1cf6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951029"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036673"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Search
 Al construir consultas para Azure Search, puede usar la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predeterminada o el [analizador de consultas Lucene alternativo de Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). El Analizador de consultas de Lucene admite las construcciones de consulta más complejas, como las consultas de ámbito de campo, la búsqueda aproximada, la búsqueda por proximidad, la priorización de términos y las expresiones regulares.
@@ -69,7 +69,7 @@ El campo especificado en **fieldname:searchterm** debe ser un campo que permita 
 ## <a name="fuzzy-search-example"></a>Ejemplo de búsqueda aproximada
 Una búsqueda aproximada busca coincidencias en términos que tienen una construcción similar. Según la [documentación de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-Para realizar una búsqueda aproximada, agregue la virgulilla, "~", al final de una sola palabra con un parámetro opcional y un valor entre 0 y 2 para especificar la distancia de edición. Por ejemplo, "blue~" o "blue~1" devolvería blue, blues y glue.
+Para realizar una búsqueda aproximada, agregue la virgulilla, `~`, al final de una sola palabra con un parámetro opcional y un valor entre 0 y 2 para especificar la distancia de edición. Por ejemplo, `blue~` o `blue~1` devolverían blue, blues y glue.
 
 **Ejemplo 3** : haga clic con el botón derecho en el siguiente fragmento de consulta. Esta consulta busca los trabajos con el asociado de término (donde se está mal escrito):
 

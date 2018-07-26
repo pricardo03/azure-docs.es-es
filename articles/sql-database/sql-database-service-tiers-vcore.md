@@ -1,20 +1,20 @@
 ---
 title: 'Servicio Azure SQL Database: núcleos virtuales | Microsoft Docs'
-description: El modelo de compra basado en núcleos virtuales (versión preliminar) permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio.
+description: El modelo de compra basado en núcleos virtuales permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859942"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091499"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Selección del nivel de servicio basado en núcleos virtuales, y los recursos de proceso, memoria, almacenamiento y E/S
 
@@ -30,11 +30,9 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos dos nive
 |Storage|Almacenamiento remoto Premium, de 5 GB a 4 TB|Almacenamiento local de SSD, de 5 GB a 4 TB|
 |Rendimiento de E/S (aproximado)|500 IOPS por núcleo virtual con 7000 IOPS como máximo|5000 IOPS por núcleo con 200 000 IOPS como máximo|
 |Disponibilidad|1 réplica, sin escalado de lectura|3 réplicas, 1 [escalado de lectura](sql-database-read-scale-out.md), HA con redundancia de zona|
-|Copias de seguridad|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)*|
+|Copias de seguridad|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)|
 |En memoria|N/D|Compatible|
 |||
-
-\* Durante la versión preliminar, el período de retención de copias de seguridad no es configurable y se fija en 7 días.
 
 > [!IMPORTANT]
 > Si tiene menos de un núcleo virtual de capacidad de proceso, use el modelo de compra basado en DTU.
@@ -67,7 +65,7 @@ Para admitir las funcionalidades Restauración a un momento dado (PITR) y Retenc
 
 ## <a name="azure-hybrid-use-benefit"></a>Ventaja de uso híbrido de Azure
 
-En el modelo de compra basado en núcleos virtuales (versión preliminar), puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Esta ventaja de Azure le permite usar las licencias de SQL Server locales para ahorrar hasta un 30 % en Azure SQL Database al utilizarlas con Software Assurance.
+En el modelo de compra basado en núcleos virtuales, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Esta ventaja de Azure le permite usar las licencias de SQL Server locales para ahorrar hasta un 30 % en Azure SQL Database al utilizarlas con Software Assurance.
 
 ![Precios](./media/sql-database-service-tiers/pricing.png)
 

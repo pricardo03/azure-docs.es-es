@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: juliako
-ms.openlocfilehash: 14779306815681c368a98d698a6688d528a6c747
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b50ba825f675c84f551f9a1d191aa93eaed9a628
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294036"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070889"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cuotas y limitaciones en Azure Media Services v3
 
@@ -25,6 +25,7 @@ En este artículo se describen las cuotas y limitaciones de Azure Media Services
 | Recurso | Límite predeterminado | 
 | --- | --- | 
 | Recursos por cuenta de Azure Media Services | 1 000 000|
+| Filtros de manifiesto dinámico|100|
 | JobInputs por trabajo | 50 (cantidad fija)|
 | JobOutputs por Job/TransformOutputs en una transformación | 20 (cantidad fija) |
 | Archivos por JobInput|10 (cantidad fija)|
@@ -34,13 +35,13 @@ En este artículo se describen las cuotas y limitaciones de Azure Media Services
 | Listado de trabajos|Pagine la respuesta, con 500 trabajos por página|
 | LiveEvents por cuenta de Media Services |5|
 | Cuentas de Media Services en una suscripción única | 25 (fijo) |
-| StreamingPolicies | 1 000 000<sup>(3)</sup> |
 | LiveOutputs con el estado En ejecución por LiveEvent |3|
 | LiveOutputs con el estado Detenido por LiveEvent |50|
 | Cuentas de almacenamiento | 100<sup>(4)</sup> (cantidad fija) |
 | Puntos de conexión de streaming con el estado En ejecución por cuenta de Media Services|2|
+| StreamingPolicies | 100 <sup>(3)</sup> |
 | Transformaciones por cuenta de Media Services | 100 (cantidad fija)|
-| StreamingLocators únicos asociados con un recurso al mismo tiempo | 20<sup>(5)</sup> |
+| StreamingLocators únicos asociados con un recurso al mismo tiempo | 100<sup>(5)</sup> (cantidad fija) |
 
 <sup>1</sup> El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. Sin embargo, en Azure Media Services se aplican límites adicionales en función de los tamaños de máquina virtual utilizados por el servicio. Si el archivo de origen es mayor de 260 GB, es muy probable que el trabajo presente un error. Si tiene contenido con formato 4K mayor que el límite de 260 GB, póngase en contacto con nosotros en amshelp@microsoft.com para posibles mitigaciones que admitan su escenario.
 

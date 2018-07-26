@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 4382c3001f6b0a9227407beccb483347bccb387c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195026"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036877"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 
@@ -185,7 +185,7 @@ El analizador estándar divide el texto de entrada en los siguientes dos tokens,
 
 ### <a name="exceptions-to-lexical-analysis"></a>Excepciones para el análisis léxico 
 
-El análisis léxico se aplica únicamente a los tipos de consultas que requieren términos completos: una consulta de término o una consulta de frase. No se aplica a los tipos de consulta con términos incompletos: consulta de prefijo, consulta de carácter comodín, consulta regex o a una consulta de coincidencia parcial. Estos tipos de consulta, incluida la consulta de prefijo con el término *post-vacacional\**  en nuestro ejemplo, se agregan directamente al árbol de consulta omitiendo la fase de análisis. La única transformación realizada en los términos de consulta de esos tipos es el establecimiento de minúsculas.
+El análisis léxico se aplica únicamente a los tipos de consultas que requieren términos completos: una consulta de término o una consulta de frase. No se aplica a los tipos de consulta con términos incompletos: consulta de prefijo, consulta de carácter comodín, consulta regex o a una consulta de coincidencia parcial. Estos tipos de consulta, incluida la consulta de prefijo con el término `air-condition*` en nuestro ejemplo, se agregan directamente al árbol de consulta omitiendo la fase de análisis. La única transformación realizada en los términos de consulta de esos tipos es el establecimiento de minúsculas.
 
 <a name="stage3"></a>
 
@@ -275,7 +275,7 @@ Para el campo **descripción**, el índice es el siguiente:
 | cómodo | 3
 | distancia | 1
 | isla | 2
-| kauaʻi | 2
+| kauai | 2
 | ubicado | 2
 | norte | 2
 | océano | 1, 2, 3

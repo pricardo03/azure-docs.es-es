@@ -9,18 +9,18 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 4e9aac5f19fa75613dee2aba3853a0243d7d966b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048267"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041265"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>Desarrollo de una solución de IoT Edge con varios módulos en Visual Studio Code
 
 Puede utilizar Visual Studio Code para desarrollar su solución de Azure IoT Edge con varios módulos. En este artículo se muestra cómo crear, actualizar e implementar una solución de IoT Edge que canalice los datos del sensor de un dispositivo simulado de IoT Edge en VS Code. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos de este artículo, debe satisfacer los siguientes requisitos previos:
 
@@ -39,7 +39,7 @@ También necesita [Docker para VS Code](https://marketplace.visualstudio.com/ite
 
 1. En la **paleta de comandos** de VS Code, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge). Seleccione la carpeta del área de trabajo y proporcione el nombre de la solución (el valor predeterminado es EdgeSolution). Cree un módulo de C# (con el nombre **PipeModule**) como el primer módulo de usuario de esta solución. La plantilla predeterminada del módulo de C# es un módulo de canalización, que canaliza directamente los mensajes desde el nivel ascendente al nivel descendente. También debe especificar el repositorio de imágenes de Docker para el primer módulo. El repositorio de imágenes predeterminado se basa en un registro de Docker local (**localhost:5000/<first module name>**). Puede cambiarlo a Azure Container Registry o Docker Hub. 
 
-2. La ventana de Visual Studio Code carga el área de trabajo de la solución de IoT Edge. La carpeta raíz contiene una carpeta de **módulos**, una carpeta **.vscode** y un archivo de plantilla de manifiesto de implementación. Las configuraciones de depuración se encuentran en la carpeta .vscode. Todos los códigos de módulo del usuario son las subcarpetas de la carpeta de módulos. El archivo deployment.template.json es la plantilla de manifiesto de implementación. Algunos de los parámetros de este archivo se analizan desde el archivo module.json, que existe en cada carpeta del módulo.
+2. El área de trabajo de la solución de IoT Edge se carga en la ventana de Visual Studio Code. La carpeta raíz contiene una carpeta de **módulos**, una carpeta **.vscode** y un archivo de plantilla de manifiesto de implementación. Las configuraciones de depuración se encuentran en la carpeta .vscode. Todos los códigos de módulo del usuario son las subcarpetas de la carpeta de módulos. El archivo deployment.template.json es la plantilla de manifiesto de implementación. Algunos de los parámetros de este archivo se analizan desde el archivo module.json, que existe en cada carpeta del módulo.
 
 3. Agregue el segundo módulo a este proyecto de la solución. Hay varias maneras de agregar un nuevo módulo a la solución actual. Escriba y ejecute el comando **Azure IoT Edge: Add IoT Edge module** (Azure IoT Edge: agregar el módulo IoT Edge). Seleccione el archivo de plantilla de implementación que va a actualizar. También puede hacer clic con el botón derecho en la carpeta de módulos, o hacer clic con el botón derecho en el archivo deployment.template.json y seleccionar **Add IoT Edge Module** (Agregar el módulo de IoT Edge). A continuación, habrá una lista desplegable para seleccionar el tipo de módulo. Seleccione un módulo de **Azure Functions - C#** con el nombre **PipeFunction** y su repositorio de imágenes de Docker. La plantilla predeterminada del módulo de funciones de C# es un módulo de canalización, que canaliza directamente los mensajes desde el nivel ascendente al nivel descendente.
 
@@ -74,5 +74,7 @@ También necesita [Docker para VS Code](https://marketplace.visualstudio.com/ite
 
 Conozca otros escenarios de desarrollo con Azure IoT Edge en Visual Studio Code:
 
-* [Desarrollar un módulo de C# en VS Code](how-to-develop-csharp-module.md)
-* [Desarrollar una función de C# en VS Code](how-to-develop-csharp-function.md)
+* Desarrolle módulos en VS Code con [C#](how-to-develop-csharp-module.md) o [Node.js](how-to-develop-node-module.md).
+* Desarrolle Azure Functions en VS Code con [C#](how-to-develop-csharp-function.md).
+
+Para desarrollar módulos para los dispositivos IoT Edge, consulte [Información y uso de los SDK de Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bd446923f84d22537b7a49a8ef6124f343141d73
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939828"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069917"
 ---
 # <a name="outbound-connections-classic"></a>Conexiones salientes (clásico)
 
@@ -40,9 +40,9 @@ Azure ofrece tres métodos diferentes para lograr la conectividad saliente en la
 
 | Escenario | Método | Protocolos IP | DESCRIPCIÓN | Rol de trabajo web | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. Máquina virtual con una dirección IP pública de nivel de instancia](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure utiliza la dirección IP pública asignada a la máquina virtual. La instancia tiene disponibles todos los puertos efímeros. | Sin  | Sí |
-| [2. Punto de conexión con equilibrio de carga público](#publiclbendpoint) | SNAT con enmascaramiento de puertos (PAT) al punto de conexión público | TCP, UDP | Azure comparte el punto de conexión público de dirección IP pública con varios puntos de conexión privados. Azure usa puertos efímeros del punto de conexión público para PAT. | Sí | Sí |
-| [3. Máquina virtual independiente](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con toda la implementación y usa puertos efímeros de la dirección IP del punto de conexión público para PAT. Se trata de un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. | Sí | Sí |
+| [1. Máquina virtual con una dirección IP pública de nivel de instancia](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure utiliza la dirección IP pública asignada a la máquina virtual. La instancia tiene disponibles todos los puertos efímeros. | Sin  | SÍ |
+| [2. Punto de conexión con equilibrio de carga público](#publiclbendpoint) | SNAT con enmascaramiento de puertos (PAT) al punto de conexión público | TCP, UDP | Azure comparte el punto de conexión público de dirección IP pública con varios puntos de conexión privados. Azure usa puertos efímeros del punto de conexión público para PAT. | SÍ | SÍ |
+| [3. Máquina virtual independiente](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con toda la implementación y usa puertos efímeros de la dirección IP del punto de conexión público para PAT. Se trata de un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. | SÍ | SÍ |
 
 Se trata de un subconjunto de las funcionalidades de conexiones de salida disponibles para las implementaciones de Resource Manager en Azure.  
 
@@ -121,6 +121,8 @@ Recuerde que el número de puertos SNAT disponibles no equivale directamente al 
 El cambio de tamaño de la implementación puede afectar a algunos de los flujos establecidos. Si el tamaño del grupo de servidores back-end aumenta y pasa al siguiente nivel, la mitad de los puertos SNAT previamente asignados se reclaman durante la transición al siguiente nivel más grande del grupo de servidores back-end. Los flujos que están asociados a un puerto SNAT reclamado agotan el tiempo de espera y deben restablecerse. Si se intenta un nuevo flujo, el flujo se inicia inmediatamente siempre y cuando los puertos asignados previamente estén disponibles.
 
 Si el tamaño de la implementación se reduce y pasa a un nivel inferior, aumenta el número de puertos SNAT disponibles. En este caso, los puertos SNAT asignados existentes y sus flujos respectivos no se ven afectados.
+
+Si se vuelve a implementar o se modifica un servicio en la nube, la infraestructura puede informar de manera temporal el grupo de back-end para que sea hasta dos veces más grande que en la realidad y, a su vez, Azure asignará previamente menos puertos SNAT por instancia de los esperados.  Esto puede aumentar de manera temporal la probabilidad de que se produzca un agotamiento de los puertos SNAT. A la larga, el tamaño del grupo cambiará al tamaño real y Azure aumentará automáticamente los puertos SNAT asignados previamente al número esperado según la tabla anterior.  Este comportamiento se debe al diseño y no se puede configurar.
 
 Las asignaciones de puertos SNAT son específicas del protocolo de transporte IP (TCP y UDP se mantienen por separado) y se liberan en las siguientes condiciones:
 

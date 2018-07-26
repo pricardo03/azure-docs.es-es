@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301072"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036928"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -63,9 +63,9 @@ Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>¿Puedo usar Traffic Manager con un nombre de dominio desnudo?
 
-Nº Los estándares DNS no permiten que los registros CNAME coexistan con otros registros DNS del mismo nombre. El vértice (o raíz) de una zona DNS siempre contiene dos registros DNS preexistentes; los registros SOA y NS autoritativos. Esto significa que no se puede crear un registro CNAME en el vértice de la zona sin infringir los estándares DNS.
+No. Los estándares DNS no permiten que los registros CNAME coexistan con otros registros DNS del mismo nombre. El vértice (o raíz) de una zona DNS siempre contiene dos registros DNS preexistentes; los registros SOA y NS autoritativos. Esto significa que no se puede crear un registro CNAME en el vértice de la zona sin infringir los estándares DNS.
 
-Traffic Manager requiere un registro CNAME de DNS para asignar el nombre DNS del dominio personal. Por ejemplo, asigne www.contoso.com al nombre DNS del perfil de Traffic Manager contoso.trafficmanager.net. Además, este perfil devuelve un segundo registro CNAME de DNS para indicar a qué punto de conexión debe conectarse el cliente.
+Traffic Manager requiere un registro CNAME de DNS para asignar el nombre DNS del dominio personal. Por ejemplo, se asigna `www.contoso.com` para el nombre DNS del perfil de Traffic Manager `contoso.trafficmanager.net`. Además, este perfil devuelve un segundo registro CNAME de DNS para indicar a qué punto de conexión debe conectarse el cliente.
 
 Para solucionar este problema, se recomienda utilizar una redirección HTTP para dirigir el tráfico desde el nombre de dominio desnudo a una dirección URL diferente que, a continuación, puede utilizar Traffic Manager. Por ejemplo, el dominio desnudo "contoso.com" puede redirigir a los usuarios al registro CNAME "www.contoso.com" que apunta al nombre DNS de Traffic Manager.
 
@@ -370,7 +370,7 @@ Para obtener todos los detalles, consulte la [página de precios de Traffic Mana
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>¿Se ve afectado el rendimiento por el uso de perfiles anidados?
 
-Nº No hay ningún efecto sobre el rendimiento derivado del uso de perfiles anidados.
+No. No hay ningún efecto sobre el rendimiento derivado del uso de perfiles anidados.
 
 Los servidores de nombres de Traffic Manager atravesarán la jerarquía de perfil internamente cuando se procese cada consulta de DNS. Una consulta de DNS realizada a un perfil primario puede recibir una respuesta de DNS con un punto de conexión de un perfil secundario. Se usará un único registro CNAME tanto si usa un solo perfil como si usa perfiles anidados. No hay necesidad de crear un registro CNAME para cada perfil de la jerarquía.
 

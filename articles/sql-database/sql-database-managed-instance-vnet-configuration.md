@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dbd747fd3ec53b1221536609d6355ff5b4691977
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309340"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091611"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configuración de una red virtual para Instancia administrada de Azure SQL Database
 
@@ -59,8 +59,9 @@ Si tiene previsto implementar varias instancias administradas dentro de la subre
 
 - Azure utiliza cinco direcciones IP de la subred para sus propias necesidades 
 - Cada instancia de uso general necesita dos direcciones 
+- Cada instancia de Crítico para la empresa necesita cuatro direcciones
 
-**Ejemplo**: tiene pensado tener ocho instancias administradas. Esto significa que necesita 5 + 8 * 2 = 21 direcciones IP. Como los intervalos de IP se definen en potencias de 2, necesita el intervalo de IP de 32 (2 ^ 5) direcciones IP. Por lo tanto, tiene que reservar la subred con la máscara de subred de /27. 
+**Ejemplo**: planea tener tres instancias administradas de Propósito general y dos de Crítico para la empresa. Esto significa que necesita 5 + 3 * 2 + 2 * 4 = 19 direcciones IP. Como los intervalos de IP se definen en potencias de 2, necesita el intervalo de IP de 32 (2 ^ 5) direcciones IP. Por lo tanto, tiene que reservar la subred con la máscara de subred de /27. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instances"></a>Creación de una nueva red virtual para instancias administradas 
 
@@ -93,7 +94,7 @@ La creación de una red virtual de Azure es un requisito previo para crear una i
 
 ## <a name="create-the-required-route-table-and-associate-it"></a>Creación de la tabla de rutas necesaria y su asociación
 
-1. Inicie sesión en el Portal de Azure.  
+1. Inicio de sesión en Azure Portal  
 2. Busque una **tabla de rutas** y haga clic en ella y, después, haga clic en **Crear** en la página Tabla de rutas.
 
    ![formulario de creación de la tabla de rutas](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)

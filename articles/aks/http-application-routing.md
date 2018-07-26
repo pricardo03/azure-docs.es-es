@@ -1,6 +1,6 @@
 ---
-title: Complemento de enrutamiento de aplicación HTTP en Azure Container Service (AKS)
-description: Uso del complemento de enrutamiento de aplicación HTTP en Azure Container Service (AKS)
+title: Complemento de enrutamiento de aplicación HTTP en Azure Kubernetes Service (AKS)
+description: Uso del complemento de enrutamiento de aplicación HTTP en Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -8,32 +8,51 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 6e5a81742b4a6b21e5cfa28d8e772430f8ae30ba
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116975"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 
-La solución de enrutamiento de aplicación HTTP facilita el acceso a las aplicaciones implementadas en el clúster de AKS. Cuando se habilita, la solución configura un controlador de entrada en el clúster de AKS. Además, a medida que se implementan aplicaciones, la solución también crea los nombres DNS accesibles públicamente para los puntos de conexión de aplicación.
+La solución de enrutamiento de aplicación HTTP facilita el acceso a las aplicaciones implementadas en el clúster de Azure Kubernetes Service (AKS). Cuando se habilita la solución, configura un controlador de entrada en el clúster de AKS. A medida que se implementan aplicaciones, la solución también crea los nombres DNS accesibles públicamente para los puntos de conexión de aplicación.
 
-Al habilitar este complemento se crea una zona DNS en su suscripción. Para más información sobre el costo de DNS, consulte los [precios de DNS][dns-pricing].
+Cuando se habilita el complemento, crea una zona DNS en su suscripción. Para más información sobre el costo de DNS, consulte los [precios de DNS][dns-pricing].
 
 ## <a name="http-routing-solution-overview"></a>Introducción a la solución de enrutamiento HTTP
 
 El complemento implementa dos componentes, un [controlador de entrada de Kubernetes][ingress] y un controlador [DNS externo][external-dns].
 
 - **Controlador de entrada**: el controlador de entrada está expuesto a Internet a través de un servicio de Kubernetes del tipo de equilibrador de carga. El controlador de entrada supervisa e implementa [recursos de entrada de Kubernetes][ingress-resource], lo que crea rutas a los puntos de conexión de aplicación.
-- **Controlador DNS externo**: inspecciona los recursos de entrada de Kubernetes y crea registros A de DNS en la zona de DNS específica del clúster.
+- **Controlador DNS externo**: inspecciona los recursos de entrada de Kubernetes y crea registros A de DNS en la zona DNS específica del clúster.
 
-## <a name="deploy-http-routing"></a>Implementación del enrutamiento HTTP
+## <a name="deploy-http-routing-cli"></a>Implementación del enrutamiento HTTP: CLI
+
+El complemento de enrutamiento de aplicación HTTP se puede habilitar con la CLI de Azure al implementar un clúster de AKS. Para hacerlo, use el comando [az aks create][az-aks-create] con el argumento `--enable-addons`.
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+```
+
+Después de implementar el clúster, use el comando [az aks show][az-aks-show] para recuperar el nombre de la zona DNS. Este nombre es necesario para implementar aplicaciones en el clúster de AKS.
+
+```azurecli
+$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+
+Result
+-----------------------------------------------------
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+```
+
+## <a name="deploy-http-routing-portal"></a>Implementación del enrutamiento HTTP: Portal
 
 El complemento de enrutamiento de aplicación HTTP se puede habilitar mediante Azure Portal al implementar un clúster de AKS.
 
 ![Habilitación de la característica de enrutamiento HTTP](media/http-routing/create.png)
 
-Una vez que se ha implementado el clúster, vaya al grupo de recursos de AKS creado automáticamente y seleccione la zona DNS. Tome nota del nombre de la zona DNS. Este nombre es necesario al implementar aplicaciones en el clúster de AKS.
+Después de implementar el clúster, vaya al grupo de recursos de AKS que se creó automáticamente y seleccione la zona DNS. Tome nota del nombre de la zona DNS. Este nombre es necesario para implementar aplicaciones en el clúster de AKS.
 
 ![Obtención del nombre de la zona DNS](media/http-routing/dns.png)
 
@@ -46,7 +65,7 @@ annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Cree un archivo denominado `samples-http-application-routing.yaml` y cópielo en el siguiente código YAML. En línea 43, actualice `<CLUSTER_SPECIFIC_DNS_ZONE>` con el nombre de la zona DNS que se recopila en el último paso de este documento.
+Cree un archivo denominado **samples-http-application-routing.yaml** y cópielo en el siguiente código YAML. En línea 43, actualice `<CLUSTER_SPECIFIC_DNS_ZONE>` con el nombre de la zona DNS que se recopila en el último paso de este artículo.
 
 
 ```yaml
@@ -108,7 +127,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Utilice cURL o un explorador para ir hasta el nombre de host especificado en la sección host del archivo `samples-http-application-routing.yaml`. La aplicación puede tardar hasta un minuto antes de estar disponible a través de Internet.
+Use cURL o un explorador para navegar al nombre de host especificado en la sección de host del archivo samples-http-application-routing.yaml. La aplicación puede tardar hasta un minuto antes de estar disponible a través de Internet.
 
 ```
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -131,9 +150,9 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshoot"></a>Solución de problemas
 
-Use el comando [kubectl logs][kubectl-logs] para ver los registros de aplicación para la aplicación de DNS externo. Los registros deben confirmar que se ha creado correctamente unos registros DNS A y TXT.
+Use el comando [kubectl logs][kubectl-logs] para ver los registros de aplicación para la aplicación de DNS externo. Los registros deben confirmar que crearon correctamente unos registros DNS A y TXT.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -146,7 +165,7 @@ Estos registros también se pueden ver en el recurso de zona DNS en Azure Portal
 
 ![Obtención de los registros DNS](media/http-routing/clippy.png)
 
-Use el comando [kubectl logs][kubectl-logs] para ver los registros de aplicación para el controlador de entrada Nginx. Los registros deben confirmar la creación de un recurso de entrada y la recarga del controlador. Se registrarán todas las actividades HTTP.
+Use el comando [kubectl logs][kubectl-logs] para ver los registros de aplicación para el controlador de entrada Nginx. Los registros deben confirmar la `CREATE` de un recurso de entrada y la recarga del controlador. Se registra toda la actividad HTTP.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -185,9 +204,9 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-party-clippy-80] 10.244.0.13:8080 234 0.004 200
 ```
 
-## <a name="cleanup"></a>Limpieza
+## <a name="clean-up"></a>Limpieza
 
-Quite los objetos Kubernetes asociados creados en este paso.
+Quite los objetos Kubernetes asociados creados en este artículo.
 
 ```
 $ kubectl delete -f samples-http-application-routing.yaml
@@ -199,10 +218,13 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de cómo instalar un controlador de entrada protegido con HTTPS en AKS, consulte [Entrada HTTPS en Azure Container Service (AKS)][ingress-https]
+Para más información sobre cómo instalar un controlador de entrada protegido con HTTPS en AKS, consulte[Entrada HTTPS en Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/

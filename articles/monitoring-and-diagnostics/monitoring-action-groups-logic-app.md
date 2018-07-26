@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753100"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049194"
 ---
 # <a name="create-a-logic-app-action"></a>Creación de una acción de aplicación lógica
 
@@ -109,7 +109,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
     ![Acciones de Microsoft Teams](media/monitoring-action-groups/microsoft-teams-actions.png "Acciones de Microsoft Teams")
 
-12. Configure la acción de Microsoft Teams. El **diseñador de Logic Apps** le pide que se autentique en su cuenta de Office 365. Elija el **identificador de equipo** y el **identificador de canal** para enviar el mensaje.
+12. Configure la acción de Microsoft Teams. El **diseñador de Logic Apps** le pide que se autentique en su cuenta de Office 365. Elija el **Id. de equipo** y el **Id. de canal** para enviar el mensaje.
 
 13. Configure el mensaje con una combinación de texto estático y referencias a los \<campos\> en el contexto dinámico. Corte y pegue el texto siguiente en el campo **Mensaje**:
 
@@ -133,7 +133,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
     ![Actualizar el grupo de acciones](media/monitoring-action-groups/update-action-group.png "Actualizar el grupo de acciones")
 
-La próxima vez que una alerta invoque el grupo de acciones, se llamará a la aplicación lógica.
+La próxima vez que una alerta llame al grupo de acciones, se llamará a la aplicación lógica.
 
 ## <a name="create-a-service-health-alert"></a>Creación de una alerta de Service Health
 
@@ -187,10 +187,10 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
 -  Los pasos 9 y 10 son iguales.
 -  Para los pasos 11 a 14, siga este procedimiento:
 
-   1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una condición**. Establezca las condiciones siguientes para garantizar que la aplicación lógica solo se ejecute cuando los datos de entrada coincidan con estos valores:
+   1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una condición**. Establezca las condiciones siguientes para que la aplicación lógica solo se ejecute cuando los datos de entrada coincidan con los siguientes.  Cuando especifique el valor de la versión en el cuadro de texto, inclúyalo entre comillas ("0.1.1") para asegurarse de que se evalúa como cadena y no como tipo numérico.  El sistema no muestra las comillas si vuelve a la página, pero el código subyacente conserva el tipo de cadena.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
-       - `version == 0.1.1`
+       - `version == "0.1.1"`
 
       !["Condición de la carga de Service Health"](media/monitoring-action-groups/service-health-payload-condition.png "Condición de la carga de Service Health")
 
@@ -275,10 +275,10 @@ El proceso de creación de una alerta de métrica es similar a la [creación de 
 - Los pasos 9 y 10 son iguales.
 - Para los pasos 11 a 14, siga este procedimiento:
 
-   1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una condición**. Establezca las condiciones siguientes para garantizar que la aplicación lógica solo se ejecute cuando los datos de entrada coincidan con estos valores:
+   1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una condición**. Establezca las condiciones siguientes para que la aplicación lógica solo se ejecute cuando los datos de entrada coincidan con los siguientes. Cuando especifique el valor de la versión en el cuadro de texto, inclúyalo entre comillas ("2.0") para asegurarse de que se evalúa como cadena y no como tipo numérico.  El sistema no muestra las comillas si vuelve a la página, pero el código subyacente conserva el tipo de cadena. 
        - `schemaId == AzureMonitorMetricAlert`
-       - `version == 2.0`
-
+       - `version == "2.0"`
+       
        !["Condición de carga de la alerta métrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "Condición de carga de la alerta métrica")
 
    1. En la condición **if true**, agregue un bucle **For each** y la acción de Microsoft Teams. Defina el mensaje con una combinación de HTML y contenido dinámico.

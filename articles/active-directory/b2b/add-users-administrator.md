@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.date: 07/10/2018
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7dddc41d35ae466f7c1392450fbda3c86a72a538
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267236"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037229"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal
 
@@ -32,16 +32,16 @@ Para agregar usuarios de colaboración B2B al directorio, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
 2. En el panel de navegación, seleccione **Azure Active Directory**.
-3. En **Administrar**, seleccione **Usuarios y grupos** > **Todos los usuarios**.
+3. En **Administrar**, seleccione **Usuarios**.
 4. Seleccione **Nuevo usuario invitado**.
 
    ![Muestra dónde se encuentra el nuevo usuario invitado en la interfaz de usuario.](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
-7. En **Invitar a un invitado**, escriba la dirección de correo electrónico del usuario externo. Opcionalmente, puede incluir un mensaje de bienvenida. Por ejemplo: 
+5. En **Nombre de usuario**, escriba la dirección de correo electrónico del usuario externo. Opcionalmente, puede incluir un mensaje de bienvenida. Por ejemplo: 
 
    ![Muestra dónde se encuentra el nuevo usuario invitado en la interfaz de usuario.](./media/add-users-administrator/InviteGuest.png) 
 
-8. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. En el área **Notificación**, busque el mensaje **Usuario invitado correctamente**. 
+6. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. 
  
 Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.
 
@@ -53,18 +53,15 @@ Si necesita agregar manualmente usuarios de colaboración B2B a un grupo como un
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
 2. En el panel de navegación, seleccione **Azure Active Directory**.
-3. En **Administrar**, seleccione **Usuarios y grupos** > **Todos los grupos**.
+3. En **Administrar**, seleccione **Grupos**.
 4. Seleccione un grupo (o haga clic en **Nuevo grupo** para crear uno). Es una buena idea incluir en la descripción del grupo que el grupo contiene los usuarios invitados B2B.
-5. Seleccione **Miembros** > **Agregar miembros**. 
+5. Seleccione **Miembros**. 
 6. Realice una de las operaciones siguientes:
-   - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario > haga clic en **Seleccionar** para agregar el usuario al grupo.
-   - Si el usuario invitado ya no existe en el directorio, seleccione **Invitar**.
-   ![Adición del botón Invitar para agregar miembros invitados](./media/add-users-administrator/GroupInvite.png)
+   - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario y haga clic en **Seleccionar** para agregar el usuario al grupo.
+   - Si el usuario invitado no existe ya en el directorio, invítelo al grupo; para ello, escriba su dirección de correo electrónico en el cuadro de búsqueda, escriba un mensaje personal opcional y, a continuación, haga clic en **Seleccionar**. La invitación se dirige automáticamente al usuario invitado.
+     
+     ![Adición del botón Invitar para agregar miembros invitados](./media/add-users-administrator/GroupInvite.png)
    
-      En **Invitar a un invitado**, escriba la dirección de correo electrónico y un mensaje personal opcional > seleccione **Invitar**. Haga clic en **Seleccionar** para agregar el usuario al grupo.
-
-      La invitación se dirige automáticamente al usuario invitado. En el área **Notificación**, busque el mensaje de **usuario invitado** correctamente. 
-
 También puede utilizar grupos dinámicos con colaboración B2B de Azure AD. Para más información, consulte [Grupos dinámicos y colaboración B2B de Azure Active Directory](use-dynamic-groups.md).
 
 ## <a name="add-guest-users-to-an-application"></a>Adición de usuarios invitados a una aplicación
@@ -75,20 +72,25 @@ Para agregar usuarios de colaboración B2B a una aplicación como administradore
 2. En el panel de navegación, seleccione **Azure Active Directory**.
 3. En **Administrar**, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 4. Seleccione la aplicación a la que desea agregar usuarios invitados.
-5. En **Administrar**, seleccione **Usuarios y grupos**.
+5. En el panel de la aplicación, seleccione **Usuarios totales** para abrir el panel **Usuarios y grupos**.
+
+    ![Botón Usuarios totales para abrir Usuarios y grupos](./media/add-users-administrator/AppUsersAndGroups.png)
+
 6. Seleccione **Agregar usuario**.
 7. En **Agregar asignación**, seleccione **Usuarios y grupos**.
 8. Realice una de las operaciones siguientes:
-   - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario y haga clic en **Seleccionar** para agregar el usuario a la aplicación.
+   - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario, haga clic en **Seleccionar** y luego haga clic en **Asignar** para agregar el usuario a la aplicación.
    - Si el usuario invitado ya no existe en el directorio, seleccione **Invitar**.
-   ![Adición del botón Invitar para agregar miembros invitados](./media/add-users-administrator/AppInviteUsers.png)
+           
+       ![Adición del botón Invitar para agregar miembros invitados](./media/add-users-administrator/AppInviteUsers.png)
    
-      En **Invitar a un invitado**, escriba la dirección de correo electrónico y un mensaje personal opcional > seleccione **Invitar**. Haga clic en **Seleccionar** para agregar el usuario a la aplicación.
+      En **Invitar a un invitado**, escriba la dirección de correo electrónico, escriba un mensaje personal opcional y luego seleccione **Invitar**. Haga clic en **Seleccionar** y luego haga clic en **Asignar** para agregar al usuario a la aplicación. Una invitación se dirige automáticamente al usuario invitado.
 
-      La invitación se dirige automáticamente al usuario invitado. En el área **Notificación**, busque el mensaje de **usuario invitado** correctamente.
-
-9. En **Agregar asignación**, haga clic en **Seleccionar rol** > seleccione un rol que se aplicará al usuario seleccionado (si procede) > seleccione **Aceptar**.
-10. Haga clic en **Asignar**.
+9. El usuario invitado aparece en la lista **Usuarios y grupos** de la aplicación con el rol asignado de **Acceso predeterminado**. Si quiere cambiar el rol, haga lo siguiente:
+   - Seleccione el usuario invitado y, a continuación, seleccione **Editar**. 
+   - En **Editar asignación**, haga clic en **Seleccionar rol** y seleccione el rol que quiere asignar al usuario seleccionado.
+   - Haga clic en **Seleccionar**.
+   - Haga clic en **Asignar**.
  
 ## <a name="resend-invitations-to-guest-users"></a>Reenvío de invitaciones a usuarios invitados
 
@@ -96,8 +98,7 @@ Si un usuario invitado todavía no ha canjeado su invitación, puede volver a en
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
 2. En el panel de navegación, seleccione **Azure Active Directory**.
-3. En **Administrar**, seleccione **Usuarios y grupos**.
-4. Seleccione **Todos los usuarios**.
+3. En **Administrar**, seleccione **Usuarios**.
 5. Seleccione la cuenta del usuario.
 6. En **Administrar**, seleccione **Perfil**.
 7. Si el usuario todavía no ha aceptado la invitación, la opción **Volver a enviar la invitación** está disponible. Seleccione este botón para volver a enviarla.

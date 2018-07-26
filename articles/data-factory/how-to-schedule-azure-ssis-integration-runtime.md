@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050614"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114001"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención del entorno de ejecución para la integración de SSIS en Azure según una programación
 En este artículo se describe cómo programar el inicio y la detención de una instancia de Integration Runtime (IR) de SSIS en Azure mediante Azure Automation y Azure Data Factory. La ejecución de una instancia de Integration Runtime (IR) para la integración de SSIS (SQL Server Integration Services) en Azure lleva un costo asociado. Por lo tanto, normalmente es preferible ejecutar la instancia de Integration Runtime solo cuando haya que ejecutar paquetes de SSIS en Azure y detenerla cuando ya no se necesite. Puede usar la interfaz de usuario de Data Factory o Azure PowerShell para [iniciar o detener manualmente una instancia de IR de SSIS en Azure](manage-azure-ssis-integration-runtime.md)).
@@ -34,7 +34,7 @@ Estos son los pasos de alto nivel que se describen en este artículo:
 3. **Cree dos webhooks para el runbook**, uno para la operación de inicio y otro para la operación de detención. Utilice las direcciones URL de estos webhooks al configurar las actividades web en una canalización de Data Factory. 
 4. **Creación de una canalización de Data Factory.** La canalización que se va a crear consta de tres actividades. La primera actividad **Web** invoca al primer webhook para que inicie la instancia de Integration Runtime de SSIS en Azure. La actividad **Stored Procedure** ejecuta un script SQL que ejecuta el paquete de SSIS. La segunda actividad **Web** detiene la instancia de IR de SSIS en Azure. Para más información sobre cómo invocar un paquete de SSIS desde una canalización de Data Factory mediante el uso de la actividad Stored Procedure, consulte [Invocación de un paquete de SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). A continuación, va a crear un desencadenador de programación para programar la canalización para que se ejecute a la cadencia que haya especificado.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Si todavía no ha aprovisionado una instancia de Integration Runtime de SSIS en Azure, aprovisiónela ahora siguiendo las instrucciones del [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-test-an-azure-automation-runbook"></a>Creación y prueba de un runbook de Azure Automation
@@ -240,7 +240,7 @@ Después de crear y probar la canalización, cree un desencadenador de programac
       
      ![Página New data factory (Nueva factoría de datos)](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
  
-   El nombre de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameMyAzureSsisDataFactory) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameMyAzureSsisDataFactory) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
   
        `Data factory name �MyAzureSsisDataFactory� is not available`
 3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
@@ -373,15 +373,40 @@ Ahora que la canalización funciona de la manera prevista, puede crear un desenc
 5. Para publicar la solución en Data Factory, seleccione **Publicar todo** en el panel de la izquierda. 
 
     ![Publicar todo](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
-6. Para supervisar las ejecuciones del desencadenador y las ejecuciones de canalización, utilice la pestaña **Supervisar** de la izquierda. Para obtener instrucciones detalladas, consulte [Supervisar la canalización](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
+
+### <a name="monitor-the-pipeline-and-trigger-in-the-azure-portal"></a>Supervisión de la canalización y el desencadenador en Azure Portal
+
+1. Para supervisar las ejecuciones del desencadenador y las ejecuciones de canalización, utilice la pestaña **Supervisar** de la izquierda. Para obtener instrucciones detalladas, consulte [Supervisar la canalización](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Ejecuciones de la canalización](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Para ver las ejecuciones de actividad asociadas con la de una canalización, seleccione el primer vínculo (**View Activity Runs** [Ver ejecuciones de actividad]) de la columna **Actions** (Acciones). Verá las ejecuciones de las tres actividades asociadas a cada actividad de la canalización (primera actividad Web, actividad Stored Procedure y la segunda actividad Web). Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior.
+2. Para ver las ejecuciones de actividad asociadas con la de una canalización, seleccione el primer vínculo (**View Activity Runs** [Ver ejecuciones de actividad]) de la columna **Actions** (Acciones). Verá las ejecuciones de las tres actividades asociadas a cada actividad de la canalización (primera actividad Web, actividad Stored Procedure y la segunda actividad Web). Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior.
 
     ![Ejecuciones de actividad](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
-8. También puede ver las ejecuciones de desencadenador al seleccionar **ejecuciones de desencadenador** en la lista desplegable que hay junto a las **ejecuciones de canalización** en la parte superior. 
+3. También puede ver las ejecuciones de desencadenador al seleccionar **ejecuciones de desencadenador** en la lista desplegable que hay junto a las **ejecuciones de canalización** en la parte superior. 
 
     ![Ejecuciones de desencadenador](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+
+### <a name="monitor-the-pipeline-and-trigger-with-powershell"></a>Supervisión de la canalización y el desencadenador con PowerShell
+
+Use scripts como los ejemplos siguientes para supervisar la canalización y el desencadenador.
+
+1. Obtenga el estado de la ejecución de una canalización.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  ```
+
+2. Obtenga información sobre el desencadenador.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  ```
+
+3. Obtenga el estado de la ejecución de un desencadenador.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea la siguiente entrada de blog:

@@ -1,40 +1,55 @@
 ---
 title: Administración de un clúster de Azure Kubernetes con una interfaz de usuario web
-description: Uso del panel de Kubernetes en AKS
+description: Obtenga información sobre cómo usar el panel integrado de la interfaz de usuario web de Kubernetes con Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b56751750d5c0731a79b3229106a6bc2a5eccac9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100432"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091145"
 ---
-# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Panel de Kubernetes con Azure Kubernetes Service (AKS)
+# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Acceso al panel de Kubernetes con Azure Kubernetes Service (AKS)
 
-La CLI de Azure puede utilizarse para iniciar el panel de Kubernetes. Este documento le guía por el inicio del panel de Kubernetes con la CLI de Azure y también a través de algunas operaciones básicas del panel. Para obtener más información sobre el panel de Kubernetes, vea [Kubernetes Web UI Dashboard][kubernetes-dashboard] (Panel de la interfaz de usuario web de Kubernetes).
+Kubernetes incluye un panel web que se puede usar para operaciones básicas de administración. Este artículo muestra cómo acceder al panel de Kubernetes mediante la CLI de Azure y luego lo guía por algunas operaciones básicas del panel. Para más información sobre el panel de Kubernetes, consulte [Kubernetes Web UI Dashboard][kubernetes-dashboard] (Panel de la interfaz de usuario web de Kubernetes).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En los pasos que se detallan en este documento se asume que se ha creado un clúster de AKS y que ha establecido una conexión kubectl con dicho clúster. Si necesita estos elementos, vea la [Guía de inicio rápido de AKS][aks-quickstart].
+En los pasos que se detallan en este documento se presume que se ha creado un clúster de AKS y que ha establecido una conexión `kubectl` con dicho clúster. Si necesita crear un clúster de AKS, consulte el [inicio rápido de AKS][aks-quickstart].
 
-También es preciso que esté instalada y configurada la versión 2.0.27 de la CLI de Azure u otra posterior. Para saber qué versión tiene, ejecute el comando az --version. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.27 de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Inicio del panel de Kubernetes
 
-Utilice el comando `az aks browse` para iniciar el panel de Kubernetes. Cuando ejecute este comando, reemplace el nombre de clúster y de grupo de recursos.
+Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-browse]. El ejemplo siguiente abre el panel para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernetes y abre un explorador web en el panel de Kubernetes.
+
+### <a name="for-rbac-enabled-clusters"></a>Para los clústeres habilitados para RBAC
+
+Si el clúster de AKS usa RBAC, se debe crear un *ClusterRoleBinding* antes de que pueda acceder correctamente al panel. Para crear un enlace, use el comando [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] como se muestra en el ejemplo siguiente. 
+
+> [!WARNING]
+> Este enlace de ejemplo no aplica ningún componente de autenticación adicional y puede dar lugar a un uso no seguro. El panel de Kubernetes está abierto a cualquier persona con acceso a la dirección URL. No exponga públicamente el panel de Kubernetes.
+>
+> Puede usar mecanismos como los tokens de portador o un nombre de usuario y una contraseña para controlar quién puede acceder al panel y qué permisos tienen. Esto permite un uso más seguro del panel. Para más información sobre cómo usar los distintos métodos de autenticación, consulte la wiki del panel de Kubernetes sobre los [controles de acceso][dashboard-authentication].
+
+```console
+kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+```
+
+Ahora puede acceder al panel de Kubernetes en el clúster habilitado para RBAC. Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-browse] como se detalló en el paso anterior.
 
 ## <a name="run-an-application"></a>Ejecución de una aplicación
 
@@ -81,7 +96,11 @@ Para más información sobre el panel de Kubernetes, vea la documentación de Ku
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+[dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[az-aks-browse]: /cli/azure/aks#az-aks-browse

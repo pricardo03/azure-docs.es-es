@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4349b471f960e7844511c473bffcd2177a34e055
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660332"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113484"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 
@@ -21,7 +21,7 @@ Este artículo proporciona instrucciones paso a paso sobre cómo usar el servici
 
 El servicio Import/Export admite solo la importación de Azure Files en Azure Storage. No se admite la exportación de archivos desde Azure Files.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de crear un trabajo de importación para transferir datos en Azure Files, revise con cuidado y complete la siguiente lista de requisitos previos. Debe:
 
@@ -30,6 +30,14 @@ Antes de crear un trabajo de importación para transferir datos en Azure Files, 
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks). 
 - Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 - [Descargar la versión 2 de WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexport`. Por ejemplo, `C:\WaImportExport`.
+- Tener una cuenta de FedEx o DHL. 
+    - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
+    - Generar un número de seguimiento del trabajo de exportación.
+    - Cada trabajo debe tener un número de seguimiento independiente. No se admiten varios trabajos con el mismo número de seguimiento.
+    - Si no tiene una cuenta de transportista, vaya a:
+        - [Crear una cuenta de FedEX](https://www.fedex.com/en-us/create-account.html), o 
+        - [Crear una cuenta de DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+ 
 
 
 ## <a name="step-1-prepare-the-drives"></a>Paso 1: Preparación de las unidades de disco
@@ -142,6 +150,9 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
     - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. 
     - Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
 
+        > [!TIP] 
+        > En lugar de especificar una dirección de correo electrónico para un solo usuario, proporcione un correo electrónico de grupo. Esto garantiza que recibirá notificaciones incluso si sale un administrador.
+
        ![Creación del trabajo de importación - Paso 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
    
@@ -159,6 +170,10 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 ## <a name="step-4-update-the-job-with-tracking-information"></a>Paso 4: Actualización del trabajo con información de seguimiento
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+
+## <a name="step-5-verify-data-upload-to-azure"></a>Paso 5: Verificación de la carga de datos en Azure
+
+Siga el trabajo hasta su finalización. Una vez que se haya finalizado el trabajo, compruebe que los datos se han cargado en Azure. Elimine los datos de forma local después de comprobar que la carga fue correcta.
 
 ## <a name="samples-for-journal-files"></a>Ejemplos para archivos de diario
 

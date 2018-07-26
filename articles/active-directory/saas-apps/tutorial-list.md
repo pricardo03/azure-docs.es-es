@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: e9bd1f91f7e7fac1b882c89ffb2195491ca2c07b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: f1d85b031abda73c6ca41d6d2551db9d9cd36f1f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929940"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092161"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integración de aplicación SaaS con Azure Active Directory
 
@@ -109,11 +109,11 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/tutorial-list/active-directory-saas-blackboard-learn-shibboleth-tutorial.png)| [Blackboard Learn: Shibboleth](blackboard-learn-shibboleth-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-bluejeans-tutorial.png)| [BlueJeans](bluejeans-tutorial.md)|[BlueJeans: aprovisionamiento de usuarios](bluejeans-provisioning-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-bomgarremotesupport-tutorial.png)| [Compatibilidad remota de Bomgar](bomgarremotesupport-tutorial.md)|
-| ![Logotipo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|
+| ![Logotipo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|[Bonusly: aprovisionamiento de usuarios](bonusly-provisioning-tutorial.md)
 | ![Logotipo](./media/tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](boomi-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)| [Box: aprovisionamiento de usuarios](box-userprovisioning-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
-| ![Logotipo](./media/tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâonline](bpmonline-tutorial.md)|
+| ![Logotipo](./media/tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâen línea](bpmonline-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-bridge-tutorial.png)| [Bridge](bridge-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-brightspace-desire2learn-tutorial.png)| [Brightspace by Desire2Learn](brightspace-desire2learn-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-bynder-tutorial.png)| [Bynder](bynder-tutorial.md)|
@@ -178,7 +178,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](dome9arc-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](domo-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Dow Jones Factiva](dowjones-factiva-tutorial.md)|
-| ![Logotipo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox para Empresas](dropboxforbusiness-tutorial.md)| [Dropbox para Empresas: aprovisionamiento de usuarios](dropboxforbusiness-provisioning-tutorial.md)|
+| ![Logotipo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox para Empresas](dropboxforbusiness-tutorial.md)| [Dropbox para Empresas: aprovisionamiento de usuarios](dropboxforbusiness-provisioning-tutorial.md)| 
 | ![Logotipo](./media/tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](druva-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-dynamicsignal-tutorial.png)| [Dynamic Signal](dynamicsignal-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-easyterritory-tutorial.png)| [EasyTerritory](easyterritory-tutorial.md)|

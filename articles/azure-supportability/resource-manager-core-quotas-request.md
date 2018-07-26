@@ -3,15 +3,16 @@ title: Solicitudes de aumento de cuota de vCPU de Azure Resource Manager | Micro
 description: Solicitudes de aumento de cuota de vCPU de Azure Resource Manager
 author: ganganarayanan
 ms.author: gangan
-ms.date: 1/18/2017
+ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037239"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Solicitudes de aumento de cuota de vCPU de Resource Manager
 
@@ -19,16 +20,31 @@ Las cuotas de vCPU de Resource Manager se aplican en el nivel de región y de fa
 Aprenda más sobre cómo se imponen cuotas en la página [Límites de servicios y suscripciones de Azure](http://aka.ms/quotalimits).
 Para más información sobre las familias de SKU, puede comparar coste y el rendimiento de la [precios de máquinas virtuales](http://aka.ms/pricingcompute) página.
 
-Para solicitar un aumento, cree un caso de soporte técnico de cuotas de vCPU en Azure Portal, [https://portal.azure.com](https://portal.azure.com).
+Para solicitar un aumento, siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja de uso y cuota de Azure disponible en Azure Portal. 
 
-> [!NOTE]
-> Aprenda a [crear una solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) en el portal de Azure
+## <a name="request-quota-increase-at-subscription-level"></a>Solicitud de un aumento de cuota en el nivel de suscripción
 
-1. En la nueva página de solicitud de soporte técnico, seleccione el tipo de problema de "Cuota" y el tipo de cuota de "Núcleos".
+1. En https://portal.azure.com, seleccione **Suscripciones**.
 
-    ![Hoja de aspectos básicos de Cuota](./media/resource-manager-core-quotas-request/Basics-blade.png)
+   ![Suscripciones](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. Seleccione el modelo de implementación "Resource Manager" y seleccione una ubicación.
+2. Seleccione la suscripción que necesita una cuota mayor.
+
+   ![Selección de la suscripción](./media/resource-manager-core-quotas-request/select-subscription.png)
+
+3. Seleccione **Uso y cuotas**.
+
+   ![Selección de uso y cuotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+
+4. En la esquina superior derecha, seleccione **Solicitar aumento**.
+
+   ![Solicitud de aumento](./media/resource-manager-core-quotas-request/request-increase.png)
+
+5. Paso 1: Seleccione **Núcleos** como tipo de cuota. 
+
+   ![Rellenado del formulario](./media/resource-manager-core-quotas-request/forms.png)
+   
+6. Paso 2: Seleccione el modelo de implementación "Resource Manager" y seleccione una ubicación.
 
     ![Hoja de problema de Cuota](./media/resource-manager-core-quotas-request/Problem-step.png)
 
@@ -42,3 +58,4 @@ Para solicitar un aumento, cree un caso de soporte técnico de cuotas de vCPU en
 
 - Para quitar una línea, desactive la SKU de la lista desplegable de familias de SKU o haga clic en el icono de descartar "x".
 Después de escribir la cuota deseada para cada familia de SKU, haga clic en "Siguiente" en la página de pasos del problema para continuar con la creación de la solicitud de soporte técnico.
+

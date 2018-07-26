@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: bc1beb53c5919914919e666ecf1836ec45d32ccf
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 669966ce21c5c6c2d0653eb51c81fe78aa0b3a12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319733"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057317"
 ---
 **Requisitos del servidor de proceso/configuración**
 
@@ -36,7 +36,7 @@ IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Ningún
 | 
 **CONFIGURACIÓN DE RED** | 
 Tipo de dirección IP | estática 
-Acceso a Internet | El servidor necesita acceder a estas direcciones URL (directamente o a través de proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (si configura un servidor de configuración) <br> - time.nist.gov <br> - time.windows.com 
+Acceso a Internet | El servidor necesita acceder a estas direcciones URL (directamente o a través de proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF también necesitan tener acceso a las siguientes direcciones URL <br> - https://login.microsoftonline.com <br> - https://secure.aadcdn.microsoftonline-p.com <br> - https://login.live.com  <br> - https://auth.gfx.ms <br> - https://graph.windows.net <br> - https://login.windows.net <br> - https://www.live.com <br> - https://www.microsoft.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Puertos | 443 (orquestación del canal de control)<br>9443 (Transporte de datos) 
 Tipo de NIC | VMXNET3 (si el servidor de configuración es una máquina virtual de VMware)
  | 
@@ -48,7 +48,7 @@ MYSQL | Se debe instalar MySQL. Lo puede instalar manualmente o Site Recovery pu
 
 **CPU** | **Memoria** | **Disco de caché** | **Frecuencia de cambio de datos** | **Máquinas replicadas**
 --- | --- | --- | --- | ---
-8 vCPU<br/><br/> 2 sockets * 4 núcleos @ 2,5 GHz | 16 GB | < 300 GB | 500 GB o menos | < 100 máquinas
-12 vCPU<br/><br/> 2 socks * 6 núcleos @ 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | De 100 a 150 máquinas
-16 vCPU<br/><br/> 2 socks * 8 núcleos @ 2,5 GHz | 32 GB | 1 TB | 1 - 2 TB | De 150 a 200 máquinas
+8 vCPU<br/><br/> 2 sockets * 4 núcleos a 2,5 GHz | 16 GB | < 300 GB | 500 GB o menos | < 100 máquinas
+12 vCPU<br/><br/> 2 socks * 6 núcleos a 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | De 100 a 150 máquinas
+16 vCPU<br/><br/> 2 socks * 8 núcleos a 2,5 GHz | 32 GB | 1 TB | 1 - 2 TB | De 150 a 200 máquinas
 

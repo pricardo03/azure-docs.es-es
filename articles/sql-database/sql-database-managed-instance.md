@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082512"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092000"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
@@ -64,13 +64,13 @@ En la tabla siguiente se muestran varias propiedades, accesibles mediante Transa
 | --- | --- |
 |No hay compras de hardware ni administración <br>Ninguna sobrecarga de administración a la hora de administrar la infraestructura subyacente <br>Aprovisionamiento y escalado de servicio rápidos <br>Aplicación de revisiones y actualización de versiones automatizadas <br>Integración con otros servicios de datos de PaaS |Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %  <br>Alta disponibilidad integrada <br>Datos protegidos con copias de seguridad automatizadas <br>Período de retención de copia de seguridad configurable por el cliente (fijado en 7 días en la versión preliminar pública) <br>Copias de seguridad iniciadas por el usuario <br>Funcionalidad de restauración de base de datos a un momento dado |
 |**Seguridad y cumplimiento normativo** | **Administración**|
-|Entorno aislado (integración con red virtual, servicio de inquilino único y procesos y almacenamiento dedicados <br>Cifrado de los datos en tránsito <br>Autenticación de Azure AD, compatibilidad con el inicio de sesión único <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>Auditoría de SQL <br>Detección de amenazas |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service 
+|Entorno aislado (integración con red virtual, servicio de inquilino único y procesos y almacenamiento dedicados) <br>Cifrado de datos transparente<br>Autenticación de Azure AD, compatibilidad con el inicio de sesión único <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>Auditoría de SQL <br>Detección de amenazas |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service 
 
 ![Inicio de sesión único](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>Modelo de compra basado en núcleos virtuales (versión preliminar)
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
 
-El modelo de compra basado en núcleos virtuales (versión preliminar) le ofrece flexibilidad, control, transparencia y facilidad para trasladar las necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 30 por ciento de ahorro con la [Ventaja de uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+El modelo de compra basado en núcleos virtuales le ofrece flexibilidad, control, transparencia y facilidad para trasladar sus necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 30 por ciento de ahorro con la [Ventaja de uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Un núcleo virtual representa una CPU lógica que cuenta con una opción para elegir entre varias generaciones de hardware.
 - Las CPU lógicas Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz.
@@ -81,13 +81,20 @@ La tabla siguiente le servirá de ayuda para determinar cuál es la configuraci�
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Hardware|Procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz, núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico)|Procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz, SSD eNVM rápido, núcleo virtual equivalente a 1 LP (Hyper-Threading)|
-|Niveles de rendimiento|8, 16, 24 núcleos virtuales|8, 16, 24, 32, 40 núcleos virtuales|
+|Niveles de rendimiento|8, 16, 24 núcleos virtuales|8, 16, 24, 32, 40, 64, 80 núcleos virtuales|
 |Memoria|7 GB por núcleo virtual|5,5 GB por núcleo virtual|
 ||||
 
-## <a name="managed-instance-service-tier"></a>Nivel de servicio de Instancia administrada
+## <a name="managed-instance-service-tiers"></a>Niveles de servicio de Instancia administrada
 
-Instancia administrada está inicialmente disponible en un único nivel de servicio, el nivel de uso general, que está diseñado para aplicaciones con los requisitos típicos de disponibilidad y latencia de E/S.
+Instancia administrada está disponible en dos niveles de servicio:
+- **Uso general**: diseñado para aplicaciones con disponibilidad típica y requisitos de latencia de E/S comunes.
+- **Crítico para la empresa**: diseñado para aplicaciones con alta disponibilidad y requisitos de latencia de E/S bajos.
+ 
+> [!IMPORTANT]
+> En la versión preliminar pública no se admite el cambio de nivel de servicio de uso General a Crítico para la empresa o viceversa. Si desea migrar bases de datos a una instancia en un nivel de servicio diferente, puede crear la nueva instancia, restaurar las bases de datos con la restauración a un momento dado de la instancia original y después quitar la instancia original si ya no es necesaria. 
+
+### <a name="general-purpose-service-tier"></a>Nivel de servicio de uso general
 
 La siguiente lista describe las principales características del nivel de servicio de uso general: 
 
@@ -101,28 +108,57 @@ El siguiente diagrama muestra los procesos activos y los nodos redundantes de es
  
 ![Nivel de servicio de uso general](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-La tabla siguiente describe las principales características del nivel de servicio de uso general:
+La siguiente lista describe las principales características del nivel de servicio de uso general:
 
 |Característica | DESCRIPCIÓN|
 |---|---|
-| Número de núcleos virtuales* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
+| Número de núcleos virtuales* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
 | Versión de SQL Server | SQL Server (la versión más reciente disponible) |
 | Tamaño de almacenamiento mínimo | 32 GB |
 | Tamaño de almacenamiento máximo | 8 TB |
-| Almacenamiento máximo por base de datos | 8 TB |
+| Almacenamiento máximo por base de datos | Determinado por el tamaño de almacenamiento máximo por instancia |
 | IOPS de almacenamiento esperadas | 500-7500 IOPS por cada archivo de datos (depende del archivo de datos). Consulte, [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Número de archivos de datos (ROWS) por base de datos | Múltiple | 
 | Número de archivos de registro (LOG) por base de datos | 1 | 
-| Administración de copias de seguridad automatizadas | Sí |
+| Administración de copias de seguridad automatizadas | SÍ |
 | Alta disponibilidad | Según el almacenamiento remoto y [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Supervisión y métricas integradas de instancias y bases de datos | Sí |
-| Aplicación automática de revisiones de software | Sí |
-| Redes virtuales: implementación de Azure Resource Manager | Sí |
+| Supervisión y métricas integradas de instancias y bases de datos | SÍ |
+| Aplicación automática de revisiones de software | SÍ |
+| Redes virtuales: implementación de Azure Resource Manager | SÍ |
 | Redes virtuales: modelo de implementación clásica de Azure | Sin  |
-| Soporte técnico del portal | Sí|
+| Soporte técnico del portal | SÍ|
 |||
 
 \* Un núcleo virtual representa la CPU lógica que se ofrece con la posibilidad de elegir entre varias generaciones de hardware. Las CPU lógicas Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz y las CPU lógicas Gen 5 se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz. 
+
+### <a name="business-critical-service-tier"></a>Nivel de servicio Crítico para la empresa
+
+El nivel de servicio Crítico para la empresa se ha creado para las aplicaciones con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas Always On aisladas. El siguiente diagrama muestra la arquitectura subyacente de este nivel de servicio:
+
+![Nivel de servicio Crítico para la empresa](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+La siguiente lista describe las principales características del nivel de servicio Crítico para la empresa: 
+-   Diseñado para aplicaciones empresariales con mayor rendimiento y requisitos de alta disponibilidad 
+-   Incluye un almacenamiento SSD extremadamente rápido (hasta 1 TB en Gen 4 y hasta 4 TB en Gen 5). Admite hasta 100 bases de datos por instancia 
+
+|Característica | DESCRIPCIÓN|
+|---|---|
+| Número de núcleos virtuales* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
+| Versión de SQL Server | SQL Server (la versión más reciente disponible) |
+| Características adicionales | [OLTP en memoria (optimización en memoria)](sql-database-in-memory.md)<br> 1 réplica de solo lectura adicional ([Escalado horizontal de lectura](sql-database-read-scale-out.md))
+| Tamaño de almacenamiento mínimo | 32 GB |
+| Tamaño de almacenamiento máximo | Gen 4: 1 TB (todos los tamaños de núcleos virtuales<br> Gen 5:<ul><li>1 TB para 8 y 16 núcleos de virtuales</li><li>2 TB para 24 núcleos de virtuales</li><li>4 TB de 40, 60 y 80 núcleos virtuales</ul>|
+| Almacenamiento máximo por base de datos | Determinado por el tamaño de almacenamiento máximo por instancia |
+| Número de archivos de datos (ROWS) por base de datos | Múltiple | 
+| Número de archivos de registro (LOG) por base de datos | 1 | 
+| Administración de copias de seguridad automatizadas | SÍ |
+| Alta disponibilidad | En función de los [Grupos de disponibilidad Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) y de [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Supervisión y métricas integradas de instancias y bases de datos | SÍ |
+| Aplicación automática de revisiones de software | SÍ |
+| Redes virtuales: implementación de Azure Resource Manager | SÍ |
+| Redes virtuales: modelo de implementación clásica de Azure | Sin  |
+| Soporte técnico del portal | SÍ|
+|||
 
 ## <a name="advanced-security-and-compliance"></a>Conformidad y seguridad avanzada 
 
@@ -134,9 +170,15 @@ Instancia administrada proporciona un aislamiento de seguridad adicional a parti
 - El punto de conexión de SQL se expone solo mediante una dirección IP privada, lo que permite una conectividad segura desde una nube privada de Azure o redes híbridas
 - Inquilino único con infraestructura subyacente dedicada (proceso, almacenamiento)
 
-El siguiente diagrama describe el diseño del aislamiento: 
+El diagrama siguiente describe distintas opciones de conectividad para las aplicaciones: 
 
 ![alta disponibilidad](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+
+Para obtener más información sobre la integración con redes virtuales y las exigencias de la directiva en el nivel de subred, consulte [Configurar una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-vnet-configuration.md) y [Conectar la aplicación a Instancia administrada de Azure SQL Database](sql-database-managed-instance-connect-app.md). 
+
+> [!IMPORTANT]
+> Coloque varias instancias administradas en la misma subred, dondequiera que lo permitan sus requisitos de seguridad, ya que le proporcionará ventajas adicionales. Colocar instancias en la misma subred simplificará significativamente el mantenimiento de la infraestructura de red y reducirá el tiempo de aprovisionamiento de instancia, ya que el aprovisionamiento de larga duración está asociado con el costo de implementar la primera instancia administrada en una subred.
+
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoría de seguridad y cumplimiento 
 
@@ -147,6 +189,11 @@ La [auditoría de Instancia administrada](sql-database-managed-instance-auditing
 Instancia administrada protege los datos con cifrado de datos en movimiento mediante Seguridad de la capa de transporte.
 
 Además de la seguridad de la capa de transporte, Instancia administrada de SQL Database ofrece la protección de la información confidencial en tránsito, en reposo y durante el procesamiento de consultas con [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted es una tecnología totalmente novedosa en el sector que ofrece una seguridad de datos sin parangón frente a las infracciones que implican el robo de datos críticos. Por ejemplo, con Always Encrypted, los números de las tarjetas de crédito siempre se almacenan cifrados en la base de datos, incluso durante el procesamiento de las consultas, lo que permite que solo los descifren personal autorizado o las aplicaciones que los necesitan para procesar los datos en el lugar en que se van a usar. 
+
+### <a name="data-encryption-at-rest"></a>Cifrado de datos en reposo 
+[Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) cifra los archivos de datos de Instancia administrada de Azure SQL, lo que se conoce como cifrado de datos en reposo. TDE realiza el cifrado y descifrado de E/S en tiempo real de los archivos de datos y de registro. El cifrado usa una clave de cifrado de base de datos (DEK), que se almacena en el registro de arranque de la base de datos de disponibilidad durante la recuperación. Puede proteger todas las bases de datos en una instancia administrada con cifrado de datos transparente. TDE es la probada tecnología de cifrado en reposo de SQL que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento. Durante la versión preliminar pública, se admite el modelo de administración automática de claves (realizada por la plataforma PaaS). 
+
+Se admite la migración de una base de datos cifrada a Instancia administrada de SQL a través de Azure Database Migration Service (DMS) o la restauración nativa. Si va a migrar la base de datos cifrada mediante la restauración nativa, la migración del certificado TDE existente desde la VM con SQL Server o el SQL Server local a Instancia administrada es un paso necesario. Para obtener más información sobre los diversos métodos de migración, vea [Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database](sql-database-managed-instance-migrate.md).
 
 ### <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 
@@ -210,7 +257,7 @@ Instancia administrada tiene la ventaja de estar siempre actualizada en la nube,
 - Instancia administrada no permite especificar las rutas de acceso físicas completas por lo que todos los escenarios correspondientes se admiten de manera diferente: RESTORE DB no admite WITH MOVE, CREATE DB no permite rutas de acceso físicas, BULK INSERT funciona solo con Blobs de Azure, etc. 
 - Instancia administrada admite la [autenticación de Azure AD](sql-database-aad-authentication.md) como alternativa en la nube a la autenticación de Windows. 
 - Instancia administrada administra automáticamente el grupo de archivos XTP y los archivos de bases de datos que contienen objetos de OLTP en memoria
-- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure en Azure Data Factory; consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database e Instancia administrada, consulte [Comparación entre SQL Database e Instancia administrada (versión preliminar)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure en Azure Data Factory; consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database y la Instancia administrada, consulte [Comparación entre SQL Database e Instancia administrada (versión preliminar)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>Características de administración de Instancia administrada  
 
@@ -225,3 +272,4 @@ Instancia administrada permite al administrador del sistema centrarse en lo más
 - Para más información acerca de la configuración de redes virtuales, consulte [Configuración de una red virtual de instancia administrada](sql-database-managed-instance-vnet-configuration.md).
 - Para ver un tutorial que crea una instancia administrada y restaura una base de datos desde un archivo de copia de seguridad, consulte [Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md).
 - Para consultar un tutorial con Azure Database Migration Service (DMS) para la migración, consulte [Migración a Instancia administrada con DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Para obtener información de precios, vea [Precios de Instancia administrada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).

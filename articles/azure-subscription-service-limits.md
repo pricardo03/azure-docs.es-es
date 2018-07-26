@@ -1,26 +1,21 @@
 ---
-title: Límites y cuotas de suscripción de Azure | Microsoft Docs
+title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Esto incluye información acerca de cómo aumentar los límites junto con los valores máximos.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610779"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069546"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, esta lista se expandirá y actualizará para abarcar más de la plataforma.
@@ -52,6 +47,8 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Database for MySQL](#azure-database-for-mysql)
+* [Azure Database para PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
@@ -69,6 +66,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
+* [Azure Firewall](#azure-firewall-limits)
 * [IoT Hub](#iot-hub-limits)
 * [Servicio IoT Hub Device Provisioning](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -153,6 +151,9 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 #### <a name="dns-limits"></a>Límites de DNS
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
+#### <a name="azure-firewall-limits"></a>Límites de Azure Firewall
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
 ### <a name="storage-limits"></a>Límites de Storage
 Para más información sobre los límites de la cuenta de almacenamiento, vea [Objetivos de escalabilidad y rendimiento de Azure Storage](storage/common/storage-scalability-targets.md).
 
@@ -215,6 +216,12 @@ La tabla siguiente muestra los límites de Azure BizTalk Services.
 
 ### <a name="azure-cosmos-db-limits"></a>Límites de Azure Cosmos DB
 Azure Cosmos DB es una base de datos de escala global en el que se pueden escalar el rendimiento y almacenamiento para gestionar todo lo que requiera la aplicación. Si tiene alguna pregunta sobre la escala que Azure Cosmos DB proporciona, envíe un correo electrónico a askcosmosdb@microsoft.com.
+
+### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
+Para obtener más información sobre los límites de Azure Database for MySQL, consulte [Limitaciones en Azure Database for MySQL](mysql/concepts-limits.md).
+
+### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
+Para obtener más información sobre los límites de Azure Database for PostgreSQL, consulte [Limitaciones en Azure Database for PostgreSQL](postgresql/concepts-limits.md).
 
 ### <a name="mobile-engagement-limits"></a>Límites de Mobile Engagement
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

@@ -2,25 +2,25 @@
 title: Configuración de los parámetros del servicio en Azure Database for MySQL
 description: En este artículo se describe cómo configurar los parámetros de servicio de Azure Database for MySQL mediante la utilidad de línea de comandos de la CLI de Azure.
 services: mysql
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 4c04cb77513ec070edce739aa0a49447dc915a1b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 07/18/2018
+ms.openlocfilehash: 637e2d27e92c1a2618fcf8b524e475a4d2f88f12
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265221"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136379"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personalización de los parámetros de configuración del servidor con la CLI de Azure
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for MySQL con la CLI de Azure, la utilidad de línea de comandos de Azure. En el nivel del servidor, se expone y se puede modificar un subconjunto de las opciones de configuración del motor. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:
 - [Un servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - Utilidad de línea de comandos [CLI de Azure 2.0](/cli/azure/install-azure-cli) o use Azure Cloud Shell en el explorador.
@@ -54,5 +54,46 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 ```
 Este código restablece la configuración **slow\_query\_log** en el valor predeterminado **Apagado**. 
 
+## <a name="working-with-the-time-zone-parameter"></a>Trabajo con el parámetro de zona horaria
+
+### <a name="populating-the-time-zone-tables"></a>Relleno de las tablas de la zona horaria
+
+Las tablas de la zona horaria del servidor se pueden rellenar mediante una llamada al procedimiento almacenado `az_load_timezone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench.
+
+> [!NOTE]
+> Si ejecuta el comando `az_load_timezone` de MySQL Workbench, es posible que primero tenga que desactivar el modo de actualización segura mediante `SET SQL_SAFE_UPDATES=0;`.
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+Para ver los valores de zonas horarias disponibles, ejecute el comando siguiente:
+
+```sql
+SELECT name FROM mysql.time_zone_name;
+```
+
+### <a name="setting-the-global-level-time-zone"></a>Establecimiento de la zona horaria de nivel global
+
+La zona horaria de nivel global se puede establecer mediante el comando [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set).
+
+El siguiente comando actualiza el parámetro de configuración **time\_zone** del servidor **mydemoserver.mysql.database.azure.com** en el grupo de recursos **myresourcegroup** a **US/Pacific**.
+
+```azurecli-interactive
+az mysql server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"
+```
+
+### <a name="setting-the-session-level-time-zone"></a>Establecimiento de la zona horaria de nivel de sesión
+
+La zona horaria de nivel de sesión se puede establecer mediante la ejecución del comando `SET time_zone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench. En el ejemplo siguiente se establece la zona horaria en **US/Pacific**.  
+
+```sql
+SET time_zone = 'US/Pacific';
+```
+
+Consulte [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz) (Funciones de fecha y hora) en la documentación de MySQL.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Cómo configurar [parámetros del servidor en Azure Portal](howto-server-parameters.md)

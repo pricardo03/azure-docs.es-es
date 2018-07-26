@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: a09cc42763787890a4dabf17b1a1a87e7427ba37
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 912bb0dd3e48e53134ad848119ae7428b380b88d
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808543"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124943"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
@@ -65,14 +65,14 @@ Los SDK y las integraciones que puede usar con los puntos de conexión compatibl
 
 Para obtener más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub][lnk-endpoints].
 
-En los tutoriales de [introducción][lnk-get-started] se muestra cómo enviar mensajes del dispositivo a la nube desde dispositivos simulados y cómo leer los mensajes desde el punto de conexión integrado. Para obtener más información, vea el tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas][lnk-d2c-tutorial].
+En los [inicios rápidos][lnk-get-started] se muestra cómo enviar mensajes del dispositivo a la nube desde dispositivos simulados y cómo leer los mensajes desde el punto de conexión integrado. Para obtener más información, vea el tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas][lnk-d2c-tutorial].
 
 Si quiere enrutar los mensajes del dispositivo a la nube a puntos de conexión personalizados, vea [Use message routes and custom endpoints for device-to-cloud messages][lnk-custom] (Usar rutas de mensajes y puntos de conexión personalizados para los mensajes del dispositivo a la nube).
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 
 [lnk-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/

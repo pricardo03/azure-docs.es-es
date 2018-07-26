@@ -1,43 +1,44 @@
-
-<!--
-includes/sql-database-include-ip-address-22-v12portal.md
-
-Latest Freshness check:  2016-03-21 , daleche.
-
-As of circa 2015-09-04, the following topics might include this include:
-articles/sql-database/sql-database-configure-firewall-settings.md
-articles/sql-database/sql-database-connect-query.md
-
-
-## Server-level firewall rules
-
-### Add a server-level firewall rule through the new Azure portal
--->
-
-
+---
+title: Reglas de firewall de nivel de servidor
+description: Reglas de firewall de nivel de servidor
+keywords: conexión sql, cadena de conexión
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+ms.date: 07/13/2018
+ms.author: ninarn
+ms.openlocfilehash: 07bbba28b7e1b048ef3a4e1afa4db255967dc093
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117280"
+---
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-2. En la lista de la izquierda, seleccione **Todos los servicios**. 
+2. En la lista de la izquierda, seleccione **Todos los servicios**.
 
-3. Desplácese y seleccione **Servidores SQL Server**. 
-   
+3. Desplácese y seleccione **Servidores SQL Server**.
+
     ![Encontrar el servidor de Azure SQL Database en el portal][b21-FindServerInPortal]
 5. En el cuadro de texto de filtro, empiece a escribir el nombre del servidor. Aparecerá su fila.
 
 6. Seleccione la fila para el servidor. Aparecerá una hoja para el servidor.
 
-7. En la hoja del servidor, seleccione **Configuración**. 
+7. En la hoja del servidor, seleccione **Configuración**.
 
-8. Seleccione **Firewall**. 
-   
+8. Seleccione **Firewall**.
+
     ![Selección de Configuración > Firewall][b31-SettingsFirewallNavig]
 9. Seleccione **Agregar IP de cliente**. Escriba un nombre para la regla nueva en el primer cuadro de texto.
 
 10. Escriba los valores de dirección IP inferior y superior para el intervalo que quiere habilitar.
-    
+
     * Puede resultar útil que el valor inferior termine en **.0** y el valor alto en **.255**.
-    
-    ![Agregar un intervalo de direcciones IP para permitir][b41-AddRange]
+
 11. Seleccione **Guardar**.
 
 <!-- Image references. -->

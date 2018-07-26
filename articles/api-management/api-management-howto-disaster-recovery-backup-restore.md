@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 3fcd2fc4162cfbf549be979e15745934c2e4c6ff
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019286"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090884"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -51,7 +51,7 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 ### <a name="create-an-azure-active-directory-application"></a>Creación de una aplicación de Azure Active Directory
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
-2. Mediante la suscripción que contiene la instancia de servicio de API Management, vaya a la pestaña **Registros de aplicaciones**.
+2. Mediante la suscripción que contiene la instancia del servicio API Management, vaya a la pestaña **Registros de aplicaciones** de **Azure Active Directory** (Azure Active Directory > Administrar/Registros de aplicaciones).
 
     > [!NOTE]
     > Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta.
@@ -112,11 +112,14 @@ Reemplace `{tentand id}`, `{application id}` y `{redirect uri}` mediante las sig
 
     ![Puntos de conexión][api-management-endpoint]
 2. Reemplace `{application id}` con el valor obtenido en la página **Configuración**.
-3. Reemplace la dirección URL de la pestaña **URI de redirección** de la aplicación de Azure Active Directory.
+3. Reemplace el valor `{redirect uri}` por el valor de la pestaña **Redirect URIs** (URI de redireccionamiento) de la aplicación de Azure Active Directory.
 
     Una vez especificados los valores, el ejemplo de código debe devolver un token similar al ejemplo siguiente:
 
     ![Se necesita el cifrado de tokens][api-management-arm-token]
+
+    > [!NOTE]
+    > El token puede expirar tras un período determinado. Vuelva a ejecutar el ejemplo de código para generar un token nuevo.
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Llamada a operaciones de copia de seguridad y restauración
 
@@ -134,7 +137,7 @@ Para crear una copia de seguridad del servicio API Management, emita esta solici
 donde:
 
 * `subscriptionId`: identificador de la suscripción que contiene el servicio API Management del que desea crear una copia de seguridad.
-* `resourceGroupName`: una cadena de tipo "Api-Default-{service-region}", donde `service-region` identifica la región de Azure donde se hospeda el servicio API Management del que desea crear una copia de seguridad (por ejemplo, `North-Central-US`).
+* `resourceGroupName` : nombre del grupo de recursos del servicio Azure API Management
 * `serviceName` : el nombre del servicio Administración de API del que desea crear una copia de seguridad que se especificó durante su creación.
 * `api-version`: reemplazar por `2014-02-14`
 
@@ -193,10 +196,11 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 > **La SKU** en la que desea restaurar el servicio **debe coincidir** con la SKU del servicio del que ha creado una copia de seguridad que desea restaurar.
 >
 > Los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) con la operación de restauración en curso **pueden sobrescribirse**.
->
->
 
-## <a name="next-steps"></a>pasos siguientes
+> [!NOTE]
+> También se pueden realizar operaciones de copia de seguridad y restauración con los comandos *Backup-AzureRmApiManagement* y *Restore-AzureRmApiManagement* de PowerShell, respectivamente.
+
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del proceso de copia de seguridad y restauración.
 
 * [Replicate Azure API Management Accounts (Réplica de cuentas de Administración de API de Azure)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)

@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 07/13/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267686"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089900"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Qué es la extensión Azure Diagnostics
 La extensión Azure Diagnostics es un agente dentro de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde un número de orígenes diferentes. Actualmente se admiten los roles web y de trabajo de Azure Cloud Services, las máquinas virtuales, los conjuntos de escalado de máquinas virtuales y Service Fabric. Otros servicios de Azure tienen métodos de diagnóstico diferentes. Consulte [Introducción a la supervisión en Azure](monitoring-overview.md). 
@@ -32,10 +32,12 @@ La extensión Azure Diagnostics puede recopilar los siguientes tipos de datos:
 | Registros de eventos de Windows |Información enviada al sistema de registro de eventos de Windows |
 | Origen de eventos de .NET |Eventos de escritura de código mediante la clase [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) de .NET |
 | Registros IIS |Información sobre los sitios web de IIS |
-| ETW basado en manifiesto |Eventos de Seguimiento de eventos para Windows generados por cualquier proceso |
+| ETW basado en manifiesto |Eventos de Seguimiento de eventos para Windows generados por cualquier proceso.(1) |
 | Volcados de memoria |Información sobre el estado del proceso en caso de bloqueo de una aplicación |
 | Registros de errores personalizados |Registros creados por su aplicación o servicio |
 | Registros de infraestructura de diagnóstico de Azure |Información sobre Diagnósticos |
+
+(1) Para obtener una lista de proveedores de ETW, ejecute `c:\Windows\System32\logman.exe query providers` en una ventana de la consola en el equipo del cual quiere recopilar información. 
 
 ## <a name="data-storage"></a>Almacenamiento de datos
 La extensión almacena sus datos en una [cuenta de Azure Storage](azure-diagnostics-storage.md) que especifique. 

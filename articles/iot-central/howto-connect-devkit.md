@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261583"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049459"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
 
@@ -36,7 +36,7 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 | -------------- | ------ | ------- | ------- | -------------- |
 | humedad       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
+| presión       | hPa    | 260     | 1260    | 0              |
 | magnetometerX (magnetómetro X)  | mgauss | -1000   | 1000    | 0              |
 | magnetometerY (magnetómetro Y)  | mgauss | -1000   | 1000    | 0              |
 | magnetometerZ (magnetómetro Z)  | mgauss | -1000   | 1000    | 0              |
@@ -61,7 +61,7 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 
 
 
-### <a name="settings"></a>Settings
+### <a name="settings"></a>Configuración
 
 Valores numéricos
 
@@ -79,10 +79,11 @@ Cambiar configuración
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
 | Propiedad de dispositivo | Die number   | dieNumber  | número    |
-| Texto            | Ubicación     | location   | N/D       |
+| Propiedad de dispositivo | Ubicación del dispositivo   | location  | location    |
+| Texto            | Fabricado en     | manufacturedIn   | N/D       |
 
 
 ### <a name="add-a-real-device"></a>Adición de un dispositivo real
@@ -91,8 +92,8 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real de la planti
 
 ## <a name="prepare-the-devkit-device"></a>Preparación del dispositivo DevKit
 
-> [!TIP]
-> Para obtener instrucciones sobre la solución de problemas de los dispositivos, consulte [IoT DevKit get started](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/) (Introducción a IoT DevKit).
+> [!NOTE]
+> Si ha usado anteriormente el dispositivo y tiene credenciales Wi-Fi almacenadas, y quiere reconfigurar el dispositivo para usar una red Wi-Fi, cadena de conexión o medida de telemetría diferentes, presione los botones **A** y **B** a la vez en el panel. Si no funciona, presione el botón **reset** (restablecer) e inténtelo de nuevo.
 
 Para preparar el dispositivo DevKit:
 
@@ -127,7 +128,7 @@ Para preparar el dispositivo DevKit:
     - la contraseña de la red Wi-Fi 
     - el PIN CODE (CÓDIGO PIN) que se muestra en el dispositivo LCD 
     - la cadena de conexión del dispositivo. 
-      Puede encontrar la cadena de conexión @ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (en la esquina superior derecha) 
+      Puede encontrar la cadena de conexión \@`https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (en la esquina superior derecha) 
     - Seleccione todas las mediciones de telemetría disponibles. 
 
 1. Después de elegir **Configure Device** (Configurar dispositivo), verá esta página:
@@ -136,8 +137,7 @@ Para preparar el dispositivo DevKit:
 
 1. Presione el botón **Reset**  (Restablecer) en el dispositivo.
 
-> [!NOTE]
-> Para volver a configurar el dispositivo para que utilice una red Wi-Fi, cadena de conexión o medida de telemetría diferente, presione los botones **A** y **B** del panel de manera simultánea. Si no funciona, presione el botón **reset** (restablecer) e inténtelo de nuevo. 
+
 
 ## <a name="view-the-telemetry"></a>Visualización de la telemetría
 
@@ -153,19 +153,24 @@ Puede ver las mediciones de telemetría y los valores de propiedad notificados y
 
 1. Use **Device Explorer** (Explorador de dispositivos) para navegar hasta la página **Measurements** (Medidas) del dispositivo MXChip real que se ha agregado:
 
-    ![Navegación al dispositivo real](media/howto-connect-devkit/realdevice.png)
+    ![Navegación al dispositivo real](media/howto-connect-devkit/realdevicenew.png)
 
 1. En la página **Measurements** (Medidas), puede ver la telemetría proveniente del dispositivo de MXChip:
 
-    ![Visualización de telemetría desde el dispositivo real](media/howto-connect-devkit/realtelemetry.png)
+    ![Visualización de telemetría desde el dispositivo real](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. En la página **Properties** (Propiedades), puede ver el último número de chip notificado por el dispositivo:
+1. En la página **Properties** (Propiedades), puede ver el último número de chip y la ubicación del dispositivo notificados por el dispositivo:
 
-    ![Visualización de propiedades del dispositivo](media/howto-connect-devkit/deviceproperties.png)
+    ![Visualización de las propiedades del dispositivo](media/howto-connect-devkit/devicepropertynew.png)
 
 1. En la página **Settings** (Configuración), puede actualizar la configuración en el dispositivo MXChip:
 
-    ![Visualización de la configuración del dispositivo](media/howto-connect-devkit/settings.png)
+    ![Visualización de la configuración del dispositivo](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. En la página **Dashboard** (Panel), puede ver el mapa de ubicación.
+
+    ![Visualización del panel de dispositivos](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>Descarga del código fuente
 

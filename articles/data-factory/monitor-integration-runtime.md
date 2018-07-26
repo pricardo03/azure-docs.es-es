@@ -4,21 +4,21 @@ description: Aprenda a supervisar los distintos tipos de instancia de Integratio
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: ''
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2017
+ms.date: 07/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045252"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113264"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory  
 **Integration Runtime** es la infraestructura de proceso que usa Azure Data Factory para proporcionar varias funcionalidades de integración de datos en distintos entornos de red. Data Factory ofrece tres tipos de instancia de Integration Runtime:
@@ -41,7 +41,7 @@ El recurso de proceso para una instancia de Azure Integration Runtime se puede a
 ### <a name="properties"></a>Properties (Propiedades)
 En la siguiente tabla se proporcionan las descripciones de las propiedades que devuelve el cmdlet para una instancia de Azure Integration Runtime:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 -------- | ------------- | 
 | NOMBRE | Nombre de la instancia de Azure Integration Runtime. |  
 | Estado | Estado de la instancia de Azure Integration Runtime. | 
@@ -68,7 +68,7 @@ En la siguiente sección se proporcionan las descripciones de las propiedades qu
 
 En la tabla siguiente se proporcionan las descripciones de las propiedades de supervisión para **cada nodo**:
 
-| Propiedad | DESCRIPCIÓN | 
+| Propiedad | Descripción | 
 | -------- | ----------- | 
 | NOMBRE | Nombre de la instancia de Integration Runtime autohospedada y sus nodos asociados. Un nodo es una máquina Windows local con la instancia de Integration Runtime autohospedada instalada. |  
 | Status | Estado de la instancia general de Integration Runtime autohospedada y de los nodos. Ejemplo: En línea, Sin conexión, Limitado, etc. Para información acerca de estos estados, consulte la siguiente sección. | 
@@ -167,7 +167,7 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
 | VNetId | Identificador del recurso de red virtual para que se una la instancia de Integration Runtime de SSIS de Azure. |
 | Subred | Nombre de la subred para que se una la instancia de Integration Runtime de SSIS de Azure. |
 | ID | Identificador del recurso de la instancia de Integration Runtime de SSIS de Azure. |
-| Escriba | Tipo (administrada/autohospedada) de instancia de Integration Runtime de SSIS de Azure. |
+| type | Tipo (administrada/autohospedada) de instancia de Integration Runtime de SSIS de Azure. |
 | ResourceGroupName | Nombre del grupo de recursos de Azure donde se crearon las instancias de Data Factory y de Integration Runtime de SSIS de Azure. |
 | DataFactoryName | Nombre de la instancia de Azure Data Factory. |
 | NOMBRE | Nombre de la instancia de Integration Runtime de SSIS de Azure. |
@@ -192,6 +192,24 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
 | Started | Los nodos de la instancia de Integration Runtime de SSIS de Azure se han asignado/preparado y están listos para la implementación/ejecución de paquetes SSIS. |
 | Deteniéndose  | Se están liberando los nodos de la instancia de Integration Runtime de SSIS de Azure. |
 | Stopped | Los nodos de la instancia de Integration Runtime de SSIS de Azure se han liberado y la facturación se ha detenido. |
+
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Supervisión de Integration Runtime de SSIS de Azure en Azure Portal
+
+Las capturas de pantalla siguientes muestran cómo seleccionar la instancia de IR de SSIS de Azure para supervisión y proporcionan un ejemplo de la información que se muestra.
+
+![Selección de Integration Runtime de SSIS de Azure para supervisión](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![Vista de información sobre Integration Runtime de SSIS de Azure](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>Supervisión de Integration Runtime de SSIS de Azure con PowerShell
+
+Use un script como el siguiente ejemplo para comprobar el estado de Integration Runtime de SSIS de Azure.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Más información sobre Integration Runtime de SSIS de Azure
 
 Consulte los artículos siguientes para más información sobre Integration Runtime de SSIS de Azure:
 

@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449400"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113385"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Inicio rápido: bloquear el acceso cuando se detecta riesgo en una sesión con el acceso condicional de Azure Active Directory  
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 Para completar el escenario de este tutorial, necesita:
 
@@ -62,7 +62,7 @@ El objetivo de este paso es asegurarse de que la cuenta de prueba puede acceder 
 
 ## <a name="create-your-conditional-access-policy"></a>Creación de la directiva de acceso condicional 
 
-El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor Browser para generar la detección de un evento de riesgo **Inicios de sesión desde direcciones IP anónimas**. El nivel de riesgo de este evento es medio.   
+El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor Browser para generar la detección de un evento de riesgo **Inicios de sesión desde direcciones IP anónimas**. El nivel de riesgo de este evento es medio. Para responder a este evento de riesgo, la condición de riesgo de inicio de sesión se establece en medio. En un entorno de producción, debe establecer la condición de riesgo de inicio de sesión en alto o en medio y alto.     
 
 En esta sección se muestra cómo crear la directiva de acceso condicional que se requiere. En la directiva, establezca:
 
@@ -70,10 +70,11 @@ En esta sección se muestra cómo crear la directiva de acceso condicional que s
 |---     | --- |
 | Usuarios y grupos | Alain Charon  |
 | Aplicaciones de nube | Todas las aplicaciones en la nube |
+| Riesgo de inicio de sesión | Mediano |
 | Conceder | Bloquear acceso |
  
 
-![Creación de directiva](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![Creación de directiva](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -125,6 +126,26 @@ En esta sección se muestra cómo crear la directiva de acceso condicional que s
     a. Haga clic en **All cloud apps** (Todas las aplicaciones en la nube).
 
     b. Haga clic en **Done**(Listo).
+
+10. Haga clic en **Condiciones**. 
+
+    ![Controles de acceso](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. En la página **Condiciones**:
+
+    ![Nivel de riesgo del inicio de sesión](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Haga clic en **Riesgo de inicio de sesión**.
+ 
+    b. En **Configurar**, haga clic en **Sí**.
+
+    c. En el nivel de riesgo de inicio de sesión, seleccione **Medio**.
+
+    d. Haga clic en **Seleccionar**.
+
+    e. En la página **Condiciones**, haga clic en **Listo**.
+
+
 
 10. En la sección **Controles de acceso**, haga clic en **Conceder**.
 

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 07/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: 993d5c804490540a9c71647f52692fb55b27c405
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b5d0e923955ea5ca67941fad0dc3d1415e4a5899
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113306"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115874"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37113306"
 
 Para compilar y ejecutar [aplicaciones de Azure Service Fabric][1] en la máquina de desarrollo Windows, debe instalar el entorno en tiempo de ejecución de Service Fabric, el SDK y las herramientas. También es preciso que [habilite la ejecución de los scripts de Windows PowerShell](#enable-powershell-script-execution) que se incluyen en el SDK.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 ### <a name="supported-operating-system-versions"></a>Versiones de sistemas operativos compatibles
 Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 
@@ -64,10 +64,10 @@ Si únicamente necesita el SDK, puede instalar este paquete:
 * [Instalación del SDK de Microsoft Azure Service Fabric][core-sdk]
 
 Las versiones actuales son:
-* SDK y herramientas de Service Fabric 3.1.301
-* Entorno de tiempo de ejecución de Service Fabric 6.2.301
-* Herramientas de Service Fabric para Visual Studio 2015 2.1.20180510.2
-* Visual Studio 2017 15.7 incluye Herramientas de Service Fabric para Visual Studio 2.1.20180423.1 
+* SDK y herramientas de Service Fabric 3.2.162
+* Entorno de tiempo de ejecución de Service Fabric 6.3.162
+* Herramientas de Service Fabric para Visual Studio 2015 2.3.10710.3
+* Visual Studio 2017 15.7 incluye Herramientas de Service Fabric para Visual Studio 2.3.10710.1 
 
 Para obtener una lista de las versiones admitidas, consulte [Compatibilidad con Service Fabric](service-fabric-support.md).
 

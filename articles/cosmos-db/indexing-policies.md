@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 240c0e1f39833e4dc4c4ad410f50ff03df0b5734
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298304"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072170"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
@@ -144,6 +144,7 @@ Estos son los patrones comunes para especificar las rutas de acceso del índice:
 
 En el ejemplo siguiente se configura una ruta de acceso específica con indexación de rango y un valor de precisión personalizado de 20 bytes:
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -164,7 +165,74 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
 
+Cuando se agrega una ruta de acceso para la indexación, se indexan tanto los números como las cadenas dentro de esas rutas de acceso. Por tanto, aunque defina la indexación solo para las cadenas, Azure Cosmos DB agrega una definición predeterminada también para números. En otras palabras, Azure Cosmos DB tiene la capacidad de excluir rutas de acceso de la directiva de indexación, pero no para excluir un tipo una ruta de acceso específica. A continuación aparece un ejemplo. Observe que solo se especifica un índice para ambas rutas de acceso (Ruta de acceso =  "/*" y Ruta de acceso =  "/\"attr1\"/?"), pero también se agrega el tipo de datos de número al resultado.
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+Resultado de la creación de índices:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Tipos de datos de índice, variantes y precisiones
 Dispone de varias opciones para configurar la directiva de indexación de una ruta de acceso. Puede especificar una o más definiciones de indexación para cada ruta de acceso:

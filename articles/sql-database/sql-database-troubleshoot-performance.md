@@ -9,14 +9,14 @@ keywords: SQL optimización del rendimiento, base de datos optimización del ren
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: v-shysun
-ms.openlocfilehash: a20d198c64bfc6aeaa42f310ee533626c2b1409c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79f41ab133cba539e5f855b3ab8fa21723694acb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649625"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092569"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
@@ -50,7 +50,7 @@ También puede permitir que Azure SQL Database [optimice el rendimiento de las c
 
 ## <a name="improving-database-performance-with-more-resources"></a>Mejora del rendimiento de la base de datos con más recursos
 
-Por último, si no hay elementos para procesar que puedan mejorar el rendimiento de la base de datos, puede cambiar la cantidad de recursos disponibles en Azure SQL Database. Puede asignar más recursos cambiando el [nivel de servicio de DTU](sql-database-service-tiers-dtu.md) de una base de datos independiente o aumentar las eDTU de un grupo de bases de datos elásticas en cualquier momento. O bien, si usa el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md), puede cambiar el nivel de servicio o aumentar los recursos asignados a la base de datos. 
+Por último, si no hay elementos para procesar que puedan mejorar el rendimiento de la base de datos, puede cambiar la cantidad de recursos disponibles en Azure SQL Database. Puede asignar más recursos cambiando el [nivel de servicio de DTU](sql-database-service-tiers-dtu.md) de una base de datos independiente o aumentar las eDTU de un grupo de bases de datos elásticas en cualquier momento. O bien, si usa el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md), puede cambiar el nivel de servicio o aumentar los recursos asignados a la base de datos. 
 1. Para bases de datos independientes, puede [cambiar los niveles de servicio](sql-database-service-tiers-dtu.md) o los [recursos de proceso](sql-database-service-tiers-vcore.md) a petición para mejorar el rendimiento de la base de datos.
 2. Para varias bases de datos, considere el uso de [grupos elásticos](sql-database-elastic-pool-guidance.md) para escalar recursos automáticamente.
 

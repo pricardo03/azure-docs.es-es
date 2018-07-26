@@ -6,23 +6,23 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: bc63e320053ec4e8dbb9f166a9a69bb24d91fa02
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 1ff2332e2867f99492d3da254282498d1627a5bf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259741"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39058267"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
 Las preguntas más frecuentes (P+F) acerca de la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD) se actualizan periódicamente para incluir nuevos temas.
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>¿Se puede personalizar la página de inicio de sesión para que sea más intuitiva para los usuarios invitados de colaboración de B2B?
-Por supuesto. Consulte nuestra [entrada del blog relativa a esta característica](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para más información acerca de cómo personalizar la página de inicio de sesión de una organización, consulte [Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](../customize-branding.md).
+Por supuesto. Consulte nuestra [entrada del blog relativa a esta característica](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para más información acerca de cómo personalizar la página de inicio de sesión de una organización, consulte [Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>¿Pueden acceder los usuarios de colaboración B2B a SharePoint Online y OneDrive?
 Sí. Sin embargo, la capacidad de buscar usuarios invitados existentes en SharePoint Online mediante el uso del selector de personas está **desactivada**. Para activar la opción de búsqueda de usuarios invitados existentes, establezca **ShowPeoplePickerSuggestionsForGuestUsers** en **Activado**. Esta configuración se puede activar en el nivel del inquilino o en el nivel de colección de sitios. Esta configuración se puede cambiar mediante los cmdlets Set-SPOTenant y SPOSite. Con estos cmdlets, los miembros pueden buscar todos los usuarios invitados existentes en el directorio. Los cambios en el ámbito del inquilino no afectan a los sitios de SharePoint Online que ya se han aprovisionado.
@@ -44,6 +44,9 @@ Esta característica está prevista para una versión futura, de modo que pueda 
 
 ### <a name="how-can-i-use-delayed-invitations"></a>¿Cómo se usan las invitaciones diferidas?
 Algunas organizaciones pueden desear agregar usuarios de colaboración B2B, aprovisionarlos en las aplicaciones cuando sea necesario y, luego, enviar las invitaciones. Puede usar la API de invitación de colaboración B2B para personalizar el flujo de trabajo de incorporación.
+
+### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>¿Puedo hacer visibles a los usuarios invitados en la lista global de direcciones de Exchange?
+Sí. De forma predeterminada, los objetos de invitado no son visibles en la lista global de direcciones de su organización, pero puede usar PowerShell de Azure Active Directory para que lo sean. Para más información, consulte **¿Puedo hacer visibles los objetos de invitado de la lista global de direcciones?** en [Acceso de invitado en grupos de Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>¿Puedo hacer que un usuario invitado sea un administrador limitado?
 Totalmente. Para más información, consulte [Asignación de roles de administrador en la versión preliminar de Azure Active Directory](add-guest-to-role.md).

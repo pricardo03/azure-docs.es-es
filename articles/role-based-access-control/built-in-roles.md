@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c5624de13d5d31320beb85aff67c61addaffcbea
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437933"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136849"
 ---
 # <a name="built-in-roles-in-azure"></a>Roles integrados de Azure
 El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
@@ -28,7 +28,7 @@ El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definicion
 Los roles integrados siempre están en evolución. Para obtener las últimas definiciones de roles, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descripciones de rol integrado
-En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre del rol para ver la lista de `actions`, `notActions`, `dataActions` y `notDataActions` para cada rol.
+En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol.
 
 
 | Rol integrado | DESCRIPCIÓN |
@@ -78,6 +78,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Operador de aplicación lógica](#logic-app-operator) | Le permite leer, habilitar y deshabilitar aplicaciones lógicas. |
 | [Colaborador de identidad administrada](#managed-identity-contributor) | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. |
 | [Operador de identidad administrada](#managed-identity-operator) | Le permite leer y asignar identidades asignadas por el usuario. |
+| [Colaborador de grupo de administración](#management-group-contributor) | Rol de colaborador de grupo de administración |
+| [Lector de grupo de administración](#management-group-reader) | Rol de lector de grupo de administración |
 | [Colaborador de supervisión](#monitoring-contributor) | Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Lector de supervisión](#monitoring-reader) | Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Colaborador de la red](#network-contributor) | Permite administrar redes, pero no acceder a ellas. |
@@ -617,7 +619,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | Une la red virtual. |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | Obtiene la red virtual. |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | Devuelve el disco de la cuenta de almacenamiento. |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | Devuelve la imagen de la cuenta de almacenamiento. |
+> | Microsoft.ClassicStorage/storageAccounts/images/read | Devuelve la imagen de la cuenta de almacenamiento. (En desuso. Use "Microsoft.ClassicStorage/storageAccounts/vmImages"). |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Enumera las claves de acceso de las cuentas de almacenamiento. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Devuelve la cuenta de almacenamiento con la cuenta especificada. |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
@@ -826,6 +828,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Crea un laboratorio en una cuenta de laboratorio. |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtenga información sobre la disponibilidad regional para cada categoría de tamaño en una cuenta de laboratorio. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
@@ -947,6 +950,28 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
+## <a name="management-group-contributor"></a>Colaborador de grupo de administración
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Rol de colaborador de grupo de administración |
+> | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | **Acciones** |  |
+> | Microsoft.Management/managementGroups/delete | Elimina un grupo de administración. |
+> | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
+> | Microsoft.Management/managementGroups/subscriptions/delete | Anula la asociación de la suscripción con el grupo de administración. |
+> | Microsoft.Management/managementGroups/subscriptions/write | Asocia la suscripción existente con el grupo de administración. |
+> | Microsoft.Management/managementGroups/write | Crea o actualiza un grupo de administración. |
+
+## <a name="management-group-reader"></a>Lector de grupo de administración
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Rol de lector de grupo de administración |
+> | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
+> | **Acciones** |  |
+> | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
+
 ## <a name="monitoring-contributor"></a>Colaborador de supervisión
 > [!div class="mx-tableFixed"]
 > | | |
@@ -957,18 +982,18 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
+> | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/AlertRules/* | Reglas de alerta de lectura, escritura y eliminación. |
 > | Microsoft.Insights/components/* | Leer, escribir o eliminar los componentes de Application Insights. |
 > | Microsoft.Insights/DiagnosticSettings/* | Configuración de diagnóstico de lectura, escritura y eliminación. |
 > | Microsoft.Insights/eventtypes/* | Enumerar eventos del registro de actividades (eventos de administración) de una suscripción. Este permiso es aplicable para el acceso mediante programación y mediante el portal al registro de actividades. |
 > | Microsoft.Insights/LogDefinitions/* | Este permiso es necesario para los usuarios que necesitan acceder a registros de actividades a través del portal. Enumere las categorías de registro del registro de actividad. |
+> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Leer definiciones de métrica (lista de tipos de métricas disponibles para un recurso). |
 > | Microsoft.Insights/Metrics/* | Leer las métricas de un recurso. |
-> | Microsoft.Insights/Register/Action | Registra el proveedor de Microsoft Insights |
-> | Microsoft.Insights/webtests/* | Leer, escribir o eliminar pruebas web de Application Insights. |
-> | Microsoft.Insights/actiongroups/* |  |
-> | Microsoft.Insights/metricalerts/* |  |
+> | Microsoft.Insights/Register/Action | Registrar el proveedor de Microsoft Insights. |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.Insights/webtests/* | Leer, escribir o eliminar pruebas web de Application Insights. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Leer, escribir o eliminar paquetes de soluciones de Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Leer, escribir o eliminar búsquedas guardadas de Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Ejecuta una consulta de búsqueda |
@@ -976,6 +1001,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Leer, escribir o eliminar configuraciones de visión de almacenamiento de Log Analytics. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-reader"></a>Lector de supervisión
 > [!div class="mx-tableFixed"]
@@ -1223,7 +1249,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Actualiza el proveedor |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Lee todas las clasificaciones de almacenamiento |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Lee todas las asignaciones de clasificaciones de almacenamiento |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Lee todos los vCenters |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Lee todos los vCenters. |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/* | Crea y administra los trabajos de replicación |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Lee todas las directivas |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Plan de recuperación de confirmación de la conmutación por error |
@@ -1274,7 +1300,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Lee todos los proveedores de Recovery Services |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Lee todas las clasificaciones de almacenamiento |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Lee todas las asignaciones de clasificaciones de almacenamiento |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Lee todos los vCenters |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Lee todos los vCenters. |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/read | Lee todos los trabajos |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Lee todas las directivas |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Lee todos los planes de recuperación |

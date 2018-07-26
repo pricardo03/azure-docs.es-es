@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644443"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036775"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database 
 
@@ -50,6 +50,9 @@ Si va a conectarse desde fuera de Azure, las conexiones tienen una directiva de 
 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
+> [!IMPORTANT]
+> Al usar los puntos de conexión de servicio con Azure SQL Database, de forma predeterminada la directiva es **Redirigir**. Por tanto, para habilitar la conectividad desde dentro de la red virtual, debe permitir el tráfico saliente a todas las direcciones IP de Azure SQL Database, no solo a las direcciones IP de puerta de enlace. Esto puede hacerse con la ayuda de las etiquetas de servicio del NSG (grupo de seguridad de red); si quiere permitir el tráfico saliente solo a las direcciones IP de puerta de enlace, cambie la configuración a **Proxy**.
+
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure SQL Database
 
 Para conectarse a una base de datos SQL de Azure desde recursos locales, debe permitir el tráfico de red saliente a la puerta de enlace de Azure SQL Database en su región de Azure. Las conexiones solo se establecen a través de la puerta de enlace al conectarse en modo de proxy, que es el valor predeterminado para conexiones desde recursos locales.
@@ -63,7 +66,7 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 | Sur de Brasil | 104.41.11.5 | |
 | Centro de Canadá | 40.85.224.249 | |
 | Este de Canadá | 40.86.226.166 | |
-| Central EE. UU: | 23.99.160.139 | 13.67.215.62 |
+| Centro de EE. UU. | 23.99.160.139 | 13.67.215.62 |
 | Asia oriental | 191.234.2.139 | 52.175.33.150 |
 | Este de EE. UU. 1 | 191.238.6.43 | 40.121.158.30 |
 | Este de EE. UU. 2 | 191.239.224.107 | 40.79.84.180 * |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 474efbf3a9255e4699c27c6b0bfcc30ff54c4b45
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971458"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125766"
 ---
 # <a name="what-is-the-team-data-science-process"></a>¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 
@@ -67,7 +67,7 @@ En el tema [Team Data Science Process lifecycle](lifecycle.md) (Ciclo de vida de
 
 En el siguiente diagrama se proporciona una vista de cuadrícula de las tareas (en azul) y los artefactos (en verde) asociados con cada fase del ciclo de vida (eje horizontal) de estos roles (eje vertical). 
 
-![Roles y tareas de TDSP](./media/overview/tdsp-tasks-by-roles.png)
+[ ![Roles y tareas de TDSP](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Estructura de proyecto estandarizada
 
@@ -81,7 +81,7 @@ Se proporcionan plantillas para la estructura de carpetas y los documentos neces
 - métricas de rendimiento de modelo, como curvas ROC o MSE
 
 
-![Directorios de TDSP](./media/overview/tdsp-dir-structure.png)
+[ ![Directorios de TDSP](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
 La estructura de directorio se puede clonar desde [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -98,7 +98,7 @@ La infraestructura de análisis y almacenamiento puede estar en la nube o en el 
 
 Este es un ejemplo de un equipo que trabaja en varios proyectos y que comparte diversos componentes de la infraestructura de análisis.
 
-![Infraestructura de TDSP](./media/overview/tdsp-analytics-infra.png)
+[ ![Infraestructura de TDSP](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Herramientas y utilidades para la ejecución de proyectos

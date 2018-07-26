@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 645fa89bede1311215f1d67c64a2388e4de5c1b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38305903"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044890"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implementación del proveedor de recursos MySQL en Azure Stack
 
 Use el proveedor de recursos MySQL Server de Azure Stack para exponer las bases de datos MySQL como un servicio de Azure Stack. El proveedor de recursos MySQL se ejecuta como un servicio en una máquina virtual (VM) Server Core de Windows Server 2016.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Hay varios requisitos previos que se deben cumplir antes de implementar el proveedor de recursos MySQL en Azure Stack. Para cumplir estos requisitos, realice los pasos de este artículo en un equipo que pueda acceder a la máquina virtual de punto de conexión con privilegios.
 
@@ -33,30 +33,37 @@ Hay varios requisitos previos que se deben cumplir antes de implementar el prove
 * Debe instalar los módulos de Azure y Azure Stack PowerShell en el sistema donde se ejecutará esta instalación. Dicho sistema debe ser una imagen de Windows 10 o Windows Server 2016 con la versión más reciente del entorno de ejecución de .NET. Consulte [Instalación de PowerShell para Azure Stack](.\azure-stack-powershell-install.md).
 * Agregue la máquina virtual Windows Server Core a Marketplace de Azure Stack mediante la descarga de la imagen **Windows Server 2016 Datacenter - Server Core**.
 
-  >[!NOTE]
-  >Si tiene que instalar una actualización de Windows, puede colocar un único paquete MSU en la ruta de acceso local de la dependencia. Si hay más de un archivo .MSU, se produce un error al instalar el proveedor de recursos MySQL.
-
 * Descargue el archivo binario del proveedor de recursos MySQL y ejecute el extractor automático para extraer el contenido en un directorio temporal.
 
   >[!NOTE]
   >Para implementar el proveedor MySQL en un sistema sin acceso a Internet, copie el archivo [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) en una ruta de acceso local. Proporcione el nombre de ruta de acceso mediante el parámetro **DependencyFilesLocalPath**.
 
-* El proveedor de recursos tiene una compilación mínima correspondiente de Azure Stack. Asegúrese de descargar el archivo binario correcto para la versión de Azure Stack que ejecuta.
+* El proveedor de recursos tiene una compilación mínima correspondiente de Azure Stack. Asegúrese de descargar el archivo binario correcto para la versión de Azure Stack que ejecuta:
 
     | Versión de Azure Stack | MySQL RP, versión|
     | --- | --- |
     | Versión 1804 (1.0.180513.1)|[MySQL RP, versión 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Versión 1802 (1.0.180302.1) | [MySQL RP, versión 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | Versión 1802 (1.0.180302.1) | [MySQL RP, versión 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
+    |     |     |
+
+- Asegúrese de que se cumplen los requisitos previos de la integración del centro de datos:
+
+    |Requisito previo|Referencia|
+    |-----|-----|
+    |El reenvío condicional de DNS se ha establecido correctamente.|[Integración del centro de datos de Azure Stack: DNS](azure-stack-integrate-dns.md)|
+    |Los puertos de entrada para los proveedores de recursos están abiertos.|[Integración del centro de datos de Azure Stack: publicar puntos de conexión](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |Se han establecido correctamente el SAN y el asunto del certificado.|[Requisitos previos de PKI obligatorios de implementación de Azure Stack](azure-stack-pki-certs.md#mandatory-certificates)<br>[Requisitos previos de certificado de PaaS de implementación de Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certificados
 
-_Solo para las instalaciones de sistemas integrados._. Debe proporcionar el certificado PKI de PaaS de SQL que se describe en la sección de certificados de PaaS opcionales de los [requisitos de PKI de la implementación de Azure Stack](.\azure-stack-pki-certs.md#optional-paas-certificates). Coloque el archivo .pfx en la ubicación especificada por el parámetro **DependencyFilesLocalPath**. No proporcione un certificado para los sistemas ASDK.
+_Solo para las instalaciones de sistemas integrados_. Debe proporcionar el certificado PKI de PaaS de SQL que se describe en la sección de certificados de PaaS opcionales de los [requisitos de PKI de la implementación de Azure Stack](.\azure-stack-pki-certs.md#optional-paas-certificates). Coloque el archivo .pfx en la ubicación especificada por el parámetro **DependencyFilesLocalPath**. No proporcione un certificado para los sistemas ASDK.
 
 ## <a name="deploy-the-resource-provider"></a>Implementar el proveedor de recursos
 
 Una vez instalados todos los requisitos previos, ejecute el script **DeployMySqlProvider.ps1** para implementar el proveedor de recursos MYSQL. El script DeployMySqlProvider.ps1 se extrae como parte del archivo binario del proveedor de recursos MySQL descargado para su versión de Azure Stack.
 
-Para implementar el proveedor de recursos MySQL, abra una nueva ventana de consola de PowerShell con privilegios elevados y cambie al directorio en el que ha extraído los archivos binarios del proveedor de recursos MySQL. Se recomienda usar una nueva ventana de PowerShell para evitar posibles problemas ocasionados por los módulos de PowerShell que ya están cargados.
+Para implementar el proveedor de recursos de MySQL, abra una nueva ventana de PowerShell con privilegios elevados (no de PowerShell ISE) y cambie al directorio en el que ha extraído los archivos binarios del proveedor de recursos de MySQL. Se recomienda usar una nueva ventana de PowerShell para evitar posibles problemas ocasionados por los módulos de PowerShell que ya están cargados.
 
 Ejecute el script **DeployMySqlProvider.ps1**, que realiza las tareas siguientes:
 
@@ -65,8 +72,7 @@ Ejecute el script **DeployMySqlProvider.ps1**, que realiza las tareas siguientes
 * Publica un paquete de galería para implementar los servidores de hospedaje.
 * Implementa una máquina virtual mediante la imagen principal de Windows Server 2016 descargada y, luego, instala el proveedor de recursos MySQL.
 * Registra un registro de DNS local que se asigna a la VM del proveedor de recursos.
-* Registra el proveedor de recursos en la instancia local de Azure Resource Manager para las cuentas de usuario y operador.
-* Opcionalmente, instala una única actualización de Windows Server durante la instalación del proveedor de recursos.
+* Registra el proveedor de recursos en la instancia local de Azure Resource Manager para las cuentas de operador.
 
 > [!NOTE]
 > Cuando se inicia la implementación del proveedor de recursos MySQL, se crea el grupo de recursos **system.local.mysqladapter**. Las implementaciones necesarias de este grupo de recursos pueden tardar hasta 75 minutos en finalizar.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 12a3c4556de21bb0c0dd6b09458943fb03092532
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866134"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068634"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Linux
 
@@ -101,7 +101,7 @@ Los siguientes valores se devuelven en MaintenanceRedeployStatus:
 La siguiente llamada iniciará el mantenimiento en una máquina virtual si `IsCustomerInitiatedMaintenanceAllowed` está establecido en true.
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
@@ -160,7 +160,7 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **P: ¿Cuál es la experiencia en el caso de los conjuntos de escalado de máquinas virtuales?**
 
-**R:** El mantenimiento planeado está ahora disponible para los conjuntos de escalado de máquinas virtuales. Para obtener instrucciones sobre cómo iniciar el mantenimiento de autoservicio, consulte la sección sobre cómo administrar el mantenimiento planeado en los documentos de los conjuntos de escalado de máquinas virtuales.
+**R:** El mantenimiento planeado está ahora disponible para los conjuntos de escalado de máquinas virtuales. Para obtener instrucciones sobre cómo iniciar el mantenimiento de autoservicio, consulte el documento [mantenimiento planeado de VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
 
 **P: ¿Cómo es en el caso de Cloud Services (roles de trabajo o web) y Service Fabric?**
 

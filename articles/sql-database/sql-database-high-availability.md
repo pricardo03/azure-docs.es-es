@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2283b7559bb0dc7e8333949a8e6382d562162123
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060391"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092494"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 
@@ -46,21 +46,18 @@ En el modelo Premium, Azure SQL Database integra el proceso y el almacenamiento 
 
 La alta disponibilidad se implementa mediante [Grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) estándar. Cada base de datos es un clúster de nodos de base de datos con una base de datos principal, a la que se puede acceder para la carga de trabajo de cliente, y algunos procesos secundarios que contienen copias de datos. El nodo principal inserta constantemente los cambios a los nodos secundarios para garantizar que los datos estén disponibles en réplicas secundarias si el nodo principal se bloquea por cualquier motivo. El Motor de base de datos de SQL Server controla la conmutación por error: una réplica secundaria se convierte en el nodo principal y se crea una nueva réplica secundaria para garantizar que hay suficientes nodos en el clúster. La carga de trabajo se redirige automáticamente al nuevo nodo principal. El tiempo de conmutación por error se mide en milisegundos y la nueva instancia principal está lista inmediatamente para seguir atendiendo las solicitudes.
 
-## <a name="zone-redundant-configuration-preview"></a>Configuración de redundancia de zona (versión preliminar)
+## <a name="zone-redundant-configuration"></a>Configuración de redundancia de zona
 
-De forma predeterminada, se crean las réplicas del conjunto de cuórum para las configuraciones de almacenamiento local en el mismo centro de datos. Con la incorporación de las [zonas de disponibilidad de Azure](../availability-zones/az-overview.md), podrá colocar las diferentes réplicas de los conjuntos de cuórum en zonas de disponibilidad diferentes de la misma región. Para eliminar un punto de error único, también se duplica el anillo de control en varias zonas como tres anillos de puerta de enlace. El enrutamiento a un anillo de puerta de enlace específico se controla mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Como la configuración de redundancia de zona no crea una redundancia de base de datos adicional, el uso de zonas de disponibilidad en los niveles de servicio Premium y Crítico para la empresa (versión preliminar) está disponible sin ningún costo adicional. Si selecciona una base de datos con redundancia de zona, puede hacer que las bases de datos de los niveles Premium o Crítico para la empresa (versión preliminar) sean capaces de resistir a un número mucho mayor de errores, como a interrupciones catastróficas de los centros de datos, sin necesidad de cambiar la lógica de la aplicación. También puede aplicar la configuración de redundancia de zona a cualquier grupo (versión preliminar) o base de datos existente del nivel Premium o Crítico para la empresa.
+De forma predeterminada, se crean las réplicas del conjunto de cuórum para las configuraciones de almacenamiento local en el mismo centro de datos. Con la incorporación de las [zonas de disponibilidad de Azure](../availability-zones/az-overview.md), podrá colocar las diferentes réplicas de los conjuntos de cuórum en zonas de disponibilidad diferentes de la misma región. Para eliminar un punto de error único, también se duplica el anillo de control en varias zonas como tres anillos de puerta de enlace. El enrutamiento a un anillo de puerta de enlace específico se controla mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Como la configuración de redundancia de zona no crea una redundancia de base de datos adicional, el uso de Availability Zones en los niveles de servicio Premium y Crítico para la empresa está disponible sin ningún costo adicional. Si selecciona una base de datos con redundancia de zona, puede hacer que las bases de datos de los niveles Premium o Crítico para la empresa sean capaces de resistir a un número mucho mayor de errores, como a interrupciones catastróficas de los centros de datos, sin necesidad de cambiar la lógica de la aplicación. También puede aplicar la configuración de redundancia de zona a cualquier grupo o base de datos existente del nivel Premium o Crítico para la empresa.
 
 Como el conjunto de cuórum con redundancia de zona tiene réplicas en distintos centros de datos situados a cierta distancia entre ellos, la mayor latencia de red puede aumentar el tiempo de confirmación y, por lo tanto, afectar al rendimiento de algunas cargas de trabajo OLTP. Siempre puede volver a la configuración de zona única; para ello, deshabilite la configuración de redundancia de zona. Este proceso es una operación de tamaño de datos y es similar a la actualización del objetivo de nivel de servicio (SLO) normal. Al final del proceso, la base de datos o el grupo se migra desde un anillo con redundancia de zona a un anillo de zona única, o viceversa.
-
-> [!IMPORTANT]
-> Las bases de datos con redundancia de zona y los grupos elásticos actualmente solo se admiten en el nivel de servicio Premium. Durante la versión preliminar pública, las copias de seguridad y los registros de auditoría se almacenan en un almacenamiento RA-GRS y, por lo tanto, podrían no estar disponibles automáticamente en el caso de una interrupción que afecte a toda la zona. 
 
 En el diagrama siguiente se ilustra la versión con redundancia de zona de la arquitectura de alta disponibilidad:
  
 ![arquitectura de alta disponibilidad con redundancia de zona](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Escalado horizontal de lectura
-Tal y como se indicó anteriormente, los niveles de servicio Premium y Crítico para la empresa (versión preliminar) utilizan conjuntos de cuórum y la tecnología Always On para tener una alta disponibilidad tanto en las configuraciones de una sola zona como en las configuraciones con redundancia de zona. Una de las ventajas de Always On es que las réplicas siempre tienen un estado coherente en lo que respecta a las transacciones. Como las réplicas tienen el mismo nivel de rendimiento que la instancia principal, la aplicación puede aprovechar esta capacidad adicional para dar servicio a las cargas de trabajo de solo lectura sin ningún costo adicional (escalado horizontal de lectura). De este modo, las consultas de solo lectura se aislarán de la carga de trabajo principal de lectura y escritura y no afectarán a su rendimiento. La característica de escalado horizontal de lectura se ha diseñado para las aplicaciones que tienen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, pueden utilizar esta capacidad adicional sin necesidad de conectarse a la instancia principal. 
+Tal y como se ha indicado anteriormente, los niveles de servicio Premium y Crítico para la empresa usan conjuntos de cuórum y la tecnología Always On para tener una alta disponibilidad tanto en las configuraciones de una sola zona como en las configuraciones con redundancia de zona. Una de las ventajas de Always On es que las réplicas siempre tienen un estado coherente en lo que respecta a las transacciones. Como las réplicas tienen el mismo nivel de rendimiento que la instancia principal, la aplicación puede aprovechar esta capacidad adicional para dar servicio a las cargas de trabajo de solo lectura sin ningún costo adicional (escalado horizontal de lectura). De este modo, las consultas de solo lectura se aislarán de la carga de trabajo principal de lectura y escritura y no afectarán a su rendimiento. La característica de escalado horizontal de lectura se ha diseñado para las aplicaciones que tienen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, pueden utilizar esta capacidad adicional sin necesidad de conectarse a la instancia principal. 
 
 Para usar la característica de escalado de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También hacerlo más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager.
 

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 01f213c7cf5f6be3ef84601a50bb4455422faf22
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 5503ffaf8a429221a0a0730fc999cb7a90f43785
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311189"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092127"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools-preview"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para grupos elásticos (versión preliminar)
+# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para grupos elásticos
 
 En este artículo se proporcionan los límites de recursos detallados para grupos elásticos y bases de datos agrupadas de Azure SQL Database que utilizan el modelo de compra basado en núcleos virtuales.
 
@@ -38,7 +38,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Tamaño máximo de datos (GB)|512|756|1536|2048|3584|4096|
@@ -62,7 +62,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |Generación de H/W|5|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Tamaño máximo de datos (GB)|512|756|1536|2048|3072|4096|4096|4096|
@@ -88,7 +88,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento OLTP en memoria (GB)|1|2|4|8|20|36|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
@@ -102,7 +102,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |Número mín./máx. de clics para detener del grupo elástico|N/D|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Número de réplicas|3|3|3|3|3|3|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
@@ -112,7 +112,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |Generación de H/W|5|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento OLTP en memoria (GB)|1571|3142|6284|15 768|25 252|37 936|52.22|131,64|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
@@ -126,7 +126,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |Número mín./máx. de clics para detener del grupo elástico|N/D|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Número de réplicas|3|3|3|3|3|3|3|3|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 

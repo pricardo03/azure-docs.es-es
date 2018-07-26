@@ -9,54 +9,41 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/08/2018
+ms.topic: conceptual
+ms.reviewer: cawa
+ms.date: 07/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e4712b94be94eb6d4cf363fc120b72c74f29f0a2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936732"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057927"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Generación de perfiles de aplicaciones web de Azure activas con Application Insights
 
-*Esta característica de Azure Application Insights está disponible generalmente para la función Web Apps de Azure App Service y se encuentra en versión preliminar para los recursos de proceso de Azure. Más información relacionada con el [uso local del generador de perfiles](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
+Esta característica de Azure Application Insights está disponible generalmente para la característica Web Apps de Azure App Service y se encuentra en versión preliminar para los recursos de proceso de Azure. Más información relacionada con el [uso local del generador de perfiles](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 En este artículo se habla de la cantidad de tiempo que se emplea en cada método de su aplicación web activa al usar [Application Insights](app-insights-overview.md). La herramienta Application Insights Profiler muestra perfiles detallados de solicitudes dinámicas que atendió su aplicación. Profiler resalta la *ruta de acceso activa* que más tiempo emplea. El perfil de las solicitudes con diferentes tiempos de respuesta se genera por muestreo. Gracias al uso de diversas técnicas, puede minimizar la sobrecarga asociada a la aplicación.
 
 Actualmente, Profiler puede usarse con aplicaciones web ASP.NET y ASP.NET Core que se ejecutan en Web Apps. Es necesario disponer del nivel de servicio Básico o superior para poder utilizar Profiler.
 
-## <a id="installation"></a> Habilitación de Profiler para su aplicación web de Web Apps
-Si ya tiene la aplicación publicada en una aplicación web, pero no ha hecho nada en el código fuente para usar Application Insights, siga estos pasos:
+## <a id="installation"></a> Habilitación de Profiler para su instancia de Web Apps
+
+Una vez que ha implementado una aplicación web, con independencia de si ha incluido el SDK de App Insights en el código fuente, haga lo siguiente:
+
 1. Vaya al panel **App Services** en Azure Portal.
-2. En **Supervisión**, seleccione **Application Insights** y, a continuación, siga las instrucciones del panel para crear un nuevo recurso o seleccione un recurso de Application Insights existente para supervisar su aplicación web.
+2. Vaya al panel **Configuración > Supervisión**.
 
-   ![Habilitación de App Insights en el portal de App Services][appinsights-in-appservices]
+   ![Habilitación de App Insights en el portal de App Services](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-3. Si tiene acceso al código fuente del proyecto, [instale Application Insights](app-insights-asp-net.md).  
-   Si ya está instalado, asegúrese de que tiene la última versión. Para comprobar la versión más reciente, en el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, a continuación, seleccione **Administrar paquetes NuGet** > **Actualizaciones** > **Actualizar todo paquetes**. A continuación, implemente la aplicación.
+3. Siga las instrucciones que aparecen en el panel para crear un recurso o seleccione un recurso de App Insights existente para supervisar la aplicación web. Acepte todas las opciones predeterminadas. La opción **Diagnósticos de nivel de código** está activada de forma predeterminada y permite Profiler.
 
-Las aplicaciones de ASP.NET Core necesitan instalar el paquete NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o una versión posterior para funcionar con Profiler. Desde el 27 de junio de 2017, no se admiten versiones anteriores.
+   ![Adición de la extensión de sitio de App Insights][Enablement UI]
 
-1. En [https://portal.azure.com](https://portal.azure.com), abra el recurso Application Insights para su aplicación web. 
-2. Seleccione **Rendimiento** > **Habilitar Application Insights Profiler**.
+4. Profiler se instala ahora con la extensión de sitio de App Insights y se habilita mediante un valor de configuración de aplicación de App Services.
 
-   ![Selección del banner Habilitar Profiler][enable-profiler-banner]
-
-3. Si lo desea, también puede seleccionar la opción de configuración **Profiler** para ver el estado y habilitar o deshabilitar Profiler.
-
-   ![Selección de configuración de Profiler][performance-blade]
-
-   Las aplicaciones web que se configuran con Application Insights se muestran en el panel de configuración de **Profiler**. Si ha seguido los pasos descritos anteriormente, el agente de Profiler debería estar instalado. 
-
-4. En el panel de configuración **Profiler**, seleccione **Habilitar Profiler**.
-
-5. Si es necesario, siga las instrucciones para instalar al agente de Profiler. Si no hay ninguna aplicación web configurada con Application Insights, seleccione **Agregar aplicaciones vinculadas**.
-
-   ![Configuración de las opciones del panel][linked app services]
-
-A diferencia de las aplicaciones web hospedadas mediante planes de Web Apps, las que se hospedan en recursos de proceso de Azure (por ejemplo, Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Azure Service Fabric o Azure Cloud Services) no se administran directamente mediante Azure. En este caso, no hay ninguna aplicación web a la que vincularlas. En lugar de vincularlas a una aplicación, seleccione el botón **Habilitar Profiler**.
+    ![Configuración de aplicación de Profiler][profiler-app-setting]
 
 ### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Habilitación de Profiler para recursos de proceso de Azure (versión preliminar)
 
@@ -88,43 +75,55 @@ Profiler de servicio de Microsoft usa una combinación de método de muestreo e 
 La pila de llamadas que se muestra en la vista de escala de tiempo es el resultado del muestreo y la instrumentación. Como cada muestra captura la pila de llamadas completa del subproceso, incluye código de Microsoft .NET Framework y de otros marcos a los que se haga referencia.
 
 ### <a id="jitnewobj"></a>Asignación de objetos (clr!JIT\_New o clr!JIT\_Newarr1)
+
 **clr!JIT\_New** y **clr!JIT\_Newarr1** son funciones auxiliares de .NET Framework que asignan memoria desde un salto administrado. **clr!JIT\_New** se invoca cuando se asigna un objeto. **clr!JIT\_Newarr1** se invoca cuando se asigna una matriz de objetos. Estas dos funciones suelen ser rápidas y tardan relativamente poco tiempo. Si observa que **clr!JIT\_New** o **clr!JIT\_Newarr1** tardan más de lo normal, significa que el código podría estar asignando muchos objetos y consumiendo una importante cantidad de memoria.
 
 ### <a id="theprestub"></a>Código de carga (clr!ThePreStub)
+
 **clr!ThePreStub** es una función auxiliar de .NET Framework que prepara el código para ejecutarse por primera vez. Suele incluir, pero sin limitarse a ello, la compilación JIT (Just-In-Time). Para cada método de C#, se debe invocar **clr!ThePreStub** al menos una vez mientras dura un proceso.
 
 Si **clr!ThePreStub** se lleva una cantidad considerable de tiempo con una solicitud, significa que la solicitud es la primera que ejecuta ese método. El entorno de ejecución de .NET Framework tarda un tiempo considerable en cargar el primer método. Podría plantearse la posibilidad de usar un proceso de preparación que ejecute esa parte del código antes de que los usuarios accedan a él, o bien ejecutar el Generador de imágenes nativo (ngen.exe) en sus ensamblados.
 
 ### <a id="lockcontention"></a>Contención de bloqueo (clr!JITutil\_MonContention o clr!JITutil\_MonEnterWorker)
+
 **clr!JITutil\_MonContention** o **clr!JITutil\_MonEnterWorker** indican que el subproceso actual está a la espera de que se libere un bloqueo. Este texto se muestra normalmente al ejecutar una instrucción **LOCK** de C#, al invocar el método **Monitor.Enter** o al invocar un método con el atributo **MethodImplOptions.Synchronized**. La contención de bloqueo se produce normalmente cuando un subproceso _A_ adquiere un bloqueo y un subproceso _B_ intenta adquirir el mismo bloqueo antes de que el subproceso _A_ lo libere.
 
 ### <a id="ngencold"></a>Código de carga ([COLD])
+
 Si el nombre del método contiene **[COLD]**, por ejemplo, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, significa que el entorno de tiempo de ejecución de .NET Framework es la primera vez que ejecuta código que no está optimizado mediante <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">profile-guided optimization</a>. Para cada método, debe presentarse como máximo una vez durante todo el proceso.
 
 Si el código de carga tarda una cantidad de tiempo considerable con una solicitud, significa que la solicitud es la primera en ejecutar la parte no optimizada del método. Considere la posibilidad de usar un proceso de preparación que ejecute esa parte del código antes de que los usuarios accedan e él.
 
 ### <a id="httpclientsend"></a>Envío de una solicitud HTTP
+
 Métodos como **HttpClient.Send** indican que el código está esperando a que finalice una solicitud HTTP.
 
 ### <a id="sqlcommand"></a>Operación de base de datos
+
 Métodos como **SqlCommand.Execute** indican que el código está a la espera de que finalice una operación de base de datos.
 
 ### <a id="await"></a>Espera (AWAIT\_TIME)
+
 **AWAIT\_TIME** indica que el código está a la espera de que finalice otra tarea. Esto sucede normalmente con la instrucción **AWAIT** de C#. Cuando el código efectúa una instrucción **AWAIT** de C#, el subproceso se desenreda y devuelve el control al grupo de subprocesos, y no hay ningún subproceso bloqueado a la espera de que finalice la **AWAIT**. Pero, lógicamente, el subproceso que realizó **AWAIT** está "bloqueado" a la espera de que finalice la operación. La instrucción **AWAIT\_TIME** indica el tiempo de bloqueo a la espera de que finalice la tarea.
 
 ### <a id="block"></a>Tiempo de bloqueo
+
 **BLOCKED_TIME** indica que el código está a la espera de que otro recurso esté disponible. Por ejemplo, podría estar esperando un objeto de sincronización, a que un subproceso esté disponible o a que termine una solicitud.
 
 ### <a id="cpu"></a>Tiempo de CPU
+
 La CPU está ocupada ejecutando las instrucciones.
 
 ### <a id="disk"></a>Tiempo de disco
+
 La aplicación está ejecutando operaciones de disco.
 
 ### <a id="network"></a>Tiempo de red
+
 La aplicación está ejecutando operaciones de red.
 
 ### <a id="when"></a>Columna Cuándo
+
 La columna **Cuándo** es una visualización de cómo varían con el tiempo las muestras INCLUSIVAS recopiladas para un nodo. El intervalo total de la solicitud se divide en 32 depósitos de tiempo. Las muestras inclusivas para ese nodo se acumulan en esos 32 depósitos. Cada depósito se representa con una barra. El alto de la barra representa un valor escalado. En el caso de nodos marcados **CPU_TIME** o **BLOCKED_TIME**, o cuando existe una relación obvia de consumo de un recurso (por ejemplo, CPU, disco o subproceso), la barra representa el consumo de uno de esos recursos durante el período de tiempo de ese depósito. Para estas métricas, puede obtener un valor superior al 100 % si consume varios recursos. Por ejemplo, si por término medio usa dos CPU a lo largo de un intervalo, consigue el 200 %.
 
 ## <a name="limitations"></a>Limitaciones
@@ -140,6 +139,7 @@ Profiler se ejecuta de manera aleatoria dos minutos cada hora en cada máquina v
 Cuantos más servidores haya disponibles para hospedar la aplicación, menor será el impacto de Profiler en el rendimiento general de la aplicación. El motivo es que el algoritmo de muestreo da lugar a que Profiler se ejecute únicamente en un 5 % de los servidores en cualquier momento. Para compensar la sobrecarga del servidor ocasionada por la ejecución de Profiler, hay más servidores disponibles para atender las solicitudes web.
 
 ## <a name="disable-profiler"></a>Deshabilitación de Profiler
+
 Para detener o reiniciar Profiler para una instancia de Web Apps individual, en **Trabajos web**, vaya al recurso de Web Apps. Para eliminar Profiler, vaya a **Extensiones**.
 
 ![Deshabilitación de Profiler para un trabajo web][disable-profiler-webjob]
@@ -209,7 +209,6 @@ Este error se produce si Web Deploy se ejecuta desde scripts o desde la canaliza
 
 Estos parámetros eliminan la carpeta que usa Application Insights Profiler y desbloquea el proceso de reeimplementación. No afectan a la instancia de Profiler actualmente en ejecución.
 
-
 ## <a name="manual-installation"></a>Instalación manual
 
 Cuando se configura Profiler, se realizan las siguientes actualizaciones en la configuración de la aplicación web. Estas actualizaciones se pueden aplicar manualmente si su entorno lo requiere. Un ejemplo podría ser la ejecución de su aplicación en un entorno de Web Apps para PowerApps.
@@ -225,100 +224,92 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 9. Reinicie la aplicación web.
 
 ## <a id="profileondemand"></a> Desencadenamiento manual de Profiler
-Cuando se desarrolló Profiler, se agregó una interfaz de línea de comandos para que fuera posible probarlo en servicios de aplicaciones. Con esta misma interfaz, los usuarios también pueden personalizar cómo se inicia Profiler. A grandes rasgos, Profiler usa el sistema Kudu de Web Apps para administrar la generación de perfiles en segundo plano. Cuando se instala la extensión de Application Insights, se crea un trabajo web continuo que hospeda Profiler. Esta misma tecnología se usa para crear un nuevo trabajo web que se puede personalizar de acuerdo con sus necesidades.
 
-En esta sección se explica cómo:
+Profiler se puede desencadenar manualmente con el clic de un botón. Supongamos que ejecuta una prueba de rendimiento web. Necesitará seguimientos que le ayuden a comprender cómo se ejecuta la aplicación web bajo condiciones de carga. Es fundamental tener control sobre cuándo se capturan los seguimientos, puesto que el usuario sabe cuándo se ejecutará la prueba de carga, pero el intervalo de muestreo aleatorio podría no saberlo.
+Los pasos siguientes ilustran cómo funciona este escenario:
 
-* Crear un trabajo web que puede iniciar Profiler durante dos minutos con la acción de presionar un botón.
-* Crear un trabajo web que puede programar la ejecución de Profiler.
-* Establecer los argumentos de Profiler.
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Opcional) Paso 1: Generación de tráfico a la aplicación web mediante el inicio de una prueba de rendimiento web
 
+Si la aplicación web tiene ya tráfico entrante o simplemente desea generar tráfico manualmente, omita esta sección y continúe con el paso 2.
 
-### <a name="set-up"></a>Instalación
-En primer lugar, es necesario familiarizarse con el panel del trabajo web. En **Configuración**, seleccione la pestaña **WebJobs**.
+Vaya al portal de Application Insights, **Configure > Performance Testing** (Configurar > Prueba de rendimiento). Haga clic en el botón New (Nuevo) para iniciar una nueva prueba de rendimiento.
+![Creación de una prueba de rendimiento][create-performance-test]
 
-![hoja de webjobs](./media/app-insights-profiler/webjobs-blade.png)
+En el panel **New performance test** (Nueva prueba de rendimiento), configure la dirección URL de destino de la prueba. Acepte toda la configuración predeterminada y empiece a ejecutar la prueba de carga.
 
-Como puede ver, en este panel se muestran todos los trabajos web que están instalados actualmente en su sitio. Puede ver que el trabajo web ApplicationInsightsProfiler2 tiene en ejecución el trabajo de Profiler. Aquí es donde creamos nuestros nuevos trabajos web para la generación de perfiles manual y programada.
+![Configuración de la prueba de carga][configure-performance-test]
 
-Para obtener los archivos binarios que necesita, haga lo siguiente:
+Verá que la nueva prueba se pone primero en cola, seguido de un estado de en curso.
 
-1.  En el sitio de Kudu, en la pestaña de **herramientas de desarrollo**, seleccione la pestaña **Herramientas avanzadas** que tiene el logotipo de Kudu y, a continuación, seleccione **Ir**.  
-   Se abre un nuevo sitio e inicia sesión automáticamente.
-2.  Para descargar los archivos binarios de Profiler, vaya al Explorador de archivos a través de **Consola de depuración** > **CMD**, que se encuentra en la parte superior de la página.
-3.  Seleccione **Sitio** > **wwwroot** > **App_Data** > **Trabajos** > **Continuo**.  
-   Verá una carpeta denominada *ApplicationInsightsProfiler2*. 
-4. A la izquierda de la carpeta, seleccione el icono de **descarga**.  
-   Esta acción descargará el archivo *ApplicationInsightsProfiler2.zip*. Se recomienda que cree un directorio limpio a donde mover este archivo zip.
+![La prueba de carga se ha enviado y puesto en cola][load-test-queued]
 
-### <a name="setting-up-the-web-job-archive"></a>Configuración del archivo de trabajo web
-Cuando agrega un nuevo trabajo web al sitio web de Azure, básicamente crea un archivo zip que contiene un archivo *run.cmd*. El archivo *run.cmd* indica qué hacer al sistema de trabajo web cuando se ejecuta el trabajo web.
+![Se está ejecutando la prueba de carga y está en curso][load-test-in-progress]
 
-1.  Cree una nueva carpeta (por ejemplo, *RunProfiler2Minutes*).
-2.  Copie los archivos de la carpeta *ApplicationInsightProfiler2* extraída en esta nueva carpeta.
-3.  Cree un nuevo archivo *run.cmd*.  
-    Para mayor comodidad, puede abrir la carpeta de trabajo en Visual Studio Code antes de empezar.
-4.  En el archivo, agregue el comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`. A continuación se detalla la descripción de los comandos:
+### <a name="step-2-start-profiler-on-demand"></a>Paso 2: Inicio de Profiler a petición
 
-    * `start`: indica a Profiler que se inicie.  
-    * `--engine-mode immediate`: indica a Profiler que empiece a generar perfiles inmediatamente.  
-    * `--single`: indica a Profiler que se ejecute y, a continuación, se detenga automáticamente.  
-    * `--immediate-profiling-duration 120`: indica a Profiler que se ejecute durante 120 segundos o dos minutos.
+Una vez que se está ejecutando la prueba de carga, se puede iniciar Profiler para capturar los seguimientos de la aplicación web mientras se recibe la carga.
+Vaya al panel de configuración de Profiler:
 
-5.  Guarde los cambios.
-6.  Archive la carpeta haciendo clic con el botón derecho en ella y, a continuación, seleccionando **Enviar a** > **Carpeta comprimida (en zip)**.  
-   Esta acción crea un archivo .zip que usa el nombre de la carpeta.
+![Entrada al panel de configuración de Profiler][configure-profiler-entry]
 
-![Comando Start Profiler](./media/app-insights-profiler/start-profiler-command.png)
+En el panel **Configure Profiler** (Configurar Profiler), hay un botón **Profile Now** (Generar perfil ahora) para desencadenar Profiler en todas las instancias de las aplicaciones web vinculadas. Además, se proporciona visibilidad sobre cuándo se ejecutó Profiler en el pasado.
 
-Ahora ha creado un archivo .zip del trabajo web, que puede usar para configurar trabajos web en su sitio.
+![Profiler a petición][profiler-on-demand]
 
-### <a name="add-a-new-web-job"></a>Adición de un nuevo trabajo web
-En esta sección, agregará un nuevo trabajo web en su sitio. En el ejemplo siguiente, veremos cómo se agrega un trabajo web que se ha desencadenado manualmente. Una vez que ha agregado el trabajo web que se ha desencadenado manualmente, el proceso es prácticamente el mismo para un trabajo web programado.
+Verá que la notificación y el estado cambian en el estado de ejecución de Profiler.
 
-1.  Vaya al panel de **trabajos web**.
-2.  En la barra de herramientas, seleccione **Agregar**.
-3.  Asigne un nombre al trabajo web.  
-    Por motivos de claridad, puede resultarle útil utilizar el mismo nombre que el del archivo y abrirlo para diversas versiones del archivo *run.cmd*.
-4.  En el área **Carga de archivos** del formulario, seleccione el icono **Abrir archivo** y, a continuación, busque el archivo .zip que creó en la sección anterior.
+### <a name="step-3-view-traces"></a>El paso 3: Visualización de seguimientos
 
-    a.  En el cuadro **Tipo**, seleccione **Desencadenados**.  
-    b.  En el cuadro **Desencadenadores**, seleccione **Manual**.
+Una vez que termine de ejecutarse Profiler, siga las instrucciones de la notificación para ir a la hoja de rendimiento y ver los seguimientos.
 
-5.  Seleccione **Aceptar**.
+### <a name="troubleshooting-on-demand-profiler"></a>Solución de problemas de Profiler a petición
 
-![Comando Start Profiler](./media/app-insights-profiler/create-webjob.png)
+En ocasiones pude que vea un mensaje de error de tiempo de expiración agotado de Profiler tras una sesión a petición:
 
-### <a name="run-profiler"></a>Ejecución de Profiler
+![Error de tiempo de expiración de Profiler][profiler-timeout]
 
-Ahora que tiene un nuevo trabajo web que puede desencadenar manualmente, puede intentar ejecutarlo siguiendo las instrucciones de esta sección.
+Las causas de este error pueden ser dos:
 
-Por naturaleza, solo se puede tener un proceso *ApplicationInsightsProfiler.exe* en ejecución en una máquina en un momento dado. Así que, antes de empezar, deshabilite el trabajo web *Continuous* desde este panel. 
-1. Seleccione la fila con el nuevo trabajo web y, a continuación, seleccione **Detener**. 
-2. En la barra de herramientas, seleccione **Actualizar** y confirme que el estado indica que el trabajo se ha detenido.
-3. Seleccione la fila con el nuevo trabajo web y, a continuación, seleccione **Ejecutar**.
-4. Con la fila aún seleccionada, en la barra de herramientas, seleccione el comando **Registros**.  
-    Esta acción abre un panel de trabajos web para el nuevo trabajo web que incluye las ejecuciones más recientes y sus resultados.
-5. Seleccione la instancia de la ejecución que acaba de iniciar.  
-    Si ha desencadenado correctamente el nuevo trabajo web, podrá ver algunos registros de diagnóstico procedentes de Profiler que confirman que se ha iniciado la generación de perfiles.
+1. La sesión de Profiler a petición se realizó con éxito, pero Application Insights tardó más tiempo en procesar los datos recopilados. Si los datos no han terminado de procesarse en 15 minutos, el portal mostrará un mensaje de tiempo de expiración. Aunque al cabo de un rato, se mostrarán los seguimientos de Profiler. Si esto sucede, omita el mensaje de error por ahora. Estamos trabajando para corregirlo.
 
-### <a name="things-to-consider"></a>Aspectos que se deben tener en cuenta:
+2. La aplicación web tiene una versión anterior del agente de Profiler que no tiene la característica a petición. Si ha habilitado anteriormente el perfil de Application Insights, lo más probable es que deba actualizar el agente de Profiler para empezar a usar la funcionalidad a petición.
+  
+Siga estos pasos para comprobar e instalar la última versión de Profiler:
 
-Aunque este método es relativamente sencillo, tenga en cuenta lo siguiente:
+1. Vaya a la configuración de aplicación de App Services y compruebe si los siguientes valores están establecidos:
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: reemplace este valor por la clave de instrumentación correcta de Application Insights.
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0. Si alguno de estos valores de configuración no está establecido, vaya al panel de habilitación de Application Insights para instalar la extensión de sitio más reciente.
 
-* Como nuestro servicio no administra su trabajo web, no hay manera de actualizar los archivos binarios del agente para el trabajo web. Actualmente, no disponemos de una página de descarga estable para los archivos binarios, por lo que la única forma de conseguir los más recientes es actualizar la extensión y obtenerla de la carpeta *Continuous*, tal como hizo anteriormente.
+2. Vaya al panel de Application Insights en el portal de App Services.
 
-* Dado que este proceso emplea argumentos de la línea de comandos diseñados originalmente para los desarrolladores en lugar de para los usuarios finales, los argumentos podrían cambiar en el futuro. Tenga en cuenta que pueden producirse cambios durante la actualización. Esto no debería ser un problema, ya que puede agregar un trabajo web, ejecutarlo y probarlo para asegurarse de que funciona. Finalmente, vamos a crear una interfaz de usuario para controlar todo esto sin necesidad de usar un proceso manual.
+    ![Habilitación de Application Insights desde el portal de App Services][enable-app-insights]
 
-* La característica Trabajos web de Web Apps es única. Al ejecutar el trabajo web, se garantiza que el proceso tenga las mismas variables de entorno y la configuración de aplicación que tendrá el sitio web. Esto significa que no es necesario pasar la clave de instrumentación a Profiler a través de la línea de comandos. Profiler debe elegir la clave de instrumentación en el entorno. Sin embargo, si quiere ejecutar Profiler en el cuadro de desarrollo o en una máquina fuera de Web Apps, deberá suministrar una clave de instrumentación. Para ello, pase un argumento `--ikey <instrumentation-key>`. Este valor debe coincidir con la clave de instrumentación que esté usando la aplicación. La salida del registro de Profiler indicará con qué ikey se inició Profiler y si se detectó actividad en esa clave de instrumentación mientras se generaban los perfiles.
+3. Si ve un botón para actualizar en la siguiente página, haga clic en él para actualizar la extensión de sitio de Application Insights que instalará al agente de Profiler más reciente.
+![Actualizar extensión de sitio][update-site-extension]
 
-* Los trabajos web desencadenados manualmente se pueden desencadenar mediante Webhook. Para obtener esta dirección URL, en el panel, haga clic con el botón derecho en el trabajo web y consulte las propiedades. O bien, en la barra de herramientas, puede seleccionar **Propiedades** después de seleccionar el trabajo web en la tabla. Este enfoque le brinda posibilidades ilimitadas, como desencadenar Profiler desde la canalización de CI/CD (como VSTS) o algo parecido a Microsoft Flow (https://flow.microsoft.com/en-us/)). En última instancia, su elección depende del nivel de complejidad que desee otorgar al archivo *run.cmd* (que también puede ser un archivo *run.ps1*), pero la flexibilidad está ahí.
+4. A continuación, haga clic en **Change** (Cambiar) para asegurarse de que Profiler está activado y seleccione **OK** (Aceptar) para guardar los cambios.
+
+    ![Cambiar y guardar información detallada de aplicación][change-and-save-appinsights]
+
+5. Vuelva a la pestaña **App Settings** (Configuración de la aplicación) de App Service para asegurarse de que los elementos de configuración de la aplicación están establecidos:
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: reemplace este valor por la clave de instrumentación correcta de Application Insights.
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+
+    ![Configuración de la aplicación para Profiler][app-settings-for-profiler]
+
+6. Opcionalmente, compruebe la versión de la extensión y asegúrese que no haya ninguna actualización disponible.
+
+    ![Comprobación de actualizaciones de la extensión][check-for-extension-update]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Trabajo con Application Insights en Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
 [appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
+[Enablement UI]: ./media/app-insights-profiler/Enablement_UI.png
+[profiler-app-setting]:./media/app-insights-profiler/profiler-app-setting.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
@@ -329,3 +320,15 @@ Aunque este método es relativamente sencillo, tenga en cuenta lo siguiente:
 [enable-profiler-banner]: ./media/app-insights-profiler/enable-profiler-banner.png
 [disable-profiler-webjob]: ./media/app-insights-profiler/disable-profiler-webjob.png
 [linked app services]: ./media/app-insights-profiler/linked-app-services.png
+[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
+[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
+[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
+[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png

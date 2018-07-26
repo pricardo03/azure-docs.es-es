@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 1a14e1a7c50f458067491a8605a0518056ac0aa8
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311159"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126415"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database-preview"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única (versión preliminar)
+# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única
 
 En este artículo se proporcionan los límites de recursos detallados para bases de datos únicas de Azure SQL Database que utilizan el modelo de compra basado en núcleos virtuales.
 
@@ -34,13 +34,13 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Tamaño máximo de datos (GB)|1024|1024|1536|3072|4096|4096|
 |Tamaño máximo de registro|307|307|461|922|1229|1229|
-|Tamaño de TempDB (DB)|32|64|128|256|384|384|
+|Tamaño de TempDB (GB)|32|64|128|256|384|384|
 |IOPS de destino (64 KB)|500|1000|2000|4000|7000|7000|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|4800|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
@@ -56,13 +56,13 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Tamaño máximo de datos (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Tamaño máximo de registro|307|307|461|614|1229|1229|1229|1229|
-|Tamaño de TempDB (DB)|64|128|256|384|384|384|384|384|
+|Tamaño de TempDB (GB)|64|128|256|384|384|384|384|384|
 |IOPS de destino (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|2400|3200|4000|8000|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -80,19 +80,19 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento OLTP en memoria (GB)|1|2|4|8|20|36|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
 |Tamaño máximo de registro|307|307|307|307|307|307|
-|Tamaño de TempDB (DB)|32|64|128|256|384|384|
+|Tamaño de TempDB (GB)|32|64|128|256|384|384|
 |IOPS de destino (64 KB)|5000|10000|20000|40000|80000|120000|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|4800|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|3|3|3|3|3|3|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
@@ -102,13 +102,13 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Generación de H/W|5|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento OLTP en memoria (GB)|1571|3142|6284|15 768|25 252|37 936|52.22|131,64|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Tamaño máximo de registro|307|307|307|307|614|1229|1229|1229|
-|Tamaño de TempDB (DB)|64|128|256|384|384|384|384|384|
+|Tamaño de TempDB (GB)|64|128|256|384|384|384|384|384|
 |IOPS de destino (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|2400|3200|4000|8000|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|30000|

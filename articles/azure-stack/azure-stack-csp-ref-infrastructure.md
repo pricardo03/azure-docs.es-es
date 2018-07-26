@@ -1,6 +1,6 @@
 ---
 title: Infraestructura de informes de uso para proveedores de servicios en la nube | Microsoft Docs
-description: Azure Stack incluye la infraestructura necesaria para realizar el seguimiento del uso cuando se produce y lo desvía a Azure.
+description: Azure Stack incluye la infraestructura necesaria para realizar el seguimiento del uso para inquilinos a los que proporciona servicio un proveedor de servicios en la nube (CSP) cuando se produce y lo desvía a Azure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: mabrigg
+ms.date: 07/12/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 7fe2a6444e605f388df68803b89643420b19fb54
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e38f0a5e8aa911a168ee7f648692c31ecb44d4dd
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823493"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090615"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Infraestructura de informes de uso para proveedores de servicios en la nube
 
-Azure Stack incluye la infraestructura necesaria para realizar el seguimiento del uso cuando se produce y lo desvía a Azure. En Azure, Azure Commerce procesa los datos de uso y cobra el uso a las suscripciones apropiadas de Azure, de la misma manera que el uso que tiene lugar en la nube global de Azure.
+Azure Stack incluye la infraestructura necesaria para realizar el seguimiento del uso cuando se produce y lo desvía a Azure. En Azure, Azure Commerce procesa los datos de uso y cobra el uso a las suscripciones apropiadas de Azure. Esto sucede de la misma manera que se supervisa el seguimiento del uso que tiene lugar en la nube global de Azure.
 
 Debe tener en cuenta que ciertos conceptos son coherentes entre Azure global y Azure Stack. Azure Stack tiene suscripciones locales, que cumplen un rol similar al de una suscripción de Azure. Las suscripciones locales solo son válidas localmente. Las suscripciones locales se asignan a las suscripciones de Azure cuando uso se desvía a Azure.
 

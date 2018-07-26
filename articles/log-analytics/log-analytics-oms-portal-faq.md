@@ -11,20 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/17/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6479db44681071932ff92ee17ea0aec6518dc74e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128646"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116051"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Preguntas comunes para la transición desde el portal de OMS a Azure Portal para los usuarios de Log Analytics
 Log Analytics inicialmente usaba su propio portal denominado portal de OMS para administrar su configuración y analizar los datos recopilados.  Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose.
 
 En este artículo se ofrecen respuestas a preguntas comunes para los usuarios que realizan esta transición.  Si usó Log Analytics en el portal de OMS, puede encontrar respuestas aquí sobre cómo puede realizar las mismas tareas en Azure Portal.
+
+## <a name="do-i-need-to-migrate-anything"></a>¿Es necesario migrar algo?
+No. No se hace ningún cambio en Log Analytics mismo, por lo que no es necesario migrar nada. Lo único que cambia es la interfaz que usa para acceder. De hecho, puede usar Azure Portal ahora para acceder a las mismas áreas de trabajo, soluciones, vistas y búsquedas de registros que usa actualmente en el portal de OMS.
 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>¿Dónde encuentro Log Analytics en Azure?
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).  Haga clic en **Todos los servicios** y, en la lista de recursos, escriba **Log Analytics**. Seleccione **Log Analytics** y luego elija su área de trabajo. Se muestra la página de resumen para el área de trabajo.

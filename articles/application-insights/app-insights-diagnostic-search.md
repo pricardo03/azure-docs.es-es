@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/18/2018
 ms.author: mbullwin
-ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294391"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136918"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 Búsqueda es una característica de [Application Insights](app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
@@ -26,16 +26,14 @@ Búsqueda es una característica de [Application Insights](app-insights-overview
 (Para consultas más complejas sobre los datos, use [Analytics](app-insights-analytics-tour.md)).
 
 ## <a name="where-do-you-see-search"></a>¿Dónde verá Search?
+
 ### <a name="in-the-azure-portal"></a>En el Portal de Azure
+
 Puede abrir la búsqueda de diagnóstico explícitamente desde la hoja de información general de Application Insights de la aplicación:
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/001.png)
 
-También se abre al hacer clic a través de algunos gráficos y elementos de la cuadrícula. En este caso, los filtros se establecen previamente para centrarse en el tipo de elemento seleccionado. 
-
-Por ejemplo, en la hoja de información general, hay un gráfico de barras de solicitudes clasificadas por tiempo de respuesta. Recorra mediante clic un intervalo de rendimiento para ver una lista de solicitudes individuales en ese intervalo de tiempo de respuesta:
-
-![Recorrido mediante clic del rendimiento de la solicitud](./media/app-insights-diagnostic-search/07-open-from-filters.png)
+![Captura de pantalla de gráficos de búsqueda de diagnóstico](./media/app-insights-diagnostic-search/002.png)
 
 El cuerpo principal de Búsqueda de diagnóstico es una lista de elementos de telemetría: solicitudes de servidor, vistas de página, eventos personalizados que haya codificado, etc. En la parte superior de la lista hay un gráfico de resumen que muestra los recuentos de eventos con el paso del tiempo.
 
@@ -56,9 +54,14 @@ La ventana de búsqueda tiene características similares al portal web:
 La pestaña Track Operation (Seguimiento de operaciones) está disponible cuando se abre una solicitud o una vista de página. Una "operación" es una secuencia de eventos que está asociada a una sola solicitud o vista de página. Por ejemplo, llamadas de dependencia, excepciones, registros de seguimiento y eventos personalizados pueden ser parte de una única operación. La pestaña Track Operation (Seguimiento de operaciones) muestra gráficamente el tiempo y la duración de estos eventos con respecto a la solicitud o vista de página. 
 
 ## <a name="inspect-individual-items"></a>Inspección de elementos individuales
-Seleccione cualquier elemento de telemetría para ver los campos clave y los elementos relacionados. Si desea ver el conjunto completo de campos, haga clic en "...". 
 
-![Haga clic en Nuevo elemento de trabajo, modifique los campos y, a continuación, haga clic en Aceptar.](./media/app-insights-diagnostic-search/10-detail.png)
+Seleccione cualquier elemento de telemetría para ver los campos clave y los elementos relacionados.
+
+![Captura de pantalla de una solicitud de dependencia individual](./media/app-insights-diagnostic-search/003.png)
+
+Esto iniciará la vista de detalles de una transacción completa:
+
+![Captura de pantalla de la vista de detalles de una transacción completa.](./media/app-insights-diagnostic-search/004.png)
 
 ## <a name="filter-event-types"></a>Filtro de los tipos de evento
 Abra la hoja Filtro y elija los tipos de evento que desea ver. (Si, posteriormente, desea restaurar los filtros con los que abrió la hoja, haga clic en Restablecer).
@@ -91,14 +94,10 @@ En este ejemplo, es obvio que la solicitud "Rpt/Empleados" genera la mayor parte
 
 ![Expanda una propiedad y elija un valor](./media/app-insights-diagnostic-search/04-failingReq.png)
 
-
-
-
 ## <a name="find-events-with-the-same-property"></a>Búsqueda de eventos con la misma propiedad
 Encuentre todos los elementos con el mismo valor de propiedad:
 
 ![Haga clic con el botón secundario en una propiedad](./media/app-insights-diagnostic-search/12-samevalue.png)
-
 
 ## <a name="search-the-data"></a>Búsqueda de los datos
 
@@ -128,14 +127,10 @@ A continuación se muestran las expresiones de búsqueda que puede utilizar:
 | `apple OR banana`<br/>`apple banana` |Buscar eventos que contengan cualquiera de los dos términos. Usar "OR" no "or".<br/>Forma abreviada. |
 | `apple NOT banana` |Buscar eventos que contengan un término pero no el otro. |
 
-
-
 ## <a name="sampling"></a>muestreo
 Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reduce automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionan o deseleccionan como grupo, por lo que puede navegar entre ellos. 
 
 [Más información sobre el muestreo](app-insights-sampling.md).
-
-
 
 ## <a name="create-work-item"></a>Creación de elemento de trabajo
 Puede crear un error en GitHub o en Visual Studio Team Services con los detalles de cualquier elemento de telemetría. 
@@ -147,17 +142,6 @@ La primera vez que lo haga, deberá configurar un vínculo a la cuenta y el proy
 ![Introduzca la dirección URL del servidor de Team Services y el nombre del proyecto y haga clic en Autorizar.](./media/app-insights-diagnostic-search/41.png)
 
 (También puede configurar el vínculo en la hoja Elementos de trabajo).
-
-## <a name="save-your-search"></a>Guardado de la búsqueda
-Cuando haya establecido todos los filtros que desea, puede guardar la búsqueda como favorito. Si trabaja en una cuenta de organización, puede elegir si compartirla con otros miembros del equipo.
-
-![Haga clic en Favoritos, establezca el nombre y haga clic en Guardar](./media/app-insights-diagnostic-search/08-favorite-save.png)
-
-Para ver de nuevo la búsqueda, **vaya a la hoja de información general** y abra Favoritos:
-
-![Favoritos](./media/app-insights-diagnostic-search/09-favorite-get.png)
-
-Si ha guardado con el intervalo de tiempo relativo, la hoja abierta de nuevo tiene los datos más recientes. Si ha guardado con el intervalo de tiempo absoluto, verá los mismos datos cada vez. (Si "relativo" no está disponible cuando quiera guardar un favorito, haga clic en Intervalo de tiempo en el encabezado y establezca un intervalo de tiempo que no sea un personalizado).
 
 ## <a name="send-more-telemetry-to-application-insights"></a>Envío de más telemetría a Application Insights
 Además de la telemetría inmediata enviada por el SDK de Application Insights, puede:

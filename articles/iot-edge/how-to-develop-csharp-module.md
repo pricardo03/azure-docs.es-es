@@ -9,24 +9,24 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c237b1eb9874357afa922f809109cf8f2181561e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 92e476d38e6e56edca19afe78bed2705feadd0bb
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048193"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040915"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos de C# para Azure IoT Edge
 
-Puede enviar la lógica de negocios para que funcione en el perímetro, convirtiéndola en módulos de Azure IoT Edge. En este artículo se proporcionan instrucciones detalladas para usar Visual Studio Code (VS Code) como la herramienta de desarrollo principal para desarrollar módulos de C#.
+Puede convertir la lógica de negocios en módulos de Azure IoT Edge. En este artículo se muestra cómo usar Visual Studio Code (VS Code) como herramienta principal para desarrollar y depurar módulos de C#.
 
-## <a name="prerequisites"></a>requisitos previos
-En este artículo se supone que utiliza un equipo o una máquina virtual con Windows o Linux como máquina de desarrollo. El dispositivo de IoT Edge puede ser otro dispositivo físico o una simulación de dicho dispositivo en el equipo de desarrollo.
+## <a name="prerequisites"></a>Requisitos previos
+En este artículo se da por hecho que usa una máquina virtual que ejecuta Windows o Linux como máquina de desarrollo. El dispositivo IoT Edge puede ser otro dispositivo físico. O bien, puede simular el dispositivo IoT Edge en la máquina de desarrollo.
 
 > [!NOTE]
-> Este tutorial de depuración describe cómo adjuntar un proceso en un contenedor de módulos y depurarlo con VS Code. Solo se puede depurar funciones de C# en contenedores linux-amd64. Si no está familiarizado con las funcionalidades de depuración de Visual Studio Code, consulte más información sobre [depuración](https://code.visualstudio.com/Docs/editor/debugging). 
+> En este tutorial de depuración se demuestra cómo asociar un proceso en un contenedor de módulos y depurarlo con VS Code. Solo se pueden depurar funciones de C# en contenedores Linux-amd64. Si no está familiarizado con las funcionalidades de depuración de Visual Studio Code, consulte más información sobre [depuración](https://code.visualstudio.com/Docs/editor/debugging). 
 
-Como en este artículo se usa Visual Studio Code como la principal herramienta de desarrollo, instale VS Code y, a continuación, agregue las extensiones necesarias:
+En este artículo se usa Visual Studio Code como herramienta de desarrollo principal, así que instale VS Code. A continuación, agregue las extensiones necesarias:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Extensión de Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
@@ -34,72 +34,85 @@ Como en este artículo se usa Visual Studio Code como la principal herramienta d
 
 Para crear un módulo, necesita .NET para crear la carpeta del proyecto, Docker para compilar la imagen del módulo y un registro de contenedor para guardar esta:
 * [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
-* [Docker CE](https://docs.docker.com/install/) instalado en la máquina de desarrollo. 
+* [Docker Community Edition](https://docs.docker.com/install/) en la máquina de desarrollo 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
    > [!TIP]
-   > Puede usar un registro de Docker local para fines de prototipo y pruebas en lugar de un registro en la nube. 
+   > Puede usar un registro de Docker local con fines de prototipo y prueba en lugar de un registro en la nube. 
 
-Para probar el módulo en un dispositivo, necesita una instancia de IoT Hub con al menos un dispositivo IoT Edge. Si desea utilizar el equipo como un dispositivo IoT Edge, puede hacerlo siguiendo los pasos descritos en los tutoriales para [Windows](quickstart.md) o [Linux](quickstart-linux.md). 
+Para probar el módulo en un dispositivo, necesita una instancia de IoT Hub con al menos un dispositivo IoT Edge. Para usar el equipo como un dispositivo IoT Edge, siga los pasos descritos en el inicio rápido para [Windows](quickstart.md) o [Linux](quickstart-linux.md). 
 
 ## <a name="create-a-new-solution-template"></a>Creación de una plantilla de solución
 
-En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET Core 2.0 mediante Visual Studio Code y la extensión de Azure IoT Edge. Primero debe crear una solución y, a continuación, generar el primer módulo de esa solución. Cada solución puede contener varios módulos. 
+Realice estos pasos para crear un módulo IoT Edge basado en .NET Core 2.0 mediante Visual Studio Code y la extensión de Azure IoT Edge. En primer lugar, cree una solución y, luego, genere el primer módulo en esa solución. Cada solución puede contener más de un módulo. 
 
 1. En Visual Studio Code, seleccione **Ver** > **Terminal integrado**.
 3. Seleccione **Ver** > **Paleta de comandos**. 
-4. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución IoT Edge).
+4. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge Solution** (Azure IoT Edge: nueva solución de IoT Edge).
 
    ![Ejecución de la nueva solución IoT Edge](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. Vaya a la carpeta en la que desea crear la nueva solución y haga clic en **Seleccionar carpeta**. 
-6. Proporcione un nombre para la solución. 
-7. Elija **C# Module** como la plantilla del primer módulo de la solución.
-8. Especifique un nombre para el módulo. Elija un nombre que sea único dentro del registro de contenedor. 
-9. Proporcione el repositorio de imágenes del módulo. VS Code rellena automáticamente el nombre del módulo, por lo que solo tiene que reemplazar **localhost:5000** por la información de su propio registro. Si usa un registro de Docker local para realizar pruebas, localhost puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **\<nombre del registro\>.azurecr.io**.
+5. Seleccione la carpeta en la que desea crear la solución. Elija **Select folder** (Seleccionar carpeta). 
+6. Escriba un nombre para la solución. 
+7. Seleccione **C# Module** como la plantilla del primer módulo de la solución.
+8. Escriba un nombre para el módulo. Elija un nombre que sea único dentro del registro de contenedor. 
+9. Proporcione el nombre del repositorio de imágenes del módulo. VS Code rellena automáticamente el nombre del módulo con **localhost:5000**. Reemplácelo por su propia información de registro. Si usa un registro de Docker local para realizar pruebas, **localhost** puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **\<nombre del registro\>.azurecr.io**.
 
 VS Code toma la información que le ha proporcionado, crea una solución IoT Edge y la carga en una nueva ventana.
 
    ![Visualización de la solución IoT Edge](./media/how-to-develop-csharp-module/view-solution.png)
 
-En la solución tiene tres elementos: 
+Hay cuatro elementos dentro de la solución: 
 * Una carpeta **.vscode** que contiene configuraciones de depuración.
-* Una carpeta **modules** que contiene subcarpetas para cada módulo. En la actualidad solo tiene uno, pero podría agregar más en la paleta de comandos con el comando **Azure IoT Edge: Add IoT Edge Module** (Azure IoT Edge: agregar módulo IoT Edge). 
-* Un archivo **.env** enumera las variables de entorno. Si dispone de ACR como registro, en este momento ya tiene el nombre de usuario y la contraseña de ACR en este. 
-* Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **tempSensor** de ejemplo que simula los datos que puede usar para realizar pruebas. Para más información sobre el funcionamiento de los manifiestos de implementación, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
+* Una carpeta **modules** que contiene subcarpetas para cada módulo. En este momento, solo tiene uno. Sin embargo, podría agregar más en la paleta de comandos con el comando **Azure IoT Edge: Add IoT Edge Module** (Azure IoT Edge: agregar módulo IoT Edge). 
+* Un archivo **.env** enumera las variables de entorno. Si Azure Container Registry es su registro, tendrá en él un nombre de usuario y una contraseña de Azure Container Registry. 
+
+   >[!NOTE]
+   >Solo se crea el archivo de entorno si proporciona un repositorio de imágenes para el módulo. Si aceptó los valores predeterminados de localhost para probar y depurar localmente, no es necesario declarar las variables de entorno. 
+
+* Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **tempSensor** de ejemplo que simula los datos que puede usar para las pruebas. Para más información sobre cómo funcionan los manifiestos de implementación, consulte [cómo usar los manifiestos de implementación para implementar módulos y establecer rutas](module-composition.md). 
+
+## <a name="devlop-your-module"></a>Desarrollo del módulo
+
+El código de función de Azure predeterminado que se incluye con la solución se encuentra en **modules** > **\<nombre del módulo\>** > **Program.cs**. El módulo y el archivo deployment.template.json se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo para iniciar la prueba sin tocar el código. El módulo se compila para tomar simplemente la entrada de un origen (en este caso, el módulo tempSensor que simula datos) y canalizarlo a IoT Hub. 
+
+Cuando esté listo para personalizar la plantilla de C# con su propio código, use los [SDK de Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para compilar módulos que aborden las necesidades principales de las soluciones de IoT, como seguridad, administración de dispositivos y confiabilidad. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>Compilación e implementación del módulo para depuración
 
-En cada carpeta del módulo, hay varios archivos de Docker para diferentes tipos de contenedor. Puede usar cualquiera de estos archivos que acaban con la extensión **.debug** para compilar el módulo de pruebas. Actualmente, los módulos de C# solo admiten la depuración en contenedores de Linux amd64.
+En cada carpeta de módulo, hay varios archivos de Docker para diferentes tipos de contenedor. Use cualquiera de estos archivos que acaban con la extensión **.debug** para compilar el módulo de pruebas. Actualmente, los módulos de C# solo admiten la depuración en contenedores de Linux amd64.
 
 1. En VS Code, vaya al archivo `deployment.template.json`. Para actualizar la dirección URL de la imagen de la función, agregue **.debug** al final.
 
-   ![Adición de .debug al nombre de imagen](./media/how-to-develop-csharp-module/image-debug.png)
+   ![Adición de **.debug** al nombre de imagen](./media/how-to-develop-csharp-module/image-debug.png)
 
 2. En la paleta de comandos de VS Code, escriba y ejecute el comando **Edge: Build IoT Edge solution** (Edge: compilar solución IoT Edge).
 3. Seleccione el archivo `deployment.template.json` para la solución en la paleta de comandos. 
-4. En el Explorador de dispositivos de Azure IoT Hub, haga clic con el botón derecho en un identificador de dispositivo IoT Edge y, a continuación, seleccione **Create deployment for IoT Edge device** (Crear implementación para dispositivo IoT Edge). 
-5. Abra la carpeta **config** de la solución y, a continuación, seleccione el archivo `deployment.json`. Haga clic en **Select Edge Deployment Manifest** (Seleccionar manifiesto de implementación de Edge). 
+4. En Device Explorer de Azure IoT Hub, haga clic con el botón derecho en un identificador de dispositivo IoT Edge. Seleccione **Create deployment for IoT Edge Device** (Crear implementación para el dispositivo de IoT Edge). 
+5. Abra la carpeta **config** de la solución. A continuación, seleccione el archivo `deployment.json`. Haga clic en **Select Edge Deployment Manifest** (Seleccionar manifiesto de implementación de Edge). 
 
-A continuación, puede ver que la implementación se ha creado correctamente con un identificador de implementación en el terminal integrado de VS Code.
+Verá que la implementación se ha creado correctamente con un identificador de implementación en el terminal integrado de VS Code.
 
-Puede comprobar el estado del contenedor en el Explorador de Docker de VS Code o ejecutando el comando `docker ps` en el terminal.
+Puede comprobar el estado del contenedor en el explorador de Docker de VS Code o mediante la ejecución del comando `docker ps` en el terminal.
 
 ## <a name="start-debugging-c-module-in-vs-code"></a>Inicio de la depuración del módulo de C# en VS Code
 VS Code sigue depurando la información de configuración en un archivo `launch.json` ubicado en una carpeta `.vscode` en el área de trabajo. Este archivo `launch.json` se ha generado al crear una nueva solución de IoT Edge. Se actualiza cada vez que agregue un nuevo módulo que admita la depuración. 
 
-1. Vaya a la vista de depuración de VS Code y seleccione el archivo de configuración de depuración del módulo. El nombre de la opción de depuración debe ser parecido a **ModuleName Remote Debug (.NET Core)** ![Seleccionar configuración de depuración](./media/how-to-develop-csharp-module/debug-config.png)
+1. Vaya a la vista de depuración de VS Code. Seleccione el archivo de configuración de depuración de su módulo. El nombre de la opción de depuración debe ser parecido a **ModuleName Remote Debug (.NET Core)**
+
+   ![Selección de la configuración de depuración](./media/how-to-develop-csharp-module/debug-config.png).
 
 2. Vaya a `program.cs`. Agregue un punto de interrupción en este archivo.
 
-3. Haga clic en el botón **Iniciar depuración** o presione **F5** y seleccione el proceso que se adjuntará.
+3. Seleccione **Iniciar depuración** o presione **F5**. Seleccione el proceso al que desea asociarlo.
 
-4. En la vista de depuración de VS Code, puede ver las variables en el panel izquierdo. 
+4. En la vista de depuración de VS Code, verá las variables en el panel izquierdo. 
 
 > [!NOTE]
-> En el ejemplo anterior se muestra cómo depurar módulos de IoT Edge en .NET Core en contenedores. Se basa en la versión de depuración de `Dockerfile.debug`, que incluye VSDBG (el depurador de línea de comandos de .NET Core) en la imagen de contenedor al realizar la compilación. Una vez finalizada la depuración de los módulos de C#, se recomienda utilizar directamente o personalizar `Dockerfile` sin VSDBG para módulos de IoT Edge listos para entornos de producción.
+> En el ejemplo anterior se muestra cómo depurar módulos de IoT Edge para .NET Core en contenedores. Se basa en la versión de depuración de `Dockerfile.debug`, que incluye VSDBG (el depurador de línea de comandos de .NET Core) en la imagen de contenedor al realizar la compilación. Una vez finalizada la depuración de los módulos de C#, se recomienda usar directamente o personalizar `Dockerfile` sin VSDBG para módulos de IoT Edge listos para producción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que tenga el módulo compilado, aprenda a [implementar módulos de Azure IoT Edge desde Visual Studio Code](how-to-deploy-modules-vscode.md)
+Después de compilar el módulo, aprenda cómo [implementar módulos de Azure IoT Edge desde Visual Studio Code](how-to-deploy-modules-vscode.md).
 
+Para desarrollar módulos para los dispositivos IoT Edge, consulte [Información y uso de los SDK de Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).
