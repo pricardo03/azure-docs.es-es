@@ -58,7 +58,7 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 
 ### <a name="specify-routes"></a>Especificación de rutas
 
-De forma predeterminada, el asistente proporciona una ruta llamada **route** y definida como **FROM /* INTO $upstream**, que significa que cualquier mensaje de salida de cualquier módulo se envía al IoT Hub.  
+De forma predeterminada, el asistente proporciona una ruta llamada **route** y definida como **FROM /\* INTO $upstream**, que significa que cualquier mensaje de salida de cualquier módulo se envía al IoT Hub.  
 
 Agregue o actualice las rutas con la información de [Declaración de rutas](module-composition.md#declare-routes) y, a continuación, seleccione **Siguiente** para continuar con la sección de revisión.
 
