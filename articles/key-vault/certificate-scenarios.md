@@ -66,7 +66,7 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
 
 ![Creación de un certificado con una entidad de certificación asociada a Key Vault](media/certificate-authority-2.png)
 
-**Paso 4 **: las siguientes descripciones se corresponden con los pasos indicados con letras verdes que se enumeran en el diagrama anterior.  
+**Paso 4**: las siguientes descripciones se corresponden con los pasos indicados con letras verdes que se enumeran en el diagrama anterior.  
   (1) - En el diagrama anterior, la aplicación crea un certificado que comienza con la creación interna de una clave en el almacén de claves.  
   (2) - Key Vault envía una solicitud de certificado SSL a la entidad de certificación.  
   (3) - La aplicación sondea, en proceso de bucle y espera, que Key Vault termine el certificado. La creación del certificado se completa cuando Key Vault recibe la respuesta de la entidad de certificación con el certificado X.509.  
