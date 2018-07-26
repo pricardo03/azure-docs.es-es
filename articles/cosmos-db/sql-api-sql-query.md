@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056824"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205976"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para Azure Cosmos DB
 
@@ -522,7 +522,7 @@ Para otros operadores de comparación como >, >=, !=, < y <=, se aplican las sig
 
 Si el resultado de la expresión escalar del filtro es Undefined, el documento correspondiente no se incluiría en el resultado, pues Undefined no es igual lógicamente a "true".
 
-### <a name="between-keyword"></a>Palabra clave BETWEEN
+## <a name="between-keyword"></a>Palabra clave BETWEEN
 También puede usar la palabra clave BETWEEN para expresar consultas en intervalos de valores como en ANSI SQL. BETWEEN puede utilizarse con cadenas o números.
 
 Por ejemplo, esta consulta devuelve todos los documentos de la familia en los que el curso del primer hijo se encuentra entre 1 y 5 (ambos inclusive). 
@@ -561,7 +561,7 @@ Los operadores lógicos operan en valores booleanos. Las tablas de verdad lógic
 | False |True |
 | Undefined |Undefined |
 
-### <a name="in-keyword"></a>Palabra clave IN
+## <a name="in-keyword"></a>Palabra clave IN
 La palabra clave IN puede usarse para comprobar si un valor especificado coincide con algún valor de una lista. Por ejemplo, esta consulta devuelve todos los documentos de la familia en los que el identificador sea "WakefieldFamily" o "AndersenFamily". 
 
     SELECT *
@@ -574,7 +574,7 @@ Este ejemplo devuelve todos los documentos en los que el estado es cualquiera de
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>Operadores ternario (?) y de fusión (??)
+## <a name="ternary--and-coalesce--operators"></a>Operadores ternario (?) y de fusión (??)
 El operador ternario y el operador de combinación pueden usarse para crear expresiones condicionales, de forma similar a lenguajes de programación populares como C# y JavaScript. 
 
 El operador ternario (?) puede ser muy útil al construir nuevas propiedades JSON sobre la marcha. Así, ahora puede escribir consultas para clasificar los niveles de clase en formato de lenguaje natural, por ejemplo Principiante/Intermedio/Avanzado, como se muestra a continuación.
@@ -594,7 +594,7 @@ El operador de fusión (??) se puede usar para comprobar eficazmente la presenci
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Descriptor de acceso de propiedad entre comillas
+## <a id="EscapingReservedKeywords"></a>Descriptor de acceso de propiedad entre comillas
 También es posible obtener acceso a las propiedades mediante el operador de la propiedad entre comillas `[]`. Por ejemplo, `SELECT c.grade` and `SELECT c["grade"]` son equivalentes. Esta sintaxis es útil cuando se necesita crear una secuencia de escape para una propiedad que contiene espacios en blanco, caracteres especiales, o que comparte el nombre con una palabra clave SQL o una palabra reservada.
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ Analicemos el rol que `$1` tiene aquí. La cláusula `SELECT` debe crear un obje
     }]
 
 
-### <a name="aliasing"></a>Establecimiento de alias
+## <a name="aliasing"></a>Establecimiento de alias
 Ampliemos ahora el ejemplo anterior con un establecimiento de alias explícito para valores. AS es la palabra clave usada para el establecimiento de alias. Es opcional, como se muestra al proyectarse el segundo valor como `NameInfo`. 
 
 En caso de que una consulta tenga dos propiedades con el mismo nombre, el establecimiento de alias debe usarse para cambiar el nombre de las propiedades de modo que se elimine su ambigüedad en el resultado proyectado.
@@ -708,7 +708,7 @@ En caso de que una consulta tenga dos propiedades con el mismo nombre, el establ
     }]
 
 
-### <a name="scalar-expressions"></a>Expresiones escalares
+## <a name="scalar-expressions"></a>Expresiones escalares
 Además de las referencias de propiedad, la cláusula SELECT también admite expresiones escalares como constantes, expresiones aritméticas, expresiones lógicas, etc. Por ejemplo, aquí hay una sencilla consulta "Hello World".
 
 **Consultar**
@@ -754,7 +754,7 @@ En el ejemplo siguiente, el resultado de la expresión escalar es un valor boole
     ]
 
 
-### <a name="object-and-array-creation"></a>Creación de objetos y matrices
+## <a name="object-and-array-creation"></a>Creación de objetos y matrices
 Otra característica clave de la API de SQL es la creación de matrices u objetos. En el ejemplo anterior, observe que creamos un nuevo objeto JSON. De manera similar, también se pueden construir matrices como se muestra en los siguientes ejemplos:
 
 **Consultar**
@@ -779,7 +779,7 @@ Otra característica clave de la API de SQL es la creación de matrices u objeto
       }
     ]
 
-### <a id="ValueKeyword"></a>Palabra clave VALUE
+## <a id="ValueKeyword"></a>Palabra clave VALUE
 La palabra clave **VALUE** proporciona una forma de devolver un valor JSON. Por ejemplo, la consulta que se muestra a continuación devuelve la expresión escalar `"Hello World"`, en lugar de `{$1: "Hello World"}`.
 
 **Consultar**
@@ -830,7 +830,7 @@ El ejemplo siguiente se amplía para mostrar cómo devolver valores primitivos J
     ]
 
 
-### <a name="-operator"></a>Operador *
+## <a name="-operator"></a>Operador *
 Se admite el operador especial (*) para proyectar el documento tal cual. Al usarse, debe ser el único campo proyectado. Aunque una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f ` y `SELECT *, f.id FROM Families f ` no lo son.
 
 **Consultar**
@@ -859,7 +859,7 @@ Se admite el operador especial (*) para proyectar el documento tal cual. Al usar
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>Operador TOP
+## <a id="TopKeyword"></a>Operador TOP
 La palabra clave TOP se puede usar para limitar la cantidad de valores de una consulta. Cuando se usa TOP junto con la cláusula ORDER BY, el conjunto de resultados se limita a los primeros N valores ordenados; de otro modo, devuelve los primeros N resultados en orden indefinido. Como procedimiento recomendado, en una instrucción SELECT, siempre use una cláusula ORDER BY con la cláusula TOP. Esta es la única forma previsible de indicar qué filas afecta TOP. 
 
 **Consultar**
@@ -889,7 +889,7 @@ La palabra clave TOP se puede usar para limitar la cantidad de valores de una co
 
 TOP se puede usar con un valor constante (como se muestra anteriormente) o con un valor variable usando consultas con parámetros. Si desea obtener más información, consulte las consultas con parámetros que aparecen a continuación.
 
-### <a id="Aggregates"></a>Funciones de agregado
+## <a id="Aggregates"></a>Funciones de agregado
 También puede realizar agregaciones en la cláusula `SELECT`. Las funciones de agregado realizan un cálculo en un conjunto de valores y devuelven un valor único. Por ejemplo, la consulta siguiente devuelve el número de documentos de la familia dentro de la colección.
 
 **Consultar**

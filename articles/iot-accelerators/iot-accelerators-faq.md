@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 3ac5c00aa0c617659f7ac5d386003b8bc34aac81
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c5621d5e16e31104ee28cc521386a5c0ca290a8b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075566"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187706"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
 
@@ -86,7 +86,7 @@ Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD 
 
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
-* [Exploración de las funcionalidades del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-explore.md)
+* [Exploración de las funcionalidades del acelerador de la solución Supervisión remota](quickstart-remote-monitoring-deploy.md)
 * [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
 * [Implementación del acelerador de soluciones de Connected Factory](quickstart-connected-factory-deploy.md)
 * [Seguridad de Internet de las cosas desde el principio](/azure/iot-fundamentals/iot-security-ground-up)

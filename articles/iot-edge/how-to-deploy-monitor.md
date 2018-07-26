@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001514"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258440"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -94,7 +94,7 @@ Cuando tenga todos los módulos configurados para una implementación, seleccion
 
 ### <a name="step-3-specify-routes-optional"></a>Paso 3: Especificación de rutas (opcional)
 
-Las rutas definen cómo los módulos se comunican entre sí dentro de una implementación. De forma predeterminada, el asistente proporciona una ruta llamada **ruta** y definida como **FROM /* INTO $upstream**, que significa que cualquier salida de mensajes por cualquier módulo se envía a IoT Hub.  
+Las rutas definen cómo los módulos se comunican entre sí dentro de una implementación. De forma predeterminada, el asistente proporciona una ruta llamada **route** y definida como **FROM /\* INTO $upstream**, que significa que cualquier mensaje de salida de cualquier módulo se envía al IoT Hub.  
 
 Agregue o actualice las rutas con información de [Declaración de rutas](module-composition.md#declare-routes) y, luego, seleccione **Siguiente** para continuar con la sección de revisión.
 
@@ -106,7 +106,7 @@ Use la propiedad de etiquetas en los dispositivos para dirigirse a los dispositi
 Como varias implementaciones pueden tener como destino el mismo dispositivo, debe dar a cada implementación un número de prioridad. En caso de conflicto, gana la implementación con la prioridad más alta (los valores más altos indican prioridad más alta). Si dos implementaciones tienen el mismo número de prioridad, gana la que se creó más recientemente. 
 
 1. Especifique un número entero positivo en el valor de **Prioridad** de la implementación. En el caso de que dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad.
-1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades deseadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. 
+1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Seleccione **Siguiente** para pasar al último paso.
 
 ### <a name="step-5-review-template"></a>Paso 5: Revisión de la plantilla

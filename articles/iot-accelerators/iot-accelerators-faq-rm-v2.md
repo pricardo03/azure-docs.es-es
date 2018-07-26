@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 21e02a9ae4679c1f9521cc188a6f72878276fb93
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ba0d81761904be74632f8f0025488b7f501bd715
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075713"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186006"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de supervisión remota
 
@@ -42,7 +42,7 @@ Para obtener más información, vea [Upgrade map key to see devices on a dynamic
 
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
-* [Exploración de las funcionalidades del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-explore.md)
+* [Exploración de las funcionalidades del acelerador de la solución Supervisión remota](quickstart-remote-monitoring-deploy.md)
 * [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
 * [Implementación del acelerador de soluciones de Connected Factory](quickstart-connected-factory-deploy.md)
 * [Seguridad de Internet de las cosas desde el principio](/azure/iot-fundamentals/iot-security-ground-up)

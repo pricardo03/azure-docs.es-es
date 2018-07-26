@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/06/2018
+ms.date: 07/20/2018
 ms.author: babanisa
-ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: f7be7e5f5e51a47b95d39047af9bcf08e463ca34
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902238"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186118"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
@@ -80,7 +80,7 @@ Por ejemplo, el esquema publicado para un evento de Azure Blob Storage es:
 
 Todos los eventos tienen los mismos datos de nivel superior, que son los siguientes:
 
-| Propiedad | Escriba | Descripción |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
@@ -94,6 +94,7 @@ Todos los eventos tienen los mismos datos de nivel superior, que son los siguien
 Para aprender acerca de las propiedades del objeto de datos, vea el origen del evento:
 
 * [Suscripciones de Azure (operaciones de administración)](event-schema-subscriptions.md)
+* [Container Registry](event-schema-container-registry.md)
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
