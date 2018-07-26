@@ -45,7 +45,7 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procedimientos
   items:
-    - name: 'Creación de una zona DNS personalizada y un registro: CLI de Azure'
+    - name: 'Creación de una zona DNS privada y un registro: CLI de Azure'
       href: private-dns-getstarted-cli.md
     - name: Administración de zonas DNS
       items:
