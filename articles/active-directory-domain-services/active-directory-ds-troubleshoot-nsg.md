@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 807dd2bdcc1e2ad18b1a93c3337c8244e3f1366b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 67f4f0850d0600fc7ca0f1323e7c7801187089f5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218986"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950741"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solución de problemas de configuración de red no válida para el dominio administrado
 Este artículo le ayuda a solucionar problemas y resolver errores de configuración relacionados con la red que generan el mensaje de alerta siguiente:
@@ -35,7 +35,7 @@ Las configuraciones de NSG no válidas son la causa más común de los errores d
 1. Vaya a la página [Grupos de seguridad de red](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) en Azure Portal.
 2. En la tabla, elija el NSG asociado con la subred en que está habilitado el dominio administrado.
 3. En **Configuración** en el panel de la izquierda, haga clic en **Reglas de seguridad de entrada**.
-4. Revise las reglas vigentes y detecte las que bloquean el acceso a [estos puertos](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
+4. Revise las reglas vigentes e identifique las que bloquean el acceso a [estos puertos](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
 5. Edite el grupo de seguridad de red para garantizar su cumplimiento mediante la eliminación de la regla, la incorporación de otra o la creación de un grupo de seguridad de red totalmente nuevo. Los pasos para [agregar una regla](#add-a-rule-to-a-network-security-group-using-the-azure-portal) o [crear un grupo de seguridad de red conforme](#create-a-nsg-for-azure-ad-domain-services-using-powershell) se encuentran a continuación.
 
 ## <a name="sample-nsg"></a>NSG de ejemplo

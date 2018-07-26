@@ -14,7 +14,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 
 | Recurso | Límite |
 | --- | --- |
-| Cantidad máxima de Centros de IoT de pago por suscripción a Azure |10 |
+| Cantidad máxima de Centros de IoT de pago por suscripción a Azure |50 |
 | Cantidad máxima de Centros de IoT gratis por suscripción a Azure |1 |
 | Número máximo de caracteres incluido en un identificador de dispositivo | 128 |
 | Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada |1000 |
@@ -38,7 +38,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 
 
 > [!NOTE]
-> Si necesita más de 10 IoT Hub de pago en una suscripción de Azure, póngase en contacto con el servicio de soporte técnico de Microsoft.
+> Si necesita más de 50 centrales IoT de pago en una suscripción de Azure, póngase en contacto con el servicio de soporte técnico de Microsoft.
 
 
 > [!NOTE]

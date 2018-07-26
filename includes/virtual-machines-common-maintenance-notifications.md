@@ -1,7 +1,23 @@
-
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: shants123
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 07/02/2018
+ms.author: shants
+ms.custom: include file
+ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38945731"
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visualización de las máquinas virtuales programadas para mantenimiento en el portal
 
-Una vez que se programa una tanda de mantenimiento planeado y se envían las notificaciones, puede observar la lista de máquinas virtuales que se ven afectadas por la siguiente tanda. 
+Una vez que se programa una tanda de mantenimiento planeado, puede observar la lista de máquinas virtuales que se ven afectadas por la siguiente tanda. 
 
 Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programado.
 
@@ -17,29 +33,31 @@ Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programad
       
       | Valor | DESCRIPCIÓN |
       |-------|-------------|
-      | Empezar ahora | La máquina virtual está en la ventana de mantenimiento de autoservicio, lo que le permite iniciar el mantenimiento usted mismo. Vea a continuación cómo iniciar el mantenimiento en la máquina virtual | 
-      | Programado | La máquina virtual está programada para el mantenimiento sin opción de que inicie el mantenimiento. Puede obtener información de la ventana de mantenimiento mediante la selección de la ventana Programada automáticamente en esta vista, o haciendo clic en la máquina virtual | 
-      | Completed | Ha iniciado y completado correctamente el mantenimiento en la máquina virtual. | 
-      | Skipped| Ha seleccionado iniciar el mantenimiento sin conseguirlo. No podrá utilizar la opción de mantenimiento de autoservicio. Azure tendrá que reiniciar la máquina virtual durante la fase de mantenimiento programado. | 
+      | Empezar ahora | La máquina virtual está en la ventana de mantenimiento de autoservicio, lo que le permite iniciar el mantenimiento usted mismo. Vea a continuación cómo iniciar el mantenimiento en la máquina virtual. | 
+      | Programado | La máquina virtual está programada para el mantenimiento sin opción de que inicie el mantenimiento. Puede obtener información de la ventana de mantenimiento mediante la selección de la ventana Mantenimiento: Programado en esta vista o haciendo clic en la máquina virtual. | 
+      | Ya se actualizó | La máquina virtual ya se actualizó y no se requiere ninguna otra acción en este momento. | 
+      | Inténtelo de nuevo más tarde | Ha intentado iniciar el mantenimiento sin conseguirlo. Podrá utilizar la opción de mantenimiento de autoservicio más adelante. | 
+      | Intentar ahora | Puede volver a intentar un mantenimiento automático que se intentó anteriormente sin éxito. | 
 
-   **Mantenimiento proactivo**: muestra la ventana de tiempo en la que puede iniciar el mantenimiento usted mismo en las máquinas virtuales.
+   **Ventana Mantenimiento: Autoservicio**: muestra la ventana de tiempo en la que puede iniciar el mantenimiento usted mismo en las máquinas virtuales.
    
-   **Mantenimiento programado**: muestra la ventana de tiempo en la que Azure reiniciará la máquina virtual con el fin de realizar el mantenimiento. 
-
+   **Ventana Mantenimiento: programado**: muestra la ventana de tiempo en la que Azure reiniciará la máquina virtual con el fin de realizar el mantenimiento. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificaciones y alertas en el portal
 
-Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales adicionales a esta comunicación creando alertas de registro de actividad de Azure. Para más información, consulte [Supervisión de la actividad de suscripción con el registro de actividad de Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales adicionales a esta comunicación creando alertas de registro de actividad de Azure. Para más información, consulte [Supervisión de la actividad de suscripción con el registro de actividad de Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el menú de la izquierda, seleccione **Monitor**. 
-3. En el panel **Monitor: registro de actividad**, seleccione **Alertas**.
-4. En el panel **Monitor: alertas**, haga clic en **+ Agregar alerta de registro de actividad**.
-5. Rellene la información de la página **Agregar alerta de registro de actividad** y asegúrese de que establece lo siguiente en **Criterios**: **Tipo**: Mantenimiento **Estado**: Todos (no establecer el estado activo o resuelto) **Nivel**: Todos
+3. En el panel **Monitor: alertas (clásico)**, haga clic en **+ Agregar alerta de registro de actividad**.
+5. Rellene la información de la página **Agregar alerta de registro de actividad** y asegúrese de establecer lo siguiente en **Criterios**:
+   - **Categoría de eventos**: Azure Service Health
+   - **Servicios**: Virtual Machine Scale Sets y Virtual Machines
+   - **Tipo**: mantenimiento planeado 
     
-Para obtener más información sobre cómo configurar las alertas de registro de actividad, vea [Creación de alertas de registro de actividad](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Para más información sobre cómo configurar las alertas de registro de actividad, vea [Creación de alertas de registro de actividad](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Inicio del mantenimiento en la máquina virtual desde el portal
@@ -50,6 +68,6 @@ En la parte superior de la vista de detalles de la máquina virtual, se agregar�
 
 Haga clic en la notificación de mantenimiento para ver la página de mantenimiento con más detalles en el mantenimiento planeado. Desde allí podrá **iniciar el mantenimiento** en su máquina virtual.
 
-Una vez que comience el mantenimiento, en pocos minutos se reiniciará la máquina virtual y el estado de mantenimiento se actualizará para reflejar el resultado.
+Una vez que comience el mantenimiento, en pocos minutos comenzará en la máquina virtual y el estado de mantenimiento se actualizará para reflejar el resultado.
 
-Si se perdió la ventana en la que puede iniciar el mantenimiento, podrá ver la ventana cuando Azure reinicie la máquina virtual. 
+Si se perdió la ventana de autoservicio, todavía podrá ver la ventana cuando Azure mantenga la máquina virtual. 

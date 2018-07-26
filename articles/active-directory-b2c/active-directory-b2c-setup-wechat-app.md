@@ -1,23 +1,23 @@
 ---
-title: Configuración de WeChat en Azure Active Directory B2C | Microsoft Docs
-description: Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de WeChat en las aplicaciones protegidas por Azure Active Directory B2C.
+title: Configuración de la suscripción y del inicio de sesión con una cuenta de WeChat mediante Azure Active Directory B2C | Microsoft Docs
+description: Permita suscribirse e iniciar sesión a los clientes con cuentas de WeChat en las aplicaciones con Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/26/2017
+ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a18d41a4f45b147790a17664156659d282e710d4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e88187c5035abc28ca9deecaf8517e8a21e38d1d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445975"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952341"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los usuarios con cuentas de WeChat
+# <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de WeChat mediante Azure Active Directory B2C
 
 > [!NOTE]
 > Esta característica se encuentra en su versión preliminar.
@@ -25,24 +25,31 @@ ms.locfileid: "37445975"
 
 ## <a name="create-a-wechat-application"></a>Creación de una aplicación de WeChat
 
-Para usar WeChat como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de WeChat y suministrarle los parámetros correctos. Necesita una cuenta de WeChat para hacerlo. Si no tiene una, puede obtenerla registrándose a través de una de sus aplicaciones móviles o mediante su número de QQ. A continuación, registre su cuenta con el programa para desarrolladores de WeChat. Puede encontrar más información [aquí](http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html):
+Para usar una cuenta de WeChat como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación en su inquilino que la represente. Si aún no tiene una cuenta de WeChat, puede obtener información en [http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
 
 ### <a name="register-a-wechat-application"></a>Registro de una aplicación de WeChat
 
-1. Vaya a [https://open.weixin.qq.com/](https://open.weixin.qq.com/) e inicie sesión.
-2. Haga clic en**管理中心**(centro de administración).
-3. Siga los pasos necesarios para registrar una nueva aplicación.
-4. En **授权回调域** (URL de devolución de llamada), escriba `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por ejemplo, si `tenant_name` es contoso.onmicrosoft.com, establezca la dirección URL para que sea `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-5. Busque y copie el **id. de la aplicación** y la **clave de la aplicación**. Los necesitará más adelante.
+1. Inicie sesión en [https://open.weixin.qq.com/](https://open.weixin.qq.com/) con sus credenciales de WeChat.
+2. Seleccione **管理中心**(centro de administración).
+3. Siga los pasos para registrar una nueva aplicación.
+4. Escriba `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` en **授权回调域** (Dirección URL de devolución de llamada). Por ejemplo, si `tenant_name` es contoso.onmicrosoft.com, establezca la dirección URL para que sea `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+5. Copie el valor de **APP ID** (Identificador de la aplicación) y de **APP KEY** (Clave de la aplicación). Los necesitará para agregar el proveedor de identidades a su inquilino.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configuración de WeChat como proveedor de identidades del inquilino
-1. Siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) de Azure Portal.
-2. En la hoja de características B2C, haga clic en **Proveedores de identidades**.
-3. Haga clic en **+Agregar** en la parte superior de la hoja.
-4. Proporcione un **Nombre** descriptivo para la configuración del proveedor de identidades. Por ejemplo, escriba "WeChat".
-5. Haga clic en **Tipo de proveedor de identidades**, seleccione **WeChat** y haga clic en **Aceptar**.
-6. Haga clic en **Configurar este proveedor de identidades**.
-7. Escriba la **Clave de la aplicación** que copió anteriormente como **Id. de cliente**.
-8. Escriba el **Secreto de la aplicación** que copió anteriormente como **Secreto de la aplicación**.
-9. Haga clic en **OK** (Aceptar) y luego en **Create** (Crear) para guardar la configuración de WeChat.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
+2. Asegúrese de que está usando el directorio que contiene su inquilino de Azure AD B2C cambiando a él en la esquina superior derecha de Azure Portal. Seleccione la información de la suscripción y, después, seleccione **Cambiar directorio**. 
+
+    ![Cambiar al inquilino de Azure AD B2C](./media/active-directory-b2c-setup-wechat-app/switch-directories.png)
+
+    Elija el directorio que contiene el inquilino.
+
+    ![Selección de directorio](./media/active-directory-b2c-setup-wechat-app/select-directory.png)
+
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
+4. Seleccione **Proveedores de identidades** y, después, seleccione **Agregar**.
+5. Proporcione un **nombre**. Por ejemplo, escriba *WeChat*.
+6. Seleccione **Identity provider type** (Tipo de proveedor de identidades), **WeChat (Preview)** (Versión preliminar de WeChat) y haga clic en **OK** (Aceptar).
+7. Seleccione **Set up this identity provider** (Configurar este proveedor de identidades) y escriba el identificador de aplicación que anotó anteriormente como el valor de **Client ID** (Identificador de cliente) y la clave de aplicación que registró como **Client Secret** (Secreto de cliente) de la aplicación de WeChat que creó anteriormente.
+8. Haga clic en **OK** (Aceptar) y luego en **Create** (Crear) para guardar la configuración de WeChat.
 

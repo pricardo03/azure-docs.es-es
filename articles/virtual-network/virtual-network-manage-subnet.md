@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 26e01ccab3693c672130462104078c16526aa921
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702081"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992596"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 
@@ -44,7 +44,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 3. En **CONFIGURACIÓN**, seleccione **Subredes**.
 4. Seleccione **+Subred**.
 5. Escriba valores para estos parámetros:
-    - **Nombre:** debe ser único dentro de la red virtual.
+    - **Nombre:** debe ser único dentro de la red virtual. Para lograr la máxima compatibilidad con otros servicios de Azure, se recomienda usar una letra como primer carácter del nombre. Por ejemplo, Azure Application Gateway no se implementará en una subred que tiene un nombre que comienza con un número.
     - **Intervalo de direcciones**: debe estar dentro del espacio de direcciones de la red virtual. Este intervalo no puede superponerse con otros intervalos de direcciones de subred dentro de la red virtual. El espacio de direcciones debe especificarse mediante notación de Enrutamiento de interdominios sin clases (CIDR). Por ejemplo, en una red virtual con el espacio de direcciones 10.0.0.0/16, podría definir el espacio de direcciones de subred 10.0.0.0/24. El menor intervalo que se puede especificar es /29, lo que proporciona ocho direcciones IP de subred. De conformidad con el protocolo, Azure reserva la primera y la última dirección de cada subred. Otras tres direcciones están reservadas para el uso del servicio de Azure. Como resultado, al definir una subred con el intervalo de direcciones /29, se generan tres direcciones IP utilizables en la subred. Si planea conectar una red virtual a una puerta de enlace VPN, debe crear una subred de puerta de enlace. Más información sobre las [consideraciones específicas del intervalo de direcciones de las subredes de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). En determinadas circunstancias se puede cambiar el intervalo de direcciones una vez agregada la subred. Para información sobre cómo cambiar un intervalo de direcciones de subred, consulte [Cambio de configuración de subred](#change-subnet-settings).
     - **Grupo de seguridad de red:** puede no asociar ningún grupo de seguridad de red o asociar uno existente a una subred para filtrar el tráfico de red entrante y saliente de la subred. El grupo de seguridad de red debe existir en la misma suscripción y la misma ubicación que la red virtual. Obtenga más información sobre los [grupos de seguridad de red](security-overview.md) y [cómo crear un grupo de seguridad de red](tutorial-filter-network-traffic.md).
     - **Tabla de rutas:** puede no asociar ninguna tabla de rutas o asociar una existente a una subred para controlar el enrutamiento del tráfico de red a otras redes. La tabla de rutas debe existir en la misma suscripción y la misma ubicación que la red virtual. Obtenga más información sobre el [enrutamiento de Azure](virtual-networks-udr-overview.md) y [cómo crear una tabla de rutas](tutorial-create-route-table-portal.md).
@@ -68,7 +68,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 4. En la lista de subredes, seleccione la subred para la que desea modificar la configuración. Puede cambiar la configuración siguiente:
 
     - **Intervalo de direcciones:** si no hay recursos implementados dentro de la subred, es posible modificar el intervalo de direcciones. Si existe algún recurso en la subred, primero deberá moverlos a otra subred o eliminarlos. Los pasos necesarios para mover o eliminar un recurso varían según el recurso. Para información sobre cómo mover o eliminar los recursos que se encuentran en las subredes, lea la documentación de cada tipo de recurso que desea mover o eliminar. Consulte cuáles son las restricciones para **Intervalo de direcciones** en el paso 5 de [Incorporación de una subred](#add-a-subnet).
-    - **Usuarios**: puede controlar el acceso a la subred con los roles integrados u otros personalizados. Para obtener más información sobre la asignación de roles y usuarios para el acceso a la subred, consulte [Asignación de roles para administrar el acceso a los recursos de Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
+    - **Usuarios**: puede controlar el acceso a la subred con los roles integrados u otros personalizados. Para obtener más información sobre la asignación de roles y usuarios para el acceso a la subred, consulte [Asignación de roles para administrar el acceso a los recursos de Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
     - **Grupo de seguridad de red** y **Tabla de rutas**: vea el paso 5 de [Agregar una subred](#add-a-subnet).
     - **Puntos de conexión de servicio**: vea los puntos de conexión de servicio del paso 5 de [Agregar una subred](#add-a-subnet). A la hora de habilitar un punto de conexión de servicio para una red existente, asegúrese de que no se esté ejecutando ninguna tarea crítica en ningún recurso de la subred. Los puntos de conexión de servicio cambian las rutas en cada interfaz de red de la subred: pasan de usar la ruta predeterminada con el prefijo de dirección *0.0.0.0/0* y el tipo de próximo salto *Internet* a usar una ruta nueva con los prefijos de dirección del servicio y el tipo de próximo salto *VirtualNetworkServiceEndpoint*. Durante el cambio se puede terminar cualquier conexión TCP que esté abierta. El punto de conexión de servicio no se habilita hasta que los flujos de tráfico al servicio de todas las interfaces de red se actualicen con la nueva ruta. Para más información sobre el enrutamiento, vea la [introducción al enrutamiento](virtual-networks-udr-overview.md).
 5. Seleccione **Guardar**.

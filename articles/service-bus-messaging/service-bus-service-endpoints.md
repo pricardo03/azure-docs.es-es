@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 7716ff503bd492cc4b5d510758cb20d74eb82a4f
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f8874a1d9db754485e9624596465560981bd6425
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035676"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858052"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Uso de puntos de conexión de servicio de Virtual Network con Azure Service Bus
 
@@ -24,6 +24,12 @@ La integración de Service Bus con los [puntos de conexión de servicio de Virtu
 Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Service Bus solo aceptará ya el tráfico procedente de redes virtuales autorizadas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Service Bus a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería.
 
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Service Bus, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público.
+
+## <a name="enable-service-endpoints-with-service-bus"></a>Habilitar puntos de conexión de servicio con Service Bus
+
+Solo se admiten redes virtuales en espacios de nombres de Service Bus del [nivel Premium](service-bus-premium-messaging.md). 
+
+Una consideración importante al utilizar los puntos de conexión de servicio de la red virtual con Service Bus es que no debería habilitar estos puntos de conexión en aplicaciones que combinan espacios de nombres de Service Bus de los niveles Estándar y Premium. Dado que el nivel Estándar no admite redes virtuales, el punto de conexión se restringiría solo a los espacios de nombres del nivel Premium. La red virtual bloqueará el tráfico hacia el espacio de nombres estándar. 
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 
@@ -43,7 +49,7 @@ La regla de red virtual es una asociación con nombre del espacio de nombres de 
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Creación de una regla de red virtual con plantillas de Azure Resource Manager
 
-La siguiente plantilla de Resource Manager permite agregar una regla de red virtual a un espacio de nombres de Service Bus existente.
+La siguiente plantilla de Resource Manager permite agregar una regla de red virtual a un espacio de nombres de Service Bus.
 
 Parámetros de plantilla:
 
@@ -90,11 +96,11 @@ Plantilla:
 }
 ```
 
-Para implementar la plantilla, siga las instrucciones para [Azure Resource Manager][lnk-deploy].
+Para implementar la plantilla, siga las instrucciones relativas a [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de las redes virtuales, consulte los siguientes vínculos:
+Para obtener más información acerca de las redes virtuales, consulte los siguientes vínculos:
 
 - [Puntos de conexión del servicio Azure Virtual Network][vnet-sep]
 - [Filtrado de IP de Azure Service Bus][ip-filtering]

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: bbd9bb0d56dd61fd0a32531ac425a1dbc1aa8923
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 86ac1f1b5433104faa89e1f107fa36fc1da5f70e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295418"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989901"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión del Kit de desarrollo de Azure Stack  
 Estas notas de la versión proporcionan información sobre las mejoras, correcciones y problemas conocidos en el Kit de desarrollo de Azure Stack. Si no está seguro de qué versión se está ejecutando, puede usar el [portal de administración](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -97,15 +97,21 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
    - COMPONENTE: controlador de mantenimiento
    - DESCRIPCIÓN: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
 
-  Se pueden omitir ambas alertas con seguridad y se cerrarán automáticamente con el tiempo.  
+  Se pueden omitir ambas alertas con seguridad y se cerrarán automáticamente con el tiempo. 
 
-- <!-- 2392907 – ASDK --> Es posible que vea una alerta *crítica* de **Poca capacidad de memoria**. Esta alerta tiene la siguiente descripción: *la región ha consumido más del 95,00 % de la memoria disponible. La creación de máquinas virtuales con grandes cantidades de memoria puede producir un error.*
+  También es posible que vea la siguiente alerta para *Capacidad*. Para esta alerta, el porcentaje de memoria disponible que se identifica en la descripción puede variar:  
 
-  Esta alerta se puede generar cuando Azure Stack tiene el cuenta incorrectamente el uso de la memoria en el kit de desarrollo de Azure Stack.  
+  Alerta 3:
+   - NOMBRE: baja capacidad de memoria
+   - GRAVEDAD: crítica
+   - COMPONENTE: capacidad
+   - DESCRIPCIÓN: la región ha consumido más del 80,00 % de la memoria disponible. La creación de máquinas virtuales con grandes cantidades de memoria puede producir un error.  
 
-  Esta alerta se puede ignorar y el problema no tiene ningún efecto sobre la ubicación de las máquinas virtuales. 
+  En esta versión de Azure Stack, esta alerta puede desencadenarse incorrectamente. Si las máquinas virtuales del inquilino siguen implementándose correctamente, puede ignorar esta alerta. 
+  
+  La Alerta 3 no se cierra automáticamente. Si cierra esta alerta, Azure Stack creará la misma alerta en 15 minutos.  
 
-- <!-- 2368581 - IS. ASDK --> Operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un *error de creación de máquina virtual de Fabric*, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo. 
+- <!-- 2368581 - IS ASDK --> Operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un *error de creación de máquina virtual de Fabric*, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo. 
 
 
 #### <a name="compute"></a>Compute
@@ -135,7 +141,7 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
 
   Luego puede volver a intentar cargar la imagen de máquina virtual que anteriormente produjo un error.
 
-- <!-- TBD -  IS ASDK --> Si el aprovisionamiento de una extensión en la implementación de una máquina virtual tarda demasiado, los usuarios deben dejar que se agote el tiempo de espera del aprovisionamiento, en lugar de intentar detener el proceso para desasignar o eliminar la máquina virtual.  
+- <!-- TBD -  IS ASDK --> Si aprovisionar una extensión en una implementación de máquina virtual tarda demasiado tiempo, los usuarios deberían dejar que se agote el tiempo de espera de aprovisionamiento en lugar de intentar detener el proceso para desasignar o eliminar la máquina virtual.  
 
 - <!-- 1662991 - IS ASDK --> No se admite el diagnóstico de máquinas virtuales Linux en Azure Stack. Si implementa una máquina virtual Linux con diagnósticos de máquina virtual habilitado, se producirá un error en la implementación. Tampoco se podrá realizar la implementación si habilita las métricas básicas de máquina virtual Linux a través de la configuración de diagnóstico. 
 
@@ -144,7 +150,7 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
 
 - <!-- 1766332 - IS, ASDK --> En **Redes**, si hace clic en **Create VPN Gateway** (Crear instancia de VPN Gateway) para configurar una conexión VPN, aparece **Policy Based** (Basada en directivas) como un tipo de VPN. No seleccione esta opción. En Azure Stack solo se admite la opción **Route Based** (Basada en rutas).
 
-- <!-- 2388980 -  IS ASDK --> Después de crear una máquina virtual y asociarla a una dirección IP pública, no se puede desasociar de dicha dirección IP. Puede que parezca que se ha desasociado, pero la dirección IP pública anteriormente asignada permanece asociada a la máquina virtual original.
+- <!-- 2388980 -  IS ASDK --> Después de crear una máquina virtual y asociarla a una dirección IP pública, no puede desasociar esa máquina virtual de esa dirección IP. Puede que parezca que se ha desasociado, pero la dirección IP pública anteriormente asignada permanece asociada a la máquina virtual original.
 
   Actualmente, solo debe usar nuevas direcciones IP públicas para las nuevas máquinas virtuales creadas.
 
@@ -160,7 +166,7 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
 
 - <!-- 1902460 -  IS ASDK -->Azure Stack admite una única *puerta de enlace de red local* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
 
-- <!-- 16309153 -  IS ASDK --> En una red virtual que se creó con el valor *Automático* en Servidor DNS, se produce un error al cambiar a un servidor DNS personalizado. La configuración actualizada no se inserta en las máquinas virtuales de esa red virtual.
+- <!-- 16309153 -  IS ASDK --> En una red virtual que se creó con una configuración de servidor DNS de *Automática*, se produce un error al cambiar a un servidor DNS personalizado. La configuración actualizada no se inserta en las máquinas virtuales de esa red virtual.
  
 - <!-- TBD -  IS ASDK --> Azure Stack no admite la adición de interfaces de red adicionales a una instancia de máquina virtual una vez implementada la máquina virtual. Si la máquina virtual requiere más de una interfaz de red, se deben definir en el momento de la implementación.
 
@@ -289,7 +295,7 @@ Las siguientes están disponibles ahora, pero no requieren la actualización de 
 
 - <!-- 1902460 -  IS ASDK -->Azure Stack admite una única *puerta de enlace de red local* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
 
-- <!-- 16309153 -  IS ASDK --> En una red virtual que se creó con el valor *Automático* en Servidor DNS, se produce un error al cambiar a un servidor DNS personalizado. La configuración actualizada no se inserta en las máquinas virtuales de esa red virtual.
+- <!-- 16309153 -  IS ASDK --> En una red virtual que se creó con una configuración de servidor DNS de *Automática*, se produce un error al cambiar a un servidor DNS personalizado. La configuración actualizada no se inserta en las máquinas virtuales de esa red virtual.
  
 - <!-- TBD -  IS ASDK --> Azure Stack no admite la adición de interfaces de red adicionales a una instancia de máquina virtual una vez implementada la máquina virtual. Si la máquina virtual requiere más de una interfaz de red, se deben definir en el momento de la implementación.
 
@@ -300,7 +306,7 @@ Las siguientes están disponibles ahora, pero no requieren la actualización de 
 - <!-- IS, ASDK --> Los caracteres especiales, entre los que se incluyen espacios y puntos, no se admiten en el nombre de **familia** al crear una SKU para los proveedores de recursos de SQL y MySQL. 
 
 #### <a name="app-service"></a>App Service
-- <!-- TBD -  IS ASDK --> Los usuarios deben registrar el proveedor de recursos de almacenamiento antes de crear su primera instancia de Azure Function en la suscripción.
+- <!-- TBD -  IS ASDK --> Los usuarios deben registrar el proveedor de recursos de almacenamiento antes de crear su primera función de Azure en la suscripción.
 
 - <!-- TBD -  IS ASDK --> Para escalar horizontalmente la infraestructura (roles de trabajo, administración y front-end), debe usar PowerShell, tal como se describe en las notas de la versión de Compute.
  

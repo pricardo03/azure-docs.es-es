@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b5a50b01da220f8da2f518895a61221f80d098f6
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 51a614a2411cf60bf88d384119c26bc9d406e66f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826266"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635148"
 ---
 # <a name="billing-options"></a>Opciones de facturación  
 
@@ -67,7 +67,7 @@ Una ventaja importante del uso de la opción de lista de transacciones es que lo
 En el escenario, Microsoft factura y cobra en su nombre. La facturación de Microsoft elimina la necesidad de crear una relación de adquisición propia con el cliente. La facturación única puede ahorrarle tiempo y recursos. También puede ayudarle a concentrarse en conseguir la venta, en lugar de cobrar la factura. 
 
 ## <a name="enterprise-agreement"></a>Contrato Enterprise  
-Si es cliente de Contrato Enterprise (EA) con Microsoft, puede usar su EA para pagar productos de Microsoft. Puede facturar productos incluida el uso de Azure. El uso del EA para pagar está diseñado para organizaciones que quieren tener licencias de software y servicios en la nube durante tres o más años. Distribuya los pagos en lugar de realizar un único pago anticipado. Si utiliza el tipo de lista de transacciones de pago por uso, la facturación de los costos de licencia de software sigue el ciclo de facturación trimestral de uso por encima del límite de EA.  
+Si es cliente de Contrato Enterprise (EA) con Microsoft, puede usar su EA para pagar productos de Microsoft. Puede que se le facturen productos que incluyan el uso de Azure. El uso del EA para pagar está diseñado para organizaciones que quieren tener licencias de software y servicios en la nube durante tres o más años. Distribuya los pagos en lugar de realizar un único pago anticipado. Si utiliza el tipo de lista de transacciones de pago por uso, la facturación de los costos de licencia de software sigue el ciclo de facturación trimestral de uso por encima del límite de EA.  
 
 ### <a name="monetary-commitment"></a>Compromiso monetario  
 Si es cliente de EA, puede agregar Azure al contrato. Para agregar Azure a su contrato, realice un compromiso monetario inicial en Azure. El compromiso monetario se consume durante el año. El compromiso incluye cualquier combinación de utilización de la amplia gama de servicios en Azure.  

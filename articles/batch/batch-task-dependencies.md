@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316824"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865240"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creación de dependencias de tareas para ejecutar las tareas que dependan de otras tareas
 
@@ -68,7 +68,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Este fragmento de código crea una tarea dependiente con el identificador de tarea "Flowers". La tarea "Flowers" depende de las tareas "Rain" y "Sun". La tarea "Flowers" se programará para que se ejecute en un nodo de proceso solo después de las tareas "Rain" y "Sun" se hayan completado correctamente.
 
 > [!NOTE]
-> Se considera que una tarea se ha completado correctamente cuando se encuentra en estado de **completada** y su **código de salida** es `0`. En .NET para Batch, esto significa que el valor de la propiedad [CloudTask][net_cloudtask].[State ][net_taskstate] es `Completed` y el valor de la propiedad [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask es `0`.
+> De forma predeterminada, se considera que una tarea se ha completado correctamente cuando se encuentra en estado de **completada** y su **código de salida** es `0`. En .NET para Batch, esto significa que el valor de la propiedad [CloudTask][net_cloudtask].[State ][net_taskstate] es `Completed` y el valor de la propiedad [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask es `0`. Para cambiar esto, consulte la sección [Acciones de dependencia](#dependency-actions).
 > 
 > 
 
@@ -117,11 +117,13 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### <a name="task-id-range"></a>Intervalo de id. de tarea
-En un dependencia de un intervalo de tareas principales, una tarea depende de la finalización de tareas cuyos identificadores se encuentran dentro de un intervalo.
+En una dependencia de un intervalo de tareas principales, una tarea depende de la finalización de tareas cuyos identificadores se encuentran dentro de un intervalo.
 Para crear la dependencia, proporcione el primer y el último identificador de tarea del intervalo al método estático [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] cuando rellene la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> Si usa intervalos de identificadores de tarea para las dependencias, dichos identificadores *deben* ser representaciones de cadena de valores enteros.
+> Si usa intervalos de identificadores de tareas para las dependencias, el intervalo solo seleccionará aquellas tareas con identificadores que representan valores enteros. Por tanto, el intervalo `1..10` seleccionará las tareas `3` y `7`, pero no la tarea `5flamingoes`. 
+> 
+> Los ceros iniciales no son significativos al evaluar las dependencias de intervalo, por lo que las tareas con los identificadores de cadena `4`, `04` y `004` estarán todas *dentro* del intervalo y todas se tratarán como la tarea `4`, por lo que la primera de ellas en completarse cumplirá la dependencia.
 > 
 > Todas las tareas del intervalo deben satisfacer la dependencia, ya sea completando correctamente o con un error lo que se asigna a una acción de dependencia establecida en **Satisfacer**. Consulte la sección [Acciones de dependencia](#dependency-actions) para más información.
 >

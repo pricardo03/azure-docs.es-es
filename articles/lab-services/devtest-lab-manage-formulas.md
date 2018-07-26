@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c30958c5e0e24f2b35475848c1828df4a40d0c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b7a68f545f60829e5da83f0734c57a4d210cb843
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "33781924"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001488"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Administración de fórmulas de Azure DevTest Labs
 
@@ -61,7 +61,7 @@ Los siguientes pasos le guiarán por el proceso de creación de una fórmula a p
     * **Nombre de fórmula** : escriba un nombre para la fórmula. Este valor se mostrará en la lista de imágenes base al crear la máquina virtual. El nombre se valida a medida que lo escribe y, si no es válido, un mensaje le indicará los requisitos para un nombre válido.
     * **Descripción** : escriba una descripción significativa para la fórmula. Este valor está disponible desde el menú contextual de la fórmula al crear una máquina virtual.
     * **Nombre de usuario**: escriba un nombre de usuario al que se concederán privilegios de administrador.
-    * **Contraseña** : escriba, o seleccione en la lista desplegable, un valor que esté asociado con el secreto (contraseña) que desee usar para el usuario especificado. Para obtener más información sobre los secretos, consulte [Azure DevTest Labs: Personal secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/) (Azure DevTest Labs: almacén personal de secretos).
+    * **Contraseña** : escriba, o seleccione en la lista desplegable, un valor que esté asociado con el secreto (contraseña) que desee usar para el usuario especificado. Para información sobre cómo guardar secretos en un almacén de claves y utilizarlos al crear recursos de laboratorio, consulte [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md) (Almacenamiento de secretos en un almacén de claves de Azure).
     * **Virtual machine disk type** (Tipo de disco de máquina virtual): especifique cualquier HDD (unidad de disco duro) o SSD (unidad de estado sólido) para indicar qué tipo de disco de almacenamiento se permite para las máquinas virtuales que se aprovisionan con esta imagen base.
     * ** Tamaño de la máquina virtual**: seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear. 
     * **Artefactos**: seleccione esta opción para abrir la hoja **Agregar artefactos**, donde podrá seleccionar y configurar los artefactos que quiere agregar a la imagen base. Para más información acerca de los artefactos, consulte [Creación de artefactos personalizados para la máquina virtual de Azure DevTest Labs](devtest-lab-artifact-author.md).

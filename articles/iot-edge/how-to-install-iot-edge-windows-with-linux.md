@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 503dfc0c7606d44a1b9ab635aa0d479df61f3820
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f4a9c14a63e2cab84ccc20f8f36b272d21eb8332
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435480"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004191"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows para su uso con contenedores de Linux
 
@@ -50,8 +50,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 Instale vcruntime mediante:
@@ -140,7 +141,7 @@ Para recuperar la dirección IP, escriba `ipconfig` en la ventana de PowerShell.
 
 ![DockerNat][img-docker-nat]
 
-Actualice **workload_uri** y **management_uri** en la sección **connect:** del archivo de configuración. Reemplace **\<GATEWAY_ADDRESS\>** por la dirección IP que copió. 
+Actualice **workload_uri** y **management_uri** en la sección **connect:** del archivo de configuración. Reemplace **\<GATEWAY_ADDRESS\>** por la dirección IP de DockerNAT que copió. 
 
 ```yaml
 connect:
@@ -148,7 +149,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Escriba las mismas direcciones en la sección **listen:** de la configuración, con la dirección IP como dirección de la puerta de enlace.
+Escriba las mismas direcciones de la sección **listen:**.
 
 ```yaml
 listen:

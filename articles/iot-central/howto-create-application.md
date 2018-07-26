@@ -1,29 +1,29 @@
 ---
 title: Creación de una aplicación de Azure IoT Central | Microsoft Docs
 description: Como administrador, ¿cómo crea una aplicación de Azure IoT Central?
+services: iot-central
+ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 03/20/2018
+ms.date: 07/09/2018
 ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39992a1cc36d00a64ee6430cad5f24af3e1e1157
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fbe3ea142e1dd738cd341f57d2b8f48b539ac75
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629293"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003773"
 ---
 # <a name="create-your-azure-iot-central-application"></a>Creación de una aplicación de Azure IoT Central
 
-La aplicación de Microsoft Azure IoT Central se crea desde la página [Crear aplicación](https://apps.microsoftiotcentral.com/create). Para crear una aplicación de Azure IoT Central, debe completar todos los campos de esta página y luego eligir **Crear**. Este artículo tiene más información sobre cada uno de los campos.
+La aplicación de Microsoft Azure IoT Central se crea desde la página [Crear aplicación](https://apps.microsoftiotcentral.com/create). Para crear una aplicación de Azure IoT Central, debe completar todos los campos de esta página y luego eligir **Crear**. A continuación encontrará más información sobre cada uno de los campos.
 
 ![Página Crear aplicación](media\howto-create-application\image1.png)
 
 ## <a name="payment-plan"></a>Plan de pago
 
-Puede crear una aplicación de evaluación o de pago. Obtenga más información acerca de las aplicaciones de evaluación y de pago en esta página.
+Puede crear una aplicación de evaluación o de pago. Obtenga más información sobre las aplicaciones de evaluación y de pago en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Nombre de la aplicación
 
@@ -33,7 +33,7 @@ El nombre de la aplicación se muestra en la página **Administrador de aplicaci
 
 La dirección URL de la aplicación es el vínculo a la aplicación. Puede guardar un marcador para ella en el explorador o compartirla con otros usuarios.
 
-Cuando escriba el nombre de la aplicación, la dirección URL de la misma se genera automáticamente. Si lo prefiere, puede elegir una dirección URL diferente para la aplicación. Cada dirección URL de Azure IoT Central debe ser única. Verá un mensaje de error si la dirección URL que elige ya se está utilizando.
+Cuando escriba el nombre de la aplicación, la dirección URL de la misma se genera automáticamente. Si lo prefiere, puede elegir una dirección URL diferente para la aplicación. Cada dirección URL de Azure IoT Central debe ser única dentro de Azure IoT Central. Verá un mensaje de error si la dirección URL que elige ya se está utilizando.
 
 ## <a name="directory"></a>Directorio
 
@@ -49,7 +49,7 @@ Para más información, consulte [Azure Active Directory](https://docs.microsoft
 
 Una suscripción de Azure permite crear instancias de los servicios de Azure. Azure IoT Central busca automáticamente todas las suscripciones de Azure a las que usted tiene acceso y las muestra en una lista desplegable en la página **Crear aplicación**. Elija una nueva suscripción de Azure para crear una nueva aplicación de Azure IoT Central.
 
-Si no tiene una suscripción de Azure, puede crear una en esta página. Después de crear la suscripción de Azure, vuelva a la página **Crear aplicación**. La nueva suscripción aparecerá en el cuadro de lista desplegable **Suscripción de Azure**.
+Si no tiene una suscripción de Azure, puede crear una en [la página de suscripción a Azure](https://aka.ms/createazuresubscription). Después de crear la suscripción de Azure, vuelva a la página **Crear aplicación**. La nueva suscripción aparecerá en el cuadro de lista desplegable **Suscripción de Azure**.
 
 Para más información, consulte [Suscripciones de Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
@@ -59,7 +59,7 @@ Solo en las aplicaciones de pago.
 
 Elija la región donde desea crear la aplicación de Azure IoT Central. Normalmente, debe elegir la región más cercana físicamente a los dispositivos a fin de obtener un rendimiento óptimo.
 
-Para más información, consulte [Regiones de Azure](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#azure-regions).
+Para más información, consulte [Regiones de Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
 
 Puede ver las regiones en las que Azure IoT Central está disponible en la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
@@ -68,7 +68,7 @@ Puede ver las regiones en las que Azure IoT Central está disponible en la pági
 
 ## <a name="application-template"></a>Plantilla de la aplicación
 
-Puede elegir una de las plantillas de aplicación disponibles para la nueva aplicación de Azure IoT Central. Una plantilla de aplicación puede contener elementos predefinidos, como plantillas de dispositivos y paneles que le ayudarán a empezar a trabajar:
+Puede elegir una de las plantillas de aplicación disponibles para la nueva aplicación de Azure IoT Central. Una plantilla de aplicación puede contener elementos predefinidos, como plantillas de dispositivos y paneles que le ayudarán a empezar a trabajar.
 
 | Plantilla de la aplicación | DESCRIPCIÓN |
 | -------------------- | ----------- |

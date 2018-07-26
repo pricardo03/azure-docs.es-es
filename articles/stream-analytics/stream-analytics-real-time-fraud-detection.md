@@ -2,31 +2,31 @@
 title: Detección de fraudes en tiempo real con Azure Stream Analytics
 description: Aprenda a crear una solución para la detección de fraudes en tiempo real con Stream Analytics. Use un centro de eventos para el procesamiento de eventos en tiempo real.
 services: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824768"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901721"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: detección de fraudes en tiempo real
 
 Este tutorial muestra de principio a fin cómo usar Azure Stream Analytics. Aprenderá a: 
 
-* Incorporar eventos de streaming a una instancia de Azure Event Hubs. En este tutorial, usará una aplicación que le ofrecemos que simula un flujo de registros de metadatos de teléfono móvil.
+* Incorporar eventos de streaming a una instancia de Azure Event Hubs. En este tutorial, usará una aplicación que simula un flujo de registros de metadatos de teléfono móvil.
 
 * Escribir consultas de Stream Analytics de tipo SQL para transformar datos, agregar información o buscar patrones. Verá cómo usar una consulta para examinar el flujo entrante y buscar llamadas que puedan ser fraudulentas.
 
 * Enviar los resultados a un receptor de salida (almacenamiento) que pueda analizar para obtener información adicional. En este caso, enviará los datos de llamadas sospechosas a Azure Blob Storage.
 
-En este tutorial, se usa el ejemplo de detección de fraudes en tiempo real basado en datos de llamadas telefónicas. Paro la técnica que se muestra es también adecuada para la detección de otros tipos de fraudes, tales como el fraude con tarjetas de crédito y el robo de identidad. 
+En este tutorial se usa el ejemplo de detección de fraudes en tiempo real basado en datos de llamadas telefónicas. La técnica que se muestra también es adecuada para la detección de otros tipos de fraudes, como el fraude con tarjetas de crédito o el robo de identidad. 
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Escenario: telecomunicaciones y detección de fraudes de SIM en tiempo real
 
@@ -39,7 +39,7 @@ En este tutorial, simulará datos de llamadas telefónicas mediante una aplicaci
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure.
-* La aplicación del generador de eventos de llamada. Para obtenerla, descargue el [archivo TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) del Centro de descarga de Microsoft. Descomprima este paquete un una carpeta en el equipo. Si quiere ver el código fuente y ejecutar la aplicación en un depurador, puede obtener el código fuente de la aplicación en [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* La aplicación que genera eventos de llamada, [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), que puede descargarse desde el Centro de descarga de Microsoft. Descomprima este paquete un una carpeta en el equipo. Si quiere ver el código fuente y ejecutar la aplicación en un depurador, puede obtener el código fuente de la aplicación en [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows puede bloquear el archivo zip descargado. Si no puede descomprimirlo, haga clic con el botón derecho en el archivo y seleccione **Propiedades**. Si ve el mensaje "Este archivo proviene de otro equipo y podría bloquearse para ayudar a proteger este equipo", seleccione la opción **Desbloquear** y luego haga clic en **Aplicar**.
@@ -48,7 +48,7 @@ Si quiere examinar los resultados del trabajo de análisis de Stream Analytics, 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Creación de una instancia de Azure Event Hubs para la ingesta de eventos
 
-Para analizar un flujo de datos, debe *introducirlo* en Azure. Una forma habitual de ingesta de datos consiste en usar [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), que permite la ingesta de millones de eventos por segundo y el procesamiento y almacenamiento de la información de los eventos. En este tutorial, se crea un centro de eventos y luego se indica a la aplicación del generador de eventos de llamada que envíe los datos de llamada a dicho centro. Para más información sobre Event Hubs, vea la [documentación de Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+Para analizar un flujo de datos, debe *introducirlo* en Azure. Una forma habitual de ingesta de datos consiste en usar [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), que permite la ingesta de millones de eventos por segundo y el procesamiento y almacenamiento de la información de los eventos. En este tutorial, creará un centro de eventos e indicará a la aplicación que genera eventos de llamada que envíe los datos de las llamadas a dicho centro. Para más información sobre Event Hubs, vea la [documentación de Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 >[!NOTE]
 >Para obtener una versión más detallada de este procedimiento, vea [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). 
@@ -60,22 +60,23 @@ En este procedimiento, cree primero un espacio de nombres del centro de eventos 
 
 2. En el panel **Crear espacio de nombres**, especifique un nombre de espacio de nombres, como `<yourname>-eh-ns-demo`. Puede utilizar cualquier nombre para el espacio de nombres, pero debe ser válido para una dirección URL y ser único en Azure. 
     
-3. Seleccione una suscripción y cree o elija un grupo de recursos. Luego haga clic en **Crear**. 
+3. Seleccione una suscripción y cree o elija un grupo de recursos. Luego haga clic en **Crear**.
 
-    ![Creación de un espacio de nombres del centro de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png)
- 
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="drawing" width="300px"/>
+
 4. Cuando el espacio de nombres termine de implementarse, busque el espacio de nombres del centro de eventos en la lista de recursos de Azure. 
 
 5. Haga clic en el nuevo espacio de nombres y, en el panel del espacio de nombres, haga clic en **Event Hub**.
 
-    ![Botón Agregar centro de eventos para crear un centro de eventos ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![Botón Agregar centro de eventos para crear un centro de eventos ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. Asigne al nuevo centro de eventos el nombre `sa-eh-frauddetection-demo`. Puede usar otro nombre. Si lo hace, tome nota del mismo, porque más adelante se necesita el nombre. No es preciso establecer otras opciones del centro de eventos ahora mismo.
+6. Asigne al nuevo centro de eventos el nombre `asa-eh-frauddetection-demo`. Puede usar otro nombre. Si lo hace, tome nota del mismo, porque más adelante se necesita el nombre. No es preciso establecer otras opciones del centro de eventos ahora mismo.
 
-    ![Hoja para la creación de un centro de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="drawing" width="400px"/>
     
  
 7. Haga clic en **Create**(Crear).
+
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Concesión de acceso al centro de eventos y obtención de una cadena de conexión
 
 Para que un proceso pueda enviar datos a un centro de eventos, este debe tener una directiva que permita el acceso adecuado. La directiva de acceso genera una cadena de conexión que incluye la información de autorización.
@@ -89,29 +90,29 @@ Para que un proceso pueda enviar datos a un centro de eventos, este debe tener u
 
 3.  Agregue una directiva denominada `sa-policy-manage-demo` y, en **Notificación**, seleccione **Administrar**.
 
-    ![Hoja para la creación de una directiva de acceso al centro de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="drawing" width="300px"/>
  
 4.  Haga clic en **Create**(Crear).
 
 5.  Una vez implementada la directiva, haga clic en ella en la lista de directivas de acceso compartido.
 
 6.  Busque el cuadro **CADENA DE CONEXIÓN: CLAVE PRINCIPAL** y haga clic en el botón Copiar que se encuentra junto a la cadena de conexión. 
-    
-    ![Copia de la clave principal de la cadena de conexión de la directiva de acceso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
+
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="drawing" width="300px"/>
  
 7.  Pegue la cadena de conexión en un editor de texto. Necesita esta cadena de conexión en la siguiente sección, después de hacerle pequeñas algunas modificaciones.
 
     La cadena de conexión tiene el siguiente aspecto:
 
-        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=sa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=sa-eh-frauddetection-demo
+        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo
 
     Observe que la cadena de conexión contiene varios pares clave-valor, separados por punto y coma: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey` y `EntityPath`.  
 
 ## <a name="configure-and-start-the-event-generator-application"></a>Configuración e inicio de la aplicación del generador de eventos
 
-Antes de iniciar la aplicación TelcoGenerator, debe configurarla para que envíe los registros de llamada al centro de eventos que creó.
+Antes de iniciar la aplicación TelcoGenerator, es preciso configurarla para que envíe los registros de las llamadas al centro de eventos que ha creado.
 
-### <a name="configure-the-telcogeneratorapp"></a>Configuración de TelcoGeneratorapp
+### <a name="configure-the-telcogenerator-app"></a>Configuración de la aplicación TelcoGenerator
 
 1.  En el editor en el que copió la cadena de conexión, apunte el valor `EntityPath` y luego quite el par `EntityPath` (no olvide quitar el punto y coma que lo precede). 
 
@@ -122,9 +123,9 @@ Antes de iniciar la aplicación TelcoGenerator, debe configurarla para que enví
     * Establezca el valor de la clave `EventHubName` en el nombre del centro de eventos (es decir, en el valor de la ruta de acceso de la entidad).
     * Establezca el valor de la clave `Microsoft.ServiceBus.ConnectionString` en la cadena de conexión. 
 
-    La sección `<appSettings>` tendrá un aspecto similar al del ejemplo siguiente. (Para mayor claridad, se ajustan las líneas y se quitan algunos caracteres del token de autorización).
+    La sección `<appSettings>` tendrá un aspecto similar al del ejemplo siguiente. (Para que el ejemplo sea lo más claro posible, se han ajustado las líneas y se han quitado algunos caracteres del token de autorización).
 
-    ![Archivo de configuración de la aplicación TelcoGenerator que muestra el nombre del centro de eventos y la cadena de conexión](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+   ![Archivo de configuración de la aplicación TelcoGenerator que muestra el nombre del centro de eventos y la cadena de conexión](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
 4.  Guarde el archivo. 
 
@@ -162,11 +163,11 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
 
 1. En Azure Portal, haga clic en **Crear un recurso** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
 
-2. Asigne al trabajo el nombre `sa_frauddetection_job_demo` y especifique una suscripción, un grupo de recursos y una ubicación.
+2. Asigne al trabajo el nombre `asa_frauddetection_job_demo` y especifique una suscripción, un grupo de recursos y una ubicación.
 
     Es conveniente colocar el trabajo y el centro de eventos en la misma región para obtener el mejor rendimiento y no pagar por transferir datos de una región a otra.
 
-    ![Creación de un trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="drawing" width="300px"/>
 
 3. Haga clic en **Create**(Crear).
 
@@ -174,28 +175,29 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
 
 ### <a name="configure-job-input"></a>Configuración de la entrada del trabajo
 
-1. En el panel de información o en el panel **Todos los recursos**, busque el trabajo de Stream Analytics `sa_frauddetection_job_demo` y selecciónelo. 
-2. En la sección **Topología de trabajo** del panel del trabajo de Stream Analytics, haga clic en el cuadro **Entradas**.
+1. En el panel de información o en el panel **Todos los recursos**, busque el trabajo de Stream Analytics `asa_frauddetection_job_demo` y selecciónelo. 
+2. En la sección **Información general** del panel del trabajo de Stream Analytics, haga clic en el cuadro **Input** (Entradas).
 
-    ![Cuadro Entradas en Topología en el panel del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
+   ![Cuadro Entradas en Topología en el panel del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
  
-3. Haga clic en **+&nbsp;Agregar** y rellene la hoja con estos valores:
+3. Haga clic en **Add stream input** (Agregar entrada de flujo) y seleccione **Event Hub** (Centro de eventos). Luego, especifique la siguiente información en la página New input (Entrada nueva):
 
-    * **Alias de entrada**: use el nombre `CallStream`. Si usa otro nombre, anótelo porque lo necesitará más adelante.
-    * **Tipo de origen**: seleccione **Flujo de datos**. (**Datos de referencia** se refiere a datos de búsqueda estáticos, que no se van a usar en este tutorial).
-    * **Origen**: seleccione **Centro de eventos**.
-    * **Opción de importación**: seleccione **Usar centro de eventos de la suscripción actual**. 
-    * **Espacio de nombres de Service Bus**: seleccione el espacio de nombres del centro de eventos que creó antes (`<yourname>-eh-ns-demo`).
-    * **Centro de eventos**: seleccione el centro de eventos que creó antes (`sa-eh-frauddetection-demo`).
-    * **Nombre de la directiva del centro de eventos**: seleccione la directiva de acceso que creó antes (`sa-policy-manage-demo`).
+   |**Configuración**  |**Valor sugerido**  |**Descripción**  |
+   |---------|---------|---------|
+   |Alias de entrada  |  CallStream   |  Escriba un nombre para identificar la entrada del trabajo.   |
+   |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tenga el centro de eventos que ha creado.   |
+   |Espacio de nombres del Centro de eventos  |  asa-eh-ns-demo |  Escriba el nombre del espacio de nombres del centro de eventos.   |
+   |Nombre del centro de eventos  | asa-eh-frauddetection-demo | Seleccione el nombre del centro de eventos.   |
+   |Nombre de la directiva del centro de eventos  | asa-policy-manage-demo | Seleccione la directiva de acceso que ha creado.   |
+    </br>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="drawing" width="300px"/>
 
-    ![Creación de una entrada del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
 
 4. Haga clic en **Create**(Crear).
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Creación de consultas para transformar datos en tiempo real
 
-En este momento, tiene un trabajo de Stream Analytics configurado para leer un flujo de datos entrantes. El siguiente paso consiste en crear una transformación que analice los datos en tiempo real. Para ello, cree una consulta. Stream Analytics admite un modelo de consulta declarativo sencillo que describe las transformaciones para el procesamiento en tiempo real. Las consultas usan un lenguaje de tipo SQL que tiene algunas extensiones específicas de Stream Analytics. 
+En este momento, tiene un trabajo de Stream Analytics configurado para leer un flujo de datos entrantes. El siguiente paso consiste en crear una consulta que analice los datos en tiempo real. Stream Analytics admite un modelo de consulta declarativo sencillo que describe las transformaciones para el procesamiento en tiempo real. Las consultas usan un lenguaje de tipo SQL que tiene algunas extensiones específicas para Stream Analytics. 
 
 Una consulta sencilla bastaría para leer todos los datos entrantes. Pero, a menudo se crean consultas que buscan datos concretos o relaciones en los datos. En esta sección del tutorial, crea y prueba varias consultas para aprender algunas formas en las que puede transformar un flujo de entrada para su análisis. 
 
@@ -208,17 +210,16 @@ Para obtener más información sobre el lenguaje, consulte la [Referencia de len
 La aplicación TelcoGenerator envía registros de llamada al centro de eventos y el trabajo de Stream Analytics se configura para leer los datos del centro de eventos. Puede unas una consulta para probar el trabajo y asegurarse de que lee correctamente. Para probar una consulta en la consola de Azure, necesita datos de muestra. En este tutorial, podrá extraer datos de muestra del flujo que entra en el centro de eventos.
 
 1. Asegúrese de que la aplicación TelcoGenerator se ejecuta y genera registros de llamada.
-2. En el portal, vuelva al panel del trabajo de Stream Analytics. (Si ha cerrado el panel, busque `sa_frauddetection_job_demo` en el panel **Todos los recursos**).
+2. En el portal, vuelva al panel del trabajo de Stream Analytics. (Si ha cerrado el panel, busque `asa_frauddetection_job_demo` en el panel **Todos los recursos**).
 3. Haga clic en el cuadro **Consulta**. Azure muestra las entradas y salidas que están configuradas para el trabajo y le permite crear una consulta que permite transformar el flujo de entrada a medida que se envía a la salida.
 4. En el panel **Consulta**, haga clic en los puntos que aparecen junto a la entrada `CallStream` y seleccione **Datos de ejemplo de la entrada**.
 
-    ![Opciones de menú para usar datos de muestra en la entrada del trabajo de Stream Analytics, con la opción "Datos de ejemplo de la entrada" seleccionada](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
+   ![Opciones de menú para usar datos de muestra en la entrada del trabajo de Stream Analytics, con la opción "Datos de ejemplo de la entrada" seleccionada](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
-    Se abrirá un panel que permite especificar cuántos datos de muestra quiere obtener, para lo que se define el tiempo durante el que se lee el flujo de entrada.
 
 5. Establezca **Minutos** en 3 y haga clic en **Aceptar**. 
     
-    ![Opciones de muestreo del flujo de entrada, con "3 minutos" seleccionada.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
+   ![Opciones de muestreo del flujo de entrada, con "3 minutos" seleccionada.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
 
     Azure muestrea los datos del flujo de entrada correspondientes a tres minutos y le avisa cuando los datos de muestra están listos. (Tardará unos minutos). 
 
@@ -244,9 +245,9 @@ Si quiere archivar todos los eventos, puede usar una consulta de paso a través 
 
 2. Haga clic en **Probar**.
 
-    El trabajo de Stream Analytics ejecuta la consulta en los datos de muestra y presenta la salida en la parte inferior de la ventana. Esto indica que el centro de eventos y el trabajo de Stream Analytics están configurados correctamente. (Como ya se ha señalado, más adelante creará un receptor de salida en el que la consulta pueda escribir los datos).
+    El trabajo de Stream Analytics ejecuta la consulta en los datos de muestra y presenta la salida en la parte inferior de la ventana. El conjunto de resultados indica que tanto el centro de eventos como el trabajo de Stream Analytics están configurados correctamente. (Como ya se ha señalado, más adelante creará un receptor de salida en el que la consulta pueda escribir los datos).
 
-    ![Salida del trabajo de Stream Analytics que muestra 73 registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
+   ![Salida del trabajo de Stream Analytics que muestra 73 registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
 
     El número exacto de registros que aparecen variará en función de los registros que se hayan capturado durante el muestreo de tres minutos.
  
@@ -262,7 +263,7 @@ En muchos casos, el análisis no necesita todas las columnas del flujo de entrad
 
 2. Haga clic de nuevo en **Probar**. 
 
-    ![Salida del trabajo de Stream Analytics correspondiente a la proyección que muestra 25 registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
+   ![Salida del trabajo de Stream Analytics correspondiente a la proyección que muestra 25 registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
  
 ### <a name="count-incoming-calls-by-region-tumbling-window-with-aggregation"></a>Recuento de llamadas entrantes por región: ventana de saltos de tamaño constante con agregación
 
@@ -286,15 +287,15 @@ Para esta transformación, se busca una secuencia de ventanas temporales que no 
 
 2. Haga clic de nuevo en **Probar**. En los resultados, observe que las marcas de tiempo que aparecen en **WindowEnd** reflejan incrementos de cinco segundos.
 
-    ![Salida del trabajo de Stream Analytics correspondiente a la agregación que muestra 13 registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+   ![Salida del trabajo de Stream Analytics correspondiente a la agregación que muestra 13 registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
  
 ### <a name="detect-sim-fraud-using-a-self-join"></a>Detección de fraudes de SIM mediante una autocombinación
 
-Para este ejemplo, podemos considerar que el uso fraudulento sean llamadas que se originan desde el mismo usuario, pero en diferentes ubicaciones en intervalos inferiores a cinco segundos entre una y otra. Por ejemplo, el mismo usuario no puede legítimamente realizar una llamada desde Estados Unidos y Australia al mismo tiempo. 
+Para este ejemplo, se considera uso fraudulento aquellas llamadas cuyo origen sea un solo usuario, pero que se realicen en ubicaciones diferentes en intervalos inferiores a cinco segundos entre una y otra. Por ejemplo, el mismo usuario no puede legítimamente realizar una llamada desde Estados Unidos y Australia al mismo tiempo. 
 
 Para comprobar estos casos, puede usar una autocombinación de los datos de streaming que combine el flujo consigo mismo en función del valor `CallRecTime`. Luego puede buscar los registros de llamada en los que el valor `CallingIMSI` (el número donde se origina) sea el mismo, pero el valor `SwitchNum` (país de origen) no lo sea.
 
-Cuando use una combinación con datos de streaming, la combinación debe especificar algunos límites en la diferencia de tiempo que puede haber entre filas coincidentes. (Como ya se ha señalado, los datos de streaming son de hecho ilimitados). Los límites de tiempo para la relación se especifican en la cláusula `ON` de la combinación, con la función `DATEDIFF`. En este caso, la combinación se basa en un intervalo de cinco segundos entre datos de llamada.
+Cuando use una combinación con datos de streaming, la combinación debe especificar algunos límites en la diferencia de tiempo que puede haber entre filas coincidentes. (Como ya se ha señalado, los datos de streaming son de hecho ilimitados). Los límites de tiempo de la relación se especifican en la cláusula `ON` de la combinación, con la función `DATEDIFF`. En este caso, la combinación se basa en un intervalo de cinco segundos entre datos de llamada.
 
 1. Cambie la consulta en el editor de código a: 
 
@@ -310,49 +311,49 @@ Cuando use una combinación con datos de streaming, la combinación debe especif
             AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
         WHERE CS1.SwitchNum != CS2.SwitchNum
 
-    Esta consulta es similar a cualquier instrucción SQL JOIN, salvo por la función `DATEDIFF` en la combinación. Se trata de una versión de `DATEDIFF` que es específica de Stream Analytics y debe aparecer en la cláusula `ON...BETWEEN`. Los parámetros son una unidad de tiempo (segundos en este ejemplo) y los alias de los dos orígenes de la combinación. (Es distinta de la función `DATEDIFF` SQL estándar). 
+    Esta consulta es similar a cualquier instrucción SQL JOIN, salvo por la función `DATEDIFF` en la combinación. Esta versión de `DATEDIFF` es específica de Stream Analytics y debe aparecer en la cláusula `ON...BETWEEN`. Los parámetros son una unidad de tiempo (segundos en este ejemplo) y los alias de los dos orígenes de la combinación. Esta función no es la misma que la función `DATEDIFF` de SQL estándar.
 
     La cláusula `WHERE` incluye la condición que marca la llamada fraudulenta: los conmutadores de origen no son iguales. 
 
 2. Haga clic de nuevo en **Probar**. 
 
-    ![Salida del trabajo de Stream Analytics correspondiente a la autocombinación que muestra seis registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
+   ![Salida del trabajo de Stream Analytics correspondiente a la autocombinación que muestra seis registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. Haga clic en **Save**(Guardar). Con esto guarda la consulta de autocombinación como parte del trabajo de Stream Analytics. (No guarda los datos de muestra).
+3. Haga clic en **Save** (Guardar) para guardar la consulta de autocombinación como parte del trabajo de Stream Analytics. (No guarda los datos de muestra).
 
-    ![Almacenamiento del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="drawing" width="300px"/>
 
 ## <a name="create-an-output-sink-to-store-transformed-data"></a>Creación de un receptor de salida para almacenar los datos transformados
 
 Se ha definido un flujo de eventos, una entrada de centro de eventos para la ingesta de eventos y una consulta para realizar una transformación en el flujo de datos. El último paso es definir un receptor de salida para el trabajo (es decir, un lugar en el que escribir el flujo transformado). 
 
-Puede usar muchos recursos como receptores de salida: una base de datos de SQL Server, Table Storage, Data Lake Store, Power BI e incluso otro centro de eventos. En este tutorial, escribirá un flujo de datos en Azure Blob Storage, que es una opción habitual para recopilar información de eventos para su posterior análisis, ya que acepta datos no estructurados.
+Puede usar muchos recursos como receptores de salida: una base de datos de SQL Server, Table Storage, Data Lake Store, Power BI e incluso otro centro de eventos. En este tutorial, escribirá un flujo de datos en Azure Blob Storage, algo que es habitual para recopilar información de eventos para su posterior análisis, ya que acepta datos sin estructura alguna.
 
-Si ya tiene una cuenta de Blob Storage, puede utilizarla. Aquí le mostraremos cómo crear una cuenta de Storage solo para este tutorial.
+Si ya tiene una cuenta de Blob Storage, puede utilizarla. En este tutorial, aprenderá a crear una nueva cuenta de almacenamiento.
 
 ### <a name="create-an-azure-blob-storage-account"></a>Creación de una cuenta de Azure Blob Storage
 
-1. En Azure Portal, vuelva al panel del trabajo de Stream Analytics. (Si ha cerrado el panel, busque `sa_frauddetection_job_demo` en el panel **Todos los recursos**).
-2. En la sección **Topología de trabajo**, haga clic en el cuadro **Salida**. 
-3. En el panel **Salidas**, haga clic en **+&nbsp;Agregar** y rellene el panel con estos valores:
+1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**. Rellene la página del trabajo de la cuenta de almacenamiento. En **Nombre**, escriba "asaehstorage", en **Ubicación**, escriba "Este de EE. UU." y en **Grupo de recursos**, escriba "asa-eh-ns-rg" (para mejorar el rendimiento, hospede la cuenta de almacenamiento en el mismo grupo de recursos que el trabajo de Stream Analytics). El resto de la configuración se puede dejar con sus valores predeterminados.  
 
-    * **Alias de salida**: use el nombre `CallStream-FraudulentCalls`. 
-    * **Receptor**: seleccione **Blob Storage**.
-    * **Opciones de importación**: seleccione **Usar almacenamiento de blobs de la suscripción actual**.
-    * **Cuenta de Storage**. Seleccione **Crear nueva cuenta de almacenamiento**.
-    * **Cuenta de Storage** (segundo cuadro). Escriba `YOURNAMEsademo`, donde `YOURNAME` sea su nombre u otra cadena única. El nombre solo puede incluir letras minúsculas y números y ser único en Azure. 
-    * **Contenedor**. Escriba `sa-fraudulentcalls-demo`.
-    El nombre de la cuenta de almacenamiento y el nombre del contenedor se usan conjuntamente para especificar un URI para la instancia de Blob Storage, similar al siguiente: 
+   ![Crear cuenta de almacenamiento](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
-    `http://yournamesademo.blob.core.windows.net/sa-fraudulentcalls-demo/...`
+2. En Azure Portal, vuelva al panel del trabajo de Stream Analytics. (Si ha cerrado el panel, busque `asa_frauddetection_job_demo` en el panel **Todos los recursos**).
+
+3. En la sección **Topología de trabajo**, haga clic en el cuadro **Salida**.
+
+4. En el panel **Salidas**, haga clic en **Agregar** y, después, seleccione **Almacenamiento de blobs**. Luego, especifique la siguiente información en la página New output (Salida nueva):
+
+   |**Configuración**  |**Valor sugerido**  |**Descripción**  |
+   |---------|---------|---------|
+   |Alias de salida  |  CallStream-FraudulentCalls   |  Escriba un nombre para identificar la salida del trabajo.   |
+   |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
+   |Cuenta de almacenamiento  |  asaehstorage |  Escriba el nombre de la cuenta de almacenamiento que ha creado. |
+   |Contenedor  | asa-fraudulentcalls-demo | Elija Crear nuevo y escriba un nombre de contenedor. |
+    <br/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="drawing" width="300px"/>
     
-    ![Panel "Nueva salida" del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
-    
-4. Haga clic en **Create**(Crear). 
+5. Haga clic en **Save**(Guardar). 
 
-    Azure crea la cuenta de almacenamiento y genera una clave automáticamente. 
-
-5. Cierre el panel **Salidas**. 
 
 ## <a name="start-the-streaming-analytics-job"></a>Inicio del trabajo de Stream Analytics
 
@@ -360,20 +361,11 @@ El trabajo ya está configurado. Ha especificado una entrada (el centro de event
 
 1. Asegúrese de que la aplicación TelcoGenerator se ejecuta.
 
-2. En el panel del trabajo, haga clic en **Iniciar**.
+2. En el panel del trabajo, haga clic en **Iniciar**. En el panel **Iniciar trabajo**, en Hora de inicio de salida del trabajo, seleccione **Ahora**. 
 
-    ![Inicio del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-output.png)
+   ![Inicio del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
 
-3. En el panel **Iniciar trabajo**, en Hora de inicio de salida del trabajo, seleccione **Ahora**. 
 
-4. Haga clic en **Iniciar**. 
-
-    ![Panel "Iniciar trabajo" del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-blade.png)
-
-    Azure le avisa cuando se ha iniciado el trabajo y, en el panel del trabajo, el estado aparece como **En ejecución**.
-
-    ![Estado del trabajo de Stream Analytics que muestra "En ejecución"](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-running-status.png)
-    
 
 ## <a name="examine-the-transformed-data"></a>Examen de los datos transformados
 
@@ -383,12 +375,12 @@ Para finalizar este tutorial, es posible que quiera ver los datos que captura el
 
 Al examinar el contenido de un archivo en Blob Storage, se ve algo similar a esto:
 
-![Azure Blob Storage con salida de Streaming Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
+   ![Azure Blob Storage con salida de Streaming Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
  
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Existen otros artículos que continúan con el escenario de detección de fraudes y usan los recursos creados en este tutorial. Si quiere seguir, vea las sugerencias que se ofrecen más adelante en **Pasos siguientes**.
+Hay otros artículos que continúan con el escenario de detección de fraudes y usan los recursos que ha creado en este tutorial. Si desea continuar, vea las sugerencias que se ofrecen en **Pasos siguientes**.
 
 Pero, si ha terminado y no necesita los recursos que ha creado, puede eliminarlos para no incurrir en cargos de Azure innecesarios. En ese caso, se recomienda hacer lo siguiente:
 
@@ -401,7 +393,7 @@ Pero, si ha terminado y no necesita los recursos que ha creado, puede eliminarlo
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para más ayuda, pruebe el [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: dbe2715d76f18daf87b65871c26d73205ec2f7fd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8304ffa7c0cd225f258064d3c1a36a754c684241
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218850"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950723"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services: solución de problemas de configuración del protocolo LDAP seguro
 
@@ -58,7 +58,7 @@ Con LDAP seguro habilitado, se recomienda crear reglas adicionales para permitir
 
 **Mensaje de alerta:**
 
-*El certificado LDAP seguro del dominio administrado expirará el XX.*
+*El certificado LDAP seguro del dominio administrado expirará en [fecha].*
 
 **Resolución:**
 

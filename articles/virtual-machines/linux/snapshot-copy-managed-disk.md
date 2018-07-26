@@ -11,14 +11,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: e5882b2ddc708544a7715da13c1f0d18384ce4e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30318908"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007012"
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea 
 
@@ -26,16 +26,21 @@ Tome una instantánea de un disco de datos o del sistema operativo para realizar
 
 ## <a name="use-azure-cli"></a>Uso de CLI de Azure 
 
-En el ejemplo siguiente, es necesario que la CLI de Azure 2.0 esté instalada y que haya iniciado sesión en la cuenta de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+En el ejemplo siguiente, se requiere el uso de [Cloud Shell](https://shell.azure.com/bash) o tener la CLI de Azure 2.0 instalada. Para saber qué versión tiene, ejecute el comando **az --version**. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
 
-Los pasos siguientes muestran cómo realizar una instantánea mediante el comando `az snapshot create` con el parámetro `--source-disk`. En el siguiente ejemplo se supone que hay una máquina virtual denominada `myVM` en el grupo de recursos `myResourceGroup`.
+Los pasos siguientes muestran cómo realizar una instantánea mediante el comando **az snapshot create** con el parámetro **--source-disk**. En el siguiente ejemplo se supone que hay una máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup*.
 
-Obtenga el identificador de disco.
-```azure-cli
-osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+Obtenga el Id. de disco mediante [az vm show](/cli/azure/vm#az-vm-show).
+
+```azurecli-interactive
+osDiskId=$(az vm show \
+   -g myResourceGroup \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
-Realice una instantánea denominada *osDisk-backup*.
+Realice una instantánea denominada *osDisk-backup* mediante [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -45,18 +50,25 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro `--sku Standard_ZRS`.
+> Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro **--sku Standard_ZRS**.
+
+Puede ver una lista de las instantáneas con [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
+
+```azurecli-interactive
+az snapshot list \
+   -g myResourceGroup \
+   - table
+```
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En la parte superior izquierda, haga clic en **Crear un recurso** y busque **instantánea**.
-3. En la hoja Instantánea, haga clic en **Crear**.
+2. En la parte superior izquierda, haga clic en **Crear un recurso** y busque **instantánea**. Seleccione **Instantánea** desde los resultados de búsqueda.
+3. En la hoja **Instantánea**, haga clic en **Crear**.
 4. Escriba un **nombre** para la instantánea.
-5. Seleccione un valor de [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups) existente o escriba el nombre para crear uno. 
-6. Seleccione una ubicación del centro de datos de Azure.  
+5. Seleccione un valor de grupo de recursos existente o escriba el nombre para crear uno. 
 7. Como **disco de origen**, seleccione el disco administrado para la instantánea.
-8. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Se recomienda **Standard_LRS**, a menos que necesite almacenarla en un disco de alto rendimiento.
+8. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Use **HDD estándar**, a menos que necesite almacenarla en un disco SSD de alto rendimiento.
 9. Haga clic en **Create**(Crear).
 
 

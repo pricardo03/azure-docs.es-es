@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 29ac86ed5c744d37150b0f1b2db17f60306fe77e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799806"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001837"
 ---
 # <a name="monitor-batch-solutions"></a>Supervisión de soluciones de Batch
 
@@ -43,7 +43,7 @@ Supervise las cuentas de Batch con características de [Azure Monitor](../monito
 
 En las aplicaciones de Batch, utilice las API de Batch para supervisar o consultar el estado de los recursos, como los trabajos, las tareas, los nodos y los grupos. Por ejemplo: 
 
-* [Recuento de tareas por estado](batch-get-task-counts.md)
+* [Recuento de tareas y nodos de proceso por estado](batch-get-resource-counts.md)
 * [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md)
 * [Creación de dependencias de tareas](batch-task-dependencies.md)
 * Uso de una [tarea del administrador de trabajos](/rest/api/batchservice/job/add#jobmanagertask)

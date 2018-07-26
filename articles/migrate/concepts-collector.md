@@ -4,15 +4,15 @@ description: Proporciona información general sobre la aplicación del recopilad
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0f36370f5093f8c1d06c83a62532b3854597fa4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211676"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951046"
 ---
 # <a name="collector-appliance"></a>Aplicación del recopilador
 
@@ -176,7 +176,7 @@ El recopilador solo detecta los datos de la máquina y los envía al proyecto. E
 En función del número de máquinas virtuales en el ámbito seleccionado, se tarda hasta 15 minutos en enviar los metadatos estáticos al proyecto. Una vez que los metadatos estáticos estén disponibles en el portal, podrá ver la lista de máquinas en el portal y comenzar a crear grupos. No se puede crear una valoración hasta que finalice el trabajo de recopilación y el proyecto haya procesado los datos. Una vez completado el trabajo de recopilación en el recopilador, puede tardar hasta una hora para que los datos de rendimiento estén disponibles en el portal, en función del número de máquinas virtuales en el ámbito seleccionado.
 
 ## <a name="locking-down-the-collector-appliance"></a>Bloqueo de la aplicación del recopilador
-Se recomienda ejecutar actualizaciones continuas de Windows en la aplicación del recopilador. Si no se actualiza un recopilador durante 45 días, el recopilador se iniciará apagando automáticamente la máquina. Si se está ejecutando una detección, la máquina no se desactivará, incluso si ya transcurrió su plazo de 45 días. Cuando el trabajo de detección se haya completado, se desactivará la máquina. Si usa el recopilador durante más de 45 días, se recomienda mantener la máquina actualizada en todo momento mediante la ejecución de Windows Update.
+Se recomienda ejecutar actualizaciones continuas de Windows en la aplicación del recopilador. Si no se actualiza un recopilador durante 60 días, el recopilador se iniciará apagando automáticamente la máquina. Si se está ejecutando una detección, la máquina no se desactivará, incluso si ya transcurrió su plazo de 60 días. Cuando el trabajo de detección se haya completado, se desactivará la máquina. Si usa el recopilador durante más de 45 días, se recomienda mantener la máquina actualizada en todo momento mediante la ejecución de Windows Update.
 
 También se recomienda realizar los siguientes pasos para proteger su aplicación:
 1. No pierda ni comparta las contraseñas del administrador con partes no autorizadas.

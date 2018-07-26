@@ -5,14 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 05/29/2018
+ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: ee32886ddb74bdbbe0f240310629c8ef26230a68
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34669353"
 ---
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 * **Suscripción de Azure**: para implementar más que algunas instancias de proceso intensivo, considere la posibilidad de usar una suscripción de pago por uso u otras opciones de compra. Si usa una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), solo puede usar un número limitado de núcleos de proceso de Azure.
@@ -36,4 +37,4 @@ Esta interfaz permite que las instancias compatibles con RDMA se comuniquen trav
 > En Azure, no se admite IP sobre IB. Solo se admite RDMA sobre IB.
 >
 
-Implemente las máquinas virtuales HPC compatibles con RDMA en el mismo conjunto de disponibilidad o conjunto de escalado de máquinas virtuales (si usa el modelo de implementación de Azure Resource Manager) o en el mismo servicio en la nube (si usa el modelo de implementación clásica). A continuación se indican los requisitos adicionales para máquinas virtuales HPC compatibles con RDMA para acceder a la red RDMA de Azure.
+Implemente las máquinas virtuales HPC compatibles con RDMA en el mismo conjunto de disponibilidad o conjunto de escalado de máquinas virtuales (si usa el modelo de implementación de Azure Resource Manager) o en el mismo servicio en la nube (si usa el modelo de implementación clásica). Si usa un conjunto de escalado de máquinas virtuales, asegúrese de que limita la implementación a un solo grupo de ubicaciones. Por ejemplo, en una plantilla de Resource Manager, establezca la propiedad *singlePlacementGroup* en *true*. A continuación se indican los requisitos adicionales para máquinas virtuales HPC compatibles con RDMA para acceder a la red RDMA de Azure.

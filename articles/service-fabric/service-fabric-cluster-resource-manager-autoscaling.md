@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: cd19c0e51ca1ac7863058d7c3944400719508f9b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a742ac79f1152816621312e2ebc59598772ba127
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213204"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990628"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introducción al escalado automático
 El escalado automático es una funcionalidad adicional de Service Fabric para escalar servicios de manera dinámica en función de la carga que notifican los servicios o del uso de recursos. El escalado automático proporciona una gran elasticidad y permite el aprovisionamiento de instancias o particiones adicionales del servicio a petición. Todo el proceso de escalado es automático y transparente. Además, una vez configuradas las directivas en un servicio, no es necesario realizar ninguna operación de escalado manual a nivel de servicio. El escalado automático se puede activar al crear el servicio o al actualizarlo en cualquier momento.
@@ -135,6 +135,9 @@ Igual que el mecanismo que usa el escalado agregando o quitando instancias, hay 
 * El _incremento de escala_ determina cuántas particiones se agregarán o se quitarán cuando se desencadene el mecanismo.
 * El _recuento máximo de particiones_ define el límite superior para el escalado. Si el número de particiones del servicio alcanza este límite, el servicio no se escalará horizontalmente, independientemente de la carga. Es posible omitir este límite si se especifica un valor de -1. En ese caso, el servicio se escalará horizontalmente tanto como sea posible (el límite es la capacidad real del clúster).
 * El _recuento mínimo de instancias_ define el límite inferior para el escalado. Si el número de particiones del servicio alcanza este límite, el servicio no se reducirá horizontalmente, independientemente de la carga.
+
+> [!WARNING] 
+> Cuando se usa AddRemoveIncrementalNamedParitionScalingMechanism con servicios con estado, Service Fabric agregará o quitará las particiones **sin notificación o advertencia**. No se volverán a particionar los datos cuando se desencadene el mecanismo de escalado. En caso de una operación de escalado vertical, las nuevas particiones estarán vacías y en el caso de una operación de reducción vertical, la **partición se eliminará junto con todos los datos que contiene**.
 
 ## <a name="setting-auto-scaling-policy"></a>Configuración de la directiva de escalado automático
 

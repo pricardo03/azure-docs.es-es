@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751785"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856953"
 ---
 # <a name="understanding-policy-effects"></a>Descripción de los efectos de directivas
 
@@ -125,7 +125,7 @@ Ejemplo: uso del efecto deny.
 
 ## <a name="audit"></a>Auditoría
 
-El efecto audit se utiliza para crear un evento de advertencia en el registro de auditoría cuando se evalúa un recurso no compatible, pero no se detiene la solicitud.
+El efecto audit se utiliza para crear un evento de advertencia en el registro de actividad cuando se evalúa un recurso no compatible, pero no se detiene la solicitud.
 
 ### <a name="audit-evaluation"></a>Evaluación de audit
 

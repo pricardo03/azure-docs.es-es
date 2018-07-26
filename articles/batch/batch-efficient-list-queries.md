@@ -12,28 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/02/2017
+ms.date: 06/26/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 950e422b3076e5abd5db6dd0ac452fa1c2d500d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6bc31e8541797930583e41fb6efbb6473cd4b894
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129275"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004462"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
-Aquí obtendrá información sobre cómo mejorar el rendimiento de la aplicación de Azure Batch reduciendo la cantidad de datos que devuelve el servicio al consultar trabajos, tareas, y nodos de proceso mediante la biblioteca de [.NET de Batch][api_net].
+Aquí obtendrá información sobre cómo mejorar el rendimiento de la aplicación de Azure Batch reduciendo la cantidad de datos que devuelve el servicio al consultar trabajos, tareas, nodos de proceso y otros recursos mediante la biblioteca de [.NET de Batch][api_net].
 
-Casi todas las aplicaciones de Batch realizan algún tipo de supervisión u otra operación que consulta el servicio Batch, a menudo a intervalos regulares. Por ejemplo, para determinar si quedan tareas en cola en un trabajo, debe obtener información de cada una de las tareas del trabajo. Para determinar el estado de los nodos de un grupo, tiene que obtener los datos de cada nodo del grupo. En este artículo, se explica cómo ejecutar este tipo de consultas de la manera más eficaz.
+Casi todas las aplicaciones que usan Batch realizan algún tipo de supervisión u otra operación que consulta el servicio Batch, a menudo a intervalos regulares. Por ejemplo, para determinar si quedan tareas en cola en un trabajo, debe obtener información de cada una de las tareas del trabajo. Para determinar el estado de los nodos de un grupo, tiene que obtener los datos de cada nodo del grupo. En este artículo, se explica cómo ejecutar este tipo de consultas de la manera más eficaz.
 
 > [!NOTE]
-> El servicio Batch proporciona compatibilidad con la API especial para el escenario común en el que se cuentan las tareas en un trabajo. En lugar de usar una consulta de lista para ello, puede llamar a la operación de obtención de recuentos de tarea [Get Task Counts] [rest_get_task_counts]. Get Task Counts indica cuántas tareas están pendientes, en ejecución o completadas, y cuántas finalizaron correctamente o con errores. Esta operación es más eficaz que una consulta de lista. Para más información, consulte [Recuento de tareas de un trabajo por estado (versión preliminar)](batch-get-task-counts.md). 
->
-> La operación Get Task Counts no está disponible en versiones de Batch anteriores a 2017-06-01.5.1. Si está utilizando una versión anterior del servicio, utilice una consulta de lista para contar las tareas de un trabajo en su lugar.
->
-> 
+> El servicio Batch proporciona compatibilidad con la API especial para el escenario común en el que se cuentan las tareas en un trabajo y para el recuento de nodos de proceso en el grupo de Batch. En lugar de usar una consulta de lista para ello, puede llamar a las operaciones [Get Task Counts][rest_get_task_counts] y [List Pool Node Counts][rest_get_node_counts]. Estas operaciones son más eficaces que una consulta de lista, pero devuelven información más limitada. Consulte [Count tasks and compute nodes by state](batch-get-resource-counts.md) (Recuento de tareas y nodos de proceso por estado). 
+
 
 ## <a name="meet-the-detaillevel"></a>Presentación de DetailLevel
 En una aplicación de Batch de producción, algunas entidades como los trabajos, las tareas y los nodos de ejecución pueden contarse por millares. Cuando solicita información sobre estos recursos, es posible que cada consulta envíe un gran volumen de información desde el servicio de Batch hasta la aplicación. Si limita el número de elementos y el tipo de información que va a devolver una consulta, podrá acelerar las consultas y, por tanto, mejorar el rendimiento de la aplicación.
@@ -182,7 +179,7 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 ## <a name="example-construct-a-filter-string"></a>Ejemplo: construcción de una cadena filter
 Al construir una cadena filter para [ODATADetailLevel.FilterClause][odata_filter], consulte la tabla en la sección "Asignaciones de las cadenas filter" para buscar la página de documentación de la API de REST correspondiente a la operación de lista que desea realizar. Encontrará las propiedades filtrables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar todas las tareas cuyo código de salida era distinto de cero, en [Lista de las tareas asociadas a un trabajo][rest_list_tasks] esta fila especifica la cadena de propiedad aplicable y los operadores permitidos:
 
-| Propiedad | Operaciones permitidas | Escriba |
+| Propiedad | Operaciones permitidas | type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -193,7 +190,7 @@ Por lo tanto, la cadena filter para enumerar todas las tareas con un código de 
 ## <a name="example-construct-a-select-string"></a>Ejemplo: construcción de una cadena select
 Para construir [ODATADetailLevel.SelectClause][odata_select], consulte la tabla de "Asignaciones de las cadenas select" y navegue a la página de la API de REST correspondiente al tipo de entidad que vaya a enumerar. Encontrará las propiedades seleccionables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar solo el identificador y la línea de comandos para cada tarea de una lista, encontrará estas filas en la tabla correspondiente en la página sobre cómo [obtener información acerca de una tarea][rest_get_task]:
 
-| Propiedad | Escriba | Notas |
+| Propiedad | type | Notas |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -297,4 +294,5 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_task_counts]: /rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts

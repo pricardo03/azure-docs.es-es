@@ -1,0 +1,139 @@
+---
+title: 'Recuento de estados de tareas y nodos: Azure Batch | Microsoft Docs'
+description: Realice un recuento del estado de los nodos de ejecución y las tareas de Azure Batch para ayudar a administrar y supervisar las soluciones de Batch.
+services: batch
+author: dlepow
+manager: jeconnoc
+ms.service: batch
+ms.topic: article
+ms.date: 06/29/2018
+ms.author: danlep
+ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011953"
+---
+# <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Supervisión de las soluciones de Batch realizando un recuento de las tareas y los nodos por estado
+
+Para supervisar y administrar soluciones de Azure Batch a gran escala, necesita recuentos precisos de los recursos de varios estados. Azure Batch proporciona eficaces operaciones para obtener estos recuentos de las *tareas* y los *nodos de ejecución* de Batch. Use estas operaciones en lugar de llamadas API que es posible que tarden mucho para devolver información detallada sobre grandes colecciones de tareas o nodos.
+
+* [Get Task Counts][rest_get_task_counts] obtiene un recuento agregado de tareas activas, en ejecución y completadas, así como de tareas que se realizaron correctamente o no. 
+
+  Si cuenta las tareas en cada estado, podrá mostrar más fácilmente el progreso del trabajo a un usuario o detectar retrasos o errores inesperados que pueden afectar a la tarea. Get Task Counts está disponible a partir de la versión 2017-06-01.5.1 de la API del servicio de Batch y SDK y herramientas relacionados.
+
+* [List Pool Node Counts][rest_get_node_counts] obtiene el número de nodos de ejecución dedicados y de prioridad baja en cada grupo que se encuentran en varios estados: creating, idle, offline, preempted, rebooting, reimaging, starting, etc. 
+
+  Al contar los nodos de cada estado, podrá determinar cuándo tiene los recursos de proceso adecuados para ejecutar sus tareas e identificar posibles problemas con los grupos. List Pool Node Counts está disponible a partir de la versión 2018-03-01.6.1 de la API del servicio de Batch y SDK y herramientas relacionados.
+
+Si usa una versión del servicio que no admite las operaciones de recuento de tareas o nodos, utilice una consulta de lista en lugar de contar estos recursos. Use también una consulta de lista para obtener información sobre otros recursos de Batch como aplicaciones, archivos y trabajos. Para más información sobre cómo aplicar filtros a las consultas de lista, consulte [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md).
+
+## <a name="task-state-counts"></a>Recuentos de estados de tareas
+
+La operación Get Task Counts hace un recuento de las tareas por los estados siguientes:
+
+- **Activa**: una tarea que está en cola y se puede ejecutar, pero no está asignada actualmente a ningún nodo de ejecución. Una tarea también es `active` si [depende de una tarea primaria](batch-task-dependencies.md) que no se ha completado. 
+- **En ejecución**: una tarea que se ha asignado a un nodo de ejecución, pero no se ha completado. Una tarea se cuenta como `running` cuando su estado es `preparing` o `running`, tal como indica la operación [Get information about a task][rest_get_task].
+- **Completada**: una tarea que ya no cumple los requisitos para ejecutarse, ya que finalizó correctamente o no, y además agotó su límite de reintentos. 
+- **Correcta**: una tarea cuyo resultado de la ejecución de tarea es `success`. Batch determina si una tarea se ha realizado correctamente o no comprobando la propiedad `TaskExecutionResult` de la propiedad [executionInfo][rest_get_exec_info].
+- **Con errores**: una tarea cuyo resultado de la ejecución de tarea es `failure`.
+
+El siguiente ejemplo de código de .NET muestra cómo recuperar los recuentos de tareas por estado: 
+
+```csharp
+var taskCounts = await batchClient.JobOperations.GetTaskCountsAsync("job-1");
+
+Console.WriteLine("Task count in active state: {0}", taskCounts.Active);
+Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Running);
+Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
+Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
+Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
+Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
+```
+
+Puede usar un patrón similar para REST y otros lenguajes admitidos para obtener los recuentos de tareas de un trabajo. 
+ 
+
+### <a name="consistency-checking-for-task-counts"></a>Comprobación de coherencia de los recuentos de tareas
+
+Batch proporciona una validación adicional para los recuentos de estados de tareas mediante la realización de comprobaciones de coherencia en varios componentes del sistema. En el caso poco probable de que la comprobación de coherencia detecte errores, Batch corregirá el resultado de la operación Get Tasks Counts basándose en los resultados de la comprobación de coherencia.
+
+La propiedad `validationStatus` de la respuesta indica si Batch ha realizado la comprobación de coherencia. Si Batch no ha comprobado el recuento de estados con respecto a los estados reales conservados en el sistema, la propiedad `validationStatus` se establece en `unvalidated`. Por motivos de rendimiento, Batch no realizará la comprobación de coherencia si el trabajo incluye más de 200 000 tareas, por lo que la propiedad `validationStatus` se establecerá en `unvalidated` en este caso (el recuento de tareas no es necesariamente incorrecto en este caso, ya que incluso una pérdida de datos limitada es improbable). 
+
+Cuando el estado de una tarea cambia, la canalización de agregación procesa el cambio en cuestión de segundos. La operación Get Task Counts refleja los recuentos de tareas actualizadas dentro de ese período. Sin embargo, si la canalización de agregación omite un cambio en el estado de una tarea, ese cambio no se registrará hasta la siguiente validación. Durante este tiempo, los recuentos de tareas pueden resultar ligeramente imprecisos debido al evento que falta, pero se corrigen durante la siguiente validación.
+
+## <a name="node-state-counts"></a>Recuentos de estados de nodos
+
+La operación List Pool Node Counts hace un recuento de los nodos de ejecución por los estados siguientes en cada grupo. Se proporcionan recuentos agregados independientes para los nodos dedicados y de prioridad baja en cada grupo.
+
+- **Creating**: una máquina virtual asignada por Azure que aún no ha empezado a unirse a ningún grupo.
+- **Idle**: un nodo de ejecución disponible que actualmente no ejecuta ninguna tarea.
+- **LeavingPool**: un nodo que deja el grupo, ya sea porque el usuario lo quitó explícitamente, o bien porque el grupo está cambiando de tamaño o se está escalando automáticamente hacia abajo.
+- **Offline**: un nodo que Batch no puede usar para programar nuevas tareas.
+- **Preempted**: un nodo de prioridad baja que se quitó del grupo porque Azure reclamó la máquina virtual. Un nodo `preempted` se puede reinicializar cuando la capacidad de la máquina virtual de prioridad baja de reemplazo está disponible.
+- **Rebooting**: un nodo que se reinicia.
+- **Reimaging**: un nodo en el que se vuelve a instalar el sistema operativo.
+- **Running**: un nodo que ejecuta una o varias tareas (distintas de la tarea de inicio).
+- **Starting**: un nodo en el que se inicia el servicio de Batch. 
+- **StartTaskFailed**: un nodo en el que la [tarea de inicio][rest_start_task] no se realizó correctamente y agotó todos los reintentos, y en el que `waitForSuccess` se establece en la tarea de inicio. El nodo no se puede usar para las tareas en ejecución.
+- **Unknown**: un nodo que perdió el contacto con el servicio de Batch y cuyo estado no se conoce.
+- **Unusable**: un nodo que no se puede usar para la ejecución de tarea debido a errores.
+- **WaitingForStartTask**: un nodo en el que la tarea de inicio empezó a ejecutarse, pero `waitForSuccess` se establece y la tarea de inicio no se ha completado.
+
+El siguiente fragmento de código de C# muestra cómo enumerar los recuentos de nodos de todos los grupos en la cuenta actual:
+
+```csharp
+foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
+{
+    Console.WriteLine("Pool Id: {0}", nodeCounts.PoolId);
+
+    Console.WriteLine("Total dedicated node count: {0}", nodeCounts.Dedicated.Total);
+
+    // Get dedicated node counts in Idle and Offline states; you can get additional states.
+    Console.WriteLine("Dedicated node count in Idle state: {0}", nodeCounts.Dedicated.Idle);
+    Console.WriteLine("Dedicated node count in Offline state: {0}", nodeCounts.Dedicated.Offline);
+
+    Console.WriteLine("Total low priority node count: {0}", nodeCounts.LowPriority.Total);
+
+    // Get low-priority node counts in Running and Preempted states; you can get additional states.
+    Console.WriteLine("Low-priority node count in Running state: {0}", nodeCounts.LowPriority.Running);
+    Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
+}
+```
+El siguiente fragmento de código de C# muestra cómo enumerar los recuentos de nodos de un grupo determinado en la cuenta actual.
+
+```csharp
+foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODATADetailLevel(filterClause: "poolId eq 'testpool'")))
+{
+    Console.WriteLine("Pool Id: {0}", nodeCounts.PoolId);
+
+    Console.WriteLine("Total dedicated node count: {0}", nodeCounts.Dedicated.Total);
+
+    // Get dedicated node counts in Idle and Offline states; you can get additional states.
+    Console.WriteLine("Dedicated node count in Idle state: {0}", nodeCounts.Dedicated.Idle);
+    Console.WriteLine("Dedicated node count in Offline state: {0}", nodeCounts.Dedicated.Offline);
+
+    Console.WriteLine("Total low priority node count: {0}", nodeCounts.LowPriority.Total);
+
+    // Get low-priority node counts in Running and Preempted states; you can get additional states.
+    Console.WriteLine("Low-priority node count in Running state: {0}", nodeCounts.LowPriority.Running);
+    Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
+}
+```
+Puede usar un patrón similar para REST y otros lenguajes admitidos para obtener los recuentos de nodos de los grupos.
+ 
+## <a name="next-steps"></a>Pasos siguientes
+
+* Para más información acerca de los conceptos y las características del servicio de Batch, consulte la [descripción de las características de Batch](batch-api-basics.md). El artículo describe los principales recursos de Batch como los grupos, nodos de proceso, trabajos y tareas, y proporciona información general acerca de las características del servicio.
+
+* Para obtener información sobre cómo aplicar filtros a las consultas que enumeran los recursos de Batch, consulte [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md).
+
+
+[rest_get_task_counts]: /rest/api/batchservice/job/gettaskcounts
+[rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts
+[rest_get_task]: /rest/api/batchservice/task/get
+[rest_list_tasks]: /rest/api/batchservice/task/list
+[rest_get_exec_info]: /rest/api/batchservice/task/get#executionInfo
+[rest_start_task]: /rest/api/batchservice/pool/add#starttask
+

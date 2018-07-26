@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 7740da505f7635944536252d60ec2c2039295975
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323390"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001810"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
 Azure API Management le permite una integración sencilla con Azure Application Insights, un servicio extensible para desarrolladores web que compilan y administran aplicaciones en varias plataformas. En esta guía, verá todos los pasos para dicha integración; además, se describen las estrategias para reducir el impacto en el rendimiento en la instancia de servicio de API Management.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir esta guía, debe tener una instancia de Azure API Management. Si no tiene una, complete antes el [tutorial](get-started-create-service-instance.md).
 
@@ -50,6 +50,9 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 6. Acaba de crear un registrador de Azure Application Insights con una clave de instrumentación. Ahora debería aparecer en la lista.  
     ![Registrador de App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
+> [!NOTE]
+> En segundo plano, se crea una entidad [Logger](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
+
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitación del registro Application Insights para la API
 
 1. Vaya a la **instancia del servicio Azure API Management** en **Azure Portal**.
@@ -63,6 +66,9 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 8. Escriba **100** como **Sampling (%)** [Muestreo (%)] y marque la casilla **Always log errors** (Registrar errores siempre).
 9. Escriba **1024** en el campo **First bytes of body** (Primeros bytes del cuerpo).
 10. Haga clic en **Save**(Guardar).
+
+> [!NOTE]
+> En segundo plano, se crea una entidad de [diagnóstico](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
 
 | Nombre del valor                        | Tipo de valor                        | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

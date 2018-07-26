@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5a6a43c41760e22a7aeb0e97aacc145c69957ff
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670937"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006403"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalación de MySQL en una máquina virtual que ejecuta OpenSUSE Linux en Azure
 
@@ -33,13 +33,13 @@ Si decide instalar y usar la CLI localmente, necesitará la CLI de Azure versió
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Creación de una máquina virtual que ejecuta OpenSUSE Linux
 
-En primer lugar, cree un grupo de recursos. En este ejemplo, se asigna el nombre *mySQSUSEResourceGroup* al grupo de recursos y se crea en la región *East US*.
+En primer lugar, cree un grupo de recursos. En este ejemplo, el grupo de recursos se denomina *mySQSUSEResourceGroup* y se crea en la región *East US*.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Cree la máquina virtual. En este ejemplo, se asigna el nombre *myVM* a la VM. Se va a usar el tamaño de VM *Standard_D2s_v3*, pero debe elegir el [Tamaño de VM](sizes.md) que crea más adecuado para la carga de trabajo.
+Cree la máquina virtual. En este ejemplo, la máquina virtual se denomina *myVM* y el tamaño de la máquina virtual es *Standard_D2s_v3*, pero debe elegir el [Tamaño de VM](sizes.md) que crea más adecuado para la carga de trabajo.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -96,17 +96,30 @@ systemctl is-enabled mysql
 
 Debe devolver: enabled.
 
+Reinicie el servidor.
+
+```bash
+sudo reboot
+```
+
 
 ## <a name="mysql-password"></a>Contraseña de MySQL
 
 después de la instalación, la contraseña raíz de MySQL se encuentra vacía de forma predeterminada. Ejecute el script **mysql\_secure\_installation** para proteger MySQL. El script le solicitará que cambie la contraseña raíz de MySQL, quite las cuentas de usuario anónimas, deshabilite los datos de inicio de sesión raíz remotos, quite las bases de datos de prueba y vuelva a cargar la tabla de privilegios. 
+
+Una vez que se reinicie el servidor, haga ssh a la máquina virtual de nuevo.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>Inicie sesión en MySQL
+## <a name="sign-in-to-mysql"></a>Iniciar sesión en MySQL
 
 Ahora puede iniciar sesión e introducir el símbolo del sistema de MySQL.
 
@@ -136,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 Los nombres de usuario y contraseñas de la base de datos solo los usan los scripts que se conectan a la base de datos.  Los nombres de cuenta de usuario de la base de datos no representan necesariamente las cuentas de usuario reales en el sistema.
 
-Habilite el inicio de sesión desde otro equipo. En este ejemplo, la dirección IP del equipo desde el que se va a iniciar sesión es *10.112.113.114*.
+Habilite el inicio de sesión desde otro equipo. En este ejemplo, la dirección IP del equipo desde el que se va a permitir iniciar sesión es *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

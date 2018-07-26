@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887477"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004904"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -32,7 +32,7 @@ Los *desencadenadores* establecen el modo de invocar una función. Cada función
 
 Los *enlaces* de entrada y de salida permiten conectarse de manera declarativa a datos desde el código. Los enlaces son opcionales y cada función puede tener varios enlaces de entrada y de salida. 
 
-Los desencadenadores y los enlaces permiten evitar la codificación de los detalles de los servicios con los que se trabaja. La función recibe los datos (por ejemplo, el contenido de un mensaje de cola) en parámetros de función. El usuario envía datos (por ejemplo, para crear un mensaje de la cola) mediante el valor devuelto de la función, un parámetro `out` o un [objeto Collector](functions-reference-csharp.md#writing-multiple-output-values).
+Los desencadenadores y los enlaces permiten evitar la codificación de los detalles de los servicios con los que se trabaja. La función recibe los datos (por ejemplo, el contenido de un mensaje de cola) en parámetros de función. El usuario envía datos (por ejemplo, para crear un mensaje de la cola) mediante el valor devuelto de la función. En C# y script de C#, los parámetros `out` y los [objetos de recopilador](functions-reference-csharp.md#writing-multiple-output-values) son formas alternativas de enviar datos.
 
 Al desarrollar funciones mediante Azure Portal, los desencadenadores y los enlaces se configuran en un archivo *function.json*. El portal proporciona una interfaz de usuario para esta configuración, pero puede editar el archivo directamente; para ello, cambie a **Editor avanzado**.
 
@@ -224,9 +224,11 @@ En los lenguajes que tienen un valor devuelto, puede enlazar un enlace de salida
 * En una biblioteca de clases C#, aplique el atributo de enlace de salida para el valor devuelto del método.
 * En otros lenguajes, establezca la propiedad `name` de *function.json* en `$return`.
 
-Si tiene que escribir más de un elemento, use un [objeto recopilador](functions-reference-csharp.md#writing-multiple-output-values) en lugar del valor devuelto. Si hay varios enlaces de salida, use el valor devuelto para solo uno de ellos.
+Si hay varios enlaces de salida, use el valor devuelto para solo uno de ellos.
 
-Vea el ejemplo específico del lenguaje:
+En C# y script de C#, los parámetros `out` y los [objetos de recopilador](functions-reference-csharp.md#writing-multiple-output-values) son formas alternativas de enviar datos a un enlace de salida.
+
+Vea el ejemplo específico del lenguaje que muestra el uso del valor devuelto:
 
 * [C#](#c-example)
 * [Script de C# (.csx)](#c-script-example)

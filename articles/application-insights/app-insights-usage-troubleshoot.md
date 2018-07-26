@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de análisis de uso en Azure Application Insights
+title: Solución de problemas de las herramientas de análisis de comportamiento de usuario en Azure Application Insights
 description: 'Guía de solución de problemas: análisis de uso del sitio y las aplicaciones con Application Insights'
 services: application-insights
 documentationcenter: ''
@@ -9,21 +9,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 01/16/2018
-ms.author: mbullwin;daviste
-ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 725f67af8178c6c851999d18c771ebdd360d6d01
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867575"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992543"
 ---
-# <a name="troubleshoot-usage-analytics-in-application-insights"></a>Solución de problemas de análisis de uso en Application Insights
-¿Tiene alguna pregunta sobre las [herramientas de análisis de uso en Application Insights](app-insights-usage-overview.md): [usuarios, sesiones, eventos](app-insights-usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuarios](app-insights-usage-flows.md), [retención](app-insights-usage-retention.md) o cohortes? Estas son algunas respuestas.
+# <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
+¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](app-insights-usage-overview.md): [usuarios, sesiones, eventos](app-insights-usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuarios](app-insights-usage-flows.md), [retención](app-insights-usage-retention.md) o cohortes? Estas son algunas respuestas.
 
 ## <a name="counting-users"></a>Recuento de usuarios
-**Las herramientas de análisis de uso muestran que mi aplicación tiene una sesión y un usuario, pero sé que tiene varios usuarios y sesiones. ¿Cómo se solucionan estos recuentos incorrectos?**
+**Las herramientas de análisis de comportamiento de usuario muestran que mi aplicación tiene una sesión y un usuario, pero sé que tiene varios usuarios y sesiones. ¿Cómo se solucionan estos recuentos incorrectos?**
 
 Todos los eventos de telemetría de Application Insights tienen un [identificador de usuario anónimo](application-insights-data-model-context.md) y un [identificador de sesión](application-insights-data-model-context.md) como parte de las propiedades estándares. De forma predeterminada, todas las herramientas de análisis de uso de recuento de usuarios y sesiones se basan en estos identificadores. Si estas propiedades estándares no se rellenan con identificadores únicos para cada usuario y sesión de la aplicación, verá un recuento incorrecto de usuarios y sesiones en las herramientas de análisis de uso.
 
@@ -33,12 +34,12 @@ Si supervisa un servicio web (sin interfaz de usuario), [cree un inicializador d
 
 Si la aplicación envía [identificadores de usuarios autenticados](app-insights-api-custom-events-metrics.md#authenticated-users), con la herramienta Usuarios puede realizar el recuento en función de estos. En la lista desplegable "Mostrar", seleccione "Usuarios autenticados".
 
-Actualmente, las herramientas de análisis de uso no admiten el recuento de usuarios o sesiones en función de propiedades distintas del identificador de usuario anónimo, el identificador de usuario autenticado o el identificador de sesión.
+Actualmente, las herramientas de análisis de comportamiento de usuario no admiten el recuento de usuarios o sesiones en función de propiedades distintas del identificador de usuario anónimo, el identificador de usuario autenticado o el identificador de sesión.
 
 ## <a name="naming-events"></a>Nomenclatura de los eventos
-**Mi aplicación tiene miles de vistas de página y nombres de eventos personalizados distintos. Resulta difícil distinguirlos y las herramientas de análisis de uso dejan de responder con frecuencia. ¿Cómo se solucionan estos problemas de nomenclatura?**
+**Mi aplicación tiene miles de vistas de página y nombres de eventos personalizados distintos. Resulta difícil distinguirlos y las herramientas de análisis de comportamiento de usuario dejan de responder con frecuencia. ¿Cómo se solucionan estos problemas de nomenclatura?**
 
-Las herramientas de análisis de uso utilizan las vistas de página y los nombres de los eventos personalizados. La correcta nomenclatura de los eventos es fundamental para sacarles partido a estas herramientas. El objetivo es un equilibrio entre un número reducido de nombres demasiado genéricos ("Se hizo clic en el botón") y un número excesivo de nombres demasiado específicos ("Se hizo clic en el botón Editar de http://www.contoso.com/index").
+Las herramientas de análisis de comportamiento de usuario utilizan las vistas de página y los nombres de los eventos personalizados. La correcta nomenclatura de los eventos es fundamental para sacarles partido a estas herramientas. El objetivo es un equilibrio entre un número reducido de nombres demasiado genéricos ("Se hizo clic en el botón") y un número excesivo de nombres demasiado específicos ("Se hizo clic en el botón Editar de http://www.contoso.com/index").
 
 Para realizar cambios en las vistas de página y los nombres de evento personalizados que envía la aplicación, debe cambiar el código fuente de la aplicación y volver a realizar la implementación. **Todos los datos de telemetría de Application Insights se almacenan durante 90 días y no se pueden eliminar**, por lo que los cambios realizados en los nombres de evento tardarán 90 días en manifestarse totalmente. Durante los 90 días después de los cambios en el nombre, en la telemetría aparecen tanto los nuevos nombres como los antiguos, por lo que es necesario ajustar las consultas y comunicarse con los equipos en consecuencia.
 
@@ -52,7 +53,7 @@ Si la aplicación envía demasiados nombres de evento personalizados, cambie los
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción al análisis de uso](app-insights-usage-overview.md)
+* [Introducción a las herramientas de análisis de comportamiento de usuario](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Obtención de ayuda
 * [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/ms-application-insights)

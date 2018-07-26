@@ -9,26 +9,29 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: 961c8dea4dbb6b6600d10b75e84a9a84c34c329b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035604"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002534"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 Versión preliminar con Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 (versión preliminar) con Azure Data Factory
 
-[Azure Data Lake Storage Gen2 Versión preliminar](../storage/data-lake-storage/introduction.md) agrega un protocolo con características de seguridad y espacio de nombres del sistema de archivo jerárquicas a Azure Blob Storage, lo que facilita conectar marcos de trabajo de análisis a una capa de almacenamiento duradero. En Data Lake Storage Gen2 (Versión preliminar), permanecen todas las cualidades del almacenamiento de objetos y se agregan las ventajas de una interfaz de sistema de archivos.
+[Azure Data Lake Storage Gen2 (versión preliminar)](../storage/data-lake-storage/introduction.md) agrega un protocolo con características de seguridad y espacio de nombres del sistema de archivo jerárquicas a Azure Blob Storage, lo que facilita conectar marcos de trabajo de análisis a una capa de almacenamiento duradero. En Data Lake Storage Gen2 (Versión preliminar), permanecen todas las cualidades del almacenamiento de objetos y se agregan las ventajas de una interfaz de sistema de archivos.
 
 Azure Data Factory es un servicio de integración de datos en la nube totalmente administrado. Puede utilizar el servicio para rellenar el lago con datos de un amplio conjunto de almacenes de datos locales y basados en la nube y ahorrar tiempo al crear las soluciones de análisis. Para una lista detallada de conectores admitidos, consulte la tabla de [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory ofrece una solución de movimiento de datos con escalabilidad horizontal y administrada, frente a AzCopy, una utilidad de transferencia de datos de la línea de comandos. Debido a la arquitectura con escalabilidad horizontal de ADF, puede ingerir datos con un alto rendimiento. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
+Azure Data Factory ofrece una solución de movimiento de datos administrados y de escalabilidad horizontal. Debido a la arquitectura con escalabilidad horizontal de ADF, puede ingerir datos con un alto rendimiento. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
 
 En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data Factory para cargar datos del _servicio Amazon Web Services S3_ en _Azure Data Lake Storage Gen2_. Puede seguir los mismos pasos para copiar datos de otros tipos de almacenes de datos.
 
-## <a name="prerequisites"></a>requisitos previos
+>[!TIP]
+>Para copiar datos desde Azure Data Lake Storage Gen1 en Gen2, consulte [en este tutorial específico](load-azure-data-lake-storage-gen2-from-gen1.md).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Una cuenta de Azure Storage con Data Lake Storage Gen2 habilitado: si no tiene una cuenta de Storage, haga clic [aquí](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) para crear una.
@@ -46,7 +49,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
     * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadADLSDemo\" no está disponible", escriba uno diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
     * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
-    * **Versión**: seleccione **V2 (versión preliminar)**.
+    * **Versión**: seleccione **V2**.
     * **Ubicación**: seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. 
 
 3. Seleccione **Crear**.
@@ -64,7 +67,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 2. En la página **Properties** (Propiedades), especifique **CopyFromAmazonS3ToADLS** en el campo **Task name** (Nombre de la tarea) y seleccione **Next** (Siguiente):
 
     ![Página de propiedades](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
-3. En la página **Source data store** (Almacén de datos de origen), haga clic en **+ Create new connection** (Crear nueva conexión):
+3. En la página **Almacén de datos de origen**, haga clic en **+ Crear nueva conexión**:
 
     ![Página Source data store (Almacén de datos de origen)](./media/load-azure-data-lake-storage-gen2/source-data-store-page.png)
     
@@ -98,7 +101,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
    1. Seleccione la cuenta habilitada para Data Lake Storage Gen2 en la lista desplegable "Storage account name" (Nombre de la cuenta de almacenamiento).
    2. Seleccione **Next** (Siguiente).
    
-   ![Especificación de una cuenta de Azure Data Lake Store](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
+   ![Especificación de una cuenta de Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
 9. En la página **Choose the output file or folder** (Elegir archivo o carpeta de salida) escriba **copyfroms3** como nombre de la carpeta de salida y seleccione **Next** (Siguiente): 
 
@@ -127,11 +130,11 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 16. Verifique que los datos se copian en la cuenta de Data Lake Storage Gen2.
 
-## <a name="best-practice"></a>Procedimiento recomendado
+## <a name="best-practices"></a>Procedimientos recomendados
 
 Al copiar grandes volúmenes de datos desde un almacén de datos basado en archivos, se recomienda:
 
-- Particionar los archivos en conjuntos de archivos de 10 TB a 20 TB.
+- Particionar los archivos en conjuntos de archivos de 10 TB a 30 TB.
 - No desencadenar demasiadas ejecuciones de copia simultáneas para evitar limitaciones en los almacenes de datos de origen y de destino. Puede comenzar con una ejecución de copia, supervisar el rendimiento y, gradualmente, agregar más según sea necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes

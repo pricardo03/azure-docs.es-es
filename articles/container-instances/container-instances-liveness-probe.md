@@ -8,22 +8,22 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: juluk
-ms.openlocfilehash: 76ca4db28d99702532ae656a19f0d54b479a13fe
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e47d203ab21afc6d07f425ae6367fbc536b13f1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248970"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011833"
 ---
 # <a name="configure-liveness-probes"></a>Configuración de sondeos de ejecución
 
-Las aplicaciones en contenedores pueden ejecutarse durante largos períodos de tiempo y provocar la interrupción de estados que quizás deban repararse con un reinicio del contenedor. Azure Container Instances admite que los sondeos de ejecución incluyan configuraciones para que pueda reiniciar el contenedor si una funcionalidad crítica no funciona. 
+Las aplicaciones en contenedores pueden ejecutarse durante largos períodos de tiempo y provocar la interrupción de estados que quizás deban repararse con un reinicio del contenedor. Azure Container Instances admite que los sondeos de ejecución incluyan configuraciones para que pueda reiniciar el contenedor si una funcionalidad crítica no funciona.
 
 En este artículo se explica cómo implementar un grupo de contenedores que incluya un sondeo de ejecución y se muestra el reinicio automático de un contenedor incorrecto simulado.
 
 ## <a name="yaml-deployment"></a>Implementación de YAML
 
-Cree un archivo `liveness-probe.yaml` con el siguiente fragmento de código. Este archivo define un grupo de contenedores que consta de un contenedor NGNIX que, con el tiempo, se vuelve incorrecto. 
+Cree un archivo `liveness-probe.yaml` con el siguiente fragmento de código. Este archivo define un grupo de contenedores que consta de un contenedor NGNIX que, con el tiempo, se vuelve incorrecto.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -45,7 +45,7 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
@@ -81,9 +81,9 @@ La propiedad `periodSeconds` designa que el comando de ejecución debería ejecu
 
 Durante los primeros 30 segundos, el archivo `healthy` creado por el comando de inicio existe. Cuando el comando de ejecución comprueba la existencia del archivo `healthy`, el código de estado devuelve un cero, que indica que la operación se realizó correctamente y que no se producirá ningún reinicio.
 
-Después de 30 segundos, el `cat /tmp/healthy` comenzará a generar errores, lo que dará lugar a eventos incorrectos y provocará su finalización. 
+Después de 30 segundos, el `cat /tmp/healthy` comenzará a generar errores, lo que dará lugar a eventos incorrectos y provocará su finalización.
 
-Estos eventos se pueden ver desde Azure Portal o la CLI de Azure 2.0.
+Estos eventos se pueden ver desde Azure Portal o la CLI de Azure.
 
 ![Evento incorrecto del portal:][portal-unhealthy]
 
@@ -101,7 +101,7 @@ Las directivas de reinicio reemplazan el comportamiento de reinicio que desencad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los escenarios basados en tareas pueden requerir un sondeo de ejecución para habilitar los reinicios automáticos si una función de requisito previos no funciona correctamente. Para más información sobre cómo ejecutar contenedores basados en tareas, consulte [Ejecución de tareas en contenedores en Azure Container Instances](container-instances-restart-policy.md).
+Los escenarios basados en tareas pueden requerir un sondeo de ejecución para habilitar los reinicios automáticos si una función de requisito previo no funciona correctamente. Para más información sobre cómo ejecutar contenedores basados en tareas, consulte [Ejecución de tareas en contenedores en Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

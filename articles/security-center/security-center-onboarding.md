@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416496"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479468"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Incorporación a Azure Security Center Estándar para una seguridad mejorada
 Actualice a Security Center Estándar para sacar partido de la administración de seguridad mejorada y protección contra amenazas en las cargas de trabajo de la nube híbrida.  Puede probar la version Estándar de forma gratuita durante 60 días. Para más información, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -42,7 +42,7 @@ Puede actualizar una suscripción a Azure entera al nivel Estándar, que heredar
 
 ## <a name="upgrade-an-azure-subscription"></a>Actualizar una suscripción a Azure
 Para actualizar todas las suscripciones a Estándar:
-1. En el menú principal de Security Center, seleccione **Incorporación**.
+1. En el menú principal de Security Center, seleccione **Incorporación a la seguridad avanzada**.
 2. En **Incorporación a la seguridad avanzada**, Security Center muestra las suscripciones aptas para la incorporación. Para actualizar todas las suscripciones que aparecen, seleccione **Aplicar el plan Estándar**.
 
   ![Actualizar todas las suscripciones][1]
@@ -113,8 +113,8 @@ Puede agregar un equipo con el flujo de trabajo de **Incorporación** descrito a
 
    ![Información general][5]
 
-2. Seleccione el icono **Proceso**.
-3. En **Proceso**, seleccione **Agregar equipos**.
+2. Seleccione **Compute & apps** (Proceso y aplicaciones).
+3. En **Compute & apps**, seleccione **Agregar equipos**.
 
    ![Hoja Proceso][6]
 

@@ -4,14 +4,14 @@ description: Se describe cómo evaluar un número elevado de máquinas locales m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214698"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919869"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -23,6 +23,31 @@ Azure Migrate tiene un límite de 1500 máquinas por proyecto. En este artículo
 - **Cuenta de vCenter**: necesita una cuenta de solo lectura para acceder a vCenter Server. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
 - **Permisos**: en vCenter Server, necesitará permisos para crear una máquina virtual mediante la importación de un archivo en formato OVA.
 - **Configuración de estadísticas**: la configuración de las estadísticas de vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. Si el nivel es inferior al 3, la evaluación funcionará, pero no se recopilarán datos de rendimiento del almacenamiento y la red. El tamaño de las recomendaciones en este caso se basará en los datos de rendimiento de los datos de CPU y memoria, y de los datos de configuración de adaptadores de red y disco.
+
+
+### <a name="set-up-permissions"></a>Configuración de permisos
+
+Azure Migrate necesita acceso a los servidores de VMware para detectar automáticamente las máquinas virtuales para su evaluación. La cuenta de VMware necesita los siguientes permisos:
+
+- Tipo de usuario: al menos un usuario de solo lectura.
+- Permisos: Data Center -> Propagate to Child Object, role=Read-only (Centro de datos -> Propagar a objeto secundario, rol = Solo lectura).
+- Detalles: el usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.
+- Para restringir el acceso, asigne el rol No access (Sin acceso) con Propagate to child object (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
+
+Si va a implementar en un entorno de inquilinos, esta es una manera de configurar esta opción:
+
+1.  Cree un usuario por inquilino y use [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para asignar permisos de solo lectura a todas las máquinas virtuales que pertenezcan a un inquilino determinado. A continuación, use esas credenciales para la detección. RBAC garantiza que el usuario correspondiente de vCenter solo tendrá acceso a las máquinas virtuales específicas del inquilino.
+2. Configure RBAC para los usuarios de inquilinos diferentes como se describe en el ejemplo siguiente para el usuario n º 1 y el usuario n º 2:
+
+    - En **Nombre de usuario** y **Contraseña**, especifique las credenciales de la cuenta de solo lectura que el recopilador utilizará para detectar las máquinas virtuales.
+    - Centrodedatos1: asigne permisos de solo lectura al usuario n º 1 y al usuario n º 2. No propague esos permisos a todos los objetos secundarios, porque establecerá los permisos en las máquinas virtuales individuales.
+
+      - VM1 (inquilino n º 1) (permiso de solo de lectura al usuario n º 1)
+      - VM2 (inquilino n º 1) (permiso de solo de lectura al usuario n º 1)
+      - VM3 (inquilino n º 2) (permiso de solo de lectura al usuario n º 2)
+      - VM4 (inquilino n º 2) (permiso de solo de lectura al usuario n º 2)
+
+   - Si realiza la detección con las credenciales del usuario n º 1, solo se detectarán VM1 y VM2.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planificación de los proyectos de migración y las detecciones
 
@@ -100,6 +125,14 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo:
    Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Asegúrese de que el código hash generado coincida con la configuración siguiente.
+
+    Para la versión 1.0.9.12 de OVA
+
+    **Algoritmo** | **Valor del código hash**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     Para la versión 1.0.9.8 de OVA
 

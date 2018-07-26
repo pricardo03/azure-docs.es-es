@@ -5,21 +5,17 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/18/2017
+ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: dd50e4f6ebc5fdf5496a5127fde20bd052087b59
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: abff3f715a1fccba172147f02b83f7209f87cf9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783376"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902523"
 ---
 # <a name="managed-service-identity-preview"></a>Identidad de servicio administrada (versión preliminar)
 
@@ -53,7 +49,7 @@ Una vez habilitada la característica, se crea una identidad de servicio en Azur
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
-A continuación, [cree un espacio de nombres de Event Hubs](event-hubs-create.md) en una de las regiones de Azure compatibles con la versión preliminar para MSI: **Este de EE. UU.**, **Este de EE. UU. 2** o **Europa Occidental**. 
+A continuación, [cree un espacio de nombres de Event Hubs](event-hubs-create.md) en una de las regiones de Azure que admite la versión preliminar en MSI: **Este de EE. UU.**, **Este de EE. UU. 2** o **Europa Occidental**. 
 
 Vaya a la página **Control de acceso (IAM)** del espacio de nombres en Azure Portal y, a continuación, haga clic en **Agregar** para agregar la identidad de servicio administrada al rol de **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**.
 
@@ -65,7 +61,10 @@ La identidad de servicio administrada de la aplicación web ya tiene acceso al e
 
 Ahora, modifique la página predeterminada de la aplicación de ASP.NET que ha creado. También puede utilizar el código de la aplicación web de [este repositorio de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
 
-Una vez iniciada la aplicación, apunte el explorador a EventHubsMSIDemo.aspx. Existe la alternativa de establecerla como la página de inicio. El código puede encontrarse en el archivo EventHubsMSIDemo.aspx.cs. El resultado es una aplicación web básica con unos cuantos campos de entrada y con los botones **enviar** y **recibir** que se conectan a Event Hubs para enviar o recibir mensajes. 
+>[!NOTE] 
+> Aunque la característica MSI está en versión preliminar, asegúrese de utilizar la [versión preliminar de la biblioteca de Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) para acceder a las nuevas API. 
+
+Una vez que inicie la aplicación, apunte el explorador a EventHubsMSIDemo.aspx. Existe la alternativa de establecerla como la página de inicio. El código puede encontrarse en el archivo EventHubsMSIDemo.aspx.cs. El resultado es una aplicación web mínima con pocos campos de entrada y con botones para **enviar** y **recibir** que se conectan a Event Hubs para enviar o recibir eventos. 
 
 Tenga en cuenta cómo se inicializa el objeto [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory). En lugar de usar el proveedor de tokens de Token de acceso compartido (SAS), el código crea un proveedor de tokens para la identidad de servicio administrada con la llamada a `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)`. Por lo tanto, no hay ningún secreto para conservar y usar. El proveedor de tokens controla automáticamente el flujo del contexto de la identidad de servicio administrada para Event Hubs y el protocolo de enlace de autorización, que es un modelo más sencillo que el uso de SAS.
 
@@ -77,7 +76,7 @@ Para enviar o recibir mensajes, escriba el nombre del espacio de nombres y el no
  
 Tenga en cuenta que la identidad de servicio administrada solo funciona dentro del entorno de Azure y únicamente en la implementación de App Service en que la configuró. Tenga en cuenta también que las identidades de servicio administradas no funcionan con las ranuras de implementación de App Service en este momento.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 

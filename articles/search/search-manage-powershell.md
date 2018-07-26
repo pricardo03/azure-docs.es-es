@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181994"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000997"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Azure Search con PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "32181994"
 En este tema se describen los comandos de PowerShell para realizar muchas de las tareas de administración del servicio Azure Search. Se le guiará por la creación de un servicio de búsqueda, su escalado y la administración de sus claves de API.
 Estos comandos equivalen a las opciones de administración disponibles en la [API de REST de administración de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Debe tener Azure PowerShell 1.0 o versiones posteriores. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * Debe iniciar sesión en su suscripción de Azure en PowerShell, tal y como se describe a continuación.
 
@@ -129,7 +129,7 @@ Para especificar la suscripción, ejecute el siguiente comando. En el ejemplo si
 Ahora que el servicio está creado, puede realizar los pasos siguientes: crear un [índice](search-what-is-an-index.md), [consultar un índice](search-query-overview.md) y, por último, crear y administrar su propia aplicación de búsqueda que usa Azure Search.
 
 * [Creación de un índice de Azure Search en Azure Portal](search-create-index-portal.md)
-* [Consulta de un índice de Azure Search mediante el Explorador de Search en Azure Portal](search-explorer.md)
+* [Consulta de un índice de Azure Search mediante el Explorador de búsqueda de Azure Portal](search-explorer.md)
 * [Configurar un indexador para cargar datos desde otros servicios](search-indexer-overview.md)
 * [Cómo usar Azure Search en .NET](search-howto-dotnet-sdk.md)
 * [Analizar el tráfico de Azure Search](search-traffic-analytics.md)

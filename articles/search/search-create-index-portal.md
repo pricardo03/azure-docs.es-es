@@ -1,48 +1,46 @@
 ---
-title: Crear un índice (portal - Azure Search) | Microsoft Docs
-description: Cree un índice mediante Azure Portal.
+title: Creación de un índice de Azure Search en el portal | Microsoft Docs
+description: Obtenga información sobre cómo crear un índice de Azure Search con diseñadores de índices integrados en el portal.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: quickstart
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203876"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990853"
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Creación de un índice de Azure Search en Azure Portal
+# <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Cómo crear un índice de Azure Search en Azure Portal
 
-Use el diseñador de índices integrado en Azure Portal para crear un prototipo de o un [índice de búsqueda](search-what-is-an-index.md) para que se ejecute en el servicio Azure Search. 
+Azure Search incluye un diseñador de índices integrado en el portal que resulta útil para prototipos o la creación de un [índice de búsqueda](search-what-is-an-index.md) hospedado en el servicio Azure Search. La herramienta se usa para la construcción del esquema. Cuando se guarda la definición, un índice vacío se expresa completamente en Azure Search. Cómo lo cargue con los datos para la búsqueda es decisión suya.
 
-O bien, cree un índice usando las API [.NET](search-create-index-dotnet.md) o [REST](search-create-index-rest-api.md).
+El diseñador de índices es solo un enfoque para la creación de un índice. Mediante programación, cree un índice usando las API [.NET](search-create-index-dotnet.md) o [REST](search-create-index-rest-api.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se dan por hecho una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) y el [servicio Azure Search](search-create-service-portal.md).  
+En este artículo se dan por hecho una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) y el [servicio Azure Search](search-create-service-portal.md).
 
-## <a name="find-your-search-service"></a>Búsqueda del servicio de búsqueda
-1. Inicie sesión en la página de Azure Portal y revise los [servicios de búsqueda de la suscripción](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Seleccione el servicio Azure Search.
+## <a name="open-index-designer-and-name-an-index"></a>Abrir el diseñador de índices y asignar un nombre a un índice
 
-## <a name="name-the-index"></a>Nombre del índice
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra el panel de servicio. Puede hacer clic en **Todos los servicios** en la barra de acceso rápido para buscar los "servicios de búsqueda" existentes en la suscripción actual. 
 
-1. Haga clic en el botón **Agregar índice** de la barra de comandos de la parte superior de la página.
-2. Asigne un nombre a su índice de Azure Search. 
+2.  Haga clic en el botón **Agregar índice** de la barra de comandos de la parte superior de la página.
+
+3. Asigne un nombre a su índice de Azure Search. Se hace referencia a los nombres de índice en las operaciones de indexación y consulta. El nombre del índice se convierte en parte de la dirección URL del punto de conexión que se usa en las conexiones al índice y para enviar solicitudes HTTP en la API de REST de Azure Search.
+
    * Empiece con una letra.
    * Use únicamente letras minúsculas, números o guiones ("-").
    * Limite el nombre a 60 caracteres.
 
-  El nombre del índice se convierte en parte de la dirección URL del punto de conexión que se usa en las conexiones al índice y para enviar solicitudes HTTP en la API de REST de Azure Search.
-
 ## <a name="define-the-fields-of-your-index"></a>Definición de los campos del índice
 
-La composición del índice incluye una *colección de campos* que define los datos del índice que se pueden buscar. Más concretamente, especifica la estructura de documentos que se carga por separado. La colección de campos incluye campos obligatorios y opcionales, con nombre y tipo, con atributos de índice para determinar cómo se puede usar el campo.
+La composición del índice incluye una *colección de campos* que define los datos del índice que se pueden buscar. En general, la colección de campos especifica la estructura de documentos que se carga por separado. La colección de campos incluye campos obligatorios y opcionales, con nombre y tipo, con atributos de índice para determinar cómo se puede usar el campo.
 
 1. En la hoja **Agregar índice**, haga clic en **Campos >** para abrir la hoja de definición del campo. 
 
@@ -63,6 +61,7 @@ Para la creación de un índice en el portal se usa mucho el teclado. Minimice l
 2. Entonces use las casillas de verificación de la parte superior de cada atributo para habilitar en masa el valor de todos los campos y luego desactive de forma selectiva las casillas de los pocos campos que no lo necesiten. Por ejemplo, los campos de cadena normalmente permiten realizar búsquedas. Por lo tanto, puede hacer clic en **Recuperable** y **Buscable** para devolver los valores del campo en los resultados de búsqueda, así como para permitir la búsqueda de texto completo en el campo. 
 
 <a name="design"></a>
+
 ## <a name="design-guidance-for-setting-attributes"></a>Guía de diseño para establecer atributos
 
 Aunque puede agregar nuevos campos en cualquier momento, las definiciones de campo existentes se bloquean durante la vigencia del índice. Por este motivo, los desarrolladores suelen usar el portal para crear índices sencillos, probar ideas o emplear las páginas del portal para buscar una configuración. La iteración frecuente de un diseño de índice es más eficaz si se sigue un enfoque basado en código para poder volver a crear el índice fácilmente.

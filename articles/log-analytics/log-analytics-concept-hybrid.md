@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133524"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003325"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recopilar datos de equipos en su entorno con Log Analytics
 
@@ -50,9 +50,6 @@ Las siguientes versiones del sistema operativo Windows son compatibles oficialme
 * Windows Server 2008 Service Pack 1 (SP1) o versiones posteriores
 * Windows 7 SP1 y versiones posteriores.
 
-> [!NOTE]
-> El Agente para Windows solo admite Seguridad de la capa de transporte (TLS) 1.0 y 1.1.  
-
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
 Las distribuciones Linux siguientes son compatibles oficialmente.  Aunque también se puede ejecutar el agente de Linux en otras distribuciones que no se enumeran.  A menos que se indique lo contrario, todas las versiones secundarias son compatibles con cada versión principal de la lista.  
 
@@ -63,6 +60,9 @@ Las distribuciones Linux siguientes son compatibles oficialmente.  Aunque tambi�
 * Debian GNU/Linux 6, 7 y 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 y 12 (x86/x64)
+
+## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
+Para garantizar la seguridad de los datos en tránsito a Log Analytics, se recomienda encarecidamente configurar el agente para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de red
 A continuación se muestra la información de configuración de proxy y firewall requerida para que el agente de Windows y Linux se comunique con Log Analytics.  

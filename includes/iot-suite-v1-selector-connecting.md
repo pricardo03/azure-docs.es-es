@@ -1,3 +1,20 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756433"
+---
 > [!div class="op_single_selector"]
 > * [C en Windows](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [C en Linux](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -16,7 +33,7 @@ Para simplificar, el código del dispositivo genera valores de ejemplo, pero le 
 
 El dispositivo también puede responder a los métodos que se invocan desde el panel de la solución y los valores de propiedades deseadas establecidos en el panel de la solución.
 
-Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte la [evaluación gratuita de Azure][lnk-free-trial].
+Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para más información, consulte la [evaluación gratuita de Azure][lnk-free-trial].
 
 ## <a name="before-you-start"></a>Antes de comenzar
 Antes de escribir ningún código para el dispositivo, debe aprovisionar la solución preconfigurada de supervisión remota y aprovisionar un nuevo dispositivo personalizado en esa solución.
@@ -24,13 +41,13 @@ Antes de escribir ningún código para el dispositivo, debe aprovisionar la solu
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Aprovisionar su solución preconfigurada de supervisión remota
 El dispositivo que cree en este tutorial enviará datos a una instancia de la solución preconfigurada de [supervisión remota][lnk-remote-monitoring]. Si todavía no aprovisionó la solución preconfigurada de supervisión remota en su cuenta de Azure, use estos pasos:
 
-1. En la página <https://www.azureiotsuite.com/>, haga clic en **+** para crear una solución.
+1. En la página <https://www.azureiotsolutions.com/>, haga clic en **+** para crear una solución.
 2. Haga clic en **Seleccionar** en el panel de **supervisión remota** para crear la solución.
 3. En la página **Create Remote monitoring solution** (Crear solución de supervisión remota), escriba el **nombre de solución** que prefiera, seleccione la **región** en la que desea realizar la implementación y seleccione la suscripción de Azure que desea usar. Haga clic en **Crear solución**.
 4. Espere a que finalice el proceso de aprovisionamiento.
 
 > [!WARNING]
-> Las soluciones preconfiguradas utilizan servicios de Azure facturables. Para evitar gastos innecesarios, asegúrese de quitar la solución preconfigurada de la suscripción cuando haya terminado. Para quitar completamente una solución preconfigurada de su suscripción, diríjase a la página <https://www.azureiotsuite.com/>.
+> Las soluciones preconfiguradas utilizan servicios de Azure facturables. Para evitar gastos innecesarios, asegúrese de quitar la solución preconfigurada de la suscripción cuando haya terminado. Para quitar completamente una solución preconfigurada de su suscripción, diríjase a la página <https://www.azureiotsolutions.com/>.
 > 
 > 
 

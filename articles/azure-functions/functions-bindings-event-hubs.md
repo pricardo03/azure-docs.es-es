@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970679"
+ms.locfileid: "38989595"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -367,6 +367,8 @@ El archivo [host.json](functions-host-json.md#eventhub) contiene opciones de con
 ## <a name="output"></a>Salida
 
 Use el enlace de salida de Event Hubs para escribir eventos en una secuencia. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
+
+Asegúrese de que las referencias de los paquetes necesarios están en su lugar: [Functions 1.x](#packages---functions-1.x) o [Functions 2.x](#packages---functions-2.x) 
 
 ## <a name="output---example"></a>Salida: ejemplo
 

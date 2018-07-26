@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7edabc99da5e1466e848336c647a33213c9edd8b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133452"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008151"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -65,7 +65,7 @@ Para simplificar las cosas, se recomienda que los usuarios que instalen Azure AD
 Todo el software de redes, dispositivos físicos o cualquier otra cosa que limite el tiempo máximo que las conexiones permanecen abiertas deben usar un umbral de un mínimo de cinco minutos (300 segundos) para la conectividad entre el servidor donde está instalado el cliente de Azure AD Connect y Azure Active Directory. Esta recomendación también se aplica a todas las herramientas de sincronización de identidades de Microsoft publicadas anteriormente.
 
 **P: ¿Se admiten los dominios de una sola etiqueta (SLD)?**  
-No, Azure AD Connect no admite bosques o dominios locales que usen SLD.
+Aunque no se recomienda esta configuración de red ([consulte el artículo](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), se admite el uso de la sincronización de Azure AD Connect con un dominio de una sola etiqueta, siempre que la configuración de red para el dominio de un solo nivel funcione correctamente.
 
 **P: ¿Se admiten los bosques con dominios de AD no contiguos?**  
 No, Azure AD Connect no admite bosques locales que contengan espacios de nombres no contiguos.

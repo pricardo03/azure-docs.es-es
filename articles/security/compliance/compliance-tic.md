@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969952"
+ms.locfileid: "38990836"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Guía de conexión a Internet de confianza
 
@@ -227,27 +227,26 @@ El acceso de Microsoft Azure, Office 365 y Dynamics 365 se puede configurar fác
 
 | Categoría | Carga de trabajo | IaaS | PaaS dedicado/Inserción de red virtual  | Puntos de conexión de servicio  |
 |---------|---------|---------|---------|--------|
-| Compute | Máquinas virtuales Linux | Sí | | |
-| Compute | Máquinas virtuales Windows | Sí | | |
-| Compute | Virtual Machine Scale Sets | Sí | | |
+| Compute | Máquinas virtuales Linux | SÍ | | |
+| Compute | Máquinas virtuales Windows | SÍ | | |
+| Compute | Virtual Machine Scale Sets | SÍ | | |
 | Compute | Azure Functions | | Mediante App Service Environment (ASE) | |
 | Web y móvil | Aplicación web interna | | Mediante App Service Environment (ASE) | |
 | Web y móvil | Aplicación móvil interna | | Mediante App Service Environment (ASE) | |
 | Web y móvil | API Apps | | Mediante App Service Environment (ASE) | |
-| Contenedores | Azure Container Service (ACS) | | | Sí |
-| Contenedores | Azure Container Service (AKS)* | | | Sí |
+| Contenedores | Azure Container Service (ACS) | | | SÍ |
+| Contenedores | Azure Container Service (AKS)* | | | SÍ |
 | Base de datos | SQL Database | | Instancia administrada de Azure SQL Database* | Azure SQL |
-| Base de datos | Azure Database for MySQL | | | Sí |
-| Base de datos | Azure Database for PostgreSQL | | | Sí |
-| Base de datos | SQL Data Warehouse | | | Sí |
-| Base de datos | Azure Cosmos DB | | | Sí |
-| Base de datos | Redis Cache | | Sí | |
-| Storage | Blobs | Sí | | |
-| Storage | Archivos | Sí | | |
-| Storage | Colas | Sí | | |
-| Storage | Tablas | Sí | | |
-| Storage | Discos | Sí | | |
+| Base de datos | Azure Database for MySQL | | | SÍ |
+| Base de datos | Azure Database for PostgreSQL | | | SÍ |
+| Base de datos | SQL Data Warehouse | | | SÍ |
+| Base de datos | Azure Cosmos DB | | | SÍ |
+| Base de datos | Redis Cache | | SÍ | |
+| Storage | Blobs | SÍ | | |
+| Storage | Archivos | SÍ | | |
+| Storage | Colas | SÍ | | |
+| Storage | Tablas | SÍ | | |
+| Storage | Discos | SÍ | | |
 
 *: Versión preliminar pública en Azure Government con fecha de mayo de 2018  
 **: Versión preliminar privada en Azure Government con fecha de mayo de 2018
-

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 326da32f91b263bbd09a4c6f521c9ec72094820c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9ba9bc993832350f6b6ce1c642e2dc852731b6f0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066074"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029950"
 ---
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -41,7 +41,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | --- | --- | --- |
 | Redes virtuales |50 |1000 |
 | Subredes por red virtual |1000 |10000 |
-| Emparejamientos de redes virtuales por red virtual |10 |50 |
+| Emparejamientos de redes virtuales por red virtual |50** |100 |
 | Servidores DNS por red virtual |9 |25 |
 | Direcciones IP privadas por red virtual |16384** |16384 |
 | Direcciones IP privadas por interfaz de red |256 |256 |
@@ -55,13 +55,13 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Configuraciones de IP por grupo de seguridad de aplicaciones |1000 |4000 |
 | Grupos de seguridad de aplicaciones que se pueden especificar en todas las reglas de seguridad de un grupo de seguridad de red |50 |100 |
 | Tablas de rutas definidas por el usuario |100 |200 |
-| Rutas definidas por el usuario por tabla de ruta |100 |400 |
+| Rutas definidas por el usuario por tabla de ruta |400** |400 |
 | Direcciones IP públicas - dinámicas |(Básico) 60 |ponerse en contacto con el servicio de soporte técnico |
 | Direcciones IP públicas - estáticas |(Básico) 20 |ponerse en contacto con el servicio de soporte técnico |
 | Direcciones IP públicas - estáticas |(Estándar) 20 |ponerse en contacto con el servicio de soporte técnico |
 | Certificados raíz de punto a sitio por VPN Gateway |20 |20 |
 
-**Estos límites predeterminados se aplican a las suscripciones cuyos límites no habían aumentado anteriormente mediante soporte técnico
+**Estos límites predeterminados actualizados se aplican a las suscripciones cuyos límites no habían aumentado anteriormente mediante soporte técnico. Si ha hecho que el soporte técnico incrementase estos límites en el pasado y desea actualizarlos a los nuevos valores predeterminados, [abra una solicitud de soporte técnico al cliente en línea sin cargo](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>Límites de Load Balancer
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de los recursos actuales comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).

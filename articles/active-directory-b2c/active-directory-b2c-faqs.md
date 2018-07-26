@@ -6,19 +6,22 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939940"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928739"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: preguntas más frecuentes (P+F) 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
+
+### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>¿Por qué no puedo acceder a la extensión de Azure AD B2C en Azure Portal?
+Hay dos causas comunes de por qué las extensiones de Azure AD no funcionan en su caso.  Azure AD B2C requiere que su rol de usuario en el directorio sea el de administrador global.  Póngase en contacto con su administrador si cree que debería tener acceso.  Si tiene privilegios de administrador global, asegúrese de que se encuentra en un directorio de Azure AD B2C y no en un directorio de Azure Active Directory.  Puede ver las instrucciones para [crear un directorio de Azure AD B2C aquí](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>¿Puedo usar las características de Azure AD B2C en mi inquilino de Azure de AD existente, basado en empleados?
 Azure AD y Azure AD B2C son ofertas de producto independientes y no pueden coexistir en el mismo inquilino.  Un inquilino de Azure AD representa una organización.  Un inquilino de Azure AD B2C representa una colección de identidades para su uso con aplicaciones de usuario de confianza.  Con las directivas personalizadas (en versión preliminar), Azure AD B2C puede federarse con Azure AD, lo que permite la autenticación de los empleados de una organización.
@@ -97,9 +100,9 @@ Lea este artículo sobre [identidades externas](../active-directory/active-direc
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>¿Qué características de auditoría e informes proporciona Azure AD B2C? ¿Son las mismas que en Azure AD Premium?
 No, Azure AD B2C no admite el mismo conjunto de informes que Azure AD Premium. Sin embargo, hay muchos elementos en común:
 
-* **Informes de inicio de sesión:** solo están disponibles en Azure Portal (Azure Active Directory &gt; Actividad &gt; Inicios de sesión) y no están disponibles a través de Graph API. Estos informes proporcionan un registro de cada inicio de sesión con menos detalles.
-* **Informes de auditoría:** solo están disponibles en Azure Portal (Azure Active Directory &gt; Actividad &gt; Registros de auditoría) y no están disponibles a través de Graph API. Incluyen tanto la actividad administrativa como la actividad de la aplicación. 
-* **Informes de uso:** solo están disponibles mediante [Usage Reporting API](active-directory-b2c-reference-usage-reporting-api.md) y no están disponibles en Azure Portal. Incluyen el número de usuarios, el número de inicios de sesión y el volumen de MFA. 
+* Los **informes de inicio de sesión** proporcionan un registro de cada inicio de sesión con menos detalles.
+* Los **informes de auditoría** incluyen tanto la actividad administrativa como la actividad de la aplicación. 
+* Los **informes de usuario** incluyen el número de usuarios, el número de inicios de sesión y el volumen de MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>¿Puedo localizar la interfaz de usuario de páginas servidas por Azure AD B2C? ¿Qué idiomas se admiten?
 Sí.  Obtenga información sobre la [personalización de lenguaje](active-directory-b2c-reference-language-customization.md), que se encuentra en versión preliminar pública.  Se ofrecen traducciones a 36 idiomas, y puede invalidar cualquier cadena para satisfacer sus necesidades.

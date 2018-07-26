@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936524"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003620"
 ---
 # <a name="network-connectivity"></a>Conectividad de red
 En este artículo se ofrece información sobre la infraestructura de red de Azure Stack que le ayudará decidir cuál es la mejor forma de integrar Azure Stack en su entorno de red existente. 
@@ -29,7 +29,7 @@ En este artículo se ofrece información sobre la infraestructura de red de Azur
 > Para resolver nombres de DNS externos de Azure Stack (por ejemplo, www.bing.com), deberá proporcionar servidores DNS para reenviar las solicitudes de DNS. Para más información acerca de los requisitos de DNS de Azure Stack, consulte [Integración del centro de datos de Azure Stack: DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Diseño de la red física
-La solución Azure Stack requiere una infraestructura física resistente y de alta disponibilidad para admitir sus operaciones y servicios. El siguiente diagrama representa nuestro diseño recomendado:
+La solución Azure Stack requiere una infraestructura física resistente y de alta disponibilidad para admitir sus operaciones y servicios. Los vínculos superiores desde ToR para conmutadores de borde se limitan a medios SFP+ o SFP28 y velocidades de 1 GB, 10 GB o 25 GB. Póngase en contacto con su proveedor de hardware del fabricante de equipos originales (OEM) para obtener información sobre la disponibilidad. El siguiente diagrama presenta nuestro diseño recomendado:
 
 ![Diseño de red de Azure Stack recomendado](media/azure-stack-network/recommended-design.png)
 
@@ -59,7 +59,7 @@ Esta red está dedicada a conectar todos los controladores de administración de
 El HLH también hospeda la máquina virtual de implementación (DVM). La DVM se utiliza durante la implementación de Azure Stack y se quita cuando esta finaliza. La DVM requiere acceso a Internet en escenarios de implementación conectados para probar, validar y obtener acceso a varios componentes. Estos componentes pueden estar dentro y fuera de la red corporativa; por ejemplo, NTP, DNS y Azure. Para obtener más información acerca de los requisitos de conectividad, consulte la [sección de NAT en la integración con el firewall de Azure Stack](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Red privada
-Esta red /24 (254 direcciones IP de host) es particular de la región de Azure Stack (no se expande más allá de los dispositivos de conmutación de borde de la región Azure Stack) y se divide en dos subredes:
+Esta red /24 (254 direcciones IP de host) es particular de la región de Azure Stack (no se expande más allá de los dispositivos de conmutación de borde de la región de Azure Stack) y se divide en dos subredes:
 
 - **Red de almacenamiento**. Una red /25 (126 direcciones IP de host) se utiliza para admitir el uso del tráfico de almacenamiento de espacios directo y el bloque de mensajes del servidor (SMB) y la migración en vivo de máquinas virtuales. 
 - **Red IP virtual interna**. Una red /25 dedicada únicamente a una red IP virtual de uso interno para el equilibrador de carga de software.

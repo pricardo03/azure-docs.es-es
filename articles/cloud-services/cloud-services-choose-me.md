@@ -1,9 +1,9 @@
 ---
-title: Opciones de proceso de Azure (Azure Cloud Services) | Microsoft Docs
-description: 'Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: App Service, Azure Cloud Services y Virtual Machines'
+title: Qué es Azure Cloud Services | Microsoft Docs
+description: Obtenga información sobre qué es Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
 ms.service: multiple
@@ -12,22 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 2871a8c02db0ffc6d9033724e7c9f4a454afef8e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120291"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011663"
 ---
-# <a name="should-i-choose-azure-cloud-services-or-something-else"></a>¿Debo elegir Azure Cloud Services u otra opción?
-¿Es Azure Cloud Services la opción que mejor se adapta a sus necesidades? Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada una ofrece un conjunto diferente de servicios. Su elección dependerá de lo que pretenda.
-
-[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
-
-<a name="tellmecs"></a>
-
-## <a name="tell-me-about-azure-cloud-services"></a>Información sobre Azure Cloud Services
+# <a name="overview-of-azure-cloud-services"></a>Información general de Azure Cloud Services
 Azure Cloud Services es un ejemplo de [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Al igual que [Azure App Service](../app-service/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. En la misma manera que App Service se hospeda en máquinas virtuales (VM), así ocurre también con Azure Cloud Services. Sin embargo, tiene más control sobre las máquinas virtuales. Puede instalar su propio software en las máquinas virtuales que usan Azure Cloud Services y puede tener acceso a ellas remotamente.
 
 ![Diagrama de Azure Cloud Services](./media/cloud-services-choose-me/diagram.png)
@@ -56,7 +49,7 @@ Azure Cloud Services también proporciona supervisión. Al igual que con Azure V
 
 La naturaleza PaaS de Azure Cloud Services tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Azure Cloud Services no debería mantener el estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de lo que ocurre en las máquinas virtuales creadas con Azure Virtual Machines, las escrituras realizadas en máquinas virtuales de Azure Cloud Services no son persistentes. No es como un disco de datos de Azure Virtual Machines. En su lugar, una aplicación de Azure Cloud Services debe escribir explícitamente todo el estado en Azure SQL Database, blobs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, y ambos son objetivos importantes de Azure Cloud Services.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Crear una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md) 
 * [Crear una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Crear una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md) 

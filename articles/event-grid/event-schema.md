@@ -6,22 +6,22 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 04/17/2018
+ms.date: 07/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304069"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902238"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
-En este artículo se describen las propiedades y el esquema que están presentes para todos los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de datos obligatorios. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de datos contiene propiedades específicas de cada anunciante. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Azure Storage o Azure Event Hubs.
+En este artículo se describen las propiedades y el esquema que están presentes para todos los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de datos obligatorios. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de datos tiene propiedades específicas de cada publicador. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Azure Storage o Azure Event Hubs.
 
-Los orígenes de eventos envían eventos a Azure Event Grid en una matriz que puede contener varios objetos de evento. Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 64 KB como máximo. Si un evento o la matriz supera los límites de tamaño, recibirá la respuesta **413 Carga demasiado grande**.
+Los orígenes de eventos envían eventos a Azure Event Grid en una matriz que puede tener varios objetos de evento. Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 64 KB como máximo. Si un evento o la matriz superan los límites de tamaño, recibirá la respuesta **413 Payload Too Large** (Carga útil demasiado grande).
 
-Event Grid envía los eventos a los suscriptores en una matriz que contiene un solo evento. Este comportamiento puede cambiar en el futuro.
+Event Grid envía los eventos a los suscriptores en una matriz que tiene un solo evento. Este comportamiento puede cambiar en el futuro.
 
 Puede encontrar el esquema JSON para el evento de Event Grid y cada carga de datos del publicador de Azure en el [almacén de esquemas de eventos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
@@ -78,9 +78,9 @@ Por ejemplo, el esquema publicado para un evento de Azure Blob Storage es:
 
 ## <a name="event-properties"></a>Propiedades de evento
 
-Todos los eventos contienen los mismos datos de nivel superior siguientes:
+Todos los eventos tienen los mismos datos de nivel superior, que son los siguientes:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Escriba | Descripción |
 | -------- | ---- | ----------- |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
@@ -96,13 +96,14 @@ Para aprender acerca de las propiedades del objeto de datos, vea el origen del e
 * [Suscripciones de Azure (operaciones de administración)](event-schema-subscriptions.md)
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
-* [Service Bus](event-schema-service-bus.md)
 * [IoT Hub](event-schema-iot-hub.md)
+* [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Grupos de recursos (operaciones de administración)](event-schema-resource-groups.md)
+* [Service Bus](event-schema-service-bus.md)
 
-Para temas personalizados, el publicador de eventos determina el objeto de datos. Los datos de nivel superior deben contener los mismos campos que los eventos estándar definidos por los recursos.
+Para temas personalizados, el publicador de eventos determina el objeto de datos. Los datos de nivel superior deben tener los mismos campos que los eventos estándar definidos por recursos.
 
-Al publicar eventos en temas personalizados, cree asuntos para los eventos que faciliten el que los suscriptores sepan si están interesados en el evento. Los suscriptores usan el asunto para filtrar y redirigir eventos. Considere la posibilidad de proporcionar la ruta de acceso de donde se produjo el evento, para que los suscriptores pueden filtrar por los segmentos de esa ruta de acceso. La ruta de acceso permite que los suscriptores filtren eventos de una manera más amplia o más restringida. Por ejemplo, si se proporciona una ruta de acceso de tres segmentos como `/A/B/C` en el asunto, los suscriptores pueden filtrar por el primer segmento `/A` para obtener un amplio conjunto de eventos. Esos suscriptores obtienen eventos con asuntos como `/A/B/C` o `/A/D/E`. Otros suscriptores pueden filtrar por `/A/B` para obtener un conjunto de eventos más reducido.
+Al publicar eventos en temas personalizados, cree asuntos para los eventos que faciliten que los suscriptores sepan si les interesa el evento. Los suscriptores usan el asunto para filtrar y redirigir eventos. Considere la posibilidad de proporcionar la ruta de acceso de donde se produjo el evento, para que los suscriptores pueden filtrar por los segmentos de esa ruta de acceso. La ruta de acceso permite que los suscriptores filtren eventos de una manera más amplia o más restringida. Por ejemplo, si se proporciona una ruta de acceso de tres segmentos como `/A/B/C` en el asunto, los suscriptores pueden filtrar por el primer segmento `/A` para obtener un amplio conjunto de eventos. Esos suscriptores obtienen eventos con asuntos como `/A/B/C` o `/A/D/E`. Otros suscriptores pueden filtrar por `/A/B` para obtener un conjunto de eventos más reducido.
 
 A veces el asunto necesita información más detallada sobre qué ocurrió. Por ejemplo, el publicador de **cuentas de almacenamiento** proporciona el asunto `/blobServices/default/containers/<container-name>/blobs/<file>` cuando se agrega un archivo a un contenedor. Un suscriptor puede filtrar por la ruta de acceso `/blobServices/default/containers/testcontainer` para obtener todos los eventos de ese contenedor, pero no otros contenedores en la cuenta de almacenamiento. Un suscriptor también puede filtrar o redirigir por el sufijo `.txt` para que funcione solo con archivos de texto.
 

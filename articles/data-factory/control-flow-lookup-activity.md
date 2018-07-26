@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237839"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002927"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
-La actividad de búsqueda se puede usar para recuperar un conjunto de datos de cualquier parte del origen de datos compatible con ADF.  Se puede usar en el siguiente caso:
-- Determinar dinámicamente en qué objetos (archivos, tablas, etc.) operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto
+La actividad de búsqueda puede recuperar un conjunto de datos de cualquiera de los orígenes de datos compatible con Azure Data Factory. Utilícela en el siguiente escenario:
+- Determinar dinámicamente en qué objetos operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto. Algunos ejemplos de objeto son los archivos y las tablas.
 
-La actividad de búsqueda puede leer y devolver el contenido de un archivo de configuración, una tabla de configuración o el resultado de la ejecución de una consulta o procedimiento almacenado.  El resultado de la actividad de búsqueda se puede usar en una actividad de transformación o copia posterior si es un valor singleton, o bien en una actividad ForEach si es una matriz de atributos.
+La actividad de búsqueda lee y devuelve el contenido de una tabla o un archivo de configuración. También devuelve el resultado de ejecutar una consulta o un procedimiento almacenado. El resultado de la actividad de búsqueda se puede usar en una actividad de transformación o copia posterior si es un valor singleton. La salida se puede usar en una actividad ForEach si es una matriz de atributos.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Se admiten los siguientes orígenes de datos para la búsqueda. El número máximo de filas que puede devolver la actividad de búsqueda es **5000**, con un tamaño máximo de **2 MB**. Actualmente, además, la duración máxima de la actividad de búsqueda antes del tiempo de expiración es una hora.
+Se admiten los siguientes orígenes de datos para la actividad de búsqueda. El número más grande de filas que puede devolver la actividad de búsqueda es 5000, con un tamaño máximo de 2 MB. Actualmente, la duración máxima de la actividad de búsqueda antes del tiempo de expiración es una hora.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -56,17 +56,17 @@ Se admiten los siguientes orígenes de datos para la búsqueda. El número máxi
 ## <a name="type-properties"></a>Propiedades de tipo
 NOMBRE | DESCRIPCIÓN | type | ¿Necesario?
 ---- | ----------- | ---- | --------
-dataset | Proporciona la referencia de conjunto de datos para la búsqueda. Obtenga los detalles de la sección "Propiedades del conjunto de datos" de cada artículo del conector correspondiente. | Par clave-valor | Sí
-de origen | Contiene propiedades de origen específicas para el conjunto de datos, al igual que el origen de la actividad de copia. Obtener los detalles de la sección "Copiar propiedades de la actividad" de cada artículo del conector correspondiente. | Par clave-valor | Sí
+dataset | Proporciona la referencia de conjunto de datos para la búsqueda. Obtenga los detalles de la sección **Propiedades del conjunto de datos** de cada artículo del conector correspondiente. | Par clave-valor | SÍ
+de origen | Contiene propiedades de origen específicas para el conjunto de datos, al igual que el origen de la actividad de copia. Obtenga los detalles de la sección **Copiar propiedades de la actividad** de cada artículo del conector correspondiente. | Par clave-valor | SÍ
 firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean | No. El valor predeterminado es `true`.
 
-**Tenga en cuenta los siguientes puntos:**
+> [!NOTE]
 
-1. No se admite la columna de origen con el tipo ByteArray.
-2. La estructura no se admite en la definición del conjunto de datos. En el caso concreto de los archivos de formato de texto, puede utilizar la fila de encabezado para proporcionar el nombre de columna.
-3. Si su origen de búsqueda es un archivo JSON y el valor `jsonPathDefinition` para volver a dar forma al objeto JSON no se admite, se recuperarán todos los objetos.
+> * No se admiten las columnas de origen con el tipo **ByteArray**.
+> * La **estructura** no se admite en las definiciones del conjunto de datos. En el caso de los archivos de formato de texto, utilice la fila de encabezado para proporcionar el nombre de columna.
+> * Si el origen de la búsqueda es un archivo JSON, la configuración `jsonPathDefinition` para cambiar la forma del objeto JSON no se admite. Se recuperarán los objetos completos.
 
-## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Utilizar el resultado de la actividad de búsqueda en una actividad posterior
+## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Uso del resultado de la actividad de búsqueda en una actividad posterior
 
 El resultado de la búsqueda se devuelve en la sección `output` del resultado de ejecución de la actividad.
 
@@ -82,7 +82,7 @@ El resultado de la búsqueda se devuelve en la sección `output` del resultado d
     }
     ```
 
-* **Cuando `firstRowOnly` está establecido en `false`**, el formato de salida es como se muestra en el código siguiente. Un campo `count` indica el número de registros que se devuelven y se muestran los valores detallados en una matriz `value` fija. En tal caso, la actividad de búsqueda suele ir seguida de una [actividad ForEach](control-flow-for-each-activity.md). Puede pasar la matriz `value` al campo `items` de la actividad ForEach mediante el patrón de `@activity('MyLookupActivity').output.value`. Para acceder a elementos en la matriz `value`, use la siguiente sintaxis: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Este es un ejemplo: `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Cuando `firstRowOnly` está establecido en `false`**, el formato de salida es como se muestra en el código siguiente. Un campo `count` indica cuántos registros se devuelven. Se muestran los valores detallados bajo una matriz `value` fija. En tal caso, la actividad de búsqueda va seguida de una [actividad ForEach](control-flow-for-each-activity.md). Pase la matriz `value` al campo `items` de la actividad ForEach mediante el patrón de `@activity('MyLookupActivity').output.value`. Para acceder a elementos en la matriz `value`, use la siguiente sintaxis: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Un ejemplo es `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -100,17 +100,16 @@ El resultado de la búsqueda se devuelve en la sección `output` del resultado d
     } 
     ```
 
-## <a name="example"></a>Ejemplo
-En este ejemplo, con la actividad de copia se copian datos de una tabla SQL en Azure SQL Database a Azure Blob Storage. El nombre de la tabla SQL se almacena en un archivo JSON en Blob Storage. La actividad de búsqueda busca el nombre de la tabla en entorno de tiempo de ejecución. Este enfoque permite modificar de forma dinámica el archivo JSON sin necesidad de volver a implementar canalizaciones ni conjuntos de datos. 
+### <a name="copy-activity-example"></a>Ejemplo de actividad de copia
+En este ejemplo, con la actividad de copia se copian datos de una tabla SQL en Azure SQL Database a Azure Blob Storage. El nombre de la tabla SQL se almacena en un archivo JSON en Blob Storage. La actividad de búsqueda busca el nombre de la tabla en entorno de tiempo de ejecución. JSON se modifica de forma dinámica con este enfoque. No es necesario volver a implementar canalizaciones ni conjuntos de datos. 
 
 En este ejemplo se muestra solo la búsqueda de la primera fila. Para la búsqueda de todas las filas y encadenar los resultados con la actividad ForEach, consulte los ejemplos en [Copia de varias tablas en bloque mediante Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Canalización
-Esta canalización contiene dos actividades: *búsqueda* y *copia*. 
+Esta canalización contiene dos actividades: búsqueda y copia. 
 
-- La actividad de búsqueda está configurada para usar LookupDataset, que hace referencia a una ubicación en una instancia de Azure Blob Storage. La actividad de búsqueda lee el nombre de la tabla SQL desde un archivo JSON en esta ubicación. 
-- La actividad de copia usa la salida de la actividad de búsqueda (el nombre de la tabla SQL). La propiedad tableName en el conjunto de datos de origen (SourceDataset) se configura para usar la salida de la actividad de búsqueda. Con la actividad de copia se copian datos de la tabla SQL en una ubicación de Azure Blob Storage que especifica la propiedad SinkDataset. 
-
+- La actividad de búsqueda está configurada para usar **LookupDataset**, que hace referencia a una ubicación en una instancia de Azure Blob Storage. La actividad de búsqueda lee el nombre de la tabla SQL desde un archivo JSON en esta ubicación. 
+- La actividad de copia usa la salida de la actividad de búsqueda, que es el nombre de la tabla SQL. La propiedad **tableName** en **SourceDataset** se configura para usar la salida de la actividad de búsqueda. Con la actividad de copia se copian datos de la tabla SQL en una ubicación de Azure Blob Storage. La ubicación se especifica mediante la propiedad **SinkDataset**. 
 
 ```json
 {
@@ -167,7 +166,7 @@ Esta canalización contiene dos actividades: *búsqueda* y *copia*.
 ```
 
 ### <a name="lookup-dataset"></a>Conjunto de datos de búsqueda
-El conjunto de datos de búsqueda hace referencia al archivo *sourcetable.json* de la carpeta de búsqueda en la instancia de Azure Storage que especifica el tipo AzureStorageLinkedService. 
+El conjunto de datos **lookup** es el archivo **sourcetable.json** de la carpeta de búsqueda de Azure Storage que el tipo **AzureStorageLinkedService** especifica. 
 
 ```json
 {
@@ -190,8 +189,8 @@ El conjunto de datos de búsqueda hace referencia al archivo *sourcetable.json* 
 }
 ```
 
-### <a name="source-dataset-for-the-copy-activity"></a>Conjunto de datos de origen para la actividad de copia
-El conjunto de datos de origen usa la salida de la actividad de búsqueda, que es el nombre de la tabla SQL. Con la actividad de copia se copian los datos de esta tabla SQL en una ubicación de Azure Blob Storage que especifica el conjunto de datos del receptor. 
+### <a name="source-dataset-for-copy-activity"></a>Conjunto de datos **source** para la actividad de copia
+El conjunto de datos **source** usa la salida de la actividad de búsqueda, que es el nombre de la tabla SQL. Con la actividad de copia se copian datos de esta tabla SQL en una ubicación de Azure Blob Storage. La ubicación se especifica mediante el conjunto de datos **sink**. 
 
 ```json
 {
@@ -209,8 +208,8 @@ El conjunto de datos de origen usa la salida de la actividad de búsqueda, que e
 }
 ```
 
-### <a name="sink-dataset-for-the-copy-activity"></a>Conjunto de datos de receptor para la actividad de copia
-Con la actividad de copia se copian datos de la tabla SQL en el archivo *filebylookup.csv* de la carpeta *csv* en Azure Storage que especifica la propiedad AzureStorageLinkedService. 
+### <a name="sink-dataset-for-copy-activity"></a>Conjunto de datos **sink** para la actividad de copia
+Con la actividad de copia se copian datos de la tabla SQL en el archivo **filebylookup.csv** de la carpeta **csv** en Azure Storage. La propiedad **AzureStorageLinkedService** especifica el archivo. 
 
 ```json
 {
@@ -304,5 +303,5 @@ Consulte otras actividades de flujo de control compatibles con Data Factory:
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Actividad ForEach](control-flow-for-each-activity.md)
-- [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad web](control-flow-web-activity.md)

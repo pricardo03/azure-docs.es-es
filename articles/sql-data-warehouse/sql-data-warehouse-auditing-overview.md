@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643505"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858959"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Azure SQL Data Warehouse
 
@@ -52,8 +52,9 @@ Puede definirse una directiva de auditoría para una base de datos específica o
 > * Quiera usar una *cuenta de almacenamiento* o un *período de retención* diferentes para una base de datos específica.
 > * Quiera auditar tipos de eventos o categorías para una base de datos específica que difieren del resto de las bases de datos del servidor. Por ejemplo, es posible que tenga inserciones de tabla que solo tengan que deban auditarse para una base de datos concreta.
 > * Desea utilizar la detección de amenazas, que actualmente solo es compatible con la auditoría de nivel de base de datos.
->
 
+> [!IMPORTANT]
+>Si habilita la auditoría en una instancia de Azure SQL Data Warehouse, o en un servidor que tenga una instancia de este, **hará que esta instancia se reanude** incluso en el caso de que estuviera anteriormente en pausa. **Asegúrese de poner en pausa el almacenamiento de datos después de volver a habilitar la auditoría**.
 
 ## <a id="subheading-5"></a>Configuración de la auditoría de nivel de servidor para todas las bases de datos
 

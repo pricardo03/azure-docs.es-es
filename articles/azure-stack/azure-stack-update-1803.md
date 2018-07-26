@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: a74e77f84aa70519015a589cbc6e7478c0c41592
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 11430a0d194a722c0c0520c936db3c08b1a6b863
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318816"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989578"
 ---
 # <a name="azure-stack-1803-update"></a>Actualización de Azure Stack 1803
 
@@ -40,7 +40,7 @@ El número de compilación de la actualización de Azure Stack 1803 es **2018032
 > No intente crear máquinas virtuales durante la instalación de esta actualización. Para más información sobre cómo administrar las actualizaciones, consulte [Introducción a la administración de actualizaciones en Azure Stack](azure-stack-updates.md#plan-for-updates).
 
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 - Antes de aplicar la actualización de Azure Stack 1803, instale la [actualización 1802](azure-stack-update-1802.md).   
 
 - Antes de aplicar la actualización 1803 de Azure Stack, instale **AzS Hotfix – 1.0.180312.1- Build 20180222.2**. Esta revisión actualiza Windows Defender, y está disponible al descargar actualizaciones para Azure Stack.
@@ -106,7 +106,7 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
 - Después de la instalación de 1803, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).
 
-  - [KB 4341390: Azure Stack, revisión 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
+  - [KB 4344115: Azure Stack, revisión 1.0.180427.15](https://support.microsoft.com/help/4344115).
 
 - Después de instalar esta actualización, revise la configuración del firewall para asegurarse de que están abiertos los [puertos necesarios](azure-stack-integrate-endpoints.md). Por ejemplo, esta actualización presenta *Azure Monitor*, que incluye un cambio de los registros de auditoría en los registros de actividad. Con este cambio, el puerto 13012 ahora se usa y también debe estar abierto.  
 

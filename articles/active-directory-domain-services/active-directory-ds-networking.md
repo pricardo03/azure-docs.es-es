@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 07f63eb9ed316f7798bd890bb6125617c6a1e886
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301002"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929644"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Selección de una instancia de Azure Virtual Network
@@ -55,7 +55,6 @@ Las siguientes directrices le ayudan a seleccionar una red virtual para usarla c
 * No aplique los NSG a la subred dedicada para el dominio administrado. Si debe aplicarlos a la subred dedicada, asegúrese de **no bloquear los puertos necesarios para mantener y administrar el dominio**.
 * No restrinja en exceso el número de direcciones IP disponibles dentro de la subred dedicada para el dominio administrado. Esta restricción impide que el servicio ponga dos controladores de dominio a disposición del dominio administrado.
 * **No habilite Azure AD Domain Services en la subred de la puerta de enlace** de la red virtual.
-* No bloquee el acceso de salida desde la subred en la que está habilitado el dominio administrado.
 
 > [!WARNING]
 > Al asociar un NSG a una subred en la que Azure AD Domain Services está habilitado, puede interrumpir la capacidad de Microsoft para mantener y administrar el dominio. Además, se interrumpe la sincronización entre el inquilino de Azure AD y el dominio administrado. **El SLA no es pertinente para aquellas implementaciones en las que se ha aplicado un NSG que impide que Azure AD Domain Services actualice y administre el dominio.**
@@ -80,8 +79,8 @@ Los siguientes puertos son necesarios para que Azure AD Domain Services mantenga
 **Puerto 5986 (comunicación remota de PowerShell)**
 * Se usa para realizar tareas de administración usando la comunicación remota de PowerShell en el dominio administrado.
 * Es obligatorio permitir el acceso por este puerto en el grupo de seguridad de red. Sin acceso a este puerto, el dominio administrado no se puede actualizar, configurar, incluir en una copia de seguridad ni supervisar.
-* Para cualquier dominio nuevo o cualquier dominio con una red virtual de ARM, puede restringir el acceso de entrada a este puerto a las direcciones IP de origen siguientes: 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
-* Para los dominios con una red virtual clásica, puede restringir el acceso de entrada a este puerto a las direcciones IP de origen siguientes: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
+* Para cualquier dominio nuevo o cualquier dominio con una red virtual de Azure Resource Manager, puede restringir el acceso de entrada a este puerto a las direcciones IP de origen siguientes: 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
+* Para los dominios con una red virtual clásica, puede restringir el acceso de entrada a este puerto a las direcciones IP de origen siguientes: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
 * Los controladores de dominio para el dominio administrado no suelen escuchar en este puerto. El servicio abre este puerto en los controladores de dominio administrados solo cuando debe llevarse a cabo una operación de administración o mantenimiento para el dominio administrado. Tan pronto como finaliza la operación, el servicio cierra este puerto en los controladores de dominio administrados.
 
 **Puerto 3389 (Escritorio remoto)**
@@ -94,11 +93,9 @@ Los siguientes puertos son necesarios para que Azure AD Domain Services mantenga
 * Es opcional abrir este puerto mediante el grupo de seguridad de red. Abra el puerto solo si tiene habilitado el acceso mediante LDAP seguro a través de Internet.
 * Puede restringir el acceso de entrada a este puerto para las direcciones IP de origen desde las que espera conectarse a través de LDAP seguro.
 
-**Acceso de salida**: los servicios de dominio de AAD necesitan acceso de salida a otros diversos servicios de Azure con el fin de administrar el dominio administrado, realizar una copia de seguridad de él y administrarlo. No bloquee el acceso de salida desde la subred dedicada en la que está habilitado el dominio administrado.
-
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
-Un [grupo de seguridad de red (NSG)](../virtual-network/security-overview.md) contiene una lista de reglas de lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a sus instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred. Además, el tráfico que se llega a una máquina virtual se puede restringir aún más, para lo que se debe asociar un NSG directamente a dicha máquina virtual.
+Un [grupo de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md) contiene una lista de reglas de lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a sus instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred. Además, el tráfico que se llega a una máquina virtual se puede restringir aún más, para lo que se debe asociar un NSG directamente a dicha máquina virtual.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Grupo de seguridad de red (NSG) de ejemplo para redes virtuales con Azure AD Domain Services
 En la tabla siguiente se muestra un NSG de ejemplo que se puede configurar para una red virtual con un dominio administrado de Azure AD Domain Services. Esta regla permite el tráfico de entrada en los puertos necesarios para garantizar que el dominio administrado se mantiene revisado, actualizado y puede ser supervisado por Microsoft. La regla predeterminada 'DenyAll' se aplica a todo el tráfico de entrada de Internet.

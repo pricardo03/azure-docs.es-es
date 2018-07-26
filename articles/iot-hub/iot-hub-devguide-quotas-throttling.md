@@ -8,17 +8,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 9521bd47db9676c70993c535f1207b3519123353
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633322"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004778"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
 ## <a name="quotas-and-throttling"></a>Cuotas y limitación
-Cada suscripción de Azure puede tener como máximo 10 centros de IoT y al menos un centro gratuito.
+Cada suscripción de Azure puede tener como máximo cincuenta centros de IoT y al menos un centro gratuito.
 
 Cada instancia de IoT Hub se aprovisiona con un determinado número de unidades en un nivel determinado. Para más información, consulte [Precios de Azure IoT Hub][lnk-pricing]. El nivel y el número de unidades determinan la cuota diaria máxima de mensajes que puede enviar.
 
@@ -82,7 +82,7 @@ IoT Hub exige otros límites operativos:
 > [!NOTE]
 > Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 500 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latencia
 IoT Hub se esfuerza por proporcionar una latencia baja para todas las operaciones. Pero debido a las condiciones de la red y otros factores impredecibles no puede garantizar una latencia máxima. Cuando diseñe la solución, debería:
 
 * Evitar realizar suposiciones sobre la latencia máxima de cualquier operación de IoT Hub.

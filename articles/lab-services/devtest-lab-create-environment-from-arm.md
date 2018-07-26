@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 397ab30b252fbfa121b763b005907764d2b15f20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781934"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004853"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
@@ -103,7 +103,7 @@ Una vez configurado un repositorio de plantillas de Azure Resource Manager en el
 
     ![Elegir base de datos](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. En el panel **Agregar**, escriba el valor de **Nombre del entorno**. El nombre del entorno es lo que se muestra a los usuarios del laboratorio. Los campos de entrada restantes se definen en la plantilla de Azure Resource Manager. Si se han definido valores predeterminados en la plantilla o el archivo `azuredeploy.parameter.json` está presente, en esos campos de entrada se muestran los valores predeterminados. Para los parámetros de tipo *cadena segura*, puede usar los secretos almacenados en el [almacén secreto personal](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store) del laboratorio.
+1. En el panel **Agregar**, escriba el valor de **Nombre del entorno**. El nombre del entorno es lo que se muestra a los usuarios del laboratorio. Los campos de entrada restantes se definen en la plantilla de Azure Resource Manager. Si se han definido valores predeterminados en la plantilla o el archivo `azuredeploy.parameter.json` está presente, en esos campos de entrada se muestran los valores predeterminados. Para los parámetros de tipo *cadena segura*, puede usar los secretos almacenados en el almacén de claves de Azure. Para información sobre cómo guardar secretos en un almacén de claves y utilizarlos al crear recursos de laboratorio, consulte [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md) (Almacenamiento de secretos en un almacén de claves de Azure).  
 
     ![Agregar panel](./media/devtest-lab-create-environment-from-arm/add.png)
 

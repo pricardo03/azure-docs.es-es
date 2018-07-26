@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 7f01464c4b9063f20a83c3626d7f92a5e0524f7a
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937339"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989132"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -210,9 +210,13 @@ Se admiten los siguientes campos:
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
+- `tags.<tagName>`
+  - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
+  - Ejemplo: `tags.CostCenter` donde **CostCenter** es el nombre de la etiqueta.
+- `tags[<tagName>]`
   - Esta sintaxis con corchetes admite nombres de etiqueta que contengan puntos.
+  - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
+  - Ejemplo: `tags.[Acct.CostCenter]` donde **Acct.CostCenter** es el nombre de la etiqueta.
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
 ### <a name="alternative-accessors"></a>Descriptores de acceso alternativos

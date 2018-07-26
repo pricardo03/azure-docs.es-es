@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2017
+ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 37240b211e055682c4ce93c9057c4b266bba49e3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607453"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012063"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
@@ -37,9 +37,9 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 | Operación de administración | Rol RBAC mínimo necesario |
 | --- | --- |
 | Crear almacén de Recovery Services | Colaborador en el grupo de recursos del almacén |
-| Habilitar la copia de seguridad de VM de Azure | Operador de copia de seguridad en el almacén, colaborador de máquina virtual en VM |
+| Habilitar la copia de seguridad de VM de Azure | Operador de copias se seguridad definido en el ámbito del grupo de recursos que contiene el almacén, colaborador de la máquina virtual en VM |
 | Copia de seguridad a petición de VM | Operador de copia de seguridad |
-| Restaurar VM | Operador de copia de seguridad, colaborador de grupo de recursos donde se implementa la máquina virtual y las redes virtuales |
+| Restaurar VM | Operador de copias de seguridad, colaborador de grupo de recursos donde se implementa la máquina virtual, lectura en la red virtual y unión en la subred seleccionada |
 | Restaurar discos y archivos individuales a partir de la copia de seguridad de VM | Operador de copia de seguridad, colaborador de máquina virtual en VM |
 | Crear directiva de copia de seguridad para copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
 | Modificar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copia de seguridad |

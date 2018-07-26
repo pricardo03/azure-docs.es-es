@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011255"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Posición de seguridad de la infraestructura de Azure Stack
 
@@ -26,17 +27,16 @@ ms.lasthandoff: 03/09/2018
 
 Entre los principales factores que determinan el uso de nubes híbridas están las consideraciones de seguridad y las regulaciones de conformidad. Azure Stack se diseñó para estos escenarios, así que es importante comprender los controles ya existentes al adoptarlo.
 
-En Azure Stack, hay dos capas de posición de seguridad que coexisten. La primera capa consta de la infraestructura de Azure Stack, que va desde los componentes de hardware hasta Azure Resource Manager, e incluye los portales de administrador e inquilino. El segundo nivel está formado por las cargas de trabajo que crean, implementan y administran los inquilinos e incluye cosas como máquinas virtuales y sitios web de App Services.  
+En Azure Stack coexisten dos capas de posición de seguridad. La primera capa es la infraestructura de Azure Stack, que incluye los componentes de hardware hasta Azure Resource Manager. La primera capa incluye los portales Administrador e Inquilino. La segunda capa consta de las cargas de trabajo creadas, implementadas y administradas por los inquilinos. La segunda capa incluye elementos como las máquinas virtuales y sitios web de App Services.
 
 ## <a name="security-approach"></a>Enfoque de seguridad
-Azure Stack se diseñó con una posición de seguridad para defenderse contra las modernas amenazas, y se creó para satisfacer los requisitos de los principales estándares de cumplimiento. Como resultado, la posición de seguridad de Azure Stack se cimienta sobre dos pilares:
 
- - **Supuesto de infracción.**  
+La posición de seguridad para Azure Stack se diseñó para defenderse contra las amenazas modernas, y se creó para satisfacer los requisitos de los principales estándares de cumplimiento. Como resultado, la posición de seguridad de Azure Stack se cimienta sobre dos pilares:
+
+ - **Supuesto de infracción**  
 A partir de la suposición de que el sistema ya se ha infringido, céntrese en *detectar y limitar el impacto de las infracciones*, en lugar de intentar únicamente impedir los ataques. 
- - **Protección predeterminada.**  
-Dado que la infraestructura se ejecuta en hardware y software bien definidos, *habilitamos, configuramos y validamos todas las características de seguridad* de forma predeterminada.
-
-
+ - **Protección predeterminada**  
+Dado que la infraestructura se ejecuta en hardware y software bien definidos, Azure Stack *habilita, configura y valida todas las características de seguridad* de forma predeterminada.
 
 Como Azure Stack se proporciona como un sistema integrado, la posición de seguridad de la infraestructura de Azure Stack la define Microsoft. Al igual que en Azure, los inquilinos son responsables de definir la posición de seguridad de sus cargas de trabajo de inquilino. En este documento se proporciona conocimiento básico sobre la posición de seguridad de la infraestructura de Azure Stack.
 
@@ -68,6 +68,8 @@ Otra característica de seguridad de Windows Server 2016 en Azure Stack es Crede
 ## <a name="antimalware"></a>Antimalware
 Todos los componentes de Azure Stack (tanto los hosts de Hyper-V como Virtual Machines) están protegidos con el antivirus de Windows Defender.
 
+En escenarios conectados, las actualizaciones de definiciones y motores de antivirus se aplican varias veces al día. En escenarios desconectados, se aplican las actualizaciones de antimalware como parte de las actualizaciones mensuales de Azure Stack. Consulte [actualizar Antivirus de Windows Defender en Azure Stack](azure-stack-security-av.md) para obtener más información.
+
 ## <a name="constrained-administration-model"></a>Modelo de administración restringida
 La administración de Azure Stack está controlada mediante el uso de tres puntos de entrada, cada uno con un fin específico: 
 1. El [portal de administrador](azure-stack-manage-portals.md) proporciona una experiencia "apuntar y hacer clic" para las operaciones de administración diarias.
@@ -80,6 +82,8 @@ La infraestructura de Azure Stack incluye varias capas de listas de control de a
 Las ACL de red se exigen en tres capas:
 1.  Parte superior del conmutador del rack
 2.  Red definida por el software
-3.  Firewalls de sistema operativo host y de máquina virtual 
+3.  Firewalls de sistema operativo host y de máquina virtual
 
+## <a name="next-steps"></a>Pasos siguientes
 
+- [Aprenda a cambiar los secretos en Azure Stack](azure-stack-rotate-secrets.md)

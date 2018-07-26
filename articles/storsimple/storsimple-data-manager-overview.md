@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652015"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011943"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
 
@@ -49,7 +49,7 @@ StorSimple Data Manager está disponible en las siguientes 7 regiones:
 
  - Sudeste asiático
  - Este de EE. UU
- - Oeste de EE. UU
+ - Oeste de EE. UU.
  - Oeste de EE. UU. 2
  - Centro occidental de EE.UU.
  - Europa del Norte
@@ -85,6 +85,14 @@ Si la región de Data Manager es diferente de la región de la definición del t
 ## <a name="managing-personal-information"></a>Administración de información personal
 
 StorSimple Data Manager no recopila ni muestra información personal. Para obtener más información, revise la directiva de privacidad de Microsoft en el [Centro de confianza](https://www.microsoft.com/trustcenter).
+
+## <a name="known-limitations"></a>Limitaciones conocidas
+
+Actualmente el servicio tiene las siguientes limitaciones:
+- StorSimple Data Manager actualmente no funciona con los volúmenes que están cifrados con BitLocker. Si intenta ejecutar el servicio con una unidad cifrada, verá errores en el trabajo.
+- No se conservarán algunos metadatos de archivos (como las ACL) en los datos transformados.
+- Este servicio solo funciona con volúmenes NTFS.
+- Las longitudes de ruta de acceso de archivo deben contener menos de 256 caracteres, de lo contrario se producirá un error en el trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

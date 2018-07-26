@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435624"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008168"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Administración del acceso mediante RBAC y Azure Portal
 
@@ -88,7 +88,9 @@ Al administrar el acceso, desea saber quién tiene acceso, cuáles son sus permi
 
    ![Recursos de Azure de usuario de Azure Active Directory](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   En la hoja Recursos de Azure puede ver las asignaciones de roles del usuario seleccionado. En esta lista solo se incluye las asignaciones de roles de los recursos que tenga permiso para leer. Por ejemplo, si el usuario tiene también asignaciones de roles en alguna suscripción diferente que no pueda leer, estas no aparecerán en la lista.
+   En la hoja Recursos de Azure puede ver las asignaciones de roles del usuario y de la suscripción seleccionados. En esta lista solo se incluye las asignaciones de roles de los recursos que tenga permiso para leer. Por ejemplo, si el usuario tiene también asignaciones de roles que no pueda leer, estas no aparecerán en la lista.
+
+1. Si tiene varias suscripciones, puede elegir la lista desplegable **Suscripción** para ver las asignaciones de roles de otra suscripción.
 
 ## <a name="grant-access"></a>Conceder acceso
 
@@ -161,14 +163,6 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles.
 1. En el mensaje de eliminación de asignación de roles que aparece, elija **Sí**.
 
 Las asignaciones de roles heredadas no se pueden quitar. Si necesita quitar una asignación de roles heredada, debe hacerlo en el ámbito en el que se creó. En la columna **Ámbito**, junto a **Heredado**, hay un vínculo que lo dirige a los recursos donde se asignó este rol. Vaya al ámbito indicado ahí para quitar la asignación de roles.
-
-## <a name="other-tools-to-manage-access"></a>Otras herramientas para administrar el acceso
-
-Puede asignar roles y administrar el acceso con los comandos de RBAC de Azure en otras herramientas que no sean el Portal de Azure. Para obtener más información, consulte los vínculos siguientes:
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [CLI de Azure](role-assignments-cli.md)
-* [API de REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

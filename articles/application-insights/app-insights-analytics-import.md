@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293628"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989769"
 ---
 # <a name="import-data-into-analytics"></a>Importación de datos a Analytics
 
@@ -116,15 +116,16 @@ Formato JSON
 ]
 ```
  
-Cada columna se identifica por la ubicación, el nombre y el tipo. 
+Cada columna se identifica por la ubicación, el nombre y el tipo.
 
 * Ubicación: Para formato de archivo delimitado es la posición del valor asignado. Para el formato JSON, es el jpath de la clave asignada.
 * Nombre: Nombre que se muestra de la columna.
 * Tipo: Tipo de datos de esa columna.
  
-En caso de que se usen datos de ejemplo y el formato de archivo esté delimitado, la definición de esquema debe asignar todas las columnas y agregar nuevas columnas al final. 
-
-JSON permite una asignación parcial de los datos, por lo que la definición de esquema de formato JSON no tiene que asignar cada clave que se encuentra en los datos de ejemplo. También pueden asignar las columnas que no forman parte de los datos de ejemplo. 
+> [!NOTE]
+> En caso de que se usen datos de ejemplo y el formato de archivo esté delimitado, la definición de esquema debe asignar todas las columnas y agregar nuevas columnas al final.
+> 
+> JSON permite una asignación parcial de los datos, por lo que la definición de esquema con un formato JSON no tiene que asignar cada clave que se encuentra en los datos de ejemplo. También pueden asignar las columnas que no forman parte de los datos de ejemplo. 
 
 ## <a name="import-data"></a>Importar datos
 

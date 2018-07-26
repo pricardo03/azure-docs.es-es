@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: b25e97b0f0d0b6f63134a774856eb7ec8f77b679
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03f335634b7ce1fe4aa6251d6ec21922ed9b84c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30837445"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887494"
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Planes y facturación en Azure Scheduler
 ## <a name="job-collection-plans"></a>Planes de colección de trabajos
@@ -42,12 +42,12 @@ Si tiene una colección de trabajos estándar y una colección de trabajos premi
 ## <a name="standard-billable-units"></a>Unidades facturables estándar
 Una unidad facturable estándar puede incluir como máximo 10 colecciones de trabajos estándar. Puesto que una colección de trabajos estándar puede tener hasta 50 trabajos por colección de trabajos, una unidad de facturación estándar permite que una suscripción tenga hasta 500 trabajos: casi 22 millones de ejecuciones de trabajos al mes.
 
-Si tiene entre 1 y 10 colecciones de trabajos estándar, se le facturará 1 unidad de facturación estándar. Si tiene entre 11 y 20 colecciones de trabajos estándar, se le facturarán 2 unidades de facturación estándar. Si tiene entre 21 y 30 colecciones de trabajos estándar, se le facturarán 3 unidades de facturación estándar.
+Si tiene entre 1 y 10 colecciones de trabajos estándar, se le facturará una unidad de facturación estándar. Si tiene entre 11 y 20 colecciones de trabajos estándar, se le facturarán dos unidades de facturación estándar. Si tiene entre 21 y 30 colecciones de trabajos estándar, se le facturarán tres unidades de facturación estándar, y así sucesivamente.
 
 ## <a name="p10-premium-billable-units"></a>Unidades facturables premium P10
 Una unidad facturable premium P10 puede incluir como máximo 10 000 colecciones de trabajos premium P10. Puesto que una colección de trabajos premium P10 puede tener hasta 50 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 500 000 trabajos: casi 22 000 millones de ejecuciones de trabajos al mes.
 
-Si tiene entre 1 y 10 000 colecciones de trabajos premium, se le facturará 1 unidad de facturación premium P10. Si tiene entre 10 001 y 20 000 colecciones de trabajos premium, se le facturarán 2 unidades de facturación premium P10.
+Si tiene entre 1 y 10 000 colecciones de trabajos premium, se le facturará una unidad de facturación premium P10. Si tiene entre 10 001 y 20 000 colecciones de trabajos premium, se le facturarán 2 unidades de facturación premium P10.
 
 Por lo tanto, las colecciones de trabajos premium P10 tienen la misma funcionalidad que las colecciones de trabajos estándar, pero ofrecen un descuento en caso de que la aplicación requiera gran cantidad de colecciones de trabajos.
 
@@ -57,12 +57,12 @@ Una unidad facturable premium P20 puede incluir como máximo 5000 colecciones de
 Las colecciones de trabajos premium P20 proporcionan las mismas funcionalidades que las de los trabajos premium P10. Sin embargo, también admiten un mayor número de trabajos por colección de trabajos y más trabajos globales que los de premium P10, con lo que puede obtener una mayor escalabilidad.
 
 ## <a name="billing-and-active-status"></a>Estado de facturación y activo
-Las colecciones de trabajos están siempre activas, salvo que la suscripción completa pase a un estado deshabilitado temporal debido a problemas de facturación. La única manera de garantizar que una colección de trabajos no se facture consiste en establecerla en el plan *Gratis* o en eliminar la colección de trabajos.
+Las colecciones de trabajos están siempre activas, salvo que la suscripción completa pase a un estado deshabilitado temporal debido a problemas de facturación. La única manera de garantizar que una colección de trabajos no se facture consiste en eliminar la colección de trabajos.
 
 Aunque puede deshabilitar todos los trabajos de una colección de trabajos en una sola operación, esto no cambia el estado de facturación de la colección de trabajos: la colección de trabajos se *seguirá* facturando. De forma similar, las colecciones de trabajos vacías se consideran activas y se facturarán.
 
 ## <a name="pricing"></a>Precios
-Para obtener información detallada sobre los precios, vea [Precios de Scheduler](https://azure.microsoft.com/pricing/details/scheduler/).
+Para obtener información detallada sobre los precios, consulte [Precios de Scheduler](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## <a name="see-also"></a>Otras referencias
  [¿Qué es Scheduler?](scheduler-intro.md)

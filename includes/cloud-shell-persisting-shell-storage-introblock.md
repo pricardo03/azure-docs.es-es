@@ -19,7 +19,7 @@ Al usar la configuración básica y seleccionar solo una suscripción, Cloud She
 El recurso compartido de archivos se monta como `clouddrive` en su directorio `$Home`. Se trata de una acción única y el recurso compartido de archivos se monta automáticamente en sesiones posteriores. 
 
 > [!NOTE]
-> Por motivos de seguridad, cada usuario debe aprovisionar su propio almacenamiento.  En el control de acceso basado en roles (RBAC), los usuarios deben tener acceso como colaboradores o un rol superior.
+> Por motivos de seguridad, cada usuario debe aprovisionar su propia cuenta de almacenamiento.  En el control de acceso basado en roles (RBAC), los usuarios deben tener acceso como colaboradores, o un rol superior, en el nivel de la cuenta de almacenamiento.
 
 En Bash, el recurso compartido de archivos también contiene una imagen de 5 GB que se crea para que el usuario conserve automáticamente los datos en su directorio `$Home`. 
 
@@ -27,7 +27,7 @@ En Bash, el recurso compartido de archivos también contiene una imagen de 5 GB
 
 Mediante la opción avanzada puede asociar recursos existentes. Cuando aparezca el mensaje del programa de instalación, seleccione **Mostrar configuración avanzada** para ver otras opciones. Las listas desplegables se filtran para la región asignada de Cloud Shell y las cuentas de almacenamiento con redundancia local y de almacenamiento con redundancia geográfica.
 
-En Bash, los recursos compartidos de archivos existentes reciben una imagen de 5 GB para que el usuario conserve el directorio `$Home`.
+Los recursos compartidos de archivos existentes reciben una imagen de 5 GB para que el usuario conserve el directorio `$Home`.
 
 ![La configuración de grupo de recursos](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
@@ -42,7 +42,7 @@ Para buscar la región asignada debe:
 * Consultar el nombre de la cuenta de almacenamiento creada por usted (p. ej: `cloud-shell-storage-westus`)
 * Ejecutar `env` y localizar la variable `ACC_LOCATION`
 
-La máquina de Cloud Shell existe en las regiones siguientes:
+Las máquinas de Cloud Shell existen en las regiones siguientes:
 |Ámbito|Region|
 |---|---|
 |América|Este de EE. UU., centro-sur de EE. UU. y oeste de EE. UU.|

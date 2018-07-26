@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3c56abcec37bb6abcb77ec8cc443b0656bd69932
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285923"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990802"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corregir las configuraciones de seguridad en Azure Security Center
 Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Security Center recomienda resolver las vulnerabilidades cuando la configuración del sistema operativo no coincida con las reglas de configuración de seguridad recomendadas y realizar cambios en la configuración para hacer frente a estas vulnerabilidades.
@@ -27,11 +27,11 @@ Azure Security Center analiza diariamente el sistema operativo (SO) de sus máqu
 Consulte la [lista de reglas de configuración recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obtener más información sobre las configuraciones específicas que se están supervisando. Para saber cómo personalizar las valoraciones de configuración de seguridad, consulte [Personalización de las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)](security-center-customize-os-security-config.md).
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
-La opción de "Corregir las configuraciones de seguridad" se presenta como una recomendación en Security Center. La recomendación se muestra en **Recomendaciones** > **Compute**.
+La opción de "Corregir las configuraciones de seguridad" se presenta como una recomendación en Security Center. La recomendación se muestra en **Recomendaciones** > **Compute & apps** (Proceso y aplicaciones).
 
-En este ejemplo, se examinará la recomendación "Corregir las configuraciones de seguridad" que hay en **Compute**.
-1. En el panel izquierdo de Security Center, seleccione **Compute**.  
-  Se abrirá la ventana **Compute**.
+En este ejemplo, se examinará la recomendación "Corregir las configuraciones de seguridad" que hay en **Compute & apps** (Proceso y aplicaciones).
+1. En el panel izquierdo de Security Center, seleccione **Compute & apps** (Proceso y aplicaciones).  
+  Se abrirá la ventana **Compute & apps** (Proceso y aplicaciones).
 
    ![Corrección de configuraciones de seguridad][1]
 

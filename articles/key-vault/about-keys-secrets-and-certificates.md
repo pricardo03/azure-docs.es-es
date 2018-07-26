@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636613"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972407"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 Los usuarios pueden usar Azure Key Vault para almacenar y utilizar claves criptográficas en el entorno de Microsoft Azure. Key Vault admite varios tipos de claves y algoritmos y habilita el uso de módulos de seguridad de hardware (HSM) para claves de alto valor. Además, Key Vault permite a los usuarios almacenar secretos de forma segura. Los secretos son objetos de octeto de tamaño limitado sin ninguna semántica específica. Key Vault también admite certificados, que se basan en claves y secretos, y agrega una característica de renovación automática.
@@ -122,7 +122,7 @@ La versión inicial de Azure Key Vault admite solo claves RSA; las versiones fut
 -   **RSA**: una clave RSA de 2048 bits. Se trata de una clave "débil" que Key Vault procesa en software, aunque se almacena cifrada en reposo con una clave del sistema que se encuentra en un HSM. Los clientes pueden importar una clave RSA existente o solicitar que Azure Key Vault genere una.  
 -   **RSA-HSM**: una clave RSA que se procesa en un HSM. Las claves RSA-HSM se protegen en uno de los espacios de seguridad de HSM de Azure Key Vault (hay un espacio de seguridad en cada región geográfica para mantener el aislamiento). Los clientes pueden importar una clave RSA, de forma temporal o exportándola desde un dispositivo HSM compatible o solicitar que Azure Key Vault genere una. Este tipo de clave agrega el atributo T al objeto JWK para transportar el material de la clave de HSM.  
 
-     Para más información acerca de los límites geográficos, consulte [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/en-us/support/trust-center/privacy/)  
+     Para más información acerca de los límites geográficos, consulte [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 ###  <a name="BKMK_RSAAlgorithms"></a> Algoritmos RSA  
  Los siguientes identificadores de algoritmo son compatibles con las claves RSA en Azure Key Vault.  
@@ -172,7 +172,7 @@ Azure Key Vault admite las siguientes operaciones en objetos de clave:
 -   **Backup (Copia de seguridad)**: exporta una clave en un formato protegido.  
 -   **Restore (Restaurar)**: importa una clave desde una copia de seguridad previa.  
 
-Para más información, consulte [Operaciones con claves](/rest/api/keyvault/key-operations.md)  
+Para más información, consulte [Operaciones con claves](/rest/api/keyvault/key-operations).  
 
 Una vez creada una clave en Azure Key Vault, se pueden realizar las siguientes operaciones criptográficas con la clave:  
 
@@ -281,7 +281,7 @@ Los siguientes permisos se pueden utilizar, en una base por entidad, en la entra
 -   *delete*: eliminar el secreto  
 -   *all*: todos los permisos  
 
-Para más información acerca de cómo trabajar con secretos, consulte [Operaciones con secretos](/rest/api/keyvault/secret-operations.md).  
+Para más información acerca de cómo trabajar con secretos, consulte [Operaciones con secretos](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Etiquetas del secreto  
 Puede especificar metadatos específicos de la aplicación adicionales en forma de etiquetas. Azure Key Vault admite hasta 15 etiquetas, cada una de las cuales puede tener un nombre de 256 caracteres y un valor de 256 caracteres.  
@@ -443,9 +443,9 @@ Si se establece la directiva de un certificado para la renovación automática, 
 
 ## <a name="additional-information-for-certificates"></a>Información adicional sobre certificados
 
-- [Certificados y directivas](/rest/api/keyvault/certificates-and-policies.md)
-- [Emisores de certificados](/rest/api/keyvault/certificate-issuers.md)
-- [Contactos de certificados](/rest/api/keyvault/certificate-contacts.md)
+- [Certificados y directivas](/rest/api/keyvault/certificates-and-policies)
+- [Emisores de certificados](/rest/api/keyvault/certificate-issuers)
+- [Contactos de certificados](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>Otras referencias
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34070505"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37437144"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -204,10 +204,10 @@ Para más información, vea [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)
 
 ## <a name="permissions"></a>Permisos
 
-### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>¿Cómo se puede implementar el acceso basado en roles para Cloud Services?
-Cloud Services no es compatible con el modelo de control de acceso basado en roles (RBAC), ya que no es un servicio basado en Azure Resource Manager.
+### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>¿Cómo se puede implementar el acceso basado en rol para Cloud Services?
+Cloud Services no es compatible con el modelo de control de acceso basado en rol (RBAC), ya que no es un servicio basado en Azure Resource Manager.
 
-Consulte [RBAC de Azure frente a administradores de la suscripción clásica](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
+Consulte [Descripción de los distintos roles en Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## <a name="remote-desktop"></a>Escritorio remoto
 

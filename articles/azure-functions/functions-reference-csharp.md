@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1706eaeaa59f09f343d831f0c09f98210eadb820
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 42b9f574d09429d95fbf79da02c137e1079ac369
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970843"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006954"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions (.csx)
 
@@ -202,17 +202,19 @@ La directiva `#load` solo funciona con archivos *.csx*, no con archivos *.cs*.
 
 Puede usar el valor devuelto de un método para un enlace de salida, mediante el nombre `$return` en *function.json*. Para ver ejemplos, consulte [Desencadenadores y enlaces](functions-triggers-bindings.md#using-the-function-return-value).
 
+Utilice el valor devuelto solo si una ejecución de función correcta siempre da como resultado un valor devuelto para pasar al enlace de salida. En caso contrario, use `ICollector` o `IAsyncCollector`, como se muestra en la sección siguiente.
+
 ## <a name="writing-multiple-output-values"></a>Escribir varios valores de salida
 
-Para escribir varios valores en un enlace de salida, use los tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Estos tipos son colecciones de solo escritura que se escriben en el enlace de salida cuando se completa el método.
+Para escribir varios valores en un enlace de salida, o si una invocación de función correcta podría no dar nada como resultado para pasar al enlace de salida, use los tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Estos tipos son colecciones de solo escritura que se escriben en el enlace de salida cuando se completa el método.
 
 En este ejemplo se escriben varios mensajes en cola en la misma cola mediante `ICollector`:
 
 ```csharp
-public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+public static void Run(ICollector<string> myQueue, TraceWriter log)
 {
-    myQueueItem.Add("Hello");
-    myQueueItem.Add("World!");
+    myQueue.Add("Hello");
+    myQueue.Add("World!");
 }
 ```
 

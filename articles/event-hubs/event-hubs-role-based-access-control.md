@@ -5,21 +5,17 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 0d3a779eb2cccf242bcd42d82c1a90048b3512ab
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783379"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888374"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Control de acceso basado en rol de Active Directory (versión preliminar)
 
@@ -45,7 +41,7 @@ El primer paso es opcional. Cada suscripción de Azure se empareja automáticame
 
 Si desea crear una cuenta específica para este escenario, [siga estos pasos](../automation/automation-create-aduser-account.md). Debe tener permiso para crear cuentas en el inquilino de Azure Active Directory, lo cual puede que no sea el caso para escenarios empresariales más grandes.
 
-### <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
+### <a name="create-an-event-hubs-namespace"></a>Crear un espacio de nombres de Event Hubs
 
 A continuación, [cree un espacio de nombres de Event Hubs](event-hubs-create.md) en una de las regiones de Azure compatibles con la versión preliminar de Event Hubs para RBAC: **Este de EE. UU.**, **Este de EE. UU. 2** o **Europa Occidental**. 
 
@@ -76,7 +72,7 @@ Antes de poder ejecutar el ejemplo, edite el archivo App.config y, según el esc
  
 Al ejecutar la aplicación de consola, deberá seleccionar un escenario. Haga clic en **Interactive User Login** (Inicio de sesión de usuario interactivo). Para ello, escriba su número y presione ENTRAR. La aplicación muestra una ventana de inicio de sesión, solicita su consentimiento para acceder a Event Hubs y, a continuación, utiliza el servicio para ejecutarse en el escenario de envío o recepción mediante la identidad de inicio de sesión.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 

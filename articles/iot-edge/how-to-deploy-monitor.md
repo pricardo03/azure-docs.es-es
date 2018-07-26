@@ -9,12 +9,12 @@ ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: be52a57f10f286bded9a31d84b36a49717b94006
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029764"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001514"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -65,7 +65,7 @@ Si se crea una implementación sin módulos, quita cualquier módulo actual de l
 >Azure Machine Learning y Azure Functions todavía no admiten la implementación del servicio de Azure automatizada. Use la implementación de módulo personalizada para agregar manualmente esos servicios a la implementación. 
 
 Para agregar un módulo desde Azure Stream Analytics, siga estos pasos:
-1. En la sección **Módulos de implementación** de la página, haga clic en **Agregar**.
+1. En la sección **Deployment Modules** (Módulos de implementación) de la página, haga clic en **Agregar**.
 1. Seleccione **Azure Stream Analytics module** (Módulo de Azure Stream Analytics).
 1. Seleccione su **Suscripción** en el menú desplegable.
 1. Seleccione su **trabajo de Microsoft Edge** en el menú desplegable.
@@ -170,7 +170,7 @@ Cuando se elimina una implementación, los dispositivos adoptan la siguiente imp
 
 1. Utilice la casilla de verificación para seleccionar la implementación que desea eliminar. 
 1. Seleccione **Eliminar**.
-1. Un mensaje le informará de que esta acción eliminará esta implementación y volverá al estado anterior para todos los dispositivos.  Esto significa que se aplicará una implementación con una prioridad más baja.  Si ninguna otra implementación está dirigida, no se quitará ningún módulo. Si quiere quitar todos los módulos del dispositivo, realice una implementación con cero módulos e impleméntela a los mismos dispositivos. Seleccione **Yes** (Sí) para continuar. 
+1. Un mensaje le informará de que esta acción eliminará esta implementación y volverá al estado anterior para todos los dispositivos.  Esto significa que se aplicará una implementación con una prioridad más baja.  Si ninguna otra implementación está dirigida, no se quitará ningún módulo. Si quiere quitar todos los módulos del dispositivo, cree una implementación con cero módulos e impleméntela a los mismos dispositivos. Seleccione **Yes** (Sí) para continuar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

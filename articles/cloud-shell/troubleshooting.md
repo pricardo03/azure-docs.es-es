@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/03/2018
 ms.author: damaerte
-ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc0633a9cc607325b48998791cb12631ecd0d7
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608957"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856494"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solución de problemas y limitaciones de Azure Cloud Shell
 
@@ -52,16 +52,6 @@ Entre las resoluciones conocidas de problemas en Azure Cloud Shell se incluyen l
 
 ## <a name="powershell-troubleshooting"></a>Solución de problemas de PowerShell
 
-### <a name="no-home-directory-persistence"></a>El directorio $Home no persiste
-
-- **Detalles**: todos los datos que la aplicación (por ejemplo: git, vim, etc.) escribe en `$Home` no se conservan entre las sesiones de PowerShell.
-- **Resolución**: en el perfil de PowerShell, cree un vínculo simbólico a la carpeta específica de la aplicación en `clouddrive` para $Home.
-
-### <a name="ctrlc-doesnt-exit-out-of-a-cmdlet-prompt"></a>Ctrl+C no permite salir del símbolo del sistema de un cmdlet
-
-- **Detalles**: cuando se intenta salir del símbolo del sistema de un cmdlet, `Ctrl+C` no permite hacerlo.
-- **Resolución**: para salir del símbolo del sistema, presione `Ctrl+C` y luego `Enter`.
-
 ### <a name="gui-applications-are-not-supported"></a>No se admiten las aplicaciones con GUI
 
 - **Detalles**: si un usuario inicia una aplicación con GUI, no se devuelve el símbolo del sistema. Por ejemplo, cuando un usuario clona un repositorio GitHub privado que tiene habilitada la autenticación en dos fases, aparece un cuadro de diálogo para completar esta autenticación.  
@@ -75,18 +65,8 @@ Entre las resoluciones conocidas de problemas en Azure Cloud Shell se incluyen l
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Solución de problemas de la administración remota de máquinas virtuales de Azure
 
 - **Detalles**: debido a la configuración predeterminada del Firewall de Windows para WinRM, es posible que el usuario vea el error siguiente: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolución**: asegúrese de que la máquina virtual está en ejecución. Puede ejecutar `Get-AzureRmVM -Status` para saber el estado de la máquina virtual.  A continuación, agregue una nueva regla de firewall en la máquina virtual remota para permitir conexiones de WinRM desde cualquier subred, por ejemplo,
-
- ``` Powershell
- New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
- ```
- Puede usar [extensión de script personalizado de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript) para evitar iniciar sesión en la máquina virtual remota para agregar la nueva regla de firewall.
- Puede guardar el script anterior en un archivo, por ejemplo `addfirerule.ps1`, y cargarlo en el contenedor de almacenamiento de Azure.
- Luego, pruebe con el comando siguiente:
-
- ``` Powershell
- Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
- ```
+- **Resolución**: ejecute `Enable-AzureRmVMPSRemoting` para habilitar todos los aspectos de la comunicación remota de PowerShell en la máquina de destino.
+ 
 
 ### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` almacena en caché el resultado en la unidad de Azure.
 
@@ -133,21 +113,39 @@ Tenga cuidado al editar .bashrc, ya que puede producir errores inesperados en Cl
 
 ## <a name="powershell-limitations"></a>Limitaciones de PowerShell
 
-### <a name="slow-startup-time"></a>Tiempo de inicio lento
+### <a name="azuread-module-name"></a>Nombre del módulo `AzureAD`
 
-PowerShell en Azure Cloud Shell (versión preliminar) podría tardar hasta 60 segundos en inicializarse durante la versión preliminar.
+El nombre del módulo `AzureAD` es actualmente `AzureAD.Standard.Preview`y proporciona la misma funcionalidad.
+
+### <a name="sqlserver-module-functionality"></a>Funcionalidad del módulo `SqlServer`
+
+El módulo `SqlServer` incluido en Cloud Shell solo es compatible con versiones preliminares de PowerShell Core. En concreto, `Invoke-SqlCmd` aún no está disponible.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Ubicación del archivo predeterminada cuando se crea a partir de la unidad de Azure:
 
-Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unidad de Azure. Cuando los usuarios crean nuevos archivos con otras herramientas, como vim o nano, los archivos se guardan de forma predeterminada en la carpeta C:\Users. 
+Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unidad de Azure. Cuando los usuarios crean nuevos archivos con otras herramientas, como vim o nano, los archivos se guardan de forma predeterminada en `$HOME`. 
 
 ### <a name="gui-applications-are-not-supported"></a>No se admiten las aplicaciones con GUI
 
 Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, como `Connect-AzureAD` o `Connect-AzureRmAccount`, se ve un mensaje de error como el siguiente: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="gdpr-compliance-for-cloud-shell"></a>Cumplimiento del RGPD en Cloud Shell
+### <a name="tab-completion-crashes-psreadline"></a>La finalización con tabulación bloquea PSReadline
 
-Azure Cloud Shell se toma en serio sus datos, los datos capturados y almacenados por el servicio Azure Cloud Shell se usan para proporcionar los valores predeterminados de su experiencia, tales como el shell que ha utilizado más recientemente, el tamaño y el tipo de fuente que prefiere y los detalles de recursos compartidos de archivos que respaldan el comando clouddrive. En caso de que quiera exportar o eliminar estos datos, hemos incluido las siguientes instrucciones.
+Si el modo EditMode del usuario en PSReadline se establece en Emacs, el usuario intentará mostrar todas las posibilidades mediante la finalización con tabulación y el tamaño de la ventana será demasiado pequeño para mostrarlas todas y PSReadline se bloqueará.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Espacio grande después de mostrar la barra de progreso
+
+Si el usuario realiza una acción que muestra una barra de progreso, como una finalización con tabulación mientras está en la unidad `Azure:`, puede que el cursor no se establezca correctamente y que aparezca un espacio donde antes aparecía la barra de progreso.
+
+### <a name="random-characters-appear-inline"></a>Aparecen caracteres aleatorios insertados
+
+Los códigos de secuencia de posición del cursor como, por ejemplo `5;13R`, pueden aparecer en la entrada del usuario.  Los caracteres se pueden quitar manualmente.
+
+## <a name="personal-data-in-cloud-shell"></a>Datos personales en Cloud Shell
+
+Azure Cloud Shell se toma en serio sus datos, los datos capturados y almacenados por el servicio Azure Cloud Shell se usan para proporcionar los valores predeterminados de su experiencia, tales como el shell que ha utilizado más recientemente, el tamaño y el tipo de fuente que prefiere y los detalles de recursos compartidos de archivos que respaldan la unidad en la nube. En caso de que quiera exportar o eliminar estos datos, hemos incluido las siguientes instrucciones.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="export"></a>Exportación
 Para poder **exportar** la configuración de usuario, Cloud Shell guarda automáticamente datos tales como el shell, el tamaño y el tipo de fuente preferidos ejecutando los comandos siguientes.

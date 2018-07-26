@@ -1,6 +1,6 @@
 ---
-title: Restauración y copia de seguridad periódica de Azure Service Fabric (versión preliminar) | Microsoft Docs
-description: Use la característica de restauración y copia de seguridad periódica de Service Fabric para proteger las aplicaciones frente a pérdidas de datos.
+title: 'Inicio rápido: copia de seguridad periódica y restauración en Azure Service Fabric (versión preliminar) | Microsoft Docs'
+description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 9fbf3a6c965bb2f52b71fbac32b289555b922772
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 50ee0d91b27805e4db785e5df211660900333e7f
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113996"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990306"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Restauración y copia de seguridad periódica de Azure Service Fabric (versión preliminar)
+# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Inicio rápido: copia de seguridad periódica y restauración en Azure Service Fabric (versión preliminar)
 > [!div class="op_single_selector"]
 > * [Clústeres en Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clústeres independientes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -57,7 +57,7 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
 - Suspensión temporal de las copias de seguridad
 - Administración de la retención de copias de seguridad (próximamente)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Clúster de Service Fabric con la versión 6.2 de Fabric y versiones posteriores. El clúster debe configurarse en Windows Server. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para ver los pasos necesarios para crear el clúster de Service Fabric mediante la plantilla de recursos de Azure.
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para saber cómo obtener o crear un certificado X.509.
 * Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .Net Core 2.0, la aplicación debe compilarse con la versión 3.1 del SDK de Service Fabric o una versión posterior.
@@ -223,13 +223,14 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Vista previa de las limitaciones o advertencias
+## <a name="preview-limitation-caveats"></a>Limitaciones o advertencias sobre la versión preliminar
 - No hay ninguna instancia de Service Fabric compilada en los cmdlets de PowerShell.
 - Sin compatibilidad con la CLI de Service Fabric.
-- Sin compatibilidad con la purga de copia de seguridad automatizada. Requiere limpiezas manuales de las copias de seguridad.
+- Sin compatibilidad con la purga de copia de seguridad automatizada. Se puede hacer referencia al [script de retención de copia de seguridad](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) para configurar la automatización externa basada en script para purgar copias de seguridad.
 - Sin compatibilidad con los clústeres de Service Fabric en Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes
+- [Información sobre la configuración de la copia de seguridad periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referencia de la API REST de restauración de copias de seguridad](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png

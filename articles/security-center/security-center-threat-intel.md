@@ -3,23 +3,23 @@ title: Inteligencia sobre amenazas de Azure Security Center | Microsoft Docs
 description: Aprenda a usar la funcionalidad de inteligencia sobre amenazas de Azure Security Center para identificar posibles amenazas en las máquinas virtuales y los equipos.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774580"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561371"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Inteligencia sobre amenazas de Azure Security Center
 Este artículo le ayuda a utilizar la inteligencia sobre amenazas de Azure Security Center para tratar problemas relacionados con la seguridad.
@@ -43,20 +43,24 @@ Uno de los pasos de un [proceso de respuesta a incidentes de seguridad](https://
 - Identificar los sistemas que se pusieron en peligro
 - Identificar los archivos a los que se ha obtenido acceso y determinar la confidencialidad de esos archivos
 
-Puede usar la información de inteligencia sobre amenazas de Security Center para ayudarle con estas tareas. 
+Puede usar la información de inteligencia sobre amenazas de Security Center para ayudarle con estas tareas.
 
 ## <a name="access-the-threat-intelligence"></a>Acceso a la información sobre amenazas
 Para visualizar la información sobre amenazas actual en su entorno, primero debe seleccionar el área de trabajo en el que se encuentra la información. Si no dispone de varias áreas de trabajo no se verá el selector de áreas de trabajo y pasará directamente al panel **Inteligencia sobre amenazas**. Para acceder al panel:
 
 1. Abra el panel **Security Center**.
 
-2. En el panel izquierdo, en **Detección**, haga clic en **Información sobre amenazas**. Aparecerá el panel **Información sobre amenazas**.
+2. En el panel izquierdo, en **Protección contra amenazas**, haga clic en **Inteligencia sobre amenazas**. Se abre un mapa.
+
+    ![Mapa de información sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. En la parte superior del mapa, seleccione **Ver inteligencia de amenazas clásica**. Se abre el panel **Inteligencia sobre amenazas**.
 
     ![Panel Inteligencia sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si en columna de la derecha se muestra **REQUIRES UPDATE** (REQUIERE ACTUALIZACIÓN), actualice [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center. 
-    > 
+    > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si en columna de la derecha se muestra **REQUIRES UPDATE** (REQUIERE ACTUALIZACIÓN), actualice [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center.
+    >
 3. Si tiene más de un área de trabajo para investigar, priorice la investigación de acuerdo con la columna **Direcciones IP malintencionadas**. Muestra el número actual de direcciones IP malintencionadas en esta área de trabajo. Seleccione el área de trabajo que desea usar, y aparecerá el panel **Información sobre amenazas**.
 
     ![Información de inteligencia sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -97,7 +101,6 @@ En este artículo, ha aprendido a utilizar la inteligencia sobre amenazas de Sec
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Aprenda a administrar las alertas y a responder a incidentes de seguridad en Security Center.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.
 * [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Obtenga información acerca de los distintos tipos de alertas de seguridad.
-* [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Obtenga información acerca de cómo solucionar problemas comunes en Security Center. 
+* [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Obtenga información acerca de cómo solucionar problemas comunes en Security Center.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Obtenga respuestas a preguntas frecuentes acerca del uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
-

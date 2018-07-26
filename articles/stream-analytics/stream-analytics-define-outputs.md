@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: f2f616c5908d8583764425b62acd1650283d0695
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fa4005d1f09a2e0abca1e0083603d4335fb023c9
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701724"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902928"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describen los diferentes tipos de salidas disponibles para los trabajos de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Con los datos de salida, puede realizar análisis de negocio adicionales y almacenamiento de los datos. 
@@ -71,7 +71,7 @@ Para renovar la autorización, **detenga** el trabajo > vaya a la salida de Data
 | Base de datos | El nombre de la base de datos adonde envía la salida. |
 | Nombre de servidor | El nombre del servidor SQL Database. |
 | Nombre de usuario | El nombre del usuario, con permiso para escribir en la base de datos. |
-| Password | La contraseña para conectarse a la base de datos. |
+| Contraseña | La contraseña para conectarse a la base de datos. |
 | Tabla | El nombre de la tabla donde se escribe la salida. El nombre de tabla distingue mayúsculas de minúsculas y el esquema de esta tabla debe coincidir exactamente con el número de campos y tipos que va a generar la salida del trabajo. |
 
 > [!NOTE]
@@ -83,19 +83,19 @@ Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de blob.
 
-| Nombre de propiedad | DESCRIPCIÓN | 
-| --- | --- |
-| Alias de salida | Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este almacenamiento de blobs. |
-| Cuenta de almacenamiento | El nombre de la cuenta de almacenamiento a donde está enviando la salida |
-| Clave de cuenta de almacenamiento | La clave secreta asociada con la cuenta de almacenamiento. |
-| Contenedor de almacenamiento | Los contenedores proporcionan una agrupación lógica de los blobs almacenados en Microsoft Azure Blob service. Cuando carga un blob a Blob service, debe especificar un contenedor para ese blob. |
-| Patrón de la ruta de acceso | Opcional. El patrón de la ruta de acceso al archivo para escribir los blobs dentro del contenedor especificado. </br></br> En el patrón de la ruta de acceso, puede elegir usar una o más instancias de las variables de fecha y hora para especificar la frecuencia con la que se escriben los blobs: </br> {date}, {time} </br> </br>Si está suscrito en la [versión preliminar](https://aka.ms/ASAPreview), también puede especificar un nombre de {field} personalizado de los datos a partir del cual particionar los blobs, donde el nombre del campo es alfanumérico y puede incluir espacios, guiones y caracteres de subrayado. Entre las restricciones en los campos personalizados se incluyen las siguientes: <ul><li>No distingue mayúsculas y minúsculas (no puede diferenciar entre la columna "ID" y la columna "id")</li><li>No se permiten los campos anidados (en su lugar, utilice un alias en la consulta del trabajo para "aplanar" el campo)</li><li>No pueden usarse expresiones como nombres de campos</li></ul>Ejemplos: <ul><li>Ejemplo 1: cluster1/logs/{date}/{time}</li><li>Ejemplo 2: cluster1/logs/{date}</li><li>Ejemplo 3 (versión preliminar): cluster1/{client_id}/{date}/{time}</li><li>Ejemplo 4 (versión preliminar): cluster1/{myField} donde la consulta es: SELECT data.myField AS myField FROM Input;</li></ul><br>La marca de tiempo de la estructura de carpetas que creó sigue la zona horaria UTC y no la hora local.</br><BR> La nomenclatura de los archivos sigue la convención siguiente: </br> {Patrón del prefijo de la ruta de acceso}/schemaHashcode_Guid_Number.extension </br></br> Archivos de salida de ejemplo: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Nombre de propiedad       | DESCRIPCIÓN                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------|
+| Alias de salida        | Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este almacenamiento de blobs. |
+| Cuenta de almacenamiento     | El nombre de la cuenta de almacenamiento a donde está enviando la salida               |
+| Clave de cuenta de almacenamiento | La clave secreta asociada con la cuenta de almacenamiento.                              |
+| Contenedor de almacenamiento   | Los contenedores proporcionan una agrupación lógica de los blobs almacenados en Microsoft Azure Blob service. Cuando carga un blob a Blob service, debe especificar un contenedor para ese blob. |
+| Patrón de la ruta de acceso | Opcional. El patrón de la ruta de acceso al archivo para escribir los blobs dentro del contenedor especificado. <br /><br /> En el patrón de la ruta de acceso, puede elegir usar una o más instancias de las variables de fecha y hora para especificar la frecuencia con la que se escriben los blobs: <br /> {date}, {time} <br /><br />Si se ha suscrito a la [versión preliminar](https://aka.ms/ASAPreview), puede especificar un nombre {field} personalizado de los datos de eventos para particionar los blobs. El nombre del campo es alfanumérico y puede incluir espacios, guiones y caracteres de subrayado. Entre las restricciones en los campos personalizados se incluyen las siguientes: <ul><li>No distingue mayúsculas y minúsculas (no puede diferenciar entre la columna "ID" y la columna "id")</li><li>No se permiten los campos anidados (en su lugar, utilice un alias en la consulta del trabajo para "aplanar" el campo)</li><li>No pueden usarse expresiones como nombre de campo.</li></ul> <br /><br /> La versión preliminar también permite usar configuraciones de especificador de un formato de fecha y hora personalizado en la ruta de acceso. Los formatos de fecha y hora personalizados se deben especificar de uno en uno, delimitado por la palabra clave {datetime:\<especificador >}. \<especificador> permite el uso de aaaa, MM, M, dd, d, HH, H, mm, m, ss o s. La palabra clave {datetime:\<especificador >} se puede utilizar varias veces en la ruta de acceso para formar configuraciones de fecha y hora personalizadas. <br /><br />Ejemplos: <ul><li>Ejemplo 1: cluster1/logs/{date}/{time}</li><li>Ejemplo 2: cluster1/logs/{date}</li><li>Ejemplo 3 (versión preliminar): cluster1/{client_id}/{date}/{time}</li><li>Ejemplo 4 (versión preliminar): cluster1/{datetime:ss}/{myField} donde la consulta es: SELECT data.myField AS myField FROM Input;</li><li>Ejemplo 5 (preview): cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />La marca de tiempo de la estructura de carpetas que creó sigue la zona horaria UTC y no la hora local.<br /><br/>La nomenclatura de los archivos sigue la convención siguiente: <br /><br />{Patrón del prefijo de la ruta de acceso}/schemaHashcode_Guid_Number.extension<br /><br />Archivos de salida de ejemplo:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> |
 | Formato de fecha | Opcional. Si el token de fecha se usa en la ruta de acceso de prefijo, puede seleccionar el formato de fecha en el que se organizan los archivos. Ejemplo: AAAA/MM/DD |
 | Formato de hora | Opcional. Si el token de hora se usa en la ruta de acceso de prefijo, puede seleccionar el formato de hora en el que se organizan los archivos. Actualmente, el único valor admitido es HH. |
-| Formato de serialización de eventos | Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro.
-| Encoding | Si se usa el formato CSV o JSON, debe especificarse una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
-| Delimitador | Solo se aplica para la serialización de CSV. Stream Analytics admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
-| Formato | Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formatea de tal forma que cada objeto JSON esté separado por una línea nueva. La matriz especifica que la salida se formatea como una matriz de objetos JSON. Esta matriz se cierra cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado con líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida. |
+| Formato de serialización de eventos | Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro. |
+| Encoding    | Si se usa el formato CSV o JSON, debe especificarse una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
+| Delimitador   | Solo se aplica para la serialización de CSV. Stream Analytics admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
+| Formato      | Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formatea de tal forma que cada objeto JSON esté separado por una línea nueva. La matriz especifica que la salida se formatea como una matriz de objetos JSON. Esta matriz se cierra cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado con líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida. |
 
 Cuando se utiliza el almacenamiento de blobs como salida, se crea un nuevo archivo en el blob en los siguientes casos:
 
@@ -298,7 +298,7 @@ En la tabla siguiente se resume la asistencia de la partición y el número de r
 | --- | --- | --- | --- |
 | Almacén de Azure Data Lake | Sí | Use los tokens {date} y {time} en el patrón de prefijo de ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | Sin  | None | No aplicable. | 
-| Azure Blob Storage | Sí | Use los tokens de {date} y {time} de los campos de evento del patrón de la ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. Como parte de la [versión preliminar](https://aka.ms/ASAPreview), la salida de blobs puede particionarse con un solo atributo de evento personalizado {fieldname}. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
+| Azure Blob Storage | Sí | Use los tokens de {date} y {time} de los campos de evento del patrón de la ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. Como parte de la [versión preliminar](https://aka.ms/ASAPreview), la salida de blobs puede particionarse con un solo atributo de evento personalizado {fieldname} o {datetime:\<especificador>}. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
 | Centro de eventos de Azure | Sí | Sí | Varía según alineación de particiones.</br> Cuando la clave de partición del Centro de eventos de salida está igualmente alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del Centro de eventos de salida. Cada sistema de escritura usa la [clase EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) de EventHub para enviar eventos a la partición específica. </br> Cuando la clave de partición del Centro de eventos de salida no está alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del paso anterior. Cada sistema de escritura usa [la clase SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) de EventHubClient para enviar eventos a todas las particiones de salida. |
 | Power BI | Sin  | None | No aplicable. | 
 | Almacenamiento de tablas de Azure | Sí | Cualquier columna de resultados.  | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). | 

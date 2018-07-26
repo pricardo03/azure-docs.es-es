@@ -3,7 +3,7 @@ title: Administración de recomendaciones de seguridad en Azure Security Center 
 description: Este documento explica cómo las recomendaciones del Centro de seguridad de Azure ayudan a proteger los recursos de Azure y a cumplir con las directivas de seguridad.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 07/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364257"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006621"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
 En este documento se explica cómo usar las recomendaciones del Centro de seguridad de Azure para proteger los recursos de Azure.
@@ -76,7 +76,7 @@ Use la tabla siguiente como referencia para ayudarle a entender las recomendacio
 | [Habilitar la colección de datos de las suscripciones](security-center-enable-data-collection.md) |Recomienda activar la recopilación de datos en la directiva de seguridad para cada una de las suscripciones y para todas las máquinas virtuales de Azure y equipos que no son Azure. |
 | [Corregir configuraciones de seguridad](security-center-remediate-os-vulnerabilities.md) |Recomienda armonizar las configuraciones del SO con las reglas de configuración de seguridad recomendadas; por ejemplo, no permitir guardar las contraseñas. |
 | [Aplicar actualizaciones del sistema](security-center-apply-system-updates.md) |Recomienda implementar las actualizaciones críticas y de seguridad del sistema que faltan en los equipos y máquinas virtuales de Windows y Linux. |
-| [Aplicación del control de acceso a redes Just-In-Time](security-center-just-in-time.md) | Se recomienda que aplique acceso a la máquina virtual Just-In-Time. La característica Just-In-Time se encuentra en versión preliminar y está disponible en el nivel estándar de Security Center. Para más información sobre los planes de tarifa de Security Center, consulte [Precios](security-center-pricing.md). |
+| [Aplicación del control de acceso a redes Just-In-Time](security-center-just-in-time.md) | Se recomienda que aplique acceso a la máquina virtual Just-In-Time. La característica Just-In-Time está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md). |
 | [Reiniciar tras actualizar el sistema](security-center-apply-system-updates.md#reboot-after-system-updates) |Se recomienda que reinicie una máquina virtual para completar el proceso de aplicación de actualizaciones del sistema. |
 | [Add a web application firewall](security-center-add-web-application-firewall.md) |Recomienda implementar un Firewall de aplicaciones web (WAF) para los puntos de conexión web. Se muestra una recomendación WAFS para cualquier IP pública (dirección IP de nivel de instancia o con equilibrio de carga) que tiene un grupo de seguridad de red asociado con puertos abiertos web entrantes (80 y 443). </br>Security Center le recomendará que aprovisione un WAF para defenderse de ataques dirigidos a las aplicaciones web que se encuentran tanto en las máquinas virtuales como en App Service Environment. Un entorno de App Service es una opción de plan de servicio [Premium](https://azure.microsoft.com/pricing/details/app-service/) de Azure App Service que proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura las aplicaciones de Azure App Service. Para más información acerca de ASE, consulte [Documentación de App Service Environment](../app-service/environment/intro.md).</br>Puede proteger varias aplicaciones web del Centro de seguridad si agrega estas aplicaciones a las implementaciones de WAF existentes. |
 | [Finalización de la protección de la aplicación](security-center-add-web-application-firewall.md#finalize-application-protection) |Para completar la configuración de un WAF, el tráfico se debe redirigir a la aplicación del WAF. Si se sigue esta recomendación, se completarán los cambios necesarios en la configuración. |
@@ -95,7 +95,35 @@ Use la tabla siguiente como referencia para ayudarle a entender las recomendacio
 | [Evaluación de vulnerabilidades no instalada](security-center-vulnerability-assessment-recommendations.md) |Se recomienda instalar una solución de evaluación de vulnerabilidades en la máquina virtual. |
 | [Corrección de vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Permite ver las vulnerabilidades tanto del sistema como de las aplicaciones que ha detectado la solución de evaluación de vulnerabilidades instalada en la máquina virtual. |
 | [Habilitar el cifrado para la cuenta de Azure Storage](security-center-enable-encryption-for-storage-account.md) | Es recomendable que habilite el cifrado del servicio de Azure Storage para datos en reposo. El Cifrado de servicio de almacenamiento (SSE) funciona mediante el cifrado de los datos cuando se escriben en Azure Storage y el descifrado antes de la recuperación. SSE actualmente solo está disponible para Azure Blob service y puede usarse para blobs en bloques, blobs de página y blobs en anexos. Para obtener más información, consulte [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md).</br>SSE solo es compatible con las cuentas de almacenamiento de Resource Manager. |
-
+| [Habilitar controles de aplicaciones adaptables](security-center-adaptive-application.md) | Se recomienda que aplique controles de aplicación adaptables en las máquinas virtuales de Windows. Esta característica se encuentra en versión preliminar y está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md). |
+| Solo se debería poder acceder a App Service a través de HTTPS | Se recomienda limitar el acceso de App Service a través de HTTPS solamente. |
+| Recomendación de desactivación de Web Sockets para aplicaciones web| Se recomienda que revise cuidadosamente el uso de Web Sockets en las aplicaciones web.  El protocolo Web Sockets es vulnerable a distintos tipos de amenazas de seguridad. |
+| Uso de dominios personalizados para su aplicación web | Se recomienda el uso de dominios personalizados para proteger una aplicación web frente a ataques comunes, como la suplantación de identidad y otros ataques relacionados con el DNS. |
+| Configuración de las restricciones de IP de las aplicaciones web | Se recomienda definir una lista de direcciones IP que tienen permiso para acceder a su aplicación.  El uso de restricciones de IP protege una aplicación web frente a ataques comunes. |
+| No permita que todos los recursos ("*") tengan acceso a la aplicación | Se recomienda no configurar el parámetro WEBSITE_LOAD_CERTIFICATES en "*". Si establece el parámetro en "*" , significa que se van a cargar todos los certificados en el almacén de certificados personales de su aplicación web.  Esto puede dar lugar a un abuso del principio de privilegio mínimo, ya que es poco probable que el sitio necesite tener acceso a todos los certificados en tiempo de ejecución. |
+| CORS no debería permitir que todos los recursos accedan a la aplicación | Se recomienda que solo permita que los dominios requeridos interactúen con la aplicación web. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación web. |
+| Uso de la última versión compatible de .NET Framework para aplicaciones web | Se recomienda que utilice la versión más reciente de .NET Framework para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta. |
+| Uso de la última versión compatible de Java para aplicaciones web | Se recomienda que utilice la versión más reciente de Java para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta. |
+| Uso de la última versión compatible de Java para aplicaciones web | Se recomienda que utilice la versión más reciente de PHP para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta. |
+| [Add a web application firewall](security-center-add-web-application-firewall.md) |Recomienda implementar un Firewall de aplicaciones web (WAF) para los puntos de conexión web. Se muestra una recomendación WAFS para cualquier IP pública (dirección IP de nivel de instancia o con equilibrio de carga) que tiene un grupo de seguridad de red asociado con puertos abiertos web entrantes (80 y 443).</br></br>Security Center le recomendará que aprovisione un WAF para defenderse de ataques dirigidos a las aplicaciones web que se encuentran tanto en las máquinas virtuales como en App Service Environment. Un entorno de App Service es una opción de plan de servicio [Premium](https://azure.microsoft.com/pricing/details/app-service/) de Azure App Service que proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura las aplicaciones de Azure App Service. Para más información acerca de ASE, consulte [Documentación de App Service Environment](../app-service/environment/intro.md).</br></br>Puede proteger varias aplicaciones web del Centro de seguridad si agrega estas aplicaciones a las implementaciones de WAF existentes. |
+| [Finalización de la protección de la aplicación](security-center-add-web-application-firewall.md#finalize-application-protection) |Para completar la configuración de un WAF, el tráfico se debe redirigir a la aplicación del WAF. Si se sigue esta recomendación, se completarán los cambios necesarios en la configuración. |
+| Uso de la última versión compatible de Node.js para aplicaciones web | Se recomienda que utilice la versión más reciente de Node.js para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta. |
+| CORS no debe permitir que todos los recursos accedan a Function App | Se recomienda que solo permita que los dominios requeridos interactúen con la aplicación web. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación de función. |
+| Uso de dominios personalizados para Function App | Se recomienda el uso de dominios personalizados para proteger una aplicación de función frente a ataques comunes, como la suplantación de identidad y otros ataques relacionados con el DNS. |
+| Configuración de las restricciones de IP para Function App | Se recomienda definir una lista de direcciones IP que tienen permiso para acceder a su aplicación. El uso de restricciones de IP protege una aplicación de función frente a ataques comunes. |
+| Acceso a Function App solo a través de HTTPS | Se recomienda limitar el acceso de instancias de Function App a través de HTTPS solamente. |
+| Recomendación de desactivación de la depuración remota para Function App | Se recomienda que desactive la depuración para Function App si ya no necesita usarla. La depuración remota requiere puertos de entrada que se abran en una instancia de Function App. |
+| Recomendación de desactivación de Web Sockets para Function App | Se recomienda que revise cuidadosamente el uso de Web Sockets en las instancias de Function App. El protocolo Web Sockets es vulnerable a distintos tipos de amenazas de seguridad. |
+| Designar a más de un propietario en la suscripción | Se recomienda que designe a más de un propietario de la suscripción para tener redundancia de acceso de administrador. |
+| Designar a un máximo de 3 propietarios en la suscripción | Se recomienda que designe a un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro. |
+| Habilitar MFA para las cuentas con permisos de propietario en la suscripción | Se recomienda que habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de administrador para evitar una vulneración de las cuentas o recursos. |
+| Habilitar MFA para las cuentas con permisos de escritura en la suscripción | Se recomienda que habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de escritura para evitar una vulneración de las cuentas o recursos. |
+| Habilitar MFA para las cuentas con permisos de lectura en la suscripción | Se recomienda que habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de lectura para evitar una vulneración de las cuentas o recursos. |
+| Quitar las cuentas externas con permisos de lectura de la suscripción | Se recomienda eliminar las cuentas externas con privilegios de lectura de la suscripción a fin de evitar el acceso no supervisado. |
+| Quitar las cuentas externas con permisos de escritura de la suscripción | Se recomienda eliminar las cuentas externas con privilegios de escritura de la suscripción a fin de evitar el acceso no supervisado. |
+| Quitar las cuentas externas con permisos de propietario de la suscripción | Se recomienda eliminar las cuentas externas con permisos de propietario de la suscripción a fin de evitar el acceso no supervisado. |
+| Quitar las cuentas en desuso de la suscripción | Se recomienda quitar las cuentas en desuso de la suscripción. |
+| Quitar de la suscripción las cuentas en desuso con permisos de propietario | Se recomienda quitar las cuentas en desuso con permisos de propietario de la suscripción. |
 Puede filtrar y descartar las recomendaciones.
 
 1. Seleccione **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.

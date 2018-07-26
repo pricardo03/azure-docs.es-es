@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710413"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308038"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Creación de una aplicación web de ASP.NET con procesos de registro e inicio de sesión, edición de perfil y restablecimiento de contraseña de Azure Active Directory B2C
 
@@ -31,19 +31,21 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 - Debe conectar el inquilino B2C a una cuenta de Azure. Puede crear una cuenta de Azure gratuita [aquí](https://azure.microsoft.com/).
 - Necesita [Microsoft Visual Studio](https://www.visualstudio.com/) o un programa similar para ver y modificar el código de ejemplo.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Creación de un directorio de Azure AD B2C
+## <a name="create-an-azure-ad-b2c-tenant"></a>Creación de un inquilino de Azure AD B2C
 
-Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor de todos los usuarios, aplicaciones, grupos, etc. Si aún no tiene uno, cree un directorio B2C antes de continuar con esta guía.
+Para poder usar Azure AD B2C, debe crear un inquilino. Un inquilino es un contenedor de todos los usuarios, aplicaciones, grupos, etc. Si aún no tiene uno, cree un inquilino B2C antes de continuar con esta guía.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> Debe conectar el inquilino B2C a su suscripción a Azure. Tras seleccionar **Crear**, seleccione la opción **Vincular un inquilino de Azure AD B2C existente a mi suscripción de Azure** y, a continuación, en el menú desplegable **Inquilino de Azure AD B2C**, seleccione el inquilino que desea asociar.
+> Debe conectar el inquilino de Azure AD B2C a su suscripción a Azure. Tras seleccionar **Crear**, seleccione la opción **Vincular un inquilino de Azure AD B2C existente a mi suscripción de Azure** y, a continuación, en el menú desplegable **Inquilino de Azure AD B2C**, seleccione el inquilino que desea asociar.
 
 ## <a name="create-and-register-an-application"></a>Creación y registro de una aplicación
 
-A continuación, debe crear y registrar la aplicación en su directorio B2C. Esto proporciona información que Azure AD B2C necesita para comunicarse de forma segura con la aplicación. 
+A continuación, debe crear y registrar la aplicación en su inquilino de Azure AD B2C. Esto proporciona información que Azure AD B2C necesita para comunicarse de forma segura con la aplicación. 
+
+Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**. Ahora debería estar utilizando el inquilino que ha creado antes.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 

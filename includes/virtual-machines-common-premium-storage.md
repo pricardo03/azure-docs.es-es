@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806390"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37909954"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
 Azure Premium Storage le ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales (VM) con cargas de trabajo intensivas de entrada/salida (E/S). Los discos de VM que usan Premium Storage almacenan los datos en unidades de estado sólido (SSD). Para aprovechar la ventaja de la velocidad y el rendimiento de discos de Premium Storage, puede migrar los discos de VM existentes a Premium Storage.
@@ -52,7 +52,7 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Discos de Premium Storage**
 
-    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage es compatible con máquinas virtuales de las series DS, DSv2, GS, Ls, Fs y Esv3. Puede elegir entre siete tamaños de disco:  P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
+    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Puede elegir entre siete tamaños de disco:  P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
 
 * **Blobs en páginas Premium**
 
@@ -78,16 +78,16 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 ## <a name="supported-vms"></a>VM admitidas
 
-Premium Storage es compatible con máquinas virtuales de las series B, DS, DSv2, DSv3, ESv3, GS, Ls, M y Fs. Con estos tipos de VM puede usar discos de Premium Storage y Standard Storage. No puede utilizar discos de Premium Storage con series de VM que no sean compatibles con Premium Storage.
+Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Con estos tipos de VM puede usar discos de Premium Storage y Standard Storage. No puede utilizar discos de Premium Storage con series de VM que no sean compatibles con Premium Storage.
 
 
 Para más información sobre los tamaños y tipos de VM en Azure para Windows, vea [Tamaños de VM para Windows](../articles/virtual-machines/windows/sizes.md). Para más información sobre los tamaños y tipos de VM en Azure para Linux, vea [Tamaños de VM para Linux](../articles/virtual-machines/linux/sizes.md).
 
-A continuación, se muestran algunas de las características de las máquinas virtuales de las series DS, DSv2, GS, Ls y Fs:
+Estas son algunas de las características admitidas en las máquinas virtuales con Premium Storage habilitado:
 
-* **Servicio en la nube**
+* **Conjunto de disponibilidad**
 
-    Puede agregar VM de la serie DS a un servicio en la nube que tenga solo VM de la serie DS. No agregue VM de la serie DS a un servicio en la nube existente que incluya otras VM que no sean de la serie DS. Puede migrar los VHD existentes a un nuevo servicio en la nube que ejecute solo VM de la serie DS. Si desea usar la misma dirección IP virtual (VIP) para el nuevo servicio en la nube que hospeda las VM de la serie DS, use [Direcciones IP reservadas](../articles/virtual-network/virtual-networks-instance-level-public-ip.md). Las VM de la serie GS se pueden agregar a un servicio en la nube que solo tenga VM de la serie GS.
+    Usando el ejemplo de máquinas virtuales de la serie DS, puede agregar una máquina virtual de la serie DS a un servicio en la nube que tenga solo máquinas virtuales de este tipo. No agregue VM de la serie DS a un servicio en la nube existente que incluya otras VM que no sean de la serie DS. Puede migrar los VHD existentes a un nuevo servicio en la nube que ejecute solo VM de la serie DS. Si desea usar la misma dirección IP virtual (VIP) para el nuevo servicio en la nube que hospeda las VM de la serie DS, use [Direcciones IP reservadas](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 
 * **Disco del sistema operativo**
 
@@ -104,7 +104,13 @@ A continuación, se muestran algunas de las características de las máquinas vi
 
 * **Memoria caché**
 
-    Las VM de la serie de tamaño que admiten Premium Storage tienen una funcionalidad de almacenamiento en caché exclusiva para altos niveles de rendimiento y latencia. La funcionalidad de almacenamiento en caché supera el rendimiento del disco de Premium Storage subyacente. Puede establecer la directiva de almacenamiento en caché del disco en los discos de Premium Storage en **ReadOnly**, **ReadWrite** o **None**. La directiva de almacenamiento en caché de disco predeterminada es **ReadOnly** para todos los discos de datos premium y **ReadWrite** para los discos del sistema operativo. Para obtener un rendimiento óptimo para la aplicación, use la configuración correcta de la caché. Por ejemplo, en el caso de los discos de datos de solo lectura o con mucha actividad de lectura, como los archivos de datos de SQL Server, establezca la directiva de almacenamiento en caché de disco en **ReadOnly**. En el caso de los discos de datos de solo escritura o con mucha actividad de escritura, como los archivos de registro de SQL Server, establezca la directiva de almacenamiento en caché del disco en **None**. Consulte más información sobre cómo optimizar el diseño con Premium Storage en [Diseño para rendimiento con Premium Storage](../articles/virtual-machines/windows/premium-storage-performance.md).
+    Virtual Machines (VM) que admiten Premium Storage tienen una funcionalidad de almacenamiento en caché exclusiva para altos niveles de rendimiento y latencia. Su funcionalidad de almacenamiento en caché supera el rendimiento del disco de Premium Storage subyacente. Sin embargo, no todas las máquinas virtuales admiten el almacenamiento en caché, así que, para obtener más información, consulte las especificaciones de la máquina virtual para los tamaños que le interesen.  Las máquinas virtuales que admitan el almacenamiento en caché lo indicarán en sus especificaciones con una medida de "Rendimiento máximo de almacenamiento temporal y en caché".  También se especifican directamente bajo el título de la máquina virtual.
+    
+    Con el almacenamiento en caché, puede establecer la directiva de almacenamiento en caché del disco en los discos de Premium Storage en **ReadOnly**, **ReadWrite** o **None**. La directiva de almacenamiento en caché de disco predeterminada es **ReadOnly** para todos los discos de datos premium y **ReadWrite** para los discos del sistema operativo. Para obtener un rendimiento óptimo para la aplicación, use la configuración correcta de la memoria caché. 
+    
+    Por ejemplo, en el caso de los discos de datos de solo lectura o con mucha actividad de lectura, como los archivos de datos de SQL Server, establezca la directiva de almacenamiento en caché de disco en **ReadOnly**. En el caso de los discos de datos de solo escritura o con mucha actividad de escritura, como los archivos de registro de SQL Server, establezca la directiva de almacenamiento en caché del disco en **None**. 
+    
+    Consulte más información sobre cómo optimizar el diseño con Premium Storage en [Diseño para rendimiento con Premium Storage](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 * **Analytics**
 

@@ -6,18 +6,20 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232684"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008423"
 ---
 # <a name="what-is-azure-importexport-service"></a>¿Qué es el servicio Azure Import/Export?
 
 El servicio Azure Import/Export se usa para importar de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files mediante el envío de unidades de disco a un centro de datos de Azure. También se puede usar este servicio para transferir datos desde Azure Blob Storage hasta las unidades de disco y enviarlas al sitio local. Se pueden importar los datos de uno o varios discos a Azure Blob Storage o Azure Files. 
+
+El servicio de importación y exportación de Azure requiere que proporcione sus propios discos. Si desea transferir datos con los discos proporcionados por Microsoft, puede usar discos de Azure Data Box para importar datos en Azure. Microsoft envía hasta 5 discos de estado sólido (SSD) cifrados con una capacidad de 40 TB por pedido al centro de datos mediante un operador regional. Puede configurar rápidamente los discos, copiar los datos en ellos a través de una conexión USB 3.0 y enviarlos de vuelta a Azure. Para obtener más información, vaya a [Introducción a Microsoft Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="azure-importexport-usecases"></a>Casos de uso de Azure Import/Export
 
@@ -113,7 +115,7 @@ El servicio Azure Import/Export permite copiar datos en todas las cuentas de alm
 
 |País  |País  |País  |País  |
 |---------|---------|---------|---------|
-|Este de EE. UU    | Europa del Norte        | India Central        |Gobierno de EE. UU. - Iowa         |
+|Este de EE. UU    | Europa del Norte        | India Central        |US Gov Iowa         |
 |Oeste de EE. UU.     |Europa occidental         | Sur de la India        | Departamento de Defensa de EE. UU. Este        |
 |Este de EE. UU. 2    | Asia oriental        |  Oeste de la India        | Departamento de Defensa de EE. UU. Centro        |
 |Oeste de EE. UU. 2     | Sudeste asiático        | Centro de Canadá        | Este de China         |

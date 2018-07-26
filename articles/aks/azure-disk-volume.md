@@ -2,19 +2,19 @@
 title: Usar de Azure Disks con AKS
 description: Usar de Azure Disks con AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4af4620ff7a17cae76c4d5f2cf1a30ce4a3dccd8
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f807264dc2c2e07ccd175fb1b0427b7ce9e9f524
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34597074"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868252"
 ---
 # <a name="volumes-with-azure-disks"></a>Volúmenes con discos de Azure
 
@@ -49,6 +49,12 @@ Cuando haya creado el disco, verá un resultado similar al siguiente. Este valor
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
+> [!NOTE]
+> Los discos administrados de Azure se facturan por SKU de un tamaño específico. Estas SKU varían de 32 GiB para S4 o discos P4 a 4 TiB para S50 o discos P50. Además, el rendimiento y el rendimiento IOPS de un disco administrado Premium depende de la SKU y del tamaño de instancia de los nodos en el clúster de AKS. Consulte [Pricing and Performance of Managed Disks][managed-disk-pricing-performance] (Precios y rendimiento de los discos administrados).
+
+> [!NOTE]
+> Si tiene que crear el disco en un grupo de recursos independiente, también deberá agregar la entidad de servicio de Azure Kubernetes Service (AKS) del clúster en el grupo de recursos que contiene el disco con el rol `Contributor`. 
+>
 
 ## <a name="mount-disk-as-volume"></a>Montaje del disco como un volumen
 
@@ -94,6 +100,7 @@ Aprenda más sobre los volúmenes de Kubernetes con discos de Azure.
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
 [az-disk-list]: /cli/azure/disk#az_disk_list
