@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: 38a0e64bf958ef6aebac41136ffcb9c213cc7ec0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4cced4a735aaf92f803b45fab4afe5102020d469
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029788"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144278"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
 
 Se recomienda encarecidamente leer [Planning for an Azure Files deployment](storage-files-planning.md) (Planear una implementación de Azure Files) antes de seguir los pasos descritos en este artículo.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ya ha completado los siguientes pasos:
 
 - Ha creado una cuenta de Azure Storage con las opciones de resistencia y cifrado deseadas en la región que quería. Consulte [Acerca de las cuentas de almacenamiento de Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener instrucciones paso a paso sobre cómo crear una cuenta de almacenamiento.
@@ -35,8 +35,8 @@ En este artículo se supone que ya ha completado los siguientes pasos:
 ## <a name="transfer-data-into-azure-files"></a>Transferencia de datos a Azure Files
 Puede migrar los recursos compartidos de archivos existentes, como los almacenados localmente, al nuevo recurso compartido de archivos de Azure. En esta sección se mostrará cómo mover datos a un recurso compartido de archivos de Azure mediante varios métodos populares que se detallan en la [guía de planeamiento](storage-files-planning.md#data-transfer-method).
 
-### <a name="azure-file-sync-preview"></a>Azure File Sync (versión preliminar)
-Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
+### <a name="azure-file-sync"></a>Azure File Sync
+Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
 
 Azure File Sync se puede usar para migrar datos a un recurso compartido de archivos de Azure, aunque el mecanismo de sincronización no se desee para usarlo a largo plazo. Se puede encontrar más información acerca de cómo usar Azure File Sync para transferir datos a un recurso compartido de archivos de Azure en [Planeamiento de una implementación de Azure File Sync (versión preliminar)](storage-sync-files-planning.md) e [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md).
 

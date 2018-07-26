@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017516"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188029"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de la solución Supervisión remota mediante la CLI
 
-En este tutorial, se muestra cómo aprovisionar el acelerador de la solución Supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web de azureiotsuite.com. Para obtener más información sobre esta opción, consulte [Implementación del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy.md).
+En este tutorial, se muestra cómo aprovisionar el acelerador de la solución Supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web de azureiotsuite.com. Para obtener más información sobre esta opción, consulte [Implementación del acelerador de la solución Supervisión remota](quickstart-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para implementar el acelerador de la solución Supervisión remota, necesita una suscripción de Azure activa.
 
@@ -65,7 +65,7 @@ La opción de implementación estándar debe usarse cuando esté listo para pers
 
 Al crear una solución básica, se aprovisionarán los servicios de Azure siguientes en su suscripción de Azure al costo de: 
 
-| Recuento | Recurso                       | Escriba         | Se usa para |
+| Recuento | Recurso                       | type         | Se usa para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina virtual con Linux](https://azure.microsoft.com/services/virtual-machines/) | Estándar D1 v2  | Hospedaje de microservicios |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: nivel Estándar | Comunicación y administración de dispositivos |
@@ -135,6 +135,6 @@ En este tutorial aprendió lo siguiente:
 > * Implementación del acelerador de solución
 > * Inicio de sesión en el acelerador de la solución
 
-Ahora que ha implementado la solución Supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](./iot-accelerators-remote-monitoring-deploy.md).
+Ahora que ha implementado la solución Supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](./quickstart-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

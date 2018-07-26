@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921219"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226567"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner en el escenario de Hyper-V en Azure
 
@@ -74,14 +74,14 @@ La herramienta proporciona los detalles siguientes:
 
 | | **VMware a Azure** |**Hyper-V en Azure**|**De Azure a Azure**|**De Hyper-V a un sitio secundario**|**Sitio VMware en un sitio secundario**
 --|--|--|--|--|--
-Escenarios admitidos |Sí|Sí|Sin |Sí*|Sin 
+Escenarios admitidos |SÍ|SÍ|Sin |Sí*|Sin 
 Versión admitida | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuración admitida|vCenter, ESXi| Clúster de Hyper-V, host de Hyper-V|N/D|Clúster de Hyper-V, host de Hyper-V|N/D|
 Número de servidores cuyo perfil puede generarse por instancia en ejecución de Azure Site Recovery Deployment Planner |Único (los perfiles de las máquinas virtuales que pertenecen a una instancia de vCenter Server o a un servidor ESXi se pueden generar a la vez)|Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D |Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D
 
 *La herramienta es principalmente para un escenario de recuperación ante desastres de Hyper-V en Azure. En un escenario de recuperación ante desastres de Hyper-V en un sitio secundario, solo se puede usar para conocer recomendaciones sobre el origen como el ancho de banda de red requerido, el espacio de almacenamiento disponible necesario en cada uno de los servidores Hyper-V de origen y las cifras referentes al procesamiento por lotes de replicación inicial y a las definiciones de los lotes.  Omita las recomendaciones de Azure y los costos del informe. Además, la operación Get Throughput (Obtención de rendimiento) no es aplicable al escenario de recuperación ante desastres de Hyper-V a un sitio secundario.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máquinas virtuales, generación de perfiles y generación de informes. También hay una cuarta opción para calcular solo el rendimiento. Los requisitos para el servidor en el que se deben ejecutar las distintas fases se presentan en la tabla siguiente:
 
 | Requisito del servidor | DESCRIPCIÓN |
@@ -94,13 +94,13 @@ La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máq
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Pasos para agregar servidores a la lista TrustedHosts
 1.  La máquina virtual desde donde la herramienta se va a implementar debe tener todos los hosts cuyo perfil se va a generar en su lista TrustedHosts. Para agregar el cliente a la lista Trustedhosts, ejecute el siguiente comando desde una instancia de PowerShell con privilegios elevados en la máquina virtual. La máquina virtual puede ser Windows Server 2012 R2 o Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  Cada host Hyper-V cuyo perfil debe realizarse debe tener:
 
     a. La máquina virtual en la que la herramienta se va a ejecutar en su lista TrustedHosts. Ejecute el siguiente comando desde una sesión de PowerShell con privilegios elevados en el host Hyper-V.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. Comunicación remota de PowerShell habilitada.
 

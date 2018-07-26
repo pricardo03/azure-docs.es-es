@@ -6,8 +6,6 @@
       href: azure-stack-poc.md
     - name: Notas de la versión
       items:
-        - name: Actualización 1807
-          href: azure-stack-update-1807.md
         - name: Actualización 1805
           href: azure-stack-update-1805.md
         - name: Actualización 1804
@@ -140,8 +138,6 @@
               href: azure-stack-manage-storage-shares.md
             - name: Administración de la capacidad de memoria física
               href: azure-stack-manage-storage-physical-memory-capacity.md
-            - name: Incorporación de nodos de unidad de escalado
-              href: azure-stack-add-scale-node.md
         - name: Reemplazo de hardware
           items:
             - name: Acciones de nodo

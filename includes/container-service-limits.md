@@ -3,10 +3,9 @@
 | Máximo de nodos por clúster | 100 |
 | Número máximo de pods por nodo ([red básica con Kubenetes][basic-networking]) | 110 |
 | Número máximo de pods por nodo ([red avanzada de Azure CNI][advanced-networking]) | 30<sup>1</sup> |
-| Máximo de clústeres por suscripción | 20<sup>2</sup> |
+| Máximo de clústeres por suscripción | 100 |
 
 <sup>1</sup> este valor se puede personalizar a través de la implementación de la plantilla de ARM. Puede consultar ejemplos [aquí][arm-deployment-example].<br />
-<sup>2</sup> cree una [solicitud de soporte técnico de Azure][azure-support] para solicitar un aumento del límite.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/networking-overview.md#basic-networking

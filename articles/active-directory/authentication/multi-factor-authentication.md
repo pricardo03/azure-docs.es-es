@@ -1,0 +1,53 @@
+---
+title: Información acerca de la verificación en dos pasos de Azure MFA | Microsoft Docs
+description: Qué es Azure Multi-Factor Authentication, por qué usar MFA y los distintos métodos y versiones disponibles.
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: michmcla
+ms.openlocfilehash: d58d81d85dac7e5cd520b8d8a3fb5d91650e0cbe
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161612"
+---
+# <a name="what-is-azure-multi-factor-authentication"></a>¿Qué es Azure Multi-Factor Authentication?
+
+La verificación en dos pasos es un método de autenticación que requiere más de un método de comprobación y agrega un segundo nivel importante de seguridad crítico a las transacciones e inicios de sesión del usuario. Funciona mediante la solicitud de dos o más de los siguientes métodos de verificación:
+
+* Un elemento que conoce (normalmente una contraseña).
+* Un elemento del que dispone (un dispositivo de confianza que no se puede duplicar con facilidad, como un teléfono).
+* Un elemento físico que le identifica (biométrica).
+
+<center>![Nombre de usuario y contraseña](./media/multi-factor-authentication/pword.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Certificados](./media/multi-factor-authentication/phone.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Smartphone](./media/multi-factor-authentication/hware.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Tarjeta inteligente](./media/multi-factor-authentication/smart.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Tarjeta inteligente virtual](./media/multi-factor-authentication/vsmart.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Nombre de usuario y contraseña](./media/multi-factor-authentication/cert.png)</center>
+
+Azure Multi-Factor Authentication (MFA) es la solución de Microsoft de comprobación de dos pasos. Azure MFA ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Ofrece una autenticación segura a través de una gran variedad de métodos de comprobación (como la comprobación mediante llamadas telefónicas, mensajes de texto o aplicaciones móviles).
+
+## <a name="why-use-azure-multi-factor-authentication"></a>¿Por qué usar Azure Multi-Factor Authentication?
+Hoy en día, ahora más que nunca, las personas están cada vez más conectadas. Gracias a los smartphones, las tabletas, los equipos portátiles y los equipos de escritorio, la gente dispone de multitud de opciones para acceder a sus cuentas y aplicaciones desde cualquier parte y estar conectada en cualquier momento.
+
+Azure Multi-Factor Authentication es una solución fácil de usar, escalable y confiable que proporciona un segundo método de autenticación para proteger a los usuarios.
+
+| ![Fácil de usar](./media/multi-factor-authentication/simple.png) | ![Escalable](./media/multi-factor-authentication/scalable.png) | ![Siempre protegido](./media/multi-factor-authentication/protected.png) | ![Confiable](./media/multi-factor-authentication/reliable.png) |
+|:---:|:---:|:---:|:---:|
+| **Fácil de usar** |**Escalable** |**Siempre protegido** |**Confiable** |
+
+* **Fácil de usar** : Azure Multi-Factor Authenticaton es fácil de configurar y utilizar. La protección adicional que se incluye con Azure Multi-Factor Authentication permite a los usuarios administrar sus propios dispositivos. Y lo mejor de todo es que en muchos casos se puede configurar con unos pocos clics.
+* **Escalable** : Azure Multi-Factor Authenticaton utiliza la potencia de la nube y se integra con la instancia local de Active Directory y aplicaciones personalizadas. Esta protección se extiende incluso a los escenarios críticos de gran volumen.
+* **Siempre protegido** Azure Multi-Factor Authenticaton ofrece autenticación segura mediante los más elevados estándares del sector.
+* **Confiable**: Microsoft garantiza una disponibilidad del 99,9 % de Azure Multi-Factor Authenticaton. Se considera que el servicio no está disponible cuando no puede recibir ni procesar las solicitudes de comprobación para la comprobación en dos pasos.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Lea [Cómo funciona Azure Multi-Factor Authentication](concept-mfa-howitworks.md).
+
+- Obtenga información sobre las diferentes [versiones y métodos de utilización de Azure Multi-Factor Authentication](concept-mfa-licensing.md).

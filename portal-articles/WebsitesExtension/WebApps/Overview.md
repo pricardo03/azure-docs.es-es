@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600919"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172751"
 ---
 # <a name="app-service-documentation"></a>Documentación de App Service
 Azure App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación de su elección sin tener que administrar la infraestructura, el lenguaje o el entorno de ejecución del marco web. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, y permite implementaciones automatizadas desde GitHub, Visual Studio Team Services o cualquier repositorio Git. Aprenda a usar Azure App Service con nuestras guías de inicio rápido, tutoriales y ejemplos.
@@ -29,7 +29,7 @@ Aprenda a implementar su primera aplicación en la nube mediante App Service par
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/app-service-web-get-started-python)
+- [Python](/azure/app-service/containers/quickstart-python)
 - [HTML](/azure/app-service/app-service-web-get-started-html)
 
 ## <a name="step-by-step-tutorials"></a>Tutoriales detallados
@@ -40,7 +40,7 @@ Aprenda a implementar, administrar y supervisar aplicaciones web seguras en Azur
   - [.NET con Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js con MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java con MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python con PostgreSQL](/app-service/app-service-web-tutorial-python-postgresql)
+  - [Python con PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
 - [Asignación de un dominio personalizado existente a una aplicación ](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Enlace de un certificado SSL existente a la aplicación](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

@@ -2,23 +2,23 @@
 title: 'Tutorial: Creación y administración de un trabajo de Stream Analytics mediante Azure Portal | Microsoft Docs'
 description: En este tutorial se proporciona una ilustración completa de cómo usar Azure Stream Analytics para analizar las llamadas fraudulentas en una secuencia de llamadas de teléfono.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 manager: kfile
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32778196"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186237"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creación de un trabajo de Stream Analytics para analizar los datos de llamadas de teléfono y visualizar los resultados en un panel de Power BI
-
+ 
 En este tutorial se muestra cómo usar Azure Stream Analytics para analizar una llamada de teléfono de ejemplo generada mediante una aplicación cliente. Los datos de llamadas de teléfono generados por la aplicación cliente contienen algunas llamadas fraudulentas y, para filtrar este tipo de llamadas, definiremos un trabajo de Stream Analytics.
 
 En este tutorial, aprenderá a:
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Probar e iniciar el trabajo  
 > * Visualizar los resultados en Power BI 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 

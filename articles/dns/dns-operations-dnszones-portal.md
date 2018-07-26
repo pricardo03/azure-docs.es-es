@@ -3,7 +3,7 @@ title: Administración de zonas DNS en DNS de Azure - Azure Portal | Microsoft D
 description: Puede administrar zonas DNS con Azure Portal. Este artículo describe cómo actualizar, eliminar y crear zonas DNS en Azure DNS
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: kumud
-ms.openlocfilehash: 3fbf59010e690ac022e4363eddebe1cfbba53d13
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: ca9d03cb14e79b23ccc2021e0a31650eb9bbd95b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779046"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171245"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Administración de zonas DNS en Azure Portal
 
@@ -31,7 +31,7 @@ En este artículo se muestra cómo administrar sus zonas DNS mediante Azure Port
 
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicio de sesión en Azure Portal
 2. En el menú Concentrador, haga clic en **Crear un recurso > Redes >** y, luego, en **Zona DNS** para abrir la hoja Crear zona DNS.
 
     ![Zona DNS](./media/dns-operations-dnszones-portal/openzone650.png)
@@ -44,7 +44,7 @@ En este artículo se muestra cómo administrar sus zonas DNS mediante Azure Port
    |**Name**|contoso.com|El nombre de la zona DNS|
    |**Suscripción**|[Su suscripción]|Seleccione la suscripción en la que se creará la zona DNS.|
    |**Grupos de recursos**|**Crear nuevo:** contosoDNSRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
-   |**Ubicación**|Oeste de EE. UU||
+   |**Ubicación**|Oeste de EE. UU.||
 
 > [!NOTE]
 > El grupo de recursos se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097087"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185438"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integración de datos de la SIM en la solución de supervisión remota
 
@@ -24,12 +24,12 @@ La supervisión remota proporciona integración lista para usar con conectividad
 En este tutorial, aprenderá a:
 
 * Integración de datos de la SIM de IoT de Telefónica en la solución de supervisión remota
-* Vista de la telemetría en tiempo real
+* Ver la telemetría en tiempo real
 * Visualización de datos de la SIM
 
 ## <a name="telefnica-iot-integration-setup"></a>Configuración de la integración de IoT de Telefónica
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Esta característica de supervisión remota adicional se encuentra actualmente en versión preliminar. Para sincronizar los datos de conectividad en la solución de supervisión remota de Azure, siga estos pasos:
 
@@ -67,7 +67,7 @@ Se publican los siguientes parámetros de conectividad:
 
 Ahora que dispone de información general sobre cómo integrar los datos de la SIM en la solución de supervisión remota de Azure IoT, a continuación se recomiendan los pasos siguientes para los aceleradores de soluciones:
 
-* [Operar con la solución de supervisión remota de Azure IoT](iot-accelerators-remote-monitoring-explore.md)
+* [Operar con la solución de supervisión remota de Azure IoT](quickstart-remote-monitoring-deploy.md)
 * [Supervisión avanzada](iot-accelerators-remote-monitoring-monitor.md)
 * [Administración de dispositivos](iot-accelerators-remote-monitoring-manage.md)
 * [Solución de problemas de dispositivo](iot-accelerators-remote-monitoring-maintain.md)

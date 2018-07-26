@@ -3,19 +3,19 @@ title: Adición de datos de LUIS a Application Insights con Node.js | Microsoft 
 titleSuffix: Azure
 description: Cree un bot integrado con una aplicación de LUIS y Application Insights mediante Node.js.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr
-ms.openlocfilehash: 929b6e1cc980d7215f91a616820e257aed26bab7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382735"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236846"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Adición de resultados de LUIS a Application Insights desde un bot de aplicación web
 En este tutorial se agrega información de solicitud y respuesta de LUIS al almacenamiento de datos de telemetría de [Application Insights](https://azure.microsoft.com/services/application-insights/). Una vez que tenga que los datos, puede consultarlos con el lenguaje de Kusto o Power BI para analizar y agregar intenciones y entidades de la expresión en tiempo real, así como para informar sobre ellas. Este análisis le ayuda a determinar si debe agregar o editar las intenciones y las entidades de la aplicación de LUIS.
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 * Captura y envío de los resultados de consulta de LUIS a Application Insights
 * Consulta en Application Insights de la intención, puntuación y expresión principales
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * El bot de aplicación web de LUIS del **[tutorial anterior](luis-nodejs-tutorial-build-bot-framework-sample.md)** con Application Insights está activado. 
 

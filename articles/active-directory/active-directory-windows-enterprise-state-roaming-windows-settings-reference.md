@@ -4,23 +4,24 @@ description: Una lista completa de todas las opciones que se movilizan o de las 
 services: active-directory
 keywords: enterprise state roaming, nube de windows
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159084"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223674"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
 Lo siguiente es una lista completa de todas las opciones que se movilizan o de las que se realiza una copia de seguridad en Windows 10. 
@@ -30,10 +31,10 @@ Consulte la tabla siguiente para ver un resumen de los dispositivos y tipos de c
 
 | Tipo de cuenta y operación | Escritorio | Móvil |
 | --- | --- | --- |
-| Azure Active Directory: sincronización |Sí |Sin  |
+| Azure Active Directory: sincronización |SÍ |Sin  |
 | Azure Active Directory: copia de seguridad/restauración |Sin  |Sin  |
-| Cuenta de Microsoft: sincronización |Sí |Sí |
-| Cuenta de Microsoft: copia de seguridad/restauración |Sin  |Sí |
+| Cuenta de Microsoft: sincronización |SÍ |SÍ |
+| Cuenta de Microsoft: copia de seguridad/restauración |Sin  |SÍ |
 
 ## <a name="what-is-backup"></a>¿Qué es una copia de seguridad?
 La configuración de Windows se sincroniza normalmente de forma predeterminada pero de algunas configuraciones solo se realiza una copia de seguridad, como la lista de aplicaciones instaladas en un dispositivo. La característica Backup está destinada solo para dispositivos móviles y no está disponible actualmente para los usuarios de Enterprise State Roaming. Backup utiliza una cuenta Microsoft y almacena la configuración y los datos de aplicación en OneDrive. Si un usuario deshabilita la sincronización en el dispositivo mediante la aplicación Configuración, los datos de la aplicación que se suelen sincronizar se convierten en datos de copia de seguridad solamente. Solo se puede tener acceso a los datos de copia de seguridad mediante la operación de restauración durante la primera experiencia de ejecución de un nuevo dispositivo. Las copias de seguridad se pueden deshabilitar mediante la configuración del dispositivo, y se pueden administrar y eliminar mediante la cuenta OneDrive del usuario.
@@ -64,7 +65,7 @@ En la tabla siguiente, las entradas Otros en la columna Grupo de la configuraci�
 Las entradas Interno de la columna Grupo de la configuración hacen referencia a la configuración y las aplicaciones que solo se pueden deshabilitar de la sincronización dentro de la propia aplicación o al deshabilitar la sincronización para todo el dispositivo mediante la administración de dispositivos móviles (MDM) o la configuración de directivas de grupo.
 Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún grupo.
 
-| Settings | Escritorio | Móvil | Grupo |
+| Configuración | Escritorio | Móvil | Grupo |
 | --- | --- | --- | --- |
 | **Cuentas**: imagen de la cuenta |sync |X |Tema |
 | **Cuentas**: otras configuraciones de la cuenta |X |X | |

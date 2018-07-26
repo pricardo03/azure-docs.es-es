@@ -7,27 +7,28 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
+ms.component: protection
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 952a3a3952a96c7125e0b0dbe770b72c17a57101
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b37c9017d6c9a8b1d5f53141e28c170307206f3b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232252"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225832"
 ---
 # <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>Configuración de directivas de acceso condicional para intentos de acceso de redes que no son de confianza   
 
 En un mundo donde la nube y la movilidad son prioritarias, Azure Active Directory (Azure AD) permite el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier parte. Como resultado, los usuarios pueden tener acceso a las aplicaciones de nube no solo desde la red de la organización, sino también desde cualquier ubicación de Internet que no sea de confianza. Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados pueden acceder a las aplicaciones en la nube. Un requisito común en este contexto es controlar los intentos de acceso que se inicien desde las redes de confianza. En este artículo se proporciona la información necesaria para configurar una directiva de acceso condicional que controle este requisito. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se asume que está familiarizado con: 
 

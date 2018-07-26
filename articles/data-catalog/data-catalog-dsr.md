@@ -1,25 +1,24 @@
 ---
-title: "Orígenes de datos compatibles en Azure Data Catalog | Microsoft Docs"
-description: "En este artículo se enumeran las especificaciones de los orígenes de datos compatibles actualmente."
+title: Orígenes de datos compatibles en Azure Data Catalog | Microsoft Docs
+description: En este artículo se enumeran las especificaciones de los orígenes de datos compatibles actualmente.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: jstevens
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f8d24b896e6cdb39262f2c8a7f93c86f5e79fd33
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146593"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Orígenes de datos compatibles en Azure Data Catalog
 
@@ -458,7 +457,7 @@ Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique q
        <td><b>Estructura de DSL<b></td>
     </tr>
     <tr>
-      <td>Almacén de Azure Data Lake</td>
+      <td>Azure Data Lake Store</td>
       <td>Contenedor</td>
       <td>Data Lake</td>
       <td>
@@ -1396,8 +1395,8 @@ Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique q
     </tr>
     <tr>
       <td>Other (none of the above)</td>
-      <td>\*</td>
-      <td>\*</td>
+      <td>&#10033;</td>
+      <td>&#10033;</td>
       <td>
         
             Protocol: generic-asset

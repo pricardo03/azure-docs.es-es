@@ -9,18 +9,18 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: 6dc271c13f53a445c7d1101f5264d890208bd03c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381030"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223376"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Cómo crear un clasificador con Custom Vision
 
 Para usar Custom Vision Service, primero debe crear un clasificador. En este documento, aprenderá a crear un clasificador mediante su explorador web.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para crear un clasificador, necesita:
 
@@ -84,8 +84,6 @@ Para crear un proyecto, use los pasos siguientes:
 
     ![El control para agregar imágenes se muestra en la parte superior izquierda y como un botón en la parte inferior central.](./media/getting-started-build-a-classifier/add-images01.png)
 
-    ![El botón para examinar archivos locales se muestra cerca de la parte inferior central.](./media/getting-started-build-a-classifier/add-images02.png)
-
     >[!NOTE] 
     > La API REST se puede usar para cargar imágenes de entrenamiento desde direcciones URL.
 
@@ -125,7 +123,7 @@ Se muestran las calidades de los resultados del clasificador.
 
 |Término|Definición|
 |---|---|
-|__Precisión__|Al clasificar una imagen, ¿qué probabilidad existe de que el clasificador clasifique correctamente la imagen? Aparte de todas las imágenes que se usan para entrenar al clasificador (perros y ponis), ¿qué porcentaje correcto obtuvo el modelo? 99 etiquetas correctas de 100 imágenes ofrecen una precisión del 99 %.|
+|__Precisión__|Al clasificar una imagen, ¿cuál es la probabilidad de que el clasificador la clasifique correctamente? Aparte de todas las imágenes que se usan para entrenar al clasificador (perros y ponis), ¿qué porcentaje correcto obtuvo el modelo? 99 etiquetas correctas de 100 imágenes ofrecen una precisión del 99 %.|
 |__Recuperación__|Aparte de todas las imágenes que se deberían haber clasificado correctamente, ¿cuántas identificó el clasificador correctamente? Una recuperación del 100 % significa que si hay 38 imágenes de perros en las imágenes que se usaron para entrenar al clasificador, el clasificador encontró los 38 perros.|
 
 ## <a name="next-steps"></a>Pasos siguientes

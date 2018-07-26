@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917217"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213640"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar una implementación de XenApp y XenDesktop de Citrix de niveles múltiples mediante Azure Site Recovery
 
@@ -33,7 +33,7 @@ Una buena solución de recuperación ante desastres debería permitir que se pud
 Este documento proporciona instrucciones detalladas para crear una solución de recuperación ante desastres para las implementaciones locales de XenApp de Citrix en plataformas vSphere de Hyper-V y VMware. Además, se describe cómo realizar una conmutación por error de prueba (obtención de detalles de recuperación ante desastres) y una conmutación por error no planeada en Azure con los planes de recuperación, las configuraciones admitidas y los requisitos previos.
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, no olvide informarse sobre las cuestione siguientes:
 
@@ -63,9 +63,9 @@ Para este artículo, se han usado implementaciones de Citrix en máquinas virtua
 
 **Escenario** | **En un sitio secundario** | **En Azure**
 --- | --- | ---
-**Hyper-V** | Fuera del ámbito | Sí
-**VMware** | Fuera del ámbito | Sí
-**Servidor físico** | Fuera del ámbito | Sí
+**Hyper-V** | Fuera del ámbito | SÍ
+**VMware** | Fuera del ámbito | SÍ
+**Servidor físico** | Fuera del ámbito | SÍ
 
 ### <a name="versions"></a>Versiones
 Los clientes pueden implementar componentes de XenApp como máquinas virtuales que se ejecutan en Hyper-V o VMware o como servidores físicos. Azure Site Recovery puede proteger las implementaciones físicas y virtuales en Azure.
@@ -182,7 +182,7 @@ El plan de recuperación personalizado es similar al siguiente:
 
 
    >[!NOTE]
-   >Puede usar scripts en la [ubicación](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) para actualizar el DNS con las nuevas direcciones IP de las máquinas virtuales conmutadas por error o para asociar un equilibrador de carga a la máquina virtual conmutada por error, si es necesario.
+   >Puede usar scripts en la [ubicación](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts) para actualizar el DNS con las nuevas direcciones IP de las máquinas virtuales conmutadas por error o para asociar un equilibrador de carga a la máquina virtual conmutada por error, si es necesario.
 
 
 ## <a name="doing-a-test-failover"></a>Realización de una conmutación por error de prueba

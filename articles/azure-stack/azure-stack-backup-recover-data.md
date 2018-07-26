@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 7ca3945dd3768ac71e0a962417f0a621aa83be1e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f1582efa7d357f6f535c562a656ec17024357320
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075727"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242876"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Recuperación después de una pérdida de datos grave
 
@@ -46,7 +46,7 @@ En los peores escenarios, en los que se pierden todos los datos, la recuperació
 
 ![Nueva implementación de Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restauración
 
 Si hay una pérdida de datos grave, pero todavía es posible usar el hardware, se requiere reimplementar Azure Stack. Durante la implementación, puede especificar la ubicación de almacenamiento y las credenciales que se requieren para acceder a las copias de seguridad. En este modo, no es necesario especificar los servicios que se deben restaurar. Infrastructure Backup Controller inserta el estado del plano de control como parte del flujo de trabajo de la implementación.
 

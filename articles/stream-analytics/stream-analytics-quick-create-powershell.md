@@ -2,24 +2,24 @@
 title: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 description: En esta guía de inicio rápido se detalla cómo usar el módulo de Azure PowerShell para implementar y ejecutar un trabajo de Azure Stream Analytics.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 2b5d8bfd6dbe36637a0c6873e941118e7ee71b80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212439"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185387"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 
 El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure mediante cmdlets o scripts de PowerShell. En esta guía de inicio rápido se detalla cómo usar el módulo de Azure PowerShell para implementar y ejecutar un trabajo de Azure Stream Analytics. 
-
+ 
 El trabajo de ejemplo lee los datos de streaming de un blob de Azure Blob Storage. El archivo de datos de entrada usado en esta guía de inicio rápido contiene datos estáticos solo con fines ilustrativos. En un escenario real, se usan datos de entrada de streaming para los trabajos de Stream Analytics. Después, el trabajo transforma los datos mediante el lenguaje de consultas de Stream Analytics para calcular el promedio de temperatura cuando supere los 100 °. Por último, escribe los eventos de salida resultantes en otro archivo. 
 
 ## <a name="before-you-begin"></a>Antes de empezar

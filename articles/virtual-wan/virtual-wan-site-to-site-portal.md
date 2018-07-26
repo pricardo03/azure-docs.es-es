@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 1b61c335dec2c641862c08fd6f752d78b2ee5866
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea36a3d4a2471cee6a18d70275aaf2e83ffc6f39
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056673"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159658"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN (Versión preliminar)
 
 Este tutorial muestra cómo usar Virtual WAN para conectarse a los recursos de Azure a través de una conexión VPN de IPsec/IKE (IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada. Para más información sobre Virtual WAN, consulte la [Introducción a Virtual WAN](virtual-wan-about.md)
 
 > [!NOTE]
-> Si tiene muchos sitios, normalmente usará un [asociado de Virtual WAN](https://aka.ms.virtualwan) para crear esta configuración. De todas formas, puede crear esta configuración usted mismo si está familiarizado con las redes y tiene experiencia en la configuración de su propio dispositivo VPN.
+> Si tiene muchos sitios, normalmente usará un [asociado de Virtual WAN](https://aka.ms/virtualwan) para crear esta configuración. De todas formas, puede crear esta configuración usted mismo si está familiarizado con las redes y tiene experiencia en la configuración de su propio dispositivo VPN.
 >
 
 ![Diagrama de Virtual WAN](./media/virtual-wan-about/virtualwan.png)
@@ -103,7 +103,7 @@ $vnet   = New-AzureRmVirtualNetwork `
   * **Ubicación recursos**: elija una ubicación de recursos en la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. De todas formas, tiene que seleccionar una región con el fin de administrar y ubicar más fácilmente el recurso WAN que cree.
 5. Haga clic en **Crear** para crear la WAN.
 
-## <a name="site"></a>4. Creación de un sitio
+## <a name="site"></a>4. Crear un sitio
 
 Cree tantos sitios como necesite que se correspondan con sus ubicaciones físicas. Por ejemplo, si tiene una sucursal en Nueva York, otra en Londres y otra en Los Ángeles, crearía tres sitios independientes. Estos sitios contienen los puntos de conexión de dispositivo VPN local. Ahora puede especificar solo un espacio de direcciones privadas para su sitio.
 
@@ -300,7 +300,7 @@ Si necesita instrucciones para configurar el dispositivo, puede utilizar las que
 * Virtual WAN solo puede usar IKEv2, no IKEv1.
 * Virtual WAN solo puede usar dispositivos VPN e instrucciones de dispositivo basados en rutas.
 
-## <a name="viewwan"></a>8. Visualización de la instancia de Virtual WAN
+## <a name="viewwan"></a>8. Visualizar la instancia de Virtual WAN
 
 1. Vaya a la instancia de Virtual WAN.
 2. En la página Información general, cada punto del mapa representa un concentrador. Mantenga el mouse sobre cualquier punto para ver el resumen de estado del concentrador.
@@ -311,7 +311,7 @@ Si necesita instrucciones para configurar el dispositivo, puede utilizar las que
 1. Vaya a su red WAN.
 2. En la página de la WAN, en la sección de **Soporte técnico y solución de problemas**, haga clic en **Mantenimiento** y visualice los recursos.
 
-## <a name="connectmon"></a>10. Supervisión de una conexión
+## <a name="connectmon"></a>10. Supervisar una conexión
 
 Cree una conexión para supervisar la comunicación entre una máquina virtual de Azure y un sitio remoto. Para información acerca de cómo configurar una supervisión de conexión, consulte [Supervisar la comunicación de red](~/articles/network-watcher/connection-monitor.md). El campo de origen es la IP de la máquina virtual en Azure y la dirección IP de destino es la dirección IP del sitio.
 

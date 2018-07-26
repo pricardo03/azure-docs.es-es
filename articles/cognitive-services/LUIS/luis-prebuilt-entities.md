@@ -2,20 +2,19 @@
 title: Entidades precompiladas de LUIS | Microsoft Docs
 description: Este artículo contiene listas de las entidades precompiladas que se incluyen en Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: cahann
-ms.reviewer: v-geberr
-ms.openlocfilehash: 0dc1dbf32114e989fd2b9c2be61bd531f7b5e839
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry
+ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347345"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248244"
 ---
 # <a name="prebuilt-entities"></a>Entidades precompiladas
 
@@ -37,7 +36,7 @@ LUIS incluye un conjunto de entidades precompiladas para reconocer tipos comunes
 ## <a name="use-a-prebuilt-number-entity"></a>Uso de una entidad numérica precompilada
 Cuando una entidad precompilada se incluye en la aplicación, sus predicciones se incluyen en la aplicación publicada. El comportamiento de las entidades precompiladas ya está entrenado y **no** se puede modificar. Siga estos pasos para ver cómo funciona una entidad precompilada:
 
-1. Agregue una entidad de **número** a la aplicación, y después [entrene](interactive-test.md) y [publique](luis-how-to-publish-app.md) la aplicación.
+1. Agregue una entidad de **número** a la aplicación, y después [entrene](luis-interactive-test.md) y [publique](luis-how-to-publish-app.md) la aplicación.
 2. Haga clic en la dirección URL del punto de conexión en la página **Publicar aplicación** para abrir el punto de conexión de LUIS en un explorador web. 
 3. Agregue una expresión a la dirección URL que contenga una expresión numérica. Por ejemplo, puede escribir `buy two plane ticktets` y ver que LUIS identifica `two` como una entidad `builtin.number`, e identifica `2` como su valor en el campo `resolution`. El campo `resolution` le ayuda a resolver números y fechas en forma canónica que es más fácil de usar para la aplicación cliente. 
 
@@ -70,7 +69,7 @@ En el siguiente ejemplo, se muestra una respuesta JSON de LUIS, que incluye la r
 ## <a name="use-a-prebuilt-datetimev2-entity"></a>Uso de una entidad precompilada datetimeV2
 La entidad **datetimeV2** precompilada reconoce fechas, horas, rangos de fechas y duraciones de tiempo. Siga estos pasos para ver cómo funciona la entidad precompilada `datetimeV2`:
 
-1. Agregue una entidad **datetimeV2** a la aplicación, y después [entrene](interactive-test.md) y [publique](luis-how-to-publish-app.md) la aplicación.
+1. Agregue una entidad **datetimeV2** a la aplicación, y después [entrene](luis-interactive-test.md) y [publique](luis-how-to-publish-app.md) la aplicación.
 2. Haga clic en la dirección URL del punto de conexión en la página **Publicar aplicación** para abrir el punto de conexión de LUIS en un explorador web. 
 3. Agregue una expresión a la dirección URL que contenga un rango de fechas. Por ejemplo, puede escribir `book a flight tomorrow` y ver que LUIS identifica `tomorrow` como una entidad `builtin.datetimeV2.date`, e identifica la fecha del día siguiente como su valor en el campo `resolution`. 
 

@@ -8,22 +8,22 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 10617c129212d8196897af750c02647f0086c8e5
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968962"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185897"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualización de datos de supervisión remota con Time Series Insights
 
 Puede que un operador desee ampliar la visualización de datos lista para usar proporcionada por la solución preconfigurada de supervisión remota. El Solution Accelerator ofrece integración lista para usar con TSI. En este tema de procedimientos obtendrá información sobre cómo configurar Time Series Insights para analizar la telemetría de dispositivo y detectar anomalías.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tema de procedimientos, necesitará lo siguiente:
 
-* [Implementación de la solución preconfigurada de supervisión remota](iot-accelerators-remote-monitoring-deploy.md)
+* [Implementación de la solución preconfigurada de supervisión remota](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Creación de un grupo de consumidores
 

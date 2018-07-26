@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3ca55bb0a9f4719bd2229aca626d20c53af9fd1e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299535"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172024"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Creación de API personalizadas que se pueden llamar desde flujos de trabajo de aplicación lógica
 
@@ -43,7 +43,8 @@ Puede hospedar las API en [Azure App Service](../app-service/app-service-web-ove
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/app-service-web-get-started-python.md)
+> * [Python](../app-service/containers/quickstart-python.md)
+> * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > Para ver ejemplos de aplicaciones de API creadas para aplicaciones lógicas, visite el [repositorio de GitHub de Azure Logic Apps](http://github.com/logicappsio) o el [blog](http://aka.ms/logicappsblog).
 
@@ -180,7 +181,7 @@ Por ejemplo, para comprobar periódicamente el servicio para buscar nuevos archi
 | ¿La solicitud incluye `triggerState`? | Respuesta de la API | 
 | -------------------------------- | -------------| 
 | Sin  | Devuelve un estado de HTTP `202 ACCEPTED` más un encabezado `location` con `triggerState` establecido en la hora actual y el intervalo `retry-after` en 15 segundos. | 
-| Sí | Compruebe si en el servicio se han agregado archivos después de la fecha `DateTime` para `triggerState`. | 
+| SÍ | Compruebe si en el servicio se han agregado archivos después de la fecha `DateTime` para `triggerState`. | 
 ||| 
 
 | Número de archivos encontrados | Respuesta de la API | 

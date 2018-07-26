@@ -9,12 +9,12 @@ manager: jhubbard
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 87a73929185112190d5dd6698e014db225ebc08e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: be3be5769f1d9ad6138fcef851179ddc5cf6c0da
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574188"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144744"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Creación de usuarios en un servidor de Azure Database for PostgreSQL 
 En este artículo se describe cómo puede crear usuarios en un servidor de Azure Database for PostgreSQL.
@@ -64,7 +64,7 @@ La cuenta de usuario administrador del servidor puede usarse para crear usuarios
    
    CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
-   GRANT CONNECT ON DATABASE testdb TO <db_user>;
+   GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
 4. Con el uso de una cuenta de administrador, puede que deba conceder privilegios adicionales para proteger los objetos de la base de datos. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) para obtener información adicional sobre los privilegios y roles de base de datos. Por ejemplo:  
@@ -78,7 +78,7 @@ La cuenta de usuario administrador del servidor puede usarse para crear usuarios
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles que se conecten: [Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante Azure Portal](howto-manage-firewall-using-portal.md) o [CLI de Azure](howto-manage-firewall-using-cli.md).
 
 Para más información respecto a la administración de cuentas de usuario, consulte la documentación de productos de PostgreSQL relativa a los [privilegios y roles de base de datos](https://www.postgresql.org/docs/current/static/user-manag.html), la [sintaxis GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html) y los [privilegios](https://www.postgresql.org/docs/current/static/ddl-priv.html).
