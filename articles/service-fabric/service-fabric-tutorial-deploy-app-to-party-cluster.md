@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 58b7dc532511ae25c7db2bf021a42fecc3dd9bb5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 601742d82c1bd9a0e691de28ff9c4a09f12b538e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056688"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186386"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementación de una aplicación de Service Fabric en un clúster en Azure
 
@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="publish-to-a-service-fabric-cluster"></a>Publicación en un clúster de Service Fabric
 
-Ahora que la aplicación está lista, puede implementarla en un clúster directamente desde Visual Studio. Un [clúster de Service Fabric](/service-fabric/service-fabric-deploy-anywhere.md) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios.
+Ahora que la aplicación está lista, puede implementarla en un clúster directamente desde Visual Studio. Un [clúster de Service Fabric](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios.
 
 Para este tutorial, tiene dos opciones de implementación de la aplicación de votación en un clúster de Service Fabric mediante Visual Studio:
 

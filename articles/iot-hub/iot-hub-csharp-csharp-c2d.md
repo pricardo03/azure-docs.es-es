@@ -9,22 +9,22 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: e4bec631550d6ca3dc2c702b3b3f56bd29c59f03
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e2090977813f5335f2170ff543bde19cd8bf123b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631894"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185801"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Introducción
-IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. El tutorial [Introducción al Centro de IoT] muestra cómo crear un centro de IoT, aprovisionar la identidad de un dispositivo en él y programar una aplicación de dispositivo que envía mensajes de dispositivo a nube.
+IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. El tutorial [Introducción a Iot Hub] muestra cómo crear un centro de IoT, aprovisionar la identidad de un dispositivo en él y programar una aplicación de dispositivo que envía mensajes de dispositivo a nube.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Este tutorial se basa en la [Introducción al Centro de IoT]. En él se muestra cómo realizar las siguientes acciones:
+Este tutorial se basa en la [introducción a IoT Hub]. En él se muestra cómo realizar las siguientes acciones:
 
 * Desde el back-end de la nube de la aplicación, envíe mensajes de nube a dispositivo en un único dispositivo a través de IoT Hub.
 * Reciba mensajes de nube a dispositivo en un dispositivo.
@@ -34,7 +34,7 @@ Encontrará más información sobre los mensajes de nube a dispositivo en la [Gu
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
 
-* **SimulatedDevice**, versión modificada de la aplicación creada en [Introducción al Centro de IoT], que se conecta al Centro de IoT y recibe mensajes de nube a dispositivo.
+* **SimulatedDevice**, versión modificada de la aplicación creada en [Introducción a IoT Hub], que se conecta al Centro de IoT y recibe mensajes de nube a dispositivo.
 * **SendCloudToDevice**, que envía un mensaje de nube a dispositivo a la aplicación de dispositivo mediante IoT Hub y, luego, recibe su confirmación de entrega.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
 ## <a name="receive-messages-in-the-device-app"></a>Recepción de mensajes en la aplicación de dispositivo
-En esta sección, modificará la aplicación de dispositivo que creó en el tutorial [Introducción al Centro de IoT] para recibir mensajes de nube a dispositivo desde IoT Hub.
+En esta sección, modificará la aplicación de dispositivo que creó en el tutorial [Introducción a IoT Hub] para recibir mensajes de nube a dispositivo desde IoT Hub.
 
 1. En Visual Studio, en el proyecto **SimulatedDevice**, agregue el método siguiente a la clase **Program**.
    
@@ -101,7 +101,7 @@ En esta sección, escribirá una aplicación de consola de .NET que envía mensa
 4. Agregue la siguiente instrucción `using` en la parte superior del archivo **Program.cs** :
    
         using Microsoft.Azure.Devices;
-5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión de IoT Hub de [Introducción al Centro de IoT]:
+5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión de IoT Hub de [Introducción a IoT Hub]:
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -113,7 +113,7 @@ En esta sección, escribirá una aplicación de consola de .NET que envía mensa
             await serviceClient.SendAsync("myFirstDevice", commandMessage);
         }
    
-    Este método envía un nuevo mensaje de la nube al dispositivo con el identificador `myFirstDevice`. Cambie este parámetro solo si lo modificó con respecto del utilizado en [Introducción al Centro de IoT].
+    Este método envía un nuevo mensaje de la nube al dispositivo con el identificador `myFirstDevice`. Cambie este parámetro solo si lo modificó con respecto del utilizado en [Introducción a IoT Hub].
 7. Por último, agregue las líneas siguientes al método **Main** :
    
         Console.WriteLine("Send Cloud-to-Device message\n");
@@ -189,7 +189,7 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [Guía para desarrolladores de IoT Hub]: iot-hub-devguide.md
-[Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
+[Introducción a IoT Hub]: quickstart-send-telemetry-dotnet.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Acelerador de la solución de supervisión remota de Azure IoT]: https://docs.microsoft.com/azure/iot-suite/
 [SDK de dispositivos IoT de Azure]: iot-hub-devguide-sdks.md

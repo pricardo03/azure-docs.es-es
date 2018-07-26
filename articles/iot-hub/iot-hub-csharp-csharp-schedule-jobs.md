@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: dobett
-ms.openlocfilehash: 71de0a86594737f5f581f9a1f638bab0f7b06e8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0ac74a5b1a65dc171c6addd30152010965888808
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056749"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185533"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Programación y difusión de trabajos (.NET/.NET)
 
@@ -267,7 +267,8 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que u
 
 Ya está preparado para ejecutar las aplicaciones.
 
-1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y, después, haga clic en **Compilar**. **Proyectos de inicio múltiples**. Asegúrese de que `SimulateDeviceMethods` está en la parte superior de la lista seguido de `ScheduleJob`. Establezca ambas acciones en **Iniciar** y haga clic en **Aceptar**.
+1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y, después, haga clic en **Compilar**. 
+  **Proyectos de inicio múltiples**. Asegúrese de que `SimulateDeviceMethods` está en la parte superior de la lista seguido de `ScheduleJob`. Establezca ambas acciones en **Iniciar** y haga clic en **Aceptar**.
 
 1. Ejecute los proyectos haciendo clic en **Iniciar** o vaya al menú **Depurar** y haga clic en **Iniciar depuración**.
 
@@ -292,8 +293,8 @@ Para más información sobre cómo implementar AI en dispositivos perimetrales c
 [img-schedulejobs]: media/iot-hub-csharp-csharp-schedule-jobs/schedulejobs.png
 
 [lnk-get-started-twin]: iot-hub-csharp-csharp-twin-getstarted.md
-[lnk-twin-props]: iot-hub-csharp-csharp-twin-how-to-configure.md
-[lnk-c2d-methods]: iot-hub-csharp-csharp-direct-methods.md
+[lnk-twin-props]: tutorial-device-twins.md
+[lnk-c2d-methods]: quickstart-control-device-dotnet.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md

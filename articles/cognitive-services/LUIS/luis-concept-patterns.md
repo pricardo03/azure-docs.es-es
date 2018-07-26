@@ -3,19 +3,19 @@ title: Cómo los patrones aumentan la precisión de las predicciones | Microsoft
 titleSuffix: Azure
 description: Aprenda a diseñar patrones para aumentar las puntuaciones de predicción de intenciones y buscar entidades.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4a23ebddc29c6c519e68a00ef6cbff107061c341
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888286"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225224"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas. Al proporcionar un patrón para la expresión, LUIS puede tener una confianza elevada en la predicción. 
@@ -117,7 +117,7 @@ Los signos de puntuación como `.`, `!` y `?` se pueden omitir mediante los corc
 LUIS permite una aplicación sin ninguna expresión de ejemplo en la intención. Este uso solo se permite si se usan patrones. Los patrones requieren al menos una entidad en cada patrón. En aplicaciones de un único patrón, el patrón no debe contener entidades de aprendizaje automático porque estas no requieren expresiones de ejemplo. 
 
 ## <a name="best-practices"></a>Procedimientos recomendados
-Conozca los [procedimientos recomendados](luis-concept-best-practices.md).
+Obtenga información sobre los [procedimientos recomendados](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

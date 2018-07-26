@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125934"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187373"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -151,7 +151,7 @@ Un centro de IoT expone varios [puntos de conexión](iot-hub-devguide-endpoints.
 Para leer mensajes [del dispositivo a la nube](#device-to-cloud) enviados a IoT Hub, puede conectarse a un punto de conexión en el centro y utilizar cualquier método compatible con Event Hub para leer esos mensajes. Los métodos compatibles con Event Hub incluyen el uso de los [SDK de Event Hubs](../event-hubs/event-hubs-programming-guide.md) y [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Puerta de enlace de campo
-Una puerta de enlace de campo habilita la conectividad de dispositivos que no se pueden conectar directamente a [IoT Hub](#iot-hub) y se suele implementar localmente con los dispositivos. Para más información, consulte [¿Qué es Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
+Una puerta de enlace de campo habilita la conectividad de dispositivos que no se pueden conectar directamente a [IoT Hub](#iot-hub) y se suele implementar localmente con los dispositivos. Para más información, consulte [¿Qué es Azure IoT Hub?](about-iot-hub.md)
 
 ## <a name="free-account"></a>Cuenta gratuita
 Puede crear una [cuenta de Azure libre](https://azure.microsoft.com/pricing/free-trial/) para completar los tutoriales de IoT Hub y experimentar con el servicio IoT Hub (y otros servicios de Azure).
@@ -168,7 +168,7 @@ Un mensaje interactivo es un mensaje [de nube a dispositivo](#cloud-to-device) q
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT Hub
-IoT Hub es un servicio de Azure totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y un back-end de soluciones. Para más información, consulte [¿Qué es Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Con su [suscripción de Azure](#subscription), puede crear centros de IoT para controlar las cargas de trabajo de mensajería de IoT.
+IoT Hub es un servicio de Azure totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y un back-end de soluciones. Para más información, consulte [¿Qué es Azure IoT Hub?](about-iot-hub.md) Con su [suscripción de Azure](#subscription), puede crear centros de IoT para controlar las cargas de trabajo de mensajería de IoT.
 
 ## <a name="iot-hub-metrics"></a>Métricas de IoT Hub
 Las [métricas de IoT Hub](iot-hub-metrics.md) ofrecen datos sobre el estado de los centros de IoT en la [suscripción de Azure](#subscription). Las métricas de IoT Hub permiten evaluar el estado general del servicio y de los dispositivos conectados a él. Las métricas de IoT Hub pueden ayudar a ver lo que está ocurriendo con el centro de IoT y a investigar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
@@ -180,7 +180,7 @@ El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un l
 Puede usar la [API REST de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) para administrar los centros de IoT Hub en la [suscripción de Azure](#subscription); por ejemplo, puede realizar operaciones como crear, actualizar y eliminar centros.
 
 ## <a name="iot-solution-accelerators"></a>Aceleradores de soluciones de IoT
-Los aceleradores de soluciones de Azure IoT agrupan varios servicios de Azure en soluciones. Estas soluciones le permiten iniciar rápidamente implementaciones de un extremo a otro de escenarios comunes de IoT. Para más información, vea [¿Cuáles son los aceleradores de soluciones de Azure IoT?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
+Los aceleradores de soluciones de Azure IoT agrupan varios servicios de Azure en soluciones. Estas soluciones le permiten iniciar rápidamente implementaciones de un extremo a otro de escenarios comunes de IoT. Para más información, vea [¿Cuáles son los aceleradores de soluciones de Azure IoT?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>La extensión de IoT para la CLI de Azure 2.0
 [La extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) es una herramienta de la línea de comandos multiplataforma. La herramienta permite administrar los dispositivos en el [registro de identidades](#identity-registry), enviar y recibir mensajes y archivos de los dispositivos, así como supervisar las operaciones del centro de IoT.
@@ -201,7 +201,7 @@ Un dispositivo físico es un dispositivo real, como un Raspberry Pi que se conec
 Al conectarse a un punto de conexión accesible desde el dispositivo o el servicio en un centro de IoT, la [cadena de conexión](#connection-string) incluye la clave para el acceso. Al agregar un dispositivo al [registro de identidad](#identity-registry) o una [directiva de acceso compartido](#shared-access-policy) al centro, el servicio genera una clave principal y una secundaria. Tener dos claves permite pasar de una clave a otra cuando se actualiza una clave, sin perder acceso al centro de IoT.
 
 ## <a name="protocol-gateway"></a>Puerta de enlace de protocolo
-Una puerta de enlace de protocolo se implementa normalmente en la nube y proporciona servicios de traducción de protocolo para dispositivos que se conectan a [IoT Hub](#iot-hub). Para más información, consulte [¿Qué es Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
+Una puerta de enlace de protocolo se implementa normalmente en la nube y proporciona servicios de traducción de protocolo para dispositivos que se conectan a [IoT Hub](#iot-hub). Para más información, consulte [¿Qué es Azure IoT Hub?](about-iot-hub.md)
 
 ## <a name="quotas-and-throttling"></a>Cuotas y limitación
 Hay distintas [cuotas](iot-hub-devguide-quotas-throttling.md) que se aplican al uso de [IoT Hub](#iot-hub), muchas de ellas varían según el nivel del centro de IoT. [IoT Hub](#iot-hub) también aplica [límites](iot-hub-devguide-quotas-throttling.md) al uso del servicio en tiempo de ejecución.

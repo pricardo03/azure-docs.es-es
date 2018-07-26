@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088509"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187730"
 ---
 # <a name="create-a-new-simulated-device"></a>Creación de un nuevo dispositivo simulado
 
@@ -87,7 +87,7 @@ En el vídeo siguiente, se muestra un tutorial sobre cómo conectar dispositivos
 
 Para utilizar este tutorial, necesitará:
 
-* Una instancia implementada de la solución Supervisión remota en la suscripción de Azure. Si aún no ha implementado la solución Supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución Supervisión remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
+* Una instancia implementada de la solución Supervisión remota en la suscripción de Azure. Si aún no ha implementado la solución Supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución Supervisión remota](../iot-accelerators/quickstart-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Si aún no tiene Visual Studio 2017 instalado, puede descargar y usar la edición gratis de [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 
