@@ -82,8 +82,7 @@ En esta sección se explican los pasos necesarios para crear unas condiciones de
 
     ![Acceso condicional](./media/active-directory-conditional-access-tou/03.png) 
 
-6. En la sección **Administrar**, haga clic en **
-Condiciones de uso**.
+6. En la sección **Administrar**, haga clic en **Condiciones de uso**.
 
     ![Términos de uso](./media/active-directory-conditional-access-tou/04.png) 
 
@@ -264,6 +263,6 @@ Cuando ya no sea necesario, elimine el usuario de prueba y la directiva de acces
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Requerir Multi-Factor Authentication para aplicaciones específicas
-> [](./active-directory-conditional-access-app-sign-in-risk.md)Bloquear acceso si se detecta un riesgo para la sesión](./active-directory-conditional-access-app-based-mfa.md)
+> [Requerir Multi-Factor Authentication para aplicaciones específicas](./active-directory-conditional-access-app-based-mfa.md)
+> [Bloquear acceso si se detecta un riesgo para la sesión](./active-directory-conditional-access-app-sign-in-risk.md)
 
