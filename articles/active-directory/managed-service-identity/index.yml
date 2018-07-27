@@ -1,10 +1,16 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 7649d78e764c547f2211d8993514a1b793d76609
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264055"
 documentType: LandingData
 title: Documentación sobre Azure Active Directory Managed Service Identity
 metadata:
   document_id: 
   title: Documentación sobre Azure Active Directory Managed Service Identity
-  description: Aprenda a usar Managed Service Identity (MSI) para autenticarse con seguridad en los servicios en la nube de Azure sin tener que mantener las credenciales en el código fuente.
+  description: Aprenda a usar Managed Service Identity para autenticarse con seguridad en los servicios en la nube de Azure sin tener que mantener las credenciales en el código fuente.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -15,19 +21,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/16/2018
   ms.author: daveba
-  ms.openlocfilehash: ca90d9d2bb3fffb65d2cefe156d0425de9634bdd
-  ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 05/20/2018
-  ms.locfileid: "34354289"
 abstract:
-  description: Managed Service Identity (MSI) proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.  Aprenda a crear y administrar Managed Service Identity con nuestros tutoriales y guías de inicio rápido.
+  description: Managed Service Identity proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.  Aprenda a crear y administrar Managed Service Identity con nuestros tutoriales y guías de inicio rápido.
 sections:
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: Aprenda a usar Managed Service Identity (MSI) para acceder a la API de Azure Resource Manager
+    text: Aprenda a usar Managed Service Identity para acceder a la API de Azure Resource Manager
   - type: list
     style: unordered
     items:
@@ -36,7 +36,7 @@ sections:
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: Aprenda a usar Managed Service Identity (MSI) para acceder de forma segura a los recursos de Azure
+    text: Aprenda a usar Managed Service Identity para acceder de forma segura a los recursos de Azure
   - type: paragraph
     text: VM/VMSS de Windows
   - type: list
@@ -66,5 +66,5 @@ sections:
     items:
     - title: Línea de comandos
       html: <p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">CLI de Azure</a></p>
-    - title: Idiomas
+    - title: Lenguajes
       html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi">Go</a></p>

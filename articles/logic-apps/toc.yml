@@ -312,9 +312,9 @@
     - name: Esquema del lenguaje de definición de flujo de trabajo
       href: logic-apps-workflow-definition-language.md
       items:
-        - name: Acciones y desencadenadores de flujos de trabajo
+        - name: Referencia sobre tipos de desencadenador y de acción
           href: logic-apps-workflow-actions-triggers.md
-        - name: Funciones del lenguaje de definición de flujo de trabajo
+        - name: Referencia sobre funciones
           href: workflow-definition-language-functions-reference.md
         - name: 'Disponibilidad general: Historial de esquemas'
           href: logic-apps-schema-2016-04-01.md

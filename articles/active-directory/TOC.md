@@ -138,7 +138,7 @@
 ### Solución de problemas
 #### [Datos de auditoría que faltan](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Datos que faltan en las descargas](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Errores del paquete de contenido de los registros de actividad de Azure AD](active-directory-reporting-troubleshoot-
+#### [Errores de los paquetes de contenido de los registros de actividad de Azure AD](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Errores de Reporting API de Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Acceso mediante programación](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [Solución de problemas](manage-apps/application-proxy-troubleshoot.md)
 
 ### Administración de aplicaciones empresariales
+#### [Agregar una aplicación](manage-apps/add-application-portal.md)
+#### [Visualización de aplicaciones de inquilino](manage-apps/view-applications-portal.md)
 #### [Asignación de usuarios](manage-apps/assign-user-or-group-access-portal.md)
 #### [Personalización de la información de marca](manage-apps/change-name-or-logo-portal.md)
 #### [¿Cómo puedo deshabilitar los inicios de sesión de usuario?](manage-apps/disable-user-sign-in-portal.md)
 #### [Eliminación de usuarios](manage-apps/remove-user-or-group-access-portal.md)
-#### [Visualización de todas mis aplicaciones](manage-apps/view-applications-portal.md)
+
 #### [Administración del aprovisionamiento de cuentas de usuario](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Administración de inicio de sesión único para aplicaciones empresariales](manage-apps/configure-single-sign-on-portal.md)
 #### [Firma avanzada de certificados para aplicaciones SAML](manage-apps/certificate-signing-options.md)

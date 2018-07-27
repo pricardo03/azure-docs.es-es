@@ -1,3 +1,4 @@
+# displayName: additional text for filtering down the ToC in meaningful way.
 - name: Documentación de Speech Service API
   href: index.yml
 - name: Información general
@@ -13,30 +14,42 @@
       href: get-started.md
     - name: 'Reconocimiento de voz en C# (.NET en Windows)'
       href: quickstart-csharp-dotnet-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 'Reconocimiento de voz en C# (.NET Core en Windows)'
       href: quickstart-csharp-dotnetcore-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Reconocimiento de voz en una aplicación de UWP
       href: quickstart-csharp-uwp.md
+      displayName: 'recognize speech, speech recognition, speech to text, C#'
     - name: Reconocer la voz en C++ para Windows
       href: quickstart-cpp-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Reconocer la voz en C++ para Linux
       href: quickstart-cpp-linux.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Reconocimiento de voz en Java para Android
       href: quickstart-java-android.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Introducción al SDK de dispositivos de voz
       href: speech-devices-sdk-qsg.md
+      displayName: 'roobo, speech devices sdk'
 - name: Guías de procedimientos
   items:
     - name: Reconocer la voz
       href: how-to-speech-to-text.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Sintetizar voz
       href: how-to-text-to-speech.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
     - name: Traducir voz
       href: how-to-translate-speech.md
+      displayName: 'translate speech, speech translation, translator'
     - name: Transcripción de Azure Batch
       href: batch-transcription.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Obtener el SDK de dispositivos de voz
       href: get-speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk, download'
 - name: Personalización
   items:
     - name: Personalización de modelos acústicos
@@ -55,28 +68,37 @@
       href: how-to-use-audio-input-streams.md
     - name: Personalizar palabras de reactivación de dispositivos (SDK de dispositivos)
       href: speech-devices-sdk-create-kws.md
+      displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
 - name: Ejemplos
   items:
     - name: Descargar ejemplos
       href: samples.md
     - name: Reconocimiento de voz
       href: speech-to-text-sample.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Reconocimiento de la intención
       href: intent.md
+      displayName: 'recognize intent, intent recognition, language understanding service, luis'
     - name: Traducción
       href: translation.md
+      displayName: 'translate speech, speech translation, translator'
 - name: Conceptos
   items:
     - name: Speech to Text
       href: speech-to-text.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Texto a voz
       href: text-to-speech.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
     - name: Speech Translation
       href: speech-translation.md
+      displayName: 'translate speech, speech translation, translator'
     - name: SDK de voz
       href: speech-sdk.md
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, download'
     - name: SDK de dispositivos de voz
       href: speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk'
 - name: Referencia
   items:
     - name: Idiomas admitidos
@@ -87,37 +109,46 @@
       href: rest-apis.md
     - name: API de SDK de voz
       href: speech-sdk-reference.md
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: Marcado de síntesis de voz
       href: speech-synthesis-markup.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
 - name: Recursos
   items:
+    - name: Notas de la versión del SDK de voz
+      href: releasenotes.md
     - name: Preguntas más frecuentes
       items:
         - name: Preguntas frecuentes sobre la conversión de voz en texto
           href: faq-stt.md
+          displayName: 'recognize speech, speech recognition, speech to text'
         - name: Preguntas frecuentes sobre la conversión de texto a voz
           href: faq-text-to-speech.md
+          displayName: 'synthesize speech, speech synthesis, text to speech'
         - name: Preguntas frecuentes sobre la aplicación de traductor
           href: 'https://www.microsoft.com/translator/faq.aspx'
+          displayName: 'translate speech, speech translation, translator'
+    - name: solución de problemas
+      href: troubleshooting.md
+    - name: Soporte técnico
+      href: support.md
+    - name: Envío de la aplicación
+      href: ship-application.md
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Licencias / Legal
+      items:
+        - name: Licencia del SDK de voz
+          href: license.md
+        - name: Avisos de terceros del SDK de voz
+          href: third-party-notices.md
+        - name: Licencia del SDK de dispositivos de voz
+          href: speech-devices-sdk-license.md
+          displayName: 'roobo, speech devices sdk'
+        - name: Avisos de terceros del SDK de dispositivos
+          href: devices-sdk-third-party-notices.md
+          displayName: 'roobo, speech devices sdk'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacidad y cookies
       href: 'https://privacy.microsoft.com/privacystatement'
-    - name: solución de problemas
-      href: troubleshooting.md
-    - name: Envío de la aplicación
-      href: ship-application.md
-    - name: Notas de la versión
-      href: releasenotes.md
-    - name: Licencia del SDK de voz
-      href: license.md
-    - name: Licencia del SDK de dispositivos de voz
-      href: speech-devices-sdk-license.md
-    - name: Avisos de terceros
-      href: third-party-notices.md

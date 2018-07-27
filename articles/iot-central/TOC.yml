@@ -43,6 +43,8 @@
           href: howto-administer.md
         - name: Exportación de los datos
           href: howto-export-data.md
+        - name: Visualización de datos en Power BI
+          href: howto-connect-powerbi.md
     - name: Generador
       items:
         - name: Configuración de la plantilla de dispositivo

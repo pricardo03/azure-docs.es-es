@@ -138,9 +138,9 @@
           items:
             - name: Retención de copia de seguridad a largo plazo
               href: sql-database-long-term-retention.md
-            - name: 'Configuración de la retención de copia de seguridad a largo plazo: Almacenamiento de SQL'
+            - name: Configuración del uso de Azure Blob Storage
               href: sql-database-long-term-backup-retention-configure.md
-            - name: 'Configuración de la retención de copia de seguridad a largo plazo: Almacén de Azure (en desuso)'
+            - name: Configuración del uso del almacén de Azure (en desuso)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: Grupos de conmutación por error y replicación geográfica
           items:

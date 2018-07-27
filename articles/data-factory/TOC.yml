@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Ejecución de paquetes SSIS en Azure
       items:
-        - name: Unión de la instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Habilitación de la autenticación de Azure AD para una instancia de Integration Runtime para la integración de SSIS en Azure
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Configuración de una instancia de Integration Runtime para la integración de SSIS en Azure para conseguir un alto rendimiento
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Aprovisionamiento de Enterprise Edition para una instancia de Integration Runtime para la integración de SSIS en Azure
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Configuración personalizada de una instancia de Integration Runtime para la integración de SSIS en Azure
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Instalación de los componentes con licencia de una instancia de Integration Runtime para la integración de SSIS en Azure
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Ejecución de paquetes de SSIS con la actividad Ejecutar paquete de SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Ejecución de paquetes SSIS con una actividad de procedimiento almacenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Programación del entorno de ejecución de integración de Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Unión de la instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Habilitación de la autenticación de Azure AD para una instancia de Integration Runtime para la integración de SSIS en Azure
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Aprovisionamiento de Enterprise Edition para una instancia de Integration Runtime para la integración de SSIS en Azure
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Configuración personalizada de una instancia de Integration Runtime para la integración de SSIS en Azure
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Instalación de los componentes con licencia de una instancia de Integration Runtime para la integración de SSIS en Azure
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Configuración de una instancia de Integration Runtime para la integración de SSIS en Azure para conseguir un alto rendimiento
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Configuración de la recuperación ante desastres para una instancia de Integration Runtime para la integración de SSIS en Azure
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Creación de desencadenadores
       items:
         - name: Creación de un desencadenador de programación
