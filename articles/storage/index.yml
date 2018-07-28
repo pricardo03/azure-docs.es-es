@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: c781f99d47da9705e1439af660e9801ecac91665
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324279"
 documentType: LandingData
 title: Documentación de Azure Storage
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/27/2018
   ms.author: tamram
-  ms.openlocfilehash: a2254967a9f7338e29105682ea6d496271bbbe75
-  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37030298"
 abstract:
   description: Azure Storage es un servicio administrado por Microsoft que proporciona almacenamiento en la nube altamente disponible, seguro, duradero, escalable y redundante. Azure Storage incluye Azure Blobs (objetos), Azure Data Lake Storage Gen2, Azure Files, Azure Queues y Azure Tables. Aprenda a sacar el máximo partido a Azure Storage en sus aplicaciones con nuestros inicios rápidos y tutoriales.
 sections:
@@ -120,7 +120,7 @@ sections:
     items:
     - title: Línea de comandos
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">CLI de Azure</a></p>
-    - title: Idiomas
-      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+    - title: Lenguajes
+      html: <p><a href="/dotnet/api/overview/azure/storage/client?view=azure-dotnet">.NET</a></p><p><a href="/java/api/overview/azure/storage/client?view=azure-java-stable">Java</a></p><p><a href="/javascript/api/overview/azure/storage?view=azure-node-latest">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
       html: <p><a href="/rest/api/storageservices">API de blobs, colas, tablas y archivos</a></p><p><a href="/rest/api/storagerp">API del proveedor de recursos de almacenamiento</a></p><p><a href="/rest/api/storageimportexport">API del servicio Import/Export</a></p>
