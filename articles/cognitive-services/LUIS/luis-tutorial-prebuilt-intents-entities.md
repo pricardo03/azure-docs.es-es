@@ -6,18 +6,18 @@ author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 20950ced66497fb0dc96365975b37f244f677ce3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266386"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929056"
 ---
-# <a name="use-prebuilt-intents-and-entities-to-handle-common-intents-and-data"></a>Usar intenciones y entidades creadas previamente para tratar intenciones y datos comunes
-Agregue intenciones y entidades creadas previamente a la aplicación de inicio rápido de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. 
+# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Tutorial: 2. Agregar entidades e intenciones creados previamente
+Agregue intenciones y entidades creadas previamente a la aplicación de tutorial de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. 
 
 En este tutorial, aprenderá a:
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 * Consultar a LUIS y recibir una respuesta de predicción
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Si no tiene la aplicación de recursos humanos del inicio rápido de [dominio personalizado](luis-quickstart-intents-only.md), [importe](create-new-app.md#import-new-app) el archivo JSON a una aplicación nueva en el sitio web de [LUIS][LUIS] desde el repositorio de Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
+Si no tiene la aplicación de [Recursos humanos](luis-quickstart-intents-only.md) del tutorial anterior, [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website), desde el repositorio Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
 Si quiere conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `prebuilts`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
 
@@ -37,7 +37,7 @@ LUIS proporciona varias intenciones creadas previamente para ayudarle con las in
 
 1. Asegúrese de que la aplicación se encuentra en la sección **Build** (Crear) de LUIS. Para cambiar a esta sección, seleccione **Build** (Crear) en la barra de menús superior derecha. 
 
-    [ ![Captura de pantalla de la aplicación de LUIS con Build (Crear) resaltado en la barra de navegación superior derecha](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+    [ ![Captura de pantalla de una aplicación de LUIS con Build (Crear) resaltado en la barra de navegación superior derecha](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Haga clic en **Add prebuilt domain intent** (Agregar intención de dominio creado previamente). 
 
@@ -52,8 +52,9 @@ LUIS proporciona varias intenciones creadas previamente para ayudarle con las in
     * Utilities.Cancel
     * Utilities.Confirm
     * Utilities.Help
-    * Utilities.Stop
     * Utilities.StartOver
+    * Utilities.Stop
+
 
 ## <a name="add-prebuilt-entities"></a>Agregar entidades creadas previamente
 LUIS proporciona varias entidades creadas previamente para la extracción de datos comunes. 
@@ -79,9 +80,11 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
     ![Barra de estado que indica que el entrenamiento se realizó](./media/luis-quickstart-intents-only/trained.png)
 
-2. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Publish** (Publicar) para abrir la página Publish (Publicar). El espacio de producción se selecciona de forma predeterminada. Haga clic en el botón **Publish** (Publicar) junto a la selección del espacio de producción. La publicación se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
+2. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Publish** (Publicar) para abrir la página Publish (Publicar). 
 
-    No es necesario crear una clave de LUIS en Azure Portal antes de publicar o probar la dirección URL del punto de conexión. Cada aplicación de LUIS tiene una clave de inicio gratis para la creación. Ofrece una creación ilimitada y [algunas visitas del punto de conexión](luis-boundaries.md#key-limits). 
+3. El espacio de producción se selecciona de forma predeterminada. Haga clic en el botón **Publish** (Publicar) junto a la selección del espacio de producción. La publicación se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
+
+    No es necesario crear una clave de punto de conexión de LUIS en Azure Portal antes de publicar o de probar la dirección URL del punto de conexión. Cada aplicación de LUIS tiene una clave de inicio gratis para la creación. Ofrece una creación ilimitada y [algunas visitas del punto de conexión](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-with-an-utterance"></a>Consultar un punto de conexión con una expresión
 En la página **Publish** (Publicar), seleccione el vínculo **endpoint** (punto de conexión) situado en la parte inferior de la página. Esta acción abre otra ventana del explorador con la dirección URL del punto de conexión en la barra de direcciones. Vaya al final de la dirección URL en la dirección y escriba `I want to cancel on March 3`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
@@ -163,12 +166,15 @@ El resultado predice la intención Utilities.Cancel y extrae la fecha del 3 de m
     }
     ```
 
+Hay dos valores para el 3 de marzo porque la expresión no indicaba si el 3 de marzo es pasado o futuro. Depende de la solicitud de llamada a LUIS hacer una suposición o pedir aclaraciones, si es necesario. 
+
 Agregando intenciones y entidades creadas previamente de forma fácil y rápida, la aplicación cliente puede agregar una administración de conversaciones y extraer tipos de datos comunes. 
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para hacerlo, seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre las entidades](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [Adición de una entidad de expresión regular a la aplicación](luis-quickstart-intents-regex-entity.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

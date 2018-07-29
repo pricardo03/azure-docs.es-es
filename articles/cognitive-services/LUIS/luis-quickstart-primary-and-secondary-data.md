@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130900"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952392"
 ---
-# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Tutorial: 6. Incorporación de entidad simple y lista de frases
+# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutorial: 7. Incorporación de entidad simple y lista de frases
 En este tutorial se crea una aplicación que muestra cómo se extraen datos aprendidos automáticamente de una expresión con la entidad **Simple**.
 
 <!-- green checkmark -->
@@ -32,7 +32,7 @@ En este tutorial se crea una aplicación que muestra cómo se extraen datos apre
 Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md#luis-website) para crear la aplicación.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Si no tiene la aplicación de recursos humanos del tutorial de [entidades jerárquicas](luis-quickstart-intent-and-hier-entity.md), [importe](create-new-app.md#import-new-app) el archivo JSON en una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
+Si no tiene la aplicación de recursos humanos del tutorial de [entidades compuestas](luis-tutorial-composite-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON en una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
 
 Si desea conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `simple`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original.  
 
@@ -122,7 +122,7 @@ Esta aplicación de LUIS tiene nombres de trabajos en varias intenciones. Median
     |Expresión|Entidad de Job|
     |:--|:--|
     |Is there any work in databases?|bases de datos|
-    |Looking for a new situation with responsibilities in accounting|accounting|
+    |Looking for a new situation with responsibilities in accounting (Busco una nueva situación con responsabilidades en contabilidad)|accounting|
     |What positions are available for senior engineers?|senior engineers|
 
     Hay otras expresiones en el ejemplo, pero no contienen palabras de trabajo.
@@ -366,7 +366,7 @@ Abra el archivo [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples
     ```
 
 ## <a name="phrase-lists"></a>Listas de frases
-Al agregar la lista de frases se ha aumentado la señal de las palabras de la lista, pero **no** se utiliza como coincidencia exacta. La lista de frases tiene varios trabajos con la primera palabra de `lead` y también tiene el trabajo `welder`, pero no tiene el trabajo `lead welder`. Es posible que esta lista de frases de trabajo no esté completa. Como [examina expresiones de punto de conexión](label-suggested-utterances.md) con regularidad y encuentra otras palabras de trabajo, agréguelas a la lista de frases. A continuación, vuelva a entrenar y a publicar la aplicación.
+Al agregar la lista de frases se ha aumentado la señal de las palabras de la lista, pero **no** se utiliza como coincidencia exacta. La lista de frases tiene varios trabajos con la primera palabra de `lead` y también tiene el trabajo `welder`, pero no tiene el trabajo `lead welder`. Es posible que esta lista de frases de trabajo no esté completa. Como [examina expresiones de punto de conexión](luis-how-to-review-endoint-utt.md) con regularidad y encuentra otras palabras de trabajo, agréguelas a la lista de frases. A continuación, vuelva a entrenar y a publicar la aplicación.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>¿Qué ha logrado esta aplicación de LUIS?
 Esta aplicación, con una entidad simple y una lista de frases de palabras, ha identificado una intención de consulta en lenguaje natural y ha devuelto los datos del trabajo. 
@@ -377,7 +377,7 @@ El bot de chat ya tiene suficiente información para determinar la acción princ
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de la entidad para usar una API de terceros para enviar la información del trabajo a un representante del departamento de recursos humanos. Si hay otras opciones de programación para el bot o la aplicación que realiza la llamada, LUIS no realiza ese trabajo. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en la parte superior, menú de la izquierda. Seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Eliminar**. En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en la parte superior, menú de la izquierda. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
