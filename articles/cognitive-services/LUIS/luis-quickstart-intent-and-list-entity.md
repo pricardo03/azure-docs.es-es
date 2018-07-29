@@ -2,19 +2,19 @@
 title: 'Tutorial sobre la creación de una aplicación de LUIS para obtener texto exacto que coincida con datos enumerados: Azure | Microsoft Docs'
 description: En este tutorial, aprenda a crear una aplicación sencilla de LUIS con intenciones y entidades de lista para extraer datos de esta guía de inicio rápido.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: da0491aae571f085a8cbe3cd372f905202e9db9b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 4ba2ba5d947a112f780579bf4b31ba38cb26ae03
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931072"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222977"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Tutorial: 4. Incorporación de entidad de lista
 En este tutorial, cree una aplicación que muestra cómo obtener datos que coinciden con una lista predefinida. 
@@ -144,7 +144,7 @@ Ahora que la intención **MoveEmployee** tiene expresiones, LUIS debe comprender
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 LUIS no conoce los cambios en las intenciones y entidades (el modelo) hasta que se le entrena. 
 
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Train** (Entrenar).
+1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Entrenar**.
 
     ![Entrenamiento de la aplicación](./media/luis-quickstart-intent-and-list-entity/train-button.png)
 
@@ -292,11 +292,11 @@ Esta aplicación, con una entidad de lista, extrajo el empleado correcto.
 
 El bot de chat ahora tiene suficiente información para determinar la acción principal, `MoveEmployee`, y qué empleados mover. 
 
-## <a name="where-is-this-luis-data-used"></a>¿Dónde se utilizan estos datos de LUIS? 
+## <a name="where-is-this-luis-data-used"></a>¿Dónde se usan estos datos de LUIS? 
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de la entidad para realizar el siguiente paso. LUIS no realiza este trabajo de programación para el bot o la aplicación que realiza la llamada. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

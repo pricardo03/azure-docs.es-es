@@ -2,19 +2,19 @@
 title: 'Tutorial para crear una aplicación de LUIS que devuelve frases clave: Azure | Microsoft Docs'
 description: En este tutorial, aprenderá cómo agregar y devolver la entidad keyPhrase a su aplicación de LUIS para analizar los temas principales de las expresiones.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929566"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224269"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Tutorial: 8. Adición de la entidad KeyPhrase 
 En este tutorial, va a usar una aplicación que muestra cómo extraer los temas principales de las expresiones.
@@ -75,7 +75,7 @@ Agregue la entidad predefinida keyPhrase para extraer los temas principales de l
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 La nueva versión de `keyphrase` versión de la aplicación debe recibir entrenamiento.  
 
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Train** (Entrenar).
+1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Entrenar**.
 
     ![Entrenamiento de la aplicación](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
@@ -89,7 +89,7 @@ La nueva versión de `keyphrase` versión de la aplicación debe recibir entrena
 
     [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Captura de pantalla de la página Publish (Publicar) con el botón de publicación en el espacio de producción resaltado")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
 
-2. Seleccione el espacio de producción y presione el botón **Publicar**.
+2. Seleccione el espacio de producción y haga clic en el botón **Publicar**.
 
     [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Captura de pantalla de la página Publish (Publicar) con el botón de publicación en el espacio de producción resaltado")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
@@ -201,7 +201,7 @@ Su bot de chat ya tiene ahora suficiente información para determinar el siguien
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de keyPhrase de la expresión para realizar el siguiente paso. LUIS no realiza este trabajo de programación para el bot o la aplicación que realiza la llamada. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione el botón de puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione el botón de puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

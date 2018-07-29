@@ -2,19 +2,19 @@
 title: 'Tutorial para crear una aplicación de LUIS que devuelve el análisis de opiniones: Azure | Microsoft Docs'
 description: En este tutorial, aprenderá a agregar el análisis de opiniones a su aplicación de LUIS para que analice expresiones para detectar sentimientos positivos, negativos y neutrales.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8dc6b8d4dd4cbe64841c4b36c498cf9021b4196f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930613"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223626"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>Tutorial: 9.  Incorporación de análisis de sentimiento
 En este tutorial va a crear una aplicación que muestra cómo extraer opiniones positivas, negativas y neutrales de expresiones.
@@ -53,7 +53,7 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
 
     [ ![Captura de pantalla de la aplicación de LUIS con Build (Crear) resaltado en la barra de navegación superior derecha](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-2. Seleccione **Create new intent** (Crear nueva intención).
+2. Haga clic en **Create new intent** (Crear intención).
 
     [ ![Captura de pantalla de la aplicación de LUIS con Build (Crear) resaltado en la barra de navegación superior derecha](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
@@ -81,7 +81,7 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 LUIS no sabe nada acerca de la nueva intención ni de sus expresiones de ejemplo hasta que se le entrena. 
 
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Train** (Entrenar).
+1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Entrenar**.
 
     ![Captura de pantalla del botón Train (Entrenar) resaltado](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
@@ -96,7 +96,7 @@ Configure el análisis de sentimiento en la página **Publish** (Publicar).
 
     ![Captura de pantalla de la página Intents (Intenciones) con el botón Publish (Publicar) expandido ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Seleccione **Enable Sentiment Analysis** (Habilitar análisis de sentimiento). Seleccione el espacio de producción y presione el botón **Publicar**.
+2. Seleccione **Enable Sentiment Analysis** (Habilitar análisis de sentimiento). Seleccione el espacio de producción y haga clic en el botón **Publicar**.
 
     [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Captura de pantalla de la página Publish (Publicar) con el botón de publicación en el espacio de producción resaltado")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
@@ -212,7 +212,7 @@ Su bot de chat ya tiene ahora suficiente información para determinar el siguien
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de opinión de la expresión para realizar el siguiente paso. LUIS no realiza este trabajo de programación para el bot o la aplicación que realiza la llamada. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

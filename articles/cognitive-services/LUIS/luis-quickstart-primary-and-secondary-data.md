@@ -2,19 +2,19 @@
 title: 'Tutorial para crear una aplicación de LUIS que extraiga datos: Azure | Microsoft Docs'
 description: En este tutorial, va a aprender a crear una aplicación de LUIS sencilla con intenciones y una entidad simple para extraer datos que se han aprendido automáticamente.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952392"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238012"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutorial: 7. Incorporación de entidad simple y lista de frases
 En este tutorial se crea una aplicación que muestra cómo se extraen datos aprendidos automáticamente de una expresión con la entidad **Simple**.
@@ -141,7 +141,7 @@ LUIS no conoce los cambios en las intenciones y entidades (el modelo) hasta que 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
 Para obtener una predicción de LUIS en un bot de chat u otra aplicación, tiene que publicar la aplicación. 
 
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Publish** (Publicar). 
+1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Publish** (Publicar). 
 
 2. Seleccione el espacio de producción y el botón **Publish** (Publicar).
 
@@ -373,11 +373,11 @@ Esta aplicación, con una entidad simple y una lista de frases de palabras, ha i
 
 El bot de chat ya tiene suficiente información para determinar la acción principal de aplicar un trabajo y un parámetro de dicha acción, a qué trabajo se hace referencia. 
 
-## <a name="where-is-this-luis-data-used"></a>¿Dónde se utilizan estos datos de LUIS? 
+## <a name="where-is-this-luis-data-used"></a>¿Dónde se usan estos datos de LUIS? 
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de la entidad para usar una API de terceros para enviar la información del trabajo a un representante del departamento de recursos humanos. Si hay otras opciones de programación para el bot o la aplicación que realiza la llamada, LUIS no realiza ese trabajo. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en la parte superior, menú de la izquierda. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en la parte superior, menú de la izquierda. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
