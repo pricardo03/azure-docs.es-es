@@ -2,19 +2,19 @@
 title: 'Creación de una aplicación simple con dos intenciones: Azure | Microsoft Docs'
 description: Obtenga información sobre cómo crear una aplicación simple de LUIS con dos intenciones y sin identidades para identificar expresiones de usuario en este inicio rápido.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865818"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237781"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Tutorial: 1. Compilación de aplicación con dominio personalizado
 En este tutorial, cree una aplicación que muestre cómo usar las **intenciones** para determinar la _intención_ del usuario en función de la expresión (texto) que envía a la aplicación. Cuando termine, tendrá un punto de conexión LUIS en ejecución en la nube.
@@ -86,7 +86,7 @@ Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInfo
     En la aplicación que realiza la llamada de LUIS, por ejemplo, un bot de chat, si LUIS devuelve la intención **None** para una expresión, el bot puede preguntar al usuario si desea finalizar la conversación. El bot de chat también puede dar más instrucciones para que continúe la conversación si el usuario no desea terminarla. 
 
 ## <a name="train-and-publish-the-app"></a>Entrenamiento y publicación de la aplicación
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Train** (Entrenar). 
+1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Train** (Entrenar). 
 
     ![Botón Train (Entrenar)](./media/luis-quickstart-intents-only/train-button.png)
 
@@ -94,7 +94,7 @@ Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInfo
 
     ![Barra de estado que indica que el entrenamiento se realizó](./media/luis-quickstart-intents-only/trained.png)
 
-2. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Publish** (Publicar) para abrir la página Publish (Publicar). El espacio de producción se selecciona de manera predeterminada. Seleccione el botón **Publish** (Publicar) según la selección del espacio de producción. La publicación se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
+2. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Publish** (Publicar) para abrir la página Publish (Publicar). El espacio de producción se selecciona de forma predeterminada. Haga clic en el botón **Publish** (Publicar) junto a la selección del espacio de producción. La publicación se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
 
     No es necesario crear una clave de punto de conexión de LUIS en Azure Portal antes de publicar o de probar la dirección URL del punto de conexión. Cada aplicación de LUIS tiene una clave de inicio gratis para la creación. Ofrece una creación ilimitada y [algunas visitas del punto de conexión](luis-boundaries.md#key-limits). 
 
@@ -188,7 +188,7 @@ El resultado de JSON identifica la intención que tiene la puntuación más alta
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado topScoringIntent y encontrar información (no almacenada en LUIS) para responder la pregunta o para finalizar la conversación. Estas son opciones programáticas para el bot o la aplicación que realiza la llamada. LUIS no hace ese trabajo. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para hacerlo, seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Eliminar**. En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para hacerlo, seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
