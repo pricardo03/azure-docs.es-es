@@ -89,6 +89,10 @@
         - name: Solución de mantenimiento para Azure Container Service
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: Visualización de los registros de componentes maestros
+          href: view-master-logs.md
+        - name: Visualización de los registros de kubelet
+          href: kubelet-logs.md
     - name: Desarrollo y ejecución de aplicaciones
       items:
         - name: Ejecución de aplicaciones con Helm
@@ -121,8 +125,6 @@
       items:
         - name: Acceso al nodo SSH
           href: aks-ssh.md
-        - name: Obtención de registros de kubelet
-          href: kubelet-logs.md
 - name: Referencia
   items:
     - name: Azure CLI
