@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/22/2018
+ms.date: 07/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081700"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929593"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Tutorial: 5. Incorporación de entidad jerárquica
 En este tutorial, creará una aplicación que muestra cómo buscar datos relacionados en función del contexto. 
@@ -27,10 +27,10 @@ En este tutorial, creará una aplicación que muestra cómo buscar datos relacio
 > * Entrenamiento y publicación de la aplicación
 > * Consulta del punto de conexión de la aplicación para ver la respuesta JSON de LUIS que incluye elementos secundarios jerárquicos 
 
-Para este artículo, necesita una cuenta de [LUIS][LUIS] gratuita para crear la aplicación de LUIS.
+Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md#luis-website) para crear la aplicación.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Si no tiene la aplicación de Recursos humanos del tutorial de [entidades de lista](luis-quickstart-intent-and-list-entity.md), [importe](create-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
+Si no tiene la aplicación de Recursos humanos del tutorial de [entidades de lista](luis-quickstart-intent-and-list-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
 
 Si desea conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `hier`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
 
@@ -64,12 +64,12 @@ Para ver la expresión completa y marcar los elementos secundarios jerárquicos,
     [ ![Captura de pantalla de la aplicación de LUIS con el botón Entities (Entidades) resaltado en el menú de la izquierda](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
 
-3. Seleccione los tres puntos (...) a la derecha de la entidad numérica de la lista. Seleccione **Eliminar**. 
+3. Seleccione el botón de puntos suspensivos (***...***) a la derecha de la entidad numérica de la lista. Seleccione **Eliminar**. 
 
     [ ![Captura de pantalla de la aplicación LUIS en la página de la lista de entidades, con el botón Delete (Eliminar) resaltado para la entidad numérica creada previamente](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
-## <a name="add-utterances-to-findform-intent"></a>Adición de expresiones a la intención FindForm
+## <a name="add-utterances-to-moveemployee-intent"></a>Adición de expresiones en la intención MoveEmployee
 
 1. Seleccione **Intents** (Intenciones) en el menú izquierdo.
 
@@ -268,12 +268,8 @@ El bot de chat ahora tiene suficiente información para determinar la acción pr
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de la entidad para realizar el siguiente paso. LUIS no realiza este trabajo de programación para el bot o la aplicación que realiza la llamada. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para ello, seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para ello, seleccione el botón de puntos suspensivos (***...***) situado a la derecha del nombre de la aplicación en la lista de aplicaciones y haga clic en **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"] 
-> [Aprenda cómo agregar una entidad de lista](luis-quickstart-intent-and-list-entity.md) 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [Más información sobre cómo agregar una entidad compuesta](luis-tutorial-composite-entity.md) 
