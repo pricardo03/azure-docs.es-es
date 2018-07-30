@@ -3,7 +3,7 @@ title: Controles de aplicación adaptables en Azure Security Center | Microsoft 
 description: Este documento le ayuda a usar el control de aplicación adaptable en Azure Security Center para incluir en la lista de permitidos las aplicaciones que se ejecutan en máquinas virtuales de Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: fa2f3c10687a02c5d0be8d7bb0ae88b2b0c38e19
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 07/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989972"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161939"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controles de aplicación adaptables en Azure Security Center (versión preliminar)
+# <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicación adaptables en Azure Security Center
 Obtenga información acerca de cómo configurar el control de aplicación en Azure Security Center con este tutorial.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>¿Qué son los controles de aplicación adaptables en Security Center?
@@ -35,7 +35,7 @@ Los controles de aplicación adaptables ayudan a controlar qué aplicaciones se 
 - Permiten que TI controle el acceso a información confidencial a través del uso de aplicaciones.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>¿Cómo habilitar los controles de aplicación adaptables?
-Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaciones que se pueden ejecutar en los grupos de recursos configurados. Esta característica solo está disponible para máquinas de Windows (todas las versiones, clásica o Azure Resource Manager). Los pasos siguientes se pueden usar para configurar la inclusión de aplicaciones en las listas de permitidos de Security Center:
+Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaciones que se pueden ejecutar en los grupos configurados. Esta característica solo está disponible para máquinas de Windows (todas las versiones, clásica o Azure Resource Manager). Los pasos siguientes se pueden usar para configurar la inclusión de aplicaciones en las listas de permitidos de Security Center:
 
 1. Abra el panel **Security Center**.
 2. En el panel de la izquierda, seleccione **Controles de aplicaciones adaptables** que se encuentra en **Protección en la nube avanzada**.
@@ -87,12 +87,12 @@ La sección **Grupos de máquinas virtuales** contiene tres pestañas:
 
 5. Cuando haya terminado de realizar las selecciones, elija **Crear**.
 
-De forma predeterminada, Security Center siempre habilita el control de aplicación en modo *Auditoría*. Después de comprobar que la lista de permitidos no tenga efectos negativos en la carga de trabajo, puede cambiar al modo *Forzar*.
-
-Security Center necesita al menos dos semanas de datos para crear una base de referencia y rellenar las recomendaciones únicas para cada grupo de máquinas virtuales. Los clientes nuevos del nivel estándar de Security Center experimentarán un comportamiento en el que, al principio, sus grupos de máquinas virtuales aparecen en la pestaña *Ninguna recomendación*.
-
+6. Security Center aplica las reglas correspondientes en cada una de las máquinas virtuales seleccionadas aprovechando las funcionalidades integradas de AppLocker para los servidores de Windows. Además, Security Center siempre habilita el control de la aplicación en el modo Auditoría de forma predeterminada. Después de comprobar que la lista de permitidos no tenía efectos adversos en la carga de trabajo, puede cambiar al modo **Forzar**. Para más información, consulte [How AppLocker works](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref) (Funcionamiento de AppLocker).
+ 
 > [!NOTE]
-> Como procedimiento recomendado de seguridad, Security Center siempre intenta crear una regla de publicador para las aplicaciones que deben estar en la lista de permitidos y solo si una aplicación no tiene información del publicador (también conocido como no firmada), se creará una regla de ruta de acceso para la ruta de acceso completa del archivo EXE específico.
+> - Security Center necesita al menos dos semanas de datos para crear una base de referencia y rellenar las recomendaciones únicas para cada grupo de máquinas virtuales. Los clientes nuevos del nivel estándar de Security Center experimentarán un comportamiento en el que, al principio, sus grupos de máquinas virtuales aparecen en la pestaña *Ninguna recomendación*.
+> - Controles de aplicación adaptables de Security Center no admite máquinas virtuales para las que ya esté habilitada una directiva de AppLocker mediante un GPO o una directiva de seguridad local.
+> -  Como procedimiento recomendado de seguridad, Security Center siempre intenta crear una regla de publicador para las aplicaciones que deben estar en la lista de permitidos y solo si una aplicación no tiene información del publicador (también conocido como no firmada), se creará una regla de ruta de acceso para la ruta de acceso completa del archivo EXE específico.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Edición y supervisión de un grupo configurado con control de aplicación

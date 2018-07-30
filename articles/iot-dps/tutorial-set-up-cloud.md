@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619289"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145543"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar los recursos de la nube para el aprovisionamiento de dispositivos con el servicio IoT Hub Device Provisioning
 
@@ -28,9 +28,9 @@ Este tutorial muestra cómo configurar la nube para el aprovisionamiento automá
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Creación de una instancia del servicio Device Provisioning y obtención del ámbito del identificador
 
@@ -50,9 +50,9 @@ Siga estos pasos para crear una nueva instancia del servicio Device Provisioning
 
    ![Especificar la información básica de DPS en el portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Haga clic en **Create**(Crear).
-6. El *ámbito del identificador* se usa para diferenciar los identificadores de registro y, además, garantiza que el identificador de registro es único. Para obtener este valor, haga clic en **Introducción** para que se abra la página **Información esencial** para el servicio Device Provisioning. Copie el valor del **ámbito del identificador** en una ubicación temporal para su uso posterior.
-7. También tome nota del valor del **punto de conexión del servicio** o cópielo en una ubicación temporal para su uso posterior. 
+5. Haga clic en **Create**(Crear). Transcurridos unos instantes, se crea la instancia de Device Provisioning Service y aparece la página **Información general**.
+6. En la página **Información general** de la nueva instancia del servicio, copie el valor de **Ámbito de id.** para su uso posterior. Este valor se usa para diferenciar los identificadores de registro y, además, garantiza que el identificador de registro es único.
+7. Copie también el valor del **punto de conexión de servicio** para su uso posterior. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -65,8 +65,11 @@ El paso siguiente es vincular el servicio Device Provisioning a una instancia de
 1. En la página **Todos los recursos**, haga clic en la instancia del servicio Device Provisioning que creó anteriormente.
 2. En la página del servicio Device Provisioning, haga clic en **Linked IoT hubs** (Centros de IoT vinculados).
 3. Haga clic en **Agregar**.
-4. En la página **Add link to IoT hub** (Agregar vínculo a centro de IoT), utilice los botones de radio para especificar si el centro de IoT vinculado se encuentra en la suscripción actual o en una suscripción diferente. A continuación, elija el nombre del centro de IoT en el cuadro **Centro de IoT**.
-5. Haga clic en **Save**(Guardar).
+4. En la página **Agregar un vínculo a IoT Hub**, proporcione la información siguiente y haga clic en **Guardar**:
+
+    * **Suscripción:** asegúrese de que está seleccionada la suscripción que contiene el centro de IoT. Puede vincular a un centro de IoT que resida en una suscripción diferente.
+    * **Centro de IoT:** elija el nombre del centro de IoT que desea vincular con esta instancia de Device Provisioning Service.
+    * **Directiva de acceso:** seleccione **iothubowner** como las credenciales para establecer el vínculo con el centro de IoT.
 
    ![Vincular el nombre del centro a la instancia de DPS del portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 

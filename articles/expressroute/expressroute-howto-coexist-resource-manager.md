@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823570"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259262"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configuración de conexiones coexistentes de ExpressRoute de sitio a sitio
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Hay dos conjuntos diferentes de procedimientos que puede elegir. El procedimient
     Si aún no tiene una red virtual, este procedimiento le guía en la creación de una nueva red virtual mediante el modelo de implementación de Resource Manager y la creación de nuevas conexiones VPN de sitio a sitio y ExpressRoute. Para configurar una red virtual, siga los pasos que se describen en [Creación de una nueva red virtual y conexiones coexistentes](#new).
 * Ya tengo una red virtual del modelo de implementación de Resource Manager.
   
-    Puede que ya tenga una red virtual con una conexión VPN de sitio a sitio o una conexión ExpressRoute existentes. En este escenario, si la máscara de subred de la puerta de enlace es /28 o mayor, tendrá que eliminar la puerta de enlace existente. La sección [Configuración de conexiones coexistentes para una red virtual existente](#add) le guía en la eliminación de la puerta de enlace y la creación de nuevas conexiones VPN de sitio a sitio y ExpressRoute.
+    Puede que ya tenga una red virtual con una conexión VPN de sitio a sitio o una conexión ExpressRoute existentes. En este escenario, si la máscara de subred de la puerta de enlace es /28, o menor (/28, /29, etc.), tendrá que eliminar la puerta de enlace existente. La sección [Configuración de conexiones coexistentes para una red virtual existente](#add) le guía en la eliminación de la puerta de enlace y la creación de nuevas conexiones VPN de sitio a sitio y ExpressRoute.
   
     Si elimina y crea de nuevo la puerta de enlace, se producirá un tiempo de inactividad en las conexiones entre locales. Sin embargo, si las máquinas virtuales y los servicios están configurados para ello, podrán seguir comunicándose con el exterior a través del equilibrador de carga mientras configura la puerta de enlace.
 
@@ -91,7 +91,7 @@ Este procedimiento le guía en la creación de una red virtual y conexiones de s
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Cree una red virtual, incluida la subred de la puerta de enlace. Para más información acerca de cómo crear una red virtual en Azure, consulte [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network) (Creación de una red virtual). Para más información acerca de cómo crear subredes, consulte [Incorporación de una subred](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    

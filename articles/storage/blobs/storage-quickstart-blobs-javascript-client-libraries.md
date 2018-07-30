@@ -10,12 +10,12 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bde281eab22fc720e2e2420f22ff4eb0a610b93
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419114"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216596"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -49,11 +49,11 @@ A continuación, se usa Azure Cloud Shell para crear un token de seguridad.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Creación de una firma de acceso compartido
-La firma de acceso compartido (SAS) es usada por el código que se ejecuta en el explorador para autenticar las solicitudes para Blob Storage. Mediante el uso de una firma de acceso compartido, el cliente puede autenticarse sin necesidad de la cadena de conexión o de la clave de acceso de cuenta. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
+La firma de acceso compartido (SAS) es usada por el código que se ejecuta en el explorador para autorizar las solicitudes para Blob Storage. Mediante el uso de una firma de acceso compartido, el cliente puede autorizar el acceso a los recursos de almacenamiento sin la clave de acceso de cuenta ni la cadena de conexión. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
 Puede crear una SAS mediante la CLI de Azure a través de Azure Cloud Shell o con el Explorador de Azure Storage. En la tabla siguiente se describen los parámetros para los que necesita proporcionar valores con el fin de generar una firma de acceso compartido con la CLI.
 
-| .      |DESCRIPCIÓN  | Placeholder |
+| Parámetro      |DESCRIPCIÓN  | Placeholder |
 |----------------|-------------|-------------|
 | *expiry*       | La fecha de expiración del token de acceso en formato AAAA-MM-DD. Escriba la fecha de mañana para usarla con este guía de inicio rápido. | *FUTURE_DATE* |
 | *account-name* | El nombre de la cuenta de almacenamiento. Utilice el nombre que se reservó en un paso anterior. | *YOUR_STORAGE_ACCOUNT_NAME* |
@@ -75,7 +75,7 @@ az storage account generate-sas
 ```
 Puede encontrar un poco críptica la serie de valores después de cada parámetro. Los valores de estos parámetros se toman de la primera letra de sus permisos correspondientes. La siguiente tabla explica la procedencia de los valores: 
 
-| .        | Valor   | DESCRIPCIÓN  |
+| Parámetro        | Valor   | DESCRIPCIÓN  |
 |------------------|---------|---------|
 | *permissions*    | racwdl  | Esta firma de acceso compartido permite *leer*, *anexar*, *crear*, *escribir*, *eliminar* y *enumerar*. |
 | *resource-types* | sco     | Los recursos afectados por las firmas de acceso compartido son *servicio*, *contenedor* y *objeto*. |
@@ -254,4 +254,4 @@ Para limpiar los recursos creados durante esta guía de inicio rápido, vuelva a
 Explore los ejemplos para aprender a descargar blobs e informar del progreso durante las cargas de archivos.
 
 > [!div class="nextstepaction"]
-> [Bibliotecas de cliente de almacenamiento de blobs](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Bibliotecas de cliente de Blob Storage](https://github.com/Azure/azure-storage-node/tree/master/browser)

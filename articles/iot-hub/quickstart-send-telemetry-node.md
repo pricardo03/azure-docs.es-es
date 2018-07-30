@@ -1,6 +1,6 @@
 ---
 title: Inicio rápido para enviar datos de telemetría a Azure IoT Hub (Node.js) | Microsoft Docs
-description: En este inicio rápido, ejecutará dos aplicaciones Node.js de ejemplo para enviar datos de telemetría simulados a IoT Hub y para leer los datos de telemetría procedentes de este para procesarlos en la nube.
+description: En esta guía de inicio rápido, ejecutará dos aplicaciones Node.js de ejemplo para enviar datos de telemetría simulados a un centro de IoT y para leer los datos de telemetría procedentes de este para procesarlos en la nube.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 17afdd4c57f58770ae82093c5e23e469d1109f6a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 23ea129f4f755f312789f481a05eab9c1a6fd085
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540049"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215961"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub y leer datos de telemetría procedentes de este con una aplicación back-end (Node.js)
 
@@ -29,7 +29,7 @@ El inicio rápido usa dos aplicaciones Node.js escritas previamente: una para en
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Node.js. Necesita Node.js 4.x.x o una versión posterior en el equipo de desarrollo.
 

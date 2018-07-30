@@ -1,8 +1,8 @@
 ---
-title: Inscripción de dispositivos X.509 al servicio Azure Device Provisioning con Java | Microsoft Docs
-description: 'Guía de inicio rápido de Azure: Inscripción de dispositivos X.509 al servicio Azure IoT Hub Device Provisioning mediante el SDK del servicio de Java'
-author: dsk-2015
-ms.author: dkshir
+title: Esta guía de inicio rápido le muestra cómo inscribir dispositivos X.509 en el servicio Azure Device Provisioning con Java | Microsoft Docs
+description: En esta guía de inicio rápido va a inscribir dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service con Java
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,54 +10,45 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: e9400c476179d801eb66f574373bf75cfb672d9d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091091"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205772"
 ---
-# <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscripción de dispositivos X.509 al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Java
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Guía de inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-En estos pasos se muestra cómo inscribir un grupo de dispositivos X.509 simulados mediante programación en el servicio Azure IoT Hub Device Provisioning con el [SDK del servicio de Java](https://azure.github.io/azure-iot-sdk-java/service/) con la ayuda de una aplicación de Java de ejemplo. Aunque el SDK del servicio de Java funciona en máquinas Windows y Linux, este artículo usa una máquina de desarrollo de Windows para guiarle por el proceso de inscripción.
+Esta guía de inicio rápido muestra cómo usar Java para inscribir mediante programación un grupo de dispositivos simulados X.509 en el servicio Azure IoT Hub Device Provisioning Service. Los dispositivos se inscriben en una instancia de Device Provisioning Service mediante la creación de un [grupo de inscripción](concepts-service.md#enrollment-group) o de una [inscripción individual](concepts-service.md#individual-enrollment). Esta guía de inicio rápido le muestra cómo crear ambos tipos de inscripciones. Las inscripciones se crean mediante el [SDK del servicio Java](https://azure.github.io/azure-iot-sdk-java/service/) con la ayuda de una aplicación de Java de ejemplo. 
 
-Asegúrese de [configurar un servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar.
+En esta guía de inicio rápido se asume que ya ha creado un centro de IoT y una instancia de Device Provisioning Service. Si aún no ha creado estos recursos, complete la guía de inicio rápido [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar con este artículo.
 
-<a id="setupdevbox"></a>
+Aunque el SDK del servicio de Java funciona en máquinas Windows y Linux, este artículo usa una máquina de desarrollo de Windows para guiarle por el proceso de inscripción.
 
-## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Asegúrese de que tiene [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalado en su máquina. 
+## <a name="prerequisites"></a>Requisitos previos
 
-2. Establezca las variables de entorno para la instalación de Java. La variable `PATH` debería incluir la ruta de acceso completa al directorio *jdk1.8.x\bin*. Si esta es la primera instalación de Java de su máquina, cree una nueva variable de entorno con el nombre `JAVA_HOME` y haga que señale a la ruta de acceso completa del directorio *jdk1.8.x*. En una máquina con Windows, este directorio se encuentra normalmente en la carpeta *C:\\Archivos de programa\\Java\\*. Puede crear o modificar las variables de entorno si busca **Editar las variables de entorno del sistema** en el **Panel de control** de su máquina Windows. 
+* Instale [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Instale [Maven 3](https://maven.apache.org/download.cgi). Para comprobar su versión actual de Maven haga lo siguiente:
 
-  Para comprobar si Java está correctamente configurado en la máquina, ejecute el comando siguiente en la ventana Comandos:
-
-    ```cmd\sh
-    java -version
-    ```
-
-3. Descargue y extraiga [Maven 3](https://maven.apache.org/download.cgi) en su máquina. 
-
-4. Modifique la variable de entorno `PATH` para que apunte a la carpeta *apache-maven-3.x.x\\bin* dentro de la carpeta donde se extrae Maven. Para confirmar que Maven está instalado correctamente, ejecute este comando en la ventana Comandos:
-
-    ```cmd\sh
+    ```cmd/sh
     mvn --version
     ```
 
-5. Asegúrese de que [GIT](https://git-scm.com/download/) esté instalado en su máquina y de que se agregue a la variable de entorno `PATH`. 
+* Instale [Git](https://git-scm.com/download/).
 
 
 <a id="javasample"></a>
 
 ## <a name="download-and-modify-the-java-sample-code"></a>Descarga y modificación del código de ejemplo de Java
 
-En esta sección se usa un certificado X.509 autofirmado, así que es importante tener en cuenta lo siguiente:
+En esta sección se usa un certificado X.509 autofirmado, así que es importante tener en cuenta los siguientes puntos:
 
 * Los certificados autofirmados son solo para la realización de pruebas, no se deben usar en producción.
-* La fecha de expiración predeterminada de un certificado autofirmado es de 1 año.
+* La fecha de expiración predeterminada de un certificado autofirmado es de un año.
 
 Los siguientes pasos muestran cómo agregar los detalles de aprovisionamiento del dispositivo X.509 al código de ejemplo. 
 
@@ -216,7 +207,7 @@ Si tiene previsto explorar el ejemplo del servicio de Java, no elimine los recur
 
 1. Cierre la ventana de salida de ejemplo de Java en su máquina.
 1. Cierre la ventana de la herramienta para _generar certificados X.509_ en su máquina.
-1. Navegue a su servicio de Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Grupos de inscripción**. Seleccione el *NOMBRE DE GRUPO* para los dispositivos X.509 que inscribió mediante esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja.  
+1. Navegue a su servicio Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Grupos de inscripción**. Seleccione el *NOMBRE DE GRUPO* para los dispositivos X.509 que inscribió mediante esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, inscribió un grupo de dispositivos X.509 simulados al servicio de Device Provisioning. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 

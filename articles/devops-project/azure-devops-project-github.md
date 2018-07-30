@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967450"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205568"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Creación de una canalización de CI/CD para el código existente con Azure DevOps Projects
 
@@ -38,7 +38,7 @@ Podrá:
 > * Examen de la canalización de CI/CD en VSTS
 > * Configurar la supervisión de Azure Application Insights
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 * Acceso a un GitHub o repositorio Git externo que contenga código.NET, Java, PHP, Node, Python o código web estático.
@@ -142,7 +142,7 @@ Con Azure Application Insights puede supervisar fácilmente el rendimiento y la 
 1. Escriba un **nombre** para la alerta.
 
 1. Seleccione la lista desplegable para **Source Alter on** (Modificación del origen en).  Elija su **recurso de App Service.**
-
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
 1. La alerta predeterminada es para un **tiempo de respuesta de servidor mayor de 1 segundo**.  Seleccione el cuadro desplegable **Métrica** para examinar las distintas métricas de alertas.  Puede configurar fácilmente diversas alertas para mejorar las funcionalidades de supervisión de la aplicación.
 
 1. Seleccione la casilla **Notify via Email owners, contributors, and readers** (Notificar a través de correo electrónico a lectores, colaboradores y propietarios).  Si lo desea, puede realizar acciones adicionales cuando se desencadene una alerta mediante la ejecución de una aplicación de lógica de Azure.

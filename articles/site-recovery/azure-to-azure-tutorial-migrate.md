@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 122fe9be768341716fb423a58560885c7d3035fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a8f081ca9a0868bee11b27e1065a72806cb8c2c9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920644"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214608"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migración de máquinas virtuales de Azure a otra región
 
@@ -32,7 +32,7 @@ En este tutorial se asume que ya tiene una suscripción de Azure. Si no la tiene
 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de tener las máquinas virtuales de Azure en la región de Azure desde la que va a migrar.
 - Asegúrese de entender la [arquitectura y los componentes del escenario](azure-to-azure-architecture.md).

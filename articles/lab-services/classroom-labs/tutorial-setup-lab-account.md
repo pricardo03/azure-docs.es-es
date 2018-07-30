@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 600be7518bc526d3f147bb16377677854b676f63
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d4bfd684792e5ec13b2a4a020fa21249f1888657
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823136"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226362"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services
 En Azure Lab Services, una cuenta de laboratorio sirve como cuenta central en la que se administran los laboratorios de una organización. En su cuenta de laboratorio, puede conceder permiso a otros usuarios para crear laboratorios y establecer las directivas que se aplican a todos los laboratorios de la cuenta de laboratorio. En este tutorial, aprenderá a crear una cuenta de laboratorio como administrador de laboratorio. 
@@ -29,6 +29,7 @@ En este tutorial realizará lo siguiente:
 > [!div class="checklist"]
 > * Creación de una cuenta de laboratorio
 > * Incorporación de un usuario al rol Creador de laboratorio
+> * Especificación de las imágenes de Marketplace disponibles para los propietarios de laboratorio
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -56,7 +57,9 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear una cuenta de l
     ![Página de la cuenta de laboratorio](../media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Incorporación de un usuario al rol Creador de laboratorio
-Para proporcionar a los educadores el permiso para crear laboratorios para sus clases agréguelos al rol Creador de laboratorios:
+Para configurar un laboratorio de clase en una cuenta de laboratorio, el usuario debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. La cuenta que usó para crear la cuenta de laboratorio se agrega automáticamente a este rol. Si pretende usar la misma cuenta de usuario para crear un laboratorio de clase, puede omitir este paso. Para usar otra cuenta de usuario para crear un laboratorio de clase, siga los pasos siguientes: 
+
+Para proporcionar a los educadores el permiso para crear laboratorios para sus clases agréguelos al rol **Creador de laboratorios**:
 
 1. En la página de la **cuenta de laboratorio**, seleccione **Control de acceso (IAM)** y haga clic en **+ Agregar** en la barra de herramientas. 
 
@@ -65,6 +68,22 @@ Para proporcionar a los educadores el permiso para crear laboratorios para sus c
 
     ![Incorporación del usuario al rol Creador de laboratorio](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Especificación de las imágenes de Marketplace disponibles para los propietarios de laboratorio
+En esta sección, especificará las imágenes de Marketplace que los propietarios de laboratorio pueden usar para crear laboratorios de clase. 
+
+1. Seleccione **Imágenes de Marketplace** en el menú a la izquierda. De forma predeterminada, aparecerá la lista completa de las imágenes (habilitadas y deshabilitadas). Puede filtrar la lista para ver solamente las imágenes habilitadas o deshabilitadas seleccionando la opción **Enabled only**(Solo habilitadas)/**Disabled only** (Solo deshabilitadas) en la lista desplegable en la parte superior. 
+
+    ![Página de imágenes de Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. Para **deshabilitar** una imagen de Marketplace que se ha habilitado, realice una de las siguientes acciones: 
+    1. Seleccione **... (puntos suspensivos)**  en la última columna y seleccione **Disable image** (Deshabilitar imagen). 
+
+        ![Deshabilitar una imagen](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Seleccione una o más imágenes en la lista seleccionando las casillas que hay antes de los nombres de imagen en la lista y seleccione **Disable selected images** (Deshabilitar imágenes seleccionadas). 
+
+        ![Deshabilitar varias imágenes](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. De forma similar, para **habilitar** una imagen de Marketplace, realice una de las siguientes acciones: 
+    1. Seleccione **... (puntos suspensivos)**  en la última columna y seleccione **Enable image** (Habilitar imagen). 
+    2. Seleccione una o más imágenes en la lista seleccionando las casillas que hay antes de los nombres de imagen en la lista y seleccione **Enable selected images** (Habilitar imágenes seleccionadas). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado una cuenta de laboratorio. Para aprender a crear un laboratorio como profesor, pase al siguiente tutorial:

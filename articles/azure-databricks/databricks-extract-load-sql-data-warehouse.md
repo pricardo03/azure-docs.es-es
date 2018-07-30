@@ -1,24 +1,22 @@
 ---
-title: 'Tutorial: Realización de operaciones de ETL mediante Azure Databricks | Microsoft Docs'
+title: 'Tutorial: Realización de operaciones de ETL mediante Azure Databricks'
 description: Aprenda a extraer datos de Data Lake Store a Azure Databricks, transformarlos y luego cargarlos en Azure SQL Data Warehouse.
 services: azure-databricks
-documentationcenter: ''
 author: nitinme
+ms.author: nitinme
 manager: cgronlun
 editor: cgronlun
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/23/2018
-ms.author: nitinme
-ms.openlocfilehash: c3aa87f2c74175d1b61a8db6a9c7a0318a408658
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 07/23/2018
+ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223837"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -44,7 +42,7 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
 - Ha creado una instancia de Azure SQL Data Warehouse y una regla de firewall de nivel de servidor y se ha conectado al servidor como administrador. Siga las instrucciones que se indican en [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md).
@@ -59,7 +57,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 En esta sección, creará un área de trabajo de Azure Databricks mediante Azure Portal. 
 
-1. En Azure Portal, seleccione **Crear un recurso** > **Datos y análisis** > **Azure Databricks**. 
+1. En Azure Portal, seleccione **Crear un recurso** > **Datos y análisis** > **Azure Databricks**.
 
     ![Databricks en Azure Portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks en Azure Portal")
 
@@ -69,7 +67,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     Proporcione los valores siguientes: 
      
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |**Workspace name** (Nombre del área de trabajo)     | Proporcione un nombre para el área de trabajo de Databricks        |
     |**Suscripción**     | En el cuadro desplegable, seleccione la suscripción de Azure.        |
@@ -194,22 +192,6 @@ Al iniciar sesión mediante programación, deberá pasar el id. de inquilino con
 
    ![tenant ID](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
 
-### <a name="associate-service-principal-with-azure-data-lake-store"></a>Asociación de la entidad de servicio con Azure Data Lake Store
-
-En esta sección, asociará la cuenta de Azure Data Lake Store con la entidad de servicio de Azure Active Directory que creó. De esta forma, se garantiza que puede acceder a la cuenta de Data Lake Store desde Azure Databricks.
-
-1. En [Azure Portal](https://portal.azure.com), seleccione la cuenta de Data Lake Store que creó.
-
-2. En el panel izquierdo, seleccione **Access Control** > **Agregar**.
-
-    ![Agregar acceso a Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/add-adls-access.png "Add Data Lake Store access")
-
-3. En **Agregar permisos**, seleccione un rol que quiera asignar a la entidad de servicio. En este tutorial, seleccione **Propietario**. En **Asignar acceso a**, seleccione **Azure AD, user, group, or application** (Azure AD, usuario, grupo o aplicación). En **Seleccionar**, escriba el nombre de la entidad de servicio que creó para filtrar el número de entidades de servicio que se pueden seleccionar.
-
-    ![Seleccionar la entidad de servicio](./media/databricks-extract-load-sql-data-warehouse/select-service-principal.png "Select service principal")
-
-    Seleccione la entidad de servicio que creó anteriormente y, a continuación, elija **Guardar**. La entidad de servicio ahora está asociada a la cuenta de Azure Data Lake Store.
-
 ## <a name="upload-data-to-data-lake-store"></a>Carga de datos en el Almacén Data Lake
 
 En esta sección, cargará un archivo de datos de ejemplo en Data Lake Store. Usará este archivo más adelante en Azure Databricks para ejecutar algunas transformaciones. Los datos de ejemplo (**small_radio_json.json**) que usará en este tutorial están disponibles en este [repositorio de Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
@@ -229,6 +211,53 @@ En esta sección, cargará un archivo de datos de ejemplo en Data Lake Store. Us
     ![Opción de carga](./media/databricks-extract-load-sql-data-warehouse/upload-data.png "Upload option")
 
 5. En este tutorial, ha cargado el archivo de datos en la raíz de Data Lake Store. Por lo tanto, ahora está disponible en `adl://<YOUR_DATA_LAKE_STORE_ACCOUNT_NAME>.azuredatalakestore.net/small_radio_json.json`.
+
+## <a name="associate-service-principal-with-azure-data-lake-store"></a>Asociación de la entidad de servicio con Azure Data Lake Store
+
+En esta sección, asociará los datos de la cuenta de Azure Data Lake Store con la entidad de servicio de Azure Active Directory que creó. De esta forma, se garantiza que puede acceder a la cuenta de Data Lake Store desde Azure Databricks. En el escenario descrito en este artículo, va a leer los datos de Data Lake Store para rellenar una tabla en SQL Data Warehouse. Según lo explicado en [Introducción a Access Control en Data Lake Store](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions), para tener acceso de lectura a un archivo de Data Lake Store, debe tener:
+
+- Permisos de **ejecución** en todas las carpetas de la estructura de carpetas que conduce al archivo.
+- Permisos de **lectura** en el propio archivo.
+
+Realice los pasos siguientes para conceder estos permisos.
+
+1. En [Azure Portal](https://portal.azure.com), seleccione la cuenta de Data Lake Store que creó y seleccione **Explorador de datos**.
+
+    ![Iniciar el Explorador de datos](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-data-explorer.png "Iniciar el Explorador de datos")
+
+2. En este escenario, como el archivo de datos de ejemplo está en la raíz de la estructura de carpetas, basta con asignar permisos de **ejecución** a la carpeta raíz. Para ello, desde la raíz del Explorador de datos, seleccione **Acceder**.
+
+    ![Agregar listas de control de acceso de la carpeta](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-1.png "Agregar listas de control de acceso de la carpeta")
+
+3. En **Acceder**, seleccione **Agregar**.
+
+    ![Agregar listas de control de acceso de la carpeta](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-2.png "Agregar listas de control de acceso de la carpeta")
+
+4. En **Asignar permisos**, haga clic en **Seleccionar usuario o grupo** y busque la entidad de servicio de Azure Active Directory que creó anteriormente.
+
+    ![Agregar acceso a Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Add Data Lake Store access")
+
+    Seleccione la entidad de servicio de AAD que desea asignar y haga clic en **Seleccionar**.
+
+5. En **Asignar permisos**, haga clic en **Seleccionar permisos** > **Ejecutar**. Mantenga los demás valores predeterminados y seleccione **Aceptar** en **Seleccionar permisos** y, a continuación, en **Asignar permisos**.
+
+    ![Agregar acceso a Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-4.png "Add Data Lake Store access")
+
+6. Vuelva al explorador de datos y haga clic en el archivo sobre el que desea asignar el permiso de lectura. En **Vista previa de archivo**, seleccione **Acceder**.
+
+    ![Agregar acceso a Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-1.png "Add Data Lake Store access")
+
+7. En **Acceder**, seleccione **Agregar**. En **Asignar permisos**, haga clic en **Seleccionar usuario o grupo** y busque la entidad de servicio de Azure Active Directory que creó anteriormente.
+
+    ![Agregar acceso a Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Add Data Lake Store access")
+
+    Seleccione la entidad de servicio de AAD que desea asignar y haga clic en **Seleccionar**.
+
+8. En **Asignar permisos**, haga clic en **Seleccionar permisos** > **Lectura**. Seleccione **Aceptar** en **Seleccionar permisos** y, a continuación, en **Asignar permisos**.
+
+    ![Agregar acceso a Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-2.png "Add Data Lake Store access")
+
+    La entidad de servicio tiene ahora permisos suficientes para leer el archivo de datos de ejemplo de Azure Data Lake Store.
 
 ## <a name="extract-data-from-data-lake-store"></a>Extracción de datos de Data Lake Store
 
@@ -283,6 +312,7 @@ Los datos de ejemplo sin procesar **small_radio_json.json** capturan la audienci
 1. Para comenzar, recupere solo las columnas *firstName*, *lastName*, *gender*, *location* y *level* de la trama de datos que ha creado.
 
         val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+        specificColumnsDf.show()
 
     Obtendrá una salida como la que se muestra en el fragmento de código siguiente:
 
@@ -313,7 +343,7 @@ Los datos de ejemplo sin procesar **small_radio_json.json** capturan la audienci
 
 2.  Puede transformar aún más estos datos para renombrar la columna **level** como **subscription_type**.
 
-        val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
+        val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDF.show()
 
     Obtendrá una salida como la que se muestra en el fragmento de código siguiente:
@@ -347,7 +377,7 @@ Los datos de ejemplo sin procesar **small_radio_json.json** capturan la audienci
 
 En esta sección, cargará los datos transformados en Azure SQL Data Warehouse. Mediante el conector de Azure SQL Data Warehouse para Azure Databricks, puede cargar directamente una trama de datos como una tabla en SQL Data Warehouse.
 
-Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blob Storage como almacenamiento temporal para cargar datos entre Azure Databricks y Azure SQL Data Warehouse. Por lo tanto, para comenzar, proporcione la configuración para conectarse a la cuenta de almacenamiento. Ya debe haber creado la cuenta como parte de los requisitos previos de este artículo.
+Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blob Storage como ubicación de almacenamiento temporal para cargar datos entre Azure Databricks y Azure SQL Data Warehouse. Por lo tanto, para comenzar, proporcione la configuración para conectarse a la cuenta de almacenamiento. Ya debe haber creado la cuenta como parte de los requisitos previos de este artículo.
 
 1. Proporcione la configuración para acceder a la cuenta de Azure Storage desde Azure Databricks.
 
@@ -357,7 +387,7 @@ Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blo
 
 2. Especifique una carpeta temporal que se usará al mover datos entre Azure Databricks y Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
 
 3. Ejecute el siguiente fragmento de código para almacenar las claves de acceso de Azure Blob Storage en la configuración. De esta forma, se garantiza que no tiene que guardar la clave de acceso en el cuaderno en texto sin formato.
 
@@ -376,13 +406,13 @@ Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blo
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Ejecute el siguiente fragmento de código para cargar la trama de datos transformado, **renamedColumnsDF**, como una tabla en SQL Data Warehouse. Este fragmento de código crea una tabla denominada **SampleTable** en SQL Database.
+5. Ejecute el siguiente fragmento de código para cargar la trama de datos transformada, **renamedColumnsDf**, como una tabla en SQL Data Warehouse. Este fragmento de código crea una tabla denominada **SampleTable** en SQL Database. Tenga en cuenta que Azure SQL Data Warehouse requiere una clave maestra.  Puede crear una clave maestra ejecutando el comando "CREATE MASTER KEY;" en SQL Server Management Studio.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
         
-        renamedColumnsDF.write
+        renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall) 
             .option("dbtable", "SampleTable")
@@ -395,7 +425,7 @@ Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blo
 
     ![Comprobar la tabla de ejemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verify sample table")
 
-7. Ejecute una consulta select para comprobar el contenido de la tabla. Debe tener los mismos datos que la trama de datos **renamedColumnsDF**.
+7. Ejecute una consulta select para comprobar el contenido de la tabla. Debe tener los mismos datos que la trama de datos **renamedColumnsDf**.
 
     ![omprobar contenido de tabla de ejemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verify sample table content")
 

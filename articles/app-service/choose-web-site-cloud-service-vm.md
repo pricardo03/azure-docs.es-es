@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597933"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224962"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparación de Azure App Service, Virtual Machines, Service Fabric y Cloud Services
 ## <a name="overview"></a>Información general
@@ -51,7 +51,7 @@ La siguiente tabla compara las funcionalidades de App Service, Cloud Services, V
 | Nivel medio del host de una arquitectura multinivel |X |X |X |X |Las aplicaciones web de App Service pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](http://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. |
 | Soporte integrado de MySQL como servicio |X |X | | | |
 | Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python |X |X |X |X |Service Fabric admite la creación de un front-end web con [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md), o bien se puede implementar cualquier tipo de aplicación (Node.js, Java, etc.) como un [ejecutable invitado](../service-fabric/service-fabric-guest-executables-introduction.md). |
-| Escalado horizontal a varias instancias sin volver a implementar |X |X |X |X |Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para que dirija solicitudes entre las máquinas y crear un Grupo de afinidad para evitar que todas las instancias se reinicien simultáneamente debido a errores de mantenimiento o hardware. |
+| Escalado horizontal a varias instancias sin volver a implementar |X |X |X |X |Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para enrutar las solicitudes entre las máquinas y asegurarse de que tiene más de una instancia de máquina virtual en el [conjunto de disponibilidad](../virtual-machines/windows/manage-availability.md). |
 | Soporte para SSL |X |X |X |X |En el caso de las aplicaciones web de App Service, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para más información sobre el uso de SSL con aplicaciones web, consulte [Configuración de un certificado SSL para un sitio web Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integración de Visual Studio |X |X |X |X | |
 | Depuración remota |X |X |X | | |

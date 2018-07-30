@@ -2,24 +2,25 @@
 title: Tutorial Uso de Azure Key Vault desde una aplicación web | Microsoft Docs
 description: Use este tutorial para ayudarle a aprender a usar Azure Key Vault desde una aplicación web.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115111"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171330"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Uso de Azure Key Vault desde una aplicación web
-Use este tutorial como ayuda para aprender a usar Azure Key Vault desde una aplicación web. Muestra el proceso de acceder a un secreto de un Azure Key Vault para usarlo en una aplicación web. Luego, el tutorial se basa en el proceso y usa un certificado en lugar de un secreto de cliente. Este tutorial está diseñado para desarrolladores web que comprendan los conceptos básicos de la creación de aplicaciones web en Azure. 
+
+Use este tutorial como ayuda para aprender a usar Azure Key Vault desde una aplicación web. Muestra el proceso de acceder a un secreto de un Azure Key Vault para usarlo en una aplicación web. Luego, el tutorial se basa en el proceso y usa un certificado en lugar de un secreto de cliente. Este tutorial está diseñado para desarrolladores web que comprendan los conceptos básicos de la creación de aplicaciones web en Azure.
 
 En este tutorial, aprenderá a: 
 
@@ -27,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Incorporar la configuración de la aplicación al archivo web.config
 > * Agregar un método para obtener un token de acceso
 > * Recuperar el token en Inicio de aplicación
-> * Autenticar con un certificado 
+> * Autenticar con un certificado
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -41,7 +42,7 @@ Para realizar este tutorial, necesitará los siguientes elementos:
 
 Complete los pasos que aparecen en [Introducción a Azure Key Vault](key-vault-get-started.md) para obtener el URI a un secreto, el identificador de cliente, el secreto de cliente y registrar la aplicación. La aplicación web accederá al almacén y tendrá que estar registrada en Azure Active Directory. También debe tener derechos de acceso a Key Vault. Si no es así, vuelva al apartado sobre cómo registrar una aplicación del tutorial de introducción y repita los pasos enumerados. Para más información sobre cómo crear instancias de Azure Web Apps, consulte [Información general de Web Apps](../app-service/app-service-web-overview.md).
 
-Este ejemplo depende del aprovisionamiento manual de identidades de Azure Active Directory. Actualmente hay una nueva característica en la versión preliminar denominada [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), que puede aprovisionar identidades de Azure AD automáticamente. Para más información, consulte el ejemplo en [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) y el [tutorial de MSI con App Service y Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
+Este ejemplo depende del aprovisionamiento manual de identidades de Azure Active Directory. Pero debe usar [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) en su lugar. Las instancias de MSI pueden aprovisionar automáticamente identidades de Azure AD. Para más información, consulte el ejemplo en [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) y el [tutorial de MSI con App Service y Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). También puede examinar el [tutorial de MSI](tutorial-web-application-keyvault.md) específico de Key Vault.
 
 
 ## <a id="packages"></a>Incorporación de paquetes NuGet

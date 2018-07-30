@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114446"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216315"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -174,7 +174,7 @@ Para obtener información sobre los precios de los nodos de proceso de prioridad
 
 ### <a name="size-of-the-compute-nodes"></a>Tamaño de los nodos de proceso
 
-Cuando se crea un grupo de Azure Batch, puede elegir entre casi todas las familias y tamaños de máquinas virtuales disponibles en Azure. Azure ofrece varios tamaños de máquina virtual apropiados para las distintas cargas de trabajo, entre los que se incluyen los tamaños de máquina virtual especializados con [HPC](../virtual-machines/linux/sizes-hpc.md) o [GPU habilitados](../virtual-machines/linux/sizes-gpu.md). 
+Cuando se crea un grupo de Azure Batch, puede elegir entre casi todas las familias y tamaños de máquinas virtuales disponibles en Azure. Azure ofrece varios tamaños de máquina virtual apropiados para las distintas cargas de trabajo, entre los que se incluyen los tamaños de máquina virtual especializados con [HPC](../virtual-machines/linux/sizes-hpc.md) o [Habilitados para GPU](../virtual-machines/linux/sizes-gpu.md). 
 
 Para más información, consulte [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Elección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch).
 
@@ -505,7 +505,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
 * Para conocer los aspectos básicos del desarrollo de una aplicación habilitada para Batch, consulte la [biblioteca de cliente de Batch para .NET](quick-run-dotnet.md) o [Python](quick-run-python.md). Estas guías de inicio rápido le guían a través de una aplicación de ejemplo que usa el servicio de Batch para ejecutar una carga de trabajo en varios nodos de proceso e incluye el uso de Azure Storage para el almacenamiento provisional y la recuperación del archivo de la carga de trabajo.
-* Descargue e instale la herramienta [BatchLabs][batch_labs] para usarla durante el desarrollo de sus soluciones de Batch. Use BatchLabs para crear, depurar y supervisar aplicaciones de Azure Batch. 
+* Descargue e instale la utilidad [Batch Explorer][batch_labs] para usarla durante el desarrollo de sus soluciones de Batch. Use Batch Explorer para crear, depurar y supervisar aplicaciones de Azure Batch. 
 * Consulte los recursos de la comunidad entre los que se encuentran [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), el [repositorio de la Comunidad de Batch](https://github.com/Azure/Batch) y el [foro de Azure Batch] [ batch_forum] en MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -516,7 +516,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

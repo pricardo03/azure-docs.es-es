@@ -1,22 +1,22 @@
 ---
-title: Uso de alertas y resolución de problemas de los dispositivos en la solución de supervisión remota de Azure | Microsoft Docs
+title: Tutorial sobre el uso de alertas y resolución de problemas de los dispositivos en la solución de supervisión remota de Azure | Microsoft Docs
 description: En este tutorial, se explica cómo puede utilizar las alertas para identificar y solucionar problemas relacionados con los dispositivos conectados al acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/18/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081795"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159390"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Solución de problemas de los dispositivos
+# <a name="troubleshoot-and-fix-device-issues"></a>Solución de problemas de los dispositivos
 
 En este tutorial, utilizará el acelerador de soluciones de supervisión remota para identificar y solucionar problemas relacionados con los dispositivos de IoT conectados. Utilizará las alertas del panel del acelerador de soluciones para identificar los problemas y después ejecutará trabajos remotos para resolverlos.
 
@@ -28,11 +28,9 @@ En este tutorial, hizo lo siguiente:
 > * Investigación de una alerta procedente de un dispositivo
 > * Resolución del problema relacionado con el dispositivo
 
-## <a name="prerequisites"></a>requisitos previos
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Para seguir este tutorial, necesita una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
-
-Si aún no ha implementado el acelerador de soluciones de supervisión remota, debe completar la guía de inicio rápido [Implementación de una solución de supervisión remota basada en la nube](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>Investigación de una alerta
 
@@ -58,7 +56,7 @@ Para confirmar la alerta, seleccione todas las opciones de **Alert occurrences**
 
 Al confirmar la alerta, el estado de la repetición cambia a **Confirmado**.
 
-En la lista, puede ver el dispositivo **Prototipo** responsable de activar la alerta de temperatura:
+En la lista de dispositivos con alerta, puede ver el dispositivo **Prototipo** responsable de activar la alerta de temperatura:
 
 [![Lista de los dispositivos que causan la alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
@@ -66,11 +64,11 @@ En la lista, puede ver el dispositivo **Prototipo** responsable de activar la al
 
 Para solucionar el problema con el dispositivo **prototipo**, debe llamar al método **DecreaseTemperature** del dispositivo.
 
-Para realizar alguna acción en un dispositivo, selecciónelo en la lista de dispositivos y, luego, elija **Trabajos**. El modelo de dispositivo **Prototipo** especifica los seis métodos que debe admitir un dispositivo:
+Para realizar alguna acción en un dispositivo, selecciónelo en la lista de dispositivos con alerta y, luego, elija **Trabajos**. El modelo de dispositivo **Prototipo** admite seis métodos:
 
 [![Vista de los métodos que admite el dispositivo](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Elija **DecreaseTemperature** y establezca el nombre del trabajo en **DecreaseTemperature**. Luego elija **Aplicar**:
+Elija **DecreaseTemperature** y establezca el nombre del trabajo en **DecreaseTemperature**. A continuación, haga clic en **Aplicar**:
 
 [![Creación del trabajo para disminuir la temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
@@ -78,9 +76,11 @@ Para realizar un seguimiento del estado del trabajo, haga clic en **View job sta
 
 [![Supervisión del trabajo para disminuir la temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-Puede comprobar si la temperatura del dispositivo ha disminuido consultando los datos de telemetría de la página **Dashboard** (Panel):
+Puede comprobar si la temperatura del dispositivo ha caído consultando los datos de telemetría de la página **Dashboard** (Panel):
 
 [![Vista de la disminución de temperatura](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: 83096e15b26b0edfd47df36fe368fd5c9c846f12
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b331a6fcc6efd07bf63135e917f9fe55560e4ec7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737289"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158291"
 ---
 # <a name="introduction-to-azure-files"></a>Introducción a Azure Files
-Azure Files ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de Azure Files se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. Además, los recursos compartidos de archivos de Azure Files se pueden almacenar en la caché de los servidores de Windows Server con Azure File Sync (versión preliminar), que permite un acceso rápido allí donde se utilizan los datos.
+Azure Files ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de Azure Files se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. Además, los recursos compartidos de archivos de Azure Files se pueden almacenar en la caché de los servidores de Windows Server con Azure File Sync, lo que permite un acceso rápido allí donde se utilizan los datos.
 
 ## <a name="videos"></a>Vídeos
 | Introducing Azure File Sync (Introducción a Azure File Sync) (2 m) | Azure Files with Sync (Ignite 2017) (85 m)  |

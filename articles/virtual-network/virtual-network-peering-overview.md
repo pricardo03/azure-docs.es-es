@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267135"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257878"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -85,7 +85,9 @@ Para más información acerca de los permisos necesarios para crear un emparejam
 
 ## <a name="pricing"></a>Precios
 
-Hay un cargo nominal para el tráfico de entrada y salida que utiliza una conexión de emparejamiento de red virtual. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-network)para obtener más información.
+Hay un cargo nominal para el tráfico de entrada y salida que utiliza una conexión de emparejamiento de red virtual. Para más información acerca del emparejamiento de VNet y los precios del emparejamiento de VNet global, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-network).
+
+El tránsito de puerta de enlace es una propiedad del emparejamiento que permite que una red virtual utilice una puerta de enlace de VPN de una red virtual emparejada para la conectividad entre locales o entre redes virtuales. El tráfico que atraviesa de una puerta de enlace remota en este escenario está sujeto a [cargos de la puerta de enlace VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/), pero no acarrea [los cargos de emparejamiento de VNet.](https://azure.microsoft.com/pricing/details/virtual-network) Por ejemplo, si VNetA tiene una puerta de enlace VPN para la conectividad local y VNetB está emparejada a VNetA con las propiedades adecuadas configuradas, el tráfico desde VNetB al entorno local se cobra solo de salida, en función de los precios de la puerta de enlace VPN. No se aplican cargos de emparejamiento de VNet. Aprenda a [configurar el tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

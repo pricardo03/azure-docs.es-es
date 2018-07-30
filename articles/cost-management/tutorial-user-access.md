@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301614"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188189"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: Asignación de acceso a los datos de administración de costos
 
@@ -28,12 +28,14 @@ Al registrar su cuenta o contrato de Azure, se creó una cuenta con permisos de 
 > [!div class="checklist"]
 > * Crear un usuario con acceso de administrador
 > * Crear un usuario con acceso de usuario
+> * Eliminar un usuario
+> * Eliminar o exportar datos personales
 > * Crear y administrar entidades
 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener una cuenta de Azure.
 - Debe tener un registro de prueba o una suscripción de pago en Azure Cost Management.
@@ -42,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Usted ya tiene acceso de administrador, pero puede que los compañeros de su organización también lo necesiten. En el portal de Cloudyn, haga clic en el símbolo de engranaje en la esquina superior derecha y seleccione **User Management** (Administración de usuarios). Haga clic en **Add New User** (Agregar nuevo usuario) para agregar un usuario nuevo.
 
-Especifique la información del usuario obligatoria. El identificador de inicio de sesión debe ser una dirección de correo electrónico válida. Elija Allow User Management (Permitir administración de usuarios) para que el usuario pueda crear y modificar otros usuarios. La administración de listas de destinatarios permite al usuario editar las listas de destinatarios. Si selecciona **Notify user by email** (Notificar al usuario por correo electrónico), se envía al usuario un correo de Cloudyn que contiene vínculo con información de inicio de sesión. En el primer inicio de sesión, el usuario establece una contraseña.
+Especifique la información del usuario obligatoria. El **identificador de inicio de sesión** debe ser una dirección de correo electrónico válida. Elija Allow User Management (Permitir administración de usuarios) para que el usuario pueda crear y modificar otros usuarios. La administración de listas de destinatarios permite al usuario editar las listas de destinatarios. Si selecciona **Notify user by email** (Notificar al usuario por correo electrónico), se envía al usuario un correo de Cloudyn que contiene vínculo con información de inicio de sesión. En el primer inicio de sesión, el usuario establece una contraseña.
 
 En **User has admin access** (El usuario tiene acceso de administrador), se selecciona la entidad raíz de la organización. Deje la raíz seleccionada y guarde la información de usuario. Al seleccionar la entidad raíz, se permite al usuario tener permiso de administrador no solo para la entidad raíz del árbol, sino también para todas sus entidades secundarias.  
   ![agregar usuario nuevo con acceso de administrador](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ Los usuarios típicos que necesitan acceder a datos de administración de costos
 ![agregar un usuario nuevo con acceso de usuario](.\media\tutorial-user-access\new-user-access.png)
 
 Para ver un tutorial en vídeo acerca de cómo agregar usuarios, consulte [Adding Users to Azure Cost Management by Cloudyn](https://youtu.be/Nzn7GLahx30) (Adición de usuarios a Azure Cost Management de Cloudyn).
+
+## <a name="delete-a-user"></a>Eliminar un usuario
+
+Cuando se elimina un usuario, todas las entidades a las que el usuario tiene acceso permanecen intactas. Los informes *personales* que están guardados se eliminan cuando se elimina el usuario. Los informes *públicos* creados por el usuario no se eliminan.
+
+No puede eliminarse a sí mismo como usuario.
+
+> [!WARNING]
+> Cuando se elimina un usuario, no se puede restaurar.
+
+1.  En el portal de Cloudyn, haga clic en el símbolo de engranaje en la esquina superior derecha y seleccione **User Management** (Administración de usuarios).
+2.  En la lista de usuarios, seleccione el usuario que desea eliminar y, a continuación, haga clic en **Climinar usuario** (símbolo de la papelera).
+3.  En el cuadro Eliminar el usuario, haga clic en **Sí** y, a continuación, haga clic en **Aceptar**.
+
+
+## <a name="delete-or-export-personal-data"></a>Eliminar o exportar datos personales
+
+Si desea eliminar o exportar datos personales de Cloudyn, deberá crear una incidencia de soporte técnico. Una vez creada la incidencia de soporte técnico, esta actúa como una solicitud formal: una solicitud de los titulares de los datos. Microsoft actúa con rapidez para eliminar la cuenta y cualquier dato personal o del cliente. Para más información sobre cómo puede solicitar que se eliminen o exporten sus datos, consulte [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests) (Solicitud de los titulares de datos de Cloudyn).
 
 ## <a name="create-and-manage-entities"></a>Crear y administrar entidades
 
@@ -105,6 +125,8 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Crear un usuario con acceso de administrador
 > * Crear un usuario con acceso de usuario
+> * Eliminar un usuario
+> * Eliminar o exportar datos personales
 > * Crear y administrar entidades
 
 

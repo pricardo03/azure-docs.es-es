@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f894549951a0ef23a95acaab48ab20ce6646443
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967829"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189496"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creación de un clúster de Kubernetes habilitado para Azure Dev Spaces
 
@@ -32,7 +32,11 @@ ms.locfileid: "37967829"
 
    ![Opciones de configuración de Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Seleccione **Next: Networking** (Siguiente: redes) cuando haya terminado.
+   Seleccione **Siguiente: autenticación** cuando haya terminado.
+
+1. Elija la configuración deseada para el control de acceso basado en rol (RBAC). Azure Dev Spaces admite los clústeres con RBAC habilitados o deshabilitados.
+
+    ![Configuración de RBAC](../media/common/k8s-RBAC.PNG)
 
 1. Asegúrese de que el enrutamiento de aplicación HTTP está habilitado.
 
@@ -40,9 +44,5 @@ ms.locfileid: "37967829"
 
     > [!IMPORTANT]
     > Asegúrese de habilitar el enrutamiento de aplicación HTTP cuando se crea el clúster de AKS. No es posible cambiar esta configuración más adelante.
-
-1. Elija la configuración deseada para el control de acceso basado en rol (RBAC). Azure Dev Spaces admite los clústeres con RBAC habilitados o deshabilitados.
-
-    ![Configuración de RBAC](../media/common/k8s-RBAC.PNG)
 
 1. Seleccione **Review + create** (Revisar y crear) y, a continuación, **Create** cuando haya terminado.

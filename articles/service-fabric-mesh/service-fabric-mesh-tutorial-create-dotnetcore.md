@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 692a384c3695001677b7a3d6161b77f3f015ad7c
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125876"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185676"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Tutorial: Creación, depuración e implementación de una aplicación web multiservicio en Azure Service Fabric Mesh
 
@@ -53,6 +53,8 @@ Antes de empezar este tutorial:
 * Si no tiene una suscripción a Azure, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 * Asegúrese de que se haya [configurado el entorno de desarrollo](service-fabric-mesh-howto-setup-developer-environment-sdk.md), que incluye la instalación del entorno de ejecución de Service Fabric, el SDK, Docker y Visual Studio 2017.
+
+* La aplicación de este tutorial, por ahora, se debe compilar mediante la configuración regional en inglés.
 
 ## <a name="create-a-service-fabric-mesh-project"></a>Creación de un proyecto de Service Fabric Mesh
 

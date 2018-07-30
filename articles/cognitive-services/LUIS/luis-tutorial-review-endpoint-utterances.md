@@ -2,19 +2,19 @@
 title: 'Tutorial para revisar las expresiones de punto de conexión en Language Understanding (LUIS): Azure | Microsoft Docs'
 description: En este tutorial, aprenderá a revisar las expresiones de puntos de conexión en el dominio de Recursos humanos (RR. HH.) en LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
-ms.openlocfilehash: cd8374b3804594f96212dbe741f99ba22d33a4e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: diberry
+ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970513"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237220"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Tutorial: Revisión de las expresiones de punto de conexión
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTP de LUIS. 
@@ -34,7 +34,7 @@ Si no tiene la aplicación de Recursos Humanos del tutorial de [opinión](luis-q
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
-Si desea conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `review`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
+Si quiere conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `review`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
 
 Si tiene todas las versiones de la aplicación, mediante la serie de tutoriales, se sorprenderá al ver que la lista **Review endpoint utterances** (Revisar las expresiones de punto de conexión) no cambia, en función de la versión. Existe un único grupo de expresiones para revisar, independientemente de la versión que esté editando activamente o de la versión de la aplicación que se haya publicado en el punto de conexión. 
 
@@ -105,18 +105,18 @@ Mantenga actualizada la lista de frases con los nombres de trabajo que se acaban
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 LUIS no sabe nada acerca de los cambios hasta que se entrena. 
 
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Train** (Entrenar).
+1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Entrenar**.
 
 2. El entrenamiento se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
 Para obtener el modelo actualizado de la aplicación LUIS en un bot de chat u otra aplicación, tiene que publicar la aplicación. 
 
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Publish** (Publicar). 
+1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Publish** (Publicar). 
 
 2. Si ha importado a esta aplicación, deberá seleccionar **Sentiment analysis** (Análisis de sentimiento). 
 
-3. Seleccione el espacio de producción y presione el botón **Publicar**.
+3. Seleccione el espacio de producción y haga clic en el botón **Publicar**.
 
 4. La publicación se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
 
@@ -236,7 +236,7 @@ Algunas de las expresiones de punto de conexión tendrán un porcentaje alto de 
 Esta precisión de predicción de la aplicación ha aumentado al revisar las expresiones desde el punto de conexión. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos **...** a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos **...** a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

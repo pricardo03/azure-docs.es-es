@@ -4,15 +4,15 @@ description: Describe cómo detectar y evaluar VM de VMware locales para la migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 07/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fab8e4f09062f671714dabd1dae86a1979e356d2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970792"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172354"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server en la versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador.
 - **Cuenta de vCenter Server** : necesita una cuenta de solo lectura para acceder el servidor vCenter. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
@@ -227,9 +227,9 @@ Los costos mensuales estimados para el proceso y almacenamiento se agregan para 
 
 #### <a name="confidence-rating"></a>Clasificación de confianza
 
-Cada valoración de Azure Migrate está asociada con una clasificación de confianza que va de 1 a 5 estrellas (siendo 1 estrella la más baja y 5 estrellas la más alta). La clasificación de confianza se asigna a una valoración que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración. La clasificación de confianza de una valoración le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate.
+Cada valoración de Azure Migrate basada en el rendimiento está asociada con una clasificación de confianza comprendida entre 1 a 5 estrellas (siendo 1 estrella la más baja y 5 estrellas la más alta). La clasificación de confianza se asigna a una valoración que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración. La clasificación de confianza de una valoración le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate. La clasificación de confianza no es aplicable a valoraciones como locales.
 
-La clasificación de confianza de una valoración es más útil para valoraciones con criterio de tamaño como "tamaño basado en el rendimiento". Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria de la máquina virtual. Además, para cada disco asociado a la máquina virtual, necesita el valor de IOPS de disco y los datos de rendimiento. De forma similar, para cada adaptador de red asociado a una máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración, tal como se indica a continuación:
+Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria de la máquina virtual. Además, para cada disco asociado a la máquina virtual, necesita el valor de IOPS de disco y los datos de rendimiento. De forma similar, para cada adaptador de red asociado a una máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración, tal como se indica a continuación:
 
    **Disponibilidad de puntos de datos** | **Clasificación de confianza**
    --- | ---

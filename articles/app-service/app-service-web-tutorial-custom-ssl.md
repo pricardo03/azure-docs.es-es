@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293336"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214972"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Enlace de un certificado SSL personalizado existente con Azure Web Apps
 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 > [!NOTE]
 > Si necesita un certificado SSL personalizado, puede obtener uno directamente en Azure Portal y enlazarlo a la aplicación web. Siga el tutorial [Incorporación de un certificado SSL a la aplicación App Service](web-sites-purchase-ssl-web-site.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -70,7 +70,7 @@ Para enlazar un certificado SSL personalizado a la aplicación web, su [plan de 
 
 ### <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Abra el [Azure Portal](https://portal.azure.com).
+Abra [Azure Portal](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navegar a la aplicación web
 

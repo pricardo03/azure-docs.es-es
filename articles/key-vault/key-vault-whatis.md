@@ -12,19 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/26/2017
+ms.date: 07/23/2018
 ms.author: barclayn
-ms.openlocfilehash: 1fd39cf6363cb028b2f933934c95ea2b635b754a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089312"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226720"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
+
 Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Con Key Vault, puede cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). Para tener mayor seguridad, puede importar o generar las claves en HSM. Si decide hacerlo, Microsoft procesa las claves en los HSM validados de FIPS 140-2 nivel 2 (hardware y firmware).  
 
 Key Vault agiliza el proceso de administración de claves y le permite mantener el control de claves que obtienen acceso a sus datos y los cifran. Los desarrolladores pueden crear claves para desarrollo y prueba en minutos y, a continuación, migrarlas sin problemas a claves de producción. Los administradores de seguridad pueden conceder (y revocar) permisos a las claves según sea necesario.
+
+## <a name="basic-concepts"></a>Conceptos básicos
+
+Azure Key Vault es una herramienta para almacenar y acceder a los secretos de forma segura. Un secreto es todo aquello a lo cual se desea controlar estrechamente el acceso, como certificados, contraseñas o claves de API.
+A continuación se muestran algunos términos clave:
+- **Inquilino**: un inquilino es la organización que posee y administra una instancia específica de los servicios en la nube de Microsoft. Se usa a menudo de manera exacta para hacer referencia al conjunto de servicios de Azure y Office 365 de una organización
+- **Propietario del almacén**: puede crear un almacén de claves y obtener acceso completo y control sobre él. El propietario del almacén también puede configurar una auditoría para registrar quién accede a los secretos y claves. Los administradores pueden controlar el ciclo de vida de la clave. Pueden revertir a una nueva versión de la clave, realizar copias de seguridad, etc.
+- **Consumidor del almacén**: puede realizar acciones en los recursos del almacén de claves si el propietario del almacén le concede acceso con los permisos correspondientes.
+- **[Azure Active Directory](../active-directory/active-directory-whatis.md)** es el servicio de Azure AD para un inquilino determinado. Cada directorio tiene uno o varios dominios. Un directorio puede tener varias suscripciones asociadas, pero solo un inquilino. 
+- **Identificador de inquilino de Azure**: se trata de una manera única para identificar una instancia de Azure Active Directory dentro de una suscripción de Azure. 
+- **Managed Service Identity**: Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Para solucionar este problema, Managed Service Identity (MSI) proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse Key Vault o en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. Para más información sobre Managed Service Identity, haga clic [aquí](../active-directory/managed-service-identity/overview.md)
+
+## <a name="key-vault-roles"></a>Roles del almacén de claves
 
 Utilice la tabla siguiente para comprender mejor cómo Key Vault puede ayudar a satisfacer las necesidades de los programadores y de los administradores de seguridad.
 
@@ -49,6 +63,7 @@ Este administrador podría ofrecer después a los desarrolladores los URI para l
 Los desarrolladores también pueden administrar las claves directamente mediante API. Para más información, consulte la [guía para desarrolladores de Key Vault](key-vault-developers-guide.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para consultar un tutorial de introducción para que un administrador, vea [Introducción a Azure Key Vault](key-vault-get-started.md).
 
 Para obtener más información acerca del registro de uso para Key Vault, consulte [Registro de Azure Key Vault](key-vault-logging.md).

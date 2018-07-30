@@ -1,6 +1,6 @@
 ---
-title: Uso de una identidad MSI de máquina virtual Windows para acceder a Azure Storage
-description: Tutorial que indica cómo usar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Storage.
+title: Uso de la característica Managed Service Identity de una máquina virtual Windows para acceder a Azure Storage
+description: Tutorial que recorre el proceso de usar la característica Managed Service Identity de una máquina virtual Windows para acceder a Azure Storage.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 94e16156e8accc2460005cb1927a621ec7921c71
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ca2a460658b0de4f91816342d2eabb78ceee89fb
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043999"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247380"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Uso de Managed Service Identity en una máquina virtual Windows para tener acceso a Azure Storage con una clave de acceso
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial muestra cómo habilitar Managed Service Identity (MSI) para una máquina virtual Windows y, a continuación, usar esa identidad para recuperar claves de acceso a la cuenta de almacenamiento. Puede usar claves de acceso de almacenamiento de la forma habitual al realizar operaciones de almacenamiento, por ejemplo, al usar el SDK de Storage. En este tutorial se cargan y descargan blobs mediante PowerShell de Azure Storage. Aprenderá a:
+En este tutorial se muestra cómo habilitar Managed Service Identity en una máquina virtual Windows y, a continuación, usar dicha identidad para recuperar las claves de acceso de la cuenta de almacenamiento. Puede usar claves de acceso de almacenamiento de la forma habitual al realizar operaciones de almacenamiento, por ejemplo, al usar el SDK de Storage. En este tutorial se cargan y descargan blobs mediante PowerShell de Azure Storage. Aprenderá a:
 
 
 > [!div class="checklist"]
-> * Habilitar MSI en una máquina virtual Windows 
+> * Habilitar Managed Service Identity en una máquina virtual Windows 
 > * Conceder acceso a la máquina virtual a las claves de acceso a la cuenta de almacenamiento en Resource Manager 
 > * Obtener un token de acceso mediante la identidad de la máquina virtual y utilizarlo para recuperar las claves de acceso a la cuenta de almacenamiento desde Resource Manager 
 
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Windows en un nuevo grupo de recursos
 
-En este tutorial, se crea una nueva máquina virtual Windows. También puede habilitar MSI en una máquina virtual existente.
+En este tutorial, se crea una nueva máquina virtual Windows. Managed Service Identity también se puede habilitar en una máquina virtual existente.
 
 1.  Haga clic en el botón **+/Crear nuevo servicio** de la esquina superior izquierda de Azure Portal.
 2.  Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
@@ -56,20 +56,20 @@ En este tutorial, se crea una nueva máquina virtual Windows. También puede hab
 
     ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Habilitación de MSI en la máquina virtual
+## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitación de Managed Service Identity en una máquina virtual
 
-Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que incluir las credenciales en el código. En un segundo plano, la habilitación de MSI permite hacer dos cosas: registrar la máquina virtual con Azure Active Directory para crear su identidad administrada y configurar la identidad en la máquina virtual.
+La característica Managed Service Identity de una máquina virtual le permite obtener tokens de acceso desde Azure AD sin tener que incluir credenciales en el código. En segundo plano, la habilitación de Managed Service Identity realiza dos acciones: registra una máquina virtual en Azure Active Directory para crear su identidad administrada y configura la identidad en la máquina virtual.
 
 1. Desplácese hasta el grupo de recursos de la nueva máquina virtual y seleccione la máquina virtual que creó en el paso anterior.
 2. En la configuración de máquina virtual, a la izquierda, haga clic en **Configuración**.
-3. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No.
+3. Para registrar y habilitar Managed Service Identity, seleccione **Sí**; si desea deshabilitarla, elija No.
 4. No olvide hacer clic en **Guardar** para guardar la configuración.
 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 
-Si aún no tiene una, creará ahora una cuenta de almacenamiento. También puede omitir este paso y conceder acceso para MSI en la máquina virtual a las claves de una cuenta de almacenamiento existente. 
+Si aún no tiene una, creará ahora una cuenta de almacenamiento. También puede omitir este paso y conceder a la característica Managed Service Identity de la máquina virtual acceso a las claves de una cuenta de almacenamiento existente. 
 
 1. Haga clic en el botón **+/Crear nuevo servicio** de la esquina superior izquierda de Azure Portal.
 2. Haga clic en **Storage**, a continuación, en **Cuenta de almacenamiento** y se mostrará un nuevo panel "Crear cuenta de almacenamiento".
@@ -91,9 +91,9 @@ Más adelante se cargará y descargará un archivo a la nueva cuenta de almacena
 
     ![Creación de contenedores de almacenamiento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Concesión de acceso MSI a la máquina virtual para usar las claves de acceso de la cuenta de almacenamiento 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-storage-account-access-keys"></a>Conceda a la característica Managed Service Identity de su máquina virtual acceso para usar las claves de acceso de la cuenta de almacenamiento 
 
-Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obstante, puede usar una instancia de MSI para recuperar las claves de acceso a la cuenta de almacenamiento desde Resource Manager y usar una clave para acceder al almacenamiento.  En este paso, se concede a la instancia de MSI en la máquina virtual acceso a las claves de la cuenta de almacenamiento.   
+Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obstante, puede usar una instancia de Managed Service Identity para recuperar las claves de acceso de la cuenta de almacenamiento desde Resource Manager y, después, usar una clave para acceder al almacenamiento.  En este paso, concede a la característica Managed Service Identity de la máquina virtual acceso a las claves de su cuenta de almacenamiento.   
 
 1. Vuelva a la cuenta de almacenamiento recién creada.  
 2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.  
@@ -114,7 +114,7 @@ En esta parte tendrá que usar los cmdlets de PowerShell de Azure Resource Manag
 1. En Azure Portal, vaya a **Máquinas virtuales**, vaya a la máquina virtual Windows y, a continuación, desde la página **Información general**, haga clic en **Conectar** en la parte superior. 
 2. Escriba su **nombre de usuario** y **contraseña** que agregó cuando creó la máquina virtual Windows. 
 3. Ahora que ha creado una **conexión a Escritorio remoto** con la máquina virtual, abra PowerShell en la sesión remota.
-4. Mediante Invoke-WebRequest de PowerShell, realice una solicitud al punto de conexión de MSI local para obtener un token de acceso para Azure Resource Manager.
+4. Mediante Invoke-WebRequest de PowerShell, realice una solicitud al punto de conexión de Managed Service Identity local para obtener un token de acceso para Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

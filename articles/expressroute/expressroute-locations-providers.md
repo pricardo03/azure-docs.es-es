@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 07/23/2018
 ms.author: jaredro
-ms.openlocfilehash: 4e56e8ab1e31ec875f33bc47f745aa7b93e7788e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1a6a9eff6af6b2b87eaa543dea78bc77b623dc23
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116136"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216145"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -61,7 +61,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
-| **Nube del gobierno de Estados Unidos** |Iowa Gob. EE. UU., Virginia Gob. EE. UU., centro de US DoD, este de US DoD  |Chicago, Dallas, Nueva York, Seattle, Silicon Valley, Washington D.C. |
+| **Nube del gobierno de Estados Unidos** |Iowa Gob. EE. UU., Virginia Gob. EE. UU., centro de US DoD, este de US DoD  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **China** |Este de China, Norte de China |Beijing, Shanghai |
 | **Alemania** |Centro de Alemania, Alemania oriental |Berlín+, Fráncfort |
 
@@ -122,6 +122,8 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications y Verizon |
 | **Dallas** |Equinix, Megaport y Verizon |
 | **Nueva York** |Equinix, Level 3 Communications+ y Verizon |
+| **Phoenix** | CenturyLink Cloud Connect |
+| **San Antonio** | Megaport |
 | **Silicon Valley** | Equinix, Level 3 Communications |
 | **Seattle** | Equinix |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications y Verizon |
@@ -161,7 +163,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 ## <a name="c1partners"></a>Conectividad a través de proveedores de servicios
 | **Ubicación** | **Exchange** | **Proveedores de conectividad** |
 | --- | --- | --- |
-| **Ámsterdam** | Equinix y Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telia |
+| **Ámsterdam** | Equinix y Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Fráncfort** | Telecity | BICS, Nianet y QSC AG |

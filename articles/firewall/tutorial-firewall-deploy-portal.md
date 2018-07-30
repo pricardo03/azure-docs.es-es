@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7a127f53985f39913c83958be1f1730c64b33a76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001959"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145325"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -225,7 +225,7 @@ En la subred **Workload-SN**, puede configurar la ruta predeterminada de salida 
 >
 > Puede invalidar esta colección integrada de reglas de infraestructura creando una colección de reglas de aplicación *Denegar todo* que se procese en último lugar. Siempre se procesará antes que la colección de reglas de infraestructura. Cualquier cosa que no esté en la colección de reglas de infraestructura se denegará de forma predeterminada.
 
-## <a name="configure-network-rules"></a>Configurar reglas de red
+## <a name="configure-network-rules"></a>Configuración de reglas de red
 
 1. Haga clic en **Agregar una colección de reglas de red**.
 2. En **Nombre**, escriba **Net-Coll01**.
@@ -235,7 +235,7 @@ En la subred **Workload-SN**, puede configurar la ruta predeterminada de salida 
 6. En **Reglas**, como **Nombre**, escriba **AllowDNS**.
 8. En **Protocolo**, seleccione **TCP**.
 9. En **Direcciones de origen**, escriba **10.0.2.0/24**.
-10. Como dirección de destino, escriba **209.244.0.3, 209.244.0.4**
+10. Como dirección de destino, escriba **209.244.0.3,209.244.0.4**
 11. En **Puertos de destino**, escriba **53**.
 12. Haga clic en **Agregar**.
 

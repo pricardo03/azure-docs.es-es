@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: d1315753baf08cc80fda5811bd43bf59609781b7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081863"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216030"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio de clase 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -31,14 +31,14 @@ En este tutorial realizará lo siguiente:
 > * Configuración del laboratorio de clase
 > * Envío del vínculo de registro a los estudiantes
 
-## <a name="prerequisites"></a>requisitos previos
-Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. Un propietario de laboratorio puede agregar un usuario al rol de Creador de laboratorio mediante los pasos descritos en el siguiente artículo: [Incorporación de un usuario al rol de Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+## <a name="prerequisites"></a>Requisitos previos
+Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. La cuenta que usó para crear una cuenta de laboratorio se agrega automáticamente a este rol. Un propietario de laboratorio puede agregar otros usuarios al rol de Creador de laboratorio mediante los pasos descritos en el siguiente artículo: [Incorporación de un usuario al rol de Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Creación de un laboratorio educativo
 
-1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com).
-2. Seleccione **Iniciar sesión** y escriba las credenciales. 
+1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). 
+2. Seleccione **Iniciar sesión** y escriba las credenciales. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
 3. En la ventana **Nuevo laboratorio**, lleve a cabo las siguientes acciones: 
     1. Escriba un **nombre** para el laboratorio de clase. 
     2. Seleccione el **tamaño** de la máquina virtual que se va a usar en la clase.

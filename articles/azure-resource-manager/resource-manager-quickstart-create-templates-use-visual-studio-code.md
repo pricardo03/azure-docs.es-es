@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a66d845fcf7507613cda475bbc96225f8a7cc7eb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: bb0e3ee685d5a52a9f372e99d97f3608f67c17c0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126872"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185404"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Guía de inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
 
@@ -144,7 +144,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a crear una plantilla con Visual Studio Code y cómo implementarla mediante el Cloud Shell de Azure Portal. La plantilla usada en esta guía de inicio rápido solo contiene un recurso de Azure.  En el siguiente tutorial, va a desarrollar una plantilla con varios recursos.  Algunos de los recursos tienen recursos dependientes.
+En este tutorial ha aprendido a crear una plantilla con Visual Studio Code y cómo implementarla mediante el Cloud Shell de Azure Portal. En el siguiente tutorial, va a aprender a desarrollar una plantilla y a usar la referencia de plantilla.
 
 > [!div class="nextstepaction"]
-> [Creación de plantillas mediante Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+> [Creación de una cuenta de almacenamiento cifrada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

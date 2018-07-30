@@ -1,6 +1,6 @@
 ---
 title: Guía de inicio rápido para enviar datos de telemetría a Azure IoT Hub (C#) | Microsoft Docs
-description: En este inicio rápido, ejecutará dos aplicaciones C# de ejemplo para enviar datos de telemetría simulados a IoT Hub y para leer los datos de telemetría procedentes de este para procesarlos en la nube.
+description: En esta guía de inicio rápido, ejecutará dos aplicaciones C# de ejemplo para enviar datos de telemetría simulados a un centro de IoT y para leer los datos de telemetría procedentes de este para procesarlos en la nube.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 501a8f2dad0537f0288dfd6a6d7bedcac054ab86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 34f933474337d3cddce752b79dc0d3fdb4c39c0c
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619308"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213724"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub y leer datos de telemetría procedentes de este con una aplicación back-end (C#)
 
@@ -29,7 +29,7 @@ El inicio rápido usa dos aplicaciones C# escritas previamente: una para enviar 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en el equipo de desarrollo.
 

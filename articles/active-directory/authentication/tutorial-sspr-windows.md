@@ -1,37 +1,41 @@
 ---
-title: SSPR de Azure AD desde la pantalla de inicio de sesión de Windows 10 | Microsoft Docs
-description: Configuración del restablecimiento de contraseña de Azure AD de la pantalla de inicio de sesión de Windows 10 y olvido del PIN
+title: Autoservicio de restablecimiento de contraseña de Azure AD desde la pantalla de inicio de sesión de Windows 10
+description: En este tutorial va a habilitar el restablecimiento de contraseña en la pantalla de inicio de sesión de Windows 10 para reducir el número de llamadas al departamento de soporte técnico.
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.topic: tutorial
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054508"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161170"
 ---
-# <a name="azure-ad-password-reset-from-the-login-screen"></a>Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de contraseña de Azure AD desde la pantalla de inicio de sesión
 
-Ya ha implementado el restablecimiento de contraseña de autoservicio de Azure AD (SSPR), pero los usuarios siguen llamando al departamento de soporte técnico cuando olvidan la contraseña. Llaman porque no llegan a un explorador web para acceder a SSPR.
+En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde la pantalla de inicio de sesión de Windows 10. Con la nueva actualización de Windows 10 de abril de 2018, los usuarios con dispositivos **unidos a Azure AD** o **unidos a Azure AD híbrido** pueden usar un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados.
 
-Con la nueva actualización de Windows 10 de abril de 2018, los usuarios con dispositivos **unidos a Azure AD** o **unidos a Azure AD híbrido** pueden ver un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados.
+> [!div class="checklist"]
+> * Configuración del vínculo de restablecimiento de contraseña con Intune
+> * Configuración opcional mediante el registro de Windows
+> * Sepa lo que sus usuarios verán.
 
-Para permitir a los usuarios restablecer su contraseña de Azure AD desde la pantalla de inicio de sesión de Windows 10, deben cumplirse los siguientes requisitos:
+## <a name="prerequisites"></a>Requisitos previos
 
-* Actualización de Windows 10 de abril de 2018 o cliente más reciente que está [unido a Azure AD](../device-management-azure-portal.md) o [unido a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md).
+* Actualización de Windows del 10 de abril de 2018 o un cliente más reciente que esté:
+   * [Unido a Azure AD](../device-management-azure-portal.md) o 
+   * [Unido a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md)
 * El autoservicio de restablecimiento de contraseña de Azure AD debe estar habilitado.
-* Configure e implemente los valores para habilitar el vínculo de restablecimiento de contraseña a través de uno de los métodos siguientes:
-   * [Perfil de configuración de dispositivo de Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Este método requiere la inscripción en Intune del dispositivo.
-   * [Clave del Registro](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configuración del vínculo de restablecimiento de contraseña con Intune
+
+La implementación de cambios de configuración para habilitar el restablecimiento de contraseña desde la pantalla de inicio de sesión mediante Intune es el método más flexible. Intune le permite implementar el cambio de configuración en un grupo específico de máquinas que defina. Este método requiere la inscripción en Intune del dispositivo.
 
 ### <a name="create-a-device-configuration-policy-in-intune"></a>Creación de una directiva de configuración de dispositivo en Intune
 
@@ -85,7 +89,7 @@ Ahora ha creado y asignado una directiva de configuración de dispositivo para h
 
 Se recomienda usar este método solo para probar el cambio de configuración.
 
-1. Inicie sesión en el dispositivo unido a Azure AD con credenciales administrativas
+1. Inicie sesión en el equipo Windows con credenciales administrativas
 2. Ejecute **regedit** como administrador
 3. Establezca la siguiente clave del Registro
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -97,7 +101,8 @@ Ahora que la directiva está configurada y asignada, ¿qué cambia para el usuar
 
 ![LoginScreen][LoginScreen]
 
-Cuando los usuarios intenten iniciar sesión, verán ahora un vínculo de restablecimiento de contraseña que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
+Cuando los usuarios intenten iniciar sesión verán un vínculo de restablecimiento de contraseña que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
+Cuando los usuarios intenten iniciar sesión verán un vínculo de restablecimiento de contraseña que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
 
 Los usuarios encontrarán instrucciones para usar esta característica en el artículo sobre el [restablecimiento de la contraseña profesional o educativa](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
@@ -111,13 +116,16 @@ Al probar esta funcionalidad con Escritorio remoto, el vínculo "Restablecer con
 
 * El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si decide que ya no desea utilizar la funcionalidad que se ha configurado como parte de este tutorial, elimine el perfil de configuración del dispositivo Intune que ha creado o la clave del registro.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
+En este tutorial ha permitido a los usuarios restablecer sus contraseñas desde la pantalla de inicio de sesión de Windows 10. Continúe con el siguiente tutorial para ver cómo se puede integrar Azure Identity Protection en las experiencias de Multi-Factor Authentication y autoservicio de restablecimiento de contraseñas.
 
-* [¿Cómo se implementa SSPR?](howto-sspr-deployment.md)
-* [¿Cómo se habilita el restablecimiento del PIN desde la pantalla de inicio de sesión?](https://docs.microsoft.com/intune/device-windows-pin-reset)
-* [Más información acerca de las directivas de autenticación de MDM](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
+> [!div class="nextstepaction"]
+> [Evaluación del riesgo en el inicio de sesión](tutorial-risk-based-sspr-mfa.md)
 
 [CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Creación de un perfil de configuración de dispositivo de Intune para habilitar el vínculo de restablecimiento de contraseña en la pantalla de inicio de sesión de Windows 10"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Asignación de la directiva de configuración de dispositivo de Intune a un grupo de dispositivos con Windows 10"

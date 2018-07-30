@@ -1,9 +1,9 @@
 ---
-title: Creación de un clúster de Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight |Microsoft Docs
+title: Creación de un clúster de Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 description: Aprenda a crear clústeres de HDInsight con cuentas de almacenamiento de Azure habilitadas para transferencia segura.
-keywords: introducción a hadoop,hadoop linux,inicio rápido de hadoop,transferencia segura,cuenta de almacenamiento de azure
 services: hdinsight
 author: mumian
+ms.author: jgao
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,20 +11,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: hero-article
 ms.workload: big-data
-ms.date: 07/09/2018
-ms.author: jgao
-ms.openlocfilehash: 1a905d574d67b5965325dba80c03d75901f97fef
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/24/2018
+ms.openlocfilehash: b4dd6f0f5f44e128e0ae15db69b2f36f8e4c5600
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952201"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247166"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creación de un clúster de Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 
 La característica [Se requiere transferencia segura](../storage/common/storage-require-secure-transfer.md) mejora la seguridad de su cuenta de Azure Storage al aplicar todas las solicitudes a su cuenta mediante una conexión segura. Esta característica y el esquema wasbs solo son compatibles con la versión de clúster de HDInsight 3.6 o posterior. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Suscripción de Azure**: para crear una cuenta de evaluación gratuita durante un mes, vaya a [azure.microsoft.com/es-es/free/](https://azure.microsoft.com/free).
@@ -36,7 +35,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-En esta sección, se crea un clúster de Hadoop en HDInsight mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). La plantilla también se encuentra en [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). No es necesario tener experiencia en el uso de la plantilla de Resource Manager para seguir este tutorial. Para conocer otros métodos de creación de clústeres y las propiedades que se usan en este tutorial, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+En esta sección, se crea un clúster de Hadoop en HDInsight mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). La plantilla también se encuentra en [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). No es necesario tener experiencia en el uso de la plantilla de Resource Manager para seguir este tutorial. Para conocer otros métodos de creación de clústeres y las propiedades que se usan en este tutorial, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager en Azure Portal. 
    
@@ -97,5 +96,3 @@ Para aprender más sobre la creación o administración de un clúster de HDInsi
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-

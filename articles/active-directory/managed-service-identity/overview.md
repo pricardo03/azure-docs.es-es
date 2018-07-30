@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006937"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237876"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>¿Qué es Managed Service Identity para recursos de Azure?
 

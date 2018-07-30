@@ -4,48 +4,52 @@ description: Azure Policy es un servicio de Azure que se usa para crear, asignar
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3f14c547c072e012d44350706f08548208fbb544
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195631"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249875"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
-El gobierno de TI genera claridad entre los objetivos comerciales y los proyectos de TI. Un buen gobierno de TI implica planear las iniciativas y establecer prioridades en un nivel estratégico. ¿Su empresa experimenta muchos problemas de TI que parecen no resolverse nunca? La implementación de directivas ayuda a administrarlos mejor y a evitarlos. Aquí es donde Azure Policy entra en juego.
+IT Governance garantiza que cualquier organización puede alcanzar sus objetivos si usa TI de forma eficaz. Para ello crea claridad entre los proyectos de TI y los objetivos empresariales.
 
-Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas. Las definiciones de directivas aplican distintas reglas y efectos sobre los recursos, para que estos sigan siendo compatibles con los estándares corporativos y los contratos de nivel de servicio. Azure Policy ejecuta una evaluación de los recursos, para detectar los que no son compatibles con las definiciones de directivas definidas. Por ejemplo, puede disponer de una directiva que permita solo determinados tipos de máquinas virtuales. Otras directivas exigen que todos los recursos tengan una etiqueta concreta. Estas directivas se evalúan al crear y actualizar los recursos.
+¿Su empresa experimenta muchos problemas de TI que parecen no resolverse nunca?
+Un buen gobierno de TI implica planear las iniciativas y establecer prioridades a nivel estratégico que faciliten la administración y eviten problemas. Es aquí donde Azure Policy entra en juego.
+
+Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar directivas. Dichas directivas aplican distintas reglas y efectos a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Para realizar estas funciones, Azure Policy ejecuta evaluaciones de los recursos y explora cuáles no son compatibles con las directivas que se han creado. Por ejemplo, puede haber una directiva que permita solo un tamaño de SKU concreto de las máquinas virtuales de un entorno. Una vez que se haya implementado esta directiva, se evaluará al crear y actualizar los recursos, así como en los recursos ya existentes. Más adelante se analizará más detalladamente cómo crear e implementar directivas con Azure Policy.
 
 > [!IMPORTANT]
 > La evaluación de cumplimiento de Azure Policy se ofrece ahora para todas las asignaciones independientemente del nivel de precios. Si las asignaciones no muestran los datos de cumplimiento, asegúrese de que la suscripción está registrada con el proveedor de recursos Microsoft.PolicyInsights.
 
 ## <a name="how-is-it-different-from-rbac"></a>¿En qué se diferencia de RBAC?
 
-Hay algunas diferencias importantes entre directiva y control de acceso basado en roles (RBAC). RBAC se centra en las acciones del usuario en ámbitos diferentes. Por ejemplo, puede que se le agregue al rol de colaborador para un grupo de recursos en el ámbito deseado. El rol permite realizar cambios en ese grupo de recursos. La directiva se centra en las propiedades de los recursos durante la implementación y para todos los recursos existentes. Por ejemplo, a través de directivas, puede controlar los tipos de recursos que se pueden aprovisionar. O puede restringir las ubicaciones en las que se pueden aprovisionar los recursos. A diferencia de RBAC, la directiva es un sistema que permite de manera predeterminada y niega explícitamente.
+Hay algunas diferencias importantes entre directiva y control de acceso basado en roles (RBAC). RBAC se centra en las acciones del usuario en ámbitos diferentes. Por ejemplo, puede que se le agregue al rol de colaborador para un grupo de recursos en el ámbito deseado. El rol permite realizar cambios en ese grupo de recursos.
+La directiva se centra en las propiedades de los recursos durante la implementación y para todos los recursos existentes. Por ejemplo, a través de directivas, puede controlar los tipos de recursos que se pueden aprovisionar. O puede restringir las ubicaciones en las que se pueden aprovisionar los recursos. A diferencia de RBAC, la directiva es un sistema que permite de manera predeterminada y niega explícitamente.
 
-Para usar las directivas, debe autenticarse a través de RBAC. En concreto, la cuenta necesita:
+### <a name="rbac-permissions-in-azure-policy"></a>Permisos de RBAC en Azure Policy
 
-- El permiso `Microsoft.Authorization/policydefinitions/write` para definir una directiva.
-- El permiso `Microsoft.Authorization/policyassignments/write` para asignar una directiva.
-- El permiso `Microsoft.Authorization/policySetDefinitions/write` para definir una iniciativa.
-- El permiso `Microsoft.Authorization/policyassignments/write` para asignar una iniciativa.
+Azure Policy tiene permisos representados como operaciones en dos proveedores de recursos diferente:
 
-Estos permisos no se incluyen en el rol **Colaborador**.
+- [Microsoft.Authorization](../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
+- [Microsoft.PolicyInsight](../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+
+Varios de los roles integrados tienen distintos niveles de permisos en los recursos de Azure Policy, como **administrador de seguridad**, que puede administrar asignaciones de directivas y definiciones de directivas, pero no puede ver información de cumplimiento y **lector** , que puede leer detalles relacionados con las asignaciones y definiciones de directivas, pero que no puede realizar cambios ni ver información acerca del cumplimiento. Mientras que el rol **propietario** tiene todos los derechos completos, **colaborador** no tiene ningún permiso en Azure Policy. Para conceder permiso para ver los detalles de cumplimiento de una directiva, cree un [rol personalizado](../role-based-access-control/custom-roles.md).
 
 ## <a name="policy-definition"></a>Definición de directiva
 
-Cada definición de directiva tiene condiciones que regulan su aplicación. Además, tiene un efecto complementario que se produce cuando se cumplen las condiciones.
+El proceso de creación e implementación de una directiva en Azure Policy comienza con la creación de una definición de directiva. Cada definición de directiva tiene condiciones que regulan su aplicación. Además, tiene un efecto complementario que se produce cuando se cumplen las condiciones.
 
 En Azure Portal, se ofrecen algunas directivas integradas que están disponibles de manera predeterminada. Por ejemplo: 
 
 - **Requerir SQL Server 12.0**: esta definición de directiva tiene condiciones o reglas para garantizar que todos los servidores SQL usen la versión 12.0. Su efecto es denegar a todos los servidores que no cumplen con estos criterios.
-- **SUK de cuenta de almacenamiento permitida**: esta definición de directiva tiene un conjunto de condiciones o reglas que determinan si una cuenta de almacenamiento que se está implementado se encuentra dentro de un conjunto de tamaños de SKU. Su efecto es denegar a todos los servidores que no cumplen con el conjunto de tamaños de SKU definidos.
+- **SUK de cuenta de almacenamiento permitida**: esta definición de directiva tiene un conjunto de condiciones o reglas que determinan si una cuenta de almacenamiento que se está implementado se encuentra dentro de un conjunto de tamaños de SKU. Su efecto es denegar todas las cuentas de almacenamiento que no cumplen el conjunto de tamaños de SKU definidos.
 - **Tipo de recurso permitido**: esta definición de directiva tiene un conjunto de condiciones o reglas para especificar los tipos de recursos que puede implementar la organización. Su efecto es denegar a todos los recursos que no forman parte de esta lista definida.
 - **Ubicaciones permitidas**: esta directiva permite restringir las ubicaciones que la organización puede especificar al implementar los recursos. Su efecto se utiliza para exigir los requisitos de cumplimiento de replicación geográfica.
 - **SKU de máquina virtual permitidas**: esta directiva permite especificar un conjunto de SKU de máquina virtual que la organización puede implementar.
@@ -53,13 +57,15 @@ En Azure Portal, se ofrecen algunas directivas integradas que están disponibles
 - **Forzar etiqueta y su valor**: esta directiva fuerza una etiqueta necesaria y su valor en un recurso.
 - **Tipos de recursos no permitidos**: esta directiva permite especificar los tipos de recursos que la organización no puede implementar.
 
-Puede asignar cualquiera de estas directivas a través de Azure Portal, PowerShell o la CLI de Azure. Después de hacer cambios en la definición de una directiva, la reevaluación de la directiva tiene lugar aproximadamente una vez cada hora.
+Para implementar estas definiciones de directiva (tanto las definiciones integradas como las personalizadas), será preciso asignarlas. Puede asignar cualquiera de estas directivas a través de Azure Portal, PowerShell o la CLI de Azure.
+
+Tenga en cuenta que se realiza una reevaluación de una directiva aproximadamente cada hora, lo que significa que si realiza cambios en la definición de la directiva después de implementarla (creación de una asignación de directiva), se volverá a realizar una evaluación de los recursos antes de una hora.
 
 Para obtener más información sobre las estructuras de las definiciones de directiva, consulte [Estructura de definición de directiva](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Asignación de directiva
 
-Una asignación de directiva es una definición de directiva que se asignó para que ocurra dentro de un ámbito específico. Este ámbito puede ir desde un grupo de administración a un grupo de recursos. El término *ámbito* hace referencia a todos los grupos de recursos, suscripciones o grupos de administración a los que se asigna la definición de directiva. Todos los recursos secundarios heredan las asignaciones de directivas. De este modo, si una directiva se aplica a un grupo de recursos, también es aplicable a todos los recursos de dicho grupo. Sin embargo, puede excluir un subámbito de la asignación de directiva.
+Una asignación de directiva es una definición de directiva que se asignó para que ocurra dentro de un ámbito específico. Este ámbito puede ir desde un [grupo de administración](../azure-resource-manager/management-groups-overview.md) a un grupo de recursos. El término *ámbito* hace referencia a todos los grupos de recursos, suscripciones o grupos de administración a los que se asigna la definición de directiva. Todos los recursos secundarios heredan las asignaciones de directivas. Esto significa que si una directiva se aplica a un grupo de recursos, es aplica también a todos los recursos de dicho grupo. Sin embargo, puede excluir un subámbito de la asignación de directiva.
 
 Por ejemplo, en el ámbito de la suscripción, puede asignar una directiva que impida la creación de recursos de red. Sin embargo, excluye un grupo de recursos dentro de la suscripción que está diseñado para la infraestructura de red. Concede acceso a este grupo de recursos de red a los usuarios de confianza con la creación de recursos de red.
 
@@ -77,7 +83,7 @@ Para más información sobre los parámetros de directiva, consulte [Informació
 
 ## <a name="initiative-definition"></a>Definición de iniciativa
 
-Una definición de iniciativa es una colección de definiciones de directiva que están diseñadas para alcanzar un único objetivo general. Las definiciones de iniciativa simplifican la administración y asignación de las definiciones de directiva. Tal simplificación se realiza mediante la agrupación de un conjunto de directivas como un solo elemento. Por ejemplo, podría crear una iniciativa titulada **Habilitar la supervisión en Azure Security Center**, con el objetivo de supervisar todas las recomendaciones de seguridad disponibles en Azure Security Center.
+Una definición de iniciativa es una colección de definiciones de directiva personalizadas para alcanzar un único objetivo general. Las definiciones de iniciativa simplifican la administración y asignación de las definiciones de directiva. Tal simplificación se realiza mediante la agrupación de un conjunto de directivas como un solo elemento. Por ejemplo, podría crear una iniciativa titulada **Habilitar la supervisión en Azure Security Center**, con el objetivo de supervisar todas las recomendaciones de seguridad disponibles en Azure Security Center.
 
 En esta iniciativa, tendría definiciones de directiva como las siguientes:
 
@@ -89,13 +95,14 @@ En esta iniciativa, tendría definiciones de directiva como las siguientes:
 
 Al igual que una asignación de directiva, una asignación de iniciativa es una definición de iniciativa que se asigna a un ámbito específico. Las asignaciones de iniciativa disminuyen la necesidad de crear varias definiciones de iniciativa para cada ámbito. Este ámbito también puede ir desde un grupo de administración a un grupo de recursos.
 
-Del ejemplo anterior, la iniciativa **Habilitar la supervisión en Azure Security Center** se puede asignar a distintos ámbitos. Por ejemplo, se puede asignar una asignación a **subscriptionA**. Otra se puede asignar a **subscriptionB**.
+Del ejemplo anterior, la iniciativa **Habilitar la supervisión en Azure Security Center** se puede asignar a distintos ámbitos. Por ejemplo, se puede asignar una asignación a **subscriptionA**.
+Otra se puede asignar a **subscriptionB**.
 
 ## <a name="initiative-parameters"></a>Parámetros de iniciativa
 
 Al igual que los parámetros de directiva, los parámetros de iniciativa permiten simplificar la administración de iniciativas mediante la reducción de la redundancia. Los parámetros de iniciativa son esencialmente la lista de los parámetros que las definiciones de directiva usan dentro de la iniciativa.
 
-Por ejemplo, tome un escenario con una definición de iniciativa, **initiativeC**, con dos definiciones de directiva. Cada definición de directiva tiene un parámetro definido:
+Por ejemplo, imagine un escenario en el que tiene la definición de una iniciativa (**initiativeC**), con las definiciones de directiva **policyA** y **policyB**, y que cada una de ellas espera un tipo diferente de parámetro:
 
 | Directiva | Nombre del parámetro |tipo del parámetro  |Nota: |
 |---|---|---|---|
@@ -110,22 +117,44 @@ En este escenario, tiene tres opciones en el momento de definir los parámetros 
 
 Por ejemplo, podría crear una lista de opciones de valores en una definición de iniciativa que contenga *EastUS*, *WestUS*, *CentralUS* y *WestEurope*. En su caso, no se puede proporcionar un valor diferente, como *Southeast Asia*, durante la asignación de la iniciativa, porque no forma parte de la lista.
 
+## <a name="maximum-count-of-policy-objects"></a>Número máximo de objetos de directiva
+
+Hay un número máximo de cada tipo de objeto de Azure Policy. Una entrada de _Scope_ significa la suscripción o el grupo de administración.
+
+| Where | Qué | Número máximo |
+|---|---|---|
+| Ámbito | Definiciones de directiva | 250 |
+| Ámbito | Definiciones de iniciativa | 100 |
+| Inquilino | Definiciones de iniciativa | 1000 |
+| Ámbito | Asignación de directiva | 100 |
+| Definición de directiva | Parámetros | 20 |
+| Definición de iniciativa | Directivas | 100 |
+| Definición de iniciativa | Parámetros | 100 |
+| Asignación de directiva | Exclusiones (notScopes) | 100 |
+| Regla de directiva | Condicionales anidados | 512 |
+
 ## <a name="recommendations-for-managing-policies"></a>Recomendaciones para la administración de directivas
 
-Cuando cree y administre asignaciones y definiciones de directiva, se recomienda seguir estos punteros:
+Cuando se crean y administran asignaciones y definiciones de directiva, se recomienda seguir ciertos punteros y tener en cuenta algunas sugerencias:
 
 - Si crea definiciones de directiva en el entorno, se recomienda comenzar con un efecto de auditoría, en contraposición con un efecto de denegación, para llevar un seguimiento del impacto que la definición de directiva tiene en los recursos del entorno. Si ya tiene scripts implementados para escalar verticalmente las aplicaciones de manera automática, establecer un efecto de denegación puede impedir las tareas de automatización que ya tiene implementadas.
 - Es importante considerar las jerarquías organizativas cuando se crean definiciones y asignaciones. Se recomienda crear definiciones en un nivel más alto, por ejemplo, en el nivel del grupo de administración o de suscripción, y asignarlas en el próximo nivel secundario. Por ejemplo, si crea una definición de directiva en el nivel de grupo de administración, una asignación de directiva de esa definición se puede limitar a un nivel de suscripción dentro de dicho grupo de administración.
 - Se recomienda usar siempre las definiciones de iniciativa en lugar de las definiciones de directiva, incluso si solo tiene considerada una directiva. Por ejemplo, si tiene una definición de directiva, *policyDefA*, y la crea bajo la definición de iniciativa *initiativeDefC*, si decide crear otra definición de directiva más tarde para *policyDefB* con objetivos similares a los de *policyDefA*, agréguela en *initiativeDefC* para llevar un mejor seguimiento de ellos.
+- Tenga en cuenta que, una vez que crea una asignación de iniciativa desde una definición de iniciativa, cualquier definición de directiva nueva que se agregue a la definición de iniciativa se implementa automáticamente en las asignaciones de iniciativa bajo esa definición de iniciativa.
+- Una vez que se desencadena una asignación de una iniciativa, se desencadenarán también todas las directivas de dicha iniciativa. Aunque, si tiene que ejecutar una directiva a título individual, es mejor no incluirla en una iniciativa.
 
-   Tenga en cuenta que, una vez que crea una asignación de iniciativa desde una definición de iniciativa, cualquier definición de directiva nueva que se agregue a la definición de iniciativa se implementa automáticamente en las asignaciones de iniciativa bajo esa definición de iniciativa. Sin embargo, si se introduce un parámetro nuevo en la definición de directiva nueva, debe actualizar la definición de iniciativa y las asignaciones mediante la edición de la definición o la asignación de la iniciativa.
+## <a name="video-overview"></a>Introducción en vídeo
 
-   Tenga en cuenta que cuando se activa una asignación de iniciativa, se activarán también todas las directivas incluidas en la iniciativa. Aunque, si tiene que ejecutar una directiva a título individual, es mejor no incluirla en una iniciativa.
+La siguiente introducción de Azure Policy es de la compilación 2018. Para descargar diapositivas o el vídeo, visite [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Gobierno de un entorno de Azure mediante Azure Policy) en Channel 9.
+
+> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que tiene información general sobre Azure Policy y algunos de los conceptos clave que estamos presentando, sugerimos seguir estos pasos:
+Ahora que tiene información general acerca de Azure Policy y algunos de los conceptos clave, se recomienda seguir estos pasos:
 
 - [Asignación de una definición de directiva](assign-policy-definition.md)
 - [Asignación de una definición de directiva con la CLI de Azure](assign-policy-definition-cli.md)
 - [Asignación de una definición de directiva con PowerShell](assign-policy-definition-ps.md)
+- En [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md), obtendrá información acerca de lo que es un grupo de administración
+- Vea [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Gobierno de un entorno de Azure mediante Azure Policy) en Channel 9

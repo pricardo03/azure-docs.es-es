@@ -1,20 +1,20 @@
 ---
-title: Administración de dispositivos en una solución de supervisión remota basada en Azure | Microsoft Docs
+title: Tutorial sobre administración de dispositivos en una solución de supervisión remota basada en Azure | Microsoft Docs
 description: En este tutorial se muestra cómo administrar los dispositivos conectados a un acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/12/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63baf6397b2542311525bac740c50b5eacbd35cf
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd8e8c1fe1b77113968b7af635f45f9e0e077b7c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097434"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159204"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configuración y administración de dispositivos conectados a una solución de supervisión
 
@@ -33,11 +33,9 @@ En este tutorial, va a:
 > * Volver a configurar un dispositivo.
 > * Organizar los dispositivos.
 
-## <a name="prerequisites"></a>Requisitos previos
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Para seguir este tutorial, necesita una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
-
-Si aún no ha implementado el acelerador de soluciones de supervisión remota, debe completar la guía de inicio rápido [Implementación de una solución de supervisión remota basada en la nube](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="add-a-simulated-device"></a>Adición de un dispositivo simulado
 
@@ -51,23 +49,21 @@ En el panel **Nuevo dispositivo**, elija **Simulado**, deje el número de dispos
 
 ## <a name="test-the-simulated-device"></a>Prueba del dispositivo simulado
 
-Para probar que el dispositivo simulado envía los valores de propiedad de informes y telemetría, selecciónelo en la lista de dispositivos de la página **Dispositivos**. La información sobre el dispositivo se muestra en el panel **Detalles del dispositivo**:
+Para probar que el dispositivo de motor simulado envía los valores de propiedad de informes y telemetría, selecciónelo en la lista de dispositivos de la página **Dispositivos**. La información sobre el motor se muestra en el panel **Detalles del dispositivo**:
 
 [![Vista del nuevo dispositivo de motor simulado](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
-En **Detalles del dispositivo**, compruebe que el dispositivo nuevo está enviando datos de telemetría. Para ver el flujo de telemetría de vibración diferente desde el dispositivo, haga clic en **Vibración**:
+En **Detalles del dispositivo**, compruebe que el dispositivo nuevo está enviando datos de telemetría. Para ver el flujo de telemetría de vibración desde el dispositivo, haga clic en **Vibración**:
 
 [![Selección de un flujo de telemetría para observar](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 El panel **Detalles del dispositivo** muestra otra información sobre el dispositivo, como los valores de etiqueta, los métodos que admite y las propiedades de que informa.
 
-Para ver los diagnósticos detallados, desplácese hacia abajo para ver **Diagnósticos**:
-
-[![Visualización del diagnóstico de los dispositivos](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-expanded.png#lightbox)
+Para ver los diagnósticos detallados, desplácese hacia abajo en el panel **Detalles del dispositivo** para ver la sección **Diagnósticos**.
 
 ## <a name="act-on-a-device"></a>Acción en un dispositivo
 
-Para probar que el dispositivo de motor simulado responde correctamente a las acciones iniciadas desde el acelerador de soluciones, ejecute el método **FirmwareUpdate**. Para actuar en un dispositivo ejecutando un método, seleccione el dispositivo en la lista de dispositivos y, a continuación, haga clic en **Trabajos**. Puede seleccionar más de un dispositivo, si desea actuar en varios. En el panel **Trabajos**, seleccione **Ejecutar método**. El modelo de dispositivo **Motor** especifica tres métodos: **FirmwareUpdate**, **FillTank** y **EmptyTank**:
+Para probar que el dispositivo de motor simulado responde correctamente a las acciones iniciadas desde el panel, ejecute el método **FirmwareUpdate**. Para actuar en un dispositivo ejecutando un método, seleccione el dispositivo en la lista de dispositivos y, a continuación, haga clic en **Trabajos**. Puede seleccionar más de un dispositivo, si desea actuar en varios. En el panel **Trabajos**, seleccione **Ejecutar método**. El modelo de dispositivo **Motor** especifica tres métodos: **FirmwareUpdate**, **FillTank** y **EmptyTank**:
 
 [![Métodos de motor](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -114,19 +110,15 @@ Para mostrar todos los dispositivos, vaya a la página **Dispositivos** y elija 
 
 ### <a name="add-tags"></a>Incorporación de etiquetas
 
-Seleccione todos los dispositivos de **camiones** y de **creación de prototipos**. A continuación, haga clic en **Trabajos**:
+Seleccione todos los dispositivos de **camiones** y de **creación de prototipos**. A continuación, haga clic en **Trabajos**.
 
-[![Selección de dispositivos de prototipo y camión](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-expanded.png#lightbox)
-
-Seleccione **Etiqueta**, establezca el nombre del trabajo en **AddConnectedVehicleTag** y, a continuación, agregue una etiqueta de texto llamada **FieldService** con el valor **ConnectedVehicle**. A continuación, haga clic en **Aplicar**:
+En el panel **Trabajos**, seleccione **Etiqueta**, establezca el nombre del trabajo en **AddConnectedVehicleTag** y, a continuación, agregue una etiqueta de texto llamada **FieldService** con el valor **ConnectedVehicle**. A continuación, haga clic en **Aplicar**:
 
 [![Incorporación de una etiqueta a los dispositivos de prototipo y camión](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
 
-En la página de dispositivos, seleccione todos los dispositivos **Refrigerador**, **Ascensor** y **Motor**. A continuación, haga clic en **Trabajos**:
+En la página de dispositivos, seleccione todos los dispositivos **Refrigerador**, **Ascensor** y **Motor**. A continuación, haga clic en **Trabajos**.
 
-[![Selección de los dispositivos refrigerador, ascensor y motor](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-expanded.png#lightbox)
-
-Seleccione **Etiqueta**, establezca el nombre del trabajo en **AddSmartBuildingTag** y, a continuación, agregue una etiqueta de texto llamada **FieldService** con el valor **SmartBuilding**. A continuación, haga clic en **Aplicar**:
+En el panel **Trabajos**, seleccione **Etiqueta**, establezca el nombre del trabajo en **AddSmartBuildingTag** y, a continuación, agregue una etiqueta de texto llamada **FieldService** con el valor **SmartBuilding**. A continuación, haga clic en **Aplicar**:
 
 [![Incorporación de una etiqueta a los dispositivos de refrigerador, ascensor y motor](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
@@ -148,17 +140,7 @@ Ahora el operador de Contoso puede consultar los dispositivos en función del eq
 
 [![Creación del filtro de vehículo conectado](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Si va a pasar al tutorial siguiente, deje el acelerador de soluciones de supervisión remota implementado. Para reducir los costos de la ejecución del acelerador de soluciones mientras no lo esté usando, puede detener los dispositivos simulados en el panel de configuración:
-
-[![Pausa de la telemetría](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-expanded.png#lightbox)
-
-Puede reiniciar los dispositivos simulados cuando esté preparado para comenzar el tutorial siguiente.
-
-Si ya no necesita el acelerador de soluciones, elimínelo de la página [Soluciones aprovisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard):
-
-![Eliminación de la solución](media/iot-accelerators-remote-monitoring-manage/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

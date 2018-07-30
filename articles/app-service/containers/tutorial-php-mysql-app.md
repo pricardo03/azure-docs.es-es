@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dd9c6f2969bfbcd1b2170c0685ab69b8b2ce70da
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317997"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224320"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación web PHP y MySQL en Azure App Service en Linux
 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -152,7 +152,7 @@ Para detener PHP, escriba `Ctrl + C` en el terminal.
 
 ## <a name="create-mysql-in-azure"></a>Creación de MySQL en Azure
 
-En este paso, creará una base de datos MySQL en [Azure Database for MySQL (versión preliminar)](/azure/mysql). Posteriormente, configurará la aplicación PHP para que se conecte a esta base de datos.
+En este paso, creará una base de datos MySQL en [Azure Database for MySQL](/azure/mysql). Posteriormente, configurará la aplicación PHP para que se conecte a esta base de datos.
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -160,7 +160,7 @@ En este paso, creará una base de datos MySQL en [Azure Database for MySQL (vers
 
 ### <a name="create-a-mysql-server"></a>Creación de un servidor MySQL
 
-Cree un servidor en Azure Database for MySQL (versión preliminar) con el comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Cree un servidor en Azure Database for MySQL con el comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 En el siguiente comando, reemplace el nombre del servidor MySQL en el lugar en el que vea el marcador de posición _&lt;mysql_server_name>_ (los caracteres válidos son `a-z`, `0-9` y `-`). Este nombre forma parte del nombre de host del servidor MySQL (`<mysql_server_name>.database.windows.net`), por lo que es preciso que sea globalmente único.
 
@@ -230,7 +230,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Conexión de una aplicación a Azure MySQL
 
-En este paso, conectará la aplicación PHP a la base de datos MySQL que creó en Azure Database for MySQL (versión preliminar).
+En este paso, conectará la aplicación PHP a la base de datos MySQL que creó en Azure Database for MySQL.
 
 <a name="devconfig"></a>
 
@@ -254,7 +254,7 @@ MYSQL_SSL=true
 Guarde los cambios.
 
 > [!TIP]
-> Para proteger la información de conexión de MySQL, este archivo ya se ha excluido del repositorio de Git (vea _.gitignore_ en la raíz del repositorio). Más adelante, aprenderá a configurar variables de entorno en App Service para conectarse a la base de datos en Azure Database for MySQL (versión preliminar). Con las variables de entorno, no es preciso el archivo *.env* en App Service.
+> Para proteger la información de conexión de MySQL, este archivo ya se ha excluido del repositorio de Git (vea _.gitignore_ en la raíz del repositorio). Más adelante, aprenderá a configurar variables de entorno en App Service para conectarse a la base de datos en Azure Database for MySQL. Con las variables de entorno, no es preciso el archivo *.env* en App Service.
 >
 
 ### <a name="configure-ssl-certificate"></a>Configuración de un certificado SSL
@@ -277,7 +277,7 @@ El certificado `BaltimoreCyberTrustRoot.crt.pem` se proporciona en el repositori
 
 ### <a name="test-the-application-locally"></a>Prueba de la aplicación de forma local
 
-Ejecute migraciones de base de datos Laravel con _.env.production_ como archivo de entorno para crear las tablas de la base de datos MySQL en Azure Database for MySQL (versión preliminar). Recuerde que _. env.production_ tiene la información de conexión a su base de datos MySQL de Azure.
+Ejecute migraciones de base de datos Laravel con _.env.production_ como archivo de entorno para crear las tablas de la base de datos MySQL en Azure Database for MySQL. Recuerde que _. env.production_ tiene la información de conexión a su base de datos MySQL de Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -299,7 +299,7 @@ Vaya a `http://localhost:8000`. Si la página se carga sin errores, significa qu
 
 Agregue algunas tareas a la página.
 
-![Conexión correcta de PHP a Azure Database for MySQL (versión preliminar)](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![Conexión correcta de PHP a Azure Database for MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 Para detener PHP, escriba `Ctrl + C` en el terminal.
 

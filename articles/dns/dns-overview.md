@@ -1,54 +1,64 @@
 ---
-title: "Información general de DNS de Azure | Microsoft Docs"
-description: "Información general del servicio de hospedaje de DNS en Microsoft Azure. Hospede el dominio en Microsoft Azure."
-services: dns
-documentationcenter: na
-author: KumudD
+title: ¿Qué es Azure DNS?
+description: Información general del servicio de hospedaje de DNS en Microsoft Azure. Hospede el dominio en Microsoft Azure.
+author: vhorne
 manager: jeconnoc
-editor: 
-ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: f255fd9621ff90bfbb3ad193faa64495acf7ecd7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.topic: overview
+ms.date: 6/7/2018
+ms.author: victorh
+ms.openlocfilehash: e95617664ee30f1b9253f1892176fd39649ee2c2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174639"
 ---
-# <a name="azure-dns-overview"></a>Introducción a DNS de Azure
+# <a name="what-is-azure-dns"></a>¿Qué es Azure DNS?
 
-El sistema de nombres de dominio, o DNS, es responsable de traducir (o resolver) el nombre del sitio web o del servicio en su dirección IP. DNS de Azure es un servicio de hospedaje para los dominios DNS, que permite resolver nombres mediante la infraestructura de Microsoft Azure. Al hospedar dominios en Azure, puede administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. Azure DNS ahora es compatible con dominios DNS privados. Para obtener más información, vea [Uso de Azure DNS para dominios privados](private-dns-overview.md).
+DNS de Azure es un servicio de hospedaje para los dominios DNS, que permite resolver nombres mediante la infraestructura de Microsoft Azure. Al hospedar dominios en Azure, puede administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure.
 
-![Información general de DNS](./media/dns-overview/scenario.png)
+No se puede usar Azure DNS para comprar un nombre de dominio. Por una tarifa anual, puede comprar un nombre de dominio mediante [Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) o un registrador de nombres de dominio de terceros. Los dominios se pueden hospedar luego en Azure DNS para la administración de registros. Consulte [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md) para más información.
 
-## <a name="features"></a>Características
+Estas son las características disponibles en Azure DNS:
 
-* **Fiabilidad y rendimiento**: los dominios DNS de DNS de Azure se hospedan en la red global de servidores de nombres DNS de Azure. Azure DNS utilicza redes de difusión por proximidad, por lo que cada consulta de DNS la responde el servidor DNS disponible más cercano. Esto ofrece un rendimiento rápido y alta disponibilidad para el dominio.
+## <a name="reliability-and-performance"></a>Confiabilidad y rendimiento
 
-* **Integración sin problemas**: el servicio DNS de Azure puede usarse para administrar registros DNS de los servicios de Azure y para proporcionar DNS también para los recursos externos. Azure DNS está integrado en Azure Portal y usa las mismas credenciales, la misma facturación y el mismo contrato de soporte técnico que los demás servicios de Azure.
+Los dominios DNS de DNS de Azure se hospedan en la red global de servidores de nombres DNS de Azure. Azure DNS usa redes de difusión por proximidad, por lo que cada consulta de DNS la responde el servidor DNS disponible más cercano. Esto ofrece un rendimiento rápido y alta disponibilidad para el dominio.
 
-* **Seguridad**: el servicio DNS de Azure se basa en Azure Resource Manager. Como tal, se beneficia de características Resource Manager, como control de acceso basado en roles, registros de auditoría y bloqueo de recursos. Los dominios y registros pueden administrarse mediante Azure Portal, cmdlets de Azure PowerShell y la CLI de Azure multiplataforma. Las aplicaciones que requieren la administración automática de DNS pueden integrarse con el servicio a través de los SDK y API de REST.
+## <a name="security"></a>Seguridad
 
-DNS de Azure actualmente no admite la adquisición de nombres de dominio. Si desea adquirir dominios, debe usar un registrador de nombres de dominio de un tercero. El registrador suele cobrar una tarifa anual reducida. Los dominios se pueden hospedar en DNS de Azure para la administración de registros de DNS. Consulte [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md) para más información.
+El servicio DNS de Azure se basa en Azure Resource Manager. Por lo tanto, obtendrá características de Resource Manager como las siguientes:
 
-## <a name="pricing"></a>Precios
+* [Control de acceso basado en rol](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#access-control): para controlar quién tiene acceso a acciones específicas de su organización.
 
-La facturación de Azure se basa en el número de zonas DNS hospedadas en Azure y en el número de consultas DNS. Para más información sobre precios, visite [DNS de Azure Precios](https://azure.microsoft.com/pricing/details/dns/).
+* [Registros de actividad](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#activity-logs): para supervisar cómo un usuario de su organización modificó un recurso o para encontrar errores al solucionar problemas.
 
-## <a name="faq"></a>Preguntas más frecuentes
+* [Bloqueo de recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources): para bloquear una suscripción, un grupo de recursos o un recurso para impedir que otros usuarios de su organización eliminen o modifiquen por error recursos esenciales.
 
-Para ver las preguntas más frecuentes sobre DNS de Azure, vea [Azure DNS FAQ (P+F de DNS de Azure)](dns-faq.md).
+Para más información, consulte [Protección de registros y zonas DNS](dns-protect-zones-recordsets.md). 
+
+
+## <a name="ease-of-use"></a>Facilidad de uso
+
+El servicio Azure DNS puede administrar registros DNS para los servicios de Azure y también puede proporcionar DNS para los recursos externos. Azure DNS está integrado en Azure Portal y usa las mismas credenciales, la misma facturación y el mismo contrato de soporte técnico que los demás servicios de Azure. 
+
+La facturación de Azure se basa en el número de zonas DNS hospedadas en Azure y en el número de consultas DNS. Para más información sobre precios, consulte [Precios de Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+
+Los dominios y registros pueden administrarse mediante Azure Portal, los cmdlets de Azure PowerShell y la CLI de Azure multiplataforma. Las aplicaciones que requieren la administración automática de DNS pueden integrarse con el servicio mediante las API REST y los SDK.
+
+## <a name="customizable-virtual-networks-with-private-domains"></a>Redes virtuales personalizables con dominios privados
+
+Azure DNS también admite dominios DNS privados, que están ahora en versión preliminar pública. Esto le permite usar sus propios nombres de dominio personalizados en sus redes virtuales privadas en lugar de los nombres proporcionados por Azure disponibles actualmente.
+
+Para obtener más información, vea [Uso de Azure DNS para dominios privados](private-dns-overview.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Visite [Información general sobre zonas y registros de DNS](dns-zones-records.md) para obtener más información sobre zonas y registros DNS.
+* Para más información sobre zonas y registros DNS, consulte la [introducción a las zonas y registros DNS](dns-zones-records.md).
 
-Más información sobre cómo [crear una zona DNS](./dns-getstarted-create-dnszone-portal.md) en DNS de Azure.
+* Para más información sobre cómo crear una zona en Azure DNS, consulte [Creación de una zona DNS](./dns-getstarted-create-dnszone-portal.md).
 
-Aprenda sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.
+* Para ver las preguntas más frecuentes sobre DNS de Azure, vea [Azure DNS FAQ (P+F de DNS de Azure)](dns-faq.md).
 

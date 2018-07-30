@@ -1,6 +1,6 @@
 ---
-title: Uso de MSI en una máquina virtual Linux para acceder a Azure Resource Manager
-description: Tutorial que le guía a través del proceso para usar Managed Service Identity (MSI) con una máquina virtual Linux para acceder a Azure Resource Manager.
+title: Uso de la característica Managed Service Identity de una máquina virtual Linux para acceder a Azure Resource Manager
+description: Tutorial que le guía por el proceso para usar una identidad de Managed Service Identity en una máquina virtual Linux para acceder a Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 60a15c69f1ec748e366697640707804565245cea
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 643d4814dd30926a9a4294494e768cadc60ee428
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001592"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247986"
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Uso de una identidad de servicio administrada con una máquina virtual Linux para acceder a Azure Resource Manager
+# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-resource-manager"></a>Uso de la característica Managed Service Identity de una máquina virtual Linux para acceder a Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial muestra cómo habilitar Managed Service Identity (MSI) para una máquina virtual Linux y, a continuación, utilizar esa identidad para tener acceso a la API de Azure Resource Manager. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. Aprenderá a:
+En este tutorial se muestra cómo habilitar Managed Service Identity en una máquina virtual Linux y, después, utilizar dicha identidad para acceder a la API de Azure Resource Manager. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. Aprenderá a:
 
 > [!div class="checklist"]
-> * Habilitar MSI en una máquina virtual Linux 
+> * Habilitar Managed Service Identity en una máquina virtual Linux 
 > * Concesión a una máquina virtual de acceso a un grupo de recursos en Azure Resource Manager 
 > * Obtención de un token de acceso mediante la identidad de máquina virtual y su uso para llamar a Azure Resource Manager 
 
@@ -44,7 +44,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Linux en un nuevo grupo de recursos
 
-En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede habilitar MSI en una máquina virtual existente.
+En este tutorial, vamos a crear una nueva máquina virtual Linux. Managed Service Identity también se puede habilitar en una máquina virtual existente.
 
 1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
@@ -56,20 +56,20 @@ En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede
 5. Para seleccionar un nuevo **Grupo de recursos** en el que desearía crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
 6. Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro de tipo de disco admitido. En la hoja de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
 
-## <a name="enable-msi-on-your-vm"></a>Habilitación de MSI en la máquina virtual
+## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitación de Managed Service Identity en una máquina virtual
 
-Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que incluir las credenciales en el código. Al habilitar Managed Service Identity se realizan dos acciones: por una parte, se registra la máquina virtual en Azure Active Directory para crear su identidad administrada y por otra, se configura la identidad en la máquina virtual.
+La característica Managed Service Identity de una máquina virtual le permite obtener tokens de acceso desde Azure AD sin tener que incluir credenciales en el código. Al habilitar Managed Service Identity se realizan dos acciones: por una parte, se registra la máquina virtual en Azure Active Directory para crear su identidad administrada y por otra, se configura la identidad en la máquina virtual.
 
-1. Seleccione la **máquina virtual** en la que desee habilitar MSI.
+1. Seleccione la **máquina virtual** en la que desea habilitar Managed Service Identity.
 2. En la barra de navegación de la izquierda, haga clic en **Configuración**.
-3. Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No.
+3. Verá **Managed Service Identity**. Para registrar y habilitar Managed Service Identity, seleccione **Sí**; si desea deshabilitarla, elija No.
 4. No olvide hacer clic en **Guardar** para guardar la configuración.
 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Concesión a una máquina virtual de acceso a un grupo de recursos en Azure Resource Manager 
 
-Con MSI, el código puede obtener tokens de acceso para autenticarse en los recursos que admitan la autenticación de Azure AD. La API de Azure Resource Manager es compatible con la autenticación de Azure AD. En primer lugar, es necesario conceder acceso a la identidad de esta máquina virtual a un recurso en Azure Resource Manager, en este caso, el grupo de recursos que contiene la máquina virtual.  
+Mediante el uso de Managed Service Identity, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admitan la autenticación de Azure AD. La API de Azure Resource Manager es compatible con la autenticación de Azure AD. En primer lugar, es necesario conceder acceso a la identidad de esta máquina virtual a un recurso en Azure Resource Manager, en este caso, el grupo de recursos que contiene la máquina virtual.  
 
 1. Vaya a la pestaña de **Grupos de recursos**.
 2. Seleccione el **grupo de recursos** concreto que creó anteriormente.
@@ -87,7 +87,7 @@ Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede us
 
 1. En el portal, vaya a la máquina virtual Linux y, en **Información general**, haga clic en **Conectar**.  
 2. **Conéctese** a la máquina virtual con el cliente SSH que elija. 
-3. En la ventana del terminal, con CURL, realice una solicitud con el punto de conexión local de MSI para obtener un token de acceso para Azure Resource Manager.  
+3. En la ventana del terminal, utilice CURL para realizar una solicitud al punto de conexión local de Managed Service Identity local para obtener un token de acceso para Azure Resource Manager.  
  
     La solicitud CURL para el token de acceso está debajo.  
     

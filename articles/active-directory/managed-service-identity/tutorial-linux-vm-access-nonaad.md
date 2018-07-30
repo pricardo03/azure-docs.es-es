@@ -1,6 +1,6 @@
 ---
-title: Uso de una identidad MSI de máquina virtual Linux para acceder a Azure Key Vault
-description: Tutorial que le guía a través del proceso para usar Managed Service Identity (MSI) con una máquina virtual Linux para acceder a Azure Resource Manager.
+title: Uso de la característica Managed Service Identity de una máquina virtual Linux para acceder a Azure Key Vault
+description: Tutorial que le guía por el proceso para usar una identidad de Managed Service Identity en una máquina virtual Linux para acceder a Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 54a763a768a57692cf0298c07f23fb4ed84f758f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044057"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258157"
 ---
-# <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Tutorial: Uso de Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Key Vault 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-key-vault"></a>Tutorial: Uso de la característica Managed Service Identity de una máquina virtual Linux para acceder a Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-En este tutorial se muestra cómo habilitar Managed Service Identity (MSI) para una máquina virtual Linux y, a continuación, usar esa identidad para acceder a Azure Key Vault. Actuando como un arranque, Key Vault hace posible que la aplicación de cliente use el secreto para tener acceso a recursos que no están protegidos por Azure Active Directory (AD). Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. 
+En este tutorial se muestra cómo habilitar Managed Service Identity en una máquina virtual Linux y, después, usar dicha identidad para acceder a Azure Key Vault. Actuando como un arranque, Key Vault hace posible que la aplicación de cliente use el secreto para tener acceso a recursos que no están protegidos por Azure Active Directory (AD). Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. 
 
 Aprenderá a:
 
 > [!div class="checklist"]
-> * Habilitar MSI en una máquina virtual Linux 
+> * Habilitar Managed Service Identity en una máquina virtual Linux 
 > * Concesión de acceso a la máquina virtual a un secreto almacenado en un almacén de claves 
 > * Obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto del almacén de claves 
  
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Linux en un nuevo grupo de recursos
 
-En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede habilitar MSI en una máquina virtual existente.
+En este tutorial, vamos a crear una nueva máquina virtual Linux. Managed Service Identity también se puede habilitar en una máquina virtual existente.
 
 1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
@@ -57,20 +57,20 @@ En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede
 5. Para seleccionar un nuevo **Grupo de recursos** en el que desearía crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
 6. Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro de tipo de disco admitido. En la página de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
 
-## <a name="enable-msi-on-your-vm"></a>Habilitación de MSI en la máquina virtual
+## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitación de Managed Service Identity en una máquina virtual
 
-Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que incluir las credenciales en el código. Al habilitar Managed Service Identity se realizan dos acciones: por una parte, se registra la máquina virtual en Azure Active Directory para crear su identidad administrada y por otra, se configura la identidad en la máquina virtual.
+La característica Managed Service Identity de una máquina virtual le permite obtener tokens de acceso desde Azure AD sin tener que incluir credenciales en el código. Al habilitar Managed Service Identity se realizan dos acciones: por una parte, se registra la máquina virtual en Azure Active Directory para crear su identidad administrada y por otra, se configura la identidad en la máquina virtual.
 
-1. Seleccione la **máquina virtual** en la que desee habilitar MSI.
+1. Seleccione la **máquina virtual** en la que desea habilitar Managed Service Identity.
 2. En la barra de navegación de la izquierda, haga clic en **Configuración**.
-3. Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No.
+3. Verá **Managed Service Identity**. Para registrar y habilitar Managed Service Identity, seleccione **Sí**; si desea deshabilitarla, elija No.
 4. No olvide hacer clic en **Guardar** para guardar la configuración.
 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Concesión de acceso a la máquina virtual a un secreto almacenado en un almacén de claves  
 
-Con MSI, el código puede obtener tokens de acceso para autenticarse en los recursos que admitan la autenticación de Azure Active Directory. Sin embargo, no todos los servicios de Azure admiten la autenticación de Azure AD. Para usar MSI con esos servicios, almacene las credenciales del servicio en Azure Key Vault y use MSI para tener acceso a Key Vault y recuperar las credenciales. 
+Mediante el uso de Managed Service Identity, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admitan la autenticación de Azure Active Directory. Sin embargo, no todos los servicios de Azure admiten la autenticación de Azure AD. Para usar Managed Service Identity con esos servicios, almacene las credenciales del servicio en Azure Key Vault y use Managed Service Identity para acceder a Key Vault y recuperar las credenciales. 
 
 En primer lugar, es necesario crear un almacén de claves y conceder a la identidad de la máquina virtual acceso al almacén de claves.   
 
@@ -100,7 +100,7 @@ Para completar estos pasos, necesitará un cliente SSH.  Si usa Windows, puede u
  
 1. En el portal, vaya a la máquina virtual Linux y, en **Información general**, haga clic en **Conectar**. 
 2. **Conéctese** a la máquina virtual con el cliente SSH que elija. 
-3. En la ventana del terminal, con CURL, realice una solicitud al punto de conexión local de MSI para obtener un token de acceso para Azure Key Vault.  
+3. En la ventana del terminal, utilice CURL para realizar una solicitud al punto de conexión local de Managed Service Identity local para obtener un token de acceso para Azure Key Vault.  
  
     La solicitud CURL para el token de acceso está debajo.  
     

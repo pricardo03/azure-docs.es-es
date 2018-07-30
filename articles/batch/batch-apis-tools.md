@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 05/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a47c7355e8dfea97f7dee6787da87444a7642c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1e7ec091bb2e4ceee84b9451456b1e5b386dc648
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359329"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173935"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Información general sobre las API y herramientas de Batch
 
 El procesamiento de cargas de trabajo paralelas con Azure Batch se suele realizar mediante programación con una de las [API de Batch](#batch-development-apis). Un servicio o una aplicación cliente pueden usar las API de Batch para comunicarse con el servicio Batch. Con las API de Batch se pueden crear y administrar grupos de nodos de proceso, tanto máquinas virtuales como servicios en la nube. A continuación, se puede programar que se ejecuten trabajos y tareas en dichos nodos. 
 
-Puede procesar de forma eficiente cargas de trabajo a gran escala para su organización, o bien proporcionar un front-end del servicio a los clientes para que puedan ejecutar trabajos y tareas (a petición o de forma programada) en uno, cientos, o incluso, miles de nodos. Azure Batch también se puede usar como parte de un flujo de trabajo mayor, administrado mediante herramientas como [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
+Puede procesar de forma eficiente cargas de trabajo a gran escala para su organización, o bien proporcionar un front-end del servicio a los clientes para que puedan ejecutar trabajos y tareas (a petición o de forma programada) en uno, cientos, o incluso, miles de nodos. Azure Batch también se puede usar como parte de un flujo de trabajo mayor, administrado mediante herramientas como [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
 > Cuando esté listo para adentrarse en la API de Batch para una mayor comprensión de las características que proporciona, consulte [Información general de las características de Azure Batch](batch-api-basics.md).
@@ -67,7 +67,7 @@ Estas herramientas de línea de comandos proporcionan la misma funcionalidad que
 Estas son algunas herramientas adicionales que pueden ser útiles para crear y depurar los servicios y aplicaciones de Batch:
 
 * [Azure Portal][portal]: puede crear, supervisar y eliminar grupos, trabajos y tareas de Batch en Azure Portal. La información relativa al estado de estos y otros recursos se puede ver mientras se ejecutan trabajos, e incluso se pueden descargar archivos desde los nodos de proceso de los grupos. Por ejemplo, puede descargar el archivo `stderr.txt` de una tarea con errores mientras soluciona problemas. También puede descargar los archivos de Escritorio remoto (RDP) que puede usar para iniciar sesión en los nodos de proceso.
-* [Azure BatchLabs][batch_labs] es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar las aplicaciones de Azure Batch. Descargue un [paquete de instalación](https://azure.github.io/BatchLabs/) para Mac, Linux o Windows.
+* [Azure Batch Explorer][batch_labs] (anteriormente BatchLabs) es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar las aplicaciones de Azure Batch. Descargue un [paquete de instalación](https://azure.github.io/BatchExplorer/) para Mac, Linux o Windows.
 * [Explorador de Microsoft Azure Storage][storage_explorer]: aunque no es estrictamente una herramienta de Azure Batch, el Explorador de Storage es otra herramienta muy útil para desarrollar y depurar soluciones de Batch.
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -88,7 +88,7 @@ Estas son algunas herramientas adicionales que pueden ser útiles para crear y d
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/azure/batch/
-[api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
+[api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
 [api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
@@ -108,6 +108,6 @@ Estas son algunas herramientas adicionales que pueden ser útiles para crear y d
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.com

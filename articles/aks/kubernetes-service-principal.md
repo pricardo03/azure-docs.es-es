@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4dbb8b7abf6da77115d0e1d12621ec20ec60d174
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcb142b8b648f3f02855cb211789a4dee62183c0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035207"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145587"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -81,7 +81,7 @@ Cuando trabaje con entidades de servicio de AKS y Azure AD, tenga en cuenta lo s
 
 * La entidad de servicio para Kubernetes forma parte de la configuración del clúster. Sin embargo, no use la identidad para implementar el clúster.
 * Cada entidad de servicio está asociada a una aplicación de Azure AD. La entidad de servicio de un clúster de Kubernetes puede asociarse con cualquier nombre de aplicación de Azure AD válido (por ejemplo, `https://www.contoso.org/example`). La dirección URL de la aplicación no tiene por qué ser un punto de conexión real.
-* Al especificar el valor de **Identificador de cliente** de la entidad de servicio, use el valor de `appId` (como se muestra en este artículo) o la entidad de servicio correspondiente `name` (por ejemplo, `https://www.contoso.org/example`).
+* Al especificar el **identificador de cliente** de la entidad de servicio, utilice el valor de `appId`.
 * En las máquinas virtuales principal y nodo del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`.
 * Cuando use el comando `az aks create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/aksServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
 * Al eliminar un clúster de AKS creado mediante `az aks create`, no se elimina la entidad de servicio que se creó automáticamente. Para eliminar la entidad de servicio, primero hay que obtener el identificador para el servicio principal con [az ad app list][az-ad-app-list]. En el ejemplo siguiente se consulta el clúster denominado *myAKSCluster* y, a continuación, se elimina el identificador de aplicación con [az ad app delete][az-ad-app-delete]. Reemplace estos nombres con sus propios valores:

@@ -1,6 +1,6 @@
 ---
 title: Inicio rápido para enviar datos de telemetría a Azure IoT Hub (Python) | Microsoft Docs
-description: En este inicio rápido, ejecutará una aplicación Python de ejemplo para enviar datos de telemetría simulados a IoT Hub y usará una utilidad para leer los datos de telemetría procedentes de IoT Hub.
+description: En esta guía de inicio rápido, ejecutará una aplicación Python de ejemplo para enviar datos de telemetría simulados a un centro de IoT y usará una utilidad para leer los datos de telemetría procedentes del centro de IoT.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 7d4d29b7502f081de8385c7d88687ece4905b02b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8c7acbe12c6bfed2066f6edb4ef7358b2180aeb3
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688393"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39212942"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub y leer datos de telemetría procedentes de este con una aplicación back-end (Python)
 
@@ -29,7 +29,7 @@ En este inicio rápido se usa una aplicación Python escrita previamente para en
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Python. Necesita Python 2.7.x o 3.5.x en el equipo de desarrollo.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: dcda4e25932a74313674e91afc7382ea19724613
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4b00f28d3a1183d5033d0655d8c3f244e3d108e7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129957"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225999"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, se necesita experiencia con [Docker Compose](https://docs.docker.com/compose/) o [Kubernetes](https://kubernetes.io/).
 
@@ -531,7 +531,7 @@ En esta parte del tutorial deberá usar *kubernetes-wordpress.yml*. Se muestra a
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>Creación de un servidor de Azure Database for MySQL
 
-Cree un servidor en Azure Database for MySQL (versión preliminar) con el comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Cree un servidor en Azure Database for MySQL con el comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 En el siguiente comando, reemplace el nombre del servidor MySQL en el lugar en el que vea el marcador de posición _&lt;mysql_server_name>_ (los caracteres válidos son `a-z`, `0-9` y `-`). Este nombre forma parte del nombre de host del servidor MySQL (`<mysql_server_name>.database.windows.net`), por lo que es preciso que sea globalmente único.
 

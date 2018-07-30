@@ -209,6 +209,8 @@
       items:
         - name: Administración de recursos de clúster
           href: apache-spark-resource-manager.md
+        - name: Administración de aplicaciones de Spark mediante el servidor de historial
+          href: apache-azure-spark-history-server.md
         - name: Configuración de opciones de Spark
           href: apache-spark-settings.md
         - name: Optimización de trabajos de Spark

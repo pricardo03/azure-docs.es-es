@@ -1,20 +1,20 @@
 ---
-title: Detección de dispositivos en una solución de supervisión remota basada en Azure | Microsoft Docs
+title: Tutorial sobre detección de dispositivos en una solución de supervisión remota basada en Azure | Microsoft Docs
 description: En este tutorial, se muestra cómo usar reglas y acciones para detectar automáticamente problemas de los dispositivos basados en el umbral en la solución de supervisión remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29d4289f5b83e37cddec652b976aeb5aa255ed4c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098488"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158884"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detección de problemas con los dispositivos conectados a una solución de supervisión
 
@@ -33,29 +33,19 @@ En este tutorial, va a:
 > * Editar una regla existente
 > * Activar y desactivar reglas
 
-## <a name="prerequisites"></a>Requisitos previos
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Para seguir este tutorial, necesita una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-Si aún no ha implementado el acelerador de soluciones de supervisión remota, debe completar la guía de inicio rápido [Implementación de una solución de supervisión remota basada en la nube](quickstart-remote-monitoring-deploy.md).
-
-## <a name="view-the-existing-rules"></a>Visualización de las reglas existentes
+## <a name="review-the-existing-rules"></a>Revisión de las reglas existentes
 
 La página **Rules** (Reglas) del acelerador de soluciones muestra una lista de todas las reglas actuales:
 
 [![Página Rules](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Para ver solo las reglas que se aplican a los dispositivos refrigerador, aplique un filtro:
-
-[![Filtrado de la lista de reglas](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-Puede ver más información sobre una regla y editarla si la selecciona en la lista:
+Para ver solo las reglas que se aplican a los dispositivos refrigerador, aplique un filtro. Puede ver más información sobre una regla y editarla si la selecciona en la lista:
 
 [![Visualización de los detalles de la regla](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-Para deshabilitar o habilitar una o varias reglas, selecciónelas en la lista:
-
-[![Selección de varias reglas](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## <a name="create-a-rule"></a>Crear una regla
 
@@ -80,7 +70,7 @@ Puede ver cuándo se desencadena la regla en la página **Rules** (Reglas) o en 
 
 [![Regla de advertencia desencadenada](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## <a name="create-a-rule-with-multiple-conditions"></a>Creación de una regla con varias condiciones
+## <a name="create-an-advanced-rule"></a>Creación de una regla avanzada
 
 Para crear una regla con varias condiciones que genere una alerta crítica cuando la humedad media del dispositivo refrigerador durante los últimos cinco minutos es superior al 80 % y la temperatura es superior a 75 grados Fahrenheit, seleccione **Nueva regla**. Utilice los valores siguientes para crear la regla:
 
@@ -128,23 +118,7 @@ Para desactivar temporalmente una regla, puede deshabilitarla en la lista de reg
 
 Puede habilitar y deshabilitar varias reglas al mismo tiempo si selecciona varias en la lista.
 
-<!-- ## Delete a rule
-
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Si va a pasar al tutorial siguiente, deje el acelerador de soluciones de supervisión remota implementado. Para reducir los costos de la ejecución del acelerador de soluciones mientras no lo esté usando, puede detener los dispositivos simulados en el panel de configuración:
-
-[![Pausa de la telemetría](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
-
-Puede reiniciar los dispositivos simulados cuando esté preparado para comenzar el tutorial siguiente.
-
-Si ya no necesita el acelerador de soluciones, elimínelo de la página [Soluciones aprovisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard):
-
-![Eliminación de la solución](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
