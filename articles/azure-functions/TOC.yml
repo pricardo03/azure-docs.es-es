@@ -91,6 +91,8 @@
       href: functions-best-practices.md
     - name: Proxy de funciones
       href: functions-proxies.md
+    - name: Direcciones IP
+      href: ip-addresses.md
     - name: Funciones locales
       href: functions-runtime-overview.md
     - name: Funciones duraderas
