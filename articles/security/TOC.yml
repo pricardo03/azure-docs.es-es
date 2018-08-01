@@ -39,8 +39,16 @@
         - name: Cifrado de datos en reposo
           href: azure-security-encryption-atrest.md
         - name: Cifrado de disco para máquinas virtuales de IaaS
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: Requisitos previos del cifrado de disco
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: Cifrado de disco para máquinas virtuales Windows
+              href: azure-security-disk-encryption-windows.md
+            - name: Cifrado de disco para máquinas virtuales Linux
+              href: azure-security-disk-encryption-linux.md
+            - name: Apéndice sobre el cifrado del disco
+              href: azure-security-disk-encryption-appendix.md
             - name: Preguntas frecuentes sobre el cifrado de discos
               href: azure-security-disk-encryption-faq.md
             - name: solución de problemas
@@ -198,6 +206,16 @@
       items:
         - name: Mantenimiento de datos y AI
           href: ./blueprints/azure-health.md
+    - name: NIST SP 800-171
+      items:
+        - name: Análisis de datos
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: Almacenamiento de datos
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: Aplicación web de IaaS
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: Aplicación web PaaS
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: Análisis de datos

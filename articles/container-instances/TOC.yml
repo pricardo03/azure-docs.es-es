@@ -51,6 +51,8 @@
           href: container-instances-liveness-probe.md
     - name: administración
       items:
+        - name: Actualización de contenedores en ejecución
+          href: container-instances-update.md
         - name: Ejecución de un comando (exec)
           href: container-instances-exec.md
         - name: Supervisión del uso de CPU y memoria
@@ -59,7 +61,7 @@
           href: container-instances-log-analytics.md
     - name: Ejecución de cargas de trabajo
       items:
-        - name: Ejecución de tareas con la directiva de reinicio
+        - name: Ejecución de tareas con las directivas de reinicio
           href: container-instances-restart-policy.md
         - name: Agentes de compilación de Jenkins en ACI
           href: container-instances-jenkins.md

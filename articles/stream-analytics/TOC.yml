@@ -46,10 +46,14 @@
       href: stream-analytics-compatibility-level.md
     - name: Patrones de consultas comunes
       href: stream-analytics-stream-analytics-query-patterns.md
+    - name: Trabajo con tipos de datos complejos en JSON y AVRO
+      href: 'https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics'
     - name: Consideraciones sobre el orden de eventos
       href: stream-analytics-out-of-order-and-late-events.md
     - name: Punto de control y reproducción
       href: stream-analytics-concepts-checkpoint-replay.md
+    - name: Directiva de error
+      href: output-error-policy.md
 - name: Guías de procedimientos
   items:
     - name: administración

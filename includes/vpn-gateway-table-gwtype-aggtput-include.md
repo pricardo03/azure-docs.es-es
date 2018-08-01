@@ -17,14 +17,14 @@ ms.locfileid: "39138079"
 ---
 |**SKU**   | **Túneles<br>S2S/entre redes virtuales** | **Conexiones<br>P2S** | **Pruebas comparativas de rendimiento<br>agregado** |
 |---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| Máx. 30*                         | Máx. 128**             | 650 MBps                    |
-|**VpnGw2**| Máx. 30*                         | Máx. 128**             | 1 Gbps                      |
-|**VpnGw3**| Máx. 30*                         | Máx. 128**             | 1,25 Gbps                   |
+|**VpnGw1**| Máx. 30*                         | Máx. 128\*\*             | 650 MBps                    |
+|**VpnGw2**| Máx. 30*                         | Máx. 128\*\*             | 1 Gbps                      |
+|**VpnGw3**| Máx. 30*                         | Máx. 128\*\*             | 1,25 Gbps                   |
 |**Básico** | Máx. 10                         | Máx. 128               | 100 Mbps                    | 
 
 * (*) Use una [red WAN virtual](../articles/virtual-wan/virtual-wan-about.md) si necesita más de 30 túneles VPN S2S.
 
-* (**) Póngase en contacto con soporte técnico si se necesitan conexiones adicionales.
+* (\*\*) Póngase en contacto con soporte técnico si se necesitan conexiones adicionales.
 
 * Las pruebas comparativas de rendimiento agregado se basan en las mediciones de varios túneles agregados a través de una sola puerta de enlace. No es un rendimiento garantizado debido a las condiciones del tráfico de Internet y a los comportamientos de las aplicaciones.
 

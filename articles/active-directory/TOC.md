@@ -131,7 +131,6 @@
 #### [Latencias](active-directory-reporting-latencies-azure-portal.md)
 #### [Referencia sobre actividades de auditoría](active-directory-reporting-activity-audit-reference.md)
 #### [Códigos de error de la actividad de inicio de sesión](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Interpretación del esquema de registro de auditoría en Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpretación del esquema de registro de inicio de sesión en Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -159,9 +158,16 @@
 ### [Planear Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Preguntas más frecuentes](device-management-faq.md)
 ### Tareas
+#### [Planeación de la implementación de dispositivos híbridos unidos a Azure Active Directory](devices/hybrid-azuread-join-plan.md)
+#### [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios federados](devices/hybrid-azuread-join-federated-domains.md)
+#### [Control de la unión de los dispositivos híbridos a Azure AD](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Configuración de dispositivos con Windows 10 registrados en Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configuración de dispositivos unidos a Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Configuración de dispositivos híbridos unidos a Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Configuración de dispositivos híbridos unidos a Azure AD](devices/hybrid-azuread-join-manual-steps.md)
 #### [Implementación local](active-directory-device-registration-on-premises-setup.md)
 #### [Combinación de Azure AD durante la primera ejecución de Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Solución de problemas
