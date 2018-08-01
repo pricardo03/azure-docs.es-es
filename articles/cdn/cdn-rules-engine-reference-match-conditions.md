@@ -738,7 +738,7 @@ Información importante:
     
 - Especifique varias rutas de acceso URL mediante la delimitación de cada una con un espacio único.
 
-   Por ejemplo: /marketing/asset.* /sales/*.htm
+   Por ejemplo: /marketing/asset.* /sales/\*.htm
 
 - Se omiten las cadenas de consulta en la dirección URL.
     
