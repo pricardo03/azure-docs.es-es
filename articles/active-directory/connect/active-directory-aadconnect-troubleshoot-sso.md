@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110896"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259303"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -28,12 +28,12 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - En algunos casos, el proceso para habilitar el inicio de sesión único de conexión directa puede tardar hasta 30 minutos.
 - Si deshabilita y vuelve a habilitar Inicio de sesión único de conexión directa en el inquilino, los usuarios no podrán tener la experiencia de inicio de sesión único hasta que sus vales de Kerberos en caché, que normalmente son válidos durante diez horas, hayan expirado.
 - El soporte técnico para el explorador Edge no está disponible.
-- Si el inicio de sesión único de conexión directa se realiza correctamente, el usuario no tiene la oportunidad de seleccionar **Mantener la sesión iniciada**. Debido a este comportamiento, los escenarios de asignación de SharePoint y OneDrive no funcionan.
-- Los clientes Office con versiones anteriores a 16.0.8730.xxxx no admiten el inicio de sesión no interactivo con SSO de conexión directa. En esos clientes, los usuarios deben escribir sus nombres de usuario, pero no sus contraseñas, para iniciar sesión.
+- Si el inicio de sesión único de conexión directa se realiza correctamente, el usuario no tiene la oportunidad de seleccionar **Mantener la sesión iniciada**. Debido a este comportamiento, los [escenarios de asignación de SharePoint y OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) no funcionan.
+- Se admiten los clientes Win32 de Office 365 (Outlook, Word, Excel, etc.) con las versiones 16.0.8730 y posteriores mediante un flujo no interactivo. No se admiten otras versiones; en estas, para iniciar sesión, los usuarios escribirán sus nombres de usuario, pero no las contraseñas. En OneDrive, tendrá que activar la [función de configuración silenciosa de OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para disfrutar de una experiencia de inicio de sesión silenciosa.
 - SSO de conexión directa no funciona en modo de exploración privada en Firefox.
 - El inicio de sesión único de conexión directa no funciona en Internet Explorer cuando está activado el modo de protección mejorada.
 - El inicio de sesión único de conexión directa no funciona en exploradores móviles en iOS y Android.
-- Si un usuario forma parte de demasiados grupos de Active Directory, es probable que el valor de Kerberos del usuario sea demasiado largo para procesarse, lo que hará que se produzca un error en el inicio de sesión único de conexión directa. Las solicitudes HTTPS de Azure AD pueden tener encabezados con un tamaño máximo de 16 KB; los vales de Kerberos deben ser mucho más pequeños que ese número para albergar otros artefactos de Azure AD, como las cookies. Nuestra recomendación es reducir la pertenencia a grupos del usuario y volver a intentarlo.
+- Si un usuario forma parte de demasiados grupos de Active Directory, es probable que el valor de Kerberos del usuario sea demasiado largo para procesarse, lo que hará que se produzca un error en el inicio de sesión único de conexión directa. Las solicitudes HTTPS de Azure AD pueden tener encabezados con un tamaño máximo de 50 KB; los vales de Kerberos deben ser menores que ese número para albergar otros artefactos de Azure AD (generalmente, de 2 a 5 KB), como las cookies. Nuestra recomendación es reducir la pertenencia a grupos del usuario y volver a intentarlo.
 - Si va a sincronizar treinta bosques de Active Directory o más, no se puede habilitar el inicio de sesión único de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) la característica en su inquilino.
 - Agregar la dirección URL del servicio de Azure AD (https://autologon.microsoftazuread-sso.com) a la zona de sitios de confianza en lugar de a la zona de intranet local *impide que los usuarios inicien sesión*.
 - Deshabilitar el uso del tipo de cifrado **RC4_HMAC_MD5** para Kerberos en la configuración de Active Directory interrumpirá el SSO de conexión directa. En la herramienta Editor de administración de directivas de grupo, asegúrese de que el valor de directiva para **RC4_HMAC_MD5** en **Configuración de equipo -> Configuración de Windows -> Configuración de seguridad -> Directivas locales -> Opciones de seguridad -> "Seguridad de red: configurar tipos de cifrado permitidos para Kerberos"** esté habilitado.
@@ -81,7 +81,7 @@ Use la siguiente lista de comprobación para solucionar problemas de SSO de cone
 - Asegúrese de que la cuenta del usuario provenga de un bosque de Active Directory donde esté configurado SSO de conexión directa.
 - Asegúrese de que el dispositivo está conectado a la red corporativa.
 - Asegúrese de que la hora del dispositivo esté sincronizada con la de Active Directory y la de los controladores de dominio, y de que difieren entre sí un máximo de cinco minutos.
-- Asegúrese de que la cuenta de equipo `AZUREADSSOACCT` esté presente y habilitada en cada bosque de AD que desee habilitar SSO de conexión directa. 
+- Asegúrese de que la cuenta de equipo `AZUREADSSOACCT` esté presente y habilitada en cada bosque de AD que desee habilitar SSO de conexión directa. Si la cuenta de equipo se ha eliminado o no está, puede usar [cmdlets de PowerShell](#manual-reset-of-the-feature) para volver a crearla.
 - Enumere los vales de Kerberos existentes en el dispositivo mediante el comando `klist` desde un símbolo del sistema. Asegúrese de que los vales emitidos para la cuenta de equipo `AZUREADSSOACCT` están presentes. Los vales de Kerberos de los usuarios suelen ser válidos durante diez horas. Puede que haya configuraciones distintas en Active Directory.
 - Si deshabilita y vuelve a habilitar Inicio de sesión único de conexión directa en el inquilino, los usuarios no podrán tener la experiencia de inicio de sesión único hasta que sus vales de Kerberos en caché hayan expirado.
 - Purgue los vales de Kerberos existentes desde el dispositivo mediante el comando `klist purge` e inténtelo de nuevo.
@@ -119,12 +119,20 @@ Si el procedimiento de solución de problemas no sirve de ayuda, restablezca man
 ### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Paso 3: Deshabilitación de SSO de conexión directa para cada bosque de Active Directory en el que se configuró la característica
 
 1. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de Active Directory deseado.
+
+>[!NOTE]
+>Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
+
 2. Llame a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando quita la cuenta de equipo `AZUREADSSOACCT` del controlador de dominio local para este bosque de Active Directory específico.
 3. Repita los pasos anteriores para cada bosque de Active Directory en el que se configuró la característica.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Paso 4: Habilitación de SSO de conexión directa para cada bosque de Active Directory
 
 1. Llame a `Enable-AzureADSSOForest`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de Active Directory deseado.
+
+>[!NOTE]
+>Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
+
 2. Repita los pasos anteriores para cada bosque de Active Directory en el que desea configurar la característica.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Paso 5. Habilite la característica en su inquilino

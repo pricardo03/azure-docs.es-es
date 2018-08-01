@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: a7ddcb834b135d2177355a0523c7e99bcc599e99
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 42d5b55e0bddf2d027810bfdf146de9bfee8a0fb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931521"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188138"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Creación, enumeración y eliminación de una identidad asignada por el usuario mediante Azure Resource Manager
 
@@ -33,12 +33,12 @@ No es posible enumerar y eliminar una identidad asignada por el usuario mediante
 
 - [Enumeración de identidades asignadas por el usuario](how-to-manage-ua-identity-cli.md#list-user-assigned-identities)
 - [Eliminación de una identidad asignada por el usuario](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-identity)
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)**.
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-
-Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual (por ejemplo, el rol de "Colaborador de la máquina virtual").
+- Para llevar a cabo las operaciones de este artículo, su cuenta debe tener la siguiente asignación de rol:
+    - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear, leer (listar), actualizar y eliminar una identidad asignada por el usuario.
 
 ## <a name="template-creation-and-editing"></a>Creación y edición de una plantilla
 

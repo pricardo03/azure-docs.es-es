@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2017
+ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a2b764e76cd1987c83e7be38d365c1dfa8513db9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108463"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214795"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Desactivación y eliminación de un dispositivo de StorSimple
 
@@ -110,7 +110,7 @@ Los resultados de la desactivación de las siguientes acciones:
 
 * StorSimple Cloud Appliance se quitan del servicio.
 * Se elimina la máquina virtual de StorSimple Cloud Appliance.
-* Se quitan los discos de datos y del sistema operativo creados para StorSimple Cloud Appliance.
+* Se conservan los discos de datos y de sistema operativo creados para StorSimple Cloud Appliance. Si no usa estas entidades, debe eliminarlas manualmente.
 * Se conservan el servicio hospedado y la red virtual que se crearon durante el aprovisionamiento. Si no usa estas entidades, debe eliminarlas manualmente.
 * Se conservan las instantáneas en la nube creadas por StorSimple Cloud Appliance.
 

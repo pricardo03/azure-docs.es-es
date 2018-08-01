@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070899"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173057"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -26,35 +26,22 @@ En este artículo se resumen las configuraciones y los componentes admitidos al 
 
 **Interfaz de usuario** |  **Se admite/no se admite**
 --- | ---
-**Portal de Azure** | Compatible
-**Portal clásico** | No compatible
+**Azure Portal** | Compatible
 **PowerShell** | [Replicación de Azure a Azure con PowerShell](azure-to-azure-powershell.md)
 **API de REST** | No se admite actualmente.
 **CLI** | No se admite actualmente.
 
 
-## <a name="resource-move-support"></a>Compatibilidad con el movimiento de recursos.
+## <a name="resource-support"></a>Compatibilidad de recursos
 
-**Tipo de movimiento de recursos** | **Se admite/no se admite** | **Comentarios:**  
+**Tipo de movimiento de recursos** | **Detalles** 
 --- | --- | ---
-**Mover el almacén entre grupos de recursos** | No compatible |No se puede mover el almacén de servicios de recuperación entre grupos de recursos.
-**Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible |Si mueve una máquina virtual (o sus componentes asociados, como Storage y Network) después de habilitar la replicación, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.
+**Mover el almacén entre grupos de recursos** | No compatible<br/><br/> No se puede mover un almacén de servicios de recuperación entre grupos de recursos.
+**Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como almacenamiento o la red, una vez que está replicando, tendrá que deshabilitar la replicación y volver a habilitar la replicación para la máquina virtual.
+**Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | No compatible.
+**Migrar máquinas virtuales entre suscripciones** | No compatible.
+**Migrar máquinas virtuales dentro de la misma región** | No compatible.
 
-
-
-## <a name="support-for-deployment-models"></a>Compatibilidad con modelos de implementación
-
-**Modelo de implementación** | **Se admite/no se admite** | **Comentarios:**  
---- | --- | ---
-**Clásico** | Compatible | Solo puede replicar una máquina virtual clásica y recuperarla como máquina virtual clásica. No puede recuperarla como una máquina virtual de Resource Manager. Tampoco se admite la implementación de una máquina virtual clásica sin una red virtual y directamente en una región de Azure.
-**Resource Manager** | Compatible |
-
->[!NOTE]
->
-> 1. No se admite la replicación de máquinas virtuales de Azure de una suscripción a otra para escenarios de recuperación ante desastres.
-> 2. No se admite la migración de máquinas virtuales de Azure entre suscripciones.
-> 3. No se admite la migración de máquinas virtuales de Azure dentro de la misma región.
-> 4. No se admite la migración de máquinas virtuales de Azure del modelo de implementación clásico al modelo de implementación de Resource Manager.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Compatibilidad con las versiones de SO de las máquinas replicadas
 
@@ -145,6 +132,13 @@ China | China (Este) y China (Norte)
 >[!NOTE]
 >
 > En la región Sur de Brasil, solo puede replicar y conmutar por error a las regiones Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU., y conmutar por recuperación.
+
+## <a name="support-for-vmdisk-management"></a>Compatibilidad para la administración de máquina virtual/disco
+
+**Acción** | **Detalles**
+-- | ---
+Cambiar el tamaño de disco en una máquina virtual replicada | Compatible
+Agregar un disco a una máquina virtual replicada | No compatible. Tiene que deshabilitar la replicación para la máquina virtual, agregar el disco y volver a habilitar la replicación.
 
 
 ## <a name="support-for-compute-configuration"></a>Compatibilidad con la configuración de Compute

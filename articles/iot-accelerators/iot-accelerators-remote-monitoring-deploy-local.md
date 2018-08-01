@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc8c27a44c940279b0c5bdcdbe04e579dc4bfa
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627238"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188665"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementación local del acelerador de la solución Supervisión remota
 
 En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. Este enfoque implementa los microservicios en un contenedor Docker local y utiliza IoT Hub, Cosmos DB y servicios de almacenamiento de Azure en la nube. Puede utilizar la CLI de aceleradores de soluciones (PCS) para implementar los servicios en la nube de Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para implementar los servicios de Azure que usa el acelerador de la solución Supervisión remota, necesita una suscripción de Azure activa.
 
@@ -134,6 +134,6 @@ En este tutorial aprendió lo siguiente:
 > * Implementación del acelerador de solución
 > * Inicio de sesión en el acelerador de la solución
 
-Ahora que ha implementado la solución Supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](iot-accelerators-remote-monitoring-deploy.md).
+Ahora que ha implementado la solución Supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](quickstart-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

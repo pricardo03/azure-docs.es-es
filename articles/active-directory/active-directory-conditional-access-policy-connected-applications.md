@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f215136c5d07eca098d68d882d22f6c9dd14b0b9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035303"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214683"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -30,7 +30,7 @@ En un mundo donde la nube y la movilidad son prioritarias, Azure Active Director
 En este artículo se explica cómo puede configurar directivas de acceso condicional que requieran dispositivos administrados para acceder a determinadas aplicaciones en la nube del entorno. 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Requerir dispositivos administrados para el acceso a aplicaciones en la nube une el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD**. Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
 

@@ -1,6 +1,6 @@
 ---
-title: Cómo configurar MSI en una máquina virtual de Azure mediante una plantilla
-description: Instrucciones paso a paso para configurar Managed Service Identity (MSI) en una máquina virtual de Azure, mediante una plantilla de Azure Resource Manager.
+title: Configuración de Managed Service Identity en una máquina virtual de Azure mediante una plantilla
+description: Instrucciones paso a paso para configurar una identidad de Managed Service Identity en una máquina virtual de Azure mediante una plantilla de Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114886"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258701"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configuración de Managed Service Identity (MSI) en una máquina virtual mediante una plantilla
 
@@ -33,6 +33,10 @@ En este artículo, aprenderá a realizar las siguientes operaciones de Managed S
 
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)**.
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles:
+    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para crear una máquina virtual y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde una máquina virtual de Azure.
+    - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear una identidad asignada por el usuario.
+    - Rol [Operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en una máquina virtual.
 
 ## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
@@ -51,7 +55,7 @@ En esta sección, se habilita y deshabilita una identidad asignada por el sistem
 
 ### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Habilitación de una identidad asignada por el sistema durante la creación de una máquina virtual o en una máquina virtual existente de Azure
 
-1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual (por ejemplo, el rol de "Colaborador de la máquina virtual").
+1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
 
 2. Después de cargar la plantilla en un editor, busque el recurso de interés `Microsoft.Compute/virtualMachines` dentro de la sección `resources`. El suyo puede diferir ligeramente con respecto a la siguiente captura de pantalla, en función del editor que use y de si está editando una plantilla para una implementación nueva o una existente.
 
@@ -69,7 +73,7 @@ En esta sección, se habilita y deshabilita una identidad asignada por el sistem
    },
    ```
 
-4. (Opcional) Agregue la extensión MSI de la máquina virtual como elemento `resources`. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Use la sintaxis siguiente:
+4. (Opcional) Agregue la extensión de Managed Service Identity de máquina virtual como un elemento `resources`. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Use la sintaxis siguiente:
 
    >[!NOTE] 
    > En el ejemplo siguiente se da por hecho que se está implementando una extensión (`ManagedIdentityExtensionForWindows`) de máquina virtual Windows. También puede configurarlo para Linux utilizando `ManagedIdentityExtensionForLinux` en su lugar, para los elementos `"name"` y `"type"`.
@@ -105,7 +109,7 @@ En esta sección, se habilita y deshabilita una identidad asignada por el sistem
 
 Después de haber habilitado la identidad asignada por el sistema en la máquina virtual, es aconsejable concederle un rol con el acceso de **lector** al grupo de recursos en el que se creó.
 
-1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual (por ejemplo, el rol de "Colaborador de la máquina virtual").
+1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
  
 2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y agregue la siguiente información para dar a la máquina virtual acceso de **lector** al grupo de recursos en el que se creó.  La estructura de la plantilla puede variar según el editor y el modelo de implementación que elija.
    
@@ -149,7 +153,7 @@ Después de haber habilitado la identidad asignada por el sistema en la máquina
 
 Si tiene una máquina virtual que ya no necesita una identidad de servicio administrada:
 
-1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual (por ejemplo, el rol de "Colaborador de la máquina virtual").
+1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
 
 2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachines`recurso de interés dentro de la sección `resources`. Si dispone de una máquina virtual que solo tenga una identidad asignada por el sistema, puede deshabilitarla cambiando el tipo de identidad a `None`.  Si la máquina virtual tiene tanto las identidades asignadas por el usuario como las del sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con la matriz `identityIds` de las identidades asignadas por el usuario.  En el ejemplo siguiente se muestra cómo quitar una identidad asignada por el sistema de una máquina virtual sin identidades asignadas por el usuario:
    
@@ -218,8 +222,30 @@ En esta sección, asignará una identidad asignada por el usuario a una máquina
 
       ![Captura de pantalla de la identidad asignada por el usuario](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Eliminación de una identidad asignada por el usuario de una máquina virtual de Azure
+
+Si tiene una máquina virtual que ya no necesita una identidad de servicio administrada:
+
+1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
+
+2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachines`recurso de interés dentro de la sección `resources`. Si dispone de una máquina virtual que solo tenga una identidad asignada por el usuario, puede deshabilitarla cambiando el tipo de identidad a `None`.  Si la máquina virtual tiene identidades asignadas tanto por el usuario como por el sistema y desea conservar la identidad asignada por el sistema, quite `UserAssigned` del tipo de identidad junto con la matriz `identityIds` de las identidades asignadas por el usuario.
+    
+   Para quitar una identidad asignada por un usuario único desde una máquina virtual, quítela de la matriz `identityIds`.
+   
+   En el ejemplo siguiente se muestra cómo quitar todas las identidades asignada por un usuario de una máquina virtual sin identidades asignadas por el sistema:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="related-content"></a>Contenido relacionado
 
-- Para obtener una perspectiva más amplia sobre MSI, consulte la [Introducción a Managed Service Identity](overview.md).
+- Para obtener una perspectiva más amplia acerca de Managed Service Identity, consulte la [Introducción a Managed Service Identity](overview.md).
 

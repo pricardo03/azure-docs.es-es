@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: e9c2d18a518bd5c98fcc35efdb0dff36970a49b2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629072"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205595"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Conexión de un dispositivo Raspberry Pi a una aplicación de Azure IoT Central (Python)
 
@@ -29,53 +29,23 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 * Un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian. Necesitará conectar un monitor, un teclado y un mouse (ratón) a su Raspberry Pi para acceder al entorno de interfaz gráfica de usuario. Raspberry Pi debe poder [conectarse a Internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
 * Opcionalmente, una placa complementaria [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) para el dispositivo Raspberry Pi. Esta placa recopila datos de telemetría de diversos sensores y los envía a la aplicación de Azure IoT Central. Si no tiene una placa **Sense Hat**, puede usar un emulador en su lugar.
 
-Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Raspberry Pi** con las siguientes características:
+## <a name="sample-devkits-application"></a>Aplicación **Ejemplo Devkits**
 
-### <a name="telemetry-measurements"></a>Medidas de telemetría
+Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Raspberry Pi** con las siguientes características: 
 
-| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humedad       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX (magnetómetro X)  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY (magnetómetro Y)  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ (magnetómetro Z)  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX (acelerómetro X) | mg     | -2000   | 2000    | 0              |
-| accelerometerY (acelerómetro Y) | mg     | -2000   | 2000    | 0              |
-| accelerometerZ (acelerómetro Z) | mg     | -2000   | 2000    | 0              |
-| gyroscopeX (giróscopo X)     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY (giróscopo Y)     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ (giróscopo Z)     | mdps   | -2000   | 2000    | 0              |
+- Telemetría que contiene las medidas para **Humidity** (Humedad), **Temperature** (Temperatura), **Pressure** (Presión), **Magnometer** (Magnetómetro) (medido a lo largo de los ejes X, Y y Z), **Accelorometer** (Acelerómetro) (medido a lo largo de los ejes X, Y y Z) y **Gyroscope** (Giroscopio) (medido a lo largo de los ejes X, Y y Z) del dispositivo.
+- Configuración que muestra las opciones **Voltage** (Voltaje), **Current** (Actual), **Fan Speed** (Velocidad del ventilador) y un botón de alternancia **IR**.
+- Propiedades que contienen **die number** (Número de troquel) de la propiedad del dispositivo y la propiedad en la nube **location** (Ubicación).
 
-### <a name="settings"></a>Settings
 
-Valores numéricos
+Para obtener detalles completos sobre la configuración de la plantilla de dispositivo, consulte [Detalles de la plantilla de dispositivo Raspberry PI](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
+    
 
-| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
-| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-Cambiar configuración
-
-| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Inicial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ACTIVAR      | Apagado      | Off     |
-
-### <a name="properties"></a>Properties (Propiedades)
-
-| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
-| --------------- | ------------ | ---------- | --------- |
-| Propiedad de dispositivo | Die number   | dieNumber  | número    |
-| Texto            | Ubicación     | location   | N/D       |
-
-### <a name="add-a-real-device"></a>Adición de un dispositivo real
+## <a name="add-a-real-device"></a>Adición de un dispositivo real
 
 En su aplicación de Azure IoT Central, agregue un dispositivo real desde la plantilla de dispositivo **Raspberry Pi** y anote la cadena de conexión del dispositivo. Para más información, consulte [Add a real device to your Azure IoT Central application](tutorial-add-device.md) (Adición de un dispositivo real a la aplicación de Azure IoT Central).
 
-## <a name="configure-the-raspberry-pi"></a>Configuración del dispositivo Raspberry Pi
+### <a name="configure-the-raspberry-pi"></a>Configuración del dispositivo Raspberry Pi
 
 En los pasos siguientes se describe cómo descargar y configurar la aplicación de Python de ejemplo desde GitHub. Esta aplicación de ejemplo:
 
@@ -111,6 +81,51 @@ En los pasos siguientes se describe cómo descargar y configurar la aplicación 
     * En la página **Measurements** (Medidas) del dispositivo real, puede ver la telemetría enviada desde Raspberry Pi. Si usa el **emulador de Sense HAT**, puede modificar los valores de telemetría en la interfaz gráfica de usuario de Raspberry Pi.
     * En la página **Properties** (Propiedades), puede ver el valor de la propiedad **Die Number** (Número de chip) notificado.
     * En la página **Settings** (Configuración), puede cambiar distintos parámetros en Raspberry Pi como el voltaje y la velocidad del ventilador. Cuando Raspberry Pi confirma el cambio, el valor se muestra como **synced** (sincronizado) en Azure IoT Central.
+
+
+## <a name="raspberry-pi-device-template-details"></a>Detalles de la plantilla de dispositivo Raspberry PI
+
+Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Raspberry Pi** con las siguientes características:
+
+### <a name="telemetry-measurements"></a>Medidas de telemetría
+
+| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humedad       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| presión       | hPa    | 260     | 1260    | 0              |
+| magnetometerX (magnetómetro X)  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY (magnetómetro Y)  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ (magnetómetro Z)  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX (acelerómetro X) | mg     | -2000   | 2000    | 0              |
+| accelerometerY (acelerómetro Y) | mg     | -2000   | 2000    | 0              |
+| accelerometerZ (acelerómetro Z) | mg     | -2000   | 2000    | 0              |
+| gyroscopeX (giróscopo X)     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY (giróscopo Y)     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ (giróscopo Z)     | mdps   | -2000   | 2000    | 0              |
+
+### <a name="settings"></a>Configuración
+
+Valores numéricos
+
+| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Cambiar configuración
+
+| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Inicial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | ACTIVAR      | Apagado      | Off     |
+
+### <a name="properties"></a>Properties (Propiedades)
+
+| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| --------------- | ------------ | ---------- | --------- |
+| Propiedad de dispositivo | Die number   | dieNumber  | número    |
+| Texto            | Ubicación     | location   | N/D       |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

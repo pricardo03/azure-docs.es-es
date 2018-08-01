@@ -1,5 +1,5 @@
 ---
-title: Planeamiento de una implementación de Azure File Sync (versión preliminar) |Microsoft Docs
+title: Planeamiento de una implementación de Azure File Sync |Microsoft Docs
 description: Conozca los aspectos que debe tener en cuenta al planear una implementación de Azure Files.
 services: storage
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335846"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214890"
 ---
-# <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
-Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
+# <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
+Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
 
 Este artículo describe las consideraciones importantes para una implementación de Azure File Sync. Se recomienda que lea [Planeamiento de una implementación de Azure Files](storage-files-planning.md). 
 
@@ -106,7 +106,7 @@ Las versiones futuras de Windows Server se agregarán tan pronto como se publiqu
 > Solo se admiten volúmenes NTFS. No se admiten ReFS, FAT, FAT32 ni otros sistemas de archivos.
 
 ### <a name="files-skipped"></a>Archivos omitidos
-| Archivo o carpeta | Nota: |
+| Archivo/carpeta | Nota: |
 |-|-|
 | Desktop.ini | Archivo específico del sistema |
 | ethumbs.DB$ | Archivo temporal para miniaturas |
@@ -180,32 +180,54 @@ está comprobado que Azure File Sync no funciona con:
 
 - Sistema de cifrado de archivos NTFS (EFS)
 
-En general, Azure File Sync debe admitir la interoperabilidad con soluciones de cifrado que se encuentran a continuación en el sistema de archivos, como BitLocker, y con las soluciones que se implementan en el formato de archivo, como BitLocker. No se ha realizado ninguna interoperabilidad especial para las soluciones que se encuentran por encima del sistema de archivos (por ejemplo, EFS de NTFS).
+En general, Azure File Sync debe admitir la interoperabilidad con soluciones de cifrado que se encuentran a continuación en el sistema de archivos, como BitLocker, y con las soluciones que se implementan en el formato de archivo, como Azure Information Protection. No se ha realizado ninguna interoperabilidad especial para las soluciones que se encuentran por encima del sistema de archivos (por ejemplo, EFS de NTFS).
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Otras soluciones de administración de almacenamiento jerárquico (HSM)
 No deben utilizarse otras soluciones HSM deben utilizarse con Azure File Sync.
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
-Azure File Sync solo está disponible en las siguientes regiones en versión preliminar:
+Azure File Sync solo está disponible en las siguientes regiones:
 
 | Region | Ubicación de centro de datos |
 |--------|---------------------|
-| Australia Oriental | Nueva Gales del Sur |
+| Este de Australia | Nueva Gales del Sur |
 | Sudeste de Australia | Victoria |
 | Centro de Canadá | Toronto |
 | Este de Canadá | Ciudad de Quebec |
-| Central EE. UU: | Iowa |
+| Centro de EE. UU. | Iowa |
 | Asia oriental | Hong Kong |
 | Este de EE. UU | Virginia |
 | Este de EE. UU. 2 | Virginia |
 | Europa del Norte | Irlanda |
 | Sudeste asiático | Singapur |
-| Sur del Reino Unido 2 | Londres |
+| Sur de Reino Unido 2 | Londres |
 | Oeste de Reino Unido | Cardiff |
 | Europa occidental | Países Bajos |
-| Oeste de EE. UU | California |
+| Oeste de EE. UU. | California |
 
-En la versión preliminar, solo se admite la sincronización con recursos compartidos de archivos de Azure de la misma región que el servicio de sincronización de almacenamiento.
+Azure File Sync solo se admite la sincronización con recursos compartidos de archivos de Azure de la misma región que el servicio de sincronización de almacenamiento.
+
+### <a name="azure-disaster-recovery"></a>Azure Disaster Recovery
+Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con la opción de [almacenamiento con redundancia geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporalmente o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
+
+Para admitir la integración de la conmutación por error entre el almacenamiento con redundancia geográfica y Azure File Sync, todas las regiones de Azure File Sync se emparejan con una región secundaria que coincide con la región secundaria que el almacenamiento utiliza. Se emparejan de la siguiente manera:
+
+| Región primaria      | Región emparejada      |
+|---------------------|--------------------|
+| Este de Australia      | Sudeste de Australia |
+| Sudeste de Australia | Este de Australia     |
+| Centro de Canadá      | Este de Canadá        |
+| Este de Canadá         | Centro de Canadá     |
+| Centro de EE. UU.          | Este de EE. UU. 2          |
+| Asia oriental           | Sudeste asiático     |
+| Este de EE. UU             | Oeste de EE. UU.            |
+| Este de EE. UU. 2           | Centro de EE. UU.         |
+| Europa del Norte        | Europa occidental        |
+| Sudeste asiático      | Asia oriental          |
+| Sur de Reino Unido 2            | Oeste de Reino Unido            |
+| Oeste de Reino Unido             | Sur de Reino Unido 2           |
+| Europa occidental         | Europa del Norte       |
+| Oeste de EE. UU.             | Este de EE. UU            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

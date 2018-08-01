@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/23/2018
 ms.author: marsma
-ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115802"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216111"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuración de red en Azure Kubernetes Service (AKS)
 
@@ -49,9 +49,10 @@ Las redes avanzadas proporcionan las siguientes ventajas:
 
 * La red virtual del clúster AKS debe permitir la conectividad saliente de internet.
 * No cree más de un clúster AKS en la misma subred.
-* Las redes avanzadas de AKS no admiten redes virtuales que usen Azure DNS Private Zones.
 * Los clústeres AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16` para el intervalo de direcciones del servicio de Kubernetes.
-* La entidad de servicio que usa el clúster AKS debe tener permisos `Contributor` para el grupo de recursos que contiene la red virtual existente.
+* La entidad de servicio usada por el clúster de AKS debe tener al menos permisos de [colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planeamiento de direccionamiento IP del clúster
 
@@ -63,7 +64,7 @@ El plan de direcciones IP de un clúster AKS consta de una red virtual, al menos
 
 | Intervalo de direcciones / recurso de Azure | Límites y tamaño |
 | --------- | ------------- |
-| Red virtual | La red virtual de Azure puede ser tan grande como /8, pero solo puede tener 16 000 direcciones IP configuradas. |
+| Virtual network | La red virtual de Azure puede ser tan grande como /8, pero solo puede tener 16 000 direcciones IP configuradas. |
 | Subred | Debe ser lo suficientemente grande como para dar cabida a los nodos, los pods y a todos los recursos de Kubernetes y de Azure que se pueden aprovisionar en el clúster. Por ejemplo, si implementa una instancia de Azure Load Balancer interna, sus direcciones IP de front-end se asignan desde la subred del clúster, no las direcciones IP públicas. <p/>Para calcular el tamaño *mínimo* de la subred: `(number of nodes) + (number of nodes * pods per node)` <p/>Ejemplo de un clúster de 50 nudos: `(50) + (50 * 30) = 1,550` (/21 o superior) |
 | Intervalo de direcciones del servicio de Kubernetes | Este intervalo no lo debe usar ningún elemento de red de esta red virtual o que esté conectado a ella. El CIDR de la dirección del servicio debe ser menor que /12. |
 | Dirección IP del servicio DNS de Kubernetes | Dirección IP del intervalo de direcciones del servicio de Kubernetes que se usará en la detección de servicios de clúster (kube-dns). |

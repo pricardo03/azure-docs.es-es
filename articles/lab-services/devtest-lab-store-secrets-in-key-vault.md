@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0397c520dd0135df56e7eb7e8cd6ed7ffa46156e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012243"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186839"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Almacenamiento de secretos en un almacén de claves en Azure DevTest Labs
 Puede que al usar Azure DevTest Labs deba escribir un secreto complejo: una contraseña para la máquina virtual Windows, una clave SSH pública para la máquina virtual Linux o un token de acceso personal para clonar el repositorio de Git mediante un artefacto. Los secretos son normalmente largos y tienen caracteres aleatorios. Por lo tanto, escribirlos puede ser complicado y supone un inconveniente, especialmente si se usa el mismo secreto varias veces.
 
-Para resolver este problema y mantener también los secretos en un lugar seguro, DevTest Labs admite el almacenamiento de secretos en un [almacén de claves de Azure](../key-vault/key-vault-overview.md). Cuando un usuario almacena un secreto por primera vez, el servicio DevTest Labs crea automáticamente un almacén de claves en el mismo grupo de recursos que contiene el laboratorio y almacena el secreto en el almacén de claves. 
+Para resolver este problema y mantener también los secretos en un lugar seguro, DevTest Labs admite el almacenamiento de secretos en un [almacén de claves de Azure](../key-vault/key-vault-overview.md). Cuando un usuario guarda un secreto por primera vez, el servicio DevTest Labs crea automáticamente un almacén de claves en el mismo grupo de recursos que contiene el laboratorio y almacena el secreto en el almacén de claves. DevTest Labs crea un almacén de claves independiente para cada usuario. 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Guardar un secreto en Azure Key Vault
 Para guardar el secreto en Azure Key Vault, siga los pasos siguientes:

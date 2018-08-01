@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc98f15303f23937d58131de971d5c60017c9034
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917717"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214989"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: inicio rápido
 
@@ -29,9 +29,9 @@ ms.locfileid: "37917717"
 La autenticación de paso a través de Azure Active Directory (Azure AD) permite a los usuarios iniciar sesión en aplicaciones basadas en la nube y locales con las mismas contraseñas. Con la autenticación de paso a través, los usuarios inician sesión mediante la validación de sus contraseñas directamente en la instancia de Active Directory local.
 
 >[!IMPORTANT]
->Si usa esta característica a través de una versión preliminar, asegúrese de actualizar las versiones preliminares de los agentes de autenticación mediante las instrucciones proporcionadas en [Autenticación de paso a través de Azure Active Directory: actualización de la versión preliminar de los agentes de autenticación](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+>Si va a migrar desde AD FS (u otra tecnología de federación) a la autenticación de paso a través, es muy recomendable que siga nuestra guía de implementación detallada publicada [aquí](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
-Siga estas instrucciones para implementar la autenticación de paso a través:
+Siga estas instrucciones para implementar la autenticación de paso a través en su inquilino:
 
 ## <a name="step-1-check-the-prerequisites"></a>Paso 1: Comprobar los requisitos previos
 
@@ -50,7 +50,11 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
     >[!NOTE]
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ pretende utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
 
-3. Identifique un servidor adicional que ejecute Windows Server 2012 R2 o posterior en el que poder ejecutar un agente de autenticación independiente. La versión del agente de autenticación debe ser 1.5.193.0 o posterior. Este servidor adicional es necesario para garantizar la alta disponibilidad de las solicitudes de inicio de sesión. Agregue el servidor al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
+3. Identifique uno o más servidores adicionales (que ejecute Windows Server 2012 R2 o versiones posteriores) en el que poder ejecutar los agentes de autenticación independientes. Estos servidores adicionales son necesarios para garantizar la alta disponibilidad de las solicitudes de inicio de sesión. Agregue los servidores al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
+
+    >[!IMPORTANT]
+    >En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 12 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+
 4. Si hay un firewall entre los servidores y Azure AD, configure los elementos siguientes:
    - Asegúrese de que los agentes de autenticación pueden realizar solicitudes *salientes* a Azure AD a través de los puertos siguientes:
    
@@ -62,32 +66,14 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
     Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
    - Si el firewall o el proxy permiten la creación de listas blancas con DNS, cree una lista blanca para las conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
    - Los agentes de autenticación necesitan acceder a **login.windows.net** y **login.microsoftonline.com** para el registro inicial. Abra el firewall también para esas direcciones URL.
-   - Para la validación de certificados, desbloquee las siguientes direcciones URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** y **www.microsoft.com:80**. Estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft. Puede que estas direcciones URL ya estén desbloqueadas.
+   - Para la validación de certificados, desbloquee las siguientes direcciones URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** y **www.microsoft.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
 
-## <a name="step-2-enable-exchange-activesync-support-optional"></a>Paso 2: Habilitación de la compatibilidad con Exchange ActiveSync (opcional)
-
-Siga estas instrucciones para habilitar la compatibilidad con Exchange ActiveSync:
-
-1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) y ejecute el comando siguiente:
-```
-Get-OrganizationConfig | fl per*
-```
-
-2. Compruebe el valor de `PerTenantSwitchToESTSEnabled`. Si el valor es **true**, significa que el inquilino está configurado correctamente. Por lo general, esto sucede con la mayoría de los clientes. Si el valor es **false**, ejecute el siguiente comando:
-```
-Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
-```
-
-3. Verifique que el valor de `PerTenantSwitchToESTSEnabled` ahora está establecido en **true**. Espere una hora antes de continuar con el paso siguiente.
-
-Si tiene algún problema en este paso, consulte la [guía de solución de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues).
-
-## <a name="step-3-enable-the-feature"></a>Paso 3: Habilitación de la característica
+## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitación de la característica
 
 Habilite la [autenticación de paso a través mediante Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->Puede habilitar la autenticación de paso a través en el servidor principal o provisional de Azure AD Connect. Debe habilitarla en el servidor principal.
+>Puede habilitar la autenticación de paso a través en el servidor principal o provisional de Azure AD Connect. Se recomienda habilitarlo desde el servidor principal.
 
 Si va a instalar Azure AD Connect por primera vez, elija la [ruta de acceso de instalación personalizada](active-directory-aadconnect-get-started-custom.md). En la página **Inicio de sesión de usuario**, elija **Autenticación de paso a través** como **método de inicio de sesión**. Si se completa correctamente, se instala un agente de autenticación de paso a través en el mismo servidor que Azure AD Connect. Además, se habilita la característica de autenticación de paso a través en el inquilino.
 
@@ -98,9 +84,9 @@ Si ya tiene instalado Azure AD Connect mediante la ruta de [instalación rápida
 ![Azure AD Connect: Cambiar inicio de sesión de usuario](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 >[!IMPORTANT]
->La autenticación de paso a través es una característica de nivel de inquilino. Su activación afecta al inicio de sesión de los usuarios en _todos_ los dominios administrados del inquilino. Si va a cambiar de Active Directory Federation Services (AD FS) a la autenticación de paso a través, debe esperar al menos doce horas antes de apagar la infraestructura de AD FS. Este tiempo de espera sirve para garantizar que los usuarios mantengan iniciada la sesión en Exchange ActiveSync durante la transición.
+>La autenticación de paso a través es una característica de nivel de inquilino. Su activación afecta al inicio de sesión de los usuarios en _todos_ los dominios administrados del inquilino. Si va a cambiar de Active Directory Federation Services (AD FS) a la autenticación de paso a través, debe esperar al menos doce horas antes de apagar la infraestructura de AD FS. Este tiempo de espera sirve para garantizar que los usuarios mantengan iniciada la sesión en Exchange ActiveSync durante la transición. Para obtener más ayuda sobre la migración de AD FS a la autenticación de paso a través, consulte nuestra guía de implementación detallada publicada [aquí](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
-## <a name="step-4-test-the-feature"></a>Paso 4: Prueba de la característica
+## <a name="step-3-test-the-feature"></a>Paso 3: Prueba de la característica
 
 Siga estas instrucciones para verificar que ha habilitado la autenticación de paso a través correctamente:
 
@@ -116,9 +102,12 @@ Siga estas instrucciones para verificar que ha habilitado la autenticación de p
 
 En esta fase, los usuarios de todos los dominios administrados del inquilino pueden iniciar sesión con la autenticación de paso a través. Sin embargo, los usuarios de dominios federados siguen iniciando sesión mediante AD FS o cualquier otro proveedor de federación que se haya configurado previamente. Si convierte un dominio de federado a administrado, todos los usuarios del mismo empiezan automáticamente a iniciar sesión mediante la autenticación de paso a través. La característica de autenticación de paso a través no afecta a los usuarios que están solo en la nube.
 
-## <a name="step-5-ensure-high-availability"></a>Paso 5: Garantía de alta disponibilidad
+## <a name="step-4-ensure-high-availability"></a>Paso 4: Garantía de alta disponibilidad
 
-Si tiene previsto implementar la autenticación de paso a través en un entorno de producción, debe instalar al menos un agente de autenticación independiente más. Instale los agentes de autenticación en servidores _distintos_ que el servidor en que se ejecuta Azure AD Connect. Esta configuración proporciona alta disponibilidad para las solicitudes de inicio de sesión.
+Si tiene previsto implementar la autenticación de paso a través en un entorno de producción, debe instalar un agente de autenticación independiente adicional. Instale los agentes de autenticación en servidores _distintos_ que el servidor en que se ejecuta Azure AD Connect. Esta configuración proporciona alta disponibilidad para las solicitudes de inicio de sesión.
+
+>[!IMPORTANT]
+>En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 12 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Siga estas instrucciones para descargar el software de agente de autenticación:
 
@@ -132,7 +121,7 @@ Siga estas instrucciones para descargar el software de agente de autenticación:
 ![Centro de administración de Azure Active Directory: panel Descargar agente](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->También puede descargar directamente el software del agente de autenticación desde [aquí](https://aka.ms/getauthagent). Revise y acepte las [Condiciones del servicio](https://aka.ms/authagenteula) del agente de autenticación _antes_ de instalarlo.
+>También puede descargar [directamente el software del agente de autenticación](https://aka.ms/getauthagent). Revise y acepte las [Condiciones del servicio](https://aka.ms/authagenteula) del agente de autenticación _antes_ de instalarlo.
 
 Hay dos formas de implementar un agente de autenticación independiente:
 
@@ -152,6 +141,7 @@ En segundo lugar, puede crear y ejecutar un script de implementación desatendid
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Pasos siguientes
+- [Migración de AD FS a la autenticación de paso a través](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
 - [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Limitaciones actuales](active-directory-aadconnect-pass-through-authentication-current-limitations.md): conozca qué escenarios son compatibles con la autenticación de paso a través y cuáles no.
 - [Profundización técnica](active-directory-aadconnect-pass-through-authentication-how-it-works.md): conozca cómo funciona la característica de autenticación de paso a través.

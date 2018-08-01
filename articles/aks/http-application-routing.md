@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116975"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238529"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 
@@ -60,12 +60,12 @@ Después de implementar el clúster, vaya al grupo de recursos de AKS que se cre
 
 La solución de enrutamiento de aplicación HTTP solo se puede desencadenar en los recursos de entrada que se anotan como sigue:
 
-```
+```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Cree un archivo denominado **samples-http-application-routing.yaml** y cópielo en el siguiente código YAML. En línea 43, actualice `<CLUSTER_SPECIFIC_DNS_ZONE>` con el nombre de la zona DNS que se recopila en el último paso de este artículo.
+Cree un archivo denominado **samples-http-application-routing.yaml** y cópielo en el siguiente código YAML. En la línea 43, actualice `<CLUSTER_SPECIFIC_DNS_ZONE>` con el nombre de la zona DNS que se recopiló en el paso anterior de este artículo.
 
 
 ```yaml
@@ -119,7 +119,7 @@ spec:
 
 Utilice el comando [kubectl apply][kubectl-apply] para crear los recursos.
 
-```
+```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
@@ -129,7 +129,7 @@ ingress "party-clippy" created
 
 Use cURL o un explorador para navegar al nombre de host especificado en la sección de host del archivo samples-http-application-routing.yaml. La aplicación puede tardar hasta un minuto antes de estar disponible a través de Internet.
 
-```
+```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
  _________________________________
@@ -150,6 +150,14 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
+## <a name="remove-http-routing"></a>Eliminación del enrutamiento HTTP
+
+La solución de enrutamiento HTTP se puede eliminar mediante la CLI de Azure. Para ello, ejecute el siguiente comando, sustituyendo su clúster de AKS y el nombre del grupo de recursos.
+
+```azurecli
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+```
+
 ## <a name="troubleshoot"></a>Solución de problemas
 
 Use el comando [kubectl logs][kubectl-logs] para ver los registros de aplicación para la aplicación de DNS externo. Los registros deben confirmar que crearon correctamente unos registros DNS A y TXT.
@@ -167,7 +175,7 @@ Estos registros también se pueden ver en el recurso de zona DNS en Azure Portal
 
 Use el comando [kubectl logs][kubectl-logs] para ver los registros de aplicación para el controlador de entrada Nginx. Los registros deben confirmar la `CREATE` de un recurso de entrada y la recarga del controlador. Se registra toda la actividad HTTP.
 
-```
+```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
 
 -------------------------------------------------------------------------------
@@ -208,7 +216,7 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 Quite los objetos Kubernetes asociados creados en este artículo.
 
-```
+```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
 deployment "party-clippy" deleted

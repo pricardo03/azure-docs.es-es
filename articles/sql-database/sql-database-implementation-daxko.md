@@ -9,12 +9,12 @@ ms.custom: reference
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: b7c1d4f1b8ca0f8899ebff8178a481c7dd1d5779
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee06039242afe5b5e92cf2fecc4c3fa9bff0b78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648894"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214376"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko y CSI utilizan Azure para acelerar su ciclo de desarrollo, aumentar su rendimiento y mejorar sus servicios de atención al cliente
 ![Logotipo de Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -84,7 +84,7 @@ Azure SQL Database no solamente es una ventaja para los clientes de SpectrumNG, 
 ## <a name="more-information"></a>Más información
 * Para obtener más información sobre los grupos elásticos de Azure, consulte [este artículo](sql-database-elastic-pool.md).
 * Si necesita obtener más detalles sobre las herramientas para bases de datos y el escalado elástico, lea [este artículo](sql-database-elastic-scale-get-started.md).
-* Para obtener más información cómo migrar una base de datos de SQL Server, vea [Migración de una base de datos de SQL Server a una Base de datos SQL en la nube](sql-database-cloud-migrate.md).
+* Para obtener más información cómo migrar una base de datos de SQL Server, consulte [Migración de una base de datos de SQL Server a una Base de datos SQL en la nube](sql-database-cloud-migrate.md).
 * Para obtener más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 * Si necesita más información sobre Azure Service Bus, lea [este artículo](https://azure.microsoft.com/services/service-bus/).
 * Si quiere saber más sobre el escalado automático, revise [este artículo](../cloud-services/cloud-services-how-to-scale-portal.md).

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 5b5212d5e1663fee01ff87642432818071d4f4dd
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e814785af7041ba762f7c383a0cfdc434fce9dce
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988541"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213879"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)
 
@@ -27,7 +27,7 @@ En este artículo se enumeran los pasos para instalar el entorno de ejecución d
 
 ## <a name="install-the-container-runtime"></a>Instalación del entorno de ejecución del contenedor
 
-Azure IoT Edge se basa en un entorno de ejecución de contenedor [compatible con OCI][lnk-oci]. Para escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby][lnk-moby] que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de los contenedores Docker CE/EE son compatibles con el entorno de ejecución basado en Moby.
+Azure IoT Edge utiliza un entorno de ejecución de contenedores [compatible con OCI][lnk-oci]. Para escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby][lnk-moby] que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de los contenedores Docker CE/EE son compatibles con el entorno de ejecución basado en Moby.
 
 Los siguientes comandos instalan tanto el motor basado en Moby como la interfaz de la línea de comandos (CLI). La CLI es útil para el desarrollo pero opcional para implementaciones de producción.
 
@@ -101,6 +101,10 @@ El dispositivo Edge se puede configurar manualmente mediante una [cadena de cone
      scope_id: "{scope_id}"
      registration_id: "{registration_id}"
    ```
+
+Guarde y cierre el archivo. 
+
+   `CTRL + X`, `Y`, `Enter`
 
 Después de introducir la información de aprovisionamiento en la configuración, reinicie el demonio:
 

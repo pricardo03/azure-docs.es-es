@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436712"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258005"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmisión del registro de actividad de Azure a Event Hubs
 Puede transmitir el [registro de actividad de Azure](monitoring-overview-activity-logs.md) casi en tiempo real a cualquier replicación de dos maneras:
@@ -34,7 +34,7 @@ Si no tiene un espacio de nombres de Event Hubs, primero debe crear uno. Si ante
 
 La directiva de acceso compartido define los permisos que tiene el mecanismo de transmisión. En la actualidad, para transmitir a Event Hubs, se necesitan permisos de **administración**, **envío** y **escucha**. Puede crear o modificar directivas de acceso compartido para el espacio de nombres de Event Hubs en Azure Portal, en la pestaña **Configurar**. 
 
-Para actualizar el perfil de registro del registro de actividad para incluir el streaming, el cliente que realiza el cambio debe tener el permiso ListKey sobre esa regla de autorización de Event Hubs. El espacio de nombres de Event Hubs no tiene que estar en la misma suscripción que la suscripción que emite los registros, siempre que el usuario que configura el ajuste tenga acceso RBAC adecuado a ambas suscripciones.
+Para actualizar el perfil de registro del registro de actividad para incluir el streaming, el cliente que realiza el cambio debe tener el permiso ListKey sobre esa regla de autorización de Event Hubs. El espacio de nombres de Event Hubs no tiene que estar necesariamente en la misma suscripción que la suscripción que emite los registros, siempre que el usuario que configure el valor tenga el acceso RBAC adecuado a ambas suscripciones y estas se encuentren en el mismo inquilino de AAD.
 
 ### <a name="via-the-azure-portal"></a>Mediante Azure Portal
 1. Vaya a la sección **Registro de actividad** mediante la búsqueda de **Todos los servicios** en el lado izquierdo del portal.
@@ -53,8 +53,9 @@ Para actualizar el perfil de registro del registro de actividad para incluir el 
    > Si selecciona un valor distinto de **Todas las regiones**, se pasarán por alto eventos clave que espera recibir. El registro de actividad es un registro global (no regional), así que la mayoría de los eventos no tienen asociada una región. 
    >
 
-4. Haga clic en **Guardar** para guardar esta configuración. La configuración se aplica inmediatamente a la suscripción.
-5. Si tiene varias suscripciones, repita esta acción y envíe todos los datos al mismo centro de eventos.
+4. Haga clic en la opción **Azure Event Hubs** y seleccione el espacio de nombres de Event Hubs al que se deben enviar los registros y, después, haga clic en **Aceptar**.
+5. Haga clic en **Guardar** para guardar esta configuración. La configuración se aplica inmediatamente a la suscripción.
+6. Si tiene varias suscripciones, repita esta acción y envíe todos los datos al mismo centro de eventos.
 
 ### <a name="via-powershell-cmdlets"></a>Mediante cmdlets de PowerShell
 Si ya existe un perfil de registro, primero debe quitar el perfil de registro existente y luego crear un nuevo perfil de registro.

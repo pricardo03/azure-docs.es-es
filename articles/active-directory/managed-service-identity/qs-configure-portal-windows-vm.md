@@ -1,6 +1,6 @@
 ---
-title: Configuración de MSI en una máquina virtual de Azure con Azure Portal
-description: Instrucciones paso a paso para configurar una identidad de servicio administrada (MSI) en una máquina virtual de Azure, mediante Azure Portal.
+title: Configuración de Managed Service Identity en una máquina virtual de Azure mediante Azure Portal
+description: Instrucciones paso a paso para configurar una identidad de servicio administrada en una máquina virtual de Azure, mediante Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035948"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213272"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configuración de Managed Service Identity (MSI) en una máquina virtual con Azure Portal
+# <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Configuración de una identidad de servicio administrada en una máquina virtual con Azure Portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -36,6 +36,8 @@ En este artículo, aprenderá a habilitar y deshabilitar la identidad asignada p
 
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md).
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para llevar a cabo las operaciones de administración en este artículo, su cuenta debe tener la siguiente asignación de roles:
+    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para habilitar y quitar la identidad asignada por el sistema de una máquina virtual de Azure.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Managed Service Identity durante la creación de un conjunto de escalado de una máquina virtual de Azure
 
@@ -50,14 +52,14 @@ A continuación, pase a la siguiente sección, donde encontrará información de
 
 Para habilitar la identidad asignada por el sistema en una máquina virtual que se aprovisionó originalmente sin ella, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual".
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual.
 
 2. Navegue a la máquina virtual que desee y seleccione la página "Configuración".
 
 3. Para habilitar la identidad asignada por el sistema en la máquina virtual, seleccione "Sí" en "Managed Service Identity" y, luego, haga clic en **Guardar**. Esta operación puede tardar 60 segundos o más en completarse:
 
-    > [!NOTE]
-    > La incorporación de una identidad asignada por el usuario a una máquina virtual no se admite a través de Azure Portal.
+   > [!NOTE]
+   > La incorporación de una identidad asignada por el usuario a una máquina virtual no se admite a través de Azure Portal.
 
    ![Captura de pantalla de la página de configuración](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,7 +67,7 @@ Para habilitar la identidad asignada por el sistema en una máquina virtual que 
 
 Si tiene una máquina virtual que ya no necesita la identidad asignada por el sistema:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual".
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual. 
 
 2. Navegue a la máquina virtual que desee y seleccione la página "Configuración".
 
@@ -82,5 +84,5 @@ Si tiene una máquina virtual que ya no necesita la identidad asignada por el si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Mediante Azure Portal, asigne a un identidad de servicio administrada de una máquina virtual de Azure [acceso a otro recurso de Azure](howto-assign-access-portal.md).
+- Con Azure Portal, dé a la identidad de servicio administrada de una máquina virtual de Azure [acceso a otro recurso de Azure](howto-assign-access-portal.md).
 

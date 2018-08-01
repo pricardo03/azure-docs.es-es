@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916173"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213238"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -55,17 +55,17 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 - Si una aplicación, (por ejemplo, https://myapps.microsoft.com/contoso.com) envía un parámetro `domain_hint` (OpenID Connect) o `whr` (SAML) que identifica el usuario inquilino, o bien el parámetro `login_hint` que identifica el usuario, en la solicitud de inicio de sesión de Azure AD, los usuarios inician sesión automáticamente sin necesidad de escribir nombres de usuario ni contraseñas.
 - Los usuarios también obtienen una experiencia de inicio de sesión silenciosa si una aplicación (por ejemplo, https://contoso.sharepoint.com) envía solicitudes de inicio de sesión a los puntos de conexión con inquilinos de Azure AD; es decir, https://login.microsoftonline.com/contoso.com/<..> o https://login.microsoftonline.com/<tenant_ID>/<..>, en lugar del punto de conexión común de Azure AD; es decir, https://login.microsoftonline.com/common/<...>.
 - Se admite el cierre de sesión. Esto permite que los usuarios elijan otra cuenta de Azure AD con la cual iniciar sesión, en lugar de iniciar sesión automáticamente con SSO de conexión directa.
-- Los clientes Office 365 (16.0.8730.xxxx y versiones superiores) se admiten con un flujo no interactivo.
+- Se admiten los clientes Win32 de Office 365 (Outlook, Word, Excel, etc.) con las versiones 16.0.8730 y posteriores mediante un flujo no interactivo. En OneDrive, tendrá que activar la [función de configuración silenciosa de OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para disfrutar de una experiencia de inicio de sesión silenciosa.
 - Puede habilitarse a través de Azure AD Connect.
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
 - Se admite en clientes basados en el explorador web y en clientes de Office que admiten la [autenticación moderna](https://aka.ms/modernauthga) en plataformas con la funcionalidad de autenticación de Kerberos:
 
 | SO\Explorador |Internet Explorer|perimetral|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sí|Sin |Sí|Sí\*|N/D
-|Windows 8.1|Sí|N/D|Sí|Sí\*|N/D
-|Windows 8|Sí|N/D|Sí|Sí\*|N/D
-|Windows 7|Sí|N/D|Sí|Sí\*|N/D
+|Windows 10|SÍ|Sin |SÍ|Sí\*|N/D
+|Windows 8.1|SÍ|N/D|SÍ|Sí\*|N/D
+|Windows 8|SÍ|N/D|SÍ|Sí\*|N/D
+|Windows 7|SÍ|N/D|SÍ|Sí\*|N/D
 |Mac OS X|N/D|N/D|Sí\*|Sí\*|Sí\*
 
 \*Requiere [configuración adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)

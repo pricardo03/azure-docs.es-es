@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: f3734304bdcc4b3f0944ebf568094595eea01a4e
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26344829"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214907"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -43,7 +43,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 > [!NOTE]
 >  Esta directiva debe tener una directiva [Store to cache](api-management-caching-policies.md#StoreToCache) (Almacenar en la caché) correspondiente.  
   
-### <a name="policy-statement"></a>Declaración de directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
@@ -104,26 +104,26 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|cache-lookup|Elemento raíz.|Sí|  
-|vary-by-header|Inicia el almacenamiento en caché de respuestas por valor del encabezado especificado, por ejemplo, Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match.|No|  
-|vary-by-query-parameter|Inicia el almacenamiento en caché de las respuestas por valor de los parámetros de consulta especificados. Permite introducir uno o varios parámetros. Utilice el punto y coma como separador. Si no se especifica ninguno, se usan todos los parámetros de consulta.|No|  
+|cache-lookup|Elemento raíz.|SÍ|  
+|vary-by-header|Inicia el almacenamiento en caché de respuestas por valor del encabezado especificado, por ejemplo, Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match.|Sin |  
+|vary-by-query-parameter|Inicia el almacenamiento en caché de las respuestas por valor de los parámetros de consulta especificados. Permite introducir uno o varios parámetros. Utilice el punto y coma como separador. Si no se especifica ninguno, se usan todos los parámetros de consulta.|Sin |  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|allow-private-response-caching|Cuando se establece en `true`, permite el almacenamiento en caché de las solicitudes que contienen un encabezado de autorización.|No|false|  
-|downstream-caching-type|Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.|No|Ninguna|  
-|must-revalidate|Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.|No|true|  
-|vary-by-developer|Se establece en `true` para almacenar en caché las respuestas por clave de desarrollador.|Sí||  
-|vary-by-developer-groups|Se establece en `true` para almacenar en caché las respuestas por rol de usuario.|Sí||  
+|allow-private-response-caching|Cuando se establece en `true`, permite el almacenamiento en caché de las solicitudes que contienen un encabezado de autorización.|Sin |false|  
+|downstream-caching-type|Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.|Sin |None|  
+|must-revalidate|Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.|Sin |true|  
+|vary-by-developer|Se establece en `true` para almacenar en caché las respuestas por clave de desarrollador.|SÍ||  
+|vary-by-developer-groups|Se establece en `true` para almacenar en caché las respuestas por rol de usuario.|SÍ||  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
--   **Secciones de la directiva:** inbound  
+-   **Secciones de la directiva:** inbound (entrada)  
 -   **Ámbitos de directiva:** API, operation, product  
   
 ##  <a name="StoreToCache"></a> Store to cache (Almacenar en la caché)  
@@ -132,7 +132,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 > [!NOTE]
 >  Esta directiva debe tener una directiva [Get from cache](api-management-caching-policies.md#GetFromCache) correspondiente.  
   
-### <a name="policy-statement"></a>Declaración de directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <cache-store duration="seconds" />  
@@ -182,15 +182,15 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|cache-store|Elemento raíz.|Sí|  
+|cache-store|Elemento raíz.|SÍ|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|duration|Período de vida de las entradas almacenadas en caché, especificado en segundos.|Sí|N/D|  
+|duration|Período de vida de las entradas almacenadas en caché, especificado en segundos.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
@@ -204,7 +204,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 > [!NOTE]
 >  Esta directiva debe tener una directiva [Store value in cache](#StoreToCacheByKey) (Almacenar valor en la caché) correspondiente.  
   
-### <a name="policy-statement"></a>Declaración de directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <cache-lookup-value key="cache key value"   
@@ -224,17 +224,17 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|cache-lookup-value|Elemento raíz.|Sí|  
+|cache-lookup-value|Elemento raíz.|SÍ|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|default-value|Un valor que se asignará a la variable si la búsqueda de la clave de caché da lugar a un error. Si no se especifica este atributo, se asigna `null`.|No|`null`|  
-|key|Valor de clave de caché para usar en la búsqueda.|Sí|N/D|  
-|variable-name|Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si se produce un error de búsqueda, se asignará a la variable el valor del atributo `default-value` o `null`, si se omite el atributo `default-value`.|Sí|N/D|  
+|default-value|Un valor que se asignará a la variable si la búsqueda de la clave de caché da lugar a un error. Si no se especifica este atributo, se asigna `null`.|Sin |`null`|  
+|key|Valor de clave de caché para usar en la búsqueda.|SÍ|N/D|  
+|variable-name|Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si se produce un error de búsqueda, se asignará a la variable el valor del atributo `default-value` o `null`, si se omite el atributo `default-value`.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -248,7 +248,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 > [!NOTE]
 >  Esta directiva debe tener una directiva [Get from cache](#GetFromCacheByKey) (Obtener de la caché) correspondiente.  
   
-### <a name="policy-statement"></a>Declaración de directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <cache-store-value key="cache key value" value="value to cache" duration="seconds" />  
@@ -266,17 +266,17 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|cache-store-value|Elemento raíz.|Sí|  
+|cache-store-value|Elemento raíz.|SÍ|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|duration|El valor se almacenará en la caché según el valor de duración proporcionado, especificado en segundos.|Sí|N/D|  
-|key|La clave de caché con la que se almacenará el valor.|Sí|N/D|  
-|value|El valor que se almacenará en la caché.|Sí|N/D|  
+|duration|El valor se almacenará en la caché según el valor de duración proporcionado, especificado en segundos.|SÍ|N/D|  
+|key|La clave de caché con la que se almacenará el valor.|SÍ|N/D|  
+|value|El valor que se almacenará en la caché.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -287,7 +287,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ###  <a name="RemoveCacheByKey"></a> Remove value from cache (Quitar valor de la caché)  
 La directiva `cache-remove-value` elimina un elemento almacenado en caché identificado por su clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.  
   
-#### <a name="policy-statement"></a>Declaración de directiva  
+#### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
   
@@ -305,15 +305,15 @@ La directiva `cache-remove-value` elimina un elemento almacenado en caché ident
   
 #### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|cache-remove-value|Elemento raíz.|Sí|  
+|cache-remove-value|Elemento raíz.|SÍ|  
   
 #### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|key|La clave del valor anteriormente almacenado en caché que se quitará de la memoria caché.|Sí|N/D|  
+|key|La clave del valor anteriormente almacenado en caché que se quitará de la memoria caché.|SÍ|N/D|  
   
 #### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593459"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214700"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -68,7 +68,7 @@ La característica de sincronización de hash de contraseñas reintenta automát
 La sincronización de una contraseña no influye en el usuario que actualmente ha iniciado sesión.
 Si se sincroniza un cambio de contraseña mientras tiene iniciada sesión en un servicio en la nube, este cambio no afectará de inmediato a la sesión actual del servicio en la nube. Sin embargo, cuando el servicio en la nube requiera de nuevo su autenticación, deberá proporcionar la nueva contraseña.
 
-Un usuario debe escribir sus credenciales corporativas una segunda vez para autenticarse en Azure AD, independientemente de que haya iniciado sesión en su red corporativa. Pero estos patrones puede reducirse si el usuario activa la casilla "Mantener la sesión iniciada" (KMSI) en el inicio de sesión. Con esta activación se establece una cookie de sesión que omite la autenticación durante un breve período. El comportamiento de KMSI lo puede habilitar o deshabilitar el administrador de Azure AD.
+Un usuario debe escribir sus credenciales corporativas una segunda vez para autenticarse en Azure AD, independientemente de que haya iniciado sesión en su red corporativa. Pero estos patrones puede reducirse si el usuario activa la casilla "Mantener la sesión iniciada" (KMSI) en el inicio de sesión. Esta opción establece una cookie de sesión que omite la autenticación durante 180 días. El comportamiento de KMSI lo puede habilitar o deshabilitar el administrador de Azure AD. Además, para reducir los mensajes de petición de contraseña, puede activar [SSO de conexión directa](active-directory-aadconnect-sso.md), que permite iniciar sesión automáticamente a los usuarios en dispositivos corporativos conectados a la red de la empresa.
 
 > [!NOTE]
 > Solo se admite la sincronización de la contraseña para el usuario del tipo de objeto de Active Directory. No se admite para el tipo de objeto iNetOrgPerson.
@@ -99,10 +99,6 @@ Al sincronizar contraseñas, la versión de texto sin formato de su contraseña 
 
 La autenticación del usuario tiene lugar en Azure AD, y no en la propia instancia de Active Directory de la organización. Si su organización se preocupa por los datos de la contraseña que salen de local de cualquier forma, tenga en cuenta el hecho de que los datos de la contraseña SHA256 que se almacenan en Azure AD (un hash del hash MD4 original) son mucho más seguros que lo que se almacena en Active Directory. Además, como no se puede descifrar este hash SHA256, no se vuelve al entorno de Active Directory de la organización y se presenta como una contraseña de usuario válida en un ataque pass-the-hash.
 
-
-
-
-
 ### <a name="password-policy-considerations"></a>Consideraciones de la directiva de contraseña
 Existen dos tipos de directivas de contraseña que se ven afectados por la habilitación de la sincronización de hash de contraseñas:
 
@@ -121,7 +117,7 @@ Si un usuario está en el ámbito de sincronización de hash de contraseñas, la
 Puede seguir iniciando sesión en los servicios en la nube con una contraseña sincronizada que haya expirado en su entorno local. La contraseña en la nube se actualizará la próxima vez que cambie la contraseña en el entorno local.
 
 #### <a name="account-expiration"></a>Expiración de la cuenta
-Si su organización usa el atributo accountExpires como parte de la administración de cuentas de usuario, recuerde que este atributo no se sincroniza con Azure AD. Por consiguiente, una cuenta de Active Directory expirada en un entorno configurado para la sincronización de hash de contraseñas seguirá activa en Azure AD. Se recomienda que, si la cuenta ha expirado, una acción de flujo de trabajo debe desencadenar un script de PowerShell que deshabilite la cuenta de Azure AD del usuario. Por el contrario, cuando la cuenta está activada, la instancia de Azure AD debe estar activada.
+Si su organización usa el atributo accountExpires como parte de la administración de cuentas de usuario, recuerde que este atributo no se sincroniza con Azure AD. Por consiguiente, una cuenta de Active Directory expirada en un entorno configurado para la sincronización de hash de contraseñas seguirá activa en Azure AD. Se recomienda que, si la cuenta ha expirado, una acción de flujo de trabajo debe desencadenar un script de PowerShell que deshabilite la cuenta de Azure AD del usuario (use el cmdlet [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)). Por el contrario, cuando la cuenta está activada, la instancia de Azure AD debe estar activada.
 
 ### <a name="overwrite-synchronized-passwords"></a>Sobrescritura de las contraseñas sincronizadas
 Un administrador puede restablecer manualmente la contraseña mediante Windows PowerShell.
@@ -134,21 +130,14 @@ La sincronización de una contraseña no influye en el usuario de Azure que ha i
 
 ### <a name="additional-advantages"></a>Ventajas adicionales
 
-- Por lo general, la sincronización de hash de contraseñas es más fácil de implementar que un servicio de federación. No requiere ningún servidor adicional y elimina la dependencia en un servicio de federación de alta disponibilidad para autenticar a los usuarios. 
+- Por lo general, la sincronización de hash de contraseñas es más fácil de implementar que un servicio de federación. No requiere ningún servidor adicional y elimina la dependencia en un servicio de federación de alta disponibilidad para autenticar a los usuarios.
 - También se puede habilitar la sincronización de hash de contraseñas además de la federación. Puede usarse como reserva en caso de que el servicio de federación experimente una interrupción del servicio.
 
-
-
-
-
-
-
-
-
-
-
-
 ## <a name="enable-password-hash-synchronization"></a>Habilitación de la sincronización de hash de contraseñas
+
+>[!IMPORTANT]
+>Si va a migrar desde AD FS (u otra tecnología de federación) a la sincronización de hash de contraseña, es muy recomendable que siga nuestra guía de implementación detallada publicada [aquí](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+
 Cuando se instala Azure AD Connect mediante la opción **Configuración rápida**, la sincronización de hash de contraseñas se habilita automáticamente. Para conocer más detalles, consulte [Introducción a Azure AD Connect mediante la configuración rápida](active-directory-aadconnect-get-started-express.md).
 
 Si usa una configuración personalizada al instalar Azure AD Connect, la sincronización de hash de contraseñas está disponible en la página de inicio de sesión del usuario. Para más información, consulte [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).

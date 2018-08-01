@@ -1,0 +1,161 @@
+---
+title: Esquema de eventos de Container Registry de Azure Event Grid
+description: Describe las propiedades que se proporcionan para eventos de Container Registry con Azure Event Grid
+services: event-grid
+author: tfitzmac
+manager: timlt
+ms.service: event-grid
+ms.topic: reference
+ms.date: 07/20/2018
+ms.author: tomfitz
+ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188655"
+---
+# <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos de Azure Event Grid para Container Registry
+
+En este artículo se proporcionan las propiedades y los esquemas de los eventos de Container Registry. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
+
+## <a name="available-event-types"></a>Tipos de eventos disponibles
+
+Blob Storage emite los siguientes tipos de eventos:
+
+| Tipo de evento | DESCRIPCIÓN |
+| ---------- | ----------- |
+| Microsoft.ContainerRegistry.ImagePushed | Se genera cuando se inserta una imagen. |
+| Microsoft.ContainerRegistry.ImageDeleted | Se genera cuando se elimina una imagen. |
+
+## <a name="example-event"></a>Evento de ejemplo
+
+En el ejemplo siguiente, se muestra el esquema de un evento de inserción de una imagen: 
+
+```json
+[{
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "aci-helloworld:v1",
+  "eventType": "ImagePushed",
+  "eventTime": "2018-04-25T21:39:47.6549614Z",
+  "data": {
+    "id": "31c51664-e5bd-416a-a5df-e5206bc47ed0",
+    "timestamp": "2018-04-25T21:39:47.276585742Z",
+    "action": "push",
+    "target": {
+      "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+      "size": 3023,
+      "digest": "sha256:213bbc182920ab41e18edc2001e06abcca6735d87782d9cef68abd83941cf0e5",
+      "length": 3023,
+      "repository": "aci-helloworld",
+      "tag": "v1"
+    },
+    "request": {
+      "id": "7c66f28b-de19-40a4-821c-6f5f6c0003a4",
+      "host": "demo.azurecr.io",
+      "method": "PUT",
+      "useragent": "docker/18.03.0-ce go/go1.9.4 git-commit/0520e24 os/windows arch/amd64 UpstreamClient(Docker-Client/18.03.0-ce \\\\(windows\\\\))"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+El esquema para un evento de eliminación de una imagen es similar:
+
+```json
+[{
+  "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "aci-helloworld",
+  "eventType": "ImageDeleted",
+  "eventTime": "2018-04-26T17:56:01.8211268Z",
+  "data": {
+    "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
+    "timestamp": "2018-04-26T17:56:00.996603117Z",
+    "action": "delete",
+    "target": {
+      "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+      "digest": "sha256:213bbc182920ab41e18edc2001e06abcca6735d87782d9cef68abd83941cf0e5",
+      "repository": "aci-helloworld"
+    },
+    "request": {
+      "id": "aeda5b99-4197-409f-b8a8-ff539edb7de2",
+      "host": "demo.azurecr.io",
+      "method": "DELETE",
+      "useragent": "python-requests/2.18.4"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+## <a name="event-properties"></a>Propiedades de evento
+
+Un evento tiene los siguientes datos de nivel superior:
+
+| Propiedad | Escriba | DESCRIPCIÓN |
+| -------- | ---- | ----------- |
+| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| subject | string | Ruta al asunto del evento definida por el anunciante. |
+| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| id | string | Identificador único para el evento |
+| data | objeto | Datos de eventos de Blob Storage. |
+| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+
+El objeto data tiene las siguientes propiedades:
+
+| Propiedad | Escriba | DESCRIPCIÓN |
+| -------- | ---- | ----------- |
+| id | string | El identificador de evento. |
+| timestamp | string | La hora a la que se produjo el evento. |
+| action | string | La acción que abarca el evento proporcionado. |
+| Destino | objeto | El destino del evento. |
+| request | objeto | La solicitud que generó el evento. |
+| actor | objeto | El agente que inició el evento. Para la mayoría de los casos, este valor puede ser del contexto de autorización de la solicitud. |
+| de origen | objeto | El nodo del registro que generó el evento. Dicho de otro modo, mientras que el actor inicia el evento, el origen lo genera. |
+
+El objeto target tiene las siguientes propiedades:
+
+| Propiedad | Escriba | DESCRIPCIÓN |
+| -------- | ---- | ----------- |
+| mediaType | string | El tipo MIME del objeto al que se hace referencia. |
+| size | integer | El número de bytes del contenido. Igual que el campo de longitud. |
+| digest | string | El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro. |
+| length | integer | El número de bytes del contenido. Igual que el campo de tamaño. |
+| repository | string | El nombre del repositorio. |
+| URL | string | La dirección URL directa del contenido. |
+| etiqueta | string | El nombre de la etiqueta. |
+
+El objeto request tiene las siguientes propiedades:
+
+| Propiedad | Escriba | DESCRIPCIÓN |
+| -------- | ---- | ----------- |
+| id | string | El identificador de la solicitud que inició el evento. |
+| addr | string | La dirección IP o nombre de host y, posiblemente, el puerto de la conexión de cliente que inició el evento. Este valor es RemoteAddr de la solicitud http estándar. |
+| host | string | El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host http en las solicitudes entrantes. |
+| estático | string | El método de la solicitud que generó el evento. |
+| useragent | string | El encabezado de agente de usuario de la solicitud. |
+
+El objeto actor tiene las siguientes propiedades:
+
+| Propiedad | Escriba | DESCRIPCIÓN |
+| -------- | ---- | ----------- |
+| Nombre | string | El asunto o el nombre de usuario asociado con el contexto de solicitud que generó el evento. |
+
+El objeto source tiene las siguientes propiedades:
+
+| Propiedad | Escriba | DESCRIPCIÓN |
+| -------- | ---- | ----------- |
+| addr | string | La dirección IP o nombre de host y el puerto del nodo del registro que generó el evento. Por lo general, este valor lo resolverá os.Hostname() junto con el puerto en ejecución. |
+| instanceID | string | La instancia en ejecución de una aplicación. Cambios después de cada reinicio. |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](overview.md).
+* Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).

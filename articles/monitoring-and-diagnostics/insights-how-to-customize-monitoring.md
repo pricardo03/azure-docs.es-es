@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: robb
 ms.component: metrics
-ms.openlocfilehash: 878ba004e7572ad78f574c15fd76c8868b281117
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 44daf6461a062e75435ec6f70fbc3cf10327e799
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262263"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213051"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 Todos los servicios de Azure realizan un seguimiento de las métricas clave que le permiten supervisar el estado, el rendimiento, la disponibilidad y el uso de los servicios. Puede ver estas métricas en Azure Portal y, además, puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o el [SDK de .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para tener acceso mediante programación a todo el conjunto de métricas.
@@ -43,7 +43,7 @@ Con las potentes opciones de personalización del portal, puede agregar tantos g
 
 1. En el menú **...** de la parte superior de la hoja, haga clic en **Agregar iconos**:  
     ![Adición de menú](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. A continuación, se puede seleccionar un gráfico desde la **Galería** en el lado derecho de la pantalla: ![Galería](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. A continuación, puede seleccionar un gráfico desde la **Galería** en el lado derecho de la pantalla: ![Galería](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Si no ve la métrica que desea, siempre puede agregar una de las métricas presentes y **Editar** el gráfico para que aparezca la métrica que necesita.
 
 ## <a name="monitoring-usage-quotas"></a>Supervisión de las cuotas de uso

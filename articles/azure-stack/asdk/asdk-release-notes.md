@@ -11,46 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 06/04/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 86ac1f1b5433104faa89e1f107fa36fc1da5f70e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989901"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242706"
 ---
-# <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión del Kit de desarrollo de Azure Stack  
+# <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión del Kit de desarrollo de Azure Stack
 Estas notas de la versión proporcionan información sobre las mejoras, correcciones y problemas conocidos en el Kit de desarrollo de Azure Stack. Si no está seguro de qué versión se está ejecutando, puede usar el [portal de administración](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Para estar al día de las novedades del ASDK, suscríbase a esta [![fuente](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11805147"></a>Compilación 1.1805.1.47
+## <a name="build-11805142"></a>Build 1.1805.1.42
 
-> [!TIP]  
-> Según los comentarios recibidos, hay una actualización al esquema de versiones en uso para Microsoft Azure Stack. A partir de esta actualización, la 1805, el nuevo esquema representa mejor la versión actual de la nube.  
-> 
-> El esquema de la versión es ahora *Version.YearYearMonthMonth.MinorVersion.BuildNumber* donde en el segundo y tercer conjunto se indica la versión y la versión de lanzamiento. Por ejemplo, 1805.1 representa la *versión que se distribuye a los fabricantes* (RTM) de la actualización 1805.  
-
-
-### <a name="new-features"></a>Nuevas características 
-Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack.  
-
-- <!-- 2297790 - IS, ASDK --> **Azure Stack incluye ahora un *cliente de* Syslog** como una *característica de la versión preliminar*. Este cliente permite el reenvío de los registros de auditoría y seguridad relacionados con la infraestructura de Azure Stack a un servidor de Syslog o a un software de administración de eventos e información de seguridad (SIEM) que es externo a Azure Stack. Actualmente, el cliente de Syslog solo admite conexiones no autenticadas de UDP en el puerto predeterminado 514. La carga de cada mensaje de Syslog tiene el formato Common Event Format (CEF). 
-
-  Para configurar el cliente de Syslog, use el cmdlet **Set-SyslogServer** que se expone en el punto de conexión con privilegios. 
-
-  Con esta versión preliminar, puede que vea las siguientes tres alertas. Cuando las presenta Azure Stack, estas alertas incluyen *descripciones* e instrucciones de *corrección*. 
-  - TITLE: Code Integrity Off (TÍTULO: se ha desactivado la integridad del código)  
-  - TITLE: Code Integrity in Audit Mode (TÍTULO: integridad del código en modo auditoría) 
-  - TITLE: User Account Created (TÍTULO: se ha creado la cuenta de usuario)
-
-  Aunque esta característica está en su versión preliminar, no se debería usar en entornos de producción.   
+<!-- ### New features 
+This build includes the following improvements and fixes for Azure Stack.  
+-->
 
 
 ### <a name="fixed-issues"></a>Problemas corregidos
-- Hemos corregido el problema que bloqueaba [la apertura de una nueva solicitud de soporte técnico desde la lista desplegable](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) en el portal de administración. Esta opción funciona ahora según lo previsto. 
 
 - **Varias revisiones** de rendimiento, estabilidad, seguridad y el sistema operativo que se usa en Azure Stack.
 
@@ -64,14 +47,6 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
 ### <a name="known-issues"></a>Problemas conocidos
  
 #### <a name="portal"></a>Portal
-- <!-- 2551834 - IS, ASDK --> Cuando se selecciona **Información general** para una cuenta de almacenamiento en los portales de administrador o de usuario, la información del panel *Información esencial* no aparece.  Este panel muestra información sobre la cuenta como, por ejemplo, su *grupo de recursos*, *ubicación* y el *identificador de la suscripción*.  Se puede acceder a otras opciones de Información general como *Servicios* y *Supervisión*, así como a opciones para *Abrir en el Explorador* o para *Eliminar cuenta de almacenamiento*.  
-
-  Para ver la información no disponible, use el cmdlet de PowerShell [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0). 
-
-- <!-- 2551834 - IS, ASDK --> Cuando se selecciona **Etiquetas** para una cuenta de almacenamiento en los portales de administrador o de usuario, la información no se puede cargar y no aparece.  
-
-  Para ver la información no disponible, use el cmdlet de PowerShell [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0).
-
 - <!-- TBD - IS ASDK --> No use los nuevos tipos de suscripción administrativos de *suscripción de medición* y *suscripción de consumo*. Estos nuevos tipos de suscripción se introdujeron con la versión 1804, pero aún no están listos para su uso. Tendrá que seguir usando el tipo de suscripción del *proveedor predeterminado*.  
 
 - <!-- 2403291 - IS ASDK --> No puede usar la barra de desplazamiento horizontal a lo largo de la parte inferior de los portales de administrador y de usuario. Si no puede acceder a la barra de desplazamiento horizontal, use las rutas de navegación para ir a una hoja anterior del portal seleccionando la hoja que desea ver en la lista de rutas que se encuentra en la parte superior izquierda del portal.
@@ -97,40 +72,9 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
    - COMPONENTE: controlador de mantenimiento
    - DESCRIPCIÓN: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
 
-  Se pueden omitir ambas alertas con seguridad y se cerrarán automáticamente con el tiempo. 
-
-  También es posible que vea la siguiente alerta para *Capacidad*. Para esta alerta, el porcentaje de memoria disponible que se identifica en la descripción puede variar:  
-
-  Alerta 3:
-   - NOMBRE: baja capacidad de memoria
-   - GRAVEDAD: crítica
-   - COMPONENTE: capacidad
-   - DESCRIPCIÓN: la región ha consumido más del 80,00 % de la memoria disponible. La creación de máquinas virtuales con grandes cantidades de memoria puede producir un error.  
-
-  En esta versión de Azure Stack, esta alerta puede desencadenarse incorrectamente. Si las máquinas virtuales del inquilino siguen implementándose correctamente, puede ignorar esta alerta. 
-  
-  La Alerta 3 no se cierra automáticamente. Si cierra esta alerta, Azure Stack creará la misma alerta en 15 minutos.  
-
-- <!-- 2368581 - IS ASDK --> Operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un *error de creación de máquina virtual de Fabric*, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo. 
-
+  Ambas alertas pueden omitirse sin problemas. Se cerrarán automáticamente pasado un tiempo.  
 
 #### <a name="compute"></a>Compute
-- <!-- TBD - IS, ASDK --> Al seleccionar un tamaño de máquina virtual para una implementación, algunos tamaños de la serie F no aparecen en el selector de tamaño al crear una máquina virtual. Los siguientes tamaños de máquinas virtuales no aparecen en el selector: *F8s_v2*, *F16s_v2*, *F32s_v2* y *F64s_v2*.  
-  Como alternativa, utilice uno de los métodos siguientes para implementar una máquina virtual. En cada método, debe especificar el tamaño de máquina virtual que desea utilizar.
-
-  - **Plantilla de Azure Resource Manager:** cuando utilice una plantilla, establezca *vmSize* en la plantilla de modo que sea igual al tamaño deseado de la máquina virtual. Por ejemplo, se utiliza la siguiente entrada para implementar una máquina virtual que utiliza el tamaño *F32s_v2*:  
-
-    ```
-        "properties": {
-        "hardwareProfile": {
-                "vmSize": "Standard_F32s_v2"
-        },
-    ```  
-  - **CLI de Azure:** puede utilizar el comando [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) y especificar el tamaño de máquina virtual como parámetro, de forma similar a `--size "Standard_F32s_v2"`.
-
-  - **PowerShell:** con PowerShell, puede usar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) con el parámetro que especifica el tamaño de la máquina virtual, de forma similar a `-VMSize "Standard_F32s_v2"`.
-
-
 - <!-- TBD -  IS ASDK --> Los valores de escalado de los conjuntos de escalado de máquinas virtuales no están disponibles en el portal. Como alternativa, puede usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Debido a diferencias en la versión de PowerShell, debe usar el parámetro `-Name` en lugar de `-VMScaleSetName`.
 
 - <!-- TBD -  IS ASDK --> Al crear máquinas virtuales en el portal de usuario de Azure Stack, este muestra un número incorrecto de discos de datos que se pueden asociar a una máquina virtual de la serie D. Todas las máquinas virtuales de la serie D pueden albergar tantos discos de datos como la configuración de Azure.
@@ -146,16 +90,13 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
 - <!-- 1662991 - IS ASDK --> No se admite el diagnóstico de máquinas virtuales Linux en Azure Stack. Si implementa una máquina virtual Linux con diagnósticos de máquina virtual habilitado, se producirá un error en la implementación. Tampoco se podrá realizar la implementación si habilita las métricas básicas de máquina virtual Linux a través de la configuración de diagnóstico. 
 
 #### <a name="networking"></a>Redes
-- <!-- TBD - IS ASDK --> No se pueden crear rutas definidas por el usuario en el portal de administrador ni en el de usuario. Como alternativa, use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
-
 - <!-- 1766332 - IS, ASDK --> En **Redes**, si hace clic en **Create VPN Gateway** (Crear instancia de VPN Gateway) para configurar una conexión VPN, aparece **Policy Based** (Basada en directivas) como un tipo de VPN. No seleccione esta opción. En Azure Stack solo se admite la opción **Route Based** (Basada en rutas).
 
 - <!-- 2388980 -  IS ASDK --> Después de crear una máquina virtual y asociarla a una dirección IP pública, no puede desasociar esa máquina virtual de esa dirección IP. Puede que parezca que se ha desasociado, pero la dirección IP pública anteriormente asignada permanece asociada a la máquina virtual original.
 
   Actualmente, solo debe usar nuevas direcciones IP públicas para las nuevas máquinas virtuales creadas.
 
-  Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual original, y no a la nueva.
-
+  Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva.
 
 - <!-- 2292271 - IS ASDK --> Si genera un límite de cuota para un recurso de red que forma parte de una oferta o plan que está asociado a una suscripción de inquilino, el nuevo límite no se aplicará a esa suscripción. Sin embargo, el nuevo límite se aplicará a las nuevas suscripciones que se creen después de que se aumente la cuota. 
 
@@ -284,7 +225,7 @@ Las siguientes están disponibles ahora, pero no requieren la actualización de 
 
   Actualmente, solo debe usar nuevas direcciones IP públicas para las nuevas máquinas virtuales creadas.
 
-  Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual original, y no a la nueva.
+  Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva.
 
 - <!-- 2292271 - IS ASDK --> Si genera un límite de cuota para un recurso de red que forma parte de una oferta o plan que está asociado a una suscripción de inquilino, el nuevo límite no se aplicará a esa suscripción. Sin embargo, el nuevo límite se aplicará a las nuevas suscripciones que se creen después de que se aumente la cuota. 
 
@@ -414,7 +355,7 @@ Las nuevas características y revisiones publicadas para la versión 1803 de los
 
   Actualmente, solo debe usar nuevas direcciones IP públicas para las nuevas máquinas virtuales creadas.
 
-  Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual original, y no a la nueva.
+  Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva.
 
 
 
@@ -451,8 +392,3 @@ Las nuevas características y revisiones publicadas para la versión 1803 de los
   Este error se produce debido a una degradación reciente de la compatibilidad con GitHub de los estándares criptográficos Tlsv1 y Tlsv1.1 (los predeterminados de PowerShell). Para más información, consulte [Weak cryptographic standards removal notice](https://githubengineering.com/crypto-removal-notice/) (Aviso de eliminación de estándares criptográficos débiles).
 
   Para resolver este problema, agregue `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` a la parte superior del script para obligar a la consola de PowerShell a usar TLSv1.2 al realizar la descarga desde repositorios de GitHub.
-
-
-
-
-

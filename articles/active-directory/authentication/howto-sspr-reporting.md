@@ -4,18 +4,18 @@ description: Creación de informes sobre eventos de autoservicio de restablecimi
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e2c4c59e52f277358027f5d228fdf43822822992
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044535"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258803"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -54,6 +54,10 @@ En la experiencia de Azure Portal, se ha mejorado la visualización de la activi
 6. Para filtrar esta vista y ver únicamente los eventos relacionados con el restablecimiento de contraseña, seleccione el botón **Filtrar** que se encuentra en la parte superior del panel.
 7. En el menú **Filtrar**, seleccione la lista desplegable **Categoría** y cámbiela al tipo de categoría **Self-service Password Management** (Administración de contraseñas de autoservicio).
 8. También puede filtrar la lista si elige la **actividad** específica que le interesa.
+
+### <a name="converged-registration-preview"></a>Registro convergido (versión preliminar)
+
+Si participa en la versión preliminar pública del registro convergido, la información relativa a la actividad del usuario en los registros de auditoría se encontrará en la categoría **Métodos de autenticación**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descripción de las columnas de informe en Azure Portal
 

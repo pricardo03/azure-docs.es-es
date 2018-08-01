@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a0146c0bf2b5a10f27cb59e32978aa6dff8f5982
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916333"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249162"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivo de registros de diagnóstico de Azure
 
@@ -24,7 +24,7 @@ En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de 
 >
 > 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, necesita [crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md) en la que poder archivar los registros de diagnóstico. Le recomendamos encarecidamente que no utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas del registro de actividad y de diagnóstico en una cuenta de almacenamiento, puede que tenga sentido utilizar igualmente esa cuenta de almacenamiento para los registros de diagnóstico a fin de mantener todos los datos de supervisión en una ubicación central.
 
@@ -33,7 +33,7 @@ Antes de comenzar, necesita [crear una cuenta de almacenamiento](../storage/stor
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
 
-Para archivar los registros de diagnóstico mediante cualquiera de los métodos siguientes, establezca una **configuración de diagnóstico** para un recurso determinado. Una configuración de diagnóstico para un recurso define las categorías de datos de métricas y de registros que se envían a un destino (cuenta de almacenamiento, espacio de nombres de Event Hubs o Log Analytics). También define la directiva de retención (el número de días que deben conservarse) para los eventos de cada dato de métrica y categoría de registro almacenados en una cuenta de almacenamiento. Si se establece en cero una directiva de retención, los eventos para esa categoría de registro se almacenan indefinidamente. De lo contrario, una directiva de retención puede ser cualquier número de días comprendido entre 1 y 2147483647. [Puede leer más acerca de estas opciones de diagnóstico aquí](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy. El proceso de eliminación empieza a medianoche (UTC), pero tenga en cuenta que eliminar los registros de la cuenta de almacenamiento puede tardar hasta 24 horas. 
+Para archivar los registros de diagnóstico mediante cualquiera de los métodos siguientes, establezca una **configuración de diagnóstico** para un recurso determinado. Una configuración de diagnóstico para un recurso define las categorías de datos de métricas y de registros que se envían a un destino (cuenta de almacenamiento, espacio de nombres de Event Hubs o Log Analytics). También define la directiva de retención (el número de días que deben conservarse) para los eventos de cada dato de métrica y categoría de registro almacenados en una cuenta de almacenamiento. Si se establece en cero una directiva de retención, los eventos para esa categoría de registro se almacenan indefinidamente. De lo contrario, una directiva de retención puede ser cualquier número de días comprendido entre 1 y 2147483647. [Puede leer más acerca de estas opciones de diagnóstico aquí](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy. El proceso de eliminación empieza a medianoche (UTC), pero tenga en cuenta que eliminar los registros de la cuenta de almacenamiento puede tardar hasta 24 horas. 
 
 > [!NOTE]
 > Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
@@ -74,10 +74,10 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| ResourceId |Sí |Identificador de recurso en el que desea establecer una configuración de diagnóstico. |
+| ResourceId |SÍ |Identificador de recurso en el que desea establecer una configuración de diagnóstico. |
 | StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento en la que se deben guardar los registros de diagnóstico. |
 | Categorías |Sin  |Lista de categorías de registro separadas por comas, que se van a habilitar. |
-| habilitado |Sí |Valor booleano que indica si los diagnósticos están habilitados o deshabilitados en este recurso. |
+| habilitado |SÍ |Valor booleano que indica si los diagnósticos están habilitados o deshabilitados en este recurso. |
 | RetentionEnabled |Sin  |Valor booleano que indica si está habilitada una directiva de retención en este recurso. |
 | RetentionInDays |Sin  |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 
@@ -163,4 +163,5 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 
 * [Descargar blobs para el análisis](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Streaming de registros de diagnóstico a un espacio de nombres de Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Archivar registros de Azure Active Directory con Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Información general sobre los registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)

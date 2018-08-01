@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: eeb23b52d5910c3da39d29d3a9c47f598ed5fc5a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777084"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188685"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -31,7 +31,7 @@ Esta guía resume las soluciones para problemas comunes en el Explorador de Stor
 
 Los errores de certificado están causados por una de las dos situaciones siguientes:
 
-1. La aplicación se conecta a través de un "proxy transparente", lo que significa que un servidor (por ejemplo, el servidor de la compañía) intercepta el tráfico HTTPS, lo descifra y, luego, lo cifrar mediante un certificado autofirmado.
+1. La aplicación se conecta a través de un "proxy transparente", lo que significa que un servidor (por ejemplo, el servidor de la empresa) intercepta el tráfico HTTPS, lo descifra y, luego, lo cifra mediante un certificado autofirmado.
 2. Ejecuta una aplicación que inserta un certificado SSL autofirmado en los mensajes HTTPS que recibe. Ejemplos de aplicaciones que insertan certificados incluyen software antivirus y de inspección de tráfico de red.
 
 Cuando el Explorador de Storage ve un certificado autofirmado o que no es de confianza, ya no podrá saber si se ha modificado el mensaje HTTPS recibido. Si tiene una copia del certificado autofirmado, puede indicar que el Explorador de Storage confíe en él con los pasos siguientes:
@@ -60,17 +60,35 @@ Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriore
 
 ## <a name="sign-in-issues"></a>Problemas de inicio de sesión
 
-Si no puede iniciar sesión en, pruebe los siguientes métodos de solución de problemas:
+### <a name="reauthentication-loop-or-upn-change"></a>Bucle de reautenticación o cambio UPN
+Si se encuentra en un bucle de reautenticación o ha cambiado el UPN de una de sus cuentas, intente lo siguiente:
+1. Quite todas las cuentas y cierre el Explorador de Storage.
+2. Elimine la carpeta .IdentityService de la máquina. En Windows, la carpeta se encuentra en `C:\users\<username>\AppData\Local`. En Mac y Linux, puede encontrar la carpeta en la raíz de su directorio de usuario.
+3. Si está en Mac o Linux, también deberá eliminar la entrada Microsoft.Developer.IdentityService del almacén de claves de su sistema operativo. En Mac, el almacén de claves es la aplicación de "Gnome Keychain". En Linux, la aplicación normalmente se denomina "Keyring" pero el nombre puede ser diferente en función de su distribución.
 
-* Si se encuentra en macOS y nunca aparece la ventana de inicio de sesión en el cuadro de diálogo de espera de autenticación, intente [estos pasos](#Resetting-the-Mac-Keychain).
+## <a name="mac-keychain-errors"></a>Errores de cadena de claves de Mac
+En ocasiones, la cadena de claves de macOS puede entrar en un estado que ocasiona problemas en la biblioteca de autenticación del Explorador de Storage. Para sacar a la cadena de claves de ese estado, pruebe los pasos siguientes:
+1. Cierre el Explorador de Storage.
+2. Abra la cadena de claves (**cmd + espacio**, escriba la cadena de claves y presione Entrar).
+3. Seleccione la cadena de claves "login".
+4. Haga clic en el icono de candado para bloquear la cadena de claves (el candado se moverá a una posición de bloqueo; esta operación puede tardar unos segundos según qué aplicaciones tenga abiertas).
+
+    ![imagen](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Inicie el Explorador de Storage
+6. Debería aparecer un elemento emergente en el que se indica algo parecido a esto: "El centro de servicio desea acceder a la cadena de claves". Cuando lo haga, escriba la contraseña de la cuenta de administrador de Mac y haga clic en **Permitir siempre** (o **Permitir** si **Permitir siempre** no está disponible).
+7. Intente iniciar sesión.
+
+### <a name="general-sign-in-troubleshooting-steps"></a>Pasos generales para solucionar problemas en inicio de sesión
+* Si se encuentra en macOS y nunca aparece la ventana de inicio de sesión en el cuadro de diálogo de espera de autenticación, intente [estos pasos](#Mac-Keychain-Errors).
 * Reinicio de Explorador de Storage
 * Si la ventana de autenticación está en blanco, espere al menos un minuto antes de cerrar el cuadro de diálogo de autenticación.
-* Asegúrese de que el servidor proxy y el certificado está configurado correctamente para la máquina como para el Explorador de Storage.
-* Si está en Windows y tiene acceso a Visual Studio 2017 en la misma máquina e inicia sesión, intente iniciar sesión en Visual Studio 2017.
+* Asegúrese de que el proxy y el certificado están configurados correctamente tanto para la máquina como para el Explorador de Storage.
+* Si está en Windows y tiene acceso a Visual Studio 2017 en la misma máquina e inicio de sesión, intente iniciar sesión en Visual Studio 2017. Después de un correcto inicio de sesión en Visual Studio 2017, debe ser capaz de abrir el Explorador de Storage y ver su cuenta en el panel de la cuenta. 
 
 Si ninguno de estos métodos funciona, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="unable-to-retrieve-subscriptions"></a>No se pueden recuperar las suscripciones
+### <a name="missing-subscriptions-and-broken-tenants"></a>Suscripciones que faltan e inquilinos rotos
 
 Si no puede recuperar las suscripciones después de iniciar sesión correctamente, siga los métodos siguientes de solución de problemas:
 
@@ -78,7 +96,7 @@ Si no puede recuperar las suscripciones después de iniciar sesión correctament
 * Asegúrese de que ha iniciado sesión con el entorno correcto de Azure (Azure, Azure China, Azure Alemania, Azure US Government, o entorno personalizado o Azure Stack).
 * Si está detrás de un proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage.
 * Pruebe a quitar la cuenta y volver a agregarla.
-* Observe la consola de herramientas para desarrolladores (Ayuda > Alternar herramientas de desarrollo) mientras el Explorador de Storage carga las suscripciones. Busque mensajes de error (texto rojo) o cualquier mensaje que contenga un texto que indique que no se pueden cargar suscripciones para el inquilino. Si ve algún mensaje preocupante, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Si hay un vínculo "Más información", vea qué mensajes de error se notifican para los inquilinos en los que se producen errores. Si no está seguro de qué hacer con los mensajes de error que ve, si lo desea, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="cannot-remove-attached-account-or-storage-resource"></a>No se puede quitar la cuenta adjunta o el recurso de almacenamiento
 
@@ -155,19 +173,6 @@ En distribuciones de Linux diferentes de Ubuntu 16.04, debe instalar manualmente
 * GCC actualizado
 
 Según la distribución, puede que deba instalar otros paquetes. Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) del Explorador de Storage contienen pasos específicos para algunas distribuciones.
-
-## <a name="resetting-the-mac-keychain"></a>Restablecimiento de la cadena de claves de Mac
-En ocasiones, la cadena de claves de macOS puede entrar en un estado que ocasiona problemas en la biblioteca de autenticación del Explorador de Storage. Para sacar a la cadena de claves de ese estado, pruebe los pasos siguientes:
-1. Cierre el Explorador de Storage.
-2. Abra la cadena de claves (**cmd + espacio**, escriba la cadena de claves y presione Entrar).
-3. Seleccione la cadena de claves "login".
-4. Haga clic en el icono de candado para bloquear la cadena de claves (el candado se moverá a una posición de bloqueo; esta operación puede tardar unos segundos según qué aplicaciones tenga abiertas).
-
-    ![imagen](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
-
-5. Inicie el Explorador de Storage
-6. Aparecerá una ventana emergente que dice algo como "El centro de servicios quiere acceder a la cadena de claves", escriba la contraseña de la cuenta de administrador de Mac y haga clic en **permitir siempre** (o en **Permitir** si **Permitir siempre** no está disponible).
-7. Intente iniciar sesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

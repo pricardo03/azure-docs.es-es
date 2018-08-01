@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 48056d6e2988dd674351aca83526032175c355b6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082531"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214401"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
 En este artículo se describe cómo crear y configurar un laboratorio de clase, ver todos los laboratorios de clase o eliminar un laboratorio de clase.
 
-## <a name="prerequisites"></a>requisitos previos
-Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. Un propietario de laboratorio puede agregar un usuario al rol de Creador de laboratorio mediante los pasos descritos en el siguiente artículo: [Incorporación de un usuario al rol de Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+## <a name="prerequisites"></a>Requisitos previos
+Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. La cuenta que usó para crear una cuenta de laboratorio se agrega automáticamente a este rol. Un propietario de laboratorio puede agregar otros usuarios al rol de Creador de laboratorio mediante los pasos descritos en el siguiente artículo: [Incorporación de un usuario al rol de Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Creación de un laboratorio educativo
 
 1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com).
-2. En la ventana **Nuevo laboratorio**, lleve a cabo las siguientes acciones: 
+2. Seleccione **Iniciar sesión** y escriba las credenciales. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft.
+3. En la ventana **Nuevo laboratorio**, lleve a cabo las siguientes acciones: 
     1. Escriba un **nombre** para el laboratorio de clase. 
     2. Seleccione el **tamaño** de la máquina virtual que se va a usar en la clase.
     3. Seleccione la **imagen** utilizada para crear la máquina virtual.
@@ -50,7 +51,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
     ![Política de uso](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
 
 ## <a name="set-up-the-template"></a>Configuración de la plantilla
-En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Publique la plantilla para que las instancias de la máquina virtual de plantilla estén disponibles para los usuarios del laboratorio.  
+En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Publique la plantilla si desea que las instancias de la máquina virtual de la plantilla estén disponibles para los usuarios del laboratorio.  
 
 ### <a name="set-template-title-and-description"></a>Establecimiento del título y descripción de la plantilla
 1. En la sección **Plantilla**, seleccione **Editar** (icono de lápiz) para la plantilla. 

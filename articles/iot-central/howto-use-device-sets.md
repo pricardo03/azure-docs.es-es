@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261685"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206078"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Uso de conjuntos de dispositivos en una aplicación de Azure IoT Central
 
@@ -112,13 +112,13 @@ Para agregar un mapa de ubicación al panel de conjuntos de dispositivos, debe h
     ![Guardar mapas del panel](media/howto-use-device-sets/LocationMaps3.png)
 
 
-5. Ahora, cuando un operador visualice el panel de conjuntos de dispositivos, puede ver todos los iconos configurados, incluido el mapa de ubicación para visualizar la ubicación de todos los dispositivos de un vistazo.
+5. Ahora, cuando un operador visualice el panel de conjuntos de dispositivos, puede ver todos los iconos configurados, incluido el mapa de ubicación para visualizar la ubicación de todos los dispositivos de un vistazo. 
 
     ![Vista del operador de los mapas del panel](media/howto-use-device-sets/LocationMaps4.png)
 
     Podrá cambiar el tamaño del mapa hasta obtener el tamaño deseado.
 
-
+    Al hacer clic en una chincheta en el mapa, se mostrarán la información, el nombre y la ubicación del dispositivo. Puede hacer clic en la ventana emergente para ir a la página de propiedades del dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configuración de la lista del conjunto de dispositivos

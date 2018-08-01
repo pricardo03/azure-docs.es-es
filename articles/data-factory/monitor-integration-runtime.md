@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113264"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259109"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory  
 **Integration Runtime** es la infraestructura de proceso que usa Azure Data Factory para proporcionar varias funcionalidades de integración de datos en distintos entornos de red. Data Factory ofrece tres tipos de instancia de Integration Runtime:
@@ -76,10 +76,18 @@ En la tabla siguiente se proporcionan las descripciones de las propiedades de su
 | Memoria disponible | Memoria disponible en un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. | 
 | Uso de CPU | Uso de CPU de un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. |
 | Redes (Entrada/Salida) | Uso de las redes de un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. | 
-| Trabajos simultáneos (En ejecución / Límite) | Número de trabajos o tareas que se ejecutan en cada nodo. Este valor es una instantánea casi en tiempo real. Límite significa el máximo número de trabajos simultáneos para cada nodo. Este valor se define basándose en el tamaño de la máquina. Puede aumentar el límite para escalar verticalmente la ejecución de trabajos simultáneos en escenarios avanzados, donde la CPU, la memoria o la red están infrautilizadas pero se agota el tiempo de espera de las actividades. Esta funcionalidad también está disponible con una instancia de Integration Runtime autohospedada de nodo único. |
+| Trabajos simultáneos (En ejecución / Límite) | **En ejecución**. Número de trabajos o tareas que se ejecutan en cada nodo. Este valor es una instantánea casi en tiempo real. <br/><br/>**Límite**. Límite significa el máximo número de trabajos simultáneos para cada nodo. Este valor se define basándose en el tamaño de la máquina. Puede aumentar el límite para escalar verticalmente la ejecución de trabajos simultáneos en escenarios avanzados, cuando se supera el tiempo de espera de las actividades, aunque la CPU, la memoria o la red estén infrautilizadas. Esta funcionalidad también está disponible con una instancia de Integration Runtime autohospedada de nodo único. |
 | Rol | En una instancia multinodo de Integration Runtime autohospedada hay dos tipos de roles: distribuidor y trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y las tareas de Cloud Services y enviarlos a los diferentes nodos de trabajo. El nodo distribuidor también es un nodo de trabajo. |
 
-Algunos valores de configuración de las propiedades tienen más sentido cuando hay dos o más nodos (escenario de escalado horizontal) en la instancia de Integration Runtime autohospedada. 
+Algunos valores de las propiedades tienen más sentido cuando hay dos o más nodos en el entorno de ejecución de integración autohospedado (es decir, en un escenario de escalado horizontal).
+
+#### <a name="concurrent-jobs-limit"></a>Límite de trabajos simultáneos
+
+El valor predeterminado del límite de trabajos simultáneos se establece en función del tamaño de la máquina. Los factores utilizados para calcular este valor dependen de la cantidad de RAM y del número de núcleos de CPU del equipo. Por tanto, cuantos más núcleos y más memoria, mayor será el limite predeterminado de trabajos simultáneos.
+
+Realice un escalado horizontal aumentando el número de nodos. Al aumentar el número de nodos, el límite de trabajos simultáneos es el la suma de los valores de los límites de trabajos simultáneos de todos los nodos disponibles.  Por ejemplo, si un nodo le permite ejecutar un máximo de doce trabajos simultáneos, la incorporación de tres nodos más similares le permite ejecutar un máximo de 48 trabajos simultáneos (es decir, 4 x 12). Se recomienda aumentar el límite de trabajos simultáneos solo cuando vea un uso escaso de los recursos con los valores predeterminados en cada nodo.
+
+El valor predeterminado calculado se puede invalidar en Azure Portal. Seleccione Autor > Conexiones > Runtimes de integración > Edi > Nodos > Modificar valor de trabajos simultáneos por nodo. También puede usar el comando [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) de PowerShell.
   
 ### <a name="status-per-node"></a>Estado (por nodo)
 En la tabla siguiente se proporcionan los estados posibles de los nodos de una instancia de Integration Runtime autohospedada:

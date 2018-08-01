@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 97006f2dfecc8d3ade680f97cbb7776dfda98dd5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 95941b3f9333273c11208c56a63c62d5d37a9386
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921032"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213561"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -131,7 +131,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 2. Para generar instantáneas VSS para la máquina virtual, compruebe que los servicios de integración de Hyper-V están instalados en la máquina virtual y que está habilitado el servicio de integración de copia de seguridad (VSS).
     - Asegúrese de que los servicios/demonios de VSS de Integration Services se ejecutan en el invitado y se encuentran en un estado **Aceptar**.
     - Esto se puede comprobar desde una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **et-VMIntegrationService - VMName<VMName>-nombre VSS**. También puede obtener esta información, iniciando sesión en la máquina virtual invitada. [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Asegúrese de que los servicios de integración de VSS/copia de seguridad en la máquina virtual se están ejecutando y se encuentran en buen estado. Si no es así, reinicie estos servicios, y el servicio de solicitante de instantáneas de volumen de Hyper-V en el servidor host de Hyper-V.
+    - Asegúrese de que los servicios de integración de VSS/copia de seguridad en la máquina virtual se están ejecutando y se encuentran en buen estado. Si no es así, reinicie estos servicios y el servicio de solicitante de instantáneas de volumen de Hyper-V en el servidor host de Hyper-V.
 
 ### <a name="common-errors"></a>Errores comunes
 

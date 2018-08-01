@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628545"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206044"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conexión de un aplicación cliente de Node.js genérica a una aplicación de Azure IoT Central (Node.js)
 
@@ -26,6 +26,8 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 1. Una aplicación de Azure IoT Central. Para más información, consulte [Create your Azure IoT Central Application](howto-create-application.md) (Creación de una aplicación de Azure IoT Central).
 1. Una máquina de desarrollo que tenga instalado [Node.js](https://nodejs.org/) versión 4.0.0 o posterior. Puede ejecutar `node --version` en la línea de comandos para comprobar la versión. Node.js está disponible para una amplia variedad de sistemas operativos.
 
+## <a name="create-a-device-template"></a>Creación de una plantilla de dispositivo
+
 En la aplicación de Azure IoT Central, necesita una plantilla de dispositivo que tenga definidas las siguientes medidas y propiedades de dispositivo:
 
 ### <a name="telemetry-measurements"></a>Medidas de telemetría
@@ -36,7 +38,7 @@ Agregue la siguiente telemetría a la página **Measurements** (Medidas):
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Humedad     | humedad    | %     | 0   | 100 | 0              |
-| Presión     | pressure    | kPa   | 80  | 110 | 0              |
+| Presión     | presión    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
   El tipo de datos de la medida de telemetría es doble.
@@ -60,7 +62,7 @@ Escriba los nombres de campo en la plantilla de dispositivo exactamente tal y co
 
 Agregue el siguiente evento a la página **Measurements** (Medidas):
 
-| Display Name (Nombre para mostrar) | Nombre del campo  | Severity |
+| Display Name (Nombre para mostrar) | Nombre del campo  | Gravedad |
 | ------------ | ----------- | -------- |
 | Overheating  | overheat    | Error    |
 
@@ -78,7 +80,7 @@ Agregue las siguientes propiedades del dispositivo en la **página de propiedade
 
 Escriba los nombres de campo en la plantilla de dispositivo exactamente tal y como se muestran en la tabla. Si los nombres de campo no coinciden, la aplicación no puede mostrar el valor de propiedad.
 
-### <a name="settings"></a>Settings
+### <a name="settings"></a>Configuración
 
 Agregue la siguiente configuración de **número** a la **página de configuración**:
 
@@ -89,11 +91,11 @@ Agregue la siguiente configuración de **número** a la **página de configuraci
 
 Escriba los nombres de campo en la plantilla de dispositivo exactamente tal y como se muestran en la tabla. Si los nombres de campo no coinciden, el dispositivo no puede recibir el valor de configuración.
 
-### <a name="add-a-real-device"></a>Adición de un dispositivo real
+## <a name="add-a-real-device"></a>Adición de un dispositivo real
 
 En su aplicación de Azure IoT Central, agregue un dispositivo real desde la plantilla de dispositivo que ha creado y anote la cadena de conexión del dispositivo. Para más información, consulte [Add a real device to your Azure IoT Central application](tutorial-add-device.md) (Adición de un dispositivo real a la aplicación de Azure IoT Central).
 
-## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
+### <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 
 En los pasos siguientes se muestra cómo crear una aplicación cliente que implementa el dispositivo real que se agregó a la aplicación.
 

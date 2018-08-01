@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069270"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247217"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -24,7 +24,7 @@ En este artículo se describen los métodos para migrar un instancia de SQL Serv
 
 Instancia administrada de Azure SQL Database es una expansión del servicio SQL Database actual, que proporciona una tercera opción de implementación, además de los grupos elásticos y las bases de datos únicas.  Está concebida para poder migrar una base de datos mediante lift-and-shift a una plataforma como servicio (PaaS) completamente administrada, sin tener que volver a diseñar la aplicación. Instancia administrada de SQL Database proporciona una gran compatibilidad con el modelo de programación de SQL Server local y con la gran mayoría de las características de SQL Server y las herramientas y los servicios asociados, sin necesidad de configurar nada.
 
-A grandes rasgos, el proceso de migración de aplicaciones es similar al del diagrama siguiente:
+En un nivel alto, el proceso de migración de la aplicación es parecido a este:
 
 ![proceso de migración](./media/sql-database-managed-instance-migration/migration-process.png)
 

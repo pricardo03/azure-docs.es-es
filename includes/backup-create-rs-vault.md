@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/14/2018
 ms.author: markgal
 ms.custom: include file
-ms.openlocfilehash: 5590da80a1c217e7902e8e010688e40f5624898c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ff9bf829e2dbe1bca078360ccded94bad63d9a6
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38730505"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249468"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 Un almacén de Recovery Services es una entidad que almacena las copias de seguridad y los puntos de recuperación creados a lo largo del tiempo. También contiene las directivas de copia de seguridad asociadas con las máquinas virtuales protegidas.
@@ -21,36 +21,39 @@ Un almacén de Recovery Services es una entidad que almacena las copias de segur
 Para crear un almacén de Recovery Services:
 
 1. Inicie sesión en su suscripción en [Azure Portal](https://portal.azure.com/).
+
 2. En el menú izquierdo, seleccione **Todos los servicios**.
 
-    ![Elija la opción Todos los servicios en el menú principal](./media/backup-create-rs-vault/click-all-services.png) <br/>
+    ![Seleccionar Todos los servicios](./media/backup-create-rs-vault/click-all-services.png)
 
-3. En el cuadro de diálogo Todos los servicios, escriba *Recovery Services*. En cuanto empiece a escribirlo, la entrada filtra la lista de recursos. Cuando vea la opción **Almacenes de Recovery Services**, selecciónela.
+3. En el cuadro de diálogo **Todos los servicios**, escriba **Recovery Services**. La lista de recursos se filtra en función de lo que especifique. En la lista de recursos, seleccione **Almacenes de Recovery Services**.
 
-    ![Escriba Recovery Services en el cuadro de diálogo Todos los servicios](./media/backup-create-rs-vault/all-services.png) <br/>
+    ![Escribir y elegir Almacenes de Recovery Services](./media/backup-create-rs-vault/all-services.png)
 
     Aparece la lista de almacenes de Recovery Services de la suscripción.
-4. En el menú **Almacenes de Recovery Services**, seleccione **Agregar**.
+    
+4. En el panel **Almacenes de Recovery Services**, seleccione **Agregar**.
 
-    ![Creación del almacén de Recovery Services, paso 2](./media/backup-create-rs-vault/add-button-create-vault.png)
+    ![Agregar un almacén de Recovery Services](./media/backup-create-rs-vault/add-button-create-vault.png)
 
-    Se abre el menú **Almacenes de Recovery Services**. En él se le solicita que rellene los campos **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
+    Se abre el cuadro de diálogo **Almacén de Recovery Services**. Especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
-    ![Panel "Almacenes de Recovery Services"](./media/backup-create-rs-vault/create-new-vault-dialog.png)
-5. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que contenga un mínimo de 2 caracteres y un máximo de 50. El nombre debe comenzar por una letra y solo puede contener letras, números y guiones.
-6. En **Suscripción**, elija la suscripción que desee usar. Si es miembro de una sola suscripción, aparecerá ese nombre. Si no está seguro de la suscripción que va a utilizar, use la predeterminada (o sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a varias suscripciones de Azure.
-7. Como **Grupo de recursos** puede usar un grupo de recursos existente o crear uno nuevo. Seleccione **Usar existente** y haga clic en el menú desplegable para ver la lista de grupos de recursos disponibles. Para crear un nuevo grupo de recursos, seleccione **Crear nuevo** y escriba el nombre. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
-8. En **Ubicación**, seleccione la región geográfica del almacén. Si va a crear un almacén para proteger máquinas virtuales, el almacén *debe* estar en la misma región que las máquinas virtuales.
+    ![Configurar el almacén de Recovery Services](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   > [!IMPORTANT]
-   > Si no está seguro de cuál es ubicación en la que se encuentra la máquina virtual, cierre el cuadro de diálogo de creación del almacén y vaya a la lista de máquinas virtuales del portal. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. Cree el almacén en la primera ubicación antes de pasar a la siguiente ubicación. No hay necesidad de especificar cuentas de almacenamiento para almacenar los datos de la copia de seguridad. Tanto el almacén de Recovery Services como el de Azure Backup lo controlan automáticamente.
-   >
-   >
+   - **Nombre**: escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Especifique un nombre que tenga entre 2 y 50 caracteres. El nombre debe comenzar por una letra y consta solo de letras, números y guiones.
+   - **Suscripción**: elija la suscripción que va a utilizar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure.
+   - **Grupo de recursos**: use un grupo de recursos existente o cree uno. Para ver la lista de grupos de recursos disponibles en una suscripción, seleccione **Usar existente** y, después, seleccione un recurso en el cuadro de lista desplegable. Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre. Para más información acerca de los grupos de recursos, consulte [Introducción a Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+   - **Ubicación**: seleccione la región geográfica del almacén. Para crear un almacén para proteger máquinas virtuales, el almacén **debe** estar en la misma región que las máquinas virtuales.
 
-9. Cuando esté listo para crear el almacén de Recovery Services, haga clic en **Crear**.
+      > [!IMPORTANT]
+      > Si no está seguro de la ubicación de la máquina virtual, cierre el cuadro de diálogo. Vaya a la lista de máquinas virtuales en el portal. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. Cree el almacén en la primera ubicación, antes de crear el almacén de otra. No es preciso especificar cuentas de almacenamiento para almacenar los datos de la copia de seguridad. Tanto el almacén de Recovery Services como el de Azure Backup lo controlan automáticamente.
+      >
+      >
 
-    ![Lista de copias de seguridad](./media/backup-create-rs-vault/click-create-button.png)
+5. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
 
-    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en la sección de Notificaciones (en la parte superior derecha del portal). Tras crear el almacén, este ya aparece en la lista de almacenes de Recovery Services. Si no ve el almacén, haga clic en **Actualizar**.
+    ![Crear almacén de Recovery Services](./media/backup-create-rs-vault/click-create-button.png)
 
-     ![Lista de copias de seguridad](./media/backup-create-rs-vault/refresh-button.png)
+    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en el área de **notificaciones** de la parte superior derecha del portal. Tras crear el almacén, se ve en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
+
+     ![Actualizar lista de almacenes de Backup](./media/backup-create-rs-vault/refresh-button.png)

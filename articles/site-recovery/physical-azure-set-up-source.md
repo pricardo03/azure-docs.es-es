@@ -2,29 +2,28 @@
 title: Configuración del entorno de origen (servidores físicos a Azure) | Microsoft Docs
 description: En este artículo se describe cómo configurar el entorno local para comenzar a replicar servidores físicos que ejecutan Windows o Linux en Azure.
 services: site-recovery
-documentationcenter: ''
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 00b09db97e597521de5c73eeefab77b0dfa1304d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 07/21/2018
+ms.author: raynew
+ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671029"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213493"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configuración del entorno de origen (servidores físicos a Azure)
 
 En este artículo se describe cómo configurar el entorno local para comenzar a replicar servidores físicos que ejecutan Windows o Linux en Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se supone que ya cuenta con lo siguiente:
-1. Un almacén de Recovery Services en [Azure Portal](http://portal.azure.com "Azure Portal").
-3. Un equipo físico para instalar el servidor de configuración.
+- Un almacén de Recovery Services en [Azure Portal](http://portal.azure.com "Azure Portal").
+- Un equipo físico para instalar el servidor de configuración.
+- Si deshabilitó TLS 1.0 en la máquina en la que va a instalar al servidor de configuración, asegúrese de que TLs 1.2 esté habilitado y de que esté instalada la versión 4.6 o versiones posteriores de .NET Framework en la máquina (con la criptografía segura deshabilitada). [Más información](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos del servidor de configuración
 En la siguiente tabla se muestran los requisitos mínimos de hardware, software y red para un servidor de configuración.
@@ -63,7 +62,7 @@ En la siguiente tabla se muestran los requisitos mínimos de hardware, software 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> El servidor de configuración se puede instalar a través de una línea de comandos. Para obtener más información, consulte [Instalación del servidor de configuración con herramientas de línea de comandos](http://aka.ms/installconfigsrv).
+> El servidor de configuración se puede instalar a través de una línea de comandos. [Más información](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>Problemas comunes

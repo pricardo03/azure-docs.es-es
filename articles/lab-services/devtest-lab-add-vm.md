@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ddf44ef933270c08b42f67387866cd7a3b34719
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ce95a2177260e97113fd5e639671075eb6ad40cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004086"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215023"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Incorporación de una máquina virtual a un laboratorio de Azure DevTest Labs
 Si ya ha [creado su primera máquina virtual](devtest-lab-create-first-vm.md), es probable que lo hiciera desde una [imagen de Marketplace](devtest-lab-configure-marketplace-images.md) precargada. Ahora, si desea agregar máquinas virtuales posteriores al laboratorio, también puede elegir una *base* que sea una [imagen personalizada](devtest-lab-create-template.md) o una [fórmula](devtest-lab-manage-formulas.md). En este tutorial se explica cómo usar Azure Portal para agregar una máquina virtual a un laboratorio de DevTest Labs.
@@ -35,17 +35,21 @@ En este artículo se explica cómo administrar los artefactos de una máquina vi
     ![Botón Agregar VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
 1. En el panel **Elegir una base**, seleccione una base para la máquina virtual.
-1. En el panel **Máquina virtual**, escriba un nombre para la nueva máquina virtual en el cuadro de texto **Nombre de la máquina virtual**.
+1. En el panel **Máquina virtual**, el **nombre de máquina virtual** se rellena previamente con un nombre único generado automáticamente. El nombre corresponde al nombre de usuario dentro de la dirección de correo electrónico, seguido por un número único de 3 dígitos. Esta característica permite ahorrarse tiempo de pensar en un nombre de máquina y escribirlo cada vez que cree una máquina. Puede invalidar el nombre automático de este campo con el nombre que elija. Para invalidar el nombre automático de la máquina virtual, escriba un nombre en el cuadro de texto **Nombre de máquina virtual**. 
 
     ![Panel de VM del laboratorio](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Escriba un **Nombre de usuario** al que se concederán privilegios de administrador en la máquina virtual.  
-1. Si quiere usar una contraseña almacenada en un [almacén de claves de Azure](devtest-lab-store-secrets-in-key-vault.md), seleccione **Usar un secreto guardado** y especifique un valor de clave que corresponda a su secreto (contraseña). De lo contrario, escriba una contraseña en el campo de texto **Escriba un valor**. Para información sobre cómo guardar secretos en un almacén de claves y utilizarlos al crear recursos de laboratorio, consulte [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md) (Almacenamiento de secretos en un almacén de claves de Azure).
-1. El valor **Virtual machine disk type** (Tipo de disco de máquina virtual) determina qué tipo de disco de almacenamiento se admite para las máquinas virtuales del laboratorio.
-2. Seleccione **Tamaño de máquina virtual** y seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear.
-3. Seleccione **Artefactos** y, en la lista de artefactos, seleccione y configure los artefactos que desea agregar a la imagen base.
+1. El **nombre de usuario** de la máquina se rellena previamente con un nombre único generado automáticamente. El nombre corresponde al nombre de usuario dentro de la dirección de correo electrónico. Esta característica reduce el tiempo necesario decidir cuál es el nombre de usuario cada vez que se crea una nueva máquina. Puede invalidar el nombre automático de este campo con el nombre que elija. Para invalidar el nombre de usuario automático, escriba un valor en el cuadro de texto **Nombre de usuario**. A este usuario se le conceden privilegios de **administrador** en la máquina virtual.     
+1. En la **Contraseña**:
+    
+    Si va a crear la primera máquina virtual del laboratorio, escriba una contraseña en el cuadro de texto **Escribir un valor**. Para guardar esta contraseña como contraseña predeterminada en el almacén de claves de Azure asociado al laboratorio, seleccione **Guardar como contraseña predeterminada**. La contraseña predeterminada se guarda en el almacén de claves con el nombre: **VmPassword**. Cuando después se intenta crear máquinas virtuales en el laboratorio, **VmPassword** se selecciona automáticamente como **Contraseña**. Para invalidar el valor, desactive la casilla **Usar un secreto guardado** y escriba una contraseña. 
+
+    Puede también guardar primero los secretos en el almacén de claves y, después, usarlos al crear una máquina virtual en el laboratorio. Para más información, consulte [Almacenamiento de secretos en un almacén de claves](devtest-lab-store-secrets-in-key-vault.md). Para usar una contraseña almacenada en un almacén de claves, seleccione **Usar un secreto guardado** y especifique un valor de clave que corresponda a su secreto (contraseña). 
+3. El valor **Virtual machine disk type** (Tipo de disco de máquina virtual) determina qué tipo de disco de almacenamiento se admite para las máquinas virtuales del laboratorio.
+4. Seleccione **Tamaño de máquina virtual** y seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear.
+5. Seleccione **Artefactos** y, en la lista de artefactos, seleccione y configure los artefactos que desea agregar a la imagen base.
     **Nota:** Si no está familiarizado con DevTest Labs o la configuración de artefactos, vaya a la sección [Incorporación de un artefacto existente a una máquina virtual](#add-an-existing-artifact-to-a-vm) y vuelva aquí cuando haya finalizado.
-4. Seleccione **Configuración avanzada** para configurar las opciones de expiración y las opciones de red de la máquina virtual. 
+6. Seleccione **Configuración avanzada** para configurar las opciones de expiración y las opciones de red de la máquina virtual. 
 
    Para establecer una opción de expiración, elija el icono del calendario para especificar una fecha en la que la VM se eliminará automáticamente.  De forma predeterminada, la VM nunca expirará. 
 1. Si desea ver o copiar la plantilla de Azure Resource Manager, vaya a la sección [Almacenamiento de una plantilla de Azure Resource Manager](#save-azure-resource-manager-template) y vuelva aquí cuando haya finalizado.
@@ -102,7 +106,7 @@ Los siguientes pasos muestran cómo ver o modificar los parámetros de un artefa
 Una plantilla de Azure Resource Manager proporciona una manera declarativa de definir una implementación repetible. Los siguientes pasos explican cómo guardar la plantilla de Azure Resource Manager para la máquina virtual que se va a crear.
 Una vez guardada, puede utilizar la plantilla de Azure Resource Manager para [implementar nuevas máquinas virtuales con Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
-1. En el panel **Máquina virtual**, seleccione **Ver plantilla de ARM**.
+1. En el panel **Máquina virtual**, seleccione **Ver plantilla de Azure Resource Manager**.
 2. En el panel **Ver plantilla de Azure Resource Manager**, seleccione el texto de la plantilla.
 3. Copie el texto seleccionado en el Portapapeles.
 4. Seleccione **Aceptar** para cerrar el panel **Ver plantilla de Azure Resource Manager**.

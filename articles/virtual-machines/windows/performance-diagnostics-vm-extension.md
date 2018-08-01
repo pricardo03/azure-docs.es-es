@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9ea7f4652aff07282c9c106f3894db807f341210
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4663da6d28d62230ced937cdb5e597a1236c7f99
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072545"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258957"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows
 
 La extensión de máquina virtual de diagnósticos de rendimiento de Azure ayuda a recopilar datos de diagnóstico de rendimiento de máquinas virtuales Windows. La extensión realiza un análisis y proporciona un informe de resultados y recomendaciones para identificar y resolver problemas de rendimiento en la máquina virtual. Esta extensión instala una herramienta de solución de problemas denominada [PerfInsights](http://aka.ms/perfinsights).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Esta extensión se puede instalar en Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016. También se puede instalar en Windows 8.1 y Windows 10.
 
@@ -52,7 +52,8 @@ El siguiente código JSON muestra el esquema de la extensión de máquina virtua
             "xperfTrace": "[parameters('xperfTrace')]",
             "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]"
+            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
@@ -77,6 +78,7 @@ El siguiente código JSON muestra el esquema de la extensión de máquina virtua
 |storPortTrace|s|Opción para habilitar el seguimiento de StorPort. Los valores válidos son **s** o un valor vacío. Si no desea capturar este seguimiento, deje el valor vacío.
 |srNumber|123452016365929|El número de incidencia de soporte técnico, si está disponible. Deje el valor vacío si no dispone de él.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Hora de fecha actual en UTC. No tiene que proporcionar este valor si usa el portal para instalar esta extensión.
+|ResourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|El identificador único de una máquina virtual.
 |storageAccountName|mystorageaccount|El nombre de la cuenta de almacenamiento para almacenar los registros de diagnóstico y los resultados.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|La clave de la cuenta de almacenamiento.
 
@@ -192,10 +194,11 @@ Las extensiones de máquina virtual de Azure pueden implementarse con plantillas
             "xperfTrace": "[parameters('xperfTrace')]",
             "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]"
+            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
-        "protectedSettings": {            
-            "storageAccountKey": "[parameters('storageAccountKey')]"        
+        "protectedSettings": {
+            "storageAccountKey": "[parameters('storageAccountKey')]"
         }
       }
     }
@@ -209,7 +212,7 @@ El comando `Set-AzureRmVMExtension` puede usarse para implementar la extensión 
 PowerShell
 
 ````
-$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 07/20/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 255056390cdbdbee49eba47f8168618929b386c8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298416"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187264"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Preguntas más frecuentes sobre Azure Cost Management
 
@@ -139,6 +139,14 @@ Los datos del mes actual no están disponibles para su recopilación al principi
 
 Si se produce un retraso al enviar datos de Azure a Cloudyn, los datos se siguen registrando en Azure. Los datos se transfieren a Cloudyn cuando se restaura la conexión.
 
+## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Fluctuaciones de costos en informes de costos de Cloudyn
+
+Los informes de costos pueden mostrar las fluctuaciones de costos, siempre que los proveedores de servicios en la nube envíen archivos de facturación actualizados. Se producen costos fluctuantes cuando se reciben nuevos archivos de un proveedor de servicios en la nube fuera de la programación de informes diaria o mensual habitual. Un nuevo cálculo de Cloudyn no genera cambios en los costos. 
+
+A lo largo del mes, todos los archivos de facturación enviados por el proveedor de servicios en la nube son una estimación de los costos diarios. A veces, los datos se actualizan con frecuencia, en ocasiones, varias veces al día. Las actualizaciones son más frecuentes con AWS que con Azure. Los costos totales deben permanecer estables al finalizar el cálculo de la facturación del mes anterior y recibir el archivo final de facturación. Por lo general, hacia el día 10 de cada mes.
+
+Se producen cambios cuando recibe los ajustes de costos de su proveedor de servicios en la nube. La recepción de créditos es un ejemplo. Los cambios se pueden producir meses después de haber cerrado el mes correspondiente. Los cambios se muestran cada vez que su proveedor de servicios en la nube realiza un nuevo cálculo. Cloudyn actualiza los datos históricos para asegurarse de que se vuelvan a calcular todos los ajustes. También comprueba que los costos se muestran con precisión en el informe.
+
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>¿Cómo debe configurar un CSP directo el acceso a Cloudyn para asociados o clientes de CSP indirectos?
 
 Para obtener instrucciones, consulte [Configuración del acceso indirecto a CSP en Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
@@ -149,7 +157,7 @@ Después de agregar el acceso a Azure Resource Manager y de recopilar los datos,
 
 ## <a name="is-cost-managementcloudyn-agent-based"></a>¿Se basa en el agente de Cost Management/Cloudyn?
 
-Nº No se utilizan agentes. Los datos de métricas de la máquina virtual de Azure para las máquinas virtuales se recopilan des de la API de Microsoft Insights. Si quiere recopilar datos de métricas de las máquinas virtuales de Azure, estos deben tener habilitada la configuración de diagnóstico.
+No. No se utilizan agentes. Los datos de métricas de la máquina virtual de Azure para las máquinas virtuales se recopilan des de la API de Microsoft Insights. Si quiere recopilar datos de métricas de las máquinas virtuales de Azure, estos deben tener habilitada la configuración de diagnóstico.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>¿Los informes de Cloudyn muestran más de un inquilino de AD por informe?
 

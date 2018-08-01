@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 41548c3395fa0c8f56e62cfcfb7338a2d53f040f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212898"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205527"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Implementación de características de nivel de servicio en el servicio de actor
 Como se describe en las [capas de servicio](service-fabric-reliable-actors-platform.md#service-layering), el propio servicio de actor es un servicio confiable.  Puede escribir su propio servicio que deriva de `ActorService` e implementar características de nivel de servicio del mismo modo que lo haría al heredar StatefulService; por ejemplo:
@@ -149,24 +149,53 @@ public class Program
 ## <a name="implementing-actor-backup-and-restore"></a>Implementación de la copia de seguridad y restauración de los actores
 Un servicio de actor personalizado puede exponer un método para crear una copia de seguridad de los datos de actor mediante el uso del agente de escucha remoto que ya se encuentra presente en `ActorService`:  Para obtener un ejemplo, vea [Actores de copia de seguridad y restauración](service-fabric-reliable-actors-backup-and-restore.md).
 
+## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>Actor que usa la pila de comunicación remota V2(InterfaceCompatible)
+La pila de comunicación remota V2(InterfaceCompatible, también conocida como V2_1) tiene todas las características de la pila de comunicación remota V2, además la pila es compatible con la interfaz de la pila de comunicación remota V1, pero no es compatible con V2 y V1. Con el fin de realizar la actualización de V1 a V2_1 sin afectar a la disponibilidad del servicio, vaya al [artículo](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability) siguiente.
+
+Los cambios siguientes son necesarios para usar la pila de comunicación remota V2_1.
+ 1. Agregue el siguiente atributo de ensamblado en las interfaces de actor.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
+
+ 2. Compile y actualice los proyectos ActorService y Actor Client para empezar a usar la pila V2.
+
+#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>Actualización del servicio de actor a la pila de comunicación remota V2(InterfaceCompatible) sin afectar a la disponibilidad del servicio.
+Este cambio consiste en una actualización en dos pasos. Siga los pasos en la misma secuencia que se muestra.
+
+1.  Agregue el siguiente atributo de ensamblado en las interfaces de actor. Este atributo iniciará dos agentes de escucha para ActorService, el agente de escucha V1 (existente) y V2_1. Actualice ActorService con este cambio.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+  ```
+
+2. Actualice ActorClients después de completar la actualización anterior.
+Este paso se asegura de que el proxy del actor use la pila de comunicación remota V2_1.
+
+3. Este paso es opcional. Cambie el atributo anterior para quitar el agente de escucha V1.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
 ## <a name="actor-using-remoting-v2-stack"></a>Actor que utiliza la pila de comunicación remota V2
 Con el paquete de NuGet 2.8, los usuarios ahora pueden utilizar la pila de comunicación remota V2, que tiene un mejor rendimiento y proporciona características como la serialización personalizada. La comunicación remota V2 no es compatible con la pila de comunicación remota existente (en adelante, la llamaremos la pila de comunicación remota V1).
 
 Los cambios siguientes son necesarios para usar la pila de comunicación remota V2.
  1. Agregue el siguiente atributo de ensamblado en las interfaces de actor.
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
  2. Compile y actualice los proyectos ActorService y Actor Client para empezar a usar la pila V2.
 
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Actualización del servicio de actor a la pila de comunicación remota V2 sin afectar a la disponibilidad del servicio
+#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Actualización del servicio de actor a la pila de comunicación remota V2 sin afectar a la disponibilidad del servicio
 Este cambio consiste en una actualización en dos pasos. Siga los pasos en la misma secuencia que se muestra.
 
 1.  Agregue el siguiente atributo de ensamblado en las interfaces de actor. Este atributo iniciará dos agentes de escucha para ActorService, el agente de escucha V1 (existente) y V2. Actualice ActorService con este cambio.
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 2. Actualice ActorClients después de completar la actualización anterior.
@@ -175,7 +204,7 @@ Este paso se asegura de que el proxy del actor use la pila de comunicación remo
 3. Este paso es opcional. Cambie el atributo anterior para quitar el agente de escucha V1.
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes

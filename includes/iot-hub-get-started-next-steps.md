@@ -1,6 +1,7 @@
 Para continuar la introducción a Azure IoT Hub y explorar otros escenarios de IoT, consulte lo siguiente:
 
 - [Administración de la mensajería de dispositivos en la nube con iothub-explorer](../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md)
+- [Administración de la mensajería de dispositivos en la nube con Azure IoT Toolkit para Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 - [Guardado de los mensajes de Azure IoT Hub en el almacenamiento de datos de Azure](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)
 - [Uso de Power BI para visualizar datos del sensor en tiempo real desde IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 - [Uso de la característica Web Apps de Azure App Service para visualizar datos del sensor en tiempo real desde IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)

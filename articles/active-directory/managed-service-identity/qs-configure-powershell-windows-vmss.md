@@ -1,5 +1,5 @@
 ---
-title: Configuración de MSI en un VMSS de Azure con PowerShell
+title: Configuración de Managed Service Identity en un conjunto de escalado de máquinas virtuales de Azure mediante PowerShell
 description: Instrucciones paso a paso para configurar identidades asignadas por el sistema y por el usuario en un VMSS de Azure, mediante PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,34 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5d4539c05d05053ac2ea6cd1c5fadbd161b41173
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903886"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257749"
 ---
-# <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configuración de Managed Service Identity (MSI) en un VMSS con PowerShell
+# <a name="configure-a-vmss-managed-service-identity-using-powershell"></a>Configuración de Managed Service Identity en un conjunto de escalado de máquinas virtuales con PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed Service Identity proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
 
-En este artículo, aprenderá a realizar las operaciones de Managed Service Identity en un conjunto de escalado de máquinas virtuales (VMSS) mediante PowerShell:
-- Habilitar y deshabilitar la identidad asignada por el sistema en un VMSS de Azure
-- Agregar y quitar una identidad asignada por el usuario en un VMSS de Azure
+En este artículo, aprenderá a realizar las operaciones de Managed Service Identity en un conjunto de escalado de máquinas virtuales de Azure mediante PowerShell:
+- Habilitación y deshabilitación de la identidad asignada por el sistema en un conjunto de escalado de máquinas virtuales.
+- Adición y eliminación de una identidad asignada por el usuario en un conjunto de escalado de máquinas virtuales.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)**.
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles:
+    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para crear un conjunto de escalado de máquinas virtuales y habilitar y quitar la identidad administrada asignada por el usuario o por el sistema desde un conjunto de escalado de máquinas virtuales.
+    - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear una identidad asignada por el usuario.
+    - Rol [Operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en un conjunto de escalado de máquinas virtuales.
 - Instale [la versión más reciente de Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) si aún no lo ha hecho. 
 
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 
 En esta sección, aprenderá a habilitar y quitar una identidad asignada por el sistema con Azure PowerShell.
 
-### <a name="enable-system-assigned-identity-during-the-creation-of-an-azure-vmss"></a>Habilitación de una identidad asignada por el sistema durante la creación de un VMSS de Azure
+### <a name="enable-system-assigned-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>Habilitación de la identidad asignada por el sistema durante la creación de un conjunto de escalado de máquinas virtuales de Azure
 
 Para crear un VMSS con la identidad asignada por el sistema habilitada:
 
@@ -51,7 +55,7 @@ Para crear un VMSS con la identidad asignada por el sistema habilitada:
     $VMSS = New-AzureRmVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-2. (Opcional) Agregue la extensión VMSS de MSI mediante los parámetros `-Name` y `-Type` en el cmdlet [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
+2. (Opcional) Agregue la extensión VMSS de Managed Service Identity mediante los parámetros `-Name` y `-Type` en el cmdlet [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de conjunto de escalado de máquinas virtuales y asignarle el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
 
     > [!NOTE]
     > Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.
@@ -62,24 +66,23 @@ Para crear un VMSS con la identidad asignada por el sistema habilitada:
    Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
-## <a name="enable-system-assigned-identity-on-an-existing-azure-vmss"></a>Habilitación de la identidad asignada por el sistema en un VMSS de Azure existente
+## <a name="enable-system-assigned-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Habilitar la identidad asignada en un conjunto de escalado de máquinas virtuales de Azure existente
 
-Si tiene que habilitar la identidad asignada por el sistema en un VMSS de Azure existente:
+Si necesita habilitar una identidad asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure existente:
 
-1. Inicie sesión en Azure con `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
+1. Inicie sesión en Azure con `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga el conjunto de escalado de máquinas virtuales. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en el conjunto de escalado de máquinas virtuales, como "Colaborador de la máquina virtual":
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-2. En primer lugar, recupere las propiedades del VMSS mediante el cmdlet [`Get-AzureRmVmss`](/powershell/module/azurerm.compute/get-azurermvmss). A continuación, para habilitar la identidad asignada por el sistema, use el parámetro `-IdentityType` en el cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm):
+2. En primer lugar, recupere las propiedades del conjunto de escalado de máquinas virtuales mediante el cmdlet [`Get-AzureRmVmss`](/powershell/module/azurerm.compute/get-azurermvmss). Luego, para habilitar una identidad asignada por el sistema, use el modificador `-IdentityType` en el cmdlet [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
 
    ```powershell
-   $vm = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVM -IdentityType "SystemAssigned"
+   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Agregue la extensión VMSS de MSI mediante los parámetros `-Name` y `-Type` en el cmdlet [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
+3. Agregue la extensión VMSS de Managed Service Identity mediante los parámetros `-Name` y `-Type` en el cmdlet [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de conjunto de escalado de máquinas virtuales y asignarle el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
 
    ```powershell
    $setting = @{ "port" = 50342 }
@@ -87,68 +90,66 @@ Si tiene que habilitar la identidad asignada por el sistema en un VMSS de Azure 
    Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
-### <a name="disable-the-system-assigned-identity-from-an-azure-vmss"></a>Deshabilitación de la identidad asignada por el sistema de un VMSS de Azure
+### <a name="disable-the-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Deshabilitación de la identidad asignada por el sistema de un conjunto de escalado de máquinas virtuales de Azure
 
-> [!NOTE]
-> Actualmente, no se admite deshabilitar Managed Service Identity de un conjunto de escalado de máquinas virtuales. Mientras tanto, puede cambiar entre el uso de identidades asignadas por el sistema y por el usuario.
+Si tiene un conjunto de escalado de máquinas virtuales que no necesita la identidad asignada por el sistema, pero necesita identidades asignadas por el usuario, use el siguiente cmdlet:
 
-Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita la identidad asignada por el sistema, pero aún necesita identidades asignadas por el usuario, use el siguiente cmdlet:
-
-1. Inicie sesión en Azure con `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
+1. Inicie sesión en Azure con `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en el conjunto de escalado de máquinas virtuales, como "Colaborador de la máquina virtual":
 
 2. Ejecute el siguiente cmdlet:
 
-    ```powershell
-    Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
-    ```
+   ```powershell
+   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
+   ```
+
+Si tiene un conjunto de escalado de máquinas virtuales que no necesita una identidad asignada por el sistema y no tiene identidades asignadas por el usuario, use los siguientes comandos:
+
+```powershell
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+```
 
 ## <a name="user-assigned-identity"></a>Identidad asignada por el usuario
 
-En esta sección, aprenderá a habilitar y quitar una identidad asignada por el usuario de un VMSS con Azure PowerShell.
+En esta sección, aprenderá a agregar y quitar una identidad asignada por el usuario de un conjunto de escalado de máquinas virtuales mediante Azure PowerShell.
 
-### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Asignación de una identidad asignada por el usuario durante la creación de un VMSS de Azure
+### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Asignación de una identidad asignada por el usuario durante la creación de un conjunto de escalado de máquinas virtuales de Azure
 
-Actualmente, no se puede crear un nuevo VMSS con una identidad asignada por el usuario mediante PowerShell. Consulte la sección siguiente sobre cómo agregar una identidad asignada por el usuario a un VMSS existente. Compruebe si hay actualizaciones.
+Actualmente, no se puede crear un conjunto de escalado de máquinas virtuales con una identidad asignada por el usuario mediante PowerShell. Consulte la sección siguiente sobre cómo agregar una identidad asignada por el usuario a un conjunto de escalado de máquinas virtuales existente. Compruebe si hay actualizaciones.
 
-### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>Asignación de una identidad asignada por el usuario a un VMSS de Azure existente
+### <a name="assign-a-user-identity-to-an-existing-azure-virtual-machine-scale-set"></a>Asignación de una identidad de usuario a un conjunto de escalado de máquinas virtuales de Azure existente
 
-Para asignar una identidad asignada por el usuario a un VMSS de Azure existente:
+Para asignar una identidad asignada por el usuario a un conjunto de escalado de máquinas virtuales de Azure existente:
 
-1. Inicie sesión en Azure con `Connect-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
+1. Inicie sesión en Azure con `Connect-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga el conjunto de escalado de máquinas virtuales. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en el conjunto de escalado de máquinas virtuales, como "Colaborador de la máquina virtual":
 
    ```powershell
    Connect-AzureRmAccount
    ```
 
-2. En primer lugar, recupere las propiedades de la máquina virtual mediante el cmdlet `Get-AzureRmVM`. A continuación, para asignar una identidad asignada por el usuario al VMSS de Azure, use los parámetros `-IdentityType` y `-IdentityID` en el cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm). Reemplace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` con sus propios valores.
+2. En primer lugar, recupere las propiedades del conjunto de escalado de máquinas virtuales mediante el cmdlet `Get-AzureRmVM`. A continuación, para asignar una identidad asignada por el usuario al conjunto de escalado de máquinas virtuales, use los modificadores `-IdentityType` y `-IdentityID` en el cmdlet [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Reemplace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` con sus propios valores.
 
    [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-
    ```powershell
-   $vmss = Get-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME>
-   Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -VM $vmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
+   Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
    ```
 
-### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Eliminación de una identidad asignada por el usuario de un VMSS de Azure
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Eliminación de una identidad administrada asignada por el usuario de un conjunto de escalado de máquinas virtuales de Azure
 
-> [!NOTE]
-> Actualmente, no se admite la eliminación de todas las identidades asignadas por el usuario de un conjunto de escalado de máquinas virtuales, a menos que tenga una identidad asignada por el sistema. Compruebe si hay actualizaciones.
-
-Si el VMSS tiene varias identidades asignadas por el usuario, puede quitarlas todas, menos la última, utilizando los comandos siguientes. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VMSS NAME>` con sus propios valores. `<MSI NAME>` es la propiedad de nombre de la identidad asignada por el usuario, que debe permanecer en el VMSS. Esta información puede encontrarse en la sección de identidad del VMSS mediante `az vmss show`:
+Si el conjunto de escalado de máquinas virtuales tiene varias identidades asignadas por el usuario, puede quitarlas todas, menos la última, utilizando los comandos siguientes. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VMSS NAME>` con sus propios valores. `<MSI NAME>` es la propiedad de nombre de la identidad asignada por el usuario, que debe permanecer en el conjunto de escalado de máquinas virtuales. Esta información se puede encontrar en la sección de identidad del conjunto de escalado de máquinas virtuales mediante `az vmss show`:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss
-$vmss.Identity.IdentityIds = "<MSI NAME>"
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachineScaleSet $vmss
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<MSI NAME>"
 ```
-
-Si el VMSS tiene identidades asignadas tanto por el sistema como por el usuario, puede quitar todas las identidades asignadas por el usuario para usar solo las asignadas por el sistema. Use el comando siguiente:
+Si el conjunto de escalado de máquinas virtuales no tiene una identidad asignada por el sistema y desea quitar de ella todas las identidades asignadas por el usuario, utilice el siguiente comando:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss
-$vmss.Identity.IdentityIds = $null
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachine $vmss -IdentityType "SystemAssigned"
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+```
+Si el conjunto de escalado de máquinas virtuales tiene identidades asignadas tanto por el sistema como por el usuario, puede quitar todas las identidades asignadas por el usuario si cambia para usar solo las asignadas por el sistema.
+
+```powershell 
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
 ```
 
 ## <a name="related-content"></a>Contenido relacionado

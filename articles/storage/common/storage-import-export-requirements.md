@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825074"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188675"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -56,7 +56,7 @@ La siguiente lista muestra los tipos de almacenamiento que se admiten con el ser
 
 ## <a name="supported-hardware"></a>Hardware admitido 
 
-Para el servicio Azure Import/Export, se necesitan discos admitidos y conectores SATA admitidos para copiar los datos.
+Para el servicio Azure Import/Export, se necesitan discos admitidos para copiar los datos.
 
 ### <a name="supported-disks"></a>Discos admitidos
 
@@ -73,18 +73,9 @@ Un único trabajo de importación o exportación puede tener:
 - 10 HDD o SSD como máximo.
 - Una combinación de HDD y SSD de cualquier tamaño.
 
-Un volumen grande de unidades puede distribuirse entre varios trabajos, y no hay ningún límite en el número de trabajos que se pueden crear. 
+Un volumen grande de unidades puede distribuirse entre varios trabajos, y no hay ningún límite en el número de trabajos que se pueden crear. Para los trabajos de importación, solo se procesa el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS.
 
-Para los trabajos de importación, solo se procesa el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS.
-
-### <a name="supported-external-usb-adaptors"></a>Adaptadores USB externos admitidos
-
-Al preparar las unidades de disco duro y copiar los datos mediante la herramienta WAImportExport, puede usar los siguientes adaptadores de USB externos (listos para usar): 
-- Anker 68UPSATAA-02BU
-- Anker 68UPSHHDS-BU
-- Startech SATADOCK22UE
-- Orico 6628SUS3-C-BK (serie 6628)
-- Estación de acoplamiento de unidades de disco duro externas SATA intercambiables en caliente Thermaltake BlacX (USB 2.0 y eSATA)
+Al preparar las unidades de disco duro y copiar los datos mediante la herramienta WAImportExport, puede usar adaptadores de USB externos. La mayoría de los adaptadores comerciales USB 3.0 o posteriores deberían funcionar. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

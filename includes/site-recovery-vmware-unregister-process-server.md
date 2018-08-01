@@ -19,4 +19,4 @@ Los pasos necesarios para anular el registro de un servidor de procesos serán d
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. Esto purgará los detalles del servidor de procesos desde el sistema.
+4. Este mensaje se emite cuando se quita correctamente el servidor de procesos: **Nombre del servidor correctamente eliminado del registro> (dirección IP del servidor)**.

@@ -11,24 +11,47 @@ ms.topic: article
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 4dee39b56cf0f6494f6e79c70b85bbf711d33d65
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044601"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247336"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
 Esta guía contiene información sobre problemas habituales que pueden surgir al usar Azure Dev Spaces.
 
+## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Error "Failed to create Azure Dev Spaces controller" (Error al crear el controlador de Azure Dev Spaces)
+
+Es posible que vea este error cuando algo va mal con la creación del controlador. Si es un error transitorio, eliminar y volver a crear el controlador lo solucionará.
+
+### <a name="try"></a>Pruebe lo siguiente:
+
+Para eliminar el controlador, use la CLI de Azure Dev Spaces. No es posible hacerlo en Visual Studio o en Cloud Shell. Para instalar la CLI de Azure Dev Spaces, primero instale la CLI de Azure y, a continuación, ejecute este comando:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+Y, a continuación, ejecute este comando para eliminar el controlador:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+La recreación del controlador se puede realizar desde la CLI o desde Visual Studio. Siga las instrucciones en los tutoriales como si fuera a iniciar por primera vez.
+
+
 ## <a name="error-service-cannot-be-started"></a>Error "No se puede iniciar el servicio".
 
 Es posible que vea este error cuando el código del servicio no se inicia. La causa suele estar en el código de usuario. Para obtener más información de diagnóstico, realice los siguientes cambios en los comandos y valores de configuración:
 
+### <a name="try"></a>Pruebe lo siguiente:
+
 En la línea de comandos:
 
-1. Al usar _azds.exe_, emplee la opción de línea de comandos detallada, y utilice la opción de línea de comandos de salida para especificar el formato de salida.
+Al usar _azds.exe_, emplee la opción de línea de comandos detallada, y utilice la opción de línea de comandos de salida para especificar el formato de salida.
  
     ```cmd
     azds up --verbose --output json

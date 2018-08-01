@@ -10,25 +10,25 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2efea8054320323df0e0eb603a20a5773d03cad8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0138b44141bb64671ed2feb522c4b7fa14cab696
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676630"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213323"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Conectar Intel Edison a Azure IoT Hub (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-En este tutorial, empiece por aprender los conceptos básicos sobre cómo trabajar con Intel Edison. A continuación, aprenderá a conectar sin problemas los dispositivos en la nube con [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
+En este tutorial, empiece por aprender los conceptos básicos sobre cómo trabajar con Intel Edison. A continuación, aprenderá a conectar sin problemas los dispositivos en la nube con [Azure IoT Hub](about-iot-hub.md).
 
 ¿Aún no tiene un kit? Comience [aquí](https://azure.microsoft.com/develop/iot/starter-kits)
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
 * Configure Intel Edison y los módulos de Grove.
-* Cree un IoT Hub.
+* Cree un Centro de IoT.
 * Registre un dispositivo para Edison en IoT Hub.
 * Ejecute una aplicación de ejemplo en Edison para enviar datos de sensor a IoT Hub.
 

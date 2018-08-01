@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5b8c7e8880f7e467b1b5a305cc7381e6499571f5
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37437144"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238628"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -41,6 +41,7 @@ En este artículo se incluyen las preguntas frecuentes sobre la configuración y
 
 - [¿Cuáles son las próximas funcionalidades del servicio en la nube en Azure Portal que pueden ayudar en la administración y supervisión de las aplicaciones?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [¿Por qué IIS deja de escribir en el directorio de registro?](#why-does-iis-stop-writing-to-the-log-directory)
+- [¿Cómo se puede habilitar el registro de WAD para Cloud Services?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **Configuración de la red**
 
@@ -111,8 +112,10 @@ Puede automatizar esta tarea mediante un script de inicio (batch/cmd/PowerShell)
 Este certificado se usa para cifrar las claves de la máquina en los roles de web de Azure. Para más información, consulte este aviso [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 Para más información, consulte los siguientes artículos.
-- [Configuración y ejecución de tareas de inicio en un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Tareas de inicio comunes de un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- 
+  [Configuración y ejecución de tareas de inicio en un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- 
+  [Tareas de inicio comunes de un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>Supervisión y registro
 
@@ -138,6 +141,15 @@ Se ha agotado la cuota de almacenamiento local para escribir en el directorio de
 Para obtener más información, vea los documentos siguientes:
 * [Almacenamiento y visualización de los datos de diagnóstico en Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS Logs stops writing in cloud service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/) (Los registros de IIS dejan de escribir en el servicio en la nube)
+
+### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>¿Cómo se puede habilitar el registro de WAD para Cloud Services?
+Puede habilitar el registro de Windows Azure Diagnostics (WAD) a través de las opciones siguientes:
+1. [Habilitar desde Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Habilitar mediante código de .Net](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [Habilitar mediante Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+Para obtener la configuración actual de WAD en Cloud Services, puede usar el cmd [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) de PS o puede verlo en el portal en la hoja "Cloud Services --> Extensiones".
+
 
 ## <a name="network-configuration"></a>Network configuration (Configuración de red)
 
@@ -284,7 +296,8 @@ Los ajustes del diario no son configurables, por lo que no se pueden desactivar.
 
 Puede habilitar la extensión antimalware mediante el script de PowerShell en la tarea de inicio. Siga los pasos descritos en los siguientes artículos para implementarla: 
  
-- [Creación de una tarea de inicio de PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
+- 
+  [Creación de una tarea de inicio de PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 Para obtener más información sobre los escenarios de implementación de antimalware y cómo habilitarlo desde el portal, vea [Escenarios de implementación de Antimalware](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).

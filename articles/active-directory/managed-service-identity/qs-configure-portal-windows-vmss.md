@@ -1,6 +1,6 @@
 ---
-title: Configuración de MSI en un conjunto de escalado de máquinas virtuales de Azure con Azure Portal
-description: Instrucciones paso a paso para configurar una identidad de servicio administrada (MSI) en un conjunto de escalado de máquinas virtuales de Azure mediante Azure Portal.
+title: Configuración de Managed Service Identity en un conjunto de escalado de máquinas virtuales de Azure mediante Azure Portal
+description: Instrucciones paso a paso para configurar una identidad de Managed Service Identity en un conjunto de escalado de máquinas virtuales de Azure mediante Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035248"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257766"
 ---
-# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configuración de una instancia de Managed Service Identity (MSI) en un conjunto de escalado de máquinas virtuales mediante Azure Portal
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Configuración de una identidad de Managed Service Identity en un conjunto de escalado de máquinas virtuales mediante Azure Portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -34,9 +34,10 @@ En este artículo, aprenderá a habilitar y deshabilitar la identidad asignada p
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md).
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para llevar a cabo las operaciones de administración en este artículo, su cuenta debe tener la siguiente asignación de roles:
+    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para habilitar y quitar la identidad administrada asignada por el sistema desde un conjunto de escalado de máquinas virtuales.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Managed Service Identity durante la creación de un conjunto de escalado de máquinas virtuales de Azure
 
@@ -44,7 +45,7 @@ Actualmente, la creación de máquinas virtuales mediante Azure Portal no admite
 
 - [Creación de un conjunto de escalado de máquinas virtuales en Azure Portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-A continuación, pase a la siguiente sección, donde encontrará información detallada acerca de la habilitación de MSI en el conjunto de escalado de máquinas virtuales.
+Luego, pase a la siguiente sección, donde encontrará información detallada acerca de la habilitación de Managed Service Identity en el conjunto de escalado de máquinas virtuales.
 
 ## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Habilitación de Managed Service Identity en un VMMS existente de Azure
 
@@ -60,7 +61,7 @@ Para habilitar la identidad asignada por el sistema en una máquina virtual que 
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Eliminación de Managed Service Identity de un conjunto de escalado de máquinas virtuales de Azure
 
-Si tiene un conjunto de escalado de máquinas virtuales de Azure que ya no necesita una identidad de servicio administrada:
+Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una identidad de servicio administrada:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene el conjunto de escalado de máquinas virtuales. Asegúrese también de que la cuenta pertenece a un rol que le concede permisos de escritura en el conjunto de escalado de máquinas virtuales.
 
@@ -76,6 +77,6 @@ Si tiene un conjunto de escalado de máquinas virtuales de Azure que ya no neces
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Mediante Azure Portal, asigne a una identidad de servicio administrada de un conjunto de escalado de máquinas virtuales de Azure [acceso a otro recurso de Azure](howto-assign-access-portal.md).
+- Desde Azure Portal, asigne a una identidad de Managed Service Identity de un conjunto de escalado de máquinas virtuales de Azure [acceso a otro recurso de Azure](howto-assign-access-portal.md).
 
 Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a afinar y remodelar el contenido.

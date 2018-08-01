@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 58f363c522f3e5abe6bf49a2aebafe4e953e00df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628596"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205143"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conexión de un dispositivo Raspberry Pi a su aplicación de Azure IoT Central (C#)
 
@@ -29,53 +29,24 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 * Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte [Create your Azure IoT Central Application](howto-create-application.md) (Creación de una aplicación de Azure IoT Central).
 * Un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian.
 
-Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Raspberry Pi** con las siguientes características:
 
-### <a name="telemetry-measurements"></a>Medidas de telemetría
+## <a name="sample-devkits-application"></a>Aplicación **Ejemplo Devkits**
 
-| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humedad       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX (magnetómetro X)  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY (magnetómetro Y)  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ (magnetómetro Z)  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX (acelerómetro X) | mg     | -2000   | 2000    | 0              |
-| accelerometerY (acelerómetro Y) | mg     | -2000   | 2000    | 0              |
-| accelerometerZ (acelerómetro Z) | mg     | -2000   | 2000    | 0              |
-| gyroscopeX (giróscopo X)     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY (giróscopo Y)     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ (giróscopo Z)     | mdps   | -2000   | 2000    | 0              |
+Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Raspberry Pi** con las siguientes características: 
 
-### <a name="settings"></a>Settings
+- Telemetría que contiene las medidas para **Humidity** (Humedad), **Temperature** (Temperatura), **Pressure** (Presión), **Magnometer** (Magnetómetro) (medido a lo largo de los ejes X, Y y Z), **Accelorometer** (Acelerómetro) (medido a lo largo de los ejes X, Y y Z) y **Gyroscope** (Giroscopio) (medido a lo largo de los ejes X, Y y Z) del dispositivo.
+- Configuración que muestra las opciones **Voltage** (Voltaje), **Current** (Actual), **Fan Speed** (Velocidad del ventilador) y un botón de alternancia **IR**.
+- Propiedades que contienen **die number** (Número de troquel) de la propiedad del dispositivo y la propiedad en la nube **location** (Ubicación).
 
-Valores numéricos
 
-| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
-| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+Para obtener detalles completos sobre la configuración de la plantilla de dispositivo, consulte [Detalles de la plantilla de dispositivo Raspberry PI](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 
-Cambiar configuración
 
-| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Inicial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ACTIVAR      | Apagado      | Off     |
-
-### <a name="properties"></a>Properties (Propiedades)
-
-| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
-| --------------- | ------------ | ---------- | --------- |
-| Propiedad de dispositivo | Die number   | dieNumber  | número    |
-| Texto            | Ubicación     | location   | N/D       |
-
-### <a name="add-a-real-device"></a>Adición de un dispositivo real
+## <a name="add-a-real-device"></a>Adición de un dispositivo real
 
 En su aplicación de Azure IoT Central, agregue un dispositivo real desde la plantilla de dispositivo **Raspberry Pi** y anote la cadena de conexión del dispositivo. Para obtener más información, consulte [Add a real device to your Azure IoT Central application](tutorial-add-device.md) (Adición de un dispositivo real a su aplicación de Azure IoT Central).
 
-## <a name="create-your-net-application"></a>Creación de su aplicación .NET
+### <a name="create-your-net-application"></a>Creación de su aplicación .NET
 
 La aplicación de dispositivo se crea y se prueba en el equipo de escritorio.
 
@@ -335,6 +306,51 @@ Agregue la cadena de conexión específica del dispositivo al código para que e
     En la captura de pantalla siguiente se muestra Raspberry Pi recibiendo el cambio de configuración:
 
     ![Raspberry Pi recibe el cambio de configuración](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+
+
+## <a name="raspberry-pi-device-template-details"></a>Detalles de la plantilla de dispositivo Raspberry PI
+
+Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Raspberry Pi** con las siguientes características:
+
+### <a name="telemetry-measurements"></a>Medidas de telemetría
+
+| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humedad       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| presión       | hPa    | 260     | 1260    | 0              |
+| magnetometerX (magnetómetro X)  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY (magnetómetro Y)  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ (magnetómetro Z)  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX (acelerómetro X) | mg     | -2000   | 2000    | 0              |
+| accelerometerY (acelerómetro Y) | mg     | -2000   | 2000    | 0              |
+| accelerometerZ (acelerómetro Z) | mg     | -2000   | 2000    | 0              |
+| gyroscopeX (giróscopo X)     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY (giróscopo Y)     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ (giróscopo Z)     | mdps   | -2000   | 2000    | 0              |
+
+### <a name="settings"></a>Configuración
+
+Valores numéricos
+
+| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Cambiar configuración
+
+| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Inicial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | ACTIVAR      | Apagado      | Off     |
+
+### <a name="properties"></a>Properties (Propiedades)
+
+| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| --------------- | ------------ | ---------- | --------- |
+| Propiedad de dispositivo | Die number   | dieNumber  | número    |
+| Texto            | Ubicación     | location   | N/D       |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

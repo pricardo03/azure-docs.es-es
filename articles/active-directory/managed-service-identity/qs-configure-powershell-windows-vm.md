@@ -1,6 +1,6 @@
 ---
-title: Configuración de MSI en una máquina virtual de Azure con PowerShell
-description: Instrucciones paso a paso para configurar una identidad de servicio administrada (MSI) en una máquina virtual de Azure, mediante PowerShell.
+title: Configuración de Managed Service Identity en una máquina virtual de Azure mediante PowerShell
+description: Instrucciones paso a paso para configurar una identidad de Managed Service Identity en una máquina virtual de Azure mediante PowerShell.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: add61dbbdaa90ae23e200163f1fa962adc2b3b8e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 68c9ae7baa6b8fa1ebf672c28bf3c466b4b54860
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902102"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258399"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configuración de una identidad de servicio administrada (MSI) en una máquina virtual con PowerShell
+# <a name="configure-a-vm-managed-service-identity-using-powershell"></a>Configuración de una identidad de Managed Service Identity en una máquina virtual mediante PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -30,10 +30,14 @@ Managed Service Identity proporciona a los servicios de Azure una identidad admi
 <a name="in-this-article-you-learn-how-to-perform-the-following-managed-service-identity-operations-on-an-azure-vm-using-powershell"></a>En este artículo, aprenderá a realizar las siguientes operaciones de Managed Service Identity en una máquina virtual de Azure mediante PowerShell:
 - 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)**.
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles:
+    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para crear una máquina virtual y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde una máquina virtual de Azure.
+    - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear una identidad asignada por el usuario.
+    - Rol [Operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en una máquina virtual.
 - Instale [la versión más reciente de Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) si aún no lo ha hecho.
 
 ## <a name="system-assigned-identity"></a>Identidad asignada por el sistema
@@ -55,7 +59,7 @@ Para crear una máquina virtual de Azure con la identidad asignada por el sistem
    - [Creación de una máquina virtual Windows con PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Creación de una máquina virtual Linux con PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Opcional) Agregue la extensión MSI de máquina virtual con el parámetro `-Type` en el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
+2. (Opcional) Agregue la extensión de máquina virtual de Managed Service Identity con el parámetro `-Type` en el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -68,7 +72,7 @@ Para crear una máquina virtual de Azure con la identidad asignada por el sistem
 
 Si tiene que habilitar la identidad asignada por el sistema en una máquina virtual existente:
 
-1. Inicie sesión en Azure con `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
+1. Inicie sesión en Azure con `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual.
 
    ```powershell
    Login-AzureRmAccount
@@ -81,7 +85,7 @@ Si tiene que habilitar la identidad asignada por el sistema en una máquina virt
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (Opcional) Agregue la extensión MSI de máquina virtual con el parámetro `-Type` en el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token OAuth para la adquisición de tokens. Asegúrese de especificar el parámetro `-Location` correcto y que coincida la ubicación de la máquina virtual existente:
+3. (Opcional) Agregue la extensión de máquina virtual de Managed Service Identity con el parámetro `-Type` en el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token OAuth para la adquisición de tokens. Asegúrese de especificar el parámetro `-Location` correcto y que coincida la ubicación de la máquina virtual existente:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -92,22 +96,29 @@ Si tiene que habilitar la identidad asignada por el sistema en una máquina virt
 
 ## <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Deshabilitación de la identidad asignada por el sistema de una máquina virtual de Azure
 
-> [!NOTE]
->  Actualmente no se puede deshabilitar Managed Service Identity de una máquina virtual. Mientras tanto, puede cambiar entre el uso de identidades asignadas por el sistema y por el usuario.
-
 Si tiene una máquina virtual que ya no necesita la identidad asignada por el sistema, pero aún necesita identidades asignadas por el usuario, use el siguiente cmdlet:
 
-1. Inicie sesión en Azure con `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
+1. Inicie sesión en Azure con `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual.
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-2. Ejecute el siguiente cmdlet: 
-    ```powershell       
-    Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -IdentityType "UserAssigned"
-    ```
-Para quitar la extensión de máquina virtual de MSI, use el modificador -Name con el cmdlet [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) y especifique el mismo nombre que ha usado al agregar la extensión:
+2. Recupere las propiedades de la máquina virtual mediante el cmdlet `Get-AzureRmVM` y establezca el parámetro `-IdentityType` en `UserAssigned`:
+
+   ```powershell   
+   $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM    
+   Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
+   ```
+
+Si tiene una máquina virtual que ya no necesita una identidad asignada por el sistema y no tiene identidades asignadas por el usuario, use los siguientes comandos:
+
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+
+Para quitar la extensión de máquina virtual de Managed Service Identity, use el modificador -Name con el cmdlet [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) y especifique el mismo nombre que ha usado al agregar la extensión:
 
    ```powershell
    Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
@@ -132,7 +143,7 @@ Para asignar una identidad asignada por el usuario a una máquina virtual de Azu
     - [Creación de una máquina virtual Windows con PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Creación de una máquina virtual Linux con PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Opcional) Agregue la extensión MSI de máquina virtual con el parámetro `-Type` en el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token OAuth para la adquisición de tokens. Asegúrese de especificar el parámetro `-Location` correcto y que coincida la ubicación de la máquina virtual existente:
+2. (Opcional) Agregue la extensión de máquina virtual de Managed Service Identity con el parámetro `-Type` en el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token OAuth para la adquisición de tokens. Asegúrese de especificar el parámetro `-Location` correcto y que coincida la ubicación de la máquina virtual existente:
       > [!NOTE]
     > Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.
 
@@ -145,7 +156,7 @@ Para asignar una identidad asignada por el usuario a una máquina virtual de Azu
 
 Para asignar una identidad asignada por el usuario a una máquina virtual de Azure existente:
 
-1. Inicie sesión en Azure con `Connect-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
+1. Inicie sesión en Azure con `Connect-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual.
 
    ```powershell
    Connect-AzureRmAccount
@@ -153,13 +164,12 @@ Para asignar una identidad asignada por el usuario a una máquina virtual de Azu
 
 2. Cree una identidad asignada por el usuario mediante el cmdlet [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity).  Anote `Id` en la salida, porque lo necesitará en el paso siguiente.
 
-    > [!IMPORTANT]
-    > La creación de identidades asignadas por el usuario solo admite caracteres alfanuméricos y guiones (0-9, a-z, A-z, -). Además, el nombre debe limitarse a una longitud de 24 caracteres para que la asignación a VM/VMSS funcione correctamente. Compruebe si hay actualizaciones. Para obtener más información, consulte [Preguntas más frecuentes y problemas conocidos](known-issues.md).
+   > [!IMPORTANT]
+   > La creación de identidades asignadas por el usuario solo admite caracteres alfanuméricos y guiones (0-9, a-z, A-z, -). Además, el nombre debe limitarse a una longitud de 24 caracteres para que la asignación a VM/VMSS funcione correctamente. Compruebe si hay actualizaciones. Para obtener más información, consulte [Preguntas más frecuentes y problemas conocidos](known-issues.md).
 
-
-  ```powershell
-  New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
-  ```
+   ```powershell
+   New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
+   ```
 3. Recupere las propiedades de la máquina virtual mediante el cmdlet `Get-AzureRmVM`. A continuación, para asignar una identidad asignada por el usuario a la máquina virtual de Azure, use los modificadores `-IdentityType` y `-IdentityID` en el cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm).  El valor del parámetro `-IdentityId` es el `Id` que ha anotado en el paso anterior.  Reemplace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` con sus propios valores.
 
    ```powershell
@@ -167,7 +177,7 @@ Para asignar una identidad asignada por el usuario a una máquina virtual de Azu
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. Agregue la extensión MSI de máquina virtual con el parámetro `-Type` en el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token OAuth para la adquisición de tokens. Especifique el parámetro `-Location` correcto, que coincide con la ubicación de la máquina virtual existente.
+4. Agregue la extensión de máquina virtual de Managed Service Identity con el parámetro `-Type` en el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Puede pasar "ManagedIdentityExtensionForWindows" o "ManagedIdentityExtensionForLinux", en función del tipo de máquina virtual y asígnele el nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token OAuth para la adquisición de tokens. Especifique el parámetro `-Location` correcto, que coincide con la ubicación de la máquina virtual existente.
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -176,23 +186,23 @@ Para asignar una identidad asignada por el usuario a una máquina virtual de Azu
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Eliminación de una identidad asignada por el usuario de una máquina virtual de Azure
 
-> [!NOTE]
->  Actualmente no se pueden eliminar todas las identidades asignadas por el usuario de una máquina virtual, a menos que tenga una identidad asignada por el sistema. Compruebe si hay actualizaciones.
-
-Si la máquina virtual tiene varias identidades asignadas por el usuario, puede quitar todas, menos la última, mediante los comandos siguientes. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. `<MSI NAME>` es la propiedad de nombre de la identidad asignada por el usuario, que debe permanecer en la máquina virtual. Esta información puede encontrarse en la sección de identidad de la máquina virtual mediante `az vm show`:
+Si la máquina virtual tiene varias identidades asignadas por el usuario, puede quitar todas, menos la última, mediante los comandos siguientes. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. `<MSI NAME>` es la propiedad de nombre de la identidad asignada por el usuario, que debe permanecer en la máquina virtual. Esta información se puede encontrar en la sección de identidad de la máquina virtual mediante `az vm show`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = "<MSI NAME>"
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType UserAssigned -IdentityID "<MSI NAME>"
 ```
+Si la máquina virtual no tiene una identidad asignada por el sistema y que desea quitar de ella todas las identidades asignadas por el usuario, utilice el siguiente comando:
 
-Si la máquina virtual tiene identidades asignadas tanto por el sistema como por el usuario, puede quitar todas las identidades asignadas por el usuario si cambia para usar solo las asignadas por el sistema. Use el comando siguiente:
+```powershell
+$vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+Si la máquina virtual tiene identidades asignadas tanto por el sistema como por el usuario, puede quitar todas las identidades asignadas por el usuario si cambia para usar solo las asignadas por el sistema.
 
 ```powershell 
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = $null
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm -IdentityType "SystemAssigned"
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
 
 ## <a name="related-content"></a>Contenido relacionado

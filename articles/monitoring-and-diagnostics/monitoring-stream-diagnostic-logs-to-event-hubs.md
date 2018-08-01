@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085096"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258191"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmisión de registros de diagnóstico de Azure a un centro de eventos
 Los **[registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)** se pueden transmitir casi en tiempo real a cualquier aplicación mediante la opción "Exportar a Event Hubs" integrada en el Portal o habilitando el identificador de regla de autorización de Event Hubs en una configuración de diagnóstico por medio de los cmdlets de Azure PowerShell o la CLI de Azure 2.0.
@@ -22,16 +22,16 @@ Los **[registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-log
 Estas son solo algunas formas de usar la funcionalidad de streaming para registros de diagnóstico:
 
 * **Transmisión de registros a sistemas de registro y telemetría de terceros**: puede transmitir todos los registros de diagnóstico a un centro de eventos único para canalizar datos de registro a una herramienta de SIEM o de análisis de registros de terceros.
-* **Visualización del estado del servicio mediante streaming de datos de "ruta de acceso frecuente" a PowerBI**: utilizando Event Hubs, Stream Analytics y Power BI, puede transformar fácilmente los datos de diagnóstico en información casi en tiempo real sobre los servicios de Azure. [En este artículo de documentación se ofrece una excelente introducción sobre cómo configurar Event Hubs, procesar datos con Stream Analytics y usar PowerBI como salida](../stream-analytics/stream-analytics-power-bi-dashboard.md). Estas son algunas recomendaciones para la configuración con los registros de diagnóstico:
+* **Visualización del estado del servicio mediante streaming de datos de "ruta de acceso frecuente" a Power BI**: con Event Hubs, Stream Analytics y Power BI, es fácil transformar los datos de diagnóstico en información casi en tiempo real de los servicios de Azure. [En este artículo se ofrece una excelente introducción a la configuración Event Hubs, al procesamiento de datos con Stream Analytics y al uso de Power BI como salida](../stream-analytics/stream-analytics-power-bi-dashboard.md). Estas son algunas recomendaciones para la configuración con los registros de diagnóstico:
 
   * Un centro de eventos para una categoría de registros de diagnóstico se crea automáticamente al seleccionar la opción en el portal o habilitarla mediante PowerShell, por lo que debería seleccionar el centro de eventos en el espacio de nombres con el nombre que empieza por **insights-**.
-  * El siguiente código SQL es una consulta de Stream Analytics de ejemplo que puede utilizar para analizar simplemente todos los datos de registro en una tabla de PowerBI:
+  * El siguiente código SQL es una consulta de Stream Analytics de ejemplo que puede utilizar para analizar todos los datos de registro en una tabla de Power BI:
 
     ```sql
     SELECT
     records.ArrayValue.[Properties you want to track]
     INTO
-    [OutputSourceName – the PowerBI source]
+    [OutputSourceName – the Power BI source]
     FROM
     [InputSourceName] AS e
     CROSS APPLY GetArrayElements(e.records) AS records
@@ -46,7 +46,7 @@ Puede habilitar el streaming de registros de diagnóstico mediante programación
 > [!WARNING]
 > La habilitación y streaming de registros de diagnóstico desde recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) [requiere ejecutar una serie de pasos distinta](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 
-El espacio de nombres de Event Hubs no tiene que estar en la misma suscripción que el recurso que emite los registros, siempre que el usuario que configura el ajuste tenga acceso RBAC adecuado a ambas suscripciones.
+El espacio de nombres de Event Hubs no tiene que estar necesariamente en la misma suscripción que el recurso que emite los registros, siempre que el usuario que configure el valor tenga el acceso RBAC adecuado a ambas suscripciones y estas formen parte del mismo inquilino de AAD.
 
 > [!NOTE]
 > Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
@@ -195,5 +195,6 @@ También puede transmitir los registros de diagnóstico de los recursos de Compu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Streaming de registros de Azure Active Directory con Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Más información sobre los registros de Diagnósticos de Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

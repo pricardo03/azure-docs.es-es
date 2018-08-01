@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261906"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205755"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo Windows IoT Core a una aplicación de Azure IoT Central
 
@@ -26,31 +26,17 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 1. Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte [Create your Azure IoT Central Application](howto-create-application.md) (Creación de una aplicación de Azure IoT Central).
 2. Un dispositivo en el que se ejecuta el sistema operativo Windows 10 IoT Core. En este tutorial, usaremos un dispositivo Raspberry Pi.
 
-Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Windows IoT Core** con las siguientes características:
 
-### <a name="telemetry-measurements"></a>Medidas de telemetría
+## <a name="sample-devkits-application"></a>Aplicación **Ejemplo Devkits**
 
-| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humedad       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
+Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Windows IoT Core** con las siguientes características: 
 
-### <a name="settings"></a>Settings
-
-Valores numéricos
-
-| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+- Telemetría que contiene las medidas para **Humidity** (Humedad), **Temperature** (Temperatura) y **Pressure** (Presión) del dispositivo. 
+- Configuración que muestra **Fan Speed** (Velocidad del ventilador).
+- Propiedades que contienen **die number** (Número de troquel) de la propiedad del dispositivo y la propiedad en la nube **location** (Ubicación).
 
 
-### <a name="properties"></a>Properties (Propiedades)
-
-| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
-| --------------- | ------------ | ---------- | --------- |
-| Propiedad de dispositivo | Die number   | dieNumber  | número    |
-| Texto            | Ubicación     | location   | N/D       |
+Para obtener detalles completos sobre la configuración de la plantilla de dispositivo, consulte [Detalles de la plantilla de dispositivo Windows IoT Core](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)
 
 ## <a name="add-a-real-device"></a>Adición de un dispositivo real
 
@@ -106,3 +92,31 @@ Si desea explorar y modificar el código fuente de la aplicación cliente, puede
 
 > [!NOTE]
 > Si **git** no está instalado en el entorno de desarrollo, puede descargarlo desde [https://git-scm.com/download](https://git-scm.com/download).
+
+## <a name="windows-iot-core-device-template-details"></a>Detalles de la plantilla de dispositivo Windows IoT Core
+
+Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Windows IoT Core** con las siguientes características:
+
+### <a name="telemetry-measurements"></a>Medidas de telemetría
+
+| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humedad       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| presión       | hPa    | 260     | 1260    | 0              |
+
+### <a name="settings"></a>Configuración
+
+Valores numéricos
+
+| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+
+### <a name="properties"></a>Properties (Propiedades)
+
+| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| --------------- | ------------ | ---------- | --------- |
+| Propiedad de dispositivo | Die number   | dieNumber  | número    |
+| Texto            | Ubicación     | location   | N/D       |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866185"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249026"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
 Hay dos conjuntos de valores de configuración para los servicios de confianza. Un conjunto es global para todos los servicios de confianza del clúster, mientras que el otro conjunto es específico para un servicio de confianza determinado.
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Especifica un GUID único que debe usarse para identificar el archivo de registro compartido que se usa con esta réplica. Normalmente, los servicios no deben usar esta opción de configuración. Sin embargo, si se especifica SharedLogId, también se debe especificar SharedLogPath. |
 | SharedLogPath |Nombre de ruta de acceso completo |"" |Especifica la ruta de acceso completa donde se creará el archivo de registro compartido para esta réplica. Normalmente, los servicios no deben usar esta opción de configuración. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId. |
 | SlowApiMonitoringDuration |Segundos |300 |Establece el intervalo de supervisión para las llamadas API administradas. Ejemplo: función de devolución de llamada de copia de seguridad proporcionada por el usuario. Una vez transcurrido el intervalo, se enviará un informe de mantenimiento de advertencias a Health Manager. |
+| LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurable en el que se iniciará el truncamiento del registro en cada réplica. Sirve para garantizar que el registro también se trunca según el tiempo en lugar de simplemente según el tamaño del registro. Esta opción obliga también a purgar las entradas eliminadas en un diccionario de confianza. Por tanto, se puede usar para asegurarse de que se purgan los elementos eliminados de manera oportuna. |
 
 ### <a name="sample-configuration-via-code"></a>Ejemplo de configuración mediante código
 ```csharp

@@ -1,6 +1,6 @@
 ---
-title: Eliminación temporalmente de blobs de Azure Storage (versión preliminar) | Microsoft Docs
-description: Azure Storage ofrece la posibilidad de eliminar temporalmente (versión preliminar) objetos de blob, con el fin de que se puedan recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
+title: Eliminación temporal de blobs de Azure Storage | Microsoft Docs
+description: Azure Storage ofrece la posibilidad de eliminar temporalmente objetos de blob, con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
 services: storage
 author: MichaelHauss
 manager: vamshik
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: 408e2167e60cbdfa2b4eee136bf3ac4321ae8121
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 37ae52b34cc87a7d78524f893a3b1577a5a59f7e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091738"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248832"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
 Azure Storage ofrece la posibilidad de eliminar temporalmente objetos de blob, con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.

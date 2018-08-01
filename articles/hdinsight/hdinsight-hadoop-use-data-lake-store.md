@@ -1,27 +1,23 @@
 ---
-title: Uso de Data Lake Store con Hadoop en Azure HDInsight | Microsoft Docs
+title: Uso de Data Lake Store con Hadoop en Azure HDInsight
 description: Aprenda a consultar datos desde Azure Data Lake Store y a almacenar los resultados del análisis.
-keywords: blob storage,hdfs,datos estructurados,datos no estructurados, data lake store
 services: hdinsight,storage
-documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 362a9ae9cb1a1ebc30193b76929f0a683414e5fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.topic: conceptual
+ms.date: 07/23/2018
+ms.openlocfilehash: 48b98e170601f80e8cd1348ccc9afa3b5fc0c4e1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435304"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258038"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Uso de Data Lake Store con clústeres de Azure HDInsight
 
@@ -32,9 +28,9 @@ En este artículo, aprenderá cómo funciona Data Lake Store con clústeres de H
 > [!NOTE]
 > Para acceder a Azure Data Lake Store siempre se usa un canal seguro, así que no hay ningún nombre de esquema de sistema de archivos `adls`. Usa siempre `adl`.
 > 
-> 
 
-## <a name="availabilities-for-hdinsight-clusters"></a>Disponibilidades para clústeres de HDInsight
+
+## <a name="availability-for-hdinsight-clusters"></a>Disponibilidad de los clústeres de HDInsight
 
 Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación del clúster de HDInsight, puede especificar un contenedor de blobs en Azure Blob Storage como el sistema de archivos predeterminado; también, con HDInsight 3.5 y versiones más recientes, puede seleccionar Azure Storage o Azure Data Lake Store como el sistema de archivos predeterminado con algunas excepciones. 
 
@@ -48,10 +44,10 @@ A partir de ahora, solo algunos tipos o versiones de clústeres de HDInsight adm
 | Tipo de clúster de HDInsight | Data Lake Store como almacenamiento predeterminado | Data Lake Store como almacenamiento adicional| Notas |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight versión 3.6 | Sí | Sí | |
-| Versión de HDInsight 3.5 | Sí | Sí | Con la excepción de HBase|
-| Versión de HDInsight 3.4 | No | Sí | |
-| HDInsight versión 3.3 | No | No | |
-| HDInsight versión 3.2 | No | Sí | |
+| Versión de HDInsight 3.5 | Sí | SÍ | Con la excepción de HBase|
+| Versión de HDInsight 3.4 | No | SÍ | |
+| HDInsight versión 3.3 | Sin  | Sin  | |
+| HDInsight versión 3.2 | Sin  | Sí | |
 | Storm | | |Data Lake Store se puede usar para escribir datos de una topología de Storm. Puede usar Data Lake Store para datos de referencia que luego puede leer una topología de Storm.|
 
 El uso de Data Lake Store como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura o escritura en Azure Storage desde el clúster.
@@ -81,13 +77,13 @@ Para más información sobre cómo crear la entidad de servicio y concederle acc
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>Uso de Data Lake Store como almacenamiento adicional
 
-También puede usar Data Lake Store como almacenamiento adicional para el clúster. En tales casos, el almacenamiento predeterminado del clúster puede ser una cuenta de Azure Storage Blob o de Data Lake Store. Si va a ejecutar trabajos de HDInsight con los datos almacenados en Data Lake Store como almacenamiento adicional, debe usar la ruta de acceso completa a los archivos. Por ejemplo:
+También puede usar Data Lake Store como almacenamiento adicional para el clúster. En tales casos, el almacenamiento predeterminado del clúster puede ser una cuenta de Azure Storage Blob o de Data Lake Store. Si va a ejecutar trabajos de HDInsight con los datos almacenados en Data Lake Store como almacenamiento adicional, debe usar la ruta de acceso completa a los archivos. Por ejemplo: 
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Tenga en cuenta que ahora no hay ningún elemento **cluster_root_path** en la dirección URL. Esto se debe a que, en este caso, Data Lake Store no es un almacenamiento predeterminado, así que todo lo que debe hacer es proporcionar la ruta de acceso a los archivos.
 
-Para poder usar Data Lake Store como almacenamiento adicional solo debe conceder a la entidad de servicio acceso a las rutas en las que se almacenan los archivos.  Por ejemplo:
+Para poder usar Data Lake Store como almacenamiento adicional solo debe conceder a la entidad de servicio acceso a las rutas en las que se almacenan los archivos.  Por ejemplo: 
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -135,6 +131,60 @@ Use los vínculos siguientes para obtener instrucciones detalladas sobre cómo c
 * [Uso de PowerShell (con Data Lake Store como almacenamiento adicional)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Uso de plantillas de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
+## <a name="refresh-the-hdinsight-certificate-for-data-lake-store-access"></a>Actualización del certificado de HDInsight para el acceso a Data Lake Store
+
+El siguiente código de PowerShell de ejemplo lee un archivo de certificado local y actualiza el clúster de HDInsight con el nuevo certificado para acceder a Azure Data Lake Store. Especifique su propio nombre de clúster de HDInsight, el nombre del grupo de recursos, el identificador de la suscripción, el identificador de la aplicación y la ruta de acceso local al certificado. Escriba la contraseña cuando se le solicite.
+
+```powershell-interactive
+$clusterName = '<clustername>'
+$resourceGroupName = '<resourcegroupname>'
+$subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
+$appId = '01234567-e100-4118-8ba6-c25834f4e938'
+$generateSelfSignedCert = $false
+$addNewCertKeyCredential = $true
+$certFilePath = 'C:\localfolder\adls.pfx'
+$certPassword = Read-Host "Enter Certificate Password"
+
+if($generateSelfSignedCert)
+{
+    Write-Host "Generating new SelfSigned certificate"
+    
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=hdinsightAdlsCert" -KeySpec KeyExchange
+    $certBytes = $cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword);
+    $certString = [System.Convert]::ToBase64String($certBytes)
+}
+else
+{
+
+    Write-Host "Reading the cert file from path $certFilePath"
+
+    $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($certFilePath, $certPassword)
+    $certString = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certFilePath))
+}
+
+Login-AzureRmAccount
+
+if($addNewCertKeyCredential)
+{
+    Write-Host "Creating new KeyCredential for the app"
+    $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+    New-AzureRmADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
+    Start-Sleep -s 30
+}
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Write-Host "Updating the certificate on HDInsight cluster..."
+
+Invoke-AzureRmResourceAction `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType 'Microsoft.HDInsight/clusters' `
+    -ResourceName $clusterName `
+    -ApiVersion '2015-03-01-preview' `
+    -Action 'updateclusteridentitycertificate' `
+    -Parameters @{ ApplicationId = $appId; Certificate = $certString; CertificatePassword = $certPassword.ToString() } `
+    -Force
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, aprendió a usar Azure Data Lake Store compatible con HDFS con HDInsight. Esto le permite crear soluciones de adquisición de datos de archivado escalables y a largo plazo y usar HDInsight para desbloquear la información que hay dentro de los datos estructurados y no estructurados almacenados.

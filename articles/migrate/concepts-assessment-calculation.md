@@ -4,14 +4,14 @@ description: En este artículo se proporciona una introducción a los cálculos 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920933"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249196"
 ---
 # <a name="assessment-calculations"></a>Cálculos de evaluación
 
@@ -40,7 +40,7 @@ Azure Migrate Azure revisa las siguientes propiedades de la máquina virtual loc
 --- | --- | ---
 **Tipo de arranque** | Azure admite máquinas virtuales con el tipo de arranque de BIOS y no UEFI. | Condicionalmente preparada para Azure, si el tipo de arranque es UEFI.
 **Núcleos** | El número de núcleos de las máquinas debe ser igual o menor que el número máximo de núcleos (32) admitidos en una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos utilizados se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | No está preparada si el número de núcleos es mayor que 32.
-**Memoria** | El tamaño de memoria de la máquina debe ser igual o menor que la memoria máxima (448 GB) permitida en una máquina virtual de Azure. <br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria utilizada para la comparación. Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se utiliza la memoria asignada sin aplicar el factor de confort.<br/><br/> | No está preparada si el tamaño de memoria es superior a 448 GB.
+**Memoria** | La memoria de la máquina debe tener un tamaño igual o menor que la memoria máxima (3892 GB en Azure M serie Standard_M128m&nbsp;<sup>2</sup>) permitida en una máquina virtual de Azure. [Más información](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria utilizada para la comparación. Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se utiliza la memoria asignada sin aplicar el factor de confort.<br/><br/> | No está preparada si el tamaño de memoria es superior a 448 GB.
 **Disco de almacenamiento** | El tamaño asignado de un disco debe ser de 4 TB (4096 GB) o menos.<br/><br/> El número de discos conectados a la máquina debe ser 65 o menos, incluido el disco de sistema operativo. | No está preparada si cualquier disco tiene un tamaño mayor de 4 TB o si hay más de 65 discos asociados a la máquina.
 **Redes** | Una máquina debe tener 32 NIC o menos conectadas. | No está preparada si la máquina tiene más de 32 NIC.
 
@@ -58,7 +58,8 @@ Windows Server 2016 y todos los Service Pack | Azure proporciona compatibilidad 
 Windows Server 2012 R2 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparado para Azure
 Windows Server 2012 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparado para Azure
 Windows Server 2008 R2 con todos los Service Pack | Azure proporciona compatibilidad completa.| Preparado para Azure
-Windows Server 2003-2008 | El sistema operativo alcanzó la fecha de finalización del soporte técnico y necesita un [contrato de soporte técnico personalizado (CSA)](https://aka.ms/WSosstatement) para obtener soporte técnico en Azure. | Condicionalmente preparada para Azure, considere la posibilidad de actualizar el sistema operativo antes de migrar a Azure.
+Windows Server 2008 (32 bits y 64 bits) | Azure proporciona compatibilidad completa. | Preparado para Azure
+Windows Server 2003 y 2003 R2 | El sistema operativo alcanzó la fecha de finalización del soporte técnico y necesita un [contrato de soporte técnico personalizado (CSA)](https://aka.ms/WSosstatement) para obtener soporte técnico en Azure. | Condicionalmente preparada para Azure, considere la posibilidad de actualizar el sistema operativo antes de migrar a Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Estos sistemas operativos han alcanzado la fecha de finalización del soporte técnico, la máquina pude arrancar en Azure, pero Azure no proporciona ningún soporte técnico para el sistema operativo. | Condicionalmente preparada para Azure, se recomienda actualizar el sistema operativo antes de migrar a Azure.
 Cliente de Windows 7, 8 y 10 | Azure solo proporciona compatibilidad con la suscripción de Visual Studio. | Condicionalmente preparada para Azure
 Windows Vista, XP Professional | Estos sistemas operativos han alcanzado la fecha de finalización del soporte técnico, la máquina pude arrancar en Azure, pero Azure no proporciona ningún soporte técnico para el sistema operativo. | Condicionalmente preparada para Azure, se recomienda actualizar el sistema operativo antes de migrar a Azure.
@@ -106,10 +107,9 @@ Para realizar el ajuste de tamaño basado en el rendimiento, Azure Migrate comie
 Si el criterio de ajuste de tamaño es *como local*, Azure Migrate no tiene en cuenta el historial de rendimiento de las máquinas virtuales ni de los discos y asigna un SKU de máquina virtual en Azure en función del tamaño asignado en el entorno local. De manera similar que para el ajuste de tamaño de disco, examina el tipo de almacenamiento especificado en las propiedades de valoración (estándar o premium) y recomienda el tipo de disco según corresponda. El tipo de almacenamiento predeterminado es discos premium.
 
 ### <a name="confidence-rating"></a>Clasificación de confianza
+Cada valoración de Azure Migrate basada en el rendimiento está asociada con una clasificación de confianza comprendida entre 1 a 5 estrellas (siendo 1 estrella la más baja y 5 estrellas la más alta). La clasificación de confianza se asigna a una valoración que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración. La clasificación de confianza de una valoración le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate. La clasificación de confianza no es aplicable a valoraciones como locales.
 
-Cada valoración de Azure Migrate está asociada con una clasificación de confianza que va de 1 a 5 estrellas (siendo 1 estrella la más baja y 5 estrellas la más alta). La clasificación de confianza se asigna a una valoración que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración. La clasificación de confianza de una valoración le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate.
-
-La clasificación de confianza de una valoración es más útil para valoraciones con criterio de tamaño como "tamaño basado en el rendimiento". Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria de la máquina virtual. Además, para cada disco asociado a la máquina virtual, necesita el valor de IOPS de disco y los datos de rendimiento. De forma similar, para cada adaptador de red asociado a una máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración, tal como se indica a continuación:
+Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria de la máquina virtual. Además, para cada disco asociado a la máquina virtual, necesita el valor de IOPS de disco y los datos de rendimiento. De forma similar, para cada adaptador de red asociado a una máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración, tal como se indica a continuación:
 
    **Disponibilidad de puntos de datos** | **Clasificación de confianza**
    --- | ---
