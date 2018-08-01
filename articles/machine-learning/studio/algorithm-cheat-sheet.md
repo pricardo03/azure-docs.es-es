@@ -1,5 +1,5 @@
 ---
-title: Hoja de referencia rápida de algoritmos de aprendizaje automático | Microsoft Docs
+title: 'Hoja de características clave de algoritmos de aprendizaje automático: Azure | Microsoft Docs'
 description: Una hoja de referencia rápida de algoritmos de aprendizaje automático que puede imprimirse le ayudará a elegir el algoritmo correcto para el modelo de predicción en  Azure Machine Learning Studio.
 keywords: algorithm cheat sheet,cheat sheet,machine learning algorithm
 services: machine-learning
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a448d6931330f7b2f0730add65473097bb2b5a57
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b080a739aa73e3c8ef95c7db9a6358d942e94bba
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833570"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238393"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure Machine Learning Studio
 La **hoja de referencia rápida de algoritmos de Microsoft Azure Machine Learning** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.

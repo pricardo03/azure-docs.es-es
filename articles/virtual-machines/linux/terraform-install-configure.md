@@ -1,10 +1,10 @@
 ---
-title: Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure | Microsoft Docs
+title: Instalación y configuración de Terraform para su uso con Azure | Microsoft Docs
 description: Obtenga información sobre cómo instalar y configurar Terraform para crear recursos de Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jtalkar
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/23/2017
+ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: dada9c70eef2adb2704e276a5401509581e37538
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1af96b686a1502d638b4335e22259b79169d1065
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399175"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173254"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure
  
-Terraform proporciona una manera fácil de definir, previsualizar e implementar infraestructura en la nube con un [lenguaje de plantillas simple](https://www.terraform.io/docs/configuration/syntax.html). En este artículo se describen los pasos necesarios para usar Terraform para aprovisionar recursos en Azure. 
+Terraform proporciona una manera fácil de definir, previsualizar e implementar infraestructura en la nube con un [lenguaje de plantillas simple](https://www.terraform.io/docs/configuration/syntax.html). En este artículo se describen los pasos necesarios para usar Terraform para aprovisionar recursos en Azure.
 
-> [!TIP]
-Para obtener más información sobre cómo usar Terraform con Azure, visite el [hub de Terraform](/azure/terraform). Terraform se instala de forma predeterminada en [Cloud Shell](/azure/terraform/terraform-cloud-shell). Mediante el uso de Cloud Shell, puede omitir las partes de instalación y configuración de este documento.
+Para obtener más información sobre cómo usar Terraform con Azure, visite el [hub de Terraform](/azure/terraform).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Terraform se instala de forma predeterminada en [Cloud Shell](/azure/terraform/terraform-cloud-shell). Si decide instalar Terraform localmente, complete el paso siguiente; en caso contrario, continúe con la [configuración del acceso de Terraform a Azure](#set-up-terraform-access-to-azure).
 
 ## <a name="install-terraform"></a>Instalar Terraform
 
-Para instalar Terraform, [descargue](https://www.terraform.io/downloads.html) el paquete apropiado para su sistema operativo en un directorio de instalación independiente. La descarga contiene un único archivo ejecutable, para el que también debe definir una ruta de acceso global. Para obtener instrucciones sobre cómo establecer la ruta de acceso en Linux y Mac, vaya a [esta página web](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Para obtener instrucciones sobre cómo establecer la ruta de acceso en Windows, vaya a [esta página web](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows). 
+Para instalar Terraform, [descargue](https://www.terraform.io/downloads.html) el paquete apropiado para su sistema operativo en un directorio de instalación independiente. La descarga contiene un único archivo ejecutable, para el que también debe definir una ruta de acceso global. Para obtener instrucciones sobre cómo establecer la ruta de acceso en Linux y Mac, vaya a [esta página web](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Para obtener instrucciones sobre cómo establecer la ruta de acceso en Windows, vaya a [esta página web](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
 
-Compruebe la configuración de ruta de acceso con el comando `terraform`. Debería ver una lista de las opciones disponibles de Terraform como salida:
+Compruebe la configuración de ruta de acceso con el comando `terraform`. Se muestra una lista de las opciones disponibles de Terraform, como en la siguiente salida de ejemplo:
 
 ```bash
 azureuser@Azure:~$ terraform
@@ -42,46 +45,31 @@ Usage: terraform [--version] [--help] <command> [args]
 
 ## <a name="set-up-terraform-access-to-azure"></a>Configurar el acceso de Terraform a Azure
 
-Configure [una entidad de servicio de Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli) para habilitar Terraform para aprovisionar recursos en Azure. La entidad de servicio concede sus scripts de Terraform con las credenciales para aprovisionar recursos en su suscripción de Azure.
+Para habilitar Terraform para aprovisionar recursos en Azure, cree una [entidad de servicio de Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). La entidad de servicio concede sus scripts de Terraform para aprovisionar recursos en su suscripción de Azure.
 
-Hay varias maneras de crear una aplicación de Azure AD y una entidad de servicio de Azure AD. La forma más sencilla y rápida hoy en día es usar la CLI de Azure 2.0, que [puede descargar e instalar en Windows, Linux o Mac](/cli/azure/install-azure-cli).
-
-Inicie sesión para administrar su suscripción de Azure con el comando siguiente:
-
-   `az login`
-
-Si tiene varias suscripciones de Azure, se devuelven sus detalles mediante el comando `az login`. Establezca la variable de entorno `SUBSCRIPTION_ID` para almacenar el valor devuelto del campo `id` de la suscripción que quiere usar. 
-
-Establezca la suscripción que quiere usar para esta sesión.
-
-```azurecli-interactive
-az account set --subscription="${SUBSCRIPTION_ID}"
-```
-
-Consulte la cuenta para obtener los valores de los identificadores de suscripción e inquilino.
+Si tiene varias suscripciones a Azure, primero consulte su cuenta con [az account show](/cli/azure/account#az-account-show) para obtener una lista de valores de identificadores de suscripción e identificadores de inquilino:
 
 ```azurecli-interactive
 az account show --query "{subscriptionId:id, tenantId:tenantId}"
 ```
 
-A continuación, cree credenciales separadas para Terraform.
+Para utilizar una suscripción seleccionada, defina la suscripción para esta sesión con [az account set](/cli/azure/account#az-account-set). Establezca la variable de entorno `SUBSCRIPTION_ID` para almacenar el valor devuelto del campo `id` de la suscripción que quiere usar:
+
+```azurecli-interactive
+az account set --subscription="${SUBSCRIPTION_ID}"
+```
+
+Ahora puede crear una entidad de servicio para su uso con Terraform. Utilice[az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac) y defina el *ámbito* de la suscripción como se indica a continuación:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Se devuelven el valor de appId, password, sp_name y tenant. Anote el valor de appId y password.
-
-Para probar sus credenciales, abra un nuevo shell y ejecute el comando siguiente, con los valores devueltos para sp_name, password y tenant:
-
-```azurecli-interactive
-az login --service-principal -u SP_NAME -p PASSWORD --tenant TENANT
-az vm list-sizes --location westus
-```
+Se devuelven el valor de *appId*, *password*, *sp_name* y *tenant*. Anote el valor de *appId* y *password*.
 
 ## <a name="configure-terraform-environment-variables"></a>Configuración de las variables de entorno de Terraform
 
-Configure Terraform para usar el id. de inquilino, el id. de suscripción, el id. de cliente y el secreto de cliente de la entidad de servicio al crear recursos de Azure. También puede establecer el entorno si trabaja con una nube de Azure distinta de la pública. Establezca las siguientes variables de entorno, que los [módulos de Terraform de Azure](https://registry.terraform.io/modules/Azure) usarán automáticamente.
+Para configurar Terraform para que use la entidad de servicio de Azure AD, establezca las siguientes variables de entorno, que se usan por los [módulos de Terraform de Azure](https://registry.terraform.io/modules/Azure). También puede establecer el entorno si trabaja con una nube de Azure distinta de la pública.
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
@@ -89,7 +77,7 @@ Configure Terraform para usar el id. de inquilino, el id. de suscripción, el id
 - ARM_TENANT_ID
 - ARM_ENVIRONMENT
 
-Puede usar este script de shell de ejemplo para establecer esas variables:
+Puede usar el siguiente script de shell de ejemplo para establecer esas variables:
 
 ```bash
 #!/bin/sh
@@ -105,7 +93,7 @@ export ARM_ENVIRONMENT=public
 
 ## <a name="run-a-sample-script"></a>Ejecución de un script de ejemplo
 
-Cree un archivo `test.tf` en un directorio vacío y péguelo en el siguiente script. 
+Cree un archivo `test.tf` en un directorio vacío y péguelo en el siguiente script.
 
 ```tf
 provider "azurerm" {
@@ -116,17 +104,29 @@ resource "azurerm_resource_group" "rg" {
 }
 ```
 
-Guarde el archivo y, a continuación, ejecute `terraform init`. Este comando descarga los módulos de Azure necesarios para crear un grupo de recursos de Azure. Verá la salida siguiente:
+Guarde el archivo y, después, inicialice la implementación de Terraform. Este paso descarga los módulos de Azure necesarios para crear un grupo de recursos de Azure.
 
+```bash
+terraform init
 ```
+
+La salida es similar a la del ejemplo siguiente:
+
+```bash
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
 ```
 
-Obtenga una vista previa del script con `terraform plan` y, a continuación, cree el grupo de recursos `testResouceGroup` con `terraform apply`:
+Puede obtener una vista previa de las acciones que van a completar el script de Terraform con `terraform plan`. Cuando esté listo para crear el grupo de recursos, aplique el plan de Terraform de la forma siguiente:
 
+```bash
+terraform apply
 ```
+
+La salida es similar a la del ejemplo siguiente:
+
+```bash
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create
@@ -146,10 +146,9 @@ azurerm_resource_group.rg: Creating...
 azurerm_resource_group.rg: Creation complete after 1s
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Ha instalado Terraform y configurado las credenciales de Azure para poder iniciar la implementación de la infraestructura en su suscripción de Azure. A continuación, ha probado la instalación mediante la creación de un grupo de recursos de Azure vacío.
+En este artículo, ha instalado Terraform o ha utilizado Cloud Shell para configurar las credenciales de Azure y comenzar a crear recursos en su suscripción a Azure. Para crear una implementación más completa de Terraform en Azure, consulte el artículo siguiente:
 
 > [!div class="nextstepaction"]
 > [Crear una máquina virtual de Azure con Terraform](terraform-create-complete-vm.md)
-

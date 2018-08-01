@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: fbf713b2d52469ae12fc284e0a3d7e3bc369daeb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f21f33678b8cf09d9dbd8966d42b1a5ebac9ffb
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620510"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224659"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformación de datos mediante la ejecución de blocs de notas de Databricks
 
@@ -43,7 +43,12 @@ Esta es la definición de JSON de ejemplo de una actividad Notebook de Databrick
             "baseParameters": {
                 "inputpath": "input/folder1/",
                 "outputpath": "output/"
-            }
+            },
+            "libraries": [
+                {
+                "jar": "dbfs:/docs/library.jar"
+                }
+            ]
         }
     }
 }
@@ -55,9 +60,63 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 |Propiedad|DESCRIPCIÓN|Obligatorio|
 |---|---|---|
-|Nombre|Nombre de la actividad en la canalización.|Sí|
+|Nombre|Nombre de la actividad en la canalización.|SÍ|
 |Descripción|Texto que describe para qué se usa la actividad.|Sin |
-|Tipo|Para la actividad Notebook de Databricks, el tipo de actividad es DatabricksNotebook.|Sí|
-|linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta el bloc de notas de Databricks. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).|Sí|
-|notebookPath|La ruta de acceso absoluta del cuaderno que se va a ejecutar en el área de trabajo de Databricks. Esta ruta de acceso debe comenzar con una barra diagonal.|Sí|
+|Tipo|Para la actividad Notebook de Databricks, el tipo de actividad es DatabricksNotebook.|SÍ|
+|linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta el bloc de notas de Databricks. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).|SÍ|
+|notebookPath|La ruta de acceso absoluta del cuaderno que se va a ejecutar en el área de trabajo de Databricks. Esta ruta de acceso debe comenzar con una barra diagonal.|SÍ|
 |baseParameters|Una matriz de pares de clave y valor. Se pueden utilizar parámetros base para cada ejecución de actividad. Si el cuaderno toma un parámetro que no se ha especificado, se usará el valor predeterminado del cuaderno. Encuentre más información sobre los parámetros en los [cuadernos de Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Sin |
+|libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una matriz de \<cadena, objeto>.|Sin |
+
+
+## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas compatibles con las actividades de Databricks
+
+En la definición de la actividad de Databricks anterior, se especifican estos tipos de biblioteca: *jar*, *egg*, *maven*, *pypi* y *cran*.
+
+```json
+{
+    "libraries": [
+        {
+            "jar": "dbfs:/mnt/libraries/library.jar"
+        },
+        {
+            "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+        {
+            "maven": {
+                "coordinates": "org.jsoup:jsoup:1.7.2",
+                "exclusions": [ "slf4j:slf4j" ]
+            }
+        },
+        {
+            "pypi": {
+                "package": "simplejson",
+                "repo": "http://my-pypi-mirror.com"
+            }
+        },
+        {
+            "cran": {
+                "package": "ada",
+                "repo": "http://cran.us.r-project.org"
+            }
+        }
+    ]
+}
+
+```
+
+Para más detalles, consulte la [documentación de Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) sobre los tipos de bibliotecas.
+
+## <a name="how-to-upload-a-library-in-databricks"></a>Carga de una biblioteca en Databricks
+
+#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Uso de la interfaz de usuario del área de trabajo de Databricks](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+
+Para obtener la ruta de acceso de dbfs de la biblioteca que se agregó mediante la interfaz de usuario, puede usar la [CLI de Databricks (instalación)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+
+Habitualmente, las bibliotecas de Jar se almacenan en dbfs:/FileStore/jars mientras se usa la interfaz de usuario. Puede enumerar todo a través de la CLI: *databricks fs ls dbfs:/FileStore/jars*.
+
+
+
+#### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Copia de la biblioteca mediante la CLI de Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+
+Ejemplo: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*

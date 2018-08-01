@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902996"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248103"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
 Azure Monitor proporciona una sola canalización para acceder a todos los datos de supervisión del entorno de Azure, lo que permite configurar fácilmente una herramienta de asociado de Administración de eventos e información de seguridad y de supervisión que consuman los datos. Este artículo le guía a través de la configuración de distintos niveles de datos en el entorno de Azure para enviarlos a un único espacio de nombres de Event Hubs o centro de eventos, donde una herramienta externa los pueda recopilar.
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>¿Qué datos puedo enviar a un centro de eventos? 
 
@@ -27,8 +29,9 @@ En el entorno de Azure hay varios "niveles" de datos de supervisión, cuyo méto
   - Mediante la instrumentación del código con un SDK como el [SDK de Application Insights](../application-insights/app-insights-overview.md).
   - Mediante la ejecución de un agente de supervisión que escucha los registros de aplicaciones nuevos en la máquina donde se ejecuta la aplicación, como el [agente de Azure Diagnostics para Windows](./azure-diagnostics.md) o el [agente de Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md).
 - **Datos de supervisión de sistema operativo invitado:** datos sobre el sistema operativo en el que se ejecuta la aplicación. Ejemplos de datos de supervisión de sistema operativo invitado serían los syslog de Linux o los eventos de sistema de Windows. Para recopilar este tipo de datos, debe instalar un agente como el [agente de Azure Diagnostics para Windows](./azure-diagnostics.md) o el [agente de Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md).
-- **Datos de supervisión de recursos de Azure:** datos acerca del funcionamiento de un recurso de Azure. Para algunos tipos de recursos de Azure, como las máquinas virtuales, hay un sistema operativo invitado y aplicaciones que supervisan el interior de ese servicio de Azure. Para otros recursos de Azure, como los grupos de seguridad de red, los datos de supervisión de recursos son el nivel más alto de datos disponible (porque no hay ningún sistema operativo invitado ni aplicación que se ejecute en esos recursos). Estos datos se pueden recopilar con la [configuración de diagnóstico de recursos](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-- **Datos de supervisión de la plataforma Azure:** datos acerca del funcionamiento y la administración de una suscripción o un inquilino de Azure, y datos sobre el estado y el funcionamiento de Azure en sí. El [registro de actividad](./monitoring-overview-activity-logs.md), incluidos los datos de estado del servicio, y las auditorías de Active Directory son ejemplos de datos de supervisión de la plataforma. Estos datos se pueden recopilar también con la configuración de diagnóstico.
+- **Datos de supervisión de recursos de Azure:** datos acerca del funcionamiento de un recurso de Azure. Para algunos tipos de recursos de Azure, como las máquinas virtuales, hay un sistema operativo invitado y aplicaciones que supervisan el interior de ese servicio de Azure. Para otros recursos de Azure, como los grupos de seguridad de red, los datos de supervisión de recursos son el nivel más alto de datos disponible (porque no hay ningún sistema operativo invitado ni aplicación que se ejecute en esos recursos). Estos datos se pueden recopilar con la [configuración de diagnóstico de recursos](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Datos de supervisión de la suscripción de Azure:** datos sobre el funcionamiento y la administración de una suscripción de Azure, y datos sobre el estado y el funcionamiento de Azure. El [registro de actividad](./monitoring-overview-activity-logs.md) contiene la mayoría de los datos de supervisión de suscripciones, como los incidentes de estado del servicio y las auditorías de Azure Resource Manager. Puede recopilar estos datos mediante un perfil de registro.
+- **Datos de supervisión de inquilino de Azure:** datos sobre la operación de los servicios de Azure a nivel de inquilino, como Azure Active Directory. Las auditorías y los inicios de sesión de Azure Active Directory son ejemplos de datos de supervisión de inquilino. Estos datos se pueden recopilar con la configuración de diagnóstico de inquilino.
 
 Pueden enviarse datos desde cualquier nivel a un centro de eventos, donde pueden extraerse en una herramienta asociada. En las secciones siguientes se describe cómo configurar los datos de cada nivel para el flujo de datos a un centro de eventos. En los pasos se presupone que ya tiene recursos en ese nivel que desea supervisar.
 
@@ -45,11 +48,17 @@ Antes de empezar, debe [crear un espacio de nombres de Event Hubs y un centro de
 
 Consulte también [Preguntas frecuentes sobre Event Hubs](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>¿Cómo configuro los datos de supervisión de la plataforma Azure para el flujo a un centro de eventos?
+## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>¿Cómo configuro los datos de supervisión de inquilino de Azure para el flujo a un centro de eventos?
 
-Los datos de supervisión de la plataforma Azure proceden de dos orígenes principales:
-1. El [registro de actividad de Azure](./monitoring-overview-activity-logs.md), que contiene las operaciones de creación, actualización y eliminación de Resource Manager, los cambios de [estado del servicio Azure](../service-health/service-health-overview.md) que puede afectar a los recursos de la suscripción, las transiciones de [estado de los recursos](../service-health/resource-health-overview.md) y otros muchos tipos de eventos de nivel de suscripción. [En este artículo se detallan todas las categorías de eventos que aparecen en el registro de actividad de Azure](./monitoring-activity-log-schema.md).
-2. [Informes de Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), que contienen el historial de inicio de sesión y la traza de auditoría de los cambios realizados en un inquilino determinado. No, aún es posible el flujo datos de Azure Active Directory a un centro de eventos.
+Los datos de supervisión de inquilino actualmente solo están disponibles para Azure Active Directory. Puede usar los datos de [informes de Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), que contienen el historial de la actividad de inicio de sesión y la traza de auditoría de los cambios realizados en un inquilino determinado.
+
+### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Flujo de datos de Azure Active Directory a un centro de eventos
+
+Para enviar datos desde el registro de Azure Active Directory en un espacio de nombres de Event Hubs, configure los valores de diagnóstico de inquilino en su inquilino de AAD. [Siga esta guía](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) para configurar los valores de diagnóstico de inquilino.
+
+## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>¿Cómo configuro los datos de supervisión de suscripción de Azure para el flujo a un centro de eventos?
+
+Los datos de supervisión de la suscripción de Azure están disponibles en el [registro de actividad de Azure](./monitoring-overview-activity-logs.md). Este registro contiene las operaciones de creación, actualización y eliminación de Resource Manager, los cambios de [estado del servicio Azure](../service-health/service-health-overview.md) que puede afectar a los recursos de la suscripción, las transiciones de [estado de los recursos](../service-health/resource-health-overview.md) y otros muchos tipos de eventos de nivel de suscripción. [En este artículo se detallan todas las categorías de eventos que aparecen en el registro de actividad de Azure](./monitoring-activity-log-schema.md).
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Flujo de datos de registro de actividad de Azure a un centro de eventos
 

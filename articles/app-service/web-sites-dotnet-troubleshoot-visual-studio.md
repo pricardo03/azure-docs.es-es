@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30266145"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224116"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación web en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -39,7 +39,7 @@ Aprenderá a realizar los siguientes procedimientos:
 Si tiene Visual Studio Ultimate, también puede usar [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) para la depuración. IntelliTrace no se trata en este tutorial.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación web de Azure que configuró en [Introducción a Azure y ASP.NET][GetStarted]. Para las secciones WebJobs, necesitará la aplicación que cree en [Introducción al SDK de Azure WebJobs][GetStartedWJ].
+Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación web de Azure que configuró en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet-framework.md). Para las secciones WebJobs, necesitará la aplicación que cree en [Introducción al SDK de Azure WebJobs][GetStartedWJ].
 
 Los ejemplos de código que aparecen en este tutorial son para una aplicación web C# MVC, pero los procedimientos de solución de problemas son los mismos para las aplicaciones de Web Forms y Visual Basic.
 
@@ -61,7 +61,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 
     Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administración de cuentas, suscripciones y roles administrativos](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. En el **Explorador de servidores**, expanda **Azure** y, a continuación, **App Service**.
-3. Expanda el grupo de recursos que incluye la aplicación web que creó en [Creación de una aplicación web ASP.NET en Azure][app-service-web-get-started-dotnet.md] y, a continuación, haga clic con el botón derecho en el nodo de la aplicación web en **Ver configuración**.
+3. Expanda el grupo de recursos que incluye la aplicación web que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](app-service-web-get-started-dotnet-framework.md) y luego haga clic con el botón derecho en el nodo de la aplicación web y haga clic en **Ver configuración**.
 
     ![Ver configuración en el Explorador de servidores](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -118,9 +118,9 @@ Si el mensaje de error detallado no proporciona información suficiente y no es 
 
 La depuración remota no funciona en ediciones Express de Visual Studio.
 
-En esta sección se muestra cómo realizar una depuración remota mediante el proyecto creado en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet.md).
+En esta sección se muestra cómo realizar una depuración remota mediante el proyecto creado en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet-framework.md).
 
-1. Abra el proyecto web que creó en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet.md).
+1. Abra el proyecto web que creó en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet-framework.md).
 
 2. Abra *Controllers\HomeController.cs*.
 
@@ -138,7 +138,7 @@ public ActionResult About()
 
 5. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, luego, haga clic en **Publicar**.
 
-6. En la lista desplegable **Perfil**, seleccione el mismo perfil que usó en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet.md). A continuación, haga clic en Configuración.
+6. En la lista desplegable **Perfil**, seleccione el mismo perfil que usó en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet-framework.md). A continuación, haga clic en Configuración.
 
 7. En el cuadro de diálogo **Publicar**, haga clic en la pestaña **Configuración** y, a continuación, cambie la **Configuración** a **Depurar** y, luego, haga clic en **Guardar**.
 
@@ -273,7 +273,7 @@ Los registros se escriben en archivos en una carpeta *LogFiles* en el sistema de
 ## <a name="apptracelogs"></a>Creación y visualización de registros de seguimiento de aplicación
 En esta sección, realizará las siguientes tareas:
 
-* Agregue instrucciones de seguimiento para el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
+* Agregue instrucciones de seguimiento para el proyecto web que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](app-service-web-get-started-dotnet-framework.md).
 * Ver los registros cuando ejecute localmente el proyecto.
 * Ver los registros a medida que los genera la aplicación que se ejecuta en Azure.
 

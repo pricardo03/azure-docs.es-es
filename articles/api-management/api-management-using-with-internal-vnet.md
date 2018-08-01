@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151236"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145747"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -35,7 +35,7 @@ Si utiliza API Management en modo interno, puede conseguir los siguientes escena
 * Puede administrar las API hospedadas en varias ubicaciones geográficas mediante un único punto de conexión de puerta de enlace. 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -61,6 +61,9 @@ En las redes virtuales internas, el servicio API Management se hospeda detrás d
 Una vez finalizada correctamente la implementación, debería ver la dirección IP virtual interna del servicio en el panel.
 
 ![Panel de API Management con una red virtual interna configurada][api-management-internal-vnet-dashboard]
+
+> [!NOTE]
+> La consola de prueba disponible en Azure Portal no funcionará con un servicio implementado en una red virtual **interna**, ya que la dirección Url de puerta de enlace no está registrada en el DNS público. En su lugar, debe usar la consola de prueba que se ofrece en el **Portal para desarrolladores**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Habilitación de una conexión de red virtual mediante cmdlets de PowerShell
 También puede habilitar la conectividad de la red virtual utilizando cmdlets de PowerShell.

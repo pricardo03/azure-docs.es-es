@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126667"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144999"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de Restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -97,7 +97,7 @@ Un usuario de ejemplo se encuentra en la red de Contoso, pero está intentando a
 
 Mientras la configuración de Restricciones de inquilino se realice en la infraestructura del proxy corporativo, los administradores podrán acceder a los informes de Restricciones de inquilino directamente en Azure Portal. Para ver los informes, vaya a la página de introducción de Azure Active Directory y mire en "Otras funcionalidades".
 
-El administrador del inquilino especificado como el inquilino Restricted-Access-Context puede usar este informe para ver todos los inicios de sesión bloqueados debido a la directiva de Restricciones de inquilino, incluida la identidad que se utiliza y el identificador de directorio de destino.
+El administrador del inquilino especificado como inquilino Restricted-Access-Context puede usar este informe para ver todos los inicios de sesión bloqueados debido a la directiva de Restricciones de inquilino, incluida la identidad que se utiliza y el identificador de directorio de destino. Los inicios de sesión se incluyen si el inquilino que establece la restricción es el inquilino del usuario o el inquilino del recurso para el inicio de sesión.
 
 ![Uso de Azure Portal para ver los intentos de inicio de sesión restringidos](./media/tenant-restrictions/portal-report.png)
 

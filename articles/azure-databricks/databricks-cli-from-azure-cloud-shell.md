@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: c20ad02f962fbee22bb16653c5eab351d9f3de17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ea4ebbd95237b50054fb0e344f260120d597ab5
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598732"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225241"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Uso de la CLI de Databricks desde Azure Cloud Shell
 
 Aprenda a usar la CLI Databricks desde Azure Cloud Shell para realizar operaciones en Databricks.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un área de trabajo y un clúster de Azure Databricks. Para obtener instrucciones, consulte [Introducción a Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
@@ -36,13 +36,13 @@ Aprenda a usar la CLI Databricks desde Azure Cloud Shell para realizar operacion
  
 2. En la esquina superior derecha, haga clic en el icono **Cloud Shell**.
 
-   ![Iniciar Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Iniciar ODBC desde Excel")
+   ![Iniciar Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Iniciar Azure Cloud Shell")
 
 3. Asegúrese de selecciona **Bash** como entorno de Cloud Shell. Puede hacerlo en la lista desplegable, como se muestra en la captura de pantalla siguiente.
 
-   ![Iniciar Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Iniciar ODBC desde Excel") 
+   ![Seleccione Bash como entorno de Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Seleccionar Bash") 
 
-4. Cree un entorno virtual en el que pueda instalar la CLI de Databtricks. En el siguiente fragmento de código, se crea un entorno virtual llamado `databrickscli`.
+4. Cree un entorno virtual en el que pueda instalar la CLI de Databricks. En el siguiente fragmento de código, se crea un entorno virtual llamado `databrickscli`.
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 
@@ -60,11 +60,9 @@ Aprenda a usar la CLI Databricks desde Azure Cloud Shell para realizar operacion
 
     Recibirá las siguientes solicitudes:
 
-    * Se le solicita que acceda al host de Databricks. Escriba el valor con el formato `https://eastus2.azuredatabricks.net`. En este caso, **Este de EE. UU. 2** es la región de Azure en la que creó el área de trabajo de Azure Databricks.
+    * En primer lugar, se le solicita que acceda al host de Databricks. Escriba el valor con el formato `https://eastus2.azuredatabricks.net`. En este caso, **Este de EE. UU. 2** es la región de Azure en la que creó el área de trabajo de Azure Databricks.
 
-    * Se le solicita que escriba un nombre de usuario. Escriba **token**.
-
-    * Por último, se le pide que escriba la contraseña. Escriba el token que creó anteriormente.
+    * A continuación, se le solicita que escriba un token. Escriba el token que creó anteriormente.
 
 Una vez completados estos pasos, puede empezar a usar la CLI de Databricks desde Azure Cloud Shell.
 

@@ -10,18 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ffd13f5077ca91537d8397c1940521f475133a03
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096516"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248879"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
 El controlador ODBC de Azure Cosmos DB le permite conectarse a Azure Cosmos DB mediante herramientas de análisis de BI, como SQL Server Integration Services, Power BI Desktop y Tableau de forma que pueda analizar y crear visualizaciones de los datos de Azure Cosmos DB en esas soluciones.
 
 El controlador ODBC de Azure Cosmos DB es compatible con ODBC 3.8 y admite la sintaxis de ANSI SQL-92. El controlador ofrece características enriquecidas que le ayudarán a volver a normalizar datos en Azure Cosmos DB. Mediante el controlador, puede representar datos en Azure Cosmos DB como tablas y vistas. El controlador permite realizar operaciones de SQL en las tablas y vistas, así como agrupar por consultas, inserciones, actualizaciones y eliminaciones.
+
+> [!NOTE]
+> La conexión a Azure Cosmos DB con el controlador ODBC actualmente solo se admite para cuentas de API de SQL de Azure Cosmos DB.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>¿Por qué es necesario normalizar los datos?
 Azure Cosmos DB es una base de datos sin esquema, por lo que habilita el desarrollo rápido de aplicaciones al permitir que estas iteren sobre la marcha su modelo de datos sin limitarlos a un esquema estricto. Una sola base de datos de Azure Cosmos DB puede contener documentos JSON de varias estructuras. Esto es ideal para el desarrollo rápido de aplicaciones, pero cuando desea analizar y crear informes de los datos mediante análisis de datos y herramientas de BI, suele ser normal eliminar el formato de los datos y que estos se ajusten a un esquema específico.

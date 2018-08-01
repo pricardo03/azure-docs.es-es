@@ -1,31 +1,31 @@
 ---
-title: 'Políticas del autoservicio de restablecimiento de contraseña: Azure Active Directory'
+title: Directivas de autoservicio de restablecimiento de contraseña de Azure AD
 description: Opciones de directiva de autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054767"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162055"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
 En este artículo se describen las directivas de contraseña y los requisitos de complejidad asociados a las cuentas de usuario almacenadas en el inquilino de Azure Active Directory (Azure AD).
 
-## <a name="administrator-password-policy-differences"></a>Diferencias entre directivas de contraseña del administrador
+## <a name="administrator-reset-policy-differences"></a>Diferencias entre directivas de restablecimiento de administrador
 
-Microsoft aplica una directiva segura de restablecimiento de contraseña de *dos puertas* predeterminada para cualquier rol de administrador de Azure. 
+**Microsoft aplica una directiva de restablecimiento de contraseña de *dos puertas* predeterminada y segura para cualquier rol de administrador de Azure**: esta directiva puede ser diferente de la que haya definido para los usuarios y no se puede cambiar. Siempre debe probar la funcionalidad de restablecimiento de contraseña como usuario sin los roles de administrador de Azure asignados.
 
-Con una directiva de dos puertas, los administradores no tienen posibilidad de usar preguntas de seguridad.
+Con una directiva de dos puertas, los **administradores no tienen posibilidad de usar preguntas de seguridad**.
 
  Una directiva de dos puertas requiere dos elementos de datos de autenticación, como una dirección de correo electrónico *y* un número de teléfono. Se aplica una directiva de dos puertas en las siguientes circunstancias:
 
@@ -49,7 +49,7 @@ Con una directiva de dos puertas, los administradores no tienen posibilidad de u
   * Administrador del servicio de proxy de la aplicación
   * Administrador de servicios de CRM
   * Administrador de servicios de Power BI
-  
+
 * Una vez transcurridos 30 días en una versión de prueba
 
   o
@@ -61,18 +61,18 @@ Con una directiva de dos puertas, los administradores no tienen posibilidad de u
 * Azure AD Connect sincroniza identidades desde el directorio local
 
 ### <a name="exceptions"></a>Excepciones
+
 Una directiva de una puerta requiere un elemento de datos de autenticación, como una dirección de correo electrónico *o* un número de teléfono. Se aplica una directiva de una puerta en las siguientes circunstancias:
 
 * Está dentro de los primeros 30 días de una suscripción de prueba
 
   o
 
-* No hay un dominio individualizado presente (*.onmicrosoft.com) 
+* No hay un dominio individualizado presente (*.onmicrosoft.com)
 
-  y 
+  y
 
   Azure AD Connect no sincroniza identidades
-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Directivas de UserPrincipalName que se aplican a todas las cuentas de usuario
 
@@ -109,13 +109,13 @@ Esta guía se aplica a otros proveedores (como Intune y Office 365) que también
 > [!NOTE]
 > Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para obtener más información sobre la sincronización de directorios, vea el artículo sobre cómo [conectar AD con Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Establecer o comprobar directivas de contraseña mediante PowerShell
 
 Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Una vez instalado, puede realizar los pasos siguientes para configurar cada campo.
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
+### <a name="check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
+
 1. Conéctese a Windows PowerShell con sus credenciales de administrador de la compañía.
 2. Ejecute uno de los siguientes comandos:
 

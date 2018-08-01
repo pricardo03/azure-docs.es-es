@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 62647620f6bbeadecfa778f91855ef1eee5240dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0bdedeb7338d30f448d4c6a6a991365cbb54c1ed
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634287"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213605"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envío de mensajes de nube a dispositivo con IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -49,7 +49,7 @@ Para completar este tutorial, necesitará lo siguiente:
 ## <a name="simulate-an-iot-device"></a>Simulación de un dispositivo IoT
 En esta sección se simula un dispositivo iOS que ejecuta una aplicación con Swift para recibir mensajes de la nube al dispositivo desde IoT Hub. 
 
-Este es el dispositivo de ejemplo que se creó en el artículo [Send telemetry from a device to an IoT hub] (Envío de telemetría de un dispositivo a IoT Hub). Si ya lo tiene en ejecución, puede omitir esta sección.
+Este es el dispositivo de ejemplo que se creó en el artículo [Send telemetry from a device to an IoT hub]. Si ya lo tiene en ejecución, puede omitir esta sección.
 
 ### <a name="install-cocoapods"></a>Instalación de CocoaPods
 

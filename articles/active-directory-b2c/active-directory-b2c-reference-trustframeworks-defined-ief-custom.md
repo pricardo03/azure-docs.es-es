@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4eee1f2c9ca37227ca2cea0ef5e2ff25f6fad828
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443416"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185788"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir marcos de confianza con el marco de experiencia de identidad de Azure AD B2C
 
@@ -89,7 +89,7 @@ En términos de implementación, la especificación de TF consta de un conjunto 
 
 - Los metadatos para establecer comunicaciones de red entre los participantes. Estos metadatos, junto con los perfiles técnicos, se usan durante una transacción para asociar la interoperabilidad en la red entre el usuario de confianza y otros participantes de la comunidad.
 
-- La conversión de protocolo, si la hay (por ejemplo, SAML, OAuth2, WS-Federation y OpenID Connect).
+- La conversión de protocolo, si la hay (por ejemplo, SAML 2.0, OAuth2, WS-Federation y OpenID Connect).
 
 - Los requisitos de autenticación.
 

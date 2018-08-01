@@ -13,36 +13,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/24/2018
 ms.author: celested
-ms.reviewer: nacanuma
+ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c782429ac2d8ee030ca8b589b4241242c7b101d6
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 49561434688806b3959824f87d1c81e07d7a7559
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156507"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238712"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
 
-Azure Active Directory permite que una aplicación use sus propias credenciales para la autenticación. Por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) y el flujo de On-Behalf-Of ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
-Un formato de credencial que se puede utilizar es una aserción de JSON Web Token (JWT) firmada con un certificado que la aplicación posea.
+Azure Active Directory (Azure AD) permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 ([v1.0](active-directory-protocols-oauth-service-to-service.md) y [v2.0](active-directory-v2-protocols-oauth-client-creds.md)) y el flujo en nombre de ([v1.0](active-directory-protocols-oauth-on-behalf-of.md) y [v2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 
-## <a name="format-of-the-assertion"></a>Formato de la aserción
-Para calcular la aserción, es posible que desee utilizar una de las muchas bibliotecas de [JSON Web Token](https://jwt.ms/) en el idioma que prefiera. La información que lleva el token es:
+Un formato de credencial que una aplicación puede utilizar para autenticación es una aserción de JSON Web Token (JWT) firmada con un certificado que la aplicación posea.
 
-#### <a name="header"></a>Encabezado
+## <a name="assertion-format"></a>Formato de aserción
+Para calcular la aserción, puede usar una de las muchas bibliotecas de [JSON Web Token](https://jwt.ms/) en el idioma que prefiera. La información que lleva el token es la siguiente:
 
-| . |  Comentario |
+### <a name="header"></a>Encabezado
+
+| Parámetro |  Comentario |
 | --- | --- |
 | `alg` | Debe ser **RS256** |
 | `typ` | Debe ser **JWT** |
 | `x5t` | Debe ser la huella digital SHA-1 del certificado X.509 |
 
-#### <a name="claims-payload"></a>Notificaciones (carga útil)
+### <a name="claims-payload"></a>Notificaciones (carga útil)
 
-| . |  Comentario |
+| Parámetro |  Comentarios |
 | --- | --- |
 | `aud` | Público: debe ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Fecha de expiración: la fecha en que el token expira. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|
@@ -51,11 +52,11 @@ Para calcular la aserción, es posible que desee utilizar una de las muchas bibl
 | `nbf` | No antes de: fecha antes de la cual el token no se puede usar. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que se emitió el token. |
 | `sub` | Asunto: al igual que para `iss`, debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
 
-#### <a name="signature"></a>Firma
+### <a name="signature"></a>Firma
 
 La firma se calcula aplicando el certificado como se describe en la [especificación RFC7519 de JSON Web Token](https://tools.ietf.org/html/rfc7519)
 
-### <a name="example-of-a-decoded-jwt-assertion"></a>Ejemplo de una aserción de JWT descodificada
+## <a name="example-of-a-decoded-jwt-assertion"></a>Ejemplo de una aserción de JWT descodificada
 
 ```
 {
@@ -77,24 +78,32 @@ La firma se calcula aplicando el certificado como se describe en la [especificac
 
 ```
 
-### <a name="example-of-an-encoded-jwt-assertion"></a>Ejemplo de una aserción de JWT codificada
+## <a name="example-of-an-encoded-jwt-assertion"></a>Ejemplo de una aserción de JWT codificada
 
-La cadena siguiente es un ejemplo de aserción codificada. Si observa detenidamente, verá tres secciones separadas por puntos (.).
-La primera sección codifica el encabezado, la segunda la carga útil y la última es la firma calculada con los certificados a partir del contenido de las primeras dos secciones.
+La cadena siguiente es un ejemplo de aserción codificada. Si observa detenidamente, verá tres secciones separadas por puntos (.):
+* La primera sección codifica el encabezado.
+* La segunda sección codifica la carga útil.
+* La última sección es la firma calculada con los certificados a partir del contenido de las dos primeras secciones.
+
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-### <a name="register-your-certificate-with-azure-ad"></a>Registro del certificado con Azure AD
+## <a name="register-your-certificate-with-azure-ad"></a>Registro del certificado con Azure AD
 
 Puede asociar las credenciales del certificado con la aplicación de cliente en Azure AD a través de Azure Portal mediante cualquiera de los métodos siguientes:
 
-**Cargar el archivo de certificado**
+### <a name="uploading-the-certificate-file"></a>Cargar el archivo de certificado
 
-En el registro de aplicación de Azure para la aplicación cliente, haga clic en **Configuración** y en **Claves** y, a continuación, haga clic en **Cargar clave pública**. Seleccione el archivo de certificado que quiera cargar y haga clic en **Guardar**. Una vez guardado, el certificado se carga y se muestra la huella digital, la fecha inicial y la caducidad. 
+En el registro de aplicación de Azure para la aplicación cliente:
+1. Seleccione **Configuración > Claves** y después seleccione **Cargar clave pública**. 
+2. Seleccione el archivo de certificado que quiera cargar.
+3. Seleccione **Guardar**. 
+   
+   Una vez guardado, el certificado se carga y se muestra la huella digital, la fecha inicial y los valores de expiración. 
 
-**Actualizar el manifiesto de aplicación**
+### <a name="updating-the-application-manifest"></a>Actualizar el manifiesto de aplicación
 
 Si tiene un certificado, debe calcular:
 
@@ -103,18 +112,25 @@ Si tiene un certificado, debe calcular:
 
 También debe proporcionar un GUID para identificar la clave en el manifiesto de la aplicación (`$keyId`).
 
-En el registro de aplicación de Azure para la aplicación cliente, abra el manifiesto de aplicación y reemplace la propiedad *keyCredentials* con la información del nuevo certificado usando el siguiente esquema:
+En el registro de aplicación de Azure para la aplicación cliente:
+1. Abra el manifiesto de aplicación.
+2. Reemplace la propiedad *keyCredentials* por la información del nuevo certificado con el siguiente esquema.
 
-```
-"keyCredentials": [
-    {
-        "customKeyIdentifier": "$base64Thumbprint",
-        "keyId": "$keyid",
-        "type": "AsymmetricX509Cert",
-        "usage": "Verify",
-        "value":  "$base64Value"
-    }
-]
-```
+   ```
+   "keyCredentials": [
+       {
+           "customKeyIdentifier": "$base64Thumbprint",
+           "keyId": "$keyid",
+           "type": "AsymmetricX509Cert",
+           "usage": "Verify",
+           "value":  "$base64Value"
+       }
+   ]
+   ```
+3. Guarde las modificaciones en el manifiesto de aplicación y cárguelo en Azure AD. 
 
-Guarde las modificaciones en el manifiesto de aplicación y cárguelo en Azure AD. La propiedad keyCredentials es multivalor, por lo que puede cargar varios certificados para una administración de claves más eficaz.
+   La propiedad `keyCredentials` es multivalor, por lo que puede cargar varios certificados para una administración de claves más eficaz.
+   
+## <a name="code-sample"></a>Código de ejemplo
+
+En el ejemplo de código de [Authenticating to Azure AD in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) (Autenticación en Azure AD en aplicaciones de demonio con certificado) se muestra cómo una aplicación utiliza sus propias credenciales para la autenticación. También se muestra cómo se puede [crear un certificado autofirmado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) mediante el comando de PowerShell `New-SelfSignedCertificate`. También puede usar los [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para crear los certificados, calcular la huella digital, etc.

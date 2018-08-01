@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8639cbb5c7ba86b4786f3d0b913d64bad59ad66
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917523"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259126"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -41,9 +41,15 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
     >[!NOTE]
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para más información.
 
+* **Use una topología compatible con Azure AD Connect**: asegúrese de que usa una de las topologías compatibles con Azure AD Connect que se describen [aquí](active-directory-aadconnect-topologies.md).
+
 * **Configure las credenciales del administrador de dominio**: debe tener credenciales de administrador de dominio para cada bosque de Active Directory que:
     * Sincronice en Azure AD mediante Azure AD Connect.
     * Contenga usuarios para los que desea habilitar el SSO de conexión directa.
+    
+* **Habilite la autenticación moderna**: para que esta característica funcione, es preciso que habilite la [autenticación moderna](https://aka.ms/modernauthga) en el inquilino.
+
+* **Use las versiones más recientes de los clientes de Office 365**: para obtener una experiencia de inicio de sesión silenciosa con clientes de Office 365 (Outlook, Word, Excel, etc.), necesita las versiones 16.0.8730.xxxx o superiores.
 
 ## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitación de la característica
 
@@ -77,21 +83,27 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 
-Para implantar la característica a los usuarios, debe agregar la siguiente dirección URL de Azure AD a la configuración de la zona de intranet de los usuarios mediante la directiva de grupo en Active Directory:
+Puede implementar el inicio de sesión único de conexión directa gradualmente a los usuarios con las instrucciones que se proporcionan a continuación. Para empezar, agregue la siguiente dirección URL de Azure AD a la configuración de la zona de la intranet de todos los usuarios, o de los seleccionados, mediante la directiva de grupo de Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
-
 
 Además, tiene que habilitar a una configuración de directiva de zona de intranet denominada **Permitir actualizaciones en la barra de estado a través de script** mediante la directiva de grupo. 
 
 >[!NOTE]
-> Las siguientes instrucciones solo funcionan en Internet Explorer y Google Chrome en Windows (si comparte el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer). Lea la sección siguiente para obtener instrucciones sobre cómo configurar Mozilla Firefox y Google Chrome en Mac.
+> Las siguientes instrucciones solo funcionan en Internet Explorer y Google Chrome en Windows (si comparte el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer). Lea la sección siguiente para obtener instrucciones acerca de cómo configurar Mozilla Firefox y Google Chrome en macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>¿Por qué es necesario modificar la configuración de zona de Intranet de los usuarios?
 
 De forma predeterminada, el explorador calcula automáticamente la zona correcta (Internet o intranet) de una dirección URL específica. Por ejemplo, "http://contoso/" se asigna a la zona de intranet, mientras que "http://intranet.contoso.com/" se asigna a la zona de Internet (porque la dirección URL contiene un punto). Los exploradores no enviarán vales de Kerberos a un punto de conexión en la nube, como la dirección URL de Azure AD, a menos que agregue explícitamente la dirección URL a la zona de intranet del explorador.
 
-### <a name="detailed-steps"></a>Pasos detallados
+Hay dos formas de modificar la configuración de zona de intranet de los usuarios:
+
+| Opción | Consideración de administrador | Experiencia del usuario |
+| --- | --- | --- |
+| Directiva de grupo | El administrador bloquea la edición de la configuración de la zona de intranet | Los usuarios no pueden modificar su propia configuración |
+| Preferencia de directiva de grupo |  El administrador permite la edición de la configuración de la zona de intranet | Los usuarios pueden modificar su propia configuración |
+
+### <a name="group-policy-option---detailed-steps"></a>Opción "Directiva de grupo": pasos detallados
 
 1. Abra la herramienta Editor de administración de directivas de grupo.
 2. Edite la directiva de grupo que se aplica a algunos o todos los usuarios. En este ejemplo se usa la **directiva de dominio predeterminada**.
@@ -123,6 +135,32 @@ De forma predeterminada, el explorador calcula automáticamente la zona correcta
 
     ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>Opción "Preferencia de directiva de grupo": pasos detallados
+
+1. Abra la herramienta Editor de administración de directivas de grupo.
+2. Edite la directiva de grupo que se aplica a algunos o todos los usuarios. En este ejemplo se usa la **directiva de dominio predeterminada**.
+3. Vaya a **Configuración de usuario** > **Preferencias** > **Configuración de Windows** > **Registro** > **Nuevo** > **Elemento del Registro**.
+
+    ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. Escriba los siguientes valores en los campos apropiados y haga clic en **Aceptar**.
+   - **Ruta de acceso de la clave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Nombre de valor**: ***https***.
+   - **Tipo de valor**: ***REG_DWORD***.
+   - **Información del valor**: ***00000001***.
+ 
+    ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. Vaya a **Configuración de usuario** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad** > **Zona de intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
+
+    ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. Habilite la configuración de directiva y después seleccione **Aceptar**.
+
+    ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>Consideraciones sobre el explorador
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (todas las plataformas)
@@ -134,15 +172,15 @@ Mozilla Firefox no realiza automáticamente la autenticación Kerberos. Cada usu
 4. Escriba https://autologon.microsoftazuread-sso.com en el campo.
 5. Seleccione **Aceptar** y después vuelva a abrir el explorador.
 
-#### <a name="safari-mac-os"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (macOS)
 
-Asegúrese de que la máquina que ejecuta Mac OS se ha unido a Azure AD. Para obtener instrucciones sobre la unión a Azure AD, consulte [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf) (Procedimientos recomendados para integrar OS X con Active Directory).
+Asegúrese de que la máquina que ejecuta macOS se ha unido a AD. Para obtener instrucciones sobre la unión a Azure AD, consulte [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf) (Procedimientos recomendados para integrar OS X con Active Directory).
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas las plataformas)
 
-Si reemplazó la configuración de las directivas [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) en su entorno, asegúrese de agregar también a estas directivas una dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com)).
+Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) en su entorno, asegúrese de agregar también la dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com)).
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome (solo Mac OS)
+#### <a name="google-chrome-macos-only"></a>Google Chrome (solo macOS)
 
 En el caso de Google Chrome para Mac OS y otras plataformas distintas de Windows, consulte la [lista de directivas de proyecto de Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obtener información sobre cómo incluir en la lista blanca la dirección URL de Azure AD para la autenticación integrada.
 
@@ -169,7 +207,12 @@ Para probar el escenario en el que el usuario no tiene que escribir ni su nombre
 
 ## <a name="step-5-roll-over-keys"></a>Paso 5: Sustitución de claves
 
-En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure AD) en todos los bosques de Active Directory en que se ha habilitado SSO de conexión directa. Para más información, vea [Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada](active-directory-aadconnect-sso-how-it-works.md). Para mejorar la seguridad, se recomienda sustituir periódicamente las claves de descifrado de Kerberos de estas cuentas de equipo. Para obtener instrucciones sobre cómo sustituir las claves, vea [Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure AD) en todos los bosques de Active Directory en que se ha habilitado SSO de conexión directa. Para más información, vea [Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada](active-directory-aadconnect-sso-how-it-works.md).
+
+>[!IMPORTANT]
+>Si se pierde la clave de descifrado de Kerberos de la cuenta de un equipo, se puede usar para generar vales de Kerberos para todos los usuarios de su bosque de AD. En ese caso, actores malintencionados pueden suplantar los inicios de sesión de Azure AD de los usuarios en peligro. Se recomienda encarecidamente cambiar las claves de descifrado de Kerberos de manera periódica (al menos cada 30 días).
+
+Para obtener instrucciones sobre cómo sustituir las claves, vea [Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Estamos trabajando en una funcionalidad para introducir el cambio automático de claves.
 
 >[!IMPORTANT]
 >No es necesario realizar este paso _inmediatamente_ después de haber habilitado la característica. Sustituya las claves de descifrado de Kerberos al menos cada treinta días.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441519"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144574"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 Este artículo le ayuda con la realización de varias acciones que maximizan las ventajas que proporciona Azure Security Center. La realización de estas acciones le permite obtener visibilidad en todas las suscripciones de Azure que están vinculadas al inquilino de Azure Active Directory y administrar de un modo eficaz la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad en varias suscripciones de forma agregada.
@@ -85,8 +85,20 @@ Un administrador de inquilino de Azure Active Directory no tiene acceso directo 
 
 5. Realice las tareas que debe realizar con privilegios de acceso elevados. Cuando haya terminado, establezca el conmutador de nuevo en **No**.
 
+### <a name="open-or-refresh-security-center"></a>Apertura o actualización de Security Center
+Cuando tenga privilegios de acceso elevados, abra o actualice Azure Security Center para comprobar que tiene visibilidad en todas las suscripciones del inquilino de Azure AD. 
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+2. En el selector de suscripciones, asegúrese de seleccionar todas las suscripciones que quiere ver en Security Center.
+    ![Captura de pantalla del selector de suscripciones](./media/security-center-management-groups/subscription-selector.png)
+1. Seleccione **Todos los servicios** en el menú principal de Azure y, a continuación, seleccione **Security Center**.
+2. En **Información general** hay un gráfico de cobertura de suscripciones. 
+    ![Captura de pantalla del gráfico de cobertura de suscripciones](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Haga clic en **Cobertura** para ver la lista de suscripciones incluidas. 
+    ![Captura de pantalla de la lista de cobertura de suscripciones](./media/security-center-management-groups/security-center-coverage.png)
+
 ### <a name="assign-rbac-roles-to-users"></a>Asignación de roles de RBAC a los usuarios
-Una vez que el administrador de inquilino tiene privilegios de acceso elevados, puede asignar un rol de RBAC a los usuarios correspondientes en el nivel de grupo de administración raíz. Se recomienda asignar el rol de [**Lector**](../role-based-access-control/built-in-roles.md#reader). Este rol es necesario para proporcionar visibilidad en el nivel de inquilino. El rol asignado se propagará automáticamente a todos los grupos de administración y todas las suscripciones del grupo de administración raíz. Para más información sobre los roles de RBAC, consulte [Roles disponibles](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
+Una vez que el administrador de inquilino tiene privilegios de acceso elevados, puede asignar un rol de RBAC a los usuarios correspondientes en el nivel de grupo de administración raíz. Se recomienda asignar el rol de [**Lector**](../role-based-access-control/built-in-roles.md#reader). Este rol es necesario para proporcionar visibilidad en el nivel de inquilino. El rol asignado se propagará automáticamente a todos los grupos de administración y todas las suscripciones del grupo de administración raíz. Para más información sobre los roles de RBAC, consulte [Roles disponibles](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
 
 1. Instale [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Ejecute los comandos siguientes: 
@@ -141,15 +153,7 @@ Después de asignar los roles de RBAC a los usuarios, el administrador de inquil
 
 4. Haga clic en **Guardar** para guardar la configuración.
 
-### <a name="open-or-refresh-security-center"></a>Apertura o actualización de Security Center
-Una vez asignados los roles de RBAC, abra o actualice Azure Security Center para comprobar que tiene visibilidad en todas las suscripciones del inquilino de Azure AD. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
-2. Seleccione **Todos los servicios** en el menú principal de Azure y, a continuación, seleccione **Security Center**.
-3. En **Información general** hay un gráfico de cobertura de suscripciones. 
-    ![Captura de pantalla del gráfico de cobertura de suscripciones](./media/security-center-management-groups/security-center-subscription-coverage.png)
-4. Haga clic en **Cobertura** para ver la lista de suscripciones incluidas. 
-    ![Captura de pantalla de la lista de cobertura de suscripciones](./media/security-center-management-groups/security-center-coverage.png)
 
 ## <a name="adding-subscriptions-to-a-management-groups"></a>Adición de suscripciones a un grupo de administración
 Puede agregar suscripciones al grupo de administración que ha creado. Estos pasos no son obligatorios para obtener visibilidad en todo el inquilino y administración de directivas globales y de acceso.

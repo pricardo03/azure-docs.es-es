@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a39e060708514fdca11a5d89858486b442a18309
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019594"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237050"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync
 
@@ -24,7 +24,7 @@ SQL Data Sync permite que los usuarios sincronicen datos entre instancias de Azu
 En este artículo se presenta una solución para replicar de manera automática los cambios de esquema en todos los puntos de conexión de SQL Data Sync.
 1. Esta solución usa un desencadenador DDL para realizar el seguimiento de cambios de esquema.
 2. El desencadenador inserta los comandos de cambios de esquema en una tabla de seguimiento.
-3. Esta tabla de seguimiento se sincroniza con todos los puntos de conexión mediante el servicio de sincronización de datos.
+3. Esta tabla de seguimiento se sincroniza con todos los puntos de conexión mediante el servicio Data Sync.
 4. Después de la inserción, los desencadenadores DML se usan para aplicar los cambios de esquema en los otros puntos de conexión.
 
 En este artículo se usa ALTER TABLE como ejemplo de un cambio de esquema, pero esta solución también sirve para otros tipos de cambios de esquema.

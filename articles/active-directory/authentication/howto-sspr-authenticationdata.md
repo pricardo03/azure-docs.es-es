@@ -4,18 +4,18 @@ description: Requisitos de datos del autoservicio de restablecimiento de contras
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044182"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159573"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final
 
@@ -47,20 +47,19 @@ Un administrador global puede establecer manualmente la información de contacto
 
 ![Contacto][Contact]
 
-Si se rellena el campo de teléfono y el teléfono móvil está habilitado en la directiva de SSPR, el usuario verá dicho número en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña. 
+Si se rellena el campo de teléfono y el teléfono móvil está habilitado en la directiva de SSPR, el usuario verá dicho número en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
 
 El campo de teléfono alternativo no se utiliza para restablecer la contraseña.
 
 Si se rellena el campo de correo electrónico y el correo electrónico está habilitado en la directiva de SSPR, el usuario verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
 
-Si se rellena el campo de correo electrónico alternativo y el correo electrónico está habilitado en la directiva de SSPR, el usuario **no** verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña, pero sí durante el flujo de trabajo de restablecimiento de la contraseña. 
-
+Si se rellena el campo de correo electrónico alternativo y el correo electrónico está habilitado en la directiva de SSPR, el usuario **no** verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña, pero sí durante el flujo de trabajo de restablecimiento de la contraseña.
 
 ## <a name="security-questions-and-answers"></a>Preguntas y respuestas de seguridad
 
-Las preguntas y respuestas de seguridad se almacenan de forma segura en el inquilino de Azure AD y los usuarios pueden tener acceso a ellas solo a través del [portal de registro de SSPR](https://aka.ms/ssprsetup). Los administradores no pueden ver ni modificar el contenido de las preguntas y respuestas de otros usuarios.
+Las preguntas y respuestas de seguridad se almacenan de forma segura en el inquilino de Azure AD y los usuarios pueden tener acceso a ellas solo a través del [portal de registro de SSPR](https://aka.ms/ssprsetup). Los administradores no pueden ver, establecer ni modificar el contenido de las preguntas y respuestas de otros usuarios.
 
-### <a name="what-happens-when-a-user-registers"></a>Qué ocurre cuando se registra un usuario
+## <a name="what-happens-when-a-user-registers"></a>Qué ocurre cuando se registra un usuario
 
 Cuando se registre un usuario, la página de registro establecerá los campos siguientes:
 

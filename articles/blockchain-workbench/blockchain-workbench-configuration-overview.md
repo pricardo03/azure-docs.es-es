@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/16/2018
+ms.date: 7/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 178c2c1d4f727241338d6d933cd5eecbbffe65bb
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 60a84609c6ec8c1733f0938c69ab683f01ecb975
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303821"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224541"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referencia sobre la configuración de Azure Blockchain Workbench
 
@@ -41,11 +41,11 @@ Una aplicación de cadena de bloques contiene metadatos de configuración, flujo
 
 | Campo | DESCRIPCIÓN | Obligatorio |
 |-------|-------------|:--------:|
-| ApplicationName | Nombre único de aplicación. El contrato inteligente correspondiente debe usar el mismo **ApplicationName** para la clase de contrato aplicable.  | Sí |
-| DisplayName | Nombre descriptivo para mostrar de la aplicación. | Sí |
+| ApplicationName | Nombre único de aplicación. El contrato inteligente correspondiente debe usar el mismo **ApplicationName** para la clase de contrato aplicable.  | SÍ |
+| DisplayName | Nombre descriptivo para mostrar de la aplicación. | SÍ |
 | DESCRIPCIÓN | Descripción de la aplicación. | Sin  |
-| ApplicationRoles | Colección de [ApplicationRoles](#application-roles). Roles de los usuarios que pueden actuar o participar en la aplicación.  | Sí |
-| Flujos de trabajo | Colección de [flujos de trabajo](#workflows). Cada flujo de trabajo actúa como una máquina de estados que controla el flujo de la lógica de negocios. | Sí |
+| ApplicationRoles | Colección de [ApplicationRoles](#application-roles). Roles de los usuarios que pueden actuar o participar en la aplicación.  | SÍ |
+| Flujos de trabajo | Colección de [flujos de trabajo](#workflows). Cada flujo de trabajo actúa como una máquina de estados que controla el flujo de la lógica de negocios. | SÍ |
 
 Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#configuration-file-example).
 
@@ -55,27 +55,28 @@ Se puede modelar la lógica de negocios de una aplicación como una máquina de 
 
 | Campo | DESCRIPCIÓN | Obligatorio |
 |-------|-------------|:--------:|
-| NOMBRE | Nombre único de flujo de trabajo. El contrato inteligente correspondiente debe usar el mismo **nombre** para la clase de contrato aplicable. | Sí |
-| DisplayName | Nombre descriptivo para mostrar del flujo de trabajo. | Sí |
+| NOMBRE | Nombre único de flujo de trabajo. El contrato inteligente correspondiente debe usar el mismo **nombre** para la clase de contrato aplicable. | SÍ |
+| DisplayName | Nombre descriptivo para mostrar del flujo de trabajo. | SÍ |
 | DESCRIPCIÓN | Descripción del flujo de trabajo. | Sin  |
-| Iniciadores | Colección de [ApplicationRoles](#application-roles). Roles que se asignan a los usuarios que están autorizados para crear contratos en el flujo de trabajo. | Sí |
-| StartState | Nombre del estado inicial del flujo de trabajo. | Sí |
-| Properties (Propiedades) | Colección de [identificadores](#identifiers). Representa los datos que se pueden leer fuera de la cadena o visualizar en una herramienta de experiencia del usuario. | Sí |
-| Constructor | Define los parámetros de entrada para la creación de una instancia del flujo de trabajo. | Sí |
-| Functions | Una colección de [funciones](#functions) que se pueden ejecutar en el flujo de trabajo. | Sí |
-| States | Una colección de [estados](#states) del flujo de trabajo. | Sí |
+| Iniciadores | Colección de [ApplicationRoles](#application-roles). Roles que se asignan a los usuarios que están autorizados para crear contratos en el flujo de trabajo. | SÍ |
+| StartState | Nombre del estado inicial del flujo de trabajo. | SÍ |
+| Properties (Propiedades) | Colección de [identificadores](#identifiers). Representa los datos que se pueden leer fuera de la cadena o visualizar en una herramienta de experiencia del usuario. | SÍ |
+| Constructor | Define los parámetros de entrada para la creación de una instancia del flujo de trabajo. | SÍ |
+| Functions | Una colección de [funciones](#functions) que se pueden ejecutar en el flujo de trabajo. | SÍ |
+| States | Una colección de [estados](#states) del flujo de trabajo. | SÍ |
 
 Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#configuration-file-example).
 
-## <a name="type"></a>Escriba
+## <a name="type"></a>type
 
 Tipos de datos admitidos.
 
-| Escriba | DESCRIPCIÓN |
+| type | DESCRIPCIÓN |
 |-------|-------------|
 | address  | Tipo de dirección de Blockchain, como *contratos* o *usuarios* |
 | booleano     | Tipo de datos booleano |
 | contrato | Dirección del contrato de tipo |
+| enum     | Conjunto enumerado de valores con nombre. Cuando se usa el tipo de enumeración, también especifica una lista de EnumValues. El valor está limitado a 255 caracteres. Los caracteres de valor válidos incluyen letras mayúsculas y minúsculas (A-z, a-z) y números (0-9). |
 | int      | Tipo de datos Integer |
 | money    | Tipo de datos Money |
 | state    | Estado de flujo de trabajo |
@@ -84,13 +85,71 @@ Tipos de datos admitidos.
 | Twitter en tiempo     | Tipo de datos Time |
 |`[ Application Role Name ]`| Cualquier nombre especificado en un rol de aplicación. Se limita solo a los usuarios de ese tipo de rol. |
 
+### <a name="example-configuration-of-type-string"></a>Configuración de ejemplo de tipo string
+
+``` json
+{
+  "Name": "description",
+  "Description": "Descriptive text",
+  "DisplayName": "Description",
+  "Type": {
+    "Name": "string"
+  }
+}
+```
+
+### <a name="example-configuration-of-type-enum"></a>Configuración de ejemplo de tipo enum
+
+``` json
+{
+  "Name": "PropertyType",
+  "DisplayName": "Property Type",
+  "Description": "The type of the property",
+  "Type": {
+    "Name": "enum",
+    "EnumValues": ["House", "Townhouse", "Condo", "Land"]
+  }
+}
+```
+
+#### <a name="using-enumeration-type-in-solidity"></a>Uso del tipo de enumeración en Solidity
+
+Una vez que se define una enumeración en la configuración, puede usar los tipos de enumeración en Solidity. Por ejemplo, puede definir una enumeración denominada PropertyTypeEnum.
+
+```
+enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
+```
+
+La lista de cadenas debe coincidir con la configuración y el contrato inteligente para que sean válidas y declaraciones coherentes en Blockchain Workbench.
+
+Ejemplo de asignación:
+
+```
+PropertyType = PropertyTypeEnum.Townhouse;
+```
+
+Ejemplo de parámetro de la función: 
+
+``` 
+function AssetTransfer(string description, uint256 price, PropertyTypeEnum propertyType) public
+{
+    InstanceOwner = msg.sender;
+    AskingPrice = price;
+    Description = description;
+    PropertyType = propertyType;
+    State = StateType.Active;
+    ContractCreated();
+}
+
+```
+
 ## <a name="constructor"></a>Constructor
 
 Define los parámetros de entrada de una instancia de un flujo de trabajo.
 
 | Campo | DESCRIPCIÓN | Obligatorio |
 |-------|-------------|:--------:|
-| Parámetros | Colección de [identificadores](#identifiers) necesarios para iniciar un contrato inteligente. | Sí |
+| Parámetros | Colección de [identificadores](#identifiers) necesarios para iniciar un contrato inteligente. | SÍ |
 
 ### <a name="constructor-example"></a>Ejemplo de constructor
 
@@ -123,10 +182,10 @@ Define las funciones que se pueden ejecutar en el flujo de trabajo.
 
 | Campo | DESCRIPCIÓN | Obligatorio |
 |-------|-------------|:--------:|
-| NOMBRE | El nombre único de la función. El contrato inteligente correspondiente debe usar el mismo **nombre** para la función aplicable. | Sí |
-| DisplayName | Nombre descriptivo para mostrar de la función. | Sí |
+| NOMBRE | El nombre único de la función. El contrato inteligente correspondiente debe usar el mismo **nombre** para la función aplicable. | SÍ |
+| DisplayName | Nombre descriptivo para mostrar de la función. | SÍ |
 | DESCRIPCIÓN | Descripción de la función | Sin  |
-| Parámetros | Colección de [identificadores](#identifiers) que se corresponden con los parámetros de la función. | Sí |
+| Parámetros | Colección de [identificadores](#identifiers) que se corresponden con los parámetros de la función. | SÍ |
 
 ### <a name="functions-example"></a>Ejemplo de funciones
 
@@ -171,11 +230,11 @@ Una colección de estados únicos dentro de un flujo de trabajo. Cada estado cap
 
 | Campo | DESCRIPCIÓN | Obligatorio |
 |-------|-------------|:--------:|
-| NOMBRE | Nombre único del estado. El contrato inteligente correspondiente debe usar el mismo **nombre** para el estado aplicable. | Sí |
-| DisplayName | Nombre descriptivo para mostrar del estado. | Sí |
+| NOMBRE | Nombre único del estado. El contrato inteligente correspondiente debe usar el mismo **nombre** para el estado aplicable. | SÍ |
+| DisplayName | Nombre descriptivo para mostrar del estado. | SÍ |
 | DESCRIPCIÓN | Descripción del estado. | Sin  |
-| PercentComplete | Un valor entero que se muestra en la interfaz de usuario de Blockchain Workbench para mostrar el progreso en el flujo de control de la lógica de negocios. | Sí |
-| Estilo | Sugerencia visual que indica si el estado representa un estado correcto o erróneo. Hay dos valores válidos: `Success` o `Failure`. | Sí |
+| PercentComplete | Un valor entero que se muestra en la interfaz de usuario de Blockchain Workbench para mostrar el progreso en el flujo de control de la lógica de negocios. | SÍ |
+| Estilo | Sugerencia visual que indica si el estado representa un estado correcto o erróneo. Hay dos valores válidos: `Success` o `Failure`. | SÍ |
 | Transiciones | Colección de las [transiciones](#transitions) disponibles desde el estado actual hasta el siguiente conjunto de estados. | Sin  |
 
 ### <a name="states-example"></a>Ejemplo de estados
@@ -242,10 +301,10 @@ Las acciones disponibles hasta el siguiente estado. Uno o varios roles de usuari
 |-------|-------------|:--------:|
 | AllowedRoles | Lista de roles de aplicación a los que se permite iniciar la transición. Todos los usuarios del rol especificado pueden llevar a cabo la acción. | Sin  |
 | AllowedInstanceRoles | Lista de roles de usuario que participan o de los cuales se especifica en el contrato inteligente que tienen permiso para iniciar la transición. Los roles de instancia se definen en **Propiedades** en los flujos de trabajo. AllowedInstanceRoles representa a un usuario que participa en una instancia de un contrato inteligente. AllowedInstanceRoles le ofrece la posibilidad de restringir la ejecución de una acción en un rol de usuario en una instancia del contrato.  Por ejemplo, puede que desee permitir solo al usuario que creó el contrato (InstanceOwner) poder terminarlo, en lugar de a todos los usuarios del tipo de rol (Propietario) si especificó ese rol en AllowedRoles. | Sin  |
-| DisplayName | Nombre descriptivo para mostrar de la transición. | Sí |
+| DisplayName | Nombre descriptivo para mostrar de la transición. | SÍ |
 | DESCRIPCIÓN | Descripción de la transición. | Sin  |
-| Función | El nombre de la función que va a iniciar la transición. | Sí |
-| NextStates | Una colección de los posibles estados siguientes después de una transición correcta. | Sí |
+| Función | El nombre de la función que va a iniciar la transición. | SÍ |
+| NextStates | Una colección de los posibles estados siguientes después de una transición correcta. | SÍ |
 
 ### <a name="transitions-example"></a>Ejemplo de transiciones
 
@@ -285,7 +344,7 @@ Los roles de aplicación definen un conjunto de roles que se pueden asignar a lo
 
 | Campo | DESCRIPCIÓN | Obligatorio |
 |-------|-------------|:--------:|
-| NOMBRE | El nombre único del rol de aplicación. El contrato inteligente correspondiente debe usar el mismo **nombre** para el rol aplicable. Se reservan los nombres de tipo base. No puede asignar un nombre a un rol de aplicación con el mismo nombre como [Tipo](#type)| Sí |
+| NOMBRE | El nombre único del rol de aplicación. El contrato inteligente correspondiente debe usar el mismo **nombre** para el rol aplicable. Se reservan los nombres de tipo base. No puede asignar un nombre a un rol de aplicación con el mismo nombre como [Tipo](#type)| SÍ |
 | DESCRIPCIÓN | Descripción del rol de aplicación. | Sin  |
 
 ### <a name="application-roles-example"></a>Ejemplo de roles de aplicación
@@ -308,8 +367,8 @@ Los identificadores representan una colección de información que se usa para d
 
 | Campo | DESCRIPCIÓN | Obligatorio |
 |-------|-------------|:--------:|
-| NOMBRE | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | Sí |
-| DisplayName | Nombre descriptivo para mostrar de la propiedad o parámetro. | Sí |
+| NOMBRE | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | SÍ |
+| DisplayName | Nombre descriptivo para mostrar de la propiedad o parámetro. | SÍ |
 | DESCRIPCIÓN | Descripción de la propiedad o parámetro. | Sin  |
 
 ### <a name="identifiers-example"></a>Ejemplo de identificadores

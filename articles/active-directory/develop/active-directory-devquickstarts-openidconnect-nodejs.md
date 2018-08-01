@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a98a23de3ea58af5c4a63958f554de1e002ec456
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969085"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248322"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introducción a la aplicación web de Node.js de Azure AD
 Aquí usamos Passport para:
@@ -62,7 +62,10 @@ La aplicación completa se ofrece también al final de este tutorial.
 
 6. Después de registrarse, Azure AD asigna a la aplicación un identificador de aplicación único. Necesita este valor en las secciones siguientes, así que cópielo de la página de la aplicación.
 7. En la página **Configuración** -> **Propiedades** de la aplicación, actualice el URI del identificador de la aplicación. El **URI de id. de aplicación** es un identificador único de su aplicación. La convención es usar el formato `https://<tenant-domain>/<app-name>`, por ejemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Para crear una clave secreta, siga el paso 4 de [Para agregar credenciales o permisos para tener acceso a las API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+8. En la página **Configuración** -> **Direcciones URL de respuesta** de la aplicación, agregue la dirección URL que se agregó en la dirección URL de inicio de sesión del paso 5 y haga clic en Guardar.
+
+9. Para crear una clave secreta, siga el paso 4 de [Para agregar credenciales o permisos para tener acceso a las API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Copie el valor de la clave de la aplicación. Este es el valor para el `clientSecret`, que necesitará para el **paso 3** a continuación. 
@@ -91,7 +94,7 @@ Aquí configuramos Express para usar el protocolo de autenticación OpenID Conne
 
   * `clientID` es el **identificador de aplicación** que se asigna a la aplicación en el portal de registro.
 
-  * `returnURL` es el **identificador URI de redireccionamiento** que escribió en el portal.
+  * `returnURL` es la **dirección URL de respuesta** que escribió en el portal.
 
   * `clientSecret` es el secreto generado en el portal.
 
@@ -382,7 +385,7 @@ Ahora `app.js` se habrá completado. Solo es preciso agregar las rutas y vistas 
     <% } %>
     ```
 
-5. Vamos a mejorar la apariencia, para lo que agregaremos un diseño. Cree la vista '/views/layout.ejs' en el directorio raíz.
+5. Vamos a mejorar la apariencia, para lo que agregaremos un diseño. Cree la vista `/views/layout.ejs` en el directorio raíz.
 
     ```HTML
 

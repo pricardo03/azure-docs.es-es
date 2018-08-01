@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 28a334cc43f8c14d2bf639b715e891cc6bb8c1cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cccbe2052336012b9ac98b3e28dc6481cbf9aefb
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214457"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144539"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Tutorial: integración de Azure Active Directory con Freshservice
 
@@ -33,7 +33,7 @@ La integración de Freshservice con Azure AD proporciona las siguientes ventajas
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Freshservice, se necesitan los siguientes elementos:
 
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
 4. En la sección **Certificado de firma de SAML**, copie el valor de **HUELLA DIGITAL** del certificado.
 
-    ![Configurar inicio de sesión único](./media/freshservice-tutorial/tutorial_freshservice_certificate.png) 
+    ![Configurar inicio de sesión único](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
 5. Haga clic en el botón **Guardar** .
 
@@ -149,17 +149,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. Seleccione **Inicio de sesión único de SAML**.
 
-    c. En el cuadro de texto **SAML Login URL** (Dirección URL de inicio de sesión de SAML), pegue el valor de **Dirección URL de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+    c. En el cuadro de texto **SAML Login URL** (Dirección URL de inicio de sesión de SAML), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal.
 
-    d. En el cuadro de texto **Logout URL** (Dirección URL de cierre de sesión), pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
+    d. En el cuadro de texto **URL de cierre de sesión**, pegue el valor de **Sign-Out URL** (Dirección URL de cierre de sesión) que copió de Azure Portal.
 
     e. En el cuadro de texto **Security Certificate Fingerprint** (Huella digital de certificado de seguridad), pegue el valor de **HUELLA DIGITAL** del certificado que haya copiado de Azure Portal.
 
     f. Haga clic en **Guardar**
-   
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".

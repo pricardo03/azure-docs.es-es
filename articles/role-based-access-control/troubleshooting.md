@@ -11,29 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437373"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223303"
 ---
-# <a name="troubleshooting-rbac-in-azure"></a>Solución de problemas de RBAC en Azure
+# <a name="troubleshoot-rbac-in-azure"></a>Solución de problemas de RBAC en Azure
 
-En este artículo se responden preguntas comunes acerca del control de acceso basado en rol (RBAC), con el fin de que sepa qué esperar cuando usa los roles de Azure Portal y de que pueda solucionar los problemas de acceso. Estos tres roles abarcan todos los tipos de recursos:
+En este artículo se responden preguntas comunes acerca del control de acceso basado en rol (RBAC), con el fin de que sepa qué esperar cuando usa los roles de Azure Portal y de que pueda solucionar los problemas de acceso.
 
-* Propietario  
-* Colaborador  
-* Lector  
+## <a name="web-app-features-that-require-write-access"></a>Características de aplicaciones web que requieren acceso de escritura
 
-Tanto los propietarios como los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede conceder acceso a otros usuarios o grupos. Nos centraremos en el rol de lector, ya que tiene más aspectos que comentar. Para obtener información acerca de cómo conceder acceso, consulte [Administración del acceso mediante RBAC y Azure Portal](role-assignments-portal.md).
-
-## <a name="app-service"></a>App Service
-### <a name="write-access-capabilities"></a>Funcionalidades de acceso de escritura
 Si concede a un usuario acceso de solo lectura a una única aplicación web, se deshabilitan algunas características que no cabría esperar. Las siguientes funcionalidades de administración requieren acceso de **escritura** a una aplicación web (bien como colaborador, bien como propietario) y no están disponibles en un escenario de solo lectura.
 
 * Comandos (p. ej., iniciar, parar, etc.)
@@ -49,7 +43,8 @@ Si concede a un usuario acceso de solo lectura a una única aplicación web, se 
 
 Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador a la aplicación web.
 
-### <a name="dealing-with-related-resources"></a>Tratar con recursos relacionados
+## <a name="web-app-resources-that-require-write-access"></a>Recursos de aplicaciones web que requieren acceso de escritura
+
 Las aplicaciones web pueden resultar complicadas si entran en juego distintos recursos. Este es un grupo de recursos típico con un par de sitios web:
 
 ![Grupo de recursos de aplicación web](./media/troubleshooting/website-resource-model.png)
@@ -70,15 +65,9 @@ Estos elementos requieren acceso de **escritura** a todo el **grupo de recursos*
 * Componentes de Application Insights  
 * Pruebas web  
 
-## <a name="azure-functions"></a>Azure Functions
-Algunas características de [Azure Functions](../azure-functions/functions-overview.md) requieren acceso de escritura. Por ejemplo, si se asigna a un usuario el rol de lector, este no podrá ver las funciones dentro de una aplicación de función. El portal mostrará **(Sin acceso)**.
+## <a name="virtual-machine-features-that-require-write-access"></a>Características de máquina virtual que requieren acceso de escritura
 
-![Sin acceso a aplicaciones de función](./media/troubleshooting/functionapps-noaccess.png)
-
-Un lector puede hacer clic en la pestaña **Características de la plataforma** y, a continuación, hacer clic en **Toda las opciones de configuración** para ver algunas opciones de configuración relacionadas con una aplicación de función (similar a una aplicación web), pero no puede modificar ninguna de estas opciones de configuración.
-
-## <a name="virtual-machine"></a>Máquina virtual
-Al igual que con las aplicaciones web, algunas funciones de la hoja de máquina virtual requieren acceso de escritura a la máquina virtual o a otros recursos del grupo de recursos.
+De manera similar a las aplicaciones web, algunas funciones de la hoja de máquina virtual requieren acceso de escritura a la máquina virtual o a otros recursos del grupo de recursos.
 
 Las máquinas virtuales están relacionadas con los nombres de dominio, las redes virtuales, las cuentas de almacenamiento y las reglas de alerta.
 
@@ -96,6 +85,18 @@ Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo d
 * Reglas de alertas  
 
 Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador al grupo de recursos.
+
+## <a name="azure-functions-and-write-access"></a>Azure Functions y acceso de escritura
+
+Algunas características de [Azure Functions](../azure-functions/functions-overview.md) requieren acceso de escritura. Por ejemplo, si se asigna a un usuario el rol de lector, este no podrá ver las funciones dentro de una aplicación de función. El portal mostrará **(Sin acceso)**.
+
+![Sin acceso a aplicaciones de función](./media/troubleshooting/functionapps-noaccess.png)
+
+Un lector puede hacer clic en la pestaña **Características de la plataforma** y, a continuación, hacer clic en **Toda las opciones de configuración** para ver algunas opciones de configuración relacionadas con una aplicación de función (similar a una aplicación web), pero no puede modificar ninguna de estas opciones de configuración.
+
+## <a name="rbac-changes-are-not-being-detected"></a>Los cambios RBAC no se detectan
+
+Azure Resource Manager a veces almacena en caché las configuraciones y los datos para mejorar el rendimiento. Al crear o eliminar asignaciones de roles, los cambios pueden tardar hasta 30 minutos en aplicarse. Si usa Azure Portal, Azure PowerShell o la CLI de Azure, puede exigir una actualización de los cambios de asignación de roles cerrando e iniciando sesión. Si va a realizar cambios de asignación de roles con llamadas API de REST, puede exigir una actualización renovando el token de acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración del acceso mediante RBAC y Azure Portal](role-assignments-portal.md)

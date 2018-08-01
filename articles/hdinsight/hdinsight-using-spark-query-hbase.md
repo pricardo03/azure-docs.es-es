@@ -1,30 +1,28 @@
 ---
-title: Uso de Spark para leer y escribir datos de HBase en Azure HDInsight | Microsoft Docs
+title: 'Uso de Spark para leer y escribir datos de HBase: Azure HDInsight'
 description: Use el conector Spark HBase para leer y escribir datos de un clúster Spark en un clúster HBase.
 services: hdinsight
-documentationcenter: ''
 author: maxluk
+ms.author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: maxluk
-ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.topic: conceptual
+ms.date: 07/18/2018
+ms.openlocfilehash: 5123a95852fae58adf0b4a4684b012d3b9c71e3b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161182"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144778"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Uso de Spark para leer y escribir datos de HBase
 
 Apache HBase se consulta, normalmente, con su API de bajo nivel (instrucciones scan, get y put) o con una sintaxis SQL que utiliza Phoenix. Apache también proporciona el conector Spark HBase, que es una alternativa práctica y eficaz para consultar y modificar los datos almacenados por HBase.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Dos clústeres HDInsight independientes, uno HBase y otro Spark con Spark 2.1 (HDInsight 3.6) instalado.
 * El clúster Spark debe comunicarse directamente con el clúster HBase con una latencia mínima, por lo que la configuración recomendada es implementar ambos clústeres en la misma red virtual. Para obtener más información, consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
@@ -130,7 +128,7 @@ En este paso, creará y rellenará una tabla sencilla en HBase que, a continuaci
 1. Conéctese al nodo principal del clúster Spark mediante SSH.
 2. Inicie el shell Spark, especificando el paquete del conector Spark HBase:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
 
 3. Mantenga abierta esta instancia de shell Spark y continúe con el paso siguiente.
 

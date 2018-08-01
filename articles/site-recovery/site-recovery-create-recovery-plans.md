@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 853b9c2f50967d7a203e5627bdd2fc6f14e0e4f6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 145b23aa7b8e48a0301676595c8d59a64bebdd0b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921008"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226675"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creación y personalización de los planes de recuperación
 
@@ -76,7 +76,7 @@ Puede personalizar un plan de recuperación si agrega un script o una acción ma
 2. En **Insert action** (Insertar acción), seleccione **Script** o **Manual action** (Acción manual).
 3. Si quiere agregar una acción manual, haga lo siguiente. Escriba un nombre para la acción e instrucciones para la misma. La persona que ejecuta la conmutación por error verá estas instrucciones.
     b. Especifique si desea agregar la acción manual para todos los tipos de conmutación por error: prueba, conmutación por error, conmutación por error planeada (si corresponde). A continuación, haga clic en **Aceptar**.
-4. Si quiere agregar un script, haga lo siguiente. Si va a agregar un script de VMM, seleccione **Conmutación por error en script de VMM** y en **Ruta del script** escriba la ruta de acceso relativa al recurso compartido. Por ejemplo, si el recurso compartido está en \\<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique la ruta de acceso: \RPScripts\RPScript.PS1.
+4. Si quiere agregar un script, haga lo siguiente. Si va a agregar un script de VMM, seleccione **Failover to VMM script** (Conmutación por error en script de VMM) y, en **Ruta de acceso del script**, escriba la ruta de acceso relativa al recurso compartido. Por ejemplo, si el recurso compartido está en \\<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique la ruta de acceso: \RPScripts\RPScript.PS1.
     b. Si va a agregar un runbook de automatización de Azure, especifique la **cuenta de Azure Automation** en que se encuentra el runbook y seleccione el valor de **Script de runbook de Azure** adecuado.
 5. Ejecute una conmutación por error de prueba del plan de recuperación para garantizar que el script funciona según lo esperado.
 

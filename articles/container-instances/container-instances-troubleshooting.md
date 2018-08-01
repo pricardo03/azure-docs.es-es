@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 39c43c079ea4d10686bd656ba2d451ff42aac9f6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 550b53cf40133c8a67306c61cbfa7dae21be4648
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700237"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39163778"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -22,25 +22,43 @@ En este artículo se muestra cómo solucionar problemas habituales al administra
 
 ## <a name="naming-conventions"></a>Convenciones de nomenclatura
 
-Al definir la especificación de contenedor, ciertos parámetros requieren tener en cuenta las restricciones de nomenclatura. A continuación se muestra una tabla con requisitos específicos para las propiedades del grupo de contenedores.
-Para obtener más información sobre las convenciones de nomenclatura de Azure, vea [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) en el Centro de Arquitectura de Azure.
+Al definir la especificación de contenedor, ciertos parámetros requieren tener en cuenta las restricciones de nomenclatura. A continuación se muestra una tabla con requisitos específicos para las propiedades del grupo de contenedores. Para más información sobre las convenciones de nomenclatura de Azure, consulte [Convenciones de nomenclatura][azure-name-restrictions] en el Centro de Arquitectura de Azure.
 
-| Scope | Length | Uso de mayúsculas y minúsculas | Caracteres válidos | Patrón sugerido | Ejemplo |
+| Ámbito | Length | Uso de mayúsculas y minúsculas | Caracteres válidos | Patrón sugerido | Ejemplo |
 | --- | --- | --- | --- | --- | --- | --- |
-| Nombre del grupo de contenedores | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guión en cualquier lugar excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Nombre del contenedor | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guión en cualquier lugar excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nombre del grupo de contenedores | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nombre del contenedor | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Puertos del contenedor | Entre 1 y 65 535 |Entero |Un número entero comprendido entre 1 y 65 535 |`<port-number>` |`443` |
-| Etiqueta de nombre DNS | 5-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guión en cualquier lugar excepto el primer o último carácter |`<name>` |`frontend-site1` |
-| Variable de entorno | 1-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y el carácter "_" en cualquier lugar excepto el primer o último carácter |`<name>` |`MY_VARIABLE` |
-| Nombre del volumen | 5-63 |No distingue mayúsculas de minúsculas |Letras minúsculas, números y guiones en cualquier lugar excepción el primer o último carácter. No puede contener dos guiones consecutivos. |`<name>` |`batch-output-volume` |
+| Etiqueta de nombre DNS | 5-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>` |`frontend-site1` |
+| Variable de entorno | 1-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion bajo (_) en cualquier lugar, excepto el primer o último carácter |`<name>` |`MY_VARIABLE` |
+| Nombre del volumen | 5-63 |No distingue mayúsculas de minúsculas |Letras minúsculas, números y guiones en cualquier lugar, excepto el primer o último carácter. No puede contener dos guiones consecutivos. |`<name>` |`batch-output-volume` |
 
-## <a name="image-version-not-supported"></a>Versión de imagen no compatible
+## <a name="os-version-of-image-not-supported"></a>Versión del sistema operativo de imagen no admitida
 
-Si se especifica una imagen que Azure Container Instances no admite, se devuelve un error `ImageVersionNotSupported`. El valor del error es `The version of image '{0}' is not supported.`, y se aplica actualmente a las imágenes de Windows 1709. Para mitigar este problema, utilice una imagen de Windows LTS. Se está trabajando para la compatibilidad con las imágenes de Windows 1709.
+Si se especifica una imagen que Azure Container Instances no admite, se devuelve un error `OsVersionNotSupported`. El error es similar a la siguiente, donde `{0}` es el nombre de la imagen que intentó implementar:
+
+```json
+{
+  "error": {
+    "code": "OsVersionNotSupported",
+    "message": "The OS version of image '{0}' is not supported."
+  }
+}
+```
+
+Este error se suele encontrar con más frecuencia al implementar imágenes de Windows basadas en una versión de canal semianual (SAC). Por ejemplo, las versiones de Windows 1709 y 1803 son versiones SAC y generan este error tras la implementación.
+
+Azure Container Instances admite imágenes de Windows basadas únicamente en versiones de canal de servicio a largo plazo (LTSC). Para mitigar este problema al implementar contenedores de Windows, implemente siempre imágenes basadas en LTSC.
+
+Para más información sobre las versiones LTSC y SAC de Windows, consulte [Introducción al Canal semianual de WindowsServer][windows-sac-overview].
 
 ## <a name="unable-to-pull-image"></a>No se puede extraer la imagen
 
-Si Azure Container Instances no puede extraer la imagen inicialmente, lo reintenta durante algún tiempo antes de generar un error. Si no se puede extraer la imagen, se muestran eventos similares al siguiente en la salida de [az container show][az-container-show]:
+Si inicialmente Azure Container Instances no puede extraer su imagen, lo reintenta durante un período de tiempo. Si la operación de extracción de imágenes sigue generando errores, ACI acaba por no realizar la implementación y se muestra un error `Failed to pull image`.
+
+Para resolver este problema, elimine la instancia de contenedor y vuelva a intentar la implementación. Asegúrese de que existe la imagen en el registro y de que ha escrito correctamente el nombre de imagen.
+
+Si no se puede extraer la imagen, se muestran eventos similares al siguiente en la salida de [az container show][az-container-show]:
 
 ```bash
 "events": [
@@ -71,13 +89,11 @@ Si Azure Container Instances no puede extraer la imagen inicialmente, lo reinten
 ],
 ```
 
-Para resolverlo, elimine el contenedor y vuelva a intentar la implementación, prestando atención a la escritura correcta del nombre de imagen.
-
 ## <a name="container-continually-exits-and-restarts"></a>El contenedor continuamente se cierra y se reinicia
 
 Si el contenedor se ejecuta por completo y se reinicia automáticamente, tendrá que establecer la [directiva de reinicio](container-instances-restart-policy.md) **OnFailure** o **Never**. Si especifica **OnFailure** y sigue observando reinicios continuos, podría haber un problema con la aplicación o el script que se ejecuta en el contenedor.
 
-La API de Container Instances incluye una propiedad `restartCount`. Para comprobar el número de reinicios de un contenedor, puede utilizar el comando [az container show][az-container-show] de la CLI de Azure 2.0. En la siguiente salida de ejemplo (que se ha truncado por razones de brevedad), puede ver la propiedad `restartCount` al final de la salida.
+La API de Container Instances incluye una propiedad `restartCount`. Para comprobar el número de reinicios de un contenedor, puede usar el comando [az container show][az-container-show] de la CLI de Azure. En la siguiente salida de ejemplo (que se ha truncado por razones de brevedad), puede ver la propiedad `restartCount` al final de la salida.
 
 ```json
 ...
@@ -131,7 +147,7 @@ Las imágenes de Windows tienen [consideraciones adicionales](#cached-windows-im
 
 ### <a name="image-size"></a>Tamaño de las imágenes
 
-Si el contenedor tarda mucho tiempo en iniciar, pero al final se realiza correctamente, comience por mirar el tamaño de la imagen del contenedor. Como Azure Container Instances extrae la imagen del contenedor a petición, el tiempo de inicio que experimenta está directamente relacionado con su tamaño.
+Si el contenedor tarda mucho tiempo en iniciar, pero al final se realiza correctamente, comience por mirar el tamaño de la imagen del contenedor. Como Azure Container Instances extrae la imagen del contenedor a petición, el tiempo de inicio está directamente relacionado con su tamaño.
 
 Puede ver el tamaño de la imagen del contenedor mediante el comando `docker images` en la CLI de Docker:
 
@@ -173,10 +189,16 @@ Este error indica que, debido a una carga elevada en la región en la que está 
 * Implemente en una región distinta de Azure
 * Implemente en un momento posterior
 
+## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>No se puede conectar a la API de Docker subyacente ni ejecutar contenedores con privilegios
+
+Azure Container Instances no expone acceso directo a la infraestructura subyacente que hospeda los grupos de contenedores. Esto incluye el acceso a la API de Docker que se ejecuta en el host del contenedor y la ejecución de contenedores con privilegios elevados. Si se requiere la interacción de Docker, compruebe la [documentación de referencia de REST](https://aka.ms/aci/rest) para ver lo que admite la API de ACI. Si falta algo, envíe una solicitud en los [foro de comentarios de ACI](https://aka.ms/aci/feedback).
+
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre cómo [recuperar eventos y registros de contenedor](container-instances-get-logs.md) para ayudar a depurar los contenedores.
 
 <!-- LINKS - External -->
+[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
 [docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/

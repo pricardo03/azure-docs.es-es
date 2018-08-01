@@ -2,24 +2,16 @@
 title: Replicación de aplicaciones con SQL Server y Azure Site Recovery | Microsoft Docs
 description: En este artículo se describe cómo replicar SQL Server mediante Azure Site Recovery, una de las funcionalidades de recuperación ante desastres de SQL Server.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920838"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216366"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery
 
@@ -48,10 +40,10 @@ Site Recovery puede proteger SQL Server como se resume en la tabla.
 
 **Escenario** | **En un sitio secundario** | **En Azure**
 --- | --- | ---
-**Hyper-V** | Sí | Sí
-**VMware** | Sí | Sí
-**Servidor físico** | Sí | Sí
-**Las tablas de Azure**|N/D| Sí
+**Hyper-V** | SÍ | SÍ
+**VMware** | SÍ | SÍ
+**Servidor físico** | SÍ | SÍ
+**Las tablas de Azure**|N/D| SÍ
 
 ### <a name="supported-sql-server-versions"></a>Versiones admitidas de SQL Server
 Se admiten estas versiones de SQL Server en los escenarios admitidos:
@@ -78,7 +70,7 @@ En la siguiente tabla se resumen nuestras recomendaciones para integrar las tecn
 
 | **Versión** | **Edición** | **Implementación** | **De local a local** | **De local a Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 o 2012 |Enterprise |Instancia de clúster de conmutación por error |Grupos de disponibilidad AlwaysOn |Grupos de disponibilidad AlwaysOn |
+| SQL Server 2016, 2014 o 2012 |Enterprise |Instancia de clúster de conmutación por error |Grupos de disponibilidad AlwaysOn |Grupos de disponibilidad AlwaysOn |
 || Enterprise |Grupos de disponibilidad AlwaysOn para alta disponibilidad |Grupos de disponibilidad AlwaysOn |Grupos de disponibilidad AlwaysOn | |
 || Estándar |Instancia de clúster de conmutación por error (FCI) |Replicación de Site Recovery con un reflejo local |Replicación de Site Recovery con un reflejo local | |
 || Enterprise o Standard |Independiente |Replicación de Site Recovery |Replicación de Site Recovery | |

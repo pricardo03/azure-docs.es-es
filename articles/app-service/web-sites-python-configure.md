@@ -4,7 +4,7 @@ description: En este tutorial se describen las opciones para crear y configurar 
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
 editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
@@ -15,12 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1859660d2370093ab582c417233b25d363ce952
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598647"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227913"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configuración de Python con Azure App Service Web Apps
 Este tutorial describen las opciones para crear y configurar una aplicación básica de interfaz de puerta de enlace de servidor web (WSGI) compatible con Python en [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -30,9 +30,11 @@ Describe características adicionales de implementación de Git como, por ejempl
 ## <a name="bottle-django-or-flask"></a>¿Bottle, Django o Flask?
 Azure Marketplace contiene plantillas para los marcos de Bottle, Django y Flask. Si desarrolla la primera aplicación web en Azure App Service puede crear una rápidamente en Azure Portal:
 
-* [Aplicación web con Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Aplicación web con Django](https://portal.azure.com/#create/PTVS.Django)
+* [Aplicación web con Bottle en Linux](https://portal.azure.com/#create/PTVS.BottleLinux)
+* [Aplicación web con Django en Linux](https://portal.azure.com/#create/PTVS.DjangoLinux)
 * [Aplicación web con Flask en Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
+
+O bien puede [explorar Azure Marketplace por sí mismo](https://portal.azure.com/#create/hub).
 
 ## <a name="web-app-creation-on-azure-portal"></a>Creación de una aplicación web en Azure Portal
 En este tutorial se asume que existe una suscripción a Azure y que ya se tiene acceso a Azure Portal.
@@ -350,8 +352,11 @@ Contenido de `ptvs_virtualenv_proxy.py`:
 ## <a name="troubleshooting---virtual-environment"></a>Solución de problemas - Entorno virtual
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## <a name="troubleshooting---startup-errors"></a>Solución de problemas: errores de inicio
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
+Para más información, vea el [Centro para desarrolladores de Python](/python/azure/).
 
 > [!NOTE]
 > Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.

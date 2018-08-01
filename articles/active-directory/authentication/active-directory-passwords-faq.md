@@ -4,18 +4,18 @@ description: Preguntas más frecuentes sobre autoservicio de restablecimiento de
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054818"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160749"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -115,7 +115,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: ¿Cómo puedo informar a mis usuarios sobre dónde tienen que ir para restablecer sus contraseñas?**
 
-  > **R:** Pruebe algunas de las sugerencias de nuestro artículo sobre la [implementación del autoservicio de restablecimiento de contraseña (SSPR)](howto-sspr-deployment.md#email-based-rollout).
+  > **R:** Pruebe algunas de las sugerencias de nuestro artículo sobre la [implementación del autoservicio de restablecimiento de contraseña (SSPR)](howto-sspr-deployment.md#sample-communication).
   >
   >
 * **P: ¿Puedo usar esta página desde un dispositivo móvil?**
@@ -170,7 +170,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: He configurado mi directiva para que requiera que los usuarios utilicen preguntas de seguridad para realizar el restablecimiento, pero parece que los administradores de Azure están configurados de otra forma.**
 
-  > **R:** Este es un comportamiento esperado. Microsoft exige una directiva segura de restablecimiento de contraseña de dos puertas de forma predeterminada para cualquier rol de administrador de Azure. De este modo se evita que los administradores usen preguntas de seguridad. Para obtener más información sobre esta directiva, vea el artículo [Restricciones y directivas de contraseñas en Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences).
+  > **R:** Este es un comportamiento esperado. Microsoft exige una directiva segura de restablecimiento de contraseña de dos puertas de forma predeterminada para cualquier rol de administrador de Azure. De este modo se evita que los administradores usen preguntas de seguridad. Para obtener más información sobre esta directiva, vea el artículo [Restricciones y directivas de contraseñas en Azure Active Directory](concept-sspr-policy.md).
   >
   >
 * **P: Si un usuario ha registrado más del número máximo de preguntas necesarias para el restablecimiento, ¿cómo se seleccionan las preguntas de seguridad durante el proceso de restablecimiento?**
@@ -274,7 +274,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: ¿Es segura la escritura diferida de contraseñas?  ¿Cómo puedo estar seguro de no ser víctima del ataque de un hacker?**
 
-  > **R:** Sí, la escritura diferida de contraseñas es segura. Para obtener más información sobre los cuatro niveles de seguridad que implementa el servicio de escritura diferida de contraseñas, consulte la sección [Modelo de seguridad de la escritura diferida de contraseñas](howto-sspr-writeback.md#password-writeback-security-model) en el artículo [Información general sobre la escritura diferida de contraseñas](howto-sspr-writeback.md).
+  > **R:** Sí, la escritura diferida de contraseñas es segura. Para más información sobre los distintos niveles de seguridad que implementa el servicio de escritura diferida de contraseñas, consulte la sección [Seguridad de la escritura diferida de contraseñas](concept-sspr-writeback.md#password-writeback-security) del artículo [Información general sobre la escritura diferida de contraseñas](howto-sspr-writeback.md).
   >
   >
 

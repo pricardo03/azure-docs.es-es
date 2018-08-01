@@ -14,13 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 13/22/2018
+ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216749"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -71,12 +72,15 @@ Antes de continuar, es preciso que sepa varias cosas y otras que deben estar en 
 Debe estar familiarizado con el funcionamiento de las siguientes tecnologías:
 
 - [Tecnologías de clúster de Windows](http://technet.microsoft.com/library/hh831579.aspx)
--  [Instancias del clúster de conmutación por error de SQL Server](http://msdn.microsoft.com/library/ms189134.aspx).
+- [Instancias del clúster de conmutación por error de SQL Server](http://msdn.microsoft.com/library/ms189134.aspx).
 
 También debe tener conocimientos generales de las siguientes tecnologías:
 
 - [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Grupos de recursos de Azure](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> En este momento, la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md) no es compatible con FCI de SQL Server en Azure. Se recomienda que desinstale la extensión de las máquinas virtuales que participan en el FCI. Esta extensión admite características, como la copia de seguridad y la aplicación de revisiones automatizadas y algunas características del portal de SQL. Estas características no funcionarán para las máquinas virtuales de SQL después de desinstalar el agente.
 
 ### <a name="what-to-have"></a>Lo que debe tener
 
@@ -278,7 +282,7 @@ Testigo en la nube es un nuevo tipo de testigo de quórum de clúster almacenado
 
 1. Guarde las claves de acceso y la dirección URL del contenedor.
 
-1. Configure el testigo de quórum de clúster del clúster de conmutación por error. Consulte [Configure the quorum witness in the user interface] (Configurar el testigo de cuórum en la interfaz de usuario). (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) en la UI.
+1. Configure el testigo de cuórum de clúster de conmutación por error. Consulte [Configurar el testigo de cuórum en la interfaz de usuario](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) en la IU.
 
 ### <a name="add-storage"></a>Agregue almacenamiento
 

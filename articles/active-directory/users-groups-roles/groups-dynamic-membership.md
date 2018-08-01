@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869105"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248896"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creación de reglas de pertenencia dinámica a grupos basadas en atributos en Azure Active Directory
-En Azure Active Directory (Azure AD), puede crear reglas personalizadas para habilitar la pertenencia dinámica a grupos basada en atributos complejos. En este artículo se detallan los atributos y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos. Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365.
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Creación de grupos dinámicos con pertenencia basada en atributos en Azure Active Directory
+
+En Azure Active Directory (Azure AD), puede crear reglas basadas en atributos complejos para habilitar la pertenencia dinámica a grupos. En este artículo se detallan los atributos y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos. Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365.
 
 Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación desencadenaría adiciones o retiradas en el grupo. Si un usuario o dispositivo cumple una regla de un grupo, se agrega a este como miembro. Cuando ya no cumple la regla, se quita.
 
@@ -34,6 +35,7 @@ Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reg
 > En este momento, no es posible crear un grupo de dispositivos basado en atributos del usuario propietario. Las reglas de pertenencia de dispositivo solo pueden hacer referencia a atributos inmediatos de objetos de dispositivo del directorio.
 
 ## <a name="to-create-an-advanced-rule"></a>Para crear una regla avanzada
+
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea administrador global o administrador de cuentas de usuario.
 2. Seleccione **Usuarios y grupos**.
 3. Seleccione **Todos los grupos** y, luego, **Nuevo grupo**.
@@ -58,6 +60,7 @@ Puede ver el estado de procesamiento de la pertenencia y la última fecha actual
 
 
 Los mensajes de estado siguientes se pueden mostrar para el estado de **procesamiento de la pertenencia**:
+
 * **Evaluando**: se ha recibido el cambio de grupo y las actualizaciones se están evaluando.
 * **Procesando**: las actualizaciones se están procesando.
 * **Actualización completada**: se ha completado el procesamiento y se han realizado todas las actualizaciones aplicables.
@@ -65,6 +68,7 @@ Los mensajes de estado siguientes se pueden mostrar para el estado de **procesam
 * **Actualización en pausa**: el administrador han pausado las actualizaciones de la regla de pertenencia dinámica. MembershipRuleProcessingState se establece en "Paused".
 
 Los mensajes de estado siguientes se pueden mostrar para el estado **Última actualización de la pertenencia**:
+
 * &lt;**Fecha y hora**&gt;: la última vez que se actualizó la pertenencia.
 * **En curso**: las actualizaciones están actualmente en curso.
 * **Desconocido**: no se puede recuperar la hora de la última actualización. Puede deberse a que el grupo sea recién creado.
@@ -74,6 +78,7 @@ Si se produce un error al procesar la regla de pertenencia para un grupo especí
 ![mensaje de error de procesamiento](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Construcción del cuerpo de una regla avanzada
+
 La regla avanzada que se puede crear para las pertenencias dinámicas para grupos es esencialmente una expresión binaria que consta de tres partes y da como resultado true o false. Las tres partes son:
 
 * Parámetro a la izquierda
@@ -96,6 +101,7 @@ La longitud total del cuerpo de la regla avanzada no puede superar los 2048 cara
 > Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq \`"Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regla de expresión admitidos
+
 En la tabla siguiente se enumeran todos los operadores de regla de expresión admitidos y su sintaxis para su uso en el cuerpo de la regla avanzada:
 
 | Operador | Sintaxis |
@@ -108,12 +114,13 @@ En la tabla siguiente se enumeran todos los operadores de regla de expresión ad
 | Contains |-contains |
 | Not Match |-notMatch |
 | Match |-match |
-| En el | -in |
+| En | -in |
 | No en el | -notIn |
 
 ## <a name="operator-precedence"></a>Precedencia de operadores
 
 Todos los operadores se enumeran a continuación por orden de precedencia, de menor a mayor. Los operadores en la misma línea tienen la misma prioridad:
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ Todos los operadores se enumeran a continuación por orden de precedencia, de me
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 Todos los operadores se pueden utilizar con o sin el prefijo de guion. Los paréntesis son necesarios solo si la precedencia no cumple sus requisitos.
 Por ejemplo: 
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 equivale a:
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>Uso de los operadores -In y -notIn
 
 Si desea comparar el valor de un atributo de usuario con un número de valores diferentes, puede usar los operadores -In o -notIn. A continuación se muestra un ejemplo del operador -In:
@@ -140,6 +152,7 @@ Tenga en cuenta el uso de "[" y "]" al principio y al final de la lista de valor
 
 
 ## <a name="query-error-remediation"></a>Corrección de errores de consulta
+
 En la tabla siguiente se enumeran los errores comunes y se indica cómo corregirlos:
 
 | Error de análisis de consulta | Uso con error | Uso corregido |
@@ -149,9 +162,11 @@ En la tabla siguiente se enumeran los errores comunes y se indica cómo corregir
 | Error: error de compilación de consulta. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Falta el operador. Use -and u -or para predicados de combinación<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. Error en la expresión regular usada con -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), o bien: (user.userPrincipalName -match "\@domain.ext$")|
 
 ## <a name="supported-properties"></a>Propiedades admitidas
+
 A continuación se muestran todas las propiedades de usuario que puede utilizar en la regla avanzada:
 
 ### <a name="properties-of-type-boolean"></a>Propiedades de tipo booleano
+
 Operadores permitidos
 
 * -eq
@@ -163,6 +178,7 @@ Operadores permitidos
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propiedades de tipo cadena
+
 Operadores permitidos
 
 * -eq
@@ -206,6 +222,7 @@ Operadores permitidos
 | userType |miembro invitado *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propiedades de colección de cadenas de tipo
+
 Operadores permitidos
 
 * -contains
@@ -217,6 +234,7 @@ Operadores permitidos
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Propiedades de varios valores
+
 Operadores permitidos
 
 * -any (se satisface cuando al menos un elemento de la colección coincide con la condición)
@@ -225,6 +243,7 @@ Operadores permitidos
 | Properties (Propiedades) | Valores | Uso |
 | --- | --- | --- |
 | assignedPlans |Cada objeto de la colección expone las siguientes propiedades de cadena: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 Las propiedades de varios valores son colecciones de objetos del mismo tipo. Puede usar los operadores -any y -all para aplicar una condición a uno o todos los elementos de la colección, respectivamente. Por ejemplo: 
 
@@ -239,9 +258,19 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 > [!NOTE]
 > Esto es útil si desea identificar a todos los usuarios para los que se habilitó una funcionalidad de Office 365 (u otro servicio en línea de Microsoft), por ejemplo, para establecerlos como destino de cierto conjunto de directivas.
 
-En la expresión siguiente se seleccionarán todos los usuarios que tengan algún plan de servicio asociado con el servicio de Intune (identificado por el nombre de servicio "SCO"):
+En la expresión siguiente se seleccionan todos los usuarios que tengan algún plan de servicio asociado con el servicio de Intune (identificado por el nombre de servicio "SCO"):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>Con la sintaxis de guión bajo (\_)
+
+La sintaxis de guión bajo (\_) coincide con las apariciones de un valor específico en una de las propiedades de la colección de cadenas multivalor para agregar usuarios o dispositivos a un grupo dinámico. Se usa con los operadores -any u -all.
+
+Este es un ejemplo de uso del guión bajo (\_) en una regla para agregar miembros basados en user.proxyAddress (funciona de la misma forma para user.otherMails). Esta regla agrega cualquier usuario con la dirección de proxy que contiene "contoso" al grupo.
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>Uso de valores nulos
@@ -256,14 +285,17 @@ Se admiten los atributos de extensión y los atributos personalizados en las reg
 
 Los atributos de extensión se sincronizan desde Windows Server AD local y tienen el formato "ExtensionAttributeX", donde X es igual a un número de 1 a 15.
 Un ejemplo de una regla que utiliza un atributo de extensión sería
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación SaaS conectada y el formato es "user.extension[GUID]\___[Atributo]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en AAD y [Atributo] es el nombre del atributo cuando se creó.
-Un ejemplo de una regla que utiliza un atributo personalizado es
+
+Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación SaaS conectada y el formato de "user.extension_[GUID]\__[Attribute]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en Azure AD y [Atributo] es el nombre del atributo cuando se creó. Un ejemplo de una regla que utiliza un atributo personalizado es
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
 
 ## <a name="direct-reports-rule"></a>Regla de "subordinados directos"

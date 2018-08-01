@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801480"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242944"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
@@ -66,7 +66,7 @@ Graph solo permite realizar la integración con un único bosque de Active Direc
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
 
-|.|DESCRIPCIÓN|Ejemplo|
+|Parámetro|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN del bosque de Active Directory de destino<br>que desee integrar con|Contoso.com|
 |CustomADAdminCredentials|Un usuario con permiso de lectura de LDAP|YOURDOMAIN\graphservice|
@@ -109,7 +109,7 @@ El servicio Graph de Azure Stack utiliza los siguientes protocolos y puertos par
 
 El servicio Graph en Azure Stack usa los protocolos y puertos siguientes para comunicarse con la instancia de Active Directory de destino:
 
-|Escriba|Port|Protocolo|
+|type|Port|Protocolo|
 |---------|---------|---------|
 |LDAP|389|TCP y UDP|
 |SSL de LDAP|636|TCP|
@@ -120,7 +120,7 @@ El servicio Graph en Azure Stack usa los protocolos y puertos siguientes para co
 
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
-|.|DESCRIPCIÓN|Ejemplo|
+|Parámetro|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nombre del proveedor de notificaciones. <cr>Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Vínculo de metadatos de federación|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -159,10 +159,10 @@ Utilice este método si se cumple alguna de las condiciones siguientes:
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
 
-|.|DESCRIPCIÓN|Ejemplo|
+|Parámetro|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nombre del proveedor de notificaciones. Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Archivo de metadatos de federación|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomADFSFederationMetadataFileContent|Contenido de los metadatos|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Creación de un archivo de metadatos de federación
 
@@ -176,27 +176,22 @@ Para el siguiente procedimiento, debe usar un equipo que tenga conectividad de r
    $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
-2. Copie el archivo de metadatos en un recurso compartido que sea accesible desde el punto de conexión con privilegios.
-
+2. Copie el archivo de metadatos en un equipo que pueda comunicarse con el punto de conexión con privilegios.
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatización de desencadenador para configurar la relación de confianza de proveedor de notificaciones en Azure Stack
 
-Para este procedimiento, use un equipo de la red del centro de datos que pueda comunicarse con el punto de conexión con privilegios de Azure Stack.
+Para este procedimiento, utilice un equipo que pueda comunicarse con el punto de conexión con privilegios en Azure Stack y que tenga acceso al archivo de metadatos que creó en el paso anterior.
 
-1. Abra una sesión de Windows PowerShell con privilegios elevados y conéctese al punto de conexión con privilegios.
+1. Abra una sesión de Windows PowerShell con privilegios elevados.
 
    ```PowerShell  
+   $federationMetadataFileContent = get-content c:\metadata.cml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Ahora que está conectado al punto de conexión con privilegios, ejecute el comando siguiente con los parámetros adecuados para su entorno:
-
-   ```PowerShell  
-   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
-   ```
-
-3. Ejecute el siguiente comando para actualizar el propietario de la suscripción del proveedor predeterminado, con los parámetros adecuados para su entorno:
+2. Ejecute el siguiente comando para actualizar el propietario de la suscripción del proveedor predeterminado, con los parámetros adecuados para su entorno:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"

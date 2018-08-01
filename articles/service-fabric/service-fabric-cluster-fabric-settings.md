@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888660"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238954"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -59,11 +59,11 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|string, el valor predeterminado es L"None"|estática| ApplicationCertificateValidationPolicy: None: no se valida el certificado de servidor; la solicitud se realiza correctamente. ServiceCertificateThumbprints: hace referencia a la configuración ServiceCertificateThumbprints para la lista separada por comas de las huellas digitales de los certificados remotos en los que puede confiar el proxy inverso. ServiceCommonNameAndIssuer: hace referencia a la configuración ServiceCommonNameAndIssuer para el nombre del firmante y la huella digital del emisor de los certificados remotos en los que puede confiar el proxy inverso. |
+|ApplicationCertificateValidationPolicy|string, el valor predeterminado es "None"|estática| Esto no valida el certificado de servidor; la solicitud se realizó correctamente. Hace referencia a la configuración ServiceCertificateThumbprints para la lista separada por comas de las huellas digitales de los certificados remotos en los que puede confiar el proxy inverso. Hace referencia a la configuración ServiceCommonNameAndIssuer para el nombre del firmante y la huella digital del emisor de los certificados remotos en los que puede confiar el proxy inverso. |
 |BodyChunkSize |Uint, el valor predeterminado es 16384. |Dinámica| Proporciona el tamaño del fragmento en bytes usado para leer el cuerpo. |
 |CrlCheckingFlag|uint, el valor predeterminado es 0x40000000 |Dinámica| Marcas para la validación de la cadena de certificados del servicio o aplicación; p. ej., comprobación de CRL 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Establecer la configuración en 0 deshabilita la comprobación de CRL. dwFlags de CertGetCertificateChain proporciona una lista completa de valores admitidos: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tiempo en segundos. El valor predeterminado es 120 |Dinámica|Especifique el intervalo de tiempo en segundos.  Proporciona el tiempo de espera de solicitud predeterminado para las solicitudes HTTP que se van a procesar en la puerta de enlace de aplicaciones HTTP. |
-|ForwardClientCertificate|bool, el valor predeterminado es FALSE|Dinámica| |
+|ForwardClientCertificate|bool, el valor predeterminado es FALSE|Dinámica|Si se establece en false, el proxy inverso no solicitará el certificado de cliente. Si se establece en true, el proxy inverso solicitará el certificado de cliente durante el protocolo de enlace SSL y reenviará la cadena con formato PEM con codificación Base64 al servicio en un encabezado denominado X-Client-Certificate. El servicio puede producir un error en la solicitud con un código de estado apropiado después de inspeccionar los datos del certificado. Si el valor es true y el cliente no presenta un certificado, el proxy inverso reenviará un encabezado vacío y dejará que el servicio gestione el caso. El proxy inverso actuará como una capa transparente.|
 |GatewayAuthCredentialType |string, el valor predeterminado es "None" |estática| Indica el tipo de credenciales de seguridad que se usarán en el punto de conexión de la puerta de enlace de aplicaciones HTTP. Valores válidos son "None/X509. |
 |GatewayX509CertificateFindType |string, el valor predeterminado es "FindByThumbprint". |Dinámica| Indica cómo buscar el certificado en el almacén especificado mediante el valor admitido GatewayX509CertificateStoreName: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, el valor predeterminado es "". |Dinámica| Valor del filtro de búsqueda usado para encontrar el certificado de puerta de enlace de aplicaciones HTTP. Este certificado se configura en el punto de conexión HTTP y también puede usarse para comprobar la identidad de la aplicación en caso de que la necesiten los servicios. Primero se busca FindValue y, si no existe, se busca FindValueSecondary. |
@@ -73,23 +73,23 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |IgnoreCrlOfflineError|bool, el valor predeterminado es TRUE|Dinámica|Especifica si se ignoran los errores de CRL sin conexión de la verificación del certificado del servicio o la aplicación. |
 |IsEnabled |Bool, el valor predeterminado es false. |estática| Habilita o deshabilita HttpApplicationGateway. HttpApplicationGateway está deshabilitado de forma predeterminada y para habilitarlo es necesario establecer esta configuración. |
 |NumberOfParallelOperations | Uint, el valor predeterminado es 5000 |estática|Número de lecturas para enviar a la cola del servidor HTTP. Controla el número de solicitudes simultáneas que se pueden satisfacer mediante HttpGateway. |
-|RemoveServiceResponseHeaders|string, el valor predeterminado es L"Date; Server"|estática|Lista de encabezados de respuesta separados por punto y coma o comas que se eliminarán de la respuesta del servicio antes de enviarla al cliente. Si se establece en una cadena vacía, se pasarán todos los encabezados que devuelva el servicio como estén. es decir, no se sobrescribirá la fecha ni el servidor. |
+|RemoveServiceResponseHeaders|string, el valor predeterminado es "Date; Server"|estática|Lista de encabezados de respuesta separados por punto y coma o comas que se eliminarán de la respuesta del servicio antes de enviarla al cliente. Si se establece en una cadena vacía, se pasarán todos los encabezados que devuelva el servicio como estén. es decir, no se sobrescribirá la fecha ni el servidor. |
 |ResolveServiceBackoffInterval |Tiempo en segundos, el valor predeterminado es 5. |Dinámica|Especifique el intervalo de tiempo en segundos.  Proporciona el intervalo de retroceso predeterminado antes de reintentar una operación errónea del servicio de resolución. |
 |SecureOnlyMode|bool, el valor predeterminado es FALSE|Dinámica| SecureOnlyMode: true. El proxy inverso solo reenviará a servicios que publican puntos de conexión seguros. false: el proxy inverso puede reenviar solicitudes a puntos de conexión seguros o no seguros.  |
-|ServiceCertificateThumbprints|string, el valor predeterminado es L""|Dinámica| |
+|ServiceCertificateThumbprints|string, el valor predeterminado es "".|Dinámica|La lista separada por comas de las huellas digitales de los certificados remotos en los que puede confiar el proxy inverso.  |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica|  |
+|PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| Nombre del firmante y huella digital del emisor de los certificados remotos en los que puede confiar el proxy inverso.|
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, el valor predeterminado es 0|estática|MinReplicaSetSize para BackupRestoreService |
-|PlacementConstraints|wstring, el valor predeterminado es L""|estática| PlacementConstraints para el servicio BackupRestore |
-|SecretEncryptionCertThumbprint|wstring, el valor predeterminado es L""|Dinámica|Huella digital del certificado X509 de cifrado de secretos |
-|SecretEncryptionCertX509StoreName|wstring, el valor predeterminado es L"MY"|  Dinámica|    Indica qué certificado se va a usar para cifrar y descifrar el nombre de las credenciales en el almacén de certificados X509 que usa el servicio Backup Restore |
+|PlacementConstraints|string, el valor predeterminado es "".|estática|  PlacementConstraints para el servicio BackupRestore |
+|SecretEncryptionCertThumbprint|string, el valor predeterminado es "".|Dinámica|Huella digital del certificado X509 de cifrado de secretos |
+|SecretEncryptionCertX509StoreName|string, el valor predeterminado es "My".|   Dinámica|    Indica qué certificado se va a usar para cifrar y descifrar el nombre de las credenciales en el almacén de certificados X509 que usa el servicio Backup Restore |
 |TargetReplicaSetSize|int, el valor predeterminado es 0|estática| TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
@@ -157,8 +157,10 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="dnsservice"></a>DnsService
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|IsEnabled|bool, el valor predeterminado es FALSE|estática| |
-|InstanceCount|int, el valor predeterminado es -1|estática|  |
+|InstanceCount|int, el valor predeterminado es -1|estática|El valor predeterminado es -1, lo que significa que DnsService se ejecuta en cada nodo. OneBox necesita estar establecido en 1, puesto que DnsService usa el conocido puerto 53, por lo que no puede tener varias instancias en el mismo equipo.|
+|IsEnabled|bool, el valor predeterminado es FALSE|estática|Habilita o deshabilita DnsService. DnsService está deshabilitado de forma predeterminada y es necesario establecer esta configuración para habilitarlo. |
+|PartitionPrefix|string, el valor predeterminado es "-".|estática|Controla el valor de cadena del prefijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>No puede ser una cadena vacía.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
+|PartitionSuffix|string, el valor predeterminado es "".|estática|Controla el valor de cadena del sufijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
@@ -221,7 +223,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ExpectedReplicaUpgradeDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 * 30)|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo que se espera que tarden todas las réplicas en actualizarse en un nodo durante la actualización de la aplicación. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool, el valor predeterminado es TRUE|Dinámica|Si se establece en true, se permitirá mover las réplicas con un tamaño de conjunto de réplicas de destino de 1 durante la actualización. |
 |MinReplicaSetSize|int, el valor predeterminado es 3|No permitida|Este es el tamaño del conjunto de réplicas mínimo para FM. Si el número de réplicas activas de FM cae por debajo de este valor, el FM rechazará los cambios en el clúster hasta que se recupere al menos el número mínimo de réplicas. |
-|PlacementConstraints|string, el valor predeterminado es L""|No permitida|Cualquier restricción de ubicación para las réplicas del Administrador de conmutación por error. |
+|PlacementConstraints|string, el valor predeterminado es "".|No permitida|Cualquier restricción de ubicación para las réplicas del Administrador de conmutación por error. |
 |PlacementTimeLimit|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(600)|Dinámica|Especifique el intervalo de tiempo en segundos. Límite de tiempo para alcanzar el número de réplicas de destino. Una vez transcurrido, se iniciará un informe de estado de advertencia. |
 |QuorumLossWaitDuration |Tiempo en segundos, el valor predeterminado es MaxValue. |Dinámica|Especifique el intervalo de tiempo en segundos. Es la duración máxima que se permite que una partición esté en estado de pérdida de cuórum. Si después de esta duración la partición sigue en pérdida de cuórum, se recupera de dicha pérdida considerando perdidas las réplicas inactivas. Tenga en cuenta que esto puede provocar una pérdida de datos. |
 |ReconfigurationTimeLimit|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(300)|Dinámica|Especifique el intervalo de tiempo en segundos. Límite de tiempo para volver a configurar. Una vez transcurrido, se iniciará un informe de estado de advertencia. |
@@ -251,20 +253,22 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="federation"></a>Federación
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(300)|estática|Especifique el intervalo de tiempo en segundos. Los nodos del clúster necesitan mantener una concesión global con los votantes. Los votantes envían sus concesiones globales para que se propaguen a través del clúster durante este tiempo. Si el período expira, la concesión se pierde. La pérdida del cuórum de concesiones da lugar a que un nodo abandone el clúster; de esta forma, se produce un error en la comunicación con un cuórum de nodos durante este período de tiempo.  Este valor debe ajustarse según el tamaño del clúster. |
 |LeaseDuration |Tiempo en segundos, el valor predeterminado es 30. |Dinámica|Duración de una concesión entre un nodo y sus vecinos. |
 |LeaseDurationAcrossFaultDomain |Tiempo en segundos, el valor predeterminado es 30. |Dinámica|Duración de una concesión entre un nodo y sus vecinos entre dominios de error. |
 
 ## <a name="filestoreservice"></a>FileStoreService
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
+|AcceptChunkUpload|Bool, el valor predeterminado es TRUE.|Dinámica|Es necesario realizar la configuración para determinar si el servicio de almacenamiento de archivos acepta la carga de archivos por fragmentos o no durante el paquete de aplicación de copia. |
 |AnonymousAccessEnabled | Bool, el valor predeterminado es true. |estática|Habilita o deshabilita el acceso anónimo a los recursos compartidos de FileStoreService. |
-|CommonName1Ntlmx509CommonName|string, el valor predeterminado es L""|estática| Nombre común del certificado X509 usado para generar HMAC en CommonName1NtlmPasswordSecret cuando se usa la autenticación NTLM. |
-|CommonName1Ntlmx509StoreLocation|string, el valor predeterminado es L"LocalMachine"|estática|Ubicación del almacén del certificado X509 que se usa para generar HMAC en CommonName1NtlmPasswordSecret cuando se usa la autenticación NTLM. |
-|CommonName1Ntlmx509StoreName|string, el valor predeterminado es L"MY"| estática|Nombre del almacén del certificado X509 que se usa para generar HMAC en CommonName1NtlmPasswordSecret cuando se usa la autenticación NTLM. |
-|CommonName2Ntlmx509CommonName|string, el valor predeterminado es L""|estática|Nombre común del certificado X509 usado para generar HMAC en CommonName2NtlmPasswordSecret cuando se usa la autenticación NTLM. |
-|CommonName2Ntlmx509StoreLocation|string, el valor predeterminado es L"LocalMachine"| estática|Ubicación del almacén del certificado X509 que se usa para generar HMAC en CommonName2NtlmPasswordSecret cuando se usa la autenticación NTLM. |
-|CommonName2Ntlmx509StoreName|string, el valor predeterminado es L"MY"|estática| Nombre del almacén del certificado X509 que se usa para generar HMAC en CommonName2NtlmPasswordSecret cuando se usa la autenticación NTLM. |
-|CommonNameNtlmPasswordSecret|SecureString, el valor predeterminado es Common::SecureString(L"")| estática|Secreto de contraseña que se usa como valor de inicialización para generar la misma contraseña cuando se usa la autenticación NTLM. |
+|CommonName1Ntlmx509CommonName|string, el valor predeterminado es "".|estática| Nombre común del certificado X509 usado para generar HMAC en CommonName1NtlmPasswordSecret cuando se usa la autenticación NTLM. |
+|CommonName1Ntlmx509StoreLocation|string, el valor predeterminado es "LocalMachine".|estática|Ubicación del almacén del certificado X509 que se usa para generar HMAC en CommonName1NtlmPasswordSecret cuando se usa la autenticación NTLM. |
+|CommonName1Ntlmx509StoreName|string, el valor predeterminado es "MY".| estática|Nombre del almacén del certificado X509 que se usa para generar HMAC en CommonName1NtlmPasswordSecret cuando se usa la autenticación NTLM. |
+|CommonName2Ntlmx509CommonName|string, el valor predeterminado es "".|estática|Nombre común del certificado X509 usado para generar HMAC en CommonName2NtlmPasswordSecret cuando se usa la autenticación NTLM. |
+|CommonName2Ntlmx509StoreLocation|string, el valor predeterminado es "LocalMachine".| estática|Ubicación del almacén del certificado X509 que se usa para generar HMAC en CommonName2NtlmPasswordSecret cuando se usa la autenticación NTLM. |
+|CommonName2Ntlmx509StoreName|string, el valor predeterminado es "MY".|estática| Nombre del almacén del certificado X509 que se usa para generar HMAC en CommonName2NtlmPasswordSecret cuando se usa la autenticación NTLM. |
+|CommonNameNtlmPasswordSecret|SecureString, el valor predeterminado es Common::SecureString("").| estática|Secreto de contraseña que se usa como valor de inicialización para generar la misma contraseña cuando se usa la autenticación NTLM. |
 |GenerateV1CommonNameAccount| bool, el valor predeterminado es TRUE|estática|Especifica si generar una cuenta con el algoritmo de generación de nombre de usuario V1. A partir de la versión 6.1 de Service Fabric, siempre se crea una cuenta con la generación V2. La cuenta V1 es necesaria para las actualizaciones desde y hacia las versiones que no admiten la generación V2 (anteriores a 6.1).|
 |MaxCopyOperationThreads | Uint, el valor predeterminado es 0. |Dinámica| El número máximo de archivos paralelos que el replicador secundario puede copiar del principal. "0" == número de núcleos. |
 |MaxFileOperationThreads | Uint, el valor predeterminado es 100. |estática| El número máximo de subprocesos paralelos que pueden realizar operaciones de archivos (copiar o mover) en el replicador principal. "0" == número de núcleos. |
@@ -315,8 +319,10 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ActivationTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(180)|Dinámica| Especifique el intervalo de tiempo en segundos. El tiempo de espera para la activación, desactivación y actualización de la aplicación. |
 |ApplicationHostCloseTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica| Especifique el intervalo de tiempo en segundos. Cuando se detecta el cierre de Fabric en procesos autoactivados, FabricRuntime cierra todas las réplicas en el proceso de host (applicationhost) del usuario. Se trata del tiempo de espera para la operación de cierre. |
 |ApplicationUpgradeTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(360)|Dinámica| Especifique el intervalo de tiempo en segundos. Tiempo de espera de la actualización de la aplicación. Si el tiempo de espera es menor que el tiempo de "ActivationTimeout", se producirá un error en el implementador. |
-|ContainerServiceArguments|wstring, de forma predeterminada es L"-H localhost:2375 -H npipe://"|estática|Service Fabric (SF) administra el demonio de Docker (excepto en las máquinas de cliente Windows como Win10). Esta configuración permite al usuario especificar argumentos personalizados que deben pasarse al demonio de Docker al iniciarlo. Cuando se especifican argumentos personalizados, Service Fabric no pasa ningún otro argumento al motor de Docker excepto el argumento "--pidfile". Por lo tanto, los usuarios no deben especificar el argumento "--pidfile" como parte de sus argumentos personalizados. Además, los argumentos personalizados deberán asegurarse de que el demonio de Docker escuche en la canalización de nombres predeterminada en Windows (o en el socket de dominio Unix en Linux) para que Service Fabric pueda comunicarse con él.|
+|ContainerServiceArguments|string, el valor predeterminado es "-H localhost:2375 -H npipe://".|estática|Service Fabric (SF) administra el demonio de Docker (excepto en las máquinas de cliente Windows como Win10). Esta configuración permite al usuario especificar argumentos personalizados que deben pasarse al demonio de Docker al iniciarlo. Cuando se especifican argumentos personalizados, Service Fabric no pasa ningún otro argumento al motor de Docker excepto el argumento "--pidfile". Por lo tanto, los usuarios no deben especificar el argumento "--pidfile" como parte de sus argumentos personalizados. Además, los argumentos personalizados deberán asegurarse de que el demonio de Docker escuche en la canalización de nombres predeterminada en Windows (o en el socket de dominio Unix en Linux) para que Service Fabric pueda comunicarse con él.|
 |CreateFabricRuntimeTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica| Especifique el intervalo de tiempo en segundos. Valor de tiempo de espera de la llamada de sincronización FabricCreateRuntime. |
+|DefaultContainerRepositoryAccountName|string, el valor predeterminado es "".|estática|Las credenciales predeterminadas usadas en lugar de las credenciales especificadas en ApplicationManifest.xml. |
+|DefaultContainerRepositoryPassword|string, el valor predeterminado es "".|estática|Las credenciales de contraseña predeterminadas usadas en lugar de las credenciales especificadas en ApplicationManifest.xml.|
 |DeploymentMaxFailureCount|int, el valor predeterminado es 20| Dinámica|La implementación de la aplicación se reintentará las veces especificadas en DeploymentMaxFailureCount antes de que genere un error en el nodo.| 
 |DeploymentMaxRetryInterval| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600)|Dinámica| Especifique el intervalo de tiempo en segundos. Intervalo de reintento máximo para la implementación. Con cada error continuo, el intervalo de reintento se calcula como Min( DeploymentMaxRetryInterval; Recuento continuo de errores * DeploymentRetryBackoffInterval). |
 |DeploymentRetryBackoffInterval| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(10)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de espera para el error de implementación. En cada caso de error de implementación continuo, el sistema reintentará la implementación hasta las veces especificadas en MaxDeploymentFailureCount. El intervalo de reintento es producto de un error de implementación continua y el intervalo de espera de la implementación. |
@@ -328,9 +334,10 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |FirewallPolicyEnabled|bool, el valor predeterminado es FALSE|estática| Permite la apertura de puertos de firewall para los recursos del punto de conexión con puertos explícitos especificados en ServiceManifest. |
 |GetCodePackageActivationContextTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica|Especifique el intervalo de tiempo en segundos. El valor de tiempo de espera para las llamadas de CodePackageActivationContext. Esto no es aplicable a los servicios ad-hoc. |
 |IPProviderEnabled|bool, el valor predeterminado es FALSE|estática|Habilita la administración de direcciones IP. |
-|LinuxExternalExecutablePath|wstring, el valor predeterminado es L"/usr/bin/" |estática|Directorio principal de los comandos ejecutables externos en el nodo.|
+|IsDefaultContainerRepositoryPasswordEncrypted|bool, el valor predeterminado es FALSE|estática|Si DefaultContainerRepositoryPassword está cifrado o no.|
+|LinuxExternalExecutablePath|string, el valor predeterminado es "/usr/bin/". |estática|Directorio principal de los comandos ejecutables externos en el nodo.|
 |NTLMAuthenticationEnabled|bool, el valor predeterminado es FALSE|estática| Proporciona compatibilidad para el uso de NTLM por parte de los paquetes de código que se están ejecutando como otros usuarios para que los procesos entre máquinas puedan comunicarse de forma segura. |
-|NTLMAuthenticationPasswordSecret|SecureString, el valor predeterminado es Common::SecureString(L"")|estática|Hash cifrado que se usa para generar la contraseña para los usuarios de NTLM. Debe establecerse si NTLMAuthenticationEnabled es true. El implementador se encarga de validarlo. |
+|NTLMAuthenticationPasswordSecret|SecureString, el valor predeterminado es Common::SecureString("").|estática|Hash cifrado que se usa para generar la contraseña para los usuarios de NTLM. Debe establecerse si NTLMAuthenticationEnabled es true. El implementador se encarga de validarlo. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(3)|Dinámica|Especifique el intervalo de tiempo en segundos. Configuración específica del entorno. Intervalo periódico en el que el hospedaje busca nuevos certificados que se usarán para la configuración de NTLM FileStoreService. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(4)|Dinámica| Especifique el intervalo de tiempo en segundos. Tiempo de espera para configurar usuarios de NTLM con nombres comunes de certificado. Se necesitan usuarios de NTLM para los recursos compartidos de FileStoreService. |
 |RegisterCodePackageHostTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica| Especifique el intervalo de tiempo en segundos. Valor de tiempo de espera de la llamada de sincronización de FabricRegisterCodePackageHost. Esto es aplicable solo para hosts de aplicación de paquete de código múltiple como FWP. |
@@ -541,9 +548,9 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MaxSecondaryReplicationQueueSize|uint, el valor predeterminado es 2048|estática|Es el número máximo de operaciones que podrían existir en la cola de replicación secundaria. Tenga en cuenta que debe ser una potencia de 2.|
 |QueueHealthMonitoringInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(30)|estática|Especifique el intervalo de tiempo en segundos. Este valor determina el período de tiempo que usa el replicador para supervisar los eventos de estado de advertencia o error de las colas de la operación de replicación. Un valor "0" deshabilita la supervisión del estado. |
 |QueueHealthWarningAtUsagePercent|uint, el valor predeterminado es 80|estática|Este valor determina el uso de la cola de replicación (en porcentaje) a partir del cual se advierte acerca de un alto uso de la cola. Esto se hace después de un intervalo de gracia de QueueHealthMonitoringInterval. Si el uso de la cola cae por debajo de este porcentaje en el intervalo de gracia.|
-|ReplicatorAddress|string, el valor predeterminado es L"localhost:0"|estática|El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para establecer conexiones con otras réplicas para enviar o recibir operaciones.|
-|ReplicatorListenAddress|string, el valor predeterminado es L"localhost:0"|estática|El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para recibir operaciones de otras réplicas.|
-|ReplicatorPublishAddress|string, el valor predeterminado es L"localhost:0"|estática|El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para enviar operaciones a otras réplicas.|
+|ReplicatorAddress|string, el valor predeterminado es "localhost:0".|estática|El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para establecer conexiones con otras réplicas para enviar o recibir operaciones.|
+|ReplicatorListenAddress|string, el valor predeterminado es "localhost:0".|estática|El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para recibir operaciones de otras réplicas.|
+|ReplicatorPublishAddress|string, el valor predeterminado es "localhost:0".|estática|El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para enviar operaciones a otras réplicas.|
 |RetryInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(5)|estática|Especifique el intervalo de tiempo en segundos. Cuando una operación se pierde o rechaza, este temporizador determina con qué frecuencia el replicador volverá a intentar enviar la operación.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
@@ -582,35 +589,35 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="security"></a>Seguridad
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|AADClientApplication|string, el valor predeterminado es L""|estática|Nombre de la aplicación de cliente nativo o identificador que representa a los clientes de Fabric. |
-|AADClusterApplication|string, el valor predeterminado es L""|estática|Nombre de la aplicación API web o identificador que representa el clúster. |
-|AADTenantId|string, el valor predeterminado es L""|estática|Id. de inquilino (GUID) |
-|AdminClientCertThumbprints|string, el valor predeterminado es L""|Dinámica|Huellas digitales de certificados que usan los clientes con el rol de administrador. Lista de nombres separados por comas. |
-|AdminClientClaims|string, el valor predeterminado es L""|Dinámica|Todas las notificaciones posibles que se esperan de los clientes de administración. Tiene el mismo formato que ClientClaims. Esta lista se agrega internamente a ClientClaims, por lo que no es necesario agregar también las mismas entradas para ClientClaims. |
-|AdminClientIdentities|string, el valor predeterminado es L""|Dinámica|Identidades de Windows de clientes de Fabric con el rol de administrador; se usa para autorizar las operaciones de Fabric con privilegios. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. Para mayor comodidad, a la cuenta que ejecuta fabric.exe se le asigna automáticamente un rol de administrador. Lo mismo sucede con ServiceFabricAdministrators. |
+|AADClientApplication|string, el valor predeterminado es "".|estática|Nombre de la aplicación de cliente nativo o identificador que representa a los clientes de Fabric. |
+|AADClusterApplication|string, el valor predeterminado es "".|estática|Nombre de la aplicación API web o identificador que representa el clúster. |
+|AADTenantId|string, el valor predeterminado es "".|estática|Id. de inquilino (GUID) |
+|AdminClientCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados que usan los clientes con el rol de administrador. Lista de nombres separados por comas. |
+|AdminClientClaims|string, el valor predeterminado es "".|Dinámica|Todas las notificaciones posibles que se esperan de los clientes de administración. Tiene el mismo formato que ClientClaims. Esta lista se agrega internamente a ClientClaims, por lo que no es necesario agregar también las mismas entradas para ClientClaims. |
+|AdminClientIdentities|string, el valor predeterminado es "".|Dinámica|Identidades de Windows de clientes de Fabric con el rol de administrador; se usa para autorizar las operaciones de Fabric con privilegios. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. Para mayor comodidad, a la cuenta que ejecuta fabric.exe se le asigna automáticamente un rol de administrador. Lo mismo sucede con ServiceFabricAdministrators. |
 |CertificateExpirySafetyMargin|TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(43200)|estática|Especifique el intervalo de tiempo en segundos. Margen de seguridad para la expiración del certificado. El estado de informe de mantenimiento del certificado cambia de Correcto a Advertencia si el periodo de expiración es inferior a este valor. El valor predeterminado es 30 días. |
 |CertificateHealthReportingInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600 * 8)|estática|Especifique el intervalo de tiempo en segundos. Especifica el intervalo para los informes de mantenimiento del certificado. El valor predeterminado es 8 horas. Establecerlo en 0 deshabilita el informe de mantenimiento del certificado. |
-|ClientCertThumbprints|string, el valor predeterminado es L""|Dinámica|Huellas digitales de certificados que usan los clientes para comunicarse con el clúster. El clúster las usa para autorizar la conexión entrante. Lista de nombres separados por comas. |
+|ClientCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados que usan los clientes para comunicarse con el clúster. El clúster las usa para autorizar la conexión entrante. Lista de nombres separados por comas. |
 |ClientClaimAuthEnabled|bool, el valor predeterminado es FALSE|estática|Indica si la autenticación basada en notificaciones está habilitada en los clientes. Si se establece en true, se establece implícitamente ClientRoleEnabled. |
-|ClientClaims|string, el valor predeterminado es L""|Dinámica|Todas las notificaciones posibles que se esperan de los clientes para conectarse a la puerta de enlace. Se trata de una lista "OR": ClaimsEntry \|\|ClaimsEntry \|\| ClaimsEntry... cada valor de ClaimsEntry es una lista "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue... |
-|ClientIdentities|string, el valor predeterminado es L""|Dinámica|Identidades de Windows de FabricClient; la puerta de enlace de nomenclatura las usa para autorizar las conexiones entrantes. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. Para mayor comodidad; la cuenta que ejecuta fabric.exe se permite automáticamente. Lo mismo sucede con ServiceFabricAllowedUsers y ServiceFabricAdministrators. |
+|ClientClaims|string, el valor predeterminado es "".|Dinámica|Todas las notificaciones posibles que se esperan de los clientes para conectarse a la puerta de enlace. Se trata de una lista "OR": ClaimsEntry \|\|ClaimsEntry \|\| ClaimsEntry... cada valor de ClaimsEntry es una lista "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue... |
+|ClientIdentities|string, el valor predeterminado es "".|Dinámica|Identidades de Windows de FabricClient; la puerta de enlace de nomenclatura las usa para autorizar las conexiones entrantes. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. Para mayor comodidad; la cuenta que ejecuta fabric.exe se permite automáticamente. Lo mismo sucede con ServiceFabricAllowedUsers y ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, el valor predeterminado es FALSE|estática|Indica si está habilitado el rol de cliente. Cuando se establece en true, se asignan roles a clientes en función de sus identidades. Para V2; habilitar esto significa que los clientes que no estén en AdminClientCommonNames/AdminClientIdentities solo pueden ejecutar operaciones de solo lectura. |
-|ClusterCertThumbprints|string, el valor predeterminado es L""|Dinámica|Huellas digitales de certificados que pueden unirse al clúster; lista de nombres separados por comas. |
-|ClusterCredentialType|string, el valor predeterminado es L"None"|No permitida|Indica el tipo de credenciales de seguridad que se usarán para proteger el clúster. Los valores válidos son "None/X509/Windows". |
-|ClusterIdentities|string, el valor predeterminado es L""|Dinámica|Identidades de Windows de los nodos del clúster, se usan para la autorización de pertenencia del clúster. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. |
-|ClusterSpn|string, el valor predeterminado es L""|No permitida|Nombre de entidad de seguridad de servicio del clúster cuando Fabric se ejecuta como un usuario de dominio único (cuenta de usuario de dominio o gMSA). Es el SPN de los agentes de escucha y de los agentes de escucha de concesión de fabric.exe: agentes de escucha de federación; agentes de escucha de replicación interna; agente de escucha del servicio en tiempo de ejecución y agente de escucha de la puerta de enlace de nomenclatura. Debe dejarse vacío cuando Fabric se ejecuta como cuentas de la máquina, en cuyo caso, se conecta el SPN del agente de escucha de proceso lateral desde la dirección de transporte del agente de escucha. |
+|ClusterCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados que pueden unirse al clúster; lista de nombres separados por comas. |
+|ClusterCredentialType|string, el valor predeterminado es "None"|No permitida|Indica el tipo de credenciales de seguridad que se usarán para proteger el clúster. Los valores válidos son "None/X509/Windows". |
+|ClusterIdentities|string, el valor predeterminado es "".|Dinámica|Identidades de Windows de los nodos del clúster, se usan para la autorización de pertenencia del clúster. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. |
+|ClusterSpn|string, el valor predeterminado es "".|No permitida|Nombre de entidad de seguridad de servicio del clúster cuando Fabric se ejecuta como un usuario de dominio único (cuenta de usuario de dominio o gMSA). Es el SPN de los agentes de escucha y de los agentes de escucha de concesión de fabric.exe: agentes de escucha de federación; agentes de escucha de replicación interna; agente de escucha del servicio en tiempo de ejecución y agente de escucha de la puerta de enlace de nomenclatura. Debe dejarse vacío cuando Fabric se ejecuta como cuentas de la máquina, en cuyo caso, se conecta el SPN del agente de escucha de proceso lateral desde la dirección de transporte del agente de escucha. |
 |CrlCheckingFlag|uint, el valor predeterminado es 0x40000000|Dinámica|Marca predeterminada de validación de la cadena de certificados. Puede reemplazarse por la marca específica del componente, p. ej., Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Establecer la configuración en 0 deshabilita la comprobación de CRL. dwFlags de CertGetCertificateChain proporciona una lista completa de valores admitidos: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(15)|Dinámica|Especifique el intervalo de tiempo en segundos. Durante cuánto tiempo se deshabilita la comprobación de CRL para un certificado especificado después de encontrar un error sin conexión. Especifica si se puede ignorar un error de CRL sin conexión. |
 |CrlOfflineHealthReportTtl|TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(1440)|Dinámica|Especifique el intervalo de tiempo en segundos. |
 |DisableFirewallRuleForDomainProfile| bool, el valor predeterminado es TRUE |estática| Indica si no se debe habilitar la regla de firewall para el perfil de dominio. |
 |DisableFirewallRuleForPrivateProfile| bool, el valor predeterminado es TRUE |estática| Indica si no se debe habilitar la regla de firewall para el perfil privado. | 
 |DisableFirewallRuleForPublicProfile| bool, el valor predeterminado es TRUE | estática|Indica si no se debe habilitar la regla de firewall para el perfil público. |
-|FabricHostSpn| string, el valor predeterminado es L"" |estática| Nombre de entidad de seguridad de servicio de FabricHost cuando Fabric se ejecuta como usuario de dominio único (cuenta de usuario de dominio o gMSA) y FabricHost se ejecuta en la cuenta de la máquina. Es el SPN del agente de escucha de IPC para FabricHost, que, de forma predeterminada, se debe dejar vacío, ya que FabricHost se ejecuta con la cuenta de la máquina. |
+|FabricHostSpn| string, el valor predeterminado es "". |estática| Nombre de entidad de seguridad de servicio de FabricHost cuando Fabric se ejecuta como usuario de dominio único (cuenta de usuario de dominio o gMSA) y FabricHost se ejecuta en la cuenta de la máquina. Es el SPN del agente de escucha de IPC para FabricHost, que, de forma predeterminada, se debe dejar vacío, ya que FabricHost se ejecuta con la cuenta de la máquina. |
 |IgnoreCrlOfflineError|bool, el valor predeterminado es FALSE|Dinámica|Especifica si se omitirán los errores de CRL sin conexión cuando el lado servidor compruebe los certificados de cliente entrantes. |
 |IgnoreSvrCrlOfflineError|bool, el valor predeterminado es TRUE|Dinámica|Especifica si se omitirán los errores de CRL sin conexión cuando el lado cliente compruebe los certificados de servidor entrantes; el valor predeterminado es true. Los ataques con certificados de servidor revocados requieren poner en peligro el DNS; más difícil que con certificados de cliente revocados. |
-|ServerAuthCredentialType|string, el valor predeterminado es L"None"|estática|Indica el tipo de credenciales de seguridad que se usarán para proteger la comunicación entre FabricClient y el clúster. Los valores válidos son "None/X509/Windows". |
-|ServerCertThumbprints|string, el valor predeterminado es L""|Dinámica|Huellas digitales de certificados de servidor que usa el clúster para comunicarse con los clientes. Los clientes las usan para autenticar el clúster. Lista de nombres separados por comas. |
-|SettingsX509StoreName| string, el valor predeterminado es L"MY"| Dinámica|Almacén de certificados X509 que usa Fabric para la protección de la configuración. |
+|ServerAuthCredentialType|string, el valor predeterminado es "None"|estática|Indica el tipo de credenciales de seguridad que se usarán para proteger la comunicación entre FabricClient y el clúster. Los valores válidos son "None/X509/Windows". |
+|ServerCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados de servidor que usa el clúster para comunicarse con los clientes. Los clientes las usan para autenticar el clúster. Lista de nombres separados por comas. |
+|SettingsX509StoreName| string, el valor predeterminado es "MY".| Dinámica|Almacén de certificados X509 que usa Fabric para la protección de la configuración. |
 |UseClusterCertForIpcServerTlsSecurity|bool, el valor predeterminado es FALSE|estática|Si se utiliza el certificado de clúster para proteger la unidad de transporte TLS en el servidor IPC. |
 |X509Folder|string,el valor predeterminado es /var/lib/waagent|estática|Carpeta donde se encuentran los certificados X509 y las claves privadas. |
 
@@ -626,17 +633,19 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |CancelTestCommand |string, el valor predeterminado es "Admin". |Dinámica| Cancela un comando de prueba específico, si se está ejecutando. |
 |CodePackageControl |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para reiniciar paquetes de código. |
 |CreateApplication |string, el valor predeterminado es "Admin". | Dinámica|Configuración de seguridad para creación de aplicaciones. |
-|CreateComposeDeployment|string, el valor predeterminado es L"Admin"| Dinámica|Crea una implementación compuesta descrita por archivos compuestos. |
+|CreateComposeDeployment|string, el valor predeterminado es "Admin".| Dinámica|Crea una implementación compuesta descrita por archivos compuestos. |
 |CreateName |string, el valor predeterminado es "Admin". |Dinámica|Configuración de seguridad para la creación de URI de nomenclatura. |
 |CreateService |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para la creación del servicio. |
 |CreateServiceFromTemplate |string, el valor predeterminado es "Admin". |Dinámica|Configuración de seguridad para la creación de servicios a partir de una plantilla. |
+|CreateVolume|string, el valor predeterminado es "Admin".|Dinámica|Crea un volumen. |
 |DeactivateNode |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para desactivación de un nodo. |
 |DeactivateNodesBatch |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para desactivación de varios nodos. |
 |Eliminar |string, el valor predeterminado es "Admin". |Dinámica| Configuraciones de seguridad para la operación de eliminación del cliente del almacén de imágenes. |
 |DeleteApplication |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para eliminación de aplicaciones. |
-|DeleteComposeDeployment|string, el valor predeterminado es L"Admin"| Dinámica|Elimina la implementación compuesta. |
+|DeleteComposeDeployment|string, el valor predeterminado es "Admin".| Dinámica|Elimina la implementación compuesta. |
 |DeleteName |string, el valor predeterminado es "Admin". |Dinámica|Configuración de seguridad para la eliminación de URI de nomenclatura. |
 |DeleteService |string, el valor predeterminado es "Admin". |Dinámica|Configuración de seguridad para eliminación de servicio. |
+|DeleteVolume|string, el valor predeterminado es "Admin".|Dinámica|Elimina un volumen.| 
 |EnumerateProperties |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para enumeración de propiedad de nomenclatura. |
 |EnumerateSubnames |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para enumeración de URI de nomenclatura. |
 |FileContent |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para transferencia de archivos de cliente del almacén de imágenes (externo al clúster). |
@@ -654,11 +663,11 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |GetServiceDescription |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para notificaciones de servicio de sondeo largo y descripciones de servicio de lectura. |
 |GetStagingLocation |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para recuperación de la ubicación de almacenamiento temporal del cliente del almacén de imágenes. |
 |GetStoreLocation |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para recuperación de la ubicación del almacén de clientes del almacén de imágenes. |
-|GetUpgradeOrchestrationServiceState|string, el valor predeterminado es L"Admin"| Dinámica|Induce GetUpgradeOrchestrationServiceState en una partición. |
+|GetUpgradeOrchestrationServiceState|string, el valor predeterminado es "Admin".| Dinámica|Induce GetUpgradeOrchestrationServiceState en una partición. |
 |GetUpgradesPendingApproval |string, el valor predeterminado es "Admin". |Dinámica| Produce GetUpgradesPendingApproval en una partición. |
 |GetUpgradeStatus |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para sondeo de estado de actualización de aplicaciones. |
 |InternalList |string, el valor predeterminado es "Admin". | Dinámica|Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes (interno). |
-|InvokeContainerApi|wstring, el valor predeterminado es L"Admin"|Dinámica|API de invocación de contenedores |
+|InvokeContainerApi|string, el valor predeterminado es "Admin".|Dinámica|API de invocación de contenedores |
 |InvokeInfrastructureCommand |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para comandos de administración de tareas de infraestructura. |
 |InvokeInfrastructureQuery |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para consultar tareas de infraestructura. |
 |Enumerar |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes. |
@@ -689,11 +698,11 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ResolveNameOwner |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para resolver propietario de URI de nomenclatura. |
 |ResolvePartition |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para resolver servicios del sistema. |
 |ResolveService |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para resolución de servicio basada en reclamaciones. |
-|ResolveSystemService|string, el valor predeterminado es L"Admin\|\|User"|Dinámica| Configuración de seguridad para resolver servicios del sistema. |
+|ResolveSystemService|string, el valor predeterminado es "Admin\|\|User"|Dinámica| Configuración de seguridad para resolver servicios del sistema. |
 |RollbackApplicationUpgrade |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para revertir actualizaciones de aplicaciones. |
 |RollbackFabricUpgrade |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para revertir actualizaciones del clúster. |
 |ServiceNotifications |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para notificaciones del servicio basadas en eventos. |
-|SetUpgradeOrchestrationServiceState|string, el valor predeterminado es L"Admin"| Dinámica|Induce SetUpgradeOrchestrationServiceState en una partición. |
+|SetUpgradeOrchestrationServiceState|string, el valor predeterminado es "Admin".| Dinámica|Induce SetUpgradeOrchestrationServiceState en una partición. |
 |StartApprovedUpgrades |string, el valor predeterminado es "Admin". |Dinámica| Produce StartApprovedUpgrades en una partición. |
 |StartChaos |string, el valor predeterminado es "Admin". |Dinámica| Inicia Chaos, si no se ha iniciado. |
 |StartClusterConfigurationUpgrade |string, el valor predeterminado es "Admin". |Dinámica| Produce StartClusterConfigurationUpgrade en una partición. |
@@ -709,7 +718,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |UnreliableTransportControl |string, el valor predeterminado es "Admin". |Dinámica| Transporte no confiable para agregar y quitar comportamientos. |
 |UpdateService |string, el valor predeterminado es "Admin". |Dinámica|Configuración de seguridad para actualizaciones de servicio. |
 |UpgradeApplication |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para iniciar o interrumpir actualizaciones de aplicaciones. |
-|UpgradeComposeDeployment|string, el valor predeterminado es L"Admin"| Dinámica|Actualiza la implementación compuesta. |
+|UpgradeComposeDeployment|string, el valor predeterminado es "Admin".| Dinámica|Actualiza la implementación compuesta. |
 |UpgradeFabric |string, el valor predeterminado es "Admin". |Dinámica| Configuración de seguridad para iniciar actualizaciones del clúster. |
 |Cargar |string, el valor predeterminado es "Admin". | Dinámica|Configuración de seguridad para operación de carga del cliente del almacén de imágenes. |
 
@@ -746,7 +755,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="setup"></a>Configuración
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|ContainerNetworkName|string, el valor predeterminado es L""| estática |Nombre de red que se usará al configurar una red de contenedores.|
+|ContainerNetworkName|string, el valor predeterminado es "".| estática |Nombre de red que se usará al configurar una red de contenedores.|
 |ContainerNetworkSetup|bool, el valor predeterminado es FALSE| estática |Establece si se debe configurar una red de contenedores.|
 |FabricDataRoot |string | No permitida |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
 |FabricLogRoot |string | No permitida |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
@@ -781,7 +790,10 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización** |**Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60)|estática|Especifique el intervalo de tiempo en segundos. Tiempo de espera para la configuración de la conexión en los lados de aceptación y entrada (incluida la negociación de seguridad en el modo seguro). |
-|ResolveOption|string, el valor predeterminado es L"unspecified"|estática|Determina cómo se resuelve el FQDN.  Los valores válidos son "sin especificar/ipv4/ipv6". |
+|FrameHeaderErrorCheckingEnabled|bool, el valor predeterminado es TRUE|estática|Configuración predeterminada para la comprobación de errores del encabezado de la estructura en modo no seguro; la configuración del componente invalida esta configuración. |
+|MessageErrorCheckingEnabled|bool, el valor predeterminado es FALSE.|estática|Configuración predeterminada para la comprobación de errores del encabezado y el cuerpo del mensaje en modo no seguro; la configuración del componente invalida esta configuración. |
+|ResolveOption|string, el valor predeterminado es "unspecified".|estática|Determina cómo se resuelve el FQDN.  Los valores válidos son "sin especificar/ipv4/ipv6". |
+|SendTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(300)|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo de expiración del envío para detectar la conexión bloqueada. Los informes de errores TCP no son confiables en algunos entornos. Puede que sea necesario ajustar esto según el ancho de banda de red disponible y el tamaño de datos de salida (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |

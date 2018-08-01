@@ -9,19 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: c96e9825cddd0b60e67cd4752fab8f440ceaae76
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227838"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
-Azure Stream Analytics agrega el "peso" de rendimiento de ejecutar un trabajo en unidades de streaming (SU). Las SU representan los recursos informáticos que se usan para ejecutar un trabajo. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Esta función le permite centrarse en la lógica de consulta y abstrae la necesidad de administrar el hardware para ejecutar el trabajo de Stream Analytics de manera oportuna.
+Las unidades de streaming (SU) representan los recursos informáticos que se asignan para ejecutar un trabajo. Cuanto mayor sea el número de unidades de streaming, más recursos de CPU y memoria se asignarán al trabajo. Esta función le permite centrarse en la lógica de consulta y abstrae la necesidad de administrar el hardware para ejecutar el trabajo de Stream Analytics de manera oportuna.
 
-Con el fin de lograr un procesamiento de streaming de latencia baja, los trabajos de Azure Stream Analytics realizan todo el procesamiento en memoria. El trabajo de streaming presenta un error cuando se queda sin memoria. Como resultado, en el caso de un trabajo de producción, resulta importante supervisar el uso de recursos de un trabajo de streaming, y debe asegurarse de que hay recursos asignados suficientes para mantener los trabajos en ejecución de manera ininterrumpida.
+Para lograr un procesamiento de streaming de latencia baja, los trabajos de Azure Stream Analytics realizan todo el procesamiento en memoria. El trabajo de streaming presenta un error cuando se queda sin memoria. Como resultado, en el caso de un trabajo de producción, resulta importante supervisar el uso de recursos de un trabajo de streaming, y debe asegurarse de que hay recursos asignados suficientes para mantener los trabajos en ejecución de manera ininterrumpida.
 
-La métrica es un número de porcentaje que va de 0 % a 100 %. Para un trabajo de streaming con una superficie mínima, la métrica de porcentaje de uso de SU suele estar entre 10 % y 20 %. Se recomienda mantener la métrica por debajo del 80 % para tener en cuenta las subidas ocasionales. Microsoft recomienda establecer una alerta en un 80 % de métrica de uso de SU para evitar el agotamiento de recursos. Para obtener más información, consulte [Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md).
+La métrica de uso del % de SU, que oscila de 0 % al 100 %, describe el consumo de memoria de la carga de trabajo. Para un trabajo de streaming con una superficie mínima, esta métrica suele estar entre el 10 % y el 20 %. Si el porcentaje de uso de SU es bajo y los eventos de entrada quedan pendientes, puede que la carga de trabajo requiera más recursos informáticos, para lo que es necesario aumentar el número de SU. Se recomienda mantener la métrica de SU por debajo del 80 % para tener en cuenta las subidas ocasionales. Microsoft recomienda establecer una alerta en un 80 % de métrica de uso de SU para evitar el agotamiento de recursos. Para obtener más información, consulte [Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configuración de las unidades de streaming (SU) de Stream Analytics
 1. Inicie sesión en [Azure Portal](http://portal.azure.com/)
@@ -45,7 +46,7 @@ Calcule la capacidad de procesamiento esperada de la carga de trabajo. Si la cap
 
 La elección del número de SU necesarias para un trabajo determinado depende de la configuración de particiones de las entradas y de la consulta definida dentro del trabajo. La página **Escala** le permite establecer el número correcto de SU. Es recomendable asignar más unidades de streaming de las necesarias. El motor de procesamiento de Stream Analytics se optimiza para la latencia y el rendimiento, a costa de asignar memoria adicional.
 
-En general, el procedimiento recomendado es comenzar con 6 SU para consultas que no usen **PARTITION BY**. Luego, determine el punto favorable mediante un método de prueba y error en el que modifica el número de SU después de pasar las cantidades de datos representativas y examinar la métrica de porcentaje de uso de SU.
+En general, el procedimiento recomendado es comenzar con 6 SU para consultas que no usen **PARTITION BY**. Luego, determine el punto favorable mediante un método de prueba y error en el que modifica el número de SU después de pasar las cantidades de datos representativas y examinar la métrica de porcentaje de uso de SU. El número máximo de unidades de streaming que se puede utilizar en un trabajo de Stream Analytics depende del número de pasos de la consulta definida para el trabajo y del número de particiones en cada paso. Puede obtener más información sobre los límites [aquí](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
 Para más información sobre cómo elegir el número correcto de SU, consulte está página: [Escalación de trabajos de Azure Stream Analytics para incrementar el rendimiento](stream-analytics-scale-jobs.md)
 

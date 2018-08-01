@@ -1,6 +1,6 @@
 ---
-title: Compilación de la página de aterrizaje | Azure
-description: La página de aterrizaje de Azure Marketplace y AppSource se destina a los anunciantes de aplicaciones y servicios
+title: Compilación de la página de aterrizaje en Azure Marketplace | Azure
+description: Aprenda a crear una página de aterrizaje en Azure Marketplace y Microsoft AppSource para anunciantes de aplicaciones y servicios.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,48 +14,50 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc2e1e735f4d3dd97fdb291154da656b9a2c71c7
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826270"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160865"
 ---
-# <a name="build-your-landing-page"></a>Compilación de la página de aterrizaje  
-Una página de aterrizaje en el sitio web de su compañía es una puerta de enlace entre las actividades de generación de demanda y su lista de Marketplace.  
+# <a name="build-your-landing-page"></a>Compilación de la página de aterrizaje
 
-Comience por identificar sus objetivos. En las soluciones, elija el cliente objetivo y la acción que va a realizar el cliente.  La solución puede incluir las siguientes acciones.  
-*   Usar la versión limitada de prueba de la solución  
-*   Obtener una solución ahora  
-*   y mucho más...  
+Una página de aterrizaje en el sitio web de su empresa conecta las actividades de generación de demanda con la lista del catálogo de soluciones de [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
-Puede hacer referencia a su página de aterrizaje a través de varias tácticas de marketing. Puede utilizar las tácticas de marketing.  
-*   Eventos  
-*   Difusiones por web  
-*   Redes sociales  
-*   Notas del producto  
-*   Sesiones de aprendizaje técnico  
-*   Comunicados de prensa  
+Comience por identificar sus objetivos. En las soluciones, elija el cliente objetivo y la acción que va a realizar el cliente. La solución puede incluir las siguientes acciones:
+*   Probar la solución
+*   Obtener una solución ahora
 
-Cuanto más coherente sea en su mensajería y su llamada a la acción, más fácil será para sus clientes encontrar su solución.  
+Puede hacer referencia a su página de aterrizaje a través de varias tácticas de marketing. Podría usar las siguientes tácticas de marketing: 
+*   Eventos
+*   Difusiones por web
+*   Redes sociales
+*   Notas del producto
+*   Sesiones de aprendizaje técnico
+*   Comunicados de prensa
 
-Cuando tenga un plan de campaña listo, cree La página de aterrizaje. Revise la siguiente tabla para maximizar la eficacia de la página de aterrizaje.  
+Cuanto más coherente sea en su mensajería y en su llamada a la acción, más fácil será para sus clientes encontrar su solución.
 
-| Procedimiento recomendado | Qué evitar |  
-|:--- |:--- |  
-| ***Comunicar el problema del cliente que su solución resuelve y cómo usar Azure para conseguirlo*** |  No comunicar de qué modo funciona la solución con Azure. |  
-| ***Crear una dirección URL corta y fácil de recordar*** | Utilizar direcciones URL largas. Las direcciones URL largas no son fáciles de recordar y son difíciles de encontrar. |  
-| ***Agregar contenido visual interesante, como un vídeo de testimonios de clientes o una arquitectura de la solución*** | Utilizar demasiado texto hace que los clientes pasen por alto el contenido y dejen de explorar. |  
-| ***Crear una llamada a la acción clara para dirigir a los visitantes a la página del catálogo de Marketplace*** | Tener demasiados vínculos o acciones en la página. |  
-| ***Situar la llamada a la acción en una sección de encabezado o claramente delimitada*** |  Insertar los vínculos a la lista de Marketplace en un párrafo de texto. |  
-| ***Investigar las mejores palabras clave y optimizar la página para la búsqueda*** | Suponer que el nombre del producto genera mayores clasificaciones de búsqueda. |  
-| ***Usar palabras clave de sus campañas publicitarias*** |  Usar muchas palabras clave diferentes en las propiedades web debilita las inversiones en publicidad. |  
-| ***Colocar nombres de productos y palabras clave relevantes`above the fold`*** | Hacer que los usuarios se desplacen para ver el producto o la solución que se exhibe. |  
-| ***Usar imágenes de marca para validar la solución de acuerdo con las directrices de personalización de marca de Microsoft,<br />como Azure Certified*** | Usar imágenes de personalización de marca que no se han aprobado. |  
+## <a name="recommendations"></a>Recomendaciones
 
-*   Para más información sobre la notificación de Azure Certified, visite la página de instrucciones de Microsoft Azure Certified página en [azure.microsoft.com/support/legal/marketplace/certified-guidelines](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).  
-*   Para obtener recursos adicionales para la personalización de marca, visite la página Brand Central que se encuentra en [microsoft.sharepoint.com/teams/brandcentral](https://microsoft.sharepoint.com/teams/brandcentral).  
-*   Para más información sobre la herramienta Logo Builder, visite la página Logo Builder en [logobuilder.partner.microsoft.com](https://logobuilder.partner.microsoft.com).  
-*   Para más información, visite la página Cómo funciona en [partner.microsoft.com/membership](https://partner.microsoft.com/membership/how-it-works).  
+Cuando tenga un plan de campaña listo, cree La página de aterrizaje en Marketplace. En la siguiente tabla se describen varias formas en las que puede ayudar a maximizar la eficacia de la página de aterrizaje: 
 
----  
+| Procedimiento recomendado | Evite |
+|:--- |:--- |
+| **Comunicar el problema del cliente que su solución resuelve y cómo usar Azure para conseguirlo** | No comunicar de qué modo funciona la solución con Azure. |
+| **Crear una dirección URL corta y fácil de recordar** | Utilizar direcciones URL largas. Las direcciones URL largas no son fáciles de recordar y son difíciles de encontrar. |
+| **Agregar contenido visual interesante, como un vídeo de testimonios de clientes o una arquitectura de la solución** | Utilizar demasiado texto hace que los clientes pasen por alto el contenido y dejen de explorar.|
+| **Crear una llamada a la acción clara para dirigir a los visitantes a la página del catálogo de Marketplace** | Tener demasiados vínculos o acciones en la página. |
+| **Situar la llamada a la acción en una sección de encabezado o claramente delimitada** | Insertar en un párrafo de texto los vínculos a su anuncio en Marketplace. |
+| **Investigar las mejores palabras clave y optimizar la página para la búsqueda** | Suponer que el nombre del producto genera mayores clasificaciones de búsqueda. |
+| **Usar palabras clave de sus campañas publicitarias** | Usar muchas palabras clave diferentes en las propiedades web debilita las inversiones en publicidad. |
+| **Colocar los nombres y palabras clave significativos del producto en la "primera pantalla"** | Hacer que los usuarios se desplacen para ver el producto o la solución que se exhibe. |
+| **Usar imágenes de marca para validar la solución de acuerdo con las directrices de personalización de marca de Microsoft, por ejemplo, Azure Certified** | Usar imágenes de personalización de marca que no se han aprobado. |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+*   Para más información sobre el distintivo Azure Certified, vea [Guías de Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).
+*   Para obtener más recursos sobre la personalización de marca, vea [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral).
+*   Para más información sobre la herramienta Logo Builder, vea [Logo Builder](https://logobuilder.partner.microsoft.com).
+*   Consulte [Ventajas que el Microsoft Partner Program le ofrece](https://partner.microsoft.com/membership/how-it-works).

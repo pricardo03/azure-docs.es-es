@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150964"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222535"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.9
 
@@ -32,7 +32,7 @@ En esta versión no se han hecho cambios importantes en el SDK de Azure 2.9. Tam
 
 ### <a name="visual-studio-2017-release-candidate"></a>Versión candidata para lanzamiento de Visual Studio 2017
 
-- En Visual Studio de 2017 RC, esta versión del SDK de Azure para .NET se basa en la carga de trabajo de Azure. Todas las herramientas que necesita para que el desarrollo de Azure forme parte de Visual Studio de 2017 RC y las versiones posteriores. Para Visual Studio 2015 y Visual Studio 2013, el SDK estará disponible a través de WebPI. Cuando la versión de Visual Studio 2017 sea definitiva, se interrumpirán las versiones del SDK de Azure para .NET para Visual Studio 2013l. Siga este vínculo para descargar Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- En Visual Studio 2017 RC, esta versión del SDK de Azure para .NET está integrada para la carga de trabajo de Azure. Todas las herramientas que necesita para que el desarrollo de Azure forme parte de Visual Studio de 2017 RC y las versiones posteriores. Para Visual Studio 2015 y Visual Studio 2013, el SDK estará disponible a través de WebPI. Cuando la versión de Visual Studio 2017 sea definitiva, se interrumpirán las versiones del SDK de Azure para .NET para Visual Studio 2013l. Siga este vínculo para descargar Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
 

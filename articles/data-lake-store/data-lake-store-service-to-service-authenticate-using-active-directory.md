@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 89ebc804aeabfa76309d37721576e7fe833ea2ce
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e59ed093417d8761135b946e2fa3f183bb085c9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625906"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215978"
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación entre servicios con Data Lake Store mediante Azure Active Directory
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Con ambas opciones, la aplicación recibe un token de OAuth 2.0, que se adjunta 
 
 En este artículo se explica cómo crear una **aplicación web de Azure AD para la autenticación entre servicios**. Para obtener instrucciones sobre la configuración de la aplicación de Azure AD para la autenticación de usuario final, vea [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Paso 1: Crear una aplicación web de Active Directory
@@ -78,7 +78,7 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
     ![Asignación de permisos a un grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Asignación de permisos a un grupo")
 
 > [!NOTE]
-> Si tiene previsto al restringir la aplicación de Azure Active Directory a una carpeta específica, también necesitará a conceder a esa misma aplicación de Azure Active Directory el permiso **Ejecutar** en la raíz para habilitar el acceso de creación de archivos a través del SDK de .NET.
+> Si tiene previsto restringir la aplicación de Azure Active Directory a una carpeta específica, también necesitará conceder a esa misma aplicación de Azure Active Directory el permiso **Ejecutar** en la raíz para habilitar el acceso de creación de archivos a través del SDK de .NET.
 
 > [!NOTE]
 > Si desea usar los SDK para crear una cuenta de Data Lake Store, debe asignar la aplicación web de Azure AD como un rol al grupo de recursos en el que crea la cuenta de Data Lake Store.

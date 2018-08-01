@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971081"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160253"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -59,6 +59,7 @@ En la siguiente sección se proporciona una información general completa de tod
 
 |Error|DESCRIPCIÓN|
 |---|---|
+|16000|Se trata de un detalle de implementación interno y no de una condición de error. Puede omitir esta referencia sin problemas.|
 |20001|Hay un problema con el proveedor de identidades federado. Póngase en contacto con el IDP para resolver este problema.|
 |20012|Hay un problema con el proveedor de identidades federado. Póngase en contacto con el IDP para resolver este problema.|
 |20033|Hay un problema con el proveedor de identidades federado. Póngase en contacto con el IDP para resolver este problema.|
@@ -174,6 +175,7 @@ En la siguiente sección se proporciona una información general completa de tod
 |81001|El vale de Kerberos del usuario es demasiado grande. Esto puede ocurrir si el usuario pertenece a demasiados grupos y, por tanto, el vale de Kerberos contiene demasiadas pertenencias a grupos. Reduzca la pertenencia a grupos del usuario e inténtelo de nuevo.|
 |81005|No se admite este paquete de autenticación|
 |81007|El inquilino no está habilitado para un inicio de sesión único de conexión directa|
+|81012|No se trata de una condición de error. Indica que el usuario que intenta iniciar sesión en Azure AD es distinto del que inició sesión en el dispositivo. Puede omitir este código en los registros sin problemas.|
 |90010|La solicitud no se admite por diversos motivos. Por ejemplo, la solicitud se ha realizado utilizando un método de solicitud que no es compatible (se admite solo el método POST), o el algoritmo de firma de token que se solicitó no es compatible. Póngase en contacto con el desarrollador de aplicaciones.|
 |90014| Falta un campo obligatorio para un mensaje de protocolo, póngase en contacto con el propietario de la aplicación. Si es usted el propietario de la aplicación, asegúrese de que tiene todos los parámetros necesarios para la solicitud de inicio de sesión. |
 |90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|

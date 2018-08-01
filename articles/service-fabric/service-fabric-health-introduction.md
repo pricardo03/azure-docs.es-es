@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114323"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215237"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
 Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. El modelo permite la supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento, y corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.
@@ -186,8 +186,8 @@ Después de que el Almacén de estado haya evaluado todos los elementos secundar
 
 * Si el estado de todos los elementos secundarios es Correcto, el estado de mantenimiento agregado de los elementos secundarios es Correcto.
 * Si los elementos secundarios tienen los estados Correcto y Advertencia, el estado de mantenimiento agregado de los elementos secundarios es Advertencia.
-* Si hay elementos secundarios con los estados Error que no respetan el porcentaje máximo permitido de elementos secundarios incorrectos, el estado de mantenimiento agregado es Error.
-* Si los elementos secundarios con estados de Error respetan el porcentaje máximo permitido de los elementos secundarios incorrectos, el estado de mantenimiento agregado es Advertencia.
+* Si hay elementos secundarios con los estados Error que no respetan el porcentaje máximo permitido de elementos secundarios incorrectos, el estado de mantenimiento principal agregado es Error.
+* Si los elementos secundarios con estados de Error respetan el porcentaje máximo permitido de los elementos secundarios incorrectos, el estado de mantenimiento principal agregado es Advertencia.
 
 ## <a name="health-reporting"></a>Informes de mantenimiento
 Tanto los componentes del sistema como los guardianes internos o externos pueden generar informes de las entidades de Service Fabric. Los informadores realizan determinaciones *locales* del mantenimiento de las entidades supervisadas en función de las condiciones que supervisan. No necesitan examinar ningún estado global ni agregar datos. El comportamiento deseado es tener informadores sencillos y no organismos complejos que necesitan examinar muchos datos para inferir la información que van a enviar.

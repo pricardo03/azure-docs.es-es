@@ -1,11 +1,11 @@
 ---
-title: "Información general sobre registros y zonas DNS - Azure DNS | Microsoft Docs"
-description: "Información general de soporte técnico para hospedar registros y zonas DNS en DNS de Microsoft Azure."
+title: Información general sobre registros y zonas DNS - Azure DNS | Microsoft Docs
+description: Información general de soporte técnico para hospedar registros y zonas DNS en DNS de Microsoft Azure.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: 0a0808d3963cc037aaf113c67fd01679ee8c1d40
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.author: victorh
+ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174296"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -69,21 +70,21 @@ Los registros CAA permiten a los propietarios especificar qué entidades de cert
 
 Los conjuntos de registros CNAME no pueden coexistir con otros conjuntos de registros que tienen el mismo nombre. Por ejemplo, no se puede crear un conjunto de registros CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo.
 
-Dado que el vértice de la zona (nombre = "\@\") siempre contiene los conjuntos de registros NS y SOA creados cuando se genera la zona, no puede crear un conjunto de registros CNAME en el vértice de la zona.
+Dado que el vértice de la zona (nombre = "\@") siempre contiene los conjuntos de registros NS y SOA creados cuando se genera la zona, no puede crear un conjunto de registros CNAME en el vértice de la zona.
 
 Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
 
 ### <a name="ns-records"></a>Registros NS
 
-El registro NS establecido en el vértice de la zona (nombre "\@\") se crea automáticamente con cada zona DNS y se elimina de forma automática cuando se elimina la zona (no se puede eliminar por separado).
+El registro NS establecido en el vértice de la zona (nombre "\@") se crea automáticamente con cada zona DNS y se elimina de forma automática cuando se elimina la zona (no se puede eliminar por separado).
 
 Este conjunto de registros contiene los nombres de los servidores de nombres Azure DNS asignados a la zona. Puede agregar más servidores de nombres a este conjunto de registros NS, para admitir dominios de hospedaje conjunto con más de un proveedor DNS. También puede modificar el TTL y los metadatos de este conjunto de registros. Sin embargo, no puede quitar ni modificar los servidores de nombres de Azure DNS rellenados previamente. 
 
-Tenga en cuenta que esto solo se aplica al conjunto de registros NS en el vértice de la zona. Otros conjuntos de registros NS de su zona (como los que se usan para delegar zonas secundarias) se pueden crear, modificar y eliminar sin restricciones.
+Esto solo se aplica al conjunto de registros NS en el vértice de zona. Otros conjuntos de registros NS de su zona (como los que se usan para delegar zonas secundarias) se pueden crear, modificar y eliminar sin restricciones.
 
 ### <a name="soa-records"></a>Registros SOA
 
-Un conjunto de registros SOA se crea automáticamente en el vértice de cada zona (nombre = "\@\") y se elimina automáticamente cuando se elimina la zona.  Los registros SOA no pueden crearse ni eliminarse por separado.
+Un conjunto de registros SOA se crea automáticamente en el vértice de cada zona (nombre = "\@") y se elimina automáticamente cuando se elimina la zona.  Los registros SOA no pueden crearse ni eliminarse por separado.
 
 Puede modificar todas las propiedades del registro SOA excepto la propiedad 'host', que está preconfigurada para hacer referencia al nombre del servidor de nombres principal proporcionado por DNS de Azure.
 
@@ -95,7 +96,7 @@ Puede modificar todas las propiedades del registro SOA excepto la propiedad 'hos
 
 Los [registros SRV](https://en.wikipedia.org/wiki/SRV_record) se utilizan en diversos servicios para especificar ubicaciones de servidor. Al especificar un registro SRV en DNS de Azure:
 
-* Debe especificarse el *servicio* y el *protocolo* como parte del nombre del conjunto de registros, precedidos por caracteres de subrayado.  Por ejemplo, "\_sip.\_tcp.name".  En un registro en el vértice de la zona, no es necesario especificar "\@\" en el nombre del registro, simplemente utilice el servicio y el protocolo, por ejemplo, "\_sip.\_tcp".
+* Debe especificarse el *servicio* y el *protocolo* como parte del nombre del conjunto de registros, precedidos por caracteres de subrayado.  Por ejemplo, "\_sip.\_tcp.name".  En un registro en el vértice de la zona, no es necesario especificar "\@" en el nombre del registro, simplemente utilice el servicio y el protocolo, por ejemplo, "\_sip.\_tcp".
 * La *prioridad*, el *peso*, el *puerto* y el *destino* se especifican como parámetros de cada registro del conjunto de registros.
 
 ### <a name="txt-records"></a>Registros TXT

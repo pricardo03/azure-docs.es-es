@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "34757234"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144941"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -40,38 +40,40 @@ En los pasos que se indican a continuación se da por hecho que tiene una maquin
 2. En la parte superior de Azure Portal, vaya al cuadro de búsqueda y escriba el nombre de la máquina virtual. Cuando el nombre de la máquina virtual aparezca en los resultados de búsqueda, selecciónela.
 3. En **CONFIGURACIÓN**, seleccione **Redes**, como se muestra en la imagen siguiente:
 
-    ![Ver reglas de seguridad](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![Ver reglas de seguridad](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    Las reglas que se ven en la imagen anterior son para una interfaz de red denominada **myVMVMNic**. Verá que hay **REGLAS DEL PUERTO DE ENTRADA** para la interfaz de red de dos grupos de seguridad de red diferentes:- **mySubnetNSG**: asociado a la subred en que está la interfaz de red.
-        - **myVMNSG**: asociado a la interfaz de red de la máquina virtual denominada **myVMVMNic**.
+   Las reglas que se ven en la imagen anterior son para una interfaz de red denominada **myVMVMNic**. Verá que hay **REGLAS DE PUERTO DE ENTRADA** para la interfaz de red de dos grupos de seguridad de red diferentes:
+   
+   - **mySubnetNSG**: asociado a la subred que se encuentra en la interfaz de red.
+   - **myVMNSG**: asociado a la interfaz de red de la máquina virtual denominada **myVMVMNic**.
 
-    La regla denominada **DenyAllInBound** es lo que impide la comunicación entrante con la máquina virtual en el puerto 80, desde Internet, tal como se describe en el [escenario](#scenario). La regla enumera *0.0.0.0/0* para **ORIGEN**, lo que incluye Internet. Ninguna otra regla con una prioridad más alta (número menor) permite el puerto 80 de entrada. Para permitir el puerto 80 de entrada a la máquina virtual desde Internet, consulte [Resolve a problem](#resolve-a-problem) (Resolución de un problema). Para más información acerca de las reglas de seguridad y de la forma en que Azure las aplica, consulte [Grupos de seguridad de red](security-overview.md).
+   La regla denominada **DenyAllInBound** es lo que impide la comunicación entrante con la máquina virtual en el puerto 80, desde Internet, tal como se describe en el [escenario](#scenario). La regla enumera *0.0.0.0/0* para **ORIGEN**, lo que incluye Internet. Ninguna otra regla con una prioridad más alta (número menor) permite el puerto 80 de entrada. Para permitir el puerto 80 de entrada a la máquina virtual desde Internet, consulte [Resolve a problem](#resolve-a-problem) (Resolución de un problema). Para más información acerca de las reglas de seguridad y de la forma en que Azure las aplica, consulte [Grupos de seguridad de red](security-overview.md).
 
-    En la parte inferior de la imagen, también ve **REGLAS DEL PUERTO DE SALIDA**. Debajo están las reglas del puerto de salida para la interfaz de red. Aunque la imagen solo muestra cuatro reglas de entrada para cada NSG, sus NSG pueden tener más de cuatro. En la imagen, ve **VirtualNetwork** en **SOURCE** (ORIGEN) y **DESTINATION** (DESTINO) y **AzureLoadBalancer** en **SOURCE** (ORIGEN). **VirtualNetwork** y **AzureLoadBalancer** son [etiquetas de servicio](security-overview.md#service-tags). Las etiquetas de servicio representan un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad.
+   En la parte inferior de la imagen, también ve **REGLAS DEL PUERTO DE SALIDA**. Debajo están las reglas del puerto de salida para la interfaz de red. Aunque la imagen solo muestra cuatro reglas de entrada para cada NSG, sus NSG pueden tener más de cuatro. En la imagen, ve **VirtualNetwork** en **SOURCE** (ORIGEN) y **DESTINATION** (DESTINO) y **AzureLoadBalancer** en **SOURCE** (ORIGEN). **VirtualNetwork** y **AzureLoadBalancer** son [etiquetas de servicio](security-overview.md#service-tags). Las etiquetas de servicio representan un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad.
 
 4. Asegúrese de que la máquina virtual está en estado de ejecución y luego seleccione **Effective security rules** (Reglas de seguridad eficaces), como se muestra en la imagen anterior, para ver las reglas de seguridad vigentes que se muestran en la siguiente imagen:
 
-    ![Visualización de las reglas de seguridad vigentes](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Visualización de las reglas de seguridad vigentes](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-    Las reglas que se enumeran son las mismas que vio en el paso 3, aunque hay pestañas diferentes para el grupo de seguridad de red asociado a la interfaz de red y la subred. Como puede ver en la imagen, solo se muestran las 50 primeras reglas. Para descargar un archivo .csv que contiene todas las reglas, seleccione **Descargar**.
+   Las reglas que se enumeran son las mismas que vio en el paso 3, aunque hay pestañas diferentes para el grupo de seguridad de red asociado a la interfaz de red y la subred. Como puede ver en la imagen, solo se muestran las 50 primeras reglas. Para descargar un archivo .csv que contiene todas las reglas, seleccione **Descargar**.
 
-    Para ver los prefijos que representa cada etiqueta de servicio, seleccione una regla, por ejemplo, la regla denominada **AllowAzureLoadBalancerInbound**. La siguiente imagen muestra los prefijos de la etiqueta de servicio **AzureLoadBalancer**:
+   Para ver los prefijos que representa cada etiqueta de servicio, seleccione una regla, por ejemplo, la regla denominada **AllowAzureLoadBalancerInbound**. La siguiente imagen muestra los prefijos de la etiqueta de servicio **AzureLoadBalancer**:
 
-    ![Visualización de las reglas de seguridad vigentes](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Visualización de las reglas de seguridad vigentes](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-    Aunque la etiqueta de servicio **AzureLoadBalancer** solo representa un prefijo, otras etiquetas de servicio representan varios prefijos.
+   Aunque la etiqueta de servicio **AzureLoadBalancer** solo representa un prefijo, otras etiquetas de servicio representan varios prefijos.
 
-4. Los pasos anteriores mostraban las reglas de seguridad de una interfaz de red denominada **myVMVMNic**, pero también ha visto una interfaz de red llamada **myVMVMNic2** en algunas de las imágenes anteriores. La máquina virtual de este ejemplo tiene dos interfaces de red conectadas. Las reglas de seguridad vigentes pueden ser diferentes para cada interfaz de red.
+5. Los pasos anteriores mostraban las reglas de seguridad de una interfaz de red denominada **myVMVMNic**, pero también ha visto una interfaz de red llamada **myVMVMNic2** en algunas de las imágenes anteriores. La máquina virtual de este ejemplo tiene dos interfaces de red conectadas. Las reglas de seguridad vigentes pueden ser diferentes para cada interfaz de red.
 
-    Para ver las reglas de la interfaz de red **myVMVMNic2**, selecciónela. Como se muestra en la imagen siguiente, la interfaz de red tiene las mismas reglas asociadas a su subred que la interfaz de red **myVMVMNic**, ya que las dos interfaces de red se encuentran en la misma subred. Al asociar un NSG a una subred, sus reglas se aplican a todas las interfaces de red de la subred.
+   Para ver las reglas de la interfaz de red **myVMVMNic2**, selecciónela. Como se muestra en la imagen siguiente, la interfaz de red tiene las mismas reglas asociadas a su subred que la interfaz de red **myVMVMNic**, ya que las dos interfaces de red se encuentran en la misma subred. Al asociar un NSG a una subred, sus reglas se aplican a todas las interfaces de red de la subred.
 
-    ![Ver reglas de seguridad](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![Ver reglas de seguridad](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-    A diferencia de la interfaz de red **myVMVMNic**, la interfaz de red **myVMVMNic2** no tiene ningún grupo de seguridad de red asociado. Cada interfaz de red y subred pueden tener un grupo de seguridad de red asociado, o ninguno. El grupo de seguridad de red asociados a cada interfaz de red o subred puede ser el mismo o diferente. El mismo grupo de seguridad de red se puede asociar a tantas interfaces de red y subredes individuales como se desee.
+   A diferencia de la interfaz de red **myVMVMNic**, la interfaz de red **myVMVMNic2** no tiene ningún grupo de seguridad de red asociado. Cada interfaz de red y subred pueden tener un grupo de seguridad de red asociado, o ninguno. El grupo de seguridad de red asociados a cada interfaz de red o subred puede ser el mismo o diferente. El mismo grupo de seguridad de red se puede asociar a tantas interfaces de red y subredes individuales como se desee.
 
-Aunque las reglas de seguridad vigentes se vieron a través de la máquina virtual, también se puede ver a través de:
-- **Interfaz de red individual**: aprenda cómo [ver una interfaz de red](virtual-network-network-interface.md#view-network-interface-settings).
-- Un **grupo de seguridad de red individual**: aprenda a [ver un grupo de seguridad de red](manage-network-security-group.md#view-details-of-a-network-security-group).
+Aunque las reglas de seguridad vigentes se vieron a través de la máquina virtual, también se puede ver a través de un usuario individual:
+- **Interfaz de red**: aprenda a [ver una interfaz de red](virtual-network-network-interface.md#view-network-interface-settings).
+- **NSG**: aprenda a [ver un grupo de seguridad de red](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnóstico mediante PowerShell
 

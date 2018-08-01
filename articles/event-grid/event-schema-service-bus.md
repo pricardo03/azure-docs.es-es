@@ -6,14 +6,14 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 07/23/2018
 ms.author: babanisa
-ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303324"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226550"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos de Azure Event Grid para Service Bus
 
@@ -30,7 +30,7 @@ Service Bus emite los siguientes tipos de eventos:
 
 ## <a name="example-event"></a>Evento de ejemplo
 
-En el ejemplo siguiente se muestra el esquema de un mensajes activo con ningún evento de agentes de escucha:
+En el ejemplo siguiente se muestra el esquema de mensajes activos sin ningún evento de agentes de escucha:
 
 ```json
 [{
@@ -93,7 +93,7 @@ El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| nameSpaceName | string | El espacio de nombres de Service Bus donde se encuentra el recurso. |
+| namespaceName | string | El espacio de nombres de Service Bus donde se encuentra el recurso. |
 | requestUri | string | El URI en el que la cola específica o suscripción específicos emite el evento. |
 | entityType | string | El tipo de entidad de Service Bus que emite eventos (cola o suscripción). |
 | queueName | string | La cola con mensajes activos si se suscribe a una cola. El valor null si se usan temas o suscripciones. |

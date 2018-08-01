@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294856"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224303"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
 
@@ -190,7 +190,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Prefijo de recurso. | Identificador único corto para la implementación. Este valor se utiliza como base para asignar nombres a los recursos. |
     | Nombre de usuario de máquina virtual | El nombre de usuario se utiliza como administrador de todas las máquinas virtuales (VM). |
     | Tipo de autenticación | Seleccione si desea utilizar una contraseña o clave para conectarse a las máquinas virtuales. |
-    | Password | La contraseña se usa para conectarse a las máquinas virtuales. |
+    | Contraseña | La contraseña se usa para conectarse a las máquinas virtuales. |
     | SSH | Use una clave pública RSA en formato de una sola línea con **ssh-rsa** o utilice el formato PEM de varias líneas. Puede generar claves SSH mediante `ssh-keygen` en Linux y OS X o PuTTYGen en Windows. Para más información sobre las claves SSH, consulte [Uso de claves SSH con Windows en Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Contraseña de base de datos / Confirmar contraseña de la base de datos | Especifique la contraseña que se utilizará para acceder a la base de datos creada como parte de la implementación. |
     | Región de la implementación | Especifique dónde se van a implementar los recursos de Blockchain Workbench. Para una mejor disponibilidad, el valor debe ser el mismo que el de **Ubicación**. |
@@ -213,9 +213,13 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
 
 8.  Haga clic en **Aceptar** para finalizar la sección de configuración de los parámetros de Azure AD.
 
-9.  Complete la configuración de la opción **Tamaño y rendimiento de red**.
+9.  En **Network Settings and Performance** (Configuración de red y rendimiento), elija si desea crear una nueva red de cadena de bloques o usar una red de cadena de bloques prueba de autoridad existente.
 
-    ![Valores de red y de rendimiento](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    Para **Crear nueva**:
+
+    La opción *crear nueva* opción crea un conjunto de prueba de autoridad de (PoA) Ethereum dentro de la suscripción de un miembro único. 
+
+    ![Configuración de red y rendimiento](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
 
     | Configuración | DESCRIPCIÓN  |
     |---------|--------------|
@@ -223,7 +227,23 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Rendimiento del almacenamiento | Elija el rendimiento de almacenamiento preferido de la máquina virtual para la red de cadena de bloques. |
     | Tamaño de la máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. |
 
-10. Seleccione **Aceptar** para completar la sección sobre tamaño y rendimiento de red.
+    Para **Usar existente**:
+
+    La opción *usar existente* opción le permite especificar una red de cadena de bloques de prueba de autoridad (PoA) de Ethereum. Los puntos de conexión tienen los siguientes requisitos.
+
+    * El punto de conexión debe ser una red de cadena de bloques de prueba de autoridad (PoA) de Ethereum.
+    * El punto de conexión debe ser públicamente accesible a través de la red.
+    * La red de cadena de bloques PoA debe configurarse para que el precio del gas se establezca en cero (Nota: Las cuentas de Blockchain Workbench no están financiadas. Si se requieren fondos, habrá un error de transacción).
+
+    ![Configuración de red y rendimiento](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | Configuración | DESCRIPCIÓN  |
+    |---------|--------------|
+    | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. El punto de conexión comienza con http:// y termina con un número de puerto. Por ejemplo: `http://contoso-chain.onmicrosoft.com:8545` |
+    | Rendimiento del almacenamiento | Elija el rendimiento de almacenamiento preferido de la máquina virtual para la red de cadena de bloques. |
+    | Tamaño de la máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. |
+
+10. Seleccione **Aceptar** para finalizar la configuración de red y el rendimiento.
 
 11. Complete la configuración de **Azure Monitor**.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ce7b255359c076ddae642ed44f056e444b655e25
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605430"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216417"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Realización de una copia de seguridad del servidor de VMware en Azure
 
@@ -151,8 +151,8 @@ Para agregar un rol y privilegios de vCenter Server para un administrador de cop
 
   Después de hacer clic en **Aceptar**, el nuevo rol aparece en la lista del panel Roles.
 
-|Privilegios para vCenter 6.0| Privilegios para vCenter 5.5|
-|--------------------------|---------------------------|
+|Privilegios para vCenter 6.0 y 6.5| Privilegios para vCenter 5.5|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |

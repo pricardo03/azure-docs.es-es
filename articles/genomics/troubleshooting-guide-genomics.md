@@ -11,13 +11,13 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 04/13/2018
-ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.date: 07/18/2018
+ms.openlocfilehash: 9bd1690003fd37b6c2edd0f0421cf8d0e74f8cb5
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34627371"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144183"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 Esta información general describe las estrategias para solucionar problemas comunes al usar el servicio Microsoft Genomics. Para ver las preguntas más frecuentes, consulte [Preguntas frecuentes](frequently-asked-questions-genomics.md). 
@@ -65,7 +65,7 @@ Para resolver este problema, revise si los archivos FASTQ enviados al flujo de t
 
 
 ### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Error al cargar el archivo .bam. El blob de salida ya existe y la opción de sobrescritura estaba establecida como False.
-Si ve el siguiente mensaje de error `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, la carpeta de salida ya contiene un archivo de salida con el mismo nombre.  Elimine el archivo de salida existente o active la opción de sobrescritura en el archivo de configuración. A continuación, vuelva a enviar el flujo de trabajo.
+Si ve el siguiente mensaje de error, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, la carpeta de salida ya contiene un archivo de salida con el mismo nombre.  Elimine el archivo de salida existente o active la opción de sobrescritura en el archivo de configuración. A continuación, vuelva a enviar el flujo de trabajo.
 
 ### <a name="when-to-contact-microsoft-genomics-support"></a>Cuándo ponerse en contacto con el equipo de soporte técnico de Microsoft Genomics
 Si ve los mensajes de error siguientes, se produjo un error interno. 

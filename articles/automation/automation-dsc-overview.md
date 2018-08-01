@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83d5b89422a0181c06dbfe3b2bd8975ef7214b9d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f6d49ffa59ed53c0a1966a4132fd5fe1689a13ce
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193264"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247356"
 ---
 # <a name="azure-automation-dsc-overview"></a>Información general de DSC de Azure Automation
 
@@ -27,7 +27,7 @@ DSC de Azure Automation proporciona varias ventajas con respecto a DSC fuera de 
 
 ### <a name="built-in-pull-server"></a>Servidor de extracción integrado
 
-Azure Automation proporciona un [servidor de extracción de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver) para que los nodos de destino reciban automáticamente las configuraciones, se ajusten al estado deseado y devuelvan la información de cumplimiento.
+Azure Automation proporciona un servidor de extracción de DSC similar a la [característica de Windows DSC-Service](/powershell/dsc/pullserver) para que los nodos de destino reciban automáticamente las configuraciones, se ajusten al estado deseado y devuelvan la información de cumplimiento.
 El servidor de extracción integrado en Azure Automation elimina la necesidad de configurar y mantener su propio servidor de extracción.
 Azure Automation puede tener como destino máquinas físicas o virtuales Windows o Linux, en la nube o en un entorno local.
 

@@ -3,7 +3,7 @@ title: Creación de una máquina virtual Linux en Azure con varias NIC | Microso
 description: Aprenda a crear una máquina virtual Linux con varias NIC conectadas a ella mediante la CLI de Azure 2.0 o las plantillas de Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -12,19 +12,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2017
-ms.author: cynthn
-ms.openlocfilehash: 257b80c30823be41893be8659845d4fcbc922da3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.date: 06/07/2018
+ms.author: iainfou
+ms.openlocfilehash: aae71dafd3685e44975049c4287c083abc2330bc
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932279"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144863"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
 Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común es tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo describe cómo crear una máquina virtual con varias NIC asociadas a ella y cómo agregar o quitar las NIC de una máquina virtual existente. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
 
-En este artículo se describe cómo crear una máquina virtual con varias NIC con la CLI de Azure 2.0. 
+En este artículo se describe cómo crear una máquina virtual con varias NIC con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](multiple-nics-nodejs.md).
 
 
 ## <a name="create-supporting-resources"></a>Creación de recursos de apoyo
@@ -44,9 +44,9 @@ Cree la red virtual con [az network vnet create](/cli/azure/network/vnet#az_netw
 az network vnet create \
     --resource-group myResourceGroup \
     --name myVnet \
-    --address-prefix 192.168.0.0/16 \
+    --address-prefix 10.0.0.0/16 \
     --subnet-name mySubnetFrontEnd \
-    --subnet-prefix 192.168.1.0/24
+    --subnet-prefix 10.0.1.0/24
 ```
 
 Cree una subred para el tráfico de back-end con [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). En el ejemplo siguiente se crea una subred denominada *mySubnetBackEnd*:
@@ -56,7 +56,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name mySubnetBackEnd \
-    --address-prefix 192.168.2.0/24
+    --address-prefix 10.0.2.0/24
 ```
 
 Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
@@ -86,7 +86,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Creación de una máquina virtual y conexión de las NIC
-Cuando cree la máquina virtual, especifique las NIC creadas con `--nics`. También debe tener cuidado al seleccionar el tamaño de la máquina virtual. Existen límites para el número total de NIC que se pueden agregar a una máquina virtual. Más información sobre los [tamaños de máquina virtual Linux](sizes.md). 
+Cuando cree la máquina virtual, especifique las NIC creadas con `--nics`. También debe tener cuidado al seleccionar el tamaño de la máquina virtual. Existen límites para el número total de NIC que se pueden agregar a una máquina virtual. Más información sobre los [tamaños de máquina virtual Linux](sizes.md).
 
 Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada *myVM*:
 
@@ -187,75 +187,68 @@ Puede leer un ejemplo completo de [cómo crear varias NIC con plantillas de Reso
 Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configuración del sistema operativo invitado para varias NIC
-Al agregar varios NIC a una máquina virtual de Linux, debe crear reglas de enrutamiento. Estas reglas permiten a la máquina virtual enviar y recibir tráfico que pertenece a una NIC específica. En caso contrario, el tráfico que pertenece a *eth1* no se puede procesar correctamente debido a la ruta predeterminada definida.
 
-Para corregir este problema de enrutamiento, agregue primero dos tablas de enrutamiento a */etc/iproute2/rt_tables* tal como se indica a continuación:
+En los pasos anteriores se creó una red virtual y una subred, se conectaron las NIC y luego se creó una máquina virtual. No se creó ninguna regla de grupos de seguridad de red ni ninguna dirección IP pública que permitieran el tráfico SSH. Para configurar al sistema operativo invitado para varias NIC, tiene que permitir conexiones remotas y ejecutar comandos localmente en la máquina virtual.
 
-```bash
-echo "200 eth0-rt" >> /etc/iproute2/rt_tables
-echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+Para permitir el tráfico SSH, cree una regla de grupo de seguridad de red con [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) de la manera siguiente:
+
+```azurecli
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name allow_ssh \
+    --priority 101 \
+    --destination-port-ranges 22
 ```
 
-Para hacer que el cambio sea persistente y se aplique durante la activación de la pila de red, es necesario modificar los archivos */etc/sysconfig/network-srcipts/ifcfg-eth0* y */etc/sysconfig/network-scripts/ifcfg-eth1*. Cambie la línea *"NM_CONTROLLED = yes"* por *"NM_CONTROLLED = no"*. Sin este paso, las reglas o rutas adicionales no se aplicarán automáticamente.
- 
-El siguiente paso es extender las tablas de enrutamiento. Supongamos que tenemos la siguiente configuración:
+Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) y asígnela a la primera NIC con [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
 
-*Enrutamiento*
+```azurecli
+az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
 
-```bash
-default via 10.0.1.1 dev eth0 proto static metric 100
-10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
-10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
-168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
-169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+az network nic ip-config update \
+    --resource-group myResourceGroup \
+    --nic-name myNic1 \
+    --name ipconfig1 \
+    --public-ip-addres myPublicIP
 ```
 
-*Interfaces*
+Para ver la dirección IP pública de la máquina virtual, use [az vm show](/cli/azure/vm#az-vm-show) de la manera siguiente:
 
-```bash
-lo: inet 127.0.0.1/8 scope host lo
-eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
-eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```azurecli
+az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Debe crear los siguientes archivos y agregar las reglas y rutas correspondientes a cada uno de ellos:
-
-- */etc/sysconfig/network-scripts/rule-eth0*
-
-    ```bash
-    from 10.0.1.4/32 table eth0-rt
-    to 10.0.1.4/32 table eth0-rt
-    ```
-
-- */etc/sysconfig/network-scripts/route-eth0*
-
-    ```bash
-    10.0.1.0/24 dev eth0 table eth0-rt
-    default via 10.0.1.1 dev eth0 table eth0-rt
-    ```
-
-- */etc/sysconfig/network-scripts/rule-eth1*
-
-    ```bash
-    from 10.0.1.5/32 table eth1-rt
-    to 10.0.1.5/32 table eth1-rt
-    ```
-
-- */etc/sysconfig/network-scripts/route-eth1*
-
-    ```bash
-    10.0.1.0/24 dev eth1 table eth1-rt
-    default via 10.0.1.1 dev eth1 table eth1-rt
-    ```
-
-Para aplicar los cambios, reinicie el servicio de *red* tal como se indica a continuación:
+Conéctese ahora por SSH a la dirección IP pública de la máquina virtual. El nombre de usuario predeterminado indicado en el paso anterior era *azureuser*. Indique su propio nombre de usuario y la dirección IP pública:
 
 ```bash
-systemctl restart network
+ssh azureuser@137.117.58.232
 ```
 
-Las reglas de enrutamiento ahora están en su lugar y ya puede conectar con cualquier interfaz que necesite.
+Para enviar hacia o desde una interfaz de red secundaria, tiene que agregar manualmente rutas persistentes al sistema operativo para cada interfaz de red secundaria. En este artículo, *eth1* es la interfaz secundaria. Las instrucciones para agregar rutas persistentes al sistema operativo varían según la distribución. Vea la documentación correspondiente a su distribución para obtener instrucciones.
 
+Al agregar una ruta al sistema operativo, la dirección de puerta de enlace es *.1* para la subred en la que se encuentre la interfaz de red. Por ejemplo, si a la interfaz de red se le asigna la dirección *10.0.2.4*, la puerta de enlace que se especifica para la ruta es *10.0.2.1*. Si quiere que todo el tráfico de la interfaz pase por la puerta de enlace especificada, puede definir una red concreta para el destino de la ruta o especificar un destino de *0.0.0.0*. La puerta de enlace para cada subred se administra mediante la red virtual.
+
+Cuando haya agregado la ruta para una interfaz secundaria, compruebe que la ruta se encuentra en la tabla de rutas con `route -n`. La siguiente salida de ejemplo corresponde a la tabla de rutas en la que se han agregado las dos interfaces de red para la máquina virtual en este artículo:
+
+```bash
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.1.1        0.0.0.0         UG    0      0        0 eth0
+0.0.0.0         10.0.2.1        0.0.0.0         UG    0      0        0 eth1
+10.0.1.0        0.0.0.0         255.255.255.0   U     0      0        0 eth0
+10.0.2.0        0.0.0.0         255.255.255.0   U     0      0        0 eth1
+168.63.129.16   10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+169.254.169.254 10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+```
+
+Confirme que la ruta agregada se conserva entre un reinicio y el siguiente comprobando de nuevo la tabla de rutas tras un reinicio. Para probar la conectividad, puede escribir el siguiente comando, por ejemplo, donde *eth1* es el nombre de una interfaz de red secundaria:
+
+```bash
+ping bing.com -c 4 -I eth1
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Revise los [tamaños de máquina virtual Linux](sizes.md) al intentar crear una máquina virtual con varias NIC. Preste atención al número máximo de NIC que admite cada tamaño de máquina virtual. 
+Revise los [tamaños de máquina virtual Linux](sizes.md) al intentar crear una máquina virtual con varias NIC. Preste atención al número máximo de NIC que admite cada tamaño de máquina virtual.
+
+Para proteger más las máquinas virtuales, use acceso Just-In-Time a la máquina virtual. Esta característica abre reglas del grupo de seguridad de red al tráfico SSH cuando es necesario y durante un período de tiempo definido. Para más información, consulte [Administrar el acceso a máquina virtual mediante Just-In-Time](../../security-center/security-center-just-in-time.md).
