@@ -9,20 +9,18 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5783a7a06d75a409969abad011de3bbd31dec292
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380907"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085766"
 ---
 # <a name="text-moderation"></a>Moderación de texto
 
-Use la moderación de texto asistida por máquina de Content Moderator y las funciones [humanas en bucle](Review-Tool-User-Guide/human-in-the-loop.md) para moderar el contenido de texto.
+Use la moderación de texto asistida por máquina de Content Moderator y las funcionalidades de [revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar el contenido de texto.
 
-Las empresas utilizan el servicio de moderación de texto para bloquear, aprobar o revisar el contenido en función de sus directivas y umbrales. El servicio de moderación de texto se puede usar para aumentar la moderación humana de entornos que requieren que asociados, empleados y consumidores generen contenido de texto. Puede tratarse de salas de chat, paneles de discusión, bots de chat, catálogos de comercio electrónico, documentos y mucho más. 
-
-La API analiza el texto entrante (máximo de 1024 caracteres) para detectar palabras soeces, clasifica el posible texto no deseado (versión preliminar), lo corrige automáticamente y detecta posible información de identificación personal. También busca coincidencias con listas personalizadas de términos. La característica de autocorrección ayuda a detectar las palabras mal escritas deliberadamente. Una vez procesado el contenido, el servicio devuelve una respuesta detallada. La respuesta se utiliza para crear una revisión humana en la herramienta de revisión, dejarla inactiva, etc.
+El contenido se bloquea, aprueba o revisa en función de las directivas y los umbrales. Úsela para aumentar la moderación humana de los entornos donde socios, empleados y consumidores generan contenido de texto. Puede tratarse de salas de chat, paneles de discusión, bots de chat, catálogos de comercio electrónico y documentos. 
 
 La respuesta del servicio incluye la siguiente información:
 
@@ -52,12 +50,9 @@ Si la API detecta un término soez en cualquiera de los [idiomas admitidos](Text
 
 ## <a name="classification"></a>clasificación
 
-La **característica de clasificación de texto** asistida por máquina de Content Moderator admite **únicamente inglés**, y ayuda a detectar contenido potencialmente no deseado. El contenido marcado puede interpretarse como inapropiado según el contexto. Además de transmitir la probabilidad de cada categoría, puede recomendar una revisión humana del contenido. La característica utiliza un modelo entrenado para identificar posible lenguaje ofensivo, despectivo o discriminatorio. Esto incluye jerga, palabras abreviadas, palabras ofensivas y palabras mal escritas intencionadamente. 
+La **característica de clasificación de texto** asistida por máquina de Content Moderator admite **únicamente inglés**, y ayuda a detectar contenido potencialmente no deseado. El contenido marcado puede considerarse como inapropiado según el contexto. Transmite la probabilidad de cada categoría y puede recomendar una revisión humana. La característica utiliza un modelo entrenado para identificar posible lenguaje ofensivo, despectivo o discriminatorio. Esto incluye jerga, palabras abreviadas, palabras ofensivas y palabras mal escritas intencionadamente. 
 
 El siguiente extracto de JSON muestra una salida de ejemplo:
-
-> [!NOTE]
-> La característica de clasificación asistida por máquina está en versión preliminar.
 
     "Classification": {
         "ReviewRecommended": true,
@@ -74,9 +69,9 @@ El siguiente extracto de JSON muestra una salida de ejemplo:
 
 ### <a name="explanation"></a>Explicación
 
-- `Category1` representa la posible presencia de lenguaje que se puede considerar sexualmente explícito o para adultos en ciertas situaciones.
-- `Category2` representa la posible presencia de lenguaje que se puede considerar sexualmente insinuante o para adultos en ciertas situaciones.
-- `Category3` representa la posible presencia de lenguaje que se puede considerar ofensivo en ciertas situaciones.
+- `Category1` se refiere a la posible presencia de lenguaje que se puede considerar sexualmente explícito o para adultos en ciertas situaciones.
+- `Category2` se refiere a la posible presencia de lenguaje que se puede considerar sexualmente insinuante o para adultos en ciertas situaciones.
+- `Category3` se refiere a la posible presencia de lenguaje que se puede considerar ofensivo en ciertas situaciones.
 - `Score` se encuentra entre 0 y 1. Cuanto más alta sea la puntuación, mayor será la predicción del modelo sobre la aplicabilidad de la categoría. Esta versión preliminar usa un modelo estadístico, en lugar de resultados codificados manualmente. Se recomienda realizar pruebas con contenido propio para determinar cómo se alinea cada categoría en función de sus propios requisitos.
 - `ReviewRecommended` es true o false según los umbrales de puntuación internos. Los clientes deben evaluar si quieren usar este valor o decidir si desean umbrales personalizados basados en sus directivas de contenido.
 
@@ -151,10 +146,10 @@ Si solicita corrección automática, la respuesta contiene la versión corregida
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Creación y administración de las listas personalizadas de términos
 
-Si bien la lista global y predeterminada de términos funciona muy bien para la mayoría de los casos, puede que desee analizar términos específicos para sus necesidades empresariales. Por ejemplo, quizá desee filtrar nombres de marcas de la competencia presentes en las publicaciones de los usuarios. El umbral del contenido del texto permitido puede ser diferente de la lista predeterminada.
+Si bien la lista global y predeterminada de términos funciona muy bien para la mayoría de los casos, puede que desee analizar términos específicos para sus necesidades empresariales. Por ejemplo, quizá desee filtrar nombres de marcas de la competencia presentes en las publicaciones de los usuarios.
 
 > [!NOTE]
-> Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
+> Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
 >
 
 En el ejemplo siguiente se muestra el identificador de la lista de coincidencias:

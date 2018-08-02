@@ -2,7 +2,7 @@
 title: Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 description: Aprenda a configurar la publicación automática en Azure Event Grid de Durable Functions.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
-ms.author: tdykstra
-ms.openlocfilehash: 020a775c45ef3c46f9dfc5da7d4a7e470def4705
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: glenga
+ms.openlocfilehash: 691f00b0f05d8c91ae6f4409ba9eeeb50b0cd53b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969918"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343702"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 
@@ -33,7 +33,7 @@ A continuación se muestran algunos escenarios donde esta característica result
 
 * **Actividad de ejecución en segundo plano de larga duración**: si se utiliza Durable Functions para una actividad de ejecución en segundo plano de larga duración, esta característica le ayuda a conocer el estado actual.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc o una versión posterior en el proyecto de Durable Functions.
 * Instale el [Emulador de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).

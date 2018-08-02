@@ -9,146 +9,48 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a29435c0ace79fc3a5d3a5a42a0e91bdbc8da5e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045850"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082831"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Preguntas más frecuentes sobre Custom Speech Service
+# <a name="text-to-speech-frequently-asked-questions"></a>Preguntas más frecuentes sobre Texto a voz
 
 Si no puede encontrar las respuestas a sus preguntas en estas preguntas más frecuentes, formúlelas en la comunidad de Custom Speech Service en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) y [UserVoice](https://cognitive.uservoice.com/)
 
 ## <a name="general"></a>General
 
-**Pregunta**: ¿Qué diferencia hay entre los modelos de línea de base y los modelos personalizados de conversión de voz a texto?
+**Pregunta**: ¿Cuál es la diferencia entre los modelos de voz estándar y los modelos de voz personalizados?
 
-**Respuesta**: Los modelos de línea base se han entrenado con datos propiedad de Microsoft y ya están implementados en la nube. Los modelos personalizados permiten al usuario adaptar un modelo para que se ajuste mejor a un entorno en particular con ruido ambiental o idioma específicos. Las plantas de fábrica, los automóviles, las calles ruidosas requerirán un modelo acústico adaptado, mientras que los temas específicos como la biología, la física, la radiología, los nombres de productos y los acrónimos personalizados requerirán un modelo de lenguaje.
+**Respuesta**: Los modelos de voz estándar (también conocidos como fuentes de voz) se han entrenado con datos propiedad de Microsoft y ya están implementados en la nube. Los modelos de voz personalizados permiten que el usuario adapte un modelo promedio y transfiera la forma de expresión y el timbre de acuerdo con el estilo de voz del orador, o bien o entrene un modelo completo nuevo en función de los datos de entrenamiento que preparó el usuario. Actualmente son cada vez más los clientes que quieren una voz única y distintiva para sus bots. La plataforma de compilación de voz personalizada es la opción correcta para eso.
 
-**Pregunta**: ¿Dónde empiezo si quiero usar un modelo de línea base?
+**Pregunta**: ¿Dónde empiezo si quiero usar un modelo de voz estándar?
 
-**Respuesta**: Primero es necesario obtener una [clave de suscripción](get-started.md). Si quiere realizar llamadas REST a los modelos de línea base implementados previamente, consulte los [detalles aquí](rest-apis.md). Si quiere usar WebSockets, descargue el [SDK](speech-sdk.md).
+**Respuesta**: Hay más de 80 modelos de voz estándar en más de 45 idiomas disponibles a través de solicitudes HTTP. En primer lugar, es necesario obtener una [clave de suscripción](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). Para realizar llamadas CALL a los modelos de voz implementados previamente, consulte [los detalles aquí](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-**Pregunta**: ¿Es siempre necesario crear un modelo de voz personalizado?
+**Pregunta**: Si quiero usar un modelo de voz personalizado, ¿es la misma API que para las voces estándar?
 
-**Respuesta**: No, si la aplicación utiliza un lenguaje cotidiano genérico sin vocabulario personalizado o que pueda resultar raro, no es necesario personalizar un modelo. Además, si la aplicación se va a usar en un entorno con poco o ningún ruido de fondo, tampoco es necesaria la personalización. El portal permite a los usuarios implementar modelos de línea base y personalizados, y ejecutar pruebas de precisión en ellos. Los usuarios pueden utilizar esta función para medir la precisión de un modelo de línea base con respecto a uno personalizado.
+**Respuesta**: Cuando se crea e implementa el modelo de voz personalizado, recibirá un punto de conexión único para el modelo. Deberá especificar el punto de conexión en las solicitudes HTTP con el fin de usar la voz para hablar en las aplicaciones. La misma funcionalidad disponible a través de la API de REST para el servicio Texto a voz también está disponible para el punto de conexión personalizado. Vea cómo [crear y usar el punto de conexión personalizado](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
-**Pregunta**: ¿Cómo sabré que el proceso de mi conjunto de datos o modelo se ha completado?
+**Pregunta**: ¿Es necesario preparar los datos de entrenamiento para crear modelos de voz personalizados por mi cuenta?
 
-**Respuesta**: Actualmente, el estado del modelo o del conjunto de datos de la tabla es la única manera de saberlo.
-Cuando se complete el proceso, el estado será "Listo".
+**Respuesta**: Deberá preparar los datos de entrenamiento por su cuenta. Se requiere una colección de datos de voz para crear un modelo de voz personalizado. Esta colección se compone de un conjunto de archivos de audio de las grabaciones de voz y un archivo de texto de la transcripción de cada uno de los archivos de audio. El resultado de su voz digital se basa principalmente en la calidad de los datos de entrenamiento. Para generar una buena voz para Texto a voz, es importante que las grabaciones se realicen en una sala silenciosa con un micrófono de pedestal de alta calidad. El volumen constante, la velocidad de la conversación, el tono al hablar e incluso la coherencia en las particularidades expresivas del habla son esenciales para compilar una gran voz digital. Se recomienda grabar las voces en un estudio de grabación.
+Por el momento, no proporcionamos compatibilidad con la grabación en línea ni tenemos ninguna recomendación sobre estudios de grabación. Si quiere conocer el requisito de formato, consulte [cómo preparar las grabaciones y transcripciones](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+ 
+**Pregunta**: ¿Qué guiones debo usar para grabar los datos de voz para el entrenamiento de voz personalizado? 
 
-**Pregunta**: ¿Puedo crear más de un modelo a la vez?
+**Respuesta**: No ponemos límite a los guiones para las grabaciones de voz. Puede usar sus propios guiones para grabar el discurso. Solo debe asegurarse de tener la cobertura fonética suficiente en los datos de voz. Para entrenar una voz personalizada, puede empezar con un volumen pequeño de datos de voz, que podrían ser 50 frases distintas (unos 3 a 5 minutos de habla). Cuantos más datos proporcione, más natural será su voz. Para empezar a entrenar una fuente de voz completa, puede proporcionar grabaciones de más de 2000 frases (unas 3 a 4 horas de habla). Para obtener una voz completa de alta calidad, deberá preparar grabaciones de más de 6000 frases (unas 8 a 10 horas de habla).  
+Proporcionamos servicios adicionales para ayudarlo a preparar guiones para la grabación. Póngase en contacto con la [asistencia al cliente de Voz personalizada](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) en caso de consultas.
 
-**Respuesta**: No existe límite en el número de modelos que puede haber en su colección, pero solo puede crear uno cada vez en cada página.
-Por ejemplo, no puede iniciar un proceso de creación de modelo de lenguaje si actualmente hay un modelo de lenguaje que se encuentra en la etapa de proceso.
-Sin embargo, puede haber un modelo acústico y un modelo de lenguaje en proceso a la vez. 
+**Pregunta**: ¿Qué pasa si necesito más simultaneidad que el valor predeterminado o la que se ofrece en el portal?
 
-**Pregunta**: Me he dado cuenta de que me he equivocado. ¿Cómo cancelo la importación de datos o la creación del modelo que está en curso? 
-
-**Respuesta**: Actualmente no se puede revertir un proceso de adaptación acústica o de lenguaje.
-Los datos importados se pueden eliminar después de que se complete la importación.
-
-**Pregunta**: ¿Qué diferencia existe entre los modelos de búsqueda y dictado y los modelos de conversación?
-
-**Respuesta**: Existen dos modelos de lenguaje y acústico base entre los que se puede elegir en Custom Speech Service:
-consultas de búsqueda o dictado. Microsoft conversacional AM es adecuado para el reconocimiento de la voz hablada en un estilo conversacional.
-Este tipo de habla normalmente se dirige a otra persona, como el que se produce en los centros de llamadas o en reuniones.
-
-**Pregunta**: ¿Puedo actualizar el modelo existente (apilamiento del modelo)?
-
-**Respuesta**: Los modelos existentes no se pueden actualizar. Como solución alternativa, puede combinar el conjunto de datos anterior con el nuevo y readaptarlo.
-
-Los conjuntos de datos anterior y nuevo se deben combinar en un único archivo .zip (si se trata de datos acústicos) o en un archivo .txt si se trata de datos de lenguaje. Una vez realizada la adaptación, se debe anular la implementación del nuevo modelo actualizado para obtener un nuevo punto de conexión.
-
-**Pregunta**: ¿Qué pasa si necesito más simultaneidad que el valor predeterminado o la que se ofrece en el portal? 
-
-**Respuesta**: Se puede ampliar el modelo en incrementos de 20 solicitudes simultáneas. 
-
-Póngase en contacto con nosotros si necesita una ampliación mayor.
+**Respuesta**: Se puede ampliar el modelo en incrementos de 20 solicitudes simultáneas. Póngase en contacto con la [asistencia al cliente de Voz personalizada](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) en caso de consultas sobre un mayor escalamiento.
 
 **Pregunta**: ¿Puedo descargar mi modelo y ejecutarlo localmente?
 
 **Respuesta**: Los modelos no se pueden descargar y ejecutar localmente.
-
-**Pregunta**: ¿Se registran mis solicitudes?
-
-**Respuesta**: Dispone de una opción durante la creación de una implementación para desactivar el seguimiento y, en este caso, no se registrará el audio ni las transcripciones. De lo contrario, las solicitudes se registran en Azure, en almacenamiento seguro. Si tiene más dudas sobre la privacidad que le impidan utilizar Custom Speech Service, póngase en contacto con uno de los canales de soporte técnico.
-
-## <a name="importing-data"></a>Importación de datos
-
-**Pregunta**: ¿Qué límite hay para el tamaño del conjunto de datos? ¿Por qué? 
-
-**Respuesta**: El límite actual de un conjunto de datos es de 2 GB, debido a la restricción en el tamaño de archivo para la carga HTTP. 
-
-**Pregunta**: ¿Puedo comprimir mis archivos de texto para cargar un archivo de texto mayor? 
-
-**Respuesta**: No, actualmente solo se permiten los archivos de texto no comprimidos.
-
-**Pregunta**: El informe de datos indica que han habido expresiones erróneas. ¿Cuál es el problema?
-
-**Respuesta**: No es un problema no poder cargar el 100 % de las expresiones en un archivo.
-Si la gran mayoría de las expresiones de un conjunto de datos acústico o de lenguaje (por ejemplo, >95 %) se importan correctamente, se puede usar el conjunto de datos. Sin embargo, es aconsejable comprender la causa del error de las expresiones y corregir los problemas. Los problemas más comunes, como los errores de formato, son fáciles de corregir. 
-
-## <a name="creating-am"></a>Creación de AM
-
-**Pregunta**: ¿Cuántos datos acústicos necesito?
-
-**Respuesta**: Se recomienda empezar con 30 minutos a una hora de datos acústicos.
-
-**Pregunta**: ¿Qué datos debo recopilar?
-
-**Respuesta**: Recopile datos lo más cercanos posibles al escenario de aplicación y caso de uso.
-La colección de datos debe coincidir con la aplicación y los usuarios de destino en términos de dispositivo o dispositivos, entornos y tipos de hablante. En general, debe recopilar datos de un intervalo lo más amplio posible de hablantes. 
-
-**Pregunta**: ¿Cómo debo recopilarlos? 
-
-**Respuesta**: Puede crear una aplicación de recopilación de datos autónoma o utilizar algún software de grabación de audio existente.
-También puede crear una versión de la aplicación que registre los datos de audio y utilizarla. 
-
-**Pregunta**: ¿Debo transcribir los datos de adaptación? 
-
-**Respuesta**: Los datos deben transcribirse. Puede transcribirlos usted mismo o utilizar un servicio de transcripción profesional. Algunos de ellos utilizan transcriptores profesionales y otros utilizan crowdsourcing.
-
-**Pregunta**: ¿Cuánto se tarda en crear un modelo acústico personalizado?
-
-**Respuesta**: El tiempo de proceso para crear un modelo acústico personalizado es aproximadamente el mismo que la duración del conjunto de datos acústico.
-Por lo tanto, un modelo acústico personalizado creado a partir de un conjunto de datos de cinco horas tardará unas cinco horas en procesarse. 
-
-## <a name="offline-testing"></a>Pruebas sin conexión
-
-**Pregunta**: ¿Puedo realizar una prueba sin conexión de mi modelo acústico personalizado utilizando un modelo de lenguaje personalizado?
-
-**Respuesta**: Sí, basta con seleccionar el modelo de lenguaje personalizado en el menú desplegable al configurar la prueba sin conexión.
-
-**Pregunta**: ¿Puedo realizar una prueba sin conexión de mi modelo de lenguaje personalizado utilizando un modelo acústico personalizado?
-
-**Respuesta**: Sí, basta con seleccionar el modelo acústico personalizado en el menú desplegable al configurar la prueba sin conexión.
-
-**Pregunta**: ¿Qué es Word Error Rate y cómo se calcula?
-
-**Respuesta**: Word Error Rate es la métrica de evaluación para el reconocimiento de voz. Se cuenta como el número total de errores, lo que incluye las inserciones, las eliminaciones y las sustituciones, dividido por el número total de palabras en la transcripción de referencia.
-
-**Pregunta**: ¿Cómo determino si los resultados de una prueba de precisión son buenos?
-
-**Respuesta**: Los resultados muestran una comparación entre el modelo de línea base y el personalizado.
-Debe aspirar a superar el modelo de línea base para que la personalización sea útil.
-
-**Pregunta**: ¿Cómo averiguo la métrica WER de los modelos base para ver si ha habido una mejora? 
-
-**Respuesta**: Los resultados de la prueba sin conexión muestran la precisión de la línea base, la precisión del modelo personalizado y la mejora sobre la línea base.
-
-## <a name="creating-lm"></a>Creación de LM
-
-**Pregunta**: ¿Cuántos datos necesito cargar?
-
-**Respuesta**: Depende de la diferencia que exista entre el vocabulario y las frases que se usan en la aplicación y los modelos de lenguaje iniciales. Para todas las palabras nuevas, es útil proporcionar el máximo de ejemplos posible de utilización de estas palabras. Para frases comunes que se usan en la aplicación, también es útil incluir frases en los datos de lenguaje, ya que indican al sistema que escuche estos términos también. Es habitual que haya al menos 100 y normalmente varios cientos de expresiones en el conjunto de datos de lenguaje o más. Además, si se espera que determinados tipos de consultas sean más habituales que otras, puede insertar varias copias de las consultas comunes en el conjunto de datos.
-
-**Pregunta**: ¿Puedo simplemente cargar una lista de palabras?
-
-**Respuesta**: La carga de una lista de palabras colocará las palabras en el vocabulario, pero no enseñará al sistema cómo se utilizan normalmente las palabras.
-Al proporcionar expresiones completas o parciales (oraciones o frases que es probable que los usuarios digan), el modelo de lenguaje puede aprender las palabras nuevas y cómo se utilizan. El modelo de lenguaje personalizado es bueno no solo para colocar palabras nuevas en el sistema, sino también para ajustar la probabilidad de palabras conocidas para la aplicación. Al proporcionar expresiones completas se ayuda al sistema a aprender mejor. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

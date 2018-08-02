@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 2863d4592c2d889ebab3788c7be874114dc5c35c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d4fa878197732daf188fcc318569b178e608684
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642978"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345967"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ En los pasos descritos en este artículo se supone que va a instalar de forma na
 No se admite la instalación del SDK ni del entorno de tiempo de ejecución de Service Fabric en el subsistema Windows para Linux. Puede administrar las entidades de Service Fabric hospedadas en otra parte de la nube o del entorno local mediante la interfaz de la línea de comandos (CLI) de Azure Service Fabric, ya que está admitida. Para más información acerca de cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Se admiten estas versiones de sistemas operativos para desarrollo.
 
@@ -80,7 +80,8 @@ Para instalar el SDK y el paquete del sistema en tiempo de ejecución asociado m
 3. Agregue el repositorio `dotnet` a su lista de orígenes.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
     ```
 
 4. Agregue la clave de la protección de privacidad de Gnu (GnuPG o GPG) al conjunto de claves APT.

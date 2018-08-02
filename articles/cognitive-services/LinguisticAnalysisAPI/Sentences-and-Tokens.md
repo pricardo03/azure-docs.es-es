@@ -9,12 +9,12 @@ ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 4681098a0e56640e95463272be44f7432be26839
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380186"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084049"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Separación y tokenización de oraciones
 
@@ -68,4 +68,4 @@ Por último, hay tokens más inusuales para representar contracciones como *n't*
 ## <a name="specification"></a>Especificación
 
 Es importante tomar decisiones coherentes sobre lo que constituye una oración y un token.
-Nosotros nos basamos en la especificación de [Penn Treebank](https://www.cis.upenn.edu/~treebank/) (aquí se pueden encontrar más detalles: [https://www.cis.upenn.edu/~treebank/tokenization.html]).
+Nos basamos en las especificaciones del [Treebank Penn](https://catalog.ldc.upenn.edu/ldc99t42) (hay algunos detalles adicionales disponibles en ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

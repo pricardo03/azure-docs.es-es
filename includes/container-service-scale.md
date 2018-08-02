@@ -48,7 +48,6 @@ Para obtener más opciones de comando, ejecute `az acs scale --help`.
 
 * En función del orquestador que implemente en el clúster, puede escalar por separado el número de instancias de un contenedor que se ejecute en el clúster. Por ejemplo, en un clúster de DC/OS, use la [interfaz de usuario de Marathon](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) para cambiar el número de instancias de una aplicación de contenedor.
 
-* Actualmente, no se admite el escalado automático de nodos de agente en un clúster de servicio de contenedores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [más ejemplos](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) de uso de comandos de la CLI de Azure 2.0 con Azure Container Service.

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
-ms.author: danis
-ms.openlocfilehash: 376c5a087f74fbe087db9fa2df38b2ba4e6cf1ff
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944847"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415968"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extensión de agente de Linux para Stackify Retrace
 
@@ -37,7 +37,7 @@ Retrace es la ÚNICA herramienta que ofrece todas las funcionalidades siguientes
 
 Esta extensión proporciona una ruta de acceso de instalación para el agente de Linux para Retrace. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo 
 El agente de Retrace puede ejecutarse en estas distribuciones de Linux:
@@ -46,7 +46,7 @@ El agente de Retrace puede ejecutarse en estas distribuciones de Linux:
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS, 16.10 y 17.04 |
 | Debian | 7.9 (o posterior) y 8.2 (o posterior), 9 |
-| Redhat | 6.7 (o posterior), 7.1 (o posterior) |
+| Red Hat | 6.7 (o posterior), 7.1 (o posterior) |
 | CentOS | 6.3 (o posterior), 7.0 (o posterior) |
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet

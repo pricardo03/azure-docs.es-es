@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fdadc29aa1d25e90afe088053ae4fe2139fa7f16
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034168"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413695"
 ---
 # <a name="create-mysql-databases"></a>Creación de bases de datos MySQL
 
@@ -35,7 +35,7 @@ Puede crear y administrar bases de datos de autoservicio en el portal de usuario
 
 4. En **Create Database** (Crear base de datos), seleccione **SKU**. En **Select a MySQL SKU** (Seleccionar una SKU de MySQL), seleccione la SKU de su base de datos.
 
-    ![Selección de una SKU de MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![Selección de una SKU de MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
     >A medida que se agregan servidores de hospedaje a Azure Stack, se les asigna una SKU. Las bases de datos se crean en el grupo de servidores de hospedaje de una SKU.

@@ -2,26 +2,22 @@
 title: Configuración de dispositivos registrados en Azure Active Directory | Microsoft Docs
 description: Aprenda a configurar dispositivos registrados en Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 7ce632c76a86fb00101db6664e9e79615484f9a1
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0c38c0160cea51940ac5b04ee64095c6a6f25b5d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058117"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414681"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Configuración de dispositivos Windows 10 registrados en Azure Active Directory
 
@@ -32,7 +28,7 @@ Si quiere habilitar el escenario **Bring Your Own Device (BYOD)**, configure dis
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para poder registrar un dispositivo Windows 10, debe configurarse el servicio de registro de dispositivos de modo que pueda registrar dispositivos. Además, debe tener menos dispositivos registrados que el máximo configurado. Para obtener más información, consulte [Configure device settings](../device-management-azure-portal.md#configure-device-settings) (Configuración del dispositivo).
+Para poder registrar un dispositivo Windows 10, debe configurarse el servicio de registro de dispositivos de modo que pueda registrar dispositivos. Además, debe tener menos dispositivos registrados que el máximo configurado. Para obtener más información, consulte [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings) (Configuración del dispositivo).
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 

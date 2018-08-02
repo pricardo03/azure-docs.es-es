@@ -8,23 +8,24 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9a29406b92f7d2e2ce8171974efb5a264e112d1d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fce9e42e24be7f8678292a5d98a683ca4e579cd2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724947"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39357221"
 ---
-1. Inicie sesión en [Azure Portal][lnk-portal].
-1. Seleccione **Crear un recurso** > **Internet de las cosas** > **IoT Hub**.
-   
-    ![Captura de pantalla de la navegación en Azure Portal hacia IoT Hub][1]
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. En el panel **Centro de IoT**, escriba la información necesaria para su centro de IoT:
+2. Seleccione **Crear un recurso** > **Internet de las cosas** > **IoT Hub**.
+   
+    ![Captura de pantalla de la navegación en Azure Portal hacia IoT Hub](./media/iot-hub-create-hub/create-iot-hub1.png)
+
+3. En el panel **Centro de IoT**, escriba la información necesaria para su centro de IoT:
 
    * **Suscripción**: elija la suscripción que quiere usar para crear este IoT Hub.
 
-   * **Grupo de recursos**: cree un grupo de recursos para hospedar el centro de IoT o use uno existente. Para obtener más información, consulte [Uso de grupos de recursos para administrar recursos de Azure][lnk-resource-groups].
+   * **Grupo de recursos**: cree un grupo de recursos para hospedar el centro de IoT o use uno existente. Para más información, consulte [Administración de los recursos de Azure a través del Portal](../articles/azure-resource-manager/resource-group-portal.md).
 
    * **Región**: seleccione la ubicación más cercana a usted.
 
@@ -32,22 +33,14 @@ ms.locfileid: "38724947"
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Ventana Datos básicos de IoT Hub][2]
+   ![Ventana Datos básicos de IoT Hub](./media/iot-hub-create-hub/create-iot-hub2.png)
 
-2. Seleccione **Next: Size and scale** (Siguiente: tamaño y escala) para seguir creando su IoT Hub. 
+4. Seleccione **Next: Size and scale** (Siguiente: tamaño y escala) para seguir creando su IoT Hub. 
 
-3. Seleccione su **Nivel de precios y de escala**. En este artículo, seleccione el nivel **F1 - Free** (F1: gratis) si aún está disponible en la suscripción. Para más información, consulte [Nivel de precios y de escala][lnk-pricing].
+5. Seleccione su **Nivel de precios y de escala**. En este artículo, seleccione el nivel **F1 - Free** (F1: gratis) si aún está disponible en la suscripción. Para más información, consulte la página de [precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![Ventana Tamaño y escala de IoT Hub][3]
+   ![Ventana Tamaño y escala de IoT Hub](./media/iot-hub-create-hub/create-iot-hub3.png)
 
-4. Seleccione **Revisar + crear**.
+6. Seleccione **Revisar + crear**.
 
-1. Revise la información de IoT Hub y, a continuación, haga clic en **Crear**. El centro de IoT puede tardar varios minutos en crearse. Puede ver el progreso en el panel **Notificaciones**.
-<!-- Images -->
-[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-create-hub/create-iot-hub3.png
-<!-- Links -->
-[lnk-portal]: https://portal.azure.com/
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
+7. Revise la información de IoT Hub y, a continuación, haga clic en **Crear**. El centro de IoT puede tardar varios minutos en crearse. Puede ver el progreso en el panel **Notificaciones**.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916486"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346686"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotección de máquinas de Azure a un sitio local
 
@@ -63,7 +63,7 @@ Para implementar un servidor de procesos en Azure:
 El servidor de destino maestro recibe los datos de conmutación por recuperación. De forma predeterminada, el servidor de destino maestro se ejecuta en el servidor de configuración local. Sin embargo, según el volumen de tráfico conmutado por recuperación, puede que deba crear un servidor de destino principal distinto para esta operación. Aquí se muestra cómo crear uno:
 
 * [Cree un servidor de destino maestro de Linux](vmware-azure-install-linux-master-target.md) para la conmutación por recuperación de las máquinas virtuales Linux. Este es un paso necesario.
-* Opcionalmente, puede crear un servidor de destino maestro independiente para la conmutación por recuperación de las máquinas virtuales Windows. Para ello, ejecute de nuevo la instalación unificada y seleccione crear un servidor de destino maestro. [Más información](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* Opcionalmente, puede crear un servidor de destino maestro independiente para la conmutación por recuperación de las máquinas virtuales Windows. Para ello, ejecute de nuevo la instalación unificada y seleccione crear un servidor de destino maestro. [Más información](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 Después de crear un servidor de destino maestro, haga las tareas siguientes:
 

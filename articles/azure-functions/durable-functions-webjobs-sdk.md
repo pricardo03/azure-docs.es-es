@@ -2,7 +2,7 @@
 title: 'Procedimiento para ejecutar Durable Functions como WebJobs: Azure'
 description: Aprenda a programar y configurar Durable Functions para ejecutarlas en WebJobs mediante el SDK de WebJobs.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3fc84d1492d2855ffa3bb5538226da049a928339
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 90100461d7db93ece23bf2420a1b7e8c43da915b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766697"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343056"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Procedimiento para ejecutar Durable Functions como WebJobs
 
@@ -27,7 +27,7 @@ ms.locfileid: "33766697"
 
 El ejemplo de encadenamiento de Durable Functions está disponible en una versión del SDK de WebJobs: descargue o clone el [repositorio de Durable Functions](https://github.com/azure/azure-functions-durable-extension/) y vaya a la carpeta *samples\\webjobssdk\\chaining*.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se supone que está familiarizado con los conceptos básicos del SDK de WebJobs, el desarrollo de bibliotecas de clase de C# para Azure Functions y Durable Functions. Si necesita una presentación de estos temas, consulte los siguientes recursos:
 
@@ -130,7 +130,7 @@ Hay algunas diferencias en el código que se escribe para las funciones del SDK 
 El SDK de WebJobs no es compatible con las siguientes características de Azure Functions:
 
 * [Atributo FunctionName](#functionname-attribute)
-* [Desencadenador HTTP](#http-trigger)
+* [desencadenador HTTP](#http-trigger)
 * [API de administración HTTP de Durable Functions](#http-management-api)
 
 ### <a name="functionname-attribute"></a>Atributo FunctionName

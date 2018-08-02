@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0fb9f92e736e598662f66ae3d283ba02f715e3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 973e4efcbe9d0627ca261def2449a237819559ad
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380903"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441155"
 ---
 # <a name="text-moderation---supported-languages-by-feature"></a>Moderación de texto: idiomas admitidos por característica
 
@@ -36,61 +36,61 @@ ms.locfileid: "35380903"
 | Chino (tradicional) | Bangla (Bangladesh) | Finés  | Italiano
 | Eslavo (eclesiástico) | Bangla (India) | Francés     | Coreano
 | Copto | Vasco | Alemán                      | Noruego
-| Divehi | Bielorruso | Griego (moderno)         | Polaco
-| Farsi | Bosnio (cirílico) | Húngaro        | Portugués
-| Griego | Bosnio (latino) | Italiano             | Rumano
-| Criollo haitiano | Bretón [no GeoPol] | Japonés  | Ruso
-| Hebreo | Búlgaro | Coreano                        | Eslovaco
-| Hmong | Catalán | Noruego                        | Español
-| Kurdo (árabe) | Kurdo central | Polaco        | Turco
-| Kurdo (latino) | Cheroqui | Portugués
-| Lepcha | Chino (simplificado) | Rumano
-| Limbu | Chino (tradicional, R.A.E. de Hong Kong) | Ruso
-| Lu | Chino (tradicional, Taiwán) | Serbio (cirílico)
-| Licio | Croata | Serbio (latino)
-| Lidio | Checo | Eslovaco
-| Griego (micénico) | Danés | Español
-| Nko | Dari | Sueco
-| Noruego (bokmal) | Neerlandés | Turco
-| Noruego (nynorsk) | English 
-| Persa (antiguo) | Estonio 
-| Pashto | Filipino
-| Punjabi | Finés
-| Rejang | Francés
-| Santali | Gallego
-| Sasak | Georgiano
-| Saurashtra | Alemán
-| Serbio (cirílico) | Griego
-| Serbio (latino) | Gujarati
-| Sinhala | Hausa
-| Esloveno | Hebreo
-| Sylheti | Hindi
-| Sirio | Húngaro
-| Tagbanwa | Islandés
-| Tai (Nua) | Igbo
-| Tamashek | Indonesio
-| Ugarítico | Inuktitut
-| Uzbeko (cirílico) | Irlandés
-| Uzbeko (latino) | isiXhosa
-| Vai | isiZulu
-| Yi | Italiano
-| Zhuang, Chuang | Japonés
-| | Canarés
-| | Kazajo
-| | Khmer
-| | Quiché
-| | Kinyarwanda
-| | Kiswahili
-| | Konkani
-| | Coreano
-| | Kirguís
-| | Lao
-| | Letón
-| | Lituano
-| | Luxemburgués
-| | Macedonio
-| | Malayo
-| | Malayalam
+| Checo |  Bielorruso | Griego (moderno)         | Polaco
+| Divehi | Bosnio (cirílico) | Húngaro      | Portugués
+| Neerlandés | Bosnio (latino) | Italiano             | Rumano
+| English | (criollo) | Bretón [no GeoPol] | Japonés  | Ruso
+| Farsi | Búlgaro | Coreano                        | Eslovaco
+| Francés | Catalán | Noruego                        | Español
+| Alemán | Kurdo central | Polaco        | Turco
+| Griego | Cheroqui | Portugués
+| Haitiano | Chino (simplificado) | Rumano
+| Hebreo | Chino (tradicional, R.A.E. de Hong Kong) | Ruso
+| Hindi | Chino (tradicional, Taiwán) | Serbio (cirílico)
+| Hmong | Croata | Serbio (latino)
+| Húngaro | Checo | Eslovaco
+| Italiano | Danés | Español
+| Japonés | Dari | Sueco
+| Coreano | Neerlandés | Turco
+| Kurdo (árabe) | English
+| Kurdo (latino) | Estonio
+| Lepcha | Filipino
+| Limbu | Finés
+| Lu | Francés
+| Licio | Gallego
+| Lidio | Georgiano
+| Griego (micénico) | Alemán
+| Nko | Griego
+| Noruego (bokmal) | Gujarati
+| Noruego (nynorsk) |  Hausa
+| Persa (antiguo) | Hebreo
+| Pashto | Hindi
+| Polaco | Húngaro
+| Portugués | Islandés
+| Punjabi | Igbo
+| Rejang | Indonesio
+| Ruso | Inuktitut
+| Santali | Irlandés
+| Sasak | isiXhosa
+| Saurashtra | isiZulu
+| Serbio (cirílico) | Italiano
+| Serbio (latino) | Japonés
+| Sinhala | Canarés
+| Esloveno | Kazajo
+| Español | Khmer
+| Sueco | Quiché
+| Sylheti | Kinyarwanda
+| Sirio | Kiswahili
+| Tagbanwa | Konkani
+| Tai (Nua) | Coreano
+| Tamashek | Kirguís
+| Turco | Lao
+| Ugarítico | Letón
+| Uzbeko (cirílico) | Lituano
+| Uzbeko (latino) | Luxemburgués
+| Vai | Macedonio
+| Yi | Malayo
+| Zhuang, Chuang | Malayalam
 | | Maltés
 | | Maori
 | | Maratí

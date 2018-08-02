@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6577e15ff0773e336da61e7883e6ea7257b6b169
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294819"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358875"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "36294819"
 
 Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Este artículo le guiará por la creación de una imagen de Docker que contiene una aplicación web [Flask](http://flask.pocoo.org/) en Python y su implementación en un clúster de Service Fabric. También compartirá la aplicación en el contenedor mediante [Azure Container Registry](/azure/container-registry/). Este artículo supone que el usuario tiene un conocimiento básico de Docker. Para obtener información acerca de Docker, lea la [introducción a Docker](https://docs.docker.com/engine/understanding-docker/).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Un equipo de desarrollo en el que se ejecute:
   * Visual Studio 2015 o Visual Studio 2017.
   * [SDK y herramientas de Service Fabric](service-fabric-get-started.md).
@@ -421,7 +421,7 @@ Le recomendamos que aplique las prácticas siguientes para asegurarse de que los
  
 ## <a name="specify-os-build-specific-container-images"></a>Especificación de las imágenes de contenedores de compilación específica del sistema operativo 
 
-Es posible que los contenedores de Windows Server no sean compatibles con las distintas versiones del sistema operativo. Por ejemplo, los contenedores de Windows Server creados con Windows Server 2016 no funcionan con la versión 1709 de Windows Server en el modo de aislamiento de proceso. Por tanto, si los nodos de clúster se actualizan a la versión más reciente, pueden producirse errores en los servicios de contenedor compilados con versiones anteriores del sistema operativo. Para evitar esto en la versión 6.1 y posteriores del runtime, Service Fabric permite especificar varias imágenes del sistema operativo en cada contenedor y etiquetarlas con las versiones de compilación del sistema operativo en el manifiesto de aplicación. Puede obtener la versión de compilación del sistema operativo ejecutando `winver` en un símbolo del sistema de Windows. Actualice primero los manifiestos de aplicación y especifique los reemplazos de imágenes por versión del sistema operativo antes de actualizar este en los nodos. El fragmento de código siguiente muestra cómo especificar varias imágenes de contenedor en el manifiesto de aplicación, **ApplicationManifest.xml**:
+Es posible que los contenedores Windows Server no sean compatibles con las distintas versiones del sistema operativo. Por ejemplo, los contenedores de Windows Server creados con Windows Server 2016 no funcionan con la versión 1709 de Windows Server en el modo de aislamiento de proceso. Por tanto, si los nodos de clúster se actualizan a la versión más reciente, pueden producirse errores en los servicios de contenedor compilados con versiones anteriores del sistema operativo. Para evitar esto en la versión 6.1 y posteriores del runtime, Service Fabric permite especificar varias imágenes del sistema operativo en cada contenedor y etiquetarlas con las versiones de compilación del sistema operativo en el manifiesto de aplicación. Puede obtener la versión de compilación del sistema operativo ejecutando `winver` en un símbolo del sistema de Windows. Actualice primero los manifiestos de aplicación y especifique los reemplazos de imágenes por versión del sistema operativo antes de actualizar este en los nodos. El fragmento de código siguiente muestra cómo especificar varias imágenes de contenedor en el manifiesto de aplicación, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -601,7 +601,7 @@ El entorno de tiempo de ejecución de Service Fabric asigna 20 minutos para desc
 "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
 ]

@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054830"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346455"
 ---
 # <a name="batch-transcription"></a>Transcripción de Azure Batch
 
@@ -40,7 +40,7 @@ wav |  Estéreo  |
 
 Si se trata de secuencias de audio estéreo, la transcripción de Azure Batch dividirá el canal izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. En el siguiente ejemplo de JSON se muestra la salida de un canal.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,10 +53,10 @@ Si se trata de secuencias de audio estéreo, la transcripción de Azure Batch di
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
-> La API de transcripción de Azure Batch usa un servicio REST para solicitar transcripciones, su estado y los resultados asociados. Se basa en .NET y no tiene ninguna dependencia externa. En la siguiente sección se describe su uso.
+> La API de transcripción de Azure Batch usa un servicio REST para solicitar transcripciones, su estado y los resultados asociados. La API puede usarse desde cualquier lenguaje. En la siguiente sección se describe su uso.
 
 ## <a name="authorization-token"></a>Token de autorización
 
@@ -77,7 +77,24 @@ Al igual que con todas las características de Unified Speech Service, el usuari
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-El uso de la API es bastante sencillo. Es necesario personalizar el código de ejemplo siguiente con una clave de suscripción y una clave de API.
+El uso de la API es bastante sencillo. El código de ejemplo a continuación se debe personalizar con una clave de suscripción y una clave de API que, a su vez, permite que el desarrollador obtenga un token de portador, tal como muestra el fragmento de código siguiente:
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+Una vez que se obtiene el token, el desarrollador debe especificar el URI de SAS que apunta al archivo de audio que requiere transcripción. El resto del código simplemente procesa una iteración en el estado y muestra los resultados.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ El uso de la API es bastante sencillo. Es necesario personalizar el código de e
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -161,4 +178,4 @@ El ejemplo mostrado aquí está en [GitHub](https://github.com/PanosPeriorellis/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtener su suscripción de prueba a Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Obtenga su suscripción de prueba a Speech](https://azure.microsoft.com/try/cognitive-services/)
