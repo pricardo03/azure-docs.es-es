@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7a90a8f05082e2c0731f9f112d3e56ecaf4ea55b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903037"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398808"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -333,7 +333,7 @@ Además, tenga en cuenta que el número de eventos de fondo (h, para las duchas 
 <tr>
   <td>Conjunto de datos del tiempo</td>
   <td>
-Observaciones meteorológicas en tierra por hora de la NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">datos combinados del 201304 al 201310</a>).
+Observaciones meteorológicas en tierra por hora de la NOAA (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">datos combinados del 201304 al 201310</a>).
 <p></p>
 Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:
 <ul>

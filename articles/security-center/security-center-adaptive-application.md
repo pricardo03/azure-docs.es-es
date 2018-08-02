@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6dd971ff8cd51435978ab80db006f6494dff8a94
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161939"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389334"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicación adaptables en Azure Security Center
 Obtenga información acerca de cómo configurar el control de aplicación en Azure Security Center con este tutorial.
@@ -87,8 +87,7 @@ La sección **Grupos de máquinas virtuales** contiene tres pestañas:
 
 5. Cuando haya terminado de realizar las selecciones, elija **Crear**.
 
-6. Security Center aplica las reglas correspondientes en cada una de las máquinas virtuales seleccionadas aprovechando las funcionalidades integradas de AppLocker para los servidores de Windows. Además, Security Center siempre habilita el control de la aplicación en el modo Auditoría de forma predeterminada. Después de comprobar que la lista de permitidos no tenía efectos adversos en la carga de trabajo, puede cambiar al modo **Forzar**. Para más información, consulte [How AppLocker works](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref) (Funcionamiento de AppLocker).
- 
+
 > [!NOTE]
 > - Security Center necesita al menos dos semanas de datos para crear una base de referencia y rellenar las recomendaciones únicas para cada grupo de máquinas virtuales. Los clientes nuevos del nivel estándar de Security Center experimentarán un comportamiento en el que, al principio, sus grupos de máquinas virtuales aparecen en la pestaña *Ninguna recomendación*.
 > - Controles de aplicación adaptables de Security Center no admite máquinas virtuales para las que ya esté habilitada una directiva de AppLocker mediante un GPO o una directiva de seguridad local.

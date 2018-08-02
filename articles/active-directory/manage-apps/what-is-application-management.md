@@ -8,18 +8,18 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 1a8db218309eb48650443f1c9d57fe1ecdf04a6a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: bf53829a2d2578132f9a3595c0bac5e8eb588916
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058230"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366778"
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Administración de aplicaciones con Azure Active Directory
 Además del flujo de trabajo o contenido real, para las empresas las aplicaciones deben cumplir dos requisitos básicos:
@@ -27,7 +27,7 @@ Además del flujo de trabajo o contenido real, para las empresas las aplicacione
 1. Para aumentar la productividad, debe ser fácil detectar y tener acceso a las aplicaciones.
 2. Para permitir la seguridad y el gobierno, las organizaciones deben controlar y supervisar quién puede tener acceso y quién accede realmente a cada aplicación.
 
-En el mundo de las aplicaciones en la nube, esto se consigue mejor usando la identidad para controlar "*A QUIÉN se le permite hacer QUÉ*".
+En el mundo de las aplicaciones en la nube, esto se consigue mejor usando la identidad para controlar “*A QUIÉN se le permite hacer QUÉ*”.
 
 En la terminología informática:
 
@@ -39,7 +39,7 @@ Ambos componentes juntos se conocen como *Administración de identidad y acceso 
 Entonces, ¿cuál es el problema? Si IAM *no se administra* en un solo lugar con una solución integrada:
 
 * Los administradores de identidades tienen que crear y actualizar individualmente las cuentas de usuario de todas las aplicaciones por separado, una actividad repetitiva y laboriosa.
-* Los usuarios tienen que memorizar varias credenciales para tener acceso a las aplicaciones con las que necesitan trabajar. Como resultado, los usuarios tienden a anotar las contraseñas o usar otras soluciones de administración de contraseñas, que presentan otros riesgos para la seguridad de los datos.
+* Los usuarios tienen que memorizar varias credenciales para tener acceso a las aplicaciones con las que necesitan trabajar. Como resultado, los usuarios tienden a anotar las contraseñas o usar otras soluciones de administración de contraseñas. Estas alternativas presentan otros riesgos para la seguridad de los datos.
 * Las actividades repetitivas y laboriosas reducen la cantidad de tiempo que los usuarios y los administradores trabajan en actividades que aumentan el balance final del negocio.
 
 De modo que, ¿qué impide normalmente a las organizaciones adoptar soluciones IAM integradas?
@@ -63,7 +63,7 @@ El valor de Azure AD no solo se limita a las aplicaciones en la nube. También p
 
 Al proporcionar administración de acceso centralizada e inicio de sesión único (SSO) para todas las aplicaciones, Azure AD es la solución a los principales problemas de seguridad y productividad de los datos.
 
-* Los usuarios pueden tener acceso a varias aplicaciones con un solo inicio de sesión, lo que se traduce en más tiempo para generar ingresos o para realizar actividades de operaciones empresariales.
+* Los usuarios pueden acceder a varias aplicaciones con un solo inicio de sesión, lo que se traduce en más tiempo para generar ingresos o para realizar actividades de operaciones empresariales.
 * Los administradores de identidades pueden administrar el acceso a las aplicaciones en un solo lugar.
 
 La ventaja para el usuario y la empresa es obvia. Examinemos más de cerca las ventajas para un administrador de identidades y para la organización.

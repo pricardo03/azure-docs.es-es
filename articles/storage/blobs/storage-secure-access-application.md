@@ -3,18 +3,17 @@ title: Proteger el acceso a los datos de una aplicación en la nube con Azure St
 description: Use tokens de SAS, cifrado y HTTPS para proteger los datos de la aplicación en la nube.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: bfc5085374759290701f49cdf25698827c0779e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650101"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397784"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger el acceso a los datos de una aplicación en la nube
 
@@ -29,7 +28,7 @@ En la tercera parte de la serie, se aprende a:
 
 [Azure Blob Storage](../common/storage-introduction.md#blob-storage) proporciona un servicio sólido para almacenar archivos de aplicaciones. Este tutorial amplía [el tema anterior][previous-tutorial] para mostrar cómo proteger el acceso a la cuenta de almacenamiento desde una aplicación web. Al terminar, las imágenes están cifradas y la aplicación web usa tokens de SAS seguros para acceder a las imágenes en miniatura.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este tutorial debe haber completado el tutorial anterior sobre almacenamiento: [Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid][previous-tutorial]. 
 

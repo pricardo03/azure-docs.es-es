@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cf1c39d0270dcb7de3ae8ff487b21874b23db74a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c4ecb812156eae7402065cff4dc4bae3aef1554b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161528"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365182"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparación de soluciones de acceso remoto
 
@@ -33,21 +33,21 @@ Use esta tabla para comprender cómo se comparan Threat Management Gateway (TMG)
 
 | Característica | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Autenticación de certificados | Sí | Sí | - | - |
-| Publicar de forma selectiva las aplicaciones de explorador | Sí | Sí | Sí | Sí |
-| Autenticación previa e inicio de sesión único | Sí | Sí | Sí | Sí | 
-| Firewall de capa 2/3 | Sí | Sí | - | - |
-| Funcionalidades de proxy de reenvío | Sí | - | - | - |
-| Funcionalidades de VPN | Sí | Sí | - | - |
-| Amplia compatibilidad con protocolos | - | Sí | Sí, si se ejecuta a través de HTTP | Sí, si ejecuta a través de HTTP o a través de Puerta de enlace de escritorio remoto |
-| Actúa como servidor proxy ADFS | - | Sí | Sí | - |
-| Un portal para el acceso a las aplicaciones | - | Sí | - | Sí |
-| Traducción de vínculos del cuerpo de respuesta | Sí | Sí | - | Sí | 
-| Autenticación con encabezados | - | Sí | - | Sí, con PingAccess | 
-| Seguridad de escala en la nube | - | - | - | Sí | 
-| Acceso condicional | - | Sí | - | Sí |
-| No existe ningún componente en la zona desmilitarizada (DMZ) | - | - | - | Sí |
-| No hay conexiones entrantes | - | - | - | Sí |
+| Autenticación de certificados | SÍ | SÍ | - | - |
+| Publicar de forma selectiva las aplicaciones de explorador | SÍ | Sí | Sí | SÍ |
+| Autenticación previa e inicio de sesión único | SÍ | Sí | Sí | SÍ | 
+| Firewall de capa 2/3 | SÍ | SÍ | - | - |
+| Funcionalidades de proxy de reenvío | SÍ | - | - | - |
+| Funcionalidades de VPN | SÍ | SÍ | - | - |
+| Amplia compatibilidad con protocolos | - | SÍ | Sí, si se ejecuta a través de HTTP | Sí, si ejecuta a través de HTTP o a través de Puerta de enlace de escritorio remoto |
+| Actúa como servidor proxy ADFS | - | SÍ | SÍ | - |
+| Un portal para el acceso a las aplicaciones | - | SÍ | - | SÍ |
+| Traducción de vínculos del cuerpo de respuesta | SÍ | Sí | - | SÍ | 
+| Autenticación con encabezados | - | SÍ | - | Sí, con PingAccess | 
+| Seguridad de escala en la nube | - | - | - | SÍ | 
+| Acceso condicional | - | SÍ | - | SÍ |
+| No existe ningún componente en la zona desmilitarizada (DMZ) | - | - | - | SÍ |
+| No hay conexiones entrantes | - | - | - | SÍ |
 
 En la mayoría de los escenarios, se recomienda la aplicación Azure AD como la solución actual. Web Application Proxy solo se prefiere en los escenarios que requieran un servidor proxy para AD FS y no pueda usar dominios personalizados en Azure Active Directory. 
 

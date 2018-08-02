@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144941"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364019"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -152,7 +152,7 @@ En la salida anterior, el nombre de la interfaz de red es *myVMVMNic interface*.
 
 ## <a name="interpret-command-output"></a>Interpretación de la salida de los comandos
 
-Independientemente de si ha utilizado [PowerShell](#diangose-using-powershell) o la [CLI de Azure](#diagnose-using-azure-cli) para diagnosticar el problema, recibirá una salida que contiene la siguiente información:
+Independientemente de si ha utilizado [PowerShell](#diagnose-using-powershell) o la [CLI de Azure](#diagnose-using-azure-cli) para diagnosticar el problema, recibirá una salida que contiene la siguiente información:
 
 - **NetworkSecurityGroup**: el identificador del grupo de seguridad de red.
 - **Asociación**: si el grupo de seguridad de red está asociado a una *interfaz de red*  o una *subred*. Si un NSG está asociado a ambos, se devuelve la salida con **NetworkSecurityGroup**, **Association** y **EffectiveSecurityRules**, para cada NSG. Si el grupo de seguridad de red se asocia o disocia inmediatamente antes de ejecutar el comando para ver las reglas de seguridad vigentes, es posible que tenga que esperar unos segundos para que el cambio se refleje en la salida del comando.

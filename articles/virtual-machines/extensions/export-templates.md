@@ -3,7 +3,7 @@ title: Exportación de grupos de recursos de Azure que contienen extensiones de 
 description: Exportar plantillas de Resource Manager que incluyen extensiones de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
-ms.author: danis
-ms.openlocfilehash: 3c54b77f52dfc7acf10dc26d4c00e9c14a296774
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: 76305dd736adede954460e034fcd726ebfefdc91
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944807"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412100"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportación de grupos de recursos que contienen extensiones de VM
 
@@ -51,7 +51,7 @@ Las siguientes extensiones se pueden exportar con la característica de script d
 
 Para exportar un grupo de recursos a una plantilla reutilizable, complete los pasos siguientes:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicio de sesión en Azure Portal
 2. En el menú Concentrador, haga clic en Grupos de recursos.
 3. Seleccione el grupo de recursos de destino de la lista.
 4. En la hoja Grupo de recursos, haga clic en Script de automatización.

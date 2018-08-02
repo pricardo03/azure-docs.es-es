@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 20fd51f8906861e725b80202235e1684c31fd562
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3e36d9202c578294609b01eaf2731b1551ae67af
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268406"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282337"
 ---
 # <a name="other-machine-learning-products-and-services-from-microsoft"></a>Otros servicios y productos de aprendizaje automático de Microsoft
 
@@ -36,7 +36,7 @@ Además de [Azure Machine Learning](overview-what-is-azure-ml.md), Microsoft ofr
 Use Microsoft Machine Learning Services cuando necesite entrenar o implementar modelos en entornos locales o en Microsoft SQL Server. Los modelos generados con Machine Learning Services se pueden implementar mediante Administración de modelos de aprendizaje de Azure Machine Learning. 
 
 ## <a name="microsoft-machine-learning-server"></a>Servidor de Microsoft Machine Learning 
-El [servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone) es un servidor empresarial para hospedar y administrar cargas de trabajo paralelas y distribuidas de procesos de R y Python. El servidor de Microsoft Machine Learning se ejecuta en Linux, Windows, Hadoop y Apache Spark. También está disponible en [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). Proporciona un motor de ejecución para las soluciones compiladas mediante [paquetes de Microsoft Machine Learning](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package) y amplía R y Python de código abierto con compatibilidad con los escenarios siguientes:
+El [servidor de Microsoft Machine Learning](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server) es un servidor empresarial para hospedar y administrar cargas de trabajo paralelas y distribuidas de procesos de R y Python. El servidor de Microsoft Machine Learning se ejecuta en Linux, Windows, Hadoop y Apache Spark. También está disponible en [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). Proporciona un motor de ejecución para las soluciones compiladas mediante [paquetes de Microsoft Machine Learning](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package) y amplía R y Python de código abierto con compatibilidad con los escenarios siguientes:
 
 - Análisis de alto rendimiento
 - Análisis estadístico

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008151"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265002"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -54,7 +54,7 @@ La manera más sencilla de hacerlo es usar SQL Server Management Studio instalad
 3. Instale Azure AD Connect en la instancia remota de [SQL Database](active-directory-aadconnect-existing-database.md) existente.
    En el artículo se muestra cómo migrar para usar una instancia local de SQL Database. Si realiza la migración para usar una instancia remota de SQL Database, en el paso 5 del proceso también debe especificar una cuenta de servicio existente para la ejecución del servicio de sincronización de Windows. Esta cuenta de servicio del motor de sincronización se describe aquí:
    
-      **Usar una cuenta de servicio existente**: de forma predeterminada, Azure AD Connect usa una cuenta de servicio virtual para que la usen los servicios de sincronización. Si usa una instancia remota de SQL Server o un proxy que requiera autenticación, debe usar una cuenta de servicio administrada o una cuenta de servicio en el dominio, y conocer la contraseña. En esos casos, especifique la cuenta que se va a usar. Asegúrese de que los usuarios que ejecuten la instalación sean administradores del sistema de SQL para que se pueden crear credenciales de inicio de sesión para la cuenta de servicio. Para más información, consulte [Azure AD Connect: cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
+      **Usar una cuenta de servicio existente**: de forma predeterminada, Azure AD Connect usa una cuenta de servicio virtual para que la usen los servicios de sincronización. Si usa una instancia remota de SQL Server o un proxy que requiera autenticación, debe usar una cuenta de servicio administrada o una cuenta de servicio en el dominio, y conocer la contraseña. En esos casos, especifique la cuenta que se va a usar. Asegúrese de que los usuarios que ejecuten la instalación sean administradores del sistema de SQL para que se pueden crear credenciales de inicio de sesión para la cuenta de servicio. Para más información, consulte [Azure AD Connect: cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). 
    
       Con la versión más reciente, el administrador SQL puede realizar ahora el aprovisionamiento de la base de datos fuera de banda y luego el administrador de Azure AD Connect puede instalarlo con derechos de propietario de la base de datos. Para más información, consulte [Instalación de Azure AD Connect con permisos de administrador delegado de SQL](active-directory-aadconnect-sql-delegation.md).
 
@@ -83,7 +83,7 @@ Para obtener instrucciones acerca de cómo renovar el certificado, consulte el a
 **P.: Tengo establecido "Actualizar automáticamente usuario confianza" para el usuario de confianza de Office 365. ¿Es necesario realizar alguna acción cuando se implemente automáticamente mi certificado de firma de tokens?**  
 Siga las instrucciones que se describen en el artículo sobre la [renovación de certificados](active-directory-aadconnect-o365-certs.md).
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>Entorno
 **P: ¿Se admite cambiar el nombre del servidor después de haber instalado Azure AD Connect?**  
 No. Cambiar el nombre de servidor provoca que el motor de sincronización no se pueda conectar a la instancia de SQL Database y no se pueda iniciar el servicio.
 

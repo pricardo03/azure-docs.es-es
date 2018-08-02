@@ -2,25 +2,18 @@
 title: Ejemplos de Azure PowerShell para Azure Blob Storage | Microsoft Docs
 description: Ejemplos de Azure PowerShell para trabajar con Azure Blob Storage
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: d07161cb5bc08410b0db552f7645e2af776c37df
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.component: blobs
+ms.openlocfilehash: fd553e4cb669d712bc4458ca55864b09a9160862
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2017
-ms.locfileid: "27535236"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399433"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Ejemplos de Azure PowerShell para Azure Blob Storage
 

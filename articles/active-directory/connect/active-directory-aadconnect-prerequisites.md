@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 23d2c858fc51e35948bf83c6b5824b35020cb2e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593374"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326197"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este tema se describen los requisitos previos y los de hardware de Azure AD Connect.
@@ -43,7 +43,6 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
 * La versión del esquema de AD y el nivel funcional del bosque deben ser Windows Server 2003 o una versión posterior. Los controladores de dominio pueden ejecutar cualquier versión siempre que se cumplan los requisitos de nivel de bosque y esquema.
 * Si pretende usar la característica de **escritura diferida de contraseñas**, los controladores de dominio deben estar en Windows Server 2008 (con el SP más reciente) o posterior. Si los controladores de dominio están en 2008 (antes de la versión R2), también debe aplicar la [revisión KB2386717](http://support.microsoft.com/kb/2386717).
 * El controlador de dominio usado por Azure AD debe ser grabable. **No se admite** el uso de un RODC (controlador de dominio de solo lectura) y Azure AD Connect no sigue las redirecciones de escritura.
-* **No se admite** el uso de bosques o dominios locales con dominios de una sola etiqueta.
 * **No se admite** el uso de bosques o dominios con locales con nombres de NetBios con puntos (el nombre contiene un punto ".").
 * Se recomienda [habilitar la papelera de reciclaje de Active Directory](active-directory-aadconnectsync-recycle-bin.md).
 
@@ -94,7 +93,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
     </system.net>
 ```
 
-* Si el servidor proxy requiere autenticación, la [cuenta de servicio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) tiene que estar ubicada en el dominio y tendrá que usar la ruta de instalación de la configuración personalizada para especificar una [cuenta de servicio personalizada](active-directory-aadconnect-get-started-custom.md#install-required-components). También necesita otro cambio en el archivo machine.config. Con este cambio en el archivo machine.config, el asistente para instalación y el motor de sincronización responden a las solicitudes de autenticación del servidor proxy. En todas las páginas del asistente para instalación, excepto la página **Configurar** , se usan las credenciales del usuario que ha iniciado sesión. En la página **Configurar** al final del Asistente para instalación, el contexto se cambia a la [cuenta de servicio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) que creó. La sección del archivo machine.config debería tener este aspecto.
+* Si el servidor proxy requiere autenticación, la [cuenta de servicio](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) tiene que estar ubicada en el dominio y tendrá que usar la ruta de instalación de la configuración personalizada para especificar una [cuenta de servicio personalizada](active-directory-aadconnect-get-started-custom.md#install-required-components). También necesita otro cambio en el archivo machine.config. Con este cambio en el archivo machine.config, el asistente para instalación y el motor de sincronización responden a las solicitudes de autenticación del servidor proxy. En todas las páginas del asistente para instalación, excepto la página **Configurar** , se usan las credenciales del usuario que ha iniciado sesión. En la página **Configurar** al final del Asistente para instalación, el contexto se cambia a la [cuenta de servicio](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) que creó. La sección del archivo machine.config debería tener este aspecto.
 
 ```
     <system.net>

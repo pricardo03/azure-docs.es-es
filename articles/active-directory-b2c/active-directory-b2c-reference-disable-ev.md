@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 2/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c1bebe46832226e822d9eeb002cb555b72a1d7fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e008fb87b57b92f8f7e914e6b4344b52d42f9ef8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441614"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263936"
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: Deshabilitación de la comprobación de correos electrónicos durante la suscripción de consumidores
 Cuando se habilita, Azure Active Directory (Azure AD) B2B proporciona al consumidor la posibilidad de iniciar sesión en las aplicaciones ofreciendo una dirección de correo electrónico y creando una cuenta local. Azure AD B2C garantiza direcciones de correo electrónico válidas exigiendo que los consumidores puedan comprobarlas durante el proceso de suscripción. También impide que un proceso automatizado malintencionado genere cuentas falsas para aplicaciones.
@@ -26,13 +26,14 @@ De forma predeterminada, las directivas de inicio de sesión tienen activada la 
 
 1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Haga clic en **Sign-up policies** (Directivas de registro) o **Sign-up or sign-in policies** (Directivas de inicio de sesión o registro) dependiendo de lo que haya configurado para el inicio de sesión.
-3. Haga clic en la directiva (por ejemplo, "B2C_1_SiUp") para abrirla. Haga clic en **Editar** en la parte superior de la hoja.
-4. Haga clic en **Page UI Customization** (Personalización de la IU de la página).
-5. Haga clic en **Página de suscripción de cuenta local**.
-6. Haga clic en **Dirección de correo electrónico** en la columna **Nombre** bajo la sección **Atributos de suscripción**.
-7. Establezca la opción **Requerir comprobación** en **No**.
-8. Haga clic en **Aceptar** en la parte inferior hasta llegar a la hoja **Editar directiva**.
-9. Haga clic en **Guardar** en la parte superior de la hoja. ¡Y ya está!
+3. Haga clic en la directiva (por ejemplo, "B2C_1_SiUp") para abrirla. 
+4. Haga clic en **Editar** en la parte superior de la hoja.
+5. Haga clic en **Page UI Customization** (Personalización de la IU de la página).
+6. Haga clic en **Página de suscripción de cuenta local**.
+7. Haga clic en **Dirección de correo electrónico** en la columna **Nombre** bajo la sección **Atributos de suscripción**.
+8. Establezca la opción **Requerir comprobación** en **No**.
+9. Haga clic en **Aceptar** en la parte inferior hasta llegar a la hoja **Editar directiva**.
+10. Haga clic en **Guardar** en la parte superior de la hoja. ¡Y ya está!
 
 > [!NOTE]
 > Deshabilitar la comprobación de correos electrónicos en el proceso de registro puede provocar que se reciban correos no deseados. Si deshabilita el valor predeterminado, se recomienda agregar su propio sistema de comprobación.

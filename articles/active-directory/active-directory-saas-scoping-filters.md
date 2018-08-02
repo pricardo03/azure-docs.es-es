@@ -3,23 +3,23 @@ title: Aprovisionamiento de aplicaciones con filtros de ámbito | Microsoft Docs
 description: Obtenga información sobre cómo usar los filtros de ámbito para evitar el aprovisionamiento de los objetos de las aplicaciones que admiten el aprovisionamiento automático de usuarios, en caso de que un objeto no satisfaga los requisitos empresariales.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293082"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368553"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -35,7 +35,7 @@ Puede usar los filtros de ámbito de diversas maneras, según el tipo de conecto
     >[!TIP]
     > Puede deshabilitar la opción de aprovisionamiento basada en asignaciones para una aplicación empresarial estableciendo la opción del menú [Ámbito](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) que se encuentra en la configuración de aprovisionamiento en **Sincronizar todos los usuarios y grupos**. Gracias a esta opción y a los filtros de ámbito basados en los atributos, obtendrá un rendimiento más rápido que si usa asignaciones basadas en grupos.  
 
-* **Aprovisionamiento de entrada desde aplicaciones HCM a Azure AD y Active Directory**. Cuando una [aplicación HCM como Workday](active-directory-saas-workday-tutorial.md) es el sistema de origen, los filtros de ámbito son el método principal para determinar qué usuarios deben ser aprovisionados desde la aplicación HCM en Active Directory o Azure AD.
+* **Aprovisionamiento de entrada desde aplicaciones HCM a Azure AD y Active Directory**. Cuando una [aplicación HCM como Workday](saas-apps/workday-tutorial.md) es el sistema de origen, los filtros de ámbito son el método principal para determinar qué usuarios deben ser aprovisionados desde la aplicación HCM en Active Directory o Azure AD.
 
 De forma predeterminada, los conectores de aprovisionamiento de Azure AD no tienen configurados los filtros de ámbito basados en atributos. 
 
@@ -61,7 +61,7 @@ Según este filtro de ámbito, los usuarios deben cumplir los siguientes criteri
 * El puesto no debe estar vacío ni ser un valor nulo.
 
 ## <a name="create-scoping-filters"></a>Creación de filtros de ámbito
-Los filtros de ámbito se configuran como parte de las asignaciones de atributos de cada conector de aprovisionamiento de usuarios de Azure AD. En el siguiente procedimiento se da por supuesto que ya ha configurado el aprovisionamiento automático de [una de las aplicaciones compatibles](active-directory-saas-tutorial-list.md), para el que agregaremos un filtro de ámbito.
+Los filtros de ámbito se configuran como parte de las asignaciones de atributos de cada conector de aprovisionamiento de usuarios de Azure AD. En el siguiente procedimiento se da por supuesto que ya ha configurado el aprovisionamiento automático de [una de las aplicaciones compatibles](saas-apps/tutorial-list.md), para el que agregaremos un filtro de ámbito.
 
 ### <a name="create-a-scoping-filter"></a>Creación de un filtro de ámbito
 1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory** > **Aplicaciones empresariales** > **Todas las aplicaciones**.
@@ -117,5 +117,5 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
 * [Escritura de expresiones para la asignación de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 * [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](saas-apps/tutorial-list.md)
 

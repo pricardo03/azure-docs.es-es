@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126582"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284734"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Tutorial: Implementación de una aplicación web de Service Fabric Mesh
 
@@ -38,7 +38,7 @@ En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * [Crear una aplicación web de Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md)
 > * [Depurar localmente la aplicación](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * Publicar la aplicación en Azure
+> * Publicación de la aplicación en Azure
 
 Aprenderá a crear una aplicación de Azure Service Fabric Mesh que tiene un servicio de front-end web de ASP.NET y un servicio de back-end de ASP.NET Core Web API. A continuación, depurará la aplicación en el clúster de desarrollo local y publicará la aplicación en Azure. Cuando haya terminado, tendrá una aplicación sencilla de tareas pendientes que muestra cómo realizar una llamada entre servicios en una aplicación web de Service Fabric Mesh.
 
@@ -68,13 +68,13 @@ A continuación, verá un cuadro de diálogo **Publicación de la aplicación de
 
 ![Cuadro de diálogo de publicación de Service Fabric Mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Seleccione la cuenta y suscripción de Azure. Elija una **ubicación**. En este artículo se utiliza **East US**.
+Seleccione la cuenta y la suscripción de Azure. Elija una **ubicación**. En este artículo se utiliza **Este de EE. UU**.
 
 En **Grupo de recursos**, seleccione **\<Crear un nuevo grupo de recursos...>**. Aparece un cuadro de diálogo donde se va a crear un nuevo grupo de recursos. En este artículo se utiliza la ubicación **Este de EE. UU.** y llama al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo único).  Presione **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
 
 ![Cuadro de diálogo del nuevo grupo de recursos de Service Fabric Mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-De nuevo en el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, en **Azure Container Registry**, seleccione **\<Crear una instancia de Azure Container Registry >**. En el cuadro de diálogo **Crear Registro de contenedor**, utilice un nombre único para el **nombre de la instancia de Container Registry**. Especifique una **ubicación** (en este tutorial se utiliza **East US**). Seleccione el **grupo de recursos** que creó en el paso anterior en la lista desplegable, por ejemplo, **sfmeshTutorial1RG**. Establezca el **SKU** en **Básico** y, después, presione **Crear** para volver al cuadro de diálogo Publicar.
+De nuevo en el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, en **Azure Container Registry**, seleccione **\<Create New Container Registry...>** (Crear una instancia de Azure Container Registry...>). En el cuadro de diálogo **Crear Registro de contenedor**, utilice un nombre único para el **nombre de la instancia de Container Registry**. Especifique una **ubicación** (en este tutorial se utiliza **East US**). Seleccione el **grupo de recursos** que creó en el paso anterior en la lista desplegable, por ejemplo, **sfmeshTutorial1RG**. Establezca el **SKU** en **Básico** y, después, presione **Crear** para volver al cuadro de diálogo Publicar.
 
 ![Cuadro de diálogo del nuevo grupo de recursos de Service Fabric Mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -106,28 +106,11 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Abra un explorador web y vaya a la dirección URL para ver el sitio web que se ejecuta en Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>Configuración de la CLI de Service Fabric Mesh 
+Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para el resto de los pasos. Instale el módulo de extensión de la CLI de Azure Service Fabric Mesh siguiendo estas [instrucciones](service-fabric-mesh-howto-setup-cli.md).
 
-Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para el resto de los pasos.
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.35, u otra posterior. Ejecute `az --version` para encontrar la versión. Para instalar o actualizar a la última versión de la CLI, consulte [Instalación de la CLI de Azure 2.0][azure-cli-install].
-
-## <a name="install-the-az-mesh-cli"></a>Instalación de la cli de az mesh
-En el símbolo del sistema de la CLI
-
-1) Quite cualquier instalación anterior del módulo de la CLI de Azure Service Fabric Mesh.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Instale el módulo de extensión de la CLI de Azure Service Fabric Mesh. Para la versión preliminar, la CLI de Azure Service Fabric Mesh se escribe como una extensión de la CLI de Azure; sin embargo, en la versión preliminar pública se incluye como parte de la CLI de Azure.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
-
-## <a name="check-application-deployment-status"></a>Comprobación del estado de implementación de la aplicación
+## <a name="check-application-deployment-status"></a>Comprobar el estado de implementación de la aplicación
 
 En este momento, se ha implementado la aplicación. También puede comprobar el estado mediante el uso del comando `app show`. 
 

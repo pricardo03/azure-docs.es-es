@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 62cc37d8c462d0fc1831de7b50a85738d6e63a17
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726685"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295412"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Compilación e implementación de modelos de detección de objetos con Azure Machine Learning
 
@@ -34,7 +34,7 @@ En este ejemplo, se usa TensorFlow como el marco de aprendizaje profundo, el ent
 
 Consulte la [documentación de referencia del paquete](https://aka.ms/aml-packages/vision) para ver la referencia detallada de cada módulo y clase.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -68,26 +68,21 @@ En la siguiente ilustración se muestra la estructura de carpetas recomendada.
 
 Las ubicaciones de objetos anotados son necesarias para entrenar y evaluar un detector de objetos. [LabelImg](https://tzutalin.github.io/labelImg) es una herramienta de anotación de código abierto que puede usarse para anotar las imágenes. LabelImg escribe un archivo xml por imagen en formato Pascal-VOC, que este paquete puede leer. 
 
-## <a name="storage-context"></a>Contexto de almacenamiento
-El contexto de almacenamiento se usa para determinar dónde se almacenan los distintos archivos de salida como, por ejemplo, los archivos del modelo DNN. Para más información, consulte la [documentación de StorageContext](https://docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-ml-py-latest). Por lo general, no es necesario establecer explícitamente el contenido de almacenamiento. No obstante, para evitar superar el límite de tamaño de 25 MB del proyecto de Workbench, establezca el directorio de salidas para que señale a una ubicación fuera del proyecto AML ("../../../../cvtk_output"). Asegúrese de quitar el directorio "cvtk_output" una vez que ya no sea necesario.
-
 
 ```python
 import warnings
 warnings.filterwarnings("ignore")
 import os, time
 from cvtk.core import Context, ObjectDetectionDataset, TFFasterRCNN
+from cvtk.evaluation import DetectionEvaluation
+from cvtk.evaluation.evaluation_utils import graph_error_counts
 from cvtk.utils import detection_utils
-from matplotlib import pyplot as plt
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
 
-# Initialize the context object
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
-
+from matplotlib import pyplot as plt
 # Display the images
 %matplotlib inline
 ```
@@ -98,7 +93,7 @@ Cree un conjunto de datos CVTK que conste de un conjunto de imágenes, con sus r
 
 
 ```python
-image_folder = "../sample_data/foods/train"
+image_folder = "detection/sample_data/foods/train"
 data_train = ObjectDetectionDataset.create_from_dir(dataset_name='training_dataset', data_dir=image_folder,
                                                     annotations_dir="Annotations", image_subdirectory='JPEGImages')
 
@@ -202,7 +197,7 @@ Se usa el método "evaluate" para evaluar el modelo. Esta función requiere un o
 
 
 ```python
-image_folder = "../sample_data/foods/test"
+image_folder = "detection/sample_data/foods/test"
 data_val = ObjectDetectionDataset.create_from_dir(dataset_name='val_dataset', data_dir=image_folder)
 eval_result = my_detector.evaluate(dataset=data_val)
 ```
@@ -280,7 +275,7 @@ Cuando esté satisfecho con el rendimiento del modelo entrenado, se puede usar l
 ```python
 image_path = data_val.images[1].storage_path
 detections_dict = my_detector.score(image_path)
-path_save = out_root_path + "/scored_images/scored_image_preloaded.jpg"
+path_save = "./scored_images/scored_image_preloaded.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, image_size=(8, 12))
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
@@ -295,7 +290,7 @@ El modelo entrenado se puede guardar en un disco y cargar de nuevo en memoria, c
 
 
 ```python
-save_model_path = out_root_path + "/frozen_model/faster_rcnn.model" # Please save your model to outside of your AML workbench project folder because of the size limit of AML project
+save_model_path = "./frozen_model/faster_rcnn.model"
 my_detector.save(save_model_path)
 ```
 
@@ -355,7 +350,7 @@ Visualice las puntuaciones como antes.
 
 
 ```python
-path_save = out_root_path + "/scored_images/scored_image_frozen_graph.jpg"
+path_save = "./scored_images/scored_image_frozen_graph.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, path_save=path_save, image_size=(8, 12))
 # ax.get_figure() # use this code extract the returned image
 ```
@@ -596,7 +591,7 @@ print("Parsed result:", parsed_result)
 
 ```python
 ax = detection_utils.visualize(image_path, parsed_result)
-path_save = "../../../cvtk_output/scored_images/scored_image_web.jpg"
+path_save = "./scored_images/scored_image_web.jpg"
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
 ax.get_figure().savefig(path_save)

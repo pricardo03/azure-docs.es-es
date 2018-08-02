@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: b052613161b4fee9a01def966fb02cbf8a7a483c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056943"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398371"
 ---
 # <a name="understand-azure-identity-solutions"></a>Información acerca de las soluciones de identidad de Azure
 Microsoft Azure Active Directory (Azure AD) es una solución en la nube de administración de identidades y acceso que proporciona servicios de directorio, control de identidad y administración del acceso a las aplicaciones. Azure AD [habilita rápidamente el inicio de sesión único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) en miles de aplicaciones comerciales y personalizadas preintegradas de la [galería de aplicaciones de Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Probablemente ya use muchas de estas aplicaciones, como Office 365, Salesforce.com, Box, ServiceNow y Workday.
@@ -103,7 +103,7 @@ Estos son algunos escenarios comunes de identidad y acceso con recomendaciones s
 |La organización ha realizado grandes inversiones en Windows Server Active Directory locales, pero desea extender la identidad a la nube.| La solución de identidad de Azure más utilizada es la [identidad híbrida](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Si ya ha realizado inversiones en AD DS locales, puede extender fácilmente la identidad a la nube mediante Azure AD Connect.|
 |La empresa ha surgido en la nube y no hay inversiones en soluciones de identidad locales.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) es la mejor opción para las empresas solo en la nube que no tienen ninguna inversión en instancias locales.|
 |Hace falta un control ligero de la configuración de las máquinas virtuales de Azure para satisfacer los requisitos de identidad local para el desarrollo y la prueba de aplicaciones.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) es una buena opción si tiene que usar AD DS para un control ligero de la configuración de las máquinas virtuales de Azure, o si desea desarrollar o migrar a la nube aplicaciones locales heredadas que utilizan el directorio.|  
-|Hace falta administrar algunas máquinas virtuales en Azure, pero la empresa aún tiene inversiones fuertes en instancias locales de Active Directory (AD DS).|Use [AD DS de implementación personal](https://msdn.microsoft.com/library/azure/jj156090.aspx) para usar máquinas virtuales de Azure cuando necesite admitir algunas máquinas virtuales y tenga grandes inversiones en AD DS local. |
+|Hace falta administrar algunas máquinas virtuales en Azure, pero la empresa aún tiene inversiones fuertes en instancias locales de Active Directory (AD DS).|Use [AD DS de implementación personal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options) para usar máquinas virtuales de Azure cuando necesite admitir algunas máquinas virtuales y tenga grandes inversiones en AD DS local. |
 
 ## <a name="where-can-i-learn-more"></a>¿Dónde puedo obtener más información?
 Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a aprender todo sobre Azure AD. Aquí se proporciona una lista de artículos excelentes para comenzar:
@@ -126,5 +126,3 @@ Ahora que conoce los conceptos de identidad de Azure y las opciones disponibles,
 [Más información sobre las soluciones de identidad híbridas de Azure](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Información sobre el entorno de prueba de concepto de Azure](https://aka.ms/aad-poc)
-
-[Implementación de Azure AD en producción](https://aka.ms/aad-onboard)

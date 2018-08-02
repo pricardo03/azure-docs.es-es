@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 86ff34bb0780811663d437a9183d0b688b69073d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 39e926a392cbd87eff23e25d9708792ec7c40a2c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302994"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368713"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en Azure Active Directory
 Deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar sesión en ella en Azure Active Directory (Azure AD) es fácil. Debe tener los permisos adecuados para administrar la aplicación de empresa y debe ser administrador global en el directorio.
@@ -41,7 +41,7 @@ Deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar 
 8. Haga clic en el comando **Guardar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Ver todos mis grupos](../active-directory-groups-view-azure-portal.md)
+* [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
 * [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
 * [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)

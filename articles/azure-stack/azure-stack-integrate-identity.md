@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242944"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412872"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
@@ -26,7 +26,7 @@ En la tabla siguiente se muestran las diferencias entre las dos opciones de iden
 |---------|---------|---------|
 |Facturación|Debe ser capacidad<br> Solo Contrato Enterprise (EA)|Capacidad o de pago por uso<br>EA o proveedor de soluciones en la nube (CSP)|
 |Identidad|Debe ser AD FS|Azure AD o AD FS|
-|Redifusión de Marketplace|Compatible<br>Licencias BYOL|Compatible<br>Licencias BYOL|
+|Marketplace |Compatible<br>Licencias BYOL|Compatible<br>Licencias BYOL|
 |Registro|Recomendado, requiere un medio extraíble<br> y un dispositivo conectado independiente.|Automatizado|
 |Revisiones y actualizaciones|Requerido, requiere un medio extraíble<br> y un dispositivo conectado independiente.|El paquete de actualización se puede descargar directamente<br> de Internet a Azure Stack.|
 
@@ -109,7 +109,7 @@ El servicio Graph de Azure Stack utiliza los siguientes protocolos y puertos par
 
 El servicio Graph en Azure Stack usa los protocolos y puertos siguientes para comunicarse con la instancia de Active Directory de destino:
 
-|type|Port|Protocolo|
+|Escriba|Port|Protocolo|
 |---------|---------|---------|
 |LDAP|389|TCP y UDP|
 |SSL de LDAP|636|TCP|

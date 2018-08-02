@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211725"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398842"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -156,7 +156,7 @@ Para obtener más información sobre la solución de problemas de comprobaciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda [cómo funciona el Administrador de tráfico](traffic-manager-how-traffic-manager-works.md)
+Aprenda [cómo funciona el Administrador de tráfico](traffic-manager-how-it-works.md)
 
 Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) que admite el Administrador de tráfico.
 

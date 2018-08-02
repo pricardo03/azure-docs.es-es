@@ -3,24 +3,24 @@ title: Configuración de un nombre de dominio personalizado para una cuenta de A
 description: Utilice Azure Portal para asignar su propio nombre canónico (CNAME) al punto de conexión del servicio web o de Blob service en una cuenta de Azure Storage.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
-ms.openlocfilehash: 2f4267c25dfd31e6f1d5ae3a832be06b5ef6c828
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: blobs
+ms.openlocfilehash: 5fd823e9105157f8292d5a9554850b0f4338a392
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017927"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398859"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage
 
 Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado del almacenamiento de blobs es `<storage-account-name>.blob.core.windows.net`. También puede utilizar el punto de conexión de servicio web generado como parte de la [característica de sitios web estáticos (versión preliminar)](storage-blob-static-website.md). Si asigna un subdominio y un dominio personalizado, como **www.contoso.com**, al punto de conexión de servicio web o de Blob service para la cuenta de almacenamiento, los usuarios podrán acceder a los datos de blob en la cuenta de almacenamiento utilizando ese dominio.
 
 > [!IMPORTANT]
-> Azure Storage no admite aún HTTPS con dominios personalizados de forma nativa. Actual mente puede [usar la red CDN de Azure para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md).
+> Azure Storage no admite aún HTTPS con dominios personalizados de forma nativa. Actual mente puede [usar Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md).
 >
 
 > [!NOTE]  
@@ -164,5 +164,6 @@ Use el cmdlet de PowerShell [Set-AzureRmStorageAccount](/powershell/module/azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Asignación de un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
-* [Uso de la red CDN de Azure para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
+* 
+  [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
 * [Hospedaje de sitios web estáticos en Azure Blob Storage (versión preliminar)](storage-blob-static-website.md)

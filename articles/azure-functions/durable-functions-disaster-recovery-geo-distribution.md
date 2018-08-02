@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8eb42a60045304416ec6aa1099a84b1e264c692d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: bbfbf351b8976f4140b6dd98a9a54ba982c3d865
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206717"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399404"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperación ante desastres y distribución geográfica
 
@@ -50,7 +50,7 @@ Sin embargo, con este escenario, valore:
 - En este escenario se tratan las interrupciones en la infraestructura de proceso, pero la cuenta de Storage sigue siendo el único punto de error de la función de aplicación. Si se produce una interrupción en Storage, la aplicación sufre tiempo de inactividad.
 - Si la aplicación de función se conmuta por error, la latencia aumentará, ya que se accederá a las cuentas de Storage de las distintas regiones.
 - Acceder al servicio de almacenamiento desde una región distinta a donde se ubica implica mayores costos debido al tráfico de salida de la red.
-- Este escenario depende de Traffic Manager. Teniendo en cuenta [cómo funciona Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), una aplicación cliente que consuma una instancia de Durable Functions puede tardar un tiempo en necesitar consultar de nuevo la dirección de la aplicación de función de Traffic Manager. 
+- Este escenario depende de Traffic Manager. Teniendo en cuenta [cómo funciona Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), una aplicación cliente que consuma una instancia de Durable Functions puede tardar un tiempo en necesitar consultar de nuevo la dirección de la aplicación de función de Traffic Manager. 
 
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>Escenario 2: proceso con almacenamiento regional y equilibrio de carga

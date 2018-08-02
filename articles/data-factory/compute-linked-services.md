@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070049"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390218"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -429,8 +429,8 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 | Tipo                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | SÍ                                      |
 | accountName          | Nombre de la cuenta de Análisis de Azure Data Lake  | SÍ                                      |
 | dataLakeAnalyticsUri | Identificador URI de Análisis de Azure Data Lake.           | Sin                                        |
-| subscriptionId       | Identificador de suscripción de Azure                    | No (si no se especifica, se usa la suscripción de Data Factory). |
-| resourceGroupName    | Nombre del grupo de recursos de Azure                | No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
+| subscriptionId       | Identificador de suscripción de Azure                    | Sin                                        |
+| resourceGroupName    | Nombre del grupo de recursos de Azure                | Sin                                        |
 | servicePrincipalId   | Especifique el id. de cliente de la aplicación.     | SÍ                                      |
 | servicePrincipalKey  | Especifique la clave de la aplicación.           | SÍ                                      |
 | tenant               | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | SÍ                                      |
@@ -505,15 +505,6 @@ Cree un servicio vinculado de SQL Data Warehouse y úselo con la [actividad de p
 
 ## <a name="sql-server-linked-service"></a>Servicio vinculado de SQL Server
 Cree un servicio vinculado de SQL Server y úselo con la [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para invocar un procedimiento almacenado desde una canalización de Data Factory. Consulte el artículo sobre el [conector de SQL Server](connector-sql-server.md#linked-service-properties) para más información acerca de este servicio vinculado.
-
-## <a name="azure-data-factory---naming-rules"></a>Azure Data Factory: reglas de nomenclatura
-La tabla siguiente proporciona las reglas de nomenclatura para los artefactos de Factoría de datos.
-
-| NOMBRE                             | Exclusividad del nombre                          | Comprobaciones de validación                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas, es decir, `MyDF` y `mydf` hacen referencia a la misma factoría de datos. | <ul><li>Cada factoría de datos está asociada exactamente a una suscripción de Azure.</li><li>Los nombres de objeto deben comenzar por una letra o un número, y pueden contener solo letras, números y el carácter de guión (-).</li><li>Los caracteres de guión (-) debe estar inmediatamente precedidos y seguidos por una letra o un número. No se permiten guiones consecutivos en los nombres de contenedor.</li><li>El nombre puede tener entre 3 y 63 caracteres.</li></ul> |
-| Servicios, tablas o canalizaciones vinculadas | Único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. | <ul><li>Número máximo de caracteres incluido en un nombre de tabla: 260.</li><li>Los nombres de objeto deben empezar con una letra, un número o un carácter de subrayado (_).</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |
-| Grupo de recursos                   | Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas. | <ul><li>Número máximo de caracteres: 1000.</li><li>El nombre puede contener letras, dígitos y los siguientes caracteres: “-”, “_”, “,” y “.”</li></ul> |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para una lista de actividades de transformación compatibles con Azure Data Factory, consulte [Transform data](transform-data.md) (Transformación de datos).

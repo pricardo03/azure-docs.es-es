@@ -3,17 +3,17 @@ title: Hospedaje de sitios web estáticos en Azure Storage (versión preliminar)
 description: Azure Storage ahora ofrece hospedaje de sitios web estáticos (versión preliminar), lo que proporciona una solución rentable y escalable para hospedar aplicaciones web modernas.
 services: storage
 author: MichaelHauss
-manager: vamshik
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: blobs
+ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131616"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397482"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Hospedaje de sitios web estáticos en Azure Storage (versión preliminar)
 Azure Storage ahora ofrece hospedaje de sitios web estáticos (versión preliminar), lo que permite implementar aplicaciones web modernas rentables y escalables en Azure. En un sitio web estático, las páginas web cuentan con contenido estático y JavaScript u otro código del lado del cliente. En cambio, los sitios web dinámicos dependen de código del lado del servidor y se pueden hospedar mediante [Azure Web Apps](/app-service/app-service-web-overview.md).
@@ -57,7 +57,8 @@ No, el hospedaje de sitios web estáticos solo está disponible en las cuentas d
 Sí, el nuevo punto de conexión web cumple las reglas de firewall y de VNET configuradas para la cuenta de almacenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Uso de la red CDN de Azure para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
+* 
+  [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurar un nombre de dominio personalizado para el punto de conexión web o de blob](storage-custom-domain-name.md)
 * [Azure Functions](/azure-functions/functions-overview.md)
 * [Azure Web Apps](/app-service/app-service-web-overview.md)

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: f4a9c14a63e2cab84ccc20f8f36b272d21eb8332
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a56b2b12143a29637196d2239f648b78f1f8e763
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004191"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307872"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows para su uso con contenedores de Linux
 
@@ -88,7 +88,7 @@ Windows Registry Editor Version 5.00
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configuración del demonio de seguridad de Azure IoT Edge
 
-El daemon se puede configurar mediante el archivo de configuración en `C:\ProgramData\iotedge\config.yaml`.
+El demonio se puede configurar mediante el archivo de configuración en `C:\ProgramData\iotedge\config.yaml`.
 
 El dispositivo Edge se puede configurar manualmente mediante una [cadena de conexión de dispositivo][lnk-dcs] o [automáticamente a través de Device Provisioning Service][lnk-dps].
 
@@ -187,7 +187,7 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
 
-Si uso los pasos de **configuración manual** de la sección anterior, el entorno de ejecución de IoT Edge debe haberse aprovisionado correctamente y estar en ejecución en el dispositivo. Si ha usado los pasos de **configuración automática**, deberá completar algunos pasos adicionales para que el entorno de ejecución pueda registrar el dispositivo con IoT hub en su nombre. Para los pasos siguientes, consulte la sección de [Create and provision a simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable) (Crear y aprovisionar un dispositivo TPM Edge simulado en Windows).
+Si uso los pasos de **configuración manual** de la sección anterior, el entorno de ejecución de IoT Edge debe haberse aprovisionado correctamente y estar en ejecución en el dispositivo. Si ha usado los pasos de **configuración automática**, deberá completar algunos pasos adicionales para que el tiempo de ejecución pueda registrar el dispositivo con IoT Hub en su nombre. Para los pasos siguientes, consulte el artículo [Creación y aprovisionamiento de un dispositivo TPM Edge simulado en Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
 
 
 Puede comprobar el estado del servicio IoT Edge mediante: 
@@ -206,7 +206,8 @@ Get-WinEvent -ea SilentlyContinue `
   -FilterHashtable @{ProviderName= "iotedged";
     LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
   select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false}
+  sort-object @{Expression="TimeCreated";Descending=$false} |
+  format-table -autosize -wrap
 ```
 
 Y, enumere los módulos en ejecución con:

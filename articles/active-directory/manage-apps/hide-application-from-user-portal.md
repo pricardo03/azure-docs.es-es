@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: b60384663d79294531225612a767663e0d71723f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 55f80396df4cbfe7d0a16a6a5066b68aadc0bdd3
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302965"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368923"
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Ocultación de una aplicación de la experiencia del usuario en Azure Active Directory
 
@@ -63,7 +63,7 @@ Siga estos pasos para ocultar todas las aplicaciones de Office 365 del panel de 
 ![Aplicaciones Enterprise](./media/hide-application-from-user-portal/apps4.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Ver todos mis grupos](../active-directory-groups-view-azure-portal.md)
+* [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
 * [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
 * [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)

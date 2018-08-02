@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cb4620babd3a1ba5087ae9ebd2870c1ef404bb58
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156490"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368483"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Uso de dominios personalizados en el proxy de la aplicación de Azure AD
 
@@ -35,10 +35,10 @@ Se recomienda que configure dominios personalizados para las aplicaciones siempr
 
 ## <a name="configure-a-custom-domain"></a>Configuración de un dominio personalizado
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Antes de configurar un dominio personalizado, asegúrese de que tener preparados los siguientes requisitos: 
-- Un [dominio comprobado agregado a Azure Active Directory](../add-custom-domain.md).
+- Un [dominio comprobado agregado a Azure Active Directory](../fundamentals/add-custom-domain.md).
 - Un certificado personalizado para el dominio, en forma de un archivo PFX. 
 - Una aplicación local [publicada a través del proxy de la aplicación](application-proxy-publish-azure-portal.md).
 
@@ -72,7 +72,7 @@ No hay ninguna restricción sobre los métodos de firma del certificado. Se admi
 Puede usar un certificado comodín siempre y cuando este coincida con la dirección URL externa deseada. 
 
 ### <a name="changing-the-domain"></a>Cambio del dominio
-Todos los dominios comprobados aparecen en la lista desplegable de direcciones URL externas de la aplicación. Para cambiar el dominio, actualice ese campo de la aplicación. Si el dominio que desea no está en la lista, [agréguelo como dominio comprobado](../add-custom-domain.md). Si selecciona un dominio que no tiene aún un certificado asociado, siga los pasos del 5 al 7 para agregarlo. A continuación, asegúrese de actualizar el registro DNS para redirigirlo desde la nueva dirección URL externa. 
+Todos los dominios comprobados aparecen en la lista desplegable de direcciones URL externas de la aplicación. Para cambiar el dominio, actualice ese campo de la aplicación. Si el dominio que desea no está en la lista, [agréguelo como dominio comprobado](../fundamentals/add-custom-domain.md). Si selecciona un dominio que no tiene aún un certificado asociado, siga los pasos del 5 al 7 para agregarlo. A continuación, asegúrese de actualizar el registro DNS para redirigirlo desde la nueva dirección URL externa. 
 
 ### <a name="certificate-management"></a>Administración de certificados
 Puede usar el mismo certificado para varias aplicaciones a menos que las aplicaciones compartan un host externo. 
@@ -84,6 +84,6 @@ Actualmente, toda la administración de certificados es a través de páginas de
 ## <a name="next-steps"></a>Pasos siguientes
 * [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md) en las aplicaciones publicadas con la autenticación de Azure AD.
 * [Habilitar el acceso condicional](application-proxy-integrate-with-sharepoint-server.md) a las aplicaciones publicadas.
-* [Incorporación de su nombre de dominio personalizado a Azure AD](../add-custom-domain.md)
+* [Incorporación de su nombre de dominio personalizado a Azure AD](../fundamentals/add-custom-domain.md)
 
 

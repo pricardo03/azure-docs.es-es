@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 115511d15bc2366e49f6b3d1b89b513ea0ee5e90
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112693"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398035"
 ---
 # <a name="traffic-manager-endpoints"></a>Puntos de conexión del Administrador de tráfico
-Microsoft Azure Traffic Manager permite controlar cómo se distribuye el tráfico de red a implementaciones de aplicaciones que se ejecutan en distintos centros de datos. Se configura cada implementación de aplicaciones como un "punto de conexión" en Traffic Manager. Cuando Traffic Manager recibe una solicitud de DNS, elige un punto de conexión disponible para devolverlo en la respuesta DNS. Traffic Manager basa la elección en el estado actual del punto de conexión y el método de enrutamiento del tráfico. Para obtener más información, consulte [Cómo funciona el Administrador de tráfico](traffic-manager-how-traffic-manager-works.md).
+Microsoft Azure Traffic Manager permite controlar cómo se distribuye el tráfico de red a implementaciones de aplicaciones que se ejecutan en distintos centros de datos. Se configura cada implementación de aplicaciones como un "punto de conexión" en Traffic Manager. Cuando Traffic Manager recibe una solicitud de DNS, elige un punto de conexión disponible para devolverlo en la respuesta DNS. Traffic Manager basa la elección en el estado actual del punto de conexión y el método de enrutamiento del tráfico. Para obtener más información, consulte [Cómo funciona el Administrador de tráfico](traffic-manager-how-it-works.md).
 
 El Administrador de tráfico admite tres tipos de puntos de conexión:
 * **puntos de conexión de Azure** se utilizan para los servicios hospedados en Azure.
@@ -59,9 +59,9 @@ En algunos casos, resulta útil usar puntos de conexión externos para hacer ref
 
 Los puntos de conexión anidados combinan varios perfiles de Traffic Manager para crear esquemas de enrutamiento de tráfico flexibles y satisfacer los requisitos de implementaciones más complejas y de mayor envergadura. Con los puntos de conexión anidados, se agrega un perfil "secundario" como punto de conexión a un perfil "primario". Los perfiles primarios y secundarios pueden contener otros puntos de conexión de cualquier tipo, incluidos otros perfiles anidados. Para más información, consulte [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)(Perfiles anidados de Administrador de tráfico).
 
-## <a name="web-apps-as-endpoints"></a>Aplicaciones web como puntos de conexión
+## <a name="web-apps-as-endpoints"></a>Web Apps como puntos de conexión
 
-A la hora de configurar aplicaciones web como puntos de conexión en el Administrador de tráfico, hay que tener en cuenta otras consideraciones:
+A la hora de configurar Web Apps como puntos de conexión en Traffic Manager, hay que tener en cuenta otras consideraciones:
 
 1. Solo se puede utilizar con Traffic Manager Web Apps del nivel de SKU "Estándar" o superiores. Si se intenta agregar una aplicación web de una SKU inferior, se producirá un error. Si se cambia el nivel de SKU de una aplicación web existente a otro inferior, Traffic Manager deja de enviar tráfico a esa aplicación web.
 2. Cuando un punto de conexión recibe una solicitud HTTP, usa el encabezado "host" de la solicitud para determinar qué aplicación web debe atenderla. El encabezado host contiene el nombre DNS utilizado para iniciar la solicitud, por ejemplo, "contosoapp.azurewebsites.net". Para usar otro nombre DNS con la aplicación web, este debe estar registrado como nombre de dominio personalizado para la aplicación. Al agregar un punto de conexión de aplicación web como punto de conexión de Azure, el nombre DNS del perfil de Traffic Manager se registra automáticamente para la aplicación. Este registro se elimina automáticamente cuando se elimina el punto de conexión.
@@ -74,7 +74,7 @@ Deshabilitar un punto de conexión en Traffic Manager puede ser útil para quita
 Los puntos de conexión se pueden habilitar y deshabilitar por medio del portal de Traffic Manager, PowerShell, la CLI o la API de REST, que son compatibles con el modelo de implementación clásica y el de Resource Manager.
 
 > [!NOTE]
-> Deshabilitar un punto de conexión de Azure no afectará a su estado de implementación en Azure. Un servicio de Azure (como una máquina virtual o una aplicación web) permanece ejecución y puede recibir tráfico incluso cuando esté deshabilitado en Traffic Manager. El tráfico se puede enviar directamente a la instancia del servicio en lugar de por medio del nombre DNS del perfil de Traffic Manager. Para obtener más información, consulte [Cómo funciona el Administrador de tráfico](traffic-manager-how-traffic-manager-works.md).
+> Deshabilitar un punto de conexión de Azure no afectará a su estado de implementación en Azure. Un servicio de Azure (como una máquina virtual o una aplicación web) permanece ejecución y puede recibir tráfico incluso cuando esté deshabilitado en Traffic Manager. El tráfico se puede enviar directamente a la instancia del servicio en lugar de por medio del nombre DNS del perfil de Traffic Manager. Para obtener más información, consulte [Cómo funciona el Administrador de tráfico](traffic-manager-how-it-works.md).
 
 La idoneidad actual de cada punto de conexión para recibir tráfico depende de los siguientes factores:
 
@@ -92,6 +92,6 @@ Si se deshabilitan todos los puntos de conexión de un perfil o si se deshabilit
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Cómo funciona el Administrador de tráfico](traffic-manager-how-traffic-manager-works.md).
+* Consulte [Cómo funciona el Administrador de tráfico](traffic-manager-how-it-works.md).
 * Obtenga información sobre la [supervisión del punto de conexión y la conmutación por error automática](traffic-manager-monitoring.md)del Administrador de tráfico.
 * Conozca los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md)del Administrador de tráfico.

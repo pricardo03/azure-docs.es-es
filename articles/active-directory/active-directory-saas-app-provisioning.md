@@ -3,23 +3,23 @@ title: Aprovisionamiento automatizado de usuarios para aplicaciones SaaS en Azur
 description: Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
-editor: ''
-ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/26/2018
-ms.author: asmalser
-ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser
+ms.openlocfilehash: 9a0b89528adc173fa3aa26415942cbef81dcb291
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025613"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364213"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
@@ -94,14 +94,14 @@ La configuración del servicio de aprovisionamiento de Azure AD para una aplicac
 
 En la pantalla de administración de aplicaciones, el aprovisionamiento se configura en la pestaña **Aprovisionamiento**.
 
-![Settings](./media/active-directory-saas-app-provisioning/provisioning_settings0.PNG)
+![Configuración](./media/active-directory-saas-app-provisioning/provisioning_settings0.PNG)
 
 
 * Se deben proporcionar las **credenciales de administrador** al servicio de aprovisionamiento de Azure AD que le permitirá conectarse a la API de administración de usuarios proporcionada por la aplicación. Esta sección también le permite habilitar notificaciones por correo electrónico si las credenciales producen error o el trabajo de aprovisionamiento entra en [cuarentena](#quarantine).
 
 * Se pueden configurar **asignaciones de atributo** que especifiquen qué campos del sistema de origen (ejemplo: Azure AD) tendrán su contenido sincronizado con los campos del sistema de destino (ejemplo: ServiceNow). Si la aplicación de destino lo admite, esta sección le permitirá configurar, si lo desea, el aprovisionamiento de grupos, además de las cuentas de usuario. La "búsqueda de coincidencia de propiedades" le permite seleccionar los campos que se usan para buscar cuentas entre los sistemas. Las "[expresiones](active-directory-saas-writing-expressions-for-attribute-mappings.md)" le permiten modificar y transformar los valores recuperados del sistema de origen antes de que se escriban en el sistema de destino. Para obtener más información, vea [Personalización de la asignación de atributos](active-directory-saas-customizing-attribute-mappings.md).
 
-![Settings](./media/active-directory-saas-app-provisioning/provisioning_settings1.PNG)
+![Configuración](./media/active-directory-saas-app-provisioning/provisioning_settings1.PNG)
 
 * Los **filtros de ámbito** le indican al servicio de aprovisionamiento qué usuarios y grupo del sistema de origen se deben aprovisionar o desaprovisionar para el sistema de destino. Hay dos aspectos en los filtros de ámbito que se evalúan conjuntamente y que determinan quién está en el ámbito para el aprovisionamiento:
 
@@ -113,7 +113,7 @@ En la pantalla de administración de aplicaciones, el aprovisionamiento se confi
 
 * Los **registros de auditoría** proporcionan registros de todas las operaciones realizadas por el servicio de aprovisionamiento de Azure AD. Para obtener más detalles, consulte la [guía de informes de aprovisionamiento](active-directory-saas-provisioning-reporting.md).
 
-![Settings](./media/active-directory-saas-app-provisioning/audit_logs.PNG)
+![Configuración](./media/active-directory-saas-app-provisioning/audit_logs.PNG)
 
 > [!NOTE]
 > El servicio de aprovisionamiento de usuarios de Azure AD también se puede configurar y administrar mediante [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c0413678aad16105f732ef23fb60c61fddcdad45
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365719"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413416"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 Con [seguridad operativa de Azure](https://docs.microsoft.com/azure/security/azure-operational-security), se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. Es un marco que incorpora el conocimiento adquirido a través de una variedad de funcionalidades exclusivas de Microsoft. Estas funcionalidades incluyen el Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento profundo del panorama de amenazas de ciberseguridad.
@@ -37,7 +37,7 @@ Puede consolidar datos de varios orígenes y combinar datos de los servicios de 
 ### <a name="automation"></a>Automation
 [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) le ofrece una manera de automatizar las tareas manuales, propensas a errores, con una ejecución prolongada y repetidas con frecuencia que se realizan normalmente en un entorno empresarial y en la nube. Ahorra tiempo y aumenta la confiabilidad de las tareas administrativas. Incluso programa estas tareas para que se realicen automáticamente a intervalos regulares. Puede automatizar procesos mediante runbooks o automatizar la administración de configuración mediante la configuración de estado deseada.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Copia de seguridad
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) es el servicio de Azure que puede usar para hacer una copia de seguridad de los datos (protegerlos) y restaurarlos en Microsoft Cloud. Azure Backup reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. 
 
 Azure Backup ofrece componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (tanto si va a proteger los datos de forma local como en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services en Azure. 
@@ -57,7 +57,6 @@ Para obtener más información, consulte la [tabla de componentes de Azure Backu
 Azure AD también incluye un conjunto completo de [funcionalidades de administración de identidades](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), como las siguientes:
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)
-- [Registro de dispositivos]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview)
 - [Administración de contraseñas de autoservicio](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Administración de grupos de autoservicio](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Administración de cuentas con privilegios](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)

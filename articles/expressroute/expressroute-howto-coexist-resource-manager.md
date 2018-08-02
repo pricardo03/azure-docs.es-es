@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.author: charwen,cherylmc
-ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.author: charwen,cherylmc,rambala
+ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259262"
+ms.locfileid: "39262879"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configuración de conexiones coexistentes de ExpressRoute de sitio a sitio
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ La configuración de las conexiones coexistentes de VPN de sitio a sitio y Expre
 * Puede configurar una VPN de sitio a sitio como una ruta de conmutación por error segura para ExpressRoute. 
 * Si lo desea, también puede usar redes VPN de sitio a sitio para conectarse a los sitios que no están conectados mediante ExpressRoute. 
 
-En este artículo, se explican los pasos para configurar ambos escenarios. Este artículo se aplica al modelo de implementación de Resource Manager y utiliza PowerShell. Esta configuración no está disponible en el Portal de Azure.
+En este artículo, se explican los pasos para configurar ambos escenarios. Este artículo se aplica al modelo de implementación de Resource Manager y utiliza PowerShell. 
 
 >[!NOTE]
 >Si desea crear una VPN de sitio a sitio a través de un circuito de ExpressRoute, consulte [este artículo](site-to-site-vpn-over-microsoft-peering.md).

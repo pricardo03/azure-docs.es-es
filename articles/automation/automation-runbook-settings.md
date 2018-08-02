@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 951e59333ab1a1e982386c5c71f79b86f5e62440
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 589df59e02a18629d5f405ff1ce8870333f2228e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194203"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397720"
 ---
 # <a name="runbook-settings"></a>Configuración de runbook
 Cada runbook en Azure Automation tiene varias opciones de configuración para ayudarle a identificar y cambiar su comportamiento de registro. A continuación se describen todas estas opciones, seguido de procedimientos acerca de cómo modificarlas.
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configuración
 ### <a name="name-and-description"></a>Nombre y descripción
 No se puede cambiar el nombre de un runbook después de su creación. La descripción es opcional y puede tener hasta 512 caracteres.
 
@@ -39,7 +39,7 @@ Puede cambiar la configuración de un runbook en Azure Portal en la hoja **Confi
 3. Haga clic en el nombre de un runbook y se le redirigirá a la hoja de configuración del runbook. Aquí podrá especificar o modificar etiquetas, la descripción del runbook, configurar opciones de seguimiento y registro, y acceder herramientas de soporte técnico para ayudarlo a solucionar problemas.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Cambio de la configuración del runbook mediante Windows PowerShell
-Puede utilizar el cmdlet [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) para cambiar la configuración de un runbook. Si desea especificar varias etiquetas, se puede proporcionar una matriz o una sola cadena con valores delimitados por comas al parámetro Tags. Puede obtener las etiquetas actuales con el [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+Puede utilizar el cmdlet [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook) para cambiar la configuración de un runbook. Si desea especificar varias etiquetas, se puede proporcionar una matriz o una sola cadena con valores delimitados por comas al parámetro Tags. Puede obtener las etiquetas actuales con el [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 Los siguientes comandos de ejemplo muestran cómo establecer las propiedades de un runbook. Este ejemplo agrega tres etiquetas a las etiquetas existentes y especifica que se deben registrar registros detallados.
 

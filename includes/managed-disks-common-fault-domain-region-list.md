@@ -4,9 +4,9 @@
 |---------------------|-------------------------|
 | Este de EE. UU             | 3                       |
 | Este de EE. UU. 2           | 3                       |
-| Oeste de EE. UU             | 3                       |
+| Oeste de EE. UU.             | 3                       |
 | Oeste de EE. UU. 2           | 2                       |
-| Central EE. UU:          | 3                       |
+| Centro de EE. UU.          | 3                       |
 | Centro-Norte de EE. UU    | 3                       |
 | Centro-Sur de EE. UU    | 3                       |
 | Centro occidental de EE.UU.     | 2                       |
@@ -15,7 +15,7 @@
 |                     |                         |
 | Europa del Norte        | 3                       |
 | Europa occidental         | 3                       |
-| Sur del Reino Unido 2            | 2                       |
+| Sur de Reino Unido 2            | 2                       |
 | Oeste de Reino Unido             | 2                       |
 |                     |                         |
 | Asia oriental           | 2                       |
@@ -28,7 +28,7 @@
 | Corea Central       | 2                       |
 | Corea del Sur         | 2                       |
 |                     |                         |
-| Australia Oriental      | 2                       |
+| Este de Australia      | 2                       |
 | Sudeste de Australia | 2                       |
 |                     |                         |
 | Sur de Brasil        | 2                       |

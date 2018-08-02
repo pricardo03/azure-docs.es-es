@@ -4,20 +4,18 @@ description: Uso de Azure Blob Storage con una aplicación web para almacenar da
 services: storage
 documentationcenter: ''
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 307ccc6f5fce703b786708196779f0cf3d71ae96
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1756ac4ddbbc6d93307839e8447da84deb0716f7
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461510"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398734"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Carga de datos de imagen en la nube con Azure Storage
 
@@ -289,7 +287,7 @@ Vuelva a la aplicación para comprobar que la imagen cargada en el contenedor **
 
 En el contenedor **thumbnails** de Azure Portal, seleccione la imagen que descargó y elija **Eliminar** para eliminarla. En la parte dos de la serie, automatizará la creación de las imágenes en miniatura, así que esta imagen de prueba no es necesaria.
 
-CDN puede habilitarse para almacenar en caché el contenido desde la cuenta de almacenamiento de Azure. Aunque no se describe en este tutorial, para aprender a habilitar la red CDN con la cuenta de almacenamiento de Azure, puede visitar [Integración de una cuenta de Azure Storage con la red CDN de Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+CDN puede habilitarse para almacenar en caché el contenido desde la cuenta de almacenamiento de Azure. Aunque no se describe en este tutorial, para aprender a habilitar la red CDN con la cuenta de almacenamiento de Azure, puede visitar [Integración de una cuenta de Azure Storage con Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

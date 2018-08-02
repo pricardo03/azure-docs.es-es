@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e0fed608ac9dd02a6fe5563eefc30edb63d224b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37859a117c88238089a681e3814c2a52f62bfce4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205372"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412590"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Opciones de configuración de un clúster de Windows independiente
 En este artículo se describe cómo configurar un clúster de Azure Service Fabric independiente con el archivo ClusterConfig.json. Usará este archivo para especificar la información acerca de los nodos del clúster y las configuraciones de seguridad, así como la topología de red en cuanto a dominios de error y actualización.
@@ -47,9 +47,6 @@ Las configuraciones de clúster generales abarcan las configuraciones específic
 Asigne cualquier nombre descriptivo al clúster de Service Fabric en la variable name. El valor de clusterConfigurationVersion representa el número de versión del clúster. Increméntelo cada vez que actualice el clúster de Service Fabric. Deje el elemento apiVersion con el valor predeterminado.
 
 ## <a name="nodes-on-the-cluster"></a>Nodos del clúster
-
-    <a id="clusternodes"></a>
-
 Puede configurar los nodos en el clúster de Service Fabric mediante la sección nodes, como se muestra en el siguiente fragmento de código:
 
     "nodes": [{
@@ -88,8 +85,6 @@ La sección properties del archivo ClusterConfig.json se usa para configurar el 
 ### <a name="reliability"></a>Confiabilidad
 El concepto de reliabilityLevel define el número de réplicas o instancias de los servicios del sistema de Service Fabric que se pueden ejecutar en los nodos principales del clúster. Esto determina la confiabilidad de estos servicios y, por lo tanto, el clúster. El sistema calcula el valor en la creación del clúster y durante la actualización.
 
-    <a id="reliability"></a>
-
 ### <a name="diagnostics"></a>Diagnóstico
 La sección diagnosticsStore permite configurar parámetros para habilitar el diagnóstico y la solución de problemas de errores de nodos o clústeres, tal y como se muestra en el siguiente fragmento de código: 
 
@@ -124,9 +119,6 @@ La sección security es necesaria para un clúster de Service Fabric independien
 El valor metadata es una descripción del clúster protegido y se puede establecer según su configuración. Los valores de ClusterCredentialType y ServerCredentialType determinan el tipo de seguridad que implementan el clúster y los nodos. Se pueden establecer en *X509* para una seguridad basada en certificados, o en *Windows* para una seguridad basada en Azure Active Directory. El resto de la sección security se basará en el tipo de la seguridad. Lea [Protección de un clúster independiente en Windows mediante certificados ](service-fabric-windows-cluster-x509-security.md) o [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md) para obtener más información sobre cómo rellenar el resto de la sección security.
 
 ### <a name="node-types"></a>Tipos de nodo
-
-    <a id="nodetypes"></a>
-
 La sección nodeTypes describe el tipo de los nodos que tiene el clúster. Se debe especificar al menos un tipo de nodo en un clúster, tal y como se muestra en el siguiente fragmento de código: 
 
     "nodeTypes": [{

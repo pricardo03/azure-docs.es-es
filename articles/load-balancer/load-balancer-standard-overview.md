@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: 1a7f37d3f95701779a16cf5dc6844fb67ee7f956
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215108"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325258"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Introducción a Azure Load Balancer Estándar
 
@@ -51,20 +51,7 @@ Consulte la tabla siguiente para obtener información general de las diferencias
 >[!NOTE]
 > Los nuevos diseños deben adoptar Load Balancer Estándar. 
 
-| | SKU Estándar | SKU Básico |
-| --- | --- | --- |
-| Tamaño de grupo de back-end | Hasta 1000 instancias | Hasta 100 instancias |
-| Puntos de conexión del grupo de back-end | Cualquier máquina virtual en una única red virtual, incluida la combinación de máquinas virtuales, conjuntos de disponibilidad y grupos de escalado de máquinas virtuales. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
-| Zonas de disponibilidad | Front-ends zonales y con redundancia de zona para la entrada y la salida, asignaciones de flujos de salida, supervivencia a errores de zona, equilibrio de carga entre zonas. | / |
-| Diagnóstico | Azure Monitor, métricas multidimensionales, incluidos bytes y contadores de paquetes, estado de sondeo de mantenimiento, intentos de conexión (TCP SYN), mantenimiento de la conexión de salida (flujos SNAT correctos e incorrectos), medidas de planos de datos activos. | Azure Log Analytics solo para equilibradores de carga públicos, alerta de agotamiento de SNAT, recuento de mantenimientos del grupo de back-end. |
-| Puertos HA | Equilibrador de carga interno | / |
-| Seguro de forma predeterminada | Cerrado de forma predeterminada para puntos de conexión públicos de direcciones IP y Load Balancer, y debe usarse un grupo de seguridad de red para incluirlos en una lista de permitidos de forma explícita para que el tráfico fluya. | Abierto de forma predeterminada, grupo de seguridad de red opcional. |
-| [Conexiones salientes](load-balancer-outbound-connections.md) | Varios front-end con posibilidad de exclusión para cada regla de equilibrio de carga. Un escenario de salida _debe_ crearse explícitamente para que la máquina virtual pueda usar la conectividad de salida.  [Los puntos de conexión del servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) son accesibles sin conectividad de salida y no se cuentan como datos procesados.  Las direcciones IP públicas, incluidos los servicios de PaaS de Azure que no están disponibles como puntos de conexión de servicio de red virtual, deben ser accesibles mediante conectividad de salida y cuentan como datos procesados. Si solo hay un equilibrador de carga interno dando servicio a una máquina virtual, no hay disponibles conexiones de salida mediante SNAT predeterminada. La programación de SNAT de salida es específica del protocolo de transporte de la regla de equilibrio de carga de entrada. | Único front-end, seleccionado de forma aleatoria, cuando hay varios front-ends.  Cuando solo un equilibrador de carga interno da servicio a una máquina virtual, se usa SNAT predeterminada. |
-| [Varios servidores front-end](load-balancer-multivip-overview.md) | Entrada y [salida](load-balancer-outbound-connections.md) | Solo de entrada |
-| [Comportamiento del sondeo de mantenimiento](load-balancer-custom-probe-overview.md) | Las conexiones TCP permanecen activas en el sondeo de la instancia __y__ en todos los sondeos | Las conexiones TCP permanecen activas en el sondeo de la instancia. Todas las conexiones TCP finalizan en todos los sondeos |
-| Operaciones de administración | La mayoría de las operaciones en menos de 30 segundos | Normalmente, entre 60 y 90 segundos |
-| Contrato de nivel de servicio | 99,99 % para la ruta de acceso a los datos con dos máquinas virtuales correctas | SLA de máquina virtual implícito | 
-| Precios | Se cobra según el número de reglas, los datos procesados de entrada o salida asociados con el recurso.  | Sin cargo |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Consulte los [límites de servicio de Load Balancer](https://aka.ms/lblimits), los [precios](https://aka.ms/lbpricing) y el [SLA](https://aka.ms/lbsla).
 

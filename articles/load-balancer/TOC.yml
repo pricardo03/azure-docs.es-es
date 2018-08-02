@@ -40,7 +40,7 @@
   items:
     - name: ¿Qué es Load Balancer estándar?
       href: load-balancer-standard-overview.md
-    - name: Sondeos del Equilibrador de carga
+    - name: Sondeos de estado
       href: load-balancer-custom-probe-overview.md
     - name: Puertos de alta disponibilidad
       href: load-balancer-ha-ports-overview.md

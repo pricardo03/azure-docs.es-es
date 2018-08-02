@@ -3,20 +3,19 @@ title: Comprobar las métricas de rendimiento y latencia de una cuenta de almace
 description: Descubra cómo puede comprobar las métricas de rendimiento y latencia de una cuenta de almacenamiento en el portal.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: e498e44fcda6877aa69ec763e46e7ae7879e5aa9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: 811d653ea090298a9f57b5b0aac4c7b2e7f9f648
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237508"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397696"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Comprobar las métricas de rendimiento y latencia de una cuenta de almacenamiento
 
@@ -44,7 +43,7 @@ Las siguientes métricas le proporcionan una idea de la latencia y el rendimient
 |---|---|
 |**Latencia de E2E correcta**|La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta.|
 |**Latencia del servidor correcta**|El tiempo medio que se usa para que Azure Storage procese una solicitud correcta . Este valor no incluye la latencia de red especificada en SuccessE2ELatency. |
-|**Transacciones**|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. En el ejemplo, el tamaño de bloque se estableció en 100 MB. En este caso, cada bloque de 100 MB se considera una transacción.|
+|**Transactions**|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. En el ejemplo, el tamaño de bloque se estableció en 100 MB. En este caso, cada bloque de 100 MB se considera una transacción.|
 |**Entrada**|La cantidad de datos de entrada. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure. |
 |**Salida**|La cantidad de datos de salida. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables. |
 

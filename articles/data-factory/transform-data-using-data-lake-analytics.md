@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: b82353418931c872f8ec90f381b27bbb5d5781e9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d406c7f7714e011126be67ad3f65938db62e7bbe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046962"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412855"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,11 +37,11 @@ En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que
 
 | Propiedad                 | DESCRIPCIÓN                              | Obligatorio                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
-| **accountName**          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
+| **type**                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | SÍ                                      |
+| **accountName**          | Nombre de la cuenta de Análisis de Azure Data Lake  | SÍ                                      |
 | **dataLakeAnalyticsUri** | Identificador URI de Análisis de Azure Data Lake.           | Sin                                        |
-| **subscriptionId**       | Identificador de suscripción de Azure                    | No (si no se especifica, se usa la suscripción de Data Factory). |
-| **resourceGroupName**    | Nombre del grupo de recursos de Azure.                | No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
+| **subscriptionId**       | Identificador de suscripción de Azure                    | Sin                                        |
+| **resourceGroupName**    | Nombre del grupo de recursos de Azure                | Sin                                        |
 
 ### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
 El servicio vinculado de Azure Data Lake Analytics requiere una autenticación de entidad de servicio para conectarse al servicio Azure Data Lake Analytics. Para usar la autenticación de la entidad de servicio, registre una entidad de aplicación en Azure Active Directory (Azure AD) y concédale acceso a Data Lake Analytics y al almacén de Data Lake Store que utiliza. Consulte [Autenticación entre servicios](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
@@ -56,9 +56,9 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 
 | Propiedad                | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | Sí      |
-| **servicePrincipalKey** | Especifique la clave de la aplicación.           | Sí      |
-| **tenant**              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí      |
+| **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | SÍ      |
+| **servicePrincipalKey** | Especifique la clave de la aplicación.           | SÍ      |
+| **tenant**              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | SÍ      |
 
 **Ejemplo: autenticación de la entidad de servicio**
 ```json
@@ -120,12 +120,12 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 
 | Propiedad            | DESCRIPCIÓN                              | Obligatorio |
 | :------------------ | :--------------------------------------- | :------- |
-| Nombre                | Nombre de la actividad en la canalización     | Sí      |
+| Nombre                | Nombre de la actividad en la canalización     | SÍ      |
 | Descripción         | Texto que describe para qué se usa la actividad.  | Sin        |
-| Tipo                | Para la actividad U-SQL de Data Lake Analytics, el tipo de actividad es **DataLakeAnalyticsU-SQL**. | Sí      |
-| linkedServiceName   | Servicio vinculado a Azure Data Lake Analytics. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  |Sí       |
-| scriptPath          | Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
-| scriptLinkedService | Servicio vinculado que vincula la instancia de **Azure Data Lake Store** o **Azure Storage** que contiene el script a la factoría de datos. | Sí      |
+| Tipo                | Para la actividad U-SQL de Data Lake Analytics, el tipo de actividad es **DataLakeAnalyticsU-SQL**. | SÍ      |
+| linkedServiceName   | Servicio vinculado a Azure Data Lake Analytics. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  |SÍ       |
+| scriptPath          | Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. | SÍ      |
+| scriptLinkedService | Servicio vinculado que vincula la instancia de **Azure Data Lake Store** o **Azure Storage** que contiene el script a la factoría de datos. | SÍ      |
 | degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | Sin        |
 | prioridad            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | Sin        |
 | parameters          | Parámetros para pasar el script de U-SQL.    | Sin        |

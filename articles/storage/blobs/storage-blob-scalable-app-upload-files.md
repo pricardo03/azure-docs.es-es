@@ -3,20 +3,19 @@ title: Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storag
 description: Información acerca de cómo usar el SDK de Azure para cargar grandes cantidades de datos aleatorios en paralelo en una cuenta de Azure Storage
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: 557dd1d89fc05d82f1839a7b02356857f41164c6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239905"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399743"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -34,7 +33,7 @@ Azure Blob Storage proporciona un servicio escalable para almacenar los datos. P
 
 La [nomenclatura de las particiones](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) es otro factor importante al diseñar una aplicación de alto rendimiento con blobs. Azure Storage usa un esquema de particiones basado en intervalo para escalar y equilibrar la carga. Esta configuración significa que los archivos con prefijos o convenciones de nomenclatura similares van a la misma partición. Esta lógica incluye el nombre del contenedor donde se cargan los archivos. En este tutorial, usará archivos que tienen GUID de nombres, así como contenido generado de manera aleatoria. Estos se cargan posteriormente en cinco contenedores diferentes con nombres aleatorios.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, debe haber completado el tutorial de Storage anterior: [Crear una máquina virtual y una cuenta de almacenamiento para una aplicación escalable][previous-tutorial].
 

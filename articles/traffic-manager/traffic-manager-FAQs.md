@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036928"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399184"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -27,23 +27,23 @@ ms.locfileid: "39036928"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>¿Qué dirección IP usa el Administrador de tráfico?
 
-Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), este servicio funciona en el nivel de DNS. Envía respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico.
+Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), este servicio funciona en el nivel de DNS. Envía respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico.
 
 Por lo tanto, este servicio no proporciona un punto de conexión o una dirección IP para que los clientes puedan conectarse. Si desea una dirección IP estática para el servicio, esta debe configurarse en el servicio y no en Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>¿Qué tipos de tráfico se pueden enrutar mediante Traffic Manager?
-Como se explica en [Funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), un punto de conexión de Traffic Manager puede ser cualquier servicio con acceso a Internet que esté hospedado dentro o fuera de Azure. Por lo tanto, Traffic Manager puede redirigir el tráfico que se origina desde la red pública de Internet hacia un conjunto de puntos de conexión que también tienen acceso a Internet. Si tiene puntos de conexión que están dentro de una red privada (por ejemplo, una versión interna de [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o tiene usuarios que realizan solicitudes DNS desde estas redes internas, Traffic Manager no se puede utilizar para ese tipo de tráfico.
+Como se explica en [Funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un punto de conexión de Traffic Manager puede ser cualquier servicio con acceso a Internet que esté hospedado dentro o fuera de Azure. Por lo tanto, Traffic Manager puede redirigir el tráfico que se origina desde la red pública de Internet hacia un conjunto de puntos de conexión que también tienen acceso a Internet. Si tiene puntos de conexión que están dentro de una red privada (por ejemplo, una versión interna de [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o tiene usuarios que realizan solicitudes DNS desde estas redes internas, Traffic Manager no se puede utilizar para ese tipo de tráfico.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>¿Admite Traffic Manager sesiones temporales?
 
-Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), este servicio funciona en el nivel de DNS. para dirigir a los clientes al punto de conexión de servicio adecuado. Los clientes se conectan directamente al punto de conexión de servicio, y no a través de Traffic Manager. Por tanto, Traffic Manager no ve el tráfico HTTP que circula entre el cliente y el servidor.
+Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), este servicio funciona en el nivel de DNS. para dirigir a los clientes al punto de conexión de servicio adecuado. Los clientes se conectan directamente al punto de conexión de servicio, y no a través de Traffic Manager. Por tanto, Traffic Manager no ve el tráfico HTTP que circula entre el cliente y el servidor.
 
 Además, la dirección IP de origen de la consulta de DNS que recibe Traffic Manager pertenece al servicio DNS recursivo, no al cliente. Por lo tanto, Traffic Manager no tiene forma de realizar un seguimiento de los clientes individuales y no puede implementar sesiones temporales. Esta limitación es común en todos los sistemas de administración de tráfico basado en DNS; no se trata de una limitación específica de Traffic Manager.
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>¿Por qué obtengo un error HTTP al utilizar Traffic Manager?
 
-Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), este servicio funciona en el nivel de DNS. para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico. Traffic Manager no ve el tráfico HTTP que circula entre cliente y servidor. Por tanto, todos los errores HTTP que obtenga deben provenir de la aplicación. Para que el cliente pueda conectarse a la aplicación, todos los pasos de la resolución DNS deben estar completos. Esto incluye cualquier interacción que tenga Traffic Manager en el flujo de tráfico de la aplicación.
+Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), este servicio funciona en el nivel de DNS. para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico. Traffic Manager no ve el tráfico HTTP que circula entre cliente y servidor. Por tanto, todos los errores HTTP que obtenga deben provenir de la aplicación. Para que el cliente pueda conectarse a la aplicación, todos los pasos de la resolución DNS deben estar completos. Esto incluye cualquier interacción que tenga Traffic Manager en el flujo de tráfico de la aplicación.
 
 Por tanto, debe llevar a cabo una investigación más extensa centrándose en la aplicación.
 
@@ -51,7 +51,7 @@ El encabezado host HTTP enviado desde el explorador del cliente es la fuente má
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>¿Cómo afecta al rendimiento el uso del Administrador de tráfico?
 
-Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), este servicio funciona en el nivel de DNS. Puesto que los clientes se conectan directamente a los puntos de conexión de servicio, el rendimiento no se verá afectado cuando se utiliza el Administrador de tráfico una vez establecida la conexión.
+Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), este servicio funciona en el nivel de DNS. Puesto que los clientes se conectan directamente a los puntos de conexión de servicio, el rendimiento no se verá afectado cuando se utiliza el Administrador de tráfico una vez establecida la conexión.
 
 Como Traffic Manager se integra con las aplicaciones en el nivel de DNS, hay que insertar una búsqueda DNS adicional en la cadena de resolución DNS. El impacto del Administrador de tráfico en el tiempo de resolución DNS es mínimo. Traffic Manager usa una red global de servidores de nombres y redes de difusión por proximidad [anycast](https://en.wikipedia.org/wiki/Anycast) para asegurarse de que siempre se enruten las consultas de DNS en el servidor de nombres disponible más cercano. Además, como las respuestas DNS se almacenan en caché, la latencia DNS adicional que se genera por utilizar Administrador de tráfico se aplica solo a una fracción de las sesiones.
 
@@ -59,7 +59,7 @@ El método Rendimiento enruta el tráfico al punto de conexión más cercano dis
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>¿Qué protocolos de aplicación puedo usar con el Administrador de tráfico?
 
-Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), este servicio funciona en el nivel de DNS. Una vez finalizada la búsqueda DNS, los clientes se conectan directamente al punto de conexión de la aplicación, y no a través del Administrador de tráfico. Por tanto, la conexión puede usar cualquier protocolo de aplicación. Si selecciona TCP como el protocolo de supervisión, la supervisión del estado del punto de conexión de Traffic Manager puede realizarse sin usar ningún protocolo de aplicación. Si decide comprobar el estado mediante un protocolo de aplicación, el punto de conexión necesita ser capaz de responder a las solicitudes HTTP o HTTPS GET.
+Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), este servicio funciona en el nivel de DNS. Una vez finalizada la búsqueda DNS, los clientes se conectan directamente al punto de conexión de la aplicación, y no a través del Administrador de tráfico. Por tanto, la conexión puede usar cualquier protocolo de aplicación. Si selecciona TCP como el protocolo de supervisión, la supervisión del estado del punto de conexión de Traffic Manager puede realizarse sin usar ningún protocolo de aplicación. Si decide comprobar el estado mediante un protocolo de aplicación, el punto de conexión necesita ser capaz de responder a las solicitudes HTTP o HTTPS GET.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>¿Puedo usar Traffic Manager con un nombre de dominio desnudo?
 
