@@ -25,6 +25,8 @@
   items:
     - name: Métodos de autenticación
       href: concept-authentication-methods.md
+    - name: Registro convergido
+      href: concept-registration-mfa-sspr-converged.md
     - name: Restablecimiento de la contraseña de autoservicio
       items:
         - name: Funcionamiento del restablecimiento de contraseñas

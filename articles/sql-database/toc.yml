@@ -74,43 +74,45 @@
       href: sql-database-powershell-samples.md
 - name: Conceptos
   items:
-    - name: Modelos y recursos de compra
+    - name: Modelos de compra
       items:
-        - name: Modelos de compra
+        - name: Núcleo virtual frente a DTU
           href: sql-database-service-tiers.md
-        - name: Modelo basado en núcleos virtuales
+        - name: Modelo de núcleos virtuales
           href: sql-database-service-tiers-vcore.md
-        - name: Modelo basado en DTU
+        - name: Modelo de DTU
           href: sql-database-service-tiers-dtu.md
         - name: Límites de recursos
           href: sql-database-resource-limits.md
-    - name: Servidores lógicos y bases de datos únicas
+    - name: Servidores lógicos
       items:
-        - name: Servidores lógicos y bases de datos únicas
-          href: sql-database-servers-databases.md
-        - name: Administración de servidores y bases de datos únicas
-          href: sql-database-servers-databases-manage.md
-        - name: Límites de los recursos basados en núcleos virtuales
-          href: sql-database-vcore-resource-limits-single-databases.md
-        - name: Límites de los recursos basados en DTU
-          href: sql-database-dtu-resource-limits-single-databases.md
-        - name: Escalado de recursos de base de datos única
-          href: sql-database-single-database-scale.md
+        - name: Creación y administración
+          href: sql-database-logical-servers.md
         - name: Arquitectura de conectividad
           href: sql-database-connectivity-architecture.md
         - name: Diferencias de T-SQL
           href: sql-database-transact-sql-information.md
-    - name: Grupos elásticos y bases de datos agrupadas
+    - name: Bases de datos únicas
       items:
-        - name: Grupos elásticos y bases de datos agrupadas
+        - name: Creación y administración
+          href: sql-database-single-databases-manage.md
+        - name: Límites de los recursos basados en núcleos virtuales
+          href: sql-database-vcore-resource-limits-single-databases.md
+        - name: Límites de los recursos basados en DTU
+          href: sql-database-dtu-resource-limits-single-databases.md
+        - name: Escalado de recursos
+          href: sql-database-single-database-scale.md
+    - name: Grupos elásticos
+      items:
+        - name: Grupos elásticos
           href: sql-database-elastic-pool.md
-        - name: Administración de grupos y bases de datos agrupadas
+        - name: Creación y administración
           href: sql-database-elastic-pool-manage.md
         - name: Límites de los recursos basados en núcleos virtuales
           href: sql-database-vcore-resource-limits-elastic-pools.md
         - name: Límites de los recursos basados en DTU
           href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Escalado de los recursos de un grupo elástico
+        - name: Escalado de recursos
           href: sql-database-elastic-pool-scale.md
     - name: Instancias administradas
       items:
@@ -184,7 +186,7 @@
               href: sql-database-managed-instance-threat-detection.md
         - name: Reglas de firewall
           items:
-            - name: Introducción
+            - name: Creación y administración
               href: sql-database-firewall-configure.md
             - name: Puntos de conexión de Virtual Network
               href: sql-database-vnet-service-endpoint-rule-overview.md
@@ -430,6 +432,8 @@
           href: sql-database-load-from-csv-with-bcp.md
         - name: Carga de datos con ADF
           href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+    - name: Administración del espacio de archivo
+      href: sql-database-file-space-management.md
     - name: Desarrollo de aplicaciones
       items:
         - name: Conectividad

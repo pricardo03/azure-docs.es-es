@@ -1,40 +1,30 @@
-# [Documentación sobre Azure Marketplace](index.md)  
+# [Documentación sobre Azure Marketplace y AppSource](index.md)  
 
-## [Guía del anunciante de Azure Marketplace y AppSource](./marketplace-publishers-guide.md)  
-### Introducción y ventajas  
-### Escaparates  
-#### [Comparación de AppSource y Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
+## [Información general y ventajas de Azure Marketplace y AppSource](./marketplace-publishers-guide.md)  
 
-### Publicación en Marketplace  
-#### [Determinación del tipo de publicación para la solución](./determine-your-listing-type.md)  
-#### [Empiece a publicar en Marketplace](./become-publisher.md)  
-##### [Creación de una cuenta Microsoft](./guidelines.md)
-##### [Registrar en el centro de desarrollo](./register-dev-center.md) 
-##### [Opciones de facturación de Azure Marketplace](./billing-options-azure-marketplace.md)  
-##### [Atribución de uso del cliente para asociados de Azure](./azure-partner-customer-usage-attribution.md)
+### [Empiece a publicar en Marketplace](./become-publisher.md)  
+#### [Creación de una cuenta Microsoft](./guidelines.md)
+#### [Registrar en el centro de desarrollo](./register-dev-center.md) 
+#### [Opciones de facturación de Azure Marketplace](./billing-options-azure-marketplace.md)  
+#### [Atribución de uso del cliente para asociados de Azure](./azure-partner-customer-usage-attribution.md)
+
+### Escaparates: [Comparación entre AppSource y Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
+
+### [Determinar la opción de publicación para la solución](./determine-your-listing-type.md)  
 
 ### Guía de publicación por tipo de oferta 
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Aplicaciones de Azure: plantillas de solución](./marketplace-solution-templates.md)
 #### [Aplicaciones de Azure: aplicaciones administradas](./marketplace-managed-apps.md)
-#### [Aplicación SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Aplicaciones de SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Contenedores](./marketplace-containers.md)
 #### [Servicio de consultoría](./consulting-services.md)  
-#### [AppSource Apps](./appsource-offer-publishing-guide.md)
+#### [Guía de publicación de Office 365, Dynamics 365 y Power BI](./appsource-offer-publishing-guide.md)
 #### [Habilitar la experiencia de evaluación de Marketplace con Azure Active Directory](./enable-trial-using-azure-ad.md)
 
 ### [Desarrollo del negocio con Marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Soluciones preferidas](./preferred-solutions.md) 
 
-### Soporte técnico  
-#### [Compatibilidad con Azure Marketplace y AppSource](./support-azure-marketplace.md)  
+### [Compatibilidad con Azure Marketplace y AppSource](./support-azure-marketplace.md)  
 
 ## [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
-
-## Recursos  
-### [Azure Roadmap](https://azure.microsoft.com/roadmap/)  
-### [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)  
-
-
-#### [Lista de comprobación de publicación para AppSource](./publishing-checklist-appsource.md)  
-#### [Lista de comprobación de publicación para Azure Marketplace](./publishing-checklist-azure-marketplace.md)  
