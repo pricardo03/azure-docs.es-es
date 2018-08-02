@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237781"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358145"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Tutorial: 1. Compilación de aplicación con dominio personalizado
 En este tutorial, cree una aplicación que muestre cómo usar las **intenciones** para determinar la _intención_ del usuario en función de la expresión (texto) que envía a la aplicación. Cuando termine, tendrá un punto de conexión LUIS en ejecución en la nube.
@@ -32,7 +32,7 @@ Esta aplicación es el tipo más simple de aplicación LUIS porque no extrae dat
 > * Agregar expresiones de ejemplo a la intención ApplyForJob 
 > * Entrenar, publicar y consultar nuevamente el punto de conexión 
 
-Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md#luis-website) para crear la aplicación.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>Propósito de la aplicación
 Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInformation`**, identifica cuando un usuario quiere información sobre los trabajos disponibles dentro de una empresa. La segunda intención, **`None`**, identifica cualquier otro tipo de expresión. Más adelante en la guía de inicio rápido se agrega una tercera intención, `ApplyForJob`. 
@@ -49,8 +49,6 @@ Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInfo
     ![Nueva aplicación de LUIS](./media/luis-quickstart-intents-only/create-app.png)
 
 4. Cuando el proceso finalice, la aplicación mostrará la página **Intents** (Intenciones) con la intención **None**. 
-
-    [![](media/luis-quickstart-intents-only/intents-list.png "Captura de pantalla de la página Intents list (Lista de intenciones)")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## <a name="create-getjobinformation-intention"></a>Creación de la intención GetJobInformation
 1. Seleccione **Create new intent** (Crear nueva intención). Escriba el nombre de la intención nueva `GetJobInformation`. Esta intención se predice cada vez que un usuario quiere información sobre las ofertas de trabajo en la empresa.
@@ -90,16 +88,16 @@ Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInfo
 
     ![Botón Train (Entrenar)](./media/luis-quickstart-intents-only/train-button.png)
 
-    El entrenamiento se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
+2. El entrenamiento se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
 
     ![Barra de estado que indica que el entrenamiento se realizó](./media/luis-quickstart-intents-only/trained.png)
 
-2. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Publish** (Publicar) para abrir la página Publish (Publicar). El espacio de producción se selecciona de forma predeterminada. Haga clic en el botón **Publish** (Publicar) junto a la selección del espacio de producción. La publicación se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
+## <a name="publish-app-to-endpoint"></a>Publicación de la aplicación en un punto de conexión
 
-    No es necesario crear una clave de punto de conexión de LUIS en Azure Portal antes de publicar o de probar la dirección URL del punto de conexión. Cada aplicación de LUIS tiene una clave de inicio gratis para la creación. Ofrece una creación ilimitada y [algunas visitas del punto de conexión](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Consulta del punto de conexión para la intención GetJobInformation
-1. En la página **Publish** (Publicar), seleccione el vínculo **endpoint** (Punto de conexión) en la parte inferior de la página. Esta acción abre otra ventana del explorador con la dirección URL del punto de conexión en la barra de direcciones. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `I'm looking for a job with Natual Language Processing`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que ninguna de las expresiones de ejemplo del paso 4, por lo que es una buena prueba y debería devolver la intención `GetJobInformation` como la intención con la puntuación más alta. 
 
@@ -152,7 +150,10 @@ Vuelva a la pestaña del explorador del sitio web de LUIS y cree una intención 
     [Entrene y publique](#train-and-publish-the-app) nuevamente. 
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Punto de conexión de consulta para la intención ApplyForJob
-En la página **Publish** (Publicar), seleccione el vínculo **endpoint** (Punto de conexión) en la parte inferior de la página. En la nueva ventana del explorador, escriba `Can I submit my resume for job 235986` al final de la dirección URL. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. En la nueva ventana del explorador, escriba `Can I submit my resume for job 235986` al final de la dirección URL. 
 
     ```
     {
