@@ -9,25 +9,25 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: zhouwang
-ms.openlocfilehash: 56c41fd7f6a00d80bc6bccd61894654e057e926e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380550"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040545"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introducción a Speech Recognition API en JavaScript
 
 Puede desarrollar aplicaciones que conviertan el audio hablado en texto con Speech Recognition API. La biblioteca cliente de JavaScript usa el [protocolo WebSocket del servicio de voz](../API-Reference-REST/websocketprotocol.md), que permite hablar y recibir el texto transcrito simultáneamente. Este artículo sirve de ayuda para empezar a usar Speech Recognition API en JavaScript.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Suscribirse a Speech Recognition API y obtener una clave de suscripción de prueba gratuita
+### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Suscripción a Speech Recognition API y obtención de una clave de suscripción de prueba gratuita
 
-Speech API forma parte de Cognitive Services. Puede obtener claves de suscripción de prueba gratuitas en la página de [suscripción a Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Después de seleccionar Speech API, seleccione **Obtener clave de API** para obtener la clave. Devuelve una clave principal y secundaria. Ambas claves están asociadas a la misma cuota, por lo que puede usar cualquiera de ellas.
+Speech API forma parte de Cognitive Services. Puede obtener claves de suscripción de prueba gratuitas en la página de [suscripción a Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Después de seleccionar Speech API, seleccione **Obtener clave de API** para obtener la clave. Devuelve una clave principal y una clave secundaria. Las dos claves están asociadas a la misma cuota, por lo que puede usar cualquiera de las claves.
 
 > [!IMPORTANT]
-> Obtenga una clave suscripción. Para poder usar las bibliotecas cliente de voz, debe tener una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/).
+> Obtenga una clave suscripción. Para poder usar las bibliotecas cliente de Speech, debe tener una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/).
 
 ## <a name="get-started"></a>Introducción
 
@@ -48,7 +48,7 @@ Pruebe el ejemplo localmente, clone este repositorio:
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-Compile los orígenes de TypeScript y agrúpelos/o utilice Browserfy para reunirlos en un único archivo JavaScript (es necesario que se haya instalado [npm](https://www.npmjs.com/) en el equipo). Vaya a la raíz del repositorio clonado y ejecute los comandos:
+Compile los orígenes de TypeScript y agrúpelos en un único archivo JavaScript (es necesario que se haya instalado [npm](https://www.npmjs.com/) en el equipo). Vaya a la raíz del repositorio clonado y ejecute los comandos:
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle

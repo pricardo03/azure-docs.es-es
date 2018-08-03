@@ -1,21 +1,20 @@
 ---
-title: Acerca del SDK de Voz de Cognitive Services | Microsoft Docs
+title: Acerca del SDK de Voz de Cognitive Services
 description: Información general sobre los SDK disponibles para el servicio Voz.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113399"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326066"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Acerca del SDK de Voz de Cognitive Services
 
@@ -25,11 +24,13 @@ El kit de desarrollo de software (SDK) de Voz de Cognitive Services proporciona 
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="get-the-windows-sdk"></a>Obtención de Windows SDK
+## <a name="get-the-sdk"></a>Obtención del SDK
+
+### <a name="get-the-windows-sdk"></a>Obtención de Windows SDK
 
 La versión de Windows del SDK de Voz incluye bibliotecas cliente de C/C++ de 32 y 64 bits, así como bibliotecas administradas (.NET) para su uso con C#. El SDK se puede instalar en Visual Studio mediante NuGet; busque simplemente `Microsoft.CognitiveServices.Speech`.
 
-## <a name="get-the-linux-sdk"></a>Obtener el SDK de Linux
+### <a name="get-the-linux-sdk"></a>Obtener el SDK de Linux
 
 Asegúrese de que tiene el compilador y las bibliotecas necesarios. Para ello, ejecute los siguientes comandos de shell:
 
@@ -53,7 +54,7 @@ A continuación, [descargue el SDK](https://aka.ms/csspeech/linuxbinary) y desco
 
 Para crear una aplicación, copie o mueva los binarios (y bibliotecas) necesarios a su entorno de desarrollo e inclúyalos según sea necesario en su proceso de compilación.
 
-## <a name="get-the-java-sdk"></a>Obtener el SDK de Java
+### <a name="get-the-java-sdk"></a>Obtener el SDK de Java
 
 El SDK de Java para Android está empaquetado como una [biblioteca de Android (AAR)](https://developer.android.com/studio/projects/android-library), que incluye las bibliotecas necesarias, así como los permisos necesarios de Android para usarla.
 Se hospeda en un repositorio de Maven en `https://csspeechstorage.blob.core.windows.net/maven/` como un paquete `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
@@ -72,6 +73,8 @@ Al consumir el paquete desde el proyecto de Android Studio se realizan los sigui
   ```
 
 El SDK de Java es parte del [SDK de dispositivos de voz](speech-devices-sdk.md).
+
+[!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
