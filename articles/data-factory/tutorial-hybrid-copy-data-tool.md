@@ -134,7 +134,7 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
       - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos. 
         
       Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).
-5. En **Versión**, seleccione **V2 **.
+5. En **Versión**, seleccione **V2**.
 6. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa Data Factory pueden estar en otras ubicaciones o regiones.
 7. Seleccione **Anclar al panel**. 
 8. Seleccione **Crear**.
