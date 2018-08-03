@@ -45,10 +45,36 @@
       href: custom-event-to-hybrid-connection.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
+      items:
+        - name: Creación de un tema personalizado
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Suscripción a suscripciones de Azure
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Suscripción a Blob Storage
+          href: scripts/event-grid-cli-blob.md
+        - name: Suscripción a un tema personalizado
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: Suscripción a grupos de recursos
+          href: scripts/event-grid-cli-resource-group.md
+        - name: Suscripción y filtrado de eventos para grupos de recursos
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: Creación de un tema personalizado
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Suscripción a suscripciones de Azure
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Suscripción a Blob Storage
+          href: scripts/event-grid-powershell-blob.md
+        - name: Suscripción a un tema personalizado
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: Suscripción a grupos de recursos
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: Suscripción y filtrado de eventos para grupos de recursos
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Plantillas de Resource Manager
       href: template-samples.md
     - name: Ejemplos de código
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: Recepción de eventos en un punto de conexión de HTTP
       href: receive-events.md
-    - name: Administración de la entrega de eventos
+    - name: Mensajes fallidos y reintentos
       href: manage-event-delivery.md
     - name: Supervisión de la entrega de eventos
       href: monitor-event-delivery.md

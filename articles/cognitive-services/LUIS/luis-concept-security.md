@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223786"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397250"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acceso de usuario a la creación y los puntos de conexión
 El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores. Para una aplicación pública, el acceso al punto de conexión está disponible para todos los usuarios que tengan su propia cuenta de LUIS y el identificador de la aplicación pública. 
@@ -62,7 +62,7 @@ Un usuario que no sea propietario ni colaborador solo podrá acceder a una aplic
 ## <a name="microsoft-user-accounts"></a>Cuentas de usuario de Microsoft
 Los autores y colaboradores pueden agregar claves para LUIS en la página Publicar. La cuenta de usuario de Microsoft que crea la clave de LUIS en Azure Portal debe ser del propietario de la aplicación o de un colaborador de la aplicación. 
 
-Consulte [Usuario inquilino de Azure Active Directory](luis-how-to-account-settings.md#azure-active-directory-tenant-user) para más información sobre las cuentas de usuario de Active Directory. 
+Consulte [Usuario inquilino de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para más información sobre las cuentas de usuario de Active Directory. 
 
 <!--
 ### Individual consent

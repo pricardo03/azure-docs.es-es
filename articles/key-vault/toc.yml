@@ -6,15 +6,15 @@
       href: key-vault-overview.md
 - name: Guías de inicio rápido
   items:
-    - name: 'Creación de un almacén de claves: CLI'
+    - name: 'Establecimiento y recuperación de un secreto: CLI'
       href: quick-create-cli.md
-    - name: 'Creación de un almacén de claves: PowerShell'
+    - name: 'Establecimiento y recuperación de un secreto: PowerShell'
       href: quick-create-powershell.md
-    - name: 'Creación de un almacén de claves: Portal'
+    - name: 'Establecimiento y recuperación de un secreto: Portal'
       href: quick-create-portal.md
-    - name: 'Lectura desde un almacén de claves: .NET'
+    - name: 'Establecimiento y recuperación de un secreto: .NET'
       href: quick-create-net.md
-    - name: 'Lectura desde un almacén de claves: Node.js'
+    - name: 'Establecimiento y recuperación de un secreto: Node.js'
       href: quick-create-node.md
 - name: Tutoriales
   items:
@@ -82,6 +82,8 @@
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
     - name: Desarrollo
       items:
         - name: Vídeo de inicio rápido para desarrolladores
@@ -143,3 +145,5 @@
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Comentarios sobre el producto
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

@@ -61,6 +61,8 @@
           href: devtest-lab-create-lab.md
         - name: Creación de una máquina virtual en el laboratorio
           href: devtest-lab-create-first-vm.md
+        - name: Eliminación de un laboratorio o máquina virtual de un laboratorio
+          href: devtest-lab-delete-lab-vm.md
         - name: Configuración de directivas para el laboratorio
           href: devtest-lab-get-started-with-lab-policies.md
         - name: Almacenamiento de secretos en Azure Key Vault

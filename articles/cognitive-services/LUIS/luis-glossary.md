@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225513"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390065"
 ---
 # <a name="glossary"></a>Glosario
 
@@ -163,7 +163,7 @@ El análisis de sentimiento proporciona valores positivos o negativos de las exp
 
 ## <a name="speech-priming"></a>Preparación para la voz
 
-La preparación para la voz permite que el servicio de voz se prepare con el modelo de LUIS. Vea [Habilitar la preparación para la voz](luis-how-to-publish-app.md#enable-speech-priming).
+La preparación para la voz permite que el servicio de voz se prepare con el modelo de LUIS. 
 
 ## <a name="spelling-correction"></a>Corrección ortográfica
 

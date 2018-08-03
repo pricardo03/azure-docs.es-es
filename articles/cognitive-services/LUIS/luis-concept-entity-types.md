@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226618"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282286"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -70,7 +70,7 @@ LUIS ofrece muchos tipos de entidades: entidades creadas previamente, entidades 
 | **Simple** <br/>[Con aprendizaje automático](#machine-learned) | ✔ | **Definición**<br>Una entidad simple es una entidad genérica que describe un concepto único que se ha aprendido en un contexto de aprendizaje automático. El contexto incluye la elección de palabras, la colocación de las palabras y la longitud de la expresión.<br/><br/>Se trata de una entidad adecuada para las palabras o frases que no tienen un formato coherente pero que indican lo mismo. <br/><br/>[Guía de inicio rápido](luis-quickstart-primary-and-secondary-data.md)<br/>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lista** <br/>[Coincidencia exacta](#exact-match)|| **Definición**<br>Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas (y sus sinónimos) del sistema. <br><br>Cada entidad de lista puede tener uno o varios formatos. Es útil para un conjunto conocido de variaciones sobre cómo representar el mismo concepto.<br/><br/>LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual.<br/><br>Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. <br/><br/>[Guía de inicio rápido](luis-quickstart-intent-and-list-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Mixto](#mixed) | ✔|**Definición**<br>Patterns.any es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  <br><br>**Ejemplo**<br>Dada una búsqueda de expresión de libros en función del título, pattern.any extrae el título completo. `Who wrote {BookTitle}[?]` es una expresión de plantilla que usa pattern.any.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Compuesto** <br/>[Con aprendizaje automático](#machine-learned) | ✔|**Definición**<br>Una entidad compuesta está formada de otras entidades, como las entidades precompiladas, las entidades simples, regex, listas y jerárquicas. Las entidades independientes forman una entidad completa. Las entidades de lista no se permiten en las entidades compuestas. <br><br>**Ejemplo**<br>Una entidad compuesta denominada PedidoBilleteAvión puede tener las entidades secundarias creadas previamente `number` y `ToLocation`. <br/><br/>[Tutorial](luis-tutorial-composite-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Compuesto** <br/>[Con aprendizaje automático](#machine-learned) | ✔|**Definición**<br>Una entidad compuesta está formada de otras entidades, como las entidades precompiladas, las entidades simples, regex, listas y jerárquicas. Las entidades independientes forman una entidad completa. <br><br>**Ejemplo**<br>Una entidad compuesta denominada PedidoBilleteAvión puede tener las entidades secundarias creadas previamente `number` y `ToLocation`. <br/><br/>[Tutorial](luis-tutorial-composite-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)|  
 | **Jerárquico** <br/>[Con aprendizaje automático](#machine-learned) |✔ | **Definición**<br>Una entidad jerárquica es una categoría de entidades simples de aprendizaje contextual.<br><br>**Ejemplo**<br>Dada una entidad jerárquica de `Location` con los elementos secundarios `ToLocation` y `FromLocation`, cada elemento secundario se puede determinar en función del **contexto** dentro de la expresión. En la expresión, `Book 2 tickets from Seattle to New York`, `ToLocation` y `FromLocation` son contextualmente diferentes teniendo en cuenta las palabras de su alrededor. <br/><br/>**No lo use si**<br>Si busca una entidad que tenga coincidencias de texto exactas para los elementos secundarios independientemente del contexto, debe usar una entidad de lista. Si busca una relación entre elementos primarios y secundarios con otros tipos de entidades, debe usar la entidad compuesta.<br/><br/>[Guía de inicio rápido](luis-quickstart-intent-and-hier-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 Las entidades <a name="prebuilt"></a>
@@ -97,7 +97,7 @@ Los [roles](luis-concept-roles.md) de entidad se usan solo en los patrones.
 ## <a name="composite-vs-hierarchical-entities"></a>Entidades compuestas frente a entidades jerárquicas
 Las entidades compuestas y las entidades jerárquicas tienen relaciones entre elementos primarios y secundarios, y se aprenden mediante el aprendizaje automático. Gracias al aprendizaje automático, LUIS puede comprender las entidades en función de otros contextos (organización de palabras). Las entidades compuestas son más flexibles porque admiten distintos tipos de entidad como elementos secundarios. Los elementos secundarios de una entidad jerárquica son solo entidades simples. 
 
-|type|Propósito|Ejemplo|
+|Escriba|Propósito|Ejemplo|
 |--|--|--|
 |Jerárquico|Elementos primarios y secundarios de entidades simples|Location.Origin=Nueva York<br>Location.Destination=Londres|
 |Compuesto|Entidades de elementos primarios y secundarios: creada previamente, lista, simple y jerárquica| number=3<br>list=primera clase<br>prebuilt.datetimeV2=5 de marzo|

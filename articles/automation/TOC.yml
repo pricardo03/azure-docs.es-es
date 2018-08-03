@@ -147,7 +147,7 @@
           href: automation-dsc-cd-chocolatey.md
         - name: Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS
           href: automation-dsc-diagnostics.md
-    - name: Administración de recursos
+    - name: Administración de recursos compartidos
       items:
         - name: Certificados
           href: automation-certificates.md

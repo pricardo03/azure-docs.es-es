@@ -8,7 +8,7 @@
 #### [Opciones de facturación de Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Atribución de uso del cliente para asociados de Azure](./azure-partner-customer-usage-attribution.md)
 
-### Escaparates: [Comparación entre AppSource y Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
+### [Escaparates](./comparing-appsource-azure-marketplace.md)  
 
 ### [Determinar la opción de publicación para la solución](./determine-your-listing-type.md)  
 

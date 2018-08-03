@@ -36,6 +36,9 @@
 #### [Tarea 1: Obtención de un certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tarea 2: Exportación del certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [Tarea 3: Habilitación de LDAP seguro para el dominio administrado mediante Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Tarea 4: Configuración de DNS para acceder al dominio administrado desde Internet](active-directory-ds-ldaps-configure-dns.md)
+#### [Tarea 5: Vinculación al dominio administrado y bloqueo del acceso mediante LDAP seguro](active-directory-ds-ldaps-bind-lockdown.md)
+#### [Solución de problemas del acceso mediante LDAP seguro](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [Crear una unidad organizativa en un dominio administrado](active-directory-ds-admin-guide-create-ou.md)
 ### [Creación de una cuenta de servicio administrada de grupos en un dominio administrado](active-directory-ds-create-gmsa.md)
